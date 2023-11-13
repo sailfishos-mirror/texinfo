@@ -28,8 +28,8 @@
 
 #include "tree_types.h"
 #include "text.h"
-/* for xasprintf */
 #include "errors.h"
+/* for xasprintf */
 #include "utils.h"
 #include "unicode.h"
 
@@ -172,7 +172,7 @@ compare_strings (const void *a, const void *b)
 }
 
 char *
-format_eight_bit_accents_stack (const char *text, const ELEMENT_LIST *stack,
+format_eight_bit_accents_stack (const char *text, const ELEMENT_STACK *stack,
   int encoding_index,
   char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case)
@@ -181,7 +181,7 @@ format_eight_bit_accents_stack (const char *text, const ELEMENT_LIST *stack,
   char *result = strdup (text);
   char *prev_eight_bit;
   char *new_eight_bit;
-  int const stack_nr = stack->number;
+  int const stack_nr = stack->top;
   char **results_stack
      = malloc ((stack_nr +1) * sizeof (char *));
 
@@ -191,7 +191,7 @@ format_eight_bit_accents_stack (const char *text, const ELEMENT_LIST *stack,
 
   for (i = stack_nr -1; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->stack[i];
       results_stack[i] = unicode_accent (results_stack[i+1],
                                          accent_command);
       if (!results_stack[i])
@@ -272,7 +272,7 @@ format_eight_bit_accents_stack (const char *text, const ELEMENT_LIST *stack,
     #    underbar.
     */
       if (!strcmp (new_eight_bit, prev_eight_bit)
-          && !(stack->list[j]->cmd == CM_dotless
+          && !(stack->stack[j]->cmd == CM_dotless
                && !strcmp (results_stack[j], "i")))
         break;
       free (result);
@@ -290,7 +290,7 @@ format_eight_bit_accents_stack (const char *text, const ELEMENT_LIST *stack,
    */
   for (; j >= 0; j--)
     {
-      ELEMENT *accent_command = stack->list[j];
+      const ELEMENT *accent_command = stack->stack[j];
       char *formatted_result
           = (*format_accent) (result, accent_command, set_case);
       free (result);
@@ -309,16 +309,16 @@ format_eight_bit_accents_stack (const char *text, const ELEMENT_LIST *stack,
 /* FIXME converter in perl for (*format_accent), see encoded_accents comment*/
 char *
 format_unicode_accents_stack_internal (const char *text,
-  const ELEMENT_LIST *stack,
+  const ELEMENT_STACK *stack,
   char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case)
 {
   int i;
   char *result = strdup (text);
 
-  for (i = stack->number - 1; i >= 0; i--)
+  for (i = stack->top - 1; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->stack[i];
       char *formatted_result = unicode_accent (result, accent_command);
       if (formatted_result)
         {
@@ -338,7 +338,7 @@ format_unicode_accents_stack_internal (const char *text,
 
   for (; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->stack[i];
       char *formatted_result
           = (*format_accent) (result, accent_command, set_case);
       free (result);
@@ -351,7 +351,7 @@ format_unicode_accents_stack_internal (const char *text,
    directly and through functions.  It is not clear whether it is
    actually used in perl, nor if it could be useful in C */
 char *
-encoded_accents (const char *text, const ELEMENT_LIST *stack,
+encoded_accents (const char *text, const ELEMENT_STACK *stack,
   const char *encoding,
   char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case)

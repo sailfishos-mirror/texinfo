@@ -1064,6 +1064,42 @@ new_options (void)
 }
 
 
+/* accents/elements stacks */
+void
+push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e)
+{
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (ELEMENT *));
+    }
+
+  stack->stack[stack->top] = e;
+  stack->top++;
+}
+
+/* currently unused */
+const ELEMENT *
+pop_stack_element (ELEMENT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("element stack empty");
+
+  stack->top--;
+  return stack->stack[stack->top +1];
+}
+
+void
+destroy_accent_stack (ACCENTS_STACK *accent_stack)
+{
+  free (accent_stack->stack.stack);
+  if (accent_stack->argument)
+    destroy_element (accent_stack->argument);
+  free (accent_stack);
+}
+
+
 /* misc functions used in general in structuring and in conversion */
 
 /* corresponding perl function in Common.pm */

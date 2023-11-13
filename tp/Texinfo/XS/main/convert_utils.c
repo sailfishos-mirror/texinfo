@@ -52,9 +52,9 @@ element_associated_processing_encoding (const ELEMENT *element)
 }
 
 ACCENTS_STACK *
-find_innermost_accent_contents (ELEMENT *element)
+find_innermost_accent_contents (const ELEMENT *element)
 {
-  ELEMENT *current = element;
+  const ELEMENT *current = element;
   ELEMENT *argument = 0;
   ACCENTS_STACK *accent_stack = (ACCENTS_STACK *)
          malloc (sizeof (ACCENTS_STACK));
@@ -68,7 +68,7 @@ find_innermost_accent_contents (ELEMENT *element)
       /* the following can happen if called with a bad tree */
       if (!current->cmd || !(builtin_command_flags(current) & CF_accent))
         return accent_stack;
-      add_to_element_list (&accent_stack->stack, current);
+      push_stack_element (&accent_stack->stack, current);
       /* A bogus accent, that may happen */
       if (current->args.number <= 0)
         return accent_stack;
@@ -106,15 +106,6 @@ find_innermost_accent_contents (ELEMENT *element)
   if (argument)
     accent_stack->argument = argument;
   return accent_stack;
-}
-
-void
-destroy_accent_stack (ACCENTS_STACK *accent_stack)
-{
-  free (accent_stack->stack.list);
-  if (accent_stack->argument)
-    destroy_element (accent_stack->argument);
-  free (accent_stack);
 }
 
 /*

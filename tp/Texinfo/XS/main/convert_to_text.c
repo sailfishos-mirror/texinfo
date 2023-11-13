@@ -81,7 +81,7 @@ ascii_accent (const char *text, const ELEMENT *command, int set_case)
 }
 
 char *
-ascii_accents_internal (const char *text, const ELEMENT_LIST *stack,
+ascii_accents_internal (const char *text, const ELEMENT_STACK *stack,
                         int set_case)
 {
   char *result;
@@ -92,9 +92,9 @@ ascii_accents_internal (const char *text, const ELEMENT_LIST *stack,
   else
     result = strdup (text);
 
-  for (i = stack->number - 1; i >= 0; i--)
+  for (i = stack->top - 1; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->list[i];
+      const ELEMENT *accent_command = stack->stack[i];
       char *formatted_accent = ascii_accent (result, accent_command, set_case);
       free (result);
       result = formatted_accent;

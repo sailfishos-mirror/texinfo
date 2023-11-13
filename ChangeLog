@@ -7,6 +7,19 @@
 
 2023-11-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accents_internal),
+	tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents),
+	tp/Texinfo/XS/main/convert_utils.h, tp/Texinfo/XS/main/unicode.c
+	(format_eight_bit_accents_stack, encoded_accents)
+	(format_unicode_accents_stack_internal), tp/Texinfo/XS/main/utils.c
+	(push_stack_element, pop_stack_element, destroy_accent_stack),
+	tp/Texinfo/XS/main/utils.h (ELEMENT_STACK, ACCENTS_STACK): move
+	ACCENTS_STACK and destroy_accent_stack to main/utils.c.  Add a stack
+	for elements, with elements unmodifed (const), in main/utils.c.  Use
+	that stack for accent commands.
+
+2023-11-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_texinfo.c
 	(convert_contents_to_texinfo, check_node_same_texinfo_code)
 	(root_heading_command_to_texinfo), tp/Texinfo/XS/main/debug.c

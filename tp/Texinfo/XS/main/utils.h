@@ -195,6 +195,17 @@ typedef struct HTML_ARGS_FORMATTED {
     HTML_ARG_FORMATTED *args;
 } HTML_ARGS_FORMATTED;
 
+typedef struct ELEMENT_STACK {
+    const ELEMENT **stack;
+    size_t top;
+    size_t space;
+} ELEMENT_STACK;
+
+typedef struct ACCENTS_STACK {
+    ELEMENT_STACK stack;
+    ELEMENT *argument;
+} ACCENTS_STACK;
+
 
 int xasprintf (char **ptr, const char *template, ...);
 
@@ -230,6 +241,10 @@ void destroy_strings_list (STRING_LIST *strings);
 void add_string (const char *string, STRING_LIST *strings_list);
 void merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings);
 size_t find_string (STRING_LIST *strings_list, const char *string);
+
+void push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e);
+const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);
+void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 void wipe_index (INDEX *idx);
 void wipe_index_names (INDEX **index_names);

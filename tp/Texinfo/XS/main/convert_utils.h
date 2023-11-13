@@ -11,11 +11,6 @@
 
 extern char *convert_utils_month_name[12];
 
-typedef struct ACCENTS_STACK {
-    ELEMENT_LIST stack;
-    ELEMENT *argument;
-} ACCENTS_STACK;
-
 typedef struct PARSED_DEF {
     ELEMENT *name;
     ELEMENT *class;
@@ -24,8 +19,7 @@ typedef struct PARSED_DEF {
     ELEMENT *args;
 } PARSED_DEF;
 
-ACCENTS_STACK *find_innermost_accent_contents (ELEMENT *element);
-void destroy_accent_stack (ACCENTS_STACK *accent_stack);
+ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
 char *add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                           int numbered);

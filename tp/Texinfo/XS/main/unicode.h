@@ -25,7 +25,7 @@ char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);
 char *unicode_accent (const char *text, const ELEMENT *e);
 
-char *encoded_accents (const char *text, const ELEMENT_LIST *stack,
+char *encoded_accents (const char *text, const ELEMENT_STACK *stack,
   const char *encoding,
   char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
   int set_case);
