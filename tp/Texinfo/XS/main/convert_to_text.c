@@ -175,7 +175,7 @@ copy_options_for_convert_text (CONVERTER *self,
 
 /* format an accent command and nested accents within as Text. */
 char *
-text_accents (ELEMENT *accent, char *encoding, int set_case)
+text_accents (const ELEMENT *accent, char *encoding, int set_case)
 {
   ACCENTS_STACK *accent_stack = find_innermost_accent_contents (accent);
   char *text;
@@ -270,7 +270,7 @@ static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 /* Return the text of an underlined heading, possibly indented. */
 /* return to be freed by caller */
 char *
-text_heading (const ELEMENT *current, char *text, OPTIONS *options,
+text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
               int numbered, int indent_length)
 {
   int i;
@@ -337,11 +337,11 @@ text_heading (const ELEMENT *current, char *text, OPTIONS *options,
 #define ADD(x) text_append (result, x)
 
 void
-convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
+convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                           TEXT *result);
 
 void
-convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
+convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                           TEXT *result)
 {
   enum command_id data_cmd = 0;
@@ -712,7 +712,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
               text_init (&args_line);
               for (i = 0; i < element->args.number; i++)
                 {
-                  ELEMENT *arg = element->args.list[i];
+                  const ELEMENT *arg = element->args.list[i];
                   TEXT converted_arg;
                   text_init (&converted_arg);
                   convert_to_text_internal (arg, text_options, &converted_arg);
@@ -776,7 +776,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else if (element->cmd == CM_sp)
         {
-          ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
+          const ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
           /* misc_args can be 0 with invalid args */
           if (misc_args && misc_args->contents.number > 0)
             {
@@ -835,8 +835,8 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
     {
       PARSED_DEF *parsed_def = definition_arguments_content (element);
       ELEMENT *parsed_definition_category
-         = definition_category_tree(0, /* $options->{'converter'} */
-                                    element);
+         = definition_category_tree (0, /* $options->{'converter'} */
+                                     element);
       if (parsed_definition_category)
         {
           ELEMENT *converted_element = new_element (ET_NONE);
@@ -911,7 +911,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
 
       for (i = 0; i < element->contents.number; i++)
         {
-          ELEMENT *content = element->contents.list[i];
+          const ELEMENT *content = element->contents.list[i];
           convert_to_text_internal (content,
                                     text_options, result);
         }
@@ -933,7 +933,7 @@ convert_to_text_internal (ELEMENT *element, TEXT_OPTIONS *text_options,
 
 /* Return value to be freed by caller. */
 char *
-convert_to_text (ELEMENT *root, TEXT_OPTIONS *text_options)
+convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options)
 {
   TEXT result;
 

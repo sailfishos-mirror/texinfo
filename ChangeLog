@@ -7,6 +7,13 @@
 
 2023-11-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (text_accents, text_heading)
+	(convert_to_text_internal, convert_to_text): set element arguments and
+	elemnts to const if they are not modified, to make sure that the
+	Texinfo tree is not modified.
+
+2023-11-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_text.c (ascii_accents_internal),
 	tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents),
 	tp/Texinfo/XS/main/convert_utils.h, tp/Texinfo/XS/main/unicode.c
