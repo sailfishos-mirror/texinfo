@@ -215,7 +215,7 @@ void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 char *normalize_encoding_name (const char *text, int *possible_encoding);
 ELEMENT *item_line_parent (ELEMENT *current);
-ELEMENT *get_label_element (ELEMENT *e);
+ELEMENT *get_label_element (const ELEMENT *e);
 INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
 INDEX *ultimate_index (INDEX *index);
 char *read_flag_name (char **ptr);

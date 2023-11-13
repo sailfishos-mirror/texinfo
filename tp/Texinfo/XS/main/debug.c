@@ -59,7 +59,7 @@ debug_nonl (char *s, ...)
 }
 
 char *
-debug_element_command_name (ELEMENT *e)
+debug_element_command_name (const ELEMENT *e)
 {
   if (e->cmd == CM_TAB)
     return "\\t";
@@ -89,7 +89,7 @@ debug_protect_eol (char *input_string, int *allocated)
 }
 
 char *
-print_element_debug (ELEMENT *e, int print_parent)
+print_element_debug (const ELEMENT *e, int print_parent)
 {
   TEXT text;
   char *result;
@@ -235,7 +235,7 @@ print_element_debug_details (ELEMENT *e, int print_parent)
 }
 
 void
-debug_print_element (ELEMENT *e, int print_parent)
+debug_print_element (const ELEMENT *e, int print_parent)
 {
   if (debug_output)
     {

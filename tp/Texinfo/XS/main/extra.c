@@ -159,7 +159,7 @@ add_extra_integer (ELEMENT *e, char *key, long value)
 }
 
 KEY_PAIR *
-lookup_associated_info (ASSOCIATED_INFO *a, char *key)
+lookup_associated_info (const ASSOCIATED_INFO *a, char *key)
 {
   int i;
   for (i = 0; i < a->info_number; i++)
@@ -174,9 +174,9 @@ lookup_associated_info (ASSOCIATED_INFO *a, char *key)
 }
 
 ELEMENT *
-lookup_extra_element (ELEMENT *e, char *key)
+lookup_extra_element (const ELEMENT *e, char *key)
 {
-  KEY_PAIR *k;
+  const KEY_PAIR *k;
   k = lookup_associated_info (&e->extra_info, key);
   if (!k)
     return 0;
@@ -184,9 +184,9 @@ lookup_extra_element (ELEMENT *e, char *key)
 }
 
 char *
-lookup_extra_string (ELEMENT *e, char *key)
+lookup_extra_string (const ELEMENT *e, char *key)
 {
-  KEY_PAIR *k;
+  const KEY_PAIR *k;
   k = lookup_associated_info (&e->extra_info, key);
   if (!k || !k->value)
     return 0;
@@ -194,16 +194,16 @@ lookup_extra_string (ELEMENT *e, char *key)
 }
 
 KEY_PAIR *
-lookup_extra (ELEMENT *e, char *key)
+lookup_extra (const ELEMENT *e, char *key)
 {
   return lookup_associated_info (&e->extra_info, key);
 }
 
 /* *ret is negative if not found or not an integer */
 int
-lookup_extra_integer (ELEMENT *e, char *key, int *ret)
+lookup_extra_integer (const ELEMENT *e, char *key, int *ret)
 {
-  KEY_PAIR *k;
+  const KEY_PAIR *k;
   k = lookup_associated_info (&e->extra_info, key);
   if (!k)
     {
@@ -248,9 +248,9 @@ lookup_extra_directions (ELEMENT *e, char *key, int create)
 }
 
 ELEMENT *
-lookup_info_element (ELEMENT *e, char *key)
+lookup_info_element (const ELEMENT *e, char *key)
 {
-  KEY_PAIR *k;
+  const KEY_PAIR *k;
   k = lookup_associated_info (&e->info_info, key);
   if (!k)
     return 0;
@@ -259,14 +259,14 @@ lookup_info_element (ELEMENT *e, char *key)
 
 
 KEY_PAIR *
-lookup_info (ELEMENT *e, char *key)
+lookup_info (const ELEMENT *e, char *key)
 {
   return lookup_associated_info (&e->info_info, key);
 }
 
 /* only called in tree copy to optimize for speed */
 KEY_PAIR *
-lookup_associated_info_by_index (ASSOCIATED_INFO *a, char *key, int index)
+lookup_associated_info_by_index (const ASSOCIATED_INFO *a, char *key, int index)
 {
   if (index < 0)
     index = a->info_number + index;
@@ -281,7 +281,7 @@ lookup_associated_info_by_index (ASSOCIATED_INFO *a, char *key, int index)
 }
 
 KEY_PAIR *
-lookup_extra_by_index (ELEMENT *e, char *key, int index)
+lookup_extra_by_index (const ELEMENT *e, char *key, int index)
 {
   return lookup_associated_info_by_index (&e->extra_info, key, index);
 }

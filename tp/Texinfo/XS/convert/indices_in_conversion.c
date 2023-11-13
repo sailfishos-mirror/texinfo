@@ -138,7 +138,7 @@ destroy_indices_sorted_by_letter (
 /* corresponding perl code in Texinfo::Common */
 
 ELEMENT *
-index_content_element (ELEMENT *element, int prefer_reference_element)
+index_content_element (const ELEMENT *element, int prefer_reference_element)
 {
   ELEMENT *def_command = lookup_extra_element (element, "def_command");
   if (def_command)

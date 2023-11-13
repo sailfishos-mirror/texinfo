@@ -63,7 +63,7 @@ lookup_builtin_command (char *cmdname)
 /* this should be used when the user-defined commands are not available,
    ie outside of the parser */
 char *
-element_command_name (ELEMENT *e)
+element_command_name (const ELEMENT *e)
 {
   if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)
     return builtin_command_data[e->cmd].cmdname;
@@ -81,7 +81,7 @@ element_command_name (ELEMENT *e)
 /* map user-defined element commands to internal commands */
 
 enum command_id
-element_builtin_cmd (ELEMENT *e)
+element_builtin_cmd (const ELEMENT *e)
 {
   if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)
     return e->cmd;

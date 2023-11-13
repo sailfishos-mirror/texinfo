@@ -31,20 +31,20 @@ void add_extra_integer (ELEMENT *e, char *key, long value);
 void add_info_string (ELEMENT *e, char *key, char *value);
 void add_info_string_dup (ELEMENT *e, char *key, char *value);
 void add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value);
-KEY_PAIR *lookup_extra (ELEMENT *e, char *key);
-KEY_PAIR *lookup_info (ELEMENT *e, char *key);
-ELEMENT *lookup_extra_element (ELEMENT *e, char *key);
-ELEMENT *lookup_info_element (ELEMENT *e, char *key);
+KEY_PAIR *lookup_extra (const ELEMENT *e, char *key);
+KEY_PAIR *lookup_info (const ELEMENT *e, char *key);
+ELEMENT *lookup_extra_element (const ELEMENT *e, char *key);
+ELEMENT *lookup_info_element (const ELEMENT *e, char *key);
 ELEMENT *lookup_extra_contents (ELEMENT *e, char *key, int create);
 ELEMENT *lookup_extra_directions (ELEMENT *e, char *key, int create);
-int lookup_extra_integer (ELEMENT *e, char *key, int *ret);
-char *lookup_extra_string (ELEMENT *e, char *key);
+int lookup_extra_integer (const ELEMENT *e, char *key, int *ret);
+char *lookup_extra_string (const ELEMENT *e, char *key);
 
-KEY_PAIR *lookup_associated_info (ASSOCIATED_INFO *a, char *key);
+KEY_PAIR *lookup_associated_info (const ASSOCIATED_INFO *a, char *key);
 
 /* not to be used in general, only when using associated info
    as a temporary holder of information, for speed */
 void add_associated_info_key (ASSOCIATED_INFO *a, char *key, intptr_t value,
                               enum extra_type type);
-KEY_PAIR *lookup_extra_by_index (ELEMENT *e, char *key, int index);
+KEY_PAIR *lookup_extra_by_index (const ELEMENT *e, char *key, int index);
 #endif

@@ -485,7 +485,7 @@ item_line_parent (ELEMENT *current)
 }
 
 ELEMENT *
-get_label_element (ELEMENT *e)
+get_label_element (const ELEMENT *e)
 {
   if ((e->cmd == CM_node || e->cmd == CM_anchor)
       && e->args.number > 0)

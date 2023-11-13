@@ -35,14 +35,14 @@
 #include "convert_to_texinfo.h"
 
 
-static void expand_cmd_args_to_texi (ELEMENT *e, TEXT *result);
-static void convert_to_texinfo_internal (ELEMENT *e, TEXT *result);
+static void expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result);
+static void convert_to_texinfo_internal (const ELEMENT *e, TEXT *result);
 
 
 #define ADD(x) text_append (result, x)
 
 static void
-expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
+expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 {
   enum command_id cmd = element_builtin_cmd (e);
   KEY_PAIR *arg_line;
@@ -135,7 +135,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 }
 
 static void
-convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
+convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 {
   ELEMENT *elt;
 
@@ -190,7 +190,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
 
 /* Return value to be freed by caller. */
 char *
-convert_to_texinfo (ELEMENT *e)
+convert_to_texinfo (const ELEMENT *e)
 {
   TEXT result;
 
@@ -220,7 +220,7 @@ convert_contents_to_texinfo (ELEMENT *e)
 
 /* Return value to be freed by caller. */
 char *
-link_element_to_texi (ELEMENT *element)
+link_element_to_texi (const ELEMENT *element)
 {
   TEXT result;
   ELEMENT *element_link;
@@ -250,7 +250,7 @@ link_element_to_texi (ELEMENT *element)
 
 /* Return value to be freed by caller. */
 char *
-target_element_to_texi_label (ELEMENT *element)
+target_element_to_texi_label (const ELEMENT *element)
 {
   ELEMENT *label_element = get_label_element (element);
   return convert_contents_to_texinfo (label_element);

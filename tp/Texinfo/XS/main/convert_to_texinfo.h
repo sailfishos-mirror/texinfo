@@ -4,10 +4,10 @@
 
 #include "tree_types.h"
 
-char *convert_to_texinfo (ELEMENT *e);
+char *convert_to_texinfo (const ELEMENT *e);
 char *convert_contents_to_texinfo (ELEMENT *e);
-char *link_element_to_texi (ELEMENT *element);
-char *target_element_to_texi_label (ELEMENT *element);
+char *link_element_to_texi (const ELEMENT *element);
+char *target_element_to_texi_label (const ELEMENT *element);
 
 int check_node_same_texinfo_code(ELEMENT *reference_node,
                                  ELEMENT *node_content);
