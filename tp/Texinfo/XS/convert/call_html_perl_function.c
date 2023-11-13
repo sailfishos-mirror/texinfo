@@ -120,7 +120,7 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
 
 char *
 call_file_id_setting_label_target_name (CONVERTER *self,
-                       char *normalized, ELEMENT *label_element, char *target,
+                       char *normalized, const ELEMENT *label_element, char *target,
                        int *called)
 {
   SV **file_id_setting_sv;
@@ -194,7 +194,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
 
 char *
 call_file_id_setting_node_file_name (CONVERTER *self,
-                       ELEMENT *target_element, char *node_filename,
+                       const ELEMENT *target_element, char *node_filename,
                        int *called)
 {
   SV **file_id_setting_sv;
@@ -271,7 +271,8 @@ call_file_id_setting_node_file_name (CONVERTER *self,
 
 TARGET_CONTENTS_FILENAME *
 call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
-                      ELEMENT *command, char *target, char *target_contents,
+                      const ELEMENT *command, char *target,
+                      char *target_contents,
                       char *target_shortcontents, char *filename)
 {
   SV **file_id_setting_sv;

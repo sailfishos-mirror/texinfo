@@ -186,7 +186,7 @@ enum html_argument_formatting_type {
 extern const char *html_argument_formatting_type_names[];
 
 typedef struct HTML_ARG_FORMATTED {
-    ELEMENT *tree;
+    const ELEMENT *tree;
     char *formatted[AFT_type_raw+1];
 } HTML_ARG_FORMATTED;
 

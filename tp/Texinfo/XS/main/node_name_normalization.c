@@ -49,7 +49,7 @@ int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
 
 #define ADD(x) text_append (result, x)
 void
-convert_to_normalized_internal (ELEMENT *e, TEXT *result)
+convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
 {
   if ((e->type == ET_ignorable_spaces_after_command
        || e->type == ET_postamble_after_end
@@ -170,7 +170,7 @@ convert_to_normalized_internal (ELEMENT *e, TEXT *result)
 
 /* Return value to be freed by caller. */
 char *
-convert_to_normalized (ELEMENT *e)
+convert_to_normalized (const ELEMENT *e)
 {
   TEXT result;
 
@@ -289,7 +289,7 @@ char *normalize_top_name (const char *text)
 }
 
 char *
-convert_to_identifier (ELEMENT *root)
+convert_to_identifier (const ELEMENT *root)
 {
   char *converted_name = convert_to_normalized (root);
   char *normalized_name = normalize_NFC (converted_name);
@@ -303,7 +303,7 @@ convert_to_identifier (ELEMENT *root)
 }
 
 char *
-convert_contents_to_identifier (ELEMENT *e)
+convert_contents_to_identifier (const ELEMENT *e)
 {
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
@@ -330,7 +330,7 @@ unicode_to_transliterate (char *text, int external)
 }
 
 char *
-normalize_transliterate_texinfo (ELEMENT *e, int external_translit)
+normalize_transliterate_texinfo (const ELEMENT *e, int external_translit)
 {
   char *converted_name = convert_to_normalized (e);
   char *normalized_name = normalize_NFC (converted_name);
@@ -345,7 +345,8 @@ normalize_transliterate_texinfo (ELEMENT *e, int external_translit)
 }
 
 char *
-normalize_transliterate_texinfo_contents (ELEMENT *e, int external_translit)
+normalize_transliterate_texinfo_contents (const ELEMENT *e,
+                                          int external_translit)
 {
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;

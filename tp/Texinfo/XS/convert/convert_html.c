@@ -325,7 +325,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
 }
 
 HTML_TARGET *
-find_element_target (HTML_TARGET_LIST *targets, ELEMENT *element)
+find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
 {
   int i;
 
@@ -603,7 +603,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                     {
                       if (self->document->global_commands->top)
                         {/* note that top is a uniq command */
-                          ELEMENT *section_top
+                          const ELEMENT *section_top
                              = self->document->global_commands->top;
 
                           if (section_top->associated_unit)
@@ -615,7 +615,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                     }
                   else if (!strcmp (contents_location, "inline"))
                     {
-                      ELEMENT *global_command
+                      const ELEMENT *global_command
                        = get_cmd_global_command (
                                       self->document->global_commands, cmd);
                       if (global_command->contents.number > 0)
@@ -747,7 +747,7 @@ void register_pre_class_command (enum command_id cmd, enum command_id main_cmd)
   elements, contents elements... */
 static HTML_TARGET *
 add_element_target_to_list (HTML_TARGET_LIST *targets,
-                            ELEMENT *element, char *target)
+                            const ELEMENT *element, char *target)
 {
   HTML_TARGET *element_target;
 
@@ -767,7 +767,7 @@ add_element_target_to_list (HTML_TARGET_LIST *targets,
 }
 
 static HTML_TARGET *
-add_element_target (CONVERTER *self, ELEMENT *element, char *target)
+add_element_target (CONVERTER *self, const ELEMENT *element, char *target)
 {
   HTML_TARGET_LIST *targets = &self->html_targets;
   return add_element_target_to_list (targets, element, target);
@@ -775,7 +775,7 @@ add_element_target (CONVERTER *self, ELEMENT *element, char *target)
 
 static HTML_TARGET *
 add_special_target (CONVERTER *self, enum special_target_type type,
-                    ELEMENT *element, char *target)
+                    const ELEMENT *element, char *target)
 {
   HTML_TARGET_LIST *targets = &self->html_special_targets[type];
   return add_element_target_to_list (targets, element, target);
@@ -998,7 +998,7 @@ normalized_to_id (char *id)
 
 static TARGET_FILENAME *
 normalized_label_id_file (CONVERTER *self, char *normalized,
-                          ELEMENT* label_element)
+                          const ELEMENT* label_element)
 {
   int called;
   char *target;
@@ -1060,7 +1060,7 @@ unique_target (CONVERTER *self, char *target_base)
 }
 
 static void
-new_sectioning_command_target (CONVERTER *self, ELEMENT *command)
+new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
 {
   char *normalized_name;
   char *filename;
@@ -1184,8 +1184,8 @@ set_root_commands_targets_node_files (CONVERTER *self)
           char *node_filename;
           char *user_node_filename;
           LABEL *label = &label_targets->list[i];
-          ELEMENT *target_element = label->element;
-          ELEMENT *label_element = get_label_element (target_element);
+          const ELEMENT *target_element = label->element;
+          const ELEMENT *label_element = get_label_element (target_element);
 
           TARGET_FILENAME *target_filename =
            normalized_label_id_file (self, label->identifier, label_element);
@@ -1246,11 +1246,11 @@ set_root_commands_targets_node_files (CONVERTER *self)
   if (self->document->sections_list
       && self->document->sections_list->number >= 0)
     {
-      ELEMENT_LIST *sections_list = self->document->sections_list;
+      const ELEMENT_LIST *sections_list = self->document->sections_list;
       int i;
       for (i = 0; i < sections_list->number; i++)
         {
-          ELEMENT *root_element = sections_list->list[i];
+          const ELEMENT *root_element = sections_list->list[i];
           new_sectioning_command_target (self, root_element);
         }
     }
@@ -1307,13 +1307,13 @@ prepare_index_entries_targets (CONVERTER *self)
               for (j = 0; j < idx->entries_number; j++)
                 {
                   INDEX_ENTRY *index_entry;
-                  ELEMENT *main_entry_element;
-                  ELEMENT *seeentry;
-                  ELEMENT *seealso;
+                  const ELEMENT *main_entry_element;
+                  const ELEMENT *seeentry;
+                  const ELEMENT *seealso;
                   ELEMENT *entry_reference_content_element;
                   ELEMENT *normalize_index_element;
                   ELEMENT_LIST *subentries_tree;
-                  ELEMENT *target_element;
+                  const ELEMENT *target_element;
                   TEXT target_base;
                   char *normalized_index;
                   char *region = 0;
@@ -1390,13 +1390,13 @@ static const char *docid_base = "DOCF";
 static void
 prepare_footnotes_targets (CONVERTER *self)
 {
-  ELEMENT *global_footnotes = &self->document->global_commands->footnotes;
+  const ELEMENT *global_footnotes = &self->document->global_commands->footnotes;
   if (global_footnotes->contents.number > 0)
     {
       int i;
       for (i = 0; i < global_footnotes->contents.number; i++)
         {
-          ELEMENT *footnote = global_footnotes->contents.list[i];
+          const ELEMENT *footnote = global_footnotes->contents.list[i];
           TEXT footid;
           TEXT docid;
           int nr = i+1;
@@ -1738,7 +1738,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
       char *top_node_filename_str;
       OUTPUT_UNIT *node_top_output_unit = 0;
       char *extension = 0;
-      ELEMENT *node_top = 0;
+      const ELEMENT *node_top = 0;
       int file_nr = 0;
       int i;
 
@@ -1784,10 +1784,11 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
               int j;
               for (j = 0; j < file_output_unit->unit_contents.number; j++)
                 {
-                  ELEMENT *root_command = file_output_unit->unit_contents.list[j];
+                  const ELEMENT *root_command
+                     = file_output_unit->unit_contents.list[j];
                   if (root_command->cmd == CM_node)
                     {
-                      ELEMENT *node_target = 0;
+                      const ELEMENT *node_target = 0;
                       char *normalized = lookup_extra_string (root_command,
                                                               "normalized");
                       if (normalized)
@@ -1859,7 +1860,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
               if (!node_filename)
                 {
                   /* use section to do the file name if there is no node */
-                  ELEMENT *command = file_output_unit->unit_command;
+                  const ELEMENT *command = file_output_unit->unit_command;
                   if (command)
                     {
                       if (command->cmd == CM_top && !node_top
@@ -2056,8 +2057,8 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           size_t special_unit_file_idx = 0;
           FILE_NAME_PATH_COUNTER *special_unit_file;
           OUTPUT_UNIT *special_unit = special_units->list[i];
-          ELEMENT *unit_command = special_unit->unit_command;
-          HTML_TARGET *special_unit_target
+          const ELEMENT *unit_command = special_unit->unit_command;
+          const HTML_TARGET *special_unit_target
             = find_element_target (&self->html_targets, unit_command);
           char *filename = special_unit_target->special_unit_filename;
 
@@ -2119,7 +2120,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           OUTPUT_UNIT *special_unit = associated_special_units->list[i];
           const OUTPUT_UNIT *associated_output_unit
             = special_unit->associated_document_unit;
-          ELEMENT *unit_command = special_unit->unit_command;
+          const ELEMENT *unit_command = special_unit->unit_command;
           HTML_TARGET *element_target
             = find_element_target (&self->html_targets, unit_command);
 
@@ -2712,7 +2713,7 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
 /* This function should be used in formatting functions when some
    Texinfo tree need to be converted. */
 char *
-convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
+convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
                               char *context_string, char *multiple_pass,
                               char *document_global_context,
                               enum command_id block_cmd)
@@ -2765,7 +2766,7 @@ convert_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
 }
 
 char *
-html_convert_css_string (CONVERTER *self, ELEMENT *element, char *explanation)
+html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanation)
 {
   char *result;
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
@@ -2846,8 +2847,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       char *context;
       ELEMENT *translated_tree = no_arg_command_context->tree;
       if (!translated_tree->hv)
-        {/* FIXME Should be done differently if it is possible
-           it be possible to recursively call html_translate_names. */
+        {/* FIXME Would need to be done differently if it is possible
+                  to recursively call html_translate_names. */
           self->tree_to_build = translated_tree;
         }
       xasprintf (&explanation, "Translated NO ARG @%s ctx %s",
@@ -3375,7 +3376,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                   for (content_idx = 0; content_idx < element->contents.number;
                        content_idx++)
                     {
-                      ELEMENT *content = element->contents.list[content_idx];
+                      const ELEMENT *content = element->contents.list[content_idx];
                       char *explanation;
                       xasprintf (&explanation, "%s c[%d]", command_type.text,
                                 content_idx);
@@ -3414,7 +3415,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                     {
                       char *explanation;
                       unsigned long arg_flags = 0;
-                      ELEMENT *arg = element->args.list[arg_idx];
+                      const ELEMENT *arg = element->args.list[arg_idx];
                       HTML_ARG_FORMATTED *arg_formatted
                          = &args_formatted->args[arg_idx];
 
@@ -3770,7 +3771,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           for (content_idx = 0; content_idx < element->contents.number;
                content_idx++)
             {
-              ELEMENT *content = element->contents.list[content_idx];
+              const ELEMENT *content = element->contents.list[content_idx];
               char *explanation;
               xasprintf (&explanation, "%s c[%d]", command_type.text,
                         content_idx);
@@ -3840,7 +3841,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       for (content_idx = 0; content_idx < element->contents.number;
            content_idx++)
         {
-          ELEMENT *content = element->contents.list[content_idx];
+          const ELEMENT *content = element->contents.list[content_idx];
           char *explanation;
           xasprintf (&explanation, "%s c[%d]", command_type.text,
                      content_idx);
@@ -3931,7 +3932,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
       for (content_idx = 0; content_idx < output_unit->unit_contents.number;
            content_idx++)
        {
-         ELEMENT *content = output_unit->unit_contents.list[content_idx];
+         const ELEMENT *content = output_unit->unit_contents.list[content_idx];
          char *explanation;
          xasprintf (&explanation, "%s c[%d]",
                     output_unit_type_names[unit_type], content_idx);

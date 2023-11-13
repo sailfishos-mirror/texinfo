@@ -233,7 +233,7 @@ id_to_filename (CONVERTER *self, char **id_ref)
 }
 
 TARGET_FILENAME *
-normalized_sectioning_command_filename (CONVERTER *self, ELEMENT *command)
+normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
 {
   TARGET_FILENAME *result
      = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
@@ -263,7 +263,7 @@ normalized_sectioning_command_filename (CONVERTER *self, ELEMENT *command)
 
 char *
 node_information_filename (CONVERTER *self, char *normalized,
-                           ELEMENT *label_element)
+                           const ELEMENT *label_element)
 {
   char *filename;
 
@@ -289,7 +289,7 @@ node_information_filename (CONVERTER *self, char *normalized,
 }
 
 ELEMENT_LIST *
-comma_index_subentries_tree (ELEMENT *current_entry,
+comma_index_subentries_tree (const ELEMENT *current_entry,
                              char *separator)
 {
   ELEMENT_LIST *result = new_list ();
@@ -299,7 +299,8 @@ comma_index_subentries_tree (ELEMENT *current_entry,
 
   while (1)
     {
-      ELEMENT *subentry = lookup_extra_element (current_entry, "subentry");
+      const ELEMENT *subentry
+        = lookup_extra_element (current_entry, "subentry");
       if (subentry)
         {
           ELEMENT *separator = new_element (ET_NONE);

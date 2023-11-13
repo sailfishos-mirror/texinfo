@@ -1,3 +1,28 @@
+2023-11-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_file_id_setting_label_target_name)
+	(call_file_id_setting_node_file_name)
+	(call_file_id_setting_sectioning_command_target_name),
+	tp/Texinfo/XS/convert/convert_html.c (find_element_target)
+	(prepare_special_units, add_element_target_to_list)
+	(add_element_target, add_special_target, normalized_label_id_file)
+	(new_sectioning_command_target, set_root_commands_targets_node_files)
+	(prepare_index_entries_targets, prepare_footnotes_targets)
+	(html_set_pages_files, convert_tree_new_formatting_context)
+	(html_convert_css_string, convert_to_html_internal)
+	(convert_output_unit), tp/Texinfo/XS/convert/converter.c
+	(normalized_sectioning_command_filename, node_information_filename)
+	(comma_index_subentries_tree),
+	tp/Texinfo/XS/convert/indices_in_conversion.c (index_content_element),
+	tp/Texinfo/XS/main/converter_types.h (HTML_TARGET),
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal, convert_to_normalized)
+	(convert_to_identifier, normalize_transliterate_texinfo)
+	(normalize_transliterate_texinfo_contents), tp/Texinfo/XS/main/utils.h
+	(HTML_ARG_FORMATTED): mark elements as const in HTML conversion and
+	node_name_normalization.
+
 2023-11-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Update required gnulib modules for XS

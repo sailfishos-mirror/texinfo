@@ -18,12 +18,12 @@ void set_global_document_commands (CONVERTER *converter,
                                   const enum command_id *cmd_list);
 
 char *node_information_filename (CONVERTER *self, char *normalized,
-                                 ELEMENT *label_element);
+                                 const ELEMENT *label_element);
 
 TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
-                                                         ELEMENT *command);
+                                                   const ELEMENT *command);
 
-ELEMENT_LIST *comma_index_subentries_tree (ELEMENT *current_entry,
+ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current_entry,
                                            char *separator);
 void free_comma_index_subentries_tree (ELEMENT_LIST *element);
 

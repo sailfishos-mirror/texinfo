@@ -173,7 +173,7 @@ typedef struct VARIETY_DIRECTION_INDEX {
 } VARIETY_DIRECTION_INDEX;
 
 typedef struct HTML_TARGET {
-    ELEMENT *element;
+    const ELEMENT *element;
     char *target;
     char *special_unit_filename;
     char *node_filename;
