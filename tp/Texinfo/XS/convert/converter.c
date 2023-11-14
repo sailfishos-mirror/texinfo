@@ -580,3 +580,95 @@ free_generic_converter (CONVERTER *self)
   free_output_files_information (&self->output_files_information);
   free_output_unit_files (&self->output_unit_files);
 }
+
+
+/* XML conversion functions */
+
+#define ADD(x) text_append_n (result, "&#" #x ";", 7)
+void
+xml_format_text_with_numeric_entities (const char *text, TEXT *result)
+{
+  const char *p;
+  int str_len;
+
+  p = text;
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "-'`");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      str_len = strlen (p);
+      if ((str_len > 1) && (!strncmp (p, "``", 2)))
+        {
+          ADD(8220);
+          p += 2;
+        }
+      else if ((str_len > 1) && (!strncmp (p, "''", 2)))
+        {
+          ADD(8221);
+          p += 2;
+        }
+      else if ((str_len > 2) && !strncmp (p, "---", 3))
+        {
+          ADD(8212);
+          p += 3;
+        }
+      else if ((str_len > 1) && !strncmp (p, "--", 2))
+        {
+          ADD(8211);
+          p += 2;
+        }
+      else
+        {
+          if (*p == '\'')
+            ADD(8217);
+          else if (*p == '`')
+            ADD(8216);
+          p++;
+        }
+    }
+}
+#undef ADD
+
+#define ADDN(str,nr) text_append_n (result, str, nr)
+void
+xml_protect_text (const char *text, TEXT *result)
+{
+  const char *p;
+
+  p = text;
+
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "<>&\"\f");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        case '<':
+          ADDN("&lt;", 4);
+          break;
+        case '>':
+          ADDN("&gt;", 4);
+          break;
+        case '&':
+          ADDN("&amp;", 5);
+          break;
+        case '"':
+          ADDN("&quot;", 6);
+          break;
+        }
+      p++;
+    }
+}
+#undef ADDN

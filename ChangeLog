@@ -10,6 +10,29 @@
 
 2023-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%XS_overrides, %XS_conversion_overrides)
+	(import): use hashes for association of overriden sub with XS sub.
+
+	* tp/Texinfo/Convert/HTML.pm (_XS_format_init, import),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_format_init),
+	tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize)
+	(html_format_init): add html_format_init function to be called once to
+	setup C data that does not need any information on customization
+	with code from html_converter_initialize.  Setup XS interface.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	use current_commands_conversion and not commands_conversion and
+	current_types_conversion and not types_conversion.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_protect_text)
+	(default_css_string_format_protect_text): implement.
+
+	* tp/Texinfo/XS/convert/converter.c
+	(xml_format_text_with_numeric_entities, xml_protect_text): implement.
+
+2023-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (import), tp/Texinfo/XS/Makefile.am,
 	tp/Texinfo/XS/main/DocumentXS.xs (translations_configure),
 	tp/Texinfo/XS/main/TranslationsXS.xs: rename configure as

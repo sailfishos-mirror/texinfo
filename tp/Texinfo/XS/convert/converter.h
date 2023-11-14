@@ -39,4 +39,7 @@ void clear_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 void free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
 void free_generic_converter (CONVERTER *self);
+
+
+void xml_format_text_with_numeric_entities (const char *text, TEXT *result);
 #endif

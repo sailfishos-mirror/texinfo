@@ -2219,6 +2219,75 @@ html_prepare_units_directions_files (CONVERTER *self,
   return files_source_info;
 }
 
+
+#define ADDN(str,nr) text_append_n (result, str, nr)
+void
+html_default_format_protect_text (const char *text, TEXT *result)
+{
+  const char *p = text;
+
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "<>&\"\f");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        case '<':
+          ADDN("&lt;", 4);
+          break;
+        case '>':
+          ADDN("&gt;", 4);
+          break;
+        case '&':
+          ADDN("&amp;", 5);
+          break;
+        case '"':
+          ADDN("&quot;", 6);
+          break;
+        case '\f':
+          ADDN("&#12;", 5);
+          break;
+        }
+      p++;
+    }
+}
+
+void
+default_css_string_format_protect_text (const char *text, TEXT *result)
+{
+  const char *p = text;
+
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "\\'");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        case '\\':
+          ADDN("\\\\", 2);
+          break;
+        case '\'':
+          ADDN("\\'", 2);
+          break;
+        }
+      p++;
+    }
+}
+
+#undef ADDN
+
 static char *
 command_conversion (CONVERTER *self, enum command_id cmd,
                     const ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
@@ -2277,7 +2346,6 @@ type_open (CONVERTER *self, enum element_type type, const ELEMENT *element)
     return call_types_open (self, type, element);
   return 0;
 }
-
 
 static void
 push_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack,
@@ -2404,21 +2472,14 @@ reset_translated_special_unit_info_tree (CONVERTER *self)
     }
 }
 
-/* most of the initialization is done by html_converter_initialize_sv
-   in get_perl_info, the initialization that do not require information
-   from perl is done here.  This is called after information from perl
-   has been gathered  */
+/* set information that is independent of customization, only called once */
 void
-html_converter_initialize (CONVERTER *self)
+html_format_init ()
 {
   int i;
-  int nr_special_units;
   int nr_default_commands
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
-
-  /* first set information that is fully independent from information
-     coming from perl */
 
   for (i = 0; i < nr_default_commands; i++)
     {
@@ -2477,7 +2538,17 @@ html_converter_initialize (CONVERTER *self)
   html_commands_data[CM_float].flags |= HF_composition_context;
 
   html_commands_data[CM_sc].flags |= HF_upper_case;
+}
 
+/* most of the initialization is done by html_converter_initialize_sv
+   in get_perl_info, the initialization that do not require information
+   directly from perl data is done here.  This is called after information
+   from perl has been gathered  */
+void
+html_converter_initialize (CONVERTER *self)
+{
+  int i;
+  int nr_special_units;
   /* initialization needing some information from perl */
 
   nr_special_units = self->special_unit_varieties.number;
@@ -3174,9 +3245,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     }
 
   if ((element->type
-       && self->types_conversion[element->type].status == FRS_status_ignored)
+       && self->current_types_conversion[element->type].status == FRS_status_ignored)
       || (cmd
-          && self->commands_conversion[cmd].status == FRS_status_ignored))
+          && self->current_commands_conversion[cmd].status == FRS_status_ignored))
     {
       if (self->conf->DEBUG > 0)
         {
@@ -3248,7 +3319,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           self->modified_state |= HMSF_current_root;
         }
 
-      if (self->commands_conversion[cmd].status)
+      if (self->current_commands_conversion[cmd].status)
         {
           int convert_to_latex = 0;
           HTML_ARGS_FORMATTED *args_formatted = 0;
@@ -3662,7 +3733,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             }
 
           /* args are formatted, now format the command itself */
-          if (self->commands_conversion[cmd].status)
+          if (self->current_commands_conversion[cmd].status)
             {
               char *conv_str = command_conversion (self, cmd,
                                                    element, args_formatted,
@@ -3786,7 +3857,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             }
         }
 
-      if (self->types_conversion[type].status)
+      if (self->current_types_conversion[type].status)
         {
           char *conversion_result
                     = type_conversion (self, type, element,
@@ -3864,8 +3935,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     {
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "UNNAMED empty\n");
-      if (self->types_conversion[0].status
-          && self->types_conversion[0].status != FRS_status_ignored)
+      if (self->current_types_conversion[0].status
+          && self->current_types_conversion[0].status != FRS_status_ignored)
         {
           char *conversion_result
                     = type_conversion (self, 0, element, "");

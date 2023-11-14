@@ -92,72 +92,71 @@ my $XS_convert = 0;
 $XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
                     and $ENV{TEXINFO_XS_CONVERT} eq '1');
 
+my %XS_overrides = (
+  "Texinfo::Convert::HTML::_default_format_protect_text"
+    => "Texinfo::MiscXS::default_format_protect_text",
+  "Texinfo::Convert::HTML::_entity_text"
+    => "Texinfo::MiscXS::entity_text",
+);
+
+my %XS_conversion_overrides = (
+  "Texinfo::Convert::HTML::_XS_format_init"
+   => "Texinfo::Convert::ConvertXS::html_format_init",
+  "Texinfo::Convert::HTML::_XS_converter_initialize"
+   => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
+  "Texinfo::Convert::HTML::_XS_initialize_output_state"
+   => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
+  "Texinfo::Convert::HTML::_finalize_output_state"
+   => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
+  "Texinfo::Convert::HTML::_new_document_context"
+   => "Texinfo::Convert::ConvertXS::html_new_document_context",
+  "Texinfo::Convert::HTML::_pop_document_context"
+   => "Texinfo::Convert::ConvertXS::html_pop_document_context",
+  "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter"
+   => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
+  "Texinfo::Convert::HTML::_XS_html_merge_index_entries"
+   => "Texinfo::Convert::ConvertXS::html_merge_index_entries",
+  "Texinfo::Convert::HTML::_prepare_conversion_units"
+   => "Texinfo::Convert::ConvertXS::html_prepare_conversion_units",
+  "Texinfo::Convert::HTML::_prepare_units_directions_files"
+   => "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files",
+  "Texinfo::Convert::HTML::_prepare_output_units_global_targets"
+   => "Texinfo::Convert::ConvertXS::html_prepare_output_units_global_targets",
+  "Texinfo::Convert::HTML::_translate_names"
+   => "Texinfo::Convert::ConvertXS::html_translate_names",
+  "Texinfo::Convert::HTML::_prepare_title_titlepage"
+   => "Texinfo::Convert::ConvertXS::html_prepare_title_titlepage",
+  "Texinfo::Convert::HTML::_html_convert_convert"
+   => "Texinfo::Convert::ConvertXS::html_convert_convert",
+  "Texinfo::Convert::HTML::_html_convert_output"
+   => "Texinfo::Convert::ConvertXS::html_convert_output",
+  #"Texinfo::Convert::HTML::_XS_html_convert_tree"
+  # => "Texinfo::Convert::ConvertXS::html_convert_tree",
+);
+
+# XS function does initialization independent of customization
+sub _XS_format_init()
+{
+}
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_default_format_protect_text",
-      "Texinfo::MiscXS::default_format_protect_text");
-    Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_entity_text",
-      "Texinfo::MiscXS::entity_text");
-
-    if ($XS_convert) {
-
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_converter_initialize",
-      "Texinfo::Convert::ConvertXS::html_converter_initialize_sv");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_initialize_output_state",
-      "Texinfo::Convert::ConvertXS::html_initialize_output_state");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_finalize_output_state",
-      "Texinfo::Convert::ConvertXS::html_finalize_output_state");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_new_document_context",
-      "Texinfo::Convert::ConvertXS::html_new_document_context");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_pop_document_context",
-      "Texinfo::Convert::ConvertXS::html_pop_document_context");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter",
-      "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_XS_html_merge_index_entries",
-      "Texinfo::Convert::ConvertXS::html_merge_index_entries");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_prepare_conversion_units",
-      "Texinfo::Convert::ConvertXS::html_prepare_conversion_units");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_prepare_units_directions_files",
-      "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_prepare_output_units_global_targets",
-      "Texinfo::Convert::ConvertXS::html_prepare_output_units_global_targets");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_translate_names",
-      "Texinfo::Convert::ConvertXS::html_translate_names");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_prepare_title_titlepage",
-      "Texinfo::Convert::ConvertXS::html_prepare_title_titlepage");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_html_convert_convert",
-      "Texinfo::Convert::ConvertXS::html_convert_convert");
-      Texinfo::XSLoader::override(
-      "Texinfo::Convert::HTML::_html_convert_output",
-      "Texinfo::Convert::ConvertXS::html_convert_output");
-      #Texinfo::XSLoader::override(
-      #"Texinfo::Convert::HTML::_XS_html_convert_tree",
-      #"Texinfo::Convert::ConvertXS::html_convert_tree");
+    foreach my $sub (keys %XS_overrides) {
+      Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
     }
 
+    if ($XS_convert) {
+      foreach my $sub (keys %XS_conversion_overrides) {
+        Texinfo::XSLoader::override ($sub, $XS_conversion_overrides{$sub});
+      }
+      _XS_format_init();
+    }
     $module_loaded = 1;
   }
   # The usual import method
   goto &Exporter::import;
 }
-
-
 
 my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
 my %line_commands = %Texinfo::Commands::line_commands;

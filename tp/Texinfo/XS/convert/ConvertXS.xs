@@ -175,6 +175,9 @@ text_convert_tree (SV *text_options_in, SV *tree_in, unused=0)
 
 # HTML
 
+void
+html_format_init ()
+
 int
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion)
 

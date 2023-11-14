@@ -1570,12 +1570,12 @@ sub get_output_files_XS_unclosed_streams($)
 # XML related methods and variables that may be used in different
 # XML Converters.
 
-my $xml_numeric_entity_mdash = '&#'.hex('2014').';';
-my $xml_numeric_entity_ndash = '&#'.hex('2013').';';
-my $xml_numeric_entity_ldquo = '&#'.hex('201C').';';
-my $xml_numeric_entity_rdquo = '&#'.hex('201D').';';
-my $xml_numeric_entity_lsquo = '&#'.hex('2018').';';
-my $xml_numeric_entity_rsquo = '&#'.hex('2019').';';
+my $xml_numeric_entity_mdash = '&#'.hex('2014').';'; #8212
+my $xml_numeric_entity_ndash = '&#'.hex('2013').';'; #8211
+my $xml_numeric_entity_ldquo = '&#'.hex('201C').';'; #8220
+my $xml_numeric_entity_rdquo = '&#'.hex('201D').';'; #8221
+my $xml_numeric_entity_lsquo = '&#'.hex('2018').';'; #8216
+my $xml_numeric_entity_rsquo = '&#'.hex('2019').';'; #8217
 
 sub xml_format_text_with_numeric_entities($$)
 {

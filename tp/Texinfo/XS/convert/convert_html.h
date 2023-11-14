@@ -14,6 +14,8 @@ extern char *html_formatting_reference_names[];
 extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 
+void html_format_init (void);
+
 void html_converter_initialize (CONVERTER *self);
 
 void html_initialize_output_state (CONVERTER *self, char *context);
