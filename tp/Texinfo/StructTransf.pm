@@ -1,3 +1,4 @@
+# StructTransf.pm: load structuring and tree transformation XS
 # Copyright 2023 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -13,12 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Texinfo::Convert::ConvertXS;
+package Texinfo::StructTransf;
 
-# This package loads XS implementations of converter functions.
-
-# same as texi2any.pl
-use 5.00405;
 use strict;
 use warnings;
 

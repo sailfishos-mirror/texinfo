@@ -40,7 +40,7 @@ use Locale::Messages;
 # to load a parser
 use Texinfo::Parser;
 
-use Texinfo::TranslationsXS;
+use Texinfo::DocumentXS;
 
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.
@@ -51,7 +51,7 @@ sub import {
   if (!$module_loaded) {
     Texinfo::XSLoader::override(
       "Texinfo::Translations::_XS_configure",
-      "Texinfo::TranslationsXS::configure");
+      "Texinfo::DocumentXS::translations_configure");
     # Example of how gdt could be overriden.  Not used because
     # the approach is flawed as there won't be any substitution if the trees in
     # $replaced_substrings are not registered in C data, as is the case in
@@ -288,6 +288,8 @@ sub translate_string($$;$$)
   return $translated_string;
 }
 
+# Get document translation - handle translations of in-document strings.
+# Return a parsed Texinfo tree
 sub gdt($$;$$$)
 {
   my ($customization_information, $string, $replaced_substrings,
@@ -311,18 +313,24 @@ sub gdt($$;$$$)
   return $result_tree;
 }
 
+# Get document translation - handle translations of in-document strings.
+# In general for already converted strings that do not need to go through
+# a Texinfo tree.
 sub gdt_string($$;$$$)
 {
   my ($customization_information, $string, $replaced_substrings,
       $translation_context, $lang) = @_;
 
-  # allows to redefine translate_string, as done in the HTML converter.  Cannot
-  # directly call translate_string on $customization_information, as it may not
-  # provide the method if it does not inherit from Texinfo::Translations, as is
-  # the case for Texinfo::Parser.
+  # Following code allows to redefine translate_string, as done in the HTML
+  # converter.  We check with can() explicitely instead of letting inheritance
+  # rules determine which method to call (which would be achieved with
+  # $customization_information->translate_string) because
+  # $customization_information may not provide the method if it does not
+  # inherit from Texinfo::Translations, as is the case for Texinfo::Parser.
   my $translate_string_method
      = $customization_information->can('translate_string');
   $translate_string_method = \&translate_string if (!$translate_string_method);
+
   my $translated_string = &$translate_string_method($customization_information,
                                        $string, $translation_context, $lang);
 
@@ -452,6 +460,8 @@ sub _substitute($$) {
   return $tree;
 }
 
+# Same as gdt but with mandatory translation context, used for marking
+# of strings with translation contexts
 sub pgdt($$$;$$)
 {
   my ($customization_information, $translation_context, $string,

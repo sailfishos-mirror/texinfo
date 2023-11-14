@@ -1,4 +1,4 @@
-# Document.pm: load parsed Texinfo tree document XS functions.
+# DocumentXS.pm: load parsed Texinfo tree document XS functions.
 #
 # Copyright 2010-2023 Free Software Foundation, Inc.
 # 
@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Texinfo::Document;
+package Texinfo::DocumentXS;
 
 use strict;
 use warnings;

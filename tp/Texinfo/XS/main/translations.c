@@ -55,7 +55,7 @@ static char *locale_command = 0;
 static char *strings_textdomain = "texinfo_document";
 
 void
-configure (char *localesdir, char *strings_textdomain_in)
+translations_configure (char *localesdir, char *strings_textdomain_in)
 {
   char *textdomain_directory;
   if (strings_textdomain_in)

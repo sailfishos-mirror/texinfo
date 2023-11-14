@@ -34,12 +34,20 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "document.h"
+#include "translations.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
 MODULE = Texinfo::DocumentXS		PACKAGE = Texinfo::DocumentXS
 
 PROTOTYPES: ENABLE
+
+void
+translations_configure (localesdir, strings_textdomain="texinfo_document")
+       char *localesdir = (char *)SvPVbyte_nolen($arg);
+       char *strings_textdomain;
+      CODE:
+       translations_configure (localesdir, strings_textdomain);
 
 SV *
 rebuild_document (SV *document_in, ...)

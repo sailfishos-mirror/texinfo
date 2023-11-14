@@ -1,5 +1,13 @@
 2023-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Translations.pm (import), tp/Texinfo/XS/Makefile.am,
+	tp/Texinfo/XS/main/DocumentXS.xs (translations_configure),
+	tp/Texinfo/XS/main/TranslationsXS.xs: rename configure as
+	translations_configure and move to DocumentXS.xs.  Do not build
+	TranslationsXS anymore.
+
+2023-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
 	Pod-Simple-Texinfo/pod2texi.pl: update for the move of functions to
 	Texinfo::Document.

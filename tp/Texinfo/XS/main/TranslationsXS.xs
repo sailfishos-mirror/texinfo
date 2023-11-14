@@ -40,14 +40,6 @@ MODULE = Texinfo::TranslationsXS	PACKAGE = Texinfo::TranslationsXS
 
 PROTOTYPES: ENABLE
 
-void
-configure (localesdir, strings_textdomain="texinfo_document")
-       char *localesdir = (char *)SvPVbyte_nolen($arg);
-       char *strings_textdomain;
-      CODE:
-       configure (localesdir, strings_textdomain);
-
-
 # TODO not sure that the options_in argument is good to be
 # copy_sv_options argument, may need to retrieve a converter
 # first or Parser configuration.  Does not matter much as

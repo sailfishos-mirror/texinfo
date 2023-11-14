@@ -28,6 +28,8 @@ use warnings;
 
 use Texinfo::DocumentXS;
 
+use Texinfo::XSLoader;
+
 use Texinfo::Common;
 
 our $module_loaded = 0;
