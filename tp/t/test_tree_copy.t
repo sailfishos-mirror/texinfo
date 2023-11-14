@@ -14,8 +14,9 @@ use File::Spec;
 
 use Texinfo::Common;
 use Texinfo::Parser;
-use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
+use Texinfo::Structuring;
 
 my $srcdir = $ENV{'srcdir'};
 if (defined($srcdir)) {
@@ -150,7 +151,7 @@ is ($texi_copy, $texi_tree, "tree and copy to texi match");
 Texinfo::Structuring::sectioning_structure($tree, $test_registrar,
                                            $test_parser);
 
-$tree = Texinfo::Structuring::rebuild_tree($tree);
+$tree = Texinfo::Document::rebuild_tree($tree);
 
 my $copy_with_sec = Texinfo::Common::copy_tree($tree);
 

@@ -9,9 +9,10 @@ BEGIN { plan tests => 2; }
 
 use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
 use Texinfo::Common qw(protect_first_parenthesis);
+use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
 use Texinfo::Structuring;
 use Texinfo::Transformations;
-use Texinfo::Convert::Texinfo;
 
 ok(1);
 
@@ -29,7 +30,7 @@ sub run_test($$$$)
   if ($do->{'protect_first_parenthesis'}) {
     Texinfo::Transformations::protect_first_parenthesis_in_targets($tree);
 
-    $tree = Texinfo::Structuring::rebuild_tree($tree);
+    $tree = Texinfo::Document::rebuild_tree($tree);
 
     $texi_result
         = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

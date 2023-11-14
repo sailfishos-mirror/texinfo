@@ -9,6 +9,7 @@ BEGIN { plan tests => 6; }
 
 use Texinfo::Parser qw(parse_texi_piece);
 use Texinfo::Common qw(move_index_entries_after_items_in_tree);
+use Texinfo::Document;
 use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
 use Texinfo::DebugTree;
@@ -27,7 +28,7 @@ sub run_test($$$)
   #print STDERR Texinfo::DebugTree::convert_tree(undef, $tree)."\n";
 
   move_index_entries_after_items_in_tree($tree);
-  $tree = Texinfo::Structuring::rebuild_tree($tree);
+  $tree = Texinfo::Document::rebuild_tree($tree);
 
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

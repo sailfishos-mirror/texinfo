@@ -93,12 +93,6 @@ my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
                             or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
 
 our %XS_overrides = (
-  "Texinfo::Structuring::rebuild_document"
-    => "Texinfo::StructTransf::rebuild_document",
-  "Texinfo::Structuring::rebuild_tree"
-    => "Texinfo::StructTransf::rebuild_tree",
-  "Texinfo::Structuring::clear_document_errors"
-    => "Texinfo::StructTransf::clear_document_errors",
   "Texinfo::Structuring::associate_internal_references"
     => "Texinfo::StructTransf::associate_internal_references",
   "Texinfo::Structuring::sectioning_structure"
@@ -156,31 +150,6 @@ my %command_structuring_level = %Texinfo::Common::command_structuring_level;
 
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
-
-# this method does nothing, but the XS override rebuilds the perl
-# document based on XS data.
-sub rebuild_document($;$)
-{
-  my $document = shift;
-  my $no_store = shift;
-
-  return $document;
-}
-
-# this method does nothing, but the XS override rebuilds the perl
-# tree based on XS data.
-sub rebuild_tree($;$)
-{
-  my $tree = shift;
-  my $no_store = shift;
-
-  return $tree;
-}
-
-# this method does nothing, but the XS override clears the document errors
-sub clear_document_errors($)
-{
-}
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:

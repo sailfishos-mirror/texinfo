@@ -26,9 +26,9 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-use Texinfo::Common;
+use Texinfo::DocumentXS;
 
-use Texinfo::StructTransf;
+use Texinfo::Common;
 
 our $module_loaded = 0;
 sub import {
@@ -37,9 +37,22 @@ sub import {
         or $ENV{TEXINFO_XS_PARSER} eq '1') {
       Texinfo::XSLoader::override(
         "Texinfo::Document::remove_document",
-        # TODO add a Document XS .xs file and move to that file?
-        "Texinfo::StructTransf::remove_document"
-      );
+        "Texinfo::DocumentXS::remove_document");
+      Texinfo::XSLoader::override(
+        "Texinfo::Document::rebuild_document",
+        "Texinfo::DocumentXS::rebuild_document");
+      Texinfo::XSLoader::override(
+        "Texinfo::Document::rebuild_tree",
+        "Texinfo::DocumentXS::rebuild_tree");
+      Texinfo::XSLoader::override(
+        "Texinfo::Document::remove_document_descriptor",
+        "Texinfo::DocumentXS::remove_document_descriptor");
+      Texinfo::XSLoader::override(
+        "Texinfo::Document::clear_document_errors",
+        "Texinfo::DocumentXS::clear_document_errors");
+      Texinfo::XSLoader::override(
+        "Texinfo::Document::set_document_options",
+        "Texinfo::DocumentXS::set_document_options");
     }
     $module_loaded = 1;
   }
@@ -257,6 +270,31 @@ sub register_label_element($$;$$)
 sub remove_document ($)
 {
   my $document = shift;
+}
+
+# this method does nothing, but the XS override rebuilds the perl
+# document based on XS data.
+sub rebuild_document($;$)
+{
+  my $document = shift;
+  my $no_store = shift;
+
+  return $document;
+}
+
+# this method does nothing, but the XS override rebuilds the perl
+# tree based on XS data.
+sub rebuild_tree($;$)
+{
+  my $tree = shift;
+  my $no_store = shift;
+
+  return $tree;
+}
+
+# this method does nothing, but the XS override clears the document errors
+sub clear_document_errors($)
+{
 }
 
 1;

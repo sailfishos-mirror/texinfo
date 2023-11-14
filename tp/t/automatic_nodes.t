@@ -10,6 +10,8 @@ BEGIN { plan tests => 27; }
 use Texinfo::Parser;
 use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
+use Texinfo::Structuring;
 
 use Data::Dumper;
 
@@ -173,7 +175,7 @@ Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
-$document = Texinfo::Structuring::rebuild_document($document);
+$document = Texinfo::Document::rebuild_document($document);
 $tree = $document->tree();
 my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 is ($result, $reference, 'add nodes');
@@ -197,7 +199,7 @@ Texinfo::Structuring::associate_internal_references($document, $registrar,
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $registrar, $parser);
 
-$document = Texinfo::Structuring::rebuild_document($document);
+$document = Texinfo::Document::rebuild_document($document);
 
 my $identifier_target = $document->labels_information();
 my $indices_information = $document->indices_information();

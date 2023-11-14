@@ -1517,7 +1517,7 @@ while(@input_files) {
     # no need to rebuild the tree here if convert_to_texinfo is XS code.
     if (not (defined $ENV{TEXINFO_XS_CONVERT}
              and $ENV{TEXINFO_XS_CONVERT} eq '1')) {
-      $document = Texinfo::Structuring::rebuild_document($document);
+      $document = Texinfo::Document::rebuild_document($document);
       $tree = $document->tree();
     }
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -1639,13 +1639,13 @@ while(@input_files) {
     Texinfo::Structuring::number_floats($document);
   }
 
-  $document = Texinfo::Structuring::rebuild_document($document);
+  $document = Texinfo::Document::rebuild_document($document);
 
   if ($XS_structuring) {
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }
-    Texinfo::Structuring::clear_document_errors(
+    Texinfo::Document::clear_document_errors(
                                         $document->document_descriptor());
   }
 

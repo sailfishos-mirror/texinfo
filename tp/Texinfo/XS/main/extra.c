@@ -26,7 +26,7 @@
 #include "debug.h"
 #include "extra.h"
 
-/* used in tree copy, but should not be used in general */
+/* directly used in tree copy, but should not be directly used in general */
 void
 add_associated_info_key (ASSOCIATED_INFO *a, char *key, intptr_t value,
                          enum extra_type type)

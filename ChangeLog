@@ -1,3 +1,14 @@
+2023-11-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/DocumentXS.xs (rebuild_document, rebuild_tree)
+	(remove_document_descriptor, remove_document, clear_document_errors)
+	(set_document_options), tp/Makefile.am (dist_modules_DATA),
+	tp/Texinfo/Document.pm (import, rebuild_document, rebuild_tree)
+	(clear_document_errors), tp/Texinfo/XS/Makefile.am
+	(DocumentXS_la_SOURCES): move rebuild_document, rebuild_tree,
+	remove_document_descriptor, remove_document and clear_document_errors
+	to a new XS associated to Texinfo::Document.
+
 2023-11-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_destroy): output a debug

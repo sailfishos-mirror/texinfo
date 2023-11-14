@@ -10,8 +10,9 @@ BEGIN { plan tests => 7; }
 use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
 use Texinfo::Common qw(protect_comma_in_tree protect_colon_in_tree
       protect_node_after_label_in_tree);
-use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
+use Texinfo::Structuring;
 
 ok(1);
 
@@ -52,10 +53,10 @@ sub run_test($$$$)
     }
   }
 
-  $document = Texinfo::Structuring::rebuild_document($document);
+  $document = Texinfo::Document::rebuild_document($document);
   $tree_as_text = $document->tree();
 
-  $tree_as_line = Texinfo::Structuring::rebuild_tree($tree_as_line);
+  $tree_as_line = Texinfo::Document::rebuild_tree($tree_as_line);
 
   my $texi_result_as_text
      = Texinfo::Convert::Texinfo::convert_to_texinfo($tree_as_text);

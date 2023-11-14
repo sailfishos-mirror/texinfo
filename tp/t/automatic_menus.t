@@ -8,8 +8,10 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 BEGIN { plan tests => 12; }
 
 use Texinfo::Parser;
-use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
+use Texinfo::Structuring;
+use Texinfo::Transformations;
 
 use Data::Dumper;
 
@@ -39,7 +41,7 @@ sub test($$$;$$)
     Texinfo::Transformations::complete_tree_nodes_menus($tree, $use_sections);
   }
 
-  $tree = Texinfo::Structuring::rebuild_tree($tree);
+  $tree = Texinfo::Document::rebuild_tree($tree);
 
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

@@ -9,8 +9,9 @@ BEGIN { plan tests => 9; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
-use Texinfo::Structuring;
+use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Structuring;
 
 use Data::Dumper;
 
@@ -44,7 +45,7 @@ sub run_test($$$;$)
     Texinfo::Transformations::protect_hashchar_at_line_beginning($tree,
                                                   $registrar, $parser);
 
-  $document = Texinfo::Structuring::rebuild_document($document);
+  $document = Texinfo::Document::rebuild_document($document);
   $corrected_tree = $document->tree();
 
   if ($with_XS) {

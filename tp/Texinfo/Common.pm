@@ -45,6 +45,7 @@ use Locale::Messages;
 
 # FIXME do we really want XS in that file?  Move to
 # Structuring.pm?
+use Texinfo::DocumentXS;
 use Texinfo::StructTransf;
 
 use Texinfo::XSLoader;
@@ -90,7 +91,7 @@ my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
 
 our %XS_overrides = (
   "Texinfo::Common::set_document_options"
-    => "Texinfo::StructTransf::set_document_options",
+    => "Texinfo::DocumentXS::set_document_options",
   "Texinfo::Common::copy_tree"
     => "Texinfo::StructTransf::copy_tree",
   "Texinfo::Common::relate_index_entries_to_table_items_in_tree"

@@ -319,6 +319,23 @@ Parsetexi_la_CFLAGS = $(XSLIBS_CFLAGS)
 Parsetexi_la_LIBADD = libtexinfoxs.la libtexinfo.la
 Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 
+########################## Document XS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += DocumentXS.la
+endif
+
+DocumentXS_la_SOURCES = \
+                       main/DocumentXS.c
+
+EXTRA_DIST += main/DocumentXS.xs
+
+# locate include files under out-of-source builds.
+DocumentXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
+DocumentXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+
 ########################## Translations XS
 
 if HAVE_ICONV

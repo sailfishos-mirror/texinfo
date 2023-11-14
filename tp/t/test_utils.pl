@@ -65,6 +65,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Config;
 use Texinfo::Parser;
 use Texinfo::Convert::Text;
+use Texinfo::Document;
 use Texinfo::Structuring;
 use Texinfo::Convert::PlainTexinfo;
 use Texinfo::Translations;
@@ -1085,7 +1086,7 @@ sub test($$)
   }
   # could be in a if !$XS_structuring, but the function should not be
   # overriden already in that case
-  $document = Texinfo::Structuring::rebuild_document($document);
+  $document = Texinfo::Document::rebuild_document($document);
   # should not actually be useful, as the same element should be reused.
   $tree = $document->tree();
 
@@ -1093,7 +1094,7 @@ sub test($$)
     foreach my $error (@{$document->{'errors'}}) {
       $registrar->add_formatted_message($error);
     }
-    Texinfo::Structuring::clear_document_errors(
+    Texinfo::Document::clear_document_errors(
                                            $document->document_descriptor());
   }
 

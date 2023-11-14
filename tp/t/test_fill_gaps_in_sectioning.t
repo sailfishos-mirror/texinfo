@@ -9,8 +9,9 @@ BEGIN { plan tests => 6; }
 
 use Texinfo::Transformations;
 use Texinfo::Parser qw(parse_texi_text);
-use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
+use Texinfo::Structuring;
 
 ok(1, "modules loading");
 
@@ -42,7 +43,7 @@ sub test_correction($$$;$)
                                              $test_correct_level);
   }
 
-  $tree = Texinfo::Structuring::rebuild_tree($tree);
+  $tree = Texinfo::Document::rebuild_tree($tree);
   {
   local $Data::Dumper::Purity = 1;
   #local $Data::Dumper::Maxdepth = 2;

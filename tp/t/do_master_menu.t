@@ -10,6 +10,7 @@ BEGIN { plan tests => 5; }
 use Texinfo::Parser;
 use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
 use Texinfo::Structuring;
 
 use Data::Dumper;
@@ -127,7 +128,7 @@ my $document = $parser->parse_texi_piece($in_detailmenu);
 my $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
-$document = Texinfo::Structuring::rebuild_document($document);
+$document = Texinfo::Document::rebuild_document($document);
 my $identifier_target = $document->labels_information();
 my $top_node = $identifier_target->{'Top'};
 # FIXME does not test XS
@@ -176,7 +177,7 @@ $document = $parser->parse_texi_piece($no_detailmenu);
 $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
-$document = Texinfo::Structuring::rebuild_document($document);
+$document = Texinfo::Document::rebuild_document($document);
 $identifier_target = $document->labels_information();
 $top_node = $identifier_target->{'Top'};
 # FIXME does not test XS
@@ -192,7 +193,7 @@ $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
-$document = Texinfo::Structuring::rebuild_document($document);
+$document = Texinfo::Document::rebuild_document($document);
 my $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -206,7 +207,7 @@ $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
-$document = Texinfo::Structuring::rebuild_document($document);
+$document = Texinfo::Document::rebuild_document($document);
 $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
