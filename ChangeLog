@@ -1,3 +1,13 @@
+2023-11-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/command_data.txt
+	(item_LINE, itemx, defblock, defline, deftypeline):
+	Remove contain_basic_inline flag.  There is no reason an @anchor
+	should not occur inside @item, inside @table, or the other
+	commands, as no index entry is being created with the @anchor.
+
+	Report from Ihor Radchenko <yantar92@posteo.net> for Org mode manual.
+
 2023-11-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Translations.pm (import), tp/Texinfo/XS/Makefile.am,
