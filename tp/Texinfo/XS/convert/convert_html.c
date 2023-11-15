@@ -117,7 +117,9 @@ CMD_VARIETY command_special_unit_variety[] = {
 #define HF_format_context       0x0002
 #define HF_format_raw           0x0004
 #define HF_pre_class            0x0008
-#define HF_upper_case           0x0010
+/*
+#define HF_           0x0010
+ */
 #define HF_HTML_align           0x0020
 #define HF_special_variety      0x0040
 
@@ -2651,8 +2653,6 @@ html_format_init ()
     }
 
   html_commands_data[CM_float].flags |= HF_composition_context;
-
-  html_commands_data[CM_sc].flags |= HF_upper_case;
 }
 
 /* most of the initialization is done by html_converter_initialize_sv
@@ -2704,8 +2704,6 @@ html_converter_initialize (CONVERTER *self)
       self->command_special_variety_name_index[i].cmd = cmd;
       self->command_special_variety_name_index[i].index = number - 1;
     }
-
-
 }
 
 void
@@ -3510,7 +3508,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
               push_style_no_code (&top_document_ctx->monospace);
               self->modified_state |= HMSF_monospace;
             }
-          else if (html_commands_data[data_cmd].flags & HF_upper_case)
+          else if (self->upper_case[cmd])
             {
               top_formating_ctx->upper_case_ctx++;
               self->modified_state |= HMSF_top_formatting_context;
@@ -3799,7 +3797,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
               pop_monospace_context (&top_document_ctx->monospace);
               self->modified_state |= HMSF_monospace;
             }
-          else if (html_commands_data[data_cmd].flags & HF_upper_case)
+          else if (self->upper_case[cmd])
             {
               top_formating_ctx->upper_case_ctx--;
               self->modified_state |= HMSF_top_formatting_context;

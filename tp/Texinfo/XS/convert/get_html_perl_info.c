@@ -149,6 +149,7 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **commands_conversion_sv;
   SV **output_units_conversion_sv;
   SV **code_types_sv;
+  SV **upper_case_commands_sv;
   SV **pre_class_types_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
@@ -515,6 +516,34 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
+  FETCH(upper_case_commands)
+
+  if (upper_case_commands_sv)
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *upper_case_commands_hv = (HV *)SvRV (*upper_case_commands_sv);
+
+      hv_number = hv_iterinit (upper_case_commands_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          I32 retlen;
+          char *cmdname;
+          SV *upper_case_sv = hv_iternextsv (upper_case_commands_hv,
+                                             &cmdname, &retlen);
+          if (SvOK (upper_case_sv))
+            {
+              int upper_case_value = SvIV (upper_case_sv);
+              enum command_id cmd = lookup_builtin_command (cmdname);
+              if (!cmd)
+                fprintf (stderr, "ERROR: %s: no upper-case command\n", cmdname);
+              else
+                converter->upper_case[cmd] = upper_case_value;
+           }
+       }
+   }
 
   FETCH(no_arg_commands_formatting)
 

@@ -425,6 +425,7 @@ my $GNUT_commands_open = {};
 my $GNUT_output_units_conversion = {};
 my $GNUT_types_conversion = {};
 my $GNUT_types_open = {};
+my $GNUT_upper_case_commands = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
 my $GNUT_accent_command_formatting_info = {};
@@ -584,7 +585,8 @@ _GNUT_initialize_special_unit_info();
 
 # $translated_converted_string is supposed to be already formatted.
 # It may also be relevant to be able to pass a 'tree'
-# directly (it is actually handled by the converter code).
+# directly (it is actually handled by the converter code in perl, probably
+# not with XS).
 sub texinfo_register_no_arg_command_formatting($$;$$$$)
 {
   my $command = shift;
@@ -687,6 +689,25 @@ sub GNUT_get_style_command_formatting($;$)
     return $GNUT_style_commands_formatting_info->{$context}->{$command};
   }
   return undef;
+}
+
+# called from init files
+sub texinfo_register_upper_case_command($$)
+{
+  my $command = shift;
+  my $value = shift;
+
+  if ($value) {
+    $GNUT_upper_case_commands->{$command} = 1;
+  } else {
+    $GNUT_upper_case_commands->{$command} = 0;
+  }
+}
+
+# called from the Converter
+sub GNUT_get_upper_case_commands_info()
+{
+  return $GNUT_upper_case_commands;
 }
 
 # called from init files
@@ -793,6 +814,7 @@ sub GNUT_reinitialize_init_files()
   foreach my $reference ($init_files_options,
      $GNUT_file_id_setting_references,
      $GNUT_formatting_references, $GNUT_formatting_special_unit_body,
+     $GNUT_upper_case_commands,
      $GNUT_commands_conversion, $GNUT_commands_open, $GNUT_types_conversion,
      $GNUT_types_open, $GNUT_accent_command_formatting_info,
      $GNUT_types_formatting_info, $GNUT_direction_string_info) {

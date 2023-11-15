@@ -209,9 +209,6 @@ foreach my $block_command (keys(%block_commands)) {
     if ($block_commands{$block_command} eq 'format_raw');
 }
 
-# FIXME allow customization? (also in DocBook)
-my %upper_case_commands = ( 'sc' => 1 );
-
 
 # API for html formatting
 
@@ -2889,6 +2886,8 @@ my %quoted_style_commands;
 foreach my $quoted_command ('samp') {
   $quoted_style_commands{$quoted_command} = 1;
 }
+
+my %default_upper_case_commands = ( 'sc' => 1 );
 
 my %style_commands_element = (
       'b'           => 'b',
@@ -8238,6 +8237,19 @@ sub converter_initialize($)
      = $customized_type_formatting->{$type}->{'pre_class'};
   }
 
+  $self->{'upper_case_commands'} = {};
+  foreach my $command (keys(%default_upper_case_commands)) {
+    $self->{'upper_case_commands'}->{$command}
+     = $default_upper_case_commands{$command};
+  }
+  my $customized_upper_case_commands
+    = Texinfo::Config::GNUT_get_upper_case_commands_info();
+  foreach my $command (keys(%$customized_upper_case_commands)) {
+    $self->{'upper_case_commands'}->{$command}
+      = $customized_upper_case_commands->{$command};
+  }
+
+
   $self->{'commands_conversion'} = {};
   my $customized_commands_conversion
      = Texinfo::Config::GNUT_get_commands_conversion();
@@ -12183,7 +12195,7 @@ sub _convert($$;$)
       } elsif ($brace_commands{$command_name}
                and $brace_commands{$command_name} eq 'style_no_code') {
         push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
-      } elsif ($upper_case_commands{$command_name}) {
+      } elsif ($self->{'upper_case_commands'}->{$command_name}) {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                              ->{'upper_case'}++;
       } elsif ($math_commands{$command_name}) {
@@ -12315,7 +12327,7 @@ sub _convert($$;$)
               and $brace_commands{$command_name} eq 'style_no_code')
           or $brace_code_commands{$command_name}) {
         pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-      } elsif ($upper_case_commands{$command_name}) {
+      } elsif ($self->{'upper_case_commands'}->{$command_name}) {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                         ->{'upper_case'}--;
       } elsif ($math_commands{$command_name}) {

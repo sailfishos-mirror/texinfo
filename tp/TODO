@@ -10,6 +10,8 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+     'span.sc'            => 'font-variant: small-caps',
+
 check $(native_tools) variable in Makefile.am does not seems to be
 set and seems useless.
 

@@ -364,6 +364,7 @@ typedef struct CONVERTER {
     COMMAND_ID_LIST no_arg_formatted_cmd;
     int code_types[ET_special_unit_element+1];
     char *pre_class_types[ET_special_unit_element+1];
+    int upper_case[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE
        formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE
