@@ -636,7 +636,7 @@ xspara__add_next (TEXT *result, char *word, int word_len,
                        after_punctuation_characters, *p))
             {
               char32_t wc;
-              u8_mbtouc (&wc, p, len);
+              u8_mbtouc (&wc, (uint8_t *) p, len);
               state.last_letter = wc;
               break;
             }
@@ -673,7 +673,7 @@ xspara__add_next (TEXT *result, char *word, int word_len,
                   continue;
                 }
 
-              char_len = u8_mbtouc (&w, p, left);
+              char_len = u8_mbtouc (&w, (uint8_t *) p, left);
               if (char_len == (size_t) -2) {
                 /* unfinished multibyte character */
                 char_len = left;
@@ -796,7 +796,7 @@ TEXT
 xspara_add_text (char *text, int len)
 {
   char *p = text, *q = 0;
-  char32_t wc, wc_fw;
+  char32_t wc_fw = (char32_t) '0';
   size_t next_len = 0;
   int width;
   static TEXT result;
@@ -859,7 +859,8 @@ xspara_add_text (char *text, int len)
             }
           else
             {
-              next_len = u8_mbtouc (&wc, q, len);
+              char32_t wc;
+              next_len = u8_mbtouc (&wc, (uint8_t *) q, len);
 
               if ((long) next_len == 0)
                 break; /* Null character. Shouldn't happen. */
