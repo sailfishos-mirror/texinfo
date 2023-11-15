@@ -11024,8 +11024,8 @@ sub _initialize_output_state($$)
 
   # targets and directions
 
-  # used for diverse elements: tree units, indices, footnotes, special
-  # elements, contents elements...
+  # used for diverse tree elements: nodes and sectioning commands, indices,
+  # footnotes, special output units elements...
   $self->{'targets'} = {};
   $self->{'seen_ids'} = {};
 
@@ -11561,7 +11561,7 @@ sub _html_convert_output($$$$$$$$)
 
 # Main function for outputting a manual in HTML.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
-# module), and $DOCUMENT is the Texinfo parsed document from the parser.
+# module), and $DOCUMENT is the parsed document from the parser and structuring
 sub output($$)
 {
   my $self = shift;

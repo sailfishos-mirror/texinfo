@@ -102,8 +102,8 @@ register_formatting_reference_with_default (char *type_string,
         formatting_reference->status = FRS_status_ignored;
     }
    /*
-  fprintf (stderr, "register: %s %d '%s'\n", type_string,
-           formatting_reference->status, ref_name);
+  fprintf (stderr, "register: %s %d '%s' %p\n", type_string,
+           formatting_reference->status, ref_name, formatting_reference);
     */
 }
 

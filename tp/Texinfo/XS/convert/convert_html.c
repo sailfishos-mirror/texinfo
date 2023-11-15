@@ -2406,7 +2406,7 @@ protect_text_no_iso_entities (const char *text, TEXT *result)
 #undef ADDN
 
 static char *
-command_conversion (CONVERTER *self, enum command_id cmd,
+command_conversion_external (CONVERTER *self, enum command_id cmd,
                     const ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
                     char *content)
 {
@@ -2420,7 +2420,7 @@ command_conversion (CONVERTER *self, enum command_id cmd,
    */
 
   FORMATTING_REFERENCE *formatting_reference
-    = &self->current_commands_conversion[cmd];
+    = self->current_commands_conversion_function[cmd]->formatting_reference;
 
   if (formatting_reference->status > 0)
     return call_commands_conversion (self, cmd, formatting_reference,
@@ -2439,14 +2439,11 @@ command_open (CONVERTER *self, enum command_id cmd, const ELEMENT *element)
 }
 
 static char *
-type_conversion (CONVERTER *self, enum element_type type,
-                 const ELEMENT *element, char *content)
+type_conversion_external (CONVERTER *self, enum element_type type,
+                          const ELEMENT *element, char *content)
 {
-  /* TODO call a C function if status is FRS_status_default_set
-     maybe putting function references in an array */
-
   FORMATTING_REFERENCE *formatting_reference
-    = &self->current_types_conversion[type];
+    = self->current_types_conversion_function[type]->formatting_reference;
 
   if (formatting_reference->status > 0)
     return call_types_conversion (self, type, formatting_reference,
@@ -2655,6 +2652,54 @@ html_format_init ()
   html_commands_data[CM_float].flags |= HF_composition_context;
 }
 
+TYPE_CONVERSION_FUNCTION *
+register_type_conversion_function (enum element_type type,
+                         FORMATTING_REFERENCE *formatting_reference)
+{
+  TYPE_CONVERSION_FUNCTION *result = 0;
+  if (formatting_reference->status > 0)
+    {
+      result = (TYPE_CONVERSION_FUNCTION *)
+        malloc (sizeof (TYPE_CONVERSION_FUNCTION));
+      result->status = formatting_reference->status;
+      if (formatting_reference->status != FRS_status_ignored)
+        {
+          result->type_conversion = &type_conversion_external;
+          result->formatting_reference = formatting_reference;
+        }
+      else
+        {
+          result->type_conversion = 0;
+          result->formatting_reference = 0;
+        }
+    }
+  return result;
+}
+
+COMMAND_CONVERSION_FUNCTION *
+register_command_conversion_function (enum command_id cmd,
+                         FORMATTING_REFERENCE *formatting_reference)
+{
+  COMMAND_CONVERSION_FUNCTION *result = 0;
+  if (formatting_reference->status > 0)
+    {
+       result = (COMMAND_CONVERSION_FUNCTION *)
+         malloc (sizeof (COMMAND_CONVERSION_FUNCTION));
+       result->status = formatting_reference->status;
+       if (formatting_reference->status != FRS_status_ignored)
+         {
+           result->command_conversion = &command_conversion_external;
+           result->formatting_reference = formatting_reference;
+         }
+       else
+         {
+           result->command_conversion = 0;
+           result->formatting_reference = 0;
+         }
+    }
+  return result;
+}
+
 /* most of the initialization is done by html_converter_initialize_sv
    in get_perl_info, the initialization that do not require information
    directly from perl data is done here.  This is called after information
@@ -2704,6 +2749,24 @@ html_converter_initialize (CONVERTER *self)
       self->command_special_variety_name_index[i].cmd = cmd;
       self->command_special_variety_name_index[i].index = number - 1;
     }
+
+  for (i = 0; i < ET_special_unit_element+1; i++)
+    {
+      self->type_conversion_function[i]
+        = register_type_conversion_function(i, &self->types_conversion[i]);
+      self->css_string_type_conversion_function[i]
+        = register_type_conversion_function(i,
+             &self->css_string_types_conversion[i]);
+    }
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      self->command_conversion_function[i]
+        = register_command_conversion_function(i, &self->commands_conversion[i]);
+      self->css_string_command_conversion_function[i]
+        = register_command_conversion_function(i,
+             &self->css_string_commands_conversion[i]);
+    }
 }
 
 void
@@ -2741,8 +2804,9 @@ html_initialize_output_state (CONVERTER *self, char *context)
 
 
   self->current_formatting_references = &self->formatting_references[0];
-  self->current_commands_conversion = &self->commands_conversion[0];
-  self->current_types_conversion = &self->types_conversion[0];
+  self->current_commands_conversion_function
+     = &self->command_conversion_function[0];
+  self->current_types_conversion_function = &self->type_conversion_function[0];
 
   /* FIXME now done through HTML _initialize_output_state, would need
      to readd when the HTML function is overriden
@@ -2879,6 +2943,18 @@ html_destroy (CONVERTER *self)
         }
     }
 
+  for (i = 0; i < ET_special_unit_element+1; i++)
+    {
+      free (self->type_conversion_function[i]);
+      free (self->css_string_type_conversion_function[i]);
+    }
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      free (self->command_conversion_function[i]);
+      free (self->css_string_command_conversion_function[i]);
+    }
+
   free (self->no_arg_formatted_cmd.list);
 
   free (self->no_arg_formatted_cmd_translated.list);
@@ -2962,17 +3038,17 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanat
 
   FORMATTING_REFERENCE *saved_formatting_references
      = self->current_formatting_references;
-  FORMATTING_REFERENCE *saved_commands_conversion
-     = self->current_commands_conversion;
-  FORMATTING_REFERENCE *saved_types_conversion
-     = self->current_types_conversion;
+  COMMAND_CONVERSION_FUNCTION **saved_commands_conversion_function
+     = self->current_commands_conversion_function;
+  TYPE_CONVERSION_FUNCTION **saved_types_conversion_function
+     = self->current_types_conversion_function;
 
   self->current_formatting_references
     = &self->css_string_formatting_references[0];
-  self->current_commands_conversion
-    = &self->css_string_commands_conversion[0];
-  self->current_types_conversion
-    = &self->css_string_types_conversion[0];
+  self->current_commands_conversion_function
+    = &self->css_string_command_conversion_function[0];
+  self->current_types_conversion_function
+    = &self->css_string_type_conversion_function[0];
 
   html_new_document_context (self, "css_string", 0, 0);
   top_document_ctx = html_top_document_context (self);
@@ -2983,8 +3059,9 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanat
   html_pop_document_context (self);
 
   self->current_formatting_references = saved_formatting_references;
-  self->current_commands_conversion = saved_commands_conversion;
-  self->current_types_conversion = saved_types_conversion;
+  self->current_commands_conversion_function
+    = saved_commands_conversion_function;
+  self->current_types_conversion_function = saved_types_conversion_function;
 
   return result;
 }
@@ -3358,9 +3435,13 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     }
 
   if ((element->type
-       && self->current_types_conversion[element->type].status == FRS_status_ignored)
+       && self->current_types_conversion_function[element->type]
+       && self->current_types_conversion_function[element->type]->status
+                                                         == FRS_status_ignored)
       || (cmd
-          && self->current_commands_conversion[cmd].status == FRS_status_ignored))
+          && self->current_commands_conversion_function[cmd]
+          && self->current_commands_conversion_function[cmd]->status
+                                                         == FRS_status_ignored))
     {
       if (self->conf->DEBUG > 0)
         {
@@ -3393,8 +3474,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         }
       else
         {
-          char *conv_text = type_conversion (self, ET_text, element,
-                                             element->text.text);
+          char *conv_text
+            = (*self->current_types_conversion_function[ET_text]->type_conversion)
+                           (self, ET_text, element, element->text.text);
           if (conv_text)
             {
               text_append (&text_result, conv_text);
@@ -3432,7 +3514,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           self->modified_state |= HMSF_current_root;
         }
 
-      if (self->current_commands_conversion[cmd].status)
+      if (self->current_commands_conversion_function[cmd])
         {
           int convert_to_latex = 0;
           HTML_ARGS_FORMATTED *args_formatted = 0;
@@ -3846,11 +3928,11 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             }
 
           /* args are formatted, now format the command itself */
-          if (self->current_commands_conversion[cmd].status)
+          if (self->current_commands_conversion_function[cmd])
             {
-              char *conv_str = command_conversion (self, cmd,
-                                                   element, args_formatted,
-                                                   content_formatted.text);
+              char *conv_str
+        = (*self->current_commands_conversion_function[cmd]->command_conversion)
+                   (self, cmd, element, args_formatted, content_formatted.text);
               if (conv_str)
                 {
                   ADD(conv_str);
@@ -3970,11 +4052,11 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             }
         }
 
-      if (self->current_types_conversion[type].status)
+      if (self->current_types_conversion_function[type])
         {
           char *conversion_result
-                    = type_conversion (self, type, element,
-                                       content_formatted.text);
+            = (*self->current_types_conversion_function[type]->type_conversion)
+               (self, type, element, content_formatted.text);
           if (conversion_result)
             {
               text_append (&type_result, conversion_result);
@@ -4048,11 +4130,12 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     {
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "UNNAMED empty\n");
-      if (self->current_types_conversion[0].status
-          && self->current_types_conversion[0].status != FRS_status_ignored)
+      if (self->current_types_conversion_function[0]
+          && self->current_types_conversion_function[0]->type_conversion)
         {
           char *conversion_result
-                    = type_conversion (self, 0, element, "");
+            = (*self->current_types_conversion_function[0]->type_conversion)
+                           (self, 0, element, "");
           if (conversion_result)
             {
               ADD(conversion_result);

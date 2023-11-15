@@ -134,6 +134,23 @@ enum html_formatting_reference {
   #undef html_fr_reference
 };
 
+#define HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE \
+  html_aft_type(none) \
+  html_aft_type(normal) \
+  html_aft_type(string) \
+  html_aft_type(monospace) \
+  html_aft_type(monospacetext) \
+  html_aft_type(monospacestring) \
+  html_aft_type(filenametext) \
+  html_aft_type(url) \
+  html_aft_type(raw)
+
+enum html_argument_formatting_type {
+   #define html_aft_type(name) AFT_type_##name,
+    HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
+   #undef html_aft_type
+};
+
 typedef struct {
     enum command_id *stack;
     size_t top;   /* One above last pushed command. */
@@ -378,7 +395,15 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
     STRING_LIST special_unit_varieties;
     char **special_unit_info[SUI_type_heading+1];
-
+    /* in the next line we use a pointer and not directly the structure
+       because the type is incomplete, the structure is defined after the
+       CONVERTER because it uses the CONVERTER in a function pointer
+       argument prototype, which does not seems to be possible with
+       incomplete types */
+    struct TYPE_CONVERSION_FUNCTION *type_conversion_function[ET_special_unit_element+1];
+    struct TYPE_CONVERSION_FUNCTION *css_string_type_conversion_function[ET_special_unit_element+1];
+    struct COMMAND_CONVERSION_FUNCTION *command_conversion_function[BUILTIN_CMD_NUMBER];
+    struct COMMAND_CONVERSION_FUNCTION *css_string_command_conversion_function[BUILTIN_CMD_NUMBER];
     /* set for a converter, modified in a document */
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
@@ -415,8 +440,8 @@ typedef struct CONVERTER {
     /* next three allow to switch from normal HTML formatting to css strings
        formatting */
     FORMATTING_REFERENCE *current_formatting_references;
-    FORMATTING_REFERENCE *current_commands_conversion;
-    FORMATTING_REFERENCE *current_types_conversion;
+    struct TYPE_CONVERSION_FUNCTION **current_types_conversion_function;
+    struct COMMAND_CONVERSION_FUNCTION **current_commands_conversion_function;
 
     /* state common with perl converter */
     int document_global_context;
@@ -428,6 +453,38 @@ typedef struct CONVERTER {
     STRING_STACK multiple_pass;
     char *current_filename;
 } CONVERTER;
+
+typedef struct TYPE_CONVERSION_FUNCTION {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    char * (* type_conversion) (CONVERTER *self, enum element_type type, const ELEMENT *element, char *content);
+} TYPE_CONVERSION_FUNCTION;
+
+typedef struct HTML_ARG_FORMATTED {
+    const ELEMENT *tree;
+    char *formatted[AFT_type_raw+1];
+} HTML_ARG_FORMATTED;
+
+typedef struct HTML_ARGS_FORMATTED {
+    size_t number;
+    HTML_ARG_FORMATTED *args;
+} HTML_ARGS_FORMATTED;
+
+typedef struct COMMAND_CONVERSION_FUNCTION {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    char * (* command_conversion) (CONVERTER *self, enum command_id cmd,
+                                   const ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
+                                   char *content);
+} COMMAND_CONVERSION_FUNCTION;
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {
     enum special_unit_info_tree tree_type;

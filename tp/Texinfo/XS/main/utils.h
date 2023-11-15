@@ -166,34 +166,7 @@ typedef struct FILE_SOURCE_INFO_LIST {
     FILE_SOURCE_INFO *list;
 } FILE_SOURCE_INFO_LIST;
 
-#define HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE \
-  html_aft_type(none) \
-  html_aft_type(normal) \
-  html_aft_type(string) \
-  html_aft_type(monospace) \
-  html_aft_type(monospacetext) \
-  html_aft_type(monospacestring) \
-  html_aft_type(filenametext) \
-  html_aft_type(url) \
-  html_aft_type(raw)
-
-enum html_argument_formatting_type {
-   #define html_aft_type(name) AFT_type_##name,
-    HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
-   #undef html_aft_type
-};
-
 extern const char *html_argument_formatting_type_names[];
-
-typedef struct HTML_ARG_FORMATTED {
-    const ELEMENT *tree;
-    char *formatted[AFT_type_raw+1];
-} HTML_ARG_FORMATTED;
-
-typedef struct HTML_ARGS_FORMATTED {
-    size_t number;
-    HTML_ARG_FORMATTED *args;
-} HTML_ARGS_FORMATTED;
 
 typedef struct ELEMENT_STACK {
     const ELEMENT **stack;

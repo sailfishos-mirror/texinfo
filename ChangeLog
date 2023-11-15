@@ -1,5 +1,22 @@
 2023-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.h, tp/Texinfo/XS/main/converter_types.h
+	(HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE, HTML_ARGS_FORMATTED)
+	(HTML_ARG_FORMATTED): move from utils.h to converter_types.h.
+
+	* tp/Texinfo/XS/convert/convert_html.c (command_conversion_external)
+	(type_conversion_external, register_type_conversion_function)
+	(register_command_conversion_function, html_converter_initialize)
+	(html_initialize_output_state, html_destroy, html_convert_css_string)
+	(convert_to_html_internal), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER, TYPE_CONVERSION_FUNCTION, COMMAND_CONVERSION_FUNCTION):
+	use directly function references to convert types and commands, in
+	order to be able to replace functions calling perl by C functions.
+	Rename type_conversion as type_conversion_external and
+	command_conversion as command_conversion_external.
+
+2023-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Simple Output Customization for Simple
 	Commands with Braces): fix example.
 
