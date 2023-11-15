@@ -164,6 +164,12 @@
 # endif
 #endif
 
+#define _obstack_begin rpl_obstack_begin
+#define _obstack_newchunk rpl_obstack_newchunk
+#define _obstack_allocated_p rpl_obstack_allocated_p
+#define _obstack_free rpl_obstack_free
+#define _obstack_memory_used rpl_obstack_memory_used
+
 #ifdef __cplusplus
 extern "C" {
 #endif

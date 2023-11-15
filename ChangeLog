@@ -1,3 +1,12 @@
+2023-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Further obstack alignment fix for sparc64
+
+	* tp/Texinfo/XS/gnulib/lib/obstack.h: Add defines using rpl_
+	prefix for gnulib functions.  Investigation and fix by Bruno Haible.
+
+	* tp/Texinfo/XS/parsetexi/tree.c: Revert change from 2023-11-13.
+
 2023-11-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/command_data.txt

@@ -43,12 +43,7 @@ reset_obstacks (void)
   if (obs_element_first)
     obstack_free (&obs_element, obs_element_first);
   else
-    {
-      /* Specify 8-byte alignment.  Needed for SPARC. */
-      obstack_alignment_mask (&obs_element) = 7;
-
-      obstack_init (&obs_element);
-    }
+    obstack_init (&obs_element);
 
   obs_element_first = obstack_alloc (&obs_element, sizeof (int));
 }
