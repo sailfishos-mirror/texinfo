@@ -36,10 +36,9 @@ void push_string_stack_string (STRING_STACK *stack, char *string);
 void pop_string_stack (STRING_STACK *stack);
 char *top_string_stack (STRING_STACK *stack);
 
-void push_monospace (MONOSPACE_CONTEXT_STACK *stack);
-void push_style_no_code (MONOSPACE_CONTEXT_STACK *stack);
-enum monospace_context pop_monospace_context (MONOSPACE_CONTEXT_STACK *stack);
-enum monospace_context top_monospace_context (MONOSPACE_CONTEXT_STACK *stack);
+void push_integer_stack_integer (INTEGER_STACK *stack, int value);
+int pop_integer_stack (INTEGER_STACK *stack);
+int top_integer_stack (INTEGER_STACK *stack);
 
 HTML_DOCUMENT_CONTEXT *html_top_document_context (CONVERTER *self);
 

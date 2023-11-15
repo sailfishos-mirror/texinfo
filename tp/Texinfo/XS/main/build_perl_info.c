@@ -1550,6 +1550,24 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
             newSViv (output_units_descriptor), 0);
 }
 
+AV *
+build_integer_stack (INTEGER_STACK *integer_stack)
+{
+  AV *av;
+  int i;
+
+  dTHX;
+
+  av = newAV ();
+
+  for (i = 0; i < integer_stack->top; i++)
+    {
+      int value = integer_stack->stack[i];
+      av_push (av, newSViv (value));
+    }
+  return av;
+}
+
 SV *
 build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {

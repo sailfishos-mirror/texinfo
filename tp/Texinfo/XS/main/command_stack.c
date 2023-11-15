@@ -152,48 +152,35 @@ top_string_stack (STRING_STACK *stack)
 }
 
 
-/* stack of monospace contexts */
-static void
-push_monospace_context (MONOSPACE_CONTEXT_STACK *stack,
-                        enum monospace_context mono_ctx)
+/* stack of integers */
+void
+push_integer_stack_integer (INTEGER_STACK *stack, int value)
 {
   if (stack->top >= stack->space)
     {
       stack->stack
         = realloc (stack->stack,
-                   (stack->space += 5) * sizeof (enum monospace_context));
+                   (stack->space += 5) * sizeof (int));
     }
 
-  stack->stack[stack->top] = mono_ctx;
+  stack->stack[stack->top] = value;
   stack->top++;
 }
 
-void
-push_monospace (MONOSPACE_CONTEXT_STACK *stack)
-{
-  push_monospace_context (stack, MONO_ctx_on);
-}
-
-void
-push_style_no_code (MONOSPACE_CONTEXT_STACK *stack)
-{
-  push_monospace_context (stack, MONO_ctx_off);
-}
-
-enum monospace_context
-pop_monospace_context (MONOSPACE_CONTEXT_STACK *stack)
+int
+pop_integer_stack (INTEGER_STACK *stack)
 {
   if (stack->top == 0)
-    fatal ("monospace stack empty for top");
+    fatal ("integer stack empty for top");
 
   return stack->stack[--stack->top];
 }
 
-enum monospace_context
-top_monospace_context (MONOSPACE_CONTEXT_STACK *stack)
+int
+top_integer_context (INTEGER_STACK *stack)
 {
   if (stack->top == 0)
-    fatal ("monospace stack empty for top");
+    fatal ("integer stack empty for top");
 
   return stack->stack[stack->top - 1];
 }

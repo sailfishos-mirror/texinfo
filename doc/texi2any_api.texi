@@ -2678,10 +2678,20 @@ if ($converter->in_string()) @{
 Conversion and formatting functions should test if in preformatted
 context to convert accordingly. @xref{Init File Expansion Contexts}.
 
-To determine if in preformatted context, the functions is @code{in_preformatted}:
+To determine if in preformatted context, the functions is
+@code{in_preformatted_context}:
 
-@deftypefun {@var{$in_preformatted} =} @var{$converter}->in_preformatted ()
+@deftypefun {@var{$in_preformatted} =} @var{$converter}->in_preformatted_context ()
 Return true if in preformatted context.
+@end deftypefun
+
+Another function tells if within a preformatted command:
+@deftypefun {@var{$inside_preformatted} =} @var{$converter}->inside_preformatted ()
+Return true if within a preformatted block command such as
+@code{@@preformatted}, @code{@@format}.
+
+It is not exactly the same as preformatted context, for instance menu comments
+are in preformatted context even if not in a preformatted block command.
 @end deftypefun
 
 If in preformatted context, it is possible to get preformatted @@-commands and
@@ -2708,7 +2718,8 @@ foreach my $pre_class (@@pre_classes) @{
 @}
 @end example
 
-@xref{Simple Customization of Containers} on customizing containers preformatted class.
+@xref{Simple Customization of Containers} on customizing containers
+preformatted class.
 
 
 @node Text Formatting Context

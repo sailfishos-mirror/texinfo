@@ -44,11 +44,6 @@ enum command_type_variety {
    CTV_type_type,
 };
 
-enum monospace_context {
-   MONO_ctx_off,
-   MONO_ctx_on,
-};
-
 #define HCC_CONTEXT_TYPES_LIST \
   cctx_type(normal) \
   cctx_type(preformatted) \
@@ -181,10 +176,10 @@ typedef struct {
 } STRING_STACK;
 
 typedef struct {
-    enum monospace_context *stack;
+    int *stack;
     size_t top;   /* One above last pushed. */
     size_t space;
-} MONOSPACE_CONTEXT_STACK;
+} INTEGER_STACK;
 
 typedef struct VARIETY_DIRECTION_INDEX {
     char *special_unit_variety;
@@ -337,8 +332,10 @@ typedef struct HTML_DOCUMENT_CONTEXT {
     int raw_ctx;
     int verbatim_ctx;
     int math_ctx;
+    int inside_preformatted;
     char *document_global_context;
-    MONOSPACE_CONTEXT_STACK monospace;
+    INTEGER_STACK monospace;
+    INTEGER_STACK preformatted_context;
     COMMAND_OR_TYPE_STACK composition_context;
     COMMAND_STACK block_commands;
     HTML_FORMATTING_CONTEXT_STACK formatting_context;

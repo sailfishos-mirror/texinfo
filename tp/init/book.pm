@@ -411,7 +411,7 @@ sub book_convert_heading_command($$$$$)
 
     my $heading_class = $level_corrected_cmdname;
     unshift @heading_classes, $heading_class;
-    if ($self->in_preformatted()) {
+    if ($self->in_preformatted_context()) {
       my $id_str = '';
       if (defined($heading_id)) {
         $id_str = " id=\"$heading_id\"";

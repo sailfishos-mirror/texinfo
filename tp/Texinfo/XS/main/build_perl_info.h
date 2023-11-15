@@ -39,6 +39,8 @@ SV *build_output_units_list (size_t output_units_descriptor);
 void rebuild_output_units_list (SV *output_units_sv,
                                 size_t output_units_descriptor);
 
+AV *build_integer_stack (INTEGER_STACK *integer_stack);
+
 void pass_output_unit_files (SV *converter_sv,
                         FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 

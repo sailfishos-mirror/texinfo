@@ -454,18 +454,36 @@ html_pgdt_tree (const char *translation_context, const char *string,
                         translation_context, in_lang);
 }
 
-int in_code (CONVERTER *self)
+int
+in_code (CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
-  return top_monospace_context (&top_document_ctx->monospace);
+  return top_integer_stack (&top_document_ctx->monospace);
 }
 
-int in_math (CONVERTER *self)
+int
+in_math (CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
   return top_document_ctx->math_ctx;
+}
+
+int
+in_preformatted_context (CONVERTER *self)
+{    
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;               
+  top_document_ctx = html_top_document_context (self);
+  return top_integer_stack (&top_document_ctx->preformatted_context);
+}
+
+int
+inside_preformatted (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  top_document_ctx = html_top_document_context (self);
+  return top_document_ctx->inside_preformatted;
 }
 
 int
@@ -2579,7 +2597,8 @@ html_new_document_context (CONVERTER *self,
   doc_context->context = strdup (context_name);
   doc_context->document_global_context = document_global_context;
 
-  push_style_no_code (&doc_context->monospace);
+  push_integer_stack_integer (&doc_context->monospace, 0);
+  push_integer_stack_integer (&doc_context->preformatted_context, 0);
   push_command_or_type (&doc_context->composition_context, 0, 0);
   if (block_command)
     push_command (&doc_context->block_commands, block_command);
@@ -2616,6 +2635,7 @@ html_pop_document_context (CONVERTER *self)
 
   free (document_ctx->context);
   free (document_ctx->monospace.stack);
+  free (document_ctx->preformatted_context.stack);
   free (document_ctx->composition_context.stack);
   free (document_ctx->preformatted_classes.stack);
   if (document_ctx->block_commands.top > 0)
@@ -3224,9 +3244,14 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       /* should not be needed for at commands no brace translation strings */
           push_string_stack_string (&top_document_ctx->preformatted_classes,
                               html_commands_data[preformated_cmd].pre_class);
+          push_integer_stack_integer (&top_document_ctx->preformatted_context,
+                                      1);
+          top_document_ctx->inside_preformatted++;
 
           translation_result = html_convert_tree (self, translated_tree,
                                                   explanation);
+          top_document_ctx->inside_preformatted--;
+          pop_integer_stack (&top_document_ctx->preformatted_context);
           pop_command_or_type (&top_document_ctx->composition_context);
           pop_string_stack (&top_document_ctx->preformatted_classes);
           html_pop_document_context (self);
@@ -3599,6 +3624,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       if (self->current_commands_conversion_function[cmd])
         {
           int convert_to_latex = 0;
+          int preformatted = 0;
           HTML_ARGS_FORMATTED *args_formatted = 0;
           TEXT content_formatted;
 
@@ -3635,18 +3661,28 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
               self->modified_state |= HMSF_block_commands;
             }
 
-          if (html_commands_data[data_cmd].flags & HF_composition_context)
-            {
-              push_command_or_type (&top_document_ctx->composition_context,
-                                    cmd, 0);
-              self->modified_state |= HMSF_composition_context;
-            }
-
           if (html_commands_data[data_cmd].flags & HF_pre_class)
             {
               push_string_stack_string (&top_document_ctx->preformatted_classes,
                                         html_commands_data[data_cmd].pre_class);
               self->modified_state |= HMSF_preformatted_classes;
+              if (builtin_command_data[data_cmd].flags & CF_preformatted)
+                {
+                  preformatted = 1;
+                  top_document_ctx->inside_preformatted++;
+                }
+              else if (builtin_command_data[data_cmd].data == BLOCK_menu
+                       && top_document_ctx->inside_preformatted)
+                preformatted = 1;
+            }
+
+          if (html_commands_data[data_cmd].flags & HF_composition_context)
+            {
+              push_command_or_type (&top_document_ctx->composition_context,
+                                    cmd, 0);
+              push_integer_stack_integer (&top_document_ctx->preformatted_context,
+                                        preformatted);
+              self->modified_state |= HMSF_composition_context;
             }
 
           if (html_commands_data[data_cmd].flags & HF_format_raw)
@@ -3663,13 +3699,13 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           if (builtin_command_data[data_cmd].other_flags & CF_brace_code
               || builtin_command_data[data_cmd].flags & CF_preformatted_code)
             {
-              push_monospace (&top_document_ctx->monospace);
+              push_integer_stack_integer (&top_document_ctx->monospace, 1);
               self->modified_state |= HMSF_monospace;
             }
           else if (builtin_command_data[data_cmd].flags & CF_brace
                    && builtin_command_data[data_cmd].data == BRACE_style_no_code)
             {
-              push_style_no_code (&top_document_ctx->monospace);
+              push_integer_stack_integer (&top_document_ctx->monospace, 0);
               self->modified_state |= HMSF_monospace;
             }
           else if (self->upper_case[cmd])
@@ -3810,12 +3846,13 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                           text_reset (&formatted_arg);
                           xasprintf (&explanation, "%s A[%d]monospace",
                                                    command_type.text, arg_idx);
-                          push_monospace (&top_document_ctx->monospace);
+                          push_integer_stack_integer (
+                                          &top_document_ctx->monospace, 1);
                           self->modified_state |= HMSF_monospace;
 
                           convert_to_html_internal (self, arg, &formatted_arg,
                                                     explanation);
-                          pop_monospace_context
+                          pop_integer_stack
                               (&top_document_ctx->monospace);
                           self->modified_state |= HMSF_monospace;
 
@@ -3852,14 +3889,15 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                                                      0, 0);
                           string_document_ctx = html_top_document_context (self);
                           string_document_ctx->string_ctx++;
-                          push_monospace (&string_document_ctx->monospace);
+                          push_integer_stack_integer (
+                               &string_document_ctx->monospace, 1);
                           xasprintf (&explanation, "%s A[%d]monospacestring",
                                                    command_type.text, arg_idx);
                           convert_to_html_internal (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
-                          pop_monospace_context
+                          pop_integer_stack
                               (&string_document_ctx->monospace);
                           html_pop_document_context (self);
                           arg_formatted->formatted[AFT_type_monospacestring]
@@ -3933,12 +3971,15 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           if (html_commands_data[data_cmd].flags & HF_composition_context)
             {
               pop_command_or_type (&top_document_ctx->composition_context);
+              pop_integer_stack (&top_document_ctx->preformatted_context);
               self->modified_state |= HMSF_composition_context;
             }
 
           if (html_commands_data[data_cmd].flags & HF_pre_class)
             {
               pop_string_stack (&top_document_ctx->preformatted_classes);
+              if (builtin_command_data[data_cmd].flags & CF_preformatted)
+                top_document_ctx->inside_preformatted--;
               self->modified_state |= HMSF_preformatted_classes;
             }
 
@@ -3958,7 +3999,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                   && builtin_command_data[data_cmd].data == BRACE_style_no_code)
               || builtin_command_data[data_cmd].other_flags & CF_brace_code)
             {
-              pop_monospace_context (&top_document_ctx->monospace);
+              pop_integer_stack (&top_document_ctx->monospace);
               self->modified_state |= HMSF_monospace;
             }
           else if (self->upper_case[cmd])
@@ -4091,13 +4132,14 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                                     self->pre_class_types[type]);
           push_command_or_type (&top_document_ctx->composition_context,
                                 0, type);
+          push_integer_stack_integer (&top_document_ctx->preformatted_context, 1);
           self->modified_state |= HMSF_preformatted_classes
                                   | HMSF_composition_context;
         }
 
       if (self->code_types[type])
         {
-          push_monospace (&top_document_ctx->monospace);
+          push_integer_stack_integer (&top_document_ctx->monospace, 1);
           self->modified_state |= HMSF_monospace;
         }
 
@@ -4153,7 +4195,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
       if (self->code_types[type])
         {
-          pop_monospace_context (&top_document_ctx->monospace);
+          pop_integer_stack (&top_document_ctx->monospace);
           self->modified_state |= HMSF_monospace;
         }
 
@@ -4167,6 +4209,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         {
           pop_string_stack (&top_document_ctx->preformatted_classes);
           pop_command_or_type (&top_document_ctx->composition_context);
+          pop_integer_stack (&top_document_ctx->preformatted_context);
           self->modified_state |= HMSF_preformatted_classes
                                   | HMSF_composition_context;
         }

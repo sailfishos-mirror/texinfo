@@ -25,7 +25,7 @@
 # and formatted content, such that users can overrides them independently
 # without risking unwanted results.  Also in formatting functions, the state of
 # the converter should only be accessed through functions, such as in_math,
-# in_preformatted, preformatted_classes_stack and similar functions.
+# in_preformatted_context, preformatted_classes_stack and similar functions.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
@@ -542,19 +542,16 @@ sub in_math($)
 }
 
 # set if in menu or preformatted command
-sub in_preformatted($)
+sub in_preformatted_context($)
 {
   my $self = shift;
-  my $context = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
-  if ($preformatted_commands{$context}
-      or $self->{'pre_class_types'}->{$context}
-      or ($block_commands{$context}
-          and $block_commands{$context} eq 'menu'
-          and $self->_in_preformatted_in_menu())) {
-    return $context;
-  } else {
-    return undef;
-  }
+  return $self->{'document_context'}->[-1]->{'preformatted_context'}->[-1];
+}
+
+sub inside_preformatted($)
+{
+  my $self = shift;
+  return $self->{'document_context'}->[-1]->{'inside_preformatted'};
 }
 
 sub in_upper_case($)
@@ -2803,7 +2800,7 @@ sub _convert_no_arg_command($$$)
   if ($cmdname eq 'click' and $command->{'extra'}
       and exists($command->{'extra'}->{'clickstyle'})) {
     my $click_cmdname = $command->{'extra'}->{'clickstyle'};
-    if (($self->in_preformatted() or $self->in_math()
+    if (($self->in_preformatted_context() or $self->in_math()
          and $self->{'no_arg_commands_formatting'}->{$click_cmdname}
                                                         ->{'preformatted'})
         or ($self->in_string() and
@@ -2819,7 +2816,7 @@ sub _convert_no_arg_command($$$)
 
   my $result;
 
-  if ($self->in_preformatted() or $self->in_math()) {
+  if ($self->in_preformatted_context() or $self->in_math()) {
     $result = $self->_text_element_conversion(
       $self->{'no_arg_commands_formatting'}->{$cmdname}->{'preformatted'},
       $cmdname);
@@ -3007,7 +3004,7 @@ sub _convert_style_command($$$$)
     my $style_formatting
        = $self->{'style_commands_formatting'}->{$style_cmdname};
     my $formatting_spec;
-    if ($self->in_preformatted()) {
+    if ($self->in_preformatted_context()) {
       $formatting_spec = $style_formatting->{'preformatted'};
     } else {
       $formatting_spec = $style_formatting->{'normal'};
@@ -3291,7 +3288,7 @@ sub _convert_footnote_command($$$$)
                     $self->get_info('current_filename'), $multi_expanded_region);
 
   my $footnote_number_text;
-  if ($self->in_preformatted()) {
+  if ($self->in_preformatted_context()) {
     $footnote_number_text = "($number_in_doc)";
   } else {
     $footnote_number_text = "<sup>$number_in_doc</sup>";
@@ -4463,7 +4460,7 @@ sub _convert_heading_command($$$$$)
 
     my $heading_class = $level_corrected_cmdname;
     unshift @heading_classes, $heading_class;
-    if ($self->in_preformatted()) {
+    if ($self->in_preformatted_context()) {
       my $id_str = '';
       if (defined($heading_id)) {
         $id_str = " id=\"$heading_id\"";
@@ -4768,7 +4765,7 @@ sub _convert_sp_command($$$$)
       and defined($command->{'extra'}->{'misc_args'})
       and defined($command->{'extra'}->{'misc_args'}->[0])) {
     my $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
-    if ($self->in_preformatted() or $self->in_string()) {
+    if ($self->in_preformatted_context() or $self->in_string()) {
       return "\n" x $sp_nr;
     } else {
       return ($self->get_info('line_break_element')."\n") x $sp_nr;
@@ -4794,7 +4791,7 @@ sub _convert_exdent_command($$$$)
 
   # FIXME do something with CSS?  Currently nothing is defined for exdent
 
-  if ($self->in_preformatted()) {
+  if ($self->in_preformatted_context()) {
     return $self->html_attribute_class('pre', [$cmdname]).'>'.$arg ."\n</pre>";
   } else {
     return $self->html_attribute_class('p', [$cmdname]).'>'.$arg ."\n</p>";
@@ -4951,16 +4948,6 @@ sub _convert_listoffloats_command($$$$)
 }
 $default_commands_conversion{'listoffloats'} = \&_convert_listoffloats_command;
 
-sub _in_preformatted_in_menu($)
-{
-  my $self = shift;
-  my @pre_classes = $self->preformatted_classes_stack();
-  foreach my $pre_class (@pre_classes) {
-    return 1 if ($preformatted_commands{$pre_class});
-  }
-  return 0;
-}
-
 sub _convert_menu_command($$$$$)
 {
   my $self = shift;
@@ -4989,7 +4976,7 @@ sub _convert_menu_command($$$$$)
 
   my $begin_row = '';
   my $end_row = '';
-  if ($self->_in_preformatted_in_menu()) {
+  if ($self->inside_preformatted()) {
     $begin_row = '<tr><td>';
     $end_row = '</td></tr>';
   }
@@ -5341,7 +5328,7 @@ sub _convert_item_command($$$$$)
                                                 [$args->[0]->{'tree'}]);
       my $result = $self->convert_tree($table_item_tree,
                                        'convert table_item_tree');
-      if ($self->in_preformatted()) {
+      if ($self->in_preformatted_context()) {
         my @pre_classes = $self->preformatted_classes_stack();
         foreach my $pre_class (@pre_classes) {
           if ($preformatted_code_commands{$pre_class}) {
@@ -5503,7 +5490,7 @@ sub _convert_xref_commands($$$$)
         }
       } elsif (!$self->get_conf('XREF_USE_NODE_NAME_ARG')
                and (defined($self->get_conf('XREF_USE_NODE_NAME_ARG'))
-                    or !$self->in_preformatted())) {
+                    or !$self->in_preformatted_context())) {
         $name = $self->command_text($command, 'text_nonumber');
         #die "$command $command->{'normalized'}" if (!defined($name));
       } elsif (defined($args->[0]->{'monospace'})) {
@@ -6448,7 +6435,7 @@ sub _convert_preformatted_type($$$$)
   # environment where spaces and newlines are preserved.
   if ($element->{'parent'}->{'type'}
       and $element->{'parent'}->{'type'} eq 'menu_entry_description') {
-    if (!$self->_in_preformatted_in_menu()) {
+    if (!$self->inside_preformatted()) {
       # If not in preformatted block command,
       # we don't preserve spaces and newlines in menu_entry_description,
       # instead the whole menu_entry is in a table, so no <pre> in that situation
@@ -6507,7 +6494,7 @@ sub _convert_index_entry_command_type($$$$)
       and !$self->in_string()) {
     my $result = &{$self->formatting_function('format_separate_anchor')}($self,
                                                    $index_id, 'index-entry-id');
-    $result .= "\n" unless ($self->in_preformatted());
+    $result .= "\n" unless ($self->in_preformatted_context());
     return $result;
   }
   return '';
@@ -6607,7 +6594,7 @@ sub _convert_text($$$)
     }
   }
 
-  return $text if (in_preformatted($self));
+  return $text if (in_preformatted_context($self));
 
   # API info: in_non_breakable_space() API code conforming would be:
   #if ($self->in_non_breakable_space()) {
@@ -6839,7 +6826,7 @@ sub _convert_menu_entry_type($$$)
   my $MENU_ENTRY_COLON = $self->get_conf('MENU_ENTRY_COLON');
 
   my $in_string = $self->in_string();
-  if ($self->_in_preformatted_in_menu() or $in_string) {
+  if ($self->inside_preformatted() or $in_string) {
     my $leading_text = $menu_entry_leading_text->{'text'};
     $leading_text =~ s/\*/$MENU_SYMBOL/;
     my $result_name_node = $leading_text;
@@ -6975,7 +6962,7 @@ sub _convert_menu_comment_type($$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->_in_preformatted_in_menu() or $self->in_string()) {
+  if ($self->inside_preformatted() or $self->in_string()) {
     return $content;
   } else {
     return '<tr>'.$self->html_attribute_class('th', ['menu-comment'])
@@ -7601,6 +7588,8 @@ sub _new_document_context($$;$$)
           {'context' => $context,
            'formatting_context' => [{'context_name' => '_format'}],
            'composition_context' => [''],
+           'preformatted_context' => [0],
+           'inside_preformatted' => 0,
            'monospace' => [0],
            'document_global_context' => $document_global_context,
            'block_commands' => [],
@@ -7715,6 +7704,8 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
       $self->_new_document_context($context_str);
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
           $preformatted_command_name;
+      push @{$self->{'document_context'}->[-1]->{'preformatted_context'}}, 1;
+      $self->{'document_context'}->[-1]->{'inside_preformatted'}++;
       # should not be needed for at commands no brace translation strings
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
           $pre_class_commands{$preformatted_command_name};
@@ -12176,13 +12167,23 @@ sub _convert($$;$)
         push @{$self->{'document_context'}->[-1]->{'block_commands'}},
                                                           $command_name;
       }
-      if (exists ($composition_context_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-                                                               $command_name;
-      }
+      my $preformatted = 0;
       if ($pre_class_commands{$command_name}) {
         push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
           $pre_class_commands{$command_name};
+        if ($preformatted_commands{$command_name}) {
+          $self->{'document_context'}->[-1]->{'inside_preformatted'}++;
+          $preformatted = 1;
+        } elsif ($block_commands{$command_name} eq 'menu'
+                 and $self->{'document_context'}->[-1]->{'inside_preformatted'}) {
+          $preformatted = 1;
+        }
+      }
+      if (exists ($composition_context_commands{$command_name})) {
+        push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+                                                               $command_name;
+        push @{$self->{'document_context'}->[-1]->{'preformatted_context'}},
+             $preformatted;
       }
       if ($format_raw_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'raw'}++;
@@ -12318,9 +12319,13 @@ sub _convert($$;$)
       }
       if (exists ($composition_context_commands{$command_name})) {
         pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
+        pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
       }
       if ($pre_class_commands{$command_name}) {
         pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
+        if ($preformatted_commands{$command_name}) {
+          $self->{'document_context'}->[-1]->{'inside_preformatted'}--;
+        }
       }
       if ($preformatted_code_commands{$command_name}
           or ($brace_commands{$command_name}
@@ -12404,6 +12409,7 @@ sub _convert($$;$)
     } elsif ($self->{'pre_class_types'}->{$type_name}) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
         $self->{'pre_class_types'}->{$type_name};
+      push @{$self->{'document_context'}->[-1]->{'preformatted_context'}}, 1;
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
         $type_name;
     }
@@ -12446,6 +12452,7 @@ sub _convert($$;$)
     if ($self->{'pre_class_types'}->{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
+      pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
     }
     print STDERR "DO type ($type_name) => `$result'\n" if $debug;
     return $result;
