@@ -608,7 +608,7 @@ texinfo_register_style_command_formatting('sansserif', undef, 1,
 
 To output the formatted argument of @code{@@t} as is:
 @example
-foreach my $context ('normal', 'example', string') @{
+foreach my $context ('normal', 'preformatted', 'string') @{
   texinfo_register_style_command_formatting ('t', undef,
                                              undef, $context);
 @}

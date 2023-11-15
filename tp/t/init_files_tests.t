@@ -102,6 +102,8 @@ Text@footnote{In footnote}.
 @xref{my node}@footnote{in footnote}.
 @titlefont{in titlefont}
 @email{a@@b.c, someone}
+@sc{in Sc}
+@var{in var}
 
 @math{@sansserif{in--math} @- a=b @error{} @equiv{}}
 
@@ -125,6 +127,17 @@ Text@footnote{In footnote}.
 
 
 ',{'init_files' => ['documentation_examples.pm']},
+],
+['sc_formatting_with_css',
+'@settitle{In title @sc{my string} NEXT}
+
+@sc{in sc}. OUT.
+
+@example
+@sc{small case in example} MORE text.
+@end example
+
+',{'init_files' => ['sc_formatting_with_css.pm']},
 ],
 # tests translation in parser of def object type index entry, when already
 # in a translation (of the Next button).

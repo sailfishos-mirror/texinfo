@@ -45,6 +45,9 @@ texinfo_register_style_command_formatting('sansserif', 'code', 0, 'normal');
 texinfo_register_style_command_formatting('sansserif', 'code', 0, 'preformatted');
 texinfo_register_style_command_formatting('sansserif', undef, 1, 'string');
 
+texinfo_register_upper_case_command('sc', 0);
+texinfo_register_upper_case_command('var', 1);
+
 texinfo_register_accent_command_formatting('dotless', 'nodot', 'ij');
 
 my $shown_styles;

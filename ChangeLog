@@ -1,5 +1,16 @@
 2023-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Simple Output Customization for Simple
+	Commands with Braces): fix example.
+
+	* tp/init/documentation_examples.pm: new example for uppercase.
+
+	* tp/Makefile.tres, tp/t/init_files_tests.t (sc_formatting_with_css),
+	tp/init/sc_formatting_with_css.pm: example of init file to format
+	small caps with CSS.
+
+2023-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	Customization of uppercasing commands
 
 	* doc/texi2any_api.texi (Customization of Commands Converting to

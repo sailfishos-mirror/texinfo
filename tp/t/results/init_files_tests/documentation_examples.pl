@@ -455,6 +455,50 @@ $result_trees{'documentation_examples'} = {
             {
               'text' => '
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'in Sc'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'sc',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 14,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'in var'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'var',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 15,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+'
             }
           ],
           'type' => 'paragraph'
@@ -484,7 +528,7 @@ $result_trees{'documentation_examples'} = {
                       'cmdname' => 'sansserif',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
+                        'line_nr' => 17,
                         'macro' => ''
                       }
                     },
@@ -506,7 +550,7 @@ $result_trees{'documentation_examples'} = {
                       'cmdname' => 'error',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
+                        'line_nr' => 17,
                         'macro' => ''
                       }
                     },
@@ -522,7 +566,7 @@ $result_trees{'documentation_examples'} = {
                       'cmdname' => 'equiv',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
+                        'line_nr' => 17,
                         'macro' => ''
                       }
                     }
@@ -533,7 +577,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'math',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 17,
                 'macro' => ''
               }
             },
@@ -579,7 +623,7 @@ $result_trees{'documentation_examples'} = {
                   'cmdname' => 'sansserif',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => ''
                   }
                 },
@@ -601,7 +645,7 @@ $result_trees{'documentation_examples'} = {
                   'cmdname' => 'error',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => ''
                   }
                 },
@@ -617,7 +661,7 @@ $result_trees{'documentation_examples'} = {
                   'cmdname' => 'equiv',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => ''
                   }
                 },
@@ -656,14 +700,14 @@ $result_trees{'documentation_examples'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 21,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 19,
             'macro' => ''
           }
         },
@@ -700,7 +744,7 @@ $result_trees{'documentation_examples'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
+            'line_nr' => 23,
             'macro' => ''
           }
         },
@@ -720,7 +764,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -747,7 +791,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'equiv',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
+                'line_nr' => 27,
                 'macro' => ''
               }
             },
@@ -830,7 +874,7 @@ $result_trees{'documentation_examples'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 29,
+            'line_nr' => 31,
             'macro' => ''
           }
         },
@@ -850,7 +894,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
+                'line_nr' => 33,
                 'macro' => ''
               }
             },
@@ -877,7 +921,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'equiv',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
+                'line_nr' => 35,
                 'macro' => ''
               }
             },
@@ -910,7 +954,7 @@ $result_trees{'documentation_examples'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 27,
+        'line_nr' => 29,
         'macro' => ''
       }
     }
@@ -932,6 +976,8 @@ $result_texis{'documentation_examples'} = '
 @xref{my node}@footnote{in footnote}.
 @titlefont{in titlefont}
 @email{a@@b.c, someone}
+@sc{in Sc}
+@var{in var}
 
 @math{@sansserif{in--math} @- a=b @error{} @equiv{}}
 
@@ -968,6 +1014,8 @@ in-text  p-n. error--> ==
 my node.
 in titlefont
 someone
+IN SC
+in var
 
 in--math  a=b error--> ==
 
