@@ -31,6 +31,8 @@ enum formatting_reference_status {
                                      customization is the same as default) */
    FRS_status_customization_set,  /* customization is set, no default, or
                                      not the same as default */
+   FRS_status_internal,           /* formatting reference is not used, code in C
+                                     does the task */
    FRS_status_ignored,            /* explicitely ignored. Only used for
                                      types_conversion and commands_conversion
                                    */

@@ -1,5 +1,18 @@
 2023-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (TYPE_INTERNAL_CONVERSION)
+	(types_internal_conversion_table, convert_table_term_type)
+	(html_converter_initialize), tp/Texinfo/XS/main/converter_types.h
+	(enum formatting_reference_status): add
+	types_internal_conversion_table where type conversion implemented in C
+	is registered, use it to replace type_conversion function.
+	Implement convert_table_term_type as a type conversion function.
+
+	* tp/Texinfo/XS/convert/convert_html.c (in_code, in_math, in_raw)
+	(in_upper_case, in_verbatim): add.
+
+2023-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.h, tp/Texinfo/XS/main/converter_types.h
 	(HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE, HTML_ARGS_FORMATTED)
 	(HTML_ARG_FORMATTED): move from utils.h to converter_types.h.

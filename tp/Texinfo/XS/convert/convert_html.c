@@ -55,6 +55,11 @@ typedef struct CMD_VARIETY {
     char *variety;
 } CMD_VARIETY;
 
+typedef struct TYPE_INTERNAL_CONVERSION {
+    enum element_type type;
+    char * (* type_conversion) (CONVERTER *self, enum element_type type, const ELEMENT *element, char *content);
+} TYPE_INTERNAL_CONVERSION;
+
 char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
    HTML_GLOBAL_DIRECTIONS_LIST
@@ -449,6 +454,45 @@ html_pgdt_tree (const char *translation_context, const char *string,
                         translation_context, in_lang);
 }
 
+int in_code (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  top_document_ctx = html_top_document_context (self);
+  return top_monospace_context (&top_document_ctx->monospace);
+}
+
+int in_math (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  top_document_ctx = html_top_document_context (self);
+  return top_document_ctx->math_ctx;
+}
+
+int
+in_raw (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  top_document_ctx = html_top_document_context (self);
+  return top_document_ctx->raw_ctx;
+}
+
+int in_upper_case (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  HTML_FORMATTING_CONTEXT *top_formating_ctx;
+  top_document_ctx = html_top_document_context (self);
+  top_formating_ctx
+    = html_top_formatting_context (&top_document_ctx->formatting_context);
+  return top_formating_ctx->upper_case_ctx;
+}
+
+int
+in_verbatim (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  top_document_ctx = html_top_document_context (self);
+  return top_document_ctx->verbatim_ctx;
+}
 
 ELEMENT *
 special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
@@ -2405,6 +2449,29 @@ protect_text_no_iso_entities (const char *text, TEXT *result)
 }
 #undef ADDN
 
+char *
+convert_table_term_type (CONVERTER *self, enum element_type type,
+                        const ELEMENT *element, char *content)
+{
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  if (content)
+    {
+      text_append (&result, "<dt>");
+      text_append (&result, content);
+    }
+  return result.text;
+}
+
+/* associate type to the C function implementing the conversion */
+static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
+  {ET_table_term, &convert_table_term_type},
+  {0, 0},
+};
+
 static char *
 command_conversion_external (CONVERTER *self, enum command_id cmd,
                     const ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
@@ -2757,6 +2824,21 @@ html_converter_initialize (CONVERTER *self)
       self->css_string_type_conversion_function[i]
         = register_type_conversion_function(i,
              &self->css_string_types_conversion[i]);
+    }
+
+  for (i = 0; types_internal_conversion_table[i].type_conversion; i++)
+    {
+      enum element_type type = types_internal_conversion_table[i].type;
+      TYPE_CONVERSION_FUNCTION *type_conversion
+         = self->type_conversion_function[type];
+      if (type_conversion
+          && type_conversion->status == FRS_status_default_set)
+        {
+          type_conversion->formatting_reference = 0;
+          type_conversion->status = FRS_status_internal;
+          type_conversion->type_conversion
+              = types_internal_conversion_table[i].type_conversion;
+        }
     }
 
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
