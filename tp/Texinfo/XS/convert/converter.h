@@ -10,6 +10,20 @@
 /* for TARGET_FILENAME */
 #include "utils.h"
 
+#define OTXI_PROTECT_XML_CASES(var) \
+        case '<':           \
+          text_append_n(result, "&lt;", 4); var++; \
+          break;            \
+        case '>':           \
+          text_append_n (result, "&gt;", 4); var++; \
+          break;            \
+        case '&':           \
+          text_append_n (result, "&amp;", 5); var++; \
+          break;            \
+        case '"':           \
+          text_append_n (result, "&quot;", 6); var++; \
+          break;
+
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t register_converter (CONVERTER *converter);
 

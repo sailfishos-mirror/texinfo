@@ -589,7 +589,6 @@ void
 xml_format_text_with_numeric_entities (const char *text, TEXT *result)
 {
   const char *p;
-  int str_len;
 
   p = text;
   while (*p)
@@ -602,40 +601,56 @@ xml_format_text_with_numeric_entities (const char *text, TEXT *result)
         }
       if (!*p)
         break;
-      str_len = strlen (p);
-      if ((str_len > 1) && (!strncmp (p, "``", 2)))
+      switch (*p)
         {
-          ADD(8220);
-          p += 2;
-        }
-      else if ((str_len > 1) && (!strncmp (p, "''", 2)))
-        {
-          ADD(8221);
-          p += 2;
-        }
-      else if ((str_len > 2) && !strncmp (p, "---", 3))
-        {
-          ADD(8212);
-          p += 3;
-        }
-      else if ((str_len > 1) && !strncmp (p, "--", 2))
-        {
-          ADD(8211);
-          p += 2;
-        }
-      else
-        {
-          if (*p == '\'')
-            ADD(8217);
-          else if (*p == '`')
-            ADD(8216);
-          p++;
+        case '-':
+          if (*(p+1) && !memcmp (p, "---", 3))
+            {
+              ADD(8212);
+              p += 3;
+            }
+          else if (!memcmp (p, "--", 2))
+            {
+              ADD(8211);
+              p += 2;
+            }
+          else
+            {
+              text_append_n (result, "-", 1);
+              p++;
+            }
+          break;
+        case '`':
+          if (!memcmp (p, "``", 2))
+            {
+              ADD(8220);
+              p += 2;
+            }
+          else
+            {
+              ADD(8216);
+              p++;
+            }
+          break;
+        case '\'':
+          if (!memcmp (p, "''", 2))
+            {
+              ADD(8221);
+              p += 2;
+            }
+          else
+            {
+              ADD(8217);
+              p++;
+            }
+          break;
         }
     }
 }
 #undef ADD
 
-#define ADDN(str,nr) text_append_n (result, str, nr)
+
+
 void
 xml_protect_text (const char *text, TEXT *result)
 {
@@ -645,7 +660,7 @@ xml_protect_text (const char *text, TEXT *result)
 
   while (*p)
     {
-      int before_sep_nr = strcspn (p, "<>&\"\f");
+      int before_sep_nr = strcspn (p, "<>&\"");
       if (before_sep_nr)
         {
           text_append_n (result, p, before_sep_nr);
@@ -655,20 +670,10 @@ xml_protect_text (const char *text, TEXT *result)
         break;
       switch (*p)
         {
-        case '<':
-          ADDN("&lt;", 4);
-          break;
-        case '>':
-          ADDN("&gt;", 4);
-          break;
-        case '&':
-          ADDN("&amp;", 5);
-          break;
-        case '"':
-          ADDN("&quot;", 6);
-          break;
+        OTXI_PROTECT_XML_CASES(p);
+        /* should never happen */
+        default:
+         p++;
         }
-      p++;
     }
 }
-#undef ADDN

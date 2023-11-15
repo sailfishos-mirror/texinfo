@@ -1,12 +1,18 @@
-2023-11-14  Gavin Smith <gavinsmith0123@gmail.com>
+2023-11-15  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/command_data.txt
-	(item_LINE, itemx, defblock, defline, deftypeline):
-	Remove contain_basic_inline flag.  There is no reason an @anchor
-	should not occur inside @item, inside @table, or the other
-	commands, as no index entry is being created with the @anchor.
+	* tp/Texinfo/XS/convert/converter.h (OTXI_PROTECT_XML_CASES),
+	tp/Texinfo/XS/convert/converter.c
+	(xml_format_text_with_numeric_entities, xml_protect_text):
+	add code that can be inlined for the protection of XML special
+	characters as OTXI_PROTECT_XML_CASES.  Use in converter.c and base
+	code more on misc.c code with memcmp and case.
 
-	Report from Ihor Radchenko <yantar92@posteo.net> for Org mode manual.
+	* tp/Texinfo/XS/convert/convert_html.c
+	(OTXI_PROTECT_XML_FORM_FEED_CASES, html_default_format_protect_text)
+	(protect_text_use_iso_entities, protect_text_no_iso_entities):
+	setup OTXI_PROTECT_XML_FORM_FEED_CASES to be inlined for the
+	protection of XML special charcters and form feeds.  Implement
+	protect_text_use_iso_entities and html_default_format_protect_text.
 
 2023-11-14  Patrice Dumas  <pertusus@free.fr>
 
@@ -30,6 +36,16 @@
 
 	* tp/Texinfo/XS/convert/converter.c
 	(xml_format_text_with_numeric_entities, xml_protect_text): implement.
+
+2023-11-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/command_data.txt
+	(item_LINE, itemx, defblock, defline, deftypeline):
+	Remove contain_basic_inline flag.  There is no reason an @anchor
+	should not occur inside @item, inside @table, or the other
+	commands, as no index entry is being created with the @anchor.
+
+	Report from Ihor Radchenko <yantar92@posteo.net> for Org mode manual.
 
 2023-11-14  Patrice Dumas  <pertusus@free.fr>
 

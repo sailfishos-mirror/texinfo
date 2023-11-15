@@ -2220,7 +2220,12 @@ html_prepare_units_directions_files (CONVERTER *self,
 }
 
 
-#define ADDN(str,nr) text_append_n (result, str, nr)
+#define OTXI_PROTECT_XML_FORM_FEED_CASES(var) \
+        OTXI_PROTECT_XML_CASES(var) \
+        case '\f':          \
+          text_append_n (result, "&#12;", 5); var++; \
+          break;
+
 void
 html_default_format_protect_text (const char *text, TEXT *result)
 {
@@ -2238,25 +2243,12 @@ html_default_format_protect_text (const char *text, TEXT *result)
         break;
       switch (*p)
         {
-        case '<':
-          ADDN("&lt;", 4);
-          break;
-        case '>':
-          ADDN("&gt;", 4);
-          break;
-        case '&':
-          ADDN("&amp;", 5);
-          break;
-        case '"':
-          ADDN("&quot;", 6);
-          break;
-        case '\f':
-          ADDN("&#12;", 5);
-          break;
+        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
         }
-      p++;
     }
 }
+
+#define ADDN(str,nr) text_append_n (result, str, nr)
 
 void
 default_css_string_format_protect_text (const char *text, TEXT *result)
@@ -2286,6 +2278,129 @@ default_css_string_format_protect_text (const char *text, TEXT *result)
     }
 }
 
+void
+protect_text_use_iso_entities (const char *text, TEXT *result)
+{
+  const char *p = text;
+
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "<>&\"\f" "-`'");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
+        case '-':
+          if (*(p+1) && !memcmp (p, "---", 3))
+            {
+              ADDN("&mdash;", 7);
+              p += 3;
+            }
+          else if (!memcmp (p, "--", 2))
+            {
+              ADDN("&ndash;", 7);
+              p += 2;
+            }
+          else
+            {
+              ADDN("-", 1);
+              p++;
+            }
+          break;
+        case '`':
+          if (!memcmp (p, "``", 2))
+            {
+              ADDN("&ldquo;", 7);
+              p += 2;
+            }
+          else
+            {
+              ADDN("&lsquo;", 7);
+              p++;
+            }
+          break;
+        case '\'':
+          if (!memcmp (p, "''", 2))
+            {
+              ADDN("&rdquo;", 7);
+              p += 2;
+            }
+          else
+            {
+              ADDN("&rsquo;", 7);
+              p++;
+            }
+          break;
+        }
+    }
+}
+
+void
+protect_text_no_iso_entities (const char *text, TEXT *result)
+{
+  const char *p = text;
+
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "<>&\"\f" "-`'");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
+        case '-':
+          if (*(p+1) && !memcmp (p, "---", 3))
+            {
+              ADDN("--", 2);
+              p += 3;
+            }
+          else
+            {
+              if (!memcmp (p, "--", 2))
+                p += 2;
+              else
+                p++;
+              ADDN("-", 1);
+            }
+          break;
+        case '`':
+          if (!memcmp (p, "``", 2))
+            {
+              ADDN("&quot;", 6);
+              p += 2;
+            }
+          else
+            {
+              ADDN(p, 1);
+              p++;
+            }
+          break;
+        case '\'':
+          if (!memcmp (p, "''", 2))
+            {
+              ADDN("&quot;", 6);
+              p += 2;
+            }
+          else
+            {
+              ADDN(p, 1);
+              p++;
+            }
+          break;
+        }
+    }
+}
 #undef ADDN
 
 static char *
