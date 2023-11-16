@@ -451,6 +451,8 @@ typedef struct CONVERTER {
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
     STRING_STACK multiple_pass;
     char *current_filename;
+    /* state common with perl converter, not transmitted to perl */
+    int use_unicode_text;
 } CONVERTER;
 
 typedef struct TYPE_CONVERSION_FUNCTION {

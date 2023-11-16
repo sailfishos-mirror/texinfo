@@ -42,6 +42,8 @@
 #include "call_html_perl_function.h"
 /* for TREE_AND_STRINGS */
 #include "document.h"
+/* for OTXI_UNICODE_TEXT_CASES */
+#include "unicode.h"
 #include "convert_html.h"
 
 
@@ -472,8 +474,8 @@ in_math (CONVERTER *self)
 
 int
 in_preformatted_context (CONVERTER *self)
-{    
-  HTML_DOCUMENT_CONTEXT *top_document_ctx;               
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
   return top_integer_stack (&top_document_ctx->preformatted_context);
 }
@@ -2283,7 +2285,7 @@ html_prepare_units_directions_files (CONVERTER *self,
   return files_source_info;
 }
 
-
+/* to be inlined in text parsing codes */
 #define OTXI_PROTECT_XML_FORM_FEED_CASES(var) \
         OTXI_PROTECT_XML_CASES(var) \
         case '\f':          \
@@ -2466,6 +2468,29 @@ protect_text_no_iso_entities (const char *text, TEXT *result)
     }
 }
 #undef ADDN
+
+void
+protect_text_unicode_text (const char *text, TEXT *result)
+{
+  const char *p = text;
+
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "<>&\"\f" "-`'");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
+        OTXI_UNICODE_TEXT_CASES(p)
+        }
+    }
+}
 
 char *
 convert_table_term_type (CONVERTER *self, enum element_type type,

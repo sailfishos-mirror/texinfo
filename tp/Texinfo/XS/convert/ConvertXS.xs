@@ -318,6 +318,13 @@ html_prepare_conversion_units (SV *converter_in, ...)
 
          self = set_output_converter_sv (converter_in,
                                          "html_prepare_conversion_units");
+
+         if (self->conf->OUTPUT_CHARACTERS > 0
+             && self->conf->OUTPUT_ENCODING_NAME
+             /* not sure if strcasecmp is needed or not */
+             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME, "utf8"))
+           self->use_unicode_text = 1;
+
          html_prepare_conversion_units (self,
               &output_units_descriptor, &special_units_descriptor,
               &associated_special_units_descriptor);

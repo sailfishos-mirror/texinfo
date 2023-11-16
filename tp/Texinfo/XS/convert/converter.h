@@ -10,9 +10,10 @@
 /* for TARGET_FILENAME */
 #include "utils.h"
 
+/* piece of code that can be inlined in text parsing codes */
 #define OTXI_PROTECT_XML_CASES(var) \
         case '<':           \
-          text_append_n(result, "&lt;", 4); var++; \
+          text_append_n (result, "&lt;", 4); var++; \
           break;            \
         case '>':           \
           text_append_n (result, "&gt;", 4); var++; \

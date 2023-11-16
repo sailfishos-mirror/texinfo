@@ -6564,13 +6564,13 @@ sub _convert_text($$$)
   #$text = &{$self->formatting_function('format_protect_text')}($self, $text);
   $text = _default_format_protect_text($self, $text);
 
-  # API info: get_conf() API code conforming would be:
+  # API info: for efficiency, we cache the result of the calls to configuration
+  # in $self->{'use_unicode_text'}.
+  # API code conforming would be:
   #if ($self->get_conf('OUTPUT_CHARACTERS')
   #    and $self->get_conf('OUTPUT_ENCODING_NAME')
   #    and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
-  if ($self->{'conf'}->{'OUTPUT_CHARACTERS'}
-      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
-      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
+  if ($self->{'use_unicode_text'}) {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         (in_code($self) or in_math($self)));
   # API info: in_code() API code conforming and
@@ -11122,6 +11122,13 @@ sub convert($$)
 
   $self->_sort_index_entries();
 
+  # cache, as it is checked for each text element
+  if ($self->{'conf'}->{'OUTPUT_CHARACTERS'}
+      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
+      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
+    $self->{'use_unicode_text'} = 1;
+  }
+
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, undef);
 
@@ -11698,13 +11705,19 @@ sub output($$)
   $self->{'document_name'} = $document_name;
   $self->{'destination_directory'} = $destination_directory;
 
-  # set information, to have it available for the conversions below,
-  # in translate_names called by _prepare_conversion_units and in
-  # titles formatting.
+  # set information, to have it available for the conversions
+  # in translate_names
   # Some information is not available yet.
   $self->_reset_info();
 
   $self->_sort_index_entries();
+
+  # cache, as it is checked for each text element
+  if ($self->{'conf'}->{'OUTPUT_CHARACTERS'}
+      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
+      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
+    $self->{'use_unicode_text'} = 1;
+  }
 
   # Get the list of output units to be processed.
   my ($output_units, $special_units, $associated_special_units)
@@ -11719,8 +11732,8 @@ sub output($$)
                 $output_file, $destination_directory, $output_filename,
                 $document_name);
 
-  # set information, to have it ready for
-  # run_stage_handlers.  Some information is not available yet.
+  # set information, to have it ready for run_stage_handlers and for titles
+  # formatting.  Some information is not available yet.
   $self->_reset_info();
 
   my $structure_status = $self->run_stage_handlers($root, 'structure');
@@ -11808,11 +11821,6 @@ sub output($$)
        = &{$self->formatting_function('format_comment')}($self, $copying_comment);
     }
   }
-  $self->set_global_document_commands('before', ['documentlanguage']);
-
-  if ($default_document_language ne $preamble_document_language) {
-    $self->_translate_names();
-  }
 
   # documentdescription
   if (defined($self->get_conf('documentdescription'))) {
@@ -11832,7 +11840,8 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-
+  # TODO document that this stage handler is called with end of
+  # preamble documentlanguage.
   my $init_status = $self->run_stage_handlers($root, 'init');
   unless ($init_status < $handler_fatal_error_level
           and $init_status > -$handler_fatal_error_level) {
@@ -11840,9 +11849,14 @@ sub output($$)
     return undef;
   }
 
-
   $self->_prepare_title_titlepage($output_units, $output_file,
                                   $output_filename);
+
+  $self->set_global_document_commands('before', ['documentlanguage']);
+
+  if ($default_document_language ne $preamble_document_language) {
+    $self->_translate_names();
+  }
 
   # complete information should be available.
   $self->_reset_info();
