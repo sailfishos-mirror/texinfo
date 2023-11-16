@@ -1,5 +1,10 @@
 2023-11-16  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/texi2any.supp: Add valgrind suppression file.  Add
+	suppressions for setenv bug with perl 5.36 and earlier.
+
+2023-11-16  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* contrib/nontests/latex2html.test: Remove.
 	* contrib/nontests/bibtex.test, contrib/nontests/defs.in:
 	Remove checks using hevea.

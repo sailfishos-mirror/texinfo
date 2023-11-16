@@ -1,0 +1,34 @@
+# valgrind suppression file for texi2any
+
+# Errors output due to use of setenv in XS module.  Fixed in Perl 5.38.
+# See <https://github.com/Perl/perl5/issues/19399>.
+
+{
+   before-perl-5.38/A
+   Memcheck:Free
+   fun:free
+   fun:tdestroy_recurse
+   fun:tdestroy_recurse
+   fun:tdestroy_recurse
+   fun:tdestroy
+   fun:free_mem
+   fun:__libc_freeres
+   fun:_vgnU_freeres
+   fun:__run_exit_handlers
+   fun:exit
+   fun:main
+}
+
+{
+   before-perl-5.38/B
+   Memcheck:Free
+   fun:free
+   fun:tdestroy_recurse
+   fun:tdestroy
+   fun:free_mem
+   fun:__libc_freeres
+   fun:_vgnU_freeres
+   fun:__run_exit_handlers
+   fun:exit
+   fun:main
+}

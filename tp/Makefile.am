@@ -316,6 +316,7 @@ maintenance_files = \
 
 EXTRA_DIST = \
   texi2any.pl \
+  texi2any.supp \
   $(test_files_generated_list) \
   $(test_files) \
   $(tp_tests) \
