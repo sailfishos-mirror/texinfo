@@ -908,7 +908,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       }
                     },
                     {
-                      'text' => ' '
+                      'text' => " \x{e9} "
                     },
                     {
                       'args' => [
@@ -1156,7 +1156,7 @@ $result_texis{'test_accents_sc_use_numeric_entity'} = '\\input texinfo
 @^{--a}
 @aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}.
 @equiv{}
-@sc{@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
+@sc{@aa{} @AA{} @^e é @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
 
 ';
 
@@ -1180,7 +1180,7 @@ e\', -- def - in code. in samp aé. , !. ...
 -a^
 aa AA e^ E^ i~ i .r r\'< n~,=.
 ==
-AA AA E^ E^ I~ I .R R\'< N~,=.
+AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
@@ -1314,7 +1314,7 @@ $result_converted{'html_text'}->{'test_accents_sc_use_numeric_entity'} = '<div c
 &#8211;a&#770;
 &#229; &#197; &#234; &#202; &#297; &#305; &#7771; &#341;&#780; &#241;&#807;&#772;.
 &#8801;
-<small class="sc">&#197; &#197; &#202; &#202; &#296; I &#7770; &#340;&#780; &#209;&#807;&#772;</small>.
+<small class="sc">&#197; &#197; &#202; É &#202; &#296; I &#7770; &#340;&#780; &#209;&#807;&#772;</small>.
 </p>
 </div>
 </div>

@@ -908,7 +908,7 @@ $result_trees{'test_accents_sc_default'} = {
                       }
                     },
                     {
-                      'text' => ' '
+                      'text' => " \x{e9} "
                     },
                     {
                       'args' => [
@@ -1156,7 +1156,7 @@ $result_texis{'test_accents_sc_default'} = '\\input texinfo
 @^{--a}
 @aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}.
 @equiv{}
-@sc{@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
+@sc{@aa{} @AA{} @^e é @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
 
 ';
 
@@ -1180,7 +1180,7 @@ e\', -- def - in code. in samp aé. , !. ...
 -a^
 aa AA e^ E^ i~ i .r r\'< n~,=.
 ==
-AA AA E^ E^ I~ I .R R\'< N~,=.
+AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
@@ -1314,7 +1314,7 @@ $result_converted{'html_text'}->{'test_accents_sc_default'} = '<div class="top-l
 &ndash;a&#770;
 &aring; &Aring; &ecirc; &Ecirc; &#297; &inodot; &#7771; &#341;&#780; &ntilde;&#807;&#772;.
 &equiv;
-<small class="sc">&Aring; &Aring; &Ecirc; &Ecirc; &#296; I &#7770; &#340;&#780; &Ntilde;&#807;&#772;</small>.
+<small class="sc">&Aring; &Aring; &Ecirc; É &Ecirc; &#296; I &#7770; &#340;&#780; &Ntilde;&#807;&#772;</small>.
 </p>
 </div>
 </div>

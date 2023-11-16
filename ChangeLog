@@ -1,3 +1,10 @@
+2023-11-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/input_files/punctuation_small_case_accents_latin1.texi,
+	tp/t/input_files/punctuation_small_case_accents_utf8.texi,
+	tp/t/input_files/punctuation_small_case_accents_us_ascii.texi:
+	add an encoded character in @sc.
+
 2023-11-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/texi2any.supp: Add valgrind suppression file.  Add

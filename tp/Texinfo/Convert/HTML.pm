@@ -39,6 +39,7 @@ use 5.008;
 # the same regardless of whether the string is using a UTF-8 encoding.
 #  For older Perls, you can use utf8::upgrade on the strings, where the
 # difference matters.
+# Also follows unicode rules for uc() and lc ().
 use if $] >= 5.012, feature => 'unicode_strings';
 
 use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes

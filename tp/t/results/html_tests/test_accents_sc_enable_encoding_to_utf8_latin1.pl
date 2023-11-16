@@ -969,7 +969,7 @@ $result_trees{'test_accents_sc_enable_encoding_to_utf8_latin1'} = {
                       }
                     },
                     {
-                      'text' => ' '
+                      'text' => " \x{e9} "
                     },
                     {
                       'args' => [
@@ -1198,7 +1198,7 @@ $result_texis{'test_accents_sc_enable_encoding_to_utf8_latin1'} = '\\input texin
 @^{--a}
 @aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}.
 @equiv{}
-@sc{@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
+@sc{@aa{} @AA{} @^e @^E é @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
 
 ';
 
@@ -1223,7 +1223,7 @@ e\', -- def - in code. in samp aé. , !. ...
 -a^
 aa AA e^ E^ i~ i .r r\'< n~,=.
 ==
-AA AA E^ E^ I~ I .R R\'< N~,=.
+AA AA E^ E^ É I~ I .R R\'< N~,=.
 
 ';
 
@@ -1358,7 +1358,7 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_to_utf8_latin1
 –â
 å Å ê Ê ĩ ı ṛ ŕ̌ ņ̃̄.
 ≡
-<small class="sc">Å Å Ê Ê Ĩ I Ṛ Ŕ̌ Ņ̃̄</small>.
+<small class="sc">Å Å Ê Ê É Ĩ I Ṛ Ŕ̌ Ņ̃̄</small>.
 </p>
 </div>
 </div>

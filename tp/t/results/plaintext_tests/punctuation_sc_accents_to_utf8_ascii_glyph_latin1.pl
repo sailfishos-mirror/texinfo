@@ -969,7 +969,7 @@ $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'} = {
                       }
                     },
                     {
-                      'text' => ' '
+                      'text' => " \x{e9} "
                     },
                     {
                       'args' => [
@@ -1198,7 +1198,7 @@ $result_texis{'punctuation_sc_accents_to_utf8_ascii_glyph_latin1'} = '\\input te
 @^{--a}
 @aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}.
 @equiv{}
-@sc{@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
+@sc{@aa{} @AA{} @^e @^E é @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
 
 ';
 
@@ -1223,7 +1223,7 @@ e\', -- def - in code. in samp aé. , !. ...
 -a^
 aa AA e^ E^ i~ i .r r\'< n~,=.
 ==
-AA AA E^ E^ I~ I .R R\'< N~,=.
+AA AA E^ E^ É I~ I .R R\'< N~,=.
 
 ';
 
