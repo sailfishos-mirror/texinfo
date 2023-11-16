@@ -59,7 +59,9 @@ typedef struct CMD_VARIETY {
 
 typedef struct TYPE_INTERNAL_CONVERSION {
     enum element_type type;
-    char * (* type_conversion) (CONVERTER *self, enum element_type type, const ELEMENT *element, char *content);
+    void (* type_conversion) (CONVERTER *self, const enum element_type type,
+                              const ELEMENT *element, const char *content,
+                              TEXT *result);
 } TYPE_INTERNAL_CONVERSION;
 
 char *html_global_unit_direction_names[] = {
@@ -2492,21 +2494,16 @@ protect_text_unicode_text (const char *text, TEXT *result)
     }
 }
 
-char *
-convert_table_term_type (CONVERTER *self, enum element_type type,
-                        const ELEMENT *element, char *content)
+void
+convert_table_term_type (CONVERTER *self, const enum element_type type,
+                        const ELEMENT *element, const char *content,
+                        TEXT *result)
 {
-  TEXT result;
-
-  text_init (&result);
-  text_append (&result, "");
-
   if (content)
     {
-      text_append (&result, "<dt>");
-      text_append (&result, content);
+      text_append (result, "<dt>");
+      text_append (result, content);
     }
-  return result.text;
 }
 
 /* associate type to the C function implementing the conversion */
@@ -2515,10 +2512,11 @@ static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {0, 0},
 };
 
-static char *
-command_conversion_external (CONVERTER *self, enum command_id cmd,
-                    const ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
-                    char *content)
+void
+command_conversion_external (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
@@ -2533,42 +2531,42 @@ command_conversion_external (CONVERTER *self, enum command_id cmd,
     = self->current_commands_conversion_function[cmd]->formatting_reference;
 
   if (formatting_reference->status > 0)
-    return call_commands_conversion (self, cmd, formatting_reference,
-                                     element, args_formatted, content);
-  return 0;
+    call_commands_conversion (self, cmd, formatting_reference,
+                              element, args_formatted, content,
+                              result);
 }
 
-static char *
-command_open (CONVERTER *self, enum command_id cmd, const ELEMENT *element)
+static void
+command_open (CONVERTER *self, const enum command_id cmd,
+              const ELEMENT *element, TEXT *result)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
   if (self->commands_open[cmd].status > 0)
-    return call_commands_open (self, cmd, element);
-  return 0;
+    call_commands_open (self, cmd, element, result);
 }
 
-static char *
-type_conversion_external (CONVERTER *self, enum element_type type,
-                          const ELEMENT *element, char *content)
+static void
+type_conversion_external (CONVERTER *self, const enum element_type type,
+                          const ELEMENT *element, const char *content,
+                          TEXT *result)
 {
   FORMATTING_REFERENCE *formatting_reference
     = self->current_types_conversion_function[type]->formatting_reference;
 
   if (formatting_reference->status > 0)
-    return call_types_conversion (self, type, formatting_reference,
-                                  element, content);
-  return 0;
+    call_types_conversion (self, type, formatting_reference,
+                           element, content, result);
 }
 
-static char *
-type_open (CONVERTER *self, enum element_type type, const ELEMENT *element)
+static void
+type_open (CONVERTER *self, enum element_type type, const ELEMENT *element,
+           TEXT *result)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
   if (self->types_open[type].status > 0)
-    return call_types_open (self, type, element);
-  return 0;
+    call_types_open (self, type, element, result);
 }
 
 static void
@@ -3606,14 +3604,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         }
       else
         {
-          char *conv_text
-            = (*self->current_types_conversion_function[ET_text]->type_conversion)
-                           (self, ET_text, element, element->text.text);
-          if (conv_text)
-            {
-              text_append (&text_result, conv_text);
-              free (conv_text);
-            }
+          (*self->current_types_conversion_function[ET_text]->type_conversion)
+                    (self, ET_text, element, element->text.text, &text_result);
         }
 
       if (self->conf->DEBUG > 0)
@@ -3759,12 +3751,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
           if (self->commands_open[cmd].status)
             {
-              char *cmd_open_str = command_open (self, data_cmd, element);
-              if (cmd_open_str)
-                {
-                  ADD(cmd_open_str);
-                  free (cmd_open_str);
-                }
+              command_open (self, data_cmd, element, result);
             }
 
           text_init (&content_formatted);
@@ -4078,14 +4065,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           /* args are formatted, now format the command itself */
           if (self->current_commands_conversion_function[cmd])
             {
-              char *conv_str
-        = (*self->current_commands_conversion_function[cmd]->command_conversion)
-                   (self, cmd, element, args_formatted, content_formatted.text);
-              if (conv_str)
-                {
-                  ADD(conv_str);
-                  free (conv_str);
-                }
+       (*self->current_commands_conversion_function[cmd]->command_conversion)
+                   (self, cmd, element, args_formatted,
+                    content_formatted.text, result);
             }
           else if (args_formatted)
             fprintf (stderr, "No command_conversion for %s\n",
@@ -4122,7 +4104,6 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     }
   else if (element->type)
     {
-      char *open_result;
       enum element_type type = element->type;
       char *type_name = element_type_names[type];
       TEXT type_result;
@@ -4134,12 +4115,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       text_init (&type_result);
       text_append (&type_result, "");
 
-      open_result = type_open (self, type, element);
-      if (open_result)
-        {
-          text_append (&type_result, open_result);
-          free (open_result);
-        }
+      type_open (self, type, element, &type_result);
 
       if (type == ET_paragraph)
         {
@@ -4203,14 +4179,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
       if (self->current_types_conversion_function[type])
         {
-          char *conversion_result
-            = (*self->current_types_conversion_function[type]->type_conversion)
-               (self, type, element, content_formatted.text);
-          if (conversion_result)
-            {
-              text_append (&type_result, conversion_result);
-              free (conversion_result);
-            }
+          (*self->current_types_conversion_function[type]->type_conversion)
+               (self, type, element, content_formatted.text, &type_result);
         }
       else if (content_formatted.end > 0)
         {
@@ -4283,14 +4253,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       if (self->current_types_conversion_function[0]
           && self->current_types_conversion_function[0]->type_conversion)
         {
-          char *conversion_result
-            = (*self->current_types_conversion_function[0]->type_conversion)
-                           (self, 0, element, "");
-          if (conversion_result)
-            {
-              ADD(conversion_result);
-              free (conversion_result);
-            }
+          (*self->current_types_conversion_function[0]->type_conversion)
+                           (self, 0, element, "", result);
           goto out;
         }
       else
@@ -4305,32 +4269,34 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 }
 #undef ADD
 
-static char *
-output_unit_conversion (CONVERTER *self, enum output_unit_type unit_type,
-                        const OUTPUT_UNIT *output_unit, const char *content)
+static void
+output_unit_conversion (CONVERTER *self, const enum output_unit_type unit_type,
+                        const OUTPUT_UNIT *output_unit, const char *content,
+                        TEXT *result)
 {
   /* TODO call a C function if status is FRS_status_default_set
      maybe putting function references in an array */
   if (self->output_units_conversion[unit_type].status > 0)
-    return call_output_units_conversion (self, unit_type, output_unit, content);
-  return 0;
+    call_output_units_conversion (self, unit_type, output_unit, content,
+                                  result);
 }
 
-char *
+void
 convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
-                     char *explanation)
+                     char *explanation, TEXT *result)
 {
-  char *result = 0;
   TEXT content_formatted;
+  size_t input_result_end = result->end;
   enum output_unit_type unit_type = output_unit->unit_type;
 
   if (self->output_units_conversion[unit_type].status == FRS_status_ignored)
     {
       if (self->conf->DEBUG > 0)
         {
-          fprintf (stderr, "IGNORED OU %s\n", output_unit_type_names[unit_type]);
+          fprintf (stderr, "IGNORED OU %s\n",
+                           output_unit_type_names[unit_type]);
         }
-      return strdup ("");
+      return;
     }
 
   if (self->conf->DEBUG > 0)
@@ -4366,14 +4332,12 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
 
   if (self->output_units_conversion[unit_type].status)
     {
-      result = output_unit_conversion (self, unit_type, output_unit,
-                                             content_formatted.text);
-      if (! result)
-        result = strdup ("");
+      output_unit_conversion (self, unit_type, output_unit,
+                              content_formatted.text, result);
     }
    else
     {
-      result = strdup (content_formatted.text);
+      text_append (result, content_formatted.text);
     }
 
   free (content_formatted.text);
@@ -4383,9 +4347,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
 
   if (self->conf->DEBUG > 0)
     fprintf (stderr, "DOUNIT (%s) => `%s'\n", output_unit_type_names[unit_type],
-                     result);
-
-  return result;
+                     result->text + input_result_end);
 }
 
 /* wrapper to avoid code repetition and use similar functions as in perl */
@@ -4395,17 +4357,13 @@ convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
                                    char *debug_str, char *explanation_str)
 {
   char *explanation;
-  char *output_unit_text;
 
   if (self->conf->DEBUG > 0)
     fprintf (stderr, "\n%s %d\n", debug_str, unit_nr);
 
   xasprintf (&explanation, "%s %d", explanation_str, unit_nr);
-  output_unit_text = convert_output_unit (self, output_unit,
-                                          explanation);
-  text_append (result, output_unit_text);
+  convert_output_unit (self, output_unit, explanation, result);
   free (explanation);
-  free (output_unit_text);
 }
 
 char *
@@ -4589,12 +4547,16 @@ convert_output_output_unit_internal (CONVERTER *self,
           size_t write_len;
 
           if (conversion)
-            result = encode_with_iconv (conversion->iconv, text->text, 0);
+            {
+              result = encode_with_iconv (conversion->iconv, text->text, 0);
+              res_len = strlen (result);
+            }
           else
-            result = text->text;
-          res_len = strlen (result);
-          write_len = fwrite (result, sizeof (char), res_len,
-                                     file_fh);
+            {
+              result = text->text;
+              res_len = text->end;
+            }
+          write_len = fwrite (result, sizeof (char), res_len, file_fh);
           if (conversion)
             free (result);
           if (write_len != res_len)

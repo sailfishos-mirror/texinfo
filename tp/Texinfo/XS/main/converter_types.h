@@ -462,7 +462,9 @@ typedef struct TYPE_CONVERSION_FUNCTION {
     FORMATTING_REFERENCE *formatting_reference;
     /* the function used for conversion, either a function that calls
        the perl function in formatting_reference, or another C function */
-    char * (* type_conversion) (CONVERTER *self, enum element_type type, const ELEMENT *element, char *content);
+    void (* type_conversion) (CONVERTER *self, const enum element_type type,
+                              const ELEMENT *element, const char *content,
+                              TEXT *text);
 } TYPE_CONVERSION_FUNCTION;
 
 typedef struct HTML_ARG_FORMATTED {
@@ -482,9 +484,10 @@ typedef struct COMMAND_CONVERSION_FUNCTION {
     FORMATTING_REFERENCE *formatting_reference;
     /* the function used for conversion, either a function that calls
        the perl function in formatting_reference, or another C function */
-    char * (* command_conversion) (CONVERTER *self, enum command_id cmd,
-                                   const ELEMENT *element, HTML_ARGS_FORMATTED *args_formatted,
-                                   char *content);
+    void (* command_conversion) (CONVERTER *self, const enum command_id cmd,
+                                   const ELEMENT *element,
+                                   const HTML_ARGS_FORMATTED *args_formatted,
+                                   const char *content, TEXT *result);
 } COMMAND_CONVERSION_FUNCTION;
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {

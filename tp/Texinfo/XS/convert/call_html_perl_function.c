@@ -30,6 +30,7 @@
 
 #undef context
 
+#include "text.h"
 #include "utils.h"
 /* for newSVpv_utf8 build_texinfo_tree */
 #include "build_perl_info.h"
@@ -747,13 +748,13 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 
 
 
-char *
-call_types_conversion (CONVERTER *self, enum element_type type,
-                       FORMATTING_REFERENCE *formatting_reference,
-                       const ELEMENT *element, char *content)
+void
+call_types_conversion (CONVERTER *self, const enum element_type type,
+                       const FORMATTING_REFERENCE *formatting_reference,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
 {
   int count;
-  char *result;
   char *result_ret;
   STRLEN len;
   SV *result_sv;
@@ -762,7 +763,7 @@ call_types_conversion (CONVERTER *self, enum element_type type,
   dTHX;
 
   if (!self->hv)
-    return 0;
+    return;
 
   if (self->tree_to_build)
     {
@@ -807,22 +808,19 @@ call_types_conversion (CONVERTER *self, enum element_type type,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  text_append (result, result_ret);
 
   PUTBACK;
 
   FREETMPS;
   LEAVE;
-
-  return result;
 }
 
-char *
-call_types_open (CONVERTER *self, enum element_type type,
-                 const ELEMENT *element)
+void
+call_types_open (CONVERTER *self, const enum element_type type,
+                 const ELEMENT *element, TEXT *result)
 {
   int count;
-  char *result;
   char *result_ret;
   STRLEN len;
   SV *result_sv;
@@ -837,7 +835,7 @@ call_types_open (CONVERTER *self, enum element_type type,
     }
 
   if (!self->hv)
-    return 0;
+    return;
 
   formatting_reference_sv = self->types_open[type].sv_reference;
 
@@ -873,25 +871,22 @@ call_types_open (CONVERTER *self, enum element_type type,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  text_append (result, result_ret);
 
   PUTBACK;
 
   FREETMPS;
   LEAVE;
-
-  return result;
 }
 
-char *
-call_commands_conversion (CONVERTER *self, enum command_id cmd,
-                          FORMATTING_REFERENCE *formatting_reference,
+void
+call_commands_conversion (CONVERTER *self, const enum command_id cmd,
+                          const FORMATTING_REFERENCE *formatting_reference,
                           const ELEMENT *element,
                           const HTML_ARGS_FORMATTED *args_formatted,
-                          const char *content)
+                          const char *content, TEXT *result)
 {
   int count;
-  char *result;
   char *result_ret;
   STRLEN len;
   SV *result_sv;
@@ -902,7 +897,7 @@ call_commands_conversion (CONVERTER *self, enum command_id cmd,
   dTHX;
 
   if (!self->hv)
-    return 0;
+    return;
 
   if (self->tree_to_build)
     {
@@ -953,22 +948,19 @@ call_commands_conversion (CONVERTER *self, enum command_id cmd,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  text_append (result, result_ret);
 
   PUTBACK;
 
   FREETMPS;
   LEAVE;
-
-  return result;
 }
 
-char *
-call_commands_open (CONVERTER *self, enum command_id cmd,
-                    const ELEMENT *element)
+void
+call_commands_open (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element, TEXT *result)
 {
   int count;
-  char *result;
   char *result_ret;
   STRLEN len;
   SV *result_sv;
@@ -978,7 +970,7 @@ call_commands_open (CONVERTER *self, enum command_id cmd,
   dTHX;
 
   if (!self->hv)
-    return 0;
+    return;
 
   if (self->tree_to_build)
     {
@@ -1023,24 +1015,21 @@ call_commands_open (CONVERTER *self, enum command_id cmd,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  text_append (result, result_ret);
 
   PUTBACK;
 
   FREETMPS;
   LEAVE;
-
-  return result;
 }
 
-char *
+void
 call_output_units_conversion (CONVERTER *self,
-                              enum output_unit_type unit_type,
+                              const enum output_unit_type unit_type,
                               const OUTPUT_UNIT *output_unit,
-                              const char *content)
+                              const char *content, TEXT *result)
 {
   int count;
-  char *result;
   char *result_ret;
   STRLEN len;
   SV *result_sv;
@@ -1049,7 +1038,7 @@ call_output_units_conversion (CONVERTER *self,
   dTHX;
 
   if (!self->hv)
-    return 0;
+    return;
 
   if (self->tree_to_build)
     {
@@ -1096,14 +1085,12 @@ call_output_units_conversion (CONVERTER *self,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  text_append (result, result_ret);
 
   PUTBACK;
 
   FREETMPS;
   LEAVE;
-
-  return result;
 }
 
 
