@@ -484,7 +484,6 @@ AC_CONFIG_FILES([install-info/tests/defs])
 dnl We cannot enable the TeX-related tests, so don't waste time
 dnl configuring them.  See contrib/nontests/README.
 dnl AC_CONFIG_FILES([util/tests/defs])
-dnl AC_CHECK_PROGS([HEVEA], [hevea], [])
 dnl AC_CHECK_PROGS([TEX], [tex], [])
 
 AC_CHECK_PROGS([PROVE], [prove], [])

@@ -1,5 +1,5 @@
 #! /bin/sh
-# Copyright (C) 2006, 2007  Free Software Foundation, Inc.
+# Copyright (C) 2006-2023 Free Software Foundation, Inc.
 #
 # This file is part of GNU Texinfo.
 #
@@ -15,8 +15,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-required='hevea'
 
 . ./defs || exit 1
 
@@ -37,7 +35,7 @@ cat >sample.bib <<EOF
 EOF
 
 
-# check HTML|INFO|TEXT|DVI|PDF
+# check DVI|PDF
 # ----------------------------
 check ()
 {
@@ -50,8 +48,7 @@ check ()
   rm input.$out
 }
 
-# Currently we don't use bibtex with hevea.  This is to be fixed.
-for out in dvi pdf # html info text
+for out in dvi pdf
 do
   check $out
 done

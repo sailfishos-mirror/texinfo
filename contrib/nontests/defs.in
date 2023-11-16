@@ -1,8 +1,7 @@
 # -*- shell-script -*-
 # @configure_input@
 #
-# Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 
-# 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+# Copyright (C) 1996-2023 Free Software Foundation, Inc.
 #
 # (This file was originally part of GNU Automake.)
 #
@@ -87,10 +86,6 @@ then
   do
     # Check that each required tool is present.
     case $tool in
-      hevea)
-        # HeVeA supports -version only.  Use configure to find it.
-        test -n "@HEVEA@" || exit 77
-	;;
       tex)
         # No all versions of Tex support `--version', so we use
         # a configure check.
