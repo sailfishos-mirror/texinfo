@@ -34,7 +34,7 @@ BEGIN {
   if ($XS_convert) {
     Texinfo::XSLoader::init (
       "Texinfo::Convert::ConvertXS",
-      "Texinfo::Convert::ConvertXS",
+      undef,
       "ConvertXS",
       undef,
       0,

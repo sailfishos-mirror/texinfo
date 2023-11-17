@@ -233,8 +233,8 @@ sub init {
   }
   if (!defined $fallback_module) {
     warn "no fallback module for $module\n";
-    die "unset the TEXINFO_XS and TEXINFO_XS_PARSER environment variables "
-       ."to use the pure Perl modules\n";
+    die "set/unset the TEXINFO_XS, TEXINFO_XS_PARSER and TEXINFO_XS_CONVERT "
+       ."environment variables to use the pure Perl modules\n";
   }
 
   # Fall back to using the Perl code.
