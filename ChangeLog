@@ -1,5 +1,10 @@
 2023-11-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/main/api_to_perl.c (croak_message):
+	Add wrapper for Perl croak.  Useful for debugging.
+
+2023-11-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/texi2any.supp: Use "..." in suppressions file to allow
 	for varying numbers of times tdestroy_recurse appears in the stack
 	trace.

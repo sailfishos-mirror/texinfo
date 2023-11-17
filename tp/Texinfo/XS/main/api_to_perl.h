@@ -8,4 +8,5 @@ void unregister_perl_tree_element (ELEMENT *e);
 
 void call_switch_to_global_locale (void);
 void call_sync_locale (void);
+void croak_message (char *message);
 #endif

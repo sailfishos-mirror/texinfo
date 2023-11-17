@@ -67,3 +67,9 @@ call_sync_locale ()
   sync_locale ();
 #endif
 }
+
+void
+croak_message (char *message)
+{
+  croak ("%s\n", message);
+}
