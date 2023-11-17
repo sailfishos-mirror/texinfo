@@ -25,6 +25,8 @@ require 5.00405;
 
 use strict;
 
+use Perl::Destruct::Level level=>1;
+
 # Through rules in Makefile.am, directory paths set through configure are
 # substituted directly in strings in the code, for example
 #   my $datadir = '@datadir@';
