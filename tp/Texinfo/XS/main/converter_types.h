@@ -148,6 +148,14 @@ enum html_argument_formatting_type {
    #undef html_aft_type
 };
 
+enum html_special_character {
+  SC_paragraph_symbol,
+  SC_left_quote,
+  SC_right_quote,
+  SC_bullet,
+  SC_non_breaking_space,
+};
+
 typedef struct {
     enum command_id *stack;
     size_t top;   /* One above last pushed command. */
@@ -348,6 +356,11 @@ typedef struct HTML_DOCUMENT_CONTEXT_STACK {
     size_t space;
 } HTML_DOCUMENT_CONTEXT_STACK;
 
+typedef struct STRING_WITH_LEN {
+    char *string;
+    size_t len;
+} STRING_WITH_LEN;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -381,6 +394,8 @@ typedef struct CONVERTER {
     int code_types[ET_special_unit_element+1];
     char *pre_class_types[ET_special_unit_element+1];
     int upper_case[BUILTIN_CMD_NUMBER];
+    STRING_WITH_LEN special_character[SC_non_breaking_space+1];
+    STRING_WITH_LEN line_break_element;
     FORMATTING_REFERENCE
        formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE

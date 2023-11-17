@@ -177,7 +177,7 @@ pop_integer_stack (INTEGER_STACK *stack)
 }
 
 int
-top_integer_context (INTEGER_STACK *stack)
+top_integer_stack (INTEGER_STACK *stack)
 {
   if (stack->top == 0)
     fatal ("integer stack empty for top");

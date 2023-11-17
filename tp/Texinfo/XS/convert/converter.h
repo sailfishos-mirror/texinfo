@@ -25,6 +25,50 @@
           text_append_n (result, "&quot;", 6); var++; \
           break;
 
+#define OTXI_NUMERIC_ENTITY_TEXT_CASES(var) \
+        case '-': \
+          if (*(var+1) && !memcmp (var, "---", 3)) \
+            { \
+              text_append_n (result, "&#" "8212" ";", 7); \
+              var += 3; \
+            } \
+          else if (!memcmp (var, "--", 2)) \
+            { \
+              text_append_n (result, "&#" "8211" ";", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "-", 1); \
+              var++; \
+            } \
+          break; \
+        case '`': \
+          if (!memcmp (var, "``", 2)) \
+            { \
+              text_append_n (result, "&#" "8220" ";", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "&#" "8216" ";", 7); \
+              var++; \
+            } \
+          break; \
+        case '\'': \
+          if (!memcmp (var, "''", 2)) \
+            { \
+              text_append_n (result, "&#" "8221" ";", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "&#" "8217" ";", 7); \
+              var++; \
+            } \
+          break;
+
+
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t register_converter (CONVERTER *converter);
 

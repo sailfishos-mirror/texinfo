@@ -1,3 +1,29 @@
+2023-11-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/command_stack.c (top_integer_stack): use correct
+	function name instead of top_integer_context.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (converter_initialize)
+	(set_output_converter_sv): set conf already in converter_initialize.
+
+	* tp/Texinfo/XS/main/unicode.h (OTXI_UNICODE_TEXT_CASES): always
+	increase var after appending.  Use a constant "-".
+
+	* tp/Texinfo/XS/convert/convert_html.c (special_characters_formatting)
+	(in_non_breakable_space, in_space_protected)
+	(OTXI_ISO_ENTITY_TEXT_CASES, OTXI_NO_ISO_ENTITY_TEXT_CASES)
+	(OTXI_NO_BREAK_CASES, OTXI_SPACE_PROTECTION_CASES, OTXI_CONVERT_TEXT)
+	(OTXI_ALL_CONVERT_TEXT, html_default_format_protect_text)
+	(convert_text, html_converter_initialize)
+	(types_internal_conversion_table), tp/Texinfo/XS/convert/converter.c
+	(xml_format_text_with_numeric_entities),
+	tp/Texinfo/XS/convert/converter.h (OTXI_NUMERIC_ENTITY_TEXT_CASES),
+	tp/Texinfo/XS/main/converter_types.h (enum html_special_character)
+	(STRING_WITH_LEN, CONVERTER): use macros to generate inline code for
+	text conversion, remove protect_text_unicode_text,
+	protect_text_use_iso_entities and protect_text_no_iso_entities.  Setup
+	special characters and line_break_element.
+
 2023-11-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/input_files/punctuation_small_case_accents_latin1.texi,

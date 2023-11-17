@@ -23,54 +23,56 @@ typedef struct COMMAND_UNICODE {
         case '-': \
           if (*(var+1) && !memcmp (var, "---", 3)) \
             { \
-              var += 3; \
               /* Unicode em dash U+2014 (0xE2 0x80 0x94) */ \
               text_append_n (result, "\xE2\x80\x94", 3); \
+              var += 3; \
             } \
           else if (!memcmp (var, "--", 2)) \
             { \
-              var += 2; \
               /* Unicode en dash U+2013 (0xE2 0x80 0x93) */ \
               text_append_n (result, "\xE2\x80\x93", 3); \
+              var += 2; \
             } \
           else \
             { \
+              text_append_n (result, "-", 1); \
               var++; \
-              text_append_n (result, var, 1); \
             } \
           break; \
         case '`': \
           if (!memcmp (var, "``", 2)) \
             { \
-              var += 2; \
               /* U+201C E2 80 9C */ \
               text_append_n (result, "\xE2\x80\x9C", 3); \
+              var += 2; \
             } \
           else \
             { \
-              var++; \
               /* U+2018 E2 80 98 */ \
               text_append_n (result, "\xE2\x80\x98", 3); \
+              var++; \
             } \
           break; \
         case '\'': \
           if (!memcmp (var, "''", 2)) \
             { \
-              var += 2; \
               /* U+201D E2 80 9D */ \
               text_append_n (result, "\xE2\x80\x9D", 3); \
+              var += 2; \
             } \
           else \
             { \
-              var++; \
               /* U+2019 E2 80 99 */ \
               text_append_n (result, "\xE2\x80\x99", 3); \
+              var++; \
             } \
           break;
 
 
 extern char *unicode_diacritics[];
 extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
+
+int unicode_point_decoded_in_encoding (char *encoding, char *codepoint);
 
 char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);

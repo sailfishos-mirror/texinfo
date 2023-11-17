@@ -245,6 +245,7 @@ html_new_document_context (SV *converter_in, char *context_name, ...)
              /* reset to ignore the HMSF_formatting_context flag just set */
              self->modified_state = 0;
              document_context = html_top_document_context (self);
+
              document_context_hv = build_html_document_context
                                                       (document_context);
              av_push (document_context_av,
@@ -276,6 +277,7 @@ html_pop_document_context (SV *converter_in)
                }
               */
              html_pop_document_context (self);
+
              av_pop (document_context_av);
              hv_store (converter_hv, "document_global_context",
                        strlen ("document_global_context"),
@@ -322,7 +324,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          if (self->conf->OUTPUT_CHARACTERS > 0
              && self->conf->OUTPUT_ENCODING_NAME
              /* not sure if strcasecmp is needed or not */
-             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME, "utf8"))
+             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME, "utf-8"))
            self->use_unicode_text = 1;
 
          html_prepare_conversion_units (self,

@@ -139,6 +139,15 @@ typedef struct HTML_COMMAND_STRUCT {
 
 static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
 
+/* should correspond to enum html_special_character */
+char *special_characters_formatting[SC_non_breaking_space+1][4] = {
+  {"&para;", "\xC2\xB6", "00B6", "&#" "00B6" ";"},
+  {"&lsquo;", "\xE2\x80\x98", "2018", "&#" "2018" ";"},
+  {"&rsquo;", "\xE2\x80\x99", "2019", "&#" "2019" ";"},
+  {"&bull;", "\xE2\x80\xA2", "2022", "&#" "2022" ";"},
+  {"&nbsp;", "\xC2\xA0", "00A0", "&#" "00A0" ";"},
+};
+
 /* in specification of args.  Number max +1 for a trailing 0 */
 #define MAX_COMMAND_ARGS_NR 6
 
@@ -491,11 +500,33 @@ inside_preformatted (CONVERTER *self)
 }
 
 int
+in_non_breakable_space (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  HTML_FORMATTING_CONTEXT *top_formating_ctx;
+  top_document_ctx = html_top_document_context (self);
+  top_formating_ctx
+    = html_top_formatting_context (&top_document_ctx->formatting_context);
+  return top_formating_ctx->no_break;
+}
+
+int
 in_raw (CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
   return top_document_ctx->raw_ctx;
+}
+
+int
+in_space_protected (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  HTML_FORMATTING_CONTEXT *top_formating_ctx;
+  top_document_ctx = html_top_document_context (self);
+  top_formating_ctx
+    = html_top_formatting_context (&top_document_ctx->formatting_context);
+  return top_formating_ctx->space_protected;
 }
 
 int in_upper_case (CONVERTER *self)
@@ -2294,27 +2325,6 @@ html_prepare_units_directions_files (CONVERTER *self,
           text_append_n (result, "&#12;", 5); var++; \
           break;
 
-void
-html_default_format_protect_text (const char *text, TEXT *result)
-{
-  const char *p = text;
-
-  while (*p)
-    {
-      int before_sep_nr = strcspn (p, "<>&\"\f");
-      if (before_sep_nr)
-        {
-          text_append_n (result, p, before_sep_nr);
-          p += before_sep_nr;
-        }
-      if (!*p)
-        break;
-      switch (*p)
-        {
-        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
-        }
-    }
-}
 
 #define ADDN(str,nr) text_append_n (result, str, nr)
 
@@ -2346,153 +2356,216 @@ default_css_string_format_protect_text (const char *text, TEXT *result)
     }
 }
 
+#define OTXI_ISO_ENTITY_TEXT_CASES(var) \
+        case '-': \
+          if (*(var+1) && !memcmp (var, "---", 3)) \
+            { \
+              text_append_n (result, "&mdash;", 7); \
+              var += 3; \
+            } \
+          else if (!memcmp (var, "--", 2)) \
+            { \
+              text_append_n (result, "&ndash;", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "-", 1); \
+              var++; \
+            } \
+          break; \
+        case '`': \
+          if (!memcmp (var, "``", 2)) \
+            { \
+              text_append_n (result, "&ldquo;", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "&lsquo;", 7); \
+              var++; \
+            } \
+          break; \
+        case '\'': \
+          if (!memcmp (var, "''", 2)) \
+            { \
+              text_append_n (result, "&rdquo;", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "&rsquo;", 7); \
+              var++; \
+            } \
+          break;
+
+#define OTXI_NO_ISO_ENTITY_TEXT_CASES(var) \
+        case '-': \
+          if (*(var+1) && !memcmp (var, "---", 3)) \
+            { \
+              text_append_n (result, "--", 2); \
+              var += 3; \
+            } \
+          else \
+            { \
+              text_append_n (result, "-", 1); \
+              if (!memcmp (var, "--", 2)) \
+                var += 2; \
+              else \
+                var++; \
+            } \
+          break; \
+        case '`': \
+          if (!memcmp (var, "``", 2)) \
+            { \
+              text_append_n (result, "&quot;", 6); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, var, 1); \
+              var++; \
+            } \
+          break; \
+        case '\'': \
+          if (!memcmp (var, "''", 2)) \
+            { \
+              text_append_n (result, "&quot;", 6); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, var, 1); \
+              var++; \
+            } \
+          break;
+
+#define OTXI_NO_BREAK_CASES(var) \
+        case ' ': \
+        case '\n': \
+          text_append_n (result, \
+               self->special_character[SC_non_breaking_space].string, \
+               self->special_character[SC_non_breaking_space].len); \
+          var += strspn (var, "\n "); \
+          break;
+
+#define OTXI_SPACE_PROTECTION_CASES(var) \
+        case ' ': \
+          text_append_n (result, \
+               self->special_character[SC_non_breaking_space].string, \
+               self->special_character[SC_non_breaking_space].len); \
+          var++; \
+          break; \
+        case '\n': \
+          text_append_n (result, self->line_break_element.string, \
+                         self->line_break_element.len); \
+          var++; \
+          break;
+
+/* text conversion loop, with the protection of XML special
+   characters and the possibility to add more delimiters and
+   more cases to handle those delimiters */
+#define OTXI_CONVERT_TEXT(delimiters,other_cases) \
+  { \
+  while (*p)  \
+    { \
+      int before_sep_nr = strcspn (p, "<>&\"\f" delimiters); \
+      if (before_sep_nr) \
+        { \
+          text_append_n (result, p, before_sep_nr); \
+          p += before_sep_nr; \
+        } \
+      if (!*p) \
+        break; \
+      switch (*p) \
+        { \
+          OTXI_PROTECT_XML_FORM_FEED_CASES(p) \
+          other_cases \
+        } \
+    } \
+  }
+
+/* conversion of text for all the possibilities regarding -- --- ''
+   conversion, with the possibility to add more for spaces protection */
+#define OTXI_ALL_CONVERT_TEXT(additional_delim,other_cases) \
+  const char *p = content_used; \
+      if (in_code (self) || in_math (self)) \
+        OTXI_CONVERT_TEXT(additional_delim,  \
+          other_cases) \
+      else if (self->use_unicode_text) \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_UNICODE_TEXT_CASES(p) \
+          other_cases) \
+      else if (self->conf->USE_NUMERIC_ENTITY > 0) \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_NUMERIC_ENTITY_TEXT_CASES(p) \
+          other_cases) \
+      else if (self->conf->USE_ISO > 0) \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_ISO_ENTITY_TEXT_CASES(p) \
+          other_cases) \
+      else \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_NO_ISO_ENTITY_TEXT_CASES(p) \
+          other_cases)
+
 void
-protect_text_use_iso_entities (const char *text, TEXT *result)
+html_default_format_protect_text (const char *text, TEXT *result)
 {
   const char *p = text;
 
-  while (*p)
-    {
-      int before_sep_nr = strcspn (p, "<>&\"\f" "-`'");
-      if (before_sep_nr)
-        {
-          text_append_n (result, p, before_sep_nr);
-          p += before_sep_nr;
-        }
-      if (!*p)
-        break;
-      switch (*p)
-        {
-        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
-        case '-':
-          if (*(p+1) && !memcmp (p, "---", 3))
-            {
-              ADDN("&mdash;", 7);
-              p += 3;
-            }
-          else if (!memcmp (p, "--", 2))
-            {
-              ADDN("&ndash;", 7);
-              p += 2;
-            }
-          else
-            {
-              ADDN("-", 1);
-              p++;
-            }
-          break;
-        case '`':
-          if (!memcmp (p, "``", 2))
-            {
-              ADDN("&ldquo;", 7);
-              p += 2;
-            }
-          else
-            {
-              ADDN("&lsquo;", 7);
-              p++;
-            }
-          break;
-        case '\'':
-          if (!memcmp (p, "''", 2))
-            {
-              ADDN("&rdquo;", 7);
-              p += 2;
-            }
-          else
-            {
-              ADDN("&rsquo;", 7);
-              p++;
-            }
-          break;
-        }
-    }
+  OTXI_CONVERT_TEXT ( , )
 }
 
 void
-protect_text_no_iso_entities (const char *text, TEXT *result)
+convert_text (CONVERTER *self, const enum element_type type,
+              const ELEMENT *element, const char *content,
+              TEXT *result)
 {
-  const char *p = text;
+  char *content_used;
+  int contents_used_to_be_freed = 0;
 
-  while (*p)
+  if (in_verbatim (self))
     {
-      int before_sep_nr = strcspn (p, "<>&\"\f" "-`'");
-      if (before_sep_nr)
-        {
-          text_append_n (result, p, before_sep_nr);
-          p += before_sep_nr;
-        }
-      if (!*p)
-        break;
-      switch (*p)
-        {
-        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
-        case '-':
-          if (*(p+1) && !memcmp (p, "---", 3))
-            {
-              ADDN("--", 2);
-              p += 3;
-            }
-          else
-            {
-              if (!memcmp (p, "--", 2))
-                p += 2;
-              else
-                p++;
-              ADDN("-", 1);
-            }
-          break;
-        case '`':
-          if (!memcmp (p, "``", 2))
-            {
-              ADDN("&quot;", 6);
-              p += 2;
-            }
-          else
-            {
-              ADDN(p, 1);
-              p++;
-            }
-          break;
-        case '\'':
-          if (!memcmp (p, "''", 2))
-            {
-              ADDN("&quot;", 6);
-              p += 2;
-            }
-          else
-            {
-              ADDN(p, 1);
-              p++;
-            }
-          break;
-        }
+      html_default_format_protect_text (content, result);
+      return;
     }
-}
-#undef ADDN
-
-void
-protect_text_unicode_text (const char *text, TEXT *result)
-{
-  const char *p = text;
-
-  while (*p)
+  else if (in_raw (self))
     {
-      int before_sep_nr = strcspn (p, "<>&\"\f" "-`'");
-      if (before_sep_nr)
-        {
-          text_append_n (result, p, before_sep_nr);
-          p += before_sep_nr;
-        }
-      if (!*p)
-        break;
-      switch (*p)
-        {
-        OTXI_PROTECT_XML_FORM_FEED_CASES(p)
-        OTXI_UNICODE_TEXT_CASES(p)
-        }
+      text_append (result, content);
+      return;
     }
+
+  if (in_upper_case (self))
+    {
+      content_used = to_upper_or_lower_multibyte (content, 1);
+      contents_used_to_be_freed = 1;
+    }
+  else
+    /* cast needed to avoid a compiler warning */
+    content_used = (char *) content;
+
+  if (in_preformatted_context (self))
+    {
+      OTXI_ALL_CONVERT_TEXT ( , )
+    }
+  else if (in_non_breakable_space (self))
+    {
+      OTXI_ALL_CONVERT_TEXT (" \n", OTXI_NO_BREAK_CASES(p))
+    }
+  else if (in_space_protected (self))
+    {
+      OTXI_ALL_CONVERT_TEXT (" \n", OTXI_SPACE_PROTECTION_CASES(p))
+    }
+  else
+    {
+      OTXI_ALL_CONVERT_TEXT ( , )
+    }
+
+  if (contents_used_to_be_freed)
+    free (content_used);
 }
+
 
 void
 convert_table_term_type (CONVERTER *self, const enum element_type type,
@@ -2509,10 +2582,11 @@ convert_table_term_type (CONVERTER *self, const enum element_type type,
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_table_term, &convert_table_term_type},
+  {ET_text, &convert_text},
   {0, 0},
 };
 
-void
+static void
 command_conversion_external (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -2819,7 +2893,43 @@ html_converter_initialize (CONVERTER *self)
 {
   int i;
   int nr_special_units;
+  char *output_encoding;
+  char *line_break_element;
   /* initialization needing some information from perl */
+
+  output_encoding = self->conf->OUTPUT_ENCODING_NAME;
+
+  for (i = 0; i < SC_non_breaking_space+1; i++)
+    {
+      char *unicode_point = special_characters_formatting[i][2];
+      char *entity = special_characters_formatting[i][0];
+      char *encoded_string = special_characters_formatting[i][1];
+      char *numeric_entity = special_characters_formatting[i][3];
+      char *special_character_string;
+
+      if (self->conf->OUTPUT_CHARACTERS > 0
+          && unicode_point_decoded_in_encoding (output_encoding,
+                                                unicode_point))
+        special_character_string = encoded_string;
+      else if (self->conf->USE_NUMERIC_ENTITY > 0)
+        special_character_string = numeric_entity;
+      else
+        special_character_string = entity;
+
+      self->special_character[i].string = special_character_string;
+      self->special_character[i].len = strlen (special_character_string);
+    }
+
+  if (self->conf->USE_XML_SYNTAX > 0)
+    {
+      /* here in perl something for rules but we already get that from perl */
+      line_break_element = "<br/>";
+    }
+  else
+    line_break_element = "<br>";
+
+  self->line_break_element.string = line_break_element;
+  self->line_break_element.len = strlen(line_break_element);
 
   nr_special_units = self->special_unit_varieties.number;
 
@@ -4286,6 +4396,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
                      char *explanation, TEXT *result)
 {
   TEXT content_formatted;
+  /* store this to be able to show only what was added in debug message */
   size_t input_result_end = result->end;
   enum output_unit_type unit_type = output_unit->unit_type;
 

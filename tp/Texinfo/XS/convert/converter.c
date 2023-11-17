@@ -584,7 +584,6 @@ free_generic_converter (CONVERTER *self)
 
 /* XML conversion functions */
 
-#define ADD(x) text_append_n (result, "&#" #x ";", 7)
 void
 xml_format_text_with_numeric_entities (const char *text, TEXT *result)
 {
@@ -603,52 +602,10 @@ xml_format_text_with_numeric_entities (const char *text, TEXT *result)
         break;
       switch (*p)
         {
-        case '-':
-          if (*(p+1) && !memcmp (p, "---", 3))
-            {
-              ADD(8212);
-              p += 3;
-            }
-          else if (!memcmp (p, "--", 2))
-            {
-              ADD(8211);
-              p += 2;
-            }
-          else
-            {
-              text_append_n (result, "-", 1);
-              p++;
-            }
-          break;
-        case '`':
-          if (!memcmp (p, "``", 2))
-            {
-              ADD(8220);
-              p += 2;
-            }
-          else
-            {
-              ADD(8216);
-              p++;
-            }
-          break;
-        case '\'':
-          if (!memcmp (p, "''", 2))
-            {
-              ADD(8221);
-              p += 2;
-            }
-          else
-            {
-              ADD(8217);
-              p++;
-            }
-          break;
+        OTXI_NUMERIC_ENTITY_TEXT_CASES(p)
         }
     }
 }
-#undef ADD
-
 
 
 void

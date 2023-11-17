@@ -730,7 +730,8 @@ ccc}
 
 @verb{|aaa  bb
 ccc|}
-', {'init_files' => ['spaces_in_line_breaks.init']},
+', {'init_files' => ['spaces_in_line_breaks.init'],
+    'skip' => $XS_convert ? 'Direct perl data change test' : undef,},
 ],
 );
 

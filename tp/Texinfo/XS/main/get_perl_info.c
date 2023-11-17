@@ -341,6 +341,7 @@ void
 converter_initialize (SV *converter_sv, CONVERTER *converter)
 {
   HV *hv_in;
+  SV **converter_conf_sv;
   SV **converter_init_conf_sv;
   DOCUMENT *document;
 
@@ -350,6 +351,15 @@ converter_initialize (SV *converter_sv, CONVERTER *converter)
 
   document = get_sv_document_document (converter_sv, 0);
   converter->document = document;
+
+  converter_conf_sv = hv_fetch (hv_in, "conf",
+                                strlen ("conf"), 0);
+
+  if (converter_conf_sv && SvOK (*converter_conf_sv))
+    {
+      converter->conf
+         = copy_sv_options (*converter_conf_sv);
+    }
 
   converter_init_conf_sv
     = hv_fetch (hv_in, "converter_init_conf",
@@ -371,7 +381,7 @@ CONVERTER *
 set_output_converter_sv (SV *sv_in, char *warn_string)
 {
   HV *hv_in;
-  SV **converter_options_sv;
+  SV **converter_conf_sv;
   SV **converter_init_conf_sv;
   CONVERTER *converter = 0;
 
@@ -380,13 +390,15 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
   converter = get_sv_converter (sv_in, warn_string);
 
   hv_in = (HV *)SvRV (sv_in);
-  converter_options_sv = hv_fetch (hv_in, "conf",
+  converter_conf_sv = hv_fetch (hv_in, "conf",
                                    strlen ("conf"), 0);
 
-  if (converter_options_sv)
+  if (converter_conf_sv)
     {
+      if (converter->conf)
+        free_options (converter->conf);
       converter->conf
-         = copy_sv_options (*converter_options_sv);
+         = copy_sv_options (*converter_conf_sv);
     }
 
   converter_init_conf_sv = hv_fetch (hv_in, "output_init_conf",
