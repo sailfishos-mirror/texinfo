@@ -391,8 +391,8 @@ typedef struct CONVERTER {
   /* HTML specific */
     /* set for a converter */
     COMMAND_ID_LIST no_arg_formatted_cmd;
-    int code_types[ET_special_unit_element+1];
-    char *pre_class_types[ET_special_unit_element+1];
+    int code_types[TXI_TREE_TYPES_NUMBER];
+    char *pre_class_types[TXI_TREE_TYPES_NUMBER];
     int upper_case[BUILTIN_CMD_NUMBER];
     STRING_WITH_LEN special_character[SC_non_breaking_space+1];
     STRING_WITH_LEN line_break_element;
@@ -403,9 +403,9 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE commands_open[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE commands_conversion[BUILTIN_CMD_NUMBER];
     FORMATTING_REFERENCE css_string_commands_conversion[BUILTIN_CMD_NUMBER];
-    FORMATTING_REFERENCE types_open[ET_special_unit_element+1];
-    FORMATTING_REFERENCE types_conversion[ET_special_unit_element+1];
-    FORMATTING_REFERENCE css_string_types_conversion[ET_special_unit_element+1];
+    FORMATTING_REFERENCE types_open[TXI_TREE_TYPES_NUMBER];
+    FORMATTING_REFERENCE types_conversion[TXI_TREE_TYPES_NUMBER];
+    FORMATTING_REFERENCE css_string_types_conversion[TXI_TREE_TYPES_NUMBER];
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
     STRING_LIST special_unit_varieties;
     char **special_unit_info[SUI_type_heading+1];
@@ -414,8 +414,8 @@ typedef struct CONVERTER {
        CONVERTER because it uses the CONVERTER in a function pointer
        argument prototype, which does not seems to be possible with
        incomplete types */
-    struct TYPE_CONVERSION_FUNCTION *type_conversion_function[ET_special_unit_element+1];
-    struct TYPE_CONVERSION_FUNCTION *css_string_type_conversion_function[ET_special_unit_element+1];
+    struct TYPE_CONVERSION_FUNCTION *type_conversion_function[TXI_TREE_TYPES_NUMBER];
+    struct TYPE_CONVERSION_FUNCTION *css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];
     struct COMMAND_CONVERSION_FUNCTION *command_conversion_function[BUILTIN_CMD_NUMBER];
     struct COMMAND_CONVERSION_FUNCTION *css_string_command_conversion_function[BUILTIN_CMD_NUMBER];
     /* set for a converter, modified in a document */

@@ -31,13 +31,19 @@ BEGIN {
 !/^$/ && !/^#/ {
     print "ET_" $1 ","                                                > ETH
     array = array "\"" $1 "\",\n"
+
+    last_type = "ET_" $1
 }
+
 
 END {
     print "};"                                                        > ETH     
     print                                                             > ETH 
+    print "#define TXI_TREE_TYPES_NUMBER (" last_type " +1)"          > ETH
+    print                                                             > ETH
     print "extern char *element_type_names[];"                        > ETH
     print "#endif"                                                    > ETH
+
 
     print "char *element_type_names[] = {"                            > ETC
     print "0,"                                                        > ETC     

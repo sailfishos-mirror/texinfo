@@ -51,7 +51,20 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
-void set_conf(SV *converter_in, conf, SV *value)
+# Called from Texinfo::XSLoader.pm.  The arguments are not actually used.
+# file path, can be in any encoding
+#        int texinfo_uninstalled
+#        char *builddir = (char *)SvPVbyte_nolen($arg);
+int
+init (...)
+      CODE:
+        set_element_type_name_info ();
+        RETVAL = 1;
+    OUTPUT:
+        RETVAL
+
+void
+set_conf(SV *converter_in, conf, SV *value)
          char *conf = (char *)SvPVbyte_nolen($arg);
       PREINIT:
          CONVERTER *self;

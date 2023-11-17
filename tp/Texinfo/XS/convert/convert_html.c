@@ -2970,7 +2970,7 @@ html_converter_initialize (CONVERTER *self)
       self->command_special_variety_name_index[i].index = number - 1;
     }
 
-  for (i = 0; i < ET_special_unit_element+1; i++)
+  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
       self->type_conversion_function[i]
         = register_type_conversion_function(i, &self->types_conversion[i]);
@@ -3156,7 +3156,7 @@ html_destroy (CONVERTER *self)
       free (self->special_unit_info_tree[i]);
     }
 
-  for (i = 1; i < ET_special_unit_element+1; i++)
+  for (i = 1; i < TXI_TREE_TYPES_NUMBER; i++)
     {
       free (self->pre_class_types[i]);
     }
@@ -3178,7 +3178,7 @@ html_destroy (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < ET_special_unit_element+1; i++)
+  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
       free (self->type_conversion_function[i]);
       free (self->css_string_type_conversion_function[i]);

@@ -299,7 +299,7 @@ html_converter_initialize_sv (SV *converter_sv,
   types_conversion_hv = (HV *)SvRV (*types_conversion_sv);
   default_types_conversion_hv = (HV *)SvRV (default_types_conversion);
 
-  for (i = 0; i < ET_special_unit_element+1; i++)
+  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
       char *ref_name;
       if (i == 0)
@@ -326,8 +326,8 @@ html_converter_initialize_sv (SV *converter_sv,
      specific references */
   memcpy (&converter->css_string_types_conversion,
           &converter->types_conversion,
-      (ET_special_unit_element+1) * sizeof (FORMATTING_REFERENCE));
-  for (i = 0; i < ET_special_unit_element+1; i++)
+      (TXI_TREE_TYPES_NUMBER) * sizeof (FORMATTING_REFERENCE));
+  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
       char *ref_name;
       if (i == 0)
@@ -452,7 +452,7 @@ html_converter_initialize_sv (SV *converter_sv,
              in the default case.  If this is needed more, a qsort/bfind
              could be used, but the overhead could probably only be
              justified if finding the type index happens more often */
-              for (j = 1; j < ET_special_unit_element+1; j++)
+              for (j = 1; j < TXI_TREE_TYPES_NUMBER; j++)
                 {
                   if (!strcmp (element_type_names[j], type_name))
                     {
@@ -491,20 +491,9 @@ html_converter_initialize_sv (SV *converter_sv,
                                             &type_name, &retlen);
           if (SvOK (pre_class_sv))
             {
-              enum element_type type = ET_NONE;
               char *pre_class = SvPV_nolen (pre_class_sv);
-          /* this is not very efficient, but should be done only once
-             in the default case.  If this is needed more, a qsort/bfind
-             could be used, but the overhead could probably only be
-             justified if finding the type index happens more often */
-              for (j = 1; j < ET_special_unit_element+1; j++)
-                {
-                  if (!strcmp (element_type_names[j], type_name))
-                    {
-                      type = j;
-                      break;
-                    }
-                }
+              enum element_type type = find_element_type (type_name);
+
               if (type == ET_NONE)
                 {
                   fprintf (stderr, "ERROR: %s: pre class type not found\n",

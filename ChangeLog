@@ -17,6 +17,22 @@
 
 2023-11-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/element_types.awk,
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): output code defining
+	TXI_TREE_TYPES_NUMBER to the number of tree element types.  Update
+	codes that used the last type instead.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/builtin_commands.c
+	(TYPE_INDEX, type_name_index, compare_type_index_fn)
+	(set_element_type_name_info, find_element_type),
+	tp/Texinfo/XS/convert/ConvertXS.xs (init): prepare a list of element
+	types names and type number in set_element_type_name_info and sort.
+	Called from init in ConvertXS.xs.  Add find_element_type to find the
+	type of a type name and use it in html_converter_initialize_sv.
+
+2023-11-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/command_stack.c (top_integer_stack): use correct
 	function name instead of top_integer_context.
 

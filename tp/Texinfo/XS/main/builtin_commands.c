@@ -20,6 +20,7 @@
 #include <stdio.h>
 
 #include "command_ids.h"
+#include "element_types.h"
 #include "tree_types.h"
 #include "extra.h"
 #include "debug.h"
@@ -119,3 +120,55 @@ element_builtin_data_cmd (const ELEMENT *e)
   return element_builtin_cmd (e);
 }
 
+typedef struct TYPE_INDEX {
+    enum element_type type;
+    char *name;
+} TYPE_INDEX;
+
+/* -1 because ET_NONE == 0 has no name */
+static TYPE_INDEX type_name_index[TXI_TREE_TYPES_NUMBER -1];
+
+static int
+compare_type_index_fn (const void *a, const void *b)
+{
+  const TYPE_INDEX *ta = (TYPE_INDEX *) a;
+  const TYPE_INDEX *tb = (TYPE_INDEX *) b;
+
+  return strcmp (ta->name, tb->name);
+}
+
+void
+set_element_type_name_info ()
+{
+  int i;
+  for (i = 1; i < TXI_TREE_TYPES_NUMBER; i++)
+    {
+      type_name_index[i-1].name = element_type_names[i];
+      type_name_index[i-1].type = i;
+    }
+
+  qsort (type_name_index, TXI_TREE_TYPES_NUMBER -1, sizeof(TYPE_INDEX),
+         compare_type_index_fn);
+
+   /*
+  for (i = 0; i < TXI_TREE_TYPES_NUMBER -1; i++)
+    {
+      fprintf (stderr, "TT %s %d\n", type_name_index[i].name, type_name_index[i].type);
+    }
+    */
+}
+
+enum element_type
+find_element_type (char *type_name)
+{
+  TYPE_INDEX *result;
+  static TYPE_INDEX searched_type;
+  searched_type.name = type_name;
+  result = (TYPE_INDEX *) bsearch (&searched_type, type_name_index,
+                              TXI_TREE_TYPES_NUMBER -1, sizeof(TYPE_INDEX),
+                               compare_type_index_fn);
+  if (result)
+    return result->type;
+  else
+    return 0;
+}
