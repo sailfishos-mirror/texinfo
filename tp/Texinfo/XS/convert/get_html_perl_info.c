@@ -484,7 +484,6 @@ html_converter_initialize_sv (SV *converter_sv,
 
       for (i = 0; i < hv_number; i++)
         {
-          int j;
           I32 retlen;
           char *type_name;
           SV *pre_class_sv = hv_iternextsv (pre_class_types_hv,

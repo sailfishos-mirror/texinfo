@@ -282,7 +282,10 @@ foreach my $category (sort(keys(%option_categories))) {
       }
       print GET "    {
       free (options->$option);
-      options->$option = strdup (SvPV${SV_function_type}_nolen (value));
+      if (SvOK (value))
+        options->$option = strdup (SvPV${SV_function_type}_nolen (value));
+      else
+        options->$option = 0;
     }\n";
     } elsif ($type eq 'int') {
       print GET "    options->$option = SvIV (value);\n";

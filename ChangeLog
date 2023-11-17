@@ -17,6 +17,14 @@
 
 2023-11-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl: handle value set
+	from perl being undef.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): remove unused variable.
+
+2023-11-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/ConvertXS.pm: remove fallback module.
 
 	* tp/Texinfo/XSLoader.pm (init): update fatal error message.
