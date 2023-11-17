@@ -1,5 +1,11 @@
 2023-11-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/main/convert_utils.c
+	(convert_to_utf8, convert_to_utf8_verbatiminclude):
+	Rename function to avoid confusion with convert_to_utf8 in input.c.
+
+2023-11-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/api_to_perl.c (croak_message):
 	Add wrapper for Perl croak.  Useful for debugging.
 

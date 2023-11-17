@@ -163,8 +163,8 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
 }
 
 static char *
-convert_to_utf8 (char *s, ENCODING_CONVERSION *conversion,
-                 const SOURCE_INFO *source_info)
+convert_to_utf8_verbatiminclude (char *s, ENCODING_CONVERSION *conversion,
+                                 const SOURCE_INFO *source_info)
 {
   char *result;
   if (!conversion)
@@ -311,7 +311,8 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                   break;
                 }
 
-              text = convert_to_utf8 (line, conversion, &current->source_info);
+              text = convert_to_utf8_verbatiminclude
+                       (line, conversion, &current->source_info);
               free (line);
               raw = new_element (ET_raw);
               text_append (&raw->text, text);
