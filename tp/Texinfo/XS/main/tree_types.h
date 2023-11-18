@@ -109,7 +109,7 @@ enum relative_unit_direction_type {
   #undef rud_type
 };
 
-/* in output_units.c */
+/* in main/output_unit.c */
 extern char *relative_unit_direction_name[];
 
 typedef struct KEY_PAIR {
