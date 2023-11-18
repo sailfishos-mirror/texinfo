@@ -251,23 +251,6 @@ translate_string (OPTIONS *options, const char * string,
    }
    */
 
-/*
-  if ($self) {
-    # NOTE the following customization variables are not set for
-    # a Parser, so the encoding will be undef when gdt is called from
-    # parsers.
-    if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
-      $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
-    }
-    #if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
-    #  $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
-    #}
-  } else {
-    # NOTE never happens in the tests, unlikely to happen at all.
-    $encoding = $DEFAULT_ENCODING;
-    #$perl_encoding = $DEFAULT_PERL_ENCODING;
-  }
- */
   langs[0] = strdup (lang);
   p = strchr (lang, '_');
   if (p && p - lang > 0)
