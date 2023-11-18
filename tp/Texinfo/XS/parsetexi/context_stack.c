@@ -82,7 +82,7 @@ push_context (enum context c, enum command_id cmd)
 }
 
 enum context
-pop_context ()
+pop_context (void)
 {
   if (top == 0)
     fatal ("context stack empty");

@@ -1,5 +1,10 @@
 2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/context_stack.c (pop_context):
+	Define with (void) parameter list rather than ().
+
+2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c: Remove include directives for several
 	header files that we don't need any more due to using libunistring
 	functions instead of locale-dependent libc functions.
