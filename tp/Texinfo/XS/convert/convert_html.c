@@ -39,6 +39,7 @@
 #include "translations.h"
 #include "convert_utils.h"
 #include "convert_to_text.h"
+#include "call_perl_function.h"
 #include "call_html_perl_function.h"
 /* for TREE_AND_STRINGS */
 #include "document.h"
@@ -3686,7 +3687,6 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
 
   if (html_commands_data[data_cmd].flags & HF_composition_context)
     {
-      /* FIXME or cmd? */
       push_command_or_type (&top_document_ctx->composition_context,
                             data_cmd, 0);
       push_integer_stack_integer (&top_document_ctx->preformatted_context,
@@ -3726,9 +3726,8 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
     {
       top_document_ctx->math_ctx++;
       self->modified_state |= HMSF_top_document_ctx;
-     /*
-    $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
-      */
+      if (self->conf->CONVERT_TO_LATEX_IN_MATH > 0)
+        convert_to_latex = 1;
     }
   if (data_cmd == CM_verb)
     {
@@ -4073,15 +4072,23 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           if (element->contents.number > 0)
             {
 
-              if (convert_to_latex)
+              if (convert_to_latex
+                  && !(builtin_command_data[data_cmd].flags & CF_brace))
                 {
-                  /*
-          $content_formatted
-           = Texinfo::Convert::LaTeX::convert_to_latex_math(undef,
-                                {'contents' => $element->{'contents'}},
-                                         $self->{'options_latex_math'});
+                  ELEMENT *tmp = new_element (ET_NONE);
+                  char *latex_content;
 
-                  */
+                  tmp->contents = element->contents;
+                  latex_content = call_latex_convert_to_latex_math (self,
+                                                                    tmp);
+                  tmp->contents.list = 0;
+                  destroy_element (tmp);
+
+                  if (latex_content)
+                    {
+                      text_append (&content_formatted, latex_content);
+                      free (latex_content);
+                    }
                 }
               else
                 {
@@ -4129,7 +4136,10 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                     {
                       char *explanation;
                       unsigned long arg_flags = 0;
-                      const ELEMENT *arg = element->args.list[arg_idx];
+                      /* actually const, but cannot be marked as such because
+                         the argument of call_latex_convert_to_latex_math
+                         cannot be const in case perl element has to be built */
+                      ELEMENT *arg = element->args.list[arg_idx];
                       HTML_ARG_FORMATTED *arg_formatted
                          = &args_formatted->args[arg_idx];
 
@@ -4152,7 +4162,14 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                           text_reset (&formatted_arg);
                           if (convert_to_latex)
                             {
-                              /* */
+                              char *latex_content
+                                = call_latex_convert_to_latex_math (self,
+                                                                    arg);
+                              if (latex_content)
+                                {
+                                  text_append (&formatted_arg, latex_content);
+                                  free (latex_content);
+                                }
                             }
                           else
                             {

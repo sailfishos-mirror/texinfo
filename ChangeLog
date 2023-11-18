@@ -50,6 +50,18 @@
 
 2023-11-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_open_command_update_context, convert_to_html_internal)
+	tp/Texinfo/XS/main/call_perl_function.c
+	(call_latex_convert_to_latex_math): add
+	call_latex_convert_to_latex_math to call
+	Texinfo::Convert::LaTeX::convert_to_latex_math from XS, and use it in
+	convert_to_html_internal.
+
+	* tp/t/html_tests.t: do not skip mathjax tests with XS.
+
+2023-11-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_open_command_update_context)
 	(_convert_command_update_context, _open_type_update_context)
 	(_convert_type_update_context, _convert),

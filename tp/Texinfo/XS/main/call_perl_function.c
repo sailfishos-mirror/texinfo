@@ -32,6 +32,8 @@
 
 #include <string.h>
 
+#include "tree_types.h"
+#include "converter_types.h"
 #include "build_perl_info.h"
 #include "call_perl_function.h"
 
@@ -65,6 +67,78 @@ call_nodenamenormalization_unicode_to_transliterate (char *text)
 
   if (count != 1)
     croak("_unicode_to_transliterate should return 1 item\n");
+
+  result_sv = POPs;
+  /* FIXME encoding */
+  result_ret = SvPV (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
+call_latex_convert_to_latex_math (CONVERTER *self, ELEMENT *element)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV **options_latex_math_sv;
+  SV *options_latex_math;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  /* in case of @displaymath a element containing the contents
+     of the displaymath element is passed, it is not registered in perl */
+  if (!element->hv)
+    {
+      element_to_perl_hash (element);
+    }
+
+  dSP;
+
+  options_latex_math_sv = hv_fetch (self->hv, "options_latex_math",
+                                 strlen ("options_latex_math"), 0);
+
+  if (options_latex_math_sv)
+    {
+      options_latex_math = *options_latex_math_sv;
+      SvREFCNT_inc (options_latex_math);
+    }
+  else
+    {
+      options_latex_math = newSV (0);
+    }
+
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newSV (0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUSHs(sv_2mortal (options_latex_math));
+  PUTBACK;
+
+  count = call_pv (
+    "Texinfo::Convert::LaTeX::convert_to_latex_math",
+    G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("convert_to_latex_math should return 1 item\n");
 
   result_sv = POPs;
   /* FIXME encoding */

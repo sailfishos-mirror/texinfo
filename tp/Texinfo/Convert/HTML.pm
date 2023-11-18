@@ -12338,10 +12338,11 @@ sub _convert($$;$)
       }
       my $content_formatted = '';
       if ($element->{'contents'}) {
-        if ($convert_to_latex) {
+        if ($convert_to_latex and !$brace_commands{$command_name}) {
+          # displaymath
           $content_formatted
            = Texinfo::Convert::LaTeX::convert_to_latex_math(undef,
-                                {'contents' => $element->{'contents'}},
+                                    {'contents' => $element->{'contents'}},
                                          $self->{'options_latex_math'});
         } else {
           my $content_idx = 0;
