@@ -548,24 +548,17 @@ xspara__add_next (TEXT *result, char *word, int word_len,
                 }
 
               char_len = u8_mbtouc (&w, (uint8_t *) p, left);
-              if (char_len == (size_t) -2) {
-                /* unfinished multibyte character */
-                char_len = left;
-              } else if (char_len == (size_t) -1) {
-                /* invalid character */
-                char_len = 1;
-              } else if (char_len == 0) {
-                /* not sure what this means but we must avoid an infinite loop.
-                   Possibly only happens with invalid strings */
-                char_len = 1;
-              }
+              if (w == 0xfffd) /* bug - invalid string */
+                {
+                  if (char_len <= 0)
+                    char_len = 1; /* avoid an infinte loop */
+                }
               left -= char_len;
+              p += char_len;
 
               columns = uc_width (w, "UTF-8");
               if (columns > 0)
                 len += columns;
-
-              p += char_len;
             }
           state.word_counter += len;
        }
@@ -736,12 +729,10 @@ xspara_add_text (char *text, int len)
               char32_t wc;
               next_len = u8_mbtouc (&wc, (uint8_t *) q, len);
 
-              if ((long) next_len == 0)
-                break; /* Null character. Shouldn't happen. */
-              else if ((long) next_len < 0)
+              if (wc == 0xfffd) /* bug - invalid string */
                 {
-                  q++; len--; /* Invalid.  Just try to keep going. */
-                  continue;
+                  if (next_len <= 0)
+                    next_len = 1; /* avoid an infinte loop */
                 }
 
              /* Note: width == 0 includes accent characters. */

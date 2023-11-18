@@ -1,5 +1,11 @@
 2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara__add_next): Check return value
+	for u8_mbtouc as documented, by checking for 0xfffd (replacement
+	character), instead of using the same as mbrtowc. 
+
+2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/context_stack.c (pop_context):
 	Define with (void) parameter list rather than ().
 
