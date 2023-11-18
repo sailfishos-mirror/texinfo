@@ -177,7 +177,7 @@ translate_string (OPTIONS *options, const char * string,
 #ifndef ENABLE_NLS
   translated_string = strdup (string);
   return translated_string;
-#endif ENABLE_NLS
+#endif
 
   /* with the following code valgrind reports issues in perl memory */
 
