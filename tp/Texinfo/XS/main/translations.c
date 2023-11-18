@@ -174,11 +174,6 @@ translate_string (OPTIONS *options, const char * string,
       lang = "en";
     }
 
-
-  /*
-  return strdup (string);
-   */
-
 #ifndef ENABLE_NLS
   translated_string = strdup (string);
   return translated_string;
@@ -209,10 +204,7 @@ translate_string (OPTIONS *options, const char * string,
     list through the LANGUAGE variable.
 
    We set LANG and then LC_MESSAGES to a valid locale in
-   switch_messages_locale to have LANGUAGE work in that case.
-   FIXME it does not work.  Also tested with setting LC_ALL instead of
-         LC_MESSAGES and it does not work either
-   */
+   switch_messages_locale to have LANGUAGE work in that case. */
 
   saved_LANG = getenv ("LANG");
 
@@ -239,17 +231,6 @@ translate_string (OPTIONS *options, const char * string,
 
   textdomain (strings_textdomain);
   bind_textdomain_codeset (strings_textdomain, "utf-8");
-
-  /*
-   {
-     char *bindtextdomain_dir;
-     char *current_textdomain;
-     current_textdomain = textdomain (NULL);
-     bindtextdomain_dir = bindtextdomain (current_textdomain, NULL);
-     fprintf (stderr, "DOMAIN %s '%s'\n", current_textdomain,
-                                         bindtextdomain_dir);
-   }
-   */
 
   langs[0] = strdup (lang);
   p = strchr (lang, '_');

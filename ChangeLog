@@ -1,6 +1,13 @@
 2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/main/translations.c (translate_string):
+	Remove commented-out code, the purpose of which is not evident.
+	Remove FIXME comment as this should be working now we call
+	switch_to_global_locale.
+
+2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/main/translations.c (translate_string):
 	Exdent preprocessor #ifndef directives.  Add a return statement
 	to #ifndef block to avoid wrapping the rest of the function in
 	the #else block.
