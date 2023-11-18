@@ -1,5 +1,10 @@
 2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/texi2any.supp: Add suppression for memory leak with
+	switch_to_global_locale.
+
+2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/translations.c (translate_string):
 	Remove commented-out code, the purpose of which is not evident.
 	Remove FIXME comment as this should be working now we call

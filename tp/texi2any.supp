@@ -1,11 +1,31 @@
 # valgrind suppression file for texi2any
 
-# Errors output due to use of setenv in XS module.  Fixed in Perl 5.38.
+# Leak occurs when switch_to_global_locale is called in main/translations.c.
+# Occurs in Perl 5.36.
+{
+   translations/switch_to_global_locale
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:newlocale
+   obj:*/perl
+   fun:Perl_set_numeric_standard
+   fun:Perl_setlocale
+   obj:*/POSIX.so
+   fun:Perl_pp_entersub
+   fun:Perl_runops_standard
+   fun:Perl_call_sv
+   fun:Perl_call_list
+   obj:*/perl
+   fun:Perl_newATTRSUB_x
+}
+
+# Errors output due to use of setenv in XS module.
+# Occurs in Perl 5.36, fixed in Perl 5.38.
 # See <https://github.com/Perl/perl5/issues/19399> and
 # <https://rt.cpan.org/Public/Bug/Display.html?id=140138>.
-
 {
-   before-perl-5.38/A
+   fixed-in-perl/translations/setenv
    Memcheck:Free
    fun:free
    ...
