@@ -1,5 +1,13 @@
 2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c: Remove include directives for several
+	header files that we don't need any more due to using libunistring
+	functions instead of locale-dependent libc functions.
+	[_WIN32] (w32_setlocale, mbrlen, mbrtowc, iswspace, iswupper):
+	Remove these now-unused implementations.
+
+2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/texi2any.supp: Add suppression for memory leak with
 	switch_to_global_locale.
 
