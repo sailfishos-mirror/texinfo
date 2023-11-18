@@ -12065,6 +12065,166 @@ sub _protect_class_name($$)
   return _default_format_protect_text($self, $class_name);
 }
 
+sub _open_command_update_context($$)
+{
+  my $self = shift;
+  my $command_name = shift;
+  my $convert_to_latex;
+
+  if (exists($brace_commands{$command_name})
+      and $brace_commands{$command_name} eq 'context') {
+    $self->_new_document_context($command_name);
+      }
+  if (exists($format_context_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'formatting_context'}},
+                                  {'context_name' => '@'.$command_name};
+  }
+  if (exists($block_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'block_commands'}},
+                                                      $command_name;
+  }
+  my $preformatted = 0;
+  if ($pre_class_commands{$command_name}) {
+    push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
+      $pre_class_commands{$command_name};
+    if ($preformatted_commands{$command_name}) {
+      $self->{'document_context'}->[-1]->{'inside_preformatted'}++;
+      $preformatted = 1;
+    } elsif ($block_commands{$command_name} eq 'menu'
+             and $self->{'document_context'}->[-1]->{'inside_preformatted'}) {
+      $preformatted = 1;
+    }
+  }
+  if (exists ($composition_context_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+                                                           $command_name;
+    push @{$self->{'document_context'}->[-1]->{'preformatted_context'}},
+         $preformatted;
+  }
+  if ($format_raw_commands{$command_name}) {
+    $self->{'document_context'}->[-1]->{'raw'}++;
+  } elsif ($command_name eq 'verbatim') {
+    $self->{'document_context'}->[-1]->{'verbatim'}++;
+  }
+  if ($brace_code_commands{$command_name} or
+      $preformatted_code_commands{$command_name}) {
+    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+  } elsif ($brace_commands{$command_name}
+           and $brace_commands{$command_name} eq 'style_no_code') {
+    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
+  } elsif ($self->{'upper_case_commands'}->{$command_name}) {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                         ->{'upper_case'}++;
+  } elsif ($math_commands{$command_name}) {
+    $self->{'document_context'}->[-1]->{'math'}++;
+    $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
+  }
+  if ($command_name eq 'verb') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                    ->{'space_protected'}++;
+  } elsif ($command_name eq 'w') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                               ->{'no_break'}++;
+  }
+  return $convert_to_latex;
+}
+
+sub _convert_command_update_context($$)
+{
+  my $self = shift;
+  my $command_name = shift;
+
+  if (exists ($composition_context_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
+  }
+  if ($pre_class_commands{$command_name}) {
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
+    if ($preformatted_commands{$command_name}) {
+      $self->{'document_context'}->[-1]->{'inside_preformatted'}--;
+    }
+  }
+  if ($preformatted_code_commands{$command_name}
+      or ($brace_commands{$command_name}
+          and $brace_commands{$command_name} eq 'style_no_code')
+      or $brace_code_commands{$command_name}) {
+    pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+  } elsif ($self->{'upper_case_commands'}->{$command_name}) {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                    ->{'upper_case'}--;
+  } elsif ($math_commands{$command_name}) {
+    $self->{'document_context'}->[-1]->{'math'}--;
+  }
+  if ($command_name eq 'verb') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                               ->{'space_protected'}--;
+  } elsif ($command_name eq 'w') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                               ->{'no_break'}--;
+  }
+  if ($format_raw_commands{$command_name}) {
+    $self->{'document_context'}->[-1]->{'raw'}--;
+  } elsif ($command_name eq 'verbatim') {
+    $self->{'document_context'}->[-1]->{'verbatim'}--;
+  }
+  if (exists($block_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'block_commands'}};
+  }
+  if (exists($format_context_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
+  }
+  if (exists($brace_commands{$command_name})
+      and $brace_commands{$command_name} eq 'context') {
+    $self->_pop_document_context();
+  }
+}
+
+sub _open_type_update_context($$)
+{
+  my $self = shift;
+  my $type_name = shift;
+
+  if ($type_name eq 'paragraph') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                    ->{'paragraph_number'}++;
+  } elsif ($type_name eq 'preformatted'
+           or $type_name eq 'rawpreformatted') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                 ->{'preformatted_number'}++;
+  } elsif ($self->{'pre_class_types'}->{$type_name}) {
+    push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
+      $self->{'pre_class_types'}->{$type_name};
+    push @{$self->{'document_context'}->[-1]->{'preformatted_context'}}, 1;
+    push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+      $type_name;
+  }
+
+  if ($self->{'code_types'}->{$type_name}) {
+    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+  }
+  if ($type_name eq '_string') {
+    $self->{'document_context'}->[-1]->{'string'}++;
+  }
+}
+
+sub _convert_type_update_context($$)
+{
+  my $self = shift;
+  my $type_name = shift;
+
+  if ($self->{'code_types'}->{$type_name}) {
+    pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+  }
+  if ($type_name eq '_string') {
+    $self->{'document_context'}->[-1]->{'string'}--;
+  }
+  if ($self->{'pre_class_types'}->{$type_name}) {
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
+    pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
+  }
+}
+
 # Convert tree element $ELEMENT, and return HTML text for the output files.
 sub _convert($$;$);
 sub _convert($$;$)
@@ -12169,62 +12329,8 @@ sub _convert($$;$)
       $self->{'current_root_command'} = $element;
     }
     if (exists($self->{'commands_conversion'}->{$command_name})) {
-      my $convert_to_latex;
-      if (exists($brace_commands{$command_name})
-          and $brace_commands{$command_name} eq 'context') {
-        $self->_new_document_context($command_name);
-      }
-      if (exists($format_context_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'formatting_context'}},
-                                      {'context_name' => '@'.$command_name};
-      }
-      if (exists($block_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'block_commands'}},
-                                                          $command_name;
-      }
-      my $preformatted = 0;
-      if ($pre_class_commands{$command_name}) {
-        push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-          $pre_class_commands{$command_name};
-        if ($preformatted_commands{$command_name}) {
-          $self->{'document_context'}->[-1]->{'inside_preformatted'}++;
-          $preformatted = 1;
-        } elsif ($block_commands{$command_name} eq 'menu'
-                 and $self->{'document_context'}->[-1]->{'inside_preformatted'}) {
-          $preformatted = 1;
-        }
-      }
-      if (exists ($composition_context_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-                                                               $command_name;
-        push @{$self->{'document_context'}->[-1]->{'preformatted_context'}},
-             $preformatted;
-      }
-      if ($format_raw_commands{$command_name}) {
-        $self->{'document_context'}->[-1]->{'raw'}++;
-      } elsif ($command_name eq 'verbatim') {
-        $self->{'document_context'}->[-1]->{'verbatim'}++;
-      }
-      if ($brace_code_commands{$command_name} or
-          $preformatted_code_commands{$command_name}) {
-        push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-      } elsif ($brace_commands{$command_name}
-               and $brace_commands{$command_name} eq 'style_no_code') {
-        push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
-      } elsif ($self->{'upper_case_commands'}->{$command_name}) {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                             ->{'upper_case'}++;
-      } elsif ($math_commands{$command_name}) {
-        $self->{'document_context'}->[-1]->{'math'}++;
-        $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
-      }
-      if ($command_name eq 'verb') {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                        ->{'space_protected'}++;
-      } elsif ($command_name eq 'w') {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                   ->{'no_break'}++;
-      }
+      my $convert_to_latex
+        = _open_command_update_context($self, $command_name);
       my $result = '';
       if (defined($self->{'commands_open'}->{$command_name})) {
         $result .= &{$self->{'commands_open'}->{$command_name}}($self,
@@ -12332,49 +12438,8 @@ sub _convert($$;$)
           }
         }
       }
-      if (exists ($composition_context_commands{$command_name})) {
-        pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
-        pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
-      }
-      if ($pre_class_commands{$command_name}) {
-        pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
-        if ($preformatted_commands{$command_name}) {
-          $self->{'document_context'}->[-1]->{'inside_preformatted'}--;
-        }
-      }
-      if ($preformatted_code_commands{$command_name}
-          or ($brace_commands{$command_name}
-              and $brace_commands{$command_name} eq 'style_no_code')
-          or $brace_code_commands{$command_name}) {
-        pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-      } elsif ($self->{'upper_case_commands'}->{$command_name}) {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                        ->{'upper_case'}--;
-      } elsif ($math_commands{$command_name}) {
-        $self->{'document_context'}->[-1]->{'math'}--;
-      }
-      if ($command_name eq 'verb') {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                   ->{'space_protected'}--;
-      } elsif ($command_name eq 'w') {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                   ->{'no_break'}--;
-      }
-      if ($format_raw_commands{$command_name}) {
-        $self->{'document_context'}->[-1]->{'raw'}--;
-      } elsif ($command_name eq 'verbatim') {
-        $self->{'document_context'}->[-1]->{'verbatim'}--;
-      }
-      if (exists($block_commands{$command_name})) {
-        pop @{$self->{'document_context'}->[-1]->{'block_commands'}};
-      }
-      if (exists($format_context_commands{$command_name})) {
-        pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
-      }
-      if (exists($brace_commands{$command_name})
-          and $brace_commands{$command_name} eq 'context') {
-        $self->_pop_document_context();
-      }
+
+      _convert_command_update_context($self, $command_name);
 
       if ($element->{'cmdname'} eq 'node') {
         $self->{'current_node'} = $element;
@@ -12410,30 +12475,12 @@ sub _convert($$;$)
 
     my $result = '';
     my $type_name = $element->{'type'};
+
+    _open_type_update_context($self, $type_name);
+
     if (defined($self->{'types_open'}->{$type_name})) {
       $result .= &{$self->{'types_open'}->{$type_name}}($self,
-                                               $type_name, $element);
-    }
-    if ($type_name eq 'paragraph') {
-      $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                      ->{'paragraph_number'}++;
-    } elsif ($type_name eq 'preformatted'
-             or $type_name eq 'rawpreformatted') {
-      $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                   ->{'preformatted_number'}++;
-    } elsif ($self->{'pre_class_types'}->{$type_name}) {
-      push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-        $self->{'pre_class_types'}->{$type_name};
-      push @{$self->{'document_context'}->[-1]->{'preformatted_context'}}, 1;
-      push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-        $type_name;
-    }
-
-    if ($self->{'code_types'}->{$type_name}) {
-      push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-    }
-    if ($type_name eq '_string') {
-      $self->{'document_context'}->[-1]->{'string'}++;
+                                             $type_name, $element);
     }
 
     my $content_formatted = '';
@@ -12450,6 +12497,8 @@ sub _convert($$;$)
       }
     }
 
+    _convert_type_update_context($self, $type_name);
+
     if (exists($self->{'types_conversion'}->{$type_name})) {
       $result .= &{$self->{'types_conversion'}->{$type_name}} ($self,
                                                  $type_name,
@@ -12457,17 +12506,6 @@ sub _convert($$;$)
                                                  $content_formatted);
     } elsif (defined($content_formatted)) {
       $result .= $content_formatted;
-    }
-    if ($self->{'code_types'}->{$type_name}) {
-      pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-    }
-    if ($type_name eq '_string') {
-      $self->{'document_context'}->[-1]->{'string'}--;
-    }
-    if ($self->{'pre_class_types'}->{$type_name}) {
-      pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
-      pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
-      pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
     }
     print STDERR "DO type ($type_name) => `$result'\n" if $debug;
     return $result;

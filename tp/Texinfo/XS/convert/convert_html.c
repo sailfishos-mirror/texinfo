@@ -140,12 +140,13 @@ typedef struct HTML_COMMAND_STRUCT {
 static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
 
 /* should correspond to enum html_special_character */
+/* HTML textual entity, UTF-8 encoded, unicode point, HTML numeric entity */
 char *special_characters_formatting[SC_non_breaking_space+1][4] = {
-  {"&para;", "\xC2\xB6", "00B6", "&#" "00B6" ";"},
-  {"&lsquo;", "\xE2\x80\x98", "2018", "&#" "2018" ";"},
-  {"&rsquo;", "\xE2\x80\x99", "2019", "&#" "2019" ";"},
-  {"&bull;", "\xE2\x80\xA2", "2022", "&#" "2022" ";"},
-  {"&nbsp;", "\xC2\xA0", "00A0", "&#" "00A0" ";"},
+  {"&para;", "\xC2\xB6", "00B6", "&#182;"},
+  {"&lsquo;", "\xE2\x80\x98", "2018", "&#8216;"},
+  {"&rsquo;", "\xE2\x80\x99", "2019", "&#8216;"},
+  {"&bull;", "\xE2\x80\xA2", "2022", "&#8226;"},
+  {"&nbsp;", "\xC2\xA0", "00A0", "&#160;"},
 };
 
 /* in specification of args.  Number max +1 for a trailing 0 */
@@ -527,6 +528,14 @@ in_space_protected (CONVERTER *self)
   top_formating_ctx
     = html_top_formatting_context (&top_document_ctx->formatting_context);
   return top_formating_ctx->space_protected;
+}
+
+int
+in_string (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  top_document_ctx = html_top_document_context (self);
+  return top_document_ctx->string_ctx;
 }
 
 int in_upper_case (CONVERTER *self)
@@ -2579,10 +2588,38 @@ convert_table_term_type (CONVERTER *self, const enum element_type type,
     }
 }
 
+void
+convert_row_type (CONVERTER *self, const enum element_type type,
+                  const ELEMENT *element, const char *content,
+                  TEXT *result)
+{
+  if (in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+    }
+
+  if (!content || content[strspn (content, whitespace_chars)] == '\0')
+    return;
+  else
+    {
+      text_append (result, "<tr>");
+      text_append (result, content);
+      text_append (result, "</tr>");
+
+      if (element->contents.number > 0
+          && element->contents.list[0]->cmd != CM_headitem)
+      /* if headitem, end of line added in _convert_multitable_head_type */
+        text_append (result, "\n");
+    }
+}
+
+
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_table_term, &convert_table_term_type},
   {ET_text, &convert_text},
+  {ET_row, &convert_row_type},
   {0, 0},
 };
 
@@ -3592,6 +3629,275 @@ destroy_args_formatted (HTML_ARGS_FORMATTED *args_formatted)
   free (args_formatted);
 }
 
+
+int
+html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
+{
+  int convert_to_latex = 0;
+  int preformatted = 0;
+
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  HTML_FORMATTING_CONTEXT *top_formating_ctx;
+
+  if (builtin_command_data[data_cmd].flags & CF_brace
+      && builtin_command_data[data_cmd].data == BRACE_context)
+    {
+      html_new_document_context (self,
+                       builtin_command_data[data_cmd].cmdname, 0, 0);
+
+    }
+  top_document_ctx = html_top_document_context (self);
+
+  if (html_commands_data[data_cmd].flags & HF_format_context)
+    {
+      char *context_str;
+      xasprintf (&context_str, "@%s",
+                 builtin_command_data[data_cmd].cmdname);
+      push_html_formatting_context (
+                 &top_document_ctx->formatting_context,
+                 context_str);
+      free (context_str);
+      self->modified_state |= HMSF_formatting_context;
+    }
+
+  top_formating_ctx
+    = html_top_formatting_context (&top_document_ctx->formatting_context);
+
+  if (builtin_command_data[data_cmd].flags & CF_block)
+    {
+      push_command (&top_document_ctx->block_commands, data_cmd);
+      self->modified_state |= HMSF_block_commands;
+    }
+
+  if (html_commands_data[data_cmd].flags & HF_pre_class)
+    {
+      push_string_stack_string (&top_document_ctx->preformatted_classes,
+                                html_commands_data[data_cmd].pre_class);
+      self->modified_state |= HMSF_preformatted_classes;
+      if (builtin_command_data[data_cmd].flags & CF_preformatted)
+        {
+          preformatted = 1;
+          top_document_ctx->inside_preformatted++;
+        }
+      else if (builtin_command_data[data_cmd].data == BLOCK_menu
+               && top_document_ctx->inside_preformatted)
+        preformatted = 1;
+    }
+
+  if (html_commands_data[data_cmd].flags & HF_composition_context)
+    {
+      /* FIXME or cmd? */
+      push_command_or_type (&top_document_ctx->composition_context,
+                            data_cmd, 0);
+      push_integer_stack_integer (&top_document_ctx->preformatted_context,
+                                preformatted);
+      self->modified_state |= HMSF_composition_context;
+    }
+
+  if (html_commands_data[data_cmd].flags & HF_format_raw)
+    {
+      top_document_ctx->raw_ctx++;
+      self->modified_state |= HMSF_top_document_ctx;
+    }
+  else if (data_cmd == CM_verbatim)
+    {
+      top_document_ctx->verbatim_ctx++;
+      self->modified_state |= HMSF_top_document_ctx;
+    }
+
+  if (builtin_command_data[data_cmd].other_flags & CF_brace_code
+      || builtin_command_data[data_cmd].flags & CF_preformatted_code)
+    {
+      push_integer_stack_integer (&top_document_ctx->monospace, 1);
+      self->modified_state |= HMSF_monospace;
+    }
+  else if (builtin_command_data[data_cmd].flags & CF_brace
+           && builtin_command_data[data_cmd].data == BRACE_style_no_code)
+    {
+      push_integer_stack_integer (&top_document_ctx->monospace, 0);
+      self->modified_state |= HMSF_monospace;
+    }
+  else if (self->upper_case[data_cmd])
+    {
+      top_formating_ctx->upper_case_ctx++;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+  else if (builtin_command_data[data_cmd].flags & CF_math)
+    {
+      top_document_ctx->math_ctx++;
+      self->modified_state |= HMSF_top_document_ctx;
+     /*
+    $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
+      */
+    }
+  if (data_cmd == CM_verb)
+    {
+      top_formating_ctx->space_protected++;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+  else if (data_cmd == CM_w)
+    {
+      top_formating_ctx->no_break++;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+  return convert_to_latex;
+}
+
+void
+html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+  HTML_FORMATTING_CONTEXT *top_formating_ctx;
+
+  top_document_ctx = html_top_document_context (self);
+
+  top_formating_ctx
+    = html_top_formatting_context (&top_document_ctx->formatting_context);
+
+  if (html_commands_data[data_cmd].flags & HF_composition_context)
+    {
+      pop_command_or_type (&top_document_ctx->composition_context);
+      pop_integer_stack (&top_document_ctx->preformatted_context);
+      self->modified_state |= HMSF_composition_context;
+    }
+
+  if (html_commands_data[data_cmd].flags & HF_pre_class)
+    {
+      pop_string_stack (&top_document_ctx->preformatted_classes);
+      if (builtin_command_data[data_cmd].flags & CF_preformatted)
+        top_document_ctx->inside_preformatted--;
+      self->modified_state |= HMSF_preformatted_classes;
+    }
+
+  if (data_cmd == CM_verb)
+    {
+      top_formating_ctx->space_protected--;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+  else if (data_cmd == CM_w)
+    {
+      top_formating_ctx->no_break--;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+
+  if (builtin_command_data[data_cmd].flags & CF_preformatted_code
+      || (builtin_command_data[data_cmd].flags & CF_brace
+          && builtin_command_data[data_cmd].data == BRACE_style_no_code)
+      || builtin_command_data[data_cmd].other_flags & CF_brace_code)
+    {
+      pop_integer_stack (&top_document_ctx->monospace);
+      self->modified_state |= HMSF_monospace;
+    }
+  else if (self->upper_case[data_cmd])
+    {
+      top_formating_ctx->upper_case_ctx--;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+  else if (builtin_command_data[data_cmd].flags & CF_math)
+    {
+      top_document_ctx->math_ctx--;
+      self->modified_state |= HMSF_top_document_ctx;
+    }
+
+  if (html_commands_data[data_cmd].flags & HF_format_raw)
+    {
+      top_document_ctx->raw_ctx--;
+      self->modified_state |= HMSF_top_document_ctx;
+    }
+  else if (data_cmd == CM_verbatim)
+    {
+      top_document_ctx->verbatim_ctx--;
+      self->modified_state |= HMSF_top_document_ctx;
+    }
+
+  if (builtin_command_data[data_cmd].flags & CF_block)
+    {
+      pop_command (&top_document_ctx->block_commands);
+      self->modified_state |= HMSF_block_commands;
+    }
+
+  if (html_commands_data[data_cmd].flags & HF_format_context)
+    {
+      pop_html_formatting_context (
+                 &top_document_ctx->formatting_context);
+      self->modified_state |= HMSF_formatting_context;
+    }
+
+  if (builtin_command_data[data_cmd].flags & CF_brace
+      && builtin_command_data[data_cmd].data == BRACE_context)
+    {
+      html_pop_document_context (self);
+    }
+}
+
+void
+html_open_type_update_context (CONVERTER *self, enum element_type type)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
+  HTML_FORMATTING_CONTEXT *top_formating_ctx
+    = html_top_formatting_context (&top_document_ctx->formatting_context);
+
+  if (type == ET_paragraph)
+    {
+      top_formating_ctx->paragraph_number++;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+  else if (type == ET_preformatted || type == ET_rawpreformatted)
+    {
+      top_formating_ctx->preformatted_number++;
+      self->modified_state |= HMSF_top_formatting_context;
+    }
+  else if (self->pre_class_types[type])
+    {
+      push_string_stack_string (&top_document_ctx->preformatted_classes,
+                                self->pre_class_types[type]);
+      push_command_or_type (&top_document_ctx->composition_context,
+                            0, type);
+      push_integer_stack_integer (&top_document_ctx->preformatted_context, 1);
+      self->modified_state |= HMSF_preformatted_classes
+                              | HMSF_composition_context;
+    }
+
+  if (self->code_types[type])
+    {
+      push_integer_stack_integer (&top_document_ctx->monospace, 1);
+      self->modified_state |= HMSF_monospace;
+    }
+
+  if (type == ET__string)
+    {
+      top_document_ctx->string_ctx++;
+      self->modified_state |= HMSF_top_document_ctx;
+    }
+}
+
+void
+html_convert_type_update_context (CONVERTER *self, enum element_type type)
+{
+  HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
+
+  if (self->code_types[type])
+    {
+      pop_integer_stack (&top_document_ctx->monospace);
+      self->modified_state |= HMSF_monospace;
+    }
+
+  if (type == ET__string)
+    {
+      top_document_ctx->string_ctx--;
+      self->modified_state |= HMSF_top_document_ctx;
+    }
+
+  if (self->pre_class_types[type])
+    {
+      pop_string_stack (&top_document_ctx->preformatted_classes);
+      pop_command_or_type (&top_document_ctx->composition_context);
+      pop_integer_stack (&top_document_ctx->preformatted_context);
+      self->modified_state |= HMSF_preformatted_classes
+                              | HMSF_composition_context;
+    }
+}
+
 #define ADD(x) text_append (result, x)
 
 /* EXPLANATION is used for debugging */
@@ -3750,114 +4056,11 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
       if (self->current_commands_conversion_function[cmd])
         {
-          int convert_to_latex = 0;
-          int preformatted = 0;
-          HTML_ARGS_FORMATTED *args_formatted = 0;
           TEXT content_formatted;
+          HTML_ARGS_FORMATTED *args_formatted = 0;
 
-          HTML_DOCUMENT_CONTEXT *top_document_ctx;
-          HTML_FORMATTING_CONTEXT *top_formating_ctx;
-
-          if (builtin_command_data[data_cmd].flags & CF_brace
-              && builtin_command_data[data_cmd].data == BRACE_context)
-            {
-              html_new_document_context (self,
-                               builtin_command_data[data_cmd].cmdname, 0, 0);
-
-            }
-          top_document_ctx = html_top_document_context (self);
-
-          if (html_commands_data[data_cmd].flags & HF_format_context)
-            {
-              char *context_str;
-              xasprintf (&context_str, "@%s",
-                         builtin_command_data[data_cmd].cmdname);
-              push_html_formatting_context (
-                         &top_document_ctx->formatting_context,
-                         context_str);
-              free (context_str);
-              self->modified_state |= HMSF_formatting_context;
-            }
-
-          top_formating_ctx
-            = html_top_formatting_context (&top_document_ctx->formatting_context);
-
-          if (builtin_command_data[data_cmd].flags & CF_block)
-            {
-              push_command (&top_document_ctx->block_commands, data_cmd);
-              self->modified_state |= HMSF_block_commands;
-            }
-
-          if (html_commands_data[data_cmd].flags & HF_pre_class)
-            {
-              push_string_stack_string (&top_document_ctx->preformatted_classes,
-                                        html_commands_data[data_cmd].pre_class);
-              self->modified_state |= HMSF_preformatted_classes;
-              if (builtin_command_data[data_cmd].flags & CF_preformatted)
-                {
-                  preformatted = 1;
-                  top_document_ctx->inside_preformatted++;
-                }
-              else if (builtin_command_data[data_cmd].data == BLOCK_menu
-                       && top_document_ctx->inside_preformatted)
-                preformatted = 1;
-            }
-
-          if (html_commands_data[data_cmd].flags & HF_composition_context)
-            {
-              push_command_or_type (&top_document_ctx->composition_context,
-                                    cmd, 0);
-              push_integer_stack_integer (&top_document_ctx->preformatted_context,
-                                        preformatted);
-              self->modified_state |= HMSF_composition_context;
-            }
-
-          if (html_commands_data[data_cmd].flags & HF_format_raw)
-            {
-              top_document_ctx->raw_ctx++;
-              self->modified_state |= HMSF_top_document_ctx;
-            }
-          else if (data_cmd == CM_verbatim)
-            {
-              top_document_ctx->verbatim_ctx++;
-              self->modified_state |= HMSF_top_document_ctx;
-            }
-
-          if (builtin_command_data[data_cmd].other_flags & CF_brace_code
-              || builtin_command_data[data_cmd].flags & CF_preformatted_code)
-            {
-              push_integer_stack_integer (&top_document_ctx->monospace, 1);
-              self->modified_state |= HMSF_monospace;
-            }
-          else if (builtin_command_data[data_cmd].flags & CF_brace
-                   && builtin_command_data[data_cmd].data == BRACE_style_no_code)
-            {
-              push_integer_stack_integer (&top_document_ctx->monospace, 0);
-              self->modified_state |= HMSF_monospace;
-            }
-          else if (self->upper_case[cmd])
-            {
-              top_formating_ctx->upper_case_ctx++;
-              self->modified_state |= HMSF_top_formatting_context;
-            }
-          else if (builtin_command_data[data_cmd].flags & CF_math)
-            {
-              top_document_ctx->math_ctx++;
-              self->modified_state |= HMSF_top_document_ctx;
-             /*
-        $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
-              */
-            }
-          if (cmd == CM_verb)
-            {
-              top_formating_ctx->space_protected++;
-              self->modified_state |= HMSF_top_formatting_context;
-            }
-          else if (cmd == CM_w)
-            {
-              top_formating_ctx->no_break++;
-              self->modified_state |= HMSF_top_formatting_context;
-            }
+          int convert_to_latex
+               = html_open_command_update_context (self, data_cmd);
 
           if (self->commands_open[cmd].status)
             {
@@ -3965,6 +4168,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                         }
                       if (arg_flags & F_AFT_monospace)
                         {
+                          HTML_DOCUMENT_CONTEXT *top_document_ctx
+                            = html_top_document_context (self);
                           text_reset (&formatted_arg);
                           xasprintf (&explanation, "%s A[%d]monospace",
                                                    command_type.text, arg_idx);
@@ -4071,6 +4276,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                         }
                       if (arg_flags & F_AFT_raw)
                         {
+                          HTML_DOCUMENT_CONTEXT *top_document_ctx
+                            = html_top_document_context (self);
                           text_reset (&formatted_arg);
                           top_document_ctx->raw_ctx++;
                           self->modified_state |= HMSF_top_document_ctx;
@@ -4090,81 +4297,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                 }
             }
 
-          if (html_commands_data[data_cmd].flags & HF_composition_context)
-            {
-              pop_command_or_type (&top_document_ctx->composition_context);
-              pop_integer_stack (&top_document_ctx->preformatted_context);
-              self->modified_state |= HMSF_composition_context;
-            }
-
-          if (html_commands_data[data_cmd].flags & HF_pre_class)
-            {
-              pop_string_stack (&top_document_ctx->preformatted_classes);
-              if (builtin_command_data[data_cmd].flags & CF_preformatted)
-                top_document_ctx->inside_preformatted--;
-              self->modified_state |= HMSF_preformatted_classes;
-            }
-
-          if (cmd == CM_verb)
-            {
-              top_formating_ctx->space_protected--;
-              self->modified_state |= HMSF_top_formatting_context;
-            }
-          else if (cmd == CM_w)
-            {
-              top_formating_ctx->no_break--;
-              self->modified_state |= HMSF_top_formatting_context;
-            }
-
-          if (builtin_command_data[data_cmd].flags & CF_preformatted_code
-              || (builtin_command_data[data_cmd].flags & CF_brace
-                  && builtin_command_data[data_cmd].data == BRACE_style_no_code)
-              || builtin_command_data[data_cmd].other_flags & CF_brace_code)
-            {
-              pop_integer_stack (&top_document_ctx->monospace);
-              self->modified_state |= HMSF_monospace;
-            }
-          else if (self->upper_case[cmd])
-            {
-              top_formating_ctx->upper_case_ctx--;
-              self->modified_state |= HMSF_top_formatting_context;
-            }
-
-          else if (builtin_command_data[data_cmd].flags & CF_math)
-            {
-              top_document_ctx->math_ctx--;
-              self->modified_state |= HMSF_top_document_ctx;
-            }
-
-          if (html_commands_data[data_cmd].flags & HF_format_raw)
-            {
-              top_document_ctx->raw_ctx--;
-              self->modified_state |= HMSF_top_document_ctx;
-            }
-          else if (data_cmd == CM_verbatim)
-            {
-              top_document_ctx->verbatim_ctx--;
-              self->modified_state |= HMSF_top_document_ctx;
-            }
-
-          if (builtin_command_data[data_cmd].flags & CF_block)
-            {
-              pop_command (&top_document_ctx->block_commands);
-              self->modified_state |= HMSF_block_commands;
-            }
-
-          if (html_commands_data[data_cmd].flags & HF_format_context)
-            {
-              pop_html_formatting_context (
-                         &top_document_ctx->formatting_context);
-              self->modified_state |= HMSF_formatting_context;
-            }
-
-          if (builtin_command_data[data_cmd].flags & CF_brace
-              && builtin_command_data[data_cmd].data == BRACE_context)
-            {
-              html_pop_document_context (self);
-            }
+          html_convert_command_update_context (self, data_cmd);
 
           if (element->cmd == CM_node)
             {
@@ -4215,50 +4348,15 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
   else if (element->type)
     {
       enum element_type type = element->type;
-      char *type_name = element_type_names[type];
       TEXT type_result;
       TEXT content_formatted;
-      HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
-      HTML_FORMATTING_CONTEXT *top_formating_ctx
-        = html_top_formatting_context (&top_document_ctx->formatting_context);
 
       text_init (&type_result);
       text_append (&type_result, "");
 
+      html_open_type_update_context(self, type);
+
       type_open (self, type, element, &type_result);
-
-      if (type == ET_paragraph)
-        {
-          top_formating_ctx->paragraph_number++;
-          self->modified_state |= HMSF_top_formatting_context;
-        }
-      else if (type == ET_preformatted || type == ET_rawpreformatted)
-        {
-          top_formating_ctx->preformatted_number++;
-          self->modified_state |= HMSF_top_formatting_context;
-        }
-      else if (self->pre_class_types[type])
-        {
-          push_string_stack_string (&top_document_ctx->preformatted_classes,
-                                    self->pre_class_types[type]);
-          push_command_or_type (&top_document_ctx->composition_context,
-                                0, type);
-          push_integer_stack_integer (&top_document_ctx->preformatted_context, 1);
-          self->modified_state |= HMSF_preformatted_classes
-                                  | HMSF_composition_context;
-        }
-
-      if (self->code_types[type])
-        {
-          push_integer_stack_integer (&top_document_ctx->monospace, 1);
-          self->modified_state |= HMSF_monospace;
-        }
-
-      if (type == ET__string)
-        {
-          top_document_ctx->string_ctx++;
-          self->modified_state |= HMSF_top_document_ctx;
-        }
 
       text_init (&content_formatted);
 
@@ -4287,6 +4385,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             }
         }
 
+      html_convert_type_update_context (self, type);
+
       if (self->current_types_conversion_function[type])
         {
           (*self->current_types_conversion_function[type]->type_conversion)
@@ -4298,30 +4398,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         }
       free (content_formatted.text);
 
-      if (self->code_types[type])
-        {
-          pop_integer_stack (&top_document_ctx->monospace);
-          self->modified_state |= HMSF_monospace;
-        }
-
-      if (type == ET__string)
-        {
-          top_document_ctx->string_ctx--;
-          self->modified_state |= HMSF_top_document_ctx;
-        }
-
-      if (self->pre_class_types[type])
-        {
-          pop_string_stack (&top_document_ctx->preformatted_classes);
-          pop_command_or_type (&top_document_ctx->composition_context);
-          pop_integer_stack (&top_document_ctx->preformatted_context);
-          self->modified_state |= HMSF_preformatted_classes
-                                  | HMSF_composition_context;
-        }
-
       if (self->conf->DEBUG > 0)
         {
-          fprintf (stderr, "XS|DO type (%s) => `%s'\n", type_name,
+          fprintf (stderr, "XS|DO type (%s) => `%s'\n", element_type_names[type],
                            type_result.text);
         }
       ADD(type_result.text);
