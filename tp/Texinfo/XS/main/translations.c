@@ -179,11 +179,11 @@ translate_string (OPTIONS *options, const char * string,
   return strdup (string);
    */
 
-  #ifndef ENABLE_NLS
-  
+#ifndef ENABLE_NLS
   translated_string = strdup (string);
+  return translated_string;
+#endif ENABLE_NLS
 
-  #else
   /* with the following code valgrind reports issues in perl memory */
 
   /* if a code calls setlocale and accesses global locale while perl
@@ -200,7 +200,7 @@ translate_string (OPTIONS *options, const char * string,
   and (b) this could interfere with the LC_CTYPE setting in XSParagraph.
    */
 
-  #ifndef _WIN32
+#ifndef _WIN32
   /* In
    https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html
     Note: The variable LANGUAGE is ignored if the locale is set to ‘C’. In
@@ -228,7 +228,7 @@ translate_string (OPTIONS *options, const char * string,
 
   switch_messages_locale ();
 
-  #endif
+#endif
 
   saved_LANGUAGE = getenv ("LANGUAGE");
 
@@ -334,8 +334,7 @@ translate_string (OPTIONS *options, const char * string,
 
   free (language_locales.text);
 
-  #ifndef _WIN32
-
+#ifndef _WIN32
   if (saved_LANG)
     {
       setenv ("LANG", saved_LANG, 1);
@@ -351,12 +350,9 @@ translate_string (OPTIONS *options, const char * string,
     }
   else
     setlocale (LC_MESSAGES, "");
-
-  #endif
+#endif
 
   call_sync_locale ();
-
-  #endif
 
   return translated_string;
 }
