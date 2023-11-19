@@ -158,13 +158,12 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
   int converter_descriptor = 0;
-  CONVERTER initial_converter;
   CONVERTER *converter;
 
   dTHX;
 
-  converter = &initial_converter;
-  memset (converter, 0, sizeof (CONVERTER));
+  converter_descriptor = new_converter ();
+  converter = retrieve_converter (converter_descriptor);
 
   converter_initialize (converter_sv, converter);
 
@@ -748,8 +747,6 @@ html_converter_initialize_sv (SV *converter_sv,
   html_converter_initialize (converter);
 
   converter->hv = converter_hv;
-
-  converter_descriptor = register_converter (converter);
 
   /* store converter_descriptor in perl converter */
   hv_store (converter_hv, "converter_descriptor",

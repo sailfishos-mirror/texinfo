@@ -32,6 +32,9 @@
 #include "utils.h"
 #include "document.h"
 
+/* note that each time the document list is reallocated, pointers
+   to documents need to be reset, so in general the document should be
+   retrieved with the index in the list */
 static DOCUMENT *document_list;
 static size_t document_number;
 static size_t document_space;

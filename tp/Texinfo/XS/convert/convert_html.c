@@ -3153,7 +3153,7 @@ html_check_transfer_state_finalization (CONVERTER *self)
 }
 
 void
-html_destroy (CONVERTER *self)
+html_free_converter (CONVERTER *self)
 {
   int i;
 
@@ -3200,11 +3200,23 @@ html_destroy (CONVERTER *self)
         }
     }
 
+  for (i = 0; i < SUI_type_heading+1; i++)
+    {
+      int k;
+      for (k = 0; k < self->special_unit_varieties.number; k++)
+        {
+          free (self->special_unit_info[i][k]);
+        }
+      free (self->special_unit_info[i]);
+    }
+
   free (self->no_arg_formatted_cmd.list);
 
   free (self->no_arg_formatted_cmd_translated.list);
   free (self->reset_target_commands.list);
   free (self->file_changed_counter.list);
+
+  free (self->html_document_context.stack);
 
   free_strings_list (&self->special_unit_varieties);
 }

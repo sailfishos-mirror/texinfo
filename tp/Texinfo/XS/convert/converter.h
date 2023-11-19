@@ -70,7 +70,8 @@
 
 
 CONVERTER *retrieve_converter (int converter_descriptor);
-size_t register_converter (CONVERTER *converter);
+size_t new_converter(void);
+void unregister_converter_descriptor (int converter_descriptor);
 
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,

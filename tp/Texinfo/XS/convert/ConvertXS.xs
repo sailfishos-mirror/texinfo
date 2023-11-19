@@ -41,6 +41,7 @@
 #include "builtin_commands.h"
 #include "indices_in_conversion.h"
 #include "command_stack.h"
+#include "converter.h"
 #include "convert_html.h"
 #include "get_html_perl_info.h"
 #include "document.h"
@@ -124,7 +125,7 @@ get_unclosed_stream (SV *converter_in, file_path)
 void
 destroy (SV *converter_in)
       PREINIT:
-         CONVERTER *self;
+         CONVERTER *self = 0;
          HV *stash;
          char *name;
       CODE:
@@ -133,7 +134,7 @@ destroy (SV *converter_in)
          if (!strcmp (name, "Texinfo::Convert::HTML"))
            {
              self = get_sv_converter (converter_in, "destroy html");
-             html_destroy (self);
+             html_free_converter (self);
            }
           /*
          else if (!strcmp (name, "Texinfo::Convert::Text"))
@@ -142,6 +143,8 @@ destroy (SV *converter_in)
              text_destroy (self);
            }
            */
+         if (self)
+           unregister_converter_descriptor (self->converter_descriptor);
 
 SV *
 plain_texinfo_convert_tree (SV *tree_in)
