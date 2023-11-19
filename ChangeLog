@@ -5,6 +5,10 @@
 
 2023-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* INSTALL: document TEXINFO_XS_STRUCTURE and TEXINFO_XS_CONVERT use.
+
+2023-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/ConvertXS.pm, tp/Texinfo/Convert/Converter.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/PlainTexinfo.pm,
 	tp/Texinfo/Convert/Texinfo.pm, tp/Texinfo/Convert/Text.pm: load XS
