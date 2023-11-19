@@ -1,7 +1,7 @@
 2023-11-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.supp: Add suppression specification for leaks and errors
-	associated to setenv and translations showing up with t/19def.t.
+	associated to setenv, getenv and translations showing up with t/19def.t.
 
 2023-11-19  Patrice Dumas  <pertusus@free.fr>
 

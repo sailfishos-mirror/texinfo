@@ -1,9 +1,12 @@
 # valgrind suppression file for texi2any
 
+# The trailing numbers allow to disambiguate entries, but should not
+# necessarily be sorted.
+
 # Leak occurs when switch_to_global_locale is called in main/translations.c.
-# Occurs in Perl 5.36.
+# Occurs in Perl 5.36, fixed in Perl 5.38.
 {
-   Leak/translations/switch_to_global_locale/1
+   fixed-in-perl/Leak/translations/switch_to_global_locale/1
    Memcheck:Leak
    match-leak-kinds: definite
    fun:malloc
@@ -21,9 +24,9 @@
 }
 
 # Leak, most likely call of switch_to_global_locale is called in main/translations.c.
-# Occurs in Perl 5.36.
+# Occurs in Perl 5.36, fixed in Perl 5.38.
 {
-   Leak/translations/switch_to_global_locale/
+   fixed-in-perl/Leak/translations/switch_to_global_locale/2
    Memcheck:Leak
    match-leak-kinds: definite
    fun:malloc
@@ -35,9 +38,9 @@
 }
 
 # Leaks in translations setenv
-# Occurs in Perl 5.36.
+# Occurs in Perl 5.36, fixed in Perl 5.38.
 {
-   Leak/translations/setenv/1
+   fixed-in-perl/Leak/translations/setenv/1
    Memcheck:Leak
    match-leak-kinds: definite
    fun:malloc
@@ -56,7 +59,7 @@
    fun:S_doeval_compile
 }
 {
-   Leak/translations/setenv/2
+   fixed-in-perl/Leak/translations/setenv/2
    Memcheck:Leak
    match-leak-kinds: definite
    fun:malloc
@@ -67,7 +70,7 @@
    fun:main
 }
 {
-   Leak/translations/setenv/3
+   fixed-in-perl/Leak/translations/setenv/3
    Memcheck:Leak
    match-leak-kinds: definite
    fun:malloc
@@ -83,7 +86,7 @@
    fun:main
 }
 {
-   Leak/translations/setenv/4
+   fixed-in-perl/Leak/translations/setenv/4
    Memcheck:Leak
    match-leak-kinds: definite
    fun:malloc
@@ -130,7 +133,7 @@
    fun:main
 }
 {
-   Error/translations/setenv/3
+   fixed-in-perl/Error/translations/setenv/3
    Memcheck:Addr1
    fun:strcmp
    fun:tfind
@@ -140,12 +143,156 @@
    ...
 }
 {
-   Error/translations/setenv/4
+   fixed-in-perl/Error/translations/setenv/4
    Memcheck:Addr1
    fun:strcmp
    fun:tsearch
    fun:__add_to_environ
    fun:setenv
    fun:switch_messages_locale
+   ...
+}
+{
+   fixed-in-perl/Error/translations/setenv/5
+   Memcheck:Addr1
+   fun:strcmp
+   fun:tsearch
+   fun:__add_to_environ
+   fun:setenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/setenv/6
+   Memcheck:Addr1
+   fun:strncmp
+   fun:__add_to_environ
+   fun:setenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/setenv/7
+   Memcheck:Addr1
+   fun:__add_to_environ
+   fun:setenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/setenv/8
+   Memcheck:Addr1
+   fun:strncmp
+   fun:__add_to_environ
+   fun:setenv
+   fun:switch_messages_locale
+   ...
+}
+{
+   fixed-in-perl/Error/translations/setenv/9
+   Memcheck:Addr1
+   fun:__add_to_environ
+   fun:setenv
+   fun:switch_messages_locale
+   ...
+}
+
+# Errors output due to use of getenv in XS module.
+# Occurs in Perl 5.36, fixed in Perl 5.38.
+{
+   fixed-in-perl/Error/translations/getenv/1
+   Memcheck:Addr2
+   fun:getenv
+   fun:setlocale
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/2
+   Memcheck:Addr2
+   fun:getenv
+   fun:newlocale
+   fun:S_emulate_setlocale
+   fun:Perl_sync_locale
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/3
+   Memcheck:Addr2
+   fun:getenv
+   fun:newlocale
+   fun:S_new_numeric
+   fun:Perl_sync_locale
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/4
+   Memcheck:Addr2
+   fun:getenv
+   fun:setlocale
+   fun:switch_messages_locale
+   ...
+}
+# FIXME next are not very specific
+{
+   fixed-in-perl/Error/translations/getenv/5
+   Memcheck:Addr2
+   fun:getenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/6
+   Memcheck:Addr1
+   fun:strncmp
+   fun:getenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/7
+   Memcheck:Addr1
+   fun:getenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/8
+   Memcheck:Addr2
+   fun:getenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/9
+   Memcheck:Addr1
+   fun:strncmp
+   fun:getenv
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv/10
+   Memcheck:Addr1
+   fun:getenv
+   fun:translate_string
+   ...
+}
+# FIXME non specific, not even getenv in the trace
+{
+   fixed-in-perl/Error/translations/getenv?/11
+   Memcheck:Addr1
+   fun:strlen
+   fun:strdup
+   fun:translate_string
+   ...
+}
+{
+   fixed-in-perl/Error/translations/getenv?/12
+   Memcheck:Addr1
+   fun:memmove
+   fun:translate_string
    ...
 }
