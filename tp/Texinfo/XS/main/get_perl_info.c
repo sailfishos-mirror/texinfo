@@ -397,6 +397,8 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
     {
       if (converter->conf)
         free_options (converter->conf);
+      free (converter->conf);
+
       converter->conf
          = copy_sv_options (*converter_conf_sv);
     }
