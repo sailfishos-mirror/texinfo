@@ -32,37 +32,54 @@ use Texinfo::XSLoader;
 
 use Texinfo::Common;
 
+our $VERSION = '7.1dev';
+
+my $XS_parser = ((not defined($ENV{TEXINFO_XS})
+                  or $ENV{TEXINFO_XS} ne 'omit')
+                 and (not defined($ENV{TEXINFO_XS_PARSER})
+                      or $ENV{TEXINFO_XS_PARSER} eq '1'));
+
+# XS parser and not explicitely unset
+my $XS_structuring = ($XS_parser
+                      and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                           or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+
+# needed by parser
+our %XS_overrides = (
+  "Texinfo::Document::remove_document"
+    => "Texinfo::DocumentXS::remove_document",
+  "Texinfo::Document::clear_document_errors"
+    => "Texinfo::DocumentXS::clear_document_errors",
+  "Texinfo::Document::remove_document_descriptor"
+    => "Texinfo::DocumentXS::remove_document_descriptor",
+);
+
+# needed by structure code
+our %XS_structure_overrides = (
+  "Texinfo::Document::rebuild_document"
+    => "Texinfo::DocumentXS::rebuild_document",
+  "Texinfo::Document::rebuild_tree"
+    => "Texinfo::DocumentXS::rebuild_tree",
+);
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (!defined $ENV{TEXINFO_XS_PARSER}
-        or $ENV{TEXINFO_XS_PARSER} eq '1') {
-      Texinfo::XSLoader::override(
-        "Texinfo::Document::remove_document",
-        "Texinfo::DocumentXS::remove_document");
-      Texinfo::XSLoader::override(
-        "Texinfo::Document::rebuild_document",
-        "Texinfo::DocumentXS::rebuild_document");
-      Texinfo::XSLoader::override(
-        "Texinfo::Document::rebuild_tree",
-        "Texinfo::DocumentXS::rebuild_tree");
-      Texinfo::XSLoader::override(
-        "Texinfo::Document::remove_document_descriptor",
-        "Texinfo::DocumentXS::remove_document_descriptor");
-      Texinfo::XSLoader::override(
-        "Texinfo::Document::clear_document_errors",
-        "Texinfo::DocumentXS::clear_document_errors");
-      Texinfo::XSLoader::override(
-        "Texinfo::Document::set_document_options",
-        "Texinfo::DocumentXS::set_document_options");
+    if ($XS_parser) {
+      for my $sub (keys %XS_overrides) {
+        Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
+      }
+      if ($XS_structuring) {
+        for my $sub (keys %XS_structure_overrides) {
+          Texinfo::XSLoader::override ($sub, $XS_structure_overrides{$sub});
+        }
+      }
     }
     $module_loaded = 1;
   }
   # The usual import method
   goto &Exporter::import;
 }
-
-our $VERSION = '7.1dev';
 
 sub register
 {
