@@ -1,5 +1,15 @@
 2023-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (command_conversion_external)
+	(type_conversion_external, register_type_conversion_function)
+	(register_command_conversion_function, html_converter_initialize)
+	(html_destroy, html_convert_css_string, convert_to_html_internal),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): make
+	type_conversion_function and command_conversion_function array
+	of structures, not of pointers on structures.
+
+2023-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/converter_types.h (TYPE_CONVERSION_FUNCTION)
 	(COMMAND_CONVERSION_FUNCTION): declare struct CONVERTER; before
 	defining TYPE_CONVERSION_FUNCTION and COMMAND_CONVERSION_FUNCTION,

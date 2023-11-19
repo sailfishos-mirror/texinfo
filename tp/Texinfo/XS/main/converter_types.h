@@ -449,15 +449,10 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
     STRING_LIST special_unit_varieties;
     char **special_unit_info[SUI_type_heading+1];
-    /* in the next line we use a pointer and not directly the structure
-       because the type is incomplete, the structure is defined after the
-       CONVERTER because it uses the CONVERTER in a function pointer
-       argument prototype, which does not seems to be possible with
-       incomplete types */
-    struct TYPE_CONVERSION_FUNCTION *type_conversion_function[TXI_TREE_TYPES_NUMBER];
-    struct TYPE_CONVERSION_FUNCTION *css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];
-    struct COMMAND_CONVERSION_FUNCTION *command_conversion_function[BUILTIN_CMD_NUMBER];
-    struct COMMAND_CONVERSION_FUNCTION *css_string_command_conversion_function[BUILTIN_CMD_NUMBER];
+    TYPE_CONVERSION_FUNCTION type_conversion_function[TXI_TREE_TYPES_NUMBER];
+    TYPE_CONVERSION_FUNCTION css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];
+    COMMAND_CONVERSION_FUNCTION command_conversion_function[BUILTIN_CMD_NUMBER];
+    COMMAND_CONVERSION_FUNCTION css_string_command_conversion_function[BUILTIN_CMD_NUMBER];
     /* set for a converter, modified in a document */
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
@@ -494,8 +489,8 @@ typedef struct CONVERTER {
     /* next three allow to switch from normal HTML formatting to css strings
        formatting */
     FORMATTING_REFERENCE *current_formatting_references;
-    struct TYPE_CONVERSION_FUNCTION **current_types_conversion_function;
-    struct COMMAND_CONVERSION_FUNCTION **current_commands_conversion_function;
+    TYPE_CONVERSION_FUNCTION *current_types_conversion_function;
+    COMMAND_CONVERSION_FUNCTION *current_commands_conversion_function;
 
     /* state common with perl converter */
     int document_global_context;

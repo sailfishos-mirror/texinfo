@@ -2640,7 +2640,7 @@ command_conversion_external (CONVERTER *self, const enum command_id cmd,
    */
 
   FORMATTING_REFERENCE *formatting_reference
-    = self->current_commands_conversion_function[cmd]->formatting_reference;
+    = self->current_commands_conversion_function[cmd].formatting_reference;
 
   if (formatting_reference->status > 0)
     call_commands_conversion (self, cmd, formatting_reference,
@@ -2664,7 +2664,7 @@ type_conversion_external (CONVERTER *self, const enum element_type type,
                           TEXT *result)
 {
   FORMATTING_REFERENCE *formatting_reference
-    = self->current_types_conversion_function[type]->formatting_reference;
+    = self->current_types_conversion_function[type].formatting_reference;
 
   if (formatting_reference->status > 0)
     call_types_conversion (self, type, formatting_reference,
@@ -2874,52 +2874,36 @@ html_format_init (void)
   html_commands_data[CM_float].flags |= HF_composition_context;
 }
 
-TYPE_CONVERSION_FUNCTION *
-register_type_conversion_function (enum element_type type,
-                         FORMATTING_REFERENCE *formatting_reference)
+void
+register_type_conversion_function (TYPE_CONVERSION_FUNCTION *result,
+                                   enum element_type type,
+                                   FORMATTING_REFERENCE *formatting_reference)
 {
-  TYPE_CONVERSION_FUNCTION *result = 0;
   if (formatting_reference->status > 0)
     {
-      result = (TYPE_CONVERSION_FUNCTION *)
-        malloc (sizeof (TYPE_CONVERSION_FUNCTION));
       result->status = formatting_reference->status;
       if (formatting_reference->status != FRS_status_ignored)
         {
           result->type_conversion = &type_conversion_external;
           result->formatting_reference = formatting_reference;
         }
-      else
-        {
-          result->type_conversion = 0;
-          result->formatting_reference = 0;
-        }
     }
-  return result;
 }
 
-COMMAND_CONVERSION_FUNCTION *
-register_command_conversion_function (enum command_id cmd,
+void
+register_command_conversion_function (COMMAND_CONVERSION_FUNCTION *result,
+                         enum command_id cmd,
                          FORMATTING_REFERENCE *formatting_reference)
 {
-  COMMAND_CONVERSION_FUNCTION *result = 0;
   if (formatting_reference->status > 0)
     {
-       result = (COMMAND_CONVERSION_FUNCTION *)
-         malloc (sizeof (COMMAND_CONVERSION_FUNCTION));
-       result->status = formatting_reference->status;
-       if (formatting_reference->status != FRS_status_ignored)
-         {
-           result->command_conversion = &command_conversion_external;
-           result->formatting_reference = formatting_reference;
-         }
-       else
-         {
-           result->command_conversion = 0;
-           result->formatting_reference = 0;
-         }
+      result->status = formatting_reference->status;
+      if (formatting_reference->status != FRS_status_ignored)
+        {
+          result->command_conversion = &command_conversion_external;
+          result->formatting_reference = formatting_reference;
+        }
     }
-  return result;
 }
 
 /* most of the initialization is done by html_converter_initialize_sv
@@ -3010,10 +2994,10 @@ html_converter_initialize (CONVERTER *self)
 
   for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
-      self->type_conversion_function[i]
-        = register_type_conversion_function(i, &self->types_conversion[i]);
-      self->css_string_type_conversion_function[i]
-        = register_type_conversion_function(i,
+      register_type_conversion_function (&self->type_conversion_function[i],
+                                        i, &self->types_conversion[i]);
+      register_type_conversion_function (
+             &self->css_string_type_conversion_function[i], i,
              &self->css_string_types_conversion[i]);
     }
 
@@ -3021,9 +3005,8 @@ html_converter_initialize (CONVERTER *self)
     {
       enum element_type type = types_internal_conversion_table[i].type;
       TYPE_CONVERSION_FUNCTION *type_conversion
-         = self->type_conversion_function[type];
-      if (type_conversion
-          && type_conversion->status == FRS_status_default_set)
+         = &self->type_conversion_function[type];
+      if (type_conversion->status == FRS_status_default_set)
         {
           type_conversion->formatting_reference = 0;
           type_conversion->status = FRS_status_internal;
@@ -3034,10 +3017,11 @@ html_converter_initialize (CONVERTER *self)
 
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
-      self->command_conversion_function[i]
-        = register_command_conversion_function(i, &self->commands_conversion[i]);
-      self->css_string_command_conversion_function[i]
-        = register_command_conversion_function(i,
+      register_command_conversion_function (
+           &self->command_conversion_function[i],
+           i, &self->commands_conversion[i]);
+      register_command_conversion_function (
+            &self->css_string_command_conversion_function[i], i,
              &self->css_string_commands_conversion[i]);
     }
 }
@@ -3216,18 +3200,6 @@ html_destroy (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
-    {
-      free (self->type_conversion_function[i]);
-      free (self->css_string_type_conversion_function[i]);
-    }
-
-  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
-    {
-      free (self->command_conversion_function[i]);
-      free (self->css_string_command_conversion_function[i]);
-    }
-
   free (self->no_arg_formatted_cmd.list);
 
   free (self->no_arg_formatted_cmd_translated.list);
@@ -3311,9 +3283,9 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanat
 
   FORMATTING_REFERENCE *saved_formatting_references
      = self->current_formatting_references;
-  COMMAND_CONVERSION_FUNCTION **saved_commands_conversion_function
+  COMMAND_CONVERSION_FUNCTION *saved_commands_conversion_function
      = self->current_commands_conversion_function;
-  TYPE_CONVERSION_FUNCTION **saved_types_conversion_function
+  TYPE_CONVERSION_FUNCTION *saved_types_conversion_function
      = self->current_types_conversion_function;
 
   self->current_formatting_references
@@ -3980,12 +3952,10 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     }
 
   if ((element->type
-       && self->current_types_conversion_function[element->type]
-       && self->current_types_conversion_function[element->type]->status
+       && self->current_types_conversion_function[element->type].status
                                                          == FRS_status_ignored)
       || (cmd
-          && self->current_commands_conversion_function[cmd]
-          && self->current_commands_conversion_function[cmd]->status
+          && self->current_commands_conversion_function[cmd].status
                                                          == FRS_status_ignored))
     {
       if (self->conf->DEBUG > 0)
@@ -4019,7 +3989,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         }
       else
         {
-          (*self->current_types_conversion_function[ET_text]->type_conversion)
+          (*(self->current_types_conversion_function[ET_text].type_conversion))
                     (self, ET_text, element, element->text.text, &text_result);
         }
 
@@ -4053,7 +4023,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           self->modified_state |= HMSF_current_root;
         }
 
-      if (self->current_commands_conversion_function[cmd])
+      if (self->current_commands_conversion_function[cmd].command_conversion)
         {
           TEXT content_formatted;
           HTML_ARGS_FORMATTED *args_formatted = 0;
@@ -4323,9 +4293,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             }
 
           /* args are formatted, now format the command itself */
-          if (self->current_commands_conversion_function[cmd])
+          if (self->current_commands_conversion_function[cmd].command_conversion)
             {
-       (*self->current_commands_conversion_function[cmd]->command_conversion)
+       (*self->current_commands_conversion_function[cmd].command_conversion)
                    (self, cmd, element, args_formatted,
                     content_formatted.text, result);
             }
@@ -4404,9 +4374,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
       html_convert_type_update_context (self, type);
 
-      if (self->current_types_conversion_function[type])
+      if (self->current_types_conversion_function[type].type_conversion)
         {
-          (*self->current_types_conversion_function[type]->type_conversion)
+          (*self->current_types_conversion_function[type].type_conversion)
                (self, type, element, content_formatted.text, &type_result);
         }
       else if (content_formatted.end > 0)
@@ -4456,10 +4426,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     {
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "UNNAMED empty\n");
-      if (self->current_types_conversion_function[0]
-          && self->current_types_conversion_function[0]->type_conversion)
+      if (self->current_types_conversion_function[0].type_conversion)
         {
-          (*self->current_types_conversion_function[0]->type_conversion)
+          (*self->current_types_conversion_function[0].type_conversion)
                            (self, 0, element, "", result);
           goto out;
         }
