@@ -66,13 +66,44 @@
    fun:perl_parse
    fun:main
 }
+{
+   Leak/translations/setenv/3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:Perl_safesysmalloc
+   fun:S_env_alloc
+   fun:Perl_my_setenv
+   fun:Perl_magic_setenv
+   fun:Perl_mg_set
+   fun:Perl_pp_sassign
+   fun:Perl_runops_standard
+   fun:S_run_body
+   fun:perl_run
+   fun:main
+}
+{
+   Leak/translations/setenv/4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:newlocale
+   fun:S_emulate_setlocale
+   fun:Perl_setlocale
+   fun:XS_POSIX_setlocale
+   fun:Perl_pp_entersub
+   fun:Perl_runops_standard
+   fun:S_run_body
+   fun:perl_run
+   fun:main
+}
 
 # Errors output due to use of setenv in XS module.
 # Occurs in Perl 5.36, fixed in Perl 5.38.
 # See <https://github.com/Perl/perl5/issues/19399> and
 # <https://rt.cpan.org/Public/Bug/Display.html?id=140138>.
 {
-   fixed-in-perl/Free/translations/setenv/1
+   fixed-in-perl/Error/translations/setenv/1
    Memcheck:Free
    fun:free
    ...
@@ -86,7 +117,7 @@
    fun:main
 }
 {
-   fixed-in-perl/Free/translations/setenv/2
+   fixed-in-perl/Error/translations/setenv/2
    Memcheck:Free
    fun:free
    ...
@@ -97,4 +128,24 @@
    fun:__run_exit_handlers
    fun:exit
    fun:main
+}
+{
+   Error/translations/setenv/3
+   Memcheck:Addr1
+   fun:strcmp
+   fun:tfind
+   fun:__add_to_environ
+   fun:setenv
+   fun:switch_messages_locale
+   ...
+}
+{
+   Error/translations/setenv/4
+   Memcheck:Addr1
+   fun:strcmp
+   fun:tsearch
+   fun:__add_to_environ
+   fun:setenv
+   fun:switch_messages_locale
+   ...
 }

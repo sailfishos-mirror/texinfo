@@ -1,5 +1,10 @@
 2023-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.supp: Add suppression specification for leaks and errors
+	associated to setenv and translations showing up with t/19def.t.
+
+2023-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter): rename
 	html_destroy as html_free_converter.
 
