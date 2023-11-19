@@ -47,7 +47,7 @@ unregister_perl_tree_element (ELEMENT *e)
 }
 
 void
-call_switch_to_global_locale ()
+call_switch_to_global_locale (void)
 {
   dTHX;
 
@@ -58,7 +58,7 @@ call_switch_to_global_locale ()
 }
 
 void
-call_sync_locale ()
+call_sync_locale (void)
 {
   dTHX;
 

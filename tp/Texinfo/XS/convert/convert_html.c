@@ -2810,7 +2810,7 @@ reset_translated_special_unit_info_tree (CONVERTER *self)
 
 /* set information that is independent of customization, only called once */
 void
-html_format_init ()
+html_format_init (void)
 {
   int i;
   int nr_default_commands

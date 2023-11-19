@@ -446,7 +446,7 @@ add_expanded_format (EXPANDED_FORMAT *formats, char *format)
 }
 
 EXPANDED_FORMAT *
-new_expanded_formats ()
+new_expanded_formats (void)
 {
   EXPANDED_FORMAT *formats
      = (EXPANDED_FORMAT *) malloc (sizeof (expanded_formats));

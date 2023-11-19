@@ -442,7 +442,7 @@ wipe_parser_global_info (void)
    as first content.  Used for all the tree except for those obtained by
    parse_texi_line/parse_string. */
 ELEMENT *
-setup_document_root_and_before_node_section ()
+setup_document_root_and_before_node_section (void)
 {
   ELEMENT *before_node_section = new_element (ET_before_node_section);
   ELEMENT *document_root = new_element (ET_document_root);

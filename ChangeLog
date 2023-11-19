@@ -1,3 +1,7 @@
+2023-11-19  Patrice Dumas  <pertusus@free.fr>
+
+	Explicit void for argument of C functions. Gavin report.
+
 2023-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/main/tree_types.h: Correct file name in a

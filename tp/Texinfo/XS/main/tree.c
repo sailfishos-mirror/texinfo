@@ -118,7 +118,7 @@ new_element (enum element_type type)
 }
 
 ELEMENT_LIST *
-new_list ()
+new_list (void)
 {
   ELEMENT_LIST *list = (ELEMENT_LIST *) malloc (sizeof (ELEMENT_LIST));
   memset (list, 0, sizeof (ELEMENT_LIST));

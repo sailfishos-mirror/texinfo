@@ -138,7 +138,7 @@ compare_type_index_fn (const void *a, const void *b)
 }
 
 void
-set_element_type_name_info ()
+set_element_type_name_info (void)
 {
   int i;
   for (i = 1; i < TXI_TREE_TYPES_NUMBER; i++)
