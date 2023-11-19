@@ -720,16 +720,18 @@ In tp/tests/, generate Texinfo file for Texinfo TeX coverage
 From doc/
 texi2pdf -I ../tp/tests/layout/ ../tp/tests/formatting_valid.texi
 
+To generate valgrind .supp rules: --gen-suppressions=all --log-file=gen_supp_rules.log
 mkdir -p val_res
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
-for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q perl -w $file > val_res/$bfile.out 2>&1 ; done
+for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=./texi2any.supp -q perl -w $file > val_res/$bfile.out 2>&1 ; done
 
 With memory leaks
-for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
+for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=./texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 
-For tests in tp/tests, a way to have valgrind -q prependend is to add, in tp/defs:
-prepended_command='valgrind -q'
+For tests in tp/tests, a way to have valgrind call prependend is to add,
+in tp/defs:
+prepended_command='valgrind --leak-check=full -q --suppressions=../texi2any.supp'
 
 rm -rf t/check_debug_differences/
 mkdir t/check_debug_differences/

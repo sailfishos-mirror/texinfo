@@ -3,7 +3,7 @@
 # Leak occurs when switch_to_global_locale is called in main/translations.c.
 # Occurs in Perl 5.36.
 {
-   translations/switch_to_global_locale
+   Leak/translations/switch_to_global_locale/1
    Memcheck:Leak
    match-leak-kinds: definite
    fun:malloc
@@ -20,12 +20,59 @@
    fun:Perl_newATTRSUB_x
 }
 
+# Leak, most likely call of switch_to_global_locale is called in main/translations.c.
+# Occurs in Perl 5.36.
+{
+   Leak/translations/switch_to_global_locale/
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:newlocale
+   fun:S_emulate_setlocale
+   fun:Perl_sync_locale
+   fun:translate_string
+   ...
+}
+
+# Leaks in translations setenv
+# Occurs in Perl 5.36.
+{
+   Leak/translations/setenv/1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:Perl_safesysmalloc
+   fun:S_env_alloc
+   fun:Perl_my_setenv
+   fun:Perl_magic_setenv
+   fun:Perl_mg_set
+   fun:Perl_pp_sassign
+   fun:Perl_runops_standard
+   fun:Perl_call_sv
+   fun:Perl_call_list
+   fun:S_process_special_blocks
+   fun:Perl_newATTRSUB_x
+   fun:Perl_yyparse
+   fun:S_doeval_compile
+}
+{
+   Leak/translations/setenv/2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:Perl_safesysmalloc
+   fun:S_env_alloc
+   fun:Perl_my_setenv
+   fun:perl_parse
+   fun:main
+}
+
 # Errors output due to use of setenv in XS module.
 # Occurs in Perl 5.36, fixed in Perl 5.38.
 # See <https://github.com/Perl/perl5/issues/19399> and
 # <https://rt.cpan.org/Public/Bug/Display.html?id=140138>.
 {
-   fixed-in-perl/translations/setenv/1
+   fixed-in-perl/Free/translations/setenv/1
    Memcheck:Free
    fun:free
    ...
@@ -39,7 +86,7 @@
    fun:main
 }
 {
-   fixed-in-perl/translations/setenv/2
+   fixed-in-perl/Free/translations/setenv/2
    Memcheck:Free
    fun:free
    ...

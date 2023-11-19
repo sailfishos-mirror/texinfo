@@ -1,5 +1,11 @@
 2023-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.supp: Add suppression specification for leaks associated
+	to switch_to_global_locale and setenv showing up with t/19def.t
+	all_commands_delimiters.
+
+2023-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/get_perl_info.c (set_output_converter_sv):
 	free converter->conf itself after freeing the options if it was set.
 
