@@ -25,12 +25,25 @@
 # See <https://github.com/Perl/perl5/issues/19399> and
 # <https://rt.cpan.org/Public/Bug/Display.html?id=140138>.
 {
-   fixed-in-perl/translations/setenv
+   fixed-in-perl/translations/setenv/1
    Memcheck:Free
    fun:free
    ...
    fun:tdestroy_recurse
    fun:tdestroy
+   fun:free_mem
+   fun:__libc_freeres
+   fun:_vgnU_freeres
+   fun:__run_exit_handlers
+   fun:exit
+   fun:main
+}
+{
+   fixed-in-perl/translations/setenv/2
+   Memcheck:Free
+   fun:free
+   ...
+   fun:tdestroy_recurse
    fun:free_mem
    fun:__libc_freeres
    fun:_vgnU_freeres
