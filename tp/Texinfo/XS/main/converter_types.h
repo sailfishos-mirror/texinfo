@@ -361,6 +361,46 @@ typedef struct STRING_WITH_LEN {
     size_t len;
 } STRING_WITH_LEN;
 
+/* we have a circular reference with TYPE_CONVERSION_FUNCTION
+   and CONVERTER and with COMMAND_CONVERSION_FUNCTION and CONVERTER */
+struct CONVERTER;
+
+typedef struct TYPE_CONVERSION_FUNCTION {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    void (* type_conversion) (struct CONVERTER *self, const enum element_type type,
+                              const ELEMENT *element, const char *content,
+                              TEXT *text);
+} TYPE_CONVERSION_FUNCTION;
+
+typedef struct HTML_ARG_FORMATTED {
+    const ELEMENT *tree;
+    char *formatted[AFT_type_raw+1];
+} HTML_ARG_FORMATTED;
+
+typedef struct HTML_ARGS_FORMATTED {
+    size_t number;
+    HTML_ARG_FORMATTED *args;
+} HTML_ARGS_FORMATTED;
+
+typedef struct COMMAND_CONVERSION_FUNCTION {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    void (* command_conversion) (struct CONVERTER *self,
+                                 const enum command_id cmd,
+                                 const ELEMENT *element,
+                                 const HTML_ARGS_FORMATTED *args_formatted,
+                                 const char *content, TEXT *result);
+} COMMAND_CONVERSION_FUNCTION;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -469,41 +509,6 @@ typedef struct CONVERTER {
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
 } CONVERTER;
-
-typedef struct TYPE_CONVERSION_FUNCTION {
-    enum formatting_reference_status status;
-    /* points to the perl formatting reference if it is used for
-       conversion */
-    FORMATTING_REFERENCE *formatting_reference;
-    /* the function used for conversion, either a function that calls
-       the perl function in formatting_reference, or another C function */
-    void (* type_conversion) (CONVERTER *self, const enum element_type type,
-                              const ELEMENT *element, const char *content,
-                              TEXT *text);
-} TYPE_CONVERSION_FUNCTION;
-
-typedef struct HTML_ARG_FORMATTED {
-    const ELEMENT *tree;
-    char *formatted[AFT_type_raw+1];
-} HTML_ARG_FORMATTED;
-
-typedef struct HTML_ARGS_FORMATTED {
-    size_t number;
-    HTML_ARG_FORMATTED *args;
-} HTML_ARGS_FORMATTED;
-
-typedef struct COMMAND_CONVERSION_FUNCTION {
-    enum formatting_reference_status status;
-    /* points to the perl formatting reference if it is used for
-       conversion */
-    FORMATTING_REFERENCE *formatting_reference;
-    /* the function used for conversion, either a function that calls
-       the perl function in formatting_reference, or another C function */
-    void (* command_conversion) (CONVERTER *self, const enum command_id cmd,
-                                   const ELEMENT *element,
-                                   const HTML_ARGS_FORMATTED *args_formatted,
-                                   const char *content, TEXT *result);
-} COMMAND_CONVERSION_FUNCTION;
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {
     enum special_unit_info_tree tree_type;
