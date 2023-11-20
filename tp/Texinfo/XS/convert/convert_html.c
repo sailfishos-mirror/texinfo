@@ -1398,6 +1398,46 @@ set_root_commands_targets_node_files (CONVERTER *self)
     }
 }
 
+static void
+register_added_target (HTML_ADDED_TARGET_LIST *added_targets,
+                       HTML_TARGET *target)
+{
+  if (added_targets->number == added_targets->space)
+    {
+      added_targets->list = realloc (added_targets->list,
+                   sizeof (HTML_TARGET *) * (added_targets->space += 5));
+    }
+  added_targets->list[added_targets->number] = target;
+  added_targets->number++;
+}
+
+static HTML_TARGET *
+get_target (CONVERTER *self, const ELEMENT *element)
+{
+  HTML_TARGET *result
+   = find_element_target (&self->html_targets, element);
+  if (!result && element->cmd
+      && builtin_command_flags(element) & CF_sectioning_heading
+      && !(builtin_command_flags(element) & CF_root)) {
+    new_sectioning_command_target (self, element);
+
+    result = find_element_target (&self->html_targets, element);
+
+    register_added_target (&self->added_targets, result);
+    self->modified_state |= HMSF_added_target;
+  }
+  return result;
+}
+
+char *html_command_id (CONVERTER *self, ELEMENT *command)
+{
+  HTML_TARGET *target = get_target (self, command);
+  if (target)
+    return target->target;
+  else
+    return 0;
+}
+
 void
 html_merge_index_entries (CONVERTER *self)
 {
@@ -4707,6 +4747,7 @@ convert_output_output_unit_internal (CONVERTER *self,
         = file_index;
       self->file_changed_counter.number++;
       unit_file->counter_changed = 1;
+      self->modified_state |= HMSF_file_counter;
     }
 
       /* register the output but do not print anything. Printing

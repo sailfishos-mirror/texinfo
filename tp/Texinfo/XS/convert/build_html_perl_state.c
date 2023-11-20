@@ -63,62 +63,79 @@
      free below is redirected to Perl's implementation.  This could
      cause crashes if the two malloc/free implementations were different.  */
 
+#define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
+HV *
+build_html_target (HTML_TARGET *html_target)
+{
+  HV *html_target_hv;
+  SV *target_sv;
+
+  dTHX;
+
+  target_sv = newSVpv_utf8 (html_target->target, 0);
+
+  html_target_hv = newHV ();
+
+  STORE("target", target_sv);
+  if (html_target->special_unit_filename)
+    STORE("special_unit_filename",
+          newSVpv_utf8 (html_target->special_unit_filename, 0));
+  if (html_target->node_filename)
+    STORE("node_filename",
+          newSVpv_utf8 (html_target->node_filename, 0));
+  if (html_target->section_filename)
+    STORE("section_filename",
+          newSVpv_utf8 (html_target->section_filename, 0));
+  if (html_target->contents_target)
+    STORE("contents_target",
+          newSVpv_utf8 (html_target->contents_target, 0));
+  if (html_target->shortcontents_target)
+    STORE("shortcontents_target",
+          newSVpv_utf8 (html_target->shortcontents_target, 0));
+#undef STORE
+  return html_target_hv;
+}
+
+static void
+add_html_element_target (HV *hv, HTML_TARGET *html_target)
+{
+  SV *html_target_sv;
+  HV *html_target_hv;
+  SV *element_sv;
+
+  dTHX;
+
+  html_target_hv = build_html_target (html_target);
+
+  if (!html_target->element->hv)
+    {
+      fprintf (stderr, "BUG: No hv for target '%s'\n", html_target->target);
+      fatal ("No hv for target");
+    }
+
+  element_sv = newRV_inc ((SV *) html_target->element->hv);
+  html_target_sv = newRV_noinc ((SV *) html_target_hv);
+  hv_store_ent (hv, element_sv, html_target_sv, 0);
+}
+
 /* this function is used to set the initial targets information. */
 /* Dynamical changes are done in other functions, build_html_translated_names
    .... */
-HV *
-build_html_element_targets (HTML_TARGET_LIST *html_targets)
+void
+build_html_element_targets (HV *hv, HTML_TARGET_LIST *html_targets)
 {
-  HV *hv;
   int i;
 
   dTHX;
 
-  hv = newHV ();
-
   if (!html_targets || html_targets->number <= 0)
-    return hv;
+    return;
 
-#define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
   for (i = 0; i < html_targets->number; i++)
     {
-      HV *html_target_hv;
       HTML_TARGET *html_target = &html_targets->list[i];
-      SV *target_sv = newSVpv_utf8 (html_target->target, 0);
-      SV *element_sv;
-      SV *html_target_sv;
-
-      if (!html_target->element->hv)
-        {
-          fprintf (stderr, "BUG: No hv for target '%s'\n", html_target->target);
-          fatal ("No hv for target");
-        }
-
-      element_sv = newRV_inc ((SV *) html_target->element->hv);
-
-      html_target_hv = newHV ();
-      html_target_sv = newRV_noinc ((SV *) html_target_hv);
-      hv_store_ent (hv, element_sv, html_target_sv, 0);
-
-      STORE("target", target_sv);
-      if (html_target->special_unit_filename)
-        STORE("special_unit_filename",
-              newSVpv_utf8 (html_target->special_unit_filename, 0));
-      if (html_target->node_filename)
-        STORE("node_filename",
-              newSVpv_utf8 (html_target->node_filename, 0));
-      if (html_target->section_filename)
-        STORE("section_filename",
-              newSVpv_utf8 (html_target->section_filename, 0));
-      if (html_target->contents_target)
-        STORE("contents_target",
-              newSVpv_utf8 (html_target->contents_target, 0));
-      if (html_target->shortcontents_target)
-        STORE("shortcontents_target",
-              newSVpv_utf8 (html_target->shortcontents_target, 0));
+      add_html_element_target (hv, html_target);
     }
-#undef STORE
-  return hv;
 }
 
 void
@@ -131,7 +148,8 @@ pass_html_element_targets (SV *converter_sv, HTML_TARGET_LIST *html_targets)
 
   hv = (HV *) SvRV (converter_sv);
 
-  targets_hv = build_html_element_targets (html_targets);
+  targets_hv = newHV ();
+  build_html_element_targets (targets_hv, html_targets);
 
   hv_store (hv, "targets", strlen ("targets"),
             newRV_noinc ((SV *) targets_hv), 0);
@@ -149,8 +167,10 @@ build_html_special_targets (HTML_TARGET_LIST *html_special_targets)
 
   /* could be generalized if needed */
 
-  HTML_TARGET_LIST *html_special_target = &html_special_targets[ST_footnote_location];
-  html_special_target_hv = build_html_element_targets (html_special_target);
+  HTML_TARGET_LIST *html_special_target
+    = &html_special_targets[ST_footnote_location];
+  html_special_target_hv = newHV ();
+  build_html_element_targets (html_special_target_hv, html_special_target);
 
   hv_store (hv, "footnote_location", strlen ("footnote_location"),
             newRV_noinc ((SV *) html_special_target_hv), 0);
@@ -713,8 +733,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
   HV *hv;
   SV **document_context_sv;
   AV *document_context_av;
-  SV **file_counters_sv;
-  HV *file_counters_hv;
   /*
   SV **files_information_sv;
   HV *files_information_hv;
@@ -962,6 +980,9 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   if (converter->file_changed_counter.number)
     {
+      SV **file_counters_sv;
+      HV *file_counters_hv;
+
       FETCH(file_counters);
       file_counters_hv = (HV *) SvRV (*file_counters_sv);
 
@@ -983,6 +1004,23 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
       memset (converter->file_changed_counter.list, 0,
               converter->file_changed_counter.number * sizeof (size_t));
       converter->file_changed_counter.number = 0;
+    }
+
+  if (converter->added_targets.number)
+    {
+      SV **targets_sv;
+      HV *targets_hv;
+
+      FETCH(targets);
+      targets_hv = (HV *) SvRV (*targets_sv);
+
+      int j;
+      for (j = 0; j < converter->added_targets.number; j++)
+        {
+          HTML_TARGET *html_target = converter->added_targets.list[j];
+          add_html_element_target (targets_hv, html_target);
+        }
+      converter->added_targets.number = 0;
     }
 
   /*

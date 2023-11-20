@@ -1,5 +1,24 @@
 2023-11-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_state.c (build_html_target)
+	(build_html_element_targets, add_html_element_target)
+	(pass_html_element_targets, build_html_special_targets): split
+	build_html_element_targets in three functions to be able to build one
+	html target, and add one.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(convert_output_output_unit_internal): add a flag for
+	file_changed_counter, to be sure that the state is rebuilt.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(register_added_target, get_target, html_command_id),
+	tp/Texinfo/XS/main/converter_types.h (HTML_ADDED_TARGET_LIST)
+	(CONVERTER): add get_target and html_command_id and rebuild perl
+	state with a new target.
+
+2023-11-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XSLoader.pm (init): avoid undefined value in warning
 	message.
 

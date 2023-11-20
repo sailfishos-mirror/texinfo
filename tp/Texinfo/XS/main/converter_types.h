@@ -361,6 +361,12 @@ typedef struct STRING_WITH_LEN {
     size_t len;
 } STRING_WITH_LEN;
 
+typedef struct HTML_ADDED_TARGET_LIST {
+    size_t space;
+    size_t number;
+    HTML_TARGET **list;
+} HTML_ADDED_TARGET_LIST;
+
 /* we have a circular reference with TYPE_CONVERSION_FUNCTION
    and CONVERTER and with COMMAND_CONVERSION_FUNCTION and CONVERTER */
 struct CONVERTER;
@@ -486,6 +492,7 @@ typedef struct CONVERTER {
                                     to be brought to perl */
     int document_contexts_to_pop;  /* number of contexts to pop in perl before
                                       readding the new contexts */
+    HTML_ADDED_TARGET_LIST added_targets; /* targets added */
     /* next three allow to switch from normal HTML formatting to css strings
        formatting */
     FORMATTING_REFERENCE *current_formatting_references;
