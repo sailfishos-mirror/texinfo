@@ -603,6 +603,40 @@ special_unit_info (CONVERTER *self, enum special_unit_info_type type,
   return self->special_unit_info[type][i];
 }
 
+void
+html_register_opened_section_level (CONVERTER *self, int level,
+                                    const char *close_string)
+{
+  STRING_STACK *pending_closes = &self->pending_closes;
+
+  while (pending_closes->top < level)
+    {
+      push_string_stack_string (pending_closes, "");
+    }
+  push_string_stack_string (pending_closes, close_string);
+}
+
+STRING_LIST *
+html_close_registered_sections_level (CONVERTER *self, int level)
+{
+  STRING_LIST *closed_elements = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  STRING_STACK *pending_closes = &self->pending_closes;
+
+  memset (closed_elements, 0, sizeof (STRING_LIST));
+
+  while (pending_closes->top > level)
+    {
+      const char *close_string = top_string_stack (pending_closes);
+      if (strlen (close_string))
+        {
+          add_string (close_string, closed_elements);
+        }
+      pop_string_stack (pending_closes);
+    }
+
+  return closed_elements;
+}
+
 OUTPUT_UNIT *
 register_special_unit (CONVERTER *self, char *special_unit_variety)
 {
@@ -3107,6 +3141,20 @@ html_finalize_output_state (CONVERTER *self)
   clear_output_files_information (&self->output_files_information);
   clear_output_unit_files (&self->output_unit_files);
 
+  /* should not be possible with default code, as
+     close_registered_sections_level(0)
+     is called at the end of processing or at the end of each file.
+     However, it could happen if the conversion functions are user
+     defined.
+   */
+  if (self->pending_closes.top > 0)
+    {
+      message_list_document_warn (&self->error_messages, self->conf,
+         "%zu registered opened sections not closed",
+          self->pending_closes.top);
+      clear_string_stack (&self->pending_closes);
+    }
+
   html_pop_document_context (self);
 
   /* could change to 0 in releases? */
@@ -3121,7 +3169,6 @@ html_finalize_output_state (CONVERTER *self)
       if (self->ignore_notice)
         fprintf (stderr, "BUG: ignore_notice: %d\n",
                          self->ignore_notice);
-
     }
 }
 

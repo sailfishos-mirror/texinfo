@@ -122,6 +122,10 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_new_document_context",
   "Texinfo::Convert::HTML::_pop_document_context"
    => "Texinfo::Convert::ConvertXS::html_pop_document_context",
+  "Texinfo::Convert::HTML::register_opened_section_level"
+   => "Texinfo::Convert::ConvertXS::html_register_opened_section_level",
+  "Texinfo::Convert::HTML::close_registered_sections_level"
+   => "Texinfo::Convert::ConvertXS::html_close_registered_sections_level",
   "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter"
    => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
   "Texinfo::Convert::HTML::_XS_html_merge_index_entries"
@@ -4189,11 +4193,11 @@ sub register_opened_section_level($$$)
 {
   my $self = shift;
   my $level = shift;
-  my $close = shift;
+  my $close_string = shift;
   while (@{$self->{'pending_closes'}} < $level) {
     push(@{$self->{'pending_closes'}}, "");
   }
-  push(@{$self->{'pending_closes'}}, $close);
+  push(@{$self->{'pending_closes'}}, $close_string);
 }
 
 sub close_registered_sections_level($$)
@@ -4204,13 +4208,12 @@ sub close_registered_sections_level($$)
     cluck 'close_registered_sections_level $level not defined';
   }
   my @closed_elements;
-  my $result = '';
   while (@{$self->{'pending_closes'}} > $level) {
-      my $close = pop @{$self->{'pending_closes'}};
-      push(@closed_elements, $close)
-        if ($close);
+      my $close_string = pop @{$self->{'pending_closes'}};
+      push(@closed_elements, $close_string)
+        if ($close_string ne "");
   }
-  return @closed_elements;
+  return \@closed_elements;
 }
 
 sub _convert_heading_command($$$$$)
@@ -4429,7 +4432,8 @@ sub _convert_heading_command($$$$$)
   my $heading_id;
   if ($opening_section) {
     my $level = $opening_section->{'extra'}->{'section_level'};
-    $result .= join('', $self->close_registered_sections_level($level));
+    my $closed_strings = $self->close_registered_sections_level($level);
+    $result .= join('', @{$closed_strings});
     $self->register_opened_section_level($level, "</div>\n");
 
     # use a specific class name to mark that this is the start of
@@ -7374,7 +7378,8 @@ sub _convert_special_unit_type($$$$)
   my $result = '';
 
   my $special_unit_variety = $element->{'special_unit_variety'};
-  $result .= join('', $self->close_registered_sections_level(0));
+  my $closed_strings = $self->close_registered_sections_level(0);
+  $result .= join('', @{$closed_strings});
 
   my $special_unit_body
     .= &{$self->special_unit_body_formatting($special_unit_variety)}($self,
@@ -7449,12 +7454,15 @@ sub _convert_unit_type($$$$)
       # if there is one unit it also means that there is no formatting
       # of footnotes in a separate unit.  And if footnotestyle is end
       # the footnotes won't be done in format_element_footer either.
-      $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
+      $result
+        .= &{$self->formatting_function('format_footnotes_segment')}($self);
       $result .= $self->get_conf('DEFAULT_RULE') ."\n"
         if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
           and defined($self->get_conf('DEFAULT_RULE')));
-      # do it here, as it is won't be done at end of page in format_element_footer
-      $result .= join('', $self->close_registered_sections_level(0));
+      # do it here, as it is won't be done at end of page in
+      # format_element_footer
+      my $closed_strings = $self->close_registered_sections_level(0);
+      $result .= join('', @{$closed_strings});
       return $result;
     }
   }
@@ -7514,7 +7522,8 @@ sub _default_format_element_footer($$$$;$)
   my $buttons;
 
   if ($end_page) {
-    $result .= join('', $self->close_registered_sections_level(0));
+    my $closed_strings = $self->close_registered_sections_level(0);
+    $result .= join('', @{$closed_strings});
 
     # setup buttons for navigation footer
     if (($is_top or $is_special)
@@ -8482,7 +8491,6 @@ sub converter_initialize($)
 
   $self->{'document_context'} = [];
   $self->{'multiple_pass'} = [];
-  $self->{'pending_closes'} = [];
 
   # TODO warn if the split specification is not one known?  The main
   # program warns if the specific command line option value is not known.
@@ -11039,6 +11047,8 @@ sub _initialize_output_state($$)
 
   # other
   $self->{'pending_footnotes'} = [];
+  # not used if conversion with XS
+  $self->{'pending_closes'} = [];
 
   # to avoid infinite recursions when a section refers to itself, possibly
   # indirectly

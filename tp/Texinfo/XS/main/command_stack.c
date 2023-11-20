@@ -118,7 +118,7 @@ top_command_or_type (COMMAND_OR_TYPE_STACK *stack)
 
 /* stack of strings */
 void
-push_string_stack_string (STRING_STACK *stack, char *string)
+push_string_stack_string (STRING_STACK *stack, const char *string)
 {
   if (stack->top >= stack->space)
     {
@@ -142,13 +142,20 @@ pop_string_stack (STRING_STACK *stack)
   stack->top--;
 }
 
-char *
+const char *
 top_string_stack (STRING_STACK *stack)
 {
   if (stack->top == 0)
     fatal ("string stack empty for top");
 
   return stack->stack[stack->top - 1];
+}
+
+void
+clear_string_stack (STRING_STACK *stack)
+{
+  while (stack->top > 0)
+    pop_string_stack (stack);
 }
 
 

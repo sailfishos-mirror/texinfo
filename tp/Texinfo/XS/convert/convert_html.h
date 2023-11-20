@@ -26,6 +26,11 @@ void html_new_document_context (CONVERTER *self,
         enum command_id block_command);
 void html_pop_document_context (CONVERTER *self);
 
+void html_register_opened_section_level (CONVERTER *self, int level,
+                                         const char *close_string);
+STRING_LIST *html_close_registered_sections_level (CONVERTER *self,
+                                                   int level);
+
 void html_merge_index_entries (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self,

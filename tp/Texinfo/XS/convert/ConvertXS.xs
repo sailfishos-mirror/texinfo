@@ -303,6 +303,48 @@ html_pop_document_context (SV *converter_in)
              self->document_context_change++;
            }
 
+void
+html_register_opened_section_level (SV *converter_in, int level, close_string)
+         char *close_string = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_register_opened_section_level");
+         if (self)
+           {
+             html_register_opened_section_level (self, level, close_string);
+           }
+
+SV *
+html_close_registered_sections_level (SV *converter_in, int level)
+     PREINIT:
+         CONVERTER *self;
+         AV *closed_elements_av;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_close_registered_sections_level");
+         closed_elements_av = newAV ();
+         if (self)
+           {
+             STRING_LIST *closed_elements
+               = html_close_registered_sections_level (self, level);
+
+             if (closed_elements->number > 0)
+               {
+                 int i;
+                 for (i = 0; i < closed_elements->number; i++)
+                   {
+                     SV *close_string_sv
+                          = newSVpv_utf8 (closed_elements->list[i], 0);
+                     av_push (closed_elements_av, close_string_sv);
+                   }
+               }
+             destroy_strings_list (closed_elements);
+           }
+         RETVAL = newRV_noinc ((SV *) closed_elements_av);
+    OUTPUT:
+         RETVAL
 
 void
 html_merge_index_entries (SV *converter_in)

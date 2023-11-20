@@ -713,8 +713,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
   HV *hv;
   SV **document_context_sv;
   AV *document_context_av;
-  SV **multiple_pass_sv;
-  AV *multiple_pass_av;
   SV **file_counters_sv;
   HV *file_counters_hv;
   /*
@@ -939,6 +937,9 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   if (flags & HMSF_multiple_pass)
     {
+      SV **multiple_pass_sv;
+      AV *multiple_pass_av;
+
       FETCH(multiple_pass);
 
       if (!multiple_pass_sv)
@@ -954,7 +955,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
       for (i = 0; i < converter->multiple_pass.top; i++)
         {
-          char *multiple_pass_str = converter->multiple_pass.stack[i];
+          const char *multiple_pass_str = converter->multiple_pass.stack[i];
           av_push (multiple_pass_av, newSVpv_utf8(multiple_pass_str, 0));
         }
     }

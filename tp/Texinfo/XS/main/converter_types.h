@@ -500,6 +500,7 @@ typedef struct CONVERTER {
     const OUTPUT_UNIT *current_output_unit;
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
     STRING_STACK multiple_pass;
+    STRING_STACK pending_closes;
     char *current_filename;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;

@@ -1496,8 +1496,7 @@ documentation, in particular a list of types and of information in the elements
 @node Output Units in User Defined Functions
 @section Output Units in User Defined Functions
 
-Output units that are not part of the tree nor tree elements are
-formatted, both normal output units and special units (@pxref{Output
+Both normal output units and special units are formatted (@pxref{Output
 Units}).  The output units hold information on the document
 structure (@pxref{Texinfo::Structuring METHODS,,,texi2any_internals}).
 
@@ -1509,13 +1508,19 @@ The following keys of output unit hashes can be interesting:
 special units.
 
 @item unit_command
-Points to the associated @code{@@node} or sectioning @@-command depending
-on which of nodes or sectioning commands are the main components of
-output units. @xref{Output Units}.  The corresponding sectioning
-and @code{@@node} @@-command elements have a @code{associated_unit}
-key directly in their hash that points to the associated output unit.
+For normal output units, points to the associated @code{@@node} or sectioning
+@@-command depending on which of nodes or sectioning commands are the main
+components of output units. @xref{Output Units}.  The corresponding sectioning
+and @code{@@node} @@-command elements have an @code{associated_unit} key
+directly in their hash that points to the associated output unit.
 @cindex @code{unit_command} element
 @cindex @code{associated_unit} output unit
+
+For special units, points to a ``virtual'' tree element with type
+@code{special_unit_element} associated to the special element, that does not
+appear in the Texinfo tree but can be used as a target for directions
+to the special unit.  This element has an @code{associated_unit} key
+that points to the associated output unit.
 
 @item unit_contents
 Array reference on tree elements associated to the output unit.
@@ -2975,7 +2980,7 @@ The function for registering opened section extent is
 
 @defun @var{$converter}->register_opened_section_level ($level, $closing_text)
 @var{$level} is the sectioning command level.  It is typically
-obtained with @code{section->@{'structure'@}->@{'section_level'@}}
+obtained with @code{section->@{'extra'@}->@{'section_level'@}}
 (@pxref{Texinfo Tree Elements in User Defined Functions}).
 @var{$closing_text} is the text that should be output when the
 section level @var{$level} is closed.
@@ -2984,18 +2989,22 @@ section level @var{$level} is closed.
 The function for closing registered section extents is
 @code{close_registered_sections_level}:
 
-@deftypefun {@var{@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$level})
+@deftypefun {@var{\@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$level})
 @var{$level} is the sectioning command level.  Opened section are closed
 down to section level @var{$level}.  The closing texts are returned in the
-@var{@@closing_texts} array in order.
+@var{\@@closing_texts} array reference in order.
 @end deftypefun
 
 Example of use:
 @example
 @group
-my $level = $opening_section->@{'structure'@}->@{'section_level'@};
-$result
-   .= join('', $converter->close_registered_sections_level($level));
+my $level = $opening_section->@{'extra'@}->@{'section_level'@};
+my $closed_strings
+   = $converter->close_registered_sections_level($level);
+$result .= join('', @@@{$closed_strings@});
+
+# ....
+
 $converter->register_opened_section_level($level, "</div>\n");
 @end group
 @end example
@@ -3362,7 +3371,10 @@ The string will be translated if needed.
 Target @@-commands are @@-commands that are associated with an identifier
 and can be linked to.  They corresponds first to @@-commands with unique identifier
 used as labels, @code{@@node}, @code{@@anchor} and @code{@@float}.  Sectioning
-commands, index entries and footnotes are also associated to targets.
+commands, index entries, footnotes are also associated to targets.  The
+``virtual'' elements associated to special output units are also
+associated to targets leading to each special unit
+(@pxref{Output Units in User Defined Functions}).
 
 To get the unique Texinfo tree element corresponding to a label, use
 @code{label_command}:
@@ -4387,7 +4399,7 @@ Texinfo::Common::set_informative_command_value, texi2any_internals}.
 @xref{Texinfo::Common $level = section_level($section),,
 Texinfo::Common::section_level, texi2any_internals}.  This function would work
 for sectioning commands too, but for sectioning commands,
-@code{section->@{'structure'@}->@{'section_level'@}} can also be used.
+@code{section->@{'extra'@}->@{'section_level'@}} can also be used.
 @xref{Texinfo Tree Elements in User Defined Functions}.
 
 @item sectioning commands

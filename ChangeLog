@@ -1,3 +1,38 @@
+2023-11-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XSLoader.pm (init): avoid undefined value in warning
+	message.
+
+	* tp/Texinfo/Convert/HTML.pm (register_opened_section_level)
+	(close_registered_sections_level): change variable names.
+
+	* tp/Texinfo/Convert/HTML.pm (close_registered_sections_level): return
+	a reference on an array, not an array.  Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state): initialize
+	$self->{'pending_closes'} here.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_register_opened_section_level)
+	(html_close_registered_sections_level),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_register_opened_section_level)
+	(html_close_registered_sections_level, html_finalize_output_state),
+	tp/Texinfo/XS/main/command_stack.c (clear_string_stack),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): add
+	clear_string_stack.  Implement register_opened_section_level and
+	close_registered_sections_level in C with an XS interface.
+
+	* tp/Texinfo/XS/main/command_stack.c (push_string_stack_string)
+	(top_string_stack): add const.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state): declare multiple_pass variables inside
+	the block.
+
+	* doc/texi2any_api.texi: updates.
+
 2023-11-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	XS build flags

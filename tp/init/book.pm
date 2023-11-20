@@ -370,7 +370,8 @@ sub book_convert_heading_command($$$$$)
   my $heading_id;
   if ($opening_section) {
     my $level = $opening_section->{'extra'}->{'section_level'};
-    $result .= join('', $self->close_registered_sections_level($level));
+    my $closed_strings = $self->close_registered_sections_level($level);
+    $result .= join('', @{$closed_strings});
     $self->register_opened_section_level($level, "</div>\n");
 
     # use a specific class name to mark that this is the start of
