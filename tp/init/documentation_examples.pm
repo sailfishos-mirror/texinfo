@@ -54,13 +54,13 @@ my $shown_styles;
 my $footnotestyle;
 sub my_function_set_some_css {
   my $converter = shift;
-  my @all_included_rules = $converter->css_get_info('rules');
-  my $all_default_selector_styles = $converter->css_get_info('styles');
-  my $titlefont_style = $all_default_selector_styles->{'h1.titlefont'};
+  my $all_included_rules = $converter->css_get_info('rules');
+  my $all_default_selectors = $converter->css_get_info('styles');
+  my $titlefont_style = $converter->css_selector_style('h1.titlefont');
   $titlefont_style = 'undefined' if (!defined($titlefont_style));
   $shown_styles = $titlefont_style.' '.
-              $all_default_selector_styles->{'h1.shorttitlepage'};
-  $converter->css_add_info('styles', 'h1.titlefont', 'text-align:center');
+            $converter->css_selector_style('h1.shorttitlepage');
+  $converter->css_set_selector_style('h1.titlefont', 'text-align:center');
 
   my $footnotestyle_before_setting = $converter->get_conf('footnotestyle');
   $footnotestyle_before_setting = 'UNDEF'
@@ -69,11 +69,11 @@ sub my_function_set_some_css {
   $footnotestyle = $main_program_footnotestyle
                     .'|'.$footnotestyle_before_setting
                     .'|'.$converter->get_conf('footnotestyle');
-  # there should be nothing in @all_included_rules for two reasons,
+  # there should be nothing in @$all_included_rules for two reasons,
   # first because it requires 'CSS_FILES' to be set to parseable
   # CSS files, and CSS files parsing is done after the setup handler
   # is called.
-  #print STDERR "all_included_rules: ".join('|', @all_included_rules)."\n";
+  #print STDERR "all_included_rules: ".join('|', @$all_included_rules)."\n";
   return 0;
 }
 

@@ -420,7 +420,7 @@ sub html_image_file_location_name($$$$)
           $image_path_encoding);
 }
 
-sub css_add_info($$$;$)
+sub css_add_info($$$)
 {
   my $self = shift;
   my $spec = shift;
@@ -431,38 +431,51 @@ sub css_add_info($$$;$)
     push @{$self->{'css_rule_lines'}}, $css_info;
   } elsif ($spec eq 'imports') {
     push @{$self->{'css_import_lines'}}, $css_info;
-  } else {
-    $self->{'css_element_class_styles'}->{$css_info} = $css_style;
   }
 }
 
-sub css_get_info($$;$) {
+sub css_set_selector_style($$$)
+{
+  my $self = shift;
+  my $css_info = shift;
+  my $css_style = shift;
+
+  $self->{'css_element_class_styles'}->{$css_info} = $css_style;
+}
+
+sub css_get_info($$) {
   my $self = shift;
   my $spec = shift;
   my $css_info = shift;
+  my @empty_array;
 
   if ($spec eq 'rules') {
     if (defined($self->{'css_rule_lines'})) {
-      return @{$self->{'css_rule_lines'}};
+      return $self->{'css_rule_lines'};
     } else {
-      return ();
+      return \@empty_array;
     }
   } elsif ($spec eq 'imports') {
     if (defined($self->{'css_import_lines'})) {
-      return @{$self->{'css_import_lines'}};
+      return $self->{'css_import_lines'};
     } else {
-      return ();
+      return \@empty_array;
     }
   } else {
-    if (defined($css_info)) {
-      if ($self->{'css_element_class_styles'}->{$css_info}) {
-        return $self->{'css_element_class_styles'}->{$css_info};
-      } else {
-        return undef;
-      }
-    } else {
-      return { %{$self->{'css_element_class_styles'}} };
-    }
+    my @result = sort(keys(%{$self->{'css_element_class_styles'}}));
+    return \@result;
+  }
+}
+
+sub css_selector_style($$)
+{
+  my $self = shift;
+  my $css_info = shift;
+
+  if ($self->{'css_element_class_styles'}->{$css_info}) {
+    return $self->{'css_element_class_styles'}->{$css_info};
+  } else {
+    return undef;
   }
 }
 
@@ -5198,7 +5211,7 @@ sub _convert_itemize_command($$$$$)
   }
 
   if (defined($mark_class_name)
-      and defined($self->css_get_info('style', 'ul.mark-'.$mark_class_name))) {
+      and defined($self->css_selector_style('ul.mark-'.$mark_class_name))) {
     return $self->html_attribute_class('ul', [$cmdname,
                                               'mark-'.$mark_class_name])
         .">\n" . $content. "</ul>\n";
@@ -8630,23 +8643,23 @@ sub _default_format_css_lines($;$)
 
   my $css_refs = $self->get_conf('CSS_REFS');
   my @css_element_classes = $self->html_get_css_elements_classes($filename);
-  my @css_import_lines = $self->css_get_info('imports');
-  my @css_rule_lines = $self->css_get_info('rules');
+  my $css_import_lines = $self->css_get_info('imports');
+  my $css_rule_lines = $self->css_get_info('rules');
 
-  return '' if !@css_import_lines and !@css_element_classes
-                 and !@css_rule_lines
+  return '' if !@$css_import_lines and !@css_element_classes
+                 and !@$css_rule_lines
                  and (!defined($css_refs) or !@$css_refs);
 
   my $css_text = "<style type=\"text/css\">\n<!--\n";
-  $css_text .= join('', @css_import_lines) . "\n"
-    if (@css_import_lines);
+  $css_text .= join('', @$css_import_lines) . "\n"
+    if (@$css_import_lines);
   foreach my $element_class (@css_element_classes) {
-    my $css_style = $self->css_get_info('style', $element_class);
+    my $css_style = $self->css_selector_style($element_class);
     $css_text .= "$element_class {$css_style}\n"
       if defined($css_style );
   }
-  $css_text .= join('', @css_rule_lines) . "\n"
-    if (@css_rule_lines);
+  $css_text .= join('', @$css_rule_lines) . "\n"
+    if (@$css_rule_lines);
   $css_text .= "-->\n</style>\n";
   foreach my $ref (@$css_refs) {
     $css_text .= $self->close_html_lone_element(

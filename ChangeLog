@@ -1,5 +1,18 @@
 2023-11-20  Patrice Dumas  <pertusus@free.fr>
 
+	HTML css functions API change, split information and selector rules
+
+	* doc/texi2any_api.texi (Simple Customization of CSS),
+	tp/Texinfo/Convert/HTML.pm (css_add_info, css_set_selector_style)
+	(css_get_info, css_selector_style), tp/init/sc_formatting_with_css.pm,
+	tp/init/documentation_examples.pm: split css_set_selector_style out of
+	css_add_info for setting of selector CSS style.  Split
+	css_selector_style out of css_get_info to get selector CSS style.
+	Also css_get_info returns the list of selectors, not a hash.  Update
+	callers.
+
+2023-11-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_state.c (build_html_target)
 	(build_html_element_targets, add_html_element_target)
 	(pass_html_element_targets, build_html_special_targets): split

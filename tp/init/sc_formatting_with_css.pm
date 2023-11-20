@@ -9,7 +9,7 @@ foreach my $context ('normal', 'preformatted', 'string') {
 
 sub sc_formatting_with_css_set_css {
   my $converter = shift;
-  $converter->css_add_info('styles', 'span.sc', 'font-variant: small-caps');
+  $converter->css_set_selector_style('span.sc', 'font-variant: small-caps');
   return 0;
 }
 texinfo_register_handler('structure', \&sc_formatting_with_css_set_css);

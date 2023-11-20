@@ -707,31 +707,35 @@ rules selectors are, classically, @code{@var{element}.@var{class}} strings with
 @var{element} an HTML element and @var{class} an attribute class associated to
 that element.
 
-The function used are @code{css_get_info} to get information and
-@code{css_add_info} to modify:
+The function used are @code{css_get_info} and @code{css_selector_style}
+to get information and @code{css_add_info} and @code{css_set_selector_style}
+to modify:
 
-@defun @var{$converter}->css_get_info ($specification, $css_info)
-@defunx @var{$converter}->css_add_info ($specification, $css_info, $css_style)
+@defun @var{$converter}->css_get_info ($specification)
+@defunx @var{$converter}->css_selector_style ($selector)
+@defunx @var{$converter}->css_add_info ($specification, $css_info)
+@defunx @var{$converter}->css_set_selector_style ($selector, $css_style)
 
 Those functions can only be used on a converter @var{$converter}, from
 functions registered and called with a converter.  @var{$specification} is
 @code{'rules'} to get information on or set information for CSS rules lines and
 @code{'imports'} to get information on or set information for CSS import lines.
-Any other value for @var{$specification} corresponds to CSS style rules
-associated with HTML elements and class attributes selectors.
+Any other value for @var{$specification} corresponds to HTML elements and
+class attributes selectors, and can be used to get the list of selectors.
 
-With @code{css_get_info}, if @var{$specification} is set to @code{'rules'} or
-@code{'imports'}, the corresponding arrays are returned.  Otherwise,
-if @var{$css_info} is @code{undef}, a hash reference with all the CSS rules selector as keys
-and the corresponding rules as values is returned.  If @var{$css_info} is defined,
-it is considered to be a CSS rule selector and the corresponding CSS style is returned,
-or @code{undef} if not found.
+With @code{css_get_info}, array references corresponding to @var{$specification}
+are returned.
+
+@code{css_selector_style} returns the CSS style corresponding to the HTML
+element and class attribute selector @var{$selector}, or @code{undef} if not
+found.
 
 With @code{css_add_info}, @var{$css_info} is an additional entry added to
 CSS rules lines if @var{$specification} is set to @code{'rules'} or an additional
 entry added to CSS import lines if @var{$specification} is set to @code{'imports'}.
-Otherwise, @var{$css_info} is a CSS rule selector and the associated
-style rule is set to @var{$css_style}.
+
+With @code{css_set_selector_style}, @var{$selector} is a CSS rule selector and the
+associated style rule is set to @var{$css_style}.
 @end defun
 
 Some examples of use:
@@ -739,10 +743,9 @@ Some examples of use:
 @example
 my @@all_included_rules = $converter->css_get_info('rules');
 my $all_default_selector_styles = $converter->css_get_info('styles');
-my $titlefont_header_style = $converter->css_get_info('styles',
-                                                      'h1.titlefont');
+my $titlefont_header_style = $converter->css_selector_style('h1.titlefont');
 
-$converter->css_add_info('styles', 'h1.titlefont', 'text-align:center');
+$converter->css_set_selector_style('h1.titlefont', 'text-align:center');
 $converter->css_add_info('imports', "\@@import \"special.css\";\n");
 @end example
 
@@ -753,16 +756,16 @@ document. @xref{Customizing CSS}.
 
 How to run code during the conversion process is described later
 (@pxref{Init File Calling at Different Stages}). The simplest way to
-use the @code{css_add_info} function would be to use a function
+modify CSS rules would be to use a function
 registered for the @samp{structure} stage:
 
 @example
 sub my_function_set_some_css @{
   my $converter = shift;
 
-  $converter->css_add_info('styles', 'h1.titlefont',
-                           'text-align:center');
-  # ... more calls to  $converter->css_add_info();
+  $converter->css_set_selector_style('h1.titlefont',
+                                     'text-align:center');
+  # ... calls to  $converter->css_add_info();
 @}
 
 texinfo_register_handler('structure', \&my_function_set_some_css);
@@ -4312,8 +4315,9 @@ This function returns the CSS lines and @code{<script>} HTML element
 for @var{$file_name}.
 
 In the default case, the function reference uses @code{CSS_REFS} corresponding
-to command-line @option{--css-ref}, @code{html_get_css_elements_classes} and
-@code{css_get_info} (@pxref{Simple Customization of CSS}) to determine the CSS
+to command-line @option{--css-ref}, @code{html_get_css_elements_classes},
+@code{css_get_info} and @code{css_element_class_rule}
+(@pxref{Simple Customization of CSS}) to determine the CSS
 lines.
 @end deftypefn
 
