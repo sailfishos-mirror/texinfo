@@ -49,7 +49,7 @@ XSUBPPARGS = -typemap $(PERL_CONF_privlibexp)/ExtUtils/typemap
 XSLIBS_CPPFLAGS = -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
 XSLIBS_CPPFLAGS += -I$(PERL_INC)
 
-XSLIBS_CFLAGS = $(PERL_CONF_ccflags) $(PERL_CONF_optimize) $(PERL_CONF_cccdlflags)
+XSLIBS_CFLAGS = $(perl_conf_CFLAGS)
 
 if HOST_NEEDS_NO_UNDEFINED
   PLATFORM_LDFLAGS = -no-undefined -L$(PERL_INC) $(PERL_CONF_libperl)
@@ -60,7 +60,7 @@ else
   PLATFORM_LDFLAGS =
 endif
 
-XSLIBS_LDFLAGS = -avoid-version -module $(PERL_CONF_ccdlflags)
+XSLIBS_LDFLAGS = -avoid-version -module $(perl_conf_LDFLAGS)
 XSLIBS_LDFLAGS += $(PLATFORM_LDFLAGS)
 
 

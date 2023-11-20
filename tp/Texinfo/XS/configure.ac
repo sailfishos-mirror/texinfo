@@ -68,6 +68,9 @@ AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
+perl_conf_CFLAGS=
+perl_conf_LDFLAGS=
+
 # See (automake)Conditional Subdirectories.  Even if --disable-perl-xs
 # is given, we still need to configure this directory minimally, so that
 # "make dist" will work.
@@ -93,12 +96,16 @@ if test x$disable_xs != xyes; then
   # flags for linking the extension, e.g. -rpath.
   lookup_perl_conf([ccdlflags])
 
+  perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_optimize $PERL_CONF_cccdlflags"
+  perl_conf_LDFLAGS="$PERL_CONF_ccdlflags"
+
   # Override these variables set by configure at the top level, because 
   # the compiler used in this subdirectory might be different.
-  # Change these now so they are used in the checks that follow.
-  CFLAGS="$PERL_EXT_CFLAGS $PERL_CONF_ccflags $PERL_CONF_optimize $PERL_CONF_cccdlflags"
+  # Change these now so they are used in the checks that follow so that
+  # we are using the same flags for the checks as for the build.
+  CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
   CPPFLAGS=$PERL_EXT_CPPFLAGS
-  LDFLAGS="$PERL_EXT_LDFLAGS $PERL_CONF_ccdlflags"
+  LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
   
   lookup_perl_conf([libperl])
   # Change libperl.so into -lperl to indicate a library dependency to 
@@ -113,6 +120,9 @@ if test x$disable_xs != xyes; then
   
   AC_CONFIG_HEADERS([config.h:config.in])
 fi # not disable_xs
+
+AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
+AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 
 
 AC_PROG_CC
