@@ -261,6 +261,29 @@ typedef struct ARRAY_INDEX_LIST {
     size_t *list;
 } ARRAY_INDEX_LIST;
 
+typedef struct PAGE_NAME_NUMBER {
+    size_t number;
+    const char *page_name;
+} PAGE_NAME_NUMBER;
+
+typedef struct PAGE_NAME_NUMBER_LIST {
+    size_t number;
+    PAGE_NAME_NUMBER *list;
+} PAGE_NAME_NUMBER_LIST;
+
+typedef struct CSS_LIST {
+    const char *page_name;
+    size_t number;
+    size_t space;
+    const char **list;
+} CSS_LIST;
+
+typedef struct PAGES_CSS_LIST {
+    size_t number;
+    CSS_LIST *list; /* index 0 is for document_global_context_css
+                       others for the output files */
+} PAGES_CSS_LIST;
+
 typedef struct COMMAND_ID_INDEX {
     enum command_id cmd;
     size_t index;
@@ -289,6 +312,11 @@ typedef struct FILE_NAME_PATH_COUNTER_LIST {
     size_t space;
     FILE_NAME_PATH_COUNTER *list;
 } FILE_NAME_PATH_COUNTER_LIST;
+
+typedef struct CURRENT_FILE_INFO {
+    size_t file_number;
+    char *filename;
+} CURRENT_FILE_INFO;
 
 typedef struct FILE_STREAM {
     char *file_path;
@@ -367,6 +395,16 @@ typedef struct HTML_ADDED_TARGET_LIST {
     HTML_TARGET **list;
 } HTML_ADDED_TARGET_LIST;
 
+typedef struct CSS_SELECTOR_STYLE {
+    const char *selector;
+    const char *style;
+} CSS_SELECTOR_STYLE;
+
+typedef struct CSS_SELECTOR_STYLE_LIST {
+    size_t number;
+    CSS_SELECTOR_STYLE *list;
+} CSS_SELECTOR_STYLE_LIST;
+
 /* we have a circular reference with TYPE_CONVERSION_FUNCTION
    and CONVERTER and with COMMAND_CONVERSION_FUNCTION and CONVERTER */
 struct CONVERTER;
@@ -428,6 +466,9 @@ typedef struct CONVERTER {
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;
 
+  /* to find index in output_unit_files based on name */
+    PAGE_NAME_NUMBER_LIST page_name_number;
+
   /* API to open, set encoding and register files */
     OUTPUT_FILES_INFORMATION output_files_information;
 
@@ -442,6 +483,7 @@ typedef struct CONVERTER {
     int upper_case[BUILTIN_CMD_NUMBER];
     STRING_WITH_LEN special_character[SC_non_breaking_space+1];
     STRING_WITH_LEN line_break_element;
+    CSS_SELECTOR_STYLE_LIST css_element_class_styles;
     FORMATTING_REFERENCE
        formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE
@@ -476,6 +518,7 @@ typedef struct CONVERTER {
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */
+    PAGES_CSS_LIST page_css;
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
@@ -508,7 +551,7 @@ typedef struct CONVERTER {
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
     STRING_STACK multiple_pass;
     STRING_STACK pending_closes;
-    char *current_filename;
+    CURRENT_FILE_INFO current_filename;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
 } CONVERTER;

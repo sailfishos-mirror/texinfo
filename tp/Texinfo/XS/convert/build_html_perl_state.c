@@ -796,8 +796,8 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
       SV **current_filename_sv;
       current_filename_sv = hv_fetch (hv, "current_filename",
                                       strlen ("current_filename"), 1);
-      sv_setpv (*current_filename_sv, converter->current_filename);
-      if (converter->current_filename)
+      sv_setpv (*current_filename_sv, converter->current_filename.filename);
+      if (converter->current_filename.filename)
         SvUTF8_on (*current_filename_sv);
     }
 

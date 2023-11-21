@@ -164,7 +164,7 @@ get_sv_output_units (SV *output_units_in, char *warn_string)
 }
 
 void
-add_svav_to_string_list (SV *sv, STRING_LIST *string_list, int dir_strings)
+add_svav_to_string_list (SV *sv, STRING_LIST *string_list, enum sv_string_type type)
 {
   int i;
   SSize_t strings_nr;
@@ -178,8 +178,12 @@ add_svav_to_string_list (SV *sv, STRING_LIST *string_list, int dir_strings)
       SV** string_sv = av_fetch (av, i, 0);
       if (string_sv)
         {
-          char *string = SvPVbyte_nolen (*string_sv);
-          if (dir_strings)
+          char *string;
+          if (type == svt_char)
+            string = SvPVutf8_nolen (*string_sv);
+          else
+            string = SvPVbyte_nolen (*string_sv);
+          if (type == svt_dir)
             add_include_directory (string, string_list);
           else
             add_string (string, string_list);
@@ -699,7 +703,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   if (include_directories_sv)
     add_svav_to_string_list (*include_directories_sv,
-                             &text_options->include_directories, 1);
+                             &text_options->include_directories, svt_dir);
 
   get_expanded_formats (hv_in, &text_options->expanded_formats);
 

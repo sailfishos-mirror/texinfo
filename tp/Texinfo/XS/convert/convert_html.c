@@ -1429,6 +1429,205 @@ get_target (CONVERTER *self, const ELEMENT *element)
   return result;
 }
 
+/* to be inlined in text parsing codes */
+#define OTXI_PROTECT_XML_FORM_FEED_CASES(var) \
+        OTXI_PROTECT_XML_CASES(var) \
+        case '\f':          \
+          text_append_n (result, "&#12;", 5); var++; \
+          break;
+
+
+#define ADDN(str,nr) text_append_n (result, str, nr)
+
+void
+default_css_string_format_protect_text (const char *text, TEXT *result)
+{
+  const char *p = text;
+
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "\\'");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        case '\\':
+          ADDN("\\\\", 2);
+          break;
+        case '\'':
+          ADDN("\\'", 2);
+          break;
+        }
+      p++;
+    }
+}
+
+#define OTXI_ISO_ENTITY_TEXT_CASES(var) \
+        case '-': \
+          if (*(var+1) && !memcmp (var, "---", 3)) \
+            { \
+              text_append_n (result, "&mdash;", 7); \
+              var += 3; \
+            } \
+          else if (!memcmp (var, "--", 2)) \
+            { \
+              text_append_n (result, "&ndash;", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "-", 1); \
+              var++; \
+            } \
+          break; \
+        case '`': \
+          if (!memcmp (var, "``", 2)) \
+            { \
+              text_append_n (result, "&ldquo;", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "&lsquo;", 7); \
+              var++; \
+            } \
+          break; \
+        case '\'': \
+          if (!memcmp (var, "''", 2)) \
+            { \
+              text_append_n (result, "&rdquo;", 7); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, "&rsquo;", 7); \
+              var++; \
+            } \
+          break;
+
+#define OTXI_NO_ISO_ENTITY_TEXT_CASES(var) \
+        case '-': \
+          if (*(var+1) && !memcmp (var, "---", 3)) \
+            { \
+              text_append_n (result, "--", 2); \
+              var += 3; \
+            } \
+          else \
+            { \
+              text_append_n (result, "-", 1); \
+              if (!memcmp (var, "--", 2)) \
+                var += 2; \
+              else \
+                var++; \
+            } \
+          break; \
+        case '`': \
+          if (!memcmp (var, "``", 2)) \
+            { \
+              text_append_n (result, "&quot;", 6); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, var, 1); \
+              var++; \
+            } \
+          break; \
+        case '\'': \
+          if (!memcmp (var, "''", 2)) \
+            { \
+              text_append_n (result, "&quot;", 6); \
+              var += 2; \
+            } \
+          else \
+            { \
+              text_append_n (result, var, 1); \
+              var++; \
+            } \
+          break;
+
+#define OTXI_NO_BREAK_CASES(var) \
+        case ' ': \
+        case '\n': \
+          text_append_n (result, \
+               self->special_character[SC_non_breaking_space].string, \
+               self->special_character[SC_non_breaking_space].len); \
+          var += strspn (var, "\n "); \
+          break;
+
+#define OTXI_SPACE_PROTECTION_CASES(var) \
+        case ' ': \
+          text_append_n (result, \
+               self->special_character[SC_non_breaking_space].string, \
+               self->special_character[SC_non_breaking_space].len); \
+          var++; \
+          break; \
+        case '\n': \
+          text_append_n (result, self->line_break_element.string, \
+                         self->line_break_element.len); \
+          var++; \
+          break;
+
+/* text conversion loop, with the protection of XML special
+   characters and the possibility to add more delimiters and
+   more cases to handle those delimiters */
+#define OTXI_CONVERT_TEXT(delimiters,other_cases) \
+  { \
+  while (*p)  \
+    { \
+      int before_sep_nr = strcspn (p, "<>&\"\f" delimiters); \
+      if (before_sep_nr) \
+        { \
+          text_append_n (result, p, before_sep_nr); \
+          p += before_sep_nr; \
+        } \
+      if (!*p) \
+        break; \
+      switch (*p) \
+        { \
+          OTXI_PROTECT_XML_FORM_FEED_CASES(p) \
+          other_cases \
+        } \
+    } \
+  }
+
+/* conversion of text for all the possibilities regarding -- --- ''
+   conversion, with the possibility to add more for spaces protection */
+#define OTXI_ALL_CONVERT_TEXT(additional_delim,other_cases) \
+  const char *p = content_used; \
+      if (in_code (self) || in_math (self)) \
+        OTXI_CONVERT_TEXT(additional_delim,  \
+          other_cases) \
+      else if (self->use_unicode_text) \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_UNICODE_TEXT_CASES(p) \
+          other_cases) \
+      else if (self->conf->USE_NUMERIC_ENTITY > 0) \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_NUMERIC_ENTITY_TEXT_CASES(p) \
+          other_cases) \
+      else if (self->conf->USE_ISO > 0) \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_ISO_ENTITY_TEXT_CASES(p) \
+          other_cases) \
+      else \
+        OTXI_CONVERT_TEXT("-`'" additional_delim, \
+          OTXI_NO_ISO_ENTITY_TEXT_CASES(p) \
+          other_cases)
+
+void
+html_default_format_protect_text (const char *text, TEXT *result)
+{
+  const char *p = text;
+
+  OTXI_CONVERT_TEXT ( , )
+}
+
 char *html_command_id (CONVERTER *self, ELEMENT *command)
 {
   HTML_TARGET *target = get_target (self, command);
@@ -1436,6 +1635,315 @@ char *html_command_id (CONVERTER *self, ELEMENT *command)
     return target->target;
   else
     return 0;
+}
+
+static int
+compare_page_name_number (const void *a, const void *b)
+{
+  const PAGE_NAME_NUMBER *css_a = (const PAGE_NAME_NUMBER *) a;
+  const PAGE_NAME_NUMBER *css_b = (const PAGE_NAME_NUMBER *) b;
+
+  return strcmp (css_a->page_name, css_b->page_name);
+}
+
+size_t
+find_page_name_number
+     (const PAGE_NAME_NUMBER_LIST *page_name_number,
+                                          const char *page_name)
+{
+  PAGE_NAME_NUMBER *result = 0;
+  static PAGE_NAME_NUMBER searched_page_name;
+  searched_page_name.page_name = page_name;
+
+  result = (PAGE_NAME_NUMBER *) bsearch (&searched_page_name,
+                page_name_number->list,
+                page_name_number->number, sizeof(PAGE_NAME_NUMBER),
+                compare_page_name_number);
+  return result->number;
+}
+
+static int
+compare_selector_style (const void *a, const void *b)
+{
+  const CSS_SELECTOR_STYLE *css_a = (const CSS_SELECTOR_STYLE *) a;
+  const CSS_SELECTOR_STYLE *css_b = (const CSS_SELECTOR_STYLE *) b;
+
+  return strcmp (css_a->selector, css_b->selector);
+}
+
+CSS_SELECTOR_STYLE *
+find_css_selector_style
+     (const CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
+                                           const char *selector)
+{
+  CSS_SELECTOR_STYLE *result = 0;
+  static CSS_SELECTOR_STYLE searched_selector;
+  searched_selector.selector = selector;
+
+  result = (CSS_SELECTOR_STYLE *) bsearch (&searched_selector,
+                css_element_class_styles->list,
+                css_element_class_styles->number, sizeof(CSS_SELECTOR_STYLE),
+                compare_selector_style);
+
+  return result;
+}
+
+static void
+collect_css_element_class (CONVERTER *self, const char *selector)
+{
+  CSS_SELECTOR_STYLE *selector_style
+    = find_css_selector_style (&self->css_element_class_styles, selector);
+  if (selector_style)
+    {
+      size_t i;
+      size_t css_files_index;
+      CSS_LIST *page_css_list;
+      if (self->document_global_context)
+        {
+          css_files_index = 0;
+        }
+      else
+        {
+          css_files_index = self->current_filename.file_number;
+        }
+      page_css_list = &self->page_css.list[css_files_index];
+      for (i = 0; i < page_css_list->number; i++)
+        {
+          if (!strcmp (page_css_list->list[i], selector))
+            return;
+        }
+      if (page_css_list->number == page_css_list->space)
+        {
+          page_css_list->list
+            = realloc (page_css_list->list,
+                   (page_css_list->space += 5) * sizeof (char *));
+        }
+      page_css_list->list[page_css_list->number] = strdup (selector);
+      page_css_list->number++;
+    }
+}
+
+int
+compare_strings (const void *a, const void *b)
+{
+  const char **str_a = (const char **) a;
+  const char **str_b = (const char **) b;
+
+  return strcmp (*str_a, *str_b);
+}
+
+STRING_LIST *
+html_get_css_elements_classes (CONVERTER *self, const char *filename)
+{
+  int j;
+  size_t page_number;
+  STRING_LIST *result;
+  const char **selectors;
+  size_t selector_nr = 0;
+
+  if (self->page_css.number <= 0)
+    return 0;
+
+  CSS_LIST *global_context_css_list = &self->page_css.list[0];
+
+  if (filename)
+    {
+      CSS_LIST *css_list;
+      page_number = find_page_name_number (&self->page_name_number,
+                                           filename);
+      if (!page_number)
+        fatal ("Could not find page number of file name");
+
+      css_list = &self->page_css.list[page_number];
+      if (css_list->number)
+        {
+          /* +1 for 'span:hover a.copiable-link' */
+          size_t space = css_list->number + global_context_css_list->number +1;
+          selectors = (const char **) malloc (sizeof (char *) * space);
+          memcpy (selectors, css_list->list,
+                  css_list->number * sizeof (char *));
+          selector_nr = css_list->number;
+        }
+    }
+
+  if (selector_nr <= 0)
+    {
+      if (global_context_css_list->number)
+        {
+          /* +1 for 'span:hover a.copiable-link' */
+          size_t space = global_context_css_list->number +1;
+          selectors = (const char **) malloc (sizeof (char *) * space);
+          selector_nr = global_context_css_list->number;
+        }
+      else
+        return 0;
+    }
+  else if (global_context_css_list->number)
+    {
+      int i;
+      size_t file_selector_nr = selector_nr;
+      /* add global context selectors if not already present */
+      for (i = 0; i < global_context_css_list->number; i++)
+        {
+          int j;
+          const char *global_selector = global_context_css_list->list[i];
+          int found = 0;
+          for (j = 0; j < file_selector_nr; j++)
+            {
+              if (!strcmp (global_selector, selectors[j]))
+                {
+                  found = 1;
+                  break;
+                }
+            }
+          if (!found)
+            {
+              selectors[selector_nr] = global_selector;
+              selector_nr++;
+            }
+        }
+    }
+  for (j = 0; j < selector_nr; j++)
+    {
+      if (!strcmp ("a.copiable-link", selectors[j]))
+         {
+           selectors[selector_nr] = "span:hover a.copiable-link";
+           selector_nr++;
+           break;
+         }
+    }
+
+  qsort (selectors, selector_nr, sizeof (char *), compare_strings);
+
+  result = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (result, 0, sizeof (STRING_LIST));
+  for (j = 0; j < selector_nr; j++)
+    add_string (selectors[j], result);
+
+  return result;
+}
+
+static char *
+protect_class_name (const char *class_name)
+{
+  TEXT result;
+  TEXT space_protected;
+  text_init (&result);
+  text_init (&space_protected);
+  const char *p = class_name;
+  while (*p)
+    {
+      int n = strcspn (p, " ");
+      if (n)
+        {
+          text_append_n (&space_protected, p, n);
+          p += n;
+        }
+      if (*p)
+        {
+          int n = strspn (p, " ");
+          if (n)
+            {
+              int i;
+              for (i = 0; i < n; i++)
+                text_append_n (&space_protected, "-", 1);
+              p += n;
+            }
+        }
+    }
+
+  /* do not use the customization API as in perl */
+  html_default_format_protect_text (space_protected.text, &result);
+  free (space_protected.text);
+  return result.text;
+}
+
+char *
+html_attribute_class (CONVERTER *self, const char *element,
+                      const STRING_LIST *classes)
+{
+  TEXT result;
+  char *style = 0;
+  int i;
+  int class_nr = 0;
+  if (!classes  || classes->number <= 0
+      || self->conf->NO_CSS > 0)
+    {
+      if (!strcmp (element, "span"))
+        return strdup ("");
+      else
+        {
+          char *result;
+          xasprintf (&result, "<%s", element);
+          return result;
+        }
+    }
+
+  if (self->conf->INLINE_CSS_STYLE > 0)
+    {
+      int i;
+      TEXT inline_styles;
+      text_init (&inline_styles);
+      int style_nr = 0;
+      for (i = 0; i < classes->number; i++)
+        {
+          const char *style_class = classes->list[i];
+          char *selector;
+          CSS_SELECTOR_STYLE *selector_style;
+
+          xasprintf (&selector, "%s.%s", element, style_class);
+          selector_style
+            = find_css_selector_style (&self->css_element_class_styles,
+                                       selector);
+          free (selector);
+          if (selector_style)
+            {
+              if (style_nr)
+                 text_printf (&inline_styles, ";%s", selector_style->style);
+              else
+                 text_append (&inline_styles, selector_style->style);
+              style_nr++;
+            }
+        }
+      if (inline_styles.end)
+        {
+          xasprintf (&style, " style=\"%s\"", inline_styles.text);
+        }
+      free (inline_styles.text);
+    }
+  else
+    {
+      int i;
+      for (i = 0; i < classes->number; i++)
+        {
+          const char *style_class = classes->list[i];
+          char *selector;
+
+          xasprintf (&selector, "%s.%s", element, style_class);
+          collect_css_element_class (self, selector);
+          free (selector);
+        }
+    }
+  text_init (&result);
+  text_printf (&result, "<%s class=\"", element);
+  for (i = 0; i < classes->number; i++)
+    {
+      const char *class_name = classes->list[i];
+      char *protected_class = protect_class_name (class_name);
+      if (class_nr)
+        text_printf (&result, " %s", protected_class);
+      else
+        text_append (&result, protected_class);
+      free (protected_class);
+      class_nr++;
+    }
+  text_append_n (&result, "\"", 1);
+  if (style)
+    {
+      text_append (&result, style);
+      free (style);
+    }
+  return result.text;
 }
 
 void
@@ -2328,7 +2836,34 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   memset (self->file_changed_counter.list, 0,
           self->output_unit_files.number * sizeof (size_t));
 
+  /* 0 is for document_global_context_css, the remaining indices
+     for the output unit files */
+  self->page_css.number = self->output_unit_files.number +1;
+  self->page_css.list = (CSS_LIST *)
+       malloc (self->page_css.number * sizeof (CSS_LIST));
+  memset (self->page_css.list, 0,
+          self->page_css.number * sizeof (CSS_LIST));
+
   return files_source_info;
+}
+
+void
+setup_output_simple_page (CONVERTER *self, const char *output_filename)
+{
+  PAGE_NAME_NUMBER *page_name_number;
+  self->page_css.number = 1+1;
+  self->page_css.list = (CSS_LIST *)
+       malloc (self->page_css.number * sizeof (CSS_LIST));
+  memset (self->page_css.list, 0,
+          self->page_css.number * sizeof (CSS_LIST));
+
+  self->page_name_number.number = 1;
+  self->page_name_number.list = (PAGE_NAME_NUMBER *)
+      malloc (self->page_name_number.number * sizeof (PAGE_NAME_NUMBER));
+
+  page_name_number = &self->page_name_number.list[0];
+  page_name_number->number = 1;
+  page_name_number->page_name = output_filename;
 }
 
 static void
@@ -2376,6 +2911,9 @@ html_prepare_units_directions_files (CONVERTER *self,
                         associated_special_units, output_file,
                         destination_directory, output_filename, document_name);
     }
+  else
+    setup_output_simple_page (self, output_filename);
+
 
   units_directions (self->conf, self->document->identifiers_target,
                     output_units);
@@ -2388,217 +2926,32 @@ html_prepare_units_directions_files (CONVERTER *self,
     Texinfo::Convert::Converter */
   if (self->output_unit_files.number)
     {
+      /* set elements_in_file_count and prepare page_name_number
+         for sorting */
+      self->page_name_number.number = self->output_unit_files.number;
+      self->page_name_number.list = (PAGE_NAME_NUMBER *)
+        malloc (self->page_name_number.number * sizeof (PAGE_NAME_NUMBER));
+
       for (i = 0; i < self->output_unit_files.number; i++)
         {
           FILE_NAME_PATH_COUNTER *file_counter
             = &self->output_unit_files.list[i];
+          PAGE_NAME_NUMBER *page_name_number = &self->page_name_number.list[i];
 
           /* counter is dynamic, decreased when the element is encountered
              elements_in_file_count is not modified afterwards */
           file_counter->elements_in_file_count = file_counter->counter;
+
+          page_name_number->number = i+1;
+          page_name_number->page_name = file_counter->filename;
         }
+
+      qsort (self->page_name_number.list,
+             self->page_name_number.number,
+             sizeof (PAGE_NAME_NUMBER), compare_page_name_number);
     }
 
   return files_source_info;
-}
-
-/* to be inlined in text parsing codes */
-#define OTXI_PROTECT_XML_FORM_FEED_CASES(var) \
-        OTXI_PROTECT_XML_CASES(var) \
-        case '\f':          \
-          text_append_n (result, "&#12;", 5); var++; \
-          break;
-
-
-#define ADDN(str,nr) text_append_n (result, str, nr)
-
-void
-default_css_string_format_protect_text (const char *text, TEXT *result)
-{
-  const char *p = text;
-
-  while (*p)
-    {
-      int before_sep_nr = strcspn (p, "\\'");
-      if (before_sep_nr)
-        {
-          text_append_n (result, p, before_sep_nr);
-          p += before_sep_nr;
-        }
-      if (!*p)
-        break;
-      switch (*p)
-        {
-        case '\\':
-          ADDN("\\\\", 2);
-          break;
-        case '\'':
-          ADDN("\\'", 2);
-          break;
-        }
-      p++;
-    }
-}
-
-#define OTXI_ISO_ENTITY_TEXT_CASES(var) \
-        case '-': \
-          if (*(var+1) && !memcmp (var, "---", 3)) \
-            { \
-              text_append_n (result, "&mdash;", 7); \
-              var += 3; \
-            } \
-          else if (!memcmp (var, "--", 2)) \
-            { \
-              text_append_n (result, "&ndash;", 7); \
-              var += 2; \
-            } \
-          else \
-            { \
-              text_append_n (result, "-", 1); \
-              var++; \
-            } \
-          break; \
-        case '`': \
-          if (!memcmp (var, "``", 2)) \
-            { \
-              text_append_n (result, "&ldquo;", 7); \
-              var += 2; \
-            } \
-          else \
-            { \
-              text_append_n (result, "&lsquo;", 7); \
-              var++; \
-            } \
-          break; \
-        case '\'': \
-          if (!memcmp (var, "''", 2)) \
-            { \
-              text_append_n (result, "&rdquo;", 7); \
-              var += 2; \
-            } \
-          else \
-            { \
-              text_append_n (result, "&rsquo;", 7); \
-              var++; \
-            } \
-          break;
-
-#define OTXI_NO_ISO_ENTITY_TEXT_CASES(var) \
-        case '-': \
-          if (*(var+1) && !memcmp (var, "---", 3)) \
-            { \
-              text_append_n (result, "--", 2); \
-              var += 3; \
-            } \
-          else \
-            { \
-              text_append_n (result, "-", 1); \
-              if (!memcmp (var, "--", 2)) \
-                var += 2; \
-              else \
-                var++; \
-            } \
-          break; \
-        case '`': \
-          if (!memcmp (var, "``", 2)) \
-            { \
-              text_append_n (result, "&quot;", 6); \
-              var += 2; \
-            } \
-          else \
-            { \
-              text_append_n (result, var, 1); \
-              var++; \
-            } \
-          break; \
-        case '\'': \
-          if (!memcmp (var, "''", 2)) \
-            { \
-              text_append_n (result, "&quot;", 6); \
-              var += 2; \
-            } \
-          else \
-            { \
-              text_append_n (result, var, 1); \
-              var++; \
-            } \
-          break;
-
-#define OTXI_NO_BREAK_CASES(var) \
-        case ' ': \
-        case '\n': \
-          text_append_n (result, \
-               self->special_character[SC_non_breaking_space].string, \
-               self->special_character[SC_non_breaking_space].len); \
-          var += strspn (var, "\n "); \
-          break;
-
-#define OTXI_SPACE_PROTECTION_CASES(var) \
-        case ' ': \
-          text_append_n (result, \
-               self->special_character[SC_non_breaking_space].string, \
-               self->special_character[SC_non_breaking_space].len); \
-          var++; \
-          break; \
-        case '\n': \
-          text_append_n (result, self->line_break_element.string, \
-                         self->line_break_element.len); \
-          var++; \
-          break;
-
-/* text conversion loop, with the protection of XML special
-   characters and the possibility to add more delimiters and
-   more cases to handle those delimiters */
-#define OTXI_CONVERT_TEXT(delimiters,other_cases) \
-  { \
-  while (*p)  \
-    { \
-      int before_sep_nr = strcspn (p, "<>&\"\f" delimiters); \
-      if (before_sep_nr) \
-        { \
-          text_append_n (result, p, before_sep_nr); \
-          p += before_sep_nr; \
-        } \
-      if (!*p) \
-        break; \
-      switch (*p) \
-        { \
-          OTXI_PROTECT_XML_FORM_FEED_CASES(p) \
-          other_cases \
-        } \
-    } \
-  }
-
-/* conversion of text for all the possibilities regarding -- --- ''
-   conversion, with the possibility to add more for spaces protection */
-#define OTXI_ALL_CONVERT_TEXT(additional_delim,other_cases) \
-  const char *p = content_used; \
-      if (in_code (self) || in_math (self)) \
-        OTXI_CONVERT_TEXT(additional_delim,  \
-          other_cases) \
-      else if (self->use_unicode_text) \
-        OTXI_CONVERT_TEXT("-`'" additional_delim, \
-          OTXI_UNICODE_TEXT_CASES(p) \
-          other_cases) \
-      else if (self->conf->USE_NUMERIC_ENTITY > 0) \
-        OTXI_CONVERT_TEXT("-`'" additional_delim, \
-          OTXI_NUMERIC_ENTITY_TEXT_CASES(p) \
-          other_cases) \
-      else if (self->conf->USE_ISO > 0) \
-        OTXI_CONVERT_TEXT("-`'" additional_delim, \
-          OTXI_ISO_ENTITY_TEXT_CASES(p) \
-          other_cases) \
-      else \
-        OTXI_CONVERT_TEXT("-`'" additional_delim, \
-          OTXI_NO_ISO_ENTITY_TEXT_CASES(p) \
-          other_cases)
-
-void
-html_default_format_protect_text (const char *text, TEXT *result)
-{
-  const char *p = text;
-
-  OTXI_CONVERT_TEXT ( , )
 }
 
 void
@@ -3098,6 +3451,16 @@ html_converter_initialize (CONVERTER *self)
             &self->css_string_command_conversion_function[i], i,
              &self->css_string_commands_conversion[i]);
     }
+
+}
+
+/* called in the end of html_converter_prepare_output_sv */
+void
+html_converter_prepare_output (CONVERTER* self)
+{
+  qsort (self->css_element_class_styles.list,
+         self->css_element_class_styles.number,
+         sizeof (CSS_SELECTOR_STYLE), compare_selector_style);
 }
 
 void
@@ -4655,6 +5018,10 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
 
   text_init (&result);
 
+  self->current_filename.filename = "";
+  self->current_filename.file_number = 1;
+  self->modified_state |= HMSF_current_filename;
+
   if (!output_units || !output_units->number)
     {
       char *footnotes_segment;
@@ -4694,6 +5061,9 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
             }
         }
     }
+  self->current_filename.filename = 0;
+  self->modified_state |= HMSF_current_filename;
+
   return result.text;
 }
 
@@ -4709,7 +5079,7 @@ convert_output_output_unit_internal (CONVERTER *self,
   int empty_body = 0; /* set if body is empty and it is a special unit */
   char *output_unit_filename = output_unit->unit_filename;
 
-  self->current_filename = output_unit_filename;
+  self->current_filename.filename = output_unit_filename;
   self->modified_state |= HMSF_current_filename;
 
   text_reset (text);
@@ -4721,6 +5091,7 @@ convert_output_output_unit_internal (CONVERTER *self,
       char *special_unit_variety = output_unit->special_unit_variety;
 
       file_index = self->special_unit_file_indices[output_unit->index];
+      self->current_filename.file_number = file_index +1;
       unit_file = &self->output_unit_files.list[file_index];
 
       xasprintf (&debug_str, "UNIT SPECIAL %s", special_unit_variety);
@@ -4734,6 +5105,7 @@ convert_output_output_unit_internal (CONVERTER *self,
   else
     {
       file_index = self->output_unit_file_indices[output_unit->index];
+      self->current_filename.file_number = file_index +1;
       unit_file = &self->output_unit_files.list[file_index];
 
       convert_convert_output_unit_internal (self, text, output_unit,
@@ -4871,16 +5243,26 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
     = retrieve_output_units (output_units_descriptor);
 
   if (strlen (output_file))
-    self->current_filename = output_units->list[0]->unit_filename;
+    {
+      self->current_filename.filename = output_units->list[0]->unit_filename;
+      self->current_filename.file_number
+        = self->output_unit_file_indices[0]+1;
+    }
   else
-    self->current_filename = output_filename;
+    {
+      /* case of convert() call.  Need to setup the page here */
+      if (self->page_name_number.number <= 0)
+         setup_output_simple_page (self, output_filename);
+      self->current_filename.filename = output_filename;
+      self->current_filename.file_number = 1;
+    }
 
   self->modified_state |= HMSF_current_filename;
 
   title_titlepage
     = call_formatting_function_format_title_titlepage (self);
   self->title_titlepage = title_titlepage;
-  self->current_filename = 0;
+  memset (&self->current_filename, 0, sizeof (CURRENT_FILE_INFO));
   self->modified_state |= HMSF_current_filename;
 }
 
@@ -4911,7 +5293,8 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
       char *file_end;
       char *file_beginning;
 
-      self->current_filename = output_filename;
+      self->current_filename.filename = output_filename;
+      self->current_filename.file_number = 1;
       self->modified_state |= HMSF_current_filename;
 
       text_append (&text, "");
@@ -4976,7 +5359,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
           text_append (&result, file_end);
           free (file_end);
         }
-      self->current_filename = 0;
+      self->current_filename.filename = 0;
       self->modified_state |= HMSF_current_filename;
     }
   else
@@ -5022,7 +5405,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
               unit_nr++;
             }
         }
-      self->current_filename = 0;
+      memset (&self->current_filename, 0, sizeof (CURRENT_FILE_INFO));
       self->modified_state |= HMSF_current_filename;
     }
 

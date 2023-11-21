@@ -4300,10 +4300,10 @@ The CSS @var{element}.@var{class} that appeared in a file, gathered through
 Classes}) are available through the @code{html_get_css_elements_classes}
 function:
 
-@deftypefun {@var{@@css_element_classes} =} @var{$converter}->html_get_css_elements_classes @
+@deftypefun {@var{\@@css_element_classes} =} @var{$converter}->html_get_css_elements_classes @
     (@var{$file_name})
-Returns an array containing @code{element.class} pairs of elements and classes
-appearing in @var{$file_name}.
+Returns a reference on an array containing @code{element.class} pairs of elements
+and classes appearing in @var{$file_name}.
 @end deftypefun
 
 It is possible to change completely how CSS lines are generated

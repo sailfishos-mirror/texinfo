@@ -253,6 +253,8 @@ close(CODE);
 open (GET, ">$get_file") or die "Open $get_file: $!\n";
 print GET "/* Automatically generated from $0 */\n\n";
 
+print GET '#include "get_perl_info.h"'."\n\n";
+
 print GET 'void
 get_sv_option (OPTIONS *options, const char *key, SV *value)
 {
@@ -290,8 +292,8 @@ foreach my $category (sort(keys(%option_categories))) {
     } elsif ($type eq 'int') {
       print GET "    options->$option = SvIV (value);\n";
     } elsif ($type eq 'STRING_LIST') {
-      my $dir_string_arg = 0;
-      $dir_string_arg = 1
+      my $dir_string_arg = 'svt_byte';
+      $dir_string_arg = 'svt_dir'
         if ($option eq 'INCLUDE_DIRECTORIES');
       print GET "    add_svav_to_string_list (value, &options->$option, $dir_string_arg);\n";
     } else {

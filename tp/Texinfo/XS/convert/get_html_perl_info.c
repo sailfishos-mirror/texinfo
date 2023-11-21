@@ -370,7 +370,7 @@ html_converter_initialize_sv (SV *converter_sv,
       STRING_LIST *special_unit_varieties = &converter->special_unit_varieties;
       if (sorted_special_unit_varieties_sv)
         add_svav_to_string_list (*sorted_special_unit_varieties_sv,
-                                 special_unit_varieties, 0);
+                                 special_unit_varieties, svt_char);
 
       FETCH(special_unit_info);
 
@@ -742,8 +742,6 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-#undef FETCH
-
   html_converter_initialize (converter);
 
   converter->hv = converter_hv;
@@ -755,4 +753,50 @@ html_converter_initialize_sv (SV *converter_sv,
 
   return converter_descriptor;
 }
+
+void
+html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
+{
+  HV *converter_hv;
+  SV **css_element_class_styles_sv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  FETCH(css_element_class_styles)
+
+  if (css_element_class_styles_sv)
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *css_element_class_styles_hv
+        = (HV *)SvRV (*css_element_class_styles_sv);
+
+      hv_number = hv_iterinit (css_element_class_styles_hv);
+
+      converter->css_element_class_styles.list = (CSS_SELECTOR_STYLE *)
+        malloc (hv_number * sizeof (CSS_SELECTOR_STYLE));
+      converter->css_element_class_styles.number = hv_number;
+
+      for (i = 0; i < hv_number; i++)
+        {
+          HE *next = hv_iternext (css_element_class_styles_hv);
+          SV *selector_sv = hv_iterkeysv (next);
+          char *selector = (char *) SvPVutf8_nolen (selector_sv);
+          SV *style_sv = HeVAL(next);
+          char *style = (char *) SvPVutf8_nolen (style_sv);
+
+          CSS_SELECTOR_STYLE *selector_style
+            = &converter->css_element_class_styles.list[i];
+          selector_style->selector = strdup (selector);
+          selector_style->style = strdup (style);
+        }
+    }
+
+  html_converter_prepare_output (converter);
+}
+
+#undef FETCH
 

@@ -346,6 +346,82 @@ html_close_registered_sections_level (SV *converter_in, int level)
     OUTPUT:
          RETVAL
 
+SV *
+html_attribute_class (SV *converter_in, element, ...)
+         char *element = (char *)SvPVutf8_nolen($arg);
+    PROTOTYPE: $$;$
+    PREINIT:
+         CONVERTER *self;
+         SV *classes_sv = 0;
+         STRING_LIST *classes = 0;
+    CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_attribute_class");
+         if (items > 2 && SvOK(ST(2)))
+           classes_sv = ST(2);
+
+         if (self)
+           {
+             char *result;
+             if (classes_sv)
+               {
+                 classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+                 memset (classes, 0, sizeof (STRING_LIST));
+                 add_svav_to_string_list (classes_sv, classes, svt_char);
+               }
+             result = html_attribute_class (self, element, classes);
+             if (classes)
+               destroy_strings_list (classes);
+             RETVAL = newSVpv_utf8 (result, 0);
+             free (result);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+SV *
+html_get_css_elements_classes (SV *converter_in, ...)
+    PROTOTYPE: $;$
+    PREINIT:
+         CONVERTER *self;
+         SV *filename_sv = 0;
+         AV *css_selector_av;
+    CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_attribute_class");
+         if (items > 1 && SvOK(ST(1)))
+           filename_sv = ST(1);
+
+         css_selector_av = newAV ();
+
+         if (self)
+           {
+             STRING_LIST *result;
+             char *filename = 0;
+             if (filename_sv)
+               filename = SvPVutf8_nolen (filename_sv);
+             result = html_get_css_elements_classes (self, filename);
+             if (result)
+               {
+                 if (result->number)
+                   {
+                     int i;
+                     for (i = 0; i < result->number; i++)
+                       {
+                         SV *selector_sv
+                            = newSVpv_utf8 (result->list[i], 0);
+                         av_push (css_selector_av, selector_sv);
+                       }
+                   }
+                 destroy_strings_list (result);
+               }
+           }
+         RETVAL = newRV_noinc ((SV *) css_selector_av);
+    OUTPUT:
+         RETVAL
+
+
 void
 html_merge_index_entries (SV *converter_in)
       PREINIT:
@@ -560,6 +636,8 @@ html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file
 
          if (self)
            {
+             html_converter_prepare_output_sv (converter_in, self);
+
              html_prepare_title_titlepage (self, output_units_descriptor,
                                            output_file, output_filename);
              if (self->modified_state)

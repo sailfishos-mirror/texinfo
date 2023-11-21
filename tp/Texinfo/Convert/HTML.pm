@@ -126,6 +126,10 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_register_opened_section_level",
   "Texinfo::Convert::HTML::close_registered_sections_level"
    => "Texinfo::Convert::ConvertXS::html_close_registered_sections_level",
+  "Texinfo::Convert::HTML::html_attribute_class"
+   => "Texinfo::Convert::ConvertXS::html_attribute_class",
+  "Texinfo::Convert::HTML::html_get_css_elements_classes"
+   => "Texinfo::Convert::ConvertXS::html_get_css_elements_classes",
   "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter"
    => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
   "Texinfo::Convert::HTML::_XS_html_merge_index_entries"
@@ -238,9 +242,9 @@ sub _collect_css_element_class($$)
     if ($self->{'document_global_context'}) {
       $self->{'document_global_context_css'}->{$element_class} = 1;
     } elsif (defined($self->{'current_filename'})) {
-      $self->{'file_css'}->{$self->{'current_filename'}} = {}
-        if (!$self->{'file_css'}->{$self->{'current_filename'}});
-      $self->{'file_css'}->{$self->{'current_filename'}}->{$element_class} = 1;
+      $self->{'page_css'}->{$self->{'current_filename'}} = {}
+        if (!$self->{'page_css'}->{$self->{'current_filename'}});
+      $self->{'page_css'}->{$self->{'current_filename'}}->{$element_class} = 1;
     }
   }
 }
@@ -314,17 +318,18 @@ sub html_get_css_elements_classes($;$)
                               %{$self->{'document_global_context_css'}} );
   }
 
-  if (defined($filename) and $self->{'file_css'}
-      and $self->{'file_css'}->{$filename}) {
+  if (defined($filename) and $self->{'page_css'}
+      and $self->{'page_css'}->{$filename}) {
     %css_elements_classes = ( %css_elements_classes,
-                              %{$self->{'file_css'}->{$filename}} );
+                              %{$self->{'page_css'}->{$filename}} );
   }
 
   if ($css_elements_classes{'a.copiable-link'}) {
     $css_elements_classes{'span:hover a.copiable-link'} = 1;
   }
 
-  return sort(keys(%css_elements_classes));
+  my @result = sort(keys(%css_elements_classes));
+  return \@result;
 }
 
 sub close_html_lone_element($$) {
@@ -8026,7 +8031,7 @@ sub _load_htmlxref_files {
 #
 #     API exists
 #  document_global_context_css
-#  file_css
+#  page_css
 #
 #     API exists
 #  files_information
@@ -8642,18 +8647,18 @@ sub _default_format_css_lines($;$)
   return '' if ($self->get_conf('NO_CSS'));
 
   my $css_refs = $self->get_conf('CSS_REFS');
-  my @css_element_classes = $self->html_get_css_elements_classes($filename);
+  my $css_element_classes = $self->html_get_css_elements_classes($filename);
   my $css_import_lines = $self->css_get_info('imports');
   my $css_rule_lines = $self->css_get_info('rules');
 
-  return '' if !@$css_import_lines and !@css_element_classes
+  return '' if !@$css_import_lines and !@$css_element_classes
                  and !@$css_rule_lines
                  and (!defined($css_refs) or !@$css_refs);
 
   my $css_text = "<style type=\"text/css\">\n<!--\n";
   $css_text .= join('', @$css_import_lines) . "\n"
     if (@$css_import_lines);
-  foreach my $element_class (@css_element_classes) {
+  foreach my $element_class (@$css_element_classes) {
     my $css_style = $self->css_selector_style($element_class);
     $css_text .= "$element_class {$css_style}\n"
       if defined($css_style );
@@ -11036,7 +11041,7 @@ sub _initialize_output_state($$)
 
   # Needed for CSS gathering, even if nothing related to CSS is output
   $self->{'document_global_context_css'} = {};
-  $self->{'file_css'} = {};
+  $self->{'page_css'} = {};
 
   # direction strings
   foreach my $string_type (keys(%default_translated_directions_strings)) {
@@ -11112,6 +11117,8 @@ sub _html_convert_convert($$$$)
 
   my $result = '';
 
+  $self->{'current_filename'} = '';
+
   if (!defined($output_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
     $result = $self->_convert($root, 'convert no unit');
@@ -11129,6 +11136,7 @@ sub _html_convert_convert($$$$)
       $unit_nr++;
     }
   }
+  $self->{'current_filename'} = undef;
   return $result;
 }
 
@@ -11198,12 +11206,9 @@ sub convert($$)
   # complete information should be available.
   $self->_reset_info();
 
-  $self->{'current_filename'} = '';
-
   # main conversion here
   my $result = $self->_html_convert_convert ($root, $output_units,
                                              $special_units);
-  $self->{'current_filename'} = undef;
 
   $self->_finalize_output_state();
   return $result;
@@ -11753,6 +11758,7 @@ sub output($$)
   }
 
   # Get the list of output units to be processed.
+  # Customization information in $self->{'conf'} is passed to XS code too.
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($root, $document_name);
 
@@ -11882,6 +11888,7 @@ sub output($$)
     return undef;
   }
 
+  # information settable by customization files is passed to XS too
   $self->_prepare_title_titlepage($output_units, $output_file,
                                   $output_filename);
 

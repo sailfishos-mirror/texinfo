@@ -11,6 +11,12 @@
 #include "converter_types.h"
 #include "convert_to_text.h"
 
+enum sv_string_type {
+  svt_byte,
+  svt_dir,
+  svt_char,
+};
+
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 
@@ -18,7 +24,7 @@ OUTPUT_UNIT_LIST *get_sv_output_units (SV *output_units_in, char *warn_string);
 int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 
 void add_svav_to_string_list (SV *sv, STRING_LIST *string_list,
-                              int dir_strings);
+                              enum sv_string_type type);
 
 OPTIONS *copy_sv_options (SV *sv_in);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
