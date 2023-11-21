@@ -51,6 +51,11 @@ XSLIBS_CPPFLAGS += -I$(PERL_INC)
 
 XSLIBS_CFLAGS = $(perl_conf_CFLAGS)
 
+# Flags specially recognized by libtool
+XSLIBS_LDFLAGS = -avoid-version -module
+
+XSLIBS_LDFLAGS += $(perl_conf_LDFLAGS)
+
 if HOST_NEEDS_NO_UNDEFINED
   PLATFORM_LDFLAGS = -no-undefined -L$(PERL_INC) $(PERL_CONF_libperl)
   # The -no-undefined flag is for MS-Windows.  See info node
@@ -60,7 +65,6 @@ else
   PLATFORM_LDFLAGS =
 endif
 
-XSLIBS_LDFLAGS = -avoid-version -module $(perl_conf_LDFLAGS)
 XSLIBS_LDFLAGS += $(PLATFORM_LDFLAGS)
 
 

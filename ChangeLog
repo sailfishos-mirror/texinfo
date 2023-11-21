@@ -1,3 +1,12 @@
+2023-11-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	XS build flags
+
+	* tp/Texinfo/XS/Makefile.am (XSLIBS_LDFLAGS): Add a comment
+	stating that -avoid-version and -module are recognised by libtool
+	to make it clear where to look for documentation on these options.
+	No functional changes intended.
+
 2023-11-20  Patrice Dumas  <pertusus@free.fr>
 
 	HTML css functions API change, split information and selector rules
