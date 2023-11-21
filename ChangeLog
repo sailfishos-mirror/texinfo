@@ -1,5 +1,14 @@
 2023-11-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfoxs_la_LDFLAGS):
+	Refer to $(perl_conf_LDFLAGS) instead of $(PERL_CONF_ccdlflags)
+	to make it easier to compare with XSLIBS_LDFLAGS.
+	(AM_LDFLAGS): Remove references to this variable throughout,
+	as it is not defined anywhere any more, and not a variable the
+	user should be redefining from the command line.
+
+2023-11-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	XS build flags
 
 	* tp/Texinfo/XS/Makefile.am (XSLIBS_LDFLAGS): Add a comment

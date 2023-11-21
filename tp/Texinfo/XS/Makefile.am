@@ -101,7 +101,7 @@ XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-XSParagraph_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
+XSParagraph_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
 EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
@@ -211,7 +211,7 @@ EXTRA_DIST += main/options_types.h
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
-libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
               main/cmd_normalization.c \
@@ -297,7 +297,7 @@ libtexinfoxs_la_SOURCES= \
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la
-libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(AM_LDFLAGS) $(PERL_CONF_ccdlflags) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
+libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
 
 # FIXME libtexinfo.so.* and libtexinfoxs.so.* are sought in system
 # directories first (${libdir}) before the correct installed location, so
@@ -321,7 +321,7 @@ EXTRA_DIST += parsetexi/Parsetexi.xs
 Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 Parsetexi_la_CFLAGS = $(XSLIBS_CFLAGS)
 Parsetexi_la_LIBADD = libtexinfoxs.la libtexinfo.la
-Parsetexi_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## Document XS
 
@@ -338,7 +338,7 @@ EXTRA_DIST += main/DocumentXS.xs
 DocumentXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
-DocumentXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## Translations XS
 
@@ -358,7 +358,7 @@ DocumentXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
 #TranslationsXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 #TranslationsXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 #TranslationsXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
-#TranslationsXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS)
+#TranslationsXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## StructuringTransfo XS
 
@@ -379,7 +379,7 @@ EXTRA_DIST += structuring_transfo/StructuringTransfo.xs
 StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 StructuringTransfo_la_CFLAGS = $(XSLIBS_CFLAGS)
 StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
-StructuringTransfo_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+StructuringTransfo_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ########################## ConvertXS
 
@@ -412,6 +412,6 @@ EXTRA_DIST += convert/ConvertXS.xs
 ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
-ConvertXS_la_LDFLAGS = $(AM_LDFLAGS) $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
