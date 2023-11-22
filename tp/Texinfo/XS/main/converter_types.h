@@ -272,10 +272,10 @@ typedef struct PAGE_NAME_NUMBER_LIST {
 } PAGE_NAME_NUMBER_LIST;
 
 typedef struct CSS_LIST {
-    const char *page_name;
+    char *page_name;
     size_t number;
     size_t space;
-    const char **list;
+    char **list;
 } CSS_LIST;
 
 typedef struct PAGES_CSS_LIST {
@@ -396,8 +396,8 @@ typedef struct HTML_ADDED_TARGET_LIST {
 } HTML_ADDED_TARGET_LIST;
 
 typedef struct CSS_SELECTOR_STYLE {
-    const char *selector;
-    const char *style;
+    char *selector;
+    char *style;
 } CSS_SELECTOR_STYLE;
 
 typedef struct CSS_SELECTOR_STYLE_LIST {

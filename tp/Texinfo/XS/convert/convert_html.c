@@ -1678,7 +1678,8 @@ find_css_selector_style
 {
   CSS_SELECTOR_STYLE *result = 0;
   static CSS_SELECTOR_STYLE searched_selector;
-  searched_selector.selector = selector;
+  /* remove const with a cast, it is more efficient than duplicating */
+  searched_selector.selector = (char *) selector;
 
   result = (CSS_SELECTOR_STYLE *) bsearch (&searched_selector,
                 css_element_class_styles->list,
@@ -1819,6 +1820,8 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
   memset (result, 0, sizeof (STRING_LIST));
   for (j = 0; j < selector_nr; j++)
     add_string (selectors[j], result);
+
+  free (selectors);
 
   return result;
 }
@@ -2847,6 +2850,8 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   return files_source_info;
 }
 
+/* setup a page (+global context) in case there are no files, ie called
+   with convert or output with an empty string as filename. */
 void
 setup_output_simple_page (CONVERTER *self, const char *output_filename)
 {
@@ -3544,6 +3549,20 @@ html_finalize_output_state (CONVERTER *self)
   clear_output_files_information (&self->output_files_information);
   clear_output_unit_files (&self->output_unit_files);
 
+  free (self->page_name_number.list);
+  memset (&self->page_name_number, 0, sizeof (PAGE_NAME_NUMBER_LIST));
+
+  for (i = 0; i < self->page_css.number; i++)
+    {
+      int j;
+      CSS_LIST *page_css_list = &self->page_css.list[i];
+
+      for (j = 0; j < page_css_list->number; j++)
+        free (page_css_list->list[j]);
+      free (page_css_list->list);
+    }
+  free (self->page_css.list);
+
   /* should not be possible with default code, as
      close_registered_sections_level(0)
      is called at the end of processing or at the end of each file.
@@ -3633,6 +3652,15 @@ html_free_converter (CONVERTER *self)
       free (self->pre_class_types[i]);
     }
 
+  for (i = 0; i < self->css_element_class_styles.number; i++)
+    {
+      CSS_SELECTOR_STYLE *selector_style
+        = &self->css_element_class_styles.list[i];
+      free (selector_style->selector);
+      free (selector_style->style);
+    }
+  free (self->css_element_class_styles.list);
+
   for (i = 0; i < self->no_arg_formatted_cmd.number; i++)
     {
       enum command_id cmd = self->no_arg_formatted_cmd.list[i];
@@ -3661,6 +3689,8 @@ html_free_converter (CONVERTER *self)
     }
 
   free (self->no_arg_formatted_cmd.list);
+
+  free (self->pending_closes.stack);
 
   free (self->no_arg_formatted_cmd_translated.list);
   free (self->reset_target_commands.list);
