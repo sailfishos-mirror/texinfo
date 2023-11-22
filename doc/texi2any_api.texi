@@ -1034,9 +1034,6 @@ A string representing the direction to be used in contexts
 with HTML elements (preformatted and normal contexts).
 @xref{Init File Expansion Contexts}.
 
-@item tree
-A Texinfo tree element representing the direction.
-
 @item target
 A string representing the target of the direction, typically used as id
 attribute in the output unit corresponding to the direction, and in href
@@ -1052,7 +1049,7 @@ associated with the element direction in priority.
 
 @end table
 
-@code{text}, @code{tree} and @code{string} also have a variant with
+@code{text} and @code{string} also have a variant with
 @samp{_nonumber} prepended, such as @code{text_nonumber} without sectioning
 command number in the representation.
 
@@ -3418,16 +3415,18 @@ The information returned depends on @var{$type}:
 @item text
 Return text.
 
-@item tree
-Return a Texinfo elements tree.
-
-@item tree_nonumber
-Return a Texinfo elements tree representing text without a chapter number
-being included.
-
 @item string
 Return text in string context.  @xref{Init File Expansion Contexts}.
 @end table
+@end deftypefun
+
+To get a Texinfo tree of elements that may be used as link description, use
+@code{command_tree}:
+
+@deftypefun {@var{$result} =} @var{$converter}->command_tree (@var{\%target_element}, @var{$no_number})
+Return the a Texinfo tree to be used for a hyperlink to @var{\%target_element}.
+If @var{$no_number} is set, return a Texinfo elements tree representing text
+without a chapter number being included.
 @end deftypefun
 
 To get the top level element and the output unit associated to any

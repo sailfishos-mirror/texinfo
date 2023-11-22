@@ -1,5 +1,19 @@
 2023-11-22  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Element Direction Information Type),
+	tp/Texinfo/Convert/HTML.pm (%valid_direction_return_type): do not
+	accept tree nor tree_nonumber as from_element_direction types.
+
+	* doc/texi2any_api.texi (Target Commands Links@comma{} Texts and
+	Associated Commands), tp/Texinfo/Convert/HTML.pm (command_tree)
+	(command_text): separate command_tree function, using code from
+	command_text to get the tree or tree without number.  Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm (_file_header_information): do not use
+	a command_string if the string is empty.
+
+2023-11-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c,
 	tp/Texinfo/XS/main/get_perl_info.c
 	(html_get_button_specification_list),

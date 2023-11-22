@@ -1083,24 +1083,14 @@ sub footnote_location_href($$;$$$)
   return $href;
 }
 
-# Return text to be used for a hyperlink to $COMMAND.
-# $TYPE refers to the type of value returned from this function:
-#  'text' - return text
-#  'tree' - return a tree
-#  'tree_nonumber' - return tree representing text without a chapter number
-#                    being included.
-#  'string' - return simpler text that can be used in element attributes
-sub command_text($$;$)
+sub command_tree($$;$)
 {
   my $self = shift;
   my $command = shift;
-  my $type = shift;
+  my $no_number = shift;
 
-  if (!defined($type)) {
-    $type = 'text';
-  }
   if (!defined($command)) {
-    cluck "in command_text($type) command not defined";
+    cluck "in command_tree command not defined";
   }
 
   if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
@@ -1114,32 +1104,15 @@ sub command_text($$;$)
                          {'text' => ')'}, @$node_content]};
     } else {
       $tree = {'type' => '_code',
-          'contents' => $node_content};
+               'contents' => $node_content};
     }
-    if ($type eq 'tree') {
-      return $tree;
-    } else {
-      if ($type eq 'string') {
-        $tree = {'type' => '_string',
-                 'contents' => [$tree]};
-      }
-      my $result = $self->convert_tree_new_formatting_context(
-        # FIXME check if $document_global_context argument would be needed?
-            $tree, $command->{'cmdname'}, 'command_text-manual_content');
-      return $result;
-    }
+    return $tree;
   }
 
   my $target = $self->_get_target($command);
   if ($target) {
-    my $explanation;
-    $explanation = "command_text:$type \@$command->{'cmdname'}"
-       if ($command->{'cmdname'});
-    if (defined($target->{$type})) {
-      return $target->{$type};
-    }
-    my $tree;
-    if (!$target->{'tree'}) {
+    if (!exists($target->{'tree'})) {
+      my $tree;
       if ($command->{'type'}
           and $command->{'type'} eq 'special_unit_element') {
         my $special_unit_variety
@@ -1147,10 +1120,9 @@ sub command_text($$;$)
         $tree
           = $self->special_unit_info('heading_tree',
                                       $special_unit_variety);
-        $tree = {} if (!defined($tree));
-        $explanation = "command_text $special_unit_variety";
-      } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node'
-                                          or $command->{'cmdname'} eq 'anchor')) {
+      } elsif ($command->{'cmdname'}
+               and ($command->{'cmdname'} eq 'node'
+                    or $command->{'cmdname'} eq 'anchor')) {
         # FIXME is it possible not to have contents (nor args)?
         $tree = {'type' => '_code',
                  'contents' => $command->{'args'}->[0]->{'contents'}};
@@ -1159,11 +1131,6 @@ sub command_text($$;$)
       } elsif (!$command->{'args'}->[0]
                or !$command->{'args'}->[0]->{'contents'}
                or !scalar(@{$command->{'args'}->[0]->{'contents'}})) {
-        if ($type eq 'tree' or $type eq 'tree_nonumber') {
-          return {};
-        } else {
-          return '';
-        }
       } else {
         if ($command->{'extra'}
             and defined($command->{'extra'}->{'section_number'})
@@ -1192,12 +1159,64 @@ sub command_text($$;$)
           = $command->{'args'}->[0];
       }
       $target->{'tree'} = $tree;
-    } else {
-      $tree = $target->{'tree'};
     }
-    return $target->{'tree_nonumber'} if ($type eq 'tree_nonumber'
+
+    return $target->{'tree_nonumber'} if ($no_number
                                           and $target->{'tree_nonumber'});
-    return $tree if ($type eq 'tree' or $type eq 'tree_nonumber');
+    return $target->{'tree'};
+  }
+  return undef;
+}
+
+# Return text to be used for a hyperlink to $COMMAND.
+# $TYPE refers to the type of value returned from this function:
+#  'text' - return text
+#  'tree' - return a tree
+#  'tree_nonumber' - return tree representing text without a chapter number
+#                    being included.
+#  'string' - return simpler text that can be used in element attributes
+sub command_text($$;$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $type = shift;
+
+  if (!defined($type)) {
+    $type = 'text';
+  }
+  if (!defined($command)) {
+    cluck "in command_text($type) command not defined";
+  }
+
+  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+    my $tree = command_tree($self, $command);
+    if ($type eq 'string') {
+      $tree = {'type' => '_string',
+               'contents' => [$tree]};
+    }
+    my $result = $self->convert_tree_new_formatting_context(
+      # FIXME check if $document_global_context argument would be needed?
+          $tree, $command->{'cmdname'}, 'command_text-manual_content');
+    return $result;
+  }
+
+  my $target = $self->_get_target($command);
+  if ($target) {
+    if (defined($target->{$type})) {
+      return $target->{$type};
+    }
+    my $explanation;
+    if ($command->{'type'}
+        and $command->{'type'} eq 'special_unit_element') {
+      my $special_unit_variety
+          = $command->{'associated_unit'}->{'special_unit_variety'};
+      $explanation = "command_text $special_unit_variety";
+    } elsif ($command->{'cmdname'}) {
+      $explanation = "command_text:$type \@$command->{'cmdname'}";
+    }
+    my $tree = $self->command_tree($command);
+
+    return '' if (!defined($tree));
 
     my $context_name = $command->{'cmdname'};
     $context_name = $command->{'type'} if (!defined($context_name));
@@ -1310,8 +1329,6 @@ my %valid_direction_return_type = (
   # a string representing the direction to be used in contexts
   # not restricted in term of available formatting (ie with HTML elements)
   'text' => 1,
-  # Texinfo tree element representing the direction
-  'tree' => 1,
   # string representing the target, typically used as id and in href
   'target' => 1,
   # same as 'text', but select node in priority
@@ -1320,7 +1337,7 @@ my %valid_direction_return_type = (
   'section' => 1
 );
 
-foreach my $no_number_type ('text', 'tree', 'string') {
+foreach my $no_number_type ('text', 'string') {
   # without section number
   $valid_direction_return_type{$no_number_type .'_nonumber'} = 1;
 }
@@ -10172,7 +10189,7 @@ sub _mini_toc
     $result .= $self->html_attribute_class('ul', ['mini-toc']).">\n";
 
     foreach my $section (@{$command->{'extra'}->{'section_childs'}}) {
-      my $tree = $self->command_text($section, 'tree_nonumber');
+      my $tree = $self->command_tree($section, 1);
       my $text = $self->convert_tree($tree, "mini_toc \@$section->{'cmdname'}");
 
       $entry_index++;
@@ -10442,7 +10459,7 @@ sub _file_header_information($$;$)
   my $title;
   if ($command) {
     my $command_string = $self->command_text($command, 'string');
-    if (defined($command_string)
+    if (defined($command_string) and $command_string ne ''
         and $command_string ne $self->get_info('title_string')) {
       my $element_tree;
       if ($self->get_conf('SECTION_NAME_IN_TITLE')
@@ -10452,7 +10469,7 @@ sub _file_header_information($$;$)
           and $command->{'extra'}->{'associated_section'}->{'args'}->[0]) {
         $element_tree = $command->{'extra'}->{'associated_section'}->{'args'}->[0];
       } else {
-        $element_tree = $self->command_text($command, 'tree');
+        $element_tree = $self->command_tree($command);
       }
       # TRANSLATORS: sectioning element title for the page header
       my $title_tree = $self->gdt('{element_text} ({title})',
@@ -11281,7 +11298,7 @@ sub output_internal_links($)
       if (defined($command)) {
         # Use '' for filename, to force a filename in href.
         $href = $self->command_href($command, '');
-        my $tree = $self->command_text($command, 'tree');
+        my $tree = $self->command_tree($command);
         if ($tree) {
           $text = Texinfo::Convert::Text::convert_to_text($tree,
              {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
