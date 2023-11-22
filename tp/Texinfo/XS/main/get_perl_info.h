@@ -38,4 +38,7 @@ INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
                  (INDEX **index_names, SV *index_entries_sorted_by_letter);
 
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
+
+BUTTON_SPECIFICATION_LIST *html_get_button_specification_list (SV *buttons_sv);
+
 #endif
