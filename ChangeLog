@@ -1,5 +1,11 @@
 2023-11-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* INSTALL: elaborate on PERL_EXT_* variables for building
+	XS modules, why they are needed and how to override them when
+	running make.
+
+2023-11-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/Makefile.am,
 	* tp/Texinfo/XS/configure.ac (PERL_INC, XSUBPPARGS): Define in
 	configure.ac and propagate to Makefile.am, so it is more clear what
