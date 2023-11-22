@@ -1,4 +1,6 @@
 #! /usr/bin/env perl
+# setup_converters_code_tables.pl: use perl data, mainly manually
+# generated hashes, to generate corresponding C data.
 
 # Copyright 2023 Free Software Foundation, Inc.
 #
@@ -26,8 +28,13 @@ use File::Spec;
 # for dirname and fileparse
 use File::Basename;
 
+use Encode;
+
 BEGIN
 {
+  # do not load XS code, to avoid both depending on and generating
+  # XS code.  Also we do not want to have to find XS object files.
+  $ENV{'TEXINFO_XS'} = 'omit';
   # NOTE we do not use Texinfo::ModulePath as it may not have been
   # created yet, as tp/Texinfo/XS may be processed before tp.
   # Also we have less modules to find, only pure perl code.
@@ -288,7 +295,6 @@ print TEXT "};\n\n";
 
 close(TEXT);
 
-# Finish by this file as it is used as make target
 open (NORM, '>', $normalization_file) or die "Open $normalization_file: $!\n";
 
 print NORM "char * command_normalization_text[] = {\n";

@@ -13,8 +13,13 @@
 
 2023-11-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/setup_converters_code_tables.pl: set ENV{'TEXINFO_XS'} =
+	'omit' to avoid depending on XS code being loaded.
+
+2023-11-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
-	(html_get_css_elements_classes): free selctors.
+	(html_get_css_elements_classes): free selectors.
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state),
 	tp/Texinfo/XS/main/converter_types.h (CSS_LIST, CSS_SELECTOR_STYLE):
