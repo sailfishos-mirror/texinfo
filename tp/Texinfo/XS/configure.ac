@@ -70,6 +70,8 @@ AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
 perl_conf_CFLAGS=
 perl_conf_LDFLAGS=
+XSUBPPARGS=
+PERL_INC=
 
 # See (automake)Conditional Subdirectories.  Even if --disable-perl-xs
 # is given, we still need to configure this directory minimally, so that
@@ -117,12 +119,17 @@ if test x$disable_xs != xyes; then
                    -e 's/^cygperl.*/-lperl/' `
   
   lookup_perl_conf_values([[archlibexp], [privlibexp]])
+  PERL_INC=${PERL_CONF_archlibexp}/CORE
+  XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
   
   AC_CONFIG_HEADERS([config.h:config.in])
 fi # not disable_xs
 
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
+
+AC_SUBST([PERL_INC], [$PERL_INC])
+AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
 
 AC_PROG_CC

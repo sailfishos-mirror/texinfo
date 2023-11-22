@@ -37,10 +37,6 @@ AM_CPPFLAGS += -DDATADIR=\"$(datadir)\"
 
 xsdir = $(pkglibdir)
 
-PERL_INC = $(PERL_CONF_archlibexp)/CORE
-
-XSUBPPARGS = -typemap $(PERL_CONF_privlibexp)/ExtUtils/typemap
-
 .xs.c:
 	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $(srcdir)/$*.c
 
