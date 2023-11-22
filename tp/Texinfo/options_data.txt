@@ -321,14 +321,14 @@ XREF_USE_NODE_NAME_ARG             converter_customization undef   int
 
 
 # Not strings
-LINKS_BUTTONS                      converter_other undef   BUTTONS *
-TOP_BUTTONS                        converter_other undef   BUTTONS *
-SECTION_BUTTONS                    converter_other undef   BUTTONS *
-CHAPTER_FOOTER_BUTTONS             converter_other undef   BUTTONS *
-SECTION_FOOTER_BUTTONS             converter_other undef   BUTTONS *
-NODE_FOOTER_BUTTONS                converter_other undef   BUTTONS *
-MISC_BUTTONS                       converter_other undef   BUTTONS *
-CHAPTER_BUTTONS                    converter_other undef   BUTTONS *
+LINKS_BUTTONS                      converter_other undef   BUTTON_SPECIFICATION_LIST *
+TOP_BUTTONS                        converter_other undef   BUTTON_SPECIFICATION_LIST *
+SECTION_BUTTONS                    converter_other undef   BUTTON_SPECIFICATION_LIST *
+CHAPTER_FOOTER_BUTTONS             converter_other undef   BUTTON_SPECIFICATION_LIST *
+SECTION_FOOTER_BUTTONS             converter_other undef   BUTTON_SPECIFICATION_LIST *
+NODE_FOOTER_BUTTONS                converter_other undef   BUTTON_SPECIFICATION_LIST *
+MISC_BUTTONS                       converter_other undef   BUTTON_SPECIFICATION_LIST *
+CHAPTER_BUTTONS                    converter_other undef   BUTTON_SPECIFICATION_LIST *
 ACTIVE_ICONS                       converter_other undef   ICONS *
 PASSIVE_ICONS                      converter_other undef   ICONS *
 

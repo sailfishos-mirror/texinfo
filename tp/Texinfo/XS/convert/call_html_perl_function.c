@@ -31,6 +31,7 @@
 #undef context
 
 #include "text.h"
+#include "converter_types.h"
 #include "utils.h"
 /* for newSVpv_utf8 build_texinfo_tree */
 #include "build_perl_info.h"
@@ -746,6 +747,70 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   return result;
 }
 
+char *
+call_formatting_function_format_navigation_header (CONVERTER *self,
+                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  const char *cmdname,
+                                  const ELEMENT *element)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_navigation_header].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newRV_inc (buttons->av)));
+  PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_navigation_header should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+
+
 
 
 void
@@ -1078,6 +1143,74 @@ call_output_units_conversion (CONVERTER *self,
 
   if (count != 1)
     croak("output_units_conversion should return 1 item\n");
+
+
+  result_sv = POPs;
+  /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
+     It could be possible to add a wrapper in perl that encode to UTF-8,
+     but probably not worth it */
+  result_ret = SvPVutf8 (result_sv, len);
+  text_append (result, result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+}
+
+void
+call_special_unit_body_formatting (CONVERTER *self,
+                              const size_t special_unit_number,
+                              const char *special_unit_variety,
+                              const OUTPUT_UNIT *output_unit,
+                              TEXT *result)
+{
+  int count;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return;
+
+  if (self->tree_to_build)
+    {
+      build_texinfo_tree (self->tree_to_build);
+      self->tree_to_build = 0;
+    }
+
+  formatting_reference_sv
+     = self->special_unit_body[special_unit_number -1].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (special_unit_variety, 0)));
+  PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("special_unit_body_formatting should return 1 item\n");
 
 
   result_sv = POPs;

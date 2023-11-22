@@ -101,13 +101,11 @@ print HEADER "/* Automatically generated from $0 */\n\n";
 
 print HEADER "#ifndef OPTIONS_TYPE_H\n#define OPTIONS_TYPE_H\n\n";
 
-print HEADER "#include \"tree_types.h\"\n\n";
+print HEADER "#include \"tree_types.h\"\n";
+print HEADER "#include \"converter_types.h\"\n\n";
 
 print HEADER '
 /* temporary */
-typedef struct {
-} BUTTONS;
-
 typedef struct {
 } ICONS;
 
@@ -158,7 +156,7 @@ foreach my $category (sort(keys(%option_categories))) {
     my ($option, $value, $type) = @$option_info;
     if ($type eq 'STRING_LIST') {
       print CODE "  free_strings_list (&options->$option);\n";
-    } elsif ($type eq 'char *') {
+    } elsif ($type eq 'char *' or $type eq 'BUTTON_SPECIFICATION_LIST *') {
       print CODE " free (options->$option);\n";
     }
   }
@@ -253,7 +251,29 @@ close(CODE);
 open (GET, ">$get_file") or die "Open $get_file: $!\n";
 print GET "/* Automatically generated from $0 */\n\n";
 
-print GET '#include "get_perl_info.h"'."\n\n";
+print GET '
+/* Avoid namespace conflicts. */
+#define context perl_context
+
+#define PERL_NO_GET_CONTEXT
+#include "EXTERN.h"
+#include "perl.h"
+/* Avoid warnings about Perl headers redefining symbols that gnulib
+   redefined already. */
+#if defined _WIN32 && !defined __CYGWIN__
+  #undef free
+#endif
+#include "XSUB.h"
+
+#undef context
+
+';
+
+print GET '#include <string.h>'."\n\n";
+
+print GET '#include "options_types.h"'."\n";
+print GET '#include "get_perl_info.h"'."\n";
+print GET '#include "get_html_perl_info.h"'."\n\n";
 
 print GET 'void
 get_sv_option (OPTIONS *options, const char *key, SV *value)
@@ -296,6 +316,9 @@ foreach my $category (sort(keys(%option_categories))) {
       $dir_string_arg = 'svt_dir'
         if ($option eq 'INCLUDE_DIRECTORIES');
       print GET "    add_svav_to_string_list (value, &options->$option, $dir_string_arg);\n";
+    } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
+      print GET "    options->$option = "
+                        ."html_get_button_specification_list (value);\n";
     } else {
       print GET "    {}\n";
     }

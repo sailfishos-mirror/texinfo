@@ -46,6 +46,10 @@ char *call_formatting_function_format_end_file (CONVERTER *self,
 char *call_formatting_function_format_begin_file (CONVERTER *self,
                                                  char *filename,
                                          const OUTPUT_UNIT *output_unit);
+char *call_formatting_function_format_navigation_header (CONVERTER *self,
+                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  const char *cmdname,
+                                  const ELEMENT *element);
 
 void call_types_conversion (CONVERTER *self, const enum element_type type,
                        const FORMATTING_REFERENCE *formatting_reference,
@@ -64,6 +68,11 @@ void call_output_units_conversion (CONVERTER *self,
                                const enum output_unit_type unit_type,
                         const OUTPUT_UNIT *output_unit, const char *content,
                         TEXT *result);
+void call_special_unit_body_formatting (CONVERTER *self,
+                              const size_t special_unit_number,
+                              const char *special_unit_variety,
+                              const OUTPUT_UNIT *output_unit,
+                              TEXT *result);
 
 char *call_formatting_function_format_translate_message (CONVERTER *self,
                                   const char *message, const char *lang,

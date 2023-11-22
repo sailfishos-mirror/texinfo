@@ -47,6 +47,11 @@
 #include "unicode.h"
 #include "convert_html.h"
 
+enum count_elements_in_filename_type {
+  CEFT_total,
+  CEFT_remaining,
+  CEFT_current,
+};
 
 typedef struct ROOT_AND_UNIT {
     const OUTPUT_UNIT *output_unit;
@@ -64,6 +69,14 @@ typedef struct TYPE_INTERNAL_CONVERSION {
                               const ELEMENT *element, const char *content,
                               TEXT *result);
 } TYPE_INTERNAL_CONVERSION;
+
+typedef struct OUTPUT_UNIT_INTERNAL_CONVERSION {
+    enum output_unit_type type;
+    void (* output_unit_conversion) (CONVERTER *self,
+                        const enum output_unit_type unit_type,
+                        const OUTPUT_UNIT *output_unit, const char *content,
+                        TEXT *result);
+} OUTPUT_UNIT_INTERNAL_CONVERSION;
 
 char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
@@ -555,6 +568,23 @@ in_verbatim (CONVERTER *self)
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
   return top_document_ctx->verbatim_ctx;
+}
+
+size_t
+count_elements_in_filename (CONVERTER *self,
+                 enum count_elements_in_filename_type type,
+                 size_t file_number)
+{
+  size_t i = file_number - 1;
+  FILE_NAME_PATH_COUNTER *file_counter
+            = &self->output_unit_files.list[i];
+
+  if (type == CEFT_total)
+    return file_counter->elements_in_file_count;
+  else if (type == CEFT_remaining)
+    return file_counter->counter;
+  else /* if (type == CEFT_current) */
+    return file_counter->elements_in_file_count - file_counter->counter;
 }
 
 ELEMENT *
@@ -3056,6 +3086,95 @@ static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {0, 0},
 };
 
+void
+convert_special_unit_type (CONVERTER *self,
+                        const enum output_unit_type unit_type,
+                        const OUTPUT_UNIT *output_unit, const char *content,
+                        TEXT *result)
+{
+  size_t number;
+  TEXT special_unit_body;
+  ELEMENT *unit_command;
+  char *id;
+  char *class_base;
+  char *attribute_class;
+  char *class;
+  STRING_LIST *classes;
+
+  char *special_unit_variety;
+  STRING_LIST *closed_strings;
+  size_t file_index;
+
+  if (in_string (self))
+    return;
+
+  special_unit_variety = output_unit->special_unit_variety;
+  number = find_string (&self->special_unit_varieties,
+                        special_unit_variety);
+
+  closed_strings = html_close_registered_sections_level (self, 0);
+
+  if (closed_strings->number)
+    {
+      int i;
+      for (i = 0; i < closed_strings->number; i++)
+        {
+          text_append (result, closed_strings->list[i]);
+        }
+    }
+  text_init (&special_unit_body);
+  text_append (&special_unit_body, "");
+
+  (*self->special_unit_body_formatting[number -1].special_unit_body_formatting)
+         (self, number, special_unit_variety, output_unit, &special_unit_body);
+
+  /* This may happen with footnotes in regions that are not expanded,
+     like @copying or @titlepage */
+  if (special_unit_body.end == 0)
+    return;
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+
+  unit_command = output_unit->unit_command;
+  id = html_command_id (self, unit_command);
+  class_base = special_unit_info (self, SUI_type_class,
+                                  special_unit_variety);
+  xasprintf (&class, "element-%s", class_base);
+
+  add_string (class, classes);
+  free (class);
+  attribute_class = html_attribute_class (self, "div", classes);
+  destroy_strings_list (classes);
+
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  if (id && strlen (id))
+    text_printf (result, " id=\"%s\"", id);
+  text_append (result, ">\n");
+
+  file_index = self->special_unit_file_indices[output_unit->index];
+  if (self->conf->HEADERS > 0
+      /* first in page */
+ || (count_elements_in_filename (self, CEFT_current, file_index +1) == 1))
+    {
+      char *navigation_header =
+        call_formatting_function_format_navigation_header (self,
+                             self->conf->MISC_BUTTONS, 0, unit_command);
+      text_append (result, navigation_header);
+      free (navigation_header);
+    }
+  /* TODO */
+}
+
+static OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] = {
+   /*
+  {OU_special_unit, &convert_special_unit_type},
+    */
+  {0, 0},
+};
+
 static void
 command_conversion_external (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -3111,6 +3230,30 @@ type_open (CONVERTER *self, enum element_type type, const ELEMENT *element,
      maybe putting function references in an array */
   if (self->types_open[type].status > 0)
     call_types_open (self, type, element, result);
+}
+
+static void
+output_unit_conversion_external (CONVERTER *self,
+                        const enum output_unit_type unit_type,
+                        const OUTPUT_UNIT *output_unit, const char *content,
+                        TEXT *result)
+{
+  if (self->output_units_conversion[unit_type].status > 0)
+    call_output_units_conversion (self, unit_type, output_unit, content,
+                                  result);
+}
+
+static void
+special_unit_body_formatting_external (CONVERTER *self,
+                               const size_t special_unit_number,
+                               const char *special_unit_variety,
+                               const OUTPUT_UNIT *output_unit,
+                               TEXT *result)
+{
+  if (self->special_unit_body[special_unit_number -1].status > 0)
+    call_special_unit_body_formatting (self, special_unit_number,
+                                       special_unit_variety,
+                                       output_unit, result);
 }
 
 static void
@@ -3338,6 +3481,41 @@ register_command_conversion_function (COMMAND_CONVERSION_FUNCTION *result,
     }
 }
 
+void
+register_output_unit_conversion_function
+                                  (OUTPUT_UNIT_CONVERSION_FUNCTION *result,
+                                   enum output_unit_type type,
+                                   FORMATTING_REFERENCE *formatting_reference)
+{
+  if (formatting_reference->status > 0)
+    {
+      result->status = formatting_reference->status;
+      if (formatting_reference->status != FRS_status_ignored)
+        {
+          result->output_unit_conversion = &output_unit_conversion_external;
+          result->formatting_reference = formatting_reference;
+        }
+    }
+}
+
+void
+register_special_unit_body_formatting_function
+                                  (SPECIAL_UNIT_BODY_FORMATTING *result,
+                                   const char *special_unit_variety,
+                                   FORMATTING_REFERENCE *formatting_reference)
+{
+  if (formatting_reference->status > 0)
+    {
+      result->status = formatting_reference->status;
+      if (formatting_reference->status != FRS_status_ignored)
+        {
+          result->special_unit_body_formatting
+               = &special_unit_body_formatting_external;
+          result->formatting_reference = formatting_reference;
+        }
+    }
+}
+
 /* most of the initialization is done by html_converter_initialize_sv
    in get_perl_info, the initialization that do not require information
    directly from perl data is done here.  This is called after information
@@ -3457,6 +3635,38 @@ html_converter_initialize (CONVERTER *self)
              &self->css_string_commands_conversion[i]);
     }
 
+  for (i = 0; i < OU_special_unit+1; i++)
+    {
+      register_output_unit_conversion_function
+                                  (&self->output_unit_conversion_function[i],
+                                        i, &self->output_units_conversion[i]);
+    }
+
+  for (i = 0;
+     output_units_internal_conversion_table[i].output_unit_conversion; i++)
+    {
+      enum output_unit_type type
+           = output_units_internal_conversion_table[i].type;
+      OUTPUT_UNIT_CONVERSION_FUNCTION *output_unit_conversion
+         = &self->output_unit_conversion_function[type];
+      if (output_unit_conversion->status == FRS_status_default_set)
+        {
+          output_unit_conversion->formatting_reference = 0;
+          output_unit_conversion->status = FRS_status_internal;
+          output_unit_conversion->output_unit_conversion
+           = output_units_internal_conversion_table[i].output_unit_conversion;
+        }
+    }
+
+  self->special_unit_body_formatting = (SPECIAL_UNIT_BODY_FORMATTING *)
+   malloc (nr_special_units * sizeof (SPECIAL_UNIT_BODY_FORMATTING));
+
+  for (i = 0; i < nr_special_units; i++)
+    {
+      register_special_unit_body_formatting_function
+                                  (&self->special_unit_body_formatting[i],
+          self->special_unit_varieties.list[i], &self->special_unit_body[i]);
+    }
 }
 
 /* called in the end of html_converter_prepare_output_sv */
@@ -4936,18 +5146,6 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 }
 #undef ADD
 
-static void
-output_unit_conversion (CONVERTER *self, const enum output_unit_type unit_type,
-                        const OUTPUT_UNIT *output_unit, const char *content,
-                        TEXT *result)
-{
-  /* TODO call a C function if status is FRS_status_default_set
-     maybe putting function references in an array */
-  if (self->output_units_conversion[unit_type].status > 0)
-    call_output_units_conversion (self, unit_type, output_unit, content,
-                                  result);
-}
-
 void
 convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
                      char *explanation, TEXT *result)
@@ -5000,7 +5198,8 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
 
   if (self->output_units_conversion[unit_type].status)
     {
-      output_unit_conversion (self, unit_type, output_unit,
+  (*(self->output_unit_conversion_function[unit_type].output_unit_conversion))
+                             (self, unit_type, output_unit,
                               content_formatted.text, result);
     }
    else

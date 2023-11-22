@@ -7379,12 +7379,12 @@ sub _default_format_title_titlepage($)
   return $result;
 }
 
-# Function for converting special elements
+# Function for converting special output units
 sub _convert_special_unit_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $element = shift;
+  my $output_unit = shift;
   my $content = shift;
 
   $content = '' if (!defined($content));
@@ -7395,13 +7395,13 @@ sub _convert_special_unit_type($$$$)
 
   my $result = '';
 
-  my $special_unit_variety = $element->{'special_unit_variety'};
+  my $special_unit_variety = $output_unit->{'special_unit_variety'};
   my $closed_strings = $self->close_registered_sections_level(0);
   $result .= join('', @{$closed_strings});
 
   my $special_unit_body
     .= &{$self->special_unit_body_formatting($special_unit_variety)}($self,
-                                          $special_unit_variety, $element);
+                                      $special_unit_variety, $output_unit);
 
   # This may happen with footnotes in regions that are not expanded,
   # like @copying or @titlepage
@@ -7409,7 +7409,7 @@ sub _convert_special_unit_type($$$$)
     return '';
   }
 
-  my $unit_command = $element->{'unit_command'};
+  my $unit_command = $output_unit->{'unit_command'};
 
   my $id = $self->command_id($unit_command);
   my $class_base
@@ -7422,7 +7422,7 @@ sub _convert_special_unit_type($$$$)
   if ($self->get_conf('HEADERS')
       # first in page
       or $self->count_elements_in_filename('current',
-                  $element->{'unit_filename'}) == 1) {
+                  $output_unit->{'unit_filename'}) == 1) {
     $result .= &{$self->formatting_function('format_navigation_header')}($self,
                      $self->get_conf('MISC_BUTTONS'), undef, $unit_command);
   }
@@ -7436,8 +7436,8 @@ sub _convert_special_unit_type($$$$)
 
 
   $result .= $special_unit_body . '</div>';
-  $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
-                                               $element, $content, $unit_command);
+  $result .= &{$self->formatting_function('format_element_footer')}($self,
+                                 $type, $output_unit, $content, $unit_command);
   return $result;
 }
 
@@ -7497,7 +7497,7 @@ sub _convert_unit_type($$$$)
 
 $default_output_units_conversion{'unit'} = \&_convert_unit_type;
 
-# for output units and special elements
+# for output units, both normal and special
 sub _default_format_element_footer($$$$;$)
 {
   my $self = shift;
@@ -8058,7 +8058,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_converter_initialize($$$$$$$$$$)
+sub _XS_converter_initialize($$$$$$$$$$$)
 {
 }
 
@@ -8560,7 +8560,8 @@ sub converter_initialize($)
                              \%default_types_open,
                              \%default_types_conversion,
                              \%default_css_string_types_conversion,
-                             \%default_output_units_conversion);
+                             \%default_output_units_conversion,
+                             \%defaults_format_special_unit_body_contents);
     delete $self->{'sorted_special_unit_varieties'};
     delete $self->{'simplified_special_unit_info'};
   }

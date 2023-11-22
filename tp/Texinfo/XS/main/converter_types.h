@@ -22,8 +22,13 @@
 
 #include "element_types.h"
 #include "tree_types.h"
-#include "options_types.h"
 #include "document_types.h"
+/*
+#include "options_types.h"
+ */
+
+/* for interdependency with options_types.h */
+struct OPTIONS;
 
 enum formatting_reference_status {
    FRS_status_none,
@@ -445,20 +450,46 @@ typedef struct COMMAND_CONVERSION_FUNCTION {
                                  const char *content, TEXT *result);
 } COMMAND_CONVERSION_FUNCTION;
 
+typedef struct OUTPUT_UNIT_CONVERSION_FUNCTION {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    void (* output_unit_conversion) (struct CONVERTER *self,
+                        const enum output_unit_type unit_type,
+                        const OUTPUT_UNIT *output_unit, const char *content,
+                        TEXT *result);
+} OUTPUT_UNIT_CONVERSION_FUNCTION;
+
+typedef struct SPECIAL_UNIT_BODY_FORMATTING {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    void (* special_unit_body_formatting) (struct CONVERTER *self,
+            const size_t special_unit_number, const char *special_unit_variety,
+            const OUTPUT_UNIT *output_unit,
+            TEXT *result);
+} SPECIAL_UNIT_BODY_FORMATTING;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
     void *hv;
 
-    OPTIONS *conf;
-    OPTIONS *init_conf;
+    struct OPTIONS *conf;
+    struct OPTIONS *init_conf;
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND *translated_commands;
 
     ERROR_MESSAGE_LIST error_messages;
 
-    struct DOCUMENT *document;
+    DOCUMENT *document;
     MERGED_INDEX *index_entries;
     INDEX_SORTED_BY_LETTER *index_entries_by_letter;
     int document_units_descriptor;
@@ -495,12 +526,15 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE types_conversion[TXI_TREE_TYPES_NUMBER];
     FORMATTING_REFERENCE css_string_types_conversion[TXI_TREE_TYPES_NUMBER];
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
+    FORMATTING_REFERENCE *special_unit_body;
     STRING_LIST special_unit_varieties;
     char **special_unit_info[SUI_type_heading+1];
     TYPE_CONVERSION_FUNCTION type_conversion_function[TXI_TREE_TYPES_NUMBER];
     TYPE_CONVERSION_FUNCTION css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];
     COMMAND_CONVERSION_FUNCTION command_conversion_function[BUILTIN_CMD_NUMBER];
     COMMAND_CONVERSION_FUNCTION css_string_command_conversion_function[BUILTIN_CMD_NUMBER];
+    OUTPUT_UNIT_CONVERSION_FUNCTION output_unit_conversion_function[OU_special_unit+1];
+    SPECIAL_UNIT_BODY_FORMATTING *special_unit_body_formatting;
     /* set for a converter, modified in a document */
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
@@ -560,5 +594,50 @@ typedef struct TRANSLATED_SUI_ASSOCIATION {
     enum special_unit_info_tree tree_type;
     enum special_unit_info_type string_type;
 } TRANSLATED_SUI_ASSOCIATION;
+
+/* FIXME move somewhere else? */
+
+enum button_specification_type {
+  BST_direction,
+  BST_function,
+  BST_string,
+  BST_direction_info,
+};
+
+enum button_information_type {
+  BIT_string,
+  BIT_function,
+  BIT_direction_information_type,
+};
+
+typedef struct BUTTON_SPECIFICATION_INFO {
+    char *direction; /* or direction enum/index? need both global and relative */
+    enum button_information_type type;
+    union {
+  /* perl references. This should be SV *sv_*,
+     but we don't want to include the Perl headers everywhere; */
+      void *sv_reference;
+      void *sv_string;
+      int direction_information_type; /* TODO should be an enum? */
+    };
+} BUTTON_SPECIFICATION_INFO;
+
+typedef struct BUTTON_SPECIFICATION {
+    enum button_specification_type type;
+    union {
+      char *string; /* or direction enum/index? need both global and relative */
+  /* perl references. This should be SV *sv_*,
+     but we don't want to include the Perl headers everywhere; */
+      void *sv_reference;
+      void *sv_string;
+      BUTTON_SPECIFICATION_INFO *button_info;
+    };
+} BUTTON_SPECIFICATION;
+
+typedef struct BUTTON_SPECIFICATION_LIST {
+    void *av; /* reference to perl data */
+    size_t number;
+    BUTTON_SPECIFICATION *list;
+} BUTTON_SPECIFICATION_LIST;
 
 #endif

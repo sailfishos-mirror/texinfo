@@ -35,4 +35,5 @@ SV *build_html_formatting_state (CONVERTER *converter, unsigned long flags);
 SV *build_html_command_formatted_args
            (const HTML_ARGS_FORMATTED *args_formatted);
 SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+
 #endif

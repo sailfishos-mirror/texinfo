@@ -126,7 +126,8 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_types_open,
                               SV *default_types_conversion,
                               SV *default_css_string_types_conversion,
-                              SV *default_output_units_conversion)
+                              SV *default_output_units_conversion,
+                              SV *default_special_unit_body)
 {
   int i;
   HV *converter_hv;
@@ -363,9 +364,13 @@ html_converter_initialize_sv (SV *converter_sv,
 
   if (sorted_special_unit_varieties_sv)
     {
+      int i;
       enum special_unit_info_type j;
       SV **special_unit_info_sv;
       HV *special_unit_info_hv;
+      SV **special_unit_body_sv;
+      HV *special_unit_body_hv;
+      HV *default_special_unit_body_hv;
 
       STRING_LIST *special_unit_varieties = &converter->special_unit_varieties;
       if (sorted_special_unit_varieties_sv)
@@ -422,6 +427,26 @@ html_converter_initialize_sv (SV *converter_sv,
                     }
                 }
             }
+        }
+
+      converter->special_unit_body = (FORMATTING_REFERENCE *)
+       malloc (special_unit_varieties->number * sizeof (FORMATTING_REFERENCE));
+      memset (converter->special_unit_body, 0,
+              special_unit_varieties->number * sizeof (FORMATTING_REFERENCE));
+
+      FETCH(special_unit_body)
+      special_unit_body_hv = (HV *)SvRV (*special_unit_body_sv);
+      default_special_unit_body_hv = (HV *)SvRV (default_special_unit_body);
+
+      for (i = 0; i < special_unit_varieties->number; i++)
+        {
+          char *variety_name = special_unit_varieties->list[i];
+          FORMATTING_REFERENCE *special_unit_body_formatting_reference
+            = &converter->special_unit_body[i];
+          register_formatting_reference_with_default ("special_unit_body",
+            special_unit_body_formatting_reference, variety_name,
+            default_special_unit_body_hv,
+            special_unit_body_hv);
         }
     }
 
@@ -799,4 +824,21 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
 }
 
 #undef FETCH
+
+BUTTON_SPECIFICATION_LIST *
+html_get_button_specification_list (SV *buttons_sv)
+{
+  BUTTON_SPECIFICATION_LIST *result;
+
+  dTHX;
+
+  result = (BUTTON_SPECIFICATION_LIST *)
+            malloc (sizeof (BUTTON_SPECIFICATION_LIST));
+
+  result->av = (AV *)SvRV (buttons_sv);
+
+  /* TODO do C structures to be able to call C functions */
+
+  return result;
+}
 

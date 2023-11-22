@@ -20,8 +20,14 @@
 #include <stddef.h>
 
 #include "tree_types.h"
+/*
 #include "options_types.h"
+ */
 #include "global_commands_types.h"
+
+/* to avoid interdependency with options_types.h, including for
+   other include files */
+struct OPTIONS;
 
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };
@@ -65,7 +71,7 @@ typedef struct DOCUMENT {
     ELEMENT_LIST *nodes_list;
     ELEMENT_LIST *sections_list;
     ERROR_MESSAGE_LIST *error_messages;
-    OPTIONS *options; /* for options used in structuring */
+    struct OPTIONS *options; /* for options used in structuring */
 } DOCUMENT;
 
 /* not in document, but used in parser */

@@ -13,6 +13,51 @@
 
 2023-11-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_special_unit_type): rename
+	element as output_unit.
+
+	* tp/Texinfo/XS/convert/convert_html.c (enum
+	count_elements_in_filename_type, count_elements_in_filename):
+	implement count_elements_in_filename.
+
+	* tp/Texinfo/Convert/HTML.pm (_XS_converter_initialize)
+	(converter_initialize), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): get special_unit_body formatting
+	references from perl.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(OUTPUT_UNIT_INTERNAL_CONVERSION, output_unit_conversion_external)
+	(special_unit_body_formatting_external)
+	(register_output_unit_conversion_function)
+	(register_special_unit_body_formatting_function)
+	(html_converter_initialize, convert_output_unit),
+	tp/Texinfo/XS/main/converter_types.h (OUTPUT_UNIT_CONVERSION_FUNCTION)
+	(SPECIAL_UNIT_BODY_FORMATTING, CONVERTER): add special unit
+	body formatting function setup and the possibilty to convert output
+	unit using a C function.  
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_special_unit_type),
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_navigation_header)
+	(call_special_unit_body_formatting),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_get_button_specification_list),
+	tp/Texinfo/XS/main/converter_types.h (enum button_specification_type)
+	(enum button_information_type, BUTTON_SPECIFICATION_INFO)
+	(BUTTON_SPECIFICATION, BUTTON_SPECIFICATION_LIST),
+	tp/Texinfo/XS/main/document_types.h,
+	tp/maintain/regenerate_C_options_info.pl: add preliminary types for
+	buttons specifications, declare struct OPTIONS in document_types.h and
+	converter_types.h to avoid an interdependency between those files and
+	included files and options_types.h. Get buttons specifications from
+	perl. Add functions to call format_navigation_header and special unit
+	body formatting from C.
+	Incomplete implementation of convert_special_unit_type.
+
+2023-11-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/setup_converters_code_tables.pl: set ENV{'TEXINFO_XS'} =
 	'omit' to avoid depending on XS code being loaded.
 
