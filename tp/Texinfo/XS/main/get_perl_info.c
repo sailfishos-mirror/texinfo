@@ -728,3 +728,21 @@ copy_sv_options_for_convert_text (SV *sv_in)
   return text_options;
 }
 
+/* HTML specific, but needs to be there for options_get_perl.c */
+BUTTON_SPECIFICATION_LIST *
+html_get_button_specification_list (SV *buttons_sv)
+{
+  BUTTON_SPECIFICATION_LIST *result;
+
+  dTHX;
+
+  result = (BUTTON_SPECIFICATION_LIST *)
+            malloc (sizeof (BUTTON_SPECIFICATION_LIST));
+
+  result->av = (AV *)SvRV (buttons_sv);
+
+  /* TODO do C structures to be able to call C functions */
+
+  return result;
+}
+

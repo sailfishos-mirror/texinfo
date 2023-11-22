@@ -1,3 +1,12 @@
+2023-11-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c,
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list),
+	tp/maintain/regenerate_C_options_info.pl: move
+	html_get_button_specification_list to get_html_perl_info.c, as it is
+	needed by options_get_perl.c in libtexinfoxs.
+
 2023-11-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* INSTALL: elaborate on PERL_EXT_* variables for building

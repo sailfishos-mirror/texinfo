@@ -272,8 +272,7 @@ print GET '
 print GET '#include <string.h>'."\n\n";
 
 print GET '#include "options_types.h"'."\n";
-print GET '#include "get_perl_info.h"'."\n";
-print GET '#include "get_html_perl_info.h"'."\n\n";
+print GET '#include "get_perl_info.h"'."\n\n";
 
 print GET 'void
 get_sv_option (OPTIONS *options, const char *key, SV *value)
