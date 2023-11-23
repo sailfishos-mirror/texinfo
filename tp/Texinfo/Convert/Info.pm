@@ -498,7 +498,7 @@ sub format_node($$)
       if ($node_direction->{'extra'}->{'manual_content'}) {
         $result .= $self->convert_line({'type' => '_code',
                           'contents' => [{'text' => '('},
-                             @{$node_direction->{'extra'}->{'manual_content'}},
+                 {'contents' => $node_direction->{'extra'}->{'manual_content'}},
                                           {'text' => ')'}]});
       }
       if (defined($node_direction->{'extra'}->{'normalized'})) {

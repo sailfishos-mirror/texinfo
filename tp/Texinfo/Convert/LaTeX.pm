@@ -3145,7 +3145,7 @@ sub _convert($$)
         my @args;
         for my $arg (@{$element->{'args'}}) {
           if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {
-            push @args, $arg->{'contents'};
+            push @args, $arg;
           } else {
             push @args, undef;
           }
@@ -3158,25 +3158,25 @@ sub _convert($$)
         }
         my $book = '';
         if (defined($args[4])) {
-          $book = _convert($self, {'contents' => $args[4]});
+          $book = _convert($self, $args[4]);
         }
 
-        my $file_contents;
+        my $file_element;
         # FIXME not sure if Texinfo TeX uses the external node manual
         # specified as part of the node name with manual name prepended
         # in parentheses
         if (defined($args[3])) {
-          $file_contents = $args[3];
+          $file_element = $args[3];
         } elsif ($node_arg and $node_arg->{'extra'}
                  and defined($node_arg->{'extra'}->{'normalized'})
                  and $node_arg->{'extra'}->{'manual_content'}) {
-          $file_contents
-             = $node_arg->{'extra'}->{'manual_content'};
+          $file_element
+             = {'contents' => $node_arg->{'extra'}->{'manual_content'}};
         }
         my $filename = '';
-        if ($file_contents) {
+        if ($file_element) {
           push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
-          $filename = _convert($self, {'contents' => $file_contents});
+          $filename = _convert($self, $file_element);
           pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         }
         if ($cmdname ne 'inforef' and $book eq '' and $filename eq ''
@@ -3290,16 +3290,16 @@ sub _convert($$)
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
                 and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
                 and $section_command) {
-              $name = $section_command->{'args'}->[0]->{'contents'};
+              $name = $section_command->{'args'}->[0];
             } else {
-              $name = $reference_node_content;
+              $name = {'contents' => $reference_node_content};
             }
           }
           my $reference_label = _tree_anchor_label($reference_node_content);
 
           my $name_text;
           if (defined($name)) {
-            $name_text = _convert($self, {'contents' => $name});
+            $name_text = _convert($self, $name);
             $text_representation .= $name_text if (defined($text_representation));
           }
 
@@ -3379,7 +3379,7 @@ sub _convert($$)
           }
           my $name_text;
           if (defined($name)) {
-            $name_text = _convert($self, {'contents' => $name});
+            $name_text = _convert($self, $name);
           }
 
           if ($book ne '') {
@@ -3410,7 +3410,7 @@ sub _convert($$)
 
           my $name_text;
           if (defined($name)) {
-            $name_text = _convert($self, {'contents' => $name});
+            $name_text = _convert($self, $name);
             $result .= $name_text;
           }
         }
@@ -3426,10 +3426,10 @@ sub _convert($$)
         my $argument;
         if ($cmdname eq 'abbr') {
           $argument = {'type' => '_dot_not_end_sentence',
-                       'contents' => $element->{'args'}->[0]->{'contents'}};
+                       'contents' => [$element->{'args'}->[0]]};
         } else {
         # TODO in TeX, acronym is in a smaller font (1pt less).
-          $argument = { 'contents' => $element->{'args'}->[0]->{'contents'}};
+          $argument = $element->{'args'}->[0];
         }
         if (scalar (@{$element->{'args'}}) == 2
             and defined($element->{'args'}->[-1])
@@ -3522,8 +3522,7 @@ sub _convert($$)
       my $caption_text = '';
       if ($element->{'args'}->[0]->{'contents'}) {
         _push_new_context($self, 'latex_caption');
-         $caption_text = _convert($self,
-           {'contents' => $element->{'args'}->[0]->{'contents'}});
+        $caption_text = _convert($self, $element->{'args'}->[0]);
         _pop_context($self);
       }
 
@@ -3546,8 +3545,7 @@ sub _convert($$)
       if (defined($shortcaption)
           and $shortcaption->{'args'}->[0]->{'contents'}) {
         _push_new_context($self, 'latex_shortcaption');
-        my $shortcaption_text = _convert($self,
-                 {'contents' => $shortcaption->{'args'}->[0]->{'contents'}});
+        my $shortcaption_text = _convert($self, $shortcaption->{'args'}->[0]);
         _pop_context($self);
         $result .= '['.$shortcaption_text.']';
       }
@@ -3671,7 +3669,7 @@ sub _convert($$)
               if ($content->{'contents'}) {
                 $prototype_text
                     = Texinfo::Convert::Text::convert_to_text(
-                                 {'contents' => $content->{'contents'}},
+                                 $content,
                                  $self->{'convert_text_options'});
               }
               my $length

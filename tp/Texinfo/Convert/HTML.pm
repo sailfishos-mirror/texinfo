@@ -1100,11 +1100,12 @@ sub command_tree($$;$)
     my $tree;
     if ($command->{'extra'}->{'manual_content'}) {
       $tree = {'type' => '_code',
-          'contents' => [{'text' => '('}, @{$command->{'extra'}->{'manual_content'}},
-                         {'text' => ')'}, @$node_content]};
+          'contents' => [{'text' => '('},
+            {'contents' => $command->{'extra'}->{'manual_content'}},
+            {'text' => ')'}, {'contents' => $node_content}]};
     } else {
       $tree = {'type' => '_code',
-               'contents' => $node_content};
+               'contents' => [{'contents' => $node_content}]};
     }
     return $tree;
   }
@@ -1125,7 +1126,7 @@ sub command_tree($$;$)
                     or $command->{'cmdname'} eq 'anchor')) {
         # FIXME is it possible not to have contents (nor args)?
         $tree = {'type' => '_code',
-                 'contents' => $command->{'args'}->[0]->{'contents'}};
+                 'contents' => [$command->{'args'}->[0]]};
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
       } elsif (!$command->{'args'}->[0]
@@ -5592,7 +5593,7 @@ sub _convert_xref_commands($$$$)
       $label_element->{'extra'}->{'manual_content'}
         = $node_arg->{'extra'}->{'manual_content'};
       my $file_with_node_tree = {'type' => '_code',
-                 'contents' => [@{$label_element->{'extra'}->{'manual_content'}}]};
+   'contents' => [{'contents' => $label_element->{'extra'}->{'manual_content'}}]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
     my $href = $self->command_href($label_element, undef, $root);
@@ -5605,7 +5606,7 @@ sub _convert_xref_commands($$$$)
     } elsif (!defined($name) and $label_element->{'extra'}
              and $label_element->{'extra'}->{'node_content'}) {
       my $node_no_file_tree = {'type' => '_code',
-                   'contents' => [@{$label_element->{'extra'}->{'node_content'}}]};
+      'contents' => [{'contents' => $label_element->{'extra'}->{'node_content'}}]};
       my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
       if (defined($node_name) and $node_name ne 'Top') {
         $name = $node_name;
@@ -6958,7 +6959,7 @@ sub _convert_menu_entry_type($$$)
         $name = $self->command_text($menu_entry_node);
       } elsif ($menu_entry_node->{'extra'}) {
         $name = $self->convert_tree({'type' => '_code',
-               'contents' => $menu_entry_node->{'extra'}->{'node_content'}},
+   'contents' => [{'contents' => $menu_entry_node->{'extra'}->{'node_content'}}]},
                                     'menu_arg name');
       } else {
         $name = '';
@@ -10189,6 +10190,11 @@ sub _mini_toc
     $result .= $self->html_attribute_class('ul', ['mini-toc']).">\n";
 
     foreach my $section (@{$command->{'extra'}->{'section_childs'}}) {
+      # using command_text leads to the same HTML formatting, but does not give
+      # the same result for the other files, as the formatting is done in a
+      # global context, while taking the tree first and calling convert_tree
+      # converts in the current page context.
+      #my $text = $self->command_text($section, 'text_nonumber');
       my $tree = $self->command_tree($section, 1);
       my $text = $self->convert_tree($tree, "mini_toc \@$section->{'cmdname'}");
 

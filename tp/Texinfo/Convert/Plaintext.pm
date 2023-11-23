@@ -986,12 +986,12 @@ sub process_footnotes($;$)
     $element = undef if ($element and
                          not defined($element->{'unit_command'}));
     my $node_element;
-    my $node_contents;
+    my $label_element;
     if ($element) {
       $node_element = $element->{'unit_command'};
       if ($node_element->{'extra'}
           and defined($node_element->{'extra'}->{'normalized'})) {
-        $node_contents = $node_element->{'args'}->[0]->{'contents'};
+        $label_element = $node_element->{'args'}->[0];
       }
     }
 
@@ -999,18 +999,18 @@ sub process_footnotes($;$)
     if ($self->get_conf('footnotestyle') eq 'end'
         # no node content happens only in very special cases, such as
         # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
-        or !$node_contents) {
+        or !$label_element) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
       $result .= $footnotes_header;
       add_text_to_count($self, $footnotes_header);
       _add_lines_count($self, 2);
       $self->{'empty_lines_count'} = 1;
     } else {
-      my $footnotes_node_contents
-            = [@$node_contents, {'text' => '-Footnotes'}];
+      my $footnotes_node_arg
+            = {'contents' => [$label_element, {'text' => '-Footnotes'}]};
       my $footnotes_node = {
         'cmdname' => 'node',
-        'args' => [{'contents' => $footnotes_node_contents}],
+        'args' => [$footnotes_node_arg],
         'extra' => {'is_target' => 1,
                 'normalized'
                   => $node_element->{'extra'}->{'normalized'}.'-Footnotes',
@@ -1028,13 +1028,13 @@ sub process_footnotes($;$)
       # element, while the pxref will point to the name with the
       # footnote node taken into account.  Not really problematic as
       # nested footnotes are not right.
-      if ($node_contents) {
+      if ($label_element) {
         my $footnote_anchor_postfix = "-Footnote-$footnote->{'number'}";
-        my $footnote_anchor_contents
-         = [@$node_contents,
-            {'text' => $footnote_anchor_postfix}];
+        my $footnote_anchor_arg
+         = {'contents' => [$label_element,
+                           {'text' => $footnote_anchor_postfix}]};
         $self->add_location({'cmdname' => 'anchor',
-                    'args' => [{'contents' => $footnote_anchor_contents}],
+                    'args' => [$footnote_anchor_arg],
                     'extra' => {'is_target' => 1,
                         'normalized'
        => $node_element->{'extra'}->{'normalized'}.$footnote_anchor_postfix},
@@ -1343,16 +1343,15 @@ sub node_line($$)
   my ($self, $node) = @_;
   $self->{'node_lines_text'} = {} if (!$self->{'node_lines_text'});
   if (!$self->{'node_lines_text'}->{$node}) {
-    my $node_contents;
+    my $label_element;
     if ($node->{'cmdname'}) {
-      my $label_element = Texinfo::Common::get_label_element($node);
-      $node_contents = $label_element->{'contents'};
+      $label_element = Texinfo::Common::get_label_element($node);
     } else {
       # node direction to an external node
-      $node_contents = $node->{'extra'}->{'node_content'};
+      $label_element = {'contents' => $node->{'extra'}->{'node_content'}};
     }
     my $node_text = {'type' => '_code',
-              'contents' => $node_contents};
+                     'contents' => [$label_element]};
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
     $self->{'node_lines_text'}->{$node}
       = {'text' => _normalize_top_node($self->convert_line($node_text,
@@ -1690,8 +1689,7 @@ sub image_formatted_text($$$$)
            and $element->{'args'}->[3]->{'contents'}
            and @{$element->{'args'}->[3]->{'contents'}}) {
     $result = '[' .Texinfo::Convert::Text::convert_to_text(
-      {'contents' => $element->{'args'}->[3]->{'contents'}},
-      $self->{'convert_text_options'}) .']';
+         $element->{'args'}->[3], $self->{'convert_text_options'}) .']';
   } else {
     $self->converter_line_warn($self, sprintf(__(
                     "could not find \@image file `%s.txt' nor alternate text"),
@@ -1709,7 +1707,7 @@ sub format_image($$)
       and $element->{'args'}->[0]->{'contents'}
       and @{$element->{'args'}->[0]->{'contents'}}) {
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-     {'contents' => $element->{'args'}->[0]->{'contents'}},
+       $element->{'args'}->[0],
      {'code' => 1, %{$self->{'convert_text_options'}}});
     my ($text, $width) = $self->txt_image_text($element, $basefile);
     # remove last end of line
@@ -2091,21 +2089,21 @@ sub _convert($$)
       } elsif ($ref_commands{$command}) {
         if (scalar(@{$element->{'args'}})) {
           my @args;
-          for my $a (@{$element->{'args'}}) {
-            if (defined $a->{'contents'} and @{$a->{'contents'}}) {
-              push @args, $a->{'contents'};
+          for my $arg (@{$element->{'args'}}) {
+            if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {
+              push @args, $arg;
             } else {
               push @args, undef;
             }
           }
-          $args[0] = [{'text' => ''}] if (!defined($args[0]));
+          $args[0] = {'text' => ''} if (!defined($args[0]));
 
           my $node_arg = $element->{'args'}->[0];
 
           # normalize node name, to get a ref with the right formatting
           # NOTE as a consequence, the line numbers appearing in case of errors
           # correspond to the node lines numbers, and not the @ref.
-          my $node_content;
+          my $label_element;
           my $target_element;
           if ($node_arg and $node_arg->{'extra'}
               and !$node_arg->{'extra'}->{'manual_content'}
@@ -2116,14 +2114,14 @@ sub _convert($$)
             $target_element
               = $self->{'identifiers_target'}->{
                                        $node_arg->{'extra'}->{'normalized'}};
-            my $label_element
+            $label_element
               = Texinfo::Common::get_label_element($target_element);
-            if (defined($label_element) and $label_element->{'contents'}) {
-              $node_content = $label_element->{'contents'};
+            if (defined($label_element) and !$label_element->{'contents'}) {
+              $label_element = undef;
             }
           }
-          if (!defined($node_content)) {
-            $node_content = $args[0];
+          if (!defined($label_element)) {
+            $label_element = $args[0];
           }
 
           # if it a reference to a float with a label, $arg[1] is
@@ -2132,7 +2130,7 @@ sub _convert($$)
               and $target_element and $target_element->{'cmdname'}
               and $target_element->{'cmdname'} eq 'float') {
             my $name = $self->float_type_number($target_element);
-            $args[1] = $name->{'contents'};
+            $args[1] = $name;
           }
           if ($command eq 'inforef' and scalar(@args) == 3) {
             $args[3] = $args[2];
@@ -2171,19 +2169,20 @@ sub _convert($$)
           }
           my $file;
           if (defined($args[3])) {
-            $file = [{'text' => '('},
-                     {'type' => '_stop_upper_case',
-                      'contents' => [{'type' => '_code',
-                                     'contents' => $args[3]}],},
-                     {'text' => ')'},];
+            $file = {'contents' => [
+                       {'text' => '('},
+                       {'type' => '_stop_upper_case',
+                          'contents' => [{'type' => '_code',
+                                           'contents' => [$args[3]]}],},
+                       {'text' => ')'},]};
           } elsif (defined($args[4])) {
             # add a () such that the node is considered to be external,
             # even though the manual name is not known.
-            $file = [{'text' => '()'}];
+            $file = {'text' => '()'};
           }
 
           if ($name) {
-            my $name_text = _convert($self, {'contents' => $name});
+            my $name_text = _convert($self, $name);
             # needed, as last word is added only when : is added below
             my $name_text_checked = $name_text
                .get_pending($self->{'formatters'}->[-1]->{'container'});
@@ -2201,7 +2200,7 @@ sub _convert($$)
             my $pre_quote = $quoting_required ? "\x{7f}" : '';
             my $post_quote = $pre_quote;
             $name_text .= _convert($self, {'contents' => [
-                  {'text' => "$post_quote: "}]});
+                                              {'text' => "$post_quote: "}]});
             $name_text =~ s/^(\s*)/$1$pre_quote/ if $pre_quote;
             $result .= $name_text;
             _count_added($self, $self->{'formatters'}[-1]{'container'},
@@ -2210,7 +2209,7 @@ sub _convert($$)
           }
 
           if ($file) {
-            $result .= _convert($self, {'contents' => $file});
+            $result .= _convert($self, $file);
           }
 
           my $node_line_name;
@@ -2223,16 +2222,17 @@ sub _convert($$)
           # However, it is slow to do this for every node.  So in the most
           # frequent case when the node name is a simple text element, use
           # that text instead.
-          if (scalar(@{$node_content}) == 1
-              and defined($node_content->[0]->{'text'})) {
-            $node_line_name = $node_content->[0]->{'text'};
+          if ($label_element and $label_element->{'contents'}
+              and scalar(@{$label_element->{'contents'}}) == 1
+              and defined($label_element->{'contents'}->[0]->{'text'})) {
+            $node_line_name = $label_element->{'contents'}->[0]->{'text'};
           } else {
             $self->{'silent'} = 0 if (!defined($self->{'silent'}));
             $self->{'silent'}++;
             push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
 
             $node_line_name = $self->convert_line({'type' => '_code',
-                                            'contents' => $node_content},
+                                            'contents' => [$label_element]},
                                           {'suppress_styles' => 1,
                                             'no_added_eol' => 1});
             pop @{$self->{'count_context'}};
@@ -2272,7 +2272,7 @@ sub _convert($$)
           $node_text .= _convert($self, {'type' => '_stop_upper_case',
                                          'contents' => [
                                            {'type' => '_code',
-                                            'contents' => $node_content}]});
+                                            'contents' => [$label_element]}]});
           delete $self->{'formatters'}->[-1]->{'suppress_styles'};
 
           $node_text .= _count_added($self,
@@ -2448,14 +2448,14 @@ sub _convert($$)
                and $element->{'args'}->[2]->{'contents'}
                and @{$element->{'args'}->[2]->{'contents'}}) {
             $inserted = {'type' => '_stop_upper_case',
-                         'contents' => $element->{'args'}->[2]->{'contents'}};
+                         'contents' => [$element->{'args'}->[2]]};
           } elsif ($element->{'args'}->[0]->{'contents'}
                    and @{$element->{'args'}->[0]->{'contents'}}) {
             # no mangling of --- and similar in url.
             my $url = {'type' => '_stop_upper_case',
               'contents' => [
                {'type' => '_code',
-                'contents' => $element->{'args'}->[0]->{'contents'}}]};
+                'contents' => [$element->{'args'}->[0]]}]};
             if (scalar(@{$element->{'args'}}) == 2
                and defined($element->{'args'}->[1])
                and $element->{'args'}->[1]->{'contents'}
@@ -2470,7 +2470,7 @@ sub _convert($$)
                    and defined($element->{'args'}->[1])
                    and $element->{'args'}->[1]->{'contents'}
                    and @{$element->{'args'}->[1]->{'contents'}}) {
-            $inserted = {'contents' => $element->{'args'}->[1]->{'contents'}};
+            $inserted = $element->{'args'}->[1];
           }
         }
         if ($inserted) {
@@ -2502,7 +2502,7 @@ sub _convert($$)
              'args' => [
                {'type' => 'brace_command_arg',
                 'contents' => [
-                   @{$self->{'current_node'}->{'args'}->[0]->{'contents'}},
+                   $self->{'current_node'}->{'args'}->[0],
                    {'text' => "-Footnote-$self->{'footnote_index'}"}
                 ]
                }
@@ -2526,9 +2526,9 @@ sub _convert($$)
           my $argument;
           if ($command eq 'abbr') {
             $argument = {'type' => 'frenchspacing',
-                         'contents' => $element->{'args'}->[0]->{'contents'}};
+                         'contents' => [$element->{'args'}->[0]]};
           } else {
-            $argument = { 'contents' => $element->{'args'}->[0]->{'contents'}};
+            $argument = { 'contents' => [$element->{'args'}->[0]]};
           }
           if (scalar (@{$element->{'args'}}) == 2
               and defined($element->{'args'}->[-1])
@@ -2560,16 +2560,15 @@ sub _convert($$)
         if (scalar(@{$element->{'args'}}) > $arg_index
            and defined($element->{'args'}->[$arg_index])
            and $element->{'args'}->[$arg_index]->{'contents'}
-           and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
-          my $contents = $element->{'args'}->[$arg_index]->{'contents'};
+           and scalar(@{$element->{'args'}->[$arg_index]->{'contents'}})) {
+          my $arg = $element->{'args'}->[$arg_index];
           my $argument;
           if ($command eq 'inlineraw') {
             $argument = {'type' => '_stop_upper_case',
                          'contents' => [{'type' => '_code',
-                                         'contents' => $contents}]};
+                                         'contents' => [$arg]}]};
           } else {
-            $argument
-             = {'contents' => $contents};
+            $argument = $arg;
           }
           $result .= _convert($self, $argument);
         }
@@ -2588,7 +2587,7 @@ sub _convert($$)
       } elsif ($command eq 'titlefont') {
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
         $result = $self->convert_line ({'type' => 'frenchspacing',
-                 'contents' => [$element->{'args'}->[0]]});
+                                      'contents' => [$element->{'args'}->[0]]});
         pop @{$self->{'count_context'}};
         $result = Texinfo::Convert::Text::text_heading(
                           {'extra' => {'section_level' => 0},
@@ -2637,15 +2636,15 @@ sub _convert($$)
       } elsif ($command eq 'value') {
         my $expansion = $self->gdt('@{No value for `{value}\'@}',
                                    {'value' => $element->{'args'}->[0]});
+        my $piece;
         if ($formatter->{'_top_formatter'}) {
-          $expansion = {'type' => 'paragraph',
+          $piece = {'type' => 'paragraph',
                         'contents' => [$expansion]};
+        } else {
+          $piece = $expansion;
         }
-        $result .= _convert($self, $expansion);
+        $result .= _convert($self, $piece);
         return $result;
-      } elsif ($element->{'args'} and $element->{'args'}->[0]
-               and $element->{'args'}->[0]->{'type'}
-               and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg') {
       }
     } elsif (defined($nobrace_symbol_text{$command})) {
       if ($command eq ':') {
@@ -2766,8 +2765,7 @@ sub _convert($$)
               my $column_size = 0;
               if ($content->{'contents'}) {
                 push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-                my ($formatted_prototype) = $self->convert_line(
-                                        {'contents' => $content->{'contents'}},
+                my ($formatted_prototype) = $self->convert_line($content,
                                                        {'indent_length' => 0});
                 pop @{$self->{'count_context'}};
                 $column_size
@@ -2812,11 +2810,11 @@ sub _convert($$)
     } elsif ($sectioning_heading_commands{$command}) {
       # use settitle for empty @top
       # ignore @part
-      my $contents;
+      my $heading_element;
       if ($element->{'args'}->[0]->{'contents'}
           and @{$element->{'args'}->[0]->{'contents'}}
           and $command ne 'part') {
-        $contents = $element->{'args'}->[0]->{'contents'};
+        $heading_element = $element->{'args'}->[0];
       } elsif ($command eq 'top'
           and $self->{'global_commands'}->{'settitle'}
           and $self->{'global_commands'}->{'settitle'}->{'args'}
@@ -2825,14 +2823,14 @@ sub _convert($$)
                                                  ->{'args'}->[0]->{'contents'}
           and scalar(@{$self->{'global_commands'}->{'settitle'}
                                               ->{'args'}->[0]->{'contents'}})) {
-        $contents =
-           $self->{'global_commands'}->{'settitle'}->{'args'}->[0]->{'contents'};
+        $heading_element =
+           $self->{'global_commands'}->{'settitle'}->{'args'}->[0];
       }
 
-      if ($contents) {
+      if ($heading_element) {
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
         my $heading = $self->convert_line({'type' => 'frenchspacing',
-                         'contents' => $contents});
+                         'contents' => [$heading_element]});
         pop @{$self->{'count_context'}};
         # @* leads to an end of line, underlying appears on the line below
         # over one line
@@ -2929,7 +2927,7 @@ sub _convert($$)
           and $element->{'args'}->[0]->{'contents'}) {
         $result = $self->convert_line (
                        {'type' => 'frenchspacing',
-                        'contents' => $element->{'args'}->[0]->{'contents'}},
+                        'contents' => [$element->{'args'}->[0]]},
                        {'indent_length' => 0});
       }
       if ($result ne '') {
@@ -2949,13 +2947,11 @@ sub _convert($$)
       if ($element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}) {
         if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
-          $result = $self->_convert_unfilled(
-               {'contents' => $element->{'args'}->[0]->{'contents'}},
+          $result = $self->_convert_unfilled($element->{'args'}->[0],
                {'indent_level'
                  => $self->{'format_context'}->[-1]->{'indent_level'} -1});
         } else {
-          $result = $self->convert_line(
-             {'contents' => $element->{'args'}->[0]->{'contents'}},
+          $result = $self->convert_line($element->{'args'}->[0],
              {'indent_level'
                => $self->{'format_context'}->[-1]->{'indent_level'} -1});
         }
@@ -2999,7 +2995,7 @@ sub _convert($$)
                    or !$float->{'args'}->[1]->{'contents'}
                    or !@{$float->{'args'}->[1]->{'contents'}};
           my $float_label_text = $self->convert_line({'type' => '_code',
-             'contents' => $float->{'args'}->[1]->{'contents'}});
+             'contents' => [$float->{'args'}->[1]]});
           my $float_entry = $self->float_type_number($float);
           my $float_entry_text = ':';
           if (defined($float_entry)) {
@@ -3027,13 +3023,7 @@ sub _convert($$)
               and $caption->{'args'}->[0]->{'contents'}) {
             $self->{'multiple_pass'} = 1;
             push @{$self->{'context'}}, 'listoffloats';
-            my $tree = {'contents' => $caption->{'args'}->[0]->{'contents'}};
-            # the following does nothing since there are paragraphs within
-            # the shortcaption.
-            #if ($caption->{'cmdname'} eq 'shortcaption') {
-            #  $tree->{'type'} = 'frenchspacing';
-            #}
-            my $caption_text = _convert($self, $tree);
+            my $caption_text = _convert($self, $caption->{'args'}->[0]);
             my $old_context = pop @{$self->{'context'}};
             delete $self->{'multiple_pass'};
             die if ($old_context ne 'listoffloats');
