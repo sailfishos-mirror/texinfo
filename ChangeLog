@@ -1,18 +1,3 @@
-2023-11-23  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* tp/Texinfo/XS/configure.ac (perl_conf_LDFLAGS) [MS-Windows]:
-	Append extra flags to perl_conf_LDFLAGS after -no-undefined check,
-	rather than setting a HOST_NEEDS_NO_UNDEFINED automake conditional.
-	(lookup_perl_conf): No longer AC_SUBST perl config values as these
-	values are no longer required in Makefile.am.
-
-	* tp/Texinfo/XS/Makefile.am (PLATFORM_LDFLAGS): No longer set
-	or refer to separately from perl_conf_LDFLAGS.
-
-	Confining changes to the compilation flags to configure.ac
-	potentially makes it easier to include these changes in configure
-	checks if it is ever found to be necessary.
-
 2023-11-22  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Element Direction Information Type),

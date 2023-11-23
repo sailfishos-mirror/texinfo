@@ -52,6 +52,17 @@ XSLIBS_LDFLAGS = -avoid-version -module
 
 XSLIBS_LDFLAGS += $(perl_conf_LDFLAGS)
 
+if HOST_NEEDS_NO_UNDEFINED
+  PLATFORM_LDFLAGS = -no-undefined -L$(PERL_INC) $(PERL_CONF_libperl)
+  # The -no-undefined flag is for MS-Windows.  See info node
+  # `(gnulib)Libtool and Windows'.  The -L and -l options after it show
+  # where to find the undefined symbols.
+else
+  PLATFORM_LDFLAGS =
+endif
+
+XSLIBS_LDFLAGS += $(PLATFORM_LDFLAGS)
+
 
 ########################## Test XS used in top source dir configure.ac
 
@@ -282,7 +293,7 @@ libtexinfoxs_la_SOURCES= \
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la
-libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
+libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(PLATFORM_LDFLAGS) $(LTLIBINTL)
 
 # FIXME libtexinfo.so.* and libtexinfoxs.so.* are sought in system
 # directories first (${libdir}) before the correct installed location, so
