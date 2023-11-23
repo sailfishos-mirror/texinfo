@@ -920,6 +920,15 @@ window_make_modeline (WINDOW *window)
     /* Omit any extension like ".info.gz" from file name. */
     dot = strcspn (name, ".");
 
+    /* But include any numbered version suffix in a file name
+       like "automake-1.16.info". */
+    while (name[dot] == '.' && isdigit (name[dot+1]))
+      {
+        do
+          dot++;
+        while (isdigit (name[dot]));
+      }
+
     if (name && strcmp ("", name))
       {
         sprintf (modeline + strlen (modeline), "(");

@@ -1,5 +1,11 @@
 2023-11-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/window.c (window_make_modeline): Include any numbered
+	version suffix in the displayed manual name, so
+	automake-1.16.info.gz displays as (automake-1.16) not (automake-1).
+
+2023-11-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/configure.ac (perl_conf_LDFLAGS) [MS-Windows]:
 	Append extra flags to perl_conf_LDFLAGS after -no-undefined check,
 	rather than setting a HOST_NEEDS_NO_UNDEFINED automake conditional.
