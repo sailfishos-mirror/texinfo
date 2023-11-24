@@ -3844,6 +3844,9 @@ html_free_converter (CONVERTER *self)
 
   free_generic_converter (self);
 
+  free (self->special_unit_body);
+  free (self->special_unit_body_formatting);
+
   free (self->global_units_directions);
   free (self->html_targets.list);
   free_strings_list (&self->seen_ids);
