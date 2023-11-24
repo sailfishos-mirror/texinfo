@@ -941,8 +941,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
               else if (parent->cmd == CM_quotation
                        || parent->cmd == CM_smallquotation)
                 {
-                  ELEMENT *e = lookup_extra_contents (parent, "authors", 1);
-                  add_to_contents_as_array (e, current);
+                  ELEMENT_LIST *l = lookup_extra_contents (parent, "authors", 1);
+                  add_to_element_list (l, current);
                   add_extra_element (current, "quotation", parent);
                   found = 1; break;
                 }
@@ -1118,9 +1118,9 @@ handle_block_command (ELEMENT *current, char **line_inout,
                     line_warn ("@menu in invalid context");
                   else
                     {
-                      ELEMENT *e
+                      ELEMENT_LIST *l
                         = lookup_extra_contents (current_node, "menus", 1);
-                      add_to_contents_as_array (e, block);
+                      add_to_element_list (l, block);
                     }
                 }
             }

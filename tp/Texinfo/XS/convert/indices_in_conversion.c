@@ -140,7 +140,7 @@ destroy_indices_sorted_by_letter (
 ELEMENT *
 index_content_element (const ELEMENT *element, int prefer_reference_element)
 {
-  const ELEMENT *def_command = lookup_extra_element (element, "def_command");
+  const char *def_command = lookup_extra_string (element, "def_command");
   if (def_command)
    {
      ELEMENT *def_index_element;

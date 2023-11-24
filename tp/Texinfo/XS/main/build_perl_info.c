@@ -311,8 +311,9 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               break;
             case extra_contents:
               {
-              if (f)
-                STORE(build_perl_array (&f->contents));
+              ELEMENT_LIST *l = k->list;
+              if (l && l->number)
+                STORE(build_perl_array (l));
               break;
               }
             case extra_directions:

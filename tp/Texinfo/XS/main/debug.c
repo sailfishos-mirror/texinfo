@@ -176,6 +176,19 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
             break;
            }
         case extra_contents:
+          {
+            int j;
+            ELEMENT_LIST *l = k->list;
+            text_append (&text, "contents: ");
+            for (j = 0; j < l->number; j++)
+              {
+                const ELEMENT *e = l->list[j];
+                char *element_str = print_element_debug (e, 0);
+                text_printf (&text, "%p;%s|", e, element_str);
+                free (element_str);
+              }
+            break;
+          }
         case extra_container:
           {
             int j;

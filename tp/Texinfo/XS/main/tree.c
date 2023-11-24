@@ -148,6 +148,8 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           destroy_element_and_children (a->info[i].element);
           break;
         case extra_contents:
+          destroy_list (a->info[i].list);
+          break;
         case extra_container:
         case extra_directions:
           if (a->info[i].element)

@@ -29,7 +29,6 @@ enum extra_type {
    extra_contents,
    extra_container,
    extra_directions,
-   extra_text,
    extra_misc_args,
    extra_string,
    extra_integer,
@@ -113,21 +112,22 @@ enum relative_unit_direction_type {
 /* in main/output_unit.c */
 extern char *relative_unit_direction_name[];
 
-typedef struct KEY_PAIR {
-    char *key;
-    enum extra_type type;
-    union {
-      struct ELEMENT *element;
-      char *string;
-      long integer;
-    };
-} KEY_PAIR;
-
 typedef struct ELEMENT_LIST {
     struct ELEMENT **list;
     size_t number;
     size_t space;
 } ELEMENT_LIST;
+
+typedef struct KEY_PAIR {
+    char *key;
+    enum extra_type type;
+    union {
+      struct ELEMENT *element;
+      ELEMENT_LIST *list;
+      char *string;
+      long integer;
+    };
+} KEY_PAIR;
 
 typedef struct SOURCE_INFO {
     int line_nr;

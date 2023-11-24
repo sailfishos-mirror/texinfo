@@ -45,7 +45,7 @@ close_brace_command (ELEMENT *current,
                      int missing_brace)
 {
 
-  KEY_PAIR *k_delimiter;
+  char *delimiter;
 
   if (command_data(current->cmd).data == BRACE_context)
     {

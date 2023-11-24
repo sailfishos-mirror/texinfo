@@ -541,15 +541,15 @@ units_directions (OPTIONS *customization_information,
               int automatic_directions = (node->args.number <= 1);
               ELEMENT *associated_section = lookup_extra_element (node,
                                                    "associated_section");
-              ELEMENT *section_childs = 0;
+              ELEMENT_LIST *section_childs = 0;
               if (associated_section)
-                section_childs = lookup_extra_element (associated_section,
-                                                         "section_childs");
+                section_childs = lookup_extra_contents (associated_section,
+                                                        "section_childs", 0);
               if (automatic_directions
-                  && section_childs && section_childs->contents.number > 0)
+                  && section_childs && section_childs->number > 0)
                 {
                   directions[RUD_type_NodeForward]
-                   = section_childs->contents.list[0]->associated_unit;
+                   = section_childs->list[0]->associated_unit;
                 }
               else if (node_directions
                        && node_directions->contents.list[D_next])
@@ -641,7 +641,7 @@ units_directions (OPTIONS *customization_information,
       else
         {
           ELEMENT *up = section;
-          ELEMENT *up_section_childs;
+          ELEMENT_LIST *up_section_childs;
           int up_section_level;
           int status;
           enum directions d;
@@ -686,13 +686,13 @@ units_directions (OPTIONS *customization_information,
                 break;
             }
 
-          up_section_childs = lookup_extra_element (up, "section_childs");
+          up_section_childs = lookup_extra_contents (up, "section_childs", 0);
           if (status >= 0 && up_section_level < 1
               && up->cmd == CM_top && up_section_childs
-              && up_section_childs->contents.number > 0)
+              && up_section_childs->number > 0)
             {
               directions[RUD_type_FastForward]
-                = up_section_childs->contents.list[0]->associated_unit;
+                = up_section_childs->list[0]->associated_unit;
             }
           else
             {
