@@ -1,5 +1,11 @@
 2023-11-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_tree.c (increase_ref_counter)
+	(get_copy_ref): do not use intptr_t anymore for _counter associated
+	integer, now that the integer is accessed more directly.
+
+2023-11-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/extra.c (lookup_extra_string)
 	(lookup_extra_integer, lookup_extra_contents): more check of
 	consistency of lookup_* function with extra_* type.

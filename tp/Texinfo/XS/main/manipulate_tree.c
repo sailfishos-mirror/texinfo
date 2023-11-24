@@ -39,13 +39,13 @@ void
 increase_ref_counter (ELEMENT *element)
 {
   KEY_PAIR *k_counter;
-  intptr_t *counter_ptr;
+  long *counter_ptr;
 
   k_counter = lookup_extra_by_index (element, "_counter", -1);
   if (!k_counter)
     add_extra_integer (element, "_counter", 0);
   k_counter = lookup_extra_by_index (element, "_counter", -1);
-  counter_ptr = (intptr_t *) &k_counter->integer;
+  counter_ptr = &k_counter->integer;
   (*counter_ptr) ++;
 }
 
@@ -189,14 +189,14 @@ ELEMENT *
 get_copy_ref (ELEMENT *element)
 {
   KEY_PAIR *k_counter, *k_copy;
-  intptr_t *counter_ptr;
+  long *counter_ptr;
   ELEMENT *result;
 
   k_copy = lookup_extra_by_index (element, "_copy", -1);
   result = k_copy->element;
 
   k_counter = lookup_extra_by_index (element, "_counter", -2);
-  counter_ptr = (intptr_t *) &k_counter->integer;
+  counter_ptr = &k_counter->integer;
   (*counter_ptr) --;
 
   if (*counter_ptr == 0)
