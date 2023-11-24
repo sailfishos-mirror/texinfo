@@ -1,5 +1,11 @@
 2023-11-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/extra.c (lookup_extra_string)
+	(lookup_extra_integer, lookup_extra_contents): more check of
+	consistency of lookup_* function with extra_* type.
+
+2023-11-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/output_unit.h (relative_unit_direction_name),
 	tp/Texinfo/XS/main/tree_types.h: move relative_unit_direction_name
 	from tree_types.h to output_unit.h.  Gavin idea.

@@ -206,9 +206,22 @@ lookup_extra_string (const ELEMENT *e, char *key)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->extra_info, key);
-  if (!k || !k->string)
+  if (!k)
     return 0;
-  return k->string;
+  else
+    {
+      if (k->type != extra_string)
+        {
+          char *msg;
+          xasprintf (&msg, "Bad type for lookup_extra_string: %s: %d",
+                     key, k->type);
+          fatal (msg);
+          free (msg);
+        }
+      if (!k->string)
+        return (0);
+      return k->string;
+    }
 }
 
 KEY_PAIR *
@@ -230,8 +243,11 @@ lookup_extra_integer (const ELEMENT *e, char *key, int *ret)
     }
   if (k->type != extra_integer)
     {
-      *ret = -2;
-      return 0;
+      char *msg;
+      xasprintf (&msg, "Bad type for lookup_extra_integer: %s: %d",
+                 key, k->type);
+      fatal (msg);
+      free (msg);
     }
   *ret = 0;
   return (int)k->integer;
@@ -244,7 +260,17 @@ lookup_extra_contents (ELEMENT *e, char *key, int create)
   ELEMENT_LIST *e_list = 0;
   KEY_PAIR *k = lookup_extra (e, key);
   if (k)
-    e_list = k->list;
+    {
+      if (k->type != extra_contents)
+        {
+          char *msg;
+          xasprintf (&msg, "Bad type for lookup_extra_contents: %s: %d",
+                     key, k->type);
+          fatal (msg);
+          free (msg);
+        }
+      e_list = k->list;
+    }
   else if (create)
     {
       e_list = new_list ();
