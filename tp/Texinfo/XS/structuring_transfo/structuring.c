@@ -140,7 +140,7 @@ sectioning_structure (DOCUMENT *document)
                 }
               add_to_contents_as_array (section_childs, content);
               add_extra_contents (previous_section, "section_childs",
-                                   section_childs);
+                                  section_childs);
               add_extra_directions (content, "section_directions",
                                     section_directions);
               section_directions->contents.list[D_up] = previous_section;
@@ -1741,8 +1741,8 @@ new_node_menu_entry (ELEMENT *node, int use_sections)
   if (parsed_entry_node->node_content)
     {
       char *normalized;
-      add_extra_contents (menu_entry_node, "node_content",
-                          parsed_entry_node->node_content);
+      add_extra_container (menu_entry_node, "node_content",
+                           parsed_entry_node->node_content);
       normalized = convert_to_identifier (parsed_entry_node->node_content);
       if (normalized)
         {
@@ -1757,8 +1757,8 @@ new_node_menu_entry (ELEMENT *node, int use_sections)
     }
   /* seems that it may happen, if there is leading parenthesised text? */
   if (parsed_entry_node->manual_content)
-    add_extra_contents (menu_entry_node, "manual_content",
-                        parsed_entry_node->manual_content);
+    add_extra_container (menu_entry_node, "manual_content",
+                         parsed_entry_node->manual_content);
   free (parsed_entry_node);
 
   return entry;

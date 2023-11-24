@@ -114,9 +114,11 @@ $result_trees{'navigation'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter'
                   },
                   'type' => 'menu_entry_node'
@@ -288,9 +290,11 @@ $result_trees{'navigation'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'section'
                   },
                   'type' => 'menu_entry_node'
@@ -650,9 +654,11 @@ $result_trees{'navigation'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'subsection'
                   },
                   'type' => 'menu_entry_node'
@@ -847,9 +853,9 @@ $result_trees{'navigation'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'navigation'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'navigation'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'navigation'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'navigation'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'navigation'}{'contents'}[6]{'contents'}[27]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'navigation'}{'contents'}[6]{'contents'}[27]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'navigation'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'navigation'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'navigation'}{'contents'}[6]{'contents'}[27]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[6]{'contents'}[27]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'navigation'} = '\\input texinfo @c -*-texinfo-*-
 

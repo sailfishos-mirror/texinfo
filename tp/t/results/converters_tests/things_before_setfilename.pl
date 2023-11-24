@@ -73,9 +73,11 @@ $result_trees{'things_before_setfilename'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'An-anchor'
                       },
                       'type' => 'brace_command_arg'
@@ -115,9 +117,11 @@ $result_trees{'things_before_setfilename'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'Anchor-in-footnote'
                       },
                       'type' => 'brace_command_arg'
@@ -209,9 +213,11 @@ $result_trees{'things_before_setfilename'} = {
                                     }
                                   ],
                                   'extra' => {
-                                    'node_content' => [
-                                      {}
-                                    ],
+                                    'node_content' => {
+                                      'contents' => [
+                                        {}
+                                      ]
+                                    },
                                     'normalized' => 'An-anchor'
                                   },
                                   'type' => 'brace_command_arg'
@@ -357,9 +363,11 @@ $result_trees{'things_before_setfilename'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'float-anchor'
                       },
                       'type' => 'brace_command_arg'
@@ -561,9 +569,11 @@ $result_trees{'things_before_setfilename'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'An-anchor'
                       },
                       'type' => 'menu_entry_node'
@@ -946,9 +956,11 @@ $result_trees{'things_before_setfilename'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'An-anchor'
                   },
                   'type' => 'brace_command_arg'
@@ -988,9 +1000,11 @@ $result_trees{'things_before_setfilename'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Anchor-in-footnote'
                   },
                   'type' => 'brace_command_arg'
@@ -1033,15 +1047,15 @@ $result_trees{'things_before_setfilename'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'extra'}{'float'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'caption'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'things_before_setfilename'} = '\\input texinfo
 

@@ -79,12 +79,16 @@ $result_trees{'node_on_index_entry_line'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ],
-            'node_content' => [
-              {}
-            ],
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            },
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'b'
           },
           'info' => {
@@ -110,12 +114,16 @@ $result_trees{'node_on_index_entry_line'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ],
-            'node_content' => [
-              {}
-            ],
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            },
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'c'
           },
           'info' => {
@@ -141,12 +149,16 @@ $result_trees{'node_on_index_entry_line'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ],
-            'node_content' => [
-              {}
-            ],
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            },
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'd'
           },
           'info' => {
@@ -196,12 +208,12 @@ $result_trees{'node_on_index_entry_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'contents'}[3];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'contents'}[3];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'contents'}[3];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'contents'}[3];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'contents'}[3];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'contents'}[3];
 
 $result_texis{'node_on_index_entry_line'} = '
 @cindex entry @node a, (m)b, (m)c, (h)d
@@ -222,33 +234,21 @@ $result_nodes{'node_on_index_entry_line'} = [
       'node_directions' => {
         'next' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'm'
-              }
-            ],
+            'manual_content' => {},
             'normalized' => 'b'
           },
           'type' => 'line_arg'
         },
         'prev' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'm'
-              }
-            ],
+            'manual_content' => {},
             'normalized' => 'c'
           },
           'type' => 'line_arg'
         },
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'h'
-              }
-            ],
+            'manual_content' => {},
             'normalized' => 'd'
           },
           'type' => 'line_arg'

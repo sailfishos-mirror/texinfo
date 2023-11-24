@@ -62,12 +62,16 @@ $result_trees{'dash_in_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'manual_content' => [
-                      {}
-                    ],
-                    'node_content' => [
-                      {}
-                    ],
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'n_002d_002d_002dode'
                   },
                   'type' => 'menu_entry_node'
@@ -162,8 +166,8 @@ $result_trees{'dash_in_menu'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3];
+$result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3];
 
 $result_texis{'dash_in_menu'} = '
 @menu

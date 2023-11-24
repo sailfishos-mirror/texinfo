@@ -41,9 +41,11 @@ $result_trees{'detailmenu'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Copying-Conditions'
                   },
                   'type' => 'menu_entry_node'
@@ -116,9 +118,11 @@ $result_trees{'detailmenu'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'detailmenu'
                       },
                       'type' => 'menu_entry_node'
@@ -233,8 +237,8 @@ $result_trees{'detailmenu'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'detailmenu'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'detailmenu'} = '
 @menu

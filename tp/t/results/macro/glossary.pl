@@ -446,9 +446,11 @@ $result_trees{'glossary'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'glossary'
                   },
                   'type' => 'menu_entry_node'
@@ -612,9 +614,11 @@ $result_trees{'glossary'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'id1'
                   },
                   'type' => 'brace_command_arg'
@@ -1050,9 +1054,11 @@ $result_trees{'glossary'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'id2'
                   },
                   'type' => 'brace_command_arg'
@@ -1597,9 +1603,9 @@ $result_trees{'glossary'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0];
 
 $result_texis{'glossary'} = '\\input texinfo.tex
 

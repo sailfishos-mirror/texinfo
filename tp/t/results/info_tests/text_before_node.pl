@@ -94,9 +94,11 @@ $result_trees{'text_before_node'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter-node'
                   },
                   'type' => 'menu_entry_node'
@@ -255,7 +257,7 @@ $result_trees{'text_before_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_before_node'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'text_before_node'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'text_before_node'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'text_before_node'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'text_before_node'} = '@node Top
 @top top

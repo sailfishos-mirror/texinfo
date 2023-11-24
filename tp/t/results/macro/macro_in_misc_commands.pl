@@ -4872,9 +4872,11 @@ $result_trees{'macro_in_misc_commands'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node-atext'
                   },
                   'type' => 'menu_entry_node'
@@ -5305,7 +5307,7 @@ $result_trees{'macro_in_misc_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[124]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[124]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[124]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[124]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'macro_in_misc_commands'} = '@macro text 
 atext

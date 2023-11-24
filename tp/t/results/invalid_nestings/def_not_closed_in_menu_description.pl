@@ -42,9 +42,11 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                     }
                   ],
                   'extra' => {
-                    'manual_content' => [
-                      {}
-                    ]
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -214,7 +216,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'def_not_closed_in_menu_description'} = '@menu

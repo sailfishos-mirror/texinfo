@@ -22,6 +22,7 @@
 void add_extra_element (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_contents (ELEMENT *e, char *key, ELEMENT *value);
+void add_extra_container (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_directions (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);

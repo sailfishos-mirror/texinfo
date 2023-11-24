@@ -37,9 +37,11 @@ $result_trees{'del_quote_linebreaking'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ]
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -104,9 +106,11 @@ $result_trees{'del_quote_linebreaking'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ]
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -171,9 +175,11 @@ $result_trees{'del_quote_linebreaking'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ]
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -252,9 +258,11 @@ $result_trees{'del_quote_linebreaking'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ]
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -319,9 +327,11 @@ $result_trees{'del_quote_linebreaking'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ]
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -386,9 +396,11 @@ $result_trees{'del_quote_linebreaking'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ]
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -445,12 +457,12 @@ $result_trees{'del_quote_linebreaking'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[14]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[14]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[14]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'del_quote_linebreaking'}{'contents'}[0]{'contents'}[14]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'del_quote_linebreaking'} = 'first para
 

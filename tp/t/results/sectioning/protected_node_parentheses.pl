@@ -119,10 +119,12 @@ $result_trees{'protected_node_parentheses'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {},
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {},
+                        {}
+                      ]
+                    },
                     'normalized' => '_0028manual_0029-name'
                   },
                   'type' => 'menu_entry_node'
@@ -331,10 +333,12 @@ $result_trees{'protected_node_parentheses'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {},
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {},
+                        {}
+                      ]
+                    },
                     'normalized' => '_0028manual2_0029-name2'
                   },
                   'type' => 'brace_command_arg'
@@ -373,10 +377,10 @@ $result_trees{'protected_node_parentheses'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[1];
 
 $result_texis{'protected_node_parentheses'} = '
 @node first

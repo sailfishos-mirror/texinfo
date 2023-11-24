@@ -197,9 +197,11 @@ $result_trees{'anchor_in_footnote_separate'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter'
                   },
                   'type' => 'menu_entry_node'
@@ -355,9 +357,11 @@ $result_trees{'anchor_in_footnote_separate'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Anchor-in-footnote'
                   },
                   'type' => 'brace_command_arg'
@@ -395,8 +399,8 @@ $result_trees{'anchor_in_footnote_separate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_footnote_separate'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_footnote_separate'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'anchor_in_footnote_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_footnote_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_footnote_separate'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_footnote_separate'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'anchor_in_footnote_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_footnote_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_footnote_separate'} = '@footnotestyle separate
 @node Top

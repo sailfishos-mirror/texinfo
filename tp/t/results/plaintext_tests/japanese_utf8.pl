@@ -430,9 +430,11 @@ $result_trees{'japanese_utf8'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Preface'
                   },
                   'type' => 'menu_entry_node'
@@ -476,9 +478,11 @@ $result_trees{'japanese_utf8'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Introduction'
                   },
                   'type' => 'menu_entry_node'
@@ -756,8 +760,8 @@ $result_trees{'japanese_utf8'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'japanese_utf8'} = '\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-
 @documentencoding UTF-8

@@ -85,12 +85,16 @@ $result_trees{'empty_leading_menu_comment'} = {
                     }
                   ],
                   'extra' => {
-                    'manual_content' => [
-                      {}
-                    ],
-                    'node_content' => [
-                      {}
-                    ],
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'b'
                   },
                   'type' => 'menu_entry_node'
@@ -179,8 +183,8 @@ $result_trees{'empty_leading_menu_comment'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3];
+$result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_leading_menu_comment'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3];
 
 $result_texis{'empty_leading_menu_comment'} = '@node first
 

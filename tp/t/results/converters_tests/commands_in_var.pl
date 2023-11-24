@@ -232,9 +232,11 @@ $result_trees{'commands_in_var'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'chap'
                           },
                           'type' => 'brace_command_arg'
@@ -268,12 +270,16 @@ $result_trees{'commands_in_var'} = {
                             }
                           ],
                           'extra' => {
-                            'manual_content' => [
-                              {}
-                            ],
-                            'node_content' => [
-                              {}
-                            ]
+                            'manual_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            }
                           },
                           'type' => 'brace_command_arg'
                         }
@@ -298,9 +304,11 @@ $result_trees{'commands_in_var'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ]
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            }
                           },
                           'type' => 'brace_command_arg'
                         },
@@ -722,10 +730,10 @@ $result_trees{'commands_in_var'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'manual_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[1];
-$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[3];
-$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[1];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[3];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
 
 $result_texis{'commands_in_var'} = '@node Top
 @top commands in var

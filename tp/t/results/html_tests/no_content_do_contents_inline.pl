@@ -128,9 +128,11 @@ $result_trees{'no_content_do_contents_inline'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter'
                   },
                   'type' => 'menu_entry_node'
@@ -317,7 +319,7 @@ $result_trees{'no_content_do_contents_inline'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_content_do_contents_inline'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_content_do_contents_inline'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'no_content_do_contents_inline'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_content_do_contents_inline'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'no_content_do_contents_inline'} = '\\input texinfo @c -*-texinfo-*-
 

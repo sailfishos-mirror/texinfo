@@ -3170,8 +3170,7 @@ sub _convert($$)
         } elsif ($node_arg and $node_arg->{'extra'}
                  and defined($node_arg->{'extra'}->{'normalized'})
                  and $node_arg->{'extra'}->{'manual_content'}) {
-          $file_element
-             = {'contents' => $node_arg->{'extra'}->{'manual_content'}};
+          $file_element = $node_arg->{'extra'}->{'manual_content'};
         }
         my $filename = '';
         if ($file_element) {

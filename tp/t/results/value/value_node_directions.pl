@@ -59,9 +59,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'bar'
           },
           'info' => {
@@ -106,9 +108,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_before_argument' => {
@@ -130,9 +134,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -293,9 +299,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'BarFoo'
           },
           'info' => {
@@ -312,9 +320,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -337,9 +347,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -463,9 +475,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'bar'
           },
           'info' => {
@@ -510,9 +524,11 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -577,14 +593,14 @@ $result_trees{'value_node_directions'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[1]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[2]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[3]{'contents'}[1];
-$result_trees{'value_node_directions'}{'contents'}[5]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[2]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[5]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[3]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[1]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[2]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[3]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[5]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[2]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[5]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[3]{'contents'}[1];
 
 $result_texis{'value_node_directions'} = '@set a--foo bar
 
@@ -717,11 +733,7 @@ $result_nodes{'value_node_directions'} = [
                     'prev' => {},
                     'up' => {
                       'extra' => {
-                        'manual_content' => [
-                          {
-                            'text' => 'dir'
-                          }
-                        ]
+                        'manual_content' => {}
                       },
                       'type' => 'line_arg'
                     }
@@ -732,11 +744,7 @@ $result_nodes{'value_node_directions'} = [
               'prev' => {},
               'up' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'dir'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               }
@@ -746,21 +754,13 @@ $result_nodes{'value_node_directions'} = [
         },
         'prev' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         }

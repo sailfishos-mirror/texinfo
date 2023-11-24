@@ -140,9 +140,11 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'type' => 'line_arg'
         },
@@ -159,9 +161,11 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -183,9 +187,11 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -1685,9 +1691,9 @@ $result_trees{'commands_and_spaces'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'args'}[3]{'contents'}[1];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'extra'}{'float'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[3]{'extra'}{'float'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'caption'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[1];
@@ -1820,31 +1826,19 @@ $result_nodes{'commands_and_spaces'} = [
       'node_directions' => {
         'next' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'b'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },
         'prev' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'c'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'd'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         }

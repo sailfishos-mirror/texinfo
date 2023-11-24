@@ -104,9 +104,11 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                     }
                   ],
                   "extra" => {
-                    "node_content" => [
-                      {}
-                    ],
+                    "node_content" => {
+                      "contents" => [
+                        {}
+                      ]
+                    },
                     "normalized" => "_2002_2003_2002"
                   },
                   "type" => "menu_entry_node"
@@ -217,9 +219,11 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                     }
                   ],
                   "extra" => {
-                    "node_content" => [
-                      {}
-                    ],
+                    "node_content" => {
+                      "contents" => [
+                        {}
+                      ]
+                    },
                     "normalized" => "_0085_00a0_1680"
                   },
                   "type" => "menu_entry_node"
@@ -262,9 +266,11 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                     }
                   ],
                   "extra" => {
-                    "node_content" => [
-                      {}
-                    ],
+                    "node_content" => {
+                      "contents" => [
+                        {}
+                      ]
+                    },
                     "normalized" => "_180e_2003"
                   },
                   "type" => "menu_entry_node"
@@ -307,9 +313,11 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                     }
                   ],
                   "extra" => {
-                    "node_content" => [
-                      {}
-                    ],
+                    "node_content" => {
+                      "contents" => [
+                        {}
+                      ]
+                    },
                     "normalized" => "_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000"
                   },
                   "type" => "menu_entry_node"
@@ -847,10 +855,10 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"contents"}[0];
 
 $result_texis{'in_menu_only_special_spaces_node'} = '
 @node Top

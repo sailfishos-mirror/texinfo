@@ -27,9 +27,11 @@ $result_trees{'double_top'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -87,9 +89,11 @@ $result_trees{'double_top'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'type' => 'line_arg'
@@ -101,9 +105,11 @@ $result_trees{'double_top'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -170,9 +176,9 @@ $result_trees{'double_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_top'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[2]{'args'}[2]{'contents'}[0];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'double_top'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_top'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'double_top'}{'contents'}[2]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_top'}{'contents'}[2]{'args'}[2]{'contents'}[0];
+$result_trees{'double_top'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_top'}{'contents'}[2]{'args'}[3]{'contents'}[0];
 
 $result_texis{'double_top'} = '@node ToP, top
 

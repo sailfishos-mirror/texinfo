@@ -75,9 +75,11 @@ $result_trees{'detailmenu_unknown_node'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'unknown'
                       },
                       'type' => 'menu_entry_node'
@@ -205,7 +207,7 @@ $result_trees{'detailmenu_unknown_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'detailmenu_unknown_node'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'detailmenu_unknown_node'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'detailmenu_unknown_node'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'detailmenu_unknown_node'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'detailmenu_unknown_node'} = '@node Top
 

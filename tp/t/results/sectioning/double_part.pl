@@ -59,9 +59,11 @@ $result_trees{'double_part'} = [
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node-chapter'
                   },
                   'type' => 'menu_entry_node'
@@ -376,7 +378,7 @@ $result_trees{'double_part'} = [
   }
 ];
 $result_trees{'double_part'}[0]{'first_in_page'} = $result_trees{'double_part'}[0];
-$result_trees{'double_part'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'double_part'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'double_part'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_part'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'double_part'}[0]{'unit_contents'}[2] = $result_trees{'double_part'}[0]{'unit_command'};
 $result_trees{'double_part'}[1]{'first_in_page'} = $result_trees{'double_part'}[1];
 $result_trees{'double_part'}[1]{'unit_contents'}[0] = $result_trees{'double_part'}[1]{'unit_command'};

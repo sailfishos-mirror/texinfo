@@ -24,9 +24,11 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'chap'
           },
           'info' => {
@@ -92,10 +94,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
             }
           ],
           'extra' => {
-            'node_content' => [
-              {},
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {},
+                {}
+              ]
+            },
             'normalized' => 'GNU-manuals'
           },
           'info' => {
@@ -161,10 +165,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
             }
           ],
           'extra' => {
-            'node_content' => [
-              {},
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {},
+                {}
+              ]
+            },
             'normalized' => 'GNU-manuals'
           },
           'info' => {
@@ -251,9 +257,11 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       }
                     ],
                     'extra' => {
-                      'node_content' => [
-                        {}
-                      ],
+                      'node_content' => {
+                        'contents' => [
+                          {}
+                        ]
+                      },
                       'normalized' => 'chap'
                     },
                     'type' => 'menu_entry_node'
@@ -370,9 +378,11 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -438,10 +448,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
             }
           ],
           'extra' => {
-            'node_content' => [
-              {},
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {},
+                {}
+              ]
+            },
             'normalized' => 'GNU-manuals'
           },
           'info' => {
@@ -478,16 +490,16 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[1]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}[1] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'contents'}[1];
-$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[1] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
+$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[1]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[2]{'contents'}[1];
+$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_contents'}[1] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_command'};
-$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[2]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}[1] = $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'contents'}[1];
+$result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[2]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_contents'}[0] = $result_trees{'non_automatic_top_node_up_and_url'}[1]{'unit_command'};
 
 $result_texis{'non_automatic_top_node_up_and_url'} = '@node Top, chap, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals

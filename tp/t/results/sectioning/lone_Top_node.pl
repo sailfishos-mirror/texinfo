@@ -99,9 +99,11 @@ $result_trees{'lone_Top_node'} = [
                       }
                     ],
                     'extra' => {
-                      'node_content' => [
-                        {}
-                      ],
+                      'node_content' => {
+                        'contents' => [
+                          {}
+                        ]
+                      },
                       'normalized' => 'First'
                     },
                     'type' => 'menu_entry_node'
@@ -230,7 +232,7 @@ $result_trees{'lone_Top_node'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'lone_Top_node'}[0]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lone_Top_node'}[0]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'lone_Top_node'}[0]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'lone_Top_node'}[0]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'lone_Top_node'}[0]{'unit_contents'}[3] = $result_trees{'lone_Top_node'}[0]{'unit_command'};
 
 $result_texis{'lone_Top_node'} = '@node Top

@@ -33,9 +33,11 @@ $result_trees{'top_node_up_explicit'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_before_argument' => {
@@ -57,9 +59,11 @@ $result_trees{'top_node_up_explicit'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_before_argument' => {
@@ -81,9 +85,11 @@ $result_trees{'top_node_up_explicit'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -178,9 +184,11 @@ $result_trees{'top_node_up_explicit'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Chap'
                   },
                   'type' => 'menu_entry_node'
@@ -352,10 +360,10 @@ $result_trees{'top_node_up_explicit'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'top_node_up_explicit'} = '@node Top, (dir), (weird), (dir)
 @top The top
@@ -445,31 +453,19 @@ $result_nodes{'top_node_up_explicit'} = [
       'node_directions' => {
         'next' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },
         'prev' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'weird'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         }

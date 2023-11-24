@@ -81,9 +81,11 @@ $result_trees{'menu_in_example'} = {
                         }
                       ],
                       'extra' => {
-                        'manual_content' => [
-                          {}
-                        ]
+                        'manual_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
                       },
                       'type' => 'menu_entry_node'
                     },
@@ -287,12 +289,16 @@ $result_trees{'menu_in_example'} = {
                         }
                       ],
                       'extra' => {
-                        'manual_content' => [
-                          {}
-                        ],
-                        'node_content' => [
-                          {}
-                        ],
+                        'manual_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'menu'
                       },
                       'type' => 'menu_entry_node'
@@ -360,12 +366,16 @@ $result_trees{'menu_in_example'} = {
                         }
                       ],
                       'extra' => {
-                        'manual_content' => [
-                          {}
-                        ],
-                        'node_content' => [
-                          {}
-                        ],
+                        'manual_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'node'
                       },
                       'type' => 'menu_entry_node'
@@ -493,11 +503,11 @@ $result_trees{'menu_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[4];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[4];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[4];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[4];
 
 $result_texis{'menu_in_example'} = '@node first
 

@@ -243,9 +243,11 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter'
                   },
                   'type' => 'menu_entry_node'
@@ -516,7 +518,7 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'two_footnotes_in_nodes_separate'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'two_footnotes_in_nodes_separate'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'two_footnotes_in_nodes_separate'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_footnotes_in_nodes_separate'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'two_footnotes_in_nodes_separate'} = '@footnotestyle separate
 @node Top

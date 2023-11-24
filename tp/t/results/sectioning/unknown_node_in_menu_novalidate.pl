@@ -83,9 +83,11 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'unknown'
                   },
                   'type' => 'menu_entry_node'
@@ -174,7 +176,7 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_node_in_menu_novalidate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'unknown_node_in_menu_novalidate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'unknown_node_in_menu_novalidate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'unknown_node_in_menu_novalidate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'unknown_node_in_menu_novalidate'} = '@novalidate
 

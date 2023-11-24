@@ -85,9 +85,11 @@ $result_trees{'in_errormsg'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'in-ref'
                           },
                           'type' => 'brace_command_arg'
@@ -259,7 +261,7 @@ $result_trees{'in_errormsg'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
 
 $result_texis{'in_errormsg'} = '

@@ -42,9 +42,11 @@ $result_trees{'menu_no_closed_in_description'} = {
                     }
                   ],
                   'extra' => {
-                    'manual_content' => [
-                      {}
-                    ]
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -86,7 +88,7 @@ $result_trees{'menu_no_closed_in_description'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'menu_no_closed_in_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'menu_no_closed_in_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'menu_no_closed_in_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_no_closed_in_description'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 
 $result_texis{'menu_no_closed_in_description'} = '@menu
 * (manual_in_menu):: desc';

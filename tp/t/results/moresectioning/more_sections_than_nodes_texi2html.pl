@@ -99,9 +99,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'n-c2'
                   },
                   'type' => 'menu_entry_node'
@@ -145,9 +147,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'n-c3'
                   },
                   'type' => 'menu_entry_node'
@@ -191,9 +195,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'n-c3-s1-s2'
                   },
                   'type' => 'menu_entry_node'
@@ -448,9 +454,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'n-c3-s1-s2'
           },
           'info' => {
@@ -467,9 +475,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'n-c2'
           },
           'info' => {
@@ -486,9 +496,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -570,9 +582,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'n-c3-s-2'
                   },
                   'type' => 'menu_entry_node'
@@ -949,9 +963,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'n-c3'
           },
           'type' => 'line_arg'
@@ -963,9 +979,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -1067,15 +1085,15 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[2]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[3]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[2]{'contents'}[0];
-$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[3]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[1]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[2]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[7]{'args'}[3]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[2]{'contents'}[0];
+$result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'more_sections_than_nodes_texi2html'}{'contents'}[16]{'args'}[3]{'contents'}[0];
 
 $result_texis{'more_sections_than_nodes_texi2html'} = '@node Top
 @top top

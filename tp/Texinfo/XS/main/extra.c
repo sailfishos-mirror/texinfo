@@ -74,6 +74,19 @@ add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
                            key, (intptr_t) value, extra_element_oot);
 }
 
+/* Add an extra key that is a reference to elements elsewhere in the tree,
+   in general in the contents array of another element (for example,
+   'node_content' on a node direction element contents).
+   Similar to extra_contents, but passed to perl as an element with
+   contents.
+ */
+void
+add_extra_container (ELEMENT *e, char *key, ELEMENT *value)
+{
+  add_associated_info_key (&e->extra_info,
+                           key, (intptr_t) value, extra_container);
+}
+
 void
 add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
@@ -81,8 +94,8 @@ add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
                            key, (intptr_t) value, extra_element_oot);
 }
 
-/* Add an extra key that is a reference to the contents array of another
-   element (for example, 'node_content' on a node command element). */
+/* Add an extra key that is a reference to an array of other
+   elements (for example, 'section_childs'). */
 void
 add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
 {

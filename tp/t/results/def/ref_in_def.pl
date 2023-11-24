@@ -57,9 +57,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -91,9 +93,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -127,9 +131,11 @@ $result_trees{'ref_in_def'} = {
                                 }
                               ],
                               'extra' => {
-                                'node_content' => [
-                                  {}
-                                ],
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
                                 'normalized' => 'myanchor'
                               },
                               'type' => 'brace_command_arg'
@@ -169,9 +175,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -203,9 +211,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -261,9 +271,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -295,9 +307,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -331,9 +345,11 @@ $result_trees{'ref_in_def'} = {
                                 }
                               ],
                               'extra' => {
-                                'node_content' => [
-                                  {}
-                                ],
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
                                 'normalized' => 'myanchor'
                               },
                               'type' => 'brace_command_arg'
@@ -373,9 +389,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -407,9 +425,11 @@ $result_trees{'ref_in_def'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'myanchor'
                           },
                           'type' => 'brace_command_arg'
@@ -567,18 +587,18 @@ $result_trees{'ref_in_def'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ref_in_def'}{'contents'}[1];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ref_in_def'}{'contents'}[1];
 

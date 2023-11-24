@@ -1,3 +1,32 @@
+2023-11-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (parse_node_manual), tp/Texinfo/Convert/HTML.pm
+	(command_tree, _convert_xref_commands, _convert_menu_entry_type)
+	(_normalized_label_id_file, _external_node_href),
+	tp/Texinfo/Convert/Info.pm (format_node), tp/Texinfo/Convert/LaTeX.pm
+	(_convert), tp/Texinfo/Convert/Plaintext.pm (node_line),
+	tp/Texinfo/Convert/Texinfo.pm (link_element_to_texi)
+	(check_node_same_texinfo_code), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_register_extra_menu_entry_information, _handle_close_brace),
+	tp/Texinfo/Structuring.pm (associate_internal_references)
+	(new_node_menu_entry), tp/Texinfo/XS/main/build_perl_info.c
+	(build_perl_container, store_additional_info),
+	tp/Texinfo/XS/main/debug.c (print_associate_info_debug),
+	tp/Texinfo/XS/main/extra.c (add_extra_container),
+	tp/Texinfo/XS/main/manipulate_tree.c (copy_associated_info)
+	(associate_info_references), tp/Texinfo/XS/main/tree.c
+	(destroy_associated_info), tp/Texinfo/XS/main/tree_types.h
+	(extra_type), tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_node_menu_entry):
+	have parse_node_manual in perl return an element as in C.  Update
+	callers.  In C use a new extra type, extra_container, very similar to
+	extra_contents, but passed to perl as an element with contents, in
+	build_perl_container.
+
 2023-11-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (command_tree, _convert_xref_commands)

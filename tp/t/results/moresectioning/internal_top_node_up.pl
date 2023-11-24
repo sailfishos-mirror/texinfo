@@ -96,9 +96,11 @@ $result_trees{'internal_top_node_up'} = [
                       }
                     ],
                     'extra' => {
-                      'node_content' => [
-                        {}
-                      ],
+                      'node_content' => {
+                        'contents' => [
+                          {}
+                        ]
+                      },
                       'normalized' => 'chap'
                     },
                     'type' => 'menu_entry_node'
@@ -230,7 +232,7 @@ $result_trees{'internal_top_node_up'} = [
   }
 ];
 $result_trees{'internal_top_node_up'}[0]{'unit_contents'}[1] = $result_trees{'internal_top_node_up'}[0]{'unit_command'};
-$result_trees{'internal_top_node_up'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'internal_top_node_up'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'internal_top_node_up'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'internal_top_node_up'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'internal_top_node_up'}[1]{'unit_contents'}[0] = $result_trees{'internal_top_node_up'}[1]{'unit_command'};
 
 $result_texis{'internal_top_node_up'} = '@node Top

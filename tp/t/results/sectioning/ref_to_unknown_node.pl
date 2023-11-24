@@ -20,9 +20,11 @@ $result_trees{'ref_to_unknown_node'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'unknown-node'
                   },
                   'type' => 'brace_command_arg'
@@ -47,7 +49,7 @@ $result_trees{'ref_to_unknown_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ref_to_unknown_node'} = '@xref{unknown node}.';
 

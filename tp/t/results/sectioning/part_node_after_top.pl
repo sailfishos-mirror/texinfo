@@ -58,9 +58,11 @@ $result_trees{'part_node_after_top'} = [
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap-part-node-after-top'
                   },
                   'type' => 'menu_entry_node'
@@ -259,7 +261,7 @@ $result_trees{'part_node_after_top'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'part_node_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'part_node_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'part_node_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'part_node_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'part_node_after_top'}[0]{'unit_contents'}[2] = $result_trees{'part_node_after_top'}[0]{'unit_command'};
 $result_trees{'part_node_after_top'}[1]{'unit_contents'}[0] = $result_trees{'part_node_after_top'}[1]{'unit_command'};
 

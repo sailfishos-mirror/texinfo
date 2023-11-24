@@ -67,9 +67,11 @@ $result_trees{'space_at_menu_end'} = {
                     }
                   ],
                   'extra' => {
-                    'manual_content' => [
-                      {}
-                    ]
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -186,7 +188,7 @@ $result_trees{'space_at_menu_end'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_at_menu_end'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'space_at_menu_end'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'space_at_menu_end'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'space_at_menu_end'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 
 $result_texis{'space_at_menu_end'} = '@node Top
 
@@ -213,11 +215,7 @@ $result_nodes{'space_at_menu_end'} = [
       'node_directions' => {
         'next' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'out'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'menu_entry_node'
         }

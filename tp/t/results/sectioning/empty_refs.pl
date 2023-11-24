@@ -20,9 +20,11 @@ $result_trees{'empty_refs'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ]
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -62,9 +64,11 @@ $result_trees{'empty_refs'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => '-'
                   },
                   'type' => 'brace_command_arg'
@@ -90,8 +94,8 @@ $result_trees{'empty_refs'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_refs'} = '@xref{@:}.
 @xref{@asis{ }}.

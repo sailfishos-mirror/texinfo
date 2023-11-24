@@ -49,9 +49,11 @@ $result_trees{'unknown_node_direction_novalidate'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'two-arg'
           },
           'info' => {
@@ -85,7 +87,7 @@ $result_trees{'unknown_node_direction_novalidate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'args'}[1]{'contents'}[0];
 
 $result_texis{'unknown_node_direction_novalidate'} = '@novalidate
 

@@ -96,9 +96,11 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
               }
             ],
             'extra' => {
-              'manual_content' => [
-                {}
-              ]
+              'manual_content' => {
+                'contents' => [
+                  {}
+                ]
+              }
             },
             'info' => {
               'spaces_after_argument' => {
@@ -260,9 +262,11 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
               }
             ],
             'extra' => {
-              'manual_content' => [
-                {}
-              ]
+              'manual_content' => {
+                'contents' => [
+                  {}
+                ]
+              }
             },
             'info' => {
               'spaces_after_argument' => {
@@ -294,10 +298,10 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'unnumbered_top_without_node_sections'}[0]{'unit_contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'unit_contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'unnumbered_top_without_node_sections'}[0]{'unit_contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'unit_contents'}[1]{'args'}[3]{'contents'}[1];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'unit_contents'}[2] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'unit_command'};
 $result_trees{'unnumbered_top_without_node_sections'}[1]{'unit_contents'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[1]{'unit_command'};
-$result_trees{'unnumbered_top_without_node_sections'}[2]{'unit_contents'}[0]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[2]{'unit_contents'}[0]{'args'}[3]{'contents'}[1];
+$result_trees{'unnumbered_top_without_node_sections'}[2]{'unit_contents'}[0]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[2]{'unit_contents'}[0]{'args'}[3]{'contents'}[1];
 $result_trees{'unnumbered_top_without_node_sections'}[2]{'unit_contents'}[1] = $result_trees{'unnumbered_top_without_node_sections'}[2]{'unit_command'};
 
 $result_texis{'unnumbered_top_without_node_sections'} = '@node a node,,,(dir)
@@ -484,11 +488,7 @@ $result_nodes{'unnumbered_top_without_node_sections'} = [
                 'NodeUp' => {
                   'unit_command' => {
                     'extra' => {
-                      'manual_content' => [
-                        {
-                          'text' => 'dir'
-                        }
-                      ]
+                      'manual_content' => {}
                     },
                     'type' => 'line_arg'
                   },
@@ -530,11 +530,7 @@ $result_nodes{'unnumbered_top_without_node_sections'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -614,11 +610,7 @@ $result_menus{'unnumbered_top_without_node_sections'} = [
                 'NodeUp' => {
                   'unit_command' => {
                     'extra' => {
-                      'manual_content' => [
-                        {
-                          'text' => 'dir'
-                        }
-                      ]
+                      'manual_content' => {}
                     },
                     'type' => 'line_arg'
                   },
@@ -658,11 +650,7 @@ $result_menus{'unnumbered_top_without_node_sections'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -751,11 +739,7 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
               'NodeUp' => {
                 'unit_command' => {
                   'extra' => {
-                    'manual_content' => [
-                      {
-                        'text' => 'dir'
-                      }
-                    ]
+                    'manual_content' => {}
                   },
                   'type' => 'line_arg'
                 },
@@ -790,11 +774,7 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
       'NodeUp' => {
         'unit_command' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },

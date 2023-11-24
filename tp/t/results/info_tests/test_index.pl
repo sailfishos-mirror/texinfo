@@ -78,9 +78,11 @@ $result_trees{'test_index'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'a-counting-anchor'
                   },
                   'type' => 'brace_command_arg'
@@ -777,9 +779,11 @@ $result_trees{'test_index'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'name'
                   },
                   'type' => 'menu_entry_node'
@@ -823,9 +827,11 @@ $result_trees{'test_index'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
                   },
                   'type' => 'menu_entry_node'
@@ -2907,7 +2913,7 @@ $result_trees{'test_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
@@ -2920,8 +2926,8 @@ $result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'contents'}[0]{'conten
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'test_index'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
 $result_trees{'test_index'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
 $result_trees{'test_index'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];

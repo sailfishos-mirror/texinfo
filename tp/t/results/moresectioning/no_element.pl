@@ -128,9 +128,11 @@ $result_trees{'no_element'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'An-anchor'
                   },
                   'type' => 'brace_command_arg'
@@ -170,9 +172,11 @@ $result_trees{'no_element'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Anchor-in-footnote'
                   },
                   'type' => 'brace_command_arg'
@@ -264,9 +268,11 @@ $result_trees{'no_element'} = {
                                 }
                               ],
                               'extra' => {
-                                'node_content' => [
-                                  {}
-                                ],
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
                                 'normalized' => 'An-anchor'
                               },
                               'type' => 'brace_command_arg'
@@ -412,9 +418,11 @@ $result_trees{'no_element'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'float-anchor'
                   },
                   'type' => 'brace_command_arg'
@@ -466,9 +474,11 @@ $result_trees{'no_element'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'An-anchor'
                   },
                   'type' => 'menu_entry_node'
@@ -586,11 +596,11 @@ $result_trees{'no_element'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'no_element'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'no_element'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'no_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'no_element'} = '@settitle no_element test
 @documentencoding ISO-8859-1

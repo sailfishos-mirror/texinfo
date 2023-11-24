@@ -1094,18 +1094,18 @@ sub command_tree($$;$)
   }
 
   if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
-    my $node_content = [];
+    my $node_content = {};
     $node_content = $command->{'extra'}->{'node_content'}
       if (defined($command->{'extra'}->{'node_content'}));
     my $tree;
     if ($command->{'extra'}->{'manual_content'}) {
       $tree = {'type' => '_code',
           'contents' => [{'text' => '('},
-            {'contents' => $command->{'extra'}->{'manual_content'}},
-            {'text' => ')'}, {'contents' => $node_content}]};
+                         $command->{'extra'}->{'manual_content'},
+                         {'text' => ')'}, $node_content]};
     } else {
       $tree = {'type' => '_code',
-               'contents' => [{'contents' => $node_content}]};
+               'contents' => [$node_content]};
     }
     return $tree;
   }
@@ -5586,14 +5586,14 @@ sub _convert_xref_commands($$$$)
     # file argument takes precedence over the file in the node (file)node entry
     if (defined($file_arg_tree) and $file ne '') {
       $label_element->{'extra'} = {} if (!$label_element->{'extra'});
-      $label_element->{'extra'}->{'manual_content'} = $file_arg_tree->{'contents'};
+      $label_element->{'extra'}->{'manual_content'} = $file_arg_tree;
     } elsif ($node_arg and $node_arg->{'extra'}
              and $node_arg->{'extra'}->{'manual_content'}) {
       $label_element->{'extra'} = {} if (!$label_element->{'extra'});
       $label_element->{'extra'}->{'manual_content'}
         = $node_arg->{'extra'}->{'manual_content'};
       my $file_with_node_tree = {'type' => '_code',
-   'contents' => [{'contents' => $label_element->{'extra'}->{'manual_content'}}]};
+   'contents' => [$label_element->{'extra'}->{'manual_content'}]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
     my $href = $self->command_href($label_element, undef, $root);
@@ -5606,7 +5606,7 @@ sub _convert_xref_commands($$$$)
     } elsif (!defined($name) and $label_element->{'extra'}
              and $label_element->{'extra'}->{'node_content'}) {
       my $node_no_file_tree = {'type' => '_code',
-      'contents' => [{'contents' => $label_element->{'extra'}->{'node_content'}}]};
+                 'contents' => [$label_element->{'extra'}->{'node_content'}]};
       my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
       if (defined($node_name) and $node_name ne 'Top') {
         $name = $node_name;
@@ -6959,7 +6959,7 @@ sub _convert_menu_entry_type($$$)
         $name = $self->command_text($menu_entry_node);
       } elsif ($menu_entry_node->{'extra'}) {
         $name = $self->convert_tree({'type' => '_code',
-   'contents' => [{'contents' => $menu_entry_node->{'extra'}->{'node_content'}}]},
+                 'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]},
                                     'menu_arg name');
       } else {
         $name = '';
@@ -8886,9 +8886,10 @@ sub _normalized_label_id_file($$$)
   my $label_element = shift;
 
   my $target;
-  if (!defined($normalized)) {
-    $normalized = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-      { 'contents' => $label_element->{'contents'} });
+  if (!defined($normalized) and defined($label_element)) {
+    $normalized
+      = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+        $label_element);
   }
 
   if (defined($normalized)) {
@@ -10021,8 +10022,7 @@ sub _external_node_href($$$;$)
   my $node_contents = $external_node->{'extra'}->{'node_content'};
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
   my ($target_filebase, $target)
-      = $self->_normalized_label_id_file($normalized,
-                                      {'contents' => $node_contents});
+      = $self->_normalized_label_id_file($normalized, $node_contents);
 
   # undef if conversion is called through convert()
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
@@ -10047,7 +10047,7 @@ sub _external_node_href($$$;$)
   my $directory = '';
   if ($external_node->{'extra'}->{'manual_content'}) {
     my $manual_name = Texinfo::Convert::Text::convert_to_text(
-       {'contents' => $external_node->{'extra'}->{'manual_content'}},
+       $external_node->{'extra'}->{'manual_content'},
        { 'code' => 1,
          Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $target eq '') {

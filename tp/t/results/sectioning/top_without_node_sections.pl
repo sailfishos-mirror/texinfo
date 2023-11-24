@@ -140,9 +140,11 @@ $result_trees{'top_without_node_sections'} = [
               }
             ],
             'extra' => {
-              'manual_content' => [
-                {}
-              ]
+              'manual_content' => {
+                'contents' => [
+                  {}
+                ]
+              }
             },
             'info' => {
               'spaces_after_argument' => {
@@ -175,7 +177,7 @@ $result_trees{'top_without_node_sections'} = [
   }
 ];
 $result_trees{'top_without_node_sections'}[0]{'unit_contents'}[1] = $result_trees{'top_without_node_sections'}[0]{'unit_command'};
-$result_trees{'top_without_node_sections'}[1]{'unit_contents'}[0]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_sections'}[1]{'unit_contents'}[0]{'args'}[3]{'contents'}[1];
+$result_trees{'top_without_node_sections'}[1]{'unit_contents'}[0]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'top_without_node_sections'}[1]{'unit_contents'}[0]{'args'}[3]{'contents'}[1];
 $result_trees{'top_without_node_sections'}[1]{'unit_contents'}[1] = $result_trees{'top_without_node_sections'}[1]{'unit_command'};
 
 $result_texis{'top_without_node_sections'} = '@top top section
@@ -306,11 +308,7 @@ $result_nodes{'top_without_node_sections'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -377,11 +375,7 @@ $result_menus{'top_without_node_sections'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -433,11 +427,7 @@ $result_elements{'top_without_node_sections'} = [
           'NodeUp' => {
             'unit_command' => {
               'extra' => {
-                'manual_content' => [
-                  {
-                    'text' => 'dir'
-                  }
-                ]
+                'manual_content' => {}
               },
               'type' => 'line_arg'
             },

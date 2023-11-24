@@ -24,9 +24,11 @@ $result_trees{'non_automatic_top_node_up_url'} = [
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'chap'
           },
           'info' => {
@@ -49,9 +51,11 @@ $result_trees{'non_automatic_top_node_up_url'} = [
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_before_argument' => {
@@ -73,9 +77,11 @@ $result_trees{'non_automatic_top_node_up_url'} = [
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -161,9 +167,11 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                       }
                     ],
                     'extra' => {
-                      'node_content' => [
-                        {}
-                      ],
+                      'node_content' => {
+                        'contents' => [
+                          {}
+                        ]
+                      },
                       'normalized' => 'chap'
                     },
                     'type' => 'menu_entry_node'
@@ -280,9 +288,11 @@ $result_trees{'non_automatic_top_node_up_url'} = [
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -305,9 +315,11 @@ $result_trees{'non_automatic_top_node_up_url'} = [
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -343,13 +355,13 @@ $result_trees{'non_automatic_top_node_up_url'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[1]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[2]{'contents'}[1];
-$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
+$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[1]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[2]{'contents'}[1];
+$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[1] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'};
-$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[2]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[3]{'contents'}[1];
+$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[2]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'};
 
 $result_texis{'non_automatic_top_node_up_url'} = '@node Top, chap, (dir), (dir)
@@ -469,11 +481,7 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
             'NodeUp' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'dir'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -502,11 +510,7 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
         'NodePrev' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -515,11 +519,7 @@ $result_nodes{'non_automatic_top_node_up_url'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -583,11 +583,7 @@ $result_menus{'non_automatic_top_node_up_url'} = [
             'NodeUp' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'dir'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -614,11 +610,7 @@ $result_menus{'non_automatic_top_node_up_url'} = [
         'NodePrev' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -627,11 +619,7 @@ $result_menus{'non_automatic_top_node_up_url'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -687,11 +675,7 @@ $result_elements{'non_automatic_top_node_up_url'} = [
           'NodeUp' => {
             'unit_command' => {
               'extra' => {
-                'manual_content' => [
-                  {
-                    'text' => 'dir'
-                  }
-                ]
+                'manual_content' => {}
               },
               'type' => 'line_arg'
             },
@@ -722,11 +706,7 @@ $result_elements{'non_automatic_top_node_up_url'} = [
       'NodePrev' => {
         'unit_command' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },
@@ -735,11 +715,7 @@ $result_elements{'non_automatic_top_node_up_url'} = [
       'NodeUp' => {
         'unit_command' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },

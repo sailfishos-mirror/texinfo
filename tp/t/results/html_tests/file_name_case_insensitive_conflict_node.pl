@@ -401,9 +401,11 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'foo'
                   },
                   'type' => 'brace_command_arg'
@@ -439,9 +441,11 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Foo'
                   },
                   'type' => 'brace_command_arg'
@@ -479,8 +483,8 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'file_name_case_insensitive_conflict_node'} = '@node Top
 @top top section

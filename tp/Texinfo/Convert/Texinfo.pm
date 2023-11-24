@@ -104,12 +104,11 @@ sub link_element_to_texi($)
   my $result = '';
   return $result if (!$element->{'extra'});
   if ($element->{'extra'}->{'manual_content'}) {
-    $result = '('.convert_to_texinfo({'contents'
-                         => $element->{'extra'}->{'manual_content'}}) .')';
+    $result = '('.convert_to_texinfo($element->{'extra'}->{'manual_content'})
+                    .')';
   }
   if ($element->{'extra'}->{'node_content'}) {
-    $result .= convert_to_texinfo({'contents'
-                         => $element->{'extra'}->{'node_content'}});
+    $result .= convert_to_texinfo($element->{'extra'}->{'node_content'});
   }
   return $result
 }
@@ -135,7 +134,7 @@ sub check_node_same_texinfo_code($$)
   if (defined($reference_node->{'extra'}->{'normalized'})) {
     my $label_element = Texinfo::Common::get_label_element($reference_node);
     $reference_node_texi = convert_to_texinfo(
-                        {'contents' => $label_element->{'contents'}});
+                                {'contents' => $label_element->{'contents'}});
     $reference_node_texi =~ s/\s+/ /g;
   } else {
     $reference_node_texi = '';
@@ -144,12 +143,13 @@ sub check_node_same_texinfo_code($$)
   my $node_texi;
   if ($node_content) {
     my $contents_node = $node_content;
-    if ($node_content->[-1]->{'type'}
-        and $node_content->[-1]->{'type'} eq 'space_at_end_menu_node') {
-      $contents_node = [ @{$node_content} ];
-      pop @$contents_node;
+    if ($node_content->{'contents'}->[-1]->{'type'}
+        and $node_content->{'contents'}->[-1]->{'type'}
+                                      eq 'space_at_end_menu_node') {
+      $contents_node = {'contents' => [@{$node_content->{'contents'}}]};
+      pop @{$contents_node->{'contents'}};
     }
-    $node_texi = convert_to_texinfo({'contents' => $contents_node});
+    $node_texi = convert_to_texinfo($contents_node);
     $node_texi =~ s/\s+/ /g;
   } else {
     $node_texi = '';

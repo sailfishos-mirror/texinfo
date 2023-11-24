@@ -1193,8 +1193,7 @@ sub _convert($$;$)
             } else {
               $normalized
                = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-                  {'contents' =>
-                     $node_arg->{'extra'}->{'node_content'}});
+                 $node_arg->{'extra'}->{'node_content'});
             }
             if ($normalized) {
               push @$attribute, ['label', $normalized];
@@ -1217,8 +1216,8 @@ sub _convert($$;$)
           if (!defined($manual) and $node_arg
               and $node_arg->{'extra'}
               and $node_arg->{'extra'}->{'manual_content'}) {
-            $manual = Texinfo::Convert::Text::convert_to_text({'contents'
-                   => $node_arg->{'extra'}->{'manual_content'}},
+            $manual = Texinfo::Convert::Text::convert_to_text(
+                         $node_arg->{'extra'}->{'manual_content'},
                {'code' => 1,
                 Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
           }

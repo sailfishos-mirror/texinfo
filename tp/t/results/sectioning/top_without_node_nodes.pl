@@ -36,9 +36,11 @@ $result_trees{'top_without_node_nodes'} = [
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -168,7 +170,7 @@ $result_trees{'top_without_node_nodes'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'top_without_node_nodes'}[0]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_nodes'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
+$result_trees{'top_without_node_nodes'}[0]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'top_without_node_nodes'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'top_without_node_nodes'}[0]{'unit_contents'}[2] = $result_trees{'top_without_node_nodes'}[0]{'unit_command'};
 
 $result_texis{'top_without_node_nodes'} = '@top top section
@@ -260,11 +262,7 @@ $result_nodes{'top_without_node_nodes'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -303,11 +301,7 @@ $result_menus{'top_without_node_nodes'} = [
         'NodeUp' => {
           'unit_command' => {
             'extra' => {
-              'manual_content' => [
-                {
-                  'text' => 'dir'
-                }
-              ]
+              'manual_content' => {}
             },
             'type' => 'line_arg'
           },
@@ -338,11 +332,7 @@ $result_elements{'top_without_node_nodes'} = [
       'NodeUp' => {
         'unit_command' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         },

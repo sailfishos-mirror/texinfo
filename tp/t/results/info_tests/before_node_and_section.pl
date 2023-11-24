@@ -27,9 +27,11 @@ $result_trees{'before_node_and_section'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Top'
                   },
                   'type' => 'brace_command_arg'
@@ -177,9 +179,11 @@ $result_trees{'before_node_and_section'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node1'
                   },
                   'type' => 'menu_entry_node'
@@ -375,9 +379,11 @@ $result_trees{'before_node_and_section'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'anchor1'
                   },
                   'type' => 'brace_command_arg'
@@ -424,9 +430,11 @@ $result_trees{'before_node_and_section'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node1'
                   },
                   'type' => 'menu_entry_node'
@@ -629,10 +637,10 @@ $result_trees{'before_node_and_section'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'before_node_and_section'} = 'Garbage
 ref to Top @ref{Top}.

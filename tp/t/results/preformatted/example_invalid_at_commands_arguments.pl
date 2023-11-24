@@ -22,9 +22,11 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ]
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
                       },
                       'type' => 'brace_command_arg'
                     },
@@ -197,7 +199,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'example_invalid_at_commands_arguments'} = '@example @ref{a,b,c,d} fa, @anchor{an anchor} on example line, @center in center
 @end example

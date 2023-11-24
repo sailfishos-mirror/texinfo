@@ -1188,9 +1188,11 @@ $result_trees{'headings_after_lone_nodes'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'subnode'
                   },
                   'type' => 'menu_entry_node'
@@ -1360,7 +1362,7 @@ $result_trees{'headings_after_lone_nodes'} = {
 };
 $result_trees{'headings_after_lone_nodes'}{'contents'}[6]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'headings_after_lone_nodes'}{'contents'}[6];
 $result_trees{'headings_after_lone_nodes'}{'contents'}[6]{'extra'}{'node_description'} = $result_trees{'headings_after_lone_nodes'}{'contents'}[6]{'contents'}[4];
-$result_trees{'headings_after_lone_nodes'}{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'headings_after_lone_nodes'}{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'headings_after_lone_nodes'}{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'headings_after_lone_nodes'}{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'headings_after_lone_nodes'} = '@node Top
 @top top

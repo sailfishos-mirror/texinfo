@@ -27,6 +27,7 @@ enum extra_type {
    extra_element,
    extra_element_oot,
    extra_contents,
+   extra_container,
    extra_directions,
    extra_text,
    extra_misc_args,

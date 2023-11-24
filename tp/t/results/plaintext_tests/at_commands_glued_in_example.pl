@@ -193,9 +193,11 @@ $result_trees{'at_commands_glued_in_example'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'Top'
                       },
                       'type' => 'brace_command_arg'
@@ -465,7 +467,7 @@ $result_trees{'at_commands_glued_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0];
+$result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0];
 
 $result_texis{'at_commands_glued_in_example'} = '@example
 at@@.

@@ -913,10 +913,10 @@ sub relocate_source_marks($$$$)
 #                      node specification.
 #     node_content - Texinfo tree for the node name on its own
 #
-# A contents array where the manual_content and node_content
-# elements substituted the initial contents is also returned,
-# typically to replace $LABEL_CONTENTS_CONTAINER->{'contents'}
-# for consistency.
+# If $MODIFY_TREE is set and manual name is retrieved, modify the
+# $LABEL_CONTENTS_CONTAINER contents such that the parentheses, the manual
+# part and the node part are not in the same elements in the contents,
+# and use the corresponding elements in the returned object.
 #
 # Could be documented, but only if there is evidence that this function
 # is useful in user-defined code.
@@ -1062,7 +1062,7 @@ sub parse_node_manual($;$)
       $idx = 0;
     } else {
       $result = {};
-      $result->{'manual_content'} = $manual;
+      $result->{'manual_content'} = {'contents' => $manual};
     }
   }
 
@@ -1072,7 +1072,7 @@ sub parse_node_manual($;$)
 
   if (scalar(@$node_content)) {
     $result = {} if (!$result);
-    $result->{'node_content'} = $node_content;
+    $result->{'node_content'} = {'contents' => $node_content};
   }
 
   return $result;

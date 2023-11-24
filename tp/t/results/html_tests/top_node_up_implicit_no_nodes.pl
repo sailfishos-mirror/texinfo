@@ -108,9 +108,11 @@ $result_trees{'top_node_up_implicit_no_nodes'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Chap'
                   },
                   'type' => 'menu_entry_node'
@@ -282,7 +284,7 @@ $result_trees{'top_node_up_implicit_no_nodes'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_node_up_implicit_no_nodes'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'top_node_up_implicit_no_nodes'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'top_node_up_implicit_no_nodes'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'top_node_up_implicit_no_nodes'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'top_node_up_implicit_no_nodes'} = '@node Top
 @top The top

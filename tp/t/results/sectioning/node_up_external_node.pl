@@ -58,9 +58,11 @@ $result_trees{'node_up_external_node'} = [
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap-first'
                   },
                   'type' => 'menu_entry_node'
@@ -188,9 +190,11 @@ $result_trees{'node_up_external_node'} = [
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_before_argument' => {
@@ -212,9 +216,11 @@ $result_trees{'node_up_external_node'} = [
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -239,9 +245,11 @@ $result_trees{'node_up_external_node'} = [
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -277,11 +285,11 @@ $result_trees{'node_up_external_node'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'node_up_external_node'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'node_up_external_node'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'node_up_external_node'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_up_external_node'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'node_up_external_node'}[0]{'unit_contents'}[1] = $result_trees{'node_up_external_node'}[0]{'unit_command'};
-$result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[1]{'contents'}[1];
-$result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[2]{'contents'}[1];
-$result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[3]{'contents'}[1];
+$result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[1]{'contents'}[1];
+$result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[2]{'contents'}[1];
+$result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_up_external_node'}[1]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'node_up_external_node'}[1]{'unit_contents'}[0] = $result_trees{'node_up_external_node'}[1]{'unit_command'};
 
 $result_texis{'node_up_external_node'} = '@node Top
@@ -310,11 +318,7 @@ $result_nodes{'node_up_external_node'} = [
             'NodeForward' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'manual1'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -327,11 +331,7 @@ $result_nodes{'node_up_external_node'} = [
             'NodePrev' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'manual2'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -340,11 +340,7 @@ $result_nodes{'node_up_external_node'} = [
             'NodeUp' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'manual3'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -417,11 +413,7 @@ $result_menus{'node_up_external_node'} = [
             'NodeForward' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'manual1'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -434,11 +426,7 @@ $result_menus{'node_up_external_node'} = [
             'NodePrev' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'manual2'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -447,11 +435,7 @@ $result_menus{'node_up_external_node'} = [
             'NodeUp' => {
               'unit_command' => {
                 'extra' => {
-                  'manual_content' => [
-                    {
-                      'text' => 'manual3'
-                    }
-                  ]
+                  'manual_content' => {}
                 },
                 'type' => 'line_arg'
               },
@@ -522,11 +506,7 @@ $result_elements{'node_up_external_node'} = [
           'NodeForward' => {
             'unit_command' => {
               'extra' => {
-                'manual_content' => [
-                  {
-                    'text' => 'manual1'
-                  }
-                ]
+                'manual_content' => {}
               },
               'type' => 'line_arg'
             },
@@ -539,11 +519,7 @@ $result_elements{'node_up_external_node'} = [
           'NodePrev' => {
             'unit_command' => {
               'extra' => {
-                'manual_content' => [
-                  {
-                    'text' => 'manual2'
-                  }
-                ]
+                'manual_content' => {}
               },
               'type' => 'line_arg'
             },
@@ -552,11 +528,7 @@ $result_elements{'node_up_external_node'} = [
           'NodeUp' => {
             'unit_command' => {
               'extra' => {
-                'manual_content' => [
-                  {
-                    'text' => 'manual3'
-                  }
-                ]
+                'manual_content' => {}
               },
               'type' => 'line_arg'
             },

@@ -393,9 +393,11 @@ $result_trees{'documentlanguage_unknown'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter'
                   },
                   'type' => 'brace_command_arg'
@@ -690,7 +692,7 @@ $result_trees{'documentlanguage_unknown'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'documentlanguage_unknown'}{'contents'}[3];
 
 $result_texis{'documentlanguage_unknown'} = '\\input texinfo @c -*-texinfo-*-

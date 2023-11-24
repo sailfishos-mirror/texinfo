@@ -42,9 +42,11 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'chap'
           },
           'info' => {
@@ -108,9 +110,11 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap'
                   },
                   'type' => 'menu_entry_node'
@@ -383,9 +387,11 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap'
                   },
                   'type' => 'brace_command_arg'
@@ -457,9 +463,11 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap'
                   },
                   'type' => 'brace_command_arg'
@@ -498,10 +506,10 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[0];
 
 $result_texis{'equivalent_nodes_defined_linked'} = '@node Top, @asis{chap}
 

@@ -140,9 +140,11 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap'
                   },
                   'type' => 'menu_entry_node'
@@ -298,9 +300,11 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap'
                   },
                   'type' => 'brace_command_arg'
@@ -375,9 +379,11 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap'
                   },
                   'type' => 'brace_command_arg'
@@ -415,9 +421,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'test_xrefautomaticsectiontitle_off_first'} = '
 @xrefautomaticsectiontitle off

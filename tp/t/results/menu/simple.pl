@@ -81,9 +81,11 @@ $result_trees{'simple'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node'
                   },
                   'type' => 'menu_entry_node'
@@ -127,9 +129,11 @@ $result_trees{'simple'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node-name'
                   },
                   'type' => 'menu_entry_node'
@@ -185,9 +189,11 @@ $result_trees{'simple'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node'
                   },
                   'type' => 'menu_entry_node'
@@ -231,9 +237,11 @@ $result_trees{'simple'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'last'
                   },
                   'type' => 'menu_entry_node'
@@ -308,10 +316,12 @@ $result_trees{'simple'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {},
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {},
+                        {}
+                      ]
+                    },
                     'normalized' => 'last-node-entry'
                   },
                   'type' => 'menu_entry_node'
@@ -401,12 +411,12 @@ $result_trees{'simple'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[3]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}[1] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'contents'}[1];
+$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
+$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[3]{'contents'}[0];
+$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'contents'}[0];
+$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'contents'}[1];
 
 $result_texis{'simple'} = '
 Before menu.

@@ -992,9 +992,11 @@ $result_trees{'multiple_include_encodings'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => '_0104-_0105-_02db-_0118-_0119'
                   },
                   'type' => 'brace_command_arg'
@@ -1095,9 +1097,11 @@ $result_trees{'multiple_include_encodings'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => '_0104-_0105-_02db-_0118-_0119'
                   },
                   'type' => 'menu_entry_node'
@@ -2015,8 +2019,8 @@ $result_trees{'multiple_include_encodings'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'multiple_include_encodings'}{'contents'}[12]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'multiple_include_encodings'}{'contents'}[11];
 
 $result_texis{'multiple_include_encodings'} = '\\input texinfo.tex

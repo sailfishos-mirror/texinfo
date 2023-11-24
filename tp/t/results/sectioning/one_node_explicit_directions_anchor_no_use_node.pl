@@ -39,9 +39,11 @@ $result_trees{'one_node_explicit_directions_anchor_no_use_node'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -121,9 +123,11 @@ $result_trees{'one_node_explicit_directions_anchor_no_use_node'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'ref'
                   },
                   'type' => 'brace_command_arg'
@@ -162,8 +166,8 @@ $result_trees{'one_node_explicit_directions_anchor_no_use_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'one_node_explicit_directions_anchor_no_use_node'} = '@node one node,,,(dir)
 Top node
@@ -188,11 +192,7 @@ $result_nodes{'one_node_explicit_directions_anchor_no_use_node'} = [
       'node_directions' => {
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         }

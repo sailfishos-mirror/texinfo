@@ -152,9 +152,11 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'name_002eafter'
                   },
                   'type' => 'menu_entry_node'
@@ -238,7 +240,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'macro_for_dot_in_menu_not_separator'} = '@macro macrodot
 .

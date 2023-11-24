@@ -166,9 +166,11 @@ $result_trees{'double_index_entry'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chap-other-node'
                   },
                   'type' => 'menu_entry_node'
@@ -282,9 +284,11 @@ $result_trees{'double_index_entry'} = {
             }
           ],
           'extra' => {
-            'node_content' => [
-              {}
-            ],
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -402,8 +406,8 @@ $result_trees{'double_index_entry'} = {
 };
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'double_index_entry'}{'contents'}[1];
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'double_index_entry'}{'contents'}[1];
-$result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'double_index_entry'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'double_index_entry'}{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'double_index_entry'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_index_entry'}{'contents'}[2]{'args'}[3]{'contents'}[0];
 $result_trees{'double_index_entry'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'double_index_entry'}{'contents'}[2];
 
 $result_texis{'double_index_entry'} = '@node Top

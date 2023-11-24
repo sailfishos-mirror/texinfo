@@ -83,6 +83,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           break;
         case extra_contents:
         case extra_directions:
+        case extra_container:
           new_extra_contents = new_element (ET_NONE);
           add_associated_info_key (new_info, key, (intptr_t)new_extra_contents,
                                    info->info[i].type);
@@ -218,6 +219,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             break;
           }
         case extra_contents:
+        case extra_container:
         case extra_directions:
           {
             KEY_PAIR *k = lookup_associated_info (new_info, key);
@@ -284,7 +286,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           break;
           }
         default:
-          fatal ("unknown extra type");
+          fatal ("associate_info_references: unknown extra type");
           break;
         }
     }

@@ -1488,8 +1488,8 @@ end_line_misc_line (ELEMENT *current)
               ELEMENT *tmp = new_element (ET_NONE);
               char *normalized;
 
-              add_extra_contents (arg, "node_content",
-                                  direction_label_info->node_content);
+              add_extra_container (arg, "node_content",
+                                   direction_label_info->node_content);
 
               tmp->contents = direction_label_info->node_content->contents;
               normalized = convert_to_identifier (tmp);
@@ -1499,8 +1499,8 @@ end_line_misc_line (ELEMENT *current)
               add_extra_string (arg, "normalized", normalized);
             }
           if (direction_label_info->manual_content)
-            add_extra_contents (arg, "manual_content",
-                                direction_label_info->manual_content);
+            add_extra_container (arg, "manual_content",
+                                 direction_label_info->manual_content);
           free (direction_label_info);
         }
 

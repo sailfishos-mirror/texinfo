@@ -123,9 +123,11 @@ $result_trees{'macro_in_empty_menu_comment'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Copying-Conditions'
                   },
                   'type' => 'menu_entry_node'
@@ -201,7 +203,7 @@ $result_trees{'macro_in_empty_menu_comment'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'macro_in_empty_menu_comment'} = '@macro emptystring
 

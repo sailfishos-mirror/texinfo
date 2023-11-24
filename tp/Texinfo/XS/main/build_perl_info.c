@@ -148,6 +148,24 @@ build_perl_array (ELEMENT_LIST *e)
   return sv;
 }
 
+/* contents appears in other parts of the tree */
+void
+build_perl_container (ELEMENT *e)
+{
+  SV *sv;
+
+  dTHX;
+
+  if (!e->hv)
+    e->hv = newHV ();
+  else
+    hv_clear (e->hv);
+
+  sv = build_perl_array (&e->contents);
+
+  hv_store (e->hv, "contents", strlen ("contents"), sv, 0);
+}
+
 static SV *
 build_perl_directions (ELEMENT_LIST *e)
 {
@@ -286,6 +304,10 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               element_to_perl_hash (f);
               STORE(newRV_inc ((SV *)f->hv));
               break;
+            case extra_container:
+              build_perl_container (f);
+              STORE(newRV_inc ((SV *)f->hv));
+              break;
             case extra_contents:
               {
               if (f)
@@ -345,7 +367,7 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               break;
               }
             default:
-              fatal ("unknown extra type");
+              fatal ("store_additional_info: unknown extra type");
               break;
             }
         }

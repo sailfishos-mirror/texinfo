@@ -134,9 +134,11 @@ $result_trees{'split_nocopying_split'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Ch1'
                   },
                   'type' => 'menu_entry_node'
@@ -323,7 +325,7 @@ $result_trees{'split_nocopying_split'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'split_nocopying_split'} = '\\input texinfo
 

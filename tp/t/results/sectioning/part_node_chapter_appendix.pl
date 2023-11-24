@@ -58,9 +58,11 @@ $result_trees{'part_node_chapter_appendix'} = [
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter-node'
                   },
                   'type' => 'menu_entry_node'
@@ -344,7 +346,7 @@ $result_trees{'part_node_chapter_appendix'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'part_node_chapter_appendix'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'part_node_chapter_appendix'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'part_node_chapter_appendix'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'part_node_chapter_appendix'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'part_node_chapter_appendix'}[0]{'unit_contents'}[2] = $result_trees{'part_node_chapter_appendix'}[0]{'unit_command'};
 $result_trees{'part_node_chapter_appendix'}[1]{'unit_contents'}[0] = $result_trees{'part_node_chapter_appendix'}[1]{'unit_command'}{'extra'}{'associated_part'};
 $result_trees{'part_node_chapter_appendix'}[1]{'unit_contents'}[2] = $result_trees{'part_node_chapter_appendix'}[1]{'unit_command'};

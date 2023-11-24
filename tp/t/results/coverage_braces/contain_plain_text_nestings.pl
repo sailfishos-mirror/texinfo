@@ -379,9 +379,11 @@ $result_trees{'contain_plain_text_nestings'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'Top'
                           },
                           'type' => 'brace_command_arg'
@@ -438,9 +440,11 @@ $result_trees{'contain_plain_text_nestings'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'Top'
                           },
                           'type' => 'brace_command_arg'
@@ -498,9 +502,11 @@ $result_trees{'contain_plain_text_nestings'} = {
                             }
                           ],
                           'extra' => {
-                            'node_content' => [
-                              {}
-                            ],
+                            'node_content' => {
+                              'contents' => [
+                                {}
+                              ]
+                            },
                             'normalized' => 'Top'
                           },
                           'type' => 'brace_command_arg'
@@ -568,9 +574,11 @@ $result_trees{'contain_plain_text_nestings'} = {
                                     }
                                   ],
                                   'extra' => {
-                                    'node_content' => [
-                                      {}
-                                    ],
+                                    'node_content' => {
+                                      'contents' => [
+                                        {}
+                                      ]
+                                    },
                                     'normalized' => 'Top'
                                   },
                                   'type' => 'brace_command_arg'
@@ -703,10 +711,10 @@ $result_trees{'contain_plain_text_nestings'} = {
   'type' => 'document_root'
 };
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
 
 $result_texis{'contain_plain_text_nestings'} = '@node Top

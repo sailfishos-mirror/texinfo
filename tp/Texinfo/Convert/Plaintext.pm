@@ -1348,7 +1348,7 @@ sub node_line($$)
       $label_element = Texinfo::Common::get_label_element($node);
     } else {
       # node direction to an external node
-      $label_element = {'contents' => $node->{'extra'}->{'node_content'}};
+      $label_element = $node->{'extra'}->{'node_content'};
     }
     my $node_text = {'type' => '_code',
                      'contents' => [$label_element]};

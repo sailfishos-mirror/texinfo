@@ -362,9 +362,11 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node-before'
                   },
                   'type' => 'brace_command_arg'
@@ -390,9 +392,11 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'after'
                   },
                   'type' => 'brace_command_arg'
@@ -462,9 +466,11 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node-before'
                   },
                   'type' => 'brace_command_arg'
@@ -490,9 +496,11 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'after'
                   },
                   'type' => 'brace_command_arg'
@@ -535,10 +543,10 @@ $result_trees{'nodes_before_after_top_xref'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_after_top_xref'}{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'nodes_before_after_top_xref'} = '@setfilename nodes_before_after_top_xref.info
 

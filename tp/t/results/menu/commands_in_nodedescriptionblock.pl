@@ -94,9 +94,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node1'
                   },
                   'type' => 'menu_entry_node'
@@ -140,9 +142,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node2'
                   },
                   'type' => 'menu_entry_node'
@@ -228,9 +232,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'in-nodescription'
                   },
                   'type' => 'brace_command_arg'
@@ -255,9 +261,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'f1'
                   },
                   'type' => 'brace_command_arg'
@@ -372,9 +380,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
                         'normalized' => 'node2'
                       },
                       'type' => 'brace_command_arg'
@@ -805,9 +815,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'in-nodescription'
                   },
                   'type' => 'brace_command_arg'
@@ -832,9 +844,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'f1'
                   },
                   'type' => 'brace_command_arg'
@@ -886,9 +900,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node1'
                   },
                   'type' => 'menu_entry_node'
@@ -1057,11 +1073,11 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[2]{'extra'}{'float'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'caption'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[2];
@@ -1069,9 +1085,9 @@ $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_long_description'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'};
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[4] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'float_section'};
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'commands_in_nodedescriptionblock'} = '@node Top
 @top test commands in nodedescriptionblock

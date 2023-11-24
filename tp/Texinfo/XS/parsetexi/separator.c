@@ -363,10 +363,10 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                                          || ref_label_info->node_content))
                     {
                       if (ref_label_info->node_content)
-                        add_extra_contents (arg_label, "node_content",
+                        add_extra_container (arg_label, "node_content",
                                             ref_label_info->node_content);
                       if (ref_label_info->manual_content)
-                        add_extra_contents (arg_label, "manual_content",
+                        add_extra_container (arg_label, "manual_content",
                                             ref_label_info->manual_content);
                     }
                   else

@@ -272,9 +272,11 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Copying-footnote'
                   },
                   'type' => 'brace_command_arg'
@@ -318,7 +320,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_copying_in_footnote'} = '@copying
 

@@ -42,12 +42,16 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ],
-            'node_content' => [
-              {}
-            ],
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            },
+            'node_content' => {
+              'contents' => [
+                {}
+              ]
+            },
             'normalized' => 'Top'
           },
           'info' => {
@@ -78,8 +82,8 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'contents'}[3];
+$result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_up_direction_for_top_with_manual'}{'contents'}[1]{'args'}[3]{'contents'}[3];
 
 $result_texis{'node_up_direction_for_top_with_manual'} = '@node Top,,,(dir)top
 ';
@@ -94,11 +98,7 @@ $result_nodes{'node_up_direction_for_top_with_manual'} = [
       'node_directions' => {
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ],
+            'manual_content' => {},
             'normalized' => 'Top'
           },
           'type' => 'line_arg'

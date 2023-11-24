@@ -90,9 +90,11 @@ $result_trees{'top_without_node_texi2html_no_use_nodes'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_after_argument' => {
@@ -170,7 +172,7 @@ $result_trees{'top_without_node_texi2html_no_use_nodes'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_without_node_texi2html_no_use_nodes'}{'contents'}[2]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_texi2html_no_use_nodes'}{'contents'}[2]{'args'}[3]{'contents'}[1];
+$result_trees{'top_without_node_texi2html_no_use_nodes'}{'contents'}[2]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'top_without_node_texi2html_no_use_nodes'}{'contents'}[2]{'args'}[3]{'contents'}[1];
 
 $result_texis{'top_without_node_texi2html_no_use_nodes'} = '@top top section
 Top section
@@ -247,11 +249,7 @@ $result_nodes{'top_without_node_texi2html_no_use_nodes'} = [
       'node_directions' => {
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         }

@@ -3595,11 +3595,12 @@ sub _end_line_misc_line($$$)
         foreach my $label_info (keys(%$arg_label_manual_info)) {
           $arg->{'extra'} = {} if (!$arg->{'extra'});
           $arg->{'extra'}->{$label_info}
-            = [@{$arg_label_manual_info->{$label_info}}];
+            = $arg_label_manual_info->{$label_info};
         }
         if ($arg->{'extra'}->{'node_content'}) {
-          my $normalized = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-            {'contents' => $arg->{'extra'}->{'node_content'}});
+          my $normalized
+            = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+              $arg->{'extra'}->{'node_content'});
           $arg->{'extra'}->{'normalized'} = $normalized;
         }
       }
@@ -4563,7 +4564,7 @@ sub _register_extra_menu_entry_information($$;$)
           foreach my $label_info (keys(%$parsed_entry_node)) {
             $arg->{'extra'} = {} if (!$arg->{'extra'});
             $arg->{'extra'}->{$label_info}
-              = [@{$parsed_entry_node->{$label_info}}];
+              = $parsed_entry_node->{$label_info};
           }
         } else {
           $self->_bug_message("No label info for menu_entry_node contents",
@@ -6141,7 +6142,7 @@ sub _handle_close_brace($$$)
             foreach my $label_info (keys(%$ref_label_info)) {
               $arg_label->{'extra'} = {} if (!$arg_label->{'extra'});
               $arg_label->{'extra'}->{$label_info}
-                = [@{$ref_label_info->{$label_info}}];
+                = $ref_label_info->{$label_info};
             }
             if (!$link_or_inforef
                   and !defined($args[3]) and !defined($args[4])

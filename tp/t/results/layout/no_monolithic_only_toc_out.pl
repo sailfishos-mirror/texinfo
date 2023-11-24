@@ -197,9 +197,11 @@ $result_trees{'no_monolithic_only_toc_out'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter'
                   },
                   'type' => 'menu_entry_node'
@@ -457,7 +459,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
   'type' => 'document_root'
 };
 $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'no_monolithic_only_toc_out'}{'contents'}[1];
-$result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'no_monolithic_only_toc_out'} = '\\input texinfo @c -*-texinfo-*-
 

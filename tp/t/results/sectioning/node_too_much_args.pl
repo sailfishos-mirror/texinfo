@@ -49,9 +49,11 @@ $result_trees{'node_too_much_args'} = {
             }
           ],
           'extra' => {
-            'manual_content' => [
-              {}
-            ]
+            'manual_content' => {
+              'contents' => [
+                {}
+              ]
+            }
           },
           'info' => {
             'spaces_before_argument' => {
@@ -80,7 +82,7 @@ $result_trees{'node_too_much_args'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_too_much_args'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'node_too_much_args'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'node_too_much_args'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_too_much_args'}{'contents'}[1]{'args'}[3]{'contents'}[1];
 
 $result_texis{'node_too_much_args'} = '@node first, , ,  (dir)';
 
@@ -94,11 +96,7 @@ $result_nodes{'node_too_much_args'} = [
       'node_directions' => {
         'up' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
+            'manual_content' => {}
           },
           'type' => 'line_arg'
         }

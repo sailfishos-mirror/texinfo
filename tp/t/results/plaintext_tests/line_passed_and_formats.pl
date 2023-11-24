@@ -2122,12 +2122,16 @@ $result_trees{'line_passed_and_formats'} = {
                     }
                   ],
                   'extra' => {
-                    'manual_content' => [
-                      {}
-                    ],
-                    'node_content' => [
-                      {}
-                    ],
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node'
                   },
                   'type' => 'menu_entry_node'
@@ -2225,8 +2229,8 @@ $result_trees{'line_passed_and_formats'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[3];
 
 $result_texis{'line_passed_and_formats'} = '@node Top
 
@@ -2456,11 +2460,7 @@ $result_nodes{'line_passed_and_formats'} = [
       'node_directions' => {
         'next' => {
           'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'manual'
-              }
-            ],
+            'manual_content' => {},
             'normalized' => 'node'
           },
           'type' => 'menu_entry_node'

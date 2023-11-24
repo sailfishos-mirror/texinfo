@@ -457,9 +457,11 @@ $result_trees{'macro_in_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'menu-entry'
                   },
                   'type' => 'menu_entry_node'
@@ -581,9 +583,11 @@ $result_trees{'macro_in_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node'
                   },
                   'type' => 'menu_entry_node'
@@ -678,9 +682,11 @@ $result_trees{'macro_in_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'other-node'
                   },
                   'type' => 'menu_entry_node'
@@ -743,9 +749,11 @@ $result_trees{'macro_in_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'node-colon-macro'
                   },
                   'type' => 'menu_entry_node'
@@ -855,9 +863,11 @@ $result_trees{'macro_in_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'entry'
                   },
                   'type' => 'menu_entry_node'
@@ -958,11 +968,11 @@ $result_trees{'macro_in_menu'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'macro_in_menu'} = '
 @macro astar

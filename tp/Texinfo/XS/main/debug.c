@@ -174,7 +174,8 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
               }
             break;
            }
-          case extra_contents:
+        case extra_contents:
+        case extra_container:
           {
             int j;
             text_append (&text, "contents: ");

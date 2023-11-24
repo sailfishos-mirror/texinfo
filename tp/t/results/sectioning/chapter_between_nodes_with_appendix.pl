@@ -133,9 +133,11 @@ $result_trees{'chapter_between_nodes_with_appendix'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Additional'
                   },
                   'type' => 'menu_entry_node'
@@ -293,7 +295,7 @@ $result_trees{'chapter_between_nodes_with_appendix'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'chapter_between_nodes_with_appendix'} = '@node Top
 @top top section

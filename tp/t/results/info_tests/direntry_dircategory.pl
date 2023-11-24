@@ -163,9 +163,11 @@ $result_trees{'direntry_dircategory'} = {
                         }
                       ],
                       'extra' => {
-                        'manual_content' => [
-                          {}
-                        ]
+                        'manual_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
                       },
                       'type' => 'menu_entry_node'
                     },
@@ -320,10 +322,12 @@ $result_trees{'direntry_dircategory'} = {
                         }
                       ],
                       'extra' => {
-                        'node_content' => [
-                          {},
-                          {}
-                        ],
+                        'node_content' => {
+                          'contents' => [
+                            {},
+                            {}
+                          ]
+                        },
                         'normalized' => 'aaa'
                       },
                       'type' => 'menu_entry_node'
@@ -572,9 +576,11 @@ $result_trees{'direntry_dircategory'} = {
                     }
                   ],
                   'extra' => {
-                    'manual_content' => [
-                      {}
-                    ]
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -675,9 +681,11 @@ $result_trees{'direntry_dircategory'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'chapter'
                   },
                   'type' => 'menu_entry_node'
@@ -864,11 +872,11 @@ $result_trees{'direntry_dircategory'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[1] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'direntry_dircategory'} = '\\input texinfo @c -*-texinfo-*-
 

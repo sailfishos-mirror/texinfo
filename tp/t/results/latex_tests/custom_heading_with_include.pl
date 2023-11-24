@@ -539,9 +539,11 @@ $result_trees{'custom_heading_with_include'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Section'
                   },
                   'type' => 'menu_entry_node'
@@ -715,9 +717,11 @@ $result_trees{'custom_heading_with_include'} = {
                     }
                   ],
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
                     'normalized' => 'Subsection'
                   },
                   'type' => 'menu_entry_node'
@@ -2184,8 +2188,8 @@ $result_trees{'custom_heading_with_include'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'custom_heading_with_include'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'custom_heading_with_include'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'custom_heading_with_include'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'custom_heading_with_include'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'custom_heading_with_include'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'custom_heading_with_include'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'custom_heading_with_include'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'custom_heading_with_include'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'custom_heading_with_include'} = '@setchapternewpage odd
 @everyheading @thispage @| @thisfile @| @thischapter
