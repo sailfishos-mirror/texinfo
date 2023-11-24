@@ -40,6 +40,7 @@ ELEMENT *lookup_extra_contents (ELEMENT *e, char *key, int create);
 ELEMENT *lookup_extra_directions (ELEMENT *e, char *key, int create);
 int lookup_extra_integer (const ELEMENT *e, char *key, int *ret);
 char *lookup_extra_string (const ELEMENT *e, char *key);
+char *lookup_info_string (const ELEMENT *e, char *key);
 
 KEY_PAIR *lookup_associated_info (const ASSOCIATED_INFO *a, char *key);
 

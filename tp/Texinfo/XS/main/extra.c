@@ -273,6 +273,16 @@ lookup_info (const ELEMENT *e, char *key)
   return lookup_associated_info (&e->info_info, key);
 }
 
+char *
+lookup_info_string (const ELEMENT *e, char *key)
+{
+  const KEY_PAIR *k;
+  k = lookup_associated_info (&e->info_info, key);
+  if (!k || !k->string)
+    return 0;
+  return k->string;
+}
+
 /* only called in tree copy to optimize for speed */
 KEY_PAIR *
 lookup_associated_info_by_index (const ASSOCIATED_INFO *a, char *key, int index)

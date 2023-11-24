@@ -70,10 +70,8 @@ element_command_name (const ELEMENT *e)
     return builtin_command_data[e->cmd].cmdname;
   else
     {
-      KEY_PAIR *k_cmdname;
-      k_cmdname = lookup_info (e, "command_name");
-      if (k_cmdname && k_cmdname->string)
-        return k_cmdname->string;
+      char *cmdname = lookup_info_string (e, "command_name");
+      return cmdname;
     }
 
   return 0;

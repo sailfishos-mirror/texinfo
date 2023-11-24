@@ -331,7 +331,7 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               { /* A simple integer.  The intptr_t cast here prevents
                    a warning on MinGW ("cast from pointer to integer of
                    different size"). */
-              IV value = (IV) k->integer;
+              IV value = (IV) (intptr_t) k->integer;
               STORE(newSViv (value));
               break;
               }
@@ -350,7 +350,7 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                   k_integer = lookup_extra (f->contents.list[j], "integer");
                   if (k_integer)
                     {
-                      IV value = (IV) k_integer->integer;
+                      IV value = (IV) (intptr_t) k_integer->integer;
                       av_store (av, j, newSViv (value));
                     }
                   else if (f->contents.list[j]->text.end > 0)
