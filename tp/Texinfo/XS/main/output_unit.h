@@ -6,6 +6,8 @@
 
 #include "tree_types.h"
 
+extern char *relative_unit_direction_name[];
+
 OUTPUT_UNIT_LIST *retrieve_output_units (int output_units_descriptor);
 size_t new_output_units_descriptor (void);
 

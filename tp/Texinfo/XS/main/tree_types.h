@@ -109,9 +109,6 @@ enum relative_unit_direction_type {
   #undef rud_type
 };
 
-/* in main/output_unit.c */
-extern char *relative_unit_direction_name[];
-
 typedef struct ELEMENT_LIST {
     struct ELEMENT **list;
     size_t number;
