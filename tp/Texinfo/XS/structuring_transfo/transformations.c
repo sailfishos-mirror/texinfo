@@ -51,10 +51,11 @@ INDEX_ENTRY_AND_INDEX *
 lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
 {
   INDEX_ENTRY_AND_INDEX *result = 0;
-  KEY_PAIR *k_integer
-              = lookup_extra (index_entry_info->contents.list[1], "integer");
+  int status;
+  int entry_number
+    = lookup_extra_integer (index_entry_info->contents.list[1], "integer",
+                            &status);
   char *entry_index_name = index_entry_info->contents.list[0]->text.text;
-  int entry_number = (intptr_t) k_integer->value;
   INDEX *index_info;
 
   index_info = indices_info_index_by_name (indices_information,
@@ -250,11 +251,12 @@ modify_tree (ELEMENT *tree,
 void
 correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
 {
-  KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");
-  if (k_level_modifier)
+  int status;
+  int section_modifier = lookup_extra_integer (section, "level_modifier",
+                                               &status);
+  if (status >= 0)
     {
       int level_to_remove;
-      int section_modifier = (intptr_t) k_level_modifier->value;
       enum command_id cmd;
       int remaining_level;
 
@@ -1020,10 +1022,9 @@ complete_node_menu (ELEMENT *node, int use_sections)
       for (i = 0; i < node_childs->number; i++)
         {
           ELEMENT *node_entry = node_childs->list[i];
-          KEY_PAIR *k_normalized = lookup_extra (node_entry, "normalized");
-          if (k_normalized && k_normalized->value)
+          char *normalized = lookup_extra_string (node_entry, "normalized");
+          if (normalized)
             {
-              char *normalized = (char *)k_normalized->value;
               int j;
               ELEMENT *entry = 0;
 

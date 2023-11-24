@@ -1,5 +1,20 @@
 2023-11-24  Patrice Dumas  <pertusus@free.fr>
 
+	Use an union for KEY_PAIR value.
+
+	* tp/Texinfo/XS/main/tree_types.h (KEY_PAIR),
+	tp/Texinfo/XS/main/build_perl_info.c (store_additional_info),
+	tp/Texinfo/XS/main/debug.c (print_associate_info_debug),
+	tp/Texinfo/XS/main/extra.c (get_associated_info_key, add_*, lookup_*),
+	tp/Texinfo/XS/main/manipulate_tree.c (copy_associated_info)
+	(associate_info_references), tp/Texinfo/XS/main/tree.c
+	(destroy_associated_info): use a union for the KEY_PAIR value instead
+	of casting.  Replace add_associated_info_key by
+	get_associated_info_key which does not set the value.
+	Update other codes to use the union instead of value.
+
+2023-11-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (parse_node_manual), tp/Texinfo/Convert/HTML.pm
 	(command_tree, _convert_xref_commands, _convert_menu_entry_type)
 	(_normalized_label_id_file, _external_node_href),

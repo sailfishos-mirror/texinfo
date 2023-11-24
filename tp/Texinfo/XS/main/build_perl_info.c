@@ -255,15 +255,16 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
 
       for (i = 0; i < a->info_number; i++)
         {
+          KEY_PAIR *k = &a->info[i];
 #define STORE(sv) hv_store (extra, key, strlen (key), sv, 0)
-          char *key = a->info[i].key;
-          ELEMENT *f = (ELEMENT *) a->info[i].value;
+          char *key = k->key;
+          ELEMENT *f = k->element;
 
-          if (a->info[i].type == extra_deleted)
+          if (k->type == extra_deleted)
             continue;
           nr_info++;
 
-          switch (a->info[i].type)
+          switch (k->type)
             {
             case extra_element:
               /* For references to other parts of the tree, create the hash so
@@ -322,7 +323,7 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               }
             case extra_string:
               { /* A simple string. */
-              char *value = (char *) f;
+              char *value = k->string;
               STORE(newSVpv_utf8 (value, 0));
               break;
               }
@@ -330,7 +331,7 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               { /* A simple integer.  The intptr_t cast here prevents
                    a warning on MinGW ("cast from pointer to integer of
                    different size"). */
-              IV value = (IV) (intptr_t) f;
+              IV value = (IV) k->integer;
               STORE(newSViv (value));
               break;
               }
@@ -349,7 +350,7 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                   k_integer = lookup_extra (f->contents.list[j], "integer");
                   if (k_integer)
                     {
-                      IV value = (IV) (intptr_t) k_integer->value;
+                      IV value = (IV) k_integer->integer;
                       av_store (av, j, newSViv (value));
                     }
                   else if (f->contents.list[j]->text.end > 0)

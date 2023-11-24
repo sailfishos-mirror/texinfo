@@ -67,7 +67,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       if (spc_before_arg)
         ADD((char *)spc_before_arg->text.text);
 
-      s = (char *)arg_line->value;
+      s = arg_line->string;
       if (s)
         {
           ADD(s);
@@ -86,7 +86,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       if (cmd == CM_verb)
         {
           KEY_PAIR *k_delimiter = lookup_info (e, "delimiter");
-          ADD((char *)k_delimiter->value);
+          ADD(k_delimiter->string);
         }
 
       if (spc_before_arg)
@@ -121,7 +121,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       if (cmd == CM_verb)
         {
           KEY_PAIR *k_delimiter = lookup_info (e, "delimiter");
-          ADD((char *)k_delimiter->value);
+          ADD(k_delimiter->string);
         }
 
       if (braces)
@@ -263,10 +263,9 @@ check_node_same_texinfo_code (const ELEMENT *reference_node,
   char *reference_node_texi;
   char *node_texi;
   int equal_texi;
-  const KEY_PAIR *k_normalized
-    = lookup_extra (reference_node, "normalized");
+  const char *normalized = lookup_extra_string (reference_node, "normalized");
 
-  if (k_normalized && k_normalized->value)
+  if (normalized)
     {
       char *tmp_texi;
       const ELEMENT *label_element = get_label_element (reference_node);

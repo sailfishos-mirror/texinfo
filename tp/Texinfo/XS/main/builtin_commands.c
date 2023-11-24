@@ -72,8 +72,8 @@ element_command_name (const ELEMENT *e)
     {
       KEY_PAIR *k_cmdname;
       k_cmdname = lookup_info (e, "command_name");
-      if (k_cmdname && k_cmdname->value)
-        return (char *)k_cmdname->value;
+      if (k_cmdname && k_cmdname->string)
+        return k_cmdname->string;
     }
 
   return 0;

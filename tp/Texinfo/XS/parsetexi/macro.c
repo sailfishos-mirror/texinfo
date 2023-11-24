@@ -638,7 +638,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                    = lookup_extra (argument_content, "toplevel_braces_nr");
       if (k_toplevel_braces_nr)
         {
-          if ((intptr_t) k_toplevel_braces_nr->value == 1)
+          if (k_toplevel_braces_nr->integer == 1)
             {
               int text_len = strlen(argument_content->text.text);
               if (argument_content->text.text[0] == '{'

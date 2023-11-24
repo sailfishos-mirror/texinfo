@@ -1126,7 +1126,7 @@ section_level (const ELEMENT *section)
   KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");
   if (k_level_modifier && level >= 0)
     {
-      int section_modifier = (intptr_t) k_level_modifier->value;
+      int section_modifier = (int) k_level_modifier->integer;
       level -= section_modifier;
       if (level < min_level)
         if (command_structuring_level[section->cmd] < min_level)

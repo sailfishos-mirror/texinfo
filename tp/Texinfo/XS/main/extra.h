@@ -45,7 +45,7 @@ KEY_PAIR *lookup_associated_info (const ASSOCIATED_INFO *a, char *key);
 
 /* not to be used in general, only when using associated info
    as a temporary holder of information, for speed */
-void add_associated_info_key (ASSOCIATED_INFO *a, char *key, intptr_t value,
-                              enum extra_type type);
+KEY_PAIR *get_associated_info_key (ASSOCIATED_INFO *a, char *key,
+                                   enum extra_type type);
 KEY_PAIR *lookup_extra_by_index (const ELEMENT *e, char *key, int index);
 #endif

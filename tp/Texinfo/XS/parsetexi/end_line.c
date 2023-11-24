@@ -640,7 +640,7 @@ end_line_def_line (ELEMENT *current)
 {
   enum command_id def_command;
   DEF_ARG **def_info = 0;
-  KEY_PAIR *k_pair;
+  char *def_cmdname;
   ELEMENT *index_entry = 0; /* Index entry text. */
   ELEMENT *def_info_name = 0;
   ELEMENT *def_info_class = 0;
@@ -651,8 +651,8 @@ end_line_def_line (ELEMENT *current)
   if (top_context != ct_def)
     fatal ("def context expected");
 
-  k_pair = lookup_extra (current->parent, "def_command");
-  def_command = lookup_command ((char *) k_pair->value);
+  def_cmdname = lookup_extra_string (current->parent, "def_command");
+  def_command = lookup_command (def_cmdname);
 
   debug_nonl ("END DEF LINE %s; current ",
                command_name(def_command));
@@ -724,14 +724,14 @@ end_line_def_line (ELEMENT *current)
         }
       else
         {
-          k_pair = lookup_extra (current, "original_def_cmdname");
-          command_warn (current, "missing name for @%s", (char *) k_pair->value);
+          def_cmdname = lookup_extra_string (current, "original_def_cmdname");
+          command_warn (current, "missing name for @%s", def_cmdname);
         }
     }
   else
     {
-      k_pair = lookup_extra (current, "original_def_cmdname");
-      command_warn (current, "missing category for @%s", (char *) k_pair->value);
+      def_cmdname = lookup_extra_string (current, "original_def_cmdname");
+      command_warn (current, "missing category for @%s", def_cmdname);
     }
 
 
@@ -772,7 +772,7 @@ end_line_starting_block (ELEMENT *current)
   if (command == CM_multitable
       && (k = lookup_extra (current->parent, "columnfractions")))
     {
-      ELEMENT *misc_cmd = (ELEMENT *) k->value;
+      ELEMENT *misc_cmd = k->element;
       ELEMENT *misc_args;
 
       if ((misc_args = lookup_extra_element (misc_cmd, "misc_args")))
@@ -908,7 +908,7 @@ end_line_starting_block (ELEMENT *current)
             }
           else
             {
-              ELEMENT *e = (ELEMENT *) k_command_as_argument->value;
+              ELEMENT *e = k_command_as_argument->element;
               if (!(command_flags(e) & CF_brace)
                   || (command_data(e->cmd).data == BRACE_noarg))
                 {
@@ -937,7 +937,7 @@ end_line_starting_block (ELEMENT *current)
               for (i = 0; i < e->contents.number; i++)
                 {
                   if (contents_child_by_index (e, i)
-                             == (ELEMENT *) k_command_as_argument->value)
+                             == k_command_as_argument->element)
                     {
                       i++;
                       break;
@@ -952,7 +952,7 @@ end_line_starting_block (ELEMENT *current)
                            && !*(f->text.text
                                  + strspn (f->text.text, whitespace_chars))))
                     {
-                      ((ELEMENT *) k_command_as_argument->value)->type = ET_NONE;
+                      k_command_as_argument->element->type = ET_NONE;
                       k_command_as_argument->key = "";
                       k_command_as_argument->type = extra_deleted;
                       break;
@@ -963,9 +963,9 @@ end_line_starting_block (ELEMENT *current)
 
       /* Check if command_as_argument isn't an accent command */
       k = lookup_extra (current, "command_as_argument");
-      if (k && k->value)
+      if (k && k->element)
         {
-          enum command_id as_argument_cmd = ((ELEMENT *) k->value)->cmd;
+          enum command_id as_argument_cmd = k->element->cmd;
           if (as_argument_cmd
               && (command_data(as_argument_cmd).flags & CF_accent))
             {
@@ -974,7 +974,7 @@ end_line_starting_block (ELEMENT *current)
                             command_name(as_argument_cmd),
                             command_name(command));
               k->key = "";
-              k->value = 0;
+              k->element = 0;
               k->type = extra_deleted;
             }
         }

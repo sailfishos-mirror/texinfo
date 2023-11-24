@@ -397,18 +397,18 @@ complete_indices (int document_descriptor)
             {
               INDEX_ENTRY *entry;
               ELEMENT *main_entry_element;
-              KEY_PAIR *k_def_command;
-              KEY_PAIR *k_idx_element;
+              ELEMENT *idx_element;
+              char *def_cmdname;
 
               entry = &idx->index_entries[j];
               main_entry_element = entry->entry_element;
 
-              k_def_command = lookup_extra (main_entry_element, "def_command");
+              def_cmdname = lookup_extra_string (main_entry_element,
+                                                 "def_command");
 
-              k_idx_element = lookup_extra (main_entry_element,
-                                            "def_index_element");
-              if (k_def_command && k_def_command->value
-                  && !(k_idx_element && k_idx_element->value))
+              idx_element = lookup_extra_element (main_entry_element,
+                                                  "def_index_element");
+              if (def_cmdname && !idx_element)
                 {
                   ELEMENT *name = 0;
                   ELEMENT *class = 0;
@@ -419,8 +419,7 @@ complete_indices (int document_descriptor)
                       for (ic = 0; ic < def_l_e->contents.number; ic++)
                         {
                           ELEMENT *arg = def_l_e->contents.list[ic];
-                          KEY_PAIR *k_role = lookup_extra (arg, "def_role");
-                          char *role = (char *) k_role->value;
+                          char *role = lookup_extra_string (arg, "def_role");
                           if (!strcmp (role, "name"))
                             name = arg;
                           else if (!strcmp (role, "class"))
@@ -438,14 +437,13 @@ complete_indices (int document_descriptor)
                    */
                   if (name && class)
                     {
-                      char *lang = 0;
+                      char *lang = lookup_extra_string (main_entry_element,
+                                                       "documentlanguage");
                       ELEMENT *index_entry;
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);
                       ELEMENT *text_element = new_element (ET_NONE);
                       enum command_id def_command
-                        = lookup_command ((char *) k_def_command->value);
-                      KEY_PAIR *k_lang = lookup_extra (main_entry_element,
-                                                       "documentlanguage");
+                        = lookup_command (def_cmdname);
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                       ELEMENT *name_copy = copy_tree (name);
@@ -457,10 +455,6 @@ complete_indices (int document_descriptor)
                                                            "name", name_copy);
                       add_element_to_named_string_element_list (substrings,
                                                            "class", class_copy);
-                      if (k_lang && k_lang->value)
-                        {
-                          lang = (char *) k_lang->value;
-                        }
                       if (def_command == CM_defop
                           || def_command == CM_deftypeop
                           || def_command == CM_defmethod

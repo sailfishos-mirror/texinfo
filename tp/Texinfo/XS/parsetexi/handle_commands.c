@@ -421,7 +421,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
 
               k_max_columns = lookup_extra (parent, "max_columns");
               if (k_max_columns)
-                max_columns = (long) k_max_columns->value;
+                max_columns = k_max_columns->integer;
 
               if (max_columns == 0)
                 {
@@ -798,9 +798,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
               if (parent->cmd == CM_subentry)
                 {
-                  KEY_PAIR *k_parent_level = lookup_extra (parent, "level");
-                  if (k_parent_level && k_parent_level->value)
-                    level = (long) k_parent_level->value + 1;
+                  int status;
+                  int parent_level
+                        = lookup_extra_integer (parent, "level", &status);
+                  if (status >= 0 && parent_level)
+                    level = parent_level + 1;
                   else
                     fatal ("No subentry parent level or level 0");
                 }

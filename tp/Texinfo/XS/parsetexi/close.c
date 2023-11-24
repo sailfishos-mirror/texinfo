@@ -68,7 +68,7 @@ close_brace_command (ELEMENT *current,
   if (current->cmd != CM_verb)
     goto yes;
   k_delimiter = lookup_info (current, "delimiter");
-  if (!k_delimiter || !*(char *)k_delimiter->value)
+  if (!k_delimiter || !*k_delimiter->string)
     goto yes;
   if (0)
     {
@@ -93,7 +93,7 @@ close_brace_command (ELEMENT *current,
       command_error (current,
                       "@%s missing closing delimiter sequence: %s}",
                       command_name(current->cmd),
-                      (char *)k_delimiter->value);
+                      k_delimiter->string);
     }
   current = current->parent;
   return current;

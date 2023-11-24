@@ -136,8 +136,8 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
 
   for (i = 0; i < info->info_number; i++)
     {
-      char *key = info->info[i].key;
-      const ELEMENT *f = (ELEMENT *) info->info[i].value;
+      KEY_PAIR *k = &info->info[i];
+      char *key = k->key;
       text_printf (&text, "  %s|", key);
       switch (info->info[i].type)
         {
@@ -145,30 +145,31 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
           text_printf (&text, "deleted");
           break;
         case extra_integer:
-          text_printf (&text, "integer: %d", (intptr_t)f);
+          text_printf (&text, "integer: %d", (int)k->integer);
           break;
         case extra_string:
-          text_printf (&text, "string: %s", (char *) f);
+          text_printf (&text, "string: %s", k->string);
           break;
         case extra_element:
         case extra_element_oot:
           {
-            char *element_str = print_element_debug (f, 0);
-            if (info->info[i].type == extra_element_oot)
+            char *element_str = print_element_debug (k->element, 0);
+            if (k->type == extra_element_oot)
               text_append (&text, "oot ");
-            text_printf (&text, "element %p: %s", f, element_str);
+            text_printf (&text, "element %p: %s", k->element, element_str);
             free (element_str);
             break;
           }
         case extra_misc_args:
           {
             int j;
+            ELEMENT *f = k->element;
             text_append (&text, "array: ");
             for (j = 0; j < f->contents.number; j++)
               {
                 KEY_PAIR *k_integer = lookup_extra (f->contents.list[j], "integer");
                 if (k_integer)
-                  text_printf (&text, "%d|", (intptr_t) k_integer->value);
+                  text_printf (&text, "%d|", (int)k_integer->integer);
                 else
                   text_printf (&text, "%s|", f->contents.list[j]->text.text);
               }
@@ -178,6 +179,7 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_container:
           {
             int j;
+            ELEMENT *f = k->element;
             text_append (&text, "contents: ");
             for (j = 0; j < f->contents.number; j++)
               {

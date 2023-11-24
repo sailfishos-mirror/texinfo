@@ -212,12 +212,10 @@ char *
 add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
                                    int *status)
 {
-  KEY_PAIR *k_normalized = lookup_extra (element, "normalized");
-  char *normalized = 0;
+  char *normalized = lookup_extra_string (element, "normalized");
   *status = 2;
-  if (k_normalized && k_normalized->value)
+  if (normalized)
     {
-      normalized = (char *)k_normalized->value;
       LABEL_LIST *identifiers_target = document->identifiers_target;
       ELEMENT *target = find_identifier_target (identifiers_target,
                                                 normalized);

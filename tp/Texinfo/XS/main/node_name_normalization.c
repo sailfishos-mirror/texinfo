@@ -85,10 +85,9 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
       else if (e->cmd == CM_click)
         {
           enum command_id cmd;
-          KEY_PAIR *k_clickstyle = lookup_extra (e, "clickstyle");
-          if (k_clickstyle && k_clickstyle->value)
+          char *command_name = lookup_extra_string (e, "clickstyle");
+          if (command_name)
             {
-              char *command_name = (char *) k_clickstyle->value;
               cmd = lookup_builtin_command (command_name);
               if (command_normalization_text[cmd])
                 ADD(command_normalization_text[cmd]);

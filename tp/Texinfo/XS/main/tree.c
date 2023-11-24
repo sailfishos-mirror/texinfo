@@ -142,19 +142,19 @@ destroy_associated_info (ASSOCIATED_INFO *a)
       switch (a->info[i].type)
         {
         case extra_string:
-          free ((char *) a->info[i].value);
+          free (a->info[i].string);
           break;
         case extra_element_oot:
-          destroy_element_and_children ((ELEMENT *) a->info[i].value);
+          destroy_element_and_children (a->info[i].element);
           break;
         case extra_contents:
         case extra_container:
         case extra_directions:
-          if (a->info[i].value)
-            destroy_element ((ELEMENT *) a->info[i].value);
+          if (a->info[i].element)
+            destroy_element (a->info[i].element);
           break;
         case extra_misc_args:
-          destroy_element_and_children ((ELEMENT *) a->info[i].value);
+          destroy_element_and_children (a->info[i].element);
           break;
 
         default:

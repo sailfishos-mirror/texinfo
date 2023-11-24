@@ -116,7 +116,11 @@ extern char *relative_unit_direction_name[];
 typedef struct KEY_PAIR {
     char *key;
     enum extra_type type;
-    intptr_t value;
+    union {
+      struct ELEMENT *element;
+      char *string;
+      long integer;
+    };
 } KEY_PAIR;
 
 typedef struct ELEMENT_LIST {
