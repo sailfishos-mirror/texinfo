@@ -1,5 +1,11 @@
 2023-11-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_process_text):
+	Inline into the only call site for efficiency, as this is
+	a very frequently called function.
+
+2023-11-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (find_locales_dir):
 	Remove unused function (it is also incorrect according to
 	the comments).

@@ -664,8 +664,6 @@ sub _process_text_internal {
   return $text;
 }
 
-# Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their output,
-# possibly coverting to upper case as well.
 sub _process_text($$$)
 {
   my ($self, $command, $context) = @_;
@@ -1815,7 +1813,21 @@ sub _convert($$)
           $result = _count_added($self, $formatter->{'container'},
                       add_next($formatter->{'container'}, $element->{'text'}));
         } else {
-          my $text = _process_text($self, $element, $formatter);
+          # Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
+          # output, possibly coverting to upper case as well.
+          my $text = $element->{'text'};
+
+          if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
+            $text = _protect_sentence_ends($text);
+            $text = uc($text);
+          }
+          if (!$self->{'ascii_dashes_and_quotes'} and $self->{'to_utf8'}) {
+            $text = Texinfo::Convert::Unicode::unicode_text($text,
+                        $formatter->{'font_type_stack'}->[-1]->{'monospace'});
+          } elsif (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+            $text = _process_text_internal($text);
+          }
+
           # inlined below for efficiency
           #$result = _count_added($self, $formatter->{'container'},
           #                       add_text ($formatter->{'container'}, $text));
