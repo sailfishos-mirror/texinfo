@@ -247,6 +247,11 @@ $two_footnotes_in_nodes_text,
 '@footnotestyle separate
 '.$two_footnotes_in_nodes_text,
 , {'test_formats' => ['html', 'info'], 'full_document' => 1} ],
+['two_footnotes_in_nodes_separate_no_header',
+'@footnotestyle separate
+'.$two_footnotes_in_nodes_text,
+, {'test_formats' => ['html', 'info'], 'full_document' => 1},
+  {'HEADERS' => 0} ],
 # could be in @test_invalid too, but also allows to test what happens
 # to formatting with empty first email first argument
 ['empty_line_in_email',
