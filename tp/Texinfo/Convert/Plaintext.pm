@@ -664,26 +664,6 @@ sub _process_text_internal {
   return $text;
 }
 
-sub _process_text($$$)
-{
-  my ($self, $command, $context) = @_;
-
-  my $text = $command->{'text'};
-
-  if ($context->{'upper_case_stack'}->[-1]->{'upper_case'}) {
-    $text = _protect_sentence_ends($text);
-    $text = uc($text);
-  }
-
-  if (!$self->{'ascii_dashes_and_quotes'} and $self->{'to_utf8'}) {
-    return Texinfo::Convert::Unicode::unicode_text($text,
-                        $context->{'font_type_stack'}->[-1]->{'monospace'});
-  } elsif (!$context->{'font_type_stack'}->[-1]->{'monospace'}) {
-    return _process_text_internal($text);
-  }
-  return $text;
-}
-
 sub new_formatter($$;$)
 {
   my ($self, $type, $conf) = @_;
