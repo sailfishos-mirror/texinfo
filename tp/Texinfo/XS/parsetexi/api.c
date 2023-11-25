@@ -15,8 +15,6 @@
 
 #include <config.h>
 
-#include <libintl.h>
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <dirent.h>
@@ -51,41 +49,6 @@
 /* for reset_conf */
 #include "conf.h"
 #include "api.h"
-
-#ifdef ENABLE_NLS
-
-/* Use the uninstalled locales dir for translated strings.  Currently unused.
-   Note that if this code is used to find LocaleData, it should better be
-   for the texinfo_document domain and not for the texinfo/PACKAGE text domain..
-   Note that the LocaleData directory is passed to XS code and and used for
-   bindtextdomain in the main/translations.c configure function.
-   This code may still be relevant for some future C only code */
-static void
-find_locales_dir (char *builddir)
-{
-  DIR *dir;
-  char *s;
-
-  s = malloc (strlen (builddir) + strlen ("/LocaleData") + 1);
-  sprintf (s, "%s/LocaleData", builddir);
-  dir = opendir (s);
-  if (!dir)
-    {
-      free (s);
-      fprintf (stderr, "Locales dir for document strings not found: %s\n",
-               strerror (errno));
-    }
-  else
-    { /* FIXME LocaleData does not contain the texinfo/PACKAGE text domain
-         translations, but the texinfo_document domain */
-      bindtextdomain (PACKAGE, s);
-      free (s);
-      closedir (dir);
-    }
-}
-
-#endif
-
 
 /* When reset_parser_except_conf is called in parse_*, store_document will
    be called afterwards.
