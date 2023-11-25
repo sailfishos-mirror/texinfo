@@ -339,10 +339,10 @@ translate_string (OPTIONS *options, const char * string,
 }
 
 char *
-replace_substrings (char *string,
-                    NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+replace_substrings (const char *string,
+                    const NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
-  char *p = string;
+  const char *p = string;
   TEXT substituted;
 
   if (!replaced_substrings)
@@ -529,7 +529,6 @@ replace_convert_substrings (char *translated_string,
       free (texinfo_line);
     }
 
-
 /*
   {
     char *result_texi = convert_to_texinfo (document->tree);
@@ -648,7 +647,7 @@ reallocate_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel)
    string in general */
 void
 add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
-                                         char *name, char *string)
+                                         const char *name, char *string)
 {
   NAMED_STRING_ELEMENT *new_string;
 
@@ -664,7 +663,8 @@ add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
    string in general */
 void
 add_element_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
-                                          char *name, ELEMENT *element)
+                                          const char *name,
+                                          ELEMENT *element)
 {
   NAMED_STRING_ELEMENT *new_element;
 

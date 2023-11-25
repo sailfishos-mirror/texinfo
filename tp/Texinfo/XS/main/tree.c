@@ -398,12 +398,13 @@ remove_from_element_list (ELEMENT_LIST *list, int where)
   if (where < 0)
     where = list->number + where;
 
-  if (where < 0 || where > list->number)
+  if (where < 0 || where > list->number -1)
     fatal ("element list index out of bounds");
 
   removed = list->list[where];
-  memmove (&list->list[where], &list->list[where + 1],
-           (list->number - (where+1)) * sizeof (ELEMENT *));
+  if (where < list->number - 1)
+    memmove (&list->list[where], &list->list[where + 1],
+             (list->number - (where+1)) * sizeof (ELEMENT *));
   list->number--;
   return removed;
 }
@@ -439,6 +440,20 @@ remove_element_from_list (ELEMENT_LIST *list, ELEMENT *e)
     return remove_from_element_list (list, index);
 
   return 0;
+}
+
+void
+add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e)
+{
+  int i;
+  for (i = 0; i < list->number; i++)
+    {
+      if (list->list[i] == e)
+        {
+          return;
+        }
+    }
+  add_to_element_list (list, e);
 }
 
 /* Remove elements from START inclusive to END exclusive.  Do not

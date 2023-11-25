@@ -29,6 +29,8 @@
 #include "builtin_commands.h"
 #include "node_name_normalization.h"
 #include "convert_utils.h"
+#include "translations.h"
+#include "manipulate_tree.h"
 #include "converter.h"
 
 static CONVERTER **converter_list;
@@ -644,4 +646,48 @@ xml_protect_text (const char *text, TEXT *result)
          p++;
         }
     }
+}
+
+ELEMENT *
+float_type_number (CONVERTER *self, ELEMENT *float_e)
+{
+  int have_float_number;
+  ELEMENT *tree = 0;
+  ELEMENT *type_element = 0;
+  NAMED_STRING_ELEMENT_LIST *replaced_substrings
+     = new_named_string_element_list ();
+  char *float_type = lookup_extra_string (float_e, "float_type");
+  int float_number
+     = lookup_extra_integer (float_e, "float_number", &have_float_number);
+
+  if (float_type && strlen (float_type))
+    type_element = float_e->args.list[0];
+
+  if (have_float_number)
+    {
+      ELEMENT *e_number = new_element (ET_NONE);
+      text_printf (&e_number->text, "%d", float_number);
+      add_element_to_named_string_element_list (replaced_substrings,
+                                     "float_number", e_number);
+    }
+
+  if (type_element)
+    {
+      ELEMENT *type_element_copy = copy_tree (type_element);
+      add_element_to_named_string_element_list (replaced_substrings,
+                                     "float_type", type_element_copy);
+      if (have_float_number)
+        tree = gdt_tree ("{float_type} {float_number}", self->document,
+                         self->conf, replaced_substrings, 0, 0);
+      else
+        tree = gdt_tree ("{float_type}", self->document, self->conf,
+                         replaced_substrings, 0, 0);
+    }
+  else if (have_float_number)
+    tree = gdt_tree ("{float_number}", self->document, self->conf,
+                     replaced_substrings, 0, 0);
+
+  destroy_named_string_element_list (replaced_substrings);
+
+  return tree;
 }

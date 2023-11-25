@@ -366,7 +366,7 @@ html_converter_initialize_sv (SV *converter_sv,
     {
       int i;
       enum special_unit_info_type j;
-      SV **special_unit_info_sv;
+      SV **simplified_special_unit_info_sv;
       HV *special_unit_info_hv;
       SV **special_unit_body_sv;
       HV *special_unit_body_hv;
@@ -377,9 +377,9 @@ html_converter_initialize_sv (SV *converter_sv,
         add_svav_to_string_list (*sorted_special_unit_varieties_sv,
                                  special_unit_varieties, svt_char);
 
-      FETCH(special_unit_info);
+      FETCH(simplified_special_unit_info);
 
-      special_unit_info_hv = (HV *) SvRV(*special_unit_info_sv);
+      special_unit_info_hv = (HV *) SvRV(*simplified_special_unit_info_sv);
 
       for (j = 0; j < SUI_type_heading+1; j++)
         {
@@ -425,6 +425,10 @@ html_converter_initialize_sv (SV *converter_sv,
                       else
                         converter->special_unit_info[j][k] = 0;
                     }
+                    /*
+                  else
+                    fprintf (stderr, "Missing %d:%s %d:%s\n", j, sui_type, k, variety_name);
+                     */
                 }
             }
         }

@@ -97,7 +97,7 @@ init (int texinfo_uninstalled, char *builddir)
 }
 
 
-void element_to_perl_hash (ELEMENT *e);
+void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 
 /* Return reference to Perl array built from e.  If any of
    the elements in E don't have 'hv' set, set it to an empty
@@ -108,7 +108,7 @@ void element_to_perl_hash (ELEMENT *e);
    information where build_perl_array is called.
  */
 static SV *
-build_perl_array (ELEMENT_LIST *e)
+build_perl_array (ELEMENT_LIST *e, int avoid_recursion)
 {
   SV *sv;
   AV *av;
@@ -140,7 +140,7 @@ build_perl_array (ELEMENT_LIST *e)
               free (message.text);
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
-              element_to_perl_hash (e->list[i]);
+              element_to_perl_hash (e->list[i], avoid_recursion);
             }
         }
       av_store (av, i, newRV_inc ((SV *) e->list[i]->hv));
@@ -150,7 +150,7 @@ build_perl_array (ELEMENT_LIST *e)
 
 /* contents appears in other parts of the tree */
 void
-build_perl_container (ELEMENT *e)
+build_perl_container (ELEMENT *e, int avoid_recursion)
 {
   SV *sv;
 
@@ -161,13 +161,13 @@ build_perl_container (ELEMENT *e)
   else
     hv_clear (e->hv);
 
-  sv = build_perl_array (&e->contents);
+  sv = build_perl_array (&e->contents, avoid_recursion);
 
   hv_store (e->hv, "contents", strlen ("contents"), sv, 0);
 }
 
 static SV *
-build_perl_directions (ELEMENT_LIST *e)
+build_perl_directions (ELEMENT_LIST *e, int avoid_recursion)
 {
   SV *sv;
   HV *hv;
@@ -201,7 +201,7 @@ build_perl_directions (ELEMENT_LIST *e)
                   free (message.text);
                   /* Out-of-tree element */
                   /* WARNING: This is possibly recursive. */
-                  element_to_perl_hash (e->list[d]);
+                  element_to_perl_hash (e->list[d], avoid_recursion);
                 }
             }
           hv_store (hv, key, strlen (key),
@@ -238,7 +238,8 @@ newSVpv_byte (const char *str, STRLEN len)
 }
 
 static void
-store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
+store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key,
+                       int avoid_recursion)
 {
   dTHX;
 
@@ -302,24 +303,25 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                   fprintf (stderr, message.text);
                 }
                    */
-              element_to_perl_hash (f);
+              if (!f->hv || !avoid_recursion)
+                element_to_perl_hash (f, avoid_recursion);
               STORE(newRV_inc ((SV *)f->hv));
               break;
             case extra_container:
-              build_perl_container (f);
+              build_perl_container (f, avoid_recursion);
               STORE(newRV_inc ((SV *)f->hv));
               break;
             case extra_contents:
               {
               ELEMENT_LIST *l = k->list;
               if (l && l->number)
-                STORE(build_perl_array (l));
+                STORE(build_perl_array (l, avoid_recursion));
               break;
               }
             case extra_directions:
               {
               if (f)
-                STORE(build_perl_directions (&f->contents));
+                STORE(build_perl_directions (&f->contents, avoid_recursion));
               break;
               }
             case extra_string:
@@ -422,7 +424,7 @@ store_source_mark_list (ELEMENT *e)
               if (e->hv)
                 fatal ("element_to_perl_hash source mark elt twice");
                */
-              element_to_perl_hash (e);
+              element_to_perl_hash (e, 0);
               STORE("element", newRV_inc ((SV *)e->hv));
             }
           if (s_mark->line)
@@ -485,8 +487,10 @@ static U32 HSH_macro = 0;
 
 /* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
    to already exist. */
+/* If AVOID_RECURSION is set, recurse in children elements only if
+   hv is not set */
 void
-element_to_perl_hash (ELEMENT *e)
+element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 {
   SV *sv;
 
@@ -569,12 +573,14 @@ element_to_perl_hash (ELEMENT *e)
       hv_store (e->hv, "contents", strlen ("contents"), sv, HSH_contents);
       for (i = 0; i < e->contents.number; i++)
         {
-          element_to_perl_hash (e->contents.list[i]);
+          ELEMENT *child = e->contents.list[i];
+          if (!child->hv || !avoid_recursion)
+            element_to_perl_hash (child, avoid_recursion);
       /* we do not transfer the hv ref to the perl av because we consider
          that contents.list[i]->hv still own a reference, which should only be
          released when the element is destroyed, by calling
          unregister_perl_tree_element */
-          sv = newRV_inc ((SV *) e->contents.list[i]->hv);
+          sv = newRV_inc ((SV *) child->hv);
           av_store (av, i, sv);
         }
     }
@@ -591,8 +597,10 @@ element_to_perl_hash (ELEMENT *e)
       hv_store (e->hv, "args", strlen ("args"), sv, HSH_args);
       for (i = 0; i < e->args.number; i++)
         {
-          element_to_perl_hash (e->args.list[i]);
-          sv = newRV_inc ((SV *) e->args.list[i]->hv);
+          ELEMENT *child = e->args.list[i];
+          if (!child->hv || !avoid_recursion)
+            element_to_perl_hash (child, avoid_recursion);
+          sv = newRV_inc ((SV *) child->hv);
           av_store (av, i, sv);
         }
     }
@@ -603,8 +611,8 @@ element_to_perl_hash (ELEMENT *e)
       hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
     }
 
-  store_additional_info (e, &e->extra_info, "extra");
-  store_additional_info (e, &e->info_info, "info");
+  store_additional_info (e, &e->extra_info, "extra", avoid_recursion);
+  store_additional_info (e, &e->info_info, "info", avoid_recursion);
 
   store_source_mark_list (e);
 
@@ -640,7 +648,7 @@ element_to_perl_hash (ELEMENT *e)
 }
 
 HV *
-build_texinfo_tree (ELEMENT *root)
+build_texinfo_tree (ELEMENT *root, int avoid_recursion)
 {
   if (! root)
       /* use an empty element with contents if there is nothing.
@@ -652,7 +660,8 @@ build_texinfo_tree (ELEMENT *root)
   /*
   fprintf (stderr, "BTT ------------------------------------------------\n");
    */
-  element_to_perl_hash (root);
+  if (!root->hv || !avoid_recursion)
+    element_to_perl_hash (root, avoid_recursion);
   return root->hv;
 }
 
@@ -1184,7 +1193,7 @@ build_document (size_t document_descriptor, int no_store)
 
   document = retrieve_document (document_descriptor);
 
-  hv_tree = build_texinfo_tree (document->tree);
+  hv_tree = build_texinfo_tree (document->tree, 0);
 
   hv_info = build_global_info (document->global_info,
                                document->global_commands);
@@ -1328,7 +1337,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
               SV *unit_sv;
               unit_sv = newRV_inc ((SV *) output_unit->hv);
               /* a virtual out of tree element, add it to perl */
-              element_to_perl_hash (command);
+              element_to_perl_hash (command, 0);
               hv_store (command->hv, "associated_unit",
                         strlen ("associated_unit"), unit_sv, 0);
             }

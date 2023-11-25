@@ -408,6 +408,13 @@ output_unit_texi (const OUTPUT_UNIT *output_unit)
 
   if (output_unit->unit_type == OU_external_node_unit)
     return convert_contents_to_texinfo (unit_command);
+  else if (output_unit->unit_type == OU_special_unit)
+    {
+      char *result;
+      xasprintf (&result, "_SPECIAL_UNIT: %s",
+                          output_unit->special_unit_variety);
+      return result;
+    }
 
   if (!unit_command)
     {

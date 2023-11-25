@@ -49,7 +49,17 @@ char *call_formatting_function_format_begin_file (CONVERTER *self,
 char *call_formatting_function_format_navigation_header (CONVERTER *self,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
-                                  const ELEMENT *element);
+                                  ELEMENT *element);
+char *call_formatting_function_format_heading_text (CONVERTER *self,
+                                  const char *cmdname,
+                                  const STRING_LIST *classes,
+                                  const char *text,
+                                  int level, const char *id,
+                                  ELEMENT *element, const char *target);
+char *call_formatting_function_format_element_footer (CONVERTER *self,
+                              const enum output_unit_type unit_type,
+                              const OUTPUT_UNIT *output_unit,
+                              const char *content, ELEMENT *command);
 
 void call_types_conversion (CONVERTER *self, const enum element_type type,
                        const FORMATTING_REFERENCE *formatting_reference,

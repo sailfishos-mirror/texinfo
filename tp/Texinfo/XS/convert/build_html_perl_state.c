@@ -517,7 +517,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
               if (no_arg_cmd_context->tree)
                 {
                   if (!no_arg_cmd_context->tree->hv)
-                    element_to_perl_hash (no_arg_cmd_context->tree);
+                    element_to_perl_hash (no_arg_cmd_context->tree, 1);
                   hv_store (context_hv, "tree", strlen ("tree"),
                           newRV_inc ((SV *) no_arg_cmd_context->tree->hv), 0);
                 }
@@ -975,6 +975,33 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         {
           const char *multiple_pass_str = converter->multiple_pass.stack[i];
           av_push (multiple_pass_av, newSVpv_utf8(multiple_pass_str, 0));
+        }
+    }
+
+  if (flags & HMSF_referred_command_stack)
+    {
+      SV **referred_command_stack_sv;
+      AV *referred_command_stack_av;
+
+      FETCH(referred_command_stack);
+
+      if (!referred_command_stack_sv)
+        {
+          referred_command_stack_av = newAV ();
+          STORE("referred_command_stack",
+                newRV_noinc ((SV *) referred_command_stack_av));
+        }
+      else
+        {
+          referred_command_stack_av = (AV *) SvRV (*referred_command_stack_sv);
+          av_clear (referred_command_stack_av);
+        }
+
+      for (i = 0; i < converter->referred_command_stack.number; i++)
+        {
+          ELEMENT *referred_e = converter->referred_command_stack.list[i];
+          av_push (referred_command_stack_av,
+                   newRV_inc ((SV *) referred_e->hv));
         }
     }
 

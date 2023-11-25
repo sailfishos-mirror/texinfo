@@ -17,12 +17,12 @@ int init (int texinfo_uninstalled, char *srcdir_in);
 /* does not exist as perl macro */
 SV *newSVpv_utf8 (const char *str, STRLEN len);
 
-void element_to_perl_hash (ELEMENT *e);
+void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 
 SV *build_document (size_t document_descriptor, int no_store);
 SV *get_document (size_t document_descriptor);
 
-HV *build_texinfo_tree (ELEMENT *root);
+HV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 AV *get_errors (ERROR_MESSAGE* error_list, size_t error_number);
 AV *build_target_elements_list (LABEL *labels_list,
                                 size_t labels_number);

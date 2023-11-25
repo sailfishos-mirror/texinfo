@@ -45,6 +45,7 @@
 #include "document.h"
 /* for OTXI_UNICODE_TEXT_CASES */
 #include "unicode.h"
+#include "manipulate_tree.h"
 #include "convert_html.h"
 
 enum count_elements_in_filename_type {
@@ -584,12 +585,12 @@ count_elements_in_filename (CONVERTER *self,
   else if (type == CEFT_remaining)
     return file_counter->counter;
   else /* if (type == CEFT_current) */
-    return file_counter->elements_in_file_count - file_counter->counter;
+    return file_counter->elements_in_file_count - file_counter->counter +1;
 }
 
 ELEMENT *
-special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
-                        char *special_unit_variety)
+special_unit_info_tree (CONVERTER *self, const enum special_unit_info_tree type,
+                        const char *special_unit_variety)
 {
   /* number is index +1 */
   size_t number = find_string (&self->special_unit_varieties,
@@ -608,6 +609,9 @@ special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
             = translated_special_unit_info[j].string_type;
           char *special_unit_info_string
             = self->special_unit_info[string_type][i];
+          /* if set to undef in user customization. To be forbidden? */
+          if (!special_unit_info_string)
+            return 0;
           char *translation_context;
           xasprintf (&translation_context, "%s section heading",
                      special_unit_variety);
@@ -615,6 +619,8 @@ special_unit_info_tree (CONVERTER *self, enum special_unit_info_tree type,
             = html_pgdt_tree (translation_context, special_unit_info_string,
                               self->document, self, 0, 0);
           free (translation_context);
+          add_to_element_list (&self->tree_to_build,
+                               self->special_unit_info_tree[type][i]);
           return self->special_unit_info_tree[type][i];
         }
     }
@@ -1428,37 +1434,6 @@ set_root_commands_targets_node_files (CONVERTER *self)
     }
 }
 
-static void
-register_added_target (HTML_ADDED_TARGET_LIST *added_targets,
-                       HTML_TARGET *target)
-{
-  if (added_targets->number == added_targets->space)
-    {
-      added_targets->list = realloc (added_targets->list,
-                   sizeof (HTML_TARGET *) * (added_targets->space += 5));
-    }
-  added_targets->list[added_targets->number] = target;
-  added_targets->number++;
-}
-
-static HTML_TARGET *
-get_target (CONVERTER *self, const ELEMENT *element)
-{
-  HTML_TARGET *result
-   = find_element_target (&self->html_targets, element);
-  if (!result && element->cmd
-      && builtin_command_flags(element) & CF_sectioning_heading
-      && !(builtin_command_flags(element) & CF_root)) {
-    new_sectioning_command_target (self, element);
-
-    result = find_element_target (&self->html_targets, element);
-
-    register_added_target (&self->added_targets, result);
-    self->modified_state |= HMSF_added_target;
-  }
-  return result;
-}
-
 /* to be inlined in text parsing codes */
 #define OTXI_PROTECT_XML_FORM_FEED_CASES(var) \
         OTXI_PROTECT_XML_CASES(var) \
@@ -1658,6 +1633,256 @@ html_default_format_protect_text (const char *text, TEXT *result)
   OTXI_CONVERT_TEXT ( , )
 }
 
+static TREE_ADDED_ELEMENTS *
+new_tree_added_elements ()
+{
+  TREE_ADDED_ELEMENTS *new
+    = (TREE_ADDED_ELEMENTS *) malloc (sizeof (TREE_ADDED_ELEMENTS));
+  memset (new, 0, sizeof (TREE_ADDED_ELEMENTS));
+  return new;
+}
+
+static void
+clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  if (tree_elements->status != tree_added_status_reused_tree)
+    remove_element_from_list (&self->tree_to_build, tree_elements->tree);
+
+  if (tree_elements->status == tree_added_status_new_tree)
+    destroy_element_and_children (tree_elements->tree);
+  else if (tree_elements->status == tree_added_status_normal)
+    {
+      int i;
+      for (i = 0; i < tree_elements->added.number; i++)
+        {
+          ELEMENT *added_e = tree_elements->added.list[i];
+          destroy_element (added_e);
+        }
+      tree_elements->added.number = 0;
+    }
+  tree_elements->tree = 0;
+  tree_elements->status = 0;
+}
+
+static void
+free_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  clear_tree_added_elements (self, tree_elements);
+  free (tree_elements->added.list);
+}
+
+static void
+destroy_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  free_tree_added_elements (self, tree_elements);
+  free (tree_elements);
+}
+
+static void
+push_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack,
+                              char *context_name)
+{
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (HTML_FORMATTING_CONTEXT));
+    }
+
+  memset (&stack->stack[stack->top], 0, sizeof (HTML_FORMATTING_CONTEXT));
+
+  stack->stack[stack->top].context_name = strdup (context_name);
+
+  stack->top++;
+}
+
+static void
+pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("HTML formatting context stack empty");
+
+  free (stack->stack[stack->top - 1].context_name);
+  stack->top--;
+}
+
+void
+html_new_document_context (CONVERTER *self,
+        char *context_name, char *document_global_context,
+        enum command_id block_command)
+{
+  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
+  HTML_DOCUMENT_CONTEXT *doc_context;
+
+  self->modified_state |= HMSF_document_context;
+  self->document_context_change++;
+
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (HTML_DOCUMENT_CONTEXT));
+    }
+
+  doc_context = &stack->stack[stack->top];
+  memset (doc_context, 0, sizeof (HTML_DOCUMENT_CONTEXT));
+  doc_context->context = strdup (context_name);
+  doc_context->document_global_context = document_global_context;
+
+  push_integer_stack_integer (&doc_context->monospace, 0);
+  push_integer_stack_integer (&doc_context->preformatted_context, 0);
+  push_command_or_type (&doc_context->composition_context, 0, 0);
+  if (block_command)
+    push_command (&doc_context->block_commands, block_command);
+
+  if (document_global_context)
+    {
+      self->document_global_context++;
+      self->modified_state |= HMSF_converter_state;
+    }
+
+  push_html_formatting_context (&doc_context->formatting_context,
+                                "_format");
+
+  stack->top++;
+}
+
+void
+html_pop_document_context (CONVERTER *self)
+{
+  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
+  HTML_DOCUMENT_CONTEXT *document_ctx;
+
+  if (stack->top == 0)
+    fatal ("HTML document context stack empty for pop");
+
+  self->modified_state |= HMSF_document_context;
+  self->document_context_change--;
+  /* set document_contexts_to_pop to the lowest level below last sync with
+     perl reached */
+  if (-self->document_context_change > self->document_contexts_to_pop)
+    self->document_contexts_to_pop = -self->document_context_change;
+
+  document_ctx = &stack->stack[stack->top -1];
+
+  free (document_ctx->context);
+  free (document_ctx->monospace.stack);
+  free (document_ctx->preformatted_context.stack);
+  free (document_ctx->composition_context.stack);
+  free (document_ctx->preformatted_classes.stack);
+  if (document_ctx->block_commands.top > 0)
+    pop_command (&document_ctx->block_commands);
+  free (document_ctx->block_commands.stack);
+  pop_html_formatting_context (&document_ctx->formatting_context);
+  free (document_ctx->formatting_context.stack);
+
+  if (document_ctx->document_global_context)
+    {
+      self->document_global_context--;
+      self->modified_state |= HMSF_converter_state;
+    }
+
+  stack->top--;
+}
+
+char *
+html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
+{
+  TEXT result;
+  text_init (&result);
+
+  convert_to_html_internal (self, tree, &result, explanation);
+
+  return result.text;
+}
+
+/* This function should be used in formatting functions when some
+   Texinfo tree need to be converted. */
+char *
+convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
+                              char *context_string, char *multiple_pass,
+                              char *document_global_context,
+                              enum command_id block_cmd)
+{
+  char *result;
+  char *multiple_pass_str = "";
+  char *explanation;
+  TEXT context_string_str;
+  text_init (&context_string_str);
+  text_append (&context_string_str, "");
+
+  if (context_string)
+    {
+      html_new_document_context (self, context_string,
+                                 document_global_context, block_cmd);
+      text_printf (&context_string_str, "C(%s)", context_string);
+    }
+
+  if (multiple_pass)
+    {
+      self->ignore_notice++;
+      push_string_stack_string (&self->multiple_pass, multiple_pass);
+      self->modified_state |= HMSF_multiple_pass | HMSF_converter_state;
+      multiple_pass_str = "|M";
+    }
+
+  if (self->conf->DEBUG > 0)
+    fprintf (stderr, "new_fmt_ctx %s%s\n", context_string_str.text,
+                                           multiple_pass_str);
+
+  xasprintf (&explanation, "new_fmt_ctx %s", context_string_str.text);
+  result = html_convert_tree (self, tree, explanation);
+
+  free (explanation);
+  free (context_string_str.text);
+
+  if (context_string)
+    {
+      html_pop_document_context (self);
+    }
+
+  if (multiple_pass)
+    {
+      self->ignore_notice--;
+      pop_string_stack (&self->multiple_pass);
+      self->modified_state |= HMSF_multiple_pass | HMSF_converter_state;
+    }
+
+  return result;
+}
+
+static void
+register_added_target (HTML_ADDED_TARGET_LIST *added_targets,
+                       HTML_TARGET *target)
+{
+  if (added_targets->number == added_targets->space)
+    {
+      added_targets->list = realloc (added_targets->list,
+                   sizeof (HTML_TARGET *) * (added_targets->space += 5));
+    }
+  added_targets->list[added_targets->number] = target;
+  added_targets->number++;
+}
+
+static HTML_TARGET *
+get_target (CONVERTER *self, const ELEMENT *element)
+{
+  HTML_TARGET *result
+   = find_element_target (&self->html_targets, element);
+  if (!result && element->cmd
+      && builtin_command_flags(element) & CF_sectioning_heading
+      && !(builtin_command_flags(element) & CF_root))
+    {
+      new_sectioning_command_target (self, element);
+
+      result = find_element_target (&self->html_targets, element);
+
+      register_added_target (&self->added_targets, result);
+      self->modified_state |= HMSF_added_target;
+    }
+  return result;
+}
+
 char *html_command_id (CONVERTER *self, ELEMENT *command)
 {
   HTML_TARGET *target = get_target (self, command);
@@ -1665,6 +1890,284 @@ char *html_command_id (CONVERTER *self, ELEMENT *command)
     return target->target;
   else
     return 0;
+}
+
+ELEMENT *
+new_element_added (TREE_ADDED_ELEMENTS *added_elements, enum element_type type)
+{
+  ELEMENT *new = new_element (type);
+  add_to_element_list (&added_elements->added, new);
+  return new;
+}
+
+TREE_ADDED_ELEMENTS *
+html_command_tree (CONVERTER *self, ELEMENT *command, int no_number)
+{
+  TREE_ADDED_ELEMENTS *tree;
+  HTML_TARGET *target;
+
+  ELEMENT *manual_content = lookup_extra_element (command,
+                                                  "manual_content");
+  if (manual_content)
+    {
+      ELEMENT *root_code;
+      ELEMENT *open_p;
+      ELEMENT *close_p;
+
+      ELEMENT *node_content = lookup_extra_element (command,
+                                                    "node_content");
+
+      tree = new_tree_added_elements ();
+
+      root_code = new_element_added (tree, ET__code);
+      open_p = new_element_added (tree, ET_NONE);
+      close_p = new_element_added (tree, ET_NONE);
+
+      text_append_n (&open_p->text, "(", 1);
+      text_append_n (&close_p->text, ")", 1);
+
+      add_to_element_contents (root_code, open_p);
+      add_to_contents_as_array (root_code, manual_content);
+      add_to_element_contents (root_code, close_p);
+      if (node_content)
+        add_to_contents_as_array (root_code, node_content);
+
+      tree->tree = root_code;
+      add_to_element_list (&self->tree_to_build, root_code);
+      return tree;
+    }
+
+  target = get_target (self, command);
+  if (target)
+    {
+      if (!target->tree.status)
+        {
+          tree = &target->tree;
+          tree->status = tree_added_status_normal;
+          if (command->type == ET_special_unit_element)
+            {
+              const char *special_unit_variety
+                = command->associated_unit->special_unit_variety;
+              ELEMENT *heading_tree = special_unit_info_tree (self,
+                                   SUIT_type_heading, special_unit_variety);
+              tree->tree = heading_tree;
+            }
+          else if (command->cmd == CM_node || command->cmd == CM_anchor)
+            {
+              ELEMENT *root_code = new_element_added (tree, ET__code);
+              add_to_contents_as_array (root_code, command->args.list[0]);
+              tree->tree = root_code;
+              add_to_element_list (&self->tree_to_build, tree->tree);
+            }
+          else if (command->cmd == CM_float)
+            {
+              tree->tree = float_type_number (self, command);
+              tree->status = tree_added_status_new_tree;
+              add_to_element_list (&self->tree_to_build, tree->tree);
+            }
+          else if (command->args.number <= 0
+                   || command->args.list[0]->contents.number <= 0)
+            { /* no argument, nothing to do */
+              /* TODO check if possible */
+              tree->status = tree_added_status_no_tree;
+            }
+          else
+            {
+              char *section_number
+                = lookup_extra_string (command, "section_number");
+              if (section_number && !self->conf->NUMBER_SECTIONS == 0)
+                {
+                  NAMED_STRING_ELEMENT_LIST *replaced_substrings
+                    = new_named_string_element_list ();
+                  ELEMENT *e_number = new_element (ET_NONE);
+                  ELEMENT *section_title_copy
+                     = copy_tree (command->args.list[0]);
+
+                  add_element_to_named_string_element_list (
+                              replaced_substrings, "section_title",
+                              section_title_copy);
+                  text_append (&e_number->text, section_number);
+                  add_element_to_named_string_element_list (
+                              replaced_substrings, "number", e_number);
+
+                  if (command->cmd == CM_appendix)
+                    {
+                      int status;
+                      int section_level = lookup_extra_integer (command,
+                                               "section_level", &status);
+                      if (section_level == 1)
+                        {
+                          tree->tree
+                            = gdt_tree ("Appendix {number} {section_title}",
+                                        self->document, self->conf,
+                                        replaced_substrings, 0, 0);
+                        }
+                    }
+                  if (!tree->tree)
+                    /* TRANSLATORS: numbered section title */
+                    tree->tree = gdt_tree ("{number} {section_title}",
+                                            self->document, self->conf,
+                                            replaced_substrings, 0, 0);
+
+                  destroy_named_string_element_list (replaced_substrings);
+                  tree->status = tree_added_status_new_tree;
+                  add_to_element_list (&self->tree_to_build, tree->tree);
+                }
+              else
+                {
+                  tree->status = tree_added_status_reused_tree;
+                  tree->tree = command->args.list[0];
+                }
+
+              target->tree_nonumber.tree = command->args.list[0];
+              target->tree_nonumber.status = tree_added_status_reused_tree;
+            }
+        }
+
+      if (no_number && target->tree_nonumber.tree)
+        return &target->tree_nonumber;
+      else
+        return &target->tree;
+    }
+
+  return 0;
+}
+
+/* keep in sync with enum html_command_text_type */
+static char *html_command_text_type_name[] = {
+  "text", "text_nonumber", "string", "string_nonumber"
+};
+
+char *
+html_command_text (CONVERTER *self, ELEMENT *command,
+                   const enum html_command_text_type type)
+{
+  char *result;
+  HTML_TARGET *target;
+  ELEMENT *tree_root;
+  ELEMENT *manual_content = lookup_extra_element (command,
+                                                  "manual_content");
+  if (manual_content)
+    {
+      TREE_ADDED_ELEMENTS *command_tree = html_command_tree (self, command, 0);
+      TREE_ADDED_ELEMENTS *string_tree = 0;
+      if (type == HCTT_string)
+        {
+          ELEMENT *tree_root_string;
+
+          string_tree = new_tree_added_elements ();
+
+          tree_root_string = new_element_added (string_tree, ET__string);
+
+          add_to_element_contents (tree_root_string, command_tree->tree);
+          tree_root = tree_root_string;
+          add_to_element_list (&self->tree_to_build, tree_root);
+        }
+      else
+        tree_root = command_tree->tree;
+
+      result = convert_tree_new_formatting_context (self, tree_root,
+                                     element_command_name(command), 0,
+                                     "command_text-manual_content", 0);
+
+      if (type == HCTT_string)
+        destroy_tree_added_elements (self, string_tree);
+      return result;
+    }
+
+  target = get_target (self, command);
+  if (target)
+    {
+      if (target->command_text[type])
+        return target->command_text[type];
+      else
+        {
+          TREE_ADDED_ELEMENTS *string_tree = 0;
+          char *explanation = 0;
+          char *context_name;
+          ELEMENT *selected_tree;
+          TREE_ADDED_ELEMENTS *command_tree
+            = html_command_tree (self, command, 0);
+
+          if (!command_tree->tree)
+            return 0;
+
+          if (command->cmd)
+            {
+              char *command_name = element_command_name(command);
+              context_name = command_name;
+              xasprintf (&explanation, "command_text:%s @%s",
+                         html_command_text_type_name[type],
+                         command_name);
+            }
+          else
+            {
+              context_name = element_type_names[command->type];
+              if (command->type == ET_special_unit_element)
+                {
+                  char *special_unit_variety
+                    = command->associated_unit->special_unit_variety;
+                  xasprintf (&explanation, "command_text %s",
+                             special_unit_variety);
+                }
+            }
+          html_new_document_context (self, context_name, explanation, 0);
+
+          if ((type == HCTT_text_nonumber || type == HCTT_string_nonumber)
+              && target->tree_nonumber.tree)
+            selected_tree = target->tree_nonumber.tree;
+          else
+            selected_tree = command_tree->tree;
+
+          if (type == HCTT_string)
+            {
+              ELEMENT *tree_root_string;
+
+              string_tree = new_tree_added_elements ();
+
+              tree_root_string = new_element_added (string_tree, ET__string);
+
+              add_to_element_contents (tree_root_string, selected_tree);
+              tree_root = tree_root_string;
+              add_to_element_list (&self->tree_to_build, tree_root);
+            }
+          else
+            tree_root = selected_tree;
+
+          self->ignore_notice++;
+          add_to_element_list (&self->referred_command_stack, command);
+          self->modified_state |= HMSF_referred_command_stack
+                                   | HMSF_converter_state;
+          target->command_text[type]
+            = html_convert_tree (self, tree_root, explanation);
+          free (explanation);
+          remove_from_element_list (&self->referred_command_stack, -1);
+          self->ignore_notice--;
+          self->modified_state |= HMSF_referred_command_stack
+                                   | HMSF_converter_state;
+
+          html_pop_document_context (self);
+
+          if (type == HCTT_string)
+            {
+              destroy_tree_added_elements (self, string_tree);
+            }
+          return target->command_text[type];
+        }
+    }
+
+ /*
+    Can happen
+    * if USE_NODES is 0 and there are no sectioning commands.
+    * if a special element target was set to undef in user defined code.
+    * for @*ref with missing targets (maybe @novalidate needed in that case).
+    * for @node header if the node consist only in spaces (example in sectioning
+      in_menu_only_special_ascii_spaces_node).
+    * for multiple targets with the same name, eg both @node and @anchor
+    * with @inforef with node argument only, without manual argument.
+  */
+
+  return 0;
 }
 
 static int
@@ -3092,6 +3595,7 @@ convert_special_unit_type (CONVERTER *self,
                         const OUTPUT_UNIT *output_unit, const char *content,
                         TEXT *result)
 {
+  const char *heading;
   size_t number;
   TEXT special_unit_body;
   ELEMENT *unit_command;
@@ -3103,7 +3607,10 @@ convert_special_unit_type (CONVERTER *self,
 
   char *special_unit_variety;
   STRING_LIST *closed_strings;
-  size_t file_index;
+  size_t count_in_file = 0;
+  int level;
+  char *formatted_footer;
+  char *formatted_heading;
 
   if (in_string (self))
     return;
@@ -3121,7 +3628,10 @@ convert_special_unit_type (CONVERTER *self,
         {
           text_append (result, closed_strings->list[i]);
         }
+      free (closed_strings->list);
     }
+  free (closed_strings);
+
   text_init (&special_unit_body);
   text_append (&special_unit_body, "");
 
@@ -3131,7 +3641,10 @@ convert_special_unit_type (CONVERTER *self,
   /* This may happen with footnotes in regions that are not expanded,
      like @copying or @titlepage */
   if (special_unit_body.end == 0)
-    return;
+    {
+      free (special_unit_body.text);
+      return;
+    }
 
   classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
   memset (classes, 0, sizeof (STRING_LIST));
@@ -3145,7 +3658,7 @@ convert_special_unit_type (CONVERTER *self,
   add_string (class, classes);
   free (class);
   attribute_class = html_attribute_class (self, "div", classes);
-  destroy_strings_list (classes);
+  clear_strings_list (classes);
 
   text_append (result, attribute_class);
   free (attribute_class);
@@ -3154,10 +3667,16 @@ convert_special_unit_type (CONVERTER *self,
     text_printf (result, " id=\"%s\"", id);
   text_append (result, ">\n");
 
-  file_index = self->special_unit_file_indices[output_unit->index];
+  if (output_unit->unit_filename)
+    {
+      size_t file_index = self->special_unit_file_indices[output_unit->index];
+      count_in_file
+        = count_elements_in_filename (self, CEFT_current, file_index +1);
+    }
+
   if (self->conf->HEADERS > 0
       /* first in page */
- || (count_elements_in_filename (self, CEFT_current, file_index +1) == 1))
+      || count_in_file == 1)
     {
       char *navigation_header =
         call_formatting_function_format_navigation_header (self,
@@ -3165,13 +3684,40 @@ convert_special_unit_type (CONVERTER *self,
       text_append (result, navigation_header);
       free (navigation_header);
     }
-  /* TODO */
+
+  heading = html_command_text (self, unit_command, 0);
+  level = self->conf->CHAPTER_HEADER_LEVEL;
+  if (!strcmp (special_unit_variety, "footnotes"))
+    level = self->conf->FOOTNOTE_SEPARATE_HEADER_LEVEL;
+
+  xasprintf (&class, "%s-heading", class_base);
+
+  add_string (class, classes);
+  free (class);
+
+  formatted_heading
+    = call_formatting_function_format_heading_text (self, 0, classes, heading,
+                                                    level, 0, 0, 0);
+  destroy_strings_list (classes);
+  text_append (result, formatted_heading);
+  text_append_n (result, "\n", 1);
+
+  free (formatted_heading);
+
+  text_append (result, special_unit_body.text);
+  free (special_unit_body.text);
+  text_append (result, "</div>");
+
+  formatted_footer
+    = call_formatting_function_format_element_footer (self, unit_type,
+                                         output_unit, content, unit_command);
+  text_append (result, formatted_footer);
+
+  free (formatted_footer);
 }
 
 static OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] = {
-   /*
   {OU_special_unit, &convert_special_unit_type},
-    */
   {0, 0},
 };
 
@@ -3254,113 +3800,6 @@ special_unit_body_formatting_external (CONVERTER *self,
     call_special_unit_body_formatting (self, special_unit_number,
                                        special_unit_variety,
                                        output_unit, result);
-}
-
-static void
-push_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack,
-                              char *context_name)
-{
-  if (stack->top >= stack->space)
-    {
-      stack->stack
-        = realloc (stack->stack,
-                   (stack->space += 5) * sizeof (HTML_FORMATTING_CONTEXT));
-    }
-
-  memset (&stack->stack[stack->top], 0, sizeof (HTML_FORMATTING_CONTEXT));
-
-  stack->stack[stack->top].context_name = strdup (context_name);
-
-  stack->top++;
-}
-
-static void
-pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
-{
-  if (stack->top == 0)
-    fatal ("HTML formatting context stack empty");
-
-  free (stack->stack[stack->top - 1].context_name);
-  stack->top--;
-}
-
-void
-html_new_document_context (CONVERTER *self,
-        char *context_name, char *document_global_context,
-        enum command_id block_command)
-{
-  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
-  HTML_DOCUMENT_CONTEXT *doc_context;
-
-  self->modified_state |= HMSF_document_context;
-  self->document_context_change++;
-
-  if (stack->top >= stack->space)
-    {
-      stack->stack
-        = realloc (stack->stack,
-                   (stack->space += 5) * sizeof (HTML_DOCUMENT_CONTEXT));
-    }
-
-  doc_context = &stack->stack[stack->top];
-  memset (doc_context, 0, sizeof (HTML_DOCUMENT_CONTEXT));
-  doc_context->context = strdup (context_name);
-  doc_context->document_global_context = document_global_context;
-
-  push_integer_stack_integer (&doc_context->monospace, 0);
-  push_integer_stack_integer (&doc_context->preformatted_context, 0);
-  push_command_or_type (&doc_context->composition_context, 0, 0);
-  if (block_command)
-    push_command (&doc_context->block_commands, block_command);
-
-  if (document_global_context)
-    {
-      self->document_global_context++;
-      self->modified_state |= HMSF_converter_state;
-    }
-
-  push_html_formatting_context (&doc_context->formatting_context,
-                                "_format");
-
-  stack->top++;
-}
-
-void
-html_pop_document_context (CONVERTER *self)
-{
-  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
-  HTML_DOCUMENT_CONTEXT *document_ctx;
-
-  if (stack->top == 0)
-    fatal ("HTML document context stack empty for pop");
-
-  self->modified_state |= HMSF_document_context;
-  self->document_context_change--;
-  /* set document_contexts_to_pop to the lowest level below last sync with
-     perl reached */
-  if (-self->document_context_change > self->document_contexts_to_pop)
-    self->document_contexts_to_pop = -self->document_context_change;
-
-  document_ctx = &stack->stack[stack->top -1];
-
-  free (document_ctx->context);
-  free (document_ctx->monospace.stack);
-  free (document_ctx->preformatted_context.stack);
-  free (document_ctx->composition_context.stack);
-  free (document_ctx->preformatted_classes.stack);
-  if (document_ctx->block_commands.top > 0)
-    pop_command (&document_ctx->block_commands);
-  free (document_ctx->block_commands.stack);
-  pop_html_formatting_context (&document_ctx->formatting_context);
-  free (document_ctx->formatting_context.stack);
-
-  if (document_ctx->document_global_context)
-    {
-      self->document_global_context--;
-      self->modified_state |= HMSF_converter_state;
-    }
-
-  stack->top--;
 }
 
 void
@@ -3679,7 +4118,7 @@ html_converter_prepare_output (CONVERTER* self)
 }
 
 void
-reset_html_targets (HTML_TARGET_LIST *targets)
+reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
 {
   size_t i;
 
@@ -3687,6 +4126,7 @@ reset_html_targets (HTML_TARGET_LIST *targets)
     {
       for (i = 0; i < targets->number; i++)
         {
+          int j;
           HTML_TARGET *html_target = &targets->list[i];
           /* setup before conversion */
           free (html_target->target);
@@ -3696,7 +4136,11 @@ reset_html_targets (HTML_TARGET_LIST *targets)
           free (html_target->contents_target);
           free (html_target->shortcontents_target);
 
-          /* TODO free fields changed during conversion */
+          for (j = 0; j < HCTT_string_nonumber+1; j++)
+            free (html_target->command_text[j]);
+
+          free_tree_added_elements (self, &html_target->tree);
+          free_tree_added_elements (self, &html_target->tree_nonumber);
         }
       memset (targets->list, 0,
               sizeof (HTML_TARGET) * targets->number);
@@ -3729,12 +4173,14 @@ html_finalize_output_state (CONVERTER *self)
   int i;
   reset_translated_special_unit_info_tree (self);
   /* targets */
-  reset_html_targets (&self->html_targets);
+  reset_html_targets (self, &self->html_targets);
   clear_strings_list (&self->seen_ids);
   for (i = 0; i < ST_footnote_location+1; i++)
     {
-      reset_html_targets (&self->html_special_targets[i]);
+      reset_html_targets (self, &self->html_special_targets[i]);
     }
+
+  free (self->tree_to_build.list);
 
   free (self->special_units_direction_name);
   self->special_units_direction_name = 0;
@@ -3792,6 +4238,9 @@ html_finalize_output_state (CONVERTER *self)
   /* could change to 0 in releases? */
   if (1)
     {
+      if (self->tree_to_build.number > 0)
+        fprintf (stderr, "BUG: tree_to_build: %zu\n",
+                         self->tree_to_build.number);
       if (self->html_document_context.top > 0)
         fprintf (stderr, "BUG: document context top > 0: %zu\n",
                          self->html_document_context.top);
@@ -3811,8 +4260,11 @@ html_check_transfer_state_finalization (CONVERTER *self)
   if (1)
     {
       /* check that all the state change have been transmitted */
-      if (self->tree_to_build)
-        fprintf (stderr, "BUG: tree_to_build set\n");
+      /*
+      if (self->tree_to_build.number > 0)
+        fprintf (stderr, "BUG: tree_to_build: %zu\n",
+                         self->tree_to_build.number);
+       */
       if (self->document_context_change)
         fprintf (stderr, "BUG: document_context_change: %d\n",
                          self->document_context_change);
@@ -3909,76 +4361,13 @@ html_free_converter (CONVERTER *self)
   free (self->reset_target_commands.list);
   free (self->file_changed_counter.list);
 
+  free (self->referred_command_stack.list);
+
   free (self->html_document_context.stack);
 
   free_strings_list (&self->special_unit_varieties);
 }
 
-char *
-html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
-{
-  TEXT result;
-  text_init (&result);
-
-  convert_to_html_internal (self, tree, &result, explanation);
-
-  return result.text;
-}
-
-/* This function should be used in formatting functions when some
-   Texinfo tree need to be converted. */
-char *
-convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
-                              char *context_string, char *multiple_pass,
-                              char *document_global_context,
-                              enum command_id block_cmd)
-{
-  char *result;
-  char *multiple_pass_str = "";
-  char *explanation;
-  TEXT context_string_str;
-  text_init (&context_string_str);
-  text_append (&context_string_str, "");
-
-  if (context_string)
-    {
-      html_new_document_context (self, context_string,
-                                 document_global_context, block_cmd);
-      text_printf (&context_string_str, "C(%s)", context_string);
-    }
-
-  if (multiple_pass)
-    {
-      self->ignore_notice++;
-      push_string_stack_string (&self->multiple_pass, multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_converter_state;
-      multiple_pass_str = "|M";
-    }
-
-  if (self->conf->DEBUG > 0)
-    fprintf (stderr, "new_fmt_ctx %s%s\n", context_string_str.text,
-                                           multiple_pass_str);
-
-  xasprintf (&explanation, "new_fmt_ctx %s", context_string_str.text);
-  result = html_convert_tree (self, tree, explanation);
-
-  free (explanation);
-  free (context_string_str.text);
-
-  if (context_string)
-    {
-      html_pop_document_context (self);
-    }
-
-  if (multiple_pass)
-    {
-      self->ignore_notice--;
-      pop_string_stack (&self->multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_converter_state;
-    }
-
-  return result;
-}
 
 char *
 html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanation)
@@ -4061,11 +4450,12 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       char *translation_result = 0;
       char *explanation;
       char *context;
+      ELEMENT *tree_built = 0;
       ELEMENT *translated_tree = no_arg_command_context->tree;
       if (!translated_tree->hv)
-        {/* FIXME Would need to be done differently if it is possible
-                  to recursively call html_translate_names. */
-          self->tree_to_build = translated_tree;
+        {
+          add_element_if_not_in_list (&self->tree_to_build, translated_tree);
+          tree_built = translated_tree;
         }
       xasprintf (&explanation, "Translated NO ARG @%s ctx %s",
                  builtin_command_data[cmd].cmdname,
@@ -4127,7 +4517,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       if (no_arg_command_context->text)
         free (no_arg_command_context->text);
       no_arg_command_context->text = translation_result;
-      self->tree_to_build = 0;
+      if (tree_built)
+        remove_element_from_list (&self->tree_to_build, tree_built);
     }
 }
 
@@ -4195,11 +4586,11 @@ html_translate_names (CONVERTER *self)
        /* the tree is a reference to special_unit_info_tree, so it should
           not be freed, but need to be reset to trigger the creation of the
           special_unit_info_tree tree when needed */
-                       target->tree = 0;
-       /* TODO check if there is a need to free when the code setting
-               those fields is done */
-                       target->string = 0;
-                       target->text = 0;
+                       clear_tree_added_elements (self, &target->tree);
+                       free (target->command_text[HCTT_string]);
+                       target->command_text[HCTT_string] = 0;
+                       free (target->command_text[HCTT_text]);
+                       target->command_text[HCTT_text] = 0;
                        /* gather elements to pass information to perl */
                        add_to_element_list (&self->reset_target_commands,
                                             command);

@@ -97,11 +97,11 @@ call_latex_convert_to_latex_math (CONVERTER *self, ELEMENT *element)
   if (!self->hv)
     return 0;
 
-  /* in case of @displaymath a element containing the contents
+  /* in case of @displaymath an element containing the contents
      of the displaymath element is passed, it is not registered in perl */
   if (!element->hv)
     {
-      element_to_perl_hash (element);
+      element_to_perl_hash (element, 1);
     }
 
   dSP;

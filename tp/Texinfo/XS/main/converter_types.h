@@ -154,11 +154,18 @@ enum html_argument_formatting_type {
 };
 
 enum html_special_character {
-  SC_paragraph_symbol,
-  SC_left_quote,
-  SC_right_quote,
-  SC_bullet,
-  SC_non_breaking_space,
+   SC_paragraph_symbol,
+   SC_left_quote,
+   SC_right_quote,
+   SC_bullet,
+   SC_non_breaking_space,
+};
+
+enum html_command_text_type {
+   HCTT_text,
+   HCTT_text_nonumber,
+   HCTT_string,
+   HCTT_string_nonumber, /* not sure that it is set/used */
 };
 
 typedef struct {
@@ -208,12 +215,9 @@ typedef struct HTML_TARGET {
     char *contents_target;
     char *shortcontents_target;
 
-    char *text;
-    char *text_nonumber;
-    ELEMENT *tree;
-    ELEMENT *tree_nonumber;
-    char *string;
-    char *string_nonumber;
+    char *command_text[HCTT_string_nonumber+1];
+    TREE_ADDED_ELEMENTS tree;
+    TREE_ADDED_ELEMENTS tree_nonumber;
     char *filename;
     /*
     ELEMENT *node_command;
@@ -556,7 +560,7 @@ typedef struct CONVERTER {
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
-    ELEMENT *tree_to_build; /* C tree that needs to be built to perl
+    ELEMENT_LIST tree_to_build; /* C trees that needs to be built to perl
                                before calling perl functions on it */
     COMMAND_ID_LIST no_arg_formatted_cmd_translated; /* list of commands that
                          were translated and need to be passed back to perl */
@@ -586,6 +590,7 @@ typedef struct CONVERTER {
     STRING_STACK multiple_pass;
     STRING_STACK pending_closes;
     CURRENT_FILE_INFO current_filename;
+    ELEMENT_LIST referred_command_stack;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
 } CONVERTER;

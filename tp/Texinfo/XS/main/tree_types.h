@@ -294,4 +294,20 @@ typedef struct STRING_LIST {
     size_t space;
 } STRING_LIST;
 
+enum tree_added_elements_status {
+  tree_added_status_none,
+  tree_added_status_normal,
+  tree_added_status_new_tree,
+  tree_added_status_reused_tree,
+  tree_added_status_no_tree,
+};
+
+/* not used in parser */
+typedef struct TREE_ADDED_ELEMENTS {
+    ELEMENT *tree;
+    ELEMENT_LIST added; /* list of added elements in tree that are not in the
+                           document Texinfo tree */
+    enum tree_added_elements_status status;
+} TREE_ADDED_ELEMENTS;
+
 #endif

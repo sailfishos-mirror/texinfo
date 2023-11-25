@@ -38,6 +38,20 @@
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
+static void
+build_tree_to_build (ELEMENT_LIST *tree_to_build)
+{
+  if (tree_to_build->number > 0)
+    {
+      int i;
+      for (i = 0; i < tree_to_build->number; i++)
+        {
+          build_texinfo_tree (tree_to_build->list[i], 1);
+        }
+      tree_to_build->number = 0;
+    }
+}
+
 TARGET_FILENAME *
 call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
                                       OUTPUT_UNIT *special_unit, char *target,
@@ -751,7 +765,7 @@ char *
 call_formatting_function_format_navigation_header (CONVERTER *self,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
-                                  const ELEMENT *element)
+                                  ELEMENT *element)
 {
   int count;
   char *result = 0;
@@ -774,6 +788,8 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
       build_html_formatting_state (self, self->modified_state);
       self->modified_state = 0;
     }
+
+  build_tree_to_build (&self->tree_to_build);
 
   dSP;
 
@@ -809,6 +825,165 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   return result;
 }
 
+char *
+call_formatting_function_format_heading_text (CONVERTER *self,
+                                  const char *cmdname,
+                                  const STRING_LIST *classes,
+                                  const char *text,
+                                  int level, const char *id,
+                                  ELEMENT *element, const char *target)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+  SV *classes_sv;
+  SV *element_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_heading_text].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  if (classes && classes->number)
+    {
+      size_t i;
+      AV *classes_av = newAV ();
+      for (i = 0; i < classes->number; i++)
+        {
+          char *class = classes->list[i];
+          SV *class_sv = newSVpv_utf8 (class, 0);
+          av_push (classes_av, class_sv);
+        }
+      classes_sv = newRV_noinc ((SV *) classes_av);
+    }
+  else
+    classes_sv = newSV (0);
+
+  if (element)
+    element_sv = newRV_inc (element->hv);
+  else
+    element_sv = newSV (0);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 7);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
+  PUSHs(sv_2mortal (classes_sv));
+  PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
+  PUSHs(sv_2mortal (newSViv ((IV) level)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (id, 0)));
+  PUSHs(sv_2mortal (element_sv));
+  PUSHs(sv_2mortal (newSVpv_utf8 (target, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_heading_text should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
+call_formatting_function_format_element_footer (CONVERTER *self,
+                              const enum output_unit_type unit_type,
+                              const OUTPUT_UNIT *output_unit,
+                              const char *content, ELEMENT *command)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_element_footer].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 5);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (output_unit_type_names[unit_type], 0)));
+  PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
+  /* content == 0 is possible, hope that newSVpv result corresponds to
+     undef in that case, but could also need to explicitely use newSV(0) */
+  PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
+  PUSHs(sv_2mortal (newRV_inc (command->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_element_footer should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
 
 
 
@@ -830,11 +1005,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   if (!self->hv)
     return;
 
-  if (self->tree_to_build)
-    {
-      build_texinfo_tree (self->tree_to_build);
-      self->tree_to_build = 0;
-    }
+  build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -893,11 +1064,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
 
   dTHX;
 
-  if (self->tree_to_build)
-    {
-      build_texinfo_tree (self->tree_to_build);
-      self->tree_to_build = 0;
-    }
+  build_tree_to_build (&self->tree_to_build);
 
   if (!self->hv)
     return;
@@ -964,11 +1131,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   if (!self->hv)
     return;
 
-  if (self->tree_to_build)
-    {
-      build_texinfo_tree (self->tree_to_build);
-      self->tree_to_build = 0;
-    }
+  build_tree_to_build (&self->tree_to_build);
 
   /* could also be builtin_command_data[cmd].cmdname) */
   command_name = element_command_name (element);
@@ -1037,11 +1200,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
   if (!self->hv)
     return;
 
-  if (self->tree_to_build)
-    {
-      build_texinfo_tree (self->tree_to_build);
-      self->tree_to_build = 0;
-    }
+  build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv = self->commands_open[cmd].sv_reference;
 
@@ -1105,11 +1264,7 @@ call_output_units_conversion (CONVERTER *self,
   if (!self->hv)
     return;
 
-  if (self->tree_to_build)
-    {
-      build_texinfo_tree (self->tree_to_build);
-      self->tree_to_build = 0;
-    }
+  build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv
      = self->output_units_conversion[unit_type].sv_reference;
@@ -1176,11 +1331,7 @@ call_special_unit_body_formatting (CONVERTER *self,
   if (!self->hv)
     return;
 
-  if (self->tree_to_build)
-    {
-      build_texinfo_tree (self->tree_to_build);
-      self->tree_to_build = 0;
-    }
+  build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv
      = self->special_unit_body[special_unit_number -1].sv_reference;

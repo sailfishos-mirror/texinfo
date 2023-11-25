@@ -10,9 +10,9 @@
 
 /* element or string may not always be present */
 typedef struct NAMED_STRING_ELEMENT {
-    char *name;
-    ELEMENT *element;
-    char *string;
+    const char *name;
+    ELEMENT *element; /* actually const until added to tree */
+    char *string; /* const in gdt_string, but used temporarily in gdt_tree */
 } NAMED_STRING_ELEMENT;
 
 typedef struct NAMED_STRING_ELEMENT_LIST {
@@ -27,8 +27,8 @@ char *translate_string (OPTIONS *options, const char * string,
                   const char *translation_context, const char *in_lang);
 int replace_convert_substrings (char *translated_string,
                            NAMED_STRING_ELEMENT_LIST *replaced_substrings);
-char *replace_substrings (char *string,
-                    NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+char *replace_substrings (const char *string,
+                    const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 int gdt (const char * string, OPTIONS *options,
          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -51,9 +51,10 @@ ELEMENT *pgdt_tree (const char *translation_context, const char *string,
 
 NAMED_STRING_ELEMENT_LIST * new_named_string_element_list (void);
 void add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
-                                              char *name, char *string);
+                                              const char *name, char *string);
 void add_element_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
-                                               char *name, ELEMENT *element);
+                                               const char *name,
+                                               ELEMENT *element);
 void destroy_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel);
 
 #endif

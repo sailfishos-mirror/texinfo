@@ -148,6 +148,7 @@ enum command_location {
 #define HMSF_translations            0x4000
 #define HMSF_file_counter            0x8000
 #define HMSF_added_target            0x00010000
+#define HMSF_referred_command_stack  0x00020000
 
 typedef struct TARGET_FILENAME {
     char *target;
@@ -210,7 +211,7 @@ char *collapse_spaces (char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
 
-void clear_strings_list (STRING_LIST *include_dirs_list);
+void clear_strings_list (STRING_LIST *strings);
 void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
 void add_string (const char *string, STRING_LIST *strings_list);

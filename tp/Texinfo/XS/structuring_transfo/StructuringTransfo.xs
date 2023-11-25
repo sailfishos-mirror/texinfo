@@ -74,7 +74,7 @@ copy_tree (SV *tree_in)
             /* FIXME have a similar system but for trees only? */
             int copy_document_descriptor = register_document (result, 0, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
-            HV *hv = build_texinfo_tree (result);
+            HV *hv = build_texinfo_tree (result, 0);
             hv_store (hv, "tree_document_descriptor",
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document_descriptor), 0);

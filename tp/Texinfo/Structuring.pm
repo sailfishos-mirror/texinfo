@@ -2130,6 +2130,8 @@ sub output_unit_texi($)
   if ($output_unit->{'unit_type'} eq 'external_node_unit') {
     return Texinfo::Convert::Texinfo::convert_to_texinfo(
                             {'contents' => $unit_command->{'contents'}});
+  } elsif ($output_unit->{'unit_type'} eq 'special_unit') {
+    return "_SPECIAL_UNIT: $output_unit->{'special_unit_variety'}";
   }
 
   if (!$unit_command) {
