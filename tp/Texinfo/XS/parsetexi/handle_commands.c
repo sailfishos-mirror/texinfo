@@ -416,7 +416,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
           /* In a @multitable */
           else if ((parent = item_multitable_parent (current)))
             {
-              long max_columns = 0;
+              int max_columns = 0;
               KEY_PAIR *k_max_columns;
 
               k_max_columns = lookup_extra (parent, "max_columns");
@@ -785,7 +785,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
             }
           else if (cmd == CM_subentry)
             {
-              long level = 1;
+              int level = 1;
               ELEMENT *parent = current->parent;
 
               if (!(command_flags(parent) & CF_index_entry_command)

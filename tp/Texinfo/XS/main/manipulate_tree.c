@@ -39,7 +39,7 @@ void
 increase_ref_counter (ELEMENT *element)
 {
   KEY_PAIR *k_counter;
-  long *counter_ptr;
+  int *counter_ptr;
 
   k_counter = lookup_extra_by_index (element, "_counter", -1);
   if (!k_counter)
@@ -189,7 +189,7 @@ ELEMENT *
 get_copy_ref (ELEMENT *element)
 {
   KEY_PAIR *k_counter, *k_copy;
-  long *counter_ptr;
+  int *counter_ptr;
   ELEMENT *result;
 
   k_copy = lookup_extra_by_index (element, "_copy", -1);
@@ -442,8 +442,8 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 
   end_position = begin_position + len;
 
-  indices_to_remove = malloc (sizeof(int) * list_number);
-  memset (indices_to_remove, 0, sizeof(int) * list_number);
+  indices_to_remove = malloc (sizeof (int) * list_number);
+  memset (indices_to_remove, 0, sizeof (int) * list_number);
 
   while (i < list_number)
     {

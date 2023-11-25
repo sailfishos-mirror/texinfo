@@ -1,5 +1,16 @@
 2023-11-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/debug.c (print_associate_info_debug),
+	tp/Texinfo/XS/main/extra.c (lookup_extra_integer),
+	tp/Texinfo/XS/main/manipulate_tree.c (increase_ref_counter)
+	(get_copy_ref), tp/Texinfo/XS/main/tree_types.h (KEY_PAIR),
+	tp/Texinfo/XS/main/utils.c (section_level),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command)
+	(handle_line_command): use int for the integer field in KEY_PAIR values
+	union. Update declarations and remove casts.
+
+2023-11-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c (remove_from_element_list): do not accept
 	a where index equal to list->number.  Do not call memmove if it is not
 	needed.

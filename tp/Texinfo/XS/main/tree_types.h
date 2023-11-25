@@ -122,7 +122,7 @@ typedef struct KEY_PAIR {
       struct ELEMENT *element;
       ELEMENT_LIST *list;
       char *string;
-      long integer;
+      int integer;
     };
 } KEY_PAIR;
 

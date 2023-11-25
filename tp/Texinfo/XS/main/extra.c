@@ -250,7 +250,7 @@ lookup_extra_integer (const ELEMENT *e, char *key, int *ret)
       free (msg);
     }
   *ret = 0;
-  return (int)k->integer;
+  return k->integer;
 }
 
 /* if CREATE is true, create an extra contents element if there is none */

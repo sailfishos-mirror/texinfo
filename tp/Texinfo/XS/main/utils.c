@@ -1126,7 +1126,7 @@ section_level (const ELEMENT *section)
   KEY_PAIR *k_level_modifier = lookup_extra (section, "level_modifier");
   if (k_level_modifier && level >= 0)
     {
-      int section_modifier = (int) k_level_modifier->integer;
+      int section_modifier = k_level_modifier->integer;
       level -= section_modifier;
       if (level < min_level)
         if (command_structuring_level[section->cmd] < min_level)
@@ -1211,7 +1211,7 @@ decompose_integer (int number, int base, int *decomposed_nr)
   /* in practice we are with letters in base 26, 10 is
      more than enough */
   int space = 11;
-  int *result = malloc (space * sizeof(int));
+  int *result = malloc (space * sizeof (int));
   *decomposed_nr = space - 1;
   for (i = 0; i < space; i++)
     {

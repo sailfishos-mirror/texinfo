@@ -145,7 +145,7 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
           text_printf (&text, "deleted");
           break;
         case extra_integer:
-          text_printf (&text, "integer: %d", (int)k->integer);
+          text_printf (&text, "integer: %d", k->integer);
           break;
         case extra_string:
           text_printf (&text, "string: %s", k->string);
@@ -169,7 +169,7 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
               {
                 KEY_PAIR *k_integer = lookup_extra (f->contents.list[j], "integer");
                 if (k_integer)
-                  text_printf (&text, "%d|", (int)k_integer->integer);
+                  text_printf (&text, "%d|", k_integer->integer);
                 else
                   text_printf (&text, "%s|", f->contents.list[j]->text.text);
               }
