@@ -1,5 +1,20 @@
 2023-11-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (count_elements_in_filename)
+	(_convert_special_unit_type): do not pass an undefined file name to
+	count_elements_in_filename.
+
+	* tp/Texinfo/Convert/Converter.pm (float_type_number): simplify code.
+
+	* tp/Texinfo/Convert/HTML.pm (command_tree): remove code never run.
+	Simplify code.
+
+	* tp/Texinfo/Convert/HTML.pm (command_text): reorganize code. Handle
+	string_nonumber similarly to text_nonumber. Introduce more
+	intermediate variables, change variables names.
+
+2023-11-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/03coverage_braces.t
 	(two_footnotes_in_nodes_separate_no_header): add test with special
 	output unit, HEADERS == 0 and conversion through convert.

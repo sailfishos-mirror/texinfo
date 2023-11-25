@@ -1268,24 +1268,21 @@ sub float_type_number($$)
   if ($float->{'extra'}->{'float_type'} ne '') {
     $type_element = $float->{'args'}->[0];
   }
+  my $float_number = $float->{'extra'}->{'float_number'};
 
   my $tree;
   if ($type_element) {
-    if (defined($float->{'extra'})
-        and defined($float->{'extra'}->{'float_number'})) {
+    if (defined($float_number)) {
       $tree = $self->gdt("{float_type} {float_number}",
-          {'float_type' => $type_element,
-            'float_number'
-                => {'text' => $float->{'extra'}->{'float_number'}}});
+                         {'float_type' => $type_element,
+                          'float_number' => {'text' => $float_number}});
     } else {
       $tree = $self->gdt("{float_type}",
-          {'float_type' => $type_element});
+                         {'float_type' => $type_element});
     }
-  } elsif (defined($float->{'extra'})
-           and defined($float->{'extra'}->{'float_number'})) {
+  } elsif (defined($float_number)) {
     $tree = $self->gdt("{float_number}",
-       {'float_number'
-           => {'text' => $float->{'extra'}->{'float_number'}}});
+                       {'float_number' => {'text' => $float_number}});
   }
   return $tree;
 }

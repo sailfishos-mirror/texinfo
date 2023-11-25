@@ -660,6 +660,10 @@ sub count_elements_in_filename($$$)
   my $spec = shift;
   my $filename = shift;
 
+  if (!defined($filename)) {
+    confess("count_elements_in_filename: filename undef");
+  }
+
   if ($spec eq 'total') {
     if (defined($self->{'elements_in_file_count'}->{$filename})) {
       return $self->{'elements_in_file_count'}->{$filename};
@@ -1094,18 +1098,13 @@ sub command_tree($$;$)
   }
 
   if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
-    my $node_content = {};
-    $node_content = $command->{'extra'}->{'node_content'}
-      if (defined($command->{'extra'}->{'node_content'}));
-    my $tree;
-    if ($command->{'extra'}->{'manual_content'}) {
-      $tree = {'type' => '_code',
+    my $node_content = $command->{'extra'}->{'node_content'};
+    my $tree = {'type' => '_code',
           'contents' => [{'text' => '('},
                          $command->{'extra'}->{'manual_content'},
-                         {'text' => ')'}, $node_content]};
-    } else {
-      $tree = {'type' => '_code',
-               'contents' => [$node_content]};
+                         {'text' => ')'}]};
+    if ($node_content) {
+      push @{$tree->{'contents'}}, $node_content;
     }
     return $tree;
   }
@@ -1133,24 +1132,25 @@ sub command_tree($$;$)
                or !$command->{'args'}->[0]->{'contents'}
                or !scalar(@{$command->{'args'}->[0]->{'contents'}})) {
       } else {
-        if ($command->{'extra'}
-            and defined($command->{'extra'}->{'section_number'})
+        my $section_number;
+        $section_number = $command->{'extra'}->{'section_number'}
+          if ($command->{'extra'}
+              and defined($command->{'extra'}->{'section_number'}));
+        if ($section_number
             and ($self->get_conf('NUMBER_SECTIONS')
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+          my $substituted_strings
+            = {'number' => {'text' => $section_number},
+               'section_title' => $command->{'args'}->[0]};
+
           if ($command->{'cmdname'} eq 'appendix'
               and $command->{'extra'}->{'section_level'} == 1) {
             $tree = $self->gdt('Appendix {number} {section_title}',
-                    {'number' => {'text' => $command->{'extra'}
-                                                    ->{'section_number'}},
-                     'section_title'
-                                => $command->{'args'}->[0]});
+                               $substituted_strings);
           } else {
             # TRANSLATORS: numbered section title
             $tree = $self->gdt('{number} {section_title}',
-                     {'number' => {'text' => $command->{'extra'}
-                                                       ->{'section_number'}},
-                     'section_title'
-                         => $command->{'args'}->[0]});
+                               $substituted_strings);
           }
         } else {
           $tree = $command->{'args'}->[0];
@@ -1172,9 +1172,7 @@ sub command_tree($$;$)
 # Return text to be used for a hyperlink to $COMMAND.
 # $TYPE refers to the type of value returned from this function:
 #  'text' - return text
-#  'tree' - return a tree
-#  'tree_nonumber' - return tree representing text without a chapter number
-#                    being included.
+#  'text_nonumber' - return text, without the section/chapter number
 #  'string' - return simpler text that can be used in element attributes
 sub command_text($$;$)
 {
@@ -1206,35 +1204,47 @@ sub command_text($$;$)
     if (defined($target->{$type})) {
       return $target->{$type};
     }
+    my $command_tree = $self->command_tree($command);
+    return '' if (!defined($command_tree));
+
     my $explanation;
-    if ($command->{'type'}
-        and $command->{'type'} eq 'special_unit_element') {
-      my $special_unit_variety
+    my $context_name;
+
+    if (defined($command->{'cmdname'})) {
+      my $cmdname = $command->{'cmdname'};
+      $context_name = $cmdname;
+      $explanation = "command_text:$type \@$cmdname";
+    } else {
+      $context_name = $command->{'type'};
+      if ($command->{'type'} eq 'special_unit_element') {
+        my $special_unit_variety
           = $command->{'associated_unit'}->{'special_unit_variety'};
-      $explanation = "command_text $special_unit_variety";
-    } elsif ($command->{'cmdname'}) {
-      $explanation = "command_text:$type \@$command->{'cmdname'}";
+        $explanation = "command_text $special_unit_variety";
+      }
     }
-    my $tree = $self->command_tree($command);
 
-    return '' if (!defined($tree));
-
-    my $context_name = $command->{'cmdname'};
-    $context_name = $command->{'type'} if (!defined($context_name));
     $self->_new_document_context($context_name, $explanation);
 
-    if ($type eq 'string') {
-      $tree = {'type' => '_string',
-               'contents' => [$tree]};
+    my $selected_tree;
+
+    if ($type =~ /^(.*)_nonumber$/
+        and defined($target->{'tree_nonumber'})) {
+      $selected_tree = $target->{'tree_nonumber'};
+    } else {
+      $selected_tree = $command_tree;
     }
 
-    if ($type =~ /^(.*)_nonumber$/) {
-      $tree = $target->{'tree_nonumber'}
-        if (defined($target->{'tree_nonumber'}));
+    my $tree_root;
+    if ($type eq 'string') {
+      $tree_root = {'type' => '_string',
+                    'contents' => [$selected_tree]};
+    } else {
+      $tree_root = $selected_tree;
     }
+
     $self->{'ignore_notice'}++;
     push @{$self->{'referred_command_stack'}}, $command;
-    $target->{$type} = $self->_convert($tree, $explanation);
+    $target->{$type} = $self->_convert($tree_root, $explanation);
     pop @{$self->{'referred_command_stack'}};
     $self->{'ignore_notice'}--;
 
@@ -7439,8 +7449,9 @@ sub _convert_special_unit_type($$$$)
   $result .= ">\n";
   if ($self->get_conf('HEADERS')
       # first in page
-      or $self->count_elements_in_filename('current',
-                  $output_unit->{'unit_filename'}) == 1) {
+      or (defined($output_unit->{'unit_filename'})
+          and $self->count_elements_in_filename('current',
+                             $output_unit->{'unit_filename'}) == 1)) {
     $result .= &{$self->formatting_function('format_navigation_header')}($self,
                      $self->get_conf('MISC_BUTTONS'), undef, $unit_command);
   }
