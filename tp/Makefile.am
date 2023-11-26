@@ -126,7 +126,8 @@ dist_init_DATA = \
  init/book.pm \
  init/chm.pm \
  init/documentation_examples.pm \
- init/html32.pm
+ init/html32.pm \
+ init/sc_formatting_with_css.pm
 
 test_files = \
  t/README \
