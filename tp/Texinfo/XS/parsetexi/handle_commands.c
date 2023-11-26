@@ -416,13 +416,12 @@ handle_other_command (ELEMENT *current, char **line_inout,
           /* In a @multitable */
           else if ((parent = item_multitable_parent (current)))
             {
-              int max_columns = 0;
-              KEY_PAIR *k_max_columns;
-
-              k_max_columns = lookup_extra (parent, "max_columns");
-              if (k_max_columns)
-                max_columns = k_max_columns->integer;
-
+              int status;
+          /* no need to check status, as max_columns would be set to 0 if
+             is was not found, which is correct.  max_columns not found is
+             not possible, anyway, so it does not matter at all. */
+              int max_columns = lookup_extra_integer (parent, "max_columns",
+                                                      &status);
               if (max_columns == 0)
                 {
                   line_warn ("@%s in empty multitable",

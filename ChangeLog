@@ -1,3 +1,17 @@
+2023-11-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/utils.c (section_level),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block)
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_other_command), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_comma): use lookup_extra_* functions with a specific type and
+	dynaic type checking, when possible.
+
+	* tp/Texinfo/XS/parsetexi/macro.c: reindent.
+
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): use a
+	variable name for clearer code.
+
 2023-11-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/debug.c (print_associate_info_debug),

@@ -773,9 +773,9 @@ end_line_starting_block (ELEMENT *current)
       && (k = lookup_extra (current->parent, "columnfractions")))
     {
       ELEMENT *misc_cmd = k->element;
-      ELEMENT *misc_args;
+      ELEMENT *misc_args = lookup_extra_element (misc_cmd, "misc_args");
 
-      if ((misc_args = lookup_extra_element (misc_cmd, "misc_args")))
+      if (misc_args)
         {
           add_extra_integer (current->parent, "max_columns",
                              misc_args->contents.number);
@@ -1003,7 +1003,7 @@ end_line_starting_block (ELEMENT *current)
           add_extra_element (current, "command_as_argument", e);
         }
       else if (command_data(command).data == BLOCK_item_line
-          && !lookup_extra (current, "command_as_argument"))
+               && !lookup_extra_element (current, "command_as_argument"))
         {
           ELEMENT *e;
 
@@ -1514,7 +1514,7 @@ end_line_misc_line (ELEMENT *current)
       check_register_target_element_label (label_element, current);
 
       if (current_part
-          && !lookup_extra (current_part, "part_associated_section"))
+          && !lookup_extra_element (current_part, "part_associated_section"))
         {
          /* we only associate a part to the following node if the
             part is not already associate to a sectioning command,
@@ -1567,9 +1567,9 @@ end_line_misc_line (ELEMENT *current)
           if ((command_flags(current) & CF_index_entry_command
                 || current->cmd == CM_subentry))
             {
-              if (lookup_extra (current, "sortas")
-                   || lookup_extra (current, "seealso")
-                   || lookup_extra (current, "seeentry"))
+              if (lookup_extra_string (current, "sortas")
+                   || lookup_extra_element (current, "seealso")
+                   || lookup_extra_element (current, "seeentry"))
                 set_non_ignored_space_in_index_before_command(current->args.list[0]);
             }
         }
@@ -1695,7 +1695,7 @@ end_line_misc_line (ELEMENT *current)
         {
           if (current_node)
             {
-              if (!lookup_extra (current_node, "associated_section"))
+              if (!lookup_extra_element (current_node, "associated_section"))
                 {
                   add_extra_element
                     (current_node, "associated_section", current);
@@ -1723,7 +1723,7 @@ end_line_misc_line (ELEMENT *current)
         {
           current_part = current;
           if (current_node
-              && !lookup_extra (current_node, "associated_section"))
+              && !lookup_extra_element (current_node, "associated_section"))
             {
               line_warn ("@node precedes @part, but parts may not be "
                          "associated with nodes");

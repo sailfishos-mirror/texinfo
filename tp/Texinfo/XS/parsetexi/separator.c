@@ -102,6 +102,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
             {
 #define float floatxx
               ELEMENT *float;
+              char *caption_cmdname = command_name(command);
               nesting_context.caption++;
               if (!current->parent->parent
                   || current->parent->parent->cmd != CM_float)
@@ -113,25 +114,25 @@ handle_open_brace (ELEMENT *current, char **line_inout)
                     {
                       line_error ("@%s is not meaningful outside "
                                   "`@float' environment",
-                                  command_name(command));
+                                  caption_cmdname);
                       float = 0;
                     }
                   else
-                    line_warn ("@%s should be right below `@float'", 
-                               command_name(command));
+                    line_warn ("@%s should be right below `@float'",
+                               caption_cmdname);
                 }
               else
                 float = current->parent->parent;
               if (float)
                 {
-                  if (lookup_extra (float, command_name(command)))
+                  if (lookup_extra_element (float, caption_cmdname))
                     line_warn ("ignoring multiple @%s",
-                               command_name(command));
+                               caption_cmdname);
                   else
                     {
                       add_extra_element (current->parent, "float", float);
-                      add_extra_element (float, command_name(command), 
-                                             current->parent);
+                      add_extra_element (float, caption_cmdname,
+                                         current->parent);
                     }
                 }
 #undef float
@@ -604,10 +605,9 @@ handle_comma (ELEMENT *current, char **line_inout)
 
   if (command_data(current->cmd).data == BRACE_inline)
     {
-      KEY_PAIR *k_format;
       int expandp = 0;
-      k_format = lookup_extra (current, "format");
-      if (!k_format)
+      char *format = lookup_extra_string (current, "format");
+      if (!format)
         {
           ELEMENT *arg = 0;
           char *inline_type = 0;
@@ -787,7 +787,7 @@ handle_comma (ELEMENT *current, char **line_inout)
   text_append (&e->text, ""); /* See comment in parser.c:merge_text */
   add_to_element_contents (current, e);
   add_extra_element (e, "spaces_associated_command", current);
-  
+
 funexit:
   *line_inout = line;
   return current;

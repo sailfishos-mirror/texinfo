@@ -451,12 +451,9 @@ funexit:
 void
 set_toplevel_braces_nr (COUNTER *counter, ELEMENT* element)
 {
-  int toplevel_braces_nr = counter_value (counter,
-                                          element);
+  int toplevel_braces_nr = counter_value (counter, element);
   if (toplevel_braces_nr)
-    add_extra_integer (element,
-                       "toplevel_braces_nr",
-                       toplevel_braces_nr);
+    add_extra_integer (element, "toplevel_braces_nr", toplevel_braces_nr);
   counter_pop (counter);
 }
 
@@ -629,8 +626,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
     }
 
  funexit:
-  set_toplevel_braces_nr (&count_toplevel_braces,
-                          argument_content);
+  set_toplevel_braces_nr (&count_toplevel_braces, argument_content);
   for (i = 0; i < current->args.number; i++)
     {
       ELEMENT *argument_content = current->args.list[i]->contents.list[0];
