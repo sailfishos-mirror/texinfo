@@ -7481,7 +7481,7 @@ sub _convert_unit_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $element = shift;
+  my $output_unit = shift;
   my $content = shift;
 
   $content = '' if (!defined($content));
@@ -7490,7 +7490,6 @@ sub _convert_unit_type($$$$)
     return $content;
   }
   my $result = '';
-  my $output_unit = $element;
   if (not $output_unit->{'tree_unit_directions'}
       or not $output_unit->{'tree_unit_directions'}->{'prev'}) {
     $result .= $self->get_info('title_titlepage');
@@ -7515,11 +7514,11 @@ sub _convert_unit_type($$$$)
   }
   $result .= $content;
   my $unit_command;
-  if ($element->{'unit_command'}) {
-    $unit_command = $element->{'unit_command'};
+  if ($output_unit->{'unit_command'}) {
+    $unit_command = $output_unit->{'unit_command'};
   }
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
-                                               $element, $content, $unit_command);
+                                             $output_unit, $content, $unit_command);
 
   return $result;
 }

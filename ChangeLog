@@ -1,5 +1,13 @@
 2023-11-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (convert_unit_type)
+	(output_units_internal_conversion_table): implement convert_unit_type.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_unit_type): only use
+	$output_unit as variable name.
+
+2023-11-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning),
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
 	(fill_gaps_in_sectioning),

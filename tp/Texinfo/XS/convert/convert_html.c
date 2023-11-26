@@ -3589,6 +3589,75 @@ static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {0, 0},
 };
 
+void convert_unit_type (CONVERTER *self,
+                        const enum output_unit_type unit_type,
+                        const OUTPUT_UNIT *output_unit, const char *content,
+                        TEXT *result)
+{
+  STRING_LIST *closed_strings;
+  ELEMENT *unit_command;
+  char *formatted_footer;
+
+  if (in_string (self))
+    return;
+
+  if (!output_unit->tree_unit_directions[D_prev])
+    {
+      text_append (result, self->title_titlepage);
+      if (!output_unit->tree_unit_directions[D_next])
+        {
+          char *footnotes_segment;
+          /* only one unit, use simplified formatting */
+          if (content)
+            text_append (result, content);
+   /*  if there is one unit it also means that there is no formatting
+       of footnotes in a separate unit.  And if footnotestyle is end
+       the footnotes won't be done in format_element_footer either. */
+          footnotes_segment
+            = call_formatting_function_format_footnotes_segment (self);
+          if (footnotes_segment)
+            {
+              text_append (result, footnotes_segment);
+              free (footnotes_segment);
+            }
+          if (self->conf->DEFAULT_RULE
+              && self->conf->PROGRAM_NAME_IN_FOOTER > 0)
+            {
+              text_append (result, self->conf->DEFAULT_RULE);
+              text_append_n (result, "\n", 1);
+            }
+
+    /* do it here, as it is won't be done at end of page in
+       format_element_footer */
+          closed_strings = html_close_registered_sections_level (self, 0);
+
+          if (closed_strings->number)
+            {
+              int i;
+              for (i = 0; i < closed_strings->number; i++)
+                {
+                  text_append (result, closed_strings->list[i]);
+                }
+              free (closed_strings->list);
+            }
+          free (closed_strings);
+          return;
+        }
+    }
+
+  if (content)
+    text_append (result, content);
+
+  unit_command = output_unit->unit_command;
+
+  formatted_footer
+    = call_formatting_function_format_element_footer (self, unit_type,
+                                         output_unit, content, unit_command);
+  text_append (result, formatted_footer);
+
+  free (formatted_footer);
+}
+
 void
 convert_special_unit_type (CONVERTER *self,
                         const enum output_unit_type unit_type,
@@ -3718,6 +3787,7 @@ convert_special_unit_type (CONVERTER *self,
 
 static OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] = {
   {OU_special_unit, &convert_special_unit_type},
+  {OU_unit, &convert_unit_type},
   {0, 0},
 };
 
