@@ -296,10 +296,14 @@ sub _parsed_manual_tree($$$$$)
     # there should already be nodes associated with other sections.  Therefore
     # new nodes should only be created for the added sections.
     if ($section_nodes) {
-      # FIXME the following code does not work when using XS code only
-      # as $added_nodes is undef.  There are other issues, the entries
-      # deleted in identifier_target are not deleted in XS, and more generally
-      # the code is done as if everything was done with pure perl code.
+      # FIXME the following code does not work when using XS code only:
+      # * $added_nodes is undef.  Could be modified.
+      # * the entries deleted in identifier_target are not deleted in XS.
+      #   Important?
+      # * the perl tree is directly modified to change the first node argument.
+      #   No clear way to add to XS.  Would need a way to add an API to modify
+      #   a node name, but it is not generally useful.
+      # * Texinfo::Document::register_label_element has no XS override
       my $added_nodes
         = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                                            $document, $registrar, $texi_parser);
@@ -313,7 +317,7 @@ sub _parsed_manual_tree($$$$$)
 
           # prepare the new node Texinfo name and parse it to a Texinfo tree
           my $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                {'contents' => $node->{'args'}->[0]->{'contents'}});
+                                                      $node->{'args'}->[0]);
           # We could have kept the asis, too, it is kept when !section_nodes
           $node_texi =~ s/^\s*(\@asis\{\})?\s*//;
           # complete with manual name
@@ -322,17 +326,15 @@ sub _parsed_manual_tree($$$$$)
           my $complete_node_name = $self->_node_name($node_texi);
           my $completed_node_tree
             = Texinfo::Parser::parse_texi_line(undef, $complete_node_name);
-
           # now recreate node arg
-          my $node_arg = $node->{'args'}->[0];
-          $node_arg->{'contents'} = $completed_node_tree->{'contents'};
-          foreach my $content (@{$node_arg->{'contents'}}) {
-            $content->{'parent'} = $node_arg;
-          }
+          $completed_node_tree->{'type'} = 'line_arg';
+          $completed_node_tree->{'info'} = {'spaces_after_argument'
+                                                => {'text' => "\n"}};
+          $node->{'args'}->[0] = $completed_node_tree;
 
           my $normalized_node_name
-             = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-                  { 'contents' => $node_arg->{'contents'} });
+           = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+                                                        $completed_node_tree);
           $node->{'extra'}->{'normalized'} = $normalized_node_name;
 
           Texinfo::Document::register_label_element($document, $node,

@@ -19,6 +19,12 @@
 
 2023-11-26  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): modify code to
+	avoid using separately contents and elements clarify what is actually
+	done.  Update information in FIXME comment.
+
+2023-11-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/ParagraphNonXS.pm: remove a FIXME comment fixed.
 	* tp/TODO: update.
 

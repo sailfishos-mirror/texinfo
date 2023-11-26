@@ -176,7 +176,8 @@ set_document_options (SV *sv_options_in, SV *document_in)
             register_document_options (document, options);
           }
 
-# Next correspond to misc XS interfaces that have no associated
+
+# Next correspond to XS interfaces that have no associated
 # .xs file.
 
 
