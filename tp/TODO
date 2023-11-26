@@ -41,10 +41,6 @@ does not work perfectly with XS.  See FIXME in the code.  Tested in
 ./manual_tests/manual_sectioning_gap_test.sh
 Not a priority.
 
-Use a union for extra/info information instead of coercing a pointer?
-
-Use ELEMENT_LIST for extra_contents extra_directions?
-
 Bugs
 ====
 

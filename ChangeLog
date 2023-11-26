@@ -1,5 +1,12 @@
 2023-11-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/DocumentXS.xs (gdt): move from TranslationsXS to
+	DocumentXS.  Remove TranslationsXS.pm and TranslationsXS.xs.
+
+	* tp/Texinfo/XSLoader.pm (init): update message.
+
+2023-11-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (section_level),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block)
 	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c

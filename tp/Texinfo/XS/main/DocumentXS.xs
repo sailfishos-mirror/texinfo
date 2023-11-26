@@ -38,6 +38,7 @@
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
+
 MODULE = Texinfo::DocumentXS		PACKAGE = Texinfo::DocumentXS
 
 PROTOTYPES: ENABLE
@@ -174,4 +175,80 @@ set_document_options (SV *sv_options_in, SV *document_in)
             OPTIONS *options = copy_sv_options (sv_options_in);
             register_document_options (document, options);
           }
+
+# Next correspond to misc XS interfaces that have no associated
+# .xs file.
+
+
+# Next one is unused, kept as documentation only, as the code is
+# ok, but the approach is flawed as the trees in replaced_substrings
+# do not exist in XS/C data.
+
+# TODO not sure that the options_in argument is good to be
+# copy_sv_options argument, may need to retrieve a converter
+# first or Parser configuration.  Does not matter much as
+# the approach does not work because replaced_substrings
+# perl element tree cannot be retrieved in C stored documents.
+# optional:
+# replaced_substrings, translation_context, lang
+SV *
+gdt (SV *options_in, string, ...)
+        char *string = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$;$$$
+      PREINIT:
+        char *translation_context = 0;
+        char *in_lang = 0;
+        HV *hv_replaced_substrings = 0;
+        NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
+        OPTIONS *options = 0;
+        HV *result_tree;
+        int gdt_document_descriptor;
+        DOCUMENT *gdt_document;
+      CODE:
+         if (SvOK(options_in))
+           {
+             options = copy_sv_options (options_in);
+           }
+        if (items > 4 && SvOK(ST(4)))
+           in_lang = (char *)SvPVutf8_nolen(ST(4));
+        if (items > 3 && SvOK(ST(3)))
+           translation_context = (char *)SvPVutf8_nolen(ST(3));
+        if (items > 2 && SvOK(ST(2)))
+           {
+             /* TODO put in get_perl_info.h */
+             I32 hv_number;
+             I32 i;
+             hv_replaced_substrings = (HV *)SvRV (ST(1));
+             hv_number = hv_iterinit (hv_replaced_substrings);
+             if (hv_number > 0)
+               replaced_substrings = new_named_string_element_list ();
+               for (i = 0; i < hv_number; i++)
+                 {
+                   char *key;
+                   I32 retlen;
+                   SV *value = hv_iternextsv(hv_replaced_substrings,
+                                             &key, &retlen);
+                   DOCUMENT *document = get_sv_tree_document (value, 0);
+                   /* TODO should warn/error if not found or return 
+                      a list of missing string identifiers?  Or check
+                      in caller?  In any case, it cannot be good to
+                      ignore a replaced substring */
+                   if (document && document->tree)
+                     add_element_to_named_string_element_list (
+                       replaced_substrings, key, document->tree);
+               }
+           }
+
+         gdt_document_descriptor
+                     = gdt (string, options, replaced_substrings,
+                           translation_context, in_lang);
+         gdt_document = retrieve_document (gdt_document_descriptor);
+         result_tree = build_texinfo_tree (gdt_document->tree);
+         hv_store (result_tree, "tree_document_descriptor",
+                  strlen ("tree_document_descriptor"),
+                  newSViv ((IV) gdt_document_descriptor), 0);
+         RETVAL = newRV_inc ((SV *) result_tree);
+    OUTPUT:
+         RETVAL
+
 

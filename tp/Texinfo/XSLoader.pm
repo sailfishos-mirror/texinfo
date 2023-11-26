@@ -226,7 +226,7 @@ sub init {
   
  FALLBACK:
   if ($TEXINFO_XS eq 'required') {
-    die "unset the TEXINFO_XS environment variable to use the "
+    die "set the TEXINFO_XS environment variable to 'omit' to use the "
        ."pure Perl modules\n";
   } elsif ($TEXINFO_XS eq 'warn' or $TEXINFO_XS eq 'debug') {
     if (defined($fallback_module)) {

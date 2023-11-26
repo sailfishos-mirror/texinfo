@@ -325,26 +325,6 @@ DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
 DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
-########################## Translations XS
-
-# Not used for now as replaced_substrings
-# perl element tree cannot be retrieved in C stored documents.
-
-#if HAVE_ICONV
-#xs_LTLIBRARIES += TranslationsXS.la
-#endif
-#
-#TranslationsXS_la_SOURCES = \
-#                       main/TranslationsXS.c
-#
-#EXTRA_DIST += main/TranslationsXS.xs
-#
-## locate include files under out-of-source builds.
-#TranslationsXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-#TranslationsXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-#TranslationsXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
-#TranslationsXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
-
 ########################## StructuringTransfo XS
 
 if HAVE_ICONV

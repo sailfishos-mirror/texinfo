@@ -58,7 +58,7 @@ sub import {
     # general.
     #Texinfo::XSLoader::override(
     #  "Texinfo::Translations::gdt",
-    #  "Texinfo::TranslationsXS::gdt");
+    #  "Texinfo::DocumentXS::gdt");
     $module_loaded = 1;
   }
   # The usual import method
