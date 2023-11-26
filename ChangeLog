@@ -1,3 +1,13 @@
+2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (new_formatter):
+	Do no save the "type" of the formatter (line/paragraph/unfilled).
+	(_convert) <@image>: Reset 'empty_lines_count' regardless of
+	formatter type.
+	<"format raw commands">: Always flush the output of the current
+	formatter, not just for "paragraph" formatters.  Do not output
+	an extra end of line afterwards.
+
 2023-11-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/ParagraphNonXS.pm: remove a FIXME comment fixed.

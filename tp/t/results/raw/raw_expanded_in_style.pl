@@ -120,8 +120,7 @@ $result_floats{'raw_expanded_in_style'} = {};
 
 
 
-$result_converted{'plaintext'}->{'raw_expanded_in_style'} = '‘ 
-in html
+$result_converted{'plaintext'}->{'raw_expanded_in_style'} = '‘ in html
 ’
 ';
 

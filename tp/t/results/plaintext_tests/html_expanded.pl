@@ -111,8 +111,7 @@ $result_floats{'html_expanded'} = {};
 
 
 
-$result_converted{'plaintext'}->{'html_expanded'} = 'Before 
-html
+$result_converted{'plaintext'}->{'html_expanded'} = 'Before html
 after.
 ';
 

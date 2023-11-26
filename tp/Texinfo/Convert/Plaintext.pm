@@ -740,7 +740,7 @@ sub new_formatter($$;$)
   my $formatter = {'container' => $container,
                    'upper_case_stack' => [{}],
                    'font_type_stack' => [{}],
-                   'w' => 0, 'type' => $type,
+                   'w' => 0,
               'frenchspacing_stack' => [$self->{'conf'}->{'frenchspacing'}],
               #'frenchspacing_stack' => [$self->get_conf('frenchspacing')],
               # access 'conf' hash directly for efficiency
@@ -2346,7 +2346,7 @@ sub _convert($$)
         my ($image, $lines_count) = $self->format_image($element);
         _add_lines_count($self, $lines_count);
         add_text_to_count($self, $image);
-        if ($image ne '' and $formatter->{'type'} ne 'paragraph') {
+        if ($image ne '') {
           $self->{'empty_lines_count'} = 0;
         }
         $result .= $image;
@@ -2678,12 +2678,9 @@ sub _convert($$)
       }
       if ($self->{'preformatted_context_commands'}->{$command}
           or $command eq 'float') {
-        if ($self->{'formatters'}->[-1]->{'type'} eq 'paragraph'
-            and $format_raw_commands{$command}) {
+        if ($format_raw_commands{$command}) {
           $result .= _count_added($self, $formatter->{'container'},
                               add_pending_word($formatter->{'container'}, 1));
-          $result .= _count_added($self, $formatter->{'container'},
-                              end_line($formatter->{'container'}));
         }
         push @{$self->{'context'}}, $command;
       } elsif ($flush_commands{$command}) {
