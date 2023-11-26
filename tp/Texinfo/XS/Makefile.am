@@ -328,23 +328,23 @@ DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 ########################## StructuringTransfo XS
 
 if HAVE_ICONV
-xs_LTLIBRARIES += StructuringTransfo.la
+xs_LTLIBRARIES += StructuringTransfoXS.la
 endif
 
-StructuringTransfo_la_SOURCES = \
-                    structuring_transfo/StructuringTransfo.c \
+StructuringTransfoXS_la_SOURCES = \
+                    structuring_transfo/StructuringTransfoXS.c \
                     structuring_transfo/structuring.c \
                     structuring_transfo/structuring.h \
                     structuring_transfo/transformations.c \
                     structuring_transfo/transformations.h
 
-EXTRA_DIST += structuring_transfo/StructuringTransfo.xs
+EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
 
 # locate include files under out-of-source builds.
-StructuringTransfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-StructuringTransfo_la_CFLAGS = $(XSLIBS_CFLAGS)
-StructuringTransfo_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
-StructuringTransfo_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+StructuringTransfoXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
+StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ########################## ConvertXS
 

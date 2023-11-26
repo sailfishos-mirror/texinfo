@@ -39,7 +39,7 @@ use Carp qw(cluck confess);
 
 use Unicode::Normalize;
 
-use Texinfo::StructTransf;
+use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
 
@@ -94,35 +94,35 @@ my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
 
 our %XS_overrides = (
   "Texinfo::Structuring::associate_internal_references"
-    => "Texinfo::StructTransf::associate_internal_references",
+    => "Texinfo::StructTransfXS::associate_internal_references",
   "Texinfo::Structuring::sectioning_structure"
-    => "Texinfo::StructTransf::sectioning_structure",
+    => "Texinfo::StructTransfXS::sectioning_structure",
   "Texinfo::Structuring::warn_non_empty_parts"
-    => "Texinfo::StructTransf::warn_non_empty_parts",
+    => "Texinfo::StructTransfXS::warn_non_empty_parts",
   "Texinfo::Structuring::nodes_tree"
-    => "Texinfo::StructTransf::nodes_tree",
+    => "Texinfo::StructTransfXS::nodes_tree",
   "Texinfo::Structuring::set_menus_node_directions"
-    => "Texinfo::StructTransf::set_menus_node_directions",
+    => "Texinfo::StructTransfXS::set_menus_node_directions",
   "Texinfo::Structuring::complete_node_tree_with_menus"
-    => "Texinfo::StructTransf::complete_node_tree_with_menus",
+    => "Texinfo::StructTransfXS::complete_node_tree_with_menus",
   "Texinfo::Structuring::check_nodes_are_referenced"
-    => "Texinfo::StructTransf::check_nodes_are_referenced",
+    => "Texinfo::StructTransfXS::check_nodes_are_referenced",
   "Texinfo::Structuring::number_floats"
-    => "Texinfo::StructTransf::number_floats",
+    => "Texinfo::StructTransfXS::number_floats",
   "Texinfo::Structuring::rebuild_output_units"
-    => "Texinfo::StructTransf::rebuild_output_units",
+    => "Texinfo::StructTransfXS::rebuild_output_units",
   "Texinfo::Structuring::_XS_unsplit"
-    => "Texinfo::StructTransf::unsplit",
+    => "Texinfo::StructTransfXS::unsplit",
 
   # Not useful for HTML as functions, as the calling functions are
   # already overriden
   # Could be readded when other converters than HTML are done in C
   #  "Texinfo::Structuring::split_by_node"
-  #    => "Texinfo::StructTransf::split_by_node");
+  #    => "Texinfo::StructTransfXS::split_by_node");
   #  "Texinfo::Structuring::split_by_section"
-  #    => "Texinfo::StructTransf::split_by_section");
+  #    => "Texinfo::StructTransfXS::split_by_section");
   #  "Texinfo::Structuring::split_pages"
-  #    => "Texinfo::StructTransf::split_pages"
+  #    => "Texinfo::StructTransfXS::split_pages"
 );
 
 our $module_loaded = 0;

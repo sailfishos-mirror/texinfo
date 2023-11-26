@@ -43,10 +43,10 @@ use Carp qw(cluck confess);
 
 use Locale::Messages;
 
-# FIXME do we really want XS in that file?  Move to
-# Structuring.pm?
+# FIXME do we really want XS in Common.pm?  Move overriden functions
+# to other modules?
 use Texinfo::DocumentXS;
-use Texinfo::StructTransf;
+use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
 
@@ -93,17 +93,17 @@ our %XS_overrides = (
   "Texinfo::Common::set_document_options"
     => "Texinfo::DocumentXS::set_document_options",
   "Texinfo::Common::copy_tree"
-    => "Texinfo::StructTransf::copy_tree",
+    => "Texinfo::StructTransfXS::copy_tree",
   "Texinfo::Common::relate_index_entries_to_table_items_in_tree"
-    => "Texinfo::StructTransf::relate_index_entries_to_table_items_in_tree",
+    => "Texinfo::StructTransfXS::relate_index_entries_to_table_items_in_tree",
   "Texinfo::Common::move_index_entries_after_items_in_tree"
-    => "Texinfo::StructTransf::move_index_entries_after_items_in_tree",
+    => "Texinfo::StructTransfXS::move_index_entries_after_items_in_tree",
   "Texinfo::Common::protect_colon_in_tree"
-    => "Texinfo::StructTransf::protect_colon_in_tree",
+    => "Texinfo::StructTransfXS::protect_colon_in_tree",
   "Texinfo::Common::protect_comma_in_tree"
-    => "Texinfo::StructTransf::protect_comma_in_tree",
+    => "Texinfo::StructTransfXS::protect_comma_in_tree",
   "Texinfo::Common::protect_node_after_label_in_tree"
-    => "Texinfo::StructTransf::protect_node_after_label_in_tree",
+    => "Texinfo::StructTransfXS::protect_node_after_label_in_tree",
 );
 
 our $module_loaded = 0;

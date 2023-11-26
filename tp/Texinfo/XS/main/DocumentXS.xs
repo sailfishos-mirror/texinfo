@@ -243,7 +243,7 @@ gdt (SV *options_in, string, ...)
                      = gdt (string, options, replaced_substrings,
                            translation_context, in_lang);
          gdt_document = retrieve_document (gdt_document_descriptor);
-         result_tree = build_texinfo_tree (gdt_document->tree);
+         result_tree = build_texinfo_tree (gdt_document->tree, 0);
          hv_store (result_tree, "tree_document_descriptor",
                   strlen ("tree_document_descriptor"),
                   newSViv ((IV) gdt_document_descriptor), 0);

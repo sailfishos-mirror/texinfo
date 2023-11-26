@@ -319,7 +319,6 @@ tp/Texinfo/XS/gnulib/m4/ltversion.m4
 tp/Texinfo/XS/gnulib/m4/lt~obsolete.m4
 
 tp/Texinfo/XS/main/DocumentXS.c
-tp/Texinfo/XS/main/TranslationsXS.c
 tp/Texinfo/XS/main/accent_tables_8bit_codepoints.c
 tp/Texinfo/XS/main/command_data.c
 tp/Texinfo/XS/main/cmd_normalization.c
@@ -336,7 +335,7 @@ tp/Texinfo/XS/main/options_types.h
 
 tp/Texinfo/XS/main/*.lo
 
-tp/Texinfo/XS/structuring_transfo/StructuringTransfo.c
+tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.c
 
 tp/Texinfo/XS/structuring_transfo/*.lo
 

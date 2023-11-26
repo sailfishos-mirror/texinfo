@@ -30,7 +30,7 @@ use strict;
 
 use Carp qw(cluck);
 
-use Texinfo::StructTransf;
+use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
 
@@ -63,21 +63,21 @@ my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
 
 our %XS_overrides = (
   "Texinfo::Transformations::fill_gaps_in_sectioning"
-    => "Texinfo::StructTransf::fill_gaps_in_sectioning",
+    => "Texinfo::StructTransfXS::fill_gaps_in_sectioning",
   "Texinfo::Transformations::reference_to_arg_in_tree"
-    => "Texinfo::StructTransf::reference_to_arg_in_tree",
+    => "Texinfo::StructTransfXS::reference_to_arg_in_tree",
   "Texinfo::Transformations::complete_tree_nodes_menus"
-    => "Texinfo::StructTransf::complete_tree_nodes_menus",
+    => "Texinfo::StructTransfXS::complete_tree_nodes_menus",
   "Texinfo::Transformations::complete_tree_nodes_missing_menu"
-    => "Texinfo::StructTransf::complete_tree_nodes_missing_menu",
+    => "Texinfo::StructTransfXS::complete_tree_nodes_missing_menu",
   "Texinfo::Transformations::regenerate_master_menu"
-    => "Texinfo::StructTransf::regenerate_master_menu",
+    => "Texinfo::StructTransfXS::regenerate_master_menu",
   "Texinfo::Transformations::insert_nodes_for_sectioning_commands"
-    => "Texinfo::StructTransf::insert_nodes_for_sectioning_commands",
+    => "Texinfo::StructTransfXS::insert_nodes_for_sectioning_commands",
   "Texinfo::Transformations::protect_hashchar_at_line_beginning"
-    => "Texinfo::StructTransf::protect_hashchar_at_line_beginning",
+    => "Texinfo::StructTransfXS::protect_hashchar_at_line_beginning",
   "Texinfo::Transformations::protect_first_parenthesis_in_targets"
-    => "Texinfo::StructTransf::protect_first_parenthesis_in_targets",
+    => "Texinfo::StructTransfXS::protect_first_parenthesis_in_targets",
 );
 
 our $module_loaded = 0;
