@@ -676,7 +676,6 @@ sub new_formatter($$;$)
 
   my $container_conf = {
          'max'           => $self->{'text_element_context'}->[-1]->{'max'},
-         'indent_level'  => $self->{'format_context'}->[-1]->{'indent_level'},
   };
 
   $container_conf->{'indent_length'}
@@ -701,7 +700,7 @@ sub new_formatter($$;$)
   }
 
   my $indent = $container_conf->{'indent_length'};
-  $indent = $indent_length*$container_conf->{'indent_level'}
+  $indent = $indent_length*($self->{'format_context'}->[-1]->{'indent_level'})
     if (!defined($indent));
 
   if ($first_indent_length) {
@@ -2849,8 +2848,9 @@ sub _convert($$)
 
         $table_item_tree->{'type'} = 'frenchspacing';
         $result = $self->convert_line($table_item_tree,
-                    {'indent_level'
-                      => $self->{'format_context'}->[-1]->{'indent_level'} -1});
+             {'indent_length' =>
+                 ($self->{'format_context'}->[-1]->{'indent_level'} -1)
+                   * $indent_length});
         if ($result ne '') {
           $result = $self->ensure_end_of_line($result);
           $self->{'empty_lines_count'} = 0;
@@ -2936,12 +2936,14 @@ sub _convert($$)
           and $element->{'args'}->[0]->{'contents'}) {
         if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
           $result = $self->_convert_unfilled($element->{'args'}->[0],
-               {'indent_level'
-                 => $self->{'format_context'}->[-1]->{'indent_level'} -1});
+               {'indent_length' =>
+                   ($self->{'format_context'}->[-1]->{'indent_level'} -1)
+                     * $indent_length});
         } else {
           $result = $self->convert_line($element->{'args'}->[0],
-             {'indent_level'
-               => $self->{'format_context'}->[-1]->{'indent_level'} -1});
+             {'indent_length' =>
+                 ($self->{'format_context'}->[-1]->{'indent_level'} -1)
+                   * $indent_length});
         }
       }
       if ($result ne '') {
