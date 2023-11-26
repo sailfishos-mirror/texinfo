@@ -186,8 +186,6 @@ my $end_sentence_characters = quotemeta('.?!');
 my $after_punctuation_characters = quotemeta('"\')]');
 
 # Add $WORD to paragraph, returning the text to be added to the paragraph.
-# FIXME: remove handling of \x08 control characters from add_next, doing it
-# in add_text instead (as is done in the corresponding XS code).
 sub add_next($;$$)
 {
   my $paragraph = shift;

@@ -10,23 +10,13 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-check $(native_tools) variable in Makefile.am does not seems to be
-set and seems useless.
-
-For unicode sorting in C for index sorting, strcoll_l or even better strxfrm_l
-could be used, it sorts according to a locale specified in argument.  However,
-it does not seems to be that portable, there is no associated gnulib
-module, and the _l variants seem to be in glibc but are are not in the glibc
-documentation.  According to Eli, if the locale's codeset is UTF-8, glibc
-uses the full Unicode CLDR, which is what we want.
-
 Document that Texinfo::Document::rebuild_document or
 Texinfo::Document::rebuild_tree should be called after tree modifications
 if the parser is XS but converters are perl.
 
 Add a comment/TODO somewhere that explains that the need to maintain
-perl and C document contexts exactly in sync is probably a bug somewhere.
-Indeed, the change in perl document context should not need to be
+perl and C HTML document contexts exactly in sync is probably a bug somewhere.
+Indeed, the change in perl HTML document context should not need to be
 transmitted to C (through overriding of _new_document_context
 and _pop_document_context) as perl does not call any XS/C formatting
 function -- with the exception of translate_names -- and therefore the
@@ -80,6 +70,13 @@ For converter writers,
 
 Delayed bugs
 ============
+
+For unicode sorting in C for index sorting, strcoll_l or even better strxfrm_l
+could be used, it sorts according to a locale specified in argument.  However,
+it does not seems to be that portable, there is no associated gnulib
+module, and the _l variants seem to be in glibc but are are not in the glibc
+documentation.  According to Eli, if the locale's codeset is UTF-8, glibc
+uses the full Unicode CLDR, which is what we want.
 
 
 hyphenation: should only appear in toplevel.
@@ -183,41 +180,6 @@ Future features
 For converters in C, agreed with Gavin that it is better not to
 translate a perl tree in input, but access directly the C tree that
 was setup by the XS parser.
-
-
-It would probably be good and maybe ease C converters to have a
-Texinfo::Document package which encapsulates the information associated
-to a document, the tree, and all the other information given by
-the parser, indices_information, floats_information,
-internal_references_information, global_commands_information,
-global_information and labels_information as they are a property of a Texinfo
-Document, in addition to being, in general, states of a parser.  The
-information set by some calls to Structuring would also probably fit there
-naturally.  A member of the package/class would be initialized after the
-parsing, but not necessarily for all the function, maybe only parse_texi_text
-and parse_texi_file.
-
-For transliteration, use in iconv ascii//TRANSLIT?
-
-For nodenormalization
-Constant: uc_property_t UC_PROPERTY_DIACRITIC
-Function: bool uc_is_property (ucs4_t uc, uc_property_t property)
-
-Note that there is a function, not currently used, that could be reused in api.c:
-find_locales_dir
-
-
-For Paragraph, improvements and synchronizations of
-the two implementations.  It would be nice to change the XS code
-to operate on multiple spans of characters at once when relevant,
-we'd have an extra step of keeping track of how long each span of
-text is, and then processing that span of text together (in the loop
-in xspara_add_text).  It could potentiall have performance benefits
-(e.g. reducing the number of function calls) and be easier to debug,
-with fewer steps in the processing to trace.  The XS code is easier
-to read for the ens of sentence handling part, so for that part, it
-could be relevant to use the XS code as reference and change the perl
-Paragraph.
 
 
 From Gavin on the preamble_before_beginning implementation:
