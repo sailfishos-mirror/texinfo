@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Texinfo::Parser->import hardcoded in Texinfo/XSLoader.pm
-
 check $(native_tools) variable in Makefile.am does not seems to be
 set and seems useless.
 

@@ -1,5 +1,10 @@
 2023-11-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XSLoader.pm (init): call $module->import when falling
+	back on pure perl module, not Texinfo::Parser->import.
+
+2023-11-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/DocumentXS.xs (gdt): update build_texinfo_tree
 	call.
 
