@@ -1,5 +1,14 @@
 2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	new_formatter tweaks
+
+	* tp/Texinfo/Convert/Plaintext.pm (new_formatter):
+	Save value of a configuration variable to reuse it.
+	Reorder conditional to check for 'paragraph' formatter first
+	as this is the most frequently used.
+
+2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (new_formatter):
 	Do no save the "type" of the formatter (line/paragraph/unfilled).
 	(_convert) <@image>: Reset 'empty_lines_count' regardless of

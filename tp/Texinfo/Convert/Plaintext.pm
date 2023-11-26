@@ -674,7 +674,6 @@ sub new_formatter($$;$)
     delete $conf->{'first_indent_length'};
   }
 
-  my $container;
   my $container_conf = {
          'max'           => $self->{'text_element_context'}->[-1]->{'max'},
          'indent_level'  => $self->{'format_context'}->[-1]->{'indent_level'},
@@ -684,8 +683,9 @@ sub new_formatter($$;$)
     = $self->{'format_context'}->[-1]->{'indent_length'}
       if (defined($self->{'format_context'}->[-1]->{'indent_length'}));
 
+  my $frenchspacing_conf = $self->{'conf'}->{'frenchspacing'};
   $container_conf->{'frenchspacing'} = 1
-    if ($self->{'conf'}->{'frenchspacing'} eq 'on');
+    if ($frenchspacing_conf eq 'on');
     #if ($self->get_conf('frenchspacing') eq 'on');
     # access 'conf' hash directly for efficiency
 
@@ -711,14 +711,15 @@ sub new_formatter($$;$)
     $container_conf->{'indent_length'} = $indent;
   }
 
-  if ($type eq 'line') {
+  my $container;
+  if ($type eq 'paragraph') {
+    $container = Texinfo::Convert::Paragraph->new($container_conf);
+  } elsif ($type eq 'line') {
     $container_conf->{'max'} = 10000001;
     $container_conf->{'keep_end_lines'} = 1;
     $container_conf->{'no_final_newline'} = 1;
     $container_conf->{'add_final_space'} = 1;
 
-    $container = Texinfo::Convert::Paragraph->new($container_conf);
-  } elsif ($type eq 'paragraph') {
     $container = Texinfo::Convert::Paragraph->new($container_conf);
   } elsif ($type eq 'unfilled') {
     $container_conf->{'max'} = 10000000;
@@ -741,9 +742,7 @@ sub new_formatter($$;$)
                    'upper_case_stack' => [{}],
                    'font_type_stack' => [{}],
                    'w' => 0,
-              'frenchspacing_stack' => [$self->{'conf'}->{'frenchspacing'}],
-              #'frenchspacing_stack' => [$self->get_conf('frenchspacing')],
-              # access 'conf' hash directly for efficiency
+              'frenchspacing_stack' => [ $frenchspacing_conf ],
               'suppress_styles' => undef,
               'no_added_eol' => undef};
   if ($conf) {
