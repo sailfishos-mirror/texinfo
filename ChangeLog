@@ -1,5 +1,18 @@
 2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No 'first_indent_length' option for new_formatter
+
+	* tp/Texinfo/Convert/Plaintext.pm (new_formatter):
+	Eliminate 'first_indent_length' as a possible configuration
+	option.  This is not used by the paragraph formatting module
+	itself, and was only used at place new_formatter was called.
+	This means the options passed to new_formatter are now the
+	same as those used for the paragraph formatter.
+	(_convert) <paragraph indent>: Set 'indent_length' and
+	'indent_length_next' here, rather than 'first_indent_length'.
+
+2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (new_formatter):
 	Propagate two formatter options directly rather than in a loop.
 

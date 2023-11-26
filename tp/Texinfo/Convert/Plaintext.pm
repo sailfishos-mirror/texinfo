@@ -668,25 +668,24 @@ sub new_formatter($$;$)
 {
   my ($self, $type, $conf) = @_;
 
-  my $first_indent_length;
-  if ($conf) {
-    $first_indent_length = $conf->{'first_indent_length'};
-    delete $conf->{'first_indent_length'};
-  }
-
   my $container_conf = {
-         'max'           => $self->{'text_element_context'}->[-1]->{'max'},
+    'max' => $self->{'text_element_context'}->[-1]->{'max'},
   };
 
-  $container_conf->{'indent_length'}
-    = $self->{'format_context'}->[-1]->{'indent_length'}
-      if (defined($self->{'format_context'}->[-1]->{'indent_length'}));
+  my $indent = $self->{'format_context'}->[-1]->{'indent_length'};
+  if (defined($indent)) {
+    $container_conf->{'indent_length'} = $indent;
+  } else {
+    $container_conf->{'indent_length'}
+      = $indent_length*($self->{'format_context'}->[-1]->{'indent_level'});
+  }
 
   my $frenchspacing_conf = $self->{'conf'}->{'frenchspacing'};
+  #my $frenchspacing_conf = $self->get_conf('frenchspacing');
+  # access 'conf' hash directly for efficiency
+
   $container_conf->{'frenchspacing'} = 1
     if ($frenchspacing_conf eq 'on');
-    #if ($self->get_conf('frenchspacing') eq 'on');
-    # access 'conf' hash directly for efficiency
 
   $container_conf->{'counter'}
     = $self->{'text_element_context'}->[-1]->{'counter'}
@@ -697,17 +696,6 @@ sub new_formatter($$;$)
     foreach my $key (keys(%$conf)) {
       $container_conf->{$key} = $conf->{$key};
     }
-  }
-
-  my $indent = $container_conf->{'indent_length'};
-  $indent = $indent_length*($self->{'format_context'}->[-1]->{'indent_level'})
-    if (!defined($indent));
-
-  if ($first_indent_length) {
-    $container_conf->{'indent_length'} = $first_indent_length;
-    $container_conf->{'indent_length_next'} = $indent;
-  } else {
-    $container_conf->{'indent_length'} = $indent;
   }
 
   my $container;
@@ -3124,9 +3112,10 @@ sub _convert($$)
                 and ($self->{'format_context'}->[-1]->{'paragraph_count'}
                   or $self->get_conf('firstparagraphindent') eq 'insert')
                and !$self->{'text_element_context'}->[-1]->{'counter'}))) {
-        $conf->{'first_indent_length'} = $self->get_conf('paragraphindent');
-        $conf->{'first_indent_length'} = 0
-          if ($conf->{'first_indent_length'} eq 'none');
+        my $para_indent = $self->get_conf('paragraphindent');
+        $para_indent = 0 if $para_indent eq 'none';
+        $conf->{'indent_length'} = $para_indent;
+        $conf->{'indent_length_next'} = 0;
       }
       $paragraph = $self->new_formatter('paragraph', $conf);
       push @{$self->{'formatters'}}, $paragraph;
