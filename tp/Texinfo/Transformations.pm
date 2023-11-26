@@ -127,9 +127,10 @@ sub _correct_level($$;$)
   }
 }
 
-sub fill_gaps_in_sectioning($)
+sub fill_gaps_in_sectioning($;$)
 {
   my $root = shift;
+  my $commands_heading_content = shift;
 
   my $contents_nr = scalar(@{$root->{'contents'}});
 
@@ -183,11 +184,19 @@ sub fill_gaps_in_sectioning($)
                         'info' => {'spaces_after_argument'
                                                  => {'text' => "\n",}}};
         $new_section->{'args'} = [$line_arg];
-        my $asis_command = {'cmdname' => 'asis',
-                            'parent' => $line_arg};
-        $line_arg->{'contents'} = [$asis_command];
-        $asis_command->{'args'} = [{'type' => 'brace_command_arg',
-                                    'parent' => $asis_command}];
+        my $line_content;
+        if ($commands_heading_content) {
+          $line_content
+            = Texinfo::Common::copy_contentsNonXS($commands_heading_content);
+          $line_content->{'parent'} = $line_arg;
+        } else {
+          my $asis_command = {'cmdname' => 'asis',
+                              'parent' => $line_arg};
+          $asis_command->{'args'} = [{'type' => 'brace_command_arg',
+                                      'parent' => $asis_command}];
+          $line_content = $asis_command;
+        }
+        $line_arg->{'contents'} = [$line_content];
         $new_section->{'contents'} = [{'type' => 'empty_line',
                                        'text' => "\n",
                                        'parent' => $new_section}];
@@ -964,7 +973,7 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
 
-=item $added_sections = fill_gaps_in_sectioning($tree)
+=item $added_sections = fill_gaps_in_sectioning($tree, $commands_heading_content)
 X<C<fill_gaps_in_sectioning>>
 
 This function adds empty C<@unnumbered> and similar commands in a tree
@@ -973,6 +982,9 @@ from a format that can handle gaps in sectioning.  I<$tree> is the tree
 root, which is modified by adding the new sectioning commands. An array
 reference is returned, containing the added sectioning commands, or
 undef if there was no sectioning command at all in the tree root.
+
+In the default case, the added sectioning commands headings are empty.  It is
+possible to use instead the I<$commands_heading_tree> Texinfo tree element.
 
 If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or

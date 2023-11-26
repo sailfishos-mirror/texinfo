@@ -22,7 +22,7 @@ Th1
 
 * Th1 1::
 
-@asis{}
+Th1
 
 * Th1 Th3::
 @end detailmenu

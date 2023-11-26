@@ -282,7 +282,7 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
 }
 
 ELEMENT_LIST *
-fill_gaps_in_sectioning (ELEMENT *root)
+fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
 {
   ELEMENT_LIST *added_sections = new_list ();
   int idx_current_section = -1;
@@ -325,12 +325,11 @@ fill_gaps_in_sectioning (ELEMENT *root)
           correct_level (next_section, current_section, 1);
           while (next_section_level - current_section_level > 1)
             {
+              ELEMENT *line_content;
               ELEMENT *new_section = new_element (ET_NONE);
               ELEMENT *spaces_before_argument = new_element (ET_NONE);
               ELEMENT *line_arg = new_element (ET_line_arg);
               ELEMENT *spaces_after_argument = new_element (ET_NONE);
-              ELEMENT *asis_command = new_element (ET_NONE);
-              ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
               ELEMENT *empty_line = new_element (ET_empty_line);
 
               current_section_level++;
@@ -347,9 +346,21 @@ fill_gaps_in_sectioning (ELEMENT *root)
                                     spaces_after_argument);
               add_to_element_args (new_section, line_arg);
 
-              asis_command->cmd = CM_asis;
-              add_to_element_contents (line_arg, asis_command);
-              add_to_element_args (asis_command, brace_command_arg);
+              if (commands_heading_content)
+                {
+                  line_content = copy_contents (commands_heading_content,
+                                                ET_NONE);
+                }
+              else
+                {
+                  ELEMENT *asis_command = new_element (ET_NONE);
+                  ELEMENT *brace_command_arg
+                    = new_element (ET_brace_command_arg);
+                  asis_command->cmd = CM_asis;
+                  add_to_element_args (asis_command, brace_command_arg);
+                  line_content = asis_command;
+                }
+              add_to_element_contents (line_arg, line_content);
 
               text_append (&empty_line->text, "\n");
               add_to_element_contents (new_section, empty_line);

@@ -24,11 +24,6 @@ contexts should be back to where they were before perl was called.  The code
 in C already registers what changed compared to last time perl was called,
 only applying that should be good.
 
-the code in _parsed_manual_tree in Pod-Simple-Texinfo/pod2texi.pl
-does not work perfectly with XS.  See FIXME in the code.  Tested in
-./manual_tests/manual_sectioning_gap_test.sh
-Not a priority.
-
 Bugs
 ====
 

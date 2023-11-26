@@ -1,3 +1,25 @@
+2023-11-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(fill_gaps_in_sectioning),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning): new optional Texinfo tree argument for
+	fill_gaps_in_sectioning to use for all the added commands headings
+	instead of an empty @asis.
+
+	* Pod-Simple-Texinfo/pod2texi.pl,
+	Pod-Simple-Texinfo/manual_tests/reference_Th1.texi,
+	Pod-Simple-Texinfo/manual_tests/reference_sectioning_gap.texi:
+	setup a Texinfo tree with the manual name to use as
+	fill_gaps_in_sectioning argument if the sectioning base level is > 0.
+
+	* Pod-Simple-Texinfo/manual_tests/manual_sectioning_gap_test.sh,
+	manual_tests/Module1.pod, manual_tests/Module2.pod,
+	manual_tests/reference_includes/
+	manual_tests/reference_modules_main.texi: new manual test with two
+	modules.
+
 2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No 'first_indent_length' option for new_formatter
