@@ -1,6 +1,11 @@
 2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (new_formatter):
+	Propagate two formatter options directly rather than in a loop.
+
+2023-11-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (new_formatter):
 	Do not set 'indent_level' on config structure passed to paragraph
 	formatter, as it is not used.
 	(_convert): Do not call new_formatter with 'indent_level' in the

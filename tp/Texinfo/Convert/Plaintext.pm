@@ -741,13 +741,12 @@ sub new_formatter($$;$)
                    'upper_case_stack' => [{}],
                    'font_type_stack' => [{}],
                    'w' => 0,
-              'frenchspacing_stack' => [ $frenchspacing_conf ],
-              'suppress_styles' => undef,
-              'no_added_eol' => undef};
+                   'frenchspacing_stack' => [ $frenchspacing_conf ],
+                   'suppress_styles' => undef,
+                   'no_added_eol' => undef};
   if ($conf) {
-    foreach my $configuration ('suppress_styles', 'no_added_eol') {
-      $formatter->{$configuration} = $conf->{$configuration};
-    }
+    $formatter->{'suppress_styles'} = $conf->{'suppress_styles'};
+    $formatter->{'no_added_eol'} = $conf->{'no_added_eol'};
   }
 
   if ($type eq 'unfilled') {
