@@ -1,5 +1,24 @@
 2023-11-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (set_restricted, global_restricted):
+	New.
+	* tp/Texinfo/XS/parsetexi/macro.c (new_macro): Do nothing if
+	global_restricted is set.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs,
+	* tp/Texinfo/XS/parsetexi/api.c (parser_set_restricted):
+	New function.  Call set_restricted.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (simple_parser):
+	Set 'restricted' flag.
+	(parser): If 'restricted' flag is set, call parser_set_restricted.
+
+	* tp/t/init_files_tests.t
+	(macro_defined_txiinternalvalue_in_translation): Re-add test,
+	to check what is done with this input and init file.  From Patrice.
+
+2023-11-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm (_new_macro),
 	(_parse_line_command_args) <@alias, @definfoenclose>
 	<@defindex, @defcodeindex>: Do nothing if 'restricted' flag set.

@@ -312,6 +312,7 @@ char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
 int global_documentlanguage_fixed = 0;
 int global_accept_internalvalue = 0;
+int global_restricted = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 
@@ -336,9 +337,15 @@ set_documentlanguage_override (char *value)
 
 
 void
-set_accept_internalvalue(int value)
+set_accept_internalvalue (int value)
 {
   global_accept_internalvalue = value;
+}
+
+void
+set_restricted (int value)
+{
+  global_restricted = value;
 }
 
 /* Record the information from a command of global effect. */

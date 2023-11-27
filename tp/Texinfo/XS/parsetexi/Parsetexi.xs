@@ -153,3 +153,6 @@ parser_set_debug (int i)
 void
 parser_set_accept_internalvalue (int value)
 
+void
+parser_set_restricted (int value)
+
