@@ -77,7 +77,14 @@ sub get_conf($$)
 }
 
 sub simple_parser {
-  goto &parser;
+  my $conf = shift;
+
+  my $new_conf = {'restricted' => 1};
+  if ($conf) {
+    %$new_conf = (%$new_conf, %$conf);
+  }
+
+  return parser($new_conf);
 }
 
 # Initialize the parser
@@ -164,6 +171,8 @@ sub parser (;$$)
         parser_set_locale_encoding ($utf8_bytes);
       } elsif ($key eq 'accept_internalvalue' and $conf->{$key}) {
         parser_set_accept_internalvalue(1);
+      } elsif ($key eq 'restricted' and $conf->{$key}) {
+        parser_set_restricted(1);
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING') {
         # no action needed, only used in perl code
       } else {

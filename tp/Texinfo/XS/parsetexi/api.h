@@ -18,6 +18,7 @@ void parser_add_include_directory (char *filename);
 void parser_add_expanded_format (char *format);
 void parser_clear_expanded_formats (void);
 void parser_set_accept_internalvalue (int value);
+void parser_set_restricted (int value);
 void parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
 void parser_set_input_file_name_encoding (char *value);
 void parser_set_locale_encoding (char *value);
