@@ -6556,6 +6556,8 @@ sub _new_macro($$$)
   my $name = shift;
   my $current = shift;
 
+  return if $self->{'restricted'};
+
   my $macrobody;
   if (defined($current->{'contents'})) {
     $macrobody =
@@ -7601,7 +7603,9 @@ sub _parse_line_command_args($$$)
 
   if ($command eq 'alias') {
     # REMACRO
-    if ($line =~ s/^([[:alnum:]][[:alnum:]-]*)(\s*=\s*)([[:alnum:]][[:alnum:]-]*)$//) {
+    if ($self->{'restricted'}) {
+      # do nothing
+    } elsif ($line =~ s/^([[:alnum:]][[:alnum:]-]*)(\s*=\s*)([[:alnum:]][[:alnum:]-]*)$//) {
       my $new_command = $1;
       my $existing_command = $3;
       $args = [$1, $3];
@@ -7631,7 +7635,9 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'definfoenclose') {
     # REMACRO
     # FIXME how to handle non ascii space?  As space or in argument?
-    if ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
+    if ($self->{'restricted'}) {
+      # do nothing
+    } elsif ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
       $args = [$1, $2, $3 ];
       my ($cmd_name, $begin, $end) = ($1, $2, $3);
       $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
@@ -7681,7 +7687,9 @@ sub _parse_line_command_args($$$)
     }
   } elsif ($command eq 'defindex' || $command eq 'defcodeindex') {
     # REMACRO
-    if ($line =~ /^([[:alnum:]][[:alnum:]\-]*)$/) {
+    if ($self->{'restricted'}) {
+      # do nothing
+    } elsif ($line =~ /^([[:alnum:]][[:alnum:]\-]*)$/) {
       my $name = $1;
       if ($forbidden_index_name{$name}) {
         $self->_line_error(sprintf(

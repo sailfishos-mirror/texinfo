@@ -1,5 +1,15 @@
 2023-11-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (_new_macro),
+	(_parse_line_command_args) <@alias, @definfoenclose>
+	<@defindex, @defcodeindex>: Do nothing if 'restricted' flag set.
+
+	* tp/t/init_files_tests.t
+	(macro_defined_txiinternalvalue_in_translation): Remove test,
+	as @macro no longer works inside a translated string.
+
+2023-11-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Parser 'restricted' flag
 
 	* tp/Texinfo/ParserNonXS.pm (simple_parser): Add 'restricted'
