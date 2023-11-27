@@ -398,7 +398,7 @@ sub replace_convert_substrings($$;$)
     #  }
     #}
   }
-  my $parser = Texinfo::Parser::parser($parser_conf);
+  my $parser = Texinfo::Parser::simple_parser($parser_conf);
 
   if ($customization_information->get_conf('DEBUG')) {
     print STDERR "IN TR PARSER '$texinfo_line'\n";

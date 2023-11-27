@@ -572,31 +572,8 @@ sub parser(;$$)
   my $parser = dclone(\%parser_default_configuration);
   bless $parser;
 
-  $parser->{'set'} = {};
-  if (defined($conf)) {
-    foreach my $key (keys(%$conf)) {
-      if (exists($parser_settable_configuration{$key})) {
-        # we keep registrar instead of copying on purpose, to reuse the object
-        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
-          $parser->{$key} = dclone($conf->{$key});
-        } else {
-          $parser->{$key} = $conf->{$key};
-        }
-        if ($initialization_overrides{$key}) {
-          $parser->{'set'}->{$key} = $parser->{$key};
-        }
-      } else {
-        warn "ignoring parser configuration value \"$key\"\n";
-      }
-    }
-  }
-  # restrict variables found by get_conf, and set the values to the
-  # parser initialization values only.  What is found in the document
-  # has no effect.
-  foreach my $key (keys(%Texinfo::Common::default_parser_customization_values)) {
-    $parser->{'conf'}->{$key} = $parser->{$key};
-  }
-
+  _setup_conf($parser, $conf);
+  # This is not very useful in perl, but mimics the XS parser
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
     if ($parser->{'DEBUG'});
 
@@ -611,6 +588,7 @@ sub parser(;$$)
   $parser->{'close_paragraph_commands'} = {%default_close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
 
+  # following is common with simple_parser
   # other initializations
   $parser->{'definfoenclose'} = {};
   $parser->{'source_mark_counters'} = {};
@@ -626,6 +604,66 @@ sub parser(;$$)
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
   $parser->{'expanded_formats_hash'} = {};
+  foreach my $expanded_format(@{$parser->{'EXPANDED_FORMATS'}}) {
+    $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
+  }
+
+  if (not defined($parser->{'registrar'})) {
+    $parser->{'registrar'} = Texinfo::Report::new();
+  }
+
+  return $parser;
+}
+
+# simple parser initialization.  The only difference with a regular parser
+# is that the dynamical @-commands groups and indices information references
+# that are initialized in each regular parser are initialized once for all
+# and shared among simple parsers.  It is used in gdt() and this has a sizable
+# effect on performance.
+my $simple_parser_line_commands = dclone(\%line_commands);
+my $simple_parser_brace_commands = dclone(\%brace_commands);
+my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
+my $simple_parser_no_paragraph_commands = {%default_no_paragraph_commands};
+my $simple_parser_index_names = dclone(\%index_names);
+my $simple_parser_command_index = {%command_index};
+my $simple_parser_close_paragraph_commands = {%default_close_paragraph_commands};
+my $simple_parser_close_preformatted_commands = {%close_preformatted_commands};
+sub simple_parser(;$)
+{
+  my $conf = shift;
+
+  my $parser = dclone(\%parser_default_configuration);
+  bless $parser;
+
+  _setup_conf($parser, $conf);
+  # This is not very useful in perl, but mimics the XS parser
+  print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
+    if ($parser->{'DEBUG'});
+
+  $parser->{'line_commands'} = $simple_parser_line_commands;
+  $parser->{'brace_commands'} = $simple_parser_brace_commands;
+  $parser->{'valid_nestings'} = $simple_parser_valid_nestings;
+  $parser->{'no_paragraph_commands'} = $simple_parser_no_paragraph_commands;
+  #$parser->{'index_names'} = $simple_parser_index_names;
+  $parser->{'index_names'} = dclone(\%index_names);
+  $parser->{'command_index'} = $simple_parser_command_index;
+  $parser->{'close_paragraph_commands'} = $simple_parser_close_paragraph_commands;
+  $parser->{'close_preformatted_commands'} = $simple_parser_close_preformatted_commands;
+
+  # other initializations
+  $parser->{'definfoenclose'} = {};
+  $parser->{'source_mark_counters'} = {};
+  $parser->{'nesting_context'} = {%nesting_context_init};
+  $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
+  $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
+  $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
+  $parser->{'nesting_context'}->{'regions_stack'} = [];
+  $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
+
+  $parser->_init_context_stack();
+
+  # turn the array to a hash for speed.  Not sure it really matters for such
+  # a small array.
   foreach my $expanded_format(@{$parser->{'EXPANDED_FORMATS'}}) {
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
@@ -935,6 +973,32 @@ sub registered_errors($)
 
 sub _setup_conf($$)
 {
+  my ($parser, $conf) = @_;
+
+  $parser->{'set'} = {};
+  if (defined($conf)) {
+    foreach my $key (keys(%$conf)) {
+      if (exists($parser_settable_configuration{$key})) {
+        # we keep registrar instead of copying on purpose, to reuse the object
+        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
+          $parser->{$key} = dclone($conf->{$key});
+        } else {
+          $parser->{$key} = $conf->{$key};
+        }
+        if ($initialization_overrides{$key}) {
+          $parser->{'set'}->{$key} = $parser->{$key};
+        }
+      } else {
+        warn "ignoring parser configuration value \"$key\"\n";
+      }
+    }
+  }
+  # restrict variables found by get_conf, and set the values to the
+  # parser initialization values only.  What is found in the document
+  # has no effect.
+  foreach my $key (keys(%Texinfo::Common::default_parser_customization_values)) {
+    $parser->{'conf'}->{$key} = $parser->{$key};
+  }
 }
 
 # Following are the internal parsing subroutines.  The most important are
