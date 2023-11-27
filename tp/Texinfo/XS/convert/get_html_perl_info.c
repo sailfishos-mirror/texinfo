@@ -203,7 +203,8 @@ html_converter_initialize_sv (SV *converter_sv,
             {
               formatting_reference->sv_reference = *formatting_reference_sv;
               if (formatting_reference->status != FRS_status_default_set
-                  || *formatting_reference_sv != *default_formatting_reference_sv)
+                  || SvRV (*formatting_reference_sv)
+                       != SvRV (*default_formatting_reference_sv))
                 formatting_reference->status = FRS_status_customization_set;
             }
         }

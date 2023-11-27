@@ -3541,6 +3541,103 @@ convert_text (CONVERTER *self, const enum element_type type,
     free (content_used);
 }
 
+void
+default_format_footnotes_segment (CONVERTER *self, TEXT *result)
+{
+  char *class_base;
+  char *attribute_class;
+  char *class;
+  STRING_LIST *classes;
+  ELEMENT *footnote_heading_tree;
+  char *footnote_heading;
+  int level;
+  char *formatted_heading;
+  char *foot_lines = call_formatting_function_format_footnotes_sequence (self);
+
+  if (!foot_lines || !strlen (foot_lines))
+    {
+      free (foot_lines);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+
+  class_base = special_unit_info (self, SUI_type_class,
+                                  "footnotes");
+  xasprintf (&class, "%s-segment", class_base);
+
+  add_string (class, classes);
+  free (class);
+  attribute_class = html_attribute_class (self, "div", classes);
+  clear_strings_list (classes);
+
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  text_append_n (result, ">\n", 2);
+
+  if (self->conf->DEFAULT_RULE && strlen (self->conf->DEFAULT_RULE))
+    {
+      text_append (result, self->conf->DEFAULT_RULE);
+      text_append_n (result, "\n", 1);
+    }
+
+  footnote_heading_tree = special_unit_info_tree (self,
+                              SUIT_type_heading, "footnotes");
+  if (footnote_heading_tree)
+    {
+      footnote_heading = html_convert_tree (self, footnote_heading_tree,
+                                    "convert footnotes special heading");
+    }
+  else
+    {
+      footnote_heading = "";
+    }
+
+  level = self->conf->FOOTNOTE_END_HEADER_LEVEL;
+
+  xasprintf (&class, "%s-heading", class_base);
+
+  add_string (class, classes);
+  free (class);
+
+  formatted_heading
+    = call_formatting_function_format_heading_text (self, 0, classes,
+                                                    footnote_heading,
+                                                    level, 0, 0, 0);
+  destroy_strings_list (classes);
+  text_append (result, formatted_heading);
+  text_append_n (result, "\n", 1);
+
+  free (formatted_heading);
+
+  if (footnote_heading_tree)
+    free (footnote_heading);
+
+  text_append (result, foot_lines);
+  text_append (result, "</div>\n");
+}
+
+void
+format_footnotes_segment (CONVERTER *self, TEXT *result)
+{
+  if (self->formatting_references[FR_format_footnotes_segment].status
+                                             == FRS_status_default_set)
+    {
+      default_format_footnotes_segment (self, result);
+    }
+  else
+    {
+      char *footnotes_segment
+        = call_formatting_function_format_footnotes_segment (self);
+      if (footnotes_segment)
+        {
+          text_append (result, footnotes_segment);
+          free (footnotes_segment);
+        }
+    }
+}
 
 void
 convert_table_term_type (CONVERTER *self, const enum element_type type,
@@ -3606,20 +3703,13 @@ void convert_unit_type (CONVERTER *self,
       text_append (result, self->title_titlepage);
       if (!output_unit->tree_unit_directions[D_next])
         {
-          char *footnotes_segment;
           /* only one unit, use simplified formatting */
           if (content)
             text_append (result, content);
    /*  if there is one unit it also means that there is no formatting
        of footnotes in a separate unit.  And if footnotestyle is end
        the footnotes won't be done in format_element_footer either. */
-          footnotes_segment
-            = call_formatting_function_format_footnotes_segment (self);
-          if (footnotes_segment)
-            {
-              text_append (result, footnotes_segment);
-              free (footnotes_segment);
-            }
+          format_footnotes_segment (self, result);
           if (self->conf->DEFAULT_RULE
               && self->conf->PROGRAM_NAME_IN_FOOTER > 0)
             {
@@ -5717,20 +5807,13 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
 
   if (!output_units || !output_units->number)
     {
-      char *footnotes_segment;
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "\nC NO UNIT\n");
 
       convert_to_html_internal (self, root, &result,
                                 "convert no unit");
 
-      footnotes_segment
-        = call_formatting_function_format_footnotes_segment (self);
-      if (footnotes_segment)
-        {
-          text_append (&result, footnotes_segment);
-          free (footnotes_segment);
-        }
+      format_footnotes_segment (self, &result);
     }
   else
     {
@@ -6020,20 +6103,13 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
         }
       else
         {
-          char *footnotes_segment;
           if (self->conf->DEBUG > 0)
             fprintf (stderr, "\nNO UNIT NO PAGE\n");
 
           text_append (&text, self->title_titlepage);
           convert_to_html_internal (self, root, &text,
                                      "no-page output no unit");
-          footnotes_segment
-            = call_formatting_function_format_footnotes_segment (self);
-          if (footnotes_segment)
-            {
-              text_append (&text, footnotes_segment);
-              free (footnotes_segment);
-            }
+          format_footnotes_segment (self, &result);
         }
 
       /* do end file first, in case it needs some CSS */

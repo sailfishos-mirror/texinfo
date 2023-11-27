@@ -39,6 +39,7 @@ FILE_NAME_PATH *call_file_id_setting_unit_file_name (CONVERTER *self,
                                                char *filename, char *filepath);
 
 char *call_formatting_function_format_title_titlepage (CONVERTER *self);
+char *call_formatting_function_format_footnotes_sequence (CONVERTER *self);
 char *call_formatting_function_format_footnotes_segment (CONVERTER *self);
 char *call_formatting_function_format_end_file (CONVERTER *self,
                                                 char *filename,
