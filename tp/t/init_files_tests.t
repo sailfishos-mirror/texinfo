@@ -21,13 +21,6 @@ fr @error{}.
 pt @error{}.
 
 ', {'init_files' => ['command_translation_modified.init']}],
-['macro_defined_txiinternalvalue_in_translation',
-'@sp 1
-
-@sp 2
-
-',{'init_files' => ['translate_txiinternalvalue_macro.init'],
-}],
 );
 
 my @file_tests = (

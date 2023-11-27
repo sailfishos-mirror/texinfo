@@ -267,9 +267,3 @@ parser_set_accept_internalvalue (int value)
 {
   set_accept_internalvalue (value);
 }
-
-void
-parser_set_restricted (int value)
-{
-  set_restricted(value);
-}
