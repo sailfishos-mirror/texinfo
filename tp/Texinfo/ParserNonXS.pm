@@ -635,6 +635,10 @@ sub simple_parser(;$)
   my $parser = dclone(\%parser_default_configuration);
   bless $parser;
 
+  # Flag to say that some parts of the parser should not be modified,
+  # as they are reused among all parsers returned from this function.
+  $parser->{'restricted'} = 1;
+
   _setup_conf($parser, $conf);
   # This is not very useful in perl, but mimics the XS parser
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
@@ -644,8 +648,7 @@ sub simple_parser(;$)
   $parser->{'brace_commands'} = $simple_parser_brace_commands;
   $parser->{'valid_nestings'} = $simple_parser_valid_nestings;
   $parser->{'no_paragraph_commands'} = $simple_parser_no_paragraph_commands;
-  #$parser->{'index_names'} = $simple_parser_index_names;
-  $parser->{'index_names'} = dclone(\%index_names);
+  $parser->{'index_names'} = $simple_parser_index_names;
   $parser->{'command_index'} = $simple_parser_command_index;
   $parser->{'close_paragraph_commands'} = $simple_parser_close_paragraph_commands;
   $parser->{'close_preformatted_commands'} = $simple_parser_close_preformatted_commands;
@@ -3338,6 +3341,8 @@ sub _parse_def($$$$)
 sub _enter_index_entry($$$$)
 {
   my ($self, $command_container, $element, $source_info) = @_;
+
+  return if $self->{'restricted'};
 
   my $index_name = $self->{'command_index'}->{$command_container};
   my $index = $self->{'index_names'}->{$index_name};

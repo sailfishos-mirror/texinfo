@@ -1,5 +1,19 @@
 2023-11-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Parser 'restricted' flag
+
+	* tp/Texinfo/ParserNonXS.pm (simple_parser): Add 'restricted'
+	flag on parser.
+	(_enter_index_entry): Do nothing if flag is set.  This prevents
+	index information leaking among simple_parser objects.
+	(simple_parser): Re-use indices information.
+
+	* tp/t/init/translation_in_parser_in_translation.pm:
+	Do not access index information from translation parser, as it
+	isn't there.
+
+2023-11-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Re-add simple_parser
 
 	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/Parsetexi.pm
