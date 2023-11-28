@@ -131,6 +131,8 @@ parse_line_command_args (ELEMENT *line_command)
     {
     case CM_alias:
       {
+        if (global_restricted)
+          break;
         /* @alias NEW = EXISTING */
         char *new = 0, *existing = 0;
         enum command_id new_cmd, existing_cmd;
@@ -208,6 +210,9 @@ parse_line_command_args (ELEMENT *line_command)
       }
     case CM_definfoenclose:
       {
+        if (global_restricted)
+          break;
+
         /* @definfoenclose phoo,//,\\ */
         char *new_command = 0, *start = 0, *end = 0;
         enum command_id new_cmd;
@@ -315,6 +320,9 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_defindex:
     case CM_defcodeindex:
       {
+        if (global_restricted)
+          break;
+
         char *name = 0;
         char *p = line;
 

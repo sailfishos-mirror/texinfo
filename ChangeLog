@@ -1,5 +1,14 @@
 2023-11-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	restricted flag for XS parser
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
+	<@alias, @definfoenclose, @defindex, @defcodeindex>,
+	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry):
+	Do nothing if global_restricted is set.
+
+2023-11-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser):
 	Reset global_restricted.
 
