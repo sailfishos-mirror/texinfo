@@ -32,6 +32,7 @@ void add_extra_integer (ELEMENT *e, char *key, long value);
 void add_info_string (ELEMENT *e, char *key, char *value);
 void add_info_string_dup (ELEMENT *e, char *key, char *value);
 void add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value);
+void add_associated_info_integer (ASSOCIATED_INFO *a, char *key, int value);
 KEY_PAIR *lookup_extra (const ELEMENT *e, char *key);
 KEY_PAIR *lookup_info (const ELEMENT *e, char *key);
 ELEMENT *lookup_extra_element (const ELEMENT *e, char *key);

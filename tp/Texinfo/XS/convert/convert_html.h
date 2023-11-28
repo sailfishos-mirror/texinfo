@@ -38,6 +38,12 @@ char *html_attribute_class (CONVERTER *self, const char *element,
 STRING_LIST *html_get_css_elements_classes (CONVERTER *self,
                                             const char *filename);
 
+void html_register_footnote (CONVERTER *self, const ELEMENT *command,
+     const char *footid, const char *docid, const int number_in_doc,
+     const char *footnote_location_filename, char *multi_expanded_region);
+HTML_PENDING_FOOTNOTE_STACK *html_get_pending_footnotes (CONVERTER *self);
+void destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack);
+
 void html_merge_index_entries (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self,

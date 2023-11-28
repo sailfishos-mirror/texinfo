@@ -1148,3 +1148,37 @@ build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings)
   return newRV_noinc ((SV *) hv);
 }
 
+void
+build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack)
+{
+  dTHX;
+
+  if (stack->top > 0)
+    {
+      size_t i;
+      for (i = 0; i < stack->top; i++)
+        {
+          HTML_PENDING_FOOTNOTE *pending_footnote = stack->stack[i];
+
+          AV *pending_footnote_av = newAV ();
+          SV *sv = newRV_noinc ((SV *) pending_footnote_av);
+          av_push (av, sv);
+
+          av_push (pending_footnote_av,
+                   newRV_inc ((SV *) pending_footnote->command->hv));
+          av_push (pending_footnote_av,
+                   newSVpv_utf8 (pending_footnote->footid, 0));
+          av_push (pending_footnote_av,
+                   newSVpv_utf8 (pending_footnote->docid, 0));
+          av_push (pending_footnote_av,
+                   newSViv (pending_footnote->number_in_doc));
+          av_push (pending_footnote_av,
+           newSVpv_utf8 (pending_footnote->footnote_location_filename, 0));
+          if (pending_footnote->multi_expanded_region)
+            av_push (pending_footnote_av,
+                     newSVpv_utf8 (pending_footnote->multi_expanded_region, 0));
+          else
+            av_push (pending_footnote_av, newSV (0));
+        }
+    }
+}

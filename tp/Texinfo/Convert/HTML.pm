@@ -130,6 +130,10 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_attribute_class",
   "Texinfo::Convert::HTML::html_get_css_elements_classes"
    => "Texinfo::Convert::ConvertXS::html_get_css_elements_classes",
+  "Texinfo::Convert::HTML::register_footnote",
+   => "Texinfo::Convert::ConvertXS::html_register_footnote",
+  "Texinfo::Convert::HTML::get_pending_footnotes",
+   => "Texinfo::Convert::ConvertXS::html_get_pending_footnotes",
   "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter"
    => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
   "Texinfo::Convert::HTML::_XS_html_merge_index_entries"
@@ -1787,11 +1791,18 @@ sub shared_conversion_state($$;$)
   my $initialization_value = shift;
 
   if (not defined($self->{'shared_conversion_state'}->{$state_name})) {
+    if ($initialization_value =~ /^\d+$/) {
+      $self->{'shared_conversion_state_integers'}->{$state_name} = 1;
+    }
     if (not ref($initialization_value)) {
       $self->{'shared_conversion_state'}->{$state_name} = \$initialization_value;
     } else {
       $self->{'shared_conversion_state'}->{$state_name} = $initialization_value;
     }
+  }
+  # set for XS code to notify that value may have changed
+  if ($self->{'shared_conversion_state_integers'}->{$state_name}) {
+    $self->{'shared_conversion_accessed_integers'}->{$state_name} = 1;
   }
   return $self->{'shared_conversion_state'}->{$state_name};
 }
@@ -1814,7 +1825,7 @@ sub get_pending_footnotes($)
 
   my @result = @{$self->{'pending_footnotes'}};
   @{$self->{'pending_footnotes'}} = ();
-  return @result;
+  return \@result;
 }
 
 
@@ -3177,15 +3188,16 @@ sub _convert_explained_command($$$$)
   my $normalized_type = '';
   if ($command->{'args'}->[0]
       and $command->{'args'}->[0]->{'contents'}) {
-    $normalized_type = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-          {'contents' => $command->{'args'}->[0]->{'contents'}});
+    $normalized_type
+       = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+                                   $command->{'args'}->[0]);
   }
 
   my $explained_commands
     = $self->shared_conversion_state('explained_commands', {});
   $explained_commands->{$cmdname} = {} if (!$explained_commands->{$cmdname});
-  my $element_explanation_contents
-    = $self->shared_conversion_state('element_explanation_contents', {});
+  my $element_explanation_content
+    = $self->shared_conversion_state('element_explanation_content', {});
   if ($args and $args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $with_explanation = 1;
@@ -3197,28 +3209,29 @@ sub _convert_explained_command($$$$)
     $explanation_result = $self->convert_tree($args->[1]->{'tree'},
                                               "convert $cmdname explanation");
     $explained_commands->{$cmdname}->{$normalized_type} =
-       $command->{'args'}->[1]->{'contents'};
-  } elsif ($element_explanation_contents->{$command}) {
+                                          $command->{'args'}->[1];
+  } elsif ($element_explanation_content->{$command}) {
     # if an acronym element is formatted more than once, this ensures that
     # only the first explanation (including a lack of explanation) is reused.
     # Note that this means that acronyms converted first on a sectioning
     # command line for a direction text may not get the explanation
     # from acronyms appearing later on in the document but before
     # the sectioning command.
-    if (@{$element_explanation_contents->{$command}}) {
+    if ($element_explanation_content->{$command}->{'contents'}
+     and scalar(@{$element_explanation_content->{$command}->{'contents'}})) {
       $explanation_string = $self->convert_tree_new_formatting_context(
         {'type' => '_string',
-         'contents' => $element_explanation_contents->{$command}},
+         'contents' => [$element_explanation_content->{$command}]},
         $cmdname, $cmdname);
     }
   } elsif ($explained_commands->{$cmdname}->{$normalized_type}) {
     $explanation_string = $self->convert_tree_new_formatting_context(
                       {'type' => '_string',
-                       'contents' => $explained_commands
-                                     ->{$cmdname}->{$normalized_type}},
+                       'contents' => [$explained_commands
+                                     ->{$cmdname}->{$normalized_type}]},
                                                    $cmdname, $cmdname);
 
-    $element_explanation_contents->{$command}
+    $element_explanation_content->{$command}
        = $explained_commands->{$cmdname}->{$normalized_type};
   } else {
     # Avoid ever giving an explanation for this element, even if an
@@ -3229,7 +3242,7 @@ sub _convert_explained_command($$$$)
     # @acronym within the explanation could end up referring to the
     # containing @acronym.
 
-    $element_explanation_contents->{$command} = [];
+    $element_explanation_content->{$command} = {};
   }
   my $result = '';
   if ($args and defined($args->[0])) {
@@ -3285,16 +3298,17 @@ sub _convert_footnote_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $number_in_doc;
   my $foot_num = $self->shared_conversion_state('footnote_number', 0);
   ${$foot_num}++;
+  my $number_in_doc = $$foot_num;
+  my $footnote_mark;
   if ($self->get_conf('NUMBER_FOOTNOTES')) {
-    $number_in_doc = $$foot_num;
+    $footnote_mark = $number_in_doc;
   } else {
-    $number_in_doc = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
+    $footnote_mark = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
   }
 
-  return "($number_in_doc)" if ($self->in_string());
+  return "($footnote_mark)" if ($self->in_string());
 
   #print STDERR "FOOTNOTE $command\n";
   my $footid = $self->command_id($command);
@@ -3349,9 +3363,9 @@ sub _convert_footnote_command($$$$)
 
   my $footnote_number_text;
   if ($self->in_preformatted_context()) {
-    $footnote_number_text = "($number_in_doc)";
+    $footnote_number_text = "($footnote_mark)";
   } else {
-    $footnote_number_text = "<sup>$number_in_doc</sup>";
+    $footnote_number_text = "<sup>$footnote_mark</sup>";
   }
   return $self->html_attribute_class('a', [$cmdname])
     ." id=\"$docid\" href=\"$footnote_href\">$footnote_number_text</a>";
@@ -10746,9 +10760,9 @@ sub _default_format_footnotes_sequence($)
 {
   my $self = shift;
 
-  my @pending_footnotes = $self->get_pending_footnotes();
+  my $pending_footnotes = $self->get_pending_footnotes();
   my $result = '';
-  foreach my $pending_footnote_info_array (@pending_footnotes) {
+  foreach my $pending_footnote_info_array (@$pending_footnotes) {
     my ($command, $footid, $docid, $number_in_doc,
         $footnote_location_filename, $multi_expanded_region)
           = @$pending_footnote_info_array;
@@ -10770,8 +10784,15 @@ sub _default_format_footnotes_sequence($)
     chomp ($footnote_text);
     $footnote_text .= "\n";
 
+    my $footnote_mark;
+    if ($self->get_conf('NUMBER_FOOTNOTES')) {
+      $footnote_mark = $number_in_doc;
+    } else {
+      $footnote_mark = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
+    }
+
     $result .= $self->html_attribute_class('h5', ['footnote-body-heading']) . '>'.
-     "<a id=\"$footid\" href=\"$footnote_location_href\">($number_in_doc)</a></h5>\n"
+     "<a id=\"$footid\" href=\"$footnote_location_href\">($footnote_mark)</a></h5>\n"
      . $footnote_text;
   }
   return $result;
@@ -11067,6 +11088,8 @@ sub _initialize_output_state($$)
 
   # for diverse API used in conversion
   $self->{'shared_conversion_state'} = {};
+  $self->{'shared_conversion_state_integers'} = {};
+  $self->{'shared_conversion_accessed_integers'} = {};
 
   $self->{'associated_inline_content'} = {};
 

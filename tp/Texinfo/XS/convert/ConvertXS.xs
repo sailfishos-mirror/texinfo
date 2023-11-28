@@ -32,19 +32,20 @@
 
 #include "ppport.h"
 
-#include "get_perl_info.h"
-#include "build_perl_info.h"
-#include "build_html_perl_state.h"
+#include "builtin_commands.h"
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
 #include "convert_to_text.h"
-#include "builtin_commands.h"
+#include "convert_to_texinfo.h"
 #include "indices_in_conversion.h"
 #include "command_stack.h"
+#include "document.h"
+#include "get_perl_info.h"
+#include "build_perl_info.h"
+#include "build_html_perl_state.h"
 #include "converter.h"
 #include "convert_html.h"
 #include "get_html_perl_info.h"
-#include "document.h"
 
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 
@@ -420,6 +421,97 @@ html_get_css_elements_classes (SV *converter_in, ...)
          RETVAL = newRV_noinc ((SV *) css_selector_av);
     OUTPUT:
          RETVAL
+
+void
+html_register_footnote (SV *converter_in, SV *command, footid, docid, int number_in_doc, footnote_location_filename, ...)
+         char *footid = (char *)SvPVutf8_nolen($arg);
+         char *docid = (char *)SvPVutf8_nolen($arg);
+         char *footnote_location_filename = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$$$$$$
+      PREINIT:
+         CONVERTER *self;
+         char *multi_expanded_region = 0;
+      CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_register_footnote");
+         if (self)
+           {
+             /* find footnote in XS.  First use number_in_doc, if not
+                effective, do a linear search */
+             /* TODO if not found, could determine an offset with
+                     number_in_doc and reuse it. */
+             /* TODO another possibility would be to setup a sorted array
+                when setting up the footnotes targets and use bsearch,
+                although it is not clear that it would be more efficient */
+             ELEMENT *footnote = 0;
+             ELEMENT *current;
+             HV *command_hv = (HV *) SvRV (command);
+             ELEMENT_LIST *footnotes
+                = &self->document->global_commands->footnotes;
+             if (number_in_doc - 1 < footnotes->number)
+               {
+                 ELEMENT *current = footnotes->list[number_in_doc - 1];
+                 if (command_hv == current->hv)
+                   footnote = current;
+                   /*
+                 else
+                   fprintf (stderr,
+                            "REMARK: footnote %d %s not directly found\n", 
+                            number_in_doc, footid);
+                    */
+               }
+             if (!footnote)
+               {
+                 size_t i;
+                 for (i = 0; i < footnotes->number; i++)
+                   {
+                     current = footnotes->list[i];
+                     if (current->hv == command_hv)
+                       {
+                         footnote = current;
+                         break;
+                       }
+                   }
+               }
+             if (footnote)
+               {
+              /*
+                 fprintf (stderr, "FFF %s\n", convert_to_texinfo (footnote));
+               */
+                  if (items > 7 && SvOK(ST(7)))
+                    multi_expanded_region = SvPVutf8_nolen (ST(7));
+                  html_register_footnote (self, footnote, footid, docid,
+                              number_in_doc, footnote_location_filename,
+                                                  multi_expanded_region);
+               }
+             else
+               {
+                 fprintf (stderr, "ERROR: footnote not found\n");
+               }
+           }
+
+SV *
+html_get_pending_footnotes (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+         AV *pending_footnotes_av;
+      CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_register_footnote");
+         pending_footnotes_av = newAV ();
+         if (self)
+           {
+             HTML_PENDING_FOOTNOTE_STACK *stack
+              = html_get_pending_footnotes (self);
+
+             build_pending_footnotes (pending_footnotes_av, stack);
+
+             destroy_pending_footnotes (stack);
+           }
+         RETVAL = newRV_noinc ((SV *) pending_footnotes_av);
+    OUTPUT:
+         RETVAL
+
 
 
 void

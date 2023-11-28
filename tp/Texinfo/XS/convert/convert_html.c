@@ -640,6 +640,76 @@ special_unit_info (CONVERTER *self, enum special_unit_info_type type,
 }
 
 void
+html_register_footnote (CONVERTER *self, const ELEMENT *command,
+     const char *footid, const char *docid, const int number_in_doc,
+     const char *footnote_location_filename, char *multi_expanded_region)
+{
+  HTML_PENDING_FOOTNOTE_STACK *stack;
+  HTML_PENDING_FOOTNOTE *pending_footnote;
+  KEY_PAIR *k = lookup_associated_info (&self->shared_conversion_state.integers,
+                                        "in_skipped_node_top");
+
+  if (k && k->integer == 1)
+    return;
+
+  stack = &self->pending_footnotes;
+
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (HTML_PENDING_FOOTNOTE *));
+    }
+  pending_footnote = (HTML_PENDING_FOOTNOTE *)
+                      malloc (sizeof (HTML_PENDING_FOOTNOTE));
+  stack->stack[stack->top] = pending_footnote;
+  stack->top++;
+
+  pending_footnote->command = command;
+  pending_footnote->footid = strdup (footid);
+  pending_footnote->docid = strdup (docid);
+  pending_footnote->number_in_doc = number_in_doc;
+  pending_footnote->footnote_location_filename
+       = strdup (footnote_location_filename);
+
+  if (multi_expanded_region)
+    pending_footnote->multi_expanded_region = strdup (multi_expanded_region);
+  else
+    pending_footnote->multi_expanded_region = 0;
+}
+
+HTML_PENDING_FOOTNOTE_STACK *
+html_get_pending_footnotes (CONVERTER *self)
+{
+  HTML_PENDING_FOOTNOTE_STACK *stack = (HTML_PENDING_FOOTNOTE_STACK *)
+     malloc (sizeof (HTML_PENDING_FOOTNOTE_STACK));
+
+  stack->top = self->pending_footnotes.top;
+  stack->space = self->pending_footnotes.space;
+  stack->stack = self->pending_footnotes.stack;
+
+  memset (&self->pending_footnotes, 0, sizeof (HTML_PENDING_FOOTNOTE_STACK));
+
+  return stack;
+}
+
+void
+destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack)
+{
+  int i;
+  for (i = 0; i < stack->top; i++)
+    {
+      free (stack->stack[i]->multi_expanded_region);
+      free (stack->stack[i]->footid);
+      free (stack->stack[i]->docid);
+      free (stack->stack[i]->footnote_location_filename);
+      free (stack->stack[i]);
+    }
+  free (stack->stack);
+  free (stack);
+}
+
+void
 html_register_opened_section_level (CONVERTER *self, int level,
                                     const char *close_string)
 {
@@ -2173,10 +2243,10 @@ html_command_text (CONVERTER *self, ELEMENT *command,
 static int
 compare_page_name_number (const void *a, const void *b)
 {
-  const PAGE_NAME_NUMBER *css_a = (const PAGE_NAME_NUMBER *) a;
-  const PAGE_NAME_NUMBER *css_b = (const PAGE_NAME_NUMBER *) b;
+  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
+  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
 
-  return strcmp (css_a->page_name, css_b->page_name);
+  return strcmp (pnn_a->page_name, pnn_b->page_name);
 }
 
 size_t

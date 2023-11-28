@@ -231,6 +231,21 @@ typedef struct HTML_TARGET_LIST {
     HTML_TARGET *list;
 } HTML_TARGET_LIST;
 
+typedef struct HTML_SHARED_CONVERSION_STATE {
+    int explained_commands; /* explained_commands->{char $cmdname}->{char $normalized_type}
+                               = ELEMENT */
+    int element_explanation_content; /* element_explanation_content->{ELEMENT $command}
+                                = ELEMENT */
+    int footnote_id_numbers; /* footnote_id_numbers->{char $footid} = int */
+    /* probably not useful, directly use expanded formats in the converter 
+       needed in perl as expanded formats are accessed per format in the API
+    int expanded_format_raw;
+     */
+    int formatted_index_entries; /* formatted_index_entries->{INDEX_ENTRY $index_entry_ref} = 1, ++ */
+    int formatted_nodedescriptions; /* formatted_nodedescriptions->{ELEMENT $node_description} = 1, ++ */
+    ASSOCIATED_INFO integers;
+} HTML_SHARED_CONVERSION_STATE;
+
 typedef struct MERGED_INDEX {
     char *name;
     INDEX_ENTRY *index_entries;
@@ -480,6 +495,21 @@ typedef struct SPECIAL_UNIT_BODY_FORMATTING {
             TEXT *result);
 } SPECIAL_UNIT_BODY_FORMATTING;
 
+typedef struct HTML_PENDING_FOOTNOTE {
+    const ELEMENT *command;
+    char *footid;
+    char *docid;
+    int number_in_doc;
+    char *footnote_location_filename;
+    char *multi_expanded_region;
+} HTML_PENDING_FOOTNOTE;
+
+typedef struct HTML_PENDING_FOOTNOTE_STACK {
+    size_t top;
+    size_t space;
+    HTML_PENDING_FOOTNOTE **stack;
+} HTML_PENDING_FOOTNOTE_STACK;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -591,6 +621,8 @@ typedef struct CONVERTER {
     STRING_STACK pending_closes;
     CURRENT_FILE_INFO current_filename;
     ELEMENT_LIST referred_command_stack;
+    HTML_SHARED_CONVERSION_STATE shared_conversion_state;
+    HTML_PENDING_FOOTNOTE_STACK pending_footnotes;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
 } CONVERTER;

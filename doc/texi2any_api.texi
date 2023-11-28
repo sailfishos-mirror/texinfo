@@ -3724,8 +3724,8 @@ functions formatting their argument elsewhere, two functions are available:
 @var{\%element} is the footnote texinfo tree element. @var{$footnote_id} is the
 identifier for the location where the footnote arguments are expanded.
 @var{$foot_in_doc_id} is the identifier for the location where the footnote
-appears in the document.  @var{$number_in_doc} is the symbol used to format the
-footnote in the document.  @var{$footnote_location_filename} is the filename of
+appears in the document.  @var{$number_in_doc} is the number of the footnote
+in the document.  @var{$footnote_location_filename} is the filename of
 the output unit of the footnote in the document. If the footnote appears
 in a region that is expanded multiple times, the information on the expansion
 is @var{$multi_expanded_region} (@pxref{Dynamic Converter Formatting
@@ -3737,11 +3737,11 @@ Information}).
 also call @code{command_href} to link to the location where the footnote
 text will be expanded (@pxref{Target Commands Links@comma{} Texts and Associated Commands}).
 
-@deftypefun {@var{@@pending_footnotes_information} =} @var{$converter}->get_pending_footnotes ()
-Returns in @var{@@pending_footnotes_information} the information gathered
-in @code{register_footnote}.  Each of the array element in @var{@@pending_footnotes_information}
-is an array reference containing the arguments of @code{register_footnote}
-in the same order.
+@deftypefun {@var{\@@pending_footnotes_information} =} @var{$converter}->get_pending_footnotes ()
+Returns in @var{\@@pending_footnotes_information} the information gathered
+in @code{register_footnote}.  Each of the array reference
+element in @var{\@@pending_footnotes_information} is an array reference
+containing the arguments of @code{register_footnote} in the same order.
 @end deftypefun
 
 The formatting of footnotes content is done by the

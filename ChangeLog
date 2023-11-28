@@ -1,3 +1,45 @@
+2023-11-28  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Customizing Footnotes),
+	tp/Texinfo/Convert/HTML.pm (get_pending_footnotes)
+	(_default_format_footnotes_sequence): have get_pending_footnotes
+	return a reference on an array.
+
+	* doc/texi2any_api.texi (Customizing Footnotes),
+	tp/Texinfo/Convert/HTML.pm (_convert_footnote_command)
+	(_default_format_footnotes_sequence, _convert_footnote_command):
+	always pass the number of the footnote to register_footnote.
+
+	* tp/Texinfo/Convert/HTML.pm (shared_conversion_state)
+	(_initialize_output_state),
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(get_shared_conversion_state, call_*),
+	tp/Texinfo/XS/main/converter_types.h (HTML_SHARED_CONVERSION_STATE)
+	(CONVERTER), tp/Texinfo/XS/main/extra.c (add_associated_info_integer):
+	register in $self->{'shared_conversion_state_integers'} the conversion
+	states that are integers.  Register in
+	$self->{'shared_conversion_accessed_integers'} the integer conversion
+	states that were accessed such that XS code can get their values.  Get
+	the accessed integers at the end of call_* function by calling
+	get_shared_conversion_state that add the integer to the C converter
+	shared_conversion_state.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_register_footnote)
+	(html_get_pending_footnotes),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_pending_footnotes), tp/Texinfo/XS/convert/convert_html.c
+	(html_register_footnote, html_get_pending_footnotes)
+	(destroy_pending_footnotes), tp/Texinfo/XS/main/converter_types.h
+	(HTML_PENDING_FOOTNOTE, HTML_PENDING_FOOTNOTE_STACK, CONVERTER):
+	implement register_footnote and get_pending_footnotes in C, add XS
+	interface.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_explained_command):
+	rename element_explanation_contents shared_conversion_state as
+	element_explanation_content. Avoid using contents separate from the
+	associated element.
+
 2023-11-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_configuration):

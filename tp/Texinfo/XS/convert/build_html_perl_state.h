@@ -36,4 +36,6 @@ SV *build_html_command_formatted_args
            (const HTML_ARGS_FORMATTED *args_formatted);
 SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
+void build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack);
+
 #endif

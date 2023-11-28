@@ -161,6 +161,13 @@ add_info_string_dup (ELEMENT *e, char *key, char *value)
 }
 
 void
+add_associated_info_integer (ASSOCIATED_INFO *a, char *key, int value)
+{
+  KEY_PAIR *k = get_associated_info_key (a, key, extra_integer);
+  k->integer = value;
+}
+
+void
 add_extra_integer (ELEMENT *e, char *key, long value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_integer);
