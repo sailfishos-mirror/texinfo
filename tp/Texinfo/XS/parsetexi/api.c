@@ -123,6 +123,7 @@ reset_parser (int local_debug_output)
   set_locale_encoding (0);
 
   global_accept_internalvalue = 0;
+  global_restricted = 0;
 }
 
 /* Determine directory path based on file name.
