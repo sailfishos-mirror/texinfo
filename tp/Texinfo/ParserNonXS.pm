@@ -169,6 +169,8 @@ my %parser_state_configuration = (
   'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
                                # to the tree or considered invalid.
                                # currently set if called by gdt.
+  'restricted' => 0,           # cannot define new commands or make index
+                               # entries.  currently set when called from gdt.
   'registrar' => undef,        # Texinfo::Report object used for error
                                # reporting.
   'values' => {'txicommandconditionals' => 1},

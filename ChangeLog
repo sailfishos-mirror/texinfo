@@ -1,5 +1,10 @@
 2023-11-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_configuration):
+	Add default value for 'restricted'.
+
+2023-11-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	restricted flag for XS parser
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
