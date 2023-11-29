@@ -792,6 +792,23 @@ sub convert_line($$;$)
   return $text;
 }
 
+# convert with a line formatter in a new count context, not changing
+# the current context.
+sub convert_line_new_context($$;$)
+{
+  my ($self, $converted, $conf) = @_;
+
+  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+  my $formatter = $self->new_formatter('line', $conf);
+  push @{$self->{'formatters'}}, $formatter;
+  my $text = $self->_convert($converted);
+  $text .= _count_added($self, $formatter->{'container'},
+                Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+  pop @{$self->{'formatters'}};
+  pop @{$self->{'count_context'}};
+  return $text;
+}
+
 sub count_bytes($$)
 {
   my ($self, $string) = @_;
@@ -2182,7 +2199,7 @@ sub _convert($$)
           # Due to the paragraph formatter holding pending text, converting
           # the node name with the current formatter does not yield all the
           # converted text.  To get the full node name (and no more), we
-          # can convert in a new context, using convert_line.
+          # can convert in a new context, using convert_line_new_context.
           # However, it is slow to do this for every node.  So in the most
           # frequent case when the node name is a simple text element, use
           # that text instead.
@@ -2193,13 +2210,12 @@ sub _convert($$)
           } else {
             $self->{'silent'} = 0 if (!defined($self->{'silent'}));
             $self->{'silent'}++;
-            push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
 
-            $node_line_name = $self->convert_line({'type' => '_code',
-                                            'contents' => [$label_element]},
+            $node_line_name = $self->convert_line_new_context(
+                                          {'type' => '_code',
+                                           'contents' => [$label_element]},
                                           {'suppress_styles' => 1,
                                             'no_added_eol' => 1});
-            pop @{$self->{'count_context'}};
             $self->{'silent'}--;
           }
 
@@ -2549,10 +2565,9 @@ sub _convert($$)
         die if ($old_context ne $command);
         return $result;
       } elsif ($command eq 'titlefont') {
-        push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-        $result = $self->convert_line ({'type' => 'frenchspacing',
-                                      'contents' => [$element->{'args'}->[0]]});
-        pop @{$self->{'count_context'}};
+        $result = $self->convert_line_new_context (
+                     {'type' => 'frenchspacing',
+                      'contents' => [$element->{'args'}->[0]]});
         $result = Texinfo::Convert::Text::text_heading(
                           {'extra' => {'section_level' => 0},
                            'cmdname' => 'titlefont'},
@@ -2725,10 +2740,9 @@ sub _convert($$)
             if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
               my $column_size = 0;
               if ($content->{'contents'}) {
-                push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-                my ($formatted_prototype) = $self->convert_line($content,
-                                                       {'indent_length' => 0});
-                pop @{$self->{'count_context'}};
+                my ($formatted_prototype)
+                    = $self->convert_line_new_context($content,
+                                                      {'indent_length' => 0});
                 $column_size
                   = Texinfo::Convert::Unicode::string_width($formatted_prototype);
               }
@@ -2789,10 +2803,9 @@ sub _convert($$)
       }
 
       if ($heading_element) {
-        push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-        my $heading = $self->convert_line({'type' => 'frenchspacing',
+        my $heading = $self->convert_line_new_context (
+                        {'type' => 'frenchspacing',
                          'contents' => [$heading_element]});
-        pop @{$self->{'count_context'}};
         # @* leads to an end of line, underlying appears on the line below
         # over one line
         my $heading_underlined =

@@ -1,5 +1,14 @@
 2023-11-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (convert_line_new_context):
+	New function, like convert_line but with a new context pushed
+	onto $self->{'count_context'}.
+	(_count): Use convert_line_new_context wherever we previously
+	surrounded a call to convert_line with pushing and popping
+	a new context.
+
+2023-11-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert_unfilled):
 	Inline into the only call site, and remove function.
 
