@@ -792,19 +792,6 @@ sub convert_line($$;$)
   return $text;
 }
 
-sub _convert_unfilled($$;$)
-{
-  my ($self, $converted, $conf) = @_;
-  my $formatter = $self->new_formatter('unfilled', $conf);
-  $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
-  push @{$self->{'formatters'}}, $formatter;
-  my $result = $self->_convert($converted);
-  $result .= _count_added($self, $formatter->{'container'},
-                Texinfo::Convert::Paragraph::end($formatter->{'container'}));
-  pop @{$self->{'formatters'}};
-  return $result;
-}
-
 sub count_bytes($$)
 {
   my ($self, $string) = @_;
@@ -2922,10 +2909,16 @@ sub _convert($$)
       if ($element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}) {
         if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
-          $result = $self->_convert_unfilled($element->{'args'}->[0],
-               {'indent_length' =>
-                   ($self->{'format_context'}->[-1]->{'indent_level'} -1)
-                     * $indent_length});
+          my $formatter = $self->new_formatter('unfilled',
+            {'indent_length' =>
+                ($self->{'format_context'}->[-1]->{'indent_level'} -1)
+                  * $indent_length});
+          $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
+          push @{$self->{'formatters'}}, $formatter;
+          $result = $self->_convert($element->{'args'}->[0]);
+          $result .= _count_added($self, $formatter->{'container'},
+              Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+          pop @{$self->{'formatters'}};
         } else {
           $result = $self->convert_line($element->{'args'}->[0],
              {'indent_length' =>
