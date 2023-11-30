@@ -134,6 +134,16 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_register_footnote",
   "Texinfo::Convert::HTML::get_pending_footnotes",
    => "Texinfo::Convert::ConvertXS::html_get_pending_footnotes",
+  "Texinfo::Convert::HTML::register_pending_formatted_inline_content"
+   => "Texinfo::Convert::ConvertXS::html_register_pending_formatted_inline_content",
+  "Texinfo::Convert::HTML::cancel_pending_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::html_cancel_pending_formatted_inline_content",
+  "Texinfo::Convert::HTML::get_pending_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::html_get_pending_formatted_inline_content",
+  "Texinfo::Convert::HTML::associate_pending_formatted_inline_content"
+   => "Texinfo::Convert::ConvertXS::html_associate_pending_formatted_inline_content",
+  "Texinfo::Convert::HTML::get_associated_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::html_get_associated_formatted_inline_content",
   "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter"
    => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
   "Texinfo::Convert::HTML::_XS_html_merge_index_entries"
@@ -1837,6 +1847,10 @@ sub register_pending_formatted_inline_content($$$)
   my $category = shift;
   my $inline_content = shift;
 
+  if (!defined($inline_content)) {
+    return;
+  }
+
   if (not defined($self->{'pending_inline_content'})) {
     $self->{'pending_inline_content'} = [];
   }
@@ -1844,22 +1858,24 @@ sub register_pending_formatted_inline_content($$$)
 }
 
 # cancel only the first pending content for the category
-sub cancel_pending_formatted_inline_content($$$)
+sub cancel_pending_formatted_inline_content($$)
 {
   my $self = shift;
   my $category = shift;
 
   if (defined($self->{'pending_inline_content'})) {
-    my @other_category_contents = ();
-    while (@{$self->{'pending_inline_content'}}) {
-      my $category_inline_content = pop @{$self->{'pending_inline_content'}};
-      if ($category_inline_content->[0] eq $category) {
-        push @{$self->{'pending_inline_content'}}, @other_category_contents;
-        return $category_inline_content->[1];
+    my $pending_inline = $self->{'pending_inline_content'};
+    my $current_idx = scalar(@$pending_inline) - 1;
+    if ($current_idx >= 0) {
+      while ($current_idx >= 0) {
+        if ($pending_inline->[$current_idx]->[0] eq $category) {
+          my $removed = splice (@$pending_inline,
+                                $current_idx, 1);
+          return $removed->[1];
+        }
+        $current_idx--;
       }
-      unshift @other_category_contents, $category_inline_content;
     }
-    push @{$self->{'pending_inline_content'}}, @other_category_contents;
   }
   return undef;
 }
@@ -1889,9 +1905,6 @@ sub associate_pending_formatted_inline_content($$$) {
   my $element = shift;
   my $inline_content = shift;
 
-  if (not $self->{'associated_inline_content'}->{$element}) {
-    $self->{'associated_inline_content'}->{$element} = '';
-  }
   $self->{'associated_inline_content'}->{$element} .= $inline_content;
 }
 

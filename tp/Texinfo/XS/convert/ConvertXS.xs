@@ -512,7 +512,104 @@ html_get_pending_footnotes (SV *converter_in)
     OUTPUT:
          RETVAL
 
+void
+html_register_pending_formatted_inline_content (SV *converter_in, category, ...)
+         char *category = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$$
+      PREINIT:
+         CONVERTER *self;
+         char *inline_content = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                       "html_register_pending_formatted_inline_content");
+         if (self)
+           {
+             if (items > 2 && SvOK(ST(2)))
+               inline_content = SvPVutf8_nolen (ST(2));
 
+             html_register_pending_formatted_inline_content (self,
+                                                 category, inline_content);
+           }
+
+SV *
+html_cancel_pending_formatted_inline_content (SV *converter_in, category)
+         char *category = (char *)SvPVutf8_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+         char *inline_content = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                          "html_cancel_pending_formatted_inline_content");
+         if (self)
+           {
+             inline_content
+              = html_cancel_pending_formatted_inline_content (self, category);
+           }
+         if (inline_content)
+           {
+             RETVAL = newSVpv_utf8 (inline_content, 0);
+             free (inline_content);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+SV *
+html_get_pending_formatted_inline_content (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+         char *inline_content = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                "html_get_pending_formatted_inline_content");
+         if (self)
+           {
+             inline_content = html_get_pending_formatted_inline_content (self);
+           }
+         if (inline_content)
+           {
+             RETVAL = newSVpv_utf8 (inline_content, 0);
+             free (inline_content);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+void
+html_associate_pending_formatted_inline_content (SV *converter_in, SV *element_sv, inline_content)
+         char *inline_content = (char *)SvPVutf8_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in,
+                       "html_associate_pending_formatted_inline_content");
+         if (self)
+           {
+             html_associate_pending_formatted_inline_content (self,
+                                  0, SvRV (element_sv), inline_content);
+           }
+
+SV *
+html_get_associated_formatted_inline_content (SV *converter_in, SV *element_sv)
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in,
+                       "html_get_associated_formatted_inline_content");
+         if (self)
+           {
+             char *inline_content
+              = html_get_associated_formatted_inline_content (self,
+                                                   0, SvRV (element_sv));
+             RETVAL = newSVpv_utf8 (inline_content, 0);
+             free (inline_content);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
 
 void
 html_merge_index_entries (SV *converter_in)

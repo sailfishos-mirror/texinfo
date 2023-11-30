@@ -710,6 +710,161 @@ destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack)
 }
 
 void
+html_register_pending_formatted_inline_content (CONVERTER *self,
+                             const char *category, const char *inline_content)
+{
+  HTML_INLINE_CONTENT *pending_content;
+  HTML_INLINE_CONTENT_STACK *stack;
+
+  if (!inline_content)
+    return;
+
+  stack = &self->pending_inline_content;
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (HTML_INLINE_CONTENT));
+    }
+  pending_content = &stack->stack[stack->top];
+
+  pending_content->category = strdup (category);
+  pending_content->string = strdup (inline_content);
+
+  stack->top++;
+}
+
+/* cancel only the first pending content for the category */
+char *
+html_cancel_pending_formatted_inline_content (CONVERTER *self,
+                                              const char *category)
+{
+  HTML_INLINE_CONTENT_STACK *stack = &self->pending_inline_content;
+  if (stack->top)
+    {
+      size_t current_idx = stack->top - 1;
+      while (current_idx >= 0)
+        {
+          if (!strcmp (stack->stack[current_idx].category, category))
+            {
+              char *inline_content = stack->stack[current_idx].string;
+              free (stack->stack[current_idx].category);
+              if (current_idx < stack->top - 1)
+                {
+                  memmove (&stack->stack[current_idx],
+                           &stack->stack[current_idx+1],
+                           sizeof (HTML_INLINE_CONTENT)
+                               * (stack->top - (current_idx +1)));
+                }
+              stack->top--;
+              return inline_content;
+            }
+        }
+    }
+  return 0;
+}
+
+char *
+html_get_pending_formatted_inline_content (CONVERTER *self)
+{
+  HTML_INLINE_CONTENT_STACK *stack = &self->pending_inline_content;
+  if (stack->top)
+    {
+      TEXT result;
+      size_t i;
+      text_init (&result);
+      for (i = 0; i < stack->top; i++)
+        {
+          text_append (&result, stack->stack[i].string);
+          free (stack->stack[i].string);
+          free (stack->stack[i].category);
+        }
+      stack->top = 0;
+      return result.text;
+    }
+  else
+    return strdup ("");
+}
+
+/* API to associate inline content to an element, typically
+   paragraph or preformatted.  Allows to associate the pending
+   content to the first inline element. */
+/* hv is used when called from perl, element when called from C */
+void
+html_associate_pending_formatted_inline_content (CONVERTER *self,
+                                            const ELEMENT *element,
+                                            const void *hv,
+                                            const char *inline_content)
+{
+  HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
+    = &self->associated_inline_content;
+  HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content;
+  size_t i;
+  size_t element_associated_content_idx;
+  int empty_slot = 0;
+
+  for (i = 0; i < associated_content_list->number; i++)
+    {
+      if (associated_content_list->list[i].inline_content == 0)
+        {
+          empty_slot = 1;
+          element_associated_content_idx = i;
+        }
+    }
+
+  if (!empty_slot)
+    {
+      if (associated_content_list->number >= associated_content_list->space)
+        {
+          associated_content_list->list
+            = realloc (associated_content_list->list,
+               (associated_content_list->space += 5)
+                          * sizeof (HTML_ASSOCIATED_INLINE_CONTENT));
+        }
+      element_associated_content_idx = associated_content_list->number;
+
+      associated_content_list->number++;
+    }
+  element_associated_content
+    = &associated_content_list->list[element_associated_content_idx];
+  element_associated_content->element = element;
+  element_associated_content->hv = hv;
+  element_associated_content->inline_content = strdup (inline_content);
+}
+
+/* hv is used when called from perl element when called from C */
+char *
+html_get_associated_formatted_inline_content (CONVERTER *self,
+                                              const ELEMENT *element,
+                                              void *hv)
+{
+  HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
+    = &self->associated_inline_content;
+  size_t i;
+  for (i = 0; i < associated_content_list->number; i++)
+    {
+      HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content
+        = &associated_content_list->list[i];
+      if ((element && (element_associated_content->element == element
+                       || (element->hv
+                           && element_associated_content->hv == element->hv)))
+          || (hv && (element_associated_content->hv == hv
+                     || (element_associated_content->element
+                         && element_associated_content->element->hv == hv))))
+        {
+          char *result = element_associated_content->inline_content;
+          if (i == associated_content_list->number -1)
+            associated_content_list->number--;
+          else
+            memset (element_associated_content, 0,
+                    sizeof (HTML_ASSOCIATED_INLINE_CONTENT));
+          return result;
+        }
+    }
+  return strdup ("");
+}
+
+void
 html_register_opened_section_level (CONVERTER *self, int level,
                                     const char *close_string)
 {

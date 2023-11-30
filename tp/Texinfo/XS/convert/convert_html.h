@@ -44,6 +44,20 @@ void html_register_footnote (CONVERTER *self, const ELEMENT *command,
 HTML_PENDING_FOOTNOTE_STACK *html_get_pending_footnotes (CONVERTER *self);
 void destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack);
 
+void html_register_pending_formatted_inline_content (CONVERTER *self,
+                             const char *category, const char *inline_content);
+char *html_cancel_pending_formatted_inline_content (CONVERTER *self,
+                                                    const char *category);
+char *html_get_pending_formatted_inline_content (CONVERTER *self);
+
+void html_associate_pending_formatted_inline_content (CONVERTER *self,
+                                            const ELEMENT *element,
+                                            const void *hv,
+                                            const char *inline_content);
+char *html_get_associated_formatted_inline_content (CONVERTER *self,
+                                              const ELEMENT *element,
+                                              void *hv);
+
 void html_merge_index_entries (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self,

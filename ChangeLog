@@ -1,3 +1,38 @@
+2023-11-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm
+	(associate_pending_formatted_inline_content): remove useless code.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(register_pending_formatted_inline_content): do not register undef
+	inline_content.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(cancel_pending_formatted_inline_content): fix prototype, simpler code
+	without intermediary array.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_register_pending_formatted_inline_content)
+	(html_cancel_pending_formatted_inline_content)
+	(html_get_pending_formatted_inline_content)
+	(html_associate_pending_formatted_inline_content)
+	(html_get_associated_formatted_inline_content),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_register_pending_formatted_inline_content)
+	(html_cancel_pending_formatted_inline_content)
+	(html_get_pending_formatted_inline_content)
+	(html_associate_pending_formatted_inline_content)
+	(html_get_associated_formatted_inline_content),
+	tp/Texinfo/XS/main/converter_types.h (HTML_INLINE_CONTENT)
+	(HTML_INLINE_CONTENT_STACK, HTML_ASSOCIATED_INLINE_CONTENT)
+	(HTML_ASSOCIATED_INLINE_CONTENT_LIST, CONVERTER): implement
+	register_pending_formatted_inline_content,
+	cancel_pending_formatted_inline_content and
+	get_pending_formatted_inline_content in C and XS interface.
+	Implement associate_pending_formatted_inline_content and
+	get_associated_formatted_inline_content in C and XS interface.
+
 2023-11-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (format_contents):

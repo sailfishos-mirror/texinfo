@@ -510,6 +510,34 @@ typedef struct HTML_PENDING_FOOTNOTE_STACK {
     HTML_PENDING_FOOTNOTE **stack;
 } HTML_PENDING_FOOTNOTE_STACK;
 
+typedef struct HTML_INLINE_CONTENT {
+    char *category;
+    char *string;
+} HTML_INLINE_CONTENT;
+
+typedef struct HTML_INLINE_CONTENT_STACK {
+    size_t top;
+    size_t space;
+    HTML_INLINE_CONTENT *stack;
+} HTML_INLINE_CONTENT_STACK;
+
+/* there should be either a pointer to a C tree element in element,
+   if set from C, or a reference to a perl tree element in hv, if set
+   from perl */
+typedef struct HTML_ASSOCIATED_INLINE_CONTENT {
+    const ELEMENT *element;
+  /* perl element. This should be HV *hv,
+     but we don't want to include the Perl headers everywhere; */
+    const void *hv;
+    char *inline_content;
+} HTML_ASSOCIATED_INLINE_CONTENT;
+
+typedef struct HTML_ASSOCIATED_INLINE_CONTENT_LIST {
+    size_t number;
+    size_t space;
+    HTML_ASSOCIATED_INLINE_CONTENT *list;
+} HTML_ASSOCIATED_INLINE_CONTENT_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -622,7 +650,9 @@ typedef struct CONVERTER {
     CURRENT_FILE_INFO current_filename;
     ELEMENT_LIST referred_command_stack;
     HTML_SHARED_CONVERSION_STATE shared_conversion_state;
+    HTML_INLINE_CONTENT_STACK pending_inline_content;
     HTML_PENDING_FOOTNOTE_STACK pending_footnotes;
+    HTML_ASSOCIATED_INLINE_CONTENT_LIST associated_inline_content;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
 } CONVERTER;
