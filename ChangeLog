@@ -1,3 +1,8 @@
+2023-11-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (format_contents):
+	Use convert_line_new_context instead of convert_line.
+
 2023-11-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (convert_line_new_context):

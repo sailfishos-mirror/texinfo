@@ -793,7 +793,7 @@ sub convert_line($$;$)
 }
 
 # convert with a line formatter in a new count context, not changing
-# the current context.
+# the current context.  return the result of the conversion.
 sub convert_line_new_context($$;$)
 {
   my ($self, $converted, $conf) = @_;
@@ -1217,7 +1217,6 @@ sub format_contents($$$)
     my $section = $top_section;
  SECTION:
     while ($section) {
-      push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
       my $section_title_tree;
       if (defined($section->{'extra'}->{'section_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
@@ -1237,10 +1236,9 @@ sub format_contents($$$)
       } else {
         $section_title_tree = $section->{'args'}->[0];
       }
-      my $section_title = $self->convert_line(
+      my $section_title = $self->convert_line_new_context(
             {'contents' => [$section_title_tree],
              'type' => 'frenchspacing'});
-      pop @{$self->{'count_context'}};
       my $text = $section_title;
       chomp ($text);
       $text .= "\n";
