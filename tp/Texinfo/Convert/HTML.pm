@@ -2890,7 +2890,7 @@ sub _convert_no_arg_command($$$)
     if (($self->in_preformatted_context() or $self->in_math()
          and $self->{'no_arg_commands_formatting'}->{$click_cmdname}
                                                         ->{'preformatted'})
-        or ($self->in_string() and
+        or (in_string($self) and
             $self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'string'})
         or ($self->{'no_arg_commands_formatting'}->{$click_cmdname}->{'normal'})) {
       $cmdname = $click_cmdname;
@@ -2907,7 +2907,7 @@ sub _convert_no_arg_command($$$)
     $result = $self->_text_element_conversion(
       $self->{'no_arg_commands_formatting'}->{$cmdname}->{'preformatted'},
       $cmdname);
-  } elsif ($self->in_string()) {
+  } elsif (in_string($self)) {
     $result = $self->_text_element_conversion(
       $self->{'no_arg_commands_formatting'}->{$cmdname}->{'string'},
       $cmdname);
@@ -3074,7 +3074,7 @@ sub _convert_style_command($$$$)
     return '';
   }
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $text;
   }
 
@@ -3130,7 +3130,7 @@ sub _convert_w_command($$$$)
   } else {
     $text = '';
   }
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $text;
   } else {
     return $text . '<!-- /@w -->';
@@ -3181,7 +3181,7 @@ sub _convert_email_command($$$$)
   # match a non-space character.  Both ascii and non-ascii spaces are
   # considered as spaces.
   return $text unless ($mail =~ /[^\v\h\s]/);
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return "$mail_string ($text)";
   } else {
     return $self->html_attribute_class('a', [$cmdname])
@@ -3264,7 +3264,7 @@ sub _convert_explained_command($$$$)
   if ($args and defined($args->[0])) {
     $result = $args->[0]->{'normal'};
   }
-  if (!$self->in_string()) {
+  if (!in_string($self)) {
     my $explanation = '';
     $explanation = " title=\"$explanation_string\""
       if (defined($explanation_string));
@@ -3298,7 +3298,7 @@ sub _convert_anchor_command($$$$)
 
   my $id = $self->command_id($command);
   if (defined($id) and $id ne '' and !$self->in_multi_expanded()
-      and !$self->in_string()) {
+      and !in_string($self)) {
     return &{$self->formatting_function('format_separate_anchor')}($self,
                                                            $id, 'anchor');
   }
@@ -3324,7 +3324,7 @@ sub _convert_footnote_command($$$$)
     $footnote_mark = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
   }
 
-  return "($footnote_mark)" if ($self->in_string());
+  return "($footnote_mark)" if (in_string($self));
 
   #print STDERR "FOOTNOTE $command\n";
   my $footid = $self->command_id($command);
@@ -3422,7 +3422,7 @@ sub _convert_uref_command($$$$)
   $text = $replacement if ($replacement ne '');
   $text = $url_string if ($text eq '');
   return $text if ($url eq '');
-  return "$text ($url_string)" if ($self->in_string());
+  return "$text ($url_string)" if (in_string($self));
 
   return $self->html_attribute_class('a', [$cmdname])
            .' href="'.$self->url_protect_url_text($url)."\">$text</a>";
@@ -3444,7 +3444,7 @@ sub _convert_image_command($$$$)
     my $basefile_string = '';
     $basefile_string = $args->[0]->{'monospacestring'}
         if (defined($args->[0]->{'monospacestring'}));
-    return $basefile_string if ($self->in_string());
+    return $basefile_string if (in_string($self));
     my ($image_file, $image_basefile, $image_extension, $image_path)
       = $self->html_image_file_location_name($cmdname, $command, $args);
     if (not defined($image_path)) {
@@ -3659,7 +3659,7 @@ sub _convert_indicateurl_command($$$$)
     # happens with bogus @-commands without argument, like @strong something
     return '';
   }
-  if (!$self->in_string()) {
+  if (!in_string($self)) {
     return $self->get_conf('OPEN_QUOTE_SYMBOL').
         $self->html_attribute_class('code', [$cmdname]).'>'.$text
                 .'</code>'.$self->get_conf('CLOSE_QUOTE_SYMBOL');
@@ -3749,7 +3749,7 @@ sub _default_format_heading_text($$$$$;$$$)
   return '' if ($text !~ /\S/ and not defined($id));
 
   # This should seldom happen.
-  if ($self->in_string()) {
+  if (in_string($self)) {
     $text .= "\n" unless (defined($cmdname) and $cmdname eq 'titlefont');
     return $text;
   }
@@ -4303,7 +4303,7 @@ sub _convert_heading_command($$$$$)
   my $result = '';
 
   # No situation where this could happen
-  if ($self->in_string()) {
+  if (in_string($self)) {
     $result .= $self->command_text($element, 'string') ."\n"
       if ($cmdname ne 'node');
     $result .= $content if (defined($content));
@@ -4702,7 +4702,7 @@ sub _convert_preformatted_command($$$$$)
     $main_cmdname = 'example';
   }
 
-  if ($content ne '' and !$self->in_string()) {
+  if ($content ne '' and !in_string($self)) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')
         and $indented_preformatted_commands{$cmdname}) {
       return _indent_with_table($self, $cmdname, $content, \@classes);
@@ -4740,7 +4740,7 @@ sub _convert_indented_command($$$$$)
   } else {
     $main_cmdname = $cmdname;
   }
-  if ($content ne '' and !$self->in_string()) {
+  if ($content ne '' and !in_string($self)) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
       return _indent_with_table($self, $main_cmdname, $content, \@classes);
     } else {
@@ -4765,7 +4765,7 @@ sub _convert_verbatim_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  if (!$self->in_string()) {
+  if (!in_string($self)) {
     return $self->html_attribute_class('pre', [$cmdname]).'>'
           .$content . '</pre>';
   } else {
@@ -4785,7 +4785,7 @@ sub _convert_displaymath_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
 
@@ -4855,7 +4855,7 @@ sub _convert_sp_command($$$$)
       and defined($command->{'extra'}->{'misc_args'})
       and defined($command->{'extra'}->{'misc_args'}->[0])) {
     my $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
-    if ($self->in_preformatted_context() or $self->in_string()) {
+    if ($self->in_preformatted_context() or in_string($self)) {
       return "\n" x $sp_nr;
     } else {
       return ($self->get_info('line_break_element')."\n") x $sp_nr;
@@ -4875,7 +4875,7 @@ sub _convert_exdent_command($$$$)
 
   my $arg = $self->get_pending_formatted_inline_content().$args->[0]->{'normal'};
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $arg ."\n";
   }
 
@@ -4901,7 +4901,7 @@ sub _convert_center_command($$$$)
     return '';
   }
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $args->[0]->{'normal'}."\n";
   } else {
     return $self->html_attribute_class('div', [$cmdname]).">"
@@ -4920,7 +4920,7 @@ sub _convert_author_command($$$$)
 
   return '' if (!$args or !$args->[0] or !$command->{'extra'}
                 or !$command->{'extra'}->{'titlepage'});
-  if (!$self->in_string()) {
+  if (!in_string($self)) {
     return $self->html_attribute_class('strong', [$cmdname])
                 .">$args->[0]->{'normal'}</strong>"
                 .$self->get_info('line_break_element')."\n";
@@ -4938,7 +4938,7 @@ sub _convert_title_command($$$$)
   my $command = shift;
   my $args = shift;
   return '' if (!$args or !$args->[0]);
-  if (!$self->in_string()) {
+  if (!in_string($self)) {
     return $self->html_attribute_class('h1', [$cmdname])
                             .">$args->[0]->{'normal'}</h1>\n";
   } else {
@@ -4955,7 +4955,7 @@ sub _convert_subtitle_command($$$$)
   my $args = shift;
 
   return '' if (!$args or !$args->[0]);
-  if (!$self->in_string()) {
+  if (!in_string($self)) {
     return $self->html_attribute_class('h3', [$cmdname])
                             .">$args->[0]->{'normal'}</h3>\n";
   } else {
@@ -4989,7 +4989,7 @@ sub _convert_listoffloats_command($$$$)
   my $args = shift;
 
   # should probably never happen
-  return '' if ($self->in_string());
+  return '' if (in_string($self));
 
   my $floats = $self->get_info('floats');
   my $listoffloats_name = $command->{'extra'}->{'float_type'};
@@ -5060,7 +5060,7 @@ sub _convert_menu_command($$$$$)
   # This can probably only happen with incorrect input,
   # for instance menu in copying
   # FIXME check?
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
 
@@ -5093,7 +5093,7 @@ sub _convert_float_command($$$$$)
   if (defined($caption)) {
     $caption_command_name = $caption->{'cmdname'};
   }
-  if ($self->in_string()) {
+  if (in_string($self)) {
     my $prepended_text;
     if ($prepended) {
       $prepended_text = $self->convert_tree_new_formatting_context(
@@ -5202,7 +5202,7 @@ sub _convert_quotation_command($$$$$)
     }
   }
 
-  if (!$self->in_string()) {
+  if (!in_string($self)) {
     return $self->html_attribute_class('blockquote', \@classes).">\n"
                            . $content . "</blockquote>\n" . $attribution;
   } else {
@@ -5221,7 +5221,7 @@ sub _convert_cartouche_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
 
   my $title_content = '';
   if ($args and $args->[0] and $args->[0]->{'normal'} ne '') {
@@ -5251,7 +5251,7 @@ sub _convert_itemize_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
   my $command_as_argument_name;
@@ -5310,7 +5310,7 @@ sub _convert_enumerate_command($$$$$)
 
   if (!defined($content) or $content eq '') {
     return '';
-  } elsif ($self->in_string()) {
+  } elsif (in_string($self)) {
     return $content;
   }
 
@@ -5347,7 +5347,7 @@ sub _convert_multitable_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
   if ($content =~ /\S/) {
@@ -5370,7 +5370,7 @@ sub _convert_xtable_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
   if ($content ne '') {
@@ -5394,7 +5394,7 @@ sub _convert_item_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
   if ($command->{'parent'}->{'cmdname'}
@@ -5488,7 +5488,7 @@ sub _convert_tab_command($$$$$)
   $content =~ s/^\s*//;
   $content =~ s/\s*$//;
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
   if ($row_cmdname eq 'headitem') {
@@ -5592,7 +5592,7 @@ sub _convert_xref_commands($$$$)
     my $reference = $name;
     $reference = $self->html_attribute_class('a', [$cmdname])
                       ." href=\"$href\">$name</a>" if ($href ne ''
-                                                       and !$self->in_string());
+                                                       and !in_string($self));
 
     my $is_section = ($command->{'cmdname'} ne 'node'
                       and $command->{'cmdname'} ne 'anchor'
@@ -5663,7 +5663,7 @@ sub _convert_xref_commands($$$$)
 
     my $reference = $name;
     my $book_reference = '';
-    if (!$self->in_string() and $href ne '') {
+    if (!in_string($self) and $href ne '') {
       # attribute to distiguish links to Texinfo manuals from other links
       # and to provide manual name of target
       my $manual_name_attribute = '';
@@ -5788,7 +5788,7 @@ sub _convert_printindex_command($$$$)
   #    print STDERR "   ".join('|', keys(%$index_entry))."||| $index_entry->{'key'}\n";
   #  }
   #}
-  return '' if ($self->in_string());
+  return '' if (in_string($self));
 
   my %letter_id;
   my %letter_is_symbol;
@@ -6287,7 +6287,7 @@ sub _convert_informative_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  return '' if ($self->in_string());
+  return '' if (in_string($self));
 
   Texinfo::Common::set_informative_command_value($self, $command);
 
@@ -6305,7 +6305,7 @@ sub _convert_contents_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  return '' if ($self->in_string());
+  return '' if (in_string($self));
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   Texinfo::Common::set_informative_command_value($self, $command);
@@ -6448,7 +6448,7 @@ sub _convert_paragraph_type($$$$)
       }
     }
   }
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
 
   if ($content =~ /\S/) {
     my $align = $self->in_align();
@@ -6537,7 +6537,7 @@ sub _convert_preformatted_type($$$$)
     }
   }
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
   $content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
@@ -6581,7 +6581,7 @@ sub _convert_index_entry_command_type($$$$)
   my $index_id = $self->command_id($element);
   if (defined($index_id) and $index_id ne ''
       and !$self->in_multi_expanded()
-      and !$self->in_string()) {
+      and !in_string($self)) {
     my $result = &{$self->formatting_function('format_separate_anchor')}($self,
                                                    $index_id, 'index-entry-id');
     $result .= "\n" unless ($self->in_preformatted_context());
@@ -6632,23 +6632,14 @@ sub _convert_text($$$)
   my $element = shift;
   my $text = shift;
 
-  my $context = $self->{'document_context'}->[-1];
-
-  # API info: in_verbatim() API code conforming would be:
-  #if ($self->in_verbatim()) {
-  if ($context->{'verbatim'}) { # inline these calls for speed
+  if (in_verbatim($self)) {
     # API info: using the API to allow for customization would be:
     #return &{$self->formatting_function('format_protect_text')}($self, $text);
     return $self->_default_format_protect_text($text);
   }
-  return $text if $context->{'raw'};
-  # API info: in_raw() API code conforming would be:
-  #return $text if ($self->in_raw());
+  return $text if (in_raw($self));
 
-  my $formatting_context = $context->{'formatting_context'}->[-1];
-  $text = uc($text) if $formatting_context->{'upper_case'};
-  # API info: in_upper_case() API code conforming would be:
-  #$text = uc($text) if ($self->in_upper_case());
+  $text = uc($text) if (in_upper_case($self));
 
   # API info: using the API to allow for customization would be:
   #$text = &{$self->formatting_function('format_protect_text')}($self, $text);
@@ -6663,10 +6654,7 @@ sub _convert_text($$$)
   if ($self->{'use_unicode_text'}) {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         (in_code($self) or in_math($self)));
-  # API info: in_code() API code conforming and
-  # API info: in_math() API code conforming would be:
-  #} elsif (!$self->in_code() and !$self->in_math()) {
-  } elsif (!$context->{'monospace'}->[-1] and !$context->{'math'}) {
+  } elsif (!in_code($self) and !in_math($self)) {
     # API info: get_conf() API code conforming would be:
     #if ($self->get_conf('USE_NUMERIC_ENTITY')) {
     if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
@@ -6686,15 +6674,11 @@ sub _convert_text($$$)
 
   return $text if (in_preformatted_context($self));
 
-  # API info: in_non_breakable_space() API code conforming would be:
-  #if ($self->in_non_breakable_space()) {
-  if ($formatting_context->{'no_break'}) {
+  if (in_non_breakable_space($self)) {
     my $non_breaking_space = $self->get_info('non_breaking_space');
     $text =~ s/\n/ /g;
     $text =~ s/ +/$non_breaking_space/g;
-  # API info: in_space_protected() API code conforming would be:
-  #} elsif ($self->in_space_protected()) {
-  } elsif ($formatting_context->{'space_protected'}) {
+  } elsif (in_space_protected($self)) {
     if (chomp($text)) {
       # API info: API code conforming would be:
       # $self->get_info('line_break_element')
@@ -6725,10 +6709,10 @@ sub _css_string_convert_text($$$)
   my $element = shift;
   my $text = shift;
 
-  $text = uc($text) if ($self->in_upper_case());
+  $text = uc($text) if (in_upper_case($self));
 
   # need to hide \ otherwise it is protected in protect_text
-  if (!$self->in_code() and !$self->in_math()) {
+  if (!in_code($self) and !in_math($self)) {
     $text =~ s/---/\x{1F}2014 /g;
     $text =~ s/--/\x{1F}2013 /g;
     $text =~ s/``/\x{1F}201C /g;
@@ -6760,7 +6744,7 @@ sub _convert_row_type($$$$) {
 
   $content = '' if (!defined($content));
 
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
 
   if ($content =~ /\S/) {
     my $result = '<tr>' . $content . '</tr>';
@@ -6785,7 +6769,7 @@ sub _convert_multitable_head_type($$$$) {
 
   $content = '' if (!defined($content));
 
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
 
   if ($content =~ /\S/) {
     return '<thead>' . $content . '</thead>' . "\n";
@@ -6802,7 +6786,7 @@ sub _convert_multitable_body_type($$$$) {
   my $element = shift;
   my $content = shift;
 
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
   if ($content =~ /\S/) {
     return '<tbody>' . $content . '</tbody>' . "\n";
   } else {
@@ -6915,7 +6899,7 @@ sub _convert_menu_entry_type($$$)
   my $MENU_SYMBOL = $self->get_conf('MENU_SYMBOL');
   my $MENU_ENTRY_COLON = $self->get_conf('MENU_ENTRY_COLON');
 
-  my $in_string = $self->in_string();
+  my $in_string = in_string($self);
   if ($self->inside_preformatted() or $in_string) {
     my $leading_text = $menu_entry_leading_text->{'text'};
     $leading_text =~ s/\*/$MENU_SYMBOL/;
@@ -7052,7 +7036,7 @@ sub _convert_menu_comment_type($$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->inside_preformatted() or $self->in_string()) {
+  if ($self->inside_preformatted() or in_string($self)) {
     return $content;
   } else {
     return '<tr>'.$self->html_attribute_class('th', ['menu-comment'])
@@ -7070,7 +7054,7 @@ sub _convert_before_item_type($$$$)
   my $content = shift;
 
   return '' if (!defined ($content) or $content !~ /\S/);
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
   my $top_block_command = $self->top_block_command();
   if ($top_block_command eq 'itemize' or $top_block_command eq 'enumerate') {
     return '<li>'. $content .'</li>';
@@ -7108,7 +7092,7 @@ sub _convert_def_line_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     # should probably never happen
     return &{$self->formatting_function('format_protect_text')}($self,
      Texinfo::Convert::Text::convert_to_text(
@@ -7293,7 +7277,7 @@ sub _convert_def_item_type($$$$)
 
   $content = '' if (!defined($content));
 
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
 
   if ($content =~ /\S/) {
     if (! $self->get_conf('DEF_TABLE')) {
@@ -7316,7 +7300,7 @@ sub _convert_def_command($$$$$) {
 
   $content = '' if (!defined($content));
 
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
 
   my @classes;
   my $command_name;
@@ -7350,7 +7334,7 @@ sub _convert_table_definition_type($$$$)
 
   $content = '' if (!defined($content));
 
-  return $content if ($self->in_string());
+  return $content if (in_string($self));
 
   if ($content =~ /\S/) {
     return '<dd>' . $content . '</dd>'."\n";
@@ -7447,7 +7431,7 @@ sub _convert_special_unit_type($$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return '';
   }
 
@@ -7516,7 +7500,7 @@ sub _convert_unit_type($$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->in_string()) {
+  if (in_string($self)) {
     return $content;
   }
   my $result = '';
@@ -12376,7 +12360,7 @@ sub _convert($$;$)
 
   if ($debug) {
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
-    my $contexts_str = $self->_debug_print_html_contexts();
+    my $contexts_str = _debug_print_html_contexts($self);
     print STDERR "ELEMENT($explanation) ".$contexts_str.", ->";
     print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
     print STDERR " type: $element->{'type'}" if ($element->{'type'});
@@ -12385,8 +12369,6 @@ sub _convert($$;$)
       $text =~ s/\n/\\n/;
       print STDERR " text: $text";
     }
-    # uncomment to show perl objects
-    #print STDERR " $element (".join('|',@{$self->{'document_context'}->[-1]->{'formatting_context'}}).")";
     print STDERR "\n";
   }
 

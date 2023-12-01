@@ -1,5 +1,14 @@
 2023-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_text): revert inlining of calls
+	to get state information for speed, to be able to override the
+	function calls in XS.
+
+	* tp/Texinfo/Convert/HTML.pm: use non object oriented call of in_string
+	and _debug_print_html_contexts.
+
+2023-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (default_commands_args): reorder to
 	have an arg formatting done in the same order in perl and C.
 
