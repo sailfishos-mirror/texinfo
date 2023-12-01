@@ -1,5 +1,30 @@
 2023-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (default_commands_args): reorder to
+	have an arg formatting done in the same order in perl and C.
+
+	* tp/Texinfo/XS/convert/convert_html.c (default_commands_args):
+	use F_AFT_none as flag for commands that do not have flag set but
+	should not have their argument considered as normal.
+
+	* tp/Texinfo/Convert/HTML.pm (_debug_print_html_contexts, _convert),
+	tp/Texinfo/XS/convert/convert_html.c (debug_print_html_contexts)
+	(convert_to_html_internal): separate the code showing the contexts to
+	be able to use it for debugging.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_w_command)
+	(commands_internal_conversion_table): implement and use
+	convert_w_command.
+
+	* tp/Texinfo/XS/convert/convert_html.c (open_quotation_command)
+	(commands_internal_open_table): implement and use
+	open_quotation_command.
+
+	* tp/Texinfo/XS/convert/convert_html.c (open_inline_container_type):
+	implement.
+
+2023-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (COMMAND_INTERNAL_CONVERSION)
 	(COMMAND_INTERNAL_OPEN, TYPE_INTERNAL_OPEN, types_internal_open_table)
 	(commands_internal_conversion_table, commands_internal_open_table)

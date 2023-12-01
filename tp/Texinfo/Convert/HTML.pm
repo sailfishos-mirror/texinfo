@@ -2627,6 +2627,9 @@ my %default_code_types = (
 );
 
 # specification of arguments formatting
+# to obtain the same order of converting as in C, order for one argument
+# should be normal, monospace, string, monospacestring, monospacetext,
+#           filenametext, url, raw
 my %default_commands_args = (
   'anchor' => [['monospacestring']],
   'email' => [['url', 'monospacestring'], ['normal']],
@@ -2640,7 +2643,7 @@ my %default_commands_args = (
   'pxref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
   'ref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
   'link' => [['monospace'],['normal'],['filenametext']],
-  'image' => [['url', 'filenametext', 'monospacestring'],['filenametext'],['filenametext'],['string', 'normal'],['filenametext']],
+  'image' => [['monospacestring', 'filenametext', 'url'],['filenametext'],['filenametext'],['normal','string'],['filenametext']],
   # FIXME shouldn't it better not to convert if later ignored?
   # note that right now ignored argument are in elided empty types
   # but this could change.
@@ -12334,6 +12337,18 @@ sub _convert_type_update_context($$)
   }
 }
 
+sub _debug_print_html_contexts($)
+{
+  my $self = shift;
+  my @document_contexts = map {defined($_->{'context'})
+                                       ? $_->{'context'}: 'UNDEF'}
+                                  @{$self->{'document_context'}};
+  my @contexts_names = map {defined($_->{'context_name'})
+                                 ? $_->{'context_name'}: 'UNDEF'}
+        @{$self->{'document_context'}->[-1]->{'formatting_context'}};
+  return "[".join('|',@document_contexts)."](".join('|',@contexts_names).")";
+}
+
 # Convert tree element $ELEMENT, and return HTML text for the output files.
 sub _convert($$;$);
 sub _convert($$;$)
@@ -12361,14 +12376,8 @@ sub _convert($$;$)
 
   if ($debug) {
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
-    my @document_contexts = map {defined($_->{'context'})
-                                       ? $_->{'context'}: 'UNDEF'}
-                                  @{$self->{'document_context'}};
-    my @contexts_names = map {defined($_->{'context_name'})
-                                 ? $_->{'context_name'}: 'UNDEF'}
-         @{$self->{'document_context'}->[-1]->{'formatting_context'}};
-    print STDERR "ELEMENT($explanation) [".join('|',@document_contexts)
-                                   ."](".join('|',@contexts_names)."), ->";
+    my $contexts_str = $self->_debug_print_html_contexts();
+    print STDERR "ELEMENT($explanation) ".$contexts_str.", ->";
     print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
     print STDERR " type: $element->{'type'}" if ($element->{'type'});
     my $text = $element->{'text'};
@@ -12490,6 +12499,10 @@ sub _convert($$;$)
               push @$args_formatted, undef;
               next;
             }
+            # NOTE here commands with empty array reference in
+            # array reference associated to command in default_commands_args
+            # do not have $arg_spec reset to normal, such that their argument
+            # is not converter here
             $arg_spec = ['normal'] if (!defined($arg_spec));
             my $arg_formatted = {'tree' => $arg};
             foreach my $arg_type (@$arg_spec) {

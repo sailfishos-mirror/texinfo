@@ -834,9 +834,22 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
           /* remove obsolete document contexts in perl */
           while (converter->document_contexts_to_pop)
             {
+               /*
+              SV** top_context_sv = av_fetch(document_context_av,
+                                             top_document_context_idx, 0);
+              if (top_context_sv)
+                {
+                  HV *top_context_hv = (HV *) SvRV (*top_context_sv);
+                  SV **context_sv = hv_fetch (top_context_hv, "context",
+                                              strlen ("context"), 0);
+                  char *context = (char *) SvPVutf8_nolen (*context_sv);
+                  fprintf (stderr, "PLPOP (top %zu) ctx '%s'\n",
+                                   top_document_context_idx, context);
+                }
+                */
+              av_pop (document_context_av);
               converter->document_contexts_to_pop--;
               top_document_context_idx--;
-              av_pop (document_context_av);
             }
         }
 
@@ -847,6 +860,9 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
           HTML_DOCUMENT_CONTEXT *document_context
             = &converter->html_document_context.stack[i];
           HV *document_context_hv = build_html_document_context (document_context);
+          /*
+          fprintf (stderr, "PLPUSH ctx '%s'\n", document_context->context);
+           */
           av_push (document_context_av, newRV_noinc ((SV *) document_context_hv));
         }
       converter->document_context_change = 0;

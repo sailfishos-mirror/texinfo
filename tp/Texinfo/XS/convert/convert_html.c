@@ -145,7 +145,7 @@ CMD_VARIETY command_special_unit_variety[] = {
                                 {0, 0},
 };
 
-/* unused */
+/* used to set flags to non-zero with a flag that does nothing */
 #define F_AFT_none              0x0001
 
 #define F_AFT_normal            0x0002
@@ -196,11 +196,11 @@ typedef struct COMMAND_ID_ARGS_SPECIFICATION {
 static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
   {CM_anchor, {F_AFT_monospacestring}},
   {CM_email, {F_AFT_url | F_AFT_monospacestring, F_AFT_normal}},
-  {CM_footnote, {0}},
-  {CM_printindex, {0}},
+  {CM_footnote, {F_AFT_none}}, /* no flag */
+  {CM_printindex, {F_AFT_none}}, /* no flag */
   {CM_uref, {F_AFT_url | F_AFT_monospacestring, F_AFT_normal, F_AFT_normal}},
   {CM_url, {F_AFT_url | F_AFT_monospacestring, F_AFT_normal, F_AFT_normal}},
-  {CM_sp, {0}},
+  {CM_sp, {F_AFT_none}}, /* no flag */
   {CM_inforef, {F_AFT_monospace, F_AFT_normal, F_AFT_filenametext}},
   {CM_xref, {F_AFT_monospace, F_AFT_normal, F_AFT_normal, F_AFT_filenametext, F_AFT_normal}},
   {CM_pxref, {F_AFT_monospace, F_AFT_normal, F_AFT_normal, F_AFT_filenametext, F_AFT_normal}},
@@ -212,8 +212,8 @@ static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
   {CM_inlineraw, {F_AFT_monospacetext, F_AFT_raw}},
   {CM_inlineifclear, {F_AFT_monospacetext, F_AFT_normal}},
   {CM_inlineifset, {F_AFT_monospacetext, F_AFT_normal}},
-  {CM_item, {0}},
-  {CM_itemx, {0}},
+  {CM_item, {F_AFT_none}}, /* no flag */
+  {CM_itemx, {F_AFT_none}}, /* no flag */
   {CM_value, {F_AFT_monospacestring}},
   {CM_abbr, {F_AFT_normal, F_AFT_string}},
   {CM_acronym, {F_AFT_normal, F_AFT_string}},
@@ -3924,18 +3924,78 @@ convert_row_type (CONVERTER *self, const enum element_type type,
     }
 }
 
+void
+convert_w_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (args_formatted && args_formatted->number > 0)
+    {
+      if (args_formatted->args[0].formatted[AFT_type_normal])
+        text_append (result,
+                     args_formatted->args[0].formatted[AFT_type_normal]);
+    }
+  if (!in_string (self))
+    {
+      text_append (result, "<!-- /@w -->");
+    }
+}
 
 /* associate command to the C function implementing the conversion */
 static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
+  {CM_w, &convert_w_command},
   {0, 0},
 };
 
+void
+open_quotation_command (CONVERTER *self, const enum command_id cmd,
+                        const ELEMENT *element, TEXT *result)
+{
+  char *cmdname = element_command_name (element);
+  char *formatted_quotation_arg_to_prepend = 0;
+  if (element->args.number > 0 && element->args.list[0]->contents.number > 0)
+    {
+      ELEMENT *tree;
+      char *explanation;
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+      ELEMENT *quotation_arg_copy = copy_tree (element->args.list[0]);
+      add_element_to_named_string_element_list (substrings,
+                          "quotation_arg", quotation_arg_copy);
+      tree = html_gdt_tree ("@b{{quotation_arg}:} ", self->document,
+                           self, substrings, 0, 0);
+      destroy_named_string_element_list (substrings);
+      xasprintf (&explanation, "open %s prepended arg", cmdname);
+      add_to_element_list (&self->tree_to_build, tree);
+      formatted_quotation_arg_to_prepend
+        = html_convert_tree (self, tree, explanation);
+      remove_element_from_list (&self->tree_to_build, tree);
+      destroy_element_and_children (tree);
+      free (explanation);
+    }
+  html_register_pending_formatted_inline_content (self, cmdname,
+                                  formatted_quotation_arg_to_prepend);
+  free (formatted_quotation_arg_to_prepend);
+}
+
+void
+open_inline_container_type (CONVERTER *self, const enum element_type type,
+                            const ELEMENT *element, TEXT *result)
+{
+  char *pending_formatted = html_get_pending_formatted_inline_content (self);
+  if (pending_formatted)
+    {
+      html_associate_pending_formatted_inline_content (self, element, 0,
+                                                       pending_formatted);
+      free (pending_formatted);
+    }
+}
+
 /* associate command to the C function implementing the opening */
 static COMMAND_INTERNAL_OPEN commands_internal_open_table[] = {
-  /*
   {CM_quotation, &open_quotation_command},
-  {CM_small_quotation, &open_quotation_command},
-   */
+  {CM_smallquotation, &open_quotation_command},
   {0, 0},
 };
 
@@ -3955,7 +4015,6 @@ static TYPE_INTERNAL_OPEN types_internal_open_table[] = {
    */
   {0, 0},
 };
-
 
 void
 convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
@@ -4160,9 +4219,7 @@ command_conversion_external (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  /* TODO call a C function if status is FRS_status_default_set
-     maybe putting function references in an array */
-  /* FIXME XS specific debug message */
+  /* XS specific debug message */
   /*
   if (self->conf->DEBUG > 0)
     fprintf (stderr, "DEBUG: command conversion %s '%s'\n",
@@ -4193,7 +4250,6 @@ type_conversion_external (CONVERTER *self, const enum element_type type,
 {
   FORMATTING_REFERENCE *formatting_reference
     = self->current_types_conversion_function[type].formatting_reference;
-
   if (formatting_reference->status > 0)
     call_types_conversion (self, type, formatting_reference,
                            element, content, result);
@@ -5504,6 +5560,49 @@ html_convert_type_update_context (CONVERTER *self, enum element_type type)
 
 #define ADD(x) text_append (result, x)
 
+static char *
+debug_print_html_contexts (CONVERTER *self)
+{
+  int i;
+  TEXT contexts_str;
+  text_init (&contexts_str);
+  text_append (&contexts_str, "[");
+  HTML_DOCUMENT_CONTEXT_STACK *document_context_stack
+    = &self->html_document_context;
+  HTML_DOCUMENT_CONTEXT *top_document_ctx
+    = html_top_document_context (self);
+  HTML_FORMATTING_CONTEXT_STACK *formatting_context_stack
+    = &top_document_ctx->formatting_context;
+
+  for (i = 0; i < document_context_stack->top; i++)
+    {
+      HTML_DOCUMENT_CONTEXT *document_context
+        = &document_context_stack->stack[i];
+      if (i != 0)
+        text_append (&contexts_str, "|");
+      if (document_context->context)
+        text_append (&contexts_str, document_context->context);
+      else
+        text_append (&contexts_str, "UNDEF");
+    }
+  text_append (&contexts_str, "](");
+
+  for (i = 0; i < formatting_context_stack->top; i++)
+    {
+      HTML_FORMATTING_CONTEXT *formatting_context
+       = &formatting_context_stack->stack[i];
+      if (i != 0)
+        text_append (&contexts_str, "|");
+      if (formatting_context->context_name)
+        text_append (&contexts_str, formatting_context->context_name);
+      else
+        text_append (&contexts_str, "UNDEF");
+
+    }
+  text_append (&contexts_str, ")");
+  return contexts_str.text;
+}
+
 /* EXPLANATION is used for debugging */
 void
 convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
@@ -5524,48 +5623,12 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
   if (self->conf->DEBUG > 0)
     {
-      int i;
       TEXT debug_str;
-      TEXT contexts_str;
+      char *contexts_str = debug_print_html_contexts (self);
       text_init (&debug_str);
-      text_init (&contexts_str);
-      text_append (&contexts_str, "[");
-      HTML_DOCUMENT_CONTEXT_STACK *document_context_stack
-        = &self->html_document_context;
-      HTML_DOCUMENT_CONTEXT *top_document_ctx
-        = html_top_document_context (self);
-      HTML_FORMATTING_CONTEXT_STACK *formatting_context_stack
-        = &top_document_ctx->formatting_context;
-
-      for (i = 0; i < document_context_stack->top; i++)
-        {
-          HTML_DOCUMENT_CONTEXT *document_context
-            = &document_context_stack->stack[i];
-          if (i != 0)
-            text_append (&contexts_str, "|");
-          if (document_context->context)
-            text_append (&contexts_str, document_context->context);
-          else
-            text_append (&contexts_str, "UNDEF");
-        }
-      text_append (&contexts_str, "](");
-
-      for (i = 0; i < formatting_context_stack->top; i++)
-        {
-          HTML_FORMATTING_CONTEXT *formatting_context
-           = &formatting_context_stack->stack[i];
-          if (i != 0)
-            text_append (&contexts_str, "|");
-          if (formatting_context->context_name)
-            text_append (&contexts_str, formatting_context->context_name);
-          else
-            text_append (&contexts_str, "UNDEF");
-
-        }
-      text_append (&contexts_str, ")");
       text_printf (&debug_str, "XS|ELEMENT(%s) %s, ->", explanation,
-                                                       contexts_str.text);
-      free (contexts_str.text);
+                                                       contexts_str);
+      free (contexts_str);
       if (command_name)
         text_printf (&debug_str, " cmd: %s,", command_name);
       if (element->type)
@@ -5642,7 +5705,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           && element->type != ET_index_entry_command))
     {
       enum command_id data_cmd = element_builtin_data_cmd (element);
-      /* FIXME XS only debug message */
+      /* XS only debug message */
       /*
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "COMMAND: %s %s\n",
@@ -5751,6 +5814,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                         {
                           continue;
                         }
+                      /* NOTE that commands with F_AFT_none as only flag do not
+                         have their flag reset to F_AFT_normal here, such that
+                         their argument is not converter here */
                       if (arg_idx < MAX_COMMAND_ARGS_NR
                           /* could check command_args_flags[cmd].status,
                              but it is probably faster not to */
