@@ -64,12 +64,33 @@ typedef struct CMD_VARIETY {
     char *variety;
 } CMD_VARIETY;
 
+typedef struct COMMAND_INTERNAL_CONVERSION {
+    enum command_id cmd;
+    void (* command_conversion) (struct CONVERTER *self,
+                                 const enum command_id cmd,
+                                 const ELEMENT *element,
+                                 const HTML_ARGS_FORMATTED *args_formatted,
+                                 const char *content, TEXT *result);
+} COMMAND_INTERNAL_CONVERSION;
+
+typedef struct COMMAND_INTERNAL_OPEN {
+    enum command_id cmd;
+    void (* command_open) (CONVERTER *self, const enum command_id cmd,
+                           const ELEMENT *element, TEXT *result);
+} COMMAND_INTERNAL_OPEN;
+
 typedef struct TYPE_INTERNAL_CONVERSION {
     enum element_type type;
     void (* type_conversion) (CONVERTER *self, const enum element_type type,
                               const ELEMENT *element, const char *content,
                               TEXT *result);
 } TYPE_INTERNAL_CONVERSION;
+
+typedef struct TYPE_INTERNAL_OPEN {
+    enum element_type type;
+    void (* type_open) (CONVERTER *self, const enum element_type type,
+                        const ELEMENT *element, TEXT *result);
+} TYPE_INTERNAL_OPEN;
 
 typedef struct OUTPUT_UNIT_INTERNAL_CONVERSION {
     enum output_unit_type type;
@@ -3904,6 +3925,20 @@ convert_row_type (CONVERTER *self, const enum element_type type,
 }
 
 
+/* associate command to the C function implementing the conversion */
+static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
+  {0, 0},
+};
+
+/* associate command to the C function implementing the opening */
+static COMMAND_INTERNAL_OPEN commands_internal_open_table[] = {
+  /*
+  {CM_quotation, &open_quotation_command},
+  {CM_small_quotation, &open_quotation_command},
+   */
+  {0, 0},
+};
+
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_table_term, &convert_table_term_type},
@@ -3912,10 +3947,20 @@ static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {0, 0},
 };
 
-void convert_unit_type (CONVERTER *self,
-                        const enum output_unit_type unit_type,
-                        const OUTPUT_UNIT *output_unit, const char *content,
-                        TEXT *result)
+/* associate type to the C function implementing the opening */
+static TYPE_INTERNAL_OPEN types_internal_open_table[] = {
+  /*
+  {ET_paragraph, &open_inline_container_type},
+  {ET_preformatted, &open_inline_container_type},
+   */
+  {0, 0},
+};
+
+
+void
+convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
+                   const OUTPUT_UNIT *output_unit, const char *content,
+                   TEXT *result)
 {
   STRING_LIST *closed_strings;
   ELEMENT *unit_command;
@@ -4134,11 +4179,9 @@ command_conversion_external (CONVERTER *self, const enum command_id cmd,
 }
 
 static void
-command_open (CONVERTER *self, const enum command_id cmd,
-              const ELEMENT *element, TEXT *result)
+command_open_external (CONVERTER *self, const enum command_id cmd,
+                       const ELEMENT *element, TEXT *result)
 {
-  /* TODO call a C function if status is FRS_status_default_set
-     maybe putting function references in an array */
   if (self->commands_open[cmd].status > 0)
     call_commands_open (self, cmd, element, result);
 }
@@ -4157,11 +4200,9 @@ type_conversion_external (CONVERTER *self, const enum element_type type,
 }
 
 static void
-type_open (CONVERTER *self, enum element_type type, const ELEMENT *element,
-           TEXT *result)
+type_open_external (CONVERTER *self, enum element_type type,
+                    const ELEMENT *element, TEXT *result)
 {
-  /* TODO call a C function if status is FRS_status_default_set
-     maybe putting function references in an array */
   if (self->types_open[type].status > 0)
     call_types_open (self, type, element, result);
 }
@@ -4293,6 +4334,22 @@ register_type_conversion_function (TYPE_CONVERSION_FUNCTION *result,
 }
 
 void
+register_type_open_function (TYPE_OPEN_FUNCTION *result,
+                             enum element_type type,
+                             FORMATTING_REFERENCE *formatting_reference)
+{
+  if (formatting_reference->status > 0)
+    {
+      result->status = formatting_reference->status;
+      if (formatting_reference->status != FRS_status_ignored)
+        {
+          result->type_open = &type_open_external;
+          result->formatting_reference = formatting_reference;
+        }
+    }
+}
+
+void
 register_command_conversion_function (COMMAND_CONVERSION_FUNCTION *result,
                          enum command_id cmd,
                          FORMATTING_REFERENCE *formatting_reference)
@@ -4303,6 +4360,22 @@ register_command_conversion_function (COMMAND_CONVERSION_FUNCTION *result,
       if (formatting_reference->status != FRS_status_ignored)
         {
           result->command_conversion = &command_conversion_external;
+          result->formatting_reference = formatting_reference;
+        }
+    }
+}
+
+void
+register_command_open_function (COMMAND_OPEN_FUNCTION *result,
+                                enum command_id cmd,
+                                FORMATTING_REFERENCE *formatting_reference)
+{
+  if (formatting_reference->status > 0)
+    {
+      result->status = formatting_reference->status;
+      if (formatting_reference->status != FRS_status_ignored)
+        {
+          result->command_open = &command_open_external;
           result->formatting_reference = formatting_reference;
         }
     }
@@ -4433,6 +4506,8 @@ html_converter_initialize (CONVERTER *self)
     {
       register_type_conversion_function (&self->type_conversion_function[i],
                                         i, &self->types_conversion[i]);
+      register_type_open_function (&self->type_open_function[i],
+                                   i, &self->types_open[i]);
       register_type_conversion_function (
              &self->css_string_type_conversion_function[i], i,
              &self->css_string_types_conversion[i]);
@@ -4452,14 +4527,57 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
+  for (i = 0; types_internal_open_table[i].type_open; i++)
+    {
+      enum element_type type = types_internal_open_table[i].type;
+      TYPE_OPEN_FUNCTION *type_open = &self->type_open_function[type];
+      if (type_open->status == FRS_status_default_set)
+        {
+          type_open->formatting_reference = 0;
+          type_open->status = FRS_status_internal;
+          type_open->type_open
+              = types_internal_open_table[i].type_open;
+        }
+    }
+
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
       register_command_conversion_function (
            &self->command_conversion_function[i],
            i, &self->commands_conversion[i]);
+      register_command_open_function (
+           &self->command_open_function[i],
+           i, &self->commands_open[i]);
       register_command_conversion_function (
             &self->css_string_command_conversion_function[i], i,
              &self->css_string_commands_conversion[i]);
+    }
+
+  for (i = 0; commands_internal_conversion_table[i].command_conversion; i++)
+    {
+      enum command_id cmd = commands_internal_conversion_table[i].cmd;
+      COMMAND_CONVERSION_FUNCTION *command_conversion
+               = &self->command_conversion_function[cmd];
+      if (command_conversion->status == FRS_status_default_set)
+        {
+          command_conversion->formatting_reference = 0;
+          command_conversion->status = FRS_status_internal;
+          command_conversion->command_conversion
+              = commands_internal_conversion_table[i].command_conversion;
+        }
+    }
+
+  for (i = 0; commands_internal_open_table[i].command_open; i++)
+    {
+      enum command_id cmd = commands_internal_open_table[i].cmd;
+      COMMAND_OPEN_FUNCTION *command_open = &self->command_open_function[cmd];
+      if (command_open->status == FRS_status_default_set)
+        {
+          command_open->formatting_reference = 0;
+          command_open->status = FRS_status_internal;
+          command_open->command_open
+              = commands_internal_open_table[i].command_open;
+        }
     }
 
   for (i = 0; i < OU_special_unit+1; i++)
@@ -4774,7 +4892,7 @@ html_free_converter (CONVERTER *self)
 
   free (self->associated_inline_content.list);
 
-  destroy_associated_info (&self->shared_conversion_state.integers); 
+  destroy_associated_info (&self->shared_conversion_state.integers);
 
   free (self->no_arg_formatted_cmd_translated.list);
   free (self->reset_target_commands.list);
@@ -5546,9 +5664,10 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           int convert_to_latex
                = html_open_command_update_context (self, data_cmd);
 
-          if (self->commands_open[cmd].status)
+          if (self->command_open_function[cmd].command_open)
             {
-              command_open (self, data_cmd, element, result);
+              (*self->command_open_function[cmd].command_open)
+                                (self, data_cmd, element, result);
             }
 
           text_init (&content_formatted);
@@ -5858,7 +5977,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
       html_open_type_update_context(self, type);
 
-      type_open (self, type, element, &type_result);
+      if (self->type_open_function[type].type_open)
+        (*self->type_open_function[type].type_open)
+               (self, type, element, &type_result);
 
       text_init (&content_formatted);
 
@@ -5945,10 +6066,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         {
           (*self->current_types_conversion_function[0].type_conversion)
                            (self, 0, element, "", result);
-          goto out;
         }
-      else
-        goto out;
+
+      goto out;
     }
   debug_str = print_element_debug (element, 0);
   fprintf (stderr, "DEBUG: HERE!(%p:%s)\n", element, debug_str);

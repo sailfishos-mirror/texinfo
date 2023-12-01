@@ -1,3 +1,21 @@
+2023-12-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (COMMAND_INTERNAL_CONVERSION)
+	(COMMAND_INTERNAL_OPEN, TYPE_INTERNAL_OPEN, types_internal_open_table)
+	(commands_internal_conversion_table, commands_internal_open_table)
+	(command_open_external, type_open_external)
+	(register_type_open_function, register_command_open_function)
+	(html_converter_initialize, convert_to_html_internal),
+	tp/Texinfo/XS/main/converter_types.h (TYPE_OPEN_FUNCTION)
+	(COMMAND_OPEN_FUNCTION, CONVERTER): add type_open_function and
+	command_open_function to converter structure and functions to register
+	command_open_external (renamed from command_open) and
+	type_open_external (renamed from type_open).  Use the function
+	references in conversion.  Add commands_internal_conversion_table,
+	commands_internal_open_table and types_internal_open_table to list
+	functions in C replacing perl functions if the default perl function
+	is used.
+
 2023-11-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c

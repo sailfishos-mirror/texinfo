@@ -445,6 +445,17 @@ typedef struct TYPE_CONVERSION_FUNCTION {
                               TEXT *text);
 } TYPE_CONVERSION_FUNCTION;
 
+typedef struct TYPE_OPEN_FUNCTION {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    void (* type_open) (struct CONVERTER *self, const enum element_type type,
+                         const ELEMENT *element, TEXT *text);
+} TYPE_OPEN_FUNCTION;
+
 typedef struct HTML_ARG_FORMATTED {
     const ELEMENT *tree;
     char *formatted[AFT_type_raw+1];
@@ -468,6 +479,17 @@ typedef struct COMMAND_CONVERSION_FUNCTION {
                                  const HTML_ARGS_FORMATTED *args_formatted,
                                  const char *content, TEXT *result);
 } COMMAND_CONVERSION_FUNCTION;
+
+typedef struct COMMAND_OPEN_FUNCTION {
+    enum formatting_reference_status status;
+    /* points to the perl formatting reference if it is used for
+       conversion */
+    FORMATTING_REFERENCE *formatting_reference;
+    /* the function used for conversion, either a function that calls
+       the perl function in formatting_reference, or another C function */
+    void (* command_open) (struct CONVERTER *self, const enum command_id cmd,
+                           const ELEMENT *element, TEXT *result);
+} COMMAND_OPEN_FUNCTION;
 
 typedef struct OUTPUT_UNIT_CONVERSION_FUNCTION {
     enum formatting_reference_status status;
@@ -593,7 +615,9 @@ typedef struct CONVERTER {
     char **special_unit_info[SUI_type_heading+1];
     TYPE_CONVERSION_FUNCTION type_conversion_function[TXI_TREE_TYPES_NUMBER];
     TYPE_CONVERSION_FUNCTION css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];
+    TYPE_OPEN_FUNCTION type_open_function[TXI_TREE_TYPES_NUMBER];
     COMMAND_CONVERSION_FUNCTION command_conversion_function[BUILTIN_CMD_NUMBER];
+    COMMAND_OPEN_FUNCTION command_open_function[BUILTIN_CMD_NUMBER];
     COMMAND_CONVERSION_FUNCTION css_string_command_conversion_function[BUILTIN_CMD_NUMBER];
     OUTPUT_UNIT_CONVERSION_FUNCTION output_unit_conversion_function[OU_special_unit+1];
     SPECIAL_UNIT_BODY_FORMATTING *special_unit_body_formatting;
