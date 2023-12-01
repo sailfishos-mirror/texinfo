@@ -45,6 +45,8 @@ int replace_element_in_contents (ELEMENT *parent, ELEMENT *removed,
 int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
                              ELEMENT *added);
 void destroy_node_spec (NODE_SPEC_EXTRA *nse);
+void destroy_associated_info (ASSOCIATED_INFO *a);
+
 
 #define element_contents_number(e) ((e)->contents.number)
 #define element_args_number(e) ((e)->args.number)

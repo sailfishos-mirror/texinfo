@@ -3841,6 +3841,7 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
     free (footnote_heading);
 
   text_append (result, foot_lines);
+  free (foot_lines);
   text_append (result, "</div>\n");
 }
 
@@ -3952,6 +3953,7 @@ void convert_unit_type (CONVERTER *self,
               for (i = 0; i < closed_strings->number; i++)
                 {
                   text_append (result, closed_strings->list[i]);
+                  free (closed_strings->list[i]);
                 }
               free (closed_strings->list);
             }
@@ -4011,6 +4013,7 @@ convert_special_unit_type (CONVERTER *self,
       for (i = 0; i < closed_strings->number; i++)
         {
           text_append (result, closed_strings->list[i]);
+          free (closed_strings->list[i]);
         }
       free (closed_strings->list);
     }
@@ -4618,6 +4621,32 @@ html_finalize_output_state (CONVERTER *self)
       clear_string_stack (&self->pending_closes);
     }
 
+  if (self->pending_inline_content.top > 0)
+    {
+      char *inline_content = html_get_pending_formatted_inline_content (self);
+      message_list_document_warn (&self->error_messages, self->conf,
+         "%zu registered inline contents: %s",
+           self->pending_inline_content.top, inline_content);
+      free (inline_content);
+    }
+
+  for (i = 0; i < self->associated_inline_content.number; i++)
+    {
+      HTML_ASSOCIATED_INLINE_CONTENT *associated_content
+        = &self->associated_inline_content.list[i];
+      if (associated_content->inline_content)
+        {
+          char *inline_content = associated_content->inline_content;
+          message_list_document_warn (&self->error_messages, self->conf,
+             "associated inline content not used: %s\n",
+              inline_content);
+          free (associated_content->inline_content);
+        }
+    }
+  self->associated_inline_content.number = 0;
+
+  self->shared_conversion_state.integers.info_number = 0;
+
   html_pop_document_context (self);
 
   /* could change to 0 in releases? */
@@ -4741,6 +4770,11 @@ html_free_converter (CONVERTER *self)
   free (self->no_arg_formatted_cmd.list);
 
   free (self->pending_closes.stack);
+  free (self->pending_inline_content.stack);
+
+  free (self->associated_inline_content.list);
+
+  destroy_associated_info (&self->shared_conversion_state.integers); 
 
   free (self->no_arg_formatted_cmd_translated.list);
   free (self->reset_target_commands.list);
