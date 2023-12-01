@@ -2887,7 +2887,7 @@ sub _convert_no_arg_command($$$)
   if ($cmdname eq 'click' and $command->{'extra'}
       and exists($command->{'extra'}->{'clickstyle'})) {
     my $click_cmdname = $command->{'extra'}->{'clickstyle'};
-    if (($self->in_preformatted_context() or $self->in_math()
+    if ((in_preformatted_context($self) or in_math($self)
          and $self->{'no_arg_commands_formatting'}->{$click_cmdname}
                                                         ->{'preformatted'})
         or (in_string($self) and
@@ -2896,14 +2896,14 @@ sub _convert_no_arg_command($$$)
       $cmdname = $click_cmdname;
     }
   }
-  if ($self->in_upper_case() and $letter_no_arg_commands{$cmdname}
+  if (in_upper_case($self) and $letter_no_arg_commands{$cmdname}
       and $self->{'no_arg_commands_formatting'}->{uc($cmdname)}) {
     $cmdname = uc($cmdname);
   }
 
   my $result;
 
-  if ($self->in_preformatted_context() or $self->in_math()) {
+  if (in_preformatted_context($self) or in_math($self)) {
     $result = $self->_text_element_conversion(
       $self->{'no_arg_commands_formatting'}->{$cmdname}->{'preformatted'},
       $cmdname);
@@ -2937,7 +2937,7 @@ sub _css_string_convert_no_arg_command($$$)
       $cmdname = $click_cmdname;
     }
   }
-  if ($self->in_upper_case() and $letter_no_arg_commands{$cmdname}
+  if (in_upper_case($self) and $letter_no_arg_commands{$cmdname}
       and $self->{'no_arg_commands_formatting'}->{uc($cmdname)}) {
     $cmdname = uc($cmdname);
   }
@@ -3091,7 +3091,7 @@ sub _convert_style_command($$$$)
     my $style_formatting
        = $self->{'style_commands_formatting'}->{$style_cmdname};
     my $formatting_spec;
-    if ($self->in_preformatted_context()) {
+    if (in_preformatted_context($self)) {
       $formatting_spec = $style_formatting->{'preformatted'};
     } else {
       $formatting_spec = $style_formatting->{'normal'};
@@ -3297,7 +3297,7 @@ sub _convert_anchor_command($$$$)
   my $args = shift;
 
   my $id = $self->command_id($command);
-  if (defined($id) and $id ne '' and !$self->in_multi_expanded()
+  if (defined($id) and $id ne '' and !in_multi_expanded($self)
       and !in_string($self)) {
     return &{$self->formatting_function('format_separate_anchor')}($self,
                                                            $id, 'anchor');
@@ -3337,7 +3337,7 @@ sub _convert_footnote_command($$$$)
   my $docid = $self->footnote_location_target($command);
 
   my $multiple_expanded_footnote = 0;
-  my $multi_expanded_region = $self->in_multi_expanded();
+  my $multi_expanded_region = in_multi_expanded($self);
   if (defined($multi_expanded_region)) {
     # to avoid duplicate names, use a prefix that cannot happen in anchors
     my $target_prefix = "t_f";
@@ -3378,7 +3378,7 @@ sub _convert_footnote_command($$$$)
                     $self->get_info('current_filename'), $multi_expanded_region);
 
   my $footnote_number_text;
-  if ($self->in_preformatted_context()) {
+  if (in_preformatted_context($self)) {
     $footnote_number_text = "($footnote_mark)";
   } else {
     $footnote_number_text = "<sup>$footnote_mark</sup>";
@@ -3576,7 +3576,7 @@ sub _convert_accent_command($$$$)
   }
   return $self->convert_accents($command, $format_accents,
                                 $self->get_conf('OUTPUT_CHARACTERS'),
-                                $self->in_upper_case());
+                                in_upper_case($self));
 }
 
 foreach my $command (keys(%accent_commands)) {
@@ -3632,7 +3632,7 @@ sub _css_string_convert_accent_command($$$$)
   my $format_accents = \&_css_string_accent;
   return $self->convert_accents($command, $format_accents,
                                 $self->get_conf('OUTPUT_CHARACTERS'),
-                                $self->in_upper_case());
+                                in_upper_case($self));
 }
 
 foreach my $command (keys(%accent_commands)) {
@@ -4550,7 +4550,7 @@ sub _convert_heading_command($$$$$)
 
     my $heading_class = $level_corrected_cmdname;
     unshift @heading_classes, $heading_class;
-    if ($self->in_preformatted_context()) {
+    if (in_preformatted_context($self)) {
       my $id_str = '';
       if (defined($heading_id)) {
         $id_str = " id=\"$heading_id\"";
@@ -4855,7 +4855,7 @@ sub _convert_sp_command($$$$)
       and defined($command->{'extra'}->{'misc_args'})
       and defined($command->{'extra'}->{'misc_args'}->[0])) {
     my $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
-    if ($self->in_preformatted_context() or in_string($self)) {
+    if (in_preformatted_context($self) or in_string($self)) {
       return "\n" x $sp_nr;
     } else {
       return ($self->get_info('line_break_element')."\n") x $sp_nr;
@@ -4881,7 +4881,7 @@ sub _convert_exdent_command($$$$)
 
   # FIXME do something with CSS?  Currently nothing is defined for exdent
 
-  if ($self->in_preformatted_context()) {
+  if (in_preformatted_context($self)) {
     return $self->html_attribute_class('pre', [$cmdname]).'>'.$arg ."\n</pre>";
   } else {
     return $self->html_attribute_class('p', [$cmdname]).'>'.$arg ."\n</p>";
@@ -5066,7 +5066,7 @@ sub _convert_menu_command($$$$$)
 
   my $begin_row = '';
   my $end_row = '';
-  if ($self->inside_preformatted()) {
+  if (inside_preformatted($self)) {
     $begin_row = '<tr><td>';
     $end_row = '</td></tr>';
   }
@@ -5418,7 +5418,7 @@ sub _convert_item_command($$$$$)
                                                 [$args->[0]->{'tree'}]);
       my $result = $self->convert_tree($table_item_tree,
                                        'convert table_item_tree');
-      if ($self->in_preformatted_context()) {
+      if (in_preformatted_context($self)) {
         my @pre_classes = $self->preformatted_classes_stack();
         foreach my $pre_class (@pre_classes) {
           if ($preformatted_code_commands{$pre_class}) {
@@ -5580,7 +5580,7 @@ sub _convert_xref_commands($$$$)
         }
       } elsif (!$self->get_conf('XREF_USE_NODE_NAME_ARG')
                and (defined($self->get_conf('XREF_USE_NODE_NAME_ARG'))
-                    or !$self->in_preformatted_context())) {
+                    or !in_preformatted_context($self))) {
         $name = $self->command_text($command, 'text_nonumber');
         #die "$command $command->{'normalized'}" if (!defined($name));
       } elsif (defined($args->[0]->{'monospace'})) {
@@ -6434,8 +6434,8 @@ sub _convert_paragraph_type($$$$)
 
   $content = $self->get_associated_formatted_inline_content($element).$content;
 
-  if ($self->paragraph_number() == 1) {
-    my $in_format = $self->top_block_command();
+  if (paragraph_number($self) == 1) {
+    my $in_format = top_block_command($self);
     if ($in_format) {
       # no first paragraph in those environment to avoid extra spacing
       if ($in_format eq 'itemize'
@@ -6515,7 +6515,7 @@ sub _convert_preformatted_type($$$$)
 
   my $pre_class = $self->_preformatted_class();
 
-  if ($self->top_block_command() eq 'multitable') {
+  if (top_block_command($self) eq 'multitable') {
     $content =~ s/^\s*//;
     $content =~ s/\s*$//;
   }
@@ -6525,7 +6525,7 @@ sub _convert_preformatted_type($$$$)
   # environment where spaces and newlines are preserved.
   if ($element->{'parent'}->{'type'}
       and $element->{'parent'}->{'type'} eq 'menu_entry_description') {
-    if (!$self->inside_preformatted()) {
+    if (!inside_preformatted($self)) {
       # If not in preformatted block command,
       # we don't preserve spaces and newlines in menu_entry_description,
       # instead the whole menu_entry is in a table, so no <pre> in that situation
@@ -6580,11 +6580,11 @@ sub _convert_index_entry_command_type($$$$)
 
   my $index_id = $self->command_id($element);
   if (defined($index_id) and $index_id ne ''
-      and !$self->in_multi_expanded()
+      and !in_multi_expanded($self)
       and !in_string($self)) {
     my $result = &{$self->formatting_function('format_separate_anchor')}($self,
                                                    $index_id, 'index-entry-id');
-    $result .= "\n" unless ($self->in_preformatted_context());
+    $result .= "\n" unless (in_preformatted_context($self));
     return $result;
   }
   return '';
@@ -6900,7 +6900,7 @@ sub _convert_menu_entry_type($$$)
   my $MENU_ENTRY_COLON = $self->get_conf('MENU_ENTRY_COLON');
 
   my $in_string = in_string($self);
-  if ($self->inside_preformatted() or $in_string) {
+  if (inside_preformatted($self) or $in_string) {
     my $leading_text = $menu_entry_leading_text->{'text'};
     $leading_text =~ s/\*/$MENU_SYMBOL/;
     my $result_name_node = $leading_text;
@@ -7036,7 +7036,7 @@ sub _convert_menu_comment_type($$$$)
 
   $content = '' if (!defined($content));
 
-  if ($self->inside_preformatted() or in_string($self)) {
+  if (inside_preformatted($self) or in_string($self)) {
     return $content;
   } else {
     return '<tr>'.$self->html_attribute_class('th', ['menu-comment'])
@@ -7055,7 +7055,7 @@ sub _convert_before_item_type($$$$)
 
   return '' if (!defined ($content) or $content !~ /\S/);
   return $content if (in_string($self));
-  my $top_block_command = $self->top_block_command();
+  my $top_block_command = top_block_command($self);
   if ($top_block_command eq 'itemize' or $top_block_command eq 'enumerate') {
     return '<li>'. $content .'</li>';
   } elsif ($top_block_command eq 'table' or $top_block_command eq 'vtable'
@@ -7101,7 +7101,7 @@ sub _convert_def_line_type($$$$)
 
   my $index_label = '';
   my $index_id = $self->command_id($element);
-  if (defined($index_id) and $index_id ne '' and !$self->in_multi_expanded()) {
+  if (defined($index_id) and $index_id ne '' and !in_multi_expanded($self)) {
     $index_label = " id=\"$index_id\"";
   }
   my ($category_element, $class_element,
@@ -10769,11 +10769,11 @@ sub _default_format_footnotes_sequence($)
     my $footnote_location_href = $self->footnote_location_href($command, undef,
                                            $docid, $footnote_location_filename);
     # NOTE the @-commands in @footnote that are formatted differently depending
-    # on $self->in_multi_expanded() cannot know that the original context
+    # on in_multi_expanded($self) cannot know that the original context
     # of the @footnote in the main document was $multi_expanded_region.
     # We do not want to set multi_expanded in customizable code.  However, it
     # could be possible to set a shared_conversion_state based on $multi_expanded_region
-    # and have all the conversion functions calling $self->in_multi_expanded()
+    # and have all the conversion functions calling in_multi_expanded($self)
     # also check the shared_conversion_state.  The special situations
     # with those @-commands in @footnote in multi expanded
     # region do not justify this additional code and complexity.  The consequences
