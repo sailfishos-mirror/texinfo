@@ -268,7 +268,7 @@ sub output($$)
     } else {
       $prefix = 'Ref';
     }
-    my ($label_text, $byte_count) = $self->node_line($label->{'root'});
+    my ($label_text, $byte_count) = $self->node_name($label->{'root'});
 
     if ($seen_anchors{$label_text}) {
       $self->converter_line_error($self,
@@ -443,7 +443,7 @@ sub format_node($$)
   return '' if (not $node->{'extra'}
                 or not $node->{'extra'}->{'is_target'});
 
-  my ($node_text, $byte_count) = $self->node_line($node);
+  my ($node_text, $byte_count) = $self->node_name($node);
   # check not needed most probably because of the test of 'normalized'.
   #return '' if ($node_text eq '');
 
@@ -504,7 +504,7 @@ sub format_node($$)
       if (defined($node_direction->{'extra'}->{'normalized'})) {
         my $pre_quote = '';
         my $post_quote = '';
-        my ($node_text, $byte_count) = $self->node_line($node_direction);
+        my ($node_text, $byte_count) = $self->node_name($node_direction);
         $self->{'count_context'}->[-1]->{'bytes'} += $byte_count;
         # Up may not strictly need protection, as it is the last direction,
         # but we protect consistently

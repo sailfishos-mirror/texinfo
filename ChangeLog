@@ -1,3 +1,9 @@
+2023-12-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (node_line): Rename to
+	'node_name' as node_line is a confusing name, the result not
+	being a full line but usually only part of a line.
+
 2023-12-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (preformatted_classes_stack),

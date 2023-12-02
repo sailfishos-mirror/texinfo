@@ -1303,11 +1303,11 @@ sub _normalize_top_node($)
 }
 
 # convert and cache a node name.  $NODE is a node element.
-sub node_line($$)
+sub node_name($$)
 {
   my ($self, $node) = @_;
-  $self->{'node_lines_text'} = {} if (!$self->{'node_lines_text'});
-  if (!$self->{'node_lines_text'}->{$node}) {
+  $self->{'node_names_text'} = {} if (!$self->{'node_names_text'});
+  if (!$self->{'node_names_text'}->{$node}) {
     my $label_element;
     if ($node->{'cmdname'}) {
       $label_element = Texinfo::Common::get_label_element($node);
@@ -1318,17 +1318,17 @@ sub node_line($$)
     my $node_text = {'type' => '_code',
                      'contents' => [$label_element]};
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-    $self->{'node_lines_text'}->{$node}
+    $self->{'node_names_text'}->{$node}
       = {'text' => _normalize_top_node($self->convert_line($node_text,
                                                  {'suppress_styles' => 1,
                                                   'no_added_eol' => 1,}))};
     update_count_context($self);
     my $end_context = pop @{$self->{'count_context'}};
-    $self->{'node_lines_text'}->{$node}->{'count'}
+    $self->{'node_names_text'}->{$node}->{'count'}
       = $end_context->{'bytes'};
   }
-  return ($self->{'node_lines_text'}->{$node}->{'text'},
-          $self->{'node_lines_text'}->{$node}->{'count'});
+  return ($self->{'node_names_text'}->{$node}->{'text'},
+          $self->{'node_names_text'}->{$node}->{'count'});
 }
 
 my $index_length_to_node = 41;
@@ -1535,31 +1535,31 @@ sub process_printindex($$;$)
         $self->{'index_entries_no_node'}->{$entry} = 1;
       }
     } else {
-      my ($node_line, $byte_count) = $self->node_line($node);
+      my ($node_name, $byte_count) = $self->node_name($node);
       $self->{'count_context'}->[-1]->{'bytes'} += $byte_count;
       # protect characters that need to be protected in menu node entry
       # after menu entry name and also :, as the Info readers
       # should consider text up to : to be part of the index entry.
-      if ($node_line =~ /([,\t:]|\.\s)/) {
+      if ($node_name =~ /([,\t:]|\.\s)/) {
         my $warned_char = $1;
         if ($self->{'info_special_chars_warning'}) {
           # Warn only once
-          if (! $self->{'index_entry_node_colon'}->{$node_line}) {
+          if (! $self->{'index_entry_node_colon'}->{$node_name}) {
             $self->converter_line_warn($self, sprintf(__(
              "node name with index entries should not contain `%s'"),
                                             $warned_char),
                            $node->{'source_info'});
           }
-          $self->{'index_entry_node_colon'}->{$node_line} = 1;
+          $self->{'index_entry_node_colon'}->{$node_name} = 1;
         }
         if ($self->{'info_special_chars_quote'}) {
           my $pre_quote = "\x{7f}";
           my $post_quote = $pre_quote;
           $self->{'count_context'}->[-1]->{'bytes'} += 2;
-          $node_line = $pre_quote . $node_line . $post_quote;
+          $node_name = $pre_quote . $node_name . $post_quote;
         }
       }
-      $entry_line_addition .= $node_line;
+      $entry_line_addition .= $node_name;
     }
     $entry_line_addition .= '.';
     add_text_to_count($self, '.');
