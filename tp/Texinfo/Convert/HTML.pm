@@ -118,10 +118,66 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
   "Texinfo::Convert::HTML::_finalize_output_state"
    => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
+
+  "Texinfo::Convert::HTML::_open_command_update_context"
+   => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
+  "Texinfo::Convert::HTML::_convert_command_update_context",
+   => "Texinfo::Convert::ConvertXS::html_convert_command_update_context",
+  "Texinfo::Convert::HTML::_open_type_update_context",
+   => "Texinfo::Convert::ConvertXS::html_open_type_update_context",
+  "Texinfo::Convert::HTML::_convert_type_update_context"
+   => "Texinfo::Convert::ConvertXS::html_convert_type_update_context",
   "Texinfo::Convert::HTML::_new_document_context"
    => "Texinfo::Convert::ConvertXS::html_new_document_context",
   "Texinfo::Convert::HTML::_pop_document_context"
    => "Texinfo::Convert::ConvertXS::html_pop_document_context",
+  "Texinfo::Convert::HTML::_set_code_context"
+   => "Texinfo::Convert::ConvertXS::html_set_code_context",
+  "Texinfo::Convert::HTML::_pop_code_context"
+   => "Texinfo::Convert::ConvertXS::html_pop_code_context",
+  "Texinfo::Convert::HTML::_set_string_context"
+   => "Texinfo::Convert::ConvertXS::html_set_string_context",
+  "Texinfo::Convert::HTML::_unset_string_context"
+   => "Texinfo::Convert::ConvertXS::html_unset_string_context",
+  "Texinfo::Convert::HTML::_set_raw_context"
+   => "Texinfo::Convert::ConvertXS::html_set_raw_context",
+  "Texinfo::Convert::HTML::_unset_raw_context"
+   => "Texinfo::Convert::ConvertXS::html_unset_raw_context",
+
+  "Texinfo::Convert::HTML::_debug_print_html_contexts"
+   => "Texinfo::Convert::ConvertXS::html_debug_print_html_contexts",
+
+  "Texinfo::Convert::HTML::in_math"
+   => "Texinfo::Convert::ConvertXS::html_in_math",
+  "Texinfo::Convert::HTML::in_preformatted_context"
+   => "Texinfo::Convert::ConvertXS::html_in_preformatted_context",
+  "Texinfo::Convert::HTML::inside_preformatted"
+   => "Texinfo::Convert::ConvertXS::html_inside_preformatted",
+  "Texinfo::Convert::HTML::in_upper_case"
+   => "Texinfo::Convert::ConvertXS::html_in_upper_case",
+  "Texinfo::Convert::HTML::in_non_breakable_space"
+   => "Texinfo::Convert::ConvertXS::html_in_non_breakable_space",
+  "Texinfo::Convert::HTML::in_space_protected"
+   => "Texinfo::Convert::ConvertXS::html_in_space_protected",
+  "Texinfo::Convert::HTML::in_code"
+   => "Texinfo::Convert::ConvertXS::html_in_code",
+  "Texinfo::Convert::HTML::in_string"
+   => "Texinfo::Convert::ConvertXS::html_in_string",
+  "Texinfo::Convert::HTML::in_verbatim"
+   => "Texinfo::Convert::ConvertXS::html_in_verbatim",
+  "Texinfo::Convert::HTML::in_raw"
+   => "Texinfo::Convert::ConvertXS::html_in_raw",
+  "Texinfo::Convert::HTML::paragraph_number"
+   => "Texinfo::Convert::ConvertXS::html_paragraph_number",
+  "Texinfo::Convert::HTML::preformatted_number"
+   => "Texinfo::Convert::ConvertXS::html_preformatted_number",
+  "Texinfo::Convert::HTML::top_block_command"
+   => "Texinfo::Convert::ConvertXS::html_top_block_command",
+  "Texinfo::Convert::HTML::preformatted_classes_stack"
+   => "Texinfo::Convert::ConvertXS::html_preformatted_classes_stack",
+  "Texinfo::Convert::HTML::in_align"
+   => "Texinfo::Convert::ConvertXS::html_in_align",
+
   "Texinfo::Convert::HTML::register_opened_section_level"
    => "Texinfo::Convert::ConvertXS::html_register_opened_section_level",
   "Texinfo::Convert::HTML::close_registered_sections_level"
@@ -645,15 +701,6 @@ sub in_raw($)
   return $self->{'document_context'}->[-1]->{'raw'};
 }
 
-sub in_multi_expanded($)
-{
-  my $self = shift;
-  if (scalar(@{$self->{'multiple_pass'}})) {
-    return $self->{'multiple_pass'}->[-1];
-  }
-  return undef;
-}
-
 sub paragraph_number($)
 {
   my $self = shift;
@@ -666,6 +713,39 @@ sub preformatted_number($)
   my $self = shift;
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                   ->{'preformatted_number'};
+}
+
+sub top_block_command($)
+{
+  my $self = shift;
+  return $self->{'document_context'}->[-1]->{'block_commands'}->[-1];
+}
+
+sub preformatted_classes_stack($)
+{
+  my $self = shift;
+  return $self->{'document_context'}->[-1]->{'preformatted_classes'};
+}
+
+sub in_align($)
+{
+  my $self = shift;
+  my $context
+       = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
+  if ($HTML_align_commands{$context}) {
+    return $context;
+  } else {
+    return undef;
+  }
+}
+
+sub in_multi_expanded($)
+{
+  my $self = shift;
+  if (scalar(@{$self->{'multiple_pass'}})) {
+    return $self->{'multiple_pass'}->[-1];
+  }
+  return undef;
 }
 
 sub count_elements_in_filename($$$)
@@ -693,30 +773,6 @@ sub count_elements_in_filename($$$)
     }
   }
   return undef;
-}
-
-sub top_block_command($)
-{
-  my $self = shift;
-  return $self->{'document_context'}->[-1]->{'block_commands'}->[-1];
-}
-
-sub preformatted_classes_stack($)
-{
-  my $self = shift;
-  return @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
-}
-
-sub in_align($)
-{
-  my $self = shift;
-  my $context
-       = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
-  if ($HTML_align_commands{$context}) {
-    return $context;
-  } else {
-    return undef;
-  }
 }
 
 sub is_format_expanded($$)
@@ -5419,8 +5475,8 @@ sub _convert_item_command($$$$$)
       my $result = $self->convert_tree($table_item_tree,
                                        'convert table_item_tree');
       if (in_preformatted_context($self)) {
-        my @pre_classes = $self->preformatted_classes_stack();
-        foreach my $pre_class (@pre_classes) {
+        my $pre_classes = $self->preformatted_classes_stack();
+        foreach my $pre_class (@$pre_classes) {
           if ($preformatted_code_commands{$pre_class}) {
             $result = $self->html_attribute_class('code',
                                     ['table-term-preformatted-code']).'>'
@@ -6488,8 +6544,8 @@ sub _preformatted_class()
 {
   my $self = shift;
   my $pre_class;
-  my @pre_classes = $self->preformatted_classes_stack();
-  foreach my $class (@pre_classes) {
+  my $pre_classes = $self->preformatted_classes_stack();
+  foreach my $class (@$pre_classes) {
     # FIXME maybe add   or $pre_class eq 'menu'  to override
     # 'menu' with 'menu-comment'?
     $pre_class = $class unless ($pre_class
@@ -7168,10 +7224,10 @@ sub _convert_def_line_type($$$$)
           if ($arguments_formatted =~ /\S/);
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
-      # FIXME should not access directly 'document_context'
-      push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
+      # FIXME not part of the API
+      _set_code_context($self, 0);
       my $arguments_formatted = $self->_convert({'contents' => [$arguments]});
-      pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+      _pop_code_context($self);
       if ($arguments_formatted =~ /\S/) {
         $result_arguments = $self->html_attribute_class('var',
                                ['def-var-arguments']).'>'
@@ -7692,6 +7748,43 @@ sub _pop_document_context($)
   }
 }
 
+sub _set_code_context($$)
+{
+  my $self = shift;
+  my $code = shift;
+  push @{$self->{'document_context'}->[-1]->{'monospace'}}, $code;
+}
+
+sub _pop_code_context($)
+{
+  my $self = shift;
+  pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+}
+
+sub _set_string_context($)
+{
+  my $self = shift;
+  $self->{'document_context'}->[-1]->{'string'}++;
+}
+
+sub _unset_string_context($)
+{
+  my $self = shift;
+  $self->{'document_context'}->[-1]->{'string'}--;
+}
+
+sub _set_raw_context($)
+{
+  my $self = shift;
+  $self->{'document_context'}->[-1]->{'raw'}++;
+}
+
+sub _unset_raw_context($)
+{
+  my $self = shift;
+  $self->{'document_context'}->[-1]->{'raw'}--;
+}
+
 # can be set through Texinfo::Config::texinfo_register_file_id_setting_function
 my %customizable_file_id_setting_references;
 foreach my $customized_reference ('external_target_split_name',
@@ -7781,15 +7874,10 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
       # there does not seems to be anything simpler...
       my $preformatted_command_name = 'example';
       $self->_new_document_context($context_str);
-      push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-          $preformatted_command_name;
-      push @{$self->{'document_context'}->[-1]->{'preformatted_context'}}, 1;
-      $self->{'document_context'}->[-1]->{'inside_preformatted'}++;
-      # should not be needed for at commands no brace translation strings
-      push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-          $pre_class_commands{$preformatted_command_name};
+      _open_command_update_context($self, 'example');
       $translation_result
         = $self->convert_tree($translated_tree, $explanation);
+      _convert_command_update_context($self, 'example');
       $self->_pop_document_context();
     } elsif ($reset_context eq 'string') {
       $translation_result
@@ -12498,20 +12586,22 @@ sub _convert($$;$)
                   $arg_formatted->{'normal'} = $self->_convert($arg, $explanation);
                 }
               } elsif ($arg_type eq 'monospace') {
-                push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+                _set_code_context($self, 1);
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+                _pop_code_context($self);
               } elsif ($arg_type eq 'string') {
                 $self->_new_document_context($command_type);
-                $self->{'document_context'}->[-1]->{'string'}++;
+                _set_string_context($self);
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
+                #_unset_string_context($self);
                 $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacestring') {
                 $self->_new_document_context($command_type);
-                push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-                $self->{'document_context'}->[-1]->{'string'}++;
+                _set_code_context($self, 1);
+                _set_string_context($self);
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+                #_unset_string_context($self);
+                _pop_code_context($self);
                 $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacetext') {
                 $arg_formatted->{$arg_type}
@@ -12534,9 +12624,9 @@ sub _convert($$;$)
                    = Texinfo::Convert::Text::convert_to_text($arg,
                                                    $text_conversion_options);
               } elsif ($arg_type eq 'raw') {
-                $self->{'document_context'}->[-1]->{'raw'}++;
+                _set_raw_context($self);
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                $self->{'document_context'}->[-1]->{'raw'}--;
+                _unset_raw_context($self);
               }
             }
             push @$args_formatted, $arg_formatted;

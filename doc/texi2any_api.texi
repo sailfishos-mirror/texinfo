@@ -2702,10 +2702,11 @@ are in preformatted context even if not in a preformatted block command.
 If in preformatted context, it is possible to get preformatted @@-commands and
 preformatted types nesting with @code{preformatted_classes_stack}:
 
-@deftypefun {@var{@@preformatted_nesting} =} @var{$converter}->preformatted_classes_stack ()
-Returns an array containing the block preformatted @@-commands such as
-@code{@@example}, @code{@@display} or @code{@@menu} names without the leading
-@@ and the HTML attribute class preformatted container names, in order of appearance.
+@deftypefun {@var{\@@preformatted_nesting} =} @var{$converter}->preformatted_classes_stack ()
+Returns an reference on an array containing the block preformatted @@-commands
+such as @code{@@example}, @code{@@display} or @code{@@menu} names without
+the leading @@ and the HTML attribute class preformatted container names,
+in order of appearance.
 @end deftypefun
 
 The @code{%Texinfo::Commands::preformatted_code_commands}
@@ -2714,8 +2715,8 @@ as code (@pxref{Texinfo::Commands %preformatted_code_commands,,,
 texi2any_internals}).
 
 @example
-my @@pre_classes = $converter->preformatted_classes_stack();
-foreach my $pre_class (@@pre_classes) @{
+my $pre_classes = $converter->preformatted_classes_stack();
+foreach my $pre_class (@@$pre_classes) @{
   if ($Texinfo::Commands::preformatted_code_commands@{$pre_class@}) @{
     $result = '<code>' .$result. '</code>';
     last;

@@ -32,6 +32,9 @@
 
 #include "ppport.h"
 
+#include "command_ids.h"
+#include "element_types.h"
+#include "converter_types.h"
 #include "builtin_commands.h"
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
@@ -244,35 +247,9 @@ html_new_document_context (SV *converter_in, char *context_name, ...)
 
          if (self)
            {
-             HV *document_context_hv;
-             HTML_DOCUMENT_CONTEXT *document_context;
-             HV *converter_hv = (HV *) SvRV (converter_in);
-             SV **document_context_sv = hv_fetch (converter_hv,
-                   "document_context", strlen("document_context"), 0);
-             AV *document_context_av = (AV *) SvRV (*document_context_sv);
-             /* should not be needed as we are calling from perl
-             if (self->modified_state)
-               {
-                 build_html_formatting_state (self, self->modified_state);
-                 self->modified_state = 0;
-               }
-              */
              html_new_document_context (self, context_name,
                                         document_global_context, block_command);
-             /* reset to ignore the HMSF_formatting_context flag just set */
-             self->modified_state = 0;
-             document_context = html_top_document_context (self);
-
-             document_context_hv = build_html_document_context
-                                                      (document_context);
-             av_push (document_context_av,
-                      newRV_noinc ((SV *) document_context_hv));
-             self->document_context_change--;
-             hv_store (converter_hv, "document_global_context",
-                       strlen ("document_global_context"),
-                       newSViv (self->document_global_context), 0);
            }
-
 
 void
 html_pop_document_context (SV *converter_in)
@@ -282,27 +259,321 @@ html_pop_document_context (SV *converter_in)
          self = get_sv_converter (converter_in, "html_new_document_context");
          if (self)
            {
-             HV *converter_hv = (HV *) SvRV (converter_in);
-             SV **document_context_sv = hv_fetch (converter_hv,
-                   "document_context", strlen("document_context"), 0);
-             AV *document_context_av = (AV *) SvRV (*document_context_sv);
-             /* should not be needed as we are calling from perl
-             if (self->modified_state)
-               {
-                 build_html_formatting_state (self, self->modified_state);
-                 self->modified_state = 0;
-               }
-              */
              html_pop_document_context (self);
-
-             av_pop (document_context_av);
-             hv_store (converter_hv, "document_global_context",
-                       strlen ("document_global_context"),
-                       newSViv (self->document_global_context), 0);
-             /* reset to ignore the HMSF_formatting_context flag just set */
-             self->modified_state = 0;
-             self->document_context_change++;
            }
+
+int
+html_open_command_update_context (SV *converter_in, char *command_name)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_open_command_update_context");
+         RETVAL = 0;
+         if (self)
+           {
+             enum command_id cmd = lookup_builtin_command (command_name);
+             RETVAL = html_open_command_update_context (self, cmd);
+           }
+    OUTPUT:
+         RETVAL
+
+void
+html_convert_command_update_context (SV *converter_in, char *command_name)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_convert_command_update_context");
+         if (self)
+           {
+             enum command_id cmd = lookup_builtin_command (command_name);
+             html_convert_command_update_context (self, cmd);
+           }
+
+void
+html_open_type_update_context (SV *converter_in, char *type_name)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_open_type_update_context");
+         if (self)
+           {
+             enum element_type type = find_element_type (type_name);
+             html_open_type_update_context (self, type);
+           }
+
+void
+html_convert_type_update_context (SV *converter_in, char *type_name)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_convert_type_update_context");
+         if (self)
+           {
+             enum element_type type = find_element_type (type_name);
+             html_convert_type_update_context (self, type);
+           }
+
+void
+html_set_code_context (SV *converter_in, int code)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_set_code_context");
+         if (self)
+           html_set_code_context (self, code);
+
+void
+html_pop_code_context (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_pop_code_context");
+         if (self)
+           html_pop_code_context (self);
+
+void
+html_set_string_context (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_set_string_context");
+         if (self)
+           html_set_string_context (self);
+
+void
+html_unset_string_context (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_unset_string_context");
+         if (self)
+           html_unset_string_context (self);
+
+void
+html_set_raw_context (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_set_raw_context");
+         if (self)
+           html_set_raw_context (self);
+
+void
+html_unset_raw_context (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_unset_raw_context");
+         if (self)
+           html_unset_raw_context (self);
+
+SV *
+html_debug_print_html_contexts (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_debug_print_html_contexts");
+         if (self)
+           {
+             char *result = debug_print_html_contexts (self);
+             RETVAL = newSVpv_utf8 (result, 0);
+             free (result);
+           }
+         else
+           RETVAL = newSVpv_utf8 ("", 0);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_math (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_math");
+         RETVAL = html_in_math (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_preformatted_context (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_preformatted_context");
+         RETVAL = html_in_preformatted_context (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_inside_preformatted (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_inside_preformatted");
+         RETVAL = html_inside_preformatted (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_upper_case (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_upper_case");
+         RETVAL = html_in_upper_case (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_non_breakable_space (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_non_breakable_space");
+         RETVAL = html_in_non_breakable_space (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_space_protected (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_space_protected");
+         RETVAL = html_in_space_protected (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_code (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_code");
+         RETVAL = html_in_code (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_string (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_string");
+         RETVAL = html_in_string (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_verbatim (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_verbatim");
+         RETVAL = html_in_verbatim (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_raw (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_raw");
+         RETVAL = html_in_raw (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_paragraph_number (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_paragraph_number");
+         RETVAL = html_paragraph_number (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_preformatted_number (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_preformatted_number");
+         RETVAL = html_preformatted_number (self);
+    OUTPUT:
+         RETVAL
+
+char *
+html_top_block_command (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+         enum command_id cmd;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_top_block_command");
+         cmd = html_top_block_command (self);
+         RETVAL = builtin_command_name (cmd);
+    OUTPUT:
+         RETVAL
+
+SV *
+html_preformatted_classes_stack (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+         STRING_STACK *preformatted_classes_stack;
+         AV *preformatted_classes_av;
+         size_t i;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_preformatted_classes_stack");
+         preformatted_classes_stack = html_preformatted_classes_stack (self);
+         preformatted_classes_av = newAV();
+         for (i = 0; i < preformatted_classes_stack->top; i++)
+           {
+             SV *class_sv
+               = newSVpv_utf8 (preformatted_classes_stack->stack[i], 0);
+             av_push (preformatted_classes_av, class_sv);
+           }
+         RETVAL = newRV_noinc ((SV *)preformatted_classes_av);
+    OUTPUT:
+         RETVAL
+
+char *
+html_in_align (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+         enum command_id cmd;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_align");
+         cmd = html_in_align (self);
+         RETVAL = builtin_command_name (cmd);
+    OUTPUT:
+         RETVAL
 
 void
 html_register_opened_section_level (SV *converter_in, int level, close_string)

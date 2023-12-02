@@ -131,15 +131,16 @@ enum command_location {
 
 /* HTML modified state flags */
 #define HMSF_current_root            0x0001
-#define HMSF_document_context        0x0002
-#define HMSF_formatting_context      0x0004
-#define HMSF_composition_context     0x0008
-#define HMSF_preformatted_classes    0x0010
-#define HMSF_block_commands          0x0020
-#define HMSF_monospace               0x0040
-#define HMSF_top_formatting_context  0x0080
-/* for the integer variables in top document context */
-#define HMSF_top_document_ctx        0x0100
+/*
+#define HMSF_        0x0002
+#define HMSF_      0x0004
+#define HMSF_     0x0008
+#define HMSF_    0x0010
+#define HMSF_          0x0020
+#define HMSF_               0x0040
+#define HMSF_  0x0080
+#define HMSF_        0x0100
+ */
 #define HMSF_current_node            0x0200
 #define HMSF_current_output_unit     0x0400
 #define HMSF_current_filename        0x0800

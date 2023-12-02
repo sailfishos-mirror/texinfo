@@ -2,6 +2,8 @@
 #ifndef CONVERT_HTML_H
 #define CONVERT_HTML_H
 
+#include "command_ids.h"
+#include "element_types.h"
 #include "converter_types.h"
 /* for FILE_SOURCE_INFO_LIST */
 #include "utils.h"
@@ -23,10 +25,41 @@ void html_finalize_output_state (CONVERTER *self);
 
 void html_converter_prepare_output (CONVERTER* self);
 
+int html_open_command_update_context (CONVERTER *self,
+                                      enum command_id data_cmd);
+void html_convert_command_update_context (CONVERTER *self,
+                                          enum command_id data_cmd);
+void html_open_type_update_context (CONVERTER *self,
+                                    enum element_type type);
+void html_convert_type_update_context (CONVERTER *self, enum element_type type);
 void html_new_document_context (CONVERTER *self,
         char *context_name, char *document_global_context,
         enum command_id block_command);
 void html_pop_document_context (CONVERTER *self);
+void html_set_code_context (CONVERTER *self, int code);
+void html_pop_code_context (CONVERTER *self);
+void html_set_string_context (CONVERTER *self);
+void html_unset_string_context (CONVERTER *self);
+void html_set_raw_context (CONVERTER *self);
+void html_unset_raw_context (CONVERTER *self);
+
+int html_in_math (CONVERTER *self);
+int html_in_preformatted_context (CONVERTER *self);
+int html_inside_preformatted (CONVERTER *self);
+int html_in_upper_case (CONVERTER *self);
+int html_in_non_breakable_space (CONVERTER *self);
+int html_in_space_protected (CONVERTER *self);
+int html_in_code (CONVERTER *self);
+int html_in_string (CONVERTER *self);
+int html_in_verbatim (CONVERTER *self);
+int html_in_raw (CONVERTER *self);
+int html_paragraph_number (CONVERTER *self);
+int html_preformatted_number (CONVERTER *self);
+enum command_id html_top_block_command (CONVERTER *self);
+STRING_STACK *html_preformatted_classes_stack (CONVERTER *self);
+enum command_id html_in_align (CONVERTER *self);
+
+char *debug_print_html_contexts (CONVERTER *self);
 
 void html_register_opened_section_level (CONVERTER *self, int level,
                                          const char *close_string);

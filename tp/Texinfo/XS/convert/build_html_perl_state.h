@@ -28,8 +28,6 @@ void pass_html_global_units_directions (SV *converter_sv,
 void pass_html_elements_in_file_count (SV *converter_sv,
                    FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
-HV *build_html_document_context (HTML_DOCUMENT_CONTEXT *document_context);
-
 SV *build_html_formatting_state (CONVERTER *converter, unsigned long flags);
 
 SV *build_html_command_formatted_args

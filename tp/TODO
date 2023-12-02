@@ -14,16 +14,6 @@ Document that Texinfo::Document::rebuild_document or
 Texinfo::Document::rebuild_tree should be called after tree modifications
 if the parser is XS but converters are perl.
 
-Add a comment/TODO somewhere that explains that the need to maintain
-perl and C HTML document contexts exactly in sync is probably a bug somewhere.
-Indeed, the change in perl HTML document context should not need to be
-transmitted to C (through overriding of _new_document_context
-and _pop_document_context) as perl does not call any XS/C formatting
-function -- with the exception of translate_names -- and therefore the
-contexts should be back to where they were before perl was called.  The code
-in C already registers what changed compared to last time perl was called,
-only applying that should be good.
-
 Bugs
 ====
 

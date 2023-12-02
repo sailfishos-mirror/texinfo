@@ -614,7 +614,8 @@ sub highlight_preformatted_command($$$$$)
         # _preformatted_class().
         # Since we are formatting @example itself, it is not in the preformatted
         # context anymore, so we readd.
-        my @pre_classes = $self->preformatted_classes_stack();
+        my $preformatted_classes_stack = $self->preformatted_classes_stack();
+        my @pre_classes = @{$preformatted_classes_stack};
         # NOTE $pre_class_format is setup below to correspond to
         # $pre_class_commands{$cmdname}, which cannot be used directly,
         # as it is private.

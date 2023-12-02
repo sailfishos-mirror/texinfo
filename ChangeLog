@@ -1,3 +1,46 @@
+2023-12-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (preformatted_classes_stack),
+	doc/texi2any_api.texi (Conversion in Preformatted Context): return a
+	reference on an array instead of an array.  Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_reset_unset_no_arg_commands_formatting_context): use
+	_open_command_update_context to set the context of a preformatted
+	command.
+
+	* tp/Texinfo/Convert/HTML.pm (_set_code_context, _pop_code_context)
+	(_set_string_context, _unset_string_context, _set_raw_context)
+	(_unset_raw_context, _convert): add functions to encapsulate
+	modification of document context to be able to override them with XS.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_new_document_context)
+	(html_pop_document_context, html_open_command_update_context)
+	(html_convert_command_update_context, html_open_type_update_context)
+	(html_convert_type_update_context, html_set_code_context)
+	(html_pop_code_context, html_set_string_context)
+	(html_unset_string_context, html_set_raw_context)
+	(html_unset_raw_context, html_debug_print_html_contexts)
+	(html_in*, html_paragraph_number, html_preformatted_number)
+	(html_top_block_command, html_preformatted_classes_stack),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(html_in*, html_paragraph_number html_preformatted_number)
+	(html_top_block_command, html_preformatted_classes_stack)
+	(html_in_align, html_set_code_context, html_pop_code_context)
+	(html_set_string_context) (html_unset_string_context)
+	(html_set_raw_context, html_unset_raw_context)
+	(html_new_document_context, html_check_transfer_state_finalization)
+	(html_open_command_update_context, html_open_type_update_context)
+	(html_convert_command_update_context)
+	(html_convert_type_update_context, convert_to_html_internal),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): override all
+	the functions setting or accessing document context instead of
+	keeping track of modifications to pass information to perl.
+	Remove code and data related to the previous design, in particular
+	remove build_html_document_context_ctx and build_html_document_context
+
 2023-12-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm: use non object oriented call when not

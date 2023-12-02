@@ -651,10 +651,6 @@ typedef struct CONVERTER {
                                            change */
     ARRAY_INDEX_LIST file_changed_counter;  /* index of files in
                                  output_unit_files with changed counter */
-    int document_context_change; /* change of document context top that may need
-                                    to be brought to perl */
-    int document_contexts_to_pop;  /* number of contexts to pop in perl before
-                                      readding the new contexts */
     HTML_ADDED_TARGET_LIST added_targets; /* targets added */
     /* next three allow to switch from normal HTML formatting to css strings
        formatting */
