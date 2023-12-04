@@ -5,8 +5,8 @@
 
 	* tp/Texinfo/XS/main/errors.c, tp/Texinfo/XS/main/debug.c,
 	tp/Texinfo/XS/main/extra.c, tp/Texinfo/XS/main/tree_types.h,
-	tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/main/manipulate_tree.c: add
-	some const.
+	tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/main/manipulate_tree.c,
+	tp/Texinfo/XS/main/build_perl_info.c: add some const.
 
 	* tp/Texinfo/XS/main/unicode.c (compare_strings): make static.
 
