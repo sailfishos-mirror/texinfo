@@ -1,3 +1,23 @@
+2023-12-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (command_tree): copy tree in substituted
+	strings in argument of gdt to obtain the same output as with XS code.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): fix code
+	setting expanded_format_raw sared state.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): rearrange
+	code, defining @heading_classes only where it is used.
+
+	* tp/Texinfo/Convert/HTML.pm (_external_node_href): tighten the regexp
+	used to remove inf or info extension.  Rename $href as $htmlxref_href.
+	Move code.
+
+	* tp/Texinfo/Convert/HTML.pm (_mini_toc): remove useless code.
+
+	* tp/t/html_tests.t ($check_htmlxref_text): add test of .inf as manual
+	name extension.
+
 2023-12-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (node_line): Rename to

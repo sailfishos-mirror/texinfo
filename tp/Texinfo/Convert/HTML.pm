@@ -1211,7 +1211,8 @@ sub command_tree($$;$)
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
           my $substituted_strings
             = {'number' => {'text' => $section_number},
-               'section_title' => $command->{'args'}->[0]};
+               'section_title'
+             => Texinfo::Common::copy_treeNonXS($command->{'args'}->[0])};
 
           if ($command->{'cmdname'} eq 'appendix'
               and $command->{'extra'}->{'section_level'} == 1) {
@@ -4461,16 +4462,15 @@ sub _convert_heading_command($$$$$)
     }
   }
 
-  my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
+  my $level_set_class;
   if ($element->{'extra'}
       and defined $element->{'extra'}->{'section_level'}) {
     # if the level was changed, use a consistent command name
     $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if ($level_corrected_cmdname ne $cmdname) {
-      push @heading_classes,
-            "${cmdname}-level-set-${level_corrected_cmdname}";
+      $level_set_class = "${cmdname}-level-set-${level_corrected_cmdname}";
     }
   }
 
@@ -4523,11 +4523,12 @@ sub _convert_heading_command($$$$$)
         if ($self->get_conf('USE_NEXT_HEADING_FOR_LONE_NODE')) {
           my $expanded_format_raw
              = $self->shared_conversion_state('expanded_format_raw', {});
+
           # if no format is expanded, the formats will be checked each time
           # but this is very unlikely, as html is always expanded.
-          if (length(keys(%$expanded_format_raw)) == 0) {
+          if (scalar(keys(%$expanded_format_raw)) == 0) {
             foreach my $output_format_command
-                (keys(%Texinfo::Comon::texinfo_output_formats)) {
+                (keys(%Texinfo::Common::texinfo_output_formats)) {
               if ($self->is_format_expanded($output_format_command)) {
                 $expanded_format_raw->{$output_format_command} = 1;
               }
@@ -4604,8 +4605,11 @@ sub _convert_heading_command($$$$$)
       }
     }
 
-    my $heading_class = $level_corrected_cmdname;
-    unshift @heading_classes, $heading_class;
+    my @heading_classes;
+    push @heading_classes, $level_corrected_cmdname;
+    if (defined($level_set_class)) {
+      push @heading_classes, $level_set_class;
+    }
     if (in_preformatted_context($self)) {
       my $id_str = '';
       if (defined($heading_id)) {
@@ -8000,6 +8004,8 @@ sub _parse_htmlxref_files($$)
         $href =~ s/\/*$// if ($split_or_mono ne 'mono');
       }
       $htmlxref->{$manual} = {} if (!$htmlxref->{$manual});
+      # $href can be undef if the htmlxref part is missing on the line.
+      # TODO warn?
       $htmlxref->{$manual}->{$split_or_mono} = $href;
     }
     if (!close (HTMLXREF)) {
@@ -10169,18 +10175,19 @@ sub _external_node_href($$$;$)
       }
     }
     my $manual_base = $manual_name;
-    $manual_base =~ s/\.info*$//;
+    $manual_base =~ s/\.info?$//;
     $manual_base =~ s/^.*\///;
-    my $document_split = $self->get_conf('SPLIT');
-    $document_split = 'mono' if (!$document_split);
     my $split_found;
-    my $href;
+    my $htmlxref_href;
     my $htmlxref_info = $self->{'htmlxref'}->{$manual_base};
     if ($htmlxref_info) {
+      my $document_split = $self->get_conf('SPLIT');
+      $document_split = 'mono' if (!$document_split);
       foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
         if (defined($htmlxref_info->{$split_ordered})) {
           $split_found = $split_ordered;
-          $href = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
+          $htmlxref_href
+            = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
           last;
         }
       }
@@ -10214,33 +10221,34 @@ sub _external_node_href($$$;$)
     }
 
     if ($target_split) {
-      if (defined($href)) {
-        $directory = $href;
+      if (defined($htmlxref_href)) {
+        $directory = $htmlxref_href;
       } else {
-        my $manual_dir = $manual_base;
-        if (defined($self->{'output_format'}) and $self->{'output_format'} ne '') {
-          $manual_dir .= '_'.$self->{'output_format'};
-        }
         if (defined($self->get_conf('EXTERNAL_DIR'))) {
-          $directory = $self->get_conf('EXTERNAL_DIR')."/$manual_dir";
+          $directory = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
         } elsif ($self->get_conf('SPLIT')) {
-          $directory = "../$manual_dir";
+          $directory = "../$manual_base";
+        }
+        if (defined($self->{'output_format'})
+            and $self->{'output_format'} ne '') {
+          $directory .= '_'.$self->{'output_format'};
         }
         $directory = $self->url_protect_file_text($directory);
       }
       $directory .= "/";
     } else {# target not split
-      if (defined($href)) {
-        $file = $href;
+      if (defined($htmlxref_href)) {
+        $file = $htmlxref_href;
       } else {
-        my $manual_file_name = $manual_base . $external_file_extension;
         if (defined($self->get_conf('EXTERNAL_DIR'))) {
-          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_file_name";
+          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
         } elsif ($self->get_conf('SPLIT')) {
-          $file = "../$manual_file_name";
+          $file = "../$manual_base";
         } else {
-          $file = $manual_file_name;
+          $file = $manual_base;
         }
+        $file .= $external_file_extension;
+
         $file = $self->url_protect_file_text($file);
       }
     }
@@ -10318,11 +10326,7 @@ sub _mini_toc
       my $href = $self->command_href($section);
       if ($text ne '') {
         if ($href ne '') {
-          my $href_attribute = '';
-          if ($href ne '') {
-            $href_attribute = " href=\"$href\"";
-          }
-          $result .= "<li><a${href_attribute}$accesskey>$text</a>";
+          $result .= "<li><a href=\"$href\"$accesskey>$text</a>";
         } else {
           $result .= "<li>$text";
         }

@@ -1796,10 +1796,11 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <h3 class="heading" id="should-not-be-associated-1"><span>should not be associated<a class="copiable-link" href="#should-not-be-associated-1"> &para;</a></span></h3>
 
 <hr>
-<a class="node" id="g_t3-not"></a><div class="nav-panel">
+<a class="node-id" id="g_t3-not"></a><div class="nav-panel">
 <p>
 [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
+<h4 class="node"><span>3 not<a class="copiable-link" href="#g_t3-not"> &para;</a></span></h4>
 
 in html
 

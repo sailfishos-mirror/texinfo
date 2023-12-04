@@ -697,7 +697,7 @@ Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <abbr class="a
 <p>
 Previous: <a href="#sec-define" accesskey="p" rel="prev">define</a>, Up: <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
-<h3 class="section" id="here-is-GHJ"><span>1.2 here is <abbr class="acronym">GHJ</abbr><a class="copiable-link" href="#here-is-GHJ"> &para;</a></span></h3>
+<h3 class="section" id="here-is-GHJ"><span>1.2 here is <abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr><a class="copiable-link" href="#here-is-GHJ"> &para;</a></span></h3>
 
 <p>In text <abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr>.
 </p></div>

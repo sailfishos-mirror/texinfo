@@ -10,6 +10,10 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+it is not documented that .info or .inf at the end of the @ref file name argument of the source cross reference command is ignored when doing the HTML cross ref.
+in HTML Cross-reference Link Basics:
+Any directory part in the file name argument of the source cross reference command is ignored. Thus, @xref{,,,../foo} and @xref{,,,foo} both use ‘foo’ as the manual name. This is because any such attempted hardwiring of the directory is very unlikely to be useful for all the output formats that use the manual name. 
+
 Document that Texinfo::Document::rebuild_document or
 Texinfo::Document::rebuild_tree should be called after tree modifications
 if the parser is XS but converters are perl.

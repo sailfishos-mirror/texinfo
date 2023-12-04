@@ -685,6 +685,61 @@ $result_trees{'check_htmlxref'} = {
         }
       ],
       'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => '('
+                    },
+                    {
+                      'text' => 'some_name_inf.inf'
+                    },
+                    {
+                      'text' => ')'
+                    },
+                    {
+                      'text' => 'aa'
+                    }
+                  ],
+                  'extra' => {
+                    'manual_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    },
+                    'node_content' => {
+                      'contents' => [
+                        {}
+                      ]
+                    }
+                  },
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 19,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '.
+'
+            }
+          ],
+          'type' => 'paragraph'
+        }
+      ],
       'extra' => {
         'section_number' => '1'
       },
@@ -714,6 +769,8 @@ $result_trees{'check_htmlxref'}{'contents'}[3]{'args'}[1]{'extra'}{'manual_conte
 $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1]{'contents'}[1];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[1];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[3];
+$result_trees{'check_htmlxref'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'check_htmlxref'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[3];
 
 $result_texis{'check_htmlxref'} = '
 @node Top, (../there/no_existing_no_manual_direction), first, (dir)
@@ -732,6 +789,8 @@ $result_texis{'check_htmlxref'} = '
 
 @node chapter, (chap_not_existing), (dir)node in dir
 @chapter Chapter
+
+@xref{(some_name_inf.inf)aa}.
 ';
 
 
@@ -749,6 +808,8 @@ a
 
 1 Chapter
 *********
+
+(some_name_inf.inf)aa.
 ';
 
 $result_sectioning{'check_htmlxref'} = {
@@ -967,7 +1028,9 @@ Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_exis
 Next: <a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_existing)</a>, Previous: <a href="dir.html#node-in-dir" accesskey="p" rel="prev">(dir)node in dir</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
-</div>
+
+<p>See <a data-manual="some_name_inf.inf" href="some_name_inf.html#aa">(some_name_inf.inf)aa</a>.
+</p></div>
 </div>
 
 
@@ -1038,6 +1101,15 @@ $result_converted_errors{'html'}->{'check_htmlxref'} = [
     'line_nr' => 16,
     'macro' => '',
     'text' => 'no htmlxref.cnf entry found for `dir\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: no htmlxref.cnf entry found for `some_name_inf.inf\'
+',
+    'file_name' => '',
+    'line_nr' => 19,
+    'macro' => '',
+    'text' => 'no htmlxref.cnf entry found for `some_name_inf.inf\'',
     'type' => 'warning'
   }
 ];
