@@ -13,6 +13,12 @@ typedef struct FILE_NAME_PATH {
     char *filepath;
 } FILE_NAME_PATH;
 
+typedef struct TARGET_DIRECTORY_FILENAME {
+    char *filename;
+    char *directory;
+    char *target;
+} TARGET_DIRECTORY_FILENAME;
+
 typedef struct TARGET_CONTENTS_FILENAME {
     char *target;
     char *filename;
@@ -37,8 +43,19 @@ TARGET_CONTENTS_FILENAME * call_file_id_setting_sectioning_command_target_name
 FILE_NAME_PATH *call_file_id_setting_unit_file_name (CONVERTER *self,
                                                      OUTPUT_UNIT *output_unit,
                                                char *filename, char *filepath);
+TARGET_DIRECTORY_FILENAME *call_file_id_setting_external_target_split_name
+                    (CONVERTER *self,
+                     const char *normalized, const ELEMENT *element,
+                     const char *target, const char *directory,
+                     const char *file_name);
+TARGET_FILENAME *call_file_id_setting_external_target_non_split_name
+                    (CONVERTER *self,
+                     const char *normalized, const ELEMENT *element,
+                     const char *target, const char *file);
 
 char *call_formatting_function_format_title_titlepage (CONVERTER *self);
+char *call_formatting_function_format_protect_text (CONVERTER *self,
+                                                    const char *text);
 char *call_formatting_function_format_footnotes_sequence (CONVERTER *self);
 char *call_formatting_function_format_footnotes_segment (CONVERTER *self);
 char *call_formatting_function_format_end_file (CONVERTER *self,
@@ -56,7 +73,15 @@ char *call_formatting_function_format_heading_text (CONVERTER *self,
                                   const STRING_LIST *classes,
                                   const char *text,
                                   int level, const char *id,
-                                  ELEMENT *element, const char *target);
+                                  const ELEMENT *element, const char *target);
+char *call_formatting_function_format_element_header (CONVERTER *self,
+                              const char *cmdname, const ELEMENT *command,
+                              const OUTPUT_UNIT *output_unit);
+char *call_formatting_function_format_contents (CONVERTER *self,
+                              const char *cmdname, const ELEMENT *command,
+                              const char *filename);
+char *call_formatting_function_format_separate_anchor (CONVERTER *self,
+                                   const char *id, const char *class);
 char *call_formatting_function_format_element_footer (CONVERTER *self,
                               const enum output_unit_type unit_type,
                               const OUTPUT_UNIT *output_unit,

@@ -140,6 +140,7 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *default_types_conversion_hv;
   HV *default_css_string_types_conversion_hv;
   HV *default_output_units_conversion_hv;
+  SV **htmlxref_sv;
   SV **formatting_function_sv;
   SV **sorted_special_unit_varieties_sv;
   SV **no_arg_commands_formatting_sv;
@@ -176,6 +177,55 @@ html_converter_initialize_sv (SV *converter_sv,
     = (HV *)SvRV (default_css_string_formatting_references);
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen(#key), 0);
+  FETCH(htmlxref)
+
+  if (htmlxref_sv)
+    {
+      I32 hv_number;
+      I32 i;
+      HV *htmlxref_hv = (HV *) SvRV (*htmlxref_sv);
+
+      hv_number = hv_iterinit (htmlxref_hv);
+
+      converter->htmlxref.number = hv_number;
+
+      if (hv_number > 0)
+        {
+          converter->htmlxref.list = (HTMLXREF_MANUAL *)
+            malloc (hv_number * sizeof (HTMLXREF_MANUAL));
+          memset (converter->htmlxref.list, 0,
+                  hv_number * sizeof (HTMLXREF_MANUAL));
+
+          for (i = 0; i < hv_number; i++)
+            {
+              int j;
+              HTMLXREF_MANUAL *htmlxref_manual = &converter->htmlxref.list[i];
+              HE *next = hv_iternext (htmlxref_hv);
+              SV *selector_sv = hv_iterkeysv (next);
+              char *selector = (char *) SvPVutf8_nolen (selector_sv);
+              SV *split_type_sv = HeVAL(next);
+              HV *split_type_hv = (HV *) SvRV (split_type_sv);
+
+              htmlxref_manual->manual = strdup (selector);
+
+              for (j = 0; j < htmlxref_split_type_chapter +1; j++)
+                {
+                  const char *split_type_name = htmlxref_split_type_names[j];
+                  SV **urlprefix_sv = hv_fetch (split_type_hv, split_type_name,
+                                                strlen (split_type_name), 0);
+                  /* can be undef if there is an entry in the htmlxref.cnf file
+                     without the urlprefix.  We ignore completely, in perl
+                     it is ignored later on when checking an external href */
+                  if (urlprefix_sv && SvOK (*urlprefix_sv))
+                    {
+                      char *urlprefix = SvPVutf8_nolen (*urlprefix_sv);
+                      htmlxref_manual->urlprefix[j] = strdup (urlprefix);
+                    }
+                }
+            }
+        }
+    }
+
   FETCH(formatting_function);
 
   /* no need to check if it exists */

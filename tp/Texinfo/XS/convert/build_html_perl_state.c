@@ -34,6 +34,7 @@
 #include "converter_types.h"
 /* for fatal HMSF_* */
 #include "utils.h"
+#include "extra.h"
 /* for debugging */
 #include "debug.h"
 #include "convert_to_texinfo.h"
@@ -776,9 +777,9 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
           av_clear (referred_command_stack_av);
         }
 
-      for (i = 0; i < converter->referred_command_stack.number; i++)
+      for (i = 0; i < converter->referred_command_stack.top; i++)
         {
-          ELEMENT *referred_e = converter->referred_command_stack.list[i];
+          const ELEMENT *referred_e = converter->referred_command_stack.stack[i];
           av_push (referred_command_stack_av,
                    newRV_inc ((SV *) referred_e->hv));
         }
@@ -827,6 +828,49 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
           add_html_element_target (targets_hv, html_target);
         }
       converter->added_targets.number = 0;
+    }
+
+  if (flags & HMSF_shared_conversion_state_integer)
+    {
+      int j;
+      SV **shared_conversion_state_sv;
+      HV *shared_conversion_state_hv;
+
+      FETCH(shared_conversion_state)
+
+      if (!shared_conversion_state_sv)
+        {
+          shared_conversion_state_hv = newHV ();
+          STORE("shared_conversion_state",
+             newRV_noinc ((SV *) shared_conversion_state_hv));
+        }
+      else
+        shared_conversion_state_hv
+          = (HV *) SvRV (*shared_conversion_state_sv);
+
+      for (j = 0; j < converter->shared_conversion_state_integer.number; j++)
+        {
+          const char *key = converter->shared_conversion_state_integer.list[j];
+          KEY_PAIR *k
+            = lookup_associated_info (
+                 &converter->shared_conversion_state.integers, key);
+
+          SV **int_key_sv = hv_fetch (shared_conversion_state_hv,
+                                  key, strlen (key), 0);
+          if (!int_key_sv)
+            {
+              SV *int_value_sv = newSViv ((IV) k->integer);
+              SV *int_sv = newRV_noinc (int_value_sv);
+              hv_store (shared_conversion_state_hv, key,
+                        strlen (key), int_sv, 0);
+            }
+          else
+            {
+              SV *int_value_sv = SvRV (*int_key_sv);
+              sv_setiv (int_value_sv, (IV) k->integer);
+            }
+        }
+      clear_strings_list (&converter->shared_conversion_state_integer);
     }
 
   /*

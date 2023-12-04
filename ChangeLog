@@ -1,5 +1,77 @@
 2023-12-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/converter_types.h (FILE_NUMBER_NAME): rename
+	CURRENT_FILE_INFO as FILE_NUMBER_NAME.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(html_command_text, html_free_converter),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): make
+	referred_command_stack a stack instead of a list.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (converter_initialize): add and
+	use FETCH macro.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(html_free_converter, get_shared_conversion_state_integer)
+	(register_modified_shared_conversion_state_integer),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): add functions to
+	pass shared_conversion_state modified integers to perl.
+
+	* tp/Texinfo/XS/convert/convert_html.c (format_protect_text)
+	(url_protect_url_text, url_protect_file_text),
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_protect_text): add.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_id):
+	add some const.  Rename target as target_info.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_get_tree_root_element)
+	(new_sectioning_command_target, get_target): use
+	element_builtin_data_cmd and variables for the flags to get the
+	expected result even with user-defined @-commands.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (converter_initialize),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): add output_format
+	and pass from perl.
+
+	* tp/Texinfo/XS/convert/convert_html.c (external_node_href)
+	(htmlxref_split_type_names, htmlxref_entries)
+	(compare_htmlxref_manual, find_htmlxref_manual)
+	(check_htmlxref_already_warned, html_initialize_output_state)
+	(html_free_converter), tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_file_id_setting_external_target_split_name)
+	(call_file_id_setting_external_target_non_split_name),
+	tp/Texinfo/XS/main/converter_types.h (enum htmlxref_split_type)
+	(HTMLXREF_MANUAL, HTMLXREF_MANUAL_LIST)
+	(HTMLXREF_MANUAL_ELEMENT_WARNED, HTMLXREF_MANUAL_ELEMENT_WARNED_LIST)
+	(CONVERTER): get htmlxref from perl, add related functions, set
+	self->document_htmlxref_split_type, sort htmlxref information, add
+	functions to get and warn if htmlxref not found.  Implement
+	external_node_href.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c: use SvPVutf8 more.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_filename)
+	(command_root_element_command, html_command_href)
+	(html_command_contents_target, html_command_contents_href)
+	(mini_toc_internal, contents_inline_element, convert_contents_command)
+	(convert_heading_command),
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_contents)
+	(call_formatting_function_format_separate_anchor)
+	(call_formatting_function_format_element_header)
+	tp/Texinfo/XS/convert/call_html_perl_function.h
+	(TARGET_DIRECTORY_FILENAME),: implement html_command_filename,
+	command_root_element_command, html_command_href,
+	html_command_contents_target, html_command_contents_href,
+	mini_toc_internal contents_inline_element . Add conversion functions
+	convert_contents_command and convert_heading_command. Add perl
+	functions call.
+
+2023-12-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/setup_converters_code_tables.pl: add include
 	command_ids.h in generated cmd_structuring.c.
 

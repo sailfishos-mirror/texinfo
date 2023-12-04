@@ -15,6 +15,7 @@ extern char *html_formatting_reference_names[];
 
 extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
+extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 void html_format_init (void);
 

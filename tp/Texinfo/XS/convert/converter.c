@@ -580,6 +580,7 @@ free_generic_converter (CONVERTER *self)
       destroy_translated_commands (self->translated_commands);
     }
 
+  free (self->output_format);
   free (self->expanded_formats);
 
   if (self->init_conf)
@@ -649,7 +650,7 @@ xml_protect_text (const char *text, TEXT *result)
 }
 
 ELEMENT *
-float_type_number (CONVERTER *self, ELEMENT *float_e)
+float_type_number (CONVERTER *self, const ELEMENT *float_e)
 {
   int have_float_number;
   ELEMENT *tree = 0;

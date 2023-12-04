@@ -510,6 +510,190 @@ call_file_id_setting_unit_file_name (CONVERTER *self, OUTPUT_UNIT *output_unit,
   return 0;
 }
 
+TARGET_DIRECTORY_FILENAME *
+call_file_id_setting_external_target_split_name (CONVERTER *self,
+                     const char *normalized, const ELEMENT *element,
+                     const char *target, const char *directory,
+                     const char *file_name)
+{
+  SV **file_id_setting_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
+                                 strlen ("file_id_setting"), 0);
+  if (file_id_setting_sv)
+    {
+      SV **external_target_split_name_sv;
+      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
+      external_target_split_name_sv = hv_fetch (file_id_setting_hv,
+                                   "external_target_split_name",
+                                   strlen ("external_target_split_name"), 0);
+
+      if (external_target_split_name_sv)
+        {
+          int count;
+          SV *target_sv;
+          SV *filename_sv;
+          SV *directory_sv;
+          TARGET_DIRECTORY_FILENAME *result = (TARGET_DIRECTORY_FILENAME *)
+              malloc (sizeof (TARGET_DIRECTORY_FILENAME));
+          memset (result, 0, sizeof (TARGET_DIRECTORY_FILENAME));
+
+          dSP;
+
+          ENTER;
+          SAVETMPS;
+
+          PUSHMARK(SP);
+          EXTEND(SP, 6);
+
+          PUSHs(sv_2mortal (newRV_inc (self->hv)));
+          PUSHs(sv_2mortal (newSVpv (normalized, 0)));
+          PUSHs(sv_2mortal (newRV_inc (element->hv)));
+          /* FIXME encoding */
+          PUSHs(sv_2mortal (newSVpv (target, 0)));
+          PUSHs(sv_2mortal (newSVpv (directory, 0)));
+          PUSHs(sv_2mortal (newSVpv (file_name, 0)));
+          PUTBACK;
+
+          count = call_sv (*external_target_split_name_sv, G_ARRAY);
+
+          SPAGAIN;
+
+          if (count != 3)
+            croak("external_target_split_name should return 3 items\n");
+
+          filename_sv = POPs;
+          if (SvOK (filename_sv))
+            {
+              STRLEN len;
+              char *filename_ret = SvPV (filename_sv, len);
+              result->filename = strdup (filename_ret);
+            }
+          else
+            result->filename = strdup ("");
+
+          directory_sv = POPs;
+          if (SvOK (directory_sv))
+            {
+              STRLEN len;
+              char *directory_ret = SvPV (directory_sv, len);
+              result->directory = strdup (directory_ret);
+            }
+          else
+            result->directory = strdup ("");
+
+          target_sv = POPs;
+          if (SvOK (target_sv))
+            {
+              STRLEN len;
+              char *target_ret = SvPV (target_sv, len);
+              result->target = strdup (target_ret);
+            }
+          else
+            result->target = strdup ("");
+
+          PUTBACK;
+
+          FREETMPS;
+          LEAVE;
+
+          return result;
+        }
+    }
+  return 0;
+}
+
+TARGET_FILENAME *
+call_file_id_setting_external_target_non_split_name (CONVERTER *self,
+                     const char *normalized, const ELEMENT *element,
+                     const char *target, const char *file)
+{
+  SV **file_id_setting_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
+                                 strlen ("file_id_setting"), 0);
+  if (file_id_setting_sv)
+    {
+      SV **external_target_non_split_name_sv;
+      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
+      external_target_non_split_name_sv = hv_fetch (file_id_setting_hv,
+                                   "external_target_non_split_name",
+                                strlen ("external_target_non_split_name"), 0);
+
+      if (external_target_non_split_name_sv)
+        {
+          int count;
+          SV *target_sv;
+          SV *file_sv;
+          TARGET_FILENAME *result
+            = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
+          result->filename = 0;
+
+          dSP;
+
+          ENTER;
+          SAVETMPS;
+
+          PUSHMARK(SP);
+          EXTEND(SP, 5);
+
+          PUSHs(sv_2mortal (newRV_inc (self->hv)));
+          PUSHs(sv_2mortal (newSVpv (normalized, 0)));
+          PUSHs(sv_2mortal (newRV_inc (element->hv)));
+          /* FIXME encoding */
+          PUSHs(sv_2mortal (newSVpv (target, 0)));
+          PUSHs(sv_2mortal (newSVpv (file, 0)));
+          PUTBACK;
+
+          count = call_sv (*external_target_non_split_name_sv, G_ARRAY);
+
+          SPAGAIN;
+
+          if (count != 2)
+            croak("external_target_non_split_name should return 2 items\n");
+
+          file_sv = POPs;
+          if (SvOK (file_sv))
+            {
+              STRLEN len;
+              char *file_ret = SvPV (file_sv, len);
+              result->filename = strdup (file_ret);
+            }
+
+          target_sv = POPs;
+          if (SvOK (target_sv))
+            {
+              STRLEN len;
+              char *target_ret = SvPV (target_sv, len);
+              result->target = strdup (target_ret);
+            }
+
+          PUTBACK;
+
+          FREETMPS;
+          LEAVE;
+
+          return result;
+        }
+    }
+  return 0;
+}
+
+
+
+
+
+
 char *
 call_formatting_function_format_title_titlepage (CONVERTER *self)
 {
@@ -554,8 +738,66 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
     croak("format_title_titlepage should return 1 item\n");
 
   result_sv = POPs;
-  /* FIXME encoding */
-  result_ret = SvPV (result_sv, len);
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+char *
+call_formatting_function_format_protect_text (CONVERTER *self,
+                                              const char *text)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[FR_format_protect_text].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_protect_text should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
   result = strdup (result_ret);
 
   PUTBACK;
@@ -612,8 +854,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self)
     croak("format_footnotes_segment should return 1 item\n");
 
   result_sv = POPs;
-  /* FIXME encoding */
-  result_ret = SvPV (result_sv, len);
+  result_ret = SvPVutf8 (result_sv, len);
   result = strdup (result_ret);
 
   PUTBACK;
@@ -670,8 +911,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self)
     croak("format_footnotes_sequence should return 1 item\n");
 
   result_sv = POPs;
-  /* FIXME encoding */
-  result_ret = SvPV (result_sv, len);
+  result_ret = SvPVutf8 (result_sv, len);
   result = strdup (result_ret);
 
   PUTBACK;
@@ -737,8 +977,7 @@ call_formatting_function_format_end_file (CONVERTER *self, char *filename,
     croak("format_end_file should return 1 item\n");
 
   result_sv = POPs;
-  /* FIXME encoding */
-  result_ret = SvPV (result_sv, len);
+  result_ret = SvPVutf8 (result_sv, len);
   result = strdup (result_ret);
 
   PUTBACK;
@@ -804,8 +1043,7 @@ call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
     croak("format_begin_file should return 1 item\n");
 
   result_sv = POPs;
-  /* FIXME encoding */
-  result_ret = SvPV (result_sv, len);
+  result_ret = SvPVutf8 (result_sv, len);
   result = strdup (result_ret);
 
   PUTBACK;
@@ -956,7 +1194,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
                                   const STRING_LIST *classes,
                                   const char *text,
                                   int level, const char *id,
-                                  ELEMENT *element, const char *target)
+                                  const ELEMENT *element, const char *target)
 {
   int count;
   char *result = 0;
@@ -1029,6 +1267,199 @@ call_formatting_function_format_heading_text (CONVERTER *self,
 
   if (count != 1)
     croak("format_heading_text should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+char *
+call_formatting_function_format_contents (CONVERTER *self,
+                              const char *cmdname, const ELEMENT *command,
+                              const char *filename)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_contents].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
+  PUSHs(sv_2mortal (newRV_inc (command->hv)));
+  PUSHs(sv_2mortal (newSVpv (filename, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_contents should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+char *
+call_formatting_function_format_separate_anchor (CONVERTER *self,
+                                   const char *id, const char *class)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_separate_anchor].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (id, 0)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (class, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_separate_anchor should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+char *
+call_formatting_function_format_element_header (CONVERTER *self,
+                              const char *cmdname, const ELEMENT *command,
+                              const OUTPUT_UNIT *output_unit)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_element_header].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
+  PUSHs(sv_2mortal (newRV_inc (command->hv)));
+  PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_element_header should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);

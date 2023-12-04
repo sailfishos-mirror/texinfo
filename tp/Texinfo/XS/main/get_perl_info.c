@@ -341,12 +341,14 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
     }
 }
 
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
 void
 converter_initialize (SV *converter_sv, CONVERTER *converter)
 {
   HV *hv_in;
-  SV **converter_conf_sv;
+  SV **conf_sv;
   SV **converter_init_conf_sv;
+  SV **output_format_sv;
   DOCUMENT *document;
 
   dTHX;
@@ -356,23 +358,28 @@ converter_initialize (SV *converter_sv, CONVERTER *converter)
   document = get_sv_document_document (converter_sv, 0);
   converter->document = document;
 
-  converter_conf_sv = hv_fetch (hv_in, "conf",
-                                strlen ("conf"), 0);
+  FETCH(conf)
 
-  if (converter_conf_sv && SvOK (*converter_conf_sv))
+  if (conf_sv && SvOK (*conf_sv))
     {
       converter->conf
-         = copy_sv_options (*converter_conf_sv);
+         = copy_sv_options (*conf_sv);
     }
 
-  converter_init_conf_sv
-    = hv_fetch (hv_in, "converter_init_conf",
-                strlen ("converter_init_conf"), 0);
+  FETCH(converter_init_conf)
 
   if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
     {
       converter->init_conf
          = copy_sv_options (*converter_init_conf_sv);
+    }
+
+  FETCH(output_format)
+
+  if (output_format_sv && SvOK (*output_format_sv))
+    {
+      converter->output_format
+         = strdup (SvPVutf8_nolen (*output_format_sv));
     }
 
   set_translated_commands (converter, hv_in);
@@ -385,8 +392,8 @@ CONVERTER *
 set_output_converter_sv (SV *sv_in, char *warn_string)
 {
   HV *hv_in;
-  SV **converter_conf_sv;
-  SV **converter_init_conf_sv;
+  SV **conf_sv;
+  SV **output_init_conf_sv;
   CONVERTER *converter = 0;
 
   dTHX;
@@ -394,34 +401,34 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
   converter = get_sv_converter (sv_in, warn_string);
 
   hv_in = (HV *)SvRV (sv_in);
-  converter_conf_sv = hv_fetch (hv_in, "conf",
-                                   strlen ("conf"), 0);
 
-  if (converter_conf_sv)
+  FETCH(conf)
+
+  if (conf_sv)
     {
       if (converter->conf)
         free_options (converter->conf);
       free (converter->conf);
 
       converter->conf
-         = copy_sv_options (*converter_conf_sv);
+         = copy_sv_options (*conf_sv);
     }
 
-  converter_init_conf_sv = hv_fetch (hv_in, "output_init_conf",
-                                   strlen ("output_init_conf"), 0);
+  FETCH(output_init_conf)
 
-  if (converter_init_conf_sv && SvOK(*converter_init_conf_sv))
+  if (output_init_conf_sv && SvOK(*output_init_conf_sv))
     {
       if (converter->init_conf)
         free_options (converter->init_conf);
       free (converter->init_conf);
 
       converter->init_conf
-         = copy_sv_options (*converter_init_conf_sv);
+         = copy_sv_options (*output_init_conf_sv);
     }
 
   return converter;
 }
+#undef FETCH
 
 /* code in comments allow to sort the index names to have a fixed order
    in the data structure.  Not clear that it is useful or not, not enabled

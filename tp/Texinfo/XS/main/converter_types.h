@@ -168,6 +168,15 @@ enum html_command_text_type {
    HCTT_string_nonumber, /* not sure that it is set/used */
 };
 
+enum htmlxref_split_type {
+   htmlxref_split_type_none = -1,
+
+   htmlxref_split_type_mono,
+   htmlxref_split_type_node,
+   htmlxref_split_type_section,
+   htmlxref_split_type_chapter,
+};
+
 typedef struct {
     enum command_id *stack;
     size_t top;   /* One above last pushed command. */
@@ -201,6 +210,17 @@ typedef struct {
     size_t space;
 } INTEGER_STACK;
 
+typedef struct ELEMENT_STACK {
+    const ELEMENT **stack;
+    size_t top;
+    size_t space;
+} ELEMENT_STACK;
+
+typedef struct FILE_NUMBER_NAME {
+    size_t file_number;
+    char *filename;
+} FILE_NUMBER_NAME;
+
 typedef struct VARIETY_DIRECTION_INDEX {
     char *special_unit_variety;
     int direction_index;
@@ -218,10 +238,12 @@ typedef struct HTML_TARGET {
     char *command_text[HCTT_string_nonumber+1];
     TREE_ADDED_ELEMENTS tree;
     TREE_ADDED_ELEMENTS tree_nonumber;
-    char *filename;
+    FILE_NUMBER_NAME file_number_name;
+    int filename_set;
+    ELEMENT *root_element_command;
+    int root_element_command_set;
     /*
     ELEMENT *node_command;
-    ELEMENT *root_element_command;
     */
 } HTML_TARGET;
 
@@ -336,11 +358,6 @@ typedef struct FILE_NAME_PATH_COUNTER_LIST {
     size_t space;
     FILE_NAME_PATH_COUNTER *list;
 } FILE_NAME_PATH_COUNTER_LIST;
-
-typedef struct CURRENT_FILE_INFO {
-    size_t file_number;
-    char *filename;
-} CURRENT_FILE_INFO;
 
 typedef struct FILE_STREAM {
     char *file_path;
@@ -560,6 +577,27 @@ typedef struct HTML_ASSOCIATED_INLINE_CONTENT_LIST {
     HTML_ASSOCIATED_INLINE_CONTENT *list;
 } HTML_ASSOCIATED_INLINE_CONTENT_LIST;
 
+typedef struct HTMLXREF_MANUAL {
+    char *manual;
+    char *urlprefix[htmlxref_split_type_chapter +1];
+} HTMLXREF_MANUAL;
+
+typedef struct HTMLXREF_MANUAL_LIST {
+    size_t number;
+    HTMLXREF_MANUAL *list;
+} HTMLXREF_MANUAL_LIST;
+
+typedef struct HTMLXREF_MANUAL_ELEMENT_WARNED {
+    const ELEMENT *element;
+    char *manual;
+} HTMLXREF_MANUAL_ELEMENT_WARNED;
+
+typedef struct HTMLXREF_MANUAL_ELEMENT_WARNED_LIST {
+    size_t number;
+    size_t space;
+    HTMLXREF_MANUAL_ELEMENT_WARNED *list;
+} HTMLXREF_MANUAL_ELEMENT_WARNED_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -568,6 +606,7 @@ typedef struct CONVERTER {
 
     struct OPTIONS *conf;
     struct OPTIONS *init_conf;
+    char *output_format;
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND *translated_commands;
 
@@ -613,6 +652,7 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE *special_unit_body;
     STRING_LIST special_unit_varieties;
     char **special_unit_info[SUI_type_heading+1];
+    HTMLXREF_MANUAL_LIST htmlxref;
     TYPE_CONVERSION_FUNCTION type_conversion_function[TXI_TREE_TYPES_NUMBER];
     TYPE_CONVERSION_FUNCTION css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];
     TYPE_OPEN_FUNCTION type_open_function[TXI_TREE_TYPES_NUMBER];
@@ -625,6 +665,7 @@ typedef struct CONVERTER {
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
     /* set for a document */
+    enum htmlxref_split_type document_htmlxref_split_type;
     const OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
@@ -639,6 +680,7 @@ typedef struct CONVERTER {
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */
     PAGES_CSS_LIST page_css;
+    HTMLXREF_MANUAL_ELEMENT_WARNED_LIST check_htmlxref_already_warned;
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
@@ -652,6 +694,7 @@ typedef struct CONVERTER {
     ARRAY_INDEX_LIST file_changed_counter;  /* index of files in
                                  output_unit_files with changed counter */
     HTML_ADDED_TARGET_LIST added_targets; /* targets added */
+    STRING_LIST shared_conversion_state_integer; /* modified */
     /* next three allow to switch from normal HTML formatting to css strings
        formatting */
     FORMATTING_REFERENCE *current_formatting_references;
@@ -667,8 +710,8 @@ typedef struct CONVERTER {
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
     STRING_STACK multiple_pass;
     STRING_STACK pending_closes;
-    CURRENT_FILE_INFO current_filename;
-    ELEMENT_LIST referred_command_stack;
+    FILE_NUMBER_NAME current_filename;
+    ELEMENT_STACK referred_command_stack;
     HTML_SHARED_CONVERSION_STATE shared_conversion_state;
     HTML_INLINE_CONTENT_STACK pending_inline_content;
     HTML_PENDING_FOOTNOTE_STACK pending_footnotes;
