@@ -41,6 +41,9 @@ void push_integer_stack_integer (INTEGER_STACK *stack, int value);
 int pop_integer_stack (INTEGER_STACK *stack);
 int top_integer_stack (INTEGER_STACK *stack);
 
+void push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e);
+const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);
+
 HTML_DOCUMENT_CONTEXT *html_top_document_context (CONVERTER *self);
 
 HTML_FORMATTING_CONTEXT *html_top_formatting_context

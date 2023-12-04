@@ -29,6 +29,7 @@
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
+#include "command_stack.h"
 #include "errors.h"
 #include "debug.h"
 #include "utils.h"
@@ -64,9 +65,11 @@ find_innermost_accent_contents (const ELEMENT *element)
     {
       const ELEMENT *arg;
       int i;
+      enum command_id data_cmd = element_builtin_data_cmd (current);
+      unsigned long flags = builtin_command_data[data_cmd].flags;
 
       /* the following can happen if called with a bad tree */
-      if (!current->cmd || !(builtin_command_flags(current) & CF_accent))
+      if (!data_cmd || !(flags & CF_accent))
         return accent_stack;
       push_stack_element (&accent_stack->stack, current);
       /* A bogus accent, that may happen */
@@ -78,11 +81,15 @@ find_innermost_accent_contents (const ELEMENT *element)
       for (i = 0; i < arg->contents.number; i++)
         {
           ELEMENT *content = arg->contents.list[i];
-          if (!(content->cmd && (content->cmd == CM_c
-                                 || content->cmd == CM_comment)))
+          enum command_id content_data_cmd
+             = element_builtin_data_cmd (content);
+          unsigned long content_flags
+            = builtin_command_data[content_data_cmd].flags;
+
+          if (!(content_data_cmd && (content_data_cmd == CM_c
+                                     || content_data_cmd == CM_comment)))
             {
-              if (content->cmd
-                  && builtin_command_flags(content) & CF_accent)
+              if (content_data_cmd && content_flags & CF_accent)
                 {
                   current = content;
                   if (argument)
@@ -716,4 +723,87 @@ output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
         }
     }
   fprintf (stderr, "BUG: %s not opened\n", file_path);
+}
+
+ELEMENT *
+find_root_command_next_heading_command (const ELEMENT *root,
+                                  EXPANDED_FORMAT *formats,
+                                  int do_not_ignore_contents,
+                                  int do_not_ignore_index_entries)
+{
+  size_t i;
+
+  if (root->contents.number <= 0)
+    return 0;
+
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *content = root->contents.list[i];
+      enum command_id data_cmd = element_builtin_data_cmd (content);
+
+      if (data_cmd)
+        {
+          unsigned long flags = builtin_command_data[data_cmd].flags;
+          unsigned long other_flags
+               = builtin_command_data[data_cmd].other_flags;
+          if (flags & CF_sectioning_heading)
+            return content;
+          if (content->type == ET_index_entry_command)
+            {
+              if (do_not_ignore_index_entries)
+                return  0;
+              else
+                continue;
+            }
+          if (flags & CF_line)
+            {
+              if (other_flags & CF_formatted_line
+                  || other_flags & CF_formattable_line
+                  || (do_not_ignore_contents
+                      && (content->cmd == CM_contents
+                          || content->cmd == CM_shortcontents
+                          || content->cmd == CM_summarycontents)))
+                return 0;
+              else
+                continue;
+            }
+          else if (flags & CF_nobrace)
+            {
+              if (other_flags & CF_formatted_nobrace)
+                return 0;
+              else
+                continue;
+            }
+          else if (flags & CF_block)
+            {
+              if (other_flags & CF_non_formatted_block
+               || builtin_command_data[data_cmd].data == BLOCK_region
+                /* ignored conditional */
+               || builtin_command_data[data_cmd].data == BLOCK_conditional
+               || (builtin_command_data[data_cmd].data == BLOCK_format_raw
+                   && !format_expanded_p 
+                             (formats, element_command_name (content))))
+                continue;
+              else
+                return 0;
+            }
+          else 
+            { /* brace commands */
+              if (other_flags & CF_non_formatted_brace)
+                continue;
+              else
+                return 0;
+            }
+        }
+      if (content->type == ET_paragraph)
+        return 0;
+      if (content->text.end > 0)
+        {
+          char *text = element_text (content);
+          /* only whitespace characters */
+          if (! text[strspn (text, whitespace_chars)] == '\0')
+            return 0;
+        }
+    }
+  return 0;
 }

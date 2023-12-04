@@ -116,7 +116,7 @@ typedef struct ELEMENT_LIST {
 } ELEMENT_LIST;
 
 typedef struct KEY_PAIR {
-    char *key;
+    const char *key;
     enum extra_type type;
     union {
       struct ELEMENT *element;

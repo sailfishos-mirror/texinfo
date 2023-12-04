@@ -131,8 +131,8 @@ enum command_location {
 
 /* HTML modified state flags */
 #define HMSF_current_root            0x0001
+#define HMSF_shared_conversion_state_integer  0x0002
 /*
-#define HMSF_        0x0002
 #define HMSF_      0x0004
 #define HMSF_     0x0008
 #define HMSF_    0x0010
@@ -172,12 +172,6 @@ typedef struct FILE_SOURCE_INFO_LIST {
 
 extern const char *html_argument_formatting_type_names[];
 
-typedef struct ELEMENT_STACK {
-    const ELEMENT **stack;
-    size_t top;
-    size_t space;
-} ELEMENT_STACK;
-
 typedef struct ACCENTS_STACK {
     ELEMENT_STACK stack;
     ELEMENT *argument;
@@ -208,6 +202,7 @@ INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
 INDEX *ultimate_index (INDEX *index);
 char *read_flag_name (char **ptr);
 int section_level (const ELEMENT *section);
+enum command_id section_level_adjusted_command_name (const ELEMENT *element);
 char *collapse_spaces (char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
@@ -219,8 +214,6 @@ void add_string (const char *string, STRING_LIST *strings_list);
 void merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings);
 size_t find_string (STRING_LIST *strings_list, const char *string);
 
-void push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e);
-const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 void wipe_index (INDEX *idx);
@@ -254,7 +247,8 @@ char *enumerate_item_representation (char *specification, int number);
 ELEMENT *get_global_document_command (GLOBAL_COMMANDS *global_commands,
                                       enum command_id cmd,
                                       enum command_location command_location);
-char *informative_command_value (ELEMENT *element);
+char *informative_command_value (const ELEMENT *element);
+void set_informative_command_value (OPTIONS *options, const ELEMENT *element);
 ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
                              OPTIONS *options, enum command_id cmd,
                              enum command_location command_location);

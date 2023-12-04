@@ -1,5 +1,54 @@
 2023-12-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/setup_converters_code_tables.pl: add include
+	command_ids.h in generated cmd_structuring.c.
+
+	* tp/Texinfo/XS/main/errors.c, tp/Texinfo/XS/main/debug.c,
+	tp/Texinfo/XS/main/extra.c, tp/Texinfo/XS/main/tree_types.h,
+	tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/main/manipulate_tree.c: add
+	some const.
+
+	* tp/Texinfo/XS/main/unicode.c (compare_strings): make static.
+
+	* tp/Texinfo/XS/main/utils.c (section_level_adjusted_command_name):
+	implement.
+
+	* tp/Texinfo/XS/main/convert_utils.c
+	(find_root_command_next_heading_command): implement.
+
+	* tp/Texinfo/XS/main/utils.c (is_content_empty),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning), tp/Texinfo/XS/main/convert_to_texinfo.c
+	(root_heading_command_to_texinfo), tp/Texinfo/XS/main/convert_utils.c
+	(find_innermost_accent_contents), tp/Texinfo/XS/main/output_unit.c
+	(split_by_node, split_by_section): use element_builtin_data_cmd and
+	variables for the flags to get the expected result even with
+	user-defined @-commands.
+
+	* tp/Texinfo/XS/main/command_stack.c (push_stack_element)
+	(pop_stack_element), tp/Texinfo/XS/main/utils.c: move
+	push_stack_element and pop_stack_element to command_stack.c.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (compare_strings):
+	make static.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (protect_colon)
+	(protect_colon_in_tree, new_complete_menu_master_menu),
+	tp/Texinfo/XS/main/manipulate_tree.c (modify_tree)
+	(new_asis_command_with_text, protect_text),
+	tp/Texinfo/XS/structuring_transfo/transformations.c,
+	tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
+	(StructuringTransfoXS_la_SOURCES, ConvertXS_la_CPPFLAGS): move
+	functions from transformations.c to structuring.c and
+	manipulate_tree.c to avoid a dependency of structuring.c to
+	transformations.c.  Move structuring.c to libtexinfo.la such that
+	converters can use functions in structuring.c.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES, EXTRA_DIST),
+	tp/Texinfo/XS/main/utils.c: move cmd_structuring.c out of utils.c.
+
+2023-12-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (command_tree): copy tree in substituted
 	strings in argument of gdt to obtain the same output as with XS code.
 

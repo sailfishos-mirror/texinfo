@@ -162,7 +162,7 @@ unicode_accent (const char *text, const ELEMENT *e)
   return result;
 }
 
-int
+static int
 compare_strings (const void *a, const void *b)
 {
   const char **str_a = (const char **) a;

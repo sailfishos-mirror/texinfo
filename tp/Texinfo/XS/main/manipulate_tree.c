@@ -18,6 +18,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include "uniconv.h"
+#include "unistr.h"
 
 #include "tree_types.h"
 #include "command_ids.h"
@@ -57,7 +60,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k_ref = &info->info[i];
-      char *key = k_ref->key;
+      const char *key = k_ref->key;
       ELEMENT *f = k_ref->element;
       ELEMENT *new_extra_element;
       ELEMENT_LIST *new_extra_contents;
@@ -218,7 +221,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k_ref = &info->info[i];
-      char *key = k_ref->key;
+      const char *key = k_ref->key;
       ELEMENT *f = k_ref->element;
       ELEMENT *new_extra_element;
       int j;
@@ -767,6 +770,212 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
   return result;
 }
+
+
+
+/* in Common.pm */
+ELEMENT *
+modify_tree (ELEMENT *tree,
+             ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
+             void *argument)
+{
+  if (tree->args.number > 0)
+    {
+      int i;
+      for (i = 0; i < tree->args.number; i++)
+        {
+          ELEMENT_LIST *new_args;
+          new_args = (*operation) ("arg", tree->args.list[i], argument);
+          if (new_args)
+            {
+              /* *operation should take care of destroying removed element */
+              remove_from_args (tree, i);
+              insert_list_slice_into_args (tree, i,
+                                           new_args, 0,
+                                           new_args->number);
+              i += new_args->number -1;
+              destroy_list (new_args);
+            }
+          else
+            modify_tree (tree->args.list[i], operation, argument);
+        }
+    }
+  if (tree->contents.number > 0)
+    {
+      int i;
+      for (i = 0; i < tree->contents.number; i++)
+        {
+          ELEMENT_LIST *new_contents;
+          new_contents = (*operation) ("content", tree->contents.list[i],
+                                       argument);
+          if (new_contents)
+            {
+              /* *operation should take care of destroying removed element */
+              remove_from_contents (tree, i);
+              insert_list_slice_into_contents (tree, i,
+                                              new_contents, 0,
+                                              new_contents->number);
+              i += new_contents->number -1;
+              destroy_list (new_contents);
+            }
+          else
+            modify_tree (tree->contents.list[i], operation, argument);
+        }
+    }
+  if (tree->source_mark_list.number > 0)
+    {
+      int i;
+      for (i = 0; i < tree->source_mark_list.number; i++)
+        {
+          if (tree->source_mark_list.list[i]->element)
+            {
+              ELEMENT_LIST *new_element;
+              new_element = (*operation) ("source_mark",
+                                     tree->source_mark_list.list[i]->element,
+                                          argument);
+              if (new_element)
+                {
+                  /* FIXME destroy previous element? or let (*operation)
+                     do it? */
+                  tree->source_mark_list.list[i]->element
+                      = new_element->list[0];
+                  destroy_list (new_element);
+                }
+            }
+        }
+    }
+  return tree;
+}
+
+ELEMENT *
+new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
+{
+  ELEMENT *new_command = new_element (ET_NONE);
+  ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+  ELEMENT *text_elt = new_element (type);
+  new_command->cmd = CM_asis;
+  new_command->parent = parent;
+  add_to_element_args (new_command, brace_command_arg);
+  text_append (&text_elt->text, text);
+  add_to_element_contents (brace_command_arg, text_elt);
+  return new_command;
+}
+
+ELEMENT_LIST *
+protect_text (ELEMENT *current, char *to_protect)
+{
+  if (current->text.end > 0 && !(current->type == ET_raw
+                                 || current->type == ET_rawline_arg)
+      && strpbrk (current->text.text, to_protect))
+    {
+      ELEMENT_LIST *container = new_list();
+      char *p = current->text.text;
+      /* count UTF-8 encoded Unicode characters for source marks locations */
+      uint8_t *u8_text = 0;
+      size_t current_position;
+      uint8_t *u8_p = 0;
+      size_t u8_len;
+
+      if (current->source_mark_list.number)
+        {
+          u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                            iconveh_question_mark);
+          u8_p = u8_text;
+
+          current_position = 0;
+        }
+
+      while (*p)
+        {
+          int leading_nr = strcspn (p, to_protect);
+          ELEMENT *text_elt = new_element (current->type);
+          text_elt->parent = current->parent;
+          if (leading_nr)
+            {
+              text_append_n (&text_elt->text, p, leading_nr);
+              p += leading_nr;
+            }
+          /*
+          Note that it includes for completeness the case of leading_nr == 0
+          although it is unclear that source marks may happen in that case
+          as they are rather associated to the previous element.
+           */
+          if (u8_text)
+            {
+              u8_len = u8_mbsnlen (u8_p, leading_nr);
+              u8_p += u8_len;
+
+              current_position
+                = relocate_source_marks (&(current->source_mark_list),
+                                        text_elt,
+                                        current_position, u8_len);
+            }
+
+          if (leading_nr || text_elt->source_mark_list.number)
+            add_to_element_list (container, text_elt);
+          else
+            destroy_element (text_elt);
+
+          if (*p)
+            {
+              int to_protect_nr = strspn (p, to_protect);
+              if (!strcmp (to_protect, ","))
+                {
+                  int i;
+                  for (i = 0; i < to_protect_nr; i++)
+                    {
+                      ELEMENT *comma = new_element (ET_NONE);
+                      ELEMENT *brace_command_arg
+                           = new_element (ET_brace_command_arg);
+                      comma->cmd = CM_comma;
+                      comma->parent = current->parent;
+                      add_to_element_args (comma, brace_command_arg);
+                      add_to_element_list (container, comma);
+                      if (u8_text)
+                        {
+                          u8_len = u8_mbsnlen (u8_p, 1);
+                          u8_p += u8_len;
+
+                        current_position
+                          = relocate_source_marks (&(current->source_mark_list),
+                                                   comma,
+                                                   current_position, u8_len);
+                        }
+                    }
+                  p += to_protect_nr;
+                }
+              else
+                {
+                  ELEMENT *new_command;
+                  char saved = p[to_protect_nr];
+                  p[to_protect_nr] = '\0';
+                  new_command = new_asis_command_with_text(p, current->parent,
+                                                           current->type);
+                  add_to_element_list (container, new_command);
+                  if (u8_text)
+                    {
+                      u8_len = u8_mbsnlen (u8_p, to_protect_nr);
+                      u8_p += u8_len;
+
+                      current_position
+                       = relocate_source_marks (&(current->source_mark_list),
+                                new_command->args.list[0]->contents.list[0],
+                                              current_position, u8_len);
+                    }
+                  p += to_protect_nr;
+                  *p = saved;
+                }
+            }
+        }
+      free (u8_text);
+      destroy_element (current);
+      return container;
+    }
+  else
+    return 0;
+}
+
+
 
 char *
 normalized_menu_entry_internal_node (ELEMENT *entry)

@@ -149,12 +149,14 @@ split_by_node (ELEMENT *root)
   for (i = 0; i < root->contents.number; i++)
     {
       ELEMENT *content = root->contents.list[i];
-      if (content->cmd == CM_part)
+      enum command_id data_cmd = element_builtin_data_cmd (content);
+
+      if (data_cmd == CM_part)
         {
           add_to_element_list (pending_parts, content);
           continue;
         }
-      if (content->cmd == CM_node)
+      if (data_cmd == CM_node)
         {
           if (!current->unit_command)
             current->unit_command = content;
@@ -215,23 +217,25 @@ split_by_section (ELEMENT *root)
   for (i = 0; i < root->contents.number; i++)
     {
       ELEMENT *content = root->contents.list[i];
+      enum command_id data_cmd = element_builtin_data_cmd (content);
+      unsigned long flags = builtin_command_data[data_cmd].flags;
+
       ELEMENT *new_section = 0;
-      if (content->cmd == CM_node)
+      if (data_cmd == CM_node)
         {
           ELEMENT *associated_section
             = lookup_extra_element (content, "associated_section");
           if (associated_section)
             new_section = associated_section;
         }
-      else if (content->cmd == CM_part)
+      else if (data_cmd == CM_part)
         {
           ELEMENT *part_associated_section
             = lookup_extra_element (content, "part_associated_section");
           if (part_associated_section)
             new_section = part_associated_section;
         }
-      if (!new_section && content->cmd != CM_node
-          && (CF_root & builtin_command_flags(content)))
+      if (!new_section && data_cmd != CM_node && (CF_root & flags))
         {
           new_section = content;
         }

@@ -33,12 +33,11 @@
 /* for get_label_element section_level enumerate_item_representation
    xasprintf */
 #include "utils.h"
-/* for copy_tree copy_contents and parse_node_manual */
+/* for copy_tree copy_contents parse_node_manual modify_tree protect_text */
 #include "manipulate_tree.h"
 #include "node_name_normalization.h"
 #include "convert_to_texinfo.h"
 #include "targets.h"
-#include "transformations.h"
 #include "translations.h"
 #include "structuring.h"
 
@@ -551,7 +550,7 @@ register_referenced_node (ELEMENT *node, char **referenced_identifiers,
   return referenced_identifiers;
 }
 
-int
+static int
 compare_strings (const void *a, const void *b)
 {
   const char **str_a = (const char **) a;
@@ -1986,3 +1985,55 @@ new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
     }
 }
 
+ELEMENT_LIST *
+protect_colon (const char *type, ELEMENT *current, void *argument)
+{
+  return protect_text(current, ":");
+}
+
+ELEMENT *
+protect_colon_in_tree (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_colon, 0);
+}
+
+ELEMENT *
+new_complete_menu_master_menu (OPTIONS *options,
+                               LABEL_LIST *identifiers_target,
+                               ELEMENT *node)
+{
+  ELEMENT *menu_node = new_complete_node_menu (node, 0);
+
+  if (menu_node)
+    {
+      char *normalized = lookup_extra_string (node, "normalized");
+      ELEMENT *associated_section
+          = lookup_extra_element (node, "associated_section");
+      if (normalized && !strcmp (normalized, "Top")
+          && associated_section && associated_section->cmd == CM_top)
+        {
+          ELEMENT_LIST *menus = new_list ();
+          ELEMENT *detailmenu;
+
+          add_to_element_list (menus, menu_node);
+          detailmenu = new_master_menu (options, identifiers_target,
+                                        menus, 0);
+          if (detailmenu)
+            {
+              /* add a blank line before the detailed node listing */
+              ELEMENT *menu_comment = new_element (ET_menu_comment);
+              ELEMENT *preformatted = new_element (ET_preformatted);
+              ELEMENT *empty_line
+                 = new_element (ET_after_menu_description_line);
+
+              add_to_element_contents (menu_node, menu_comment);
+              add_to_element_contents (menu_comment, preformatted);
+              text_append_n (&empty_line->text, "\n", 1);
+              add_to_element_contents (preformatted, empty_line);
+
+              add_to_element_contents (menu_node, detailmenu);
+            }
+        }
+    }
+  return menu_node;
+}

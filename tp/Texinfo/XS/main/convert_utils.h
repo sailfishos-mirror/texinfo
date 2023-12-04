@@ -48,4 +48,9 @@ void output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
 void free_output_files_information (OUTPUT_FILES_INFORMATION *self);
 void clear_output_files_information (OUTPUT_FILES_INFORMATION *self);
 
+ELEMENT *find_root_command_next_heading_command (const ELEMENT *root,
+                                  EXPANDED_FORMAT *formats,
+                                  int do_not_ignore_contents,
+                                  int do_not_ignore_index_entries);
+
 #endif

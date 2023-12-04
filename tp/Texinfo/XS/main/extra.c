@@ -28,7 +28,8 @@
 
 /* directly used in tree copy, but should not be directly used in general */
 KEY_PAIR *
-get_associated_info_key (ASSOCIATED_INFO *a, char *key, enum extra_type type)
+get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
+                         const enum extra_type type)
 {
   int i;
   for (i = 0; i < a->info_number; i++)
@@ -101,7 +102,7 @@ add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 /* Add an extra key that is a reference to an array of other
    elements (for example, 'section_childs'). */
 void
-add_extra_contents (ELEMENT *e, char *key, ELEMENT_LIST *value)
+add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_contents);
@@ -116,7 +117,7 @@ add_extra_contents (ELEMENT *e, char *key, ELEMENT_LIST *value)
    NULL in contents for the first contents.number elements.
 */
 void
-add_extra_directions (ELEMENT *e, char *key, ELEMENT *value)
+add_extra_directions (ELEMENT *e, const char *key, ELEMENT *value)
 {
   element_set_empty_contents (value, directions_length);
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
@@ -161,7 +162,7 @@ add_info_string_dup (ELEMENT *e, char *key, char *value)
 }
 
 void
-add_associated_info_integer (ASSOCIATED_INFO *a, char *key, int value)
+add_associated_info_integer (ASSOCIATED_INFO *a, const char *key, int value)
 {
   KEY_PAIR *k = get_associated_info_key (a, key, extra_integer);
   k->integer = value;
@@ -175,7 +176,7 @@ add_extra_integer (ELEMENT *e, char *key, long value)
 }
 
 KEY_PAIR *
-lookup_associated_info (const ASSOCIATED_INFO *a, char *key)
+lookup_associated_info (const ASSOCIATED_INFO *a, const char *key)
 {
   int i;
   for (i = 0; i < a->info_number; i++)
@@ -190,7 +191,7 @@ lookup_associated_info (const ASSOCIATED_INFO *a, char *key)
 }
 
 ELEMENT *
-lookup_extra_element (const ELEMENT *e, char *key)
+lookup_extra_element (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->extra_info, key);
@@ -209,7 +210,7 @@ lookup_extra_element (const ELEMENT *e, char *key)
 }
 
 char *
-lookup_extra_string (const ELEMENT *e, char *key)
+lookup_extra_string (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->extra_info, key);
@@ -232,14 +233,14 @@ lookup_extra_string (const ELEMENT *e, char *key)
 }
 
 KEY_PAIR *
-lookup_extra (const ELEMENT *e, char *key)
+lookup_extra (const ELEMENT *e, const char *key)
 {
   return lookup_associated_info (&e->extra_info, key);
 }
 
 /* *ret is negative if not found or not an integer */
 int
-lookup_extra_integer (const ELEMENT *e, char *key, int *ret)
+lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->extra_info, key);
@@ -262,7 +263,7 @@ lookup_extra_integer (const ELEMENT *e, char *key, int *ret)
 
 /* if CREATE is true, create an extra contents element if there is none */
 ELEMENT_LIST *
-lookup_extra_contents (ELEMENT *e, char *key, int create)
+lookup_extra_contents (ELEMENT *e, const char *key, int create)
 {
   ELEMENT_LIST *e_list = 0;
   KEY_PAIR *k = lookup_extra (e, key);
@@ -288,7 +289,7 @@ lookup_extra_contents (ELEMENT *e, char *key, int create)
 
 /* if CREATE is true, create an extra directions element if there is none */
 ELEMENT *
-lookup_extra_directions (ELEMENT *e, char *key, int create)
+lookup_extra_directions (ELEMENT *e, const char *key, int create)
 {
   ELEMENT *contents_e;
   contents_e = lookup_extra_element (e, key);
@@ -301,7 +302,7 @@ lookup_extra_directions (ELEMENT *e, char *key, int create)
 }
 
 ELEMENT *
-lookup_info_element (const ELEMENT *e, char *key)
+lookup_info_element (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->info_info, key);
@@ -312,13 +313,13 @@ lookup_info_element (const ELEMENT *e, char *key)
 
 
 KEY_PAIR *
-lookup_info (const ELEMENT *e, char *key)
+lookup_info (const ELEMENT *e, const char *key)
 {
   return lookup_associated_info (&e->info_info, key);
 }
 
 char *
-lookup_info_string (const ELEMENT *e, char *key)
+lookup_info_string (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->info_info, key);
@@ -329,7 +330,8 @@ lookup_info_string (const ELEMENT *e, char *key)
 
 /* only called in tree copy to optimize for speed */
 KEY_PAIR *
-lookup_associated_info_by_index (const ASSOCIATED_INFO *a, char *key, int index)
+lookup_associated_info_by_index (const ASSOCIATED_INFO *a,
+                                 const char *key, int index)
 {
   if (index < 0)
     index = a->info_number + index;
@@ -344,7 +346,7 @@ lookup_associated_info_by_index (const ASSOCIATED_INFO *a, char *key, int index)
 }
 
 KEY_PAIR *
-lookup_extra_by_index (const ELEMENT *e, char *key, int index)
+lookup_extra_by_index (const ELEMENT *e, const char *key, int index)
 {
   return lookup_associated_info_by_index (&e->extra_info, key, index);
 }

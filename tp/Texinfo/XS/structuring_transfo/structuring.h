@@ -23,5 +23,9 @@ void new_block_command (ELEMENT *element, enum command_id cmd);
 ELEMENT *new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
                           ELEMENT_LIST *menus, int use_sections);
 
+ELEMENT *new_complete_menu_master_menu (OPTIONS *options,
+                                        LABEL_LIST *identifiers_target,
+                                        ELEMENT *node);
+ELEMENT *protect_colon_in_tree (ELEMENT *tree);
 
 #endif

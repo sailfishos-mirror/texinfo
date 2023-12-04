@@ -42,7 +42,6 @@
 #include "builtin_commands.h"
 #include "utils.h"
 
-#include "cmd_structuring.c"
 #include "options_init_free.c"
 
 #define min_level command_structuring_level[CM_chapter]
@@ -894,7 +893,7 @@ get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
 }
 
 char *
-informative_command_value (ELEMENT *element)
+informative_command_value (const ELEMENT *element)
 {
   ELEMENT *misc_args;
   char *text_arg;
@@ -944,8 +943,8 @@ informative_command_value (ELEMENT *element)
   return 0;
 }
 
-static void
-set_informative_command_value (OPTIONS *options, ELEMENT *element)
+void
+set_informative_command_value (OPTIONS *options, const ELEMENT *element)
 {
   char *value = 0;
   enum command_id cmd = element_builtin_cmd (element);
@@ -1078,32 +1077,6 @@ new_options (void)
 }
 
 
-/* accents/elements stacks */
-void
-push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e)
-{
-  if (stack->top >= stack->space)
-    {
-      stack->stack
-        = realloc (stack->stack,
-                   (stack->space += 5) * sizeof (ELEMENT *));
-    }
-
-  stack->stack[stack->top] = e;
-  stack->top++;
-}
-
-/* currently unused */
-const ELEMENT *
-pop_stack_element (ELEMENT_STACK *stack)
-{
-  if (stack->top == 0)
-    fatal ("element stack empty");
-
-  stack->top--;
-  return stack->stack[stack->top +1];
-}
-
 void
 destroy_accent_stack (ACCENTS_STACK *accent_stack)
 {
@@ -1140,6 +1113,27 @@ section_level (const ELEMENT *section)
   return level;
 }
 
+enum command_id
+section_level_adjusted_command_name (const ELEMENT *element)
+{
+  int status;
+  int heading_level;
+
+  heading_level = lookup_extra_integer (element, "section_level", &status);
+
+  if (status < 0)
+    {
+      bug ("section_level_adjusted_command_name: "
+           "unexpected missing section level");
+    }
+
+  if (command_structuring_level[element->cmd] != heading_level)
+    {
+      return level_to_structuring_command[element->cmd][heading_level];
+    }
+  return element->cmd;
+}
+
 /* corresponding perl function in Common.pm */
 int
 is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
@@ -1151,8 +1145,13 @@ is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
   for (i = 0; i < tree->contents.number; i++)
     {
       ELEMENT *content = tree->contents.list[i];
-      if (content->cmd)
+      enum command_id data_cmd = element_builtin_data_cmd (content);
+
+      if (data_cmd)
         {
+          unsigned long flags = builtin_command_data[data_cmd].flags;
+          unsigned long other_flags
+               = builtin_command_data[data_cmd].other_flags;
           if (content->type == ET_index_entry_command)
             {
               if (do_not_ignore_index_entries)
@@ -1160,23 +1159,24 @@ is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
               else
                continue;
             }
-          if (builtin_command_flags(content) & CF_line)
+
+          if (flags & CF_line)
             {
-              if (command_other_flags(content) & CF_formatted_line
-                  || command_other_flags(content) & CF_formattable_line)
+              if (other_flags & CF_formatted_line
+                  || other_flags & CF_formattable_line)
                 return 0;
               else
                 continue;
             }
-          else if (builtin_command_flags(content) & CF_nobrace)
+          else if (flags & CF_nobrace)
             {
-              if (command_other_flags(content) & CF_formatted_nobrace)
+              if (other_flags & CF_formatted_nobrace)
                 return 0;
               else
                 continue;
             }
-          else if (command_other_flags(content) & CF_non_formatted_brace
-                   || command_other_flags(content) & CF_non_formatted_block)
+          else if (other_flags & CF_non_formatted_brace
+                   || other_flags & CF_non_formatted_block)
             continue;
           else
             return 0;

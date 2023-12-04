@@ -202,6 +202,7 @@ my %level_to_structuring_command
 
 open (STRUC, '>', $structuring_file) or die "Open $structuring_file: $!\n";
 
+print STRUC "#include \"command_ids.h\"\n\n";
 print STRUC "int command_structuring_level[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;

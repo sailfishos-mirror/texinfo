@@ -137,7 +137,7 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k = &info->info[i];
-      char *key = k->key;
+      const char *key = k->key;
       text_printf (&text, "  %s|", key);
       switch (info->info[i].type)
         {

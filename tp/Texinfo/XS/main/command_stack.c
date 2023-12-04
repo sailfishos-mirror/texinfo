@@ -22,7 +22,7 @@
 #include "utils.h"
 #include "command_stack.h"
 
-/* Generic command stack functions */
+/* Generic stack functions */
 
 void
 reset_command_stack (COMMAND_STACK *stack)
@@ -192,6 +192,33 @@ top_integer_stack (INTEGER_STACK *stack)
   return stack->stack[stack->top - 1];
 }
 
+
+/* accents/elements stacks */
+void
+push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e)
+{
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (ELEMENT *));
+    }
+
+  stack->stack[stack->top] = e;
+  stack->top++;
+}
+
+const ELEMENT *
+pop_stack_element (ELEMENT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("element stack empty");
+
+  stack->top--;
+  return stack->stack[stack->top +1];
+}
+
+
 /* HTML specific but also used to build perl */
 HTML_DOCUMENT_CONTEXT *
 html_top_document_context (CONVERTER *self)

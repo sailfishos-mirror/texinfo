@@ -309,10 +309,12 @@ root_heading_command_to_texinfo (const ELEMENT *element)
   const ELEMENT *tree = 0;
   TEXT text;
 
-  if (element->cmd)
+  enum command_id data_cmd = element_builtin_data_cmd (element);
+
+  if (data_cmd)
     {
-      if ((element->cmd == CM_node
-           || (builtin_command_flags (element) & CF_sectioning_heading))
+      if ((data_cmd == CM_node
+           || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
           && element->args.number > 0)
         tree = element->args.list[0];
     }
@@ -323,12 +325,12 @@ root_heading_command_to_texinfo (const ELEMENT *element)
   if (tree)
     {
       char *tree_txi = convert_contents_to_texinfo (tree);
-      text_printf (&text, "@%s %s", builtin_command_name (element->cmd),
+      text_printf (&text, "@%s %s", builtin_command_name (data_cmd),
                                     tree_txi);
       free (tree_txi);
     }
   else
-   text_printf (&text, "@%s", builtin_command_name (element->cmd));
+   text_printf (&text, "@%s", builtin_command_name (data_cmd));
 
   return (text.text);
 }

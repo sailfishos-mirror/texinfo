@@ -101,6 +101,8 @@ endif
 # by the parser and by converters.  The files in the parsetexi
 # directory correspond to the parser code.  They depend on the files
 # in main but not the other way around.
+# Files in structuring_transfo depend only on the files in main and not
+# the other way around.
 libtexinfo_la_SOURCES= \
 		      main/tree_types.h \
 		      main/document_types.h \
@@ -133,6 +135,7 @@ libtexinfo_la_SOURCES= \
 		      main/node_name_normalization.h \
 		      main/command_stack.c \
 		      main/command_stack.h \
+		      main/cmd_structuring.c \
 		      main/targets.c \
 		      main/targets.h \
 		      main/utils.c \
@@ -178,12 +181,14 @@ libtexinfo_la_SOURCES= \
 		      parsetexi/counter.c \
 		      parsetexi/counter.h \
 		      parsetexi/source_marks.c \
-		      parsetexi/source_marks.h
+		      parsetexi/source_marks.h \
+		      structuring_transfo/structuring.c \
+		      structuring_transfo/structuring.h
+
 EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
 EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
-EXTRA_DIST += main/cmd_structuring.c
 EXTRA_DIST += main/cmd_symbol.c
 EXTRA_DIST += main/cmd_text.c
 EXTRA_DIST += main/global_commands_types.h
@@ -333,8 +338,6 @@ endif
 
 StructuringTransfoXS_la_SOURCES = \
                     structuring_transfo/StructuringTransfoXS.c \
-                    structuring_transfo/structuring.c \
-                    structuring_transfo/structuring.h \
                     structuring_transfo/transformations.c \
                     structuring_transfo/transformations.h
 
@@ -374,7 +377,7 @@ ConvertXS_la_SOURCES = \
 EXTRA_DIST += convert/ConvertXS.xs
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo.la
 ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
