@@ -1803,24 +1803,27 @@ new_complete_node_menu (ELEMENT *node, int use_sections)
 }
 
 ELEMENT_LIST *
-print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
-                 int use_sections)
+print_down_menus (ELEMENT *node, LABEL_LIST *identifiers_target,
+                  int use_sections)
 {
   ELEMENT_LIST *master_menu_contents = new_list ();
   ELEMENT_LIST *menus;
   ELEMENT_LIST *node_menus = lookup_extra_contents (node, "menus", 0);
   ELEMENT_LIST *node_children;
+  ELEMENT *new_current_menu = 0;
   int i;
 
   if (node_menus && node_menus->number > 0)
     menus = node_menus;
   else
     {
-      ELEMENT *current_menu = new_complete_node_menu (node, use_sections);
-      if (current_menu)
+      /* If there is no menu for the node, we create a temporary menu to be
+         able to find and copy entries as if there was already a menu */
+      new_current_menu = new_complete_node_menu (node, use_sections);
+      if (new_current_menu)
         {
           menus = new_list ();
-          add_to_element_list (menus, current_menu);
+          add_to_element_list (menus, new_current_menu);
         }
       else
         return master_menu_contents;
@@ -1848,6 +1851,12 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
             }
         }
     }
+
+  if (!node_menus)
+    destroy_list (menus);
+
+  if (new_current_menu)
+    destroy_element_and_children (new_current_menu);
 
   if (master_menu_contents->number > 0)
     {
@@ -1901,15 +1910,12 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
 
   destroy_list (node_children);
 
-  if (!node_menus)
-    destroy_list (menus);
-
   return master_menu_contents;
 }
 
 ELEMENT *
 new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
-                 ELEMENT_LIST *menus, int use_sections)
+                 const ELEMENT_LIST *menus, int use_sections)
 {
   /*  only holds contents here, will be turned into a proper block
       in new_block_command */
@@ -2017,6 +2023,8 @@ new_complete_menu_master_menu (OPTIONS *options,
           add_to_element_list (menus, menu_node);
           detailmenu = new_master_menu (options, identifiers_target,
                                         menus, 0);
+          destroy_list (menus);
+
           if (detailmenu)
             {
               /* add a blank line before the detailed node listing */

@@ -5126,7 +5126,6 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
               ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
               if (!menus && automatic_directions)
                 {
-                  /* FIXME setup a TREE_ADDED_ELEMENTS */
                   ELEMENT *menu_node
                    = new_complete_menu_master_menu (self->conf,
                              self->document->identifiers_target, node);
@@ -5138,6 +5137,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                                                 &mini_toc_or_auto_menu, 0);
                       remove_element_from_list (&self->tree_to_build,
                                                 menu_node);
+                      /* there are only new or copied elements in the menu */
+                      destroy_element_and_children (menu_node);
                     }
                 }
             }
@@ -5319,6 +5320,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
               free (closed_strings->list[i]);
             }
         }
+      free (closed_strings->list);
       free (closed_strings);
 
       html_register_opened_section_level (self, level, "</div>\n");
@@ -5335,7 +5337,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       add_string (class, classes);
       free (class);
       attribute_class = html_attribute_class (self, "div", classes);
-      clear_strings_list (classes);
+      destroy_strings_list (classes);
 
       text_append (result, attribute_class);
       free (attribute_class);
@@ -5666,7 +5668,7 @@ convert_special_unit_type (CONVERTER *self,
                         const OUTPUT_UNIT *output_unit, const char *content,
                         TEXT *result)
 {
-  const char *heading;
+  char *heading;
   size_t number;
   TEXT special_unit_body;
   ELEMENT *unit_command;
@@ -5770,6 +5772,7 @@ convert_special_unit_type (CONVERTER *self,
   formatted_heading
     = call_formatting_function_format_heading_text (self, 0, classes, heading,
                                                     level, 0, 0, 0);
+  free (heading);
   destroy_strings_list (classes);
   text_append (result, formatted_heading);
   text_append_n (result, "\n", 1);
@@ -6342,6 +6345,8 @@ html_finalize_output_state (CONVERTER *self)
       reset_html_targets (self, &self->html_special_targets[i]);
     }
 
+  self->added_targets.number = 0;
+
   free (self->tree_to_build.list);
 
   free (self->special_units_direction_name);
@@ -6488,6 +6493,9 @@ html_free_converter (CONVERTER *self)
     {
       free (self->html_special_targets[i].list);
     }
+
+  free (self->added_targets.list);
+
   for (i = 0; i < SUIT_type_heading+1; i++)
     {/* we assume that reset_translated_special_unit_info_tree
         has already been called */

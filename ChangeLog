@@ -1,5 +1,23 @@
 2023-12-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (convert_heading_command):
+	destroy the menu that was automatically generated.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_heading_command)
+	(convert_special_unit_type): free closed_strings list, classes,
+	heading.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state)
+	(html_free_converter): reset and free added_targets.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (print_down_menus):
+	destroy the new menu created if there was none in the node.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(new_complete_menu_master_menu): destroy temporary menus list.
+
+2023-12-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c
 	(call_formatting_function_format_contents): command can be 0.
 
