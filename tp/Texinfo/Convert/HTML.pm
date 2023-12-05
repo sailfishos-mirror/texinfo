@@ -9027,6 +9027,22 @@ sub _normalized_label_id_file($$$)
   return ($filename, $target);
 }
 
+sub _unique_target($$)
+{
+  my $self = shift;
+  my $target_base = shift;
+  my $nr=1;
+  my $target = $target_base;
+  while ($self->{'seen_ids'}->{$target}) {
+    $target = $target_base.'-'.$nr;
+    $nr++;
+    # Avoid integer overflow
+    die if ($nr == 0);
+  }
+  return $target;
+}
+
+
 sub _new_sectioning_command_target($$)
 {
   my $self = shift;
@@ -9043,13 +9059,10 @@ sub _new_sectioning_command_target($$)
   }
   my $nr=1;
   my $target = $target_base;
-  if ($target ne '') {
-    while ($self->{'seen_ids'}->{$target}) {
-      $target = $target_base.'-'.$nr;
-      $nr++;
-      # Avoid integer overflow
-      die if ($nr == 0);
-    }
+  if ($target_base ne '') {
+    $target = _unique_target($self, $target_base);
+  } else {
+    $target = '';
   }
 
   # These are undefined if the $target is set to ''.
@@ -9058,25 +9071,11 @@ sub _new_sectioning_command_target($$)
   if ($sectioning_heading_commands{$command->{'cmdname'}}) {
     if ($target ne '') {
       my $target_base_contents = 'toc-'.$normalized_name;
-      $target_contents = $target_base_contents;
-      my $toc_nr = $nr -1;
-      while ($self->{'seen_ids'}->{$target_contents}) {
-        $target_contents = $target_base_contents.'-'.$toc_nr;
-        $toc_nr++;
-        # Avoid integer overflow
-        die if ($toc_nr == 0);
-      }
+      $target_contents = _unique_target($self, $target_base_contents);
 
       my $target_base_shortcontents = 'stoc-'.$normalized_name;
-      $target_shortcontents = $target_base_shortcontents;
-      my $stoc_nr = $nr -1;
-      while ($self->{'seen_ids'}->{$target_shortcontents}) {
-        $target_shortcontents = $target_base_shortcontents
-                                   .'-'.$stoc_nr;
-        $stoc_nr++;
-        # Avoid integer overflow
-        die if ($stoc_nr == 0);
-      }
+      $target_shortcontents
+        = _unique_target($self, $target_base_shortcontents);
     }
   }
 
@@ -10072,14 +10071,7 @@ sub _prepare_index_entries_targets($)
           Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
              $normalize_index_element, $no_unidecode);
         my $target_base = "index-" . $region .$normalized_index;
-        my $nr = 1;
-        my $target = $target_base;
-        while ($self->{'seen_ids'}->{$target}) {
-          $target = $target_base.'-'.$nr;
-          $nr++;
-          # Avoid integer overflow
-          die if ($nr == 0);
-        }
+        my $target = _unique_target($self, $target_base);
         $self->{'seen_ids'}->{$target} = 1;
         my $target_element = $main_entry_element;
         $target_element = $index_entry->{'entry_associated_element'}

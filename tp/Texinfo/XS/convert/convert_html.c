@@ -3784,18 +3784,8 @@ prepare_footnotes_targets (CONVERTER *self)
 
           while (1)
             {
-              int j;
-              int non_unique = 0;
-              for (j = 0; j < self->seen_ids.number; j++)
-                {
-                  if (!strcmp (footid.text, self->seen_ids.list[j])
-                      || !strcmp (docid.text, self->seen_ids.list[j]))
-                    {
-                      non_unique = 1;
-                      break;
-                    }
-                }
-              if (non_unique)
+              if (find_string (&self->seen_ids, footid.text)
+                    || find_string (&self->seen_ids, docid.text))
                 {
                   nr++;
                   if (nr == 0)
