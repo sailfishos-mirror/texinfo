@@ -1124,10 +1124,77 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 }
 
 char *
+call_formatting_function_format_navigation_panel (CONVERTER *self,
+                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  const char *cmdname, const ELEMENT *element,
+                                  int vertical)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_navigation_panel].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 5);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newRV_inc (buttons->av)));
+  PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUSHs(sv_2mortal (newSViv ((IV) vertical)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_navigation_panel should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+char *
 call_formatting_function_format_navigation_header (CONVERTER *self,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
-                                  ELEMENT *element)
+                                  const ELEMENT *element)
 {
   int count;
   char *result = 0;

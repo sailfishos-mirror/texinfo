@@ -64,10 +64,14 @@ char *call_formatting_function_format_end_file (CONVERTER *self,
 char *call_formatting_function_format_begin_file (CONVERTER *self,
                                                  char *filename,
                                          const OUTPUT_UNIT *output_unit);
+char *call_formatting_function_format_navigation_panel (CONVERTER *self,
+                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  const char *cmdname, const ELEMENT *element,
+                                  int vertical);
 char *call_formatting_function_format_navigation_header (CONVERTER *self,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
-                                  ELEMENT *element);
+                                  const ELEMENT *element);
 char *call_formatting_function_format_heading_text (CONVERTER *self,
                                   const char *cmdname,
                                   const STRING_LIST *classes,

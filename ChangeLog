@@ -1,5 +1,18 @@
 2023-12-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_navigation_panel),
+	tp/Texinfo/XS/convert/convert_html.c (unit_is_top_output_unit)
+	(format_navigation_panel, format_navigation_header)
+	(html_default_format_element_header, format_element_header)
+	(convert_heading_command): implement
+	html_default_format_element_header, add corresponding
+	format_element_header.
+	Prepare format_navigation_panel and format_navigation_header, add
+	call_formatting_function_format_navigation_panel.
+
+2023-12-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_heading_command):
 	destroy the menu that was automatically generated.
 

@@ -268,6 +268,13 @@ get_top_unit (DOCUMENT *document, const OUTPUT_UNIT_LIST *output_units)
   return 0;
 }
 
+static int
+unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
+{
+  OUTPUT_UNIT *top_output_unit = get_top_unit (self->document, 0);
+  return (top_output_unit && top_output_unit == output_unit);
+}
+
 int
 special_unit_variety_direction_index (CONVERTER *self,
                                       char *special_unit_variety)
@@ -4684,6 +4691,182 @@ convert_text (CONVERTER *self, const enum element_type type,
 }
 
 void
+format_navigation_panel (CONVERTER *self,
+                         const BUTTON_SPECIFICATION_LIST *buttons,
+                         const char *cmdname, const ELEMENT *element,
+                         int vertical, TEXT *result)
+{
+/*
+  if (self->formatting_references[FR_format_navigation_panel].status
+                                             == FRS_status_default_set)
+    {
+      html_default_format_navigation_panel (self, buttons, cmdname,
+                                            element, vertical, result);
+    }
+  else
+*/
+    {
+      char *navigation_panel
+        = call_formatting_function_format_navigation_panel (self,
+                                 buttons, cmdname, element, vertical);
+      text_append (result, navigation_panel);
+      free (navigation_panel);
+    }
+}
+
+
+void
+format_navigation_header (CONVERTER *self,
+                          const BUTTON_SPECIFICATION_LIST *buttons,
+                          const char *cmdname,
+                          const ELEMENT *element, TEXT *result)
+{
+/*
+  if (self->formatting_references[FR_format_navigation_header].status
+                                             == FRS_status_default_set)
+    {
+      html_default_format_navigation_header (self, buttons, cmdname,
+                                             element, result);
+    }
+  else
+*/
+    {
+      char *navigation_header
+        = call_formatting_function_format_navigation_header (self,
+                                                buttons, cmdname, element);
+      text_append (result, navigation_header);
+      free (navigation_header);
+    }
+}
+
+void
+html_default_format_element_header (CONVERTER *self,
+                               const char *cmdname, const ELEMENT *command,
+                               const OUTPUT_UNIT *output_unit, TEXT *result)
+{
+  if (self->conf->DEBUG > 0)
+    {
+      int i;
+      TEXT debug_txt;
+      text_init (&debug_txt);
+      text_append (&debug_txt, "FORMAT elt header (");
+      for (i = 0; i < output_unit->unit_contents.number; i++)
+        {
+          char *elt_str
+            = print_element_debug (output_unit->unit_contents.list[i], 0);
+          if (i > 0)
+            text_append_n (&debug_txt, "|", 1);
+          text_append (&debug_txt, elt_str);
+          free (elt_str);
+        }
+      text_printf (&debug_txt, ") %s\n", output_unit_texi (output_unit));
+    }
+
+  /* Do the heading if the command is the first command in the element */
+  if ((output_unit->unit_contents.list[0] == command
+       || (!output_unit->unit_contents.list[0]->cmd
+           && output_unit->unit_contents.list[1] == command))
+        /* and there is more than one element */
+      && (output_unit->tree_unit_directions[D_next]
+          || output_unit->tree_unit_directions[D_prev]))
+    {
+      int is_top = unit_is_top_output_unit (self, output_unit);
+      size_t file_index;
+      size_t count_in_file;
+      int first_in_page = 0;
+      int previous_is_top = 0;
+      if (output_unit->unit_filename)
+        {
+          file_index = self->output_unit_file_indices[output_unit->index];
+          count_in_file
+            = count_elements_in_filename (self, CEFT_current, file_index +1);
+          if (count_in_file == 1)
+            first_in_page = 1;
+        }
+
+      if (output_unit->tree_unit_directions[D_prev]
+          && unit_is_top_output_unit (self,
+                               output_unit->tree_unit_directions[D_prev]))
+        previous_is_top = 1;
+
+      if (self->conf->DEBUG > 0)
+        fprintf (stderr, "Header (%d, %d, %d): %s\n", previous_is_top, is_top,
+                         first_in_page,
+                         root_heading_command_to_texinfo (command));
+
+      if (is_top)
+       /* use TOP_BUTTONS for top. */
+        {
+          if ((self->conf->SPLIT && strlen (self->conf->SPLIT))
+              || self->conf->HEADERS > 0)
+            format_navigation_header (self, self->conf->TOP_BUTTONS, cmdname,
+                                      command, result);
+        }
+      else
+        {
+          if (first_in_page && self->conf->HEADERS <= 0)
+            {
+              if (!strcmp (self->conf->SPLIT, "chapter"))
+                {
+                  format_navigation_header (self,
+                     self->conf->CHAPTER_BUTTONS, cmdname, command,
+                     result);
+                  if (self->conf->DEFAULT_RULE
+                      && self->conf->VERTICAL_HEAD_NAVIGATION <= 0)
+                    {
+                      text_append (result, self->conf->DEFAULT_RULE);
+                      text_append_n (result, "\n", 1);
+                    }
+                }
+              else if (!strcmp (self->conf->SPLIT, "section"))
+                {
+                  format_navigation_header (self,
+                     self->conf->SECTION_BUTTONS, cmdname, command,
+                     result);
+                }
+            }
+          if ((first_in_page || previous_is_top)
+              && self->conf->HEADERS > 0)
+            {
+              format_navigation_header (self,
+                 self->conf->SECTION_BUTTONS, cmdname, command,
+                 result);
+            }
+          else if (self->conf->HEADERS > 0
+                   || !strcmp (self->conf->SPLIT, "node"))
+            {
+          /* got to do this here, as it isn't done otherwise since
+             navigation_header is not called */
+               format_navigation_panel (self, self->conf->SECTION_BUTTONS,
+                                        cmdname, command, 0, result);
+            }
+        }
+    }
+}
+
+void
+format_element_header (CONVERTER *self,
+                       const char *cmdname, const ELEMENT *element,
+                       const OUTPUT_UNIT *output_unit, TEXT *result)
+{
+  if (self->formatting_references[FR_format_element_header].status
+                                             == FRS_status_default_set)
+    {
+      html_default_format_element_header (self, cmdname, element,
+                                          output_unit, result);
+    }
+  else
+    {
+      char *element_header
+        = call_formatting_function_format_element_header (self,
+                                                cmdname, element, output_unit);
+      text_append (result, element_header);
+      free (element_header);
+    }
+}
+
+
+void
 default_format_footnotes_segment (CONVERTER *self, TEXT *result)
 {
   char *class_base;
@@ -5029,7 +5212,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
 {
   char *element_id;
   OUTPUT_UNIT *output_unit = 0;
-  char *element_header = 0;
+  TEXT element_header;
   /* could use only one, but this is more similar to perl code */
   TEXT tables_of_contents;
   TEXT mini_toc_or_auto_menu;
@@ -5071,11 +5254,12 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   if (flags & CF_root && element->associated_unit)
     output_unit = element->associated_unit;
 
+  text_init (&element_header);
+  text_append (&element_header, "");
   if (output_unit)
-    element_header
-      = call_formatting_function_format_element_header (self,
-                                         element_command_name (element),
-                                         element, output_unit);
+    format_element_header (self, element_command_name (element), element,
+                           output_unit, &element_header);
+
   text_init (&tables_of_contents);
   text_append (&tables_of_contents, "");
   if (element->cmd == CM_top
@@ -5190,8 +5374,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                                 element_id, builtin_command_name(cmd));
           text_append (result, anchor);
           free (anchor);
-          text_append (result, element_header);
-          free (element_header);
+          text_append (result, element_header.text);
+          free (element_header.text);
           text_append (result, tables_of_contents.text);
           free (tables_of_contents.text);
           text_append (result, mini_toc_or_auto_menu.text);
@@ -5348,7 +5532,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
    }
   else if (element_id && strlen (element_id))
    {
-     if (element_header && strlen (element_header))
+     if (element_header.end > 0)
        {
          char *anchor;
      /* case of a @node without sectioning command and with a header.
@@ -5377,11 +5561,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
        heading_id = element_id;
    }
 
-  if (element_header)
-    {
-      text_append (result, element_header);
-      free (element_header);
-    }
+  text_append (result, element_header.text);
+  free (element_header.text);
 
   if (do_heading)
     {
@@ -5752,11 +5933,8 @@ convert_special_unit_type (CONVERTER *self,
       /* first in page */
       || count_in_file == 1)
     {
-      char *navigation_header =
-        call_formatting_function_format_navigation_header (self,
-                             self->conf->MISC_BUTTONS, 0, unit_command);
-      text_append (result, navigation_header);
-      free (navigation_header);
+      format_navigation_header (self, self->conf->MISC_BUTTONS, 0,
+                                unit_command, result);
     }
 
   heading = html_command_text (self, unit_command, 0);
