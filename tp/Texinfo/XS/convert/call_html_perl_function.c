@@ -37,6 +37,7 @@
 #include "extra.h"
 /* for newSVpv_utf8 build_texinfo_tree */
 #include "build_perl_info.h"
+#include "debug.h"
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
@@ -1291,6 +1292,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   char *result = 0;
   char *result_ret;
   STRLEN len;
+  SV *command_sv;
   SV *result_sv;
   SV *formatting_reference_sv;
 
@@ -1311,6 +1313,11 @@ call_formatting_function_format_contents (CONVERTER *self,
 
   build_tree_to_build (&self->tree_to_build);
 
+  if (command)
+    command_sv = newRV_inc (command->hv);
+  else
+    command_sv = newSV (0);
+
   dSP;
 
   ENTER;
@@ -1321,7 +1328,7 @@ call_formatting_function_format_contents (CONVERTER *self,
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
-  PUSHs(sv_2mortal (newRV_inc (command->hv)));
+  PUSHs(sv_2mortal (command_sv));
   PUSHs(sv_2mortal (newSVpv (filename, 0)));
   PUTBACK;
 
@@ -1573,6 +1580,14 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
     {
       build_html_formatting_state (self, self->modified_state);
       self->modified_state = 0;
+    }
+
+  if (!element->hv)
+    {
+      char *element_str = print_element_debug (element, 0);
+      fprintf (stderr, "BUG: no hv: %p %s\n", element, element_str);
+      free (element_str);
+      abort ();
     }
 
   dSP;

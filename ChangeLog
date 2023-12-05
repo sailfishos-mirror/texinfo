@@ -1,5 +1,25 @@
 2023-12-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_contents): command can be 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_heading_command):
+	register menu tree to be built to perl.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (print_down_menus):
+	do not create menus when looking for them.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(commands_internal_conversion_table): use convert_heading_command for
+	all the heading commands.
+
+	* tp/Texinfo/Convert/HTML.pm (_contents_inline_element),
+	tp/Texinfo/XS/convert/convert_html.c (contents_inline_element): rename
+	$command argument as $element and other $command as $unit_command.
+	Rearrange code.
+
+2023-12-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_register_id, _id_is_registered)
 	(%XS_conversion_overrides), tp/Texinfo/XS/convert/ConvertXS.xs
 	(html_register_id, html_id_is_registered): access 'seen_ids' through

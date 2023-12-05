@@ -1808,7 +1808,7 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
 {
   ELEMENT_LIST *master_menu_contents = new_list ();
   ELEMENT_LIST *menus;
-  ELEMENT_LIST *node_menus = lookup_extra_contents (node, "menus", 1);
+  ELEMENT_LIST *node_menus = lookup_extra_contents (node, "menus", 0);
   ELEMENT_LIST *node_children;
   int i;
 
@@ -1817,7 +1817,6 @@ print_down_menus(ELEMENT *node, LABEL_LIST *identifiers_target,
   else
     {
       ELEMENT *current_menu = new_complete_node_menu (node, use_sections);
-      node_menus = 0;
       if (current_menu)
         {
           menus = new_list ();

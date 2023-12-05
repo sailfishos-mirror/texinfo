@@ -6304,11 +6304,12 @@ sub _contents_inline_element($$$)
 {
   my $self = shift;
   my $cmdname = shift;
-  my $command = shift;
+  # undef unless called from @-command formatting function
+  my $element = shift;
 
   print STDERR "CONTENTS_INLINE $cmdname\n" if ($self->get_conf('DEBUG'));
   my $content = &{$self->formatting_function('format_contents')}($self,
-                                                          $cmdname, $command);
+                                                          $cmdname, $element);
   if ($content) {
     my ($special_unit_variety, $special_unit, $class_base,
         $special_unit_direction)
@@ -6317,25 +6318,22 @@ sub _contents_inline_element($$$)
     my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
     my $heading;
     if ($special_unit) {
-      my $command = $special_unit->{'unit_command'};
-      my $id = $self->command_id($command);
+      my $unit_command = $special_unit->{'unit_command'};
+      my $id = $self->command_id($unit_command);
       if (defined($id) and $id ne '') {
         $result .= " id=\"$id\"";
       }
-      $heading = $self->command_text($command);
-      $heading = '' if (!defined($heading));
+      $heading = $self->command_text($unit_command);
     } else {
       # happens when called as convert() and not output()
-      #cluck "$cmdname special element not defined";
       my $heading_tree = $self->special_unit_info('heading_tree',
                                              $special_unit_variety);
       if (defined($heading_tree)) {
         $heading = $self->convert_tree($heading_tree,
                                        "convert $cmdname special heading");
-      } else {
-        $heading = '';
       }
     }
+    $heading = '' if (!defined($heading));
     $result .= ">\n";
     $result .= &{$self->formatting_function('format_heading_text')}($self,
                                   $cmdname, [$class_base.'-heading'], $heading,
@@ -10359,6 +10357,7 @@ sub _default_format_contents($$;$$)
 {
   my $self = shift;
   my $cmdname = shift;
+  # unused
   my $command = shift;
   my $filename = shift;
 

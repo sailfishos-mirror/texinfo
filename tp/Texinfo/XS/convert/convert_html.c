@@ -3187,7 +3187,7 @@ static char *html_command_text_type_name[] = {
   "text", "text_nonumber", "string", "string_nonumber"
 };
 
-/* cached, not to be freed */
+/* to be freed by caller */
 char *
 html_command_text (CONVERTER *self, const ELEMENT *command,
                    const enum html_command_text_type type)
@@ -4838,9 +4838,10 @@ convert_w_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+/* command is NULL unless called from @-command formatting function */
 static char *
 contents_inline_element (CONVERTER *self, const enum command_id cmd,
-                         const ELEMENT *command)
+                         const ELEMENT *element)
 {
   char *content;
 
@@ -4848,7 +4849,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
     fprintf (stderr, "CONTENTS_INLINE %s\n", builtin_command_name (cmd));
 
   content = call_formatting_function_format_contents (self,
-                        builtin_command_name (cmd), command, 0);
+                        builtin_command_name (cmd), element, 0);
   if (content && strlen (content))
     {
       int j;
@@ -4893,13 +4894,11 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
 
               if (special_unit)
                 {
-                  ELEMENT *command = special_unit->unit_command;
-                  char *id = html_command_id (self, command);
+                  ELEMENT *unit_command = special_unit->unit_command;
+                  char *id = html_command_id (self, unit_command);
                   if (id && strlen (id))
                     text_printf (&result, " id=\"%s\"", id);
-                  heading = html_command_text (self, command, 0);
-                  if (!heading)
-                    heading = strdup ("");
+                  heading = html_command_text (self, unit_command, 0);
                 }
               else
                 { /* happens when called as convert() and not output() */
@@ -4922,6 +4921,8 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
               add_string (class, classes);
               free (class);
 
+              if (!heading)
+                heading = strdup ("");
               formatted_heading
                = call_formatting_function_format_heading_text (self, 0, classes,
                             heading, self->conf->CHAPTER_HEADER_LEVEL, 0, 0, 0);
@@ -5125,15 +5126,18 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
               ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
               if (!menus && automatic_directions)
                 {
+                  /* FIXME setup a TREE_ADDED_ELEMENTS */
                   ELEMENT *menu_node
                    = new_complete_menu_master_menu (self->conf,
                              self->document->identifiers_target, node);
 
-                  /* FIXME probably need to rebuild menu_node tree */
                   if (menu_node)
                     {
+                      add_to_element_list (&self->tree_to_build, menu_node);
                       convert_to_html_internal (self, menu_node,
                                                 &mini_toc_or_auto_menu, 0);
+                      remove_element_from_list (&self->tree_to_build,
+                                                menu_node);
                     }
                 }
             }
@@ -5496,14 +5500,34 @@ convert_contents_command (CONVERTER *self, const enum command_id cmd,
 /* associate command to the C function implementing the conversion */
 static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_w, &convert_w_command},
+
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
   {CM_summarycontents, &convert_contents_command},
+
   {CM_node, convert_heading_command},
+  {CM_top, convert_heading_command},
+  {CM_chapter, convert_heading_command},
+  {CM_unnumbered, convert_heading_command},
+  {CM_chapheading, convert_heading_command},
+  {CM_appendix, convert_heading_command},
   {CM_section, convert_heading_command},
-  /*
+  {CM_unnumberedsec, convert_heading_command},
   {CM_heading, convert_heading_command},
-   */
+  {CM_appendixsec, convert_heading_command},
+  {CM_subsection, convert_heading_command},
+  {CM_unnumberedsubsec, convert_heading_command},
+  {CM_subheading, convert_heading_command},
+  {CM_appendixsubsec, convert_heading_command},
+  {CM_subsubsection, convert_heading_command},
+  {CM_unnumberedsubsubsec, convert_heading_command},
+  {CM_subsubheading, convert_heading_command},
+  {CM_appendixsubsubsec, convert_heading_command},
+  {CM_part, convert_heading_command},
+  {CM_appendixsection, convert_heading_command},
+  {CM_majorheading, convert_heading_command},
+  {CM_centerchap, convert_heading_command},
+
   {0, 0},
 };
 
