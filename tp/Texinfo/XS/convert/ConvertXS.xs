@@ -229,6 +229,31 @@ html_finalize_output_state (SV *converter_in)
            }
 
 void
+html_register_id (SV *converter_in, id)
+         char *id = (char *)SvPVutf8_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in, "html_register_id");
+         if (self)
+          /* note that we do not care about having the same id twice */
+           add_string (id, &self->seen_ids);
+
+
+int html_id_is_registered (SV *converter_in, id)
+         char *id = (char *)SvPVutf8_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+         int found = 0;
+      CODE:
+         self = get_sv_converter (converter_in, "html_id_is_registered");
+         if (self)
+           found = find_string (&self->seen_ids, id);
+         RETVAL = found;
+    OUTPUT:
+         RETVAL
+
+void
 html_new_document_context (SV *converter_in, char *context_name, ...)
       PROTOTYPE: $$;$$
       PREINIT:

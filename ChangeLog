@@ -1,5 +1,13 @@
 2023-12-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_register_id, _id_is_registered)
+	(%XS_conversion_overrides), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_register_id, html_id_is_registered): access 'seen_ids' through
+	functions, _register_id and _id_is_registered.  Add overrides for
+	those functions.
+
+2023-12-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_unique_target)
 	(_new_sectioning_command_target, _prepare_index_entries_targets): use
 	a _unique_target function as in C.

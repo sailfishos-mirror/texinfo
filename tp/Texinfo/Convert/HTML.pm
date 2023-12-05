@@ -119,6 +119,11 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_finalize_output_state"
    => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
 
+  "Texinfo::Convert::HTML::_register_id"
+   => "Texinfo::Convert::ConvertXS::html_register_id",
+  "Texinfo::Convert::HTML::_id_is_registered"
+   => "Texinfo::Convert::ConvertXS::html_id_is_registered",
+
   "Texinfo::Convert::HTML::_open_command_update_context"
    => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
   "Texinfo::Convert::HTML::_convert_command_update_context",
@@ -9027,13 +9032,31 @@ sub _normalized_label_id_file($$$)
   return ($filename, $target);
 }
 
+sub _register_id($$)
+{
+  my $self = shift;
+  my $id = shift;
+  $self->{'seen_ids'}->{$id} = 1;
+}
+
+sub _id_is_registered($$)
+{
+  my $self = shift;
+  my $id = shift;
+  if ($self->{'seen_ids'}->{$id}) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 sub _unique_target($$)
 {
   my $self = shift;
   my $target_base = shift;
   my $nr=1;
   my $target = $target_base;
-  while ($self->{'seen_ids'}->{$target}) {
+  while (_id_is_registered($self, $target)) {
     $target = $target_base.'-'.$nr;
     $nr++;
     # Avoid integer overflow
@@ -9095,17 +9118,17 @@ sub _new_sectioning_command_target($$)
                            'target' => $target,
                            'section_filename' => $filename,
                           };
-  $self->{'seen_ids'}->{$target} = 1;
+  _register_id($self, $target);
   if (defined($target_contents)) {
     $self->{'targets'}->{$command}->{'contents_target'} = $target_contents;
-    $self->{'seen_ids'}->{$target_contents} = 1;
+    _register_id($self, $target_contents);
   } else {
     $self->{'targets'}->{$command}->{'contents_target'} = '';
   }
   if (defined($target_shortcontents)) {
     $self->{'targets'}->{$command}->{'shortcontents_target'}
        = $target_shortcontents;
-    $self->{'seen_ids'}->{$target_shortcontents} = 1;
+    _register_id($self, $target_shortcontents);
   } else {
     $self->{'targets'}->{$command}->{'shortcontents_target'} = '';
   }
@@ -9166,7 +9189,7 @@ sub _set_root_commands_targets_node_files($)
       }
       $self->{'targets'}->{$target_element} = {'target' => $target,
                                            'node_filename' => $node_filename};
-      $self->{'seen_ids'}->{$target} = 1;
+      _register_id($self, $target);
     }
   }
 
@@ -9860,7 +9883,7 @@ sub _set_special_units_targets_files($$$)
     $self->{'targets'}->{$unit_command} = {'target' => $target,
                                       'special_unit_filename' => $filename,
                                      };
-    $self->{'seen_ids'}->{$target} = 1;
+    _register_id($self, $target);
   }
 }
 
@@ -9906,7 +9929,7 @@ sub _prepare_associated_special_units_targets($$)
     my $command_target = {'target' => $target};
     $self->{'targets'}->{$unit_command} = $command_target;
     if (defined($target)) {
-      $self->{'seen_ids'}->{$target} = 1;
+      _register_id($self, $target);
     }
     if (defined ($filename)) {
       $command_target->{'special_unit_filename'}
@@ -10072,7 +10095,7 @@ sub _prepare_index_entries_targets($)
              $normalize_index_element, $no_unidecode);
         my $target_base = "index-" . $region .$normalized_index;
         my $target = _unique_target($self, $target_base);
-        $self->{'seen_ids'}->{$target} = 1;
+        _register_id($self, $target);
         my $target_element = $main_entry_element;
         $target_element = $index_entry->{'entry_associated_element'}
           if ($index_entry->{'entry_associated_element'});
@@ -10098,15 +10121,16 @@ sub _prepare_footnotes_targets($)
       my $footid = $footid_base.$nr;
       # anchor for the location of the @footnote in the document
       my $docid = $docid_base.$nr;
-      while ($self->{'seen_ids'}->{$docid} or $self->{'seen_ids'}->{$footid}) {
+      while (_id_is_registered($self, $docid)
+             or _id_is_registered($self, $footid)) {
         $nr++;
         $footid = $footid_base.$nr;
         $docid = $docid_base.$nr;
         # Avoid integer overflow
         die if ($nr == 0);
       }
-      $self->{'seen_ids'}->{$footid} = 1;
-      $self->{'seen_ids'}->{$docid} = 1;
+      _register_id($self, $footid);
+      _register_id($self, $docid);
       $self->{'targets'}->{$footnote} = { 'target' => $footid };
       $self->{'special_targets'}->{'footnote_location'}->{$footnote}
          = { 'target' => $docid };
