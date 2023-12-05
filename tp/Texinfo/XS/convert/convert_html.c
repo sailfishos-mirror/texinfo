@@ -4714,6 +4714,30 @@ format_navigation_panel (CONVERTER *self,
     }
 }
 
+void
+html_default_format_navigation_header (CONVERTER *self,
+                          const BUTTON_SPECIFICATION_LIST *buttons,
+                          const char *cmdname,
+                          const ELEMENT *element, TEXT *result)
+{
+  int vertical = 0;
+  if (self->conf->VERTICAL_HEAD_NAVIGATION > 0)
+    vertical = 1;
+  if (vertical)
+    text_append (result,
+     "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n"
+     "<tr>\n<td>\n");
+
+  format_navigation_panel (self, buttons, cmdname, element, vertical, result);
+
+  if (vertical)
+    text_append (result, "</td>\n<td>\n");
+  else if (!strcmp (self->conf->SPLIT, "node"))
+    {
+      text_append (result, self->conf->DEFAULT_RULE);
+      text_append_n (result, "\n", 1);
+    }
+}
 
 void
 format_navigation_header (CONVERTER *self,
@@ -4721,7 +4745,6 @@ format_navigation_header (CONVERTER *self,
                           const char *cmdname,
                           const ELEMENT *element, TEXT *result)
 {
-/*
   if (self->formatting_references[FR_format_navigation_header].status
                                              == FRS_status_default_set)
     {
@@ -4729,7 +4752,6 @@ format_navigation_header (CONVERTER *self,
                                              element, result);
     }
   else
-*/
     {
       char *navigation_header
         = call_formatting_function_format_navigation_header (self,
