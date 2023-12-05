@@ -1,3 +1,14 @@
+2023-12-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_new_sectioning_command_target): align
+	contents and shhortcontents targets code on C code.
+
+	* tp/Texinfo/Convert/HTML.pm (_new_sectioning_command_target),
+	tp/Texinfo/XS/convert/convert_html.c (new_sectioning_command_target):
+	if @top is empty, set the normalized to be the target base for
+	contents_target and shortcontents_target. put contents_target and
+	shortcontents_target in seen_ids.
+
 2023-12-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/converter_types.h (FILE_NUMBER_NAME): rename

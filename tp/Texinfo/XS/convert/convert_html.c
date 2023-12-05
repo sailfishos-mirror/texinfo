@@ -1640,6 +1640,8 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
       /* @top is allowed to be empty.  In that case it gets this target name */
       free (target_base);
       target_base = strdup ("SEC_Top");
+      free (normalized_name);
+      normalized_name = strdup (target_base);
     }
 
   if (strlen (target_base))
@@ -1696,12 +1698,18 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
   free (target);
 
   if (target_contents)
-    element_target->contents_target = target_contents;
+    {
+      element_target->contents_target = target_contents;
+      add_string (target_contents, &self->seen_ids);
+    }
   else
     element_target->contents_target = strdup ("");
 
   if (target_shortcontents)
-    element_target->shortcontents_target = target_shortcontents;
+    {
+      element_target->shortcontents_target = target_shortcontents;
+      add_string (target_shortcontents, &self->seen_ids);
+    }
   else
     element_target->shortcontents_target = strdup ("");
 }

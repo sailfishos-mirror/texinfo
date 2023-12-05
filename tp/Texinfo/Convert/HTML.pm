@@ -9039,6 +9039,7 @@ sub _new_sectioning_command_target($$)
   if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top') {
     # @top is allowed to be empty.  In that case it gets this target name
     $target_base = 'SEC_Top';
+    $normalized_name = $target_base;
   }
   my $nr=1;
   my $target = $target_base;
@@ -9056,23 +9057,21 @@ sub _new_sectioning_command_target($$)
   my $target_shortcontents;
   if ($sectioning_heading_commands{$command->{'cmdname'}}) {
     if ($target ne '') {
-      my $target_base_contents = $target;
-      $target_base_contents = $normalized_name;
-      $target_contents = 'toc-'.$target_base_contents;
+      my $target_base_contents = 'toc-'.$normalized_name;
+      $target_contents = $target_base_contents;
       my $toc_nr = $nr -1;
       while ($self->{'seen_ids'}->{$target_contents}) {
-        $target_contents = 'toc-'.$target_base_contents.'-'.$toc_nr;
+        $target_contents = $target_base_contents.'-'.$toc_nr;
         $toc_nr++;
         # Avoid integer overflow
         die if ($toc_nr == 0);
       }
 
-      $target_shortcontents = 'stoc-'.$target_base_contents;
-      my $target_base_shortcontents = $target_base;
-      $target_base_shortcontents =~ s/^g_t//;
+      my $target_base_shortcontents = 'stoc-'.$normalized_name;
+      $target_shortcontents = $target_base_shortcontents;
       my $stoc_nr = $nr -1;
       while ($self->{'seen_ids'}->{$target_shortcontents}) {
-        $target_shortcontents = 'stoc-'.$target_base_shortcontents
+        $target_shortcontents = $target_base_shortcontents
                                    .'-'.$stoc_nr;
         $stoc_nr++;
         # Avoid integer overflow
@@ -9100,12 +9099,14 @@ sub _new_sectioning_command_target($$)
   $self->{'seen_ids'}->{$target} = 1;
   if (defined($target_contents)) {
     $self->{'targets'}->{$command}->{'contents_target'} = $target_contents;
+    $self->{'seen_ids'}->{$target_contents} = 1;
   } else {
     $self->{'targets'}->{$command}->{'contents_target'} = '';
   }
   if (defined($target_shortcontents)) {
     $self->{'targets'}->{$command}->{'shortcontents_target'}
        = $target_shortcontents;
+    $self->{'seen_ids'}->{$target_shortcontents} = 1;
   } else {
     $self->{'targets'}->{$command}->{'shortcontents_target'} = '';
   }
