@@ -75,6 +75,26 @@ enum output_unit_type {
    OU_special_unit,
 };
 
+/* see Texinfo::HTML _prepare_output_units_global_targets
+
+   NOTE the special output units direction names
+   are obtained dynamically from the perl input and stored in
+   special_unit_info and put later on in
+   special_units_direction_name
+ */
+#define HTML_GLOBAL_DIRECTIONS_LIST \
+   hgdt_name(First) \
+   hgdt_name(Top) \
+   hgdt_name(Index) \
+   hgdt_name(Last)
+
+enum global_unit_direction {
+  #define hgdt_name(name) D_ ## name,
+   HTML_GLOBAL_DIRECTIONS_LIST
+  #undef hgdt_name
+   D_Space,
+};
+
 /* relative output unit directions */
 #define RUD_DIRECTIONS_TYPES_LIST \
    rud_type(This) \

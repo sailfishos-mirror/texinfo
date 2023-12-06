@@ -31,6 +31,7 @@
 #undef context
 
 #include "tree_types.h"
+#include "converter_types.h"
 
 /* to be called when a tree element is destroyed, to remove the reference
    of the association with the C tree */
@@ -44,6 +45,14 @@ unregister_perl_tree_element (ELEMENT *e)
       SvREFCNT_dec ((SV *) e->hv);
       e->hv = 0;
     }
+}
+
+void
+unregister_perl_button (BUTTON_SPECIFICATION *button)
+{
+  dTHX;
+
+  SvREFCNT_dec (button->sv);
 }
 
 void

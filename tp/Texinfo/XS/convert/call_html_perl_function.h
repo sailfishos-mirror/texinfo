@@ -26,23 +26,24 @@ typedef struct TARGET_CONTENTS_FILENAME {
     char *target_shortcontents;
 } TARGET_CONTENTS_FILENAME;
 
-TARGET_FILENAME *call_file_id_setting_special_unit_target_file_name (
-                     CONVERTER *self, OUTPUT_UNIT *special_unit, char *target,
-                                                      char *default_filename);
+TARGET_FILENAME *call_file_id_setting_special_unit_target_file_name
+                            (CONVERTER *self,
+                          const OUTPUT_UNIT *special_unit, const char *target,
+                                                 const char *default_filename);
 char *call_file_id_setting_label_target_name (CONVERTER *self,
-                       char *normalized, const ELEMENT *label_element,
-                       char *target, int *called);
+                       const char *normalized, const ELEMENT *label_element,
+                       const char *target, int *called);
 char *call_file_id_setting_node_file_name (CONVERTER *self,
-                       const ELEMENT *target_element, char *node_filename,
-                       int *called);
+                     const ELEMENT *target_element, const char *node_filename,
+                     int *called);
 TARGET_CONTENTS_FILENAME * call_file_id_setting_sectioning_command_target_name
                      (CONVERTER *self,
-                      const ELEMENT *command, char *target,
-                      char *target_contents,
-                      char *target_shortcontents, char *filename);
+                      const ELEMENT *command, const char *target,
+                      const char *target_contents,
+                      const char *target_shortcontents, const char *filename);
 FILE_NAME_PATH *call_file_id_setting_unit_file_name (CONVERTER *self,
-                                                     OUTPUT_UNIT *output_unit,
-                                               char *filename, char *filepath);
+                                  const OUTPUT_UNIT *output_unit,
+                                  const char *filename, const char *filepath);
 TARGET_DIRECTORY_FILENAME *call_file_id_setting_external_target_split_name
                     (CONVERTER *self,
                      const char *normalized, const ELEMENT *element,
@@ -59,11 +60,14 @@ char *call_formatting_function_format_protect_text (CONVERTER *self,
 char *call_formatting_function_format_footnotes_sequence (CONVERTER *self);
 char *call_formatting_function_format_footnotes_segment (CONVERTER *self);
 char *call_formatting_function_format_end_file (CONVERTER *self,
-                                                char *filename,
+                                         const char *filename,
                                          const OUTPUT_UNIT *output_unit);
 char *call_formatting_function_format_begin_file (CONVERTER *self,
-                                                 char *filename,
+                                         const char *filename,
                                          const OUTPUT_UNIT *output_unit);
+FORMATTED_BUTTON_INFO *call_formatting_function_format_button (CONVERTER *self,
+                                  const BUTTON_SPECIFICATION *button,
+                                  const ELEMENT *element);
 char *call_formatting_function_format_navigation_panel (CONVERTER *self,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname, const ELEMENT *element,

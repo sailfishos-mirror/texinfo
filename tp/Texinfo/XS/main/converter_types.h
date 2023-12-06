@@ -153,6 +153,7 @@ enum html_argument_formatting_type {
    #undef html_aft_type
 };
 
+/* TODO move to convert_html.c? */
 enum html_special_character {
    SC_paragraph_symbol,
    SC_left_quote,
@@ -727,6 +728,24 @@ typedef struct TRANSLATED_SUI_ASSOCIATION {
 
 /* FIXME move somewhere else? */
 
+/* button directions are not often used as enum, but it can be useful
+   sometime to have an enum name for a direction */
+/* special units are put after these fixed types, they are dynamically
+   determined from perl input */
+enum button_unit_direction {
+  #define hgdt_name(name) D_button_ ## name,
+   HTML_GLOBAL_DIRECTIONS_LIST
+  #undef hgdt_name
+   D_button_space,
+  #define rud_type(name) D_button_ ## name,
+   RUD_DIRECTIONS_TYPES_LIST
+   RUD_FILE_DIRECTIONS_TYPES
+  #undef rud_type
+  #define rud_type(name) D_button_FirstInFile## name,
+   RUD_DIRECTIONS_TYPES_LIST
+  #undef rud_type
+};
+
 enum button_specification_type {
   BST_direction,
   BST_function,
@@ -741,33 +760,48 @@ enum button_information_type {
 };
 
 typedef struct BUTTON_SPECIFICATION_INFO {
-    char *direction; /* or direction enum/index? need both global and relative */
+     /* both global and relative directions index */
+    int direction;
     enum button_information_type type;
     union {
   /* perl references. This should be SV *sv_*,
      but we don't want to include the Perl headers everywhere; */
-      void *sv_reference;
-      void *sv_string;
-      int direction_information_type; /* TODO should be an enum? */
+      void *sv_reference; /* BIT_function */
+      void *sv_string; /* BIT_string */
+     /* both global and relative directions index */
+      int direction_information_type; /* BIT_direction_information_type
+            text string in perl, element direction information type */
     };
 } BUTTON_SPECIFICATION_INFO;
 
 typedef struct BUTTON_SPECIFICATION {
+    void *sv; /* reference to perl data that can be used instead of
+                 the C data */
+
     enum button_specification_type type;
     union {
-      char *string; /* or direction enum/index? need both global and relative */
+     /* both global and relative directions index */
+      int direction; /* BST_direction, string with an element direction */
   /* perl references. This should be SV *sv_*,
      but we don't want to include the Perl headers everywhere; */
-      void *sv_reference;
-      void *sv_string;
-      BUTTON_SPECIFICATION_INFO *button_info;
+      void *sv_reference; /* BST_function */
+      void *sv_string; /* BST_string scalar reference */
+      BUTTON_SPECIFICATION_INFO *button_info; /* BST_direction_info 
+                                              array reference of length 2 */
     };
 } BUTTON_SPECIFICATION;
 
 typedef struct BUTTON_SPECIFICATION_LIST {
-    void *av; /* reference to perl data */
+    void *av; /* reference to perl data that can be used instead of 
+                 the list */
     size_t number;
     BUTTON_SPECIFICATION *list;
 } BUTTON_SPECIFICATION_LIST;
+
+typedef struct FORMATTED_BUTTON_INFO {
+    char *active;
+    char *passive;
+    int need_delimiter;
+} FORMATTED_BUTTON_INFO;
 
 #endif

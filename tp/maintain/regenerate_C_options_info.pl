@@ -130,6 +130,12 @@ close(HEADER);
 open (CODE, ">$code_file") or die "Open $code_file: $!\n";
 print CODE "/* Automatically generated from $0 */\n\n";
 
+print CODE '#include <stdlib.h>'."\n\n";
+
+print CODE '#include "options_types.h"'."\n";
+print CODE '#include "converter_types.h"'."\n";
+print CODE '#include "utils.h"'."\n\n";
+
 print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";
 
 foreach my $category (sort(keys(%option_categories))) {
@@ -156,8 +162,10 @@ foreach my $category (sort(keys(%option_categories))) {
     my ($option, $value, $type) = @$option_info;
     if ($type eq 'STRING_LIST') {
       print CODE "  free_strings_list (&options->$option);\n";
-    } elsif ($type eq 'char *' or $type eq 'BUTTON_SPECIFICATION_LIST *') {
+    } elsif ($type eq 'char *') {
       print CODE " free (options->$option);\n";
+    } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
+      print GET "  html_free_button_specification_list (options->$option);\n";
     }
   }
 }
@@ -272,10 +280,12 @@ print GET '
 print GET '#include <string.h>'."\n\n";
 
 print GET '#include "options_types.h"'."\n";
+print GET '#include "converter_types.h"'."\n";
+print GET '#include "utils.h"'."\n";
 print GET '#include "get_perl_info.h"'."\n\n";
 
 print GET 'void
-get_sv_option (OPTIONS *options, const char *key, SV *value)
+get_sv_option (OPTIONS *options, const char *key, SV *value, CONVERTER *converter)
 {
   dTHX;
 
@@ -316,8 +326,11 @@ foreach my $category (sort(keys(%option_categories))) {
         if ($option eq 'INCLUDE_DIRECTORIES');
       print GET "    add_svav_to_string_list (value, &options->$option, $dir_string_arg);\n";
     } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
-      print GET "    options->$option = "
-                        ."html_get_button_specification_list (value);\n";
+      print GET "    {\n";
+      print GET "      html_free_button_specification_list (options->$option);\n";
+      print GET "      options->$option = "
+                        ."html_get_button_specification_list (converter, value);\n";
+      print GET "    }\n";
     } else {
       print GET "    {}\n";
     }

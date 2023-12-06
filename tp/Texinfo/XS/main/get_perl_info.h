@@ -26,7 +26,7 @@ int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 void add_svav_to_string_list (SV *sv, STRING_LIST *string_list,
                               enum sv_string_type type);
 
-OPTIONS *copy_sv_options (SV *sv_in);
+OPTIONS *copy_sv_options (SV *sv_in, CONVERTER *converter);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
 
 CONVERTER *set_output_converter_sv (SV *sv_in, char *warn_string);
@@ -39,6 +39,7 @@ INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
 
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
-BUTTON_SPECIFICATION_LIST *html_get_button_specification_list (SV *buttons_sv);
+BUTTON_SPECIFICATION_LIST *html_get_button_specification_list
+                                (CONVERTER *converter, SV *buttons_sv);
 
 #endif

@@ -1093,7 +1093,7 @@ html_translate_names (SV *converter_in)
              free (self->conf);
 
              self->conf
-              = copy_sv_options (*converter_options_sv);
+              = copy_sv_options (*converter_options_sv, self);
            }
 
          html_translate_names (self);

@@ -110,8 +110,8 @@ get_shared_conversion_state (CONVERTER *self)
 
 TARGET_FILENAME *
 call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
-                                      OUTPUT_UNIT *special_unit, char *target,
-                                                    char *default_filename)
+                         const OUTPUT_UNIT *special_unit, const char *target,
+                                                const char *default_filename)
 {
   SV **file_id_setting_sv;
 
@@ -192,8 +192,8 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
 
 char *
 call_file_id_setting_label_target_name (CONVERTER *self,
-                       char *normalized, const ELEMENT *label_element, char *target,
-                       int *called)
+                const char *normalized, const ELEMENT *label_element,
+                const char *target, int *called)
 {
   SV **file_id_setting_sv;
 
@@ -266,8 +266,8 @@ call_file_id_setting_label_target_name (CONVERTER *self,
 
 char *
 call_file_id_setting_node_file_name (CONVERTER *self,
-                       const ELEMENT *target_element, char *node_filename,
-                       int *called)
+                   const ELEMENT *target_element, const char *node_filename,
+                   int *called)
 {
   SV **file_id_setting_sv;
 
@@ -343,9 +343,9 @@ call_file_id_setting_node_file_name (CONVERTER *self,
 
 TARGET_CONTENTS_FILENAME *
 call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
-                      const ELEMENT *command, char *target,
-                      char *target_contents,
-                      char *target_shortcontents, char *filename)
+                      const ELEMENT *command, const char *target,
+                      const char *target_contents,
+                      const char *target_shortcontents, const char *filename)
 {
   SV **file_id_setting_sv;
 
@@ -431,8 +431,9 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
 }
 
 FILE_NAME_PATH *
-call_file_id_setting_unit_file_name (CONVERTER *self, OUTPUT_UNIT *output_unit,
-                                     char *filename, char *filepath)
+call_file_id_setting_unit_file_name (CONVERTER *self,
+                                 const OUTPUT_UNIT *output_unit,
+                                 const char *filename, const char *filepath)
 {
   SV **file_id_setting_sv;
 
@@ -926,8 +927,8 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self)
 }
 
 char *
-call_formatting_function_format_end_file (CONVERTER *self, char *filename,
-                                          const OUTPUT_UNIT *output_unit)
+call_formatting_function_format_end_file (CONVERTER *self,
+                    const char *filename, const OUTPUT_UNIT *output_unit)
 {
   int count;
   char *result;
@@ -992,7 +993,8 @@ call_formatting_function_format_end_file (CONVERTER *self, char *filename,
 }
 
 char *
-call_formatting_function_format_begin_file (CONVERTER *self, char *filename,
+call_formatting_function_format_begin_file (CONVERTER *self,
+                                            const char *filename,
                                             const OUTPUT_UNIT *output_unit)
 {
   int count;
@@ -1111,6 +1113,93 @@ call_formatting_function_format_translate_message (CONVERTER *self,
     {
       result_ret = SvPVutf8 (result_sv, len);
       result = strdup (result_ret);
+    }
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+FORMATTED_BUTTON_INFO *
+call_formatting_function_format_button (CONVERTER *self,
+                                  const BUTTON_SPECIFICATION *button,
+                                  const ELEMENT *element)
+{
+  int count;
+  SV *need_delimiter_sv;
+  SV *passive_sv;
+  SV *active_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv
+    = self->formatting_references[
+         FR_format_button].sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  FORMATTED_BUTTON_INFO *result
+   = (FORMATTED_BUTTON_INFO *) malloc (sizeof (FORMATTED_BUTTON_INFO));
+  memset (result, 0, sizeof (FORMATTED_BUTTON_INFO));
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  SvREFCNT_inc (button->sv);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (button->sv));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_ARRAY);
+
+  SPAGAIN;
+
+  if (count != 3)
+    croak("format_button should return 3 items\n");
+
+  need_delimiter_sv = POPs;
+  if (SvOK (need_delimiter_sv))
+    {
+      result->need_delimiter = SvIV (need_delimiter_sv);
+    }
+
+  passive_sv = POPs;
+  if (SvOK (passive_sv))
+    {
+      STRLEN len;
+      char *passive_ret = SvPV (passive_sv, len);
+      result->passive = strdup (passive_ret);
+    }
+
+  active_sv = POPs;
+  if (SvOK (active_sv))
+    {
+      STRLEN len;
+      char *active_ret = SvPV (active_sv, len);
+      result->active = strdup (active_ret);
     }
 
   PUTBACK;

@@ -1,3 +1,39 @@
+2023-12-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel):
+	ignore leading space button also if the button specificatio is a
+	reference on an array.
+
+	* tp/Texinfo/XS/main/tree_types.h (HTML_GLOBAL_DIRECTIONS_LIST)
+	(enum global_unit_direction), tp/Texinfo/XS/main/utils.h: move
+	HTML_GLOBAL_DIRECTIONS_LIST to tree_types.h.
+
+	* tp/Texinfo/XS/main/api_to_perl.c (unregister_perl_button),
+	tp/Texinfo/XS/main/converter_types.h (enum button_unit_direction)
+	(BUTTON_SPECIFICATION_INFO, BUTTON_SPECIFICATION),
+	tp/Texinfo/XS/main/get_perl_info.c (get_sv_options, copy_sv_options)
+	(converter_initialize, set_output_converter_sv)
+	(html_get_direction_index, html_get_button_specification_list),
+	tp/Texinfo/XS/main/utils.c (html_button_direction_names)
+	(html_free_button_specification_list),
+	tp/maintain/regenerate_C_options_info.pl: get perl buttons information
+	into C with html_get_direction_index and
+	html_get_button_specification_list, add
+	html_free_button_specification_list to free that information.  Add a
+	converter argument to *_sv_options to obtain the special output units
+	direction strings.  Update callers.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_button),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_global_unit_direction_names, format_button)
+	(html_default_format_navigation_panel, format_navigation_panel),
+	tp/Texinfo/XS/main/converter_types.h (FORMATTED_BUTTON_INFO):
+	add call_formatting_function_format_button, implement
+	format_navigation_panel in C.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c: add const.
+
 2023-12-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c

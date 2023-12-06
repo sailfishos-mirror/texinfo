@@ -40,6 +40,7 @@
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
+#include "api_to_perl.h"
 #include "utils.h"
 
 #include "options_init_free.c"
@@ -83,6 +84,22 @@ EXPANDED_FORMAT expanded_formats[] = {
     "xml", 0,
     "info", 0,
     "latex", 0,
+};
+
+/* special output units global directions are not there, they are
+   determined from perl dynamically */
+const char *html_button_direction_names[] = {
+  #define hgdt_name(name) #name,
+   HTML_GLOBAL_DIRECTIONS_LIST
+  #undef hgdt_name
+   " ",
+  #define rud_type(name) #name,
+   RUD_DIRECTIONS_TYPES_LIST
+   RUD_FILE_DIRECTIONS_TYPES
+  #undef rud_type
+  #define rud_type(name) "FirstInFile" #name,
+   RUD_DIRECTIONS_TYPES_LIST
+  #undef rud_type
 };
 
 /* wrapper for asprintf */
@@ -1265,5 +1282,26 @@ enumerate_item_representation (char *specification, int number)
 
   free (letter_ords);
   return result.text;
+}
+
+void
+html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
+{
+  if (!buttons)
+    return;
+
+  if (buttons->number > 0)
+    {
+      size_t i;
+      for (i = 0; i < buttons->number; i++)
+        {
+          BUTTON_SPECIFICATION *button = &buttons->list[i];
+          if (button->type == BST_direction_info)
+            free (button->button_info);
+          unregister_perl_button (button);
+        }
+    }
+  free (buttons->list);
+  free (buttons);
 }
 

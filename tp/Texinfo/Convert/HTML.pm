@@ -4154,10 +4154,12 @@ sub _default_format_navigation_panel($$$$;$)
       $direction = $button->[0];
     } elsif (defined($button) and ref($button) eq '') {
       $direction = $button;
-      # if the first button is an empty button, pass
-      if ($direction eq ' ' and $nr_of_buttons_shown == 0) {
-        next;
-      }
+    }
+    # if the first button is an empty button, pass
+    # FIXME check if documented, if not, document
+    if (defined($direction)
+        and $direction eq ' ' and $nr_of_buttons_shown == 0) {
+      next;
     }
 
     my ($active, $passive, $need_delimiter)

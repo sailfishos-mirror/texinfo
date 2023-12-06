@@ -39,6 +39,8 @@ FIXME add an initialization of translations?
 */
 
 #include "options_types.h"
+#include "document_types.h"
+#include "converter_types.h"
 #include "utils.h"
 #include "builtin_commands.h"
 #include "document.h"
@@ -195,7 +197,7 @@ add_svav_to_string_list (SV *sv, STRING_LIST *string_list, enum sv_string_type t
 #include "options_get_perl.c"
 
 void
-get_sv_options (SV *sv, OPTIONS *options)
+get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter)
 {
   I32 hv_number;
   I32 i;
@@ -212,17 +214,17 @@ get_sv_options (SV *sv, OPTIONS *options)
       SV *value = hv_iternextsv(hv, &key, &retlen);
       if (value && SvOK (value))
         {
-          get_sv_option (options, key, value);
+          get_sv_option (options, key, value, converter);
         }
     }
 }
 
 
 OPTIONS *
-copy_sv_options (SV *sv_in)
+copy_sv_options (SV *sv_in, CONVERTER *converter)
 {
   OPTIONS *options = new_options ();
-  get_sv_options (sv_in, options);
+  get_sv_options (sv_in, options, converter);
   return options;
 }
 
@@ -363,7 +365,7 @@ converter_initialize (SV *converter_sv, CONVERTER *converter)
   if (conf_sv && SvOK (*conf_sv))
     {
       converter->conf
-         = copy_sv_options (*conf_sv);
+         = copy_sv_options (*conf_sv, converter);
     }
 
   FETCH(converter_init_conf)
@@ -371,7 +373,7 @@ converter_initialize (SV *converter_sv, CONVERTER *converter)
   if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
     {
       converter->init_conf
-         = copy_sv_options (*converter_init_conf_sv);
+         = copy_sv_options (*converter_init_conf_sv, converter);
     }
 
   FETCH(output_format)
@@ -411,7 +413,7 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
       free (converter->conf);
 
       converter->conf
-         = copy_sv_options (*conf_sv);
+         = copy_sv_options (*conf_sv, converter);
     }
 
   FETCH(output_init_conf)
@@ -423,7 +425,7 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
       free (converter->init_conf);
 
       converter->init_conf
-         = copy_sv_options (*output_init_conf_sv);
+         = copy_sv_options (*output_init_conf_sv, converter);
     }
 
   return converter;
@@ -564,7 +566,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
             = &index_index_letters->letter_entries[i];
           if (letter_entries_sv)
             {
-              int k;
+              SSize_t k;
               char *letter_string;
               SSize_t entries_nr;
               AV *entries_av;
@@ -664,7 +666,7 @@ void
 set_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
-    get_sv_option (converter->conf, conf, value);
+    get_sv_option (converter->conf, conf, value, converter);
    /* Too early to have options set
   else
     fprintf (stderr, "HHH no converter conf %s\n", conf);
@@ -720,7 +722,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (other_converter_options_sv)
     {
       text_options->other_converter_options
-         = copy_sv_options (*other_converter_options_sv);
+         = copy_sv_options (*other_converter_options_sv, 0);
     }
 
   self_converter_options_sv = hv_fetch (hv_in, "self_converter_options",
@@ -729,26 +731,129 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (self_converter_options_sv)
     {
       text_options->self_converter_options
-         = copy_sv_options (*self_converter_options_sv);
+         = copy_sv_options (*self_converter_options_sv, 0);
     }
 
   return text_options;
 }
 
+int
+html_get_direction_index (CONVERTER *converter, const char *direction)
+{
+  int i;
+  int idx;
+  for (i = 0; i < D_button_FirstInFileNodeUp +1; i++)
+    {
+      if (!strcmp (direction, html_button_direction_names[i]))
+        return i;
+    }
+  idx = D_button_FirstInFileNodeUp +1;
+  if (converter)
+    {
+      for (i = 0; i < converter->special_unit_varieties.number; i++)
+        {
+          if (!strcmp(direction,
+                  converter->special_unit_info[SUI_type_direction][i]))
+            return idx;
+          idx++;
+        }
+    }
+  return -1;
+}
+
 /* HTML specific, but needs to be there for options_get_perl.c */
 BUTTON_SPECIFICATION_LIST *
-html_get_button_specification_list (SV *buttons_sv)
+html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
 {
   BUTTON_SPECIFICATION_LIST *result;
+  AV *buttons_av;
+  SSize_t buttons_nr;
+  SSize_t i;
 
   dTHX;
 
   result = (BUTTON_SPECIFICATION_LIST *)
             malloc (sizeof (BUTTON_SPECIFICATION_LIST));
 
-  result->av = (AV *)SvRV (buttons_sv);
+  buttons_av = (AV *)SvRV (buttons_sv);
+  /* TODO increase ref count of result->av? */
+  result->av = buttons_av;
 
-  /* TODO do C structures to be able to call C functions */
+  buttons_nr = av_top_index (buttons_av) +1;
+
+  result->number = (size_t) buttons_nr;
+  result->list = (BUTTON_SPECIFICATION *)
+    malloc (result->number * sizeof (BUTTON_SPECIFICATION));
+  memset (result->list, 0, result->number * sizeof (BUTTON_SPECIFICATION));
+ 
+  for (i = 0; i < buttons_nr; i++)
+    {
+      SV** button_sv = av_fetch (buttons_av, i, 0);
+      BUTTON_SPECIFICATION *button = &result->list[i];
+
+      button->sv = *button_sv;
+      SvREFCNT_inc (button->sv);
+
+      if (SvROK (*button_sv))
+        {
+          if (SvTYPE (SvRV(*button_sv)) == SVt_PVCV) /* CODE */
+            {
+              button->type = BST_function;
+              button->sv_reference = *button_sv;
+            }
+          else if (SvTYPE (SvRV(*button_sv)) == SVt_PVAV)
+            {
+              AV *button_spec_info_av = (AV *) SvRV(*button_sv);
+              SV **direction_sv = av_fetch (button_spec_info_av, 0, 0);
+              SV **button_spec_info_type
+                 = av_fetch (button_spec_info_av, 1, 0);
+
+              BUTTON_SPECIFICATION_INFO *button_spec
+                = (BUTTON_SPECIFICATION_INFO *)
+                   malloc (sizeof (BUTTON_SPECIFICATION_INFO));
+              memset (button_spec, 0, sizeof (BUTTON_SPECIFICATION_INFO));
+
+              button->type = BST_direction_info;
+              button->button_info = button_spec;
+
+              button_spec->direction
+                = html_get_direction_index (converter,
+                                            SvPVutf8_nolen (*direction_sv));
+
+              if (SvROK (*button_spec_info_type))
+                {
+                  if (SvTYPE (SvRV(*button_spec_info_type)) == SVt_PVCV) /* CODE */
+                    {
+                      button_spec->type = BIT_function;
+                      button_spec->sv_reference = *button_spec_info_type;
+                    }
+                  else
+                    {
+                      button_spec->type = BIT_string;
+                      button_spec->sv_string = *button_spec_info_type;
+                    }
+                }
+              else
+                {
+                  button_spec->type = BIT_direction_information_type;
+                  button_spec->direction_information_type
+                   = html_get_direction_index (converter,
+                                 SvPVutf8_nolen (*button_spec_info_type));
+                }
+            }
+          else
+            {
+              button->type = BST_string;
+              button->sv_string = *button_sv;
+            }
+        }
+      else
+        {
+          button->type = BST_direction;
+          button->direction = html_get_direction_index (converter,
+                                              SvPVutf8_nolen (*button_sv));
+        }
+    }
 
   return result;
 }

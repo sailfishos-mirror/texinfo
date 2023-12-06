@@ -107,6 +107,7 @@ char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
    HTML_GLOBAL_DIRECTIONS_LIST
   #undef hgdt_name
+   " ",
 };
 
 char *html_conversion_context_type_names[] = {
@@ -4690,13 +4691,149 @@ convert_text (CONVERTER *self, const enum element_type type,
     free (content_used);
 }
 
+FORMATTED_BUTTON_INFO *
+format_button (CONVERTER *self,
+               const BUTTON_SPECIFICATION *button,
+               const ELEMENT *element)
+{
+/*
+  if (self->formatting_references[FR_format_button].status
+                                             == FRS_status_default_set)
+    {
+      html_default_format_button (self, button, element, result);
+    }
+  else
+*/
+    {
+      return call_formatting_function_format_button (self, button, element);
+    }
+}
+
+void
+html_default_format_navigation_panel (CONVERTER *self,
+                         const BUTTON_SPECIFICATION_LIST *buttons,
+                         const char *cmdname, const ELEMENT *element,
+                         int vertical, TEXT *result)
+{
+  int i;
+  /* do the buttons first in case they are formatteed as an empty string */
+  int nr_of_buttons_shown = 0;
+  TEXT result_buttons;
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  text_init (&result_buttons);
+  text_append (&result_buttons, "");
+
+  for (i = 0; i < buttons->number; i++)
+    {
+      const BUTTON_SPECIFICATION *button = &buttons->list[i];
+      FORMATTED_BUTTON_INFO *button_info;
+      char *active = 0;
+      char *passive = 0;
+      int need_delimiter = 0;
+      int direction = -1;
+      if (button->type == BST_direction_info)
+        direction = button->button_info->direction;
+      else if (button->type == BST_direction)
+        direction = button->direction;
+
+      if (direction >= 0 && direction == D_button_space
+          && nr_of_buttons_shown == 0)
+        continue;
+
+      button_info = format_button (self, button, element);
+
+      if (button_info)
+        {
+          need_delimiter = button_info->need_delimiter;
+          active = button_info->active;
+          passive = button_info->passive;
+          free (button_info);
+        }
+
+      if (self->conf->HEADER_IN_TABLE > 0)
+        {
+          if (vertical)
+            text_append_n (&result_buttons, "<tr>\n", 5);
+          text_append_n (&result_buttons, "<td>", 4);
+
+          if (active)
+            text_append (&result_buttons, active);
+          else if (passive)
+            text_append (&result_buttons, passive);
+
+          text_append_n (&result_buttons, "</td>\n", 6);
+          if (vertical)
+            text_append_n (&result_buttons, "</tr>\n", 6);
+
+          nr_of_buttons_shown++;
+        }
+      else if (active)
+        { /* only active buttons are print out when not in table */
+          if (need_delimiter && nr_of_buttons_shown > 0)
+            text_append_n (&result_buttons, ", ", 2);
+
+          text_append (&result_buttons, active);
+
+          nr_of_buttons_shown++;
+        }
+
+      free (active);
+      free (passive);
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+
+  add_string ("nav-panel", classes);
+
+  if (self->conf->HEADER_IN_TABLE > 0)
+    {
+      attribute_class = html_attribute_class (self, "table", classes);
+      text_append (result, attribute_class);
+      text_append (result,
+                   " cellpadding=\"1\" cellspacing=\"1\" border=\"0\">\n");
+      free (attribute_class);
+
+      if (!vertical)
+        text_append_n (result, "<tr>", 4);
+    }
+  else
+    {
+      attribute_class = html_attribute_class (self, "div", classes);
+      text_append (result, attribute_class);
+      text_append_n (result, ">\n", 2);
+      free (attribute_class);
+
+      if (result_buttons.end > 0)
+        text_append_n (result, "<p>\n", 4);
+    }
+  destroy_strings_list (classes);
+
+  text_append (result, result_buttons.text);
+
+  if (self->conf->HEADER_IN_TABLE > 0)
+    {
+      if (!vertical)
+        text_append_n (result, "</tr>", 5);
+      text_append_n (result, "</table>\n", 9);
+    }
+  else
+    {
+      if (result_buttons.end > 0)
+        text_append_n (result, "</p>\n", 5);
+
+      text_append_n (result, "</div>\n", 7);
+    }
+}
+
 void
 format_navigation_panel (CONVERTER *self,
                          const BUTTON_SPECIFICATION_LIST *buttons,
                          const char *cmdname, const ELEMENT *element,
                          int vertical, TEXT *result)
 {
-/*
   if (self->formatting_references[FR_format_navigation_panel].status
                                              == FRS_status_default_set)
     {
@@ -4704,7 +4841,6 @@ format_navigation_panel (CONVERTER *self,
                                             element, vertical, result);
     }
   else
-*/
     {
       char *navigation_panel
         = call_formatting_function_format_navigation_panel (self,

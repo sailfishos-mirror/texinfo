@@ -40,6 +40,8 @@ extern const char *output_unit_type_names[];
 
 extern const char *command_location_names[];
 
+extern const char *html_button_direction_names[];
+
 typedef struct {
     char *encoding_name;
     iconv_t iconv;
@@ -98,30 +100,7 @@ typedef struct COMMAND_OPTION_VALUE {
 
 extern const enum command_id small_block_associated_command[][2];
 
-/* CONVERTER and associated types needed for set_global_document_command */
-/* see Texinfo::HTML _prepare_output_units_global_targets
-
-   NOTE the special output units names are not actually used, the
-   special output units direction names are obtained from the perl input
-   and stored in special_unit_info and put later on in
-   special_units_direction_name
- */
-#define HTML_GLOBAL_DIRECTIONS_LIST \
-   hgdt_name(First) \
-   hgdt_name(Top) \
-   hgdt_name(Index) \
-   hgdt_name(Last) \
-   hgdt_name(About) \
-   hgdt_name(Contents) \
-   hgdt_name(Overview) \
-   hgdt_name(Footnotes)
-
-enum global_unit_direction {
-  #define hgdt_name(name) D_ ## name,
-   HTML_GLOBAL_DIRECTIONS_LIST
-  #undef hgdt_name
-};
-
+/* enum needed for set_global_document_command */
 enum command_location {
    CL_before,
    CL_last,
@@ -254,4 +233,6 @@ ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
                              enum command_location command_location);
 ELEMENT_LIST *get_cmd_global_multi_command (GLOBAL_COMMANDS *global_commands_ref,
                                       enum command_id cmd);
+
+void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
 #endif
