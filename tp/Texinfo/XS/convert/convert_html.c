@@ -4691,6 +4691,44 @@ convert_text (CONVERTER *self, const enum element_type type,
     free (content_used);
 }
 
+void
+html_default_format_separate_anchor (CONVERTER *self, const char *id,
+                                     const char *class, TEXT *result)
+{
+ /*  html_attribute_class would not work with span, so if span is
+     used, html_attribute_class should not be used */
+  STRING_LIST *classes;
+  char *attribute_class;
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (class, classes);
+
+  attribute_class = html_attribute_class (self, "a", classes);
+  text_append (result, attribute_class);
+  text_printf (result, " id=\"%s\"></a>", id);
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+void
+format_separate_anchor (CONVERTER *self, const char *id,
+                        const char *class, TEXT *result)
+{
+  if (self->formatting_references[FR_format_separate_anchor].status
+                                             == FRS_status_default_set)
+    {
+      html_default_format_separate_anchor (self, id, class, result);
+    }
+  else
+    {
+      char *separate_anchor
+        = call_formatting_function_format_separate_anchor (self, id, class);
+      text_append (result, separate_anchor);
+      free (separate_anchor);
+    }
+}
+
 FORMATTED_BUTTON_INFO *
 format_button (CONVERTER *self,
                const BUTTON_SPECIFICATION *button,
@@ -5527,11 +5565,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
         }
       if (*in_skipped_node_top == 1)
         {
-          char *anchor
-            = call_formatting_function_format_separate_anchor (self,
-                                element_id, builtin_command_name(cmd));
-          text_append (result, anchor);
-          free (anchor);
+          format_separate_anchor (self, element_id,
+                                  builtin_command_name(cmd), result);
           text_append (result, element_header.text);
           free (element_header.text);
           text_append (result, tables_of_contents.text);
@@ -5692,7 +5727,6 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
    {
      if (element_header.end > 0)
        {
-         char *anchor;
      /* case of a @node without sectioning command and with a header.
         put the node element anchor before the header.
         Set the class name to the command name if there is no heading,
@@ -5706,11 +5740,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
          else
            id_class = builtin_command_name (cmd);
 
-         anchor
-            = call_formatting_function_format_separate_anchor (self,
-                                                    element_id, id_class);
-         text_append (result, anchor);
-         free (anchor);
+         format_separate_anchor (self, element_id, id_class, result);
 
          if (do_heading)
            free (id_class);
@@ -5785,11 +5815,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   else if (heading_id)
     {
    /* case of a lone node and no header, and case of an empty @top */
-      char *anchor
-        = call_formatting_function_format_separate_anchor (self,
-                            heading_id, builtin_command_name(cmd));
-      text_append (result, anchor);
-      free (anchor);
+      format_separate_anchor (self, heading_id, builtin_command_name(cmd),
+                              result);
     }
 
   free (heading);
