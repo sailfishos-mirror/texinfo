@@ -903,11 +903,12 @@ sub footnote_location_target($$)
   my $self = shift;
   my $command = shift;
 
-  my $footnote_location_special_target = _get_footnote_location_target($self,
-                                                                   $command);
-  if (defined($footnote_location_special_target)) {
-    return $footnote_location_special_target->{'target'};
+  my $footnote_location_special_target_info
+    = _get_footnote_location_target($self, $command);
+  if (defined($footnote_location_special_target_info)) {
+    return $footnote_location_special_target_info->{'target'};
   }
+  return undef;
 }
 
 sub command_filename($$)

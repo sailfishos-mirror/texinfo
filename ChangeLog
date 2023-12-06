@@ -1,5 +1,17 @@
 2023-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (footnote_location_target): explicit
+	return undef.
+
+	* tp/Texinfo/XS/convert/convert_html.c (get_footnote_location_target)
+	(html_footnote_location_target, html_footnote_location_href)
+	(html_default_format_footnotes_sequence, format_footnotes_sequence)
+	(default_format_footnotes_segment): implement
+	html_footnote_location_target, html_footnote_location_href and
+	html_default_format_footnotes_sequence in C.
+
+2023-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_default_format_separate_anchor, format_separate_anchor)
 	(convert_heading_command): implement

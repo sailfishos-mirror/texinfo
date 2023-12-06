@@ -850,7 +850,7 @@ html_get_pending_footnotes (CONVERTER *self)
 void
 destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack)
 {
-  int i;
+  size_t i;
   for (i = 0; i < stack->top; i++)
     {
       free (stack->stack[i]->multi_expanded_region);
@@ -2966,6 +2966,25 @@ html_command_contents_target (CONVERTER *self, const ELEMENT *command,
   return 0;
 }
 
+static HTML_TARGET *
+get_footnote_location_target (CONVERTER *self, const ELEMENT *command)
+{
+  HTML_TARGET *result
+   = find_element_target (&self->html_special_targets[ST_footnote_location],
+                          command);
+  return result;
+}
+
+char *
+html_footnote_location_target (CONVERTER *self, const ELEMENT *command)
+{
+  HTML_TARGET *footnote_location_special_target_info
+    = get_footnote_location_target (self, command);
+  if (footnote_location_special_target_info)
+    return footnote_location_special_target_info->target;
+  return 0;
+}
+
 /* Return string for linking to CONTENTS_OR_SHORTCONTENTS associated
    element from $COMMAND with <a href> */
 char *
@@ -3022,6 +3041,86 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
         }
     }
   return 0;
+}
+
+char *
+html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
+                         const char *source_filename,
+            const char *specified_target, /* specify explicitly the target */
+            const char *target_filename_in) /* to specify explicitly the file */
+{
+  TEXT href;
+  const char *filename_from;
+  HTML_TARGET *footnote_location_target_info;
+  const char *target = 0;
+  const char *target_filename = target_filename_in;
+
+  if (source_filename)
+    filename_from = source_filename;
+  else
+    filename_from = self->current_filename.filename;
+
+  footnote_location_target_info = get_footnote_location_target(self, command);
+
+  if (specified_target)
+    target = specified_target;
+  else
+    target = footnote_location_target_info->target;
+
+ /* In the default footnote formatting functions, which calls
+    footnote_location_href, the target file is always known as the
+    footnote in the document appears before the footnote text formatting.
+    $target_filename is therefore always defined.  It is a good thing
+    for the case of @footnote being formatted more than once (in multiple
+    @insertcopying for instance) as the file found just below may not be the
+    correct one in such a case.
+  */
+  if (!target_filename)
+    {
+      if (footnote_location_target_info
+          && footnote_location_target_info->file_number_name.filename)
+        {
+          target_filename
+            = footnote_location_target_info->file_number_name.filename;
+        }
+      else
+        {
+    /* in contrast with command_filename() we find the location holding
+       the @footnote command, not the footnote element with footnotes */
+          ROOT_AND_UNIT *root_unit
+            = html_get_tree_root_element (self, command, 0);
+
+          if (root_unit && root_unit->output_unit
+              && root_unit->output_unit->unit_filename)
+            {
+              size_t file_index
+            = self->output_unit_file_indices[root_unit->output_unit->index];
+              footnote_location_target_info->file_number_name.file_number
+                = file_index +1;
+              footnote_location_target_info->file_number_name.filename
+                 = root_unit->output_unit->unit_filename;
+            }
+          footnote_location_target_info->filename_set = 1;
+
+          free (root_unit);
+          target_filename
+            = footnote_location_target_info->file_number_name.filename;
+        }
+    }
+
+  text_init (&href);
+  text_append (&href, "");
+  if (target_filename
+      && (!filename_from || strcmp (target_filename, filename_from)))
+    {
+      text_append (&href, target_filename);
+    }
+  if (target && strlen (target))
+    {
+      text_append_n (&href, "#", 1);
+      text_append (&href, target);
+    }
+  return href.text;
 }
 
 int *
@@ -5061,6 +5160,102 @@ format_element_header (CONVERTER *self,
     }
 }
 
+void
+html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
+{
+  size_t i;
+  HTML_PENDING_FOOTNOTE_STACK *pending_footnotes
+   = html_get_pending_footnotes (self);
+
+  if (pending_footnotes->top > 0)
+    {
+      STRING_LIST *classes;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string ("footnote-body-heading", classes);
+
+      for (i = 0; i < pending_footnotes->top; i++)
+        {
+          const HTML_PENDING_FOOTNOTE *pending_footnote_info
+           = pending_footnotes->stack[i];
+          const ELEMENT *command = pending_footnote_info->command;
+          const char *footid = pending_footnote_info->footid;
+          int number_in_doc = pending_footnote_info->number_in_doc;
+          size_t footnote_text_len;
+          char *footnote_text;
+          char *context_str;
+          char *footnote_text_with_eol;
+          char *attribute_class;
+          char *footnote_mark;
+          char *footnote_location_href
+           = html_footnote_location_href (self, command, 0,
+                                     pending_footnote_info->docid,
+                    pending_footnote_info->footnote_location_filename);
+   /*
+      NOTE the @-commands in @footnote that are formatted differently depending
+      on in_multi_expanded($self) cannot know that the original context
+      of the @footnote in the main document was $multi_expanded_region.
+      We do not want to set multi_expanded in customizable code.  However, it
+      could be possible to set a shared_conversion_state based on $multi_expanded_region
+      and have all the conversion functions calling in_multi_expanded($self)
+      also check the shared_conversion_state.  The special situations
+      with those @-commands in @footnote in multi expanded
+      region do not justify this additional code and complexity.  The consequences
+      should only be redundant anchors HTML elements.
+    */
+          xasprintf (&context_str, "%s %d %s", element_command_name (command),
+                                   number_in_doc, footid);
+          footnote_text
+            = convert_tree_new_formatting_context (self, command->args.list[0],
+                                                         context_str, 0, 0, 0);
+          free (context_str);
+
+          footnote_text_len = strlen (footnote_text);
+          if (footnote_text_len <= 0
+              || footnote_text[footnote_text_len -1] != '\n')
+            {
+              xasprintf (&footnote_text_with_eol, "%s\n", footnote_text);
+              free (footnote_text);
+            }
+          else
+            footnote_text_with_eol = footnote_text;
+
+          if (self->conf->NUMBER_FOOTNOTES > 0)
+            xasprintf (&footnote_mark, "%d", number_in_doc);
+          else
+            footnote_mark = strdup (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL);
+
+          attribute_class = html_attribute_class (self, "h5", classes);
+          text_append (result, attribute_class);
+          text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
+                       footid, footnote_location_href, footnote_mark);
+
+          free (footnote_mark);
+          free (footnote_location_href);
+
+          text_append (result, footnote_text_with_eol);
+          free (footnote_text_with_eol);
+        }
+      destroy_strings_list (classes);
+    }
+}
+
+void
+format_footnotes_sequence (CONVERTER *self, TEXT *result)
+{
+  if (self->formatting_references[FR_format_footnotes_sequence].status
+                                             == FRS_status_default_set)
+    {
+      html_default_format_footnotes_sequence (self, result);
+    }
+  else
+    {
+      char *footnotes_sequence
+        = call_formatting_function_format_footnotes_sequence (self);
+      text_append (result, footnotes_sequence);
+      free (footnotes_sequence);
+    }
+}
 
 void
 default_format_footnotes_segment (CONVERTER *self, TEXT *result)
@@ -5073,11 +5268,14 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
   char *footnote_heading;
   int level;
   char *formatted_heading;
-  char *foot_lines = call_formatting_function_format_footnotes_sequence (self);
+  TEXT foot_lines;
 
-  if (!foot_lines || !strlen (foot_lines))
+  text_init (&foot_lines);
+  format_footnotes_sequence (self, &foot_lines);
+
+  if (foot_lines.end <= 0)
     {
-      free (foot_lines);
+      free (foot_lines.text);
       return;
     }
 
@@ -5136,8 +5334,8 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
   if (footnote_heading_tree)
     free (footnote_heading);
 
-  text_append (result, foot_lines);
-  free (foot_lines);
+  text_append (result, foot_lines.text);
+  free (foot_lines.text);
   text_append (result, "</div>\n");
 }
 
