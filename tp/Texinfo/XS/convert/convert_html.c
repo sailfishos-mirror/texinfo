@@ -4956,6 +4956,9 @@ format_button (CONVERTER *self,
     }
 }
 
+static char *nav_panel_array[] = {"nav-panel"};
+static const STRING_LIST nav_panel_classes = {nav_panel_array, 1, 1};
+
 void
 html_default_format_navigation_panel (CONVERTER *self,
                          const BUTTON_SPECIFICATION_LIST *buttons,
@@ -4967,7 +4970,6 @@ html_default_format_navigation_panel (CONVERTER *self,
   int nr_of_buttons_shown = 0;
   TEXT result_buttons;
   char *attribute_class;
-  STRING_LIST *classes;
 
   text_init (&result_buttons);
   text_append (&result_buttons, "");
@@ -5030,14 +5032,10 @@ html_default_format_navigation_panel (CONVERTER *self,
       free (passive);
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
-
-  add_string ("nav-panel", classes);
-
   if (self->conf->HEADER_IN_TABLE > 0)
     {
-      attribute_class = html_attribute_class (self, "table", classes);
+      attribute_class = html_attribute_class (self, "table",
+                                              &nav_panel_classes);
       text_append (result, attribute_class);
       text_append (result,
                    " cellpadding=\"1\" cellspacing=\"1\" border=\"0\">\n");
@@ -5048,7 +5046,7 @@ html_default_format_navigation_panel (CONVERTER *self,
     }
   else
     {
-      attribute_class = html_attribute_class (self, "div", classes);
+      attribute_class = html_attribute_class (self, "div", &nav_panel_classes);
       text_append (result, attribute_class);
       text_append_n (result, ">\n", 2);
       free (attribute_class);
@@ -5056,7 +5054,6 @@ html_default_format_navigation_panel (CONVERTER *self,
       if (result_buttons.end > 0)
         text_append_n (result, "<p>\n", 4);
     }
-  destroy_strings_list (classes);
 
   text_append (result, result_buttons.text);
 
@@ -5270,6 +5267,10 @@ format_element_header (CONVERTER *self,
     }
 }
 
+static char *foot_body_heading_array[] = {"footnote-body-heading"};
+static const STRING_LIST foot_body_heading_classes
+   = {foot_body_heading_array, 1, 1};
+
 void
 html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
@@ -5279,11 +5280,6 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 
   if (pending_footnotes->top > 0)
     {
-      STRING_LIST *classes;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
-      add_string ("footnote-body-heading", classes);
-
       for (i = 0; i < pending_footnotes->top; i++)
         {
           const HTML_PENDING_FOOTNOTE *pending_footnote_info
@@ -5335,7 +5331,8 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           else
             footnote_mark = strdup (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL);
 
-          attribute_class = html_attribute_class (self, "h5", classes);
+          attribute_class = html_attribute_class (self, "h5",
+                            &foot_body_heading_classes);
           text_append (result, attribute_class);
           text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
                        footid, footnote_location_href, footnote_mark);
@@ -5346,7 +5343,6 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           text_append (result, footnote_text_with_eol);
           free (footnote_text_with_eol);
         }
-      destroy_strings_list (classes);
     }
 }
 
@@ -5623,6 +5619,9 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
   return 0;
 }
 
+static char *mini_toc_array[] = {"mini-toc"};
+static const STRING_LIST mini_toc_classes = {mini_toc_array, 1, 1};
+
 /* Output a list of the nodes immediately below this one */
 void
 mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
@@ -5635,15 +5634,10 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
                                                         "section_childs", 0);
   if (section_childs && section_childs->number > 0)
     {
-      STRING_LIST *classes;
       char *attribute_class;
       size_t i;
 
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
-      add_string ("mini-toc", classes);
-      attribute_class = html_attribute_class (self, "ul", classes);
-      destroy_strings_list (classes);
+      attribute_class = html_attribute_class (self, "ul", &mini_toc_classes);
 
       text_append (result, attribute_class);
       free (attribute_class);

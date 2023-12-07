@@ -1,5 +1,14 @@
 2023-12-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (nav_panel_array)
+	(nav_panel_classes, html_default_format_navigation_panel)
+	(foot_body_heading_array, foot_body_heading_classes)
+	(html_default_format_footnotes_sequence, mini_toc_array)
+	(mini_toc_classes, mini_toc_internal): use static data for classes
+	arrays that are not dynamic.
+
+2023-12-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (footnote_location_href): rename
 	$special_target as $footnote_location_target_info.
 
