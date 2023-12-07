@@ -1,4 +1,21 @@
-2023-12-06  Patrice Dumas  <pertusus@free.fr>
+2023-12-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (footnote_location_href): rename
+	$special_target as $footnote_location_target_info.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_heading_text): Avoid
+	intermediary variables.
+
+	* tp/Texinfo/Convert/HTML.pm (_get_copiable_anchor): Allow id to be 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c (copiable_link_array)
+	(copiable_link_classes, get_copiable_anchor)
+	(html_default_format_heading_text, format_heading_text): implement
+	get_copiable_anchor and format_heading_text in C.  Update callers of
+	call_formatting_function_format_heading_text to call
+	format_heading_text instead.
+
+2023-12-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (footnote_location_target): explicit
 	return undef.

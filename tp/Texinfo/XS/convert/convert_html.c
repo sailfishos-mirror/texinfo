@@ -4828,6 +4828,116 @@ format_separate_anchor (CONVERTER *self, const char *id,
     }
 }
 
+static char *copiable_link_array[] = {"copiable-link"};
+static const STRING_LIST copiable_link_classes = {copiable_link_array, 1, 1};
+
+static char *
+get_copiable_anchor (CONVERTER *self, const char *id)
+{
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+  if (id && strlen (id) && self->conf->COPIABLE_LINKS > 0)
+    {
+      char *attribute_class = html_attribute_class (self, "a",
+                                                    &copiable_link_classes);
+      text_append (&result, attribute_class);
+      free (attribute_class);
+      text_printf (&result, " href=\"#%s\"> %s</a>",
+                   id, self->special_character[SC_paragraph_symbol].string);
+    }
+  return result.text;
+}
+
+void
+html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
+                     const STRING_LIST *classes, const char *text,
+                     int level, const char *id, const ELEMENT *element,
+                     const char *target, TEXT *result)
+{
+  int heading_level = level;
+  char *heading_html_element;
+  const char *heading_target;
+  if (!id && text[strspn (text, whitespace_chars)] == '\0')
+    return;
+
+  if (level < 1)
+    heading_level = 1;
+  else if (level > self->conf->MAX_HEADER_LEVEL)
+    heading_level = self->conf->MAX_HEADER_LEVEL;
+
+  xasprintf (&heading_html_element, "h%d", heading_level);
+
+  char *attribute_class
+    = html_attribute_class (self, heading_html_element, classes);
+  text_append (result, attribute_class);
+  free (heading_html_element);
+  free (attribute_class);
+
+  if (id)
+    {
+      text_printf (result, " id=\"%s\"", id);
+  /* The ID of this heading is likely the point the user would prefer being
+     linked to over the $target, since that's where they would be seeing a
+     copiable anchor. */
+      heading_target = id;
+    }
+  else
+    {
+      heading_target = target;
+    }
+
+  text_append_n (result, ">", 1);
+
+  if (heading_target && self->conf->COPIABLE_LINKS > 0)
+    {
+      char *copiable_anchor = get_copiable_anchor(self, heading_target);
+      text_append_n (result, "<span>", 6);
+      text_append (result, text);
+      text_append (result, copiable_anchor);
+      free (copiable_anchor);
+      text_append_n (result, "</span>", 7);
+    }
+  else
+   text_append (result, text);
+
+  text_printf (result, "</h%d>", heading_level);
+  if (cmd != CM_titlefont)
+    text_append_n (result, "\n", 1);
+  if (cmd == CM_part && self->conf->DEFAULT_RULE
+      && strlen (self->conf->DEFAULT_RULE))
+    {
+      text_append (result, self->conf->DEFAULT_RULE);
+      text_append_n (result, "\n", 1);
+    }
+}
+
+void
+format_heading_text (CONVERTER *self, const enum command_id cmd,
+                     const STRING_LIST *classes, const char *text,
+                     int level, const char *id, const ELEMENT *element,
+                     const char *target, TEXT *result)
+
+{
+  if (self->formatting_references[FR_format_heading_text].status
+                                             == FRS_status_default_set)
+    {
+      html_default_format_heading_text (self, cmd, classes, text,
+                                        level, id, element, target, result);
+    }
+  else
+    {
+      char *heading_text
+        = call_formatting_function_format_heading_text (self,
+                                        builtin_command_name (cmd),
+                                        classes, text,
+                                        level, id, element, target);
+      text_append (result, heading_text);
+      free (heading_text);
+    }
+}
+
 FORMATTED_BUTTON_INFO *
 format_button (CONVERTER *self,
                const BUTTON_SPECIFICATION *button,
@@ -5267,7 +5377,6 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
   ELEMENT *footnote_heading_tree;
   char *footnote_heading;
   int level;
-  char *formatted_heading;
   TEXT foot_lines;
 
   text_init (&foot_lines);
@@ -5321,15 +5430,10 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
   add_string (class, classes);
   free (class);
 
-  formatted_heading
-    = call_formatting_function_format_heading_text (self, 0, classes,
-                                                    footnote_heading,
-                                                    level, 0, 0, 0);
+  format_heading_text (self, 0, classes, footnote_heading, level, 0, 0, 0,
+                       result);
   destroy_strings_list (classes);
-  text_append (result, formatted_heading);
   text_append_n (result, "\n", 1);
-
-  free (formatted_heading);
 
   if (footnote_heading_tree)
     free (footnote_heading);
@@ -5437,7 +5541,6 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
           if (cmd_variety_index.cmd == cmd)
             {
               char *heading = 0;
-              char *formatted_heading;
               TEXT result;
               STRING_LIST *classes;
               char *class_base;
@@ -5500,15 +5603,13 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
 
               if (!heading)
                 heading = strdup ("");
-              formatted_heading
-               = call_formatting_function_format_heading_text (self, 0, classes,
-                            heading, self->conf->CHAPTER_HEADER_LEVEL, 0, 0, 0);
+              format_heading_text (self, 0, classes, heading,
+                                   self->conf->CHAPTER_HEADER_LEVEL,
+                                   0, 0, 0, &result);
               destroy_strings_list (classes);
 
               free (heading);
 
-              text_append (&result, formatted_heading);
-              free (formatted_heading);
               text_append_n (&result, "\n", 1);
 
               text_append (&result, content);
@@ -5999,14 +6100,10 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
         }
       else
         {
-          char *formatted_heading
-            = call_formatting_function_format_heading_text (self,
-                    builtin_command_name (level_corrected_cmd),
+          format_heading_text (self, level_corrected_cmd,
                     heading_classes, heading,
                     heading_level + self->conf->CHAPTER_HEADER_LEVEL -1,
-                    heading_id, element, element_id);
-          text_append (result, formatted_heading);
-          free (formatted_heading);
+                    heading_id, element, element_id, result);
         }
       destroy_strings_list (heading_classes);
     }
@@ -6247,7 +6344,6 @@ convert_special_unit_type (CONVERTER *self,
   size_t count_in_file = 0;
   int level;
   char *formatted_footer;
-  char *formatted_heading;
 
   if (html_in_string (self))
     return;
@@ -6330,15 +6426,10 @@ convert_special_unit_type (CONVERTER *self,
   add_string (class, classes);
   free (class);
 
-  formatted_heading
-    = call_formatting_function_format_heading_text (self, 0, classes, heading,
-                                                    level, 0, 0, 0);
+  format_heading_text (self, 0, classes, heading, level, 0, 0, 0, result);
   free (heading);
   destroy_strings_list (classes);
-  text_append (result, formatted_heading);
   text_append_n (result, "\n", 1);
-
-  free (formatted_heading);
 
   text_append (result, special_unit_body.text);
   free (special_unit_body.text);

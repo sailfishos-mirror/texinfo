@@ -1119,12 +1119,13 @@ sub footnote_location_href($$;$$$)
   $source_filename = $self->{'current_filename'}
     if (not defined($source_filename));
 
-  my $special_target = _get_footnote_location_target($self, $command);
+  my $footnote_location_target_info
+    = _get_footnote_location_target($self, $command);
   my $target = '';
   if (defined($specified_target)) {
     $target = $specified_target;
-  } elsif (defined($special_target)) {
-    $target = $special_target->{'target'};
+  } elsif (defined($footnote_location_target_info)) {
+    $target = $footnote_location_target_info->{'target'};
   }
   # In the default footnote formatting functions, which calls
   # footnote_location_href, the target file is always known as the
@@ -1134,22 +1135,23 @@ sub footnote_location_href($$;$$$)
   # @insertcopying for instance) as the file found just below may not be the
   # correct one in such a case.
   if (not defined($target_filename)) {
-    if (defined($special_target) and defined($special_target->{'filename'})) {
-      $target_filename = $special_target->{'filename'};
+    if (defined($footnote_location_target_info)
+        and defined($footnote_location_target_info->{'filename'})) {
+      $target_filename = $footnote_location_target_info->{'filename'};
     } else {
       # in contrast with command_filename() we find the location holding
       # the @footnote command, not the footnote element with footnotes
       my ($root_element, $root_command)
         = $self->_html_get_tree_root_element($command);
       if (defined($root_element)) {
-        if (not defined($special_target)) {
+        if (not defined($footnote_location_target_info)) {
           $self->{'special_targets'}->{'footnote_location'}->{$command} = {};
-          $special_target
+          $footnote_location_target_info
             = $self->{'special_targets'}->{'footnote_location'}->{$command};
         }
-        $special_target->{'filename'}
+        $footnote_location_target_info->{'filename'}
           = $root_element->{'unit_filename'};
-        $target_filename = $special_target->{'filename'};
+        $target_filename = $footnote_location_target_info->{'filename'};
       }
     }
   }
@@ -3822,25 +3824,30 @@ sub _default_format_heading_text($$$$$;$$$)
   } elsif ($level > $self->get_conf('MAX_HEADER_LEVEL')) {
     $level = $self->get_conf('MAX_HEADER_LEVEL');
   }
-  my $id_str = '';
+
+  my $result = $self->html_attribute_class("h$level", $classes);
+
   if (defined($id)) {
-    $id_str = " id=\"$id\"";
+    $result .= " id=\"$id\"";
 
     # The ID of this heading is likely the point the user would prefer being
     # linked to over the $target, since that's where they would be seeing a
     # copiable anchor.
     $target = $id;
   }
-  my $inside = $text;
+  $result .= '>';
+
   if (defined $target && $self->get_conf('COPIABLE_LINKS')) {
     # Span-wrap this anchor, so that the existing span:hover a.copiable-link
     # rule applies.
-    $inside = "<span>$text";
-    $inside .= $self->_get_copiable_anchor($target);
-    $inside .= '</span>';
+    $result .= "<span>$text";
+    $result .= $self->_get_copiable_anchor($target);
+    $result .= '</span>';
+  } else {
+    $result .= $text;
   }
-  my $result = $self->html_attribute_class("h$level", $classes)
-                    ."${id_str}>$inside</h$level>";
+  $result .= "</h$level>";
+
   # titlefont appears inline in text, so no end of line is
   # added. The end of line should be added by the user if needed.
   $result .= "\n" unless (defined($cmdname) and $cmdname eq 'titlefont');
@@ -7324,7 +7331,7 @@ sub _convert_def_line_type($$$$)
 sub _get_copiable_anchor {
   my ($self, $id) = @_;
   my $result = '';
-  if ($id and $self->get_conf('COPIABLE_LINKS')) {
+  if (defined($id) and $id ne '' and $self->get_conf('COPIABLE_LINKS')) {
     my $paragraph_symbol = $self->get_info('paragraph_symbol');
     $result = $self->html_attribute_class('a', ['copiable-link'])
         ." href=\"#$id\"> $paragraph_symbol</a>";
