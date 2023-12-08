@@ -28,7 +28,7 @@
 #include "tree.h"
 #include "builtin_commands.h"
 #include "extra.h"
-/* for whitespace_chars and fatal */
+/* for whitespace_chars fatal def_aliases */
 #include "utils.h"
 /* for relocate_source_marks */
 #include "manipulate_tree.h"
@@ -139,28 +139,6 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
   *i = *i - num + 1;
   return new;
 }
-
-typedef struct {
-    enum command_id alias;
-    enum command_id command;
-    char *category;
-    char *translation_context;
-} DEF_ALIAS;
-
-DEF_ALIAS def_aliases[] = {
-  CM_defun, CM_deffn, "Function", "category of functions for @defun",
-  CM_defmac, CM_deffn, "Macro", 0,
-  CM_defspec, CM_deffn, "Special Form", 0,
-  CM_defvar, CM_defvr, "Variable", "category of variables for @defvar",
-  CM_defopt, CM_defvr, "User Option", 0,
-  CM_deftypefun, CM_deftypefn, "Function", "category of functions for @deftypefun",
-  CM_deftypevar, CM_deftypevr, "Variable", "category of variables in typed languages for @deftypevar",
-  CM_defivar, CM_defcv, "Instance Variable", "category of instance variables in object-oriented programming for @defivar",
-  CM_deftypeivar, CM_deftypecv, "Instance Variable", "category of instance variables with data type in object-oriented programming for @deftypeivar",
-  CM_defmethod, CM_defop, "Method", "category of methods in object-oriented programming for @defmethod",
-  CM_deftypemethod, CM_deftypeop, "Method", "category of methods with data type in object-oriented programming for @deftypemethod",
-  0, 0, 0, 0
-};
 
 typedef struct {
     enum command_id command;
@@ -371,7 +349,7 @@ parse_def (enum command_id command, ELEMENT *current)
     {
       char *category;
       int i;
-      for (i = 0; i < sizeof (def_aliases) / sizeof (*def_aliases); i++)
+      for (i = 0; def_aliases[i].alias ; i++)
         {
           if (def_aliases[i].alias == command)
             goto found;

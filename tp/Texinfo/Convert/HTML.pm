@@ -7181,89 +7181,90 @@ sub _convert_def_line_type($$$$)
       $type_element, $name_element, $arguments)
          = Texinfo::Convert::Utils::definition_arguments_content($element);
 
-  my @classes = ();
-  my $command_name;
-  if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-    $command_name
-        = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
-  } else {
-    $command_name = $element->{'extra'}->{'def_command'};
-  }
+  my $original_def_cmdname = $element->{'extra'}->{'original_def_cmdname'};
   my $original_command_name;
-  if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'original_def_cmdname'}}) {
-    my $original_def_cmdname = $element->{'extra'}->{'original_def_cmdname'};
+  my $alias_class;
+  if ($Texinfo::Common::def_aliases{$original_def_cmdname}) {
     $original_command_name = $Texinfo::Common::def_aliases{$original_def_cmdname};
-    push @classes, "$original_def_cmdname-alias-$original_command_name";
+    $alias_class = "$original_def_cmdname-alias-$original_command_name";
   } else {
-    $original_command_name = $element->{'extra'}->{'original_def_cmdname'};
+    $original_command_name = $original_def_cmdname;
   }
-  if ($command_name ne $original_command_name) {
-    push @classes, "def-cmd-$command_name";
-  }
-  unshift @classes, $original_command_name;
 
-  my $result_type = '';
+  my $def_command = $element->{'extra'}->{'def_command'};
+  my $base_command_name;
+  if ($Texinfo::Common::def_aliases{$def_command}) {
+    $base_command_name
+        = $Texinfo::Common::def_aliases{$def_command};
+  } else {
+    $base_command_name = $def_command;
+  }
+
+  my @classes = ();
+  push @classes, $original_command_name;
+  if (defined($alias_class)) {
+    push @classes, $alias_class;
+  }
+  if ($base_command_name ne $original_command_name) {
+    push @classes, "def-cmd-$base_command_name";
+  }
+
+  my $def_call = '';
   if ($type_element) {
     my $type_text = $self->_convert({'type' => '_code',
        'contents' => [$type_element]});
     if ($type_text ne '') {
-      $result_type = $self->html_attribute_class('code', ['def-type']).'>'.
-         $type_text .'</code>';
+      $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
+          $type_text .'</code>';
     }
     if ($self->get_conf('deftypefnnewline') eq 'on'
-        and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
-      $result_type .= $self->get_info('line_break_element');
+        and ($base_command_name eq 'deftypefn'
+             or $base_command_name eq 'deftypeop')) {
+      $def_call .= $self->get_info('line_break_element') . ' ';
+    } elsif ($type_text ne '') {
+      $def_call .= ' ';
     }
   }
 
-  my $result_name = '';
   if ($name_element) {
-    $result_name = $self->html_attribute_class('strong', ['def-name']).'>'.
+    $def_call .= $self->html_attribute_class('strong', ['def-name']).'>'.
        $self->_convert({'type' => '_code', 'contents' => [$name_element]})
        .'</strong>';
   }
 
-  my $def_space = ' ';
-  if ($element->{'extra'}->{'omit_def_name_space'}) {
-    $def_space = '';
-  }
-
-  my $result_arguments = '';
   if ($arguments) {
   # arguments not only metasyntactic variables
   # (deftypefn, deftypevr, deftypeop, deftypecv)
-    if ($Texinfo::Common::def_no_var_arg_commands{$command_name}) {
+    if ($Texinfo::Common::def_no_var_arg_commands{$base_command_name}) {
       my $arguments_formatted = $self->_convert({'type' => '_code',
                                                  'contents' => [$arguments]});
-      $result_arguments = $self->html_attribute_class('code',
+      if ($arguments_formatted =~ /\S/) {
+        $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
+        $def_call .= $self->html_attribute_class('code',
                                       ['def-code-arguments']).'>'
-                          . $arguments_formatted.'</code>'
-          if ($arguments_formatted =~ /\S/);
+                          . $arguments_formatted.'</code>';
+      }
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
       # FIXME not part of the API
       _set_code_context($self, 0);
-      my $arguments_formatted = $self->_convert({'contents' => [$arguments]});
+      my $arguments_formatted = $self->_convert($arguments);
       _pop_code_context($self);
       if ($arguments_formatted =~ /\S/) {
-        $result_arguments = $self->html_attribute_class('var',
+        $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
+        $def_call .= $self->html_attribute_class('var',
                                ['def-var-arguments']).'>'
               . $arguments_formatted .'</var>';
       }
     }
   }
 
-  my $def_call = '';
-  $def_call .= $result_type . ' ' if ($result_type ne '');
-  $def_call .= $result_name;
-  $def_call .= $def_space . $result_arguments if ($result_arguments ne '');
-
   if ($self->get_conf('DEF_TABLE')) {
     my $category_result = '';
     my $definition_category_tree
       = Texinfo::Convert::Utils::definition_category_tree($self, $element);
     $category_result
-      = $self->convert_tree({'contents' => [$definition_category_tree]})
+      = $self->convert_tree($definition_category_tree)
         if (defined($definition_category_tree));
 
     return $self->html_attribute_class('tr', \@classes)
@@ -7272,28 +7273,33 @@ sub _convert_def_line_type($$$$)
       . '>' . '[' . $category_result . ']' . "</td></tr>\n";
   }
 
-  my $category_result = '';
-  my $category_tree;
+  my $result = $self->html_attribute_class('dt', \@classes) . "$index_label>";
+
   if ($category_element) {
+    my $category_tree;
     if ($class_element) {
-      if ($command_name eq 'deftypeop'
+      my $substrings = {'category' => $category_element,
+                        'class' => $class_element};
+      if ($base_command_name eq 'deftypeop'
           and $type_element
           and $self->get_conf('deftypefnnewline') eq 'on') {
         $category_tree = $self->gdt('{category} on @code{{class}}:@* ',
-              {'category' => $category_element,
-              'class' => $class_element});
-      } elsif ($command_name eq 'defop' or $command_name eq 'deftypeop') {
+                                    $substrings);
+      } elsif ($base_command_name eq 'defop'
+               or $base_command_name eq 'deftypeop') {
         $category_tree = $self->gdt('{category} on @code{{class}}: ',
-              {'category' => $category_element,
-              'class' => $class_element});
-      } elsif ($command_name eq 'defcv' or $command_name eq 'deftypecv') {
+                                    $substrings);
+      } elsif ($base_command_name eq 'defcv'
+               or $base_command_name eq 'deftypecv') {
         $category_tree = $self->gdt('{category} of @code{{class}}: ',
-              {'category' => $category_element,
-              'class' => $class_element});
+                                    $substrings);
       }
-    } elsif ($type_element
-            and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')
-            and $self->get_conf('deftypefnnewline') eq 'on') {
+    } else {
+      my $substrings = {'category' => $category_element};
+      if ($type_element
+          and ($base_command_name eq 'deftypefn'
+               or $base_command_name eq 'deftypeop')
+          and $self->get_conf('deftypefnnewline') eq 'on') {
         # FIXME if in @def* in @example and with @deftypefnnewline
         # on there is no effect of @deftypefnnewline on, as @* in
         # preformatted environment becomes an end of line, but the def*
@@ -7301,31 +7307,34 @@ sub _convert_def_line_type($$$$)
         # an explicit <br> in that case.  Probably requires changing
         # the conversion of @* in a @def* line in preformatted, nothing
         # really specific of @deftypefnnewline on.
-        $category_tree = $self->gdt('{category}:@* ',
-                                    {'category' => $category_element});
-    } else {
-      $category_tree = $self->gdt('{category}: ', {'category' => $category_element});
+        $category_tree = $self->gdt('{category}:@* ', $substrings);
+      } else {
+        $category_tree = $self->gdt('{category}: ', $substrings);
+      }
     }
-    $category_result = $self->convert_tree($category_tree);
+    if ($category_tree) {
+      my $open = $self->html_attribute_class('span', ['category-def']);
+      if ($open ne '') {
+        $result .= $open.'>';
+      }
+      $result .= $self->convert_tree($category_tree);
+      if ($open ne '') {
+        $result .= '</span>';
+      }
+    }
   }
 
-  if ($category_result ne '') {
-    my $open = $self->html_attribute_class('span', ['category-def']);
-    if ($open ne '') {
-      $category_result = $open.'>'.$category_result.'</span>';
-    }
-  }
-  my $anchor_span_open = '';
-  my $anchor_span_close = '';
   my $anchor = $self->_get_copiable_anchor($index_id);
   if ($anchor ne '') {
-    $anchor_span_open = '<span>';
-    $anchor_span_close = '</span>';
+    $result .= '<span>';
   }
-  return $self->html_attribute_class('dt', \@classes)
-       . "$index_label>" . $category_result . $anchor_span_open
-       . $def_call
-       . "$anchor$anchor_span_close</dt>\n";
+  $result .= $def_call;
+  if ($anchor ne '') {
+    $result .= $anchor . '</span>';
+  }
+  $result .= "</dt>\n";
+
+  return $result;
 }
 
 sub _get_copiable_anchor {

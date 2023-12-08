@@ -1,5 +1,37 @@
 2023-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): avoid
+	intermediate variables, move code around.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_in_multi_expanded): add.
+
+	* tp/Texinfo/XS/main/utils.c (def_aliases), tp/Texinfo/XS/main/utils.h
+	(DEF_ALIAS), tp/Texinfo/XS/parsetexi/def.c (parse_def): move DEF_ALIAS
+	to utils.h and def_aliases to utils.c from def.c.
+	Add aliases of def*x commands.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_def_line_type)
+	(types_internal_conversion_table): implement convert_def_line_type in
+	C.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(reset_translated_special_unit_info_tree): remove a destroyed element
+	from tree to build.
+	(convert_to_html_internal) <untranslated>: add tree to build.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state):
+	free tree_to_build.list after the corresponding messages have been
+	issued.
+	Show the tree_to_build elements remaining.  The elements could have
+	been destroyed, so only show if DEBUG is set.  With DEBUG, this could
+	produce a segfault, but using valgrind should give an idea where the
+	tree_to_build element was created/destroyed.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter): show the
+	ignored error messages.
+
+2023-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c (call_types_open):
 	call build_tree_to_build only if not exiting immediately.
 

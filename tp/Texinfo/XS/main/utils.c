@@ -51,6 +51,34 @@
 const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
+DEF_ALIAS def_aliases[] = {
+  CM_defun, CM_deffn, "Function", "category of functions for @defun",
+  CM_defmac, CM_deffn, "Macro", 0,
+  CM_defspec, CM_deffn, "Special Form", 0,
+  CM_defvar, CM_defvr, "Variable", "category of variables for @defvar",
+  CM_defopt, CM_defvr, "User Option", 0,
+  CM_deftypefun, CM_deftypefn, "Function", "category of functions for @deftypefun",
+  CM_deftypevar, CM_deftypevr, "Variable", "category of variables in typed languages for @deftypevar",
+  CM_defivar, CM_defcv, "Instance Variable", "category of instance variables in object-oriented programming for @defivar",
+  CM_deftypeivar, CM_deftypecv, "Instance Variable", "category of instance variables with data type in object-oriented programming for @deftypeivar",
+  CM_defmethod, CM_defop, "Method", "category of methods in object-oriented programming for @defmethod",
+  CM_deftypemethod, CM_deftypeop, "Method", "category of methods with data type in object-oriented programming for @deftypemethod",
+
+  /* the following aliases are not used in the XS parser */
+  CM_defunx, CM_deffnx, "Function", "category of functions for @defun",
+  CM_defmacx, CM_deffnx, "Macro", 0,
+  CM_defspecx, CM_deffnx, "Special Form", 0,
+  CM_defvarx, CM_defvrx, "Variable", "category of variables for @defvar",
+  CM_defoptx, CM_defvrx, "User Option", 0,
+  CM_deftypefunx, CM_deftypefnx, "Function", "category of functions for @deftypefun",
+  CM_deftypevarx, CM_deftypevrx, "Variable", "category of variables in typed languages for @deftypevar",
+  CM_defivarx, CM_defcvx, "Instance Variable", "category of instance variables in object-oriented programming for @defivar",
+  CM_deftypeivarx, CM_deftypecvx, "Instance Variable", "category of instance variables with data type in object-oriented programming for @deftypeivar",
+  CM_defmethodx, CM_defopx, "Method", "category of methods in object-oriented programming for @defmethod",
+  CM_deftypemethodx, CM_deftypeopx, "Method", "category of methods with data type in object-oriented programming for @deftypemethod",
+  0, 0, 0, 0
+};
+
 /* to keep synchronized with enum directions in tree_types.h */
 const char *direction_names[] = {"next", "prev", "up"};
 const char *direction_texts[] = {"Next", "Prev", "Up"};

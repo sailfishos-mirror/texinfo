@@ -57,6 +57,15 @@ typedef struct {
 extern ENCODING_CONVERSION_LIST output_conversions;
 extern ENCODING_CONVERSION_LIST input_conversions;
 
+typedef struct {
+    enum command_id alias;
+    enum command_id command;
+    char *category;
+    char *translation_context;
+} DEF_ALIAS;
+
+extern DEF_ALIAS def_aliases[];
+
 enum global_option_command_type {
    GO_NONE,
    GO_int,
