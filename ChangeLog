@@ -1,5 +1,13 @@
 2023-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/highlight_syntax.pm: do not call
+	get_pending_formatted_inline_content at example opening if the
+	code calling get_associated_formatted_inline_content will not be
+	called for example conversion, to have a correct pairing of calls by
+	the preformatted element eventually formatted.
+
+2023-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	Pass XS converter errors to texi2any
 
 	* tp/Texinfo/Convert/Converter.pm (%XS_overrides)

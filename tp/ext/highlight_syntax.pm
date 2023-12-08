@@ -569,11 +569,25 @@ sub highlight_open_inline_container_type($$$)
       return '';
     }
   }
-  my $pending_formatted = $self->get_pending_formatted_inline_content();
+  if (exists ($commands{$cmdname})
+      and exists ($commands{$cmdname}->{'results'})) {
+    my ($language, $converted_language)
+                = _get_language($self, $cmdname, $command);
+    if (exists ($commands{$cmdname}->{'results'}->{$command})
+        and defined($commands{$cmdname}->{'results'}->{$command})) {
 
-  if (defined($pending_formatted)) {
-    $self->associate_pending_formatted_inline_content($command,
-                                                      $pending_formatted);
+      # only replace the example and inside preformatted if the code leading
+      # to get_associated_formatted_inline_content being called in
+      # example highlighted text formatting will be called
+      if (defined($language)) {
+        my $pending_formatted = $self->get_pending_formatted_inline_content();
+
+        if (defined($pending_formatted)) {
+            $self->associate_pending_formatted_inline_content($command,
+                                                          $pending_formatted);
+        }
+      }
+    }
   }
   return '';
 }
