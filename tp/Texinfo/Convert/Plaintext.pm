@@ -2975,14 +2975,15 @@ sub _convert($$)
           next if !$float->{'args'} or !$float->{'args'}->[1]
                    or !$float->{'args'}->[1]->{'contents'}
                    or !@{$float->{'args'}->[1]->{'contents'}};
+
+          my $float_entry = $self->float_type_number($float);
+          next if !defined($float_entry);
+          $float_entry->{'type'} = 'frenchspacing';
+          my $float_entry_text = $self->convert_line($float_entry);
+
           my $float_label_text = $self->convert_line({'type' => '_code',
              'contents' => [$float->{'args'}->[1]]});
-          my $float_entry = $self->float_type_number($float);
-          my $float_entry_text = ':';
-          if (defined($float_entry)) {
-            $float_entry->{'type'} = 'frenchspacing';
-            $float_entry_text = $self->convert_line($float_entry);
-          }
+
           # no translation here, this is required Info format.
           my $float_line = "* $float_entry_text: $float_label_text.";
           my $line_width
