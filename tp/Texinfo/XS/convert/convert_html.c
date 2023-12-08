@@ -5925,6 +5925,101 @@ convert_row_type (CONVERTER *self, const enum element_type type,
     }
 }
 
+static void
+text_element_conversion (CONVERTER *self,
+                         const HTML_COMMAND_CONVERSION *specification,
+                         const enum command_id cmd,
+                         TEXT *result)
+{
+  if (specification->element)
+    {
+      STRING_LIST *classes;
+      char *attribute_class;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+
+      attribute_class
+       = html_attribute_class (self, specification->element, classes);
+      destroy_strings_list (classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+
+      text_append_n (result, ">", 1);
+      if (specification->text)
+        text_append (result, specification->text);
+      text_append_n (result, "</", 2);
+      text_append (result, specification->element);
+      text_append_n (result, ">", 1);
+    }
+  else if (specification->text)
+    text_append (result, specification->text);
+}
+
+void
+convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  enum command_id formatted_cmd = cmd;
+  enum conversion_context context;
+  HTML_COMMAND_CONVERSION *specification;
+
+  if (html_in_preformatted_context (self) || html_in_math (self))
+    context = HCC_type_preformatted;
+  else if (html_in_string (self))
+    context = HCC_type_string;
+  else
+    context = HCC_type_normal;
+
+  if (cmd == CM_click)
+    {
+      enum command_id click_cmd = 0;
+      char *click_cmdname = lookup_extra_string (element, "clickstyle");
+      if (click_cmdname)
+        {
+          click_cmd = lookup_builtin_command (click_cmdname);
+        }
+      if (click_cmd)
+        {
+          HTML_COMMAND_CONVERSION *conv_context
+            = self->html_command_conversion[click_cmd];
+          if (conv_context[context].text || conv_context[context].element)
+            {
+              formatted_cmd = click_cmd;
+            }
+        }
+    }
+
+  if (html_in_upper_case (self)
+      && (builtin_command_data[formatted_cmd].other_flags & CF_letter_no_arg))
+    {
+      const char *command = builtin_command_name (formatted_cmd);
+      char *upper_case_command = strdup (command);
+      char *p;
+      enum command_id upper_case_cmd;
+      for (p = upper_case_command; *p; p++)
+        {
+          *p = toupper (*p);
+        }
+      /* TODO the mapping could be done once for all */
+      upper_case_cmd = lookup_builtin_command (upper_case_command);
+      if (upper_case_cmd)
+        {
+          HTML_COMMAND_CONVERSION *conv_context
+            = self->html_command_conversion[upper_case_cmd];
+          if (conv_context[context].text || conv_context[context].element)
+            formatted_cmd = upper_case_cmd;
+        }
+    }
+
+  specification
+    = &self->html_command_conversion[formatted_cmd][context];
+
+  text_element_conversion (self, specification, formatted_cmd, result);
+}
+
 void
 convert_w_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -7313,6 +7408,24 @@ html_converter_initialize (CONVERTER *self)
           command_conversion->status = FRS_status_internal;
           command_conversion->command_conversion
               = commands_internal_conversion_table[i].command_conversion;
+        }
+    }
+
+  /* all the no arg formatted commands are implemented in C */
+  if (self->no_arg_formatted_cmd.number)
+    {
+      for (i = 0; i < self->no_arg_formatted_cmd.number; i++)
+        {
+          enum command_id cmd = self->no_arg_formatted_cmd.list[i];
+          COMMAND_CONVERSION_FUNCTION *command_conversion
+               = &self->command_conversion_function[cmd];
+          if (command_conversion->status == FRS_status_default_set)
+            {
+              command_conversion->formatting_reference = 0;
+              command_conversion->status = FRS_status_internal;
+              command_conversion->command_conversion
+                = &convert_no_arg_command;
+            }
         }
     }
 
