@@ -1,5 +1,16 @@
 2023-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	Pass XS converter errors to texi2any
+
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides)
+	(get_converter_errors), tp/Texinfo/Convert/Text.pm
+	(get_converter_errors), tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_converter_errors), tp/texi2any.pl: add an XS interface to get
+	converter error. Add them to the Texinfo::Report associated to the
+	perl converter.
+
+2023-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): avoid
 	intermediate variables, move code around.
 

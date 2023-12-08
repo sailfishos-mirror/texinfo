@@ -1691,6 +1691,16 @@ while(@input_files) {
   my $converter = &{$formats_table{$converted_format}
         ->{'converter'}}($converter_options);
   $converter->output($document);
+
+  # If XS is used, store XS converter errors in perl Texinfo::Report
+  # object associated to the perl converter.
+  my $converter_errors = $converter->get_converter_errors();
+  if (defined($converter_errors)) {
+    foreach my $error (@$converter_errors) {
+      $converter->add_formatted_message($error);
+    }
+  }
+
   push @opened_files, Texinfo::Common::output_files_opened_files(
                               $converter->output_files_information());
   handle_errors($converter, $error_count, \@opened_files);

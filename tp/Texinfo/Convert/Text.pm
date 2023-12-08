@@ -1044,6 +1044,11 @@ sub errors()
   return undef;
 }
 
+sub get_converter_errors($)
+{
+  return undef;
+}
+
 sub converter_defaults()
 {
   return ();

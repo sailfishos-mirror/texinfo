@@ -89,6 +89,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::set_conf",
   "Texinfo::Convert::Converter::_XS_get_unclosed_stream"
    => "Texinfo::Convert::ConvertXS::get_unclosed_stream",
+  "Texinfo::Convert::Converter::get_converter_errors"
+   => "Texinfo::Convert::ConvertXS::get_converter_errors",
   "Texinfo::Convert::Converter::destroy"
    => "Texinfo::Convert::ConvertXS::destroy",
 );
@@ -476,6 +478,12 @@ sub output($$)
 
 # Nothing to do in perl.  XS function frees memory
 sub destroy($)
+{
+}
+
+# Nothing to do in perl as the converter is also a Texinfo::Report.
+# In XS return the error messages.
+sub get_converter_errors($)
 {
 }
 

@@ -36,6 +36,7 @@
 #include "element_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
+#include "errors.h"
 #include "convert_plain_texinfo.h"
 #include "convert_text.h"
 #include "convert_to_text.h"
@@ -123,6 +124,26 @@ get_unclosed_stream (SV *converter_in, file_path)
                }
            }
          RETVAL = result;
+    OUTPUT:
+         RETVAL
+
+SV *
+get_converter_errors (SV *converter_in)
+      PREINIT:
+         AV *errors_av;
+         CONVERTER *self = 0;
+      CODE:
+         self = get_sv_converter (converter_in, 0);
+         if (self && self->error_messages.number)
+           {
+             errors_av = get_errors (self->error_messages.list,
+                                     self->error_messages.number);
+             wipe_error_message_list (&self->error_messages);
+           }
+         else
+           errors_av = newAV ();
+
+         RETVAL = newRV_noinc ((SV *) errors_av);
     OUTPUT:
          RETVAL
 
