@@ -1,8 +1,19 @@
 2023-12-08  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/ext/highlight_syntax.pm: do not call
-	get_pending_formatted_inline_content at example opening if the
-	code calling get_associated_formatted_inline_content will not be
+	* tp/Texinfo/XS/convert/convert_html.c
+	(get_associated_inline_content_number)
+	(html_associate_pending_formatted_inline_content)
+	(html_get_associated_formatted_inline_content)
+	(html_finalize_output_state), tp/Texinfo/XS/main/converter_types.h
+	(HTML_ASSOCIATED_INLINE_CONTENT): use a TEXT in
+	HTML_ASSOCIATED_INLINE_CONTENT to accumulate content, and allow the
+	same element to be found more than once when text appears.
+
+2023-12-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/ext/highlight_syntax.pm (highlight_open_inline_container_type):
+	do not call get_pending_formatted_inline_content at example opening if
+	the code calling get_associated_formatted_inline_content will not be
 	called for example conversion, to have a correct pairing of calls by
 	the preformatted element eventually formatted.
 

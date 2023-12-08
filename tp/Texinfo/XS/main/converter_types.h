@@ -569,7 +569,7 @@ typedef struct HTML_ASSOCIATED_INLINE_CONTENT {
   /* perl element. This should be HV *hv,
      but we don't want to include the Perl headers everywhere; */
     const void *hv;
-    char *inline_content;
+    TEXT inline_content;
 } HTML_ASSOCIATED_INLINE_CONTENT;
 
 typedef struct HTML_ASSOCIATED_INLINE_CONTENT_LIST {

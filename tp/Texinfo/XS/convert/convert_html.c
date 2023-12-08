@@ -949,60 +949,11 @@ html_get_pending_formatted_inline_content (CONVERTER *self)
     return strdup ("");
 }
 
-/* API to associate inline content to an element, typically
-   paragraph or preformatted.  Allows to associate the pending
-   content to the first inline element. */
-/* hv is used when called from perl, element when called from C */
-void
-html_associate_pending_formatted_inline_content (CONVERTER *self,
-                                            const ELEMENT *element,
-                                            const void *hv,
-                                            const char *inline_content)
+static size_t
+get_associated_inline_content_number (
+     HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list,
+     const ELEMENT *element, const void *hv)
 {
-  HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
-    = &self->associated_inline_content;
-  HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content;
-  size_t i;
-  size_t element_associated_content_idx;
-  int empty_slot = 0;
-
-  for (i = 0; i < associated_content_list->number; i++)
-    {
-      if (associated_content_list->list[i].inline_content == 0)
-        {
-          empty_slot = 1;
-          element_associated_content_idx = i;
-        }
-    }
-
-  if (!empty_slot)
-    {
-      if (associated_content_list->number >= associated_content_list->space)
-        {
-          associated_content_list->list
-            = realloc (associated_content_list->list,
-               (associated_content_list->space += 5)
-                          * sizeof (HTML_ASSOCIATED_INLINE_CONTENT));
-        }
-      element_associated_content_idx = associated_content_list->number;
-
-      associated_content_list->number++;
-    }
-  element_associated_content
-    = &associated_content_list->list[element_associated_content_idx];
-  element_associated_content->element = element;
-  element_associated_content->hv = hv;
-  element_associated_content->inline_content = strdup (inline_content);
-}
-
-/* hv is used when called from perl element when called from C */
-char *
-html_get_associated_formatted_inline_content (CONVERTER *self,
-                                              const ELEMENT *element,
-                                              void *hv)
-{
-  HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
-    = &self->associated_inline_content;
   size_t i;
   for (i = 0; i < associated_content_list->number; i++)
     {
@@ -1015,14 +966,103 @@ html_get_associated_formatted_inline_content (CONVERTER *self,
                      || (element_associated_content->element
                          && element_associated_content->element->hv == hv))))
         {
-          char *result = element_associated_content->inline_content;
-          if (i == associated_content_list->number -1)
-            associated_content_list->number--;
-          else
-            memset (element_associated_content, 0,
-                    sizeof (HTML_ASSOCIATED_INLINE_CONTENT));
-          return result;
+          return i +1;
         }
+    }
+  return 0;
+}
+
+/* API to associate inline content to an element, typically
+   paragraph or preformatted.  Allows to associate the pending
+   content to the first inline element. */
+/* hv is used when called from perl, element when called from C */
+void
+html_associate_pending_formatted_inline_content (CONVERTER *self,
+                                            const ELEMENT *element,
+                                            const void *hv,
+                                            const char *inline_content)
+{
+  HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
+    = &self->associated_inline_content;
+  HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content = 0;
+  size_t number = get_associated_inline_content_number (associated_content_list,
+                                                                   element, hv);
+  if (number > 0)
+    element_associated_content = &associated_content_list->list[number -1];
+
+  if (!element_associated_content)
+    {
+      size_t i;
+      int empty_slot = 0;
+
+      for (i = 0; i < associated_content_list->number; i++)
+        {
+          if (associated_content_list->list[i].inline_content.space == 0)
+            {
+              empty_slot = 1;
+              number = i +1;
+            }
+        }
+
+      if (!empty_slot)
+        {
+          if (associated_content_list->number >= associated_content_list->space)
+            {
+              associated_content_list->list
+                = realloc (associated_content_list->list,
+                   (associated_content_list->space += 5)
+                              * sizeof (HTML_ASSOCIATED_INLINE_CONTENT));
+            }
+          associated_content_list->number++;
+          number = associated_content_list->number;
+        }
+      element_associated_content
+        = &associated_content_list->list[number -1];
+      element_associated_content->element = element;
+      element_associated_content->hv = hv;
+      text_init (&element_associated_content->inline_content);
+      /*
+      fprintf (stderr, "NNN (%zu)\n", associated_content_list->number);
+       */
+    }
+  text_append (&element_associated_content->inline_content, inline_content);
+   /*
+  if (element)
+    fprintf (stderr, "RRR-EE %p -> %p %zu\n", element, element->hv, number);
+  if (hv)
+    fprintf (stderr, "RRR-PP %p %zu\n", hv, number);
+    */
+}
+
+/* hv is used when called from perl element when called from C */
+char *
+html_get_associated_formatted_inline_content (CONVERTER *self,
+                                              const ELEMENT *element,
+                                              void *hv)
+{
+  HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
+    = &self->associated_inline_content;
+  HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content = 0;
+  size_t number = get_associated_inline_content_number (associated_content_list,
+                                                                   element, hv);
+  /*
+  if (element)
+    fprintf (stderr, "GGG-EE %p -> %p %zu (%zu)\n", element, element->hv, number, associated_content_list->number);
+  if (hv)
+    fprintf (stderr, "GGG-PP %p %zu (%zu)\n", hv, number, associated_content_list->number);
+   */
+  if (number > 0)
+    element_associated_content = &associated_content_list->list[number -1];
+
+  if (element_associated_content)
+    {
+      char *result = element_associated_content->inline_content.text;
+      if (number == associated_content_list->number)
+        associated_content_list->number--;
+      else
+        memset (element_associated_content, 0,
+                sizeof (HTML_ASSOCIATED_INLINE_CONTENT));
+      return result;
     }
   return strdup ("");
 }
@@ -7431,13 +7471,28 @@ html_finalize_output_state (CONVERTER *self)
     {
       HTML_ASSOCIATED_INLINE_CONTENT *associated_content
         = &self->associated_inline_content.list[i];
-      if (associated_content->inline_content)
+      if (associated_content->inline_content.space > 0)
         {
-          char *inline_content = associated_content->inline_content;
-          message_list_document_warn (&self->error_messages, self->conf,
-             "associated inline content not used: '%s'",
-              inline_content);
-          free (associated_content->inline_content);
+          char *inline_content = associated_content->inline_content.text;
+          if (associated_content->element)
+            {
+              char *element_str
+                = print_element_debug (associated_content->element, 0);
+              message_list_document_warn (&self->error_messages, self->conf,
+                "left inline content associated to %s: '%s'", element_str,
+                inline_content);
+              free (element_str);
+            }
+          else if (associated_content->hv)
+            {
+              message_list_document_warn (&self->error_messages, self->conf,
+                "left inline content of %p: '%s'", associated_content->hv,
+                inline_content);
+            }
+          else
+            message_list_document_warn (&self->error_messages, self->conf,
+               "left inline content associated: '%s'", inline_content);
+          free (associated_content->inline_content.text);
         }
     }
   self->associated_inline_content.number = 0;
