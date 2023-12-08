@@ -242,7 +242,7 @@ $(srcdir)/../Commands.pm: ../command_data.txt
 $(srcdir)/../Options.pm: $(srcdir)/../options_data.txt
 	$(PERL) $(srcdir)/../../maintain/regenerate_perl_options_info.pl $(srcdir)/../Options.pm < $(srcdir)/../options_data.txt
 
-$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_symbol.c $(srcdir)/main/cmd_text.c: main/command_data.c ../Commands.pm ../Options.pm
+$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_symbol.c $(srcdir)/main/cmd_text.c: main/command_data.c ../Commands.pm ../Options.pm $(srcdir)/../../maintain/setup_converters_code_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
 	      $(srcdir)/main/cmd_normalization.c \
@@ -251,7 +251,7 @@ $(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/c
 	      $(srcdir)/main/cmd_symbol.c \
 	      $(srcdir)/main/cmd_text.c
 
-$(srcdir)/main/accent_tables_8bit_codepoints.c:
+$(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../../maintain/setup_accent_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
 

@@ -1,5 +1,12 @@
 2023-12-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/Makefile.am (main/accent_tables_8bit_codepoints.c)
+	(main/cmd_normalization.c): Make generated files depend on the
+	scripts that generate them.  I could not build the program because
+	one of these files was stale.
+
+2023-12-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <@listoffloats>:
 	Eliminate default of ':' for "float entry text" as it does
 	not appear to be used for valid input and would produce malformed
