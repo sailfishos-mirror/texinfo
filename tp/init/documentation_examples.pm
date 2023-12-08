@@ -125,6 +125,8 @@ sub my_convert_paragraph_type($$$$)
 
   $content = '' if (!defined($content));
 
+  $content = $converter->get_associated_formatted_inline_content($element).$content;
+
   return $content if ($converter->in_string());
 
   my @contents = @{$element->{'contents'}};

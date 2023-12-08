@@ -588,6 +588,14 @@ sub convert_to_html($$$$$$;$)
     $result = $converter->output($document);
     close_files($converter);
   }
+
+  my $converter_errors = $converter->get_converter_errors();
+  if (defined($converter_errors)) {
+    foreach my $error (@$converter_errors) {
+      $converter->add_formatted_message($error);
+    }
+  }
+
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result, $converter);
