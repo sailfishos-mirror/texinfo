@@ -1,3 +1,11 @@
+2023-12-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c (call_types_open):
+	call build_tree_to_build only if not exiting immediately.
+
+	* tp/Texinfo/Convert/Converter.pm (import, %XS_overrides): use a hash
+	for XS overrides.
+
 2023-12-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (nav_panel_array)

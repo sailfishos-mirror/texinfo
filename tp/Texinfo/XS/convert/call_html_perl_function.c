@@ -1797,10 +1797,10 @@ call_types_open (CONVERTER *self, const enum element_type type,
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
-
   if (!self->hv)
     return;
+
+  build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv = self->types_open[type].sv_reference;
 
