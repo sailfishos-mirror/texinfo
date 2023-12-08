@@ -2735,7 +2735,7 @@ sub _noticed_line_warn($$$)
   my $text = shift;
   my $line_nr = shift;
   return if ($self->{'ignore_notice'});
-  return $self->line_warn($self, $text, $line_nr);
+  $self->line_warn($self, $text, $line_nr);
 }
 
 my %kept_line_commands;

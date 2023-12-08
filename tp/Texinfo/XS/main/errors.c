@@ -276,6 +276,16 @@ message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                                     &e->source_info, format, v);
 }
 
+/* similar as message_list_command_warn, to be used only when the calling
+   function already has a variable argument */
+void
+vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
+                            const ELEMENT *e, const char *format, va_list v)
+{
+  message_list_line_error_internal (error_messages, MSG_warning, 0,
+                                    &e->source_info, format, v);
+}
+
 void
 command_error (const ELEMENT *e, const char *format, ...)
 {

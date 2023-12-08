@@ -1,5 +1,20 @@
 2023-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_noticed_line_warn): do not return a
+	value.
+
+	* tp/Texinfo/XS/convert/convert_html.c (noticed_line_warn),
+	tp/Texinfo/XS/main/errors.c (vmessage_list_command_warn): add
+	noticed_line_warn. Add a "v" version of message_list_command_warn that
+	takes a va_list as argument instead of a variable length argument to
+	be used in case the caller already has a variable length argument, as
+	is the case with noticed_line_warn.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_raw_command):
+	implement in C.
+
+2023-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(get_associated_inline_content_number)
 	(html_associate_pending_formatted_inline_content)

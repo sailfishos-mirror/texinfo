@@ -14,11 +14,13 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <config.h>
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
 #include <ctype.h>
+#include <stdarg.h>
 
 #include "global_commands_types.h"
 #include "tree_types.h"
@@ -1874,6 +1876,24 @@ set_root_commands_targets_node_files (CONVERTER *self)
           new_sectioning_command_target (self, root_element);
         }
     }
+}
+
+/*
+intercept warning and error messages to take 'ignore_notice' into
+account
+ */
+static void
+noticed_line_warn (CONVERTER *self, const ELEMENT *element,
+                   const char *format, ...)
+{
+  va_list v;
+
+  if (self->ignore_notice)
+    return;
+
+  va_start (v, format);
+
+  vmessage_list_command_warn (&self->error_messages, element, format, v);
 }
 
 /* to be inlined in text parsing codes */
@@ -5923,6 +5943,29 @@ convert_w_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+void
+convert_raw_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (cmd == CM_html)
+    {
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+  /* TODO the message is not marked as a translatable message.  Not
+     such an issue since the perl message is, but it could be problematic
+     if the perl code is removed. */
+  noticed_line_warn (self, element, "raw format %s is not converted",
+                     element_command_name (element));
+                //builtin_command_name (cmd));
+
+  format_protect_text (self, content, result);
+}
+
 /* command is NULL unless called from @-command formatting function */
 static char *
 contents_inline_element (CONVERTER *self, const enum command_id cmd,
@@ -6570,28 +6613,34 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_shortcontents, &convert_contents_command},
   {CM_summarycontents, &convert_contents_command},
 
-  {CM_node, convert_heading_command},
-  {CM_top, convert_heading_command},
-  {CM_chapter, convert_heading_command},
-  {CM_unnumbered, convert_heading_command},
-  {CM_chapheading, convert_heading_command},
-  {CM_appendix, convert_heading_command},
-  {CM_section, convert_heading_command},
-  {CM_unnumberedsec, convert_heading_command},
-  {CM_heading, convert_heading_command},
-  {CM_appendixsec, convert_heading_command},
-  {CM_subsection, convert_heading_command},
-  {CM_unnumberedsubsec, convert_heading_command},
-  {CM_subheading, convert_heading_command},
-  {CM_appendixsubsec, convert_heading_command},
-  {CM_subsubsection, convert_heading_command},
-  {CM_unnumberedsubsubsec, convert_heading_command},
-  {CM_subsubheading, convert_heading_command},
-  {CM_appendixsubsubsec, convert_heading_command},
-  {CM_part, convert_heading_command},
-  {CM_appendixsection, convert_heading_command},
-  {CM_majorheading, convert_heading_command},
-  {CM_centerchap, convert_heading_command},
+  {CM_node, &convert_heading_command},
+  {CM_top, &convert_heading_command},
+  {CM_chapter, &convert_heading_command},
+  {CM_unnumbered, &convert_heading_command},
+  {CM_chapheading, &convert_heading_command},
+  {CM_appendix, &convert_heading_command},
+  {CM_section, &convert_heading_command},
+  {CM_unnumberedsec, &convert_heading_command},
+  {CM_heading, &convert_heading_command},
+  {CM_appendixsec, &convert_heading_command},
+  {CM_subsection, &convert_heading_command},
+  {CM_unnumberedsubsec, &convert_heading_command},
+  {CM_subheading, &convert_heading_command},
+  {CM_appendixsubsec, &convert_heading_command},
+  {CM_subsubsection, &convert_heading_command},
+  {CM_unnumberedsubsubsec, &convert_heading_command},
+  {CM_subsubheading, &convert_heading_command},
+  {CM_appendixsubsubsec, &convert_heading_command},
+  {CM_part, &convert_heading_command},
+  {CM_appendixsection, &convert_heading_command},
+  {CM_majorheading, &convert_heading_command},
+  {CM_centerchap, &convert_heading_command},
+
+  {CM_html, &convert_raw_command},
+  {CM_tex, &convert_raw_command},
+  {CM_xml, &convert_raw_command},
+  {CM_docbook, &convert_raw_command},
+  {CM_latex, &convert_raw_command},
 
   {0, 0},
 };
