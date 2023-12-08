@@ -1,5 +1,19 @@
 2023-12-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Line length using counter for @listoffloats
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <@listoffloats>:
+	Eliminate call to convert_line, followed by call to
+	Texinfo::Convert::Unicode::string_width.  Instead, format the entry
+	using a line formatter object, followed by a call to
+	Texinfo::Convert::Paragraph::counter to get the line length.
+
+	This is needed for future plans for this code, where convert_line
+	will return an already-encoded string which can't be passed
+	to string_width.
+
+2023-12-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/Makefile.am (main/accent_tables_8bit_codepoints.c)
 	(main/cmd_normalization.c): Make generated files depend on the
 	scripts that generate them.  I could not build the program because
