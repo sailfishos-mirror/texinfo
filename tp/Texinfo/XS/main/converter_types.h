@@ -682,6 +682,8 @@ typedef struct CONVERTER {
     size_t *special_unit_file_indices;  /* same for special output units */
     PAGES_CSS_LIST page_css;
     HTMLXREF_MANUAL_ELEMENT_WARNED_LIST check_htmlxref_already_warned;
+    ELEMENT *simpletitle_tree;
+    enum command_id simpletitle_cmd;
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */

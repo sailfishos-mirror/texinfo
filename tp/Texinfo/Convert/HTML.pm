@@ -118,6 +118,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
   "Texinfo::Convert::HTML::_finalize_output_state"
    => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
+  "Texinfo::Convert::HTML::_prepare_simpletitle"
+   => "Texinfo::Convert::ConvertXS::html_prepare_simpletitle",
 
   "Texinfo::Convert::HTML::_register_id"
    => "Texinfo::Convert::ConvertXS::html_register_id",
@@ -7483,11 +7485,11 @@ sub _default_format_title_titlepage($)
 {
   my $self = shift;
 
-  my $result = '';
   if ($self->get_conf('SHOW_TITLE')) {
     if ($self->get_conf('USE_TITLEPAGE_FOR_TITLE')) {
-      $result .= &{$self->formatting_function('format_titlepage')}($self);
+      return &{$self->formatting_function('format_titlepage')}($self);
     } else {
+      my $result = '';
       my $simpletitle_tree = $self->get_info('simpletitle_tree');
       if ($simpletitle_tree) {
         my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
@@ -7498,9 +7500,10 @@ sub _default_format_title_titlepage($)
                        [$simpletitle_command_name], $title_text, 0);
       }
       $result .= $self->_contents_shortcontents_in_title();
+      return $result;
     }
   }
-  return $result;
+  return '';
 }
 
 # Function for converting special output units
@@ -11325,6 +11328,22 @@ sub _html_convert_convert($$$$)
   return $result;
 }
 
+sub _prepare_simpletitle($)
+{
+  my $self = shift;
+  foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
+    if ($self->{'global_commands'}->{$simpletitle_command}) {
+      my $command = $self->{'global_commands'}->{$simpletitle_command};
+      next if (!$command->{'args'} or !$command->{'args'}->[0]
+                or !$command->{'args'}->[0]->{'contents'}
+                or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
+      $self->{'simpletitle_tree'} = $command->{'args'}->[0];
+      $self->{'simpletitle_command_name'} = $simpletitle_command;
+      last;
+    }
+  }
+}
+
 sub convert($$)
 {
   my $self = shift;
@@ -11369,18 +11388,8 @@ sub convert($$)
   # setup untranslated strings
   $self->_translate_names();
 
-  # FIXME duplicate of code in output()
-  foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
-    if ($self->{'global_commands'}->{$simpletitle_command}) {
-      my $command = $self->{'global_commands'}->{$simpletitle_command};
-      next if (!$command->{'args'} or !$command->{'args'}->[0]
-                or !$command->{'args'}->[0]->{'contents'}
-                or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-      $self->{'simpletitle_tree'} = $command->{'args'}->[0];
-      $self->{'simpletitle_command_name'} = $simpletitle_command;
-      last;
-    }
-  }
+  $self->_prepare_simpletitle();
+
   $self->_reset_info();
 
   # title.  Not often set in the default case, as convert() is only
@@ -11980,6 +11989,9 @@ sub output($$)
   # prepare title.  fulltitle uses more possibility than simpletitle for
   # title, including @-commands found in @titlepage only.  Therefore
   # simpletitle is more in line with what makeinfo in C did.
+
+  $self->_prepare_simpletitle();
+
   my $fulltitle;
   foreach my $fulltitle_command('settitle', 'title', 'shorttitlepage', 'top') {
     if ($self->{'global_commands'}->{$fulltitle_command}) {
@@ -12001,18 +12013,6 @@ sub output($$)
       and @{$self->{'global_commands'}->{'titlefont'}->[0]
                                                 ->{'args'}->[0]->{'contents'}}) {
     $fulltitle = $self->{'global_commands'}->{'titlefont'}->[0];
-  }
-  # prepare simpletitle
-  foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
-    if ($self->{'global_commands'}->{$simpletitle_command}) {
-      my $command = $self->{'global_commands'}->{$simpletitle_command};
-      next if (!$command->{'args'} or !$command->{'args'}->[0]
-                or !$command->{'args'}->[0]->{'contents'}
-                or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-      $self->{'simpletitle_tree'} = $command->{'args'}->[0];
-      $self->{'simpletitle_command_name'} = $simpletitle_command;
-      last;
-    }
   }
 
   my $html_title_string;

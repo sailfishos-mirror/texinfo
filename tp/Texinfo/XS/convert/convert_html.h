@@ -118,6 +118,7 @@ void html_prepare_output_units_global_targets (CONVERTER *self,
 
 void html_translate_names (CONVERTER *self);
 
+void html_prepare_simpletitle (CONVERTER *self);
 void html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
                                    char *output_file, char *output_filename);
 

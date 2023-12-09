@@ -1,5 +1,29 @@
 2023-12-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_title_titlepage): avoid
+	intermediary variables.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_simpletitle, convert, output):
+	add _prepare_simpletitle.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_simpletitle),
+	tp/Texinfo/XS/convert/convert_html.c (html_prepare_simpletitle),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): implement
+	html_prepare_simpletitle and an XS interface.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_titlepage),
+	tp/Texinfo/XS/convert/convert_html.c (contents_shortcontents_in_title)
+	(format_titlepage, html_default_format_title_titlepage)
+	(format_title_titlepage, html_prepare_title_titlepage): have
+	format_title_titlepage return a char *. Add
+	contents_shortcontents_in_title,
+	call_formatting_function_format_titlepage and format_titlepage.
+	Implement html_default_format_title_titlepage in C.
+
+2023-12-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_default_format_footnotes_sequence): destroy pending footnotes in
 	the end.

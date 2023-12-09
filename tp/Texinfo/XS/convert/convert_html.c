@@ -5398,20 +5398,6 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
 }
 
 void
-format_title_titlepage (CONVERTER *self, TEXT *result)
-{
-  FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_title_titlepage];
-    {
-      char *title_titlepage
-        = call_formatting_function_format_title_titlepage (self,
-                                                           formatting_reference);
-      text_append (result, title_titlepage);
-      free (title_titlepage);
-    }
-}
-
-void
 format_element_footer (CONVERTER *self,
                               const enum output_unit_type unit_type,
                               const OUTPUT_UNIT *output_unit,
@@ -6678,6 +6664,112 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
   return 0;
 }
 
+void
+contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
+{
+  if (self->document->sections_list
+      && self->document->sections_list->number > 0
+      && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION, "after_title"))
+    {
+      enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
+      int i;
+      for (i = 0; i < 2; i++)
+        {
+          int contents_set = 0;
+          enum command_id cmd = contents_cmds[i];
+          COMMAND_OPTION_REF *contents_option_ref
+             = get_command_option (self->conf, cmd);
+          if (*(contents_option_ref->int_ref) > 0)
+            contents_set = 1;
+          free (contents_option_ref);
+          if (contents_set)
+            {
+              char *contents_text
+                = contents_inline_element (self, cmd, 0);
+              if (contents_text)
+                {
+                  text_append (result, contents_text);
+                  text_append (result, self->conf->DEFAULT_RULE);
+                  text_append_n (result, "\n", 1);
+                  free (contents_text);
+                }
+            }
+        }
+    }
+}
+
+char *
+format_titlepage (CONVERTER *self)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_titlepage];
+/*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_titlepage (self);
+    }
+  else
+ */
+    {
+      return call_formatting_function_format_titlepage (self,
+                                               formatting_reference);
+    }
+}
+
+char *
+html_default_format_title_titlepage (CONVERTER *self)
+{
+  if (self->conf->SHOW_TITLE > 0)
+    {
+      if (self->conf->USE_TITLEPAGE_FOR_TITLE)
+        {
+          return format_titlepage (self);
+        }
+      else
+        {
+          TEXT result;
+          text_init (&result);
+          text_append (&result, "");
+          if (self->simpletitle_tree)
+            {
+              char *title_text;
+              char *context_str;
+              STRING_LIST *classes;
+              enum command_id cmd = self->simpletitle_cmd;
+              classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+              memset (classes, 0, sizeof (STRING_LIST));
+              add_string (builtin_command_name (cmd), classes);
+              xasprintf (&context_str, "%s simpletitle",
+                         builtin_command_name (cmd));
+              title_text
+                = convert_tree_new_formatting_context (self,
+                    self->simpletitle_tree, context_str, 0, 0, 0);
+              format_heading_text (self, cmd, classes, title_text,
+                                                0, 0, 0, 0, &result);
+              destroy_strings_list (classes);
+            }
+          contents_shortcontents_in_title (self, &result);
+        }
+    }
+  return strdup ("");
+}
+
+char *
+format_title_titlepage (CONVERTER *self)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_title_titlepage];
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_title_titlepage (self);
+    }
+  else
+    {
+      return call_formatting_function_format_title_titlepage (self,
+                                                      formatting_reference);
+    }
+}
+
 /* NOTE these switches are not done in perl, so the only perl functions
    that can be callled are perl functions that do not call formatting/conversion
    functions or the formatting/conversion functions for HTML will be used. */
@@ -7738,6 +7830,27 @@ special_unit_body_formatting_external (CONVERTER *self,
     call_special_unit_body_formatting (self, special_unit_number,
                                        special_unit_variety,
                                        output_unit, result);
+}
+
+const static enum command_id simpletitle_cmds[] =
+ {CM_settitle, CM_shorttitlepage, 0};
+
+void
+html_prepare_simpletitle (CONVERTER *self)
+{
+  int i;
+  for (i = 0; simpletitle_cmds[i]; i++)
+    {
+      enum command_id cmd = simpletitle_cmds[i];
+      ELEMENT *command
+        = get_cmd_global_uniq_command (self->document->global_commands, cmd);
+      if (command && command->args.number > 0
+          && command->args.list[0]->contents.number > 0)
+        {
+          self->simpletitle_tree = command->args.list[0];
+          self->simpletitle_cmd = cmd;
+        }
+    }
 }
 
 void
@@ -9969,7 +10082,6 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
 {
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
-  TEXT title_titlepage;
 
   if (strlen (output_file))
     {
@@ -9988,9 +10100,7 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
 
   self->modified_state |= HMSF_current_filename;
 
-  text_init (&title_titlepage);
-  format_title_titlepage (self, &title_titlepage);
-  self->title_titlepage = title_titlepage.text;
+  self->title_titlepage = format_title_titlepage (self);
   memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
   self->modified_state |= HMSF_current_filename;
 }

@@ -242,6 +242,8 @@ ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
                              enum command_location command_location);
 ELEMENT_LIST *get_cmd_global_multi_command (GLOBAL_COMMANDS *global_commands_ref,
                                       enum command_id cmd);
+ELEMENT *get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
+                                      enum command_id cmd);
 
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
 #endif

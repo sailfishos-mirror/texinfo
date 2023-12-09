@@ -1125,6 +1125,27 @@ html_translate_names (SV *converter_in)
              self->modified_state = 0;
            }
 
+void
+html_prepare_simpletitle (SV *converter_in)
+  PREINIT:
+         CONVERTER *self = 0;
+     CODE:
+         self = get_sv_converter (converter_in, "html_prepare_simpletitle");
+         if (self)
+           {
+             html_prepare_simpletitle (self);
+             if (self->simpletitle_tree)
+               {
+                 HV *converter_hv = (HV *) SvRV (converter_in);
+                 hv_store (converter_hv, "simpletitle_tree",
+                           strlen ("simpletitle_tree"),
+                           newRV_inc ((SV *) self->simpletitle_tree->hv), 0);
+                 hv_store (converter_hv, "simpletitle_command_name",
+                           strlen ("simpletitle_command_name"),
+                  newSVpv (builtin_command_name (self->simpletitle_cmd), 0), 0);
+               }
+           }
+
 
 void
 html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file, output_filename)
