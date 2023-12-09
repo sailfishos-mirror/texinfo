@@ -1,5 +1,20 @@
 2023-12-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file): avoid using
+	intermediary variables.
+
+	* doc/texi2any_api.texi (Associating Information to an Output File),
+	tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_register_file_information)
+	(html_get_file_information), tp/Texinfo/XS/convert/convert_html.c
+	(html_register_file_information, html_get_file_information)
+	(html_set_pages_files, setup_output_simple_page)
+	(html_finalize_output_state), tp/Texinfo/XS/main/converter_types.h
+	(ASSOCIATED_INFO_LIST, CONVERTER): implement get_file_information and
+	register_file_information and add an XS interface.
+
+2023-12-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (format_simpletitle)
 	(html_default_format_titlepage, format_titlepage): implement
 	format_titlepage in C.

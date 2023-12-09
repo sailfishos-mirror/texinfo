@@ -185,6 +185,10 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::in_align"
    => "Texinfo::Convert::ConvertXS::html_in_align",
 
+  "Texinfo::Convert::HTML::register_file_information"
+   => "Texinfo::Convert::ConvertXS::html_register_file_information",
+  "Texinfo::Convert::HTML::get_file_information",
+   => "Texinfo::Convert::ConvertXS::html_get_file_information",
   "Texinfo::Convert::HTML::register_opened_section_level"
    => "Texinfo::Convert::ConvertXS::html_register_opened_section_level",
   "Texinfo::Convert::HTML::close_registered_sections_level"
@@ -1988,9 +1992,9 @@ sub get_associated_formatted_inline_content($$) {
 }
 
 # API to register an information to a file and get it.  To be able to
-# set an information during conversion and get it back during headers
+# set an integer information during conversion and get it back during headers
 # and footers conversion
-sub register_file_information($$;$)
+sub register_file_information($$$)
 {
   my $self = shift;
   my $key = shift;
@@ -10555,21 +10559,23 @@ sub _default_format_end_file($$$)
   my $filename = shift;
   my $output_unit = shift;
 
-  my $program_text = '';
+  my $result = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
+    $result .= "<p>\n  ";
+    my $open = $self->html_attribute_class('span', ['program-in-footer']);
+    $result .= $open.'>' if ($open ne '');
+
     my $program_string
       = &{$self->formatting_function('format_program_string')}($self);
-    my $open = $self->html_attribute_class('span', ['program-in-footer']);
-    if ($open ne '') {
-      $program_string = $open.'>'.$program_string.'</span>';
-    }
-    $program_text .= "<p>
-  $program_string
-</p>";
+    $result .= $program_string;
+
+    $result .= '</span>' if ($open ne '');
+    $result .= "\n</p>";
   }
+  $result .= "\n\n";
 
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
-  $pre_body_close = '' if (!defined($pre_body_close));
+  $result .= $pre_body_close if (defined($pre_body_close));
 
   my $jslicenses = $self->get_info('jslicenses');
   if ($jslicenses
@@ -10583,16 +10589,14 @@ sub _default_format_end_file($$$)
     my $js_path = $self->get_conf('JS_WEBLABELS_FILE');
     if (defined($js_setting) and defined($js_path)
         and ($js_setting eq 'generate' or $js_setting eq 'reference')) {
-      $pre_body_close .=
+      $result .=
         '<a href="'.$self->url_protect_url_text($js_path).'" rel="jslicense"><small>'
         .$self->convert_tree($self->gdt('JavaScript license information'))
         .'</small></a>';
     }
   }
 
-  return "${program_text}
-
-$pre_body_close
+  return "$result
 </body>
 </html>
 ";

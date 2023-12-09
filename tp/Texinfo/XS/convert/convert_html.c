@@ -1081,6 +1081,75 @@ html_get_associated_formatted_inline_content (CONVERTER *self,
   return strdup ("");
 }
 
+static int
+compare_page_name_number (const void *a, const void *b)
+{
+  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
+  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
+
+  return strcmp (pnn_a->page_name, pnn_b->page_name);
+}
+
+size_t
+find_page_name_number
+     (const PAGE_NAME_NUMBER_LIST *page_name_number,
+                                          const char *page_name)
+{
+  PAGE_NAME_NUMBER *result = 0;
+  static PAGE_NAME_NUMBER searched_page_name;
+  searched_page_name.page_name = page_name;
+
+  result = (PAGE_NAME_NUMBER *) bsearch (&searched_page_name,
+                page_name_number->list,
+                page_name_number->number, sizeof(PAGE_NAME_NUMBER),
+                compare_page_name_number);
+  return result->number;
+}
+
+/* API to register an information to a file and get it.  To be able to
+   set an information during conversion and get it back during headers
+   and footers conversion */
+void
+html_register_file_information (CONVERTER *self, const char *key,
+                                int value)
+{
+  ASSOCIATED_INFO *associated_info
+    = &self->html_files_information.list[self->current_filename.file_number];
+  add_associated_info_integer (associated_info, key, value);
+}
+
+int
+html_get_file_information (CONVERTER *self, const char *key,
+                           const char *filename, int *status)
+{
+  size_t page_number;
+  ASSOCIATED_INFO *associated_info;
+  const KEY_PAIR *k;
+
+  *status = 0;
+  if (filename)
+    {
+      page_number = find_page_name_number (&self->page_name_number,
+                                           filename);
+      if (!page_number)
+        {
+          *status = -1;
+          return 0;
+        }
+    }
+  else
+    page_number = self->current_filename.file_number;
+
+  associated_info = &self->html_files_information.list[page_number];
+  k = lookup_associated_info (associated_info, key);
+  if (!k)
+    {
+      *status = -2;
+      return 0;
+    }
+  return k->integer;
+}
+
 void
 html_register_opened_section_level (CONVERTER *self, int level,
                                     const char *close_string)
@@ -3600,31 +3669,6 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
 }
 
 static int
-compare_page_name_number (const void *a, const void *b)
-{
-  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
-  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
-
-  return strcmp (pnn_a->page_name, pnn_b->page_name);
-}
-
-size_t
-find_page_name_number
-     (const PAGE_NAME_NUMBER_LIST *page_name_number,
-                                          const char *page_name)
-{
-  PAGE_NAME_NUMBER *result = 0;
-  static PAGE_NAME_NUMBER searched_page_name;
-  searched_page_name.page_name = page_name;
-
-  result = (PAGE_NAME_NUMBER *) bsearch (&searched_page_name,
-                page_name_number->list,
-                page_name_number->number, sizeof(PAGE_NAME_NUMBER),
-                compare_page_name_number);
-  return result->number;
-}
-
-static int
 compare_selector_style (const void *a, const void *b)
 {
   const CSS_SELECTOR_STYLE *css_a = (const CSS_SELECTOR_STYLE *) a;
@@ -4822,6 +4866,12 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   memset (self->page_css.list, 0,
           self->page_css.number * sizeof (CSS_LIST));
 
+  self->html_files_information.number = self->output_unit_files.number +1;
+  self->html_files_information.list = (ASSOCIATED_INFO *)
+    malloc (self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+  memset (self->html_files_information.list, 0,
+          self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+
   return files_source_info;
 }
 
@@ -4836,6 +4886,12 @@ setup_output_simple_page (CONVERTER *self, const char *output_filename)
        malloc (self->page_css.number * sizeof (CSS_LIST));
   memset (self->page_css.list, 0,
           self->page_css.number * sizeof (CSS_LIST));
+
+  self->html_files_information.number = 1+1;
+  self->html_files_information.list = (ASSOCIATED_INFO *)
+       malloc (self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+  memset (self->html_files_information.list, 0,
+          self->html_files_information.number * sizeof (ASSOCIATED_INFO));
 
   self->page_name_number.number = 1;
   self->page_name_number.list = (PAGE_NAME_NUMBER *)
@@ -5407,6 +5463,14 @@ format_element_footer (CONVERTER *self,
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_element_footer];
 
+/*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      html_default_format_element_footer (self, unit_type, output_unit,
+                                          content, element, result)
+    }
+  else
+*/
    {
      char *formatted_footer
        = call_formatting_function_format_element_footer (self,
@@ -5418,12 +5482,27 @@ format_element_footer (CONVERTER *self,
    }
 }
 
+/*
+char *
+html_default_format_end_file (CONVERTER *self, const char *filename,
+                              const OUTPUT_UNIT *output_unit)
+{
+}
+*/
+
 char *
 format_end_file (CONVERTER *self, const char *filename,
                  const OUTPUT_UNIT *output_unit)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_end_file];
+/*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_end_file (self, filename, output_unit);
+    }
+  else
+*/
     {
       return call_formatting_function_format_end_file (self,
                                                      formatting_reference,
@@ -5437,6 +5516,13 @@ format_begin_file (CONVERTER *self, const char *filename,
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_begin_file];
+/*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_begin_file (self, filename, output_unit);
+    }
+  else
+*/
     {
       return call_formatting_function_format_begin_file (self,
                                                      formatting_reference,
@@ -8453,6 +8539,12 @@ html_finalize_output_state (CONVERTER *self)
       free (page_css_list->list);
     }
   free (self->page_css.list);
+
+  for (i = 0; i < self->html_files_information.number; i++)
+    {
+      destroy_associated_info (&self->html_files_information.list[i]);
+    }
+  free (self->html_files_information.list);
 
   /* should not be possible with default code, as
      close_registered_sections_level(0)

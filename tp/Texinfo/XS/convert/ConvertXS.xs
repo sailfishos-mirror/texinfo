@@ -622,6 +622,55 @@ html_in_align (SV *converter_in)
          RETVAL
 
 void
+html_register_file_information (SV *converter_in, key, int value)
+         char *key = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_register_file_information");
+         if (self)
+           {
+             html_register_file_information (self, key, value);
+           }
+
+void
+html_get_file_information (SV *converter_in, key, ...)
+         char *key = (char *)SvPVutf8_nolen($arg);
+    PROTOTYPE: $$;$
+     PREINIT:
+         CONVERTER *self;
+         SV *filename_sv = 0;
+         int found = 0;
+         int result = 0;
+         SV *found_sv;
+         SV *result_sv;
+     PPCODE:
+         self = get_sv_converter (converter_in,
+                                  "html_get_file_information");
+         if (items > 2 && SvOK(ST(2)))
+           filename_sv = ST(2);
+         if (self)
+           {
+             char *filename = 0;
+             int status;
+             if (filename_sv)
+               filename = SvPVutf8_nolen (filename_sv);
+             result = html_get_file_information (self, key, filename, &status);
+             if (status >= 0)
+               found = 1;
+           }
+         found_sv = newSViv ((IV)found);
+         if (found)
+           result_sv = newSViv ((IV)result);
+         else
+           result_sv = newSV(0);
+
+         EXTEND(SP, 2);
+         PUSHs(sv_2mortal(found_sv));
+         PUSHs(sv_2mortal(result_sv));
+
+void
 html_register_opened_section_level (SV *converter_in, int level, close_string)
          char *close_string = (char *)SvPVutf8_nolen($arg);
      PREINIT:

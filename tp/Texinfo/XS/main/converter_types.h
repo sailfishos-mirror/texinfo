@@ -260,8 +260,8 @@ typedef struct HTML_SHARED_CONVERSION_STATE {
     int element_explanation_content; /* element_explanation_content->{ELEMENT $command}
                                 = ELEMENT */
     int footnote_id_numbers; /* footnote_id_numbers->{char $footid} = int */
-    /* probably not useful, directly use expanded formats in the converter 
-       needed in perl as expanded formats are accessed per format in the API
+    /* Not useful, directly use expanded formats in the converter.
+       Needed in perl as expanded formats are accessed per format in the API
     int expanded_format_raw;
      */
     int formatted_index_entries; /* formatted_index_entries->{INDEX_ENTRY $index_entry_ref} = 1, ++ */
@@ -599,6 +599,11 @@ typedef struct HTMLXREF_MANUAL_ELEMENT_WARNED_LIST {
     HTMLXREF_MANUAL_ELEMENT_WARNED *list;
 } HTMLXREF_MANUAL_ELEMENT_WARNED_LIST;
 
+typedef struct ASSOCIATED_INFO_LIST {
+    size_t number;
+    ASSOCIATED_INFO *list;
+} ASSOCIATED_INFO_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -680,8 +685,6 @@ typedef struct CONVERTER {
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */
-    PAGES_CSS_LIST page_css;
-    HTMLXREF_MANUAL_ELEMENT_WARNED_LIST check_htmlxref_already_warned;
     ELEMENT *simpletitle_tree;
     enum command_id simpletitle_cmd;
 
@@ -720,6 +723,9 @@ typedef struct CONVERTER {
     HTML_INLINE_CONTENT_STACK pending_inline_content;
     HTML_PENDING_FOOTNOTE_STACK pending_footnotes;
     HTML_ASSOCIATED_INLINE_CONTENT_LIST associated_inline_content;
+    PAGES_CSS_LIST page_css;
+    HTMLXREF_MANUAL_ELEMENT_WARNED_LIST check_htmlxref_already_warned;
+    ASSOCIATED_INFO_LIST html_files_information;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
 } CONVERTER;
@@ -789,13 +795,13 @@ typedef struct BUTTON_SPECIFICATION {
      but we don't want to include the Perl headers everywhere; */
       void *sv_reference; /* BST_function */
       void *sv_string; /* BST_string scalar reference */
-      BUTTON_SPECIFICATION_INFO *button_info; /* BST_direction_info 
+      BUTTON_SPECIFICATION_INFO *button_info; /* BST_direction_info
                                               array reference of length 2 */
     };
 } BUTTON_SPECIFICATION;
 
 typedef struct BUTTON_SPECIFICATION_LIST {
-    void *av; /* reference to perl data that can be used instead of 
+    void *av; /* reference to perl data that can be used instead of
                  the list */
     size_t number;
     BUTTON_SPECIFICATION *list;

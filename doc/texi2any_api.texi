@@ -3078,12 +3078,12 @@ Get @var{$content} associated to the Texinfo tree element @var{\%element}.
 
 To be able to retrieve information associated to the current file, in general
 for the file begin or end formatting, @code{register_file_information} can  be
-used to associate information, and @code{get_file_information} to retrieve that
-information.
+used to associate integer information, and @code{get_file_information} to
+retrieve that information.
 
 @defun @var{$converter}->register_file_information ($key, $value)
 Associate the current output file name file to the key @var{$key}, itself
-associated to the value @var{$value}.
+associated to the integer value @var{$value}.
 @end defun
 
 @deftypefun {@var{$value} =} @var{$converter}->get_file_information (@var{$key}, @var{$file_name})

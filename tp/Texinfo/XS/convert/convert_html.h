@@ -62,6 +62,11 @@ enum command_id html_in_align (CONVERTER *self);
 
 char *debug_print_html_contexts (CONVERTER *self);
 
+void html_register_file_information (CONVERTER *self, const char *key,
+                                     int value);
+int html_get_file_information (CONVERTER *self, const char *key,
+                               const char *filename, int *status);
+
 void html_register_opened_section_level (CONVERTER *self, int level,
                                          const char *close_string);
 STRING_LIST *html_close_registered_sections_level (CONVERTER *self,
