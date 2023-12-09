@@ -1934,6 +1934,95 @@ default_css_string_format_protect_text (const char *text, TEXT *result)
     }
 }
 
+void
+html_css_string_convert_text (CONVERTER *self, const enum element_type type,
+              const ELEMENT *element, const char *content,
+              TEXT *result)
+{
+  char *content_used;
+  int contents_used_to_be_freed = 0;
+
+  if (html_in_upper_case (self))
+    {
+      content_used = to_upper_or_lower_multibyte (content, 1);
+      contents_used_to_be_freed = 1;
+    }
+  else
+    /* cast needed to avoid a compiler warning */
+    content_used = (char *) content;
+
+  if (html_in_code (self) || html_in_math (self))
+    {
+      default_css_string_format_protect_text (content_used, result);
+      goto out;
+    }
+
+  const char *p = content_used;
+  while (*p)
+    {
+      int before_sep_nr = strcspn (p, "\\-`'");
+      if (before_sep_nr)
+        {
+          text_append_n (result, p, before_sep_nr);
+          p += before_sep_nr;
+        }
+      if (!*p)
+        break;
+      switch (*p)
+        {
+        case '-':
+          if (*(p+1) && !memcmp (p, "---", 3))
+            {
+              ADDN("\\2014 ",6);
+              p += 3;
+            }
+          else if (!memcmp (p, "--", 2))
+            {
+              ADDN("\\2013 ",6);
+              p += 2;
+            }
+          else
+            {
+              text_append_n (result, "-", 1);
+              p++;
+            }
+          break;
+        case '`':
+          if (!memcmp (p, "``", 2))
+            {
+              ADDN("\\201C ",6);
+              p += 2;
+            }
+          else
+            {
+              ADDN("\\2018 ",6);
+              p++;
+            }
+          break;
+        case '\'':
+          if (!memcmp (p, "''", 2))
+            {
+              ADDN("\\201D ",6);
+              p += 2;
+            }
+          else
+            {
+              ADDN("\\2019 ",6);
+              p++;
+            }
+          break;
+        case '\\':
+          ADDN("\\\\", 2);
+          p++;
+          break;
+        }
+    }
+ out:
+  if (contents_used_to_be_freed)
+    free (content_used);
+}
+#undef ADDN
+
 #define OTXI_ISO_ENTITY_TEXT_CASES(var) \
         case '-': \
           if (*(var+1) && !memcmp (var, "---", 3)) \
@@ -6021,6 +6110,55 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+css_string_convert_no_arg_command (CONVERTER *self,
+                    const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  enum command_id formatted_cmd = cmd;
+  if (cmd == CM_click)
+    {
+      enum command_id click_cmd = 0;
+      char *click_cmdname = lookup_extra_string (element, "clickstyle");
+      if (click_cmdname)
+        {
+          click_cmd = lookup_builtin_command (click_cmdname);
+        }
+      if (click_cmd)
+        {
+          formatted_cmd = click_cmd;
+        }
+    }
+
+  if (html_in_upper_case (self)
+      && (builtin_command_data[formatted_cmd].other_flags & CF_letter_no_arg))
+    {
+      const char *command = builtin_command_name (formatted_cmd);
+      char *upper_case_command = strdup (command);
+      char *p;
+      enum command_id upper_case_cmd;
+      for (p = upper_case_command; *p; p++)
+        {
+          *p = toupper (*p);
+        }
+      /* TODO the mapping could be done once for all */
+      upper_case_cmd = lookup_builtin_command (upper_case_command);
+      if (upper_case_cmd)
+        {
+          HTML_COMMAND_CONVERSION *conv_context
+            = self->html_command_conversion[upper_case_cmd];
+          if (conv_context[HCC_type_css_string].text)
+            formatted_cmd = upper_case_cmd;
+        }
+    }
+
+  text_append (result,
+    self->html_command_conversion[formatted_cmd][HCC_type_css_string].text);
+}
+
+
+void
 convert_w_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -6163,6 +6301,167 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
         }
     }
   return 0;
+}
+
+/* NOTE these switches are not done in perl, so the only perl functions
+   that can be callled are perl functions that do not call formatting/conversion
+   functions or the formatting/conversion functions for HTML will be used. */
+char *
+html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanation)
+{
+  char *result;
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+
+  FORMATTING_REFERENCE *saved_formatting_references
+     = self->current_formatting_references;
+  COMMAND_CONVERSION_FUNCTION *saved_commands_conversion_function
+     = self->current_commands_conversion_function;
+  TYPE_CONVERSION_FUNCTION *saved_types_conversion_function
+     = self->current_types_conversion_function;
+
+  self->current_formatting_references
+    = &self->css_string_formatting_references[0];
+  self->current_commands_conversion_function
+    = &self->css_string_command_conversion_function[0];
+  self->current_types_conversion_function
+    = &self->css_string_type_conversion_function[0];
+
+  html_new_document_context (self, "css_string", 0, 0);
+  top_document_ctx = html_top_document_context (self);
+  top_document_ctx->string_ctx++;
+
+  result = html_convert_tree (self, element, explanation);
+
+  html_pop_document_context (self);
+
+  self->current_formatting_references = saved_formatting_references;
+  self->current_commands_conversion_function
+    = saved_commands_conversion_function;
+  self->current_types_conversion_function = saved_types_conversion_function;
+
+  return result;
+}
+
+typedef struct SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD {
+    enum command_id cmd;
+    char *string;
+    char *saved;
+} SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD;
+
+static SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD
+            special_list_mark_css_string_no_arg_command[] = {
+ {CM_minus, "\\2212 ", 0},
+ {0, 0, 0},
+};
+
+char *
+html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
+                                       char *explanation)
+{
+  char *result;
+  int i;
+  for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
+    {
+      enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
+      special_list_mark_css_string_no_arg_command[i].saved
+        = self->html_command_conversion[cmd][HCC_type_css_string].text;
+      self->html_command_conversion[cmd][HCC_type_css_string].text
+        = special_list_mark_css_string_no_arg_command[i].string;
+    }
+
+  result = html_convert_css_string (self, element, explanation);
+
+  for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
+    {
+      enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
+      self->html_command_conversion[cmd][HCC_type_css_string].text
+        = special_list_mark_css_string_no_arg_command[i].saved;
+      special_list_mark_css_string_no_arg_command[i].saved = 0;
+    }
+
+  return result;
+}
+
+void
+convert_itemize_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  ELEMENT *command_as_argument;
+  char *command_as_argument_name = 0;
+  char *mark_class_name = 0;
+  STRING_LIST *classes;
+  char *attribute_class;
+  CSS_SELECTOR_STYLE *selector_style = 0;
+
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+  command_as_argument = lookup_extra_element (element, "command_as_argument");
+  if (command_as_argument)
+    {
+      if (command_as_argument->cmd == CM_click)
+        {
+          command_as_argument_name = lookup_extra_string (command_as_argument,
+                                                          "clickstyle");
+        }
+      if (!command_as_argument_name)
+        command_as_argument_name = element_command_name (command_as_argument);
+
+      if (!strcmp (command_as_argument_name, "w"))
+        mark_class_name = "none";
+      else
+        mark_class_name = command_as_argument_name;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name(cmd), classes);
+
+  if (mark_class_name)
+    {
+      char *mark_class;
+      char *ul_mark_selector;
+      xasprintf (&mark_class, "mark-%s", mark_class_name);
+      xasprintf (&ul_mark_selector, "ul.%s", mark_class);
+
+      selector_style = find_css_selector_style (&self->css_element_class_styles,
+                                                ul_mark_selector);
+      free (ul_mark_selector);
+      if (selector_style)
+        {
+          add_string (mark_class, classes);
+        }
+      free (mark_class);
+    }
+
+  attribute_class = html_attribute_class (self, "ul", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  if (!selector_style && self->conf->NO_CSS <= 0)
+    {
+      char *css_string
+        = html_convert_css_string_for_list_mark (self, element->args.list[0],
+                                                 "itemize arg");
+      if (css_string && strlen (css_string))
+        {
+          text_append (result, " style=\"list-style-type: '");
+          format_protect_text (self, css_string, result);
+          text_append_n (result, "'\"", 2);
+        }
+    }
+
+  text_append_n (result, ">\n", 2);
+  if (content)
+    text_append (result, content);
+  text_append_n (result, "</ul>\n", 6);
 }
 
 static char *mini_toc_array[] = {"mini-toc"};
@@ -6730,6 +7029,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_appendixsection, &convert_heading_command},
   {CM_majorheading, &convert_heading_command},
   {CM_centerchap, &convert_heading_command},
+
+  {CM_itemize, convert_itemize_command},
 
   {CM_html, &convert_raw_command},
   {CM_tex, &convert_raw_command},
@@ -7362,6 +7663,8 @@ html_converter_initialize (CONVERTER *self)
       enum element_type type = types_internal_conversion_table[i].type;
       TYPE_CONVERSION_FUNCTION *type_conversion
          = &self->type_conversion_function[type];
+      TYPE_CONVERSION_FUNCTION *css_string_type_conversion
+         = &self->css_string_type_conversion_function[type];
       if (type_conversion->status == FRS_status_default_set)
         {
           type_conversion->formatting_reference = 0;
@@ -7369,6 +7672,14 @@ html_converter_initialize (CONVERTER *self)
           type_conversion->type_conversion
               = types_internal_conversion_table[i].type_conversion;
         }
+      css_string_type_conversion->formatting_reference = 0;
+      css_string_type_conversion->status = FRS_status_internal;
+      if (type == ET_text)
+        css_string_type_conversion->type_conversion
+          = &html_css_string_convert_text;
+      else
+        css_string_type_conversion->type_conversion
+          = types_internal_conversion_table[i].type_conversion;
     }
 
   for (i = 0; types_internal_open_table[i].type_open; i++)
@@ -7402,6 +7713,8 @@ html_converter_initialize (CONVERTER *self)
       enum command_id cmd = commands_internal_conversion_table[i].cmd;
       COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self->command_conversion_function[cmd];
+      COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
+               = &self->css_string_command_conversion_function[cmd];
       if (command_conversion->status == FRS_status_default_set)
         {
           command_conversion->formatting_reference = 0;
@@ -7409,6 +7722,13 @@ html_converter_initialize (CONVERTER *self)
           command_conversion->command_conversion
               = commands_internal_conversion_table[i].command_conversion;
         }
+      /* NOTE when accent commands are implemented for HTML in C,
+         if they aren't implemented for CSS, here there should be
+         an exception */
+      css_string_command_conversion->formatting_reference = 0;
+      css_string_command_conversion->status = FRS_status_internal;
+      css_string_command_conversion->command_conversion
+              = commands_internal_conversion_table[i].command_conversion;
     }
 
   /* all the no arg formatted commands are implemented in C */
@@ -7419,6 +7739,8 @@ html_converter_initialize (CONVERTER *self)
           enum command_id cmd = self->no_arg_formatted_cmd.list[i];
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self->command_conversion_function[cmd];
+          COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
+               = &self->css_string_command_conversion_function[cmd];
           if (command_conversion->status == FRS_status_default_set)
             {
               command_conversion->formatting_reference = 0;
@@ -7426,6 +7748,11 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->command_conversion
                 = &convert_no_arg_command;
             }
+
+          css_string_command_conversion->formatting_reference = 0;
+          css_string_command_conversion->status = FRS_status_internal;
+          css_string_command_conversion->command_conversion
+            = &css_string_convert_no_arg_command;
         }
     }
 
@@ -7831,43 +8158,6 @@ html_free_converter (CONVERTER *self)
   free (self->html_document_context.stack);
 
   free_strings_list (&self->special_unit_varieties);
-}
-
-
-char *
-html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanation)
-{
-  char *result;
-  HTML_DOCUMENT_CONTEXT *top_document_ctx;
-
-  FORMATTING_REFERENCE *saved_formatting_references
-     = self->current_formatting_references;
-  COMMAND_CONVERSION_FUNCTION *saved_commands_conversion_function
-     = self->current_commands_conversion_function;
-  TYPE_CONVERSION_FUNCTION *saved_types_conversion_function
-     = self->current_types_conversion_function;
-
-  self->current_formatting_references
-    = &self->css_string_formatting_references[0];
-  self->current_commands_conversion_function
-    = &self->css_string_command_conversion_function[0];
-  self->current_types_conversion_function
-    = &self->css_string_type_conversion_function[0];
-
-  html_new_document_context (self, "css_string", 0, 0);
-  top_document_ctx = html_top_document_context (self);
-  top_document_ctx->string_ctx++;
-
-  result = html_convert_tree (self, element, explanation);
-
-  html_pop_document_context (self);
-
-  self->current_formatting_references = saved_formatting_references;
-  self->current_commands_conversion_function
-    = saved_commands_conversion_function;
-  self->current_types_conversion_function = saved_types_conversion_function;
-
-  return result;
 }
 
 static void
