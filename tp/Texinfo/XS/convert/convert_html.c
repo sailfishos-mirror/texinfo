@@ -3003,8 +3003,8 @@ command_root_element_command (CONVERTER *self, const ELEMENT *command)
 
           free (root_unit);
 
-          return target_info->root_element_command;
         }
+      return target_info->root_element_command;
     }
   return 0;
 }
@@ -3130,7 +3130,7 @@ html_command_contents_target (CONVERTER *self, const ELEMENT *command,
   target_info = get_target (self, command);
   if (target_info)
     {
-      if (contents_or_shortcontents == CM_summarycontents)
+      if (contents_or_shortcontents == CM_shortcontents)
         return target_info->shortcontents_target;
       else if (contents_or_shortcontents == CM_contents)
         return target_info->contents_target;
@@ -3198,7 +3198,7 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
           text_init (&href);
           text_append (&href, "");
 
-          if (target_filename
+          if (target_filename && target_filename->filename
               && (!filename_from
                   || strcmp (target_filename->filename, filename_from)))
             text_append (&href, target_filename->filename);
@@ -5087,6 +5087,270 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+static char *toc_numbered_mark_array[] = {"toc-numbered-mark"};
+static const STRING_LIST toc_numbered_mark_classes
+    = {toc_numbered_mark_array, 1, 1};
+
+char *
+html_default_format_contents (CONVERTER *self, const enum command_id cmd,
+                        const ELEMENT *element, const char *source_filename)
+{
+  const char *filename_from;
+  int is_contents = (cmd == CM_contents);
+  TEXT result;
+  ELEMENT_LIST *root_children;
+  ELEMENT *section_root;
+  int min_root_level;
+  int max_root_level;
+  int status;
+  int has_toplevel_contents = 0;
+  int i;
+  int link_to_toc = 0;
+  const STRING_LIST *toc_ul_classes = 0;
+
+  if (source_filename)
+    filename_from = source_filename;
+  else
+    filename_from = self->current_filename.filename;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  if (self->document->sections_list
+      && self->document->sections_list->number >= 0)
+    {
+      ELEMENT *first = self->document->sections_list->list[0];
+      section_root = lookup_extra_element (first, "sectioning_root");
+    }
+  else
+    return result.text;
+
+  root_children = lookup_extra_contents (section_root, "section_childs", 0);
+  min_root_level = lookup_extra_integer (root_children->list[0], "section_level",
+                                         &status);
+  max_root_level = min_root_level;
+
+  for (i = 0; i < root_children->number; i++)
+    {
+      ELEMENT *top_section = root_children->list[i];
+      int section_level = lookup_extra_integer (top_section, "section_level",
+                                      &status);
+      if (section_level < min_root_level)
+        min_root_level = section_level;
+      if (section_level > max_root_level)
+        max_root_level = section_level;
+    }
+  /* chapter level elements are considered top-level here. */
+  if (max_root_level < 1)
+    max_root_level = 1;
+  /*
+   fprintf(stderr, "ROOT_LEVEL Max: %d, Min: %d\n", max_root_level, min_root_level);
+   */
+
+  if ((is_contents && !self->conf->BEFORE_TOC_LINES)
+      || (!is_contents && !self->conf->BEFORE_SHORT_TOC_LINES))
+    {
+      STRING_LIST *classes;
+      char *attribute_class;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+
+      attribute_class = html_attribute_class (self, "div", classes);
+      text_append (&result, attribute_class);
+      free (attribute_class);
+      destroy_strings_list (classes);
+      text_append_n (&result, ">\n", 2);
+    }
+  else if (is_contents)
+    text_append (&result, self->conf->BEFORE_TOC_LINES);
+  else
+    text_append (&result, self->conf->BEFORE_SHORT_TOC_LINES);
+
+  if (self->conf->NUMBER_SECTIONS > 0)
+    toc_ul_classes = &toc_numbered_mark_classes;
+  if (root_children->number > 1)
+    {
+      char *attribute_class;
+      attribute_class = html_attribute_class (self, "ul", toc_ul_classes);
+      text_append (&result, attribute_class);
+      free (attribute_class);
+      text_append_n (&result, ">\n", 2);
+      has_toplevel_contents = 1;
+    }
+
+  link_to_toc = (!is_contents && self->conf->SHORT_TOC_LINK_TO_TOC > 0
+                 && self->conf->contents > 0
+                 && (strcmp (self->conf->CONTENTS_OUTPUT_LOCATION, "inline")
+               || self->document->global_commands->contents.number > 0
+               || self->document->global_commands->shortcontents.number > 0));
+
+  for (i = 0; i < root_children->number; i++)
+    {
+      ELEMENT *top_section = root_children->list[i];
+      ELEMENT *section = top_section;
+      while (section)
+       {
+         int section_level = lookup_extra_integer (section, "section_level",
+                                                   &status);
+         ELEMENT_LIST *section_childs
+           = lookup_extra_contents (section, "section_childs", 0);
+         if (section->cmd != CM_top)
+            {
+              char *text;
+              char *href;
+              char *toc_id = html_command_contents_target (self, section, cmd);
+
+              text = html_command_text (self, section, 0);
+
+              if (link_to_toc)
+                href = html_command_contents_href (self, section, CM_contents,
+                                                   filename_from);
+              else
+                href = html_command_href (self, section, filename_from, 0, 0);
+              if (text && strlen (text))
+                {
+                  /* no indenting for shortcontents */
+                  if (is_contents)
+                    {
+                      int i;
+                      for (i = 0; i < 2 * (section_level - min_root_level); i++)
+                        text_append_n (&result, " ", 1);
+                    }
+                  text_append_n (&result, "<li>", 4);
+                  if ((toc_id && strlen (toc_id)) || (href && strlen (href)))
+                    {
+                      ELEMENT *associated_node = lookup_extra_element (section,
+                                                  "associated_node");
+                      text_append_n (&result, "<a", 2);
+                      if (toc_id && strlen (toc_id))
+                        text_printf (&result, " id=\"%s\"", toc_id);
+                      if (href && strlen (href))
+                        text_printf (&result, " href=\"%s\"", href);
+                      if (associated_node)
+                        {
+                          int is_index = lookup_extra_integer (associated_node,
+                                                           "isindex", &status);
+                          if (is_index)
+                            text_append_n (&result, " rel=\"index\"", 12);
+                        }
+                      text_append_n (&result, ">", 1);
+                      text_append (&result, text);
+                      text_append_n (&result, "</a>", 4);
+                    }
+                  else
+                    {
+                      text_append (&result, text);
+                    }
+                }
+              free (text);
+              free (href);
+            }
+          else
+            {
+              if (section_childs && section_childs->number > 0
+                  && has_toplevel_contents)
+                text_append_n (&result, "<li>", 4);
+            }
+          if (section_childs
+              && (is_contents || section_level < max_root_level))
+            {
+              char *attribute_class;
+              /* no indenting for shortcontents */
+              if (is_contents)
+                {
+                  int i;
+                  text_append_n (&result, "\n", 1);
+                  for (i = 0; i < 2 * (section_level - min_root_level); i++)
+                    text_append_n (&result, " ", 1);
+                }
+              attribute_class
+                = html_attribute_class (self, "ul", toc_ul_classes);
+              text_append (&result, attribute_class);
+              free (attribute_class);
+              text_append_n (&result, ">\n", 2);
+              section = section_childs->list[0];
+            }
+          else
+            {
+              ELEMENT *section_directions
+               = lookup_extra_element (section, "section_directions");
+              if (section_directions && section_directions->contents.list[D_next]
+                  && section->cmd != CM_top)
+                {
+                  text_append_n (&result, "</li>\n", 6);
+                  if (section == top_section)
+                    break;
+                  section = section_directions->contents.list[D_next];
+                }
+              else
+                {
+                  int is_top_section = 0;
+                  if (section == top_section)
+                    {
+                      if (section->cmd != CM_top)
+                        text_append_n (&result, "</li>\n", 6);
+                      break;
+                    }
+                  while (1)
+                    {
+                      int section_level;
+                      int i;
+
+                      ELEMENT *section_directions
+                       = lookup_extra_element (section, "section_directions");
+                      if (!section_directions
+                          || !section_directions->contents.list[D_up])
+                        break;
+
+                      section = section_directions->contents.list[D_up];
+
+                      section_level = lookup_extra_integer (section,
+                                                "section_level", &status);
+                      text_append_n (&result, "</li>\n", 6);
+
+                      for (i = 0; i < 2 * (section_level - min_root_level); i++)
+                        text_append_n (&result, " ", 1);
+                      text_append_n (&result, "</ul>", 5);
+                      if (section == top_section)
+                        {
+                          if (has_toplevel_contents)
+                            text_append_n (&result, "</li>\n", 6);
+                          is_top_section = 1;
+                          break;
+                        }
+                      section_directions
+                        = lookup_extra_element (section, "section_directions");
+                      if (section_directions
+                          && section_directions->contents.list[D_next])
+                        {
+                          text_append_n (&result, "</li>\n", 6);
+                          section = section_directions->contents.list[D_next];
+                          break;
+                        }
+                    }
+                  if (is_top_section)
+                    break;
+                }
+            }
+        }
+    }
+
+
+  if (root_children->number > 1)
+    text_append_n (&result, "\n</ul>", 6);
+
+  if ((is_contents && !self->conf->AFTER_TOC_LINES)
+      || (!is_contents && !self->conf->AFTER_SHORT_TOC_LINES))
+    text_append_n (&result, "\n</div>\n", 8);
+  else if (is_contents)
+    text_append (&result, self->conf->AFTER_TOC_LINES);
+  else
+    text_append (&result, self->conf->AFTER_SHORT_TOC_LINES);
+
+  return result.text;
+}
+
 char *
 format_contents (CONVERTER *self,
                  const enum command_id cmd, const ELEMENT *element,
@@ -5094,13 +5358,11 @@ format_contents (CONVERTER *self,
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_contents];
-  /*
   if (formatting_reference->status == FRS_status_default_set)
     {
       return html_default_format_contents (self, cmd, element, filename);
     }
   else
-   */
     {
       return call_formatting_function_format_contents (self,
                                           formatting_reference,
@@ -5611,6 +5873,7 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           free (footnote_text_with_eol);
         }
     }
+  destroy_pending_footnotes (pending_footnotes);
 }
 
 void

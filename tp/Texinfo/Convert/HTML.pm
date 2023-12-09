@@ -10388,13 +10388,12 @@ sub _default_format_contents($$;$$)
 
   my $section_root = $sections_list->[0]
                                    ->{'extra'}->{'sectioning_root'};
-  my $contents;
-  $contents = 1 if ($cmdname eq 'contents');
+  my $is_contents;
+  $is_contents = 1 if ($cmdname eq 'contents');
 
   my $min_root_level = $section_root->{'extra'}->{'section_childs'}->[0]
                                              ->{'extra'}->{'section_level'};
-  my $max_root_level = $section_root->{'extra'}->{'section_childs'}->[0]
-                                              ->{'extra'}->{'section_level'};
+  my $max_root_level = $min_root_level;
   foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
     $min_root_level = $top_section->{'extra'}->{'section_level'}
       if ($top_section->{'extra'}->{'section_level'} < $min_root_level);
@@ -10409,25 +10408,27 @@ sub _default_format_contents($$;$$)
             if ($self->get_conf('NUMBER_SECTIONS'));
 
   my $result = '';
-  if ($contents and !defined($self->get_conf('BEFORE_TOC_LINES'))
-      or (!$contents and !defined($self->get_conf('BEFORE_SHORT_TOC_LINES')))) {
+  if ($is_contents and !defined($self->get_conf('BEFORE_TOC_LINES'))
+      or (!$is_contents
+          and !defined($self->get_conf('BEFORE_SHORT_TOC_LINES')))) {
     $result .= $self->html_attribute_class('div', [$cmdname]).">\n";
-  } elsif($contents) {
+  } elsif($is_contents) {
     $result .= $self->get_conf('BEFORE_TOC_LINES');
   } else {
     $result .= $self->get_conf('BEFORE_SHORT_TOC_LINES');
   }
 
-  my $toplevel_contents;
+  my $has_toplevel_contents;
   if (@{$section_root->{'extra'}->{'section_childs'}} > 1) {
     $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
-    $toplevel_contents = 1;
+    $has_toplevel_contents = 1;
   }
 
-  my $link_to_toc = (!$contents and $self->get_conf('SHORT_TOC_LINK_TO_TOC')
+  my $link_to_toc = (!$is_contents and $self->get_conf('SHORT_TOC_LINK_TO_TOC')
                      and ($self->get_conf('contents'))
                      and ($self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'inline'
                           or $self->_has_contents_or_shortcontents()));
+
   foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
@@ -10445,41 +10446,40 @@ sub _default_format_contents($$;$$)
           # no indenting for shortcontents
           $result .= (' ' x
             (2*($section->{'extra'}->{'section_level'} - $min_root_level)))
-              if ($contents);
+              if ($is_contents);
+          $result .= "<li>";
           if ($toc_id ne '' or $href ne '') {
-            my $toc_name_attribute = '';
+            $result .= "<a";
             if ($toc_id ne '') {
-              $toc_name_attribute = " id=\"$toc_id\"";
+              $result .= " id=\"$toc_id\"";
             }
-            my $href_attribute = '';
             if ($href ne '') {
-              $href_attribute = " href=\"$href\"";
+              $result .= " href=\"$href\"";
             }
-            my $rel = '';
             if ($section->{'extra'}
                 and $section->{'extra'}->{'associated_node'}
                 and $section->{'extra'}->{'associated_node'}->{'extra'}
                 and $section->{'extra'}->{'associated_node'}->{'extra'}->{'isindex'}) {
-              $rel = ' rel="index"';
+              $result .= ' rel="index"';
             }
-            $result .= "<li><a${toc_name_attribute}${href_attribute}$rel>$text</a>";
+            $result .= ">$text</a>";
           } else {
-            $result .= "<li>$text";
+            $result .= $text;
           }
         }
       } elsif ($section->{'extra'}->{'section_childs'}
                and @{$section->{'extra'}->{'section_childs'}}
-               and $toplevel_contents) {
+               and $has_toplevel_contents) {
         $result .= "<li>";
       }
       # for shortcontents don't do child if child is not toplevel
       if ($section->{'extra'}->{'section_childs'}
-          and ($contents
+          and ($is_contents
                or $section->{'extra'}->{'section_level'} < $max_root_level)) {
         # no indenting for shortcontents
         $result .= "\n"
          . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
-            if ($contents);
+            if ($is_contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
         $section = $section->{'extra'}->{'section_childs'}->[0];
       } elsif ($section->{'extra'}->{'section_directions'}
@@ -10501,7 +10501,7 @@ sub _default_format_contents($$;$$)
            . ' ' x (2*($section->{'extra'}->{'section_level'} - $min_root_level))
             . "</ul>";
           if ($section eq $top_section) {
-            $result .= "</li>\n" if ($toplevel_contents);
+            $result .= "</li>\n" if ($has_toplevel_contents);
             last SECTION;
           }
           if ($section->{'extra'}->{'section_directions'}
@@ -10517,10 +10517,11 @@ sub _default_format_contents($$;$$)
   if (@{$section_root->{'extra'}->{'section_childs'}} > 1) {
     $result .= "\n</ul>";
   }
-  if ($contents and !defined($self->get_conf('AFTER_TOC_LINES'))
-      or (!$contents and !defined($self->get_conf('AFTER_SHORT_TOC_LINES')))) {
+  if ($is_contents and !defined($self->get_conf('AFTER_TOC_LINES'))
+      or (!$is_contents
+           and !defined($self->get_conf('AFTER_SHORT_TOC_LINES')))) {
     $result .= "\n</div>\n";
-  } elsif($contents) {
+  } elsif($is_contents) {
     $result .= $self->get_conf('AFTER_TOC_LINES');
   } else {
     $result .= $self->get_conf('AFTER_SHORT_TOC_LINES');
