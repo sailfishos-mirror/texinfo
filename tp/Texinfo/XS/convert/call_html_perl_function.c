@@ -697,7 +697,8 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
 
 
 char *
-call_formatting_function_format_title_titlepage (CONVERTER *self)
+call_formatting_function_format_title_titlepage (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference)
 {
   int count;
   char *result;
@@ -711,8 +712,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[FR_format_title_titlepage].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -755,6 +755,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self)
 
 char *
 call_formatting_function_format_protect_text (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                               const char *text)
 {
   int count;
@@ -769,8 +770,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[FR_format_protect_text].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -813,7 +813,8 @@ call_formatting_function_format_protect_text (CONVERTER *self,
 }
 
 char *
-call_formatting_function_format_footnotes_segment (CONVERTER *self)
+call_formatting_function_format_footnotes_segment (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference)
 {
   int count;
   char *result;
@@ -827,8 +828,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self)
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[FR_format_footnotes_segment].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -870,7 +870,8 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self)
 }
 
 char *
-call_formatting_function_format_footnotes_sequence (CONVERTER *self)
+call_formatting_function_format_footnotes_sequence (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference)
 {
   int count;
   char *result;
@@ -884,8 +885,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self)
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[FR_format_footnotes_sequence].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -928,6 +928,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self)
 
 char *
 call_formatting_function_format_end_file (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                     const char *filename, const OUTPUT_UNIT *output_unit)
 {
   int count;
@@ -943,8 +944,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[FR_format_end_file].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -994,6 +994,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
 
 char *
 call_formatting_function_format_begin_file (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                             const char *filename,
                                             const OUTPUT_UNIT *output_unit)
 {
@@ -1010,8 +1011,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[FR_format_begin_file].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1061,6 +1061,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 
 char *
 call_formatting_function_format_translate_message (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const char *message, const char *lang,
                                   const char *message_context)
 {
@@ -1076,9 +1077,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_translate_message].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1127,6 +1126,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 
 FORMATTED_BUTTON_INFO *
 call_formatting_function_format_button (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const BUTTON_SPECIFICATION *button,
                                   const ELEMENT *element)
 {
@@ -1141,9 +1141,7 @@ call_formatting_function_format_button (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_button].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1214,6 +1212,7 @@ call_formatting_function_format_button (CONVERTER *self,
 
 char *
 call_formatting_function_format_navigation_panel (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname, const ELEMENT *element,
                                   int vertical)
@@ -1230,9 +1229,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_navigation_panel].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1281,6 +1278,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 
 char *
 call_formatting_function_format_navigation_header (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
                                   const ELEMENT *element)
@@ -1297,9 +1295,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_navigation_header].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1347,6 +1343,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
 
 char *
 call_formatting_function_format_heading_text (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const char *cmdname,
                                   const STRING_LIST *classes,
                                   const char *text,
@@ -1367,9 +1364,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_heading_text].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1441,6 +1436,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
 
 char *
 call_formatting_function_format_contents (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                               const char *cmdname, const ELEMENT *command,
                               const char *filename)
 {
@@ -1457,9 +1453,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_contents].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1512,6 +1506,7 @@ call_formatting_function_format_contents (CONVERTER *self,
 
 char *
 call_formatting_function_format_separate_anchor (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                    const char *id, const char *class)
 {
   int count;
@@ -1526,9 +1521,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_separate_anchor].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1575,6 +1568,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 
 char *
 call_formatting_function_format_element_header (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                               const char *cmdname, const ELEMENT *command,
                               const OUTPUT_UNIT *output_unit)
 {
@@ -1590,9 +1584,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_element_header].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {
@@ -1640,6 +1632,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
 
 char *
 call_formatting_function_format_element_footer (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                               const enum output_unit_type unit_type,
                               const OUTPUT_UNIT *output_unit,
                               const char *content, ELEMENT *command)
@@ -1656,9 +1649,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  formatting_reference_sv
-    = self->formatting_references[
-         FR_format_element_footer].sv_reference;
+  formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
     {

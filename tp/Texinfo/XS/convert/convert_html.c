@@ -428,6 +428,19 @@ find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
 
 
 char *
+format_translate_message (CONVERTER *self,
+                                  const char *message, const char *lang,
+                                  const char *message_context)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_translate_message];
+
+  return call_formatting_function_format_translate_message(self,
+                                            formatting_reference,
+                                    message, lang, message_context);
+}
+
+char *
 html_translate_string (CONVERTER *self, const char *string,
                    const char *translation_context, const char *in_lang)
 {
@@ -447,8 +460,7 @@ html_translate_string (CONVERTER *self, const char *string,
         lang = self->conf->documentlanguage;
 
       translated_string
-       = call_formatting_function_format_translate_message(
-                            self, string, lang, translation_context);
+       = format_translate_message(self, string, lang, translation_context);
 
       if (translated_string)
         return translated_string;
@@ -2187,15 +2199,17 @@ html_default_format_protect_text (const char *text, TEXT *result)
 void
 format_protect_text (CONVERTER *self, const char *text, TEXT *result)
 {
-  if (self->formatting_references[FR_format_protect_text].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_protect_text];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_protect_text (text, result);
     }
   else
     {
       char *protected_text
-        = call_formatting_function_format_protect_text (self, text);
+        = call_formatting_function_format_protect_text (self,
+                                              formatting_reference, text);
       text_append (result, protected_text);
       free (protected_text);
     }
@@ -4994,15 +5008,17 @@ void
 format_separate_anchor (CONVERTER *self, const char *id,
                         const char *class, TEXT *result)
 {
-  if (self->formatting_references[FR_format_separate_anchor].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_separate_anchor];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_separate_anchor (self, id, class, result);
     }
   else
     {
       char *separate_anchor
-        = call_formatting_function_format_separate_anchor (self, id, class);
+        = call_formatting_function_format_separate_anchor (self,
+                                     formatting_reference, id, class);
       text_append (result, separate_anchor);
       free (separate_anchor);
     }
@@ -5071,6 +5087,27 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+char *
+format_contents (CONVERTER *self,
+                 const enum command_id cmd, const ELEMENT *element,
+                 const char *filename)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_contents];
+  /*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_contents (self, cmd, element, filename);
+    }
+  else
+   */
+    {
+      return call_formatting_function_format_contents (self,
+                                          formatting_reference,
+                        builtin_command_name (cmd), element, filename);
+    }
+}
+
 void
 format_heading_text (CONVERTER *self, const enum command_id cmd,
                      const STRING_LIST *classes, const char *text,
@@ -5078,8 +5115,9 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
                      const char *target, TEXT *result)
 
 {
-  if (self->formatting_references[FR_format_heading_text].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_heading_text];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_heading_text (self, cmd, classes, text,
                                         level, id, element, target, result);
@@ -5088,6 +5126,7 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
     {
       char *heading_text
         = call_formatting_function_format_heading_text (self,
+                                        formatting_reference,
                                         builtin_command_name (cmd),
                                         classes, text,
                                         level, id, element, target);
@@ -5096,21 +5135,85 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+void
+format_title_titlepage (CONVERTER *self, TEXT *result)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_title_titlepage];
+    {
+      char *title_titlepage
+        = call_formatting_function_format_title_titlepage (self,
+                                                           formatting_reference);
+      text_append (result, title_titlepage);
+      free (title_titlepage);
+    }
+}
+
+void
+format_element_footer (CONVERTER *self,
+                              const enum output_unit_type unit_type,
+                              const OUTPUT_UNIT *output_unit,
+                              const char *content, ELEMENT *element,
+                              TEXT *result)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_element_footer];
+
+   {
+     char *formatted_footer
+       = call_formatting_function_format_element_footer (self,
+                                         formatting_reference,
+                                         unit_type,
+                                         output_unit, content, element);
+     text_append (result, formatted_footer);
+     free (formatted_footer);
+   }
+}
+
+char *
+format_end_file (CONVERTER *self, const char *filename,
+                 const OUTPUT_UNIT *output_unit)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_end_file];
+    {
+      return call_formatting_function_format_end_file (self,
+                                                     formatting_reference,
+                                                     filename, output_unit);
+    }
+}
+
+char *
+format_begin_file (CONVERTER *self, const char *filename,
+                 const OUTPUT_UNIT *output_unit)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_begin_file];
+    {
+      return call_formatting_function_format_begin_file (self,
+                                                     formatting_reference,
+                                                     filename, output_unit);
+    }
+}
+
 FORMATTED_BUTTON_INFO *
 format_button (CONVERTER *self,
                const BUTTON_SPECIFICATION *button,
                const ELEMENT *element)
 {
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_button];
 /*
-  if (self->formatting_references[FR_format_button].status
-                                             == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_button (self, button, element, result);
     }
   else
 */
     {
-      return call_formatting_function_format_button (self, button, element);
+      return call_formatting_function_format_button (self,
+                                                     formatting_reference,
+                                                     button, element);
     }
 }
 
@@ -5236,8 +5339,9 @@ format_navigation_panel (CONVERTER *self,
                          const char *cmdname, const ELEMENT *element,
                          int vertical, TEXT *result)
 {
-  if (self->formatting_references[FR_format_navigation_panel].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_navigation_panel];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_navigation_panel (self, buttons, cmdname,
                                             element, vertical, result);
@@ -5246,6 +5350,7 @@ format_navigation_panel (CONVERTER *self,
     {
       char *navigation_panel
         = call_formatting_function_format_navigation_panel (self,
+                                                formatting_reference,
                                  buttons, cmdname, element, vertical);
       text_append (result, navigation_panel);
       free (navigation_panel);
@@ -5283,8 +5388,9 @@ format_navigation_header (CONVERTER *self,
                           const char *cmdname,
                           const ELEMENT *element, TEXT *result)
 {
-  if (self->formatting_references[FR_format_navigation_header].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_navigation_header];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_navigation_header (self, buttons, cmdname,
                                              element, result);
@@ -5293,6 +5399,7 @@ format_navigation_header (CONVERTER *self,
     {
       char *navigation_header
         = call_formatting_function_format_navigation_header (self,
+                                                formatting_reference,
                                                 buttons, cmdname, element);
       text_append (result, navigation_header);
       free (navigation_header);
@@ -5409,8 +5516,9 @@ format_element_header (CONVERTER *self,
                        const char *cmdname, const ELEMENT *element,
                        const OUTPUT_UNIT *output_unit, TEXT *result)
 {
-  if (self->formatting_references[FR_format_element_header].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_element_header];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_element_header (self, cmdname, element,
                                           output_unit, result);
@@ -5419,6 +5527,7 @@ format_element_header (CONVERTER *self,
     {
       char *element_header
         = call_formatting_function_format_element_header (self,
+                                                formatting_reference,
                                                 cmdname, element, output_unit);
       text_append (result, element_header);
       free (element_header);
@@ -5507,15 +5616,17 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 void
 format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
-  if (self->formatting_references[FR_format_footnotes_sequence].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_footnotes_sequence];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_footnotes_sequence (self, result);
     }
   else
     {
       char *footnotes_sequence
-        = call_formatting_function_format_footnotes_sequence (self);
+        = call_formatting_function_format_footnotes_sequence (self,
+                                                formatting_reference);
       text_append (result, footnotes_sequence);
       free (footnotes_sequence);
     }
@@ -5600,15 +5711,17 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
 void
 format_footnotes_segment (CONVERTER *self, TEXT *result)
 {
-  if (self->formatting_references[FR_format_footnotes_segment].status
-                                             == FRS_status_default_set)
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_footnotes_segment];
+  if (formatting_reference->status == FRS_status_default_set)
     {
       default_format_footnotes_segment (self, result);
     }
   else
     {
       char *footnotes_segment
-        = call_formatting_function_format_footnotes_segment (self);
+        = call_formatting_function_format_footnotes_segment (self,
+                                             formatting_reference);
       if (footnotes_segment)
         {
           text_append (result, footnotes_segment);
@@ -6209,8 +6322,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
   if (self->conf->DEBUG > 0)
     fprintf (stderr, "CONTENTS_INLINE %s\n", builtin_command_name (cmd));
 
-  content = call_formatting_function_format_contents (self,
-                        builtin_command_name (cmd), element, 0);
+  content = format_contents (self, cmd, element, 0);
   if (content && strlen (content))
     {
       int j;
@@ -7115,7 +7227,6 @@ convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
 {
   STRING_LIST *closed_strings;
   ELEMENT *unit_command;
-  char *formatted_footer;
 
   if (html_in_string (self))
     return;
@@ -7163,12 +7274,8 @@ convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
 
   unit_command = output_unit->unit_command;
 
-  formatted_footer
-    = call_formatting_function_format_element_footer (self, unit_type,
-                                         output_unit, content, unit_command);
-  text_append (result, formatted_footer);
-
-  free (formatted_footer);
+  format_element_footer (self, unit_type, output_unit, content, unit_command,
+                         result);
 }
 
 void
@@ -7191,7 +7298,6 @@ convert_special_unit_type (CONVERTER *self,
   STRING_LIST *closed_strings;
   size_t count_in_file = 0;
   int level;
-  char *formatted_footer;
 
   if (html_in_string (self))
     return;
@@ -7283,12 +7389,8 @@ convert_special_unit_type (CONVERTER *self,
   free (special_unit_body.text);
   text_append (result, "</div>");
 
-  formatted_footer
-    = call_formatting_function_format_element_footer (self, unit_type,
-                                         output_unit, content, unit_command);
-  text_append (result, formatted_footer);
-
-  free (formatted_footer);
+  format_element_footer (self, unit_type, output_unit, content, unit_command,
+                         result);
 }
 
 static OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] = {
@@ -9529,10 +9631,9 @@ convert_output_output_unit_internal (CONVERTER *self,
         }
 
       /* do end file first in case it requires some CSS */
-      file_end = call_formatting_function_format_end_file (self,
-                                             output_unit_filename, output_unit);
-      file_beginning = call_formatting_function_format_begin_file (self,
-                                        output_unit_filename, file_output_unit);
+      file_end = format_end_file (self, output_unit_filename, output_unit);
+      file_beginning = format_begin_file (self, output_unit_filename,
+                                          file_output_unit);
       text_reset (text);
       if (file_beginning)
         {
@@ -9598,9 +9699,9 @@ void
 html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
                               char *output_file, char *output_filename)
 {
-  char *title_titlepage;
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
+  TEXT title_titlepage;
 
   if (strlen (output_file))
     {
@@ -9619,9 +9720,9 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
 
   self->modified_state |= HMSF_current_filename;
 
-  title_titlepage
-    = call_formatting_function_format_title_titlepage (self);
-  self->title_titlepage = title_titlepage;
+  text_init (&title_titlepage);
+  format_title_titlepage (self, &title_titlepage);
+  self->title_titlepage = title_titlepage.text;
   memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
   self->modified_state |= HMSF_current_filename;
 }
@@ -9697,10 +9798,8 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
         }
 
       /* do end file first, in case it needs some CSS */
-      file_end = call_formatting_function_format_end_file (self,
-                                                     output_filename, 0);
-      file_beginning = call_formatting_function_format_begin_file (self,
-                                                     output_filename, 0);
+      file_end = format_end_file (self, output_filename, 0);
+      file_beginning = format_begin_file (self, output_filename, 0);
       if (file_beginning)
         {
           text_append (&result, file_beginning);

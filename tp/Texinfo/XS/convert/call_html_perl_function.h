@@ -54,43 +54,60 @@ TARGET_FILENAME *call_file_id_setting_external_target_non_split_name
                      const char *normalized, const ELEMENT *element,
                      const char *target, const char *file);
 
-char *call_formatting_function_format_title_titlepage (CONVERTER *self);
+char *call_formatting_function_format_title_titlepage (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference);
 char *call_formatting_function_format_protect_text (CONVERTER *self,
-                                                    const char *text);
-char *call_formatting_function_format_footnotes_sequence (CONVERTER *self);
-char *call_formatting_function_format_footnotes_segment (CONVERTER *self);
+                         const FORMATTING_REFERENCE *formatting_reference,
+                                              const char *text);
+char *call_formatting_function_format_footnotes_segment (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference);
+char *call_formatting_function_format_footnotes_sequence (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference);
 char *call_formatting_function_format_end_file (CONVERTER *self,
-                                         const char *filename,
-                                         const OUTPUT_UNIT *output_unit);
+                         const FORMATTING_REFERENCE *formatting_reference,
+                    const char *filename, const OUTPUT_UNIT *output_unit);
 char *call_formatting_function_format_begin_file (CONVERTER *self,
-                                         const char *filename,
-                                         const OUTPUT_UNIT *output_unit);
+                         const FORMATTING_REFERENCE *formatting_reference,
+                                            const char *filename,
+                                            const OUTPUT_UNIT *output_unit);
+char *call_formatting_function_format_translate_message (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                                  const char *message, const char *lang,
+                                  const char *message_context);
 FORMATTED_BUTTON_INFO *call_formatting_function_format_button (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const BUTTON_SPECIFICATION *button,
                                   const ELEMENT *element);
 char *call_formatting_function_format_navigation_panel (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname, const ELEMENT *element,
                                   int vertical);
 char *call_formatting_function_format_navigation_header (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
                                   const ELEMENT *element);
 char *call_formatting_function_format_heading_text (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                   const char *cmdname,
                                   const STRING_LIST *classes,
                                   const char *text,
                                   int level, const char *id,
                                   const ELEMENT *element, const char *target);
-char *call_formatting_function_format_element_header (CONVERTER *self,
-                              const char *cmdname, const ELEMENT *command,
-                              const OUTPUT_UNIT *output_unit);
 char *call_formatting_function_format_contents (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                               const char *cmdname, const ELEMENT *command,
                               const char *filename);
 char *call_formatting_function_format_separate_anchor (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                                    const char *id, const char *class);
+char *call_formatting_function_format_element_header (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                              const char *cmdname, const ELEMENT *command,
+                              const OUTPUT_UNIT *output_unit);
 char *call_formatting_function_format_element_footer (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
                               const enum output_unit_type unit_type,
                               const OUTPUT_UNIT *output_unit,
                               const char *content, ELEMENT *command);
@@ -118,8 +135,5 @@ void call_special_unit_body_formatting (CONVERTER *self,
                               const OUTPUT_UNIT *output_unit,
                               TEXT *result);
 
-char *call_formatting_function_format_translate_message (CONVERTER *self,
-                                  const char *message, const char *lang,
-                                  const char *message_context);
 
 #endif
