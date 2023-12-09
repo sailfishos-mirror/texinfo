@@ -6698,18 +6698,69 @@ contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
     }
 }
 
+static void
+format_simpletitle (CONVERTER *self, TEXT *result)
+{
+  char *title_text;
+  char *context_str;
+  STRING_LIST *classes;
+  enum command_id cmd = self->simpletitle_cmd;
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+  xasprintf (&context_str, "%s simpletitle",
+             builtin_command_name (cmd));
+  title_text
+    = convert_tree_new_formatting_context (self,
+        self->simpletitle_tree, context_str, 0, 0, 0);
+  free (context_str);
+  format_heading_text (self, cmd, classes, title_text,
+                                    0, 0, 0, 0, result);
+  destroy_strings_list (classes);
+  free (title_text);
+}
+
+/* Convert @titlepage.  Falls back to simpletitle. */
+char *
+html_default_format_titlepage (CONVERTER *self)
+{
+  int titlepage_text = 0;
+  TEXT result;
+  text_init (&result);
+  text_append (&result, "");
+  if (self->document->global_commands->titlepage)
+    {
+      ELEMENT *tmp = new_element (ET_NONE);
+      tmp->contents = self->document->global_commands->titlepage->contents;
+      convert_to_html_internal (self, tmp, &result, "convert titlepage");
+      tmp->contents.list = 0;
+      destroy_element (tmp);
+      titlepage_text = 1;
+    }
+  else if (self->simpletitle_tree)
+    {
+      format_simpletitle (self, &result);
+      titlepage_text = 1;
+    }
+  if (titlepage_text)
+    {
+      text_append (&result, self->conf->DEFAULT_RULE);
+      text_append_n (&result, "\n", 1);
+    }
+  contents_shortcontents_in_title (self, &result);
+  return result.text;
+}
+
 char *
 format_titlepage (CONVERTER *self)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_titlepage];
-/*
   if (formatting_reference->status == FRS_status_default_set)
     {
       return html_default_format_titlepage (self);
     }
   else
- */
     {
       return call_formatting_function_format_titlepage (self,
                                                formatting_reference);
@@ -6730,25 +6781,12 @@ html_default_format_title_titlepage (CONVERTER *self)
           TEXT result;
           text_init (&result);
           text_append (&result, "");
+
           if (self->simpletitle_tree)
-            {
-              char *title_text;
-              char *context_str;
-              STRING_LIST *classes;
-              enum command_id cmd = self->simpletitle_cmd;
-              classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-              memset (classes, 0, sizeof (STRING_LIST));
-              add_string (builtin_command_name (cmd), classes);
-              xasprintf (&context_str, "%s simpletitle",
-                         builtin_command_name (cmd));
-              title_text
-                = convert_tree_new_formatting_context (self,
-                    self->simpletitle_tree, context_str, 0, 0, 0);
-              format_heading_text (self, cmd, classes, title_text,
-                                                0, 0, 0, 0, &result);
-              destroy_strings_list (classes);
-            }
+            format_simpletitle (self, &result);
+
           contents_shortcontents_in_title (self, &result);
+          return result.text;
         }
     }
   return strdup ("");
