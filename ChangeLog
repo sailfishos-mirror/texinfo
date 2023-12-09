@@ -1,5 +1,13 @@
 2023-12-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (format_protect_text)
+	(html_convert_css_string, html_initialize_output_state),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): add
+	current_format_protect_text function reference in converter to switch
+	from html to css formatting in C in format_protect_text.
+
+2023-12-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c
 	(call_formatting_function_format_*),
 	tp/Texinfo/XS/convert/convert_html.c (format_translate_message)

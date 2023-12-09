@@ -696,11 +696,12 @@ typedef struct CONVERTER {
                                  output_unit_files with changed counter */
     HTML_ADDED_TARGET_LIST added_targets; /* targets added */
     STRING_LIST shared_conversion_state_integer; /* modified */
-    /* next three allow to switch from normal HTML formatting to css strings
+    /* next 4 allow to switch from normal HTML formatting to css strings
        formatting */
     FORMATTING_REFERENCE *current_formatting_references;
     TYPE_CONVERSION_FUNCTION *current_types_conversion_function;
     COMMAND_CONVERSION_FUNCTION *current_commands_conversion_function;
+    void (* current_format_protect_text) (const char *text, TEXT *result);
 
     /* state common with perl converter */
     int document_global_context;

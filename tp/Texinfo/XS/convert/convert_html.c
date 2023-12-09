@@ -2203,7 +2203,7 @@ format_protect_text (CONVERTER *self, const char *text, TEXT *result)
    = &self->current_formatting_references[FR_format_protect_text];
   if (formatting_reference->status == FRS_status_default_set)
     {
-      html_default_format_protect_text (text, result);
+      (*self->current_format_protect_text) (text, result);
     }
   else
     {
@@ -6424,12 +6424,14 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanat
   char *result;
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
 
+  void (* saved_current_format_protect_text) (const char *text, TEXT *result);
   FORMATTING_REFERENCE *saved_formatting_references
      = self->current_formatting_references;
   COMMAND_CONVERSION_FUNCTION *saved_commands_conversion_function
      = self->current_commands_conversion_function;
   TYPE_CONVERSION_FUNCTION *saved_types_conversion_function
      = self->current_types_conversion_function;
+  saved_current_format_protect_text = self->current_format_protect_text;
 
   self->current_formatting_references
     = &self->css_string_formatting_references[0];
@@ -6437,6 +6439,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanat
     = &self->css_string_command_conversion_function[0];
   self->current_types_conversion_function
     = &self->css_string_type_conversion_function[0];
+  self->current_format_protect_text = &default_css_string_format_protect_text;
 
   html_new_document_context (self, "css_string", 0, 0);
   top_document_ctx = html_top_document_context (self);
@@ -6450,6 +6453,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanat
   self->current_commands_conversion_function
     = saved_commands_conversion_function;
   self->current_types_conversion_function = saved_types_conversion_function;
+  self->current_format_protect_text = saved_current_format_protect_text;
 
   return result;
 }
@@ -7976,6 +7980,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
   self->current_commands_conversion_function
      = &self->command_conversion_function[0];
   self->current_types_conversion_function = &self->type_conversion_function[0];
+  self->current_format_protect_text = &html_default_format_protect_text;
 
   /* FIXME now done through HTML _initialize_output_state, would need
      to readd when the HTML function is overriden
