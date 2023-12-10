@@ -1,3 +1,12 @@
+2023-12-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(JSLICENSE_FILE_INFO, JSLICENSE_FILE_INFO_LIST)
+	(JSLICENSE_CATEGORY_LIST, CONVERTER): get jslicenses information from
+	perl.
+
 2023-12-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file): avoid using

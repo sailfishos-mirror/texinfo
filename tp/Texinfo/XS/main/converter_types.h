@@ -604,6 +604,24 @@ typedef struct ASSOCIATED_INFO_LIST {
     ASSOCIATED_INFO *list;
 } ASSOCIATED_INFO_LIST;
 
+typedef struct JSLICENSE_FILE_INFO {
+    char *filename;
+    char *license;
+    char *url;
+    char *source;
+} JSLICENSE_FILE_INFO;
+
+typedef struct JSLICENSE_FILE_INFO_LIST {
+    char *category;
+    size_t number;
+    JSLICENSE_FILE_INFO *list;
+} JSLICENSE_FILE_INFO_LIST;
+
+typedef struct JSLICENSE_CATEGORY_LIST {
+    size_t number;
+    JSLICENSE_FILE_INFO_LIST *list;
+} JSLICENSE_CATEGORY_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -687,6 +705,7 @@ typedef struct CONVERTER {
     size_t *special_unit_file_indices;  /* same for special output units */
     ELEMENT *simpletitle_tree;
     enum command_id simpletitle_cmd;
+    JSLICENSE_CATEGORY_LIST jslicenses;
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */

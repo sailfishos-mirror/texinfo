@@ -8523,6 +8523,32 @@ html_finalize_output_state (CONVERTER *self)
       self->index_entries_by_letter = 0;
     }
 
+  if (self->jslicenses.number)
+    {
+      int i;
+      for (i = 0; i < self->jslicenses.number; i++)
+        {
+          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+            = &self->jslicenses.list[i];
+          free (jslicences_files_info->category);
+          if (jslicences_files_info->number)
+            {
+              int j;
+              for (j = 0; j < jslicences_files_info->number; j++)
+                {
+                  JSLICENSE_FILE_INFO *jslicense_file_info
+                    = &jslicences_files_info->list[j];
+                  free (jslicense_file_info->filename);
+                  free (jslicense_file_info->license);
+                  free (jslicense_file_info->url);
+                  free (jslicense_file_info->source);
+                }
+            }
+          free (jslicences_files_info->list);
+        }
+      free (self->jslicenses.list);
+    }
+
   clear_output_files_information (&self->output_files_information);
   clear_output_unit_files (&self->output_unit_files);
 
