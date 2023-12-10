@@ -120,6 +120,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
   "Texinfo::Convert::HTML::_prepare_simpletitle"
    => "Texinfo::Convert::ConvertXS::html_prepare_simpletitle",
+#  "Texinfo::Convert::HTML::_prepare_converted_output_info"
+#   => "Texinfo::Convert::ConvertXS::html_prepare_converted_output_info",
 
   "Texinfo::Convert::HTML::_register_id"
    => "Texinfo::Convert::ConvertXS::html_register_id",
@@ -11659,6 +11661,91 @@ sub _do_js_files($$)
   }
 }
 
+sub _prepare_converted_output_info($)
+{
+  my $self = shift;
+  # prepare title.  fulltitle uses more possibility than simpletitle for
+  # title, including @-commands found in @titlepage only.  Therefore
+  # simpletitle is more in line with what makeinfo in C did.
+
+  $self->_prepare_simpletitle();
+
+  my $fulltitle_tree;
+  foreach my $fulltitle_command('settitle', 'title', 'shorttitlepage', 'top') {
+    if ($self->{'global_commands'}->{$fulltitle_command}) {
+      my $command = $self->{'global_commands'}->{$fulltitle_command};
+      next if (!$command->{'args'} or !$command->{'args'}->[0]
+               or !$command->{'args'}->[0]->{'contents'}
+               or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
+      print STDERR "Using $fulltitle_command as title\n"
+        if ($self->get_conf('DEBUG'));
+      $fulltitle_tree = $command->{'args'}->[0];
+      last;
+    }
+  }
+  if (!$fulltitle_tree and $self->{'global_commands'}->{'titlefont'}
+      and $self->{'global_commands'}->{'titlefont'}->[0]->{'args'}
+      and defined($self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0])
+      and $self->{'global_commands'}->{'titlefont'}->[0]
+                                                ->{'args'}->[0]->{'contents'}
+      and @{$self->{'global_commands'}->{'titlefont'}->[0]
+                                                ->{'args'}->[0]->{'contents'}}) {
+    $fulltitle_tree = $self->{'global_commands'}->{'titlefont'}->[0];
+  }
+
+  my $html_title_string;
+  if ($fulltitle_tree) {
+    $self->{'title_tree'} = $fulltitle_tree;
+    $html_title_string = $self->convert_tree_new_formatting_context(
+          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
+          'title_string');
+    if ($html_title_string !~ /\S/) {
+      $html_title_string = undef;
+    }
+  }
+  if (!defined($html_title_string)) {
+    my $default_title = $self->gdt('Untitled Document');
+    $self->{'title_tree'} = $default_title;
+    $self->{'title_string'} = $self->convert_tree_new_formatting_context(
+          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
+          'title_string');
+    # TODO it is not clear that a filename without line number is ok
+    # for line_warn.  Not clear what is the right way to do.  There is
+    # no file level warn, as in general document_warn is used for messages
+    # for other files than the main file name.
+    $self->line_warn($self, __(
+                         "must specify a title with a title command or \@top"),
+               {'file_name' => $self->{'document_info'}->{'input_file_name'}});
+  } else {
+    $self->{'title_string'} = $html_title_string;
+  }
+
+  # copying comment
+  if ($self->{'global_commands'}->{'copying'}) {
+    my $copying_comment = Texinfo::Convert::Text::convert_to_text(
+     {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}},
+     {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+    if ($copying_comment ne '') {
+      $self->{'copying_comment'}
+       = &{$self->formatting_function('format_comment')}($self, $copying_comment);
+    }
+  }
+
+  # documentdescription
+  if (defined($self->get_conf('documentdescription'))) {
+    $self->{'documentdescription_string'}
+      = $self->get_conf('documentdescription');
+  } elsif ($self->{'global_commands'}->{'documentdescription'}) {
+    $self->{'documentdescription_string'}
+      = $self->convert_tree_new_formatting_context(
+       {'type' => '_string',
+        'contents' =>
+            $self->{'global_commands'}->{'documentdescription'}->{'contents'}},
+       'documentdescription');
+    chomp($self->{'documentdescription_string'});
+  }
+}
+
 # units or root conversion
 sub _html_convert_output($$$$$$$$)
 {
@@ -11990,79 +12077,7 @@ sub output($$)
     $self->_translate_names();
   }
 
-  # prepare title.  fulltitle uses more possibility than simpletitle for
-  # title, including @-commands found in @titlepage only.  Therefore
-  # simpletitle is more in line with what makeinfo in C did.
-
-  $self->_prepare_simpletitle();
-
-  my $fulltitle;
-  foreach my $fulltitle_command('settitle', 'title', 'shorttitlepage', 'top') {
-    if ($self->{'global_commands'}->{$fulltitle_command}) {
-      my $command = $self->{'global_commands'}->{$fulltitle_command};
-      next if (!$command->{'args'} or !$command->{'args'}->[0]
-               or !$command->{'args'}->[0]->{'contents'}
-               or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-      print STDERR "Using $fulltitle_command as title\n"
-        if ($self->get_conf('DEBUG'));
-      $fulltitle = $command->{'args'}->[0];
-      last;
-    }
-  }
-  if (!$fulltitle and $self->{'global_commands'}->{'titlefont'}
-      and $self->{'global_commands'}->{'titlefont'}->[0]->{'args'}
-      and defined($self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0])
-      and $self->{'global_commands'}->{'titlefont'}->[0]
-                                                ->{'args'}->[0]->{'contents'}
-      and @{$self->{'global_commands'}->{'titlefont'}->[0]
-                                                ->{'args'}->[0]->{'contents'}}) {
-    $fulltitle = $self->{'global_commands'}->{'titlefont'}->[0];
-  }
-
-  my $html_title_string;
-  if ($fulltitle) {
-    $self->{'title_tree'} = $fulltitle;
-    $html_title_string = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
-          'title_string');
-  }
-  if (!defined($html_title_string) or $html_title_string !~ /\S/) {
-    my $default_title = $self->gdt('Untitled Document');
-    $self->{'title_tree'} = $default_title;
-    $self->{'title_string'} = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
-          'title_string');
-    $self->line_warn($self, __(
-                         "must specify a title with a title command or \@top"),
-               {'file_name' => $self->{'document_info'}->{'input_file_name'}});
-  } else {
-    $self->{'title_string'} = $html_title_string;
-  }
-
-  # copying comment
-  if ($self->{'global_commands'}->{'copying'}) {
-    my $copying_comment = Texinfo::Convert::Text::convert_to_text(
-     {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}},
-     {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
-    if ($copying_comment ne '') {
-      $self->{'copying_comment'}
-       = &{$self->formatting_function('format_comment')}($self, $copying_comment);
-    }
-  }
-
-  # documentdescription
-  if (defined($self->get_conf('documentdescription'))) {
-    $self->{'documentdescription_string'}
-      = $self->get_conf('documentdescription');
-  } elsif ($self->{'global_commands'}->{'documentdescription'}) {
-    $self->{'documentdescription_string'}
-      = $self->convert_tree_new_formatting_context(
-       {'type' => '_string',
-        'contents' =>
-            $self->{'global_commands'}->{'documentdescription'}->{'contents'}},
-       'documentdescription');
-    chomp($self->{'documentdescription_string'});
-  }
+  $self->_prepare_converted_output_info();
 
   # set information, to have it ready for run_stage_handlers.
   # Some information is not available yet.

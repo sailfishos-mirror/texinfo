@@ -822,7 +822,7 @@ html_register_footnote (SV *converter_in, SV *command, footid, docid, int number
                    /*
                  else
                    fprintf (stderr,
-                            "REMARK: footnote %d %s not directly found\n", 
+                            "REMARK: footnote %d %s not directly found\n",
                             number_in_doc, footid);
                     */
                }
@@ -1147,24 +1147,8 @@ void
 html_translate_names (SV *converter_in)
   PREINIT:
          CONVERTER *self = 0;
-         HV *hv_in;
-         SV **converter_options_sv;
      CODE:
          self = get_sv_converter (converter_in, "html_translate_names");
-         /* that kind of code could be in get_perl_info too */
-         hv_in = (HV *)SvRV (converter_in);
-         converter_options_sv = hv_fetch (hv_in, "conf",
-                                   strlen ("conf"), 0);
-
-         if (converter_options_sv)
-           {
-             if (self->conf)
-               free_options (self->conf);
-             free (self->conf);
-
-             self->conf
-              = copy_sv_options (*converter_options_sv, self);
-           }
 
          html_translate_names (self);
 
@@ -1186,15 +1170,41 @@ html_prepare_simpletitle (SV *converter_in)
              if (self->simpletitle_tree)
                {
                  HV *converter_hv = (HV *) SvRV (converter_in);
-                 hv_store (converter_hv, "simpletitle_tree",
-                           strlen ("simpletitle_tree"),
-                           newRV_inc ((SV *) self->simpletitle_tree->hv), 0);
-                 hv_store (converter_hv, "simpletitle_command_name",
-                           strlen ("simpletitle_command_name"),
-                  newSVpv (builtin_command_name (self->simpletitle_cmd), 0), 0);
+                 build_simpletitle (self, converter_hv);
                }
            }
 
+void
+html_prepare_converted_output_info (SV *converter_in)
+  PREINIT:
+         CONVERTER *self = 0;
+    CODE:
+         self = get_sv_converter (converter_in, "html_prepare_title_titlepage");
+         if (self)
+           {
+             HV *converter_hv = (HV *) SvRV (converter_in);
+
+             html_prepare_converted_output_info (self);
+             if (self->added_title_tree)
+               build_texinfo_tree (self->title_tree, 1);
+
+             if (self->simpletitle_tree)
+               build_simpletitle (self, converter_hv);
+
+             hv_store (converter_hv, "title_tree", strlen ("title_tree"),
+                       newRV_inc ((SV *) self->title_tree->hv), 0);
+             hv_store (converter_hv, "title_string", strlen ("title_string"),
+                       newSVpv_utf8 (self->title_string, 0), 0);
+
+             if (self->copying_comment)
+               hv_store (converter_hv, "copying_comment",
+                         strlen ("copying_comment"),
+                         newSVpv_utf8 (self->copying_comment, 0), 0);
+             if (self->documentdescription_string)
+               hv_store (converter_hv, "documentdescription_string",
+                         strlen ("documentdescription_string"),
+                         newSVpv_utf8 (self->documentdescription_string, 0), 0);
+           }
 
 void
 html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file, output_filename)

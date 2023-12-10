@@ -695,6 +695,65 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
 
 
 char *
+call_formatting_function_format_comment (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                                              const char *text)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv = formatting_reference->sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 2);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_comment should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+char *
 call_formatting_function_format_program_string (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference)
 {
@@ -896,7 +955,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
   SAVETMPS;
 
   PUSHMARK(SP);
-  EXTEND(SP, 1);
+  EXTEND(SP, 2);
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));

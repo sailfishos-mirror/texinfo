@@ -983,7 +983,7 @@ sub test($$)
       # $test_input_file_name is already bytes?
       # FIXME it is incorrect to do that outside of an API.  It is actually
       # more to set the output file, so maybe it should be done differently.
-      $document->{'info'}->{'input_file_name'} = $test_input_file_name;
+      $document->{'global_info'}->{'input_file_name'} = $test_input_file_name;
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});

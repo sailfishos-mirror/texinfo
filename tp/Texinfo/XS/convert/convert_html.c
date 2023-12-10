@@ -2284,6 +2284,25 @@ format_protect_text (CONVERTER *self, const char *text, TEXT *result)
     }
 }
 
+char *
+format_comment (CONVERTER *self, const char *text)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_comment];
+/*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_comment (self, text);
+    }
+  else
+*/
+    {
+      return call_formatting_function_format_comment (self,
+                                               formatting_reference,
+                                                      text);
+    }
+}
+
 static const char *reserved_unreserved_percent = "-_.!~*'()$&+,/:;=?@[]#%";
 
 static char *
@@ -8110,7 +8129,175 @@ html_prepare_simpletitle (CONVERTER *self)
         {
           self->simpletitle_tree = command->args.list[0];
           self->simpletitle_cmd = cmd;
+          break;
         }
+    }
+}
+
+const static enum command_id fulltitle_cmds[] =
+ {CM_settitle, CM_title, CM_shorttitlepage, CM_top, 0};
+
+
+void
+html_prepare_converted_output_info (CONVERTER *self)
+{
+  int i;
+  ELEMENT *fulltitle_tree = 0;
+  char *html_title_string = 0;
+  /*
+   prepare title.  fulltitle uses more possibility than simpletitle for
+   title, including @-commands found in @titlepage only.  Therefore
+   simpletitle is more in line with what makeinfo in C did.
+   */
+
+  html_prepare_simpletitle (self);
+
+  for (i = 0; fulltitle_cmds[i]; i++)
+    {
+      enum command_id cmd = fulltitle_cmds[i];
+      ELEMENT *command
+        = get_cmd_global_uniq_command (self->document->global_commands, cmd);
+      if (command && command->args.number > 0
+          && command->args.list[0]->contents.number > 0)
+        {
+          fulltitle_tree = command->args.list[0];
+          break;
+        }
+    }
+
+  if (!fulltitle_tree
+      && self->document->global_commands->titlefont.number > 0
+      && self->document->global_commands->titlefont.list[0]->args.number > 0
+      && self->document->global_commands->titlefont.list[0]->args.list[0]
+                                    ->contents.number > 0)
+    {
+      fulltitle_tree = self->document->global_commands->titlefont.list[0];
+    }
+
+  if (fulltitle_tree)
+    {
+      TREE_ADDED_ELEMENTS *string_tree = 0;
+      ELEMENT *tree_root_string;
+
+      self->title_tree = fulltitle_tree;
+
+      string_tree = new_tree_added_elements ();
+      tree_root_string = new_element_added (string_tree, ET__string);
+      add_to_contents_as_array (tree_root_string, fulltitle_tree);
+
+      add_to_element_list (&self->tree_to_build, tree_root_string);
+
+      html_title_string = convert_tree_new_formatting_context (self,
+                            tree_root_string, "title_string", 0, 0, 0);
+
+      destroy_tree_added_elements (self, string_tree);
+      if (html_title_string[strspn (html_title_string, whitespace_chars)]
+           == '\0')
+        {
+          free (html_title_string);
+          html_title_string = 0;
+        }
+    }
+
+  if (!html_title_string)
+    {
+      TREE_ADDED_ELEMENTS *string_tree = 0;
+      ELEMENT *tree_root_string;
+      ELEMENT *default_title = html_gdt_tree ("Untitled Document",
+                                         self->document, self, 0, 0, 0);
+      SOURCE_INFO cmd_source_info;
+
+      self->title_tree = default_title;
+
+      string_tree = new_tree_added_elements ();
+      tree_root_string = new_element_added (string_tree, ET__string);
+
+      add_to_contents_as_array (tree_root_string, default_title);
+
+      add_to_element_list (&self->tree_to_build, tree_root_string);
+
+      html_title_string = convert_tree_new_formatting_context (self,
+                            tree_root_string, "title_string", 0, 0, 0);
+
+      remove_element_from_list (&self->tree_to_build, tree_root_string);
+      destroy_tree_added_elements (self, string_tree);
+
+      self->added_title_tree = 1;
+
+      memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
+      cmd_source_info.file_name = self->document->global_info->input_file_name;
+      /* TODO the message is not registered for gettext.  In perl source,
+         it is registered */
+      message_list_line_error_ext(&self->error_messages,
+                                  MSG_warning, 0, &cmd_source_info,
+                      "must specify a title with a title command or @top");
+    }
+
+  self->title_string = html_title_string;
+
+  /* copying comment */
+
+  if (self->document->global_commands->copying)
+    {
+      char *copying_comment;
+      ELEMENT *tmp = new_element (ET_NONE);
+      TEXT_OPTIONS *text_conv_options
+         = copy_options_for_convert_text (self, 0);
+
+      tmp->contents = self->document->global_commands->copying->contents;
+
+      copying_comment = convert_to_text (tmp, text_conv_options);
+
+      tmp->contents.list = 0;
+      destroy_element (tmp);
+      free (text_conv_options);
+
+      if (copying_comment && strlen (copying_comment) > 0)
+        {
+          self->copying_comment = format_comment (self, copying_comment);
+        }
+      free (copying_comment);
+    }
+
+  /* documentdescription */
+  if (self->conf->documentdescription)
+    self->documentdescription_string
+     = strdup (self->conf->documentdescription);
+  else if (self->document->global_commands->documentdescription)
+    {
+      TREE_ADDED_ELEMENTS *string_tree = 0;
+      ELEMENT *tree_root_string;
+      ELEMENT *tmp = new_element (ET_NONE);
+      char *documentdescription_string;
+      size_t documentdescription_string_len;
+
+      tmp->contents
+        = self->document->global_commands->documentdescription->contents;
+
+      string_tree = new_tree_added_elements ();
+      tree_root_string = new_element_added (string_tree, ET__string);
+
+      add_to_element_contents (tree_root_string, tmp);
+
+      add_to_element_list (&self->tree_to_build, tree_root_string);
+
+      documentdescription_string
+               = convert_tree_new_formatting_context (self,
+                            tree_root_string, "documentdescription", 0, 0, 0);
+
+      remove_element_from_list (&self->tree_to_build, tree_root_string);
+      destroy_tree_added_elements (self, string_tree);
+
+      tmp->contents.list = 0;
+      destroy_element (tmp);
+
+      documentdescription_string_len = strlen (documentdescription_string);
+      if (documentdescription_string_len > 0
+          && documentdescription_string[documentdescription_string_len -1]
+             == '\n')
+        documentdescription_string[documentdescription_string_len -1] = '\0';
+
+      self->documentdescription_string = documentdescription_string;
     }
 }
 
@@ -8648,6 +8835,19 @@ html_finalize_output_state (CONVERTER *self)
   self->special_unit_file_indices = 0;
   free (self->title_titlepage);
   self->title_titlepage = 0;
+  free (self->title_string);
+  self->title_string = 0;
+  free (self->documentdescription_string);
+  self->documentdescription_string = 0;
+  free (self->copying_comment);
+  self->copying_comment = 0;
+
+  if (self->added_title_tree)
+    {
+      destroy_element_and_children (self->title_tree);
+
+      self->added_title_tree = 0;
+    }
 
   if (self->index_entries)
     {

@@ -1157,7 +1157,7 @@ get_document (size_t document_descriptor)
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   STORE("tree", hv_tree);
-  STORE("info", hv_info);
+  STORE("global_info", hv_info);
   STORE("errors", av_errors_list);
 #undef STORE
 
@@ -1248,7 +1248,7 @@ build_document (size_t document_descriptor, int no_store)
   STORE("listoffloats_list", hv_listoffloats_list);
   STORE("internal_references", av_internal_xref);
   STORE("commands_info", hv_commands_info);
-  STORE("info", hv_info);
+  STORE("global_info", hv_info);
   STORE("identifiers_target", hv_identifiers_target);
   STORE("labels_list", av_labels_list);
   STORE("errors", av_errors_list);

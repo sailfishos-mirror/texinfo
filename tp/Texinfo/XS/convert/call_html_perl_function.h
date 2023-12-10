@@ -54,6 +54,9 @@ TARGET_FILENAME *call_file_id_setting_external_target_non_split_name
                      const char *normalized, const ELEMENT *element,
                      const char *target, const char *file);
 
+char *call_formatting_function_format_comment (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                                              const char *text);
 char *call_formatting_function_format_program_string (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference);
 char *call_formatting_function_format_titlepage (CONVERTER *self,

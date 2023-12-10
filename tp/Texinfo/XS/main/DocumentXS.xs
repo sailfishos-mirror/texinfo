@@ -77,7 +77,8 @@ rebuild_document (SV *document_in, ...)
             rebuilt_doc_sv = build_document (document_descriptor, no_store);
             RETVAL = rebuilt_doc_sv;
             rebuilt_doc_hv = (HV *)SvRV (rebuilt_doc_sv);
-            info_sv = hv_fetch (hv_in, "info", strlen ("info"), 0);
+            info_sv = hv_fetch (hv_in, "global_info",
+                                strlen ("global_info"), 0);
             /* copy input document info keys values not already in new document
                info.  Should only happen for info keys set in perl only. */
             if (info_sv)
@@ -85,8 +86,8 @@ rebuild_document (SV *document_in, ...)
                 I32 hv_number;
                 I32 i;
                 HV *info_hv = (HV *)SvRV (*info_sv);
-                SV **rebuilt_info_sv = hv_fetch (rebuilt_doc_hv, "info",
-                                                strlen ("info"), 0);
+                SV **rebuilt_info_sv = hv_fetch (rebuilt_doc_hv, "global_info",
+                                                strlen ("global_info"), 0);
                 HV *rebuilt_info_hv = 0;
                 if (!rebuilt_info_sv)
                   {

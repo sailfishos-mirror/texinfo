@@ -650,9 +650,6 @@ typedef struct CONVERTER {
   /* API to open, set encoding and register files */
     OUTPUT_FILES_INFORMATION output_files_information;
 
-  /* maybe HTML specific */
-    char *title_titlepage;
-
   /* HTML specific */
     /* set for a converter */
     COMMAND_ID_LIST no_arg_formatted_cmd;
@@ -697,15 +694,20 @@ typedef struct CONVERTER {
     HTML_TARGET_LIST html_targets;
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
     char **directions_strings[TDS_type_rel+1];
+    JSLICENSE_CATEGORY_LIST jslicenses;
     /* associate cmd and index in special_unit_varieties STRING_LIST */
     /* number in sync with command_special_unit_variety, +1 for trailing 0 */
     COMMAND_ID_INDEX command_special_variety_name_index[4+1];
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */
+    char *title_titlepage;
     ELEMENT *simpletitle_tree;
     enum command_id simpletitle_cmd;
-    JSLICENSE_CATEGORY_LIST jslicenses;
+    ELEMENT *title_tree;
+    char *title_string;
+    char *documentdescription_string;
+    char *copying_comment;
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
@@ -726,6 +728,7 @@ typedef struct CONVERTER {
     TYPE_CONVERSION_FUNCTION *current_types_conversion_function;
     COMMAND_CONVERSION_FUNCTION *current_commands_conversion_function;
     void (* current_format_protect_text) (const char *text, TEXT *result);
+    int added_title_tree;
 
     /* state common with perl converter */
     int document_global_context;

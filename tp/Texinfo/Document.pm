@@ -98,7 +98,7 @@ sub register
     'listoffloats_list' => $floats_information,
     'internal_references' => $internal_references_information,
     'commands_info' => $global_commands_information,
-    'info' => $global_information,
+    'global_info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,
   };
@@ -155,7 +155,7 @@ sub global_commands_information($)
 sub global_information($)
 {
   my $self = shift;
-  return $self->{'info'};
+  return $self->{'global_info'};
 }
 
 sub labels_information($)

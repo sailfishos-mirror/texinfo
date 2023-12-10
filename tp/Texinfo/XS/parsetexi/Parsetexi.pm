@@ -31,8 +31,8 @@
 #
 # The following information is directly determined from the
 # input file name as binary strings
-# ->{'info'}->{'input_file_name'}
-# ->{'info'}->{'input_directory'}
+# ->{'global_info'}->{'input_file_name'}
+# ->{'global_info'}->{'input_directory'}
 
 package Texinfo::Parser;
 
@@ -224,11 +224,11 @@ sub _get_parser_info($$;$$) {
   clear_document_errors($document_descriptor);
 
   # additional info relevant in perl only.
-  $document->{'info'}->{'input_perl_encoding'} = 'utf-8';
+  $document->{'global_info'}->{'input_perl_encoding'} = 'utf-8';
   my $perl_encoding
     = Texinfo::Common::get_perl_encoding($document->{'commands_info'},
                               $registrar, $configuration_information);
-  $document->{'info'}->{'input_perl_encoding'} = $perl_encoding
+  $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
      if (defined($perl_encoding));
 
   return $document;

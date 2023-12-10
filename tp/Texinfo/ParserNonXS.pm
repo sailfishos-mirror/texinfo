@@ -43,8 +43,8 @@
 #
 # The following parser information is directly determined from the
 # input file name as binary strings
-# ->{'info'}->{'input_file_name'}
-# ->{'info'}->{'input_directory'}
+# ->{'global_info'}->{'input_file_name'}
+# ->{'global_info'}->{'input_directory'}
 
 package Texinfo::Parser;
 
@@ -157,7 +157,7 @@ my %parser_state_initialization = (
   'input_encoding_name' => 'utf-8', # current input encoding name, based on
                                     # mime type encoding names
   # initialization of information returned by global_information()
-  'info' => {},
+  'global_info' => {},
   # for get_conf, set for all the configuration keys that are also in
   # %Texinfo::Common::default_parser_customization_values to the
   # values set at parser initialization
@@ -876,14 +876,15 @@ sub get_parser_info($)
     = Texinfo::Common::get_perl_encoding($self->{'commands_info'},
                                          $self->{'registrar'}, $self);
   if (defined($perl_encoding)) {
-    $self->{'info'}->{'input_perl_encoding'} = $perl_encoding
+    $self->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
   } else {
-    $self->{'info'}->{'input_perl_encoding'} = 'utf-8';
+    $self->{'global_info'}->{'input_perl_encoding'} = 'utf-8';
   }
   if (defined($self->{'input_encoding_name'})) {
-    $self->{'info'}->{'input_encoding_name'} = $self->{'input_encoding_name'};
+    $self->{'global_info'}->{'input_encoding_name'}
+                               = $self->{'input_encoding_name'};
   } else {
-    $self->{'info'}->{'input_encoding_name'} = 'utf-8';
+    $self->{'global_info'}->{'input_encoding_name'} = 'utf-8';
   }
   my $global_commands = $self->{'commands_info'};
   my $document_language
@@ -891,11 +892,11 @@ sub get_parser_info($)
                                                    'documentlanguage',
                                                    'preamble');
   if ($document_language) {
-    $self->{'info'}->{'documentlanguage'}
+    $self->{'global_info'}->{'documentlanguage'}
       = Texinfo::Common::informative_command_value($document_language);
   }
   if ($global_commands->{'novalidate'}) {
-    $self->{'info'}->{'novalidate'} = 1;
+    $self->{'global_info'}->{'novalidate'} = 1;
   }
 }
 
@@ -923,8 +924,8 @@ sub parse_texi_file($$)
 
   my $document = $self->_parse_texi_document();
   get_parser_info($self);
-  $self->{'info'}->{'input_file_name'} = $file_name;
-  $self->{'info'}->{'input_directory'} = $directories;
+  $self->{'global_info'}->{'input_file_name'} = $file_name;
+  $self->{'global_info'}->{'input_directory'} = $directories;
 
   return $document;
 }
@@ -5735,7 +5736,7 @@ sub _handle_line_command($$$$$$)
   _register_global_command($self, $command_e, $source_info)
     if $command_e;
   if ($command eq 'dircategory') {
-    push @{$self->{'info'}->{'dircategory_direntry'}}, $command_e;
+    push @{$self->{'global_info'}->{'dircategory_direntry'}}, $command_e;
   }
   return ($current, $line, $retval, $command_e);
 }
@@ -5823,7 +5824,7 @@ sub _handle_block_command($$$$$)
     }
     if ($block_commands{$command} eq 'menu') {
       $self->_push_context('ct_preformatted', $command);
-      push @{$self->{'info'}->{'dircategory_direntry'}}, $block
+      push @{$self->{'global_info'}->{'dircategory_direntry'}}, $block
         if ($command eq 'direntry');
       if ($self->{'current_node'}) {
         if ($command eq 'direntry') {
