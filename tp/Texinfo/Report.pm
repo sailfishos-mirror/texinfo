@@ -80,6 +80,57 @@ sub add_formatted_message($$)
   push @{$self->{'errors_warnings'}}, $message;
 }
 
+sub format_line_message($$$$$;$$)
+{
+  my $self = shift;
+  my $configuration_information = shift;
+  my $type = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+  my $continuation = shift;
+  my $silent = shift;
+
+  # TODO actually a bug, add a bug message/cluck
+  return if (!defined($error_location_info));
+
+  my $message_line;
+
+  if (defined($error_location_info->{'macro'})
+      and $error_location_info->{'macro'} ne '') {
+    if ($type eq 'warning') {
+      # TODO change the context to "Texinfo source file warning in a macro"
+      # when nearing the release
+      $message_line = sprintf(__p("Texinfo source file warning",
+                               "warning: %s (possibly involving \@%s)")."\n",
+                           $text, $error_location_info->{'macro'});
+    } else {
+      $message_line = sprintf(__p("Texinfo source file error in macro",
+                            "%s (possibly involving \@%s)")."\n",
+                         $text, $error_location_info->{'macro'});
+    }
+  } else {
+    if ($type eq 'warning') {
+      $message_line = sprintf(__p("Texinfo source file warning",
+                               "warning: %s")."\n",
+                           $text);
+    } else {
+      $message_line = $text."\n";
+    }
+  }
+  warn $message_line if (defined($configuration_information)
+                      and $configuration_information->get_conf('DEBUG')
+                      and not $silent);
+  my %location_info = %{$error_location_info};
+  delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
+                                  and not defined($location_info{'file_name'}));
+  my $result
+    = { 'type' => $type, 'text' => $text, 'error_line' => $message_line,
+         %location_info };
+  $result->{'continuation'} = $continuation if ($continuation);
+  return $result;
+}
+
+
 # format a line warning
 sub line_warn($$$$;$$)
 {
@@ -90,36 +141,11 @@ sub line_warn($$$$;$$)
   my $continuation = shift;
   my $silent = shift;
 
-  return if (!defined($error_location_info));
-
-  my $warn_line;
-
-  if (defined($error_location_info->{'macro'})
-      and $error_location_info->{'macro'} ne '') {
-    # TODO change the context to "Texinfo source file warning in a macro"
-    # when nearing the release
-    $warn_line = sprintf(__p("Texinfo source file warning",
-                             "warning: %s (possibly involving \@%s)")."\n",
-                         $text, $error_location_info->{'macro'});
-  } else {
-    $warn_line = sprintf(__p("Texinfo source file warning",
-                             "warning: %s")."\n",
-                         $text);
-  }
-  warn $warn_line if (defined($configuration_information)
-                      and $configuration_information->get_conf('DEBUG')
-                      and not $silent);
-  my %location_info = %{$error_location_info};
-  delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
-                                  and not defined($location_info{'file_name'}));
-  my $warning
-    = { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line,
-         %location_info };
-  $warning->{'continuation'} = $continuation if ($continuation);
-  push @{$self->{'errors_warnings'}}, $warning;
+  my $warning = $self->format_line_message($configuration_information,
+            'warning', $text, $error_location_info, $continuation, $silent);
+  $self->add_formatted_message($warning);
 }
 
-# format a line error
 sub line_error($$$$;$)
 {
   my $self = shift;
@@ -129,28 +155,41 @@ sub line_error($$$$;$)
   my $continuation = shift;
   my $silent = shift;
 
-  if (defined($error_location_info)) {
-    my $error_text;
-    if ($error_location_info->{'macro'} ne '') {
-      $error_text = sprintf(__p("Texinfo source file error in macro",
-                            "%s (possibly involving \@%s)")."\n",
-                         $text, $error_location_info->{'macro'});
+  my $error = $self->format_line_message($configuration_information, 'error',
+                        $text, $error_location_info, $continuation, $silent);
+  $self->add_formatted_message($error);
+}
+
+sub format_document_message($$$$;$)
+{
+  my $self = shift;
+  my $configuration_information = shift;
+  my $type = shift;
+  my $text = shift;
+  my $continuation = shift;
+
+  my $message_line;
+  if (defined($configuration_information)
+      and defined($configuration_information->get_conf('PROGRAM'))
+      and $configuration_information->get_conf('PROGRAM') ne '') {
+    if ($type eq 'warning') {
+      $message_line = sprintf(__p("whole document warning", "%s: warning: %s")."\n",
+                    $configuration_information->get_conf('PROGRAM'), $text);
     } else {
-      $error_text = $text."\n";
+      $message_line = sprintf("%s: %s\n",
+            $configuration_information->get_conf('PROGRAM'), $text);
     }
-    warn $error_text if (defined($configuration_information)
-                         and $configuration_information->get_conf('DEBUG')
-                         and not $silent);
-    my %location_info = %{$error_location_info};
-    delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
-                                  and not defined($location_info{'file_name'}));
-    my $error = { 'type' => 'error', 'text' => $text,
-           'error_line' => $error_text,
-           %{$error_location_info} };
-    $error->{'continuation'} = $continuation if ($continuation);
-    push @{$self->{'errors_warnings'}}, $error;
+  } else {
+    if ($type eq 'warning') {
+      $message_line = sprintf(__p("whole document warning", "warning: %s")."\n",
+                           $text);
+    } else {
+      $message_line = "$text\n";
+    }
   }
-  $self->{'error_nrs'}++ unless ($continuation);
+  my $result = { 'type' => $type, 'text' => $text, 'error_line' => $message_line };
+  $result->{'continuation'} = $continuation if ($continuation);
+  return $result;
 }
 
 sub document_warn($$$;$)
@@ -160,20 +199,9 @@ sub document_warn($$$;$)
   my $text = shift;
   my $continuation = shift;
 
-  my $warn_line;
-  if (defined($configuration_information)
-      and defined($configuration_information->get_conf('PROGRAM'))
-      and $configuration_information->get_conf('PROGRAM') ne '') {
-    $warn_line = sprintf(__p("whole document warning", "%s: warning: %s")."\n",
-                  $configuration_information->get_conf('PROGRAM'), $text);
-  } else {
-    $warn_line = sprintf(__p("whole document warning", "warning: %s")."\n",
-                         $text);
-  }
-  my $warning = { 'type' => 'warning', 'text' => $text,
-                  'error_line' => $warn_line };
-  $warning->{'continuation'} = $continuation if ($continuation);
-  push @{$self->{'errors_warnings'}}, $warning;
+  my $warning = $self->format_document_message($configuration_information,
+                                               'warning', $text, $continuation);
+  $self->add_formatted_message($warning);
 }
 
 sub document_error($$$;$)
@@ -183,20 +211,9 @@ sub document_error($$$;$)
   my $text = shift;
   my $continuation = shift;
 
-  my $error_line;
-  if (defined($configuration_information)
-      and defined($configuration_information->get_conf('PROGRAM'))
-      and $configuration_information->get_conf('PROGRAM') ne '') {
-    $error_line = sprintf("%s: %s\n",
-          $configuration_information->get_conf('PROGRAM'), $text);
-  } else {
-    $error_line = "$text\n";
-  }
-  my $error = { 'type' => 'error', 'text' => $text,
-                'error_line' => $error_line, };
-  $error->{'continuation'} = $continuation if ($continuation);
-  push @{$self->{'errors_warnings'}}, $error;
-  $self->{'error_nrs'}++ unless ($continuation);
+  my $error = $self->format_document_message($configuration_information,
+                                             'error', $text, $continuation);
+  $self->add_formatted_message($error);
 }
 
 1;

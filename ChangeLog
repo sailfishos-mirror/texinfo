@@ -1,5 +1,14 @@
 2023-12-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Report.pm (format_line_message, line_warn, line_error)
+	(format_document_message, document_warn, document_error): split
+	formatting messages out of line_* and document_*, adding
+	format_line_message for line messages and format_document_message for
+	document messages, using only one function for both errors and
+	warnings, as in XS.
+
+2023-12-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi): rename global
 	information info key as global_info in document registering.
 
