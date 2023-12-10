@@ -1,5 +1,20 @@
 2023-12-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/options_data.txt (PROGRAM_NAME_IN_FOOTER): type is int.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_program_string),
+	tp/Texinfo/XS/convert/convert_html.c (format_program_string): add.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.
+	(html_converter_initialize_sv, html_converter_prepare_output_sv): move
+	getting jslicenses information to html_converter_prepare_output_sv.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(html_default_format_end_file): implement in C.
+
+2023-12-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state),
 	tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h

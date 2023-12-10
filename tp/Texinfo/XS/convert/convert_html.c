@@ -5467,7 +5467,7 @@ format_element_footer (CONVERTER *self,
   if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_element_footer (self, unit_type, output_unit,
-                                          content, element, result)
+                                          content, element, result);
     }
   else
 */
@@ -5482,13 +5482,113 @@ format_element_footer (CONVERTER *self,
    }
 }
 
+void
+format_program_string (CONVERTER *self, TEXT *result)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_program_string];
+
 /*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      html_default_format_program_string (self, result);
+    }
+  else
+*/
+   {
+     char *program_string
+       = call_formatting_function_format_program_string (self,
+                                            formatting_reference);
+     text_append (result, program_string);
+     free (program_string);
+   }
+}
+
+static char *program_in_footer_array[] = {"program-in-footer"};
+static const STRING_LIST program_in_footer_classes
+   = {program_in_footer_array, 1, 1};
+
 char *
 html_default_format_end_file (CONVERTER *self, const char *filename,
                               const OUTPUT_UNIT *output_unit)
 {
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  if (self->conf->PROGRAM_NAME_IN_FOOTER > 0)
+    {
+      char *open;
+      size_t open_len;
+      text_append_n (&result, "<p>\n  ",  6);
+      open = html_attribute_class (self, "span", &program_in_footer_classes);
+      open_len = strlen (open);
+      if (open_len > 0)
+        {
+          text_append (&result, open);
+          text_append_n (&result, ">", 1);
+        }
+
+      format_program_string (self, &result);
+
+      if (open_len > 0)
+        text_append_n (&result, "</span>", 7);
+      text_append_n (&result, "\n</p>", 5);
+    }
+  text_append_n (&result, "\n\n", 2);
+
+  if (self->conf->PRE_BODY_CLOSE)
+    text_append (&result, self->conf->PRE_BODY_CLOSE);
+
+  if (self->jslicenses.number)
+    {
+      int infojs_jslicenses_file_nr = 0;
+      int mathjax_jslicenses_file_nr = 0;
+      int i;
+      int status;
+      for (i = 0; i < self->jslicenses.number; i++)
+        {
+          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+            = &self->jslicenses.list[i];
+          if (!strcmp (jslicences_files_info->category, "infojs"))
+            infojs_jslicenses_file_nr = jslicences_files_info->number;
+          else if (!strcmp (jslicences_files_info->category, "mathjax"))
+            mathjax_jslicenses_file_nr = jslicences_files_info->number;
+        }
+      if (infojs_jslicenses_file_nr > 0
+          || ((html_get_file_information (self, "mathjax",
+                                          filename, &status) > 0
+               || (!self->conf->SPLIT || !strlen (self->conf->SPLIT)))
+              && mathjax_jslicenses_file_nr > 0))
+        {
+          if (self->conf->JS_WEBLABELS_FILE
+              && (self->conf->JS_WEBLABELS
+                  && (!strcmp (self->conf->JS_WEBLABELS, "generate")
+                      || !strcmp (self->conf->JS_WEBLABELS, "reference"))))
+            {
+              ELEMENT *tree;
+              char *js_path = url_protect_url_text (self,
+                                          self->conf->JS_WEBLABELS_FILE);
+              text_append_n (&result, "<a href=\"", 9);
+              text_append (&result, js_path);
+              free (js_path);
+              text_append_n (&result, "\" rel=\"jslicense\"><small>", 25);
+
+              tree = html_gdt_tree ("JavaScript license information",
+                                     self->document,
+                                     self, 0, 0, 0);
+              add_to_element_list (&self->tree_to_build, tree);
+              convert_to_html_internal (self, tree, &result, 0);
+              remove_element_from_list (&self->tree_to_build, tree);
+
+              text_append_n (&result, "</small></a>", 12);
+            }
+        }
+    }
+  text_append_n (&result, "\n</body>\n</html>\n", 17);
+  return result.text;
 }
-*/
 
 char *
 format_end_file (CONVERTER *self, const char *filename,
@@ -5496,13 +5596,11 @@ format_end_file (CONVERTER *self, const char *filename,
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_end_file];
-/*
   if (formatting_reference->status == FRS_status_default_set)
     {
       return html_default_format_end_file (self, filename, output_unit);
     }
   else
-*/
     {
       return call_formatting_function_format_end_file (self,
                                                      formatting_reference,
