@@ -1,5 +1,18 @@
 2023-12-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_navigation_panel): free result_buttons.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_prepare_output_sv): allocate jslicenses.list only if
+	not empty.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_program_string, format_program_string): implement
+	format_program_string in C.
+
+2023-12-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/options_data.txt (PROGRAM_NAME_IN_FOOTER): type is int.
 
 	* tp/Texinfo/XS/convert/call_html_perl_function.c

@@ -5483,18 +5483,56 @@ format_element_footer (CONVERTER *self,
 }
 
 void
+html_default_format_program_string (CONVERTER *self, TEXT *result)
+{
+  ELEMENT *tree;
+  if (self->conf->PROGRAM && strlen (self->conf->PROGRAM)
+      && self->conf->PACKAGE_URL_OPTION)
+    {
+      ELEMENT *program_homepage = new_element (ET_NONE);
+      ELEMENT *program = new_element (ET_NONE);
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                   = new_named_string_element_list ();
+
+      text_append (&program_homepage->text, self->conf->PACKAGE_URL_OPTION);
+      text_append (&program->text, self->conf->PROGRAM);
+
+      add_element_to_named_string_element_list (substrings,
+                                    "program_homepage", program_homepage);
+      add_element_to_named_string_element_list (substrings,
+                                                "program", program);
+
+      tree = html_gdt_tree ("This document was generated on @emph{@today{}} "
+                            "using @uref{{program_homepage}, @emph{{program}}}.",
+                            self->document, self, substrings, 0, 0);
+      destroy_named_string_element_list (substrings);
+      /* destroyed with the tree
+      destroy_element (program);
+      destroy_element (program_homepage);
+       */
+    }
+  else
+    {
+      tree = html_gdt_tree ("This document was generated on @emph{@today{}}.",
+                            self->document, self, 0, 0, 0);
+    }
+  add_to_element_list (&self->tree_to_build, tree);
+  convert_to_html_internal (self, tree, result, 0);
+  remove_element_from_list (&self->tree_to_build, tree);
+  destroy_element_and_children (tree);
+}
+
+void
 format_program_string (CONVERTER *self, TEXT *result)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_program_string];
 
-/*
   if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_program_string (self, result);
     }
   else
-*/
    {
      char *program_string
        = call_formatting_function_format_program_string (self,
@@ -5763,6 +5801,7 @@ html_default_format_navigation_panel (CONVERTER *self,
 
       text_append_n (result, "</div>\n", 7);
     }
+  free (result_buttons.text);
 }
 
 void

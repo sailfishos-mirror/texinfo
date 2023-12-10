@@ -887,74 +887,76 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
 
       hv_number = hv_iterinit (jslicenses_hv);
 
-      converter->jslicenses.number = hv_number;
-      converter->jslicenses.list = (JSLICENSE_FILE_INFO_LIST *)
-       malloc (hv_number * sizeof (JSLICENSE_FILE_INFO_LIST));
-      memset (converter->jslicenses.list, 0,
-              hv_number * sizeof (JSLICENSE_FILE_INFO_LIST));
-
-      for (i = 0; i < hv_number; i++)
+      if (hv_number > 0)
         {
-          I32 hv_files_number;
-          I32 j;
-          HE *next = hv_iternext (jslicenses_hv);
-          SV *category_sv = hv_iterkeysv (next);
-          char *category = (char *) SvPVutf8_nolen (category_sv);
-          SV *files_info_sv = HeVAL(next);
-          HV *files_info_hv = (HV *)SvRV (files_info_sv);
+          converter->jslicenses.number = hv_number;
+          converter->jslicenses.list = (JSLICENSE_FILE_INFO_LIST *)
+           malloc (hv_number * sizeof (JSLICENSE_FILE_INFO_LIST));
+          memset (converter->jslicenses.list, 0,
+                  hv_number * sizeof (JSLICENSE_FILE_INFO_LIST));
 
-          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
-            = &converter->jslicenses.list[i];
-
-          jslicences_files_info->category = strdup (category);
-
-          hv_files_number = hv_iterinit (files_info_hv);
-          jslicences_files_info->number = hv_files_number;
-          jslicences_files_info->list = (JSLICENSE_FILE_INFO *)
-            malloc (hv_files_number * sizeof (JSLICENSE_FILE_INFO));
-          memset (jslicences_files_info->list, 0,
-                  hv_files_number * sizeof (JSLICENSE_FILE_INFO));
-
-          for (j = 0; j < hv_files_number; j++)
+          for (i = 0; i < hv_number; i++)
             {
-              HE *next_file = hv_iternext (files_info_hv);
-              SV *filename_sv = hv_iterkeysv (next);
-              char *filename = (char *) SvPVutf8_nolen (filename_sv);
-              SV *file_info_sv = HeVAL(next_file);
-              AV *file_info_av = (AV *)SvRV (file_info_sv);
-              SSize_t file_info_nr;
-              SV **license_sv;
-              SV **url_sv;
-              SV **source_sv;
+              I32 hv_files_number;
+              I32 j;
+              HE *next = hv_iternext (jslicenses_hv);
+              SV *category_sv = hv_iterkeysv (next);
+              char *category = (char *) SvPVutf8_nolen (category_sv);
+              SV *files_info_sv = HeVAL(next);
+              HV *files_info_hv = (HV *)SvRV (files_info_sv);
 
-              JSLICENSE_FILE_INFO *jslicense_file_info
-                = &jslicences_files_info->list[j];
-              jslicense_file_info->filename = strdup (filename);
+              JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+                = &converter->jslicenses.list[i];
 
-              file_info_nr = av_top_index (file_info_av) +1;
-              if (file_info_nr != 3)
+              jslicences_files_info->category = strdup (category);
+
+              hv_files_number = hv_iterinit (files_info_hv);
+              jslicences_files_info->number = hv_files_number;
+              jslicences_files_info->list = (JSLICENSE_FILE_INFO *)
+                malloc (hv_files_number * sizeof (JSLICENSE_FILE_INFO));
+              memset (jslicences_files_info->list, 0,
+                      hv_files_number * sizeof (JSLICENSE_FILE_INFO));
+
+              for (j = 0; j < hv_files_number; j++)
                 {
-                  fprintf (stderr,
-                           "BUG: %s: %s: jslicence file needs 3 item: %zu\n",
-                           category, filename, file_info_nr);
-                  continue;
+                  HE *next_file = hv_iternext (files_info_hv);
+                  SV *filename_sv = hv_iterkeysv (next);
+                  char *filename = (char *) SvPVutf8_nolen (filename_sv);
+                  SV *file_info_sv = HeVAL(next_file);
+                  AV *file_info_av = (AV *)SvRV (file_info_sv);
+                  SSize_t file_info_nr;
+                  SV **license_sv;
+                  SV **url_sv;
+                  SV **source_sv;
+
+                  JSLICENSE_FILE_INFO *jslicense_file_info
+                    = &jslicences_files_info->list[j];
+                  jslicense_file_info->filename = strdup (filename);
+
+                  file_info_nr = av_top_index (file_info_av) +1;
+                  if (file_info_nr != 3)
+                    {
+                      fprintf (stderr,
+                               "BUG: %s: %s: jslicence file needs 3 item: %zu\n",
+                               category, filename, file_info_nr);
+                      continue;
+                    }
+                  license_sv = av_fetch (file_info_av, 0, 0);
+                  if (license_sv && SvOK (*license_sv))
+                    jslicense_file_info->license
+                      = strdup ((char *) SvPVutf8_nolen (*license_sv));
+                  url_sv = av_fetch (file_info_av, 0, 0);
+                  if (url_sv && SvOK (*url_sv))
+                    jslicense_file_info->url
+                      = strdup ((char *) SvPVutf8_nolen (*url_sv));
+                  source_sv = av_fetch (file_info_av, 0, 0);
+                  if (source_sv && SvOK (*source_sv))
+                    jslicense_file_info->source
+                      = strdup ((char *) SvPVutf8_nolen (*source_sv));
                 }
-              license_sv = av_fetch (file_info_av, 0, 0);
-              if (license_sv && SvOK (*license_sv))
-                jslicense_file_info->license
-                  = strdup ((char *) SvPVutf8_nolen (*license_sv));
-              url_sv = av_fetch (file_info_av, 0, 0);
-              if (url_sv && SvOK (*url_sv))
-                jslicense_file_info->url
-                  = strdup ((char *) SvPVutf8_nolen (*url_sv));
-              source_sv = av_fetch (file_info_av, 0, 0);
-              if (source_sv && SvOK (*source_sv))
-                jslicense_file_info->source
-                  = strdup ((char *) SvPVutf8_nolen (*source_sv));
             }
         }
     }
-
   html_converter_prepare_output (converter);
 }
 
