@@ -7475,7 +7475,7 @@ sub _parse_texi($$$)
   Texinfo::Translations::complete_indices($self, $self->{'index_names'});
 
   my $document = Texinfo::Document::register($root,
-     $self->{'info'}, $self->{'index_names'}, $self->{'floats'},
+     $self->{'global_info'}, $self->{'index_names'}, $self->{'floats'},
      $self->{'internal_references'}, $self->{'commands_info'},
      $self->{'identifiers_target'}, $self->{'labels_list'});
 
