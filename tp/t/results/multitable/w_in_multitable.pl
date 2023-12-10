@@ -19,6 +19,11 @@ $result_trees{'w_in_multitable'} = {
                       'text' => 'aaaaaaaaa'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -30,6 +35,11 @@ $result_trees{'w_in_multitable'} = {
                       'text' => 'bbbbbbbbbbb'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

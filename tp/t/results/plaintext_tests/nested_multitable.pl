@@ -30,6 +30,11 @@ $result_trees{'nested_multitable'} = {
                       'text' => ' machin'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -41,6 +46,11 @@ $result_trees{'nested_multitable'} = {
                       'text' => 'bidule'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],
@@ -77,6 +87,11 @@ $result_trees{'nested_multitable'} = {
                                       'text' => 'AAAA'
                                     }
                                   ],
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 4,
+                                    'macro' => ''
+                                  },
                                   'type' => 'bracketed_arg'
                                 },
                                 {
@@ -88,6 +103,11 @@ $result_trees{'nested_multitable'} = {
                                       'text' => 'machin'
                                     }
                                   ],
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 4,
+                                    'macro' => ''
+                                  },
                                   'type' => 'bracketed_arg'
                                 }
                               ],

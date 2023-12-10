@@ -19,6 +19,11 @@ $result_trees{'paragraph_in_cells'} = {
                       'text' => 'AAA'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -30,6 +35,11 @@ $result_trees{'paragraph_in_cells'} = {
                       'text' => 'BBB'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

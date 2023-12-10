@@ -84,13 +84,8 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
   if (cmd_source_info)
     {
-      if (cmd_source_info->line_nr)
-        error_message->source_info = *cmd_source_info;
-      else
-        error_message->source_info = current_source_info;
+      error_message->source_info = *cmd_source_info;
     }
-  else
-    error_message->source_info = current_source_info;
 
   text_init (&error_line);
   text_append (&error_line, "");
@@ -244,7 +239,7 @@ line_error (const char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (MSG_error, 0, 0, format, v);
+  line_error_internal (MSG_error, 0, &current_source_info, format, v);
 }
 
 void
@@ -253,7 +248,7 @@ line_warn (const char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (MSG_warning, 0, 0, format, v);
+  line_error_internal (MSG_warning, 0, &current_source_info, format, v);
 }
 
 void
@@ -263,6 +258,18 @@ command_warn (const ELEMENT *e, const char *format, ...)
 
   va_start (v, format);
   line_error_internal (MSG_warning, 0, &e->source_info, format, v);
+}
+
+void
+message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
+                             enum error_type type, int continuation,
+                     SOURCE_INFO *cmd_source_info, const char *format, ...)
+{
+  va_list v;
+
+  va_start (v, format);
+  message_list_line_error_internal (error_messages, type, continuation,
+                                    cmd_source_info, format, v);
 }
 
 void

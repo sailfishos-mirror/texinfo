@@ -36,6 +36,11 @@ $result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} 
                       'text' => ' '
                     }
                   },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

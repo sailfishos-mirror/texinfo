@@ -1699,6 +1699,11 @@ $result_trees{'comments_on_block_command_lines'} = {
                       'text' => 'aaa'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 65,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -1710,6 +1715,11 @@ $result_trees{'comments_on_block_command_lines'} = {
                       'text' => 'bbb'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 65,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

@@ -19,6 +19,11 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
             {
               'contents' => [
                 {
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -30,6 +35,11 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
                       'text' => 'a'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

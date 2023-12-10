@@ -19,6 +19,11 @@ $result_trees{'multitable_figure_space'} = {
                       'text' => '999999999'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -30,6 +35,11 @@ $result_trees{'multitable_figure_space'} = {
                       'text' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

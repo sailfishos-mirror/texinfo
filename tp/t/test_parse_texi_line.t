@@ -94,7 +94,7 @@ in chapter
 ', 'long example', [[4, 'warning: @setfilename after the first element'],
                     [24, 'column fraction not a number: a'],
                     [24, 'column fraction not a number: b'],
-                    [20, '@columnfractions only meaningful on a @multitable line'],
+                    [24, '@columnfractions only meaningful on a @multitable line'],
 ]]
 );
 

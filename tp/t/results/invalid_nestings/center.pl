@@ -975,6 +975,11 @@ $result_trees{'center'} = {
                       'text' => 'AAA'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 39,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -986,6 +991,11 @@ $result_trees{'center'} = {
                       'text' => 'BBB'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 39,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

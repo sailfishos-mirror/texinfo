@@ -30,6 +30,11 @@ $result_trees{'multitable_bracketed_prototype_not_closed'} = {
                       'text' => ' '
                     }
                   },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

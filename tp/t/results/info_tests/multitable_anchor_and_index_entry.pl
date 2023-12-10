@@ -438,6 +438,11 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                       'text' => 'A'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -449,6 +454,11 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                       'text' => 'B'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

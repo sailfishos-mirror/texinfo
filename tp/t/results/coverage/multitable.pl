@@ -390,6 +390,11 @@ $result_trees{'multitable'} = {
                       'text' => 'truc'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 11,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -401,6 +406,11 @@ $result_trees{'multitable'} = {
                       'text' => 'bidule'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 11,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

@@ -19,6 +19,11 @@ $result_trees{'bad_tab_nesting'} = {
                       'text' => 'truc'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -30,6 +35,11 @@ $result_trees{'bad_tab_nesting'} = {
                       'text' => 'bidule'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

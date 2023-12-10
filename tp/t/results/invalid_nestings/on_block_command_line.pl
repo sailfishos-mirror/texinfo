@@ -38,6 +38,11 @@ $result_trees{'on_block_command_line'} = {
                       }
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {

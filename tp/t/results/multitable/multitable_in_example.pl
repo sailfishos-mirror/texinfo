@@ -33,6 +33,11 @@ $result_trees{'multitable_in_example'} = {
                           'text' => 'AAA'
                         }
                       ],
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      },
                       'type' => 'bracketed_arg'
                     },
                     {
@@ -44,6 +49,11 @@ $result_trees{'multitable_in_example'} = {
                           'text' => 'BBB'
                         }
                       ],
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      },
                       'type' => 'bracketed_arg'
                     }
                   ],

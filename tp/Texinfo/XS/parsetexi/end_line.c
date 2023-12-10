@@ -822,7 +822,7 @@ end_line_starting_block (ELEMENT *current)
                 {
                   char *texi;
                   texi = convert_to_texinfo (e);
-                  command_warn (current,
+                  command_warn (current->parent,
                                 "unexpected argument on @%s line: %s",
                                 command_name(current->parent->cmd),
                                 texi);
@@ -1684,8 +1684,7 @@ end_line_misc_line (ELEMENT *current)
       /* Check if in multitable. */
       if (!current->parent || current->parent->cmd != CM_multitable)
         {
-          command_error (current,
-            "@columnfractions only meaningful on a @multitable line");
+          line_error ("@columnfractions only meaningful on a @multitable line");
         }
       else
         {

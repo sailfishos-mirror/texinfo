@@ -1322,6 +1322,11 @@ $result_trees{'complex_float'} = {
                                   'text' => 'truc'
                                 }
                               ],
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 66,
+                                'macro' => ''
+                              },
                               'type' => 'bracketed_arg'
                             },
                             {
@@ -1333,6 +1338,11 @@ $result_trees{'complex_float'} = {
                                   'text' => 'bidule'
                                 }
                               ],
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 66,
+                                'macro' => ''
+                              },
                               'type' => 'bracketed_arg'
                             }
                           ],
@@ -2678,6 +2688,11 @@ $result_trees{'complex_float'} = {
                                   'text' => 'truc'
                                 }
                               ],
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 111,
+                                'macro' => ''
+                              },
                               'type' => 'bracketed_arg'
                             },
                             {
@@ -2689,6 +2704,11 @@ $result_trees{'complex_float'} = {
                                   'text' => 'bidule'
                                 }
                               ],
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 111,
+                                'macro' => ''
+                              },
                               'type' => 'bracketed_arg'
                             }
                           ],

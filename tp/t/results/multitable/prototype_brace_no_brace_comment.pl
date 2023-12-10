@@ -19,6 +19,11 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                       'text' => 'aa'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {

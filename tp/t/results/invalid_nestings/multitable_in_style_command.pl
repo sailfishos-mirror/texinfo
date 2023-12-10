@@ -47,6 +47,11 @@ $result_trees{'multitable_in_style_command'} = {
                       'text' => 'truc'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 3,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -58,6 +63,11 @@ $result_trees{'multitable_in_style_command'} = {
                       'text' => 'machin'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 3,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

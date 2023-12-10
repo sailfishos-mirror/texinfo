@@ -19,6 +19,11 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                       'text' => 'a'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

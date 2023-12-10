@@ -19,6 +19,11 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                       'text' => 'truc'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],
@@ -611,6 +616,11 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                       'text' => 'thing'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 21,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

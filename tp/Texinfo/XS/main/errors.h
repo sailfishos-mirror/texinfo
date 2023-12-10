@@ -21,6 +21,9 @@ char *prepare_error_line_message (ERROR_MESSAGE *error_message);
 
 void wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages);
 void clear_error_message_list (ERROR_MESSAGE_LIST *error_messages);
+void message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
+                                enum error_type type, int continuation,
+                     SOURCE_INFO *cmd_source_info, const char *format, ...);
 void message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
                                  const ELEMENT *e, const char *format, ...);
 void message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,

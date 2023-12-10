@@ -875,6 +875,11 @@ $result_trees{'commands_and_spaces'} = {
                       'text' => 'aa b'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 39,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -890,6 +895,11 @@ $result_trees{'commands_and_spaces'} = {
                     'spaces_before_argument' => {
                       'text' => ' '
                     }
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 39,
+                    'macro' => ''
                   },
                   'type' => 'bracketed_arg'
                 },

@@ -19,6 +19,11 @@ $result_trees{'multitable'} = {
                       'text' => 'truc'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -30,6 +35,11 @@ $result_trees{'multitable'} = {
                       'text' => 'bidule'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],
@@ -229,6 +239,11 @@ $result_trees{'multitable'} = {
                       'text' => 't'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 6,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -240,6 +255,11 @@ $result_trees{'multitable'} = {
                       'text' => 'b'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 6,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],
@@ -1152,6 +1172,11 @@ $result_trees{'multitable'} = {
                       'text' => 'AA'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 23,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -1163,6 +1188,11 @@ $result_trees{'multitable'} = {
                       'text' => 'BB'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 23,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],
@@ -1421,6 +1451,11 @@ $result_trees{'multitable'} = {
                       'text' => 'A'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 29,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],
@@ -1574,6 +1609,11 @@ $result_trees{'multitable'} = {
                       'text' => 'A'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 35,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -1585,6 +1625,11 @@ $result_trees{'multitable'} = {
                       'text' => 'B'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 35,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],

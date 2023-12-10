@@ -1,5 +1,32 @@
 2023-12-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_command_warn, _command_error): only use
+	the command source info.  Update callers.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): use
+	multitable command for "unexpected argument on @%s line" warning.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): use
+	_line_error for @columnfraction error, as @columnfraction does not
+	have a command source info.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_open_brace),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): always put a
+	source info in bracketed_arg type, as there are related errors.
+
+	* tp/Texinfo/XS/main/errors.c (message_list_line_error_internal)
+	(line_error, line_warn): do not use current_source_info in
+	message_list_line_error_internal, set it in line_error and line_warn.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_source_info_hash):
+	complete macro and file_name with empty string only if line_nr is set.
+
+	* tp/Texinfo/XS/main/errors.c (message_list_line_error_ext): add.
+
+2023-12-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_default_format_navigation_panel): free result_buttons.
 

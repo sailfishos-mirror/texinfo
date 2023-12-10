@@ -209,9 +209,8 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       current = b;
 
       /* We need the line number here in case @ protects the
-         end of the line.  */
-      if (current->parent->parent->type == ET_def_line)
-        current->source_info = current_source_info;
+         end of the line and also for misplaced { errors.  */
+      current->source_info = current_source_info;
 
       e = new_element (ET_internal_spaces_before_argument);
       text_append (&e->text, ""); /* See comment in parser.c:merge_text */

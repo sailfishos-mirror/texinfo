@@ -44,6 +44,11 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       'text' => 'truc AAAA   machin'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 3,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -55,6 +60,11 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       'text' => 'bidule'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 3,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 }
               ],
@@ -91,6 +101,11 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                       'text' => 'AAAA'
                                     }
                                   ],
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 5,
+                                    'macro' => ''
+                                  },
                                   'type' => 'bracketed_arg'
                                 },
                                 {
@@ -102,6 +117,11 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                       'text' => 'machin'
                                     }
                                   ],
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 5,
+                                    'macro' => ''
+                                  },
                                   'type' => 'bracketed_arg'
                                 }
                               ],

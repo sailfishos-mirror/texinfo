@@ -172,6 +172,11 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'text' => 'h ab i'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -208,6 +213,11 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'text' => 'j ab'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -265,6 +275,11 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'text' => 'nab'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  },
                   'type' => 'bracketed_arg'
                 },
                 {
@@ -321,6 +336,11 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'text' => 'd'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  },
                   'source_marks' => [
                     {
                       'counter' => 4,
@@ -363,6 +383,11 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'text' => 'h cTd'
                     }
                   ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  },
                   'source_marks' => [
                     {
                       'counter' => 5,
