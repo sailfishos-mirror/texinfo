@@ -6781,7 +6781,10 @@ sub _process_remaining_on_line($$$$)
     #        and $current->{'contents'}->[-1]->{'type'}
     #        and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
     #        and $line ne '') {
-    #  print STDERR "New text in empty line $source_info->{'line_nr'}.$source_info->{'macro'} !$line!\n";
+    #  my $macro_name = '';
+    #  $macro_name = $source_info->{'macro'}
+    #                   if (defined($source_info->{'macro'}));
+    #  print STDERR "New text in empty line $source_info->{'line_nr'}.$macro_name !$line!\n";
     #}
   }
 

@@ -93,8 +93,7 @@ sub format_line_message($$$$;$)
 
   my $message_line;
 
-  if (defined($error_location_info->{'macro'})
-      and $error_location_info->{'macro'} ne '') {
+  if (defined($error_location_info->{'macro'})) {
     if ($type eq 'warning') {
       # TODO change the context to "Texinfo source file warning in a macro"
       # when nearing the release
