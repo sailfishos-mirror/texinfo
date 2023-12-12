@@ -25,8 +25,8 @@ void translations_configure (char *localesdir, char *strings_textdomain_in);
 
 char *translate_string (OPTIONS *options, const char * string,
                   const char *translation_context, const char *in_lang);
-int replace_convert_substrings (char *translated_string,
-                           NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+int replace_convert_substrings (OPTIONS *options, char *translated_string,
+                            NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 

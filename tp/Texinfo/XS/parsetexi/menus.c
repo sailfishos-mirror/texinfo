@@ -21,7 +21,7 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "element_types.h"
-#include "debug.h"
+#include "debug_parser.h"
 #include "errors_parser.h"
 /* for whitespace_chars */
 #include "utils.h"

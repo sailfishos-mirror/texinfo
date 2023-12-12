@@ -481,7 +481,8 @@ html_gdt (const char *string, CONVERTER *self,
                                               in_lang);
 
   int document_descriptor
-    = replace_convert_substrings (translated_string, replaced_substrings);
+    = replace_convert_substrings (self->conf, translated_string,
+                                  replaced_substrings);
   free (translated_string);
   return document_descriptor;
 }

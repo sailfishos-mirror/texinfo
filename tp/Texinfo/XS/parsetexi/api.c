@@ -25,7 +25,7 @@
 #include "tree_types.h"
 #include "parser.h"
 /* for set_debug_output */
-#include "debug.h"
+#include "debug_parser.h"
 /* reset_obstacks */
 #include "tree.h"
 /* wipe_index_names */

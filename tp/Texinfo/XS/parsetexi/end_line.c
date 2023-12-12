@@ -25,7 +25,6 @@
 #include "text.h"
 #include "tree.h"
 #include "debug_parser.h"
-#include "debug.h"
 #include "errors_parser.h"
 /* for isascii_alnum whitespace_chars read_flag_name
    indices_info_index_by_name ultimate_index fatal */

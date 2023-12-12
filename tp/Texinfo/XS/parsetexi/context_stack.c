@@ -20,7 +20,7 @@
 #include "command_ids.h"
 #include "utils.h"
 #include "commands.h"
-#include "debug.h"
+#include "debug_parser.h"
 #include "command_stack.h"
 #include "context_stack.h"
 

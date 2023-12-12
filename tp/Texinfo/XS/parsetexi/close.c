@@ -22,7 +22,6 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "def.h"
-#include "debug.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
 #include "counter.h"

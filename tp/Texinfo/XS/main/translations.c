@@ -445,7 +445,7 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 /* the caller should have made sure that the
    inserted elements do not appear elsewhere in the tree. */
 int
-replace_convert_substrings (char *translated_string,
+replace_convert_substrings (OPTIONS *options, char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   int i;
@@ -506,22 +506,30 @@ replace_convert_substrings (char *translated_string,
    */
   document_descriptor = parse_string (texinfo_line, 1);
 
+  /* FIXME if called from parser through complete_indices, options will
+     not be set, but debug() would do the right thing.  debug() is not
+     right in general, though, as it uses parser internal data */
+  /*
   debug ("IN TR PARSER '%s'", texinfo_line);
+   */
+  if (options && options->DEBUG > 0)
+    fprintf (stderr, "IN TR PARSER '%s'", texinfo_line);
 
-  if (error_messages_list.number > 0)
+  document = retrieve_document (document_descriptor);
+  if (document->error_messages->number > 0)
     {
+      ERROR_MESSAGE_LIST *error_messages = document->error_messages;
       fprintf (stderr, "translation %zu error(s)\n",
-               error_messages_list.number);
+               error_messages->number);
       fprintf (stderr, "translated string: %s\n", translated_string);
       fprintf (stderr, "Error messages: \n");
-      for (i = 0; i < error_messages_list.number; i++)
-        fprintf (stderr, "%s", error_messages_list.list[i].error_line);
+      for (i = 0; i < error_messages->number; i++)
+        fprintf (stderr, "%s", error_messages->list[i].error_line);
     }
   clear_document_errors (document_descriptor);
 
   parser_set_accept_internalvalue (0);
 
-  document = retrieve_document (document_descriptor);
   if (replaced_substrings)
     {
       ELEMENT *result_tree = substitute (document->tree, replaced_substrings);
@@ -551,7 +559,8 @@ gdt (const char *string, OPTIONS *options,
                                               in_lang);
 
   int document_descriptor
-    = replace_convert_substrings (translated_string, replaced_substrings);
+    = replace_convert_substrings (options, translated_string,
+                                  replaced_substrings);
   free (translated_string);
   return document_descriptor;
 }

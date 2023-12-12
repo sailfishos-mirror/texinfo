@@ -25,7 +25,6 @@
 #include "document_types.h"
 #include "tree.h"
 #include "errors_parser.h"
-#include "debug.h"
 #include "command_stack.h"
 #include "context_stack.h"
 #include "builtin_commands.h"
@@ -433,11 +432,7 @@ complete_indices (int document_descriptor)
                             break;
                         }
                     }
-                  /*
-                  fprintf (stderr, "DEF IDX NAME CLASS '%s' '%s' \n",
-                                              print_element_debug(name, 0),
-                                              print_element_debug(class, 0));
-                   */
+
                   if (name && class)
                     {
                       char *lang = lookup_extra_string (main_entry_element,

@@ -24,6 +24,65 @@
 #include "debug.h"
 #include "debug_parser.h"
 
+/* Whether to dump debugging output on stderr. */
+int debug_output = 0;
+
+void
+set_debug_output (int value)
+{
+  debug_output = value;
+}
+
+/* debug functions used in parser, depending on debug_output */
+
+void
+debug (char *s, ...)
+{
+  va_list v;
+
+  if (!debug_output)
+    return;
+  va_start (v, s);
+  vfprintf (stderr, s, v);
+  fputc ('\n', stderr);
+}
+
+void
+debug_nonl (char *s, ...)
+{
+  va_list v;
+
+  if (!debug_output)
+    return;
+  va_start (v, s);
+  vfprintf (stderr, s, v);
+}
+
+void
+debug_print_element (const ELEMENT *e, int print_parent)
+{
+  if (debug_output)
+    {
+      char *result;
+      result = print_element_debug (e, print_parent);
+      fputs (result, stderr);
+      free (result);
+    }
+}
+
+void
+debug_print_protected_string (char *input_string)
+{
+  if (debug_output)
+    {
+      int allocated = 0;
+      char *result = debug_protect_eol (input_string, &allocated);
+      fputs (result, stderr);
+      if (allocated)
+        free (result);
+    }
+}
+
 /* Here use command_name to get command names, using information on
    user-defined commands.  To be used in parser.
 

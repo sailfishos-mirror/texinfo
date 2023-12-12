@@ -24,7 +24,6 @@
 #include "utils.h"
 #include "tree.h"
 #include "tree_types.h"
-#include "debug.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
 #include "text.h"

@@ -28,7 +28,6 @@
 #include "utils.h"
 /* for relocate_source_marks */
 #include "manipulate_tree.h"
-#include "debug.h"
 #include "debug_parser.h"
 /* error_messages_list forget_errors ... */
 #include "errors_parser.h"

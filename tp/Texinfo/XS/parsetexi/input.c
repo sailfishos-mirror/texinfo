@@ -26,7 +26,7 @@
 /* for xasprintf and other */
 #include "utils.h"
 #include "errors_parser.h"
-#include "debug.h"
+#include "debug_parser.h"
 #include "input.h"
 #include "text.h"
 #include "commands.h"

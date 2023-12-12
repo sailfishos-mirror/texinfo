@@ -37,7 +37,7 @@
 #include "builtin_commands.h"
 #include "commands.h"
 #include "def.h"
-#include "debug.h"
+#include "debug_parser.h"
 #include "errors_parser.h"
 #include "tree.h"
 #include "input.h"

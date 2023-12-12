@@ -29,7 +29,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 /* for debug_output */
-#include "debug.h"
+#include "debug_parser.h"
 #include "errors.h"
 #include "errors_parser.h"
 

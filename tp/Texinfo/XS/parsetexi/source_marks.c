@@ -19,7 +19,6 @@
 
 #include "tree_types.h"
 #include "tree.h"
-#include "debug.h"
 #include "debug_parser.h"
 /* for count_multibyte and other */
 #include "utils.h"

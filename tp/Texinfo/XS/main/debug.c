@@ -26,38 +26,6 @@
 #include "extra.h"
 #include "debug.h"
 
-/* Whether to dump debugging output on stderr. */
-int debug_output = 0;
-
-void
-set_debug_output (int value)
-{
-  debug_output = value;
-}
-
-void
-debug (char *s, ...)
-{
-  va_list v;
-
-  if (!debug_output)
-    return;
-  va_start (v, s);
-  vfprintf (stderr, s, v);
-  fputc ('\n', stderr);
-}
-
-void
-debug_nonl (char *s, ...)
-{
-  va_list v;
-
-  if (!debug_output)
-    return;
-  va_start (v, s);
-  vfprintf (stderr, s, v);
-}
-
 char *
 debug_element_command_name (const ELEMENT *e)
 {
@@ -72,9 +40,15 @@ debug_element_command_name (const ELEMENT *e)
 char *
 debug_protect_eol (char *input_string, int *allocated)
 {
-  char *end_of_line = strchr (input_string, '\n');
+  char *end_of_line;
   char *protected_string = input_string;
   *allocated = 0;
+
+  if (!input_string)
+    return "[NULL]";
+
+  end_of_line = strchr (input_string, '\n');
+
   if (end_of_line) {
     char *p;
     protected_string = malloc ((strlen(input_string) + 2) * sizeof(char));
@@ -248,34 +222,5 @@ print_element_debug_details (const ELEMENT *e, int print_parent)
   result = strdup (text.text);
   free (text.text);
   return result;
-}
-
-void
-debug_print_element (const ELEMENT *e, int print_parent)
-{
-  if (debug_output)
-    {
-      char *result;
-      result = print_element_debug (e, print_parent);
-      fputs (result, stderr);
-      free (result);
-    }
-}
-
-void
-debug_print_protected_string (char *input_string)
-{
-  if (debug_output)
-    {
-      int allocated = 0;
-      char *result;
-      if (!input_string)
-        result = "[NULL]";
-      else
-        result = debug_protect_eol (input_string, &allocated);
-      fputs (result, stderr);
-      if (allocated)
-        free (result);
-    }
 }
 
