@@ -35,8 +35,7 @@ $result_trees{'center'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 }
               ],
@@ -57,8 +56,7 @@ $result_trees{'center'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {

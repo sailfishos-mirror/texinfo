@@ -40,8 +40,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     'unit_contents' => [
@@ -88,8 +87,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     'unit_contents' => [
@@ -133,8 +131,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     'unit_contents' => [
@@ -178,8 +175,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     },
     'unit_contents' => [
@@ -223,8 +219,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     'unit_contents' => [
@@ -268,8 +263,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     'unit_contents' => [
@@ -313,8 +307,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     'unit_contents' => [
@@ -351,8 +344,7 @@ $result_trees{'chapter_sections'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 15,
-        'macro' => ''
+        'line_nr' => 15
       }
     },
     'unit_contents' => [

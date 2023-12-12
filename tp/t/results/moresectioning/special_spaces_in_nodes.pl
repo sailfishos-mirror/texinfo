@@ -52,8 +52,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 2,
-        "macro" => ""
+        "line_nr" => 2
       }
     },
     {
@@ -87,8 +86,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 3,
-        "macro" => ""
+        "line_nr" => 3
       }
     },
     {
@@ -119,8 +117,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 5,
-        "macro" => ""
+        "line_nr" => 5
       }
     },
     {
@@ -204,8 +201,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 10,
-                "macro" => ""
+                "line_nr" => 10
               },
               "type" => "menu_entry"
             },
@@ -251,8 +247,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 11,
-                "macro" => ""
+                "line_nr" => 11
               },
               "type" => "menu_entry"
             },
@@ -298,8 +293,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 12,
-                "macro" => ""
+                "line_nr" => 12
               },
               "type" => "menu_entry"
             },
@@ -345,8 +339,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 13,
-                "macro" => ""
+                "line_nr" => 13
               },
               "type" => "menu_entry"
             },
@@ -392,8 +385,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 14,
-                "macro" => ""
+                "line_nr" => 14
               },
               "type" => "menu_entry"
             },
@@ -439,8 +431,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 15,
-                "macro" => ""
+                "line_nr" => 15
               },
               "type" => "menu_entry"
             },
@@ -486,8 +477,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 16,
-                "macro" => ""
+                "line_nr" => 16
               },
               "type" => "menu_entry"
             },
@@ -533,8 +523,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 17,
-                "macro" => ""
+                "line_nr" => 17
               },
               "type" => "menu_entry"
             },
@@ -565,15 +554,13 @@ $result_trees{'special_spaces_in_nodes'} = {
               },
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 18,
-                "macro" => ""
+                "line_nr" => 18
               }
             }
           ],
           "source_info" => {
             "file_name" => "special_spaces_in_nodes.texi",
-            "line_nr" => 9,
-            "macro" => ""
+            "line_nr" => 9
           }
         },
         {
@@ -591,8 +578,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 6,
-        "macro" => ""
+        "line_nr" => 6
       }
     },
     {
@@ -629,8 +615,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 20,
-        "macro" => ""
+        "line_nr" => 20
       }
     },
     {
@@ -667,8 +652,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 22,
-        "macro" => ""
+        "line_nr" => 22
       }
     },
     {
@@ -705,8 +689,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 24,
-        "macro" => ""
+        "line_nr" => 24
       }
     },
     {
@@ -743,8 +726,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 26,
-        "macro" => ""
+        "line_nr" => 26
       }
     },
     {
@@ -781,8 +763,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 28,
-        "macro" => ""
+        "line_nr" => 28
       }
     },
     {
@@ -819,8 +800,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 30,
-        "macro" => ""
+        "line_nr" => 30
       }
     },
     {
@@ -857,8 +837,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 32,
-        "macro" => ""
+        "line_nr" => 32
       }
     },
     {
@@ -907,8 +886,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "cmdname" => "ref",
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 36,
-                "macro" => ""
+                "line_nr" => 36
               }
             },
             {
@@ -933,8 +911,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       },
       "source_info" => {
         "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 34,
-        "macro" => ""
+        "line_nr" => 34
       }
     },
     {

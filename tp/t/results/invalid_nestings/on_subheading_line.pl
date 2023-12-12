@@ -17,8 +17,7 @@ $result_trees{'on_subheading_line'} = {
                   'cmdname' => 'noindent',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -42,8 +41,7 @@ $result_trees{'on_subheading_line'} = {
                   'cmdname' => 'titlefont',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -67,8 +65,7 @@ $result_trees{'on_subheading_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -90,8 +87,7 @@ $result_trees{'on_subheading_line'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -122,8 +118,7 @@ $result_trees{'on_subheading_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -138,8 +133,7 @@ $result_trees{'on_subheading_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -163,7 +157,6 @@ $result_errors{'on_subheading_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@noindent should not appear on @subheading line',
     'type' => 'warning'
   },
@@ -172,7 +165,6 @@ $result_errors{'on_subheading_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@titlefont should not appear on @subheading line',
     'type' => 'warning'
   },
@@ -181,7 +173,6 @@ $result_errors{'on_subheading_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@anchor should not appear on @subheading line',
     'type' => 'warning'
   },
@@ -190,7 +181,6 @@ $result_errors{'on_subheading_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@footnote should not appear on @subheading line',
     'type' => 'warning'
   },
@@ -199,7 +189,6 @@ $result_errors{'on_subheading_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -208,7 +197,6 @@ $result_errors{'on_subheading_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should not appear on @subheading line',
     'type' => 'warning'
   }

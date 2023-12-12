@@ -30,8 +30,7 @@ $result_trees{'no_paragraph_commands'} = {
           'cmdname' => 'titlefont',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -87,8 +86,7 @@ $result_trees{'no_paragraph_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -140,7 +138,6 @@ $result_converted_errors{'html_text'}->{'no_paragraph_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
     'type' => 'warning'
   }

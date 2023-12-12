@@ -41,8 +41,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'email',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -62,8 +61,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'dmn',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -83,8 +81,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'indicateurl',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -104,8 +101,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'kbd',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -125,8 +121,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'math',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -146,8 +141,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'cite',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -167,8 +161,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -196,8 +189,7 @@ $result_trees{'punctuation_in_command'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -207,8 +199,7 @@ $result_trees{'punctuation_in_command'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {

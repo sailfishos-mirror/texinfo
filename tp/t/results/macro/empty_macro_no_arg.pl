@@ -46,8 +46,7 @@ $result_trees{'empty_macro_no_arg'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -57,8 +56,7 @@ $result_trees{'empty_macro_no_arg'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {

@@ -39,8 +39,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -124,8 +123,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -157,15 +155,13 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -182,8 +178,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -215,8 +210,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -273,8 +267,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -306,8 +299,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -352,8 +344,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
-            'macro' => ''
+            'line_nr' => 15
           }
         },
         {
@@ -385,8 +376,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -407,8 +397,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     }
   ],

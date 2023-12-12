@@ -84,8 +84,7 @@ $result_trees{'footnote_in_ref'} = {
                       'cmdname' => 'footnote',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -103,8 +102,7 @@ $result_trees{'footnote_in_ref'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -122,8 +120,7 @@ $result_trees{'footnote_in_ref'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -163,7 +160,6 @@ $result_errors{'footnote_in_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@footnote should not appear anywhere inside @xref',
     'type' => 'warning'
   },
@@ -172,7 +168,6 @@ $result_errors{'footnote_in_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@xref missing closing brace',
     'type' => 'error'
   }

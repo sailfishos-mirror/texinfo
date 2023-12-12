@@ -31,8 +31,7 @@ $result_trees{'accent_no_closed_paragraph'} = {
               'cmdname' => '~',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -71,7 +70,6 @@ $result_errors{'accent_no_closed_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@~ missing closing brace',
     'type' => 'error'
   }

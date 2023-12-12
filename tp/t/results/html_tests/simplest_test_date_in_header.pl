@@ -86,8 +86,7 @@ $result_trees{'simplest_test_date_in_header'} = {
       },
       'source_info' => {
         'file_name' => 'simplest.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {

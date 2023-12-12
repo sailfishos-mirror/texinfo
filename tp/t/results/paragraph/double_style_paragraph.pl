@@ -39,8 +39,7 @@ $result_trees{'double_style_paragraph'} = {
                       'cmdname' => 'strong',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
@@ -50,8 +49,7 @@ $result_trees{'double_style_paragraph'} = {
               'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -106,7 +104,6 @@ $result_errors{'double_style_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@strong missing closing brace',
     'type' => 'error'
   },
@@ -115,7 +112,6 @@ $result_errors{'double_style_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@emph missing closing brace',
     'type' => 'error'
   },
@@ -124,7 +120,6 @@ $result_errors{'double_style_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -133,7 +128,6 @@ $result_errors{'double_style_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

@@ -36,8 +36,7 @@ $result_trees{'nested'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     },
                     {
@@ -50,8 +49,7 @@ $result_trees{'nested'} = {
               'cmdname' => 'b',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],

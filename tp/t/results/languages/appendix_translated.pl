@@ -39,8 +39,7 @@ $result_trees{'appendix_translated'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -83,8 +82,7 @@ $result_trees{'appendix_translated'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -120,8 +118,7 @@ $result_trees{'appendix_translated'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -159,8 +156,7 @@ $result_trees{'appendix_translated'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         }
       ],
@@ -174,8 +170,7 @@ $result_trees{'appendix_translated'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     }
   ],

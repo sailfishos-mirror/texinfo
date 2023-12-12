@@ -41,8 +41,7 @@ $result_trees{'command_in_end_ignored_raw_one_char_before_command'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -66,7 +65,6 @@ $result_errors{'command_in_end_ignored_raw_one_char_before_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'no matching `@end html\'',
     'type' => 'error'
   }

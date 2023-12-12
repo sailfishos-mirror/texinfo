@@ -34,7 +34,6 @@ $result_errors{'txiinternalvalue'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unknown command `txiinternalvalue\'',
     'type' => 'error'
   }

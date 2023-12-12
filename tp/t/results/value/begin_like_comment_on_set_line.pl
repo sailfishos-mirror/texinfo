@@ -115,7 +115,6 @@ $result_errors{'begin_like_comment_on_set_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'bad name for @set',
     'type' => 'error'
   },
@@ -124,7 +123,6 @@ $result_errors{'begin_like_comment_on_set_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'undefined flag: x',
     'type' => 'warning'
   },
@@ -133,7 +131,6 @@ $result_errors{'begin_like_comment_on_set_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'unknown command `commentary\'',
     'type' => 'error'
   }

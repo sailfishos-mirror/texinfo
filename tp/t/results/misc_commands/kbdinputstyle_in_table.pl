@@ -131,8 +131,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             }
           ],
@@ -142,8 +141,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -198,8 +196,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 23,
-            'macro' => ''
+            'line_nr' => 23
           }
         },
         {
@@ -828,8 +825,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 29,
-            'macro' => ''
+            'line_nr' => 29
           }
         },
         {
@@ -1450,8 +1446,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 35,
-            'macro' => ''
+            'line_nr' => 35
           }
         },
         {

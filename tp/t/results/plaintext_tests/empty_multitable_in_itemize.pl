@@ -91,8 +91,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     }
                   ],
@@ -101,8 +100,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 },
                 {
@@ -116,8 +114,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -148,8 +145,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -160,8 +156,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -192,7 +187,6 @@ $result_errors{'empty_multitable_in_itemize'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'empty multitable',
     'type' => 'warning'
   }

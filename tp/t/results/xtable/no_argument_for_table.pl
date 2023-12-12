@@ -56,8 +56,7 @@ $result_trees{'no_argument_for_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -108,8 +107,7 @@ $result_trees{'no_argument_for_table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -118,8 +116,7 @@ $result_trees{'no_argument_for_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -147,7 +144,6 @@ $result_errors{'no_argument_for_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'missing @table argument',
     'type' => 'error'
   }

@@ -25,7 +25,6 @@ $result_errors{'lone_end_itemize'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unmatched `@end itemize\'',
     'type' => 'error'
   }

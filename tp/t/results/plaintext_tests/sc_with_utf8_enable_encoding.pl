@@ -38,8 +38,7 @@ $result_trees{'sc_with_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -58,8 +57,7 @@ $result_trees{'sc_with_utf8_enable_encoding'} = {
               'cmdname' => 'sc',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {

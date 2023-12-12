@@ -34,8 +34,7 @@ $result_trees{'paragraph_in_style_command'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -80,8 +79,7 @@ $result_trees{'paragraph_in_style_command'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -146,7 +144,6 @@ $result_errors{'paragraph_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@samp missing closing brace',
     'type' => 'error'
   },
@@ -155,7 +152,6 @@ $result_errors{'paragraph_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -164,7 +160,6 @@ $result_errors{'paragraph_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@samp missing closing brace',
     'type' => 'error'
   },
@@ -173,7 +168,6 @@ $result_errors{'paragraph_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

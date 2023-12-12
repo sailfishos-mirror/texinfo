@@ -55,8 +55,7 @@ $result_trees{'arg_not_closed'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -66,8 +65,7 @@ $result_trees{'arg_not_closed'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -143,7 +141,6 @@ $result_errors{'arg_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@foo missing closing brace',
     'type' => 'error'
   }

@@ -74,8 +74,7 @@ $result_trees{'on_node_line'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -121,8 +120,7 @@ $result_trees{'on_node_line'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -149,8 +147,7 @@ $result_trees{'on_node_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -172,8 +169,7 @@ $result_trees{'on_node_line'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -204,8 +200,7 @@ $result_trees{'on_node_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -245,8 +240,7 @@ $result_trees{'on_node_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -299,7 +293,6 @@ $result_errors{'on_node_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@ref should not appear on @node line',
     'type' => 'warning'
   },
@@ -308,7 +301,6 @@ $result_errors{'on_node_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@pxref should not appear on @node line',
     'type' => 'warning'
   },
@@ -317,7 +309,6 @@ $result_errors{'on_node_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@anchor should not appear on @node line',
     'type' => 'warning'
   },
@@ -326,7 +317,6 @@ $result_errors{'on_node_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@footnote should not appear on @node line',
     'type' => 'warning'
   },
@@ -335,7 +325,6 @@ $result_errors{'on_node_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -344,7 +333,6 @@ $result_errors{'on_node_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should not appear on @node line',
     'type' => 'warning'
   }

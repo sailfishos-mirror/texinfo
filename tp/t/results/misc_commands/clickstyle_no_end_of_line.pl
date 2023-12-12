@@ -22,8 +22,7 @@ $result_trees{'clickstyle_no_end_of_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

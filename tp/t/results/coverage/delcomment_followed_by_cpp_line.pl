@@ -220,7 +220,6 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
 ',
     'file_name' => 'delcomment_followed_by_cpp_line.texi',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   },
@@ -229,7 +228,6 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
 ',
     'file_name' => 'delcomment_followed_by_cpp_line.texi',
     'line_nr' => 14,
-    'macro' => '',
     'text' => 'unknown command `unknown1\'',
     'type' => 'error'
   },
@@ -238,7 +236,6 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
 ',
     'file_name' => 'delcomment_followed_by_cpp_line.texi',
     'line_nr' => 19,
-    'macro' => '',
     'text' => 'unknown command `unknown2\'',
     'type' => 'error'
   }

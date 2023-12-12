@@ -65,8 +65,7 @@ $result_trees{'ignored_in_ifset'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 4,
-                      'macro' => ''
+                      'line_nr' => 4
                     }
                   }
                 ],
@@ -77,8 +76,7 @@ $result_trees{'ignored_in_ifset'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 2,
-                  'macro' => ''
+                  'line_nr' => 2
                 }
               },
               'position' => 1,
@@ -154,8 +152,7 @@ $result_trees{'ignored_in_ifset'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 11,
-                      'macro' => ''
+                      'line_nr' => 11
                     }
                   }
                 ],
@@ -166,8 +163,7 @@ $result_trees{'ignored_in_ifset'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 9,
-                  'macro' => ''
+                  'line_nr' => 9
                 }
               },
               'position' => 1,
@@ -234,8 +230,7 @@ $result_trees{'ignored_in_ifset'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 17,
-                      'macro' => ''
+                      'line_nr' => 17
                     }
                   }
                 ],
@@ -246,8 +241,7 @@ $result_trees{'ignored_in_ifset'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 15,
-                  'macro' => ''
+                  'line_nr' => 15
                 }
               },
               'position' => 1,
@@ -295,7 +289,6 @@ $result_errors{'ignored_in_ifset'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'unmatched `@end ignore\'',
     'type' => 'error'
   },
@@ -304,7 +297,6 @@ $result_errors{'ignored_in_ifset'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
   },
@@ -313,7 +305,6 @@ $result_errors{'ignored_in_ifset'} = [
 ',
     'file_name' => '',
     'line_nr' => 12,
-    'macro' => '',
     'text' => 'unmatched `@end verbatim\'',
     'type' => 'error'
   },
@@ -322,7 +313,6 @@ $result_errors{'ignored_in_ifset'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
   },
@@ -331,7 +321,6 @@ $result_errors{'ignored_in_ifset'} = [
 ',
     'file_name' => '',
     'line_nr' => 18,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -340,7 +329,6 @@ $result_errors{'ignored_in_ifset'} = [
 ',
     'file_name' => '',
     'line_nr' => 19,
-    'macro' => '',
     'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
   }

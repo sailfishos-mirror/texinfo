@@ -46,8 +46,7 @@ $result_trees{'node_line_arguments'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -98,8 +97,7 @@ $result_trees{'node_line_arguments'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -171,8 +169,7 @@ $result_trees{'node_line_arguments'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -265,8 +262,7 @@ $result_trees{'node_line_arguments'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -366,8 +362,7 @@ $result_trees{'node_line_arguments'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -415,8 +410,7 @@ $result_trees{'node_line_arguments'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -435,8 +429,7 @@ $result_trees{'node_line_arguments'} = {
               'cmdname' => 'comma',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -461,8 +454,7 @@ $result_trees{'node_line_arguments'} = {
               'cmdname' => ',',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -501,8 +493,7 @@ $result_trees{'node_line_arguments'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
@@ -547,8 +538,7 @@ $result_trees{'node_line_arguments'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     }
   ],
@@ -674,7 +664,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'superfluous arguments for node',
     'type' => 'warning'
   },
@@ -683,7 +672,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'Next reference to nonexistent `two arg\'',
     'type' => 'error'
   },
@@ -692,7 +680,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'Next reference to nonexistent `two arg\'',
     'type' => 'error'
   },
@@ -701,7 +688,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'Prev reference to nonexistent `three arg\'',
     'type' => 'error'
   },
@@ -710,7 +696,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'Next reference to nonexistent `two arg\'',
     'type' => 'error'
   },
@@ -719,7 +704,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'Prev reference to nonexistent `three arg\'',
     'type' => 'error'
   },
@@ -728,7 +712,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'Up reference to nonexistent `four arg\'',
     'type' => 'error'
   },
@@ -737,7 +720,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'Next reference to nonexistent `two arg\'',
     'type' => 'error'
   },
@@ -746,7 +728,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'Prev reference to nonexistent `three arg\'',
     'type' => 'error'
   },
@@ -755,7 +736,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'Up reference to nonexistent `four arg five arg\'',
     'type' => 'error'
   },
@@ -764,7 +744,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'Next reference to nonexistent `@,cedilla\'',
     'type' => 'error'
   },
@@ -773,7 +752,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'Prev reference to nonexistent `@strong{comma in strong,}\'',
     'type' => 'error'
   },
@@ -782,7 +760,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'node `one arg2\' unreferenced',
     'type' => 'warning'
   },
@@ -791,7 +768,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'node `one arg3\' unreferenced',
     'type' => 'warning'
   },
@@ -800,7 +776,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'node `one arg4\' unreferenced',
     'type' => 'warning'
   },
@@ -809,7 +784,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'node `one arg5\' unreferenced',
     'type' => 'warning'
   },
@@ -818,7 +792,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'node `comment\' unreferenced',
     'type' => 'warning'
   },
@@ -827,7 +800,6 @@ $result_errors{'node_line_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'node `arg1 @comma{} arg2\' unreferenced',
     'type' => 'warning'
   }

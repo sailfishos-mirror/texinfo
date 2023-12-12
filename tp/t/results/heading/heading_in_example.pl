@@ -50,8 +50,7 @@ $result_trees{'heading_in_example'} = {
                       'cmdname' => 'emph',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -72,8 +71,7 @@ $result_trees{'heading_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -104,15 +102,13 @@ $result_trees{'heading_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

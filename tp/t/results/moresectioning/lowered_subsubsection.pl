@@ -39,8 +39,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -119,8 +118,7 @@ $result_trees{'lowered_subsubsection'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -152,15 +150,13 @@ $result_trees{'lowered_subsubsection'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -172,8 +168,7 @@ $result_trees{'lowered_subsubsection'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -205,8 +200,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -290,8 +284,7 @@ $result_trees{'lowered_subsubsection'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               },
               'type' => 'menu_entry'
             },
@@ -323,15 +316,13 @@ $result_trees{'lowered_subsubsection'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -350,8 +341,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     {
@@ -383,8 +373,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 15,
-        'macro' => ''
+        'line_nr' => 15
       }
     },
     {
@@ -468,8 +457,7 @@ $result_trees{'lowered_subsubsection'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               },
               'type' => 'menu_entry'
             },
@@ -501,15 +489,13 @@ $result_trees{'lowered_subsubsection'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         },
         {
@@ -528,8 +514,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 16,
-        'macro' => ''
+        'line_nr' => 16
       }
     },
     {
@@ -561,8 +546,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 22,
-        'macro' => ''
+        'line_nr' => 22
       }
     },
     {
@@ -646,8 +630,7 @@ $result_trees{'lowered_subsubsection'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               },
               'type' => 'menu_entry'
             },
@@ -694,8 +677,7 @@ $result_trees{'lowered_subsubsection'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               },
               'type' => 'menu_entry'
             },
@@ -727,15 +709,13 @@ $result_trees{'lowered_subsubsection'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           }
         },
         {
@@ -754,8 +734,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 23,
-        'macro' => ''
+        'line_nr' => 23
       }
     },
     {
@@ -787,8 +766,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 30,
-        'macro' => ''
+        'line_nr' => 30
       }
     },
     {
@@ -836,8 +814,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 31,
-        'macro' => ''
+        'line_nr' => 31
       }
     },
     {
@@ -869,8 +846,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 34,
-        'macro' => ''
+        'line_nr' => 34
       }
     },
     {
@@ -954,8 +930,7 @@ $result_trees{'lowered_subsubsection'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 38,
-                'macro' => ''
+                'line_nr' => 38
               },
               'type' => 'menu_entry'
             },
@@ -987,15 +962,13 @@ $result_trees{'lowered_subsubsection'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 39,
-                'macro' => ''
+                'line_nr' => 39
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 37,
-            'macro' => ''
+            'line_nr' => 37
           }
         },
         {
@@ -1015,8 +988,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 35,
-        'macro' => ''
+        'line_nr' => 35
       }
     },
     {
@@ -1048,8 +1020,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 41,
-        'macro' => ''
+        'line_nr' => 41
       }
     },
     {
@@ -1097,8 +1068,7 @@ $result_trees{'lowered_subsubsection'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 45,
-            'macro' => ''
+            'line_nr' => 45
           }
         }
       ],
@@ -1113,8 +1083,7 @@ $result_trees{'lowered_subsubsection'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 42,
-        'macro' => ''
+        'line_nr' => 42
       }
     },
     {
@@ -1575,7 +1544,6 @@ $result_errors{'lowered_subsubsection'} = [
 ',
     'file_name' => '',
     'line_nr' => 34,
-    'macro' => '',
     'text' => 'node next for `Lowered subsec\' is `Lowered subsubsection\' in sectioning but not in menu',
     'type' => 'warning'
   },
@@ -1584,7 +1552,6 @@ $result_errors{'lowered_subsubsection'} = [
 ',
     'file_name' => '',
     'line_nr' => 41,
-    'macro' => '',
     'text' => 'node prev for `Lowered subsubsection\' is `Lowered subsec\' in sectioning but not in menu',
     'type' => 'warning'
   },
@@ -1593,7 +1560,6 @@ $result_errors{'lowered_subsubsection'} = [
 ',
     'file_name' => '',
     'line_nr' => 41,
-    'macro' => '',
     'text' => 'node up pointer for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu',
     'type' => 'warning'
   },
@@ -1602,7 +1568,6 @@ $result_errors{'lowered_subsubsection'} = [
 ',
     'file_name' => '',
     'line_nr' => 22,
-    'macro' => '',
     'text' => 'node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target',
     'type' => 'warning'
   }

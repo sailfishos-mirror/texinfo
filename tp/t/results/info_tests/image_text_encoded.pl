@@ -38,8 +38,7 @@ $result_trees{'image_text_encoded'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -64,8 +63,7 @@ $result_trees{'image_text_encoded'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {

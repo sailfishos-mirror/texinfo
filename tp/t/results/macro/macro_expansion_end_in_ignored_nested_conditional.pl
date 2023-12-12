@@ -61,8 +61,7 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -72,8 +71,7 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -168,8 +166,7 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 8,
-                                'macro' => ''
+                                'line_nr' => 8
                               }
                             }
                           ]
@@ -207,8 +204,7 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 9,
-                      'macro' => ''
+                      'line_nr' => 9
                     }
                   }
                 ],

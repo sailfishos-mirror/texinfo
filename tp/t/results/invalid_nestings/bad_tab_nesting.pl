@@ -21,8 +21,7 @@ $result_trees{'bad_tab_nesting'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -37,8 +36,7 @@ $result_trees{'bad_tab_nesting'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 }
@@ -80,8 +78,7 @@ $result_trees{'bad_tab_nesting'} = {
                               'cmdname' => 'code',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 3,
-                                'macro' => ''
+                                'line_nr' => 3
                               }
                             }
                           ],
@@ -93,8 +90,7 @@ $result_trees{'bad_tab_nesting'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -119,8 +115,7 @@ $result_trees{'bad_tab_nesting'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -160,8 +155,7 @@ $result_trees{'bad_tab_nesting'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -175,8 +169,7 @@ $result_trees{'bad_tab_nesting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -203,7 +196,6 @@ $result_errors{'bad_tab_nesting'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   },
@@ -212,7 +204,6 @@ $result_errors{'bad_tab_nesting'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

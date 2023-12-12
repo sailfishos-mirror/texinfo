@@ -26,8 +26,7 @@ $result_trees{'sole_image'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -90,7 +89,6 @@ $result_converted_errors{'html_text'}->{'sole_image'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `aa\' (for HTML) not found, using `aa.jpg\'',
     'type' => 'warning'
   }

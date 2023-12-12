@@ -38,8 +38,7 @@ $result_trees{'command_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'expanded_conditional_command',
@@ -82,8 +81,7 @@ $result_trees{'command_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 3,
-                      'macro' => ''
+                      'line_nr' => 3
                     }
                   },
                   'position' => 51,
@@ -153,8 +151,7 @@ $result_trees{'command_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 7,
-                      'macro' => ''
+                      'line_nr' => 7
                     }
                   }
                 ],
@@ -165,8 +162,7 @@ $result_trees{'command_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 5,
-                  'macro' => ''
+                  'line_nr' => 5
                 }
               },
               'position' => 1,
@@ -199,8 +195,7 @@ $result_trees{'command_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 8,
-                  'macro' => ''
+                  'line_nr' => 8
                 }
               },
               'position' => 1,
@@ -252,8 +247,7 @@ $result_trees{'command_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 10,
-                      'macro' => ''
+                      'line_nr' => 10
                     }
                   },
                   'position' => 24,
@@ -296,8 +290,7 @@ $result_trees{'command_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 12,
-                  'macro' => ''
+                  'line_nr' => 12
                 }
               },
               'position' => 1,
@@ -349,8 +342,7 @@ $result_trees{'command_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 14,
-                      'macro' => ''
+                      'line_nr' => 14
                     }
                   },
                   'position' => 17,
@@ -411,8 +403,7 @@ $result_trees{'command_conditionals'} = {
                         },
                         'source_info' => {
                           'file_name' => '',
-                          'line_nr' => 17,
-                          'macro' => ''
+                          'line_nr' => 17
                         }
                       }
                     ],
@@ -423,8 +414,7 @@ $result_trees{'command_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 15,
-                      'macro' => ''
+                      'line_nr' => 15
                     }
                   },
                   'position' => 17,
@@ -493,8 +483,7 @@ $result_trees{'command_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 21,
-                      'macro' => ''
+                      'line_nr' => 21
                     }
                   }
                 ],
@@ -505,8 +494,7 @@ $result_trees{'command_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 19,
-                  'macro' => ''
+                  'line_nr' => 19
                 }
               },
               'position' => 1,
@@ -539,8 +527,7 @@ $result_trees{'command_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 22,
-                  'macro' => ''
+                  'line_nr' => 22
                 }
               },
               'position' => 1,
@@ -592,8 +579,7 @@ $result_trees{'command_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 24,
-                      'macro' => ''
+                      'line_nr' => 24
                     }
                   },
                   'position' => 25,

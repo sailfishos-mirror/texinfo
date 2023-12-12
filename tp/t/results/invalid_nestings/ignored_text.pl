@@ -38,8 +38,7 @@ $result_trees{'ignored_text'} = {
                     'cmdname' => 'ifinfo',
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 1,
-                      'macro' => ''
+                      'line_nr' => 1
                     }
                   },
                   'position' => 1,
@@ -75,8 +74,7 @@ $result_trees{'ignored_text'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -113,7 +111,6 @@ $result_errors{'ignored_text'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@ifinfo should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -122,7 +119,6 @@ $result_errors{'ignored_text'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'no matching `@end ifinfo\'',
     'type' => 'error'
   },
@@ -131,7 +127,6 @@ $result_errors{'ignored_text'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'bad argument to @end: ifinfo on the node line',
     'type' => 'error'
   },
@@ -140,7 +135,6 @@ $result_errors{'ignored_text'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'unmatched `@end ifinfo\'',
     'type' => 'error'
   }

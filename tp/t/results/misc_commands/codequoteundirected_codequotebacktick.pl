@@ -78,8 +78,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 8,
-                    'macro' => ''
+                    'line_nr' => 8
                   }
                 }
               ],
@@ -89,8 +88,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -220,8 +218,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 28,
-                    'macro' => ''
+                    'line_nr' => 28
                   }
                 }
               ],
@@ -231,8 +228,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -1394,15 +1390,13 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 32,
-                    'macro' => ''
+                    'line_nr' => 32
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1439,8 +1433,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'cmdname' => 'insertcopying',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 35,
-                    'macro' => ''
+                    'line_nr' => 35
                   }
                 },
                 {
@@ -1471,15 +1464,13 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 36,
-                    'macro' => ''
+                    'line_nr' => 36
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
-                'macro' => ''
+                'line_nr' => 33
               }
             },
             {
@@ -1527,8 +1518,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 39,
-        'macro' => ''
+        'line_nr' => 39
       }
     },
     {
@@ -1564,8 +1554,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 40,
-        'macro' => ''
+        'line_nr' => 40
       }
     },
     {
@@ -1597,8 +1586,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 42,
-        'macro' => ''
+        'line_nr' => 42
       }
     },
     {
@@ -3892,15 +3880,13 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 49,
-                'macro' => ''
+                'line_nr' => 49
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 47,
-            'macro' => ''
+            'line_nr' => 47
           }
         },
         {
@@ -3919,8 +3905,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 43,
-        'macro' => ''
+        'line_nr' => 43
       }
     }
   ],

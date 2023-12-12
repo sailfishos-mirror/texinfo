@@ -42,8 +42,7 @@ $result_trees{'unknown_encoding'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -90,8 +89,7 @@ $result_trees{'unknown_encoding'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],
@@ -134,7 +132,6 @@ $result_errors{'unknown_encoding'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'encoding `ggg\' is not a canonical texinfo encoding',
     'type' => 'warning'
   },
@@ -143,7 +140,6 @@ $result_errors{'unknown_encoding'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'unhandled encoding name `ggg\'',
     'type' => 'warning'
   }

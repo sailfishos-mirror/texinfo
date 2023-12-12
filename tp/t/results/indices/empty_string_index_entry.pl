@@ -44,8 +44,7 @@ $result_trees{'empty_string_index_entry'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -85,8 +84,7 @@ $result_trees{'empty_string_index_entry'} = {
                   'cmdname' => 'w',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -115,8 +113,7 @@ $result_trees{'empty_string_index_entry'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           },
           'type' => 'index_entry_command'
         },
@@ -133,8 +130,7 @@ $result_trees{'empty_string_index_entry'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 6,
-                    'macro' => ''
+                    'line_nr' => 6
                   },
                   'type' => 'command_as_argument'
                 }
@@ -167,8 +163,7 @@ $result_trees{'empty_string_index_entry'} = {
                               'cmdname' => 'w',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 7,
-                                'macro' => ''
+                                'line_nr' => 7
                               }
                             }
                           ],
@@ -196,8 +191,7 @@ $result_trees{'empty_string_index_entry'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     }
                   ],
@@ -234,8 +228,7 @@ $result_trees{'empty_string_index_entry'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
@@ -249,8 +242,7 @@ $result_trees{'empty_string_index_entry'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -294,8 +286,7 @@ $result_trees{'empty_string_index_entry'} = {
                           'cmdname' => 'w',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 10,
-                            'macro' => ''
+                            'line_nr' => 10
                           }
                         }
                       ],
@@ -304,8 +295,7 @@ $result_trees{'empty_string_index_entry'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -322,8 +312,7 @@ $result_trees{'empty_string_index_entry'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -340,8 +329,7 @@ $result_trees{'empty_string_index_entry'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -367,8 +355,7 @@ $result_trees{'empty_string_index_entry'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'def_line'
             },
@@ -405,8 +392,7 @@ $result_trees{'empty_string_index_entry'} = {
                           'cmdname' => 'w',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 11,
-                            'macro' => ''
+                            'line_nr' => 11
                           }
                         }
                       ],
@@ -415,8 +401,7 @@ $result_trees{'empty_string_index_entry'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
-                        'macro' => ''
+                        'line_nr' => 11
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -433,8 +418,7 @@ $result_trees{'empty_string_index_entry'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
-                        'macro' => ''
+                        'line_nr' => 11
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -451,8 +435,7 @@ $result_trees{'empty_string_index_entry'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
-                        'macro' => ''
+                        'line_nr' => 11
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -484,8 +467,7 @@ $result_trees{'empty_string_index_entry'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               },
               'type' => 'def_line'
             },
@@ -517,8 +499,7 @@ $result_trees{'empty_string_index_entry'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
@@ -529,8 +510,7 @@ $result_trees{'empty_string_index_entry'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -568,8 +548,7 @@ $result_trees{'empty_string_index_entry'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         }
       ],
@@ -585,8 +564,7 @@ $result_trees{'empty_string_index_entry'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     }
   ],
@@ -669,7 +647,6 @@ $result_errors{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -678,7 +655,6 @@ $result_errors{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'empty index key in @item',
     'type' => 'warning'
   },
@@ -687,7 +663,6 @@ $result_errors{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'empty index key in @defun',
     'type' => 'warning'
   },
@@ -696,7 +671,6 @@ $result_errors{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'empty index key in @defunx',
     'type' => 'warning'
   }
@@ -743,7 +717,6 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -752,7 +725,6 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'empty index key in @item',
     'type' => 'warning'
   },
@@ -761,7 +733,6 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'empty index key in @defun',
     'type' => 'warning'
   },
@@ -770,7 +741,6 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'empty index key in @defunx',
     'type' => 'warning'
   }
@@ -791,7 +761,6 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -800,7 +769,6 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'empty index key in @item',
     'type' => 'warning'
   },
@@ -809,7 +777,6 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'empty index key in @defun',
     'type' => 'warning'
   },
@@ -818,7 +785,6 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'empty index key in @defunx',
     'type' => 'warning'
   }
@@ -857,7 +823,6 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -866,7 +831,6 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'empty index key in @item',
     'type' => 'warning'
   },
@@ -875,7 +839,6 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'empty index key in @defun',
     'type' => 'warning'
   },
@@ -884,7 +847,6 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'empty index key in @defunx',
     'type' => 'warning'
   }

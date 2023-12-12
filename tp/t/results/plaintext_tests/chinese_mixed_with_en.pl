@@ -50,8 +50,7 @@ $result_trees{'chinese_mixed_with_en'} = {
               },
               'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -79,8 +78,7 @@ $result_trees{'chinese_mixed_with_en'} = {
               },
               'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -123,8 +121,7 @@ $result_trees{'chinese_mixed_with_en'} = {
       },
       'source_info' => {
         'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -174,8 +171,7 @@ $result_trees{'chinese_mixed_with_en'} = {
       },
       'source_info' => {
         'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -207,8 +203,7 @@ $result_trees{'chinese_mixed_with_en'} = {
       },
       'source_info' => {
         'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     },
     {
@@ -399,8 +394,7 @@ $result_trees{'chinese_mixed_with_en'} = {
       },
       'source_info' => {
         'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {

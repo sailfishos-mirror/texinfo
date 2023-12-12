@@ -38,8 +38,7 @@ $result_trees{'verb_at_end_of_line_not_closed'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -67,7 +66,6 @@ $result_errors{'verb_at_end_of_line_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@verb without associated character',
     'type' => 'error'
   },
@@ -76,7 +74,6 @@ $result_errors{'verb_at_end_of_line_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@verb missing closing brace',
     'type' => 'error'
   }

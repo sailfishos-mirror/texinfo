@@ -91,8 +91,7 @@ $result_trees{'ref_in_preformatted'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -124,15 +123,13 @@ $result_trees{'ref_in_preformatted'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -186,8 +183,7 @@ $result_trees{'ref_in_preformatted'} = {
                   'cmdname' => 'ref',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 8,
-                    'macro' => ''
+                    'line_nr' => 8
                   }
                 },
                 {
@@ -225,15 +221,13 @@ $result_trees{'ref_in_preformatted'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -253,8 +247,7 @@ $result_trees{'ref_in_preformatted'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -286,8 +279,7 @@ $result_trees{'ref_in_preformatted'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     }
   ],

@@ -17,8 +17,7 @@ $result_trees{'on_itemize_line'} = {
                   'cmdname' => 'indent',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -39,8 +38,7 @@ $result_trees{'on_itemize_line'} = {
                   'cmdname' => 'titlefont',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -64,8 +62,7 @@ $result_trees{'on_itemize_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -87,8 +84,7 @@ $result_trees{'on_itemize_line'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -119,8 +115,7 @@ $result_trees{'on_itemize_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -151,8 +146,7 @@ $result_trees{'on_itemize_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -183,8 +177,7 @@ $result_trees{'on_itemize_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -195,8 +188,7 @@ $result_trees{'on_itemize_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -258,8 +250,7 @@ $result_trees{'on_itemize_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -270,8 +261,7 @@ $result_trees{'on_itemize_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         }
       ],
@@ -300,7 +290,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@indent should not appear on @itemize line',
     'type' => 'warning'
   },
@@ -309,7 +298,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@titlefont should not appear on @itemize line',
     'type' => 'warning'
   },
@@ -318,7 +306,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@anchor should not appear on @itemize line',
     'type' => 'warning'
   },
@@ -327,7 +314,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@footnote should not appear on @itemize line',
     'type' => 'warning'
   },
@@ -336,7 +322,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -345,7 +330,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should not appear on @itemize line',
     'type' => 'warning'
   },
@@ -354,7 +338,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@item should not appear on @itemize line',
     'type' => 'warning'
   },
@@ -363,7 +346,6 @@ $result_errors{'on_itemize_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@item outside of table or list',
     'type' => 'error'
   }

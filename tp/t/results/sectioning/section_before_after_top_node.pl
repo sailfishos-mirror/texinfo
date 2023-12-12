@@ -48,8 +48,7 @@ $result_trees{'section_before_after_top_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -81,8 +80,7 @@ $result_trees{'section_before_after_top_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -118,8 +116,7 @@ $result_trees{'section_before_after_top_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -166,8 +163,7 @@ $result_trees{'section_before_after_top_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     }
   ],
@@ -279,7 +275,6 @@ $result_errors{'section_before_after_top_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'
   }

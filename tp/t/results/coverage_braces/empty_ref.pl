@@ -25,8 +25,7 @@ $result_trees{'empty_ref'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -52,8 +51,7 @@ $result_trees{'empty_ref'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -73,8 +71,7 @@ $result_trees{'empty_ref'} = {
               'cmdname' => 'inforef',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -111,8 +108,7 @@ $result_trees{'empty_ref'} = {
               'cmdname' => 'inforef',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -146,7 +142,6 @@ $result_errors{'empty_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'command @ref missing a node or external manual argument',
     'type' => 'warning'
   },
@@ -155,7 +150,6 @@ $result_errors{'empty_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'command @xref missing a node or external manual argument',
     'type' => 'warning'
   },
@@ -164,7 +158,6 @@ $result_errors{'empty_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@inforef is obsolete',
     'type' => 'warning'
   },
@@ -173,7 +166,6 @@ $result_errors{'empty_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'command @inforef missing a node or external manual argument',
     'type' => 'warning'
   },
@@ -182,7 +174,6 @@ $result_errors{'empty_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@inforef is obsolete',
     'type' => 'warning'
   },
@@ -191,7 +182,6 @@ $result_errors{'empty_ref'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'command @inforef missing a node or external manual argument',
     'type' => 'warning'
   }

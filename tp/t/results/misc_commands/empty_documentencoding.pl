@@ -24,8 +24,7 @@ $result_trees{'empty_documentencoding'} = {
           'cmdname' => 'documentencoding',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -47,7 +46,6 @@ $result_errors{'empty_documentencoding'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@documentencoding missing argument',
     'type' => 'warning'
   }

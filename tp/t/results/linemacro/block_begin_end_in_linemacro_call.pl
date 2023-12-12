@@ -55,8 +55,7 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -66,8 +65,7 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -184,8 +182,7 @@ in quotation
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           ],
@@ -307,8 +304,7 @@ in quotation
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -459,8 +455,7 @@ in quotation
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             }
           ],
@@ -581,8 +576,7 @@ ignored ',
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 28,
-                    'macro' => ''
+                    'line_nr' => 28
                   }
                 }
               ],
@@ -711,8 +705,7 @@ args \\e\\|\\f\\|
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 35,
-                    'macro' => ''
+                    'line_nr' => 35
                   }
                 }
               ],
@@ -988,15 +981,13 @@ args \\e\\|\\f\\|
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 39,
-                'macro' => ''
+                'line_nr' => 39
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 37,
-            'macro' => ''
+            'line_nr' => 37
           }
         },
         {

@@ -18,8 +18,7 @@ $result_trees{'section_on_cartouche_line'} = {
           'cmdname' => 'cartouche',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -63,8 +62,7 @@ $result_trees{'section_on_cartouche_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         }
       ],
@@ -78,8 +76,7 @@ $result_trees{'section_on_cartouche_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -110,8 +107,7 @@ $result_trees{'section_on_cartouche_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     }
   ],
@@ -171,7 +167,6 @@ $result_errors{'section_on_cartouche_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@section seen before @end cartouche',
     'type' => 'error'
   },
@@ -180,7 +175,6 @@ $result_errors{'section_on_cartouche_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@section seen before @end cartouche',
     'type' => 'error'
   }

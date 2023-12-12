@@ -60,8 +60,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 2,
-                            'macro' => ''
+                            'line_nr' => 2
                           }
                         },
                         {
@@ -111,8 +110,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   },
                   'type' => 'def_line'
                 },
@@ -174,8 +172,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 5,
-                            'macro' => ''
+                            'line_nr' => 5
                           },
                           'type' => 'bracketed_arg'
                         },
@@ -192,8 +189,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 5,
-                            'macro' => ''
+                            'line_nr' => 5
                           },
                           'type' => 'bracketed_arg'
                         }
@@ -224,8 +220,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   },
                   'type' => 'def_line'
                 },
@@ -265,8 +260,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 6,
-                            'macro' => ''
+                            'line_nr' => 6
                           },
                           'type' => 'index_entry_command'
                         }
@@ -314,8 +308,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                                   'cmdname' => 'samp',
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 7,
-                                    'macro' => ''
+                                    'line_nr' => 7
                                   }
                                 },
                                 {
@@ -331,8 +324,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 7,
-                            'macro' => ''
+                            'line_nr' => 7
                           }
                         },
                         {
@@ -375,8 +367,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   },
                   'type' => 'def_line'
                 },
@@ -416,8 +407,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 8,
-                            'macro' => ''
+                            'line_nr' => 8
                           },
                           'type' => 'index_entry_command'
                         },
@@ -464,8 +454,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
-                    'macro' => ''
+                    'line_nr' => 11
                   }
                 }
               ],
@@ -476,8 +465,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -508,15 +496,13 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -558,7 +544,6 @@ $result_errors{'inter_item_commands_in_def_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -567,7 +552,6 @@ $result_errors{'inter_item_commands_in_def_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -576,7 +560,6 @@ $result_errors{'inter_item_commands_in_def_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   },
@@ -585,7 +568,6 @@ $result_errors{'inter_item_commands_in_def_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -594,7 +576,6 @@ $result_errors{'inter_item_commands_in_def_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   }

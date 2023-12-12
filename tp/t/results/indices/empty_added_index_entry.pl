@@ -41,8 +41,7 @@ $result_trees{'empty_added_index_entry'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -85,8 +84,7 @@ $result_trees{'empty_added_index_entry'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -131,8 +129,7 @@ $result_trees{'empty_added_index_entry'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           },
           'type' => 'index_entry_command'
         }
@@ -148,8 +145,7 @@ $result_trees{'empty_added_index_entry'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],
@@ -211,7 +207,6 @@ $result_errors{'empty_added_index_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@myindex missing argument',
     'type' => 'warning'
   }

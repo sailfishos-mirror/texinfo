@@ -50,8 +50,7 @@ $result_trees{'japanese_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -87,8 +86,7 @@ $result_trees{'japanese_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -116,8 +114,7 @@ $result_trees{'japanese_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -153,8 +150,7 @@ $result_trees{'japanese_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -197,8 +193,7 @@ $result_trees{'japanese_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -253,8 +248,7 @@ $result_trees{'japanese_utf8'} = {
                   'cmdname' => 'copyright',
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
-                    'line_nr' => 12,
-                    'macro' => ''
+                    'line_nr' => 12
                   }
                 },
                 {
@@ -293,8 +287,7 @@ $result_trees{'japanese_utf8'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
-                    'line_nr' => 14,
-                    'macro' => ''
+                    'line_nr' => 14
                   }
                 },
                 {
@@ -329,8 +322,7 @@ $result_trees{'japanese_utf8'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
-                    'line_nr' => 18,
-                    'macro' => ''
+                    'line_nr' => 18
                   }
                 },
                 {
@@ -368,15 +360,13 @@ $result_trees{'japanese_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             }
           ],
           'source_info' => {
             'file_name' => 'japanese_utf8.texi',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -460,8 +450,7 @@ $result_trees{'japanese_utf8'} = {
               ],
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               },
               'type' => 'menu_entry'
             },
@@ -508,8 +497,7 @@ $result_trees{'japanese_utf8'} = {
               ],
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               },
               'type' => 'menu_entry'
             },
@@ -541,15 +529,13 @@ $result_trees{'japanese_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             }
           ],
           'source_info' => {
             'file_name' => 'japanese_utf8.texi',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           }
         },
         {
@@ -566,8 +552,7 @@ $result_trees{'japanese_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     {
@@ -599,8 +584,7 @@ $result_trees{'japanese_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 30,
-        'macro' => ''
+        'line_nr' => 30
       }
     },
     {
@@ -657,8 +641,7 @@ $result_trees{'japanese_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 31,
-        'macro' => ''
+        'line_nr' => 31
       }
     },
     {
@@ -690,8 +673,7 @@ $result_trees{'japanese_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 36,
-        'macro' => ''
+        'line_nr' => 36
       }
     },
     {
@@ -743,8 +725,7 @@ $result_trees{'japanese_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 37,
-        'macro' => ''
+        'line_nr' => 37
       }
     },
     {

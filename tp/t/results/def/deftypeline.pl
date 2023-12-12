@@ -51,8 +51,7 @@ $result_trees{'deftypeline'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -113,8 +112,7 @@ $result_trees{'deftypeline'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -161,8 +159,7 @@ $result_trees{'deftypeline'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -195,8 +192,7 @@ $result_trees{'deftypeline'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'def_line'
             },
@@ -213,8 +209,7 @@ $result_trees{'deftypeline'} = {
                       'cmdname' => 'dots',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -255,15 +250,13 @@ $result_trees{'deftypeline'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

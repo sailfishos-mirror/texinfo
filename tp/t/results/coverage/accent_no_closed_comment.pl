@@ -35,8 +35,7 @@ $result_trees{'accent_no_closed_comment'} = {
               'cmdname' => '~',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -61,7 +60,6 @@ $result_errors{'accent_no_closed_comment'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@~ missing closing brace',
     'type' => 'error'
   }

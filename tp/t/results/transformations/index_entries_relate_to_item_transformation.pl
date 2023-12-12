@@ -59,8 +59,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
       },
       'source_info' => {
         'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -96,8 +95,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
       },
       'source_info' => {
         'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -130,8 +128,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
       },
       'source_info' => {
         'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -166,8 +163,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => 'index_entries_relate_to_item.texi',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'type' => 'command_as_argument'
                 }
@@ -230,8 +226,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 11,
-                        'macro' => ''
+                        'line_nr' => 11
                       },
                       'type' => 'index_entry_command'
                     },
@@ -268,8 +263,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 12,
-                        'macro' => ''
+                        'line_nr' => 12
                       },
                       'type' => 'index_entry_command'
                     },
@@ -306,8 +300,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 13,
-                        'macro' => ''
+                        'line_nr' => 13
                       },
                       'type' => 'index_entry_command'
                     },
@@ -336,8 +329,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 14,
-                        'macro' => ''
+                        'line_nr' => 14
                       }
                     },
                     {
@@ -365,8 +357,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 15,
-                        'macro' => ''
+                        'line_nr' => 15
                       }
                     },
                     {
@@ -394,8 +385,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 16,
-                        'macro' => ''
+                        'line_nr' => 16
                       }
                     }
                   ],
@@ -457,8 +447,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 20,
-                        'macro' => ''
+                        'line_nr' => 20
                       }
                     }
                   ],
@@ -519,8 +508,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
               },
               'source_info' => {
                 'file_name' => 'index_entries_relate_to_item.texi',
-                'line_nr' => 24,
-                'macro' => ''
+                'line_nr' => 24
               }
             }
           ],
@@ -534,8 +522,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
           },
           'source_info' => {
             'file_name' => 'index_entries_relate_to_item.texi',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -573,8 +560,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
           },
           'source_info' => {
             'file_name' => 'index_entries_relate_to_item.texi',
-            'line_nr' => 26,
-            'macro' => ''
+            'line_nr' => 26
           }
         },
         {
@@ -593,8 +579,7 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
       },
       'source_info' => {
         'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     },
     {

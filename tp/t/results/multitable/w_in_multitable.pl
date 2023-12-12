@@ -21,8 +21,7 @@ $result_trees{'w_in_multitable'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -37,8 +36,7 @@ $result_trees{'w_in_multitable'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 }
@@ -85,8 +83,7 @@ $result_trees{'w_in_multitable'} = {
                               'cmdname' => 'w',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 2,
-                                'macro' => ''
+                                'line_nr' => 2
                               }
                             },
                             {
@@ -102,8 +99,7 @@ $result_trees{'w_in_multitable'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -128,8 +124,7 @@ $result_trees{'w_in_multitable'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -169,8 +164,7 @@ $result_trees{'w_in_multitable'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -184,8 +178,7 @@ $result_trees{'w_in_multitable'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

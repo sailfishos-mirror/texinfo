@@ -38,8 +38,7 @@ $result_trees{'utf8_enable_encoding_no_use_iso'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -66,8 +65,7 @@ $result_trees{'utf8_enable_encoding_no_use_iso'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {

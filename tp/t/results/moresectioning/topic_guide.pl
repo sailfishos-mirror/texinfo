@@ -59,8 +59,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -162,8 +161,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'menu_entry'
             },
@@ -210,8 +208,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               },
               'type' => 'menu_entry'
             },
@@ -243,15 +240,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -268,8 +263,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -301,8 +295,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 14,
-        'macro' => ''
+        'line_nr' => 14
       }
     },
     {
@@ -400,8 +393,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               },
               'type' => 'menu_entry'
             },
@@ -448,8 +440,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               },
               'type' => 'menu_entry'
             },
@@ -496,8 +487,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               },
               'type' => 'menu_entry'
             },
@@ -529,15 +519,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 19,
-            'macro' => ''
+            'line_nr' => 19
           }
         },
         {
@@ -556,8 +544,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 15,
-        'macro' => ''
+        'line_nr' => 15
       }
     },
     {
@@ -693,8 +680,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 32,
-                'macro' => ''
+                'line_nr' => 32
               },
               'type' => 'menu_entry'
             },
@@ -726,15 +712,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 33,
-                'macro' => ''
+                'line_nr' => 33
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 29,
-            'macro' => ''
+            'line_nr' => 29
           }
         },
         {
@@ -754,8 +738,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 25,
-        'macro' => ''
+        'line_nr' => 25
       }
     },
     {
@@ -912,8 +895,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 42,
-                'macro' => ''
+                'line_nr' => 42
               },
               'type' => 'menu_entry'
             },
@@ -945,15 +927,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 43,
-                'macro' => ''
+                'line_nr' => 43
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 39,
-            'macro' => ''
+            'line_nr' => 39
           }
         },
         {
@@ -973,8 +953,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 35,
-        'macro' => ''
+        'line_nr' => 35
       }
     },
     {
@@ -1116,15 +1095,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 52,
-                'macro' => ''
+                'line_nr' => 52
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 49,
-            'macro' => ''
+            'line_nr' => 49
           }
         },
         {
@@ -1144,8 +1121,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 45,
-        'macro' => ''
+        'line_nr' => 45
       }
     },
     {
@@ -1262,8 +1238,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 61,
-                'macro' => ''
+                'line_nr' => 61
               },
               'type' => 'menu_entry'
             },
@@ -1295,15 +1270,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 62,
-                'macro' => ''
+                'line_nr' => 62
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 58,
-            'macro' => ''
+            'line_nr' => 58
           }
         },
         {
@@ -1323,8 +1296,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 54,
-        'macro' => ''
+        'line_nr' => 54
       }
     },
     {
@@ -1468,8 +1440,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 71,
-                'macro' => ''
+                'line_nr' => 71
               },
               'type' => 'menu_entry'
             },
@@ -1516,8 +1487,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 72,
-                'macro' => ''
+                'line_nr' => 72
               },
               'type' => 'menu_entry'
             },
@@ -1549,15 +1519,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 73,
-                'macro' => ''
+                'line_nr' => 73
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 68,
-            'macro' => ''
+            'line_nr' => 68
           }
         },
         {
@@ -1577,8 +1545,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 64,
-        'macro' => ''
+        'line_nr' => 64
       }
     },
     {
@@ -1610,8 +1577,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 75,
-        'macro' => ''
+        'line_nr' => 75
       }
     },
     {
@@ -1709,8 +1675,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 81,
-                'macro' => ''
+                'line_nr' => 81
               },
               'type' => 'menu_entry'
             },
@@ -1757,8 +1722,7 @@ $result_trees{'topic_guide'} = {
               ],
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 82,
-                'macro' => ''
+                'line_nr' => 82
               },
               'type' => 'menu_entry'
             },
@@ -1790,15 +1754,13 @@ $result_trees{'topic_guide'} = {
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
-                'line_nr' => 83,
-                'macro' => ''
+                'line_nr' => 83
               }
             }
           ],
           'source_info' => {
             'file_name' => 'topic_guide.texi',
-            'line_nr' => 80,
-            'macro' => ''
+            'line_nr' => 80
           }
         },
         {
@@ -1817,8 +1779,7 @@ $result_trees{'topic_guide'} = {
       },
       'source_info' => {
         'file_name' => 'topic_guide.texi',
-        'line_nr' => 76,
-        'macro' => ''
+        'line_nr' => 76
       }
     },
     {

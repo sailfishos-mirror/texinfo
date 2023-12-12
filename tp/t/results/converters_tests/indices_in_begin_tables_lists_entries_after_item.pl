@@ -59,8 +59,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
       },
       'source_info' => {
         'file_name' => 'indices_in_begin_tables_lists.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -96,8 +95,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
       },
       'source_info' => {
         'file_name' => 'indices_in_begin_tables_lists.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -129,8 +127,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
       },
       'source_info' => {
         'file_name' => 'indices_in_begin_tables_lists.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -165,8 +162,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'minus',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'type' => 'command_as_argument'
                 }
@@ -238,8 +234,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 11,
-                    'macro' => ''
+                    'line_nr' => 11
                   },
                   'type' => 'index_entry_command'
                 },
@@ -258,8 +253,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             },
             {
@@ -290,8 +284,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
@@ -305,8 +298,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -322,8 +314,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 15,
-                    'macro' => ''
+                    'line_nr' => 15
                   },
                   'type' => 'command_as_argument'
                 }
@@ -383,8 +374,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 16,
-                    'macro' => ''
+                    'line_nr' => 16
                   },
                   'type' => 'index_entry_command'
                 },
@@ -403,8 +393,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -453,8 +442,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 18,
-                    'macro' => ''
+                    'line_nr' => 18
                   },
                   'type' => 'index_entry_command'
                 },
@@ -473,8 +461,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               }
             },
             {
@@ -505,8 +492,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             }
           ],
@@ -520,8 +506,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 15,
-            'macro' => ''
+            'line_nr' => 15
           }
         },
         {
@@ -614,8 +599,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 25,
-                    'macro' => ''
+                    'line_nr' => 25
                   },
                   'type' => 'index_entry_command'
                 },
@@ -634,8 +618,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               }
             },
             {
@@ -666,8 +649,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             }
           ],
@@ -676,8 +658,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 22,
-            'macro' => ''
+            'line_nr' => 22
           }
         },
         {
@@ -741,8 +722,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 32,
-                'macro' => ''
+                'line_nr' => 32
               }
             },
             {
@@ -773,8 +753,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 33,
-                'macro' => ''
+                'line_nr' => 33
               }
             }
           ],
@@ -783,8 +762,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 29,
-            'macro' => ''
+            'line_nr' => 29
           }
         },
         {
@@ -846,8 +824,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 37,
-                    'macro' => ''
+                    'line_nr' => 37
                   },
                   'type' => 'index_entry_command'
                 },
@@ -881,8 +858,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 39,
-                'macro' => ''
+                'line_nr' => 39
               }
             },
             {
@@ -913,8 +889,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 40,
-                'macro' => ''
+                'line_nr' => 40
               }
             }
           ],
@@ -923,8 +898,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 35,
-            'macro' => ''
+            'line_nr' => 35
           }
         },
         {
@@ -997,8 +971,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 44,
-                    'macro' => ''
+                    'line_nr' => 44
                   },
                   'type' => 'index_entry_command'
                 },
@@ -1017,8 +990,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 45,
-                'macro' => ''
+                'line_nr' => 45
               }
             },
             {
@@ -1049,8 +1021,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 46,
-                'macro' => ''
+                'line_nr' => 46
               }
             }
           ],
@@ -1059,8 +1030,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 42,
-            'macro' => ''
+            'line_nr' => 42
           }
         },
         {
@@ -1117,8 +1087,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 49,
-                    'macro' => ''
+                    'line_nr' => 49
                   },
                   'type' => 'index_entry_command'
                 },
@@ -1152,8 +1121,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 51,
-                'macro' => ''
+                'line_nr' => 51
               }
             },
             {
@@ -1184,8 +1152,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 52,
-                'macro' => ''
+                'line_nr' => 52
               }
             }
           ],
@@ -1194,8 +1161,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 48,
-            'macro' => ''
+            'line_nr' => 48
           }
         },
         {
@@ -1272,8 +1238,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 56,
-                    'macro' => ''
+                    'line_nr' => 56
                   },
                   'type' => 'index_entry_command'
                 },
@@ -1292,8 +1257,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 57,
-                'macro' => ''
+                'line_nr' => 57
               }
             },
             {
@@ -1324,8 +1288,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 58,
-                'macro' => ''
+                'line_nr' => 58
               }
             }
           ],
@@ -1334,8 +1297,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 54,
-            'macro' => ''
+            'line_nr' => 54
           }
         },
         {
@@ -1401,8 +1363,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 61,
-                    'macro' => ''
+                    'line_nr' => 61
                   },
                   'type' => 'index_entry_command'
                 },
@@ -1449,8 +1410,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 63,
-                    'macro' => ''
+                    'line_nr' => 63
                   },
                   'type' => 'index_entry_command'
                 },
@@ -1487,8 +1447,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 64,
-                    'macro' => ''
+                    'line_nr' => 64
                   },
                   'type' => 'index_entry_command'
                 },
@@ -1507,8 +1466,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 65,
-                'macro' => ''
+                'line_nr' => 65
               }
             },
             {
@@ -1539,8 +1497,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 66,
-                'macro' => ''
+                'line_nr' => 66
               }
             }
           ],
@@ -1549,8 +1506,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 60,
-            'macro' => ''
+            'line_nr' => 60
           }
         },
         {
@@ -1566,8 +1522,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 68,
-                    'macro' => ''
+                    'line_nr' => 68
                   },
                   'type' => 'command_as_argument'
                 }
@@ -1629,8 +1584,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 70,
-                        'macro' => ''
+                        'line_nr' => 70
                       }
                     }
                   ],
@@ -1681,8 +1635,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 72,
-                'macro' => ''
+                'line_nr' => 72
               }
             }
           ],
@@ -1696,8 +1649,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 68,
-            'macro' => ''
+            'line_nr' => 68
           }
         },
         {
@@ -1713,8 +1665,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 74,
-                    'macro' => ''
+                    'line_nr' => 74
                   },
                   'type' => 'command_as_argument'
                 }
@@ -1766,8 +1717,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 75,
-                        'macro' => ''
+                        'line_nr' => 75
                       }
                     },
                     {
@@ -1817,8 +1767,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 77,
-                        'macro' => ''
+                        'line_nr' => 77
                       }
                     }
                   ],
@@ -1869,8 +1818,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 79,
-                'macro' => ''
+                'line_nr' => 79
               }
             }
           ],
@@ -1884,8 +1832,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 74,
-            'macro' => ''
+            'line_nr' => 74
           }
         },
         {
@@ -1901,8 +1848,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'var',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 81,
-                    'macro' => ''
+                    'line_nr' => 81
                   },
                   'type' => 'command_as_argument'
                 }
@@ -1954,8 +1900,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 82,
-                        'macro' => ''
+                        'line_nr' => 82
                       }
                     },
                     {
@@ -1993,8 +1938,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           },
                           'source_info' => {
                             'file_name' => 'indices_in_begin_tables_lists.texi',
-                            'line_nr' => 83,
-                            'macro' => ''
+                            'line_nr' => 83
                           },
                           'type' => 'index_entry_command'
                         },
@@ -2053,8 +1997,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 86,
-                        'macro' => ''
+                        'line_nr' => 86
                       }
                     }
                   ],
@@ -2113,8 +2056,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 88,
-                        'macro' => ''
+                        'line_nr' => 88
                       }
                     },
                     {
@@ -2174,8 +2116,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 92,
-                        'macro' => ''
+                        'line_nr' => 92
                       }
                     }
                   ],
@@ -2232,8 +2173,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 95,
-                'macro' => ''
+                'line_nr' => 95
               }
             }
           ],
@@ -2247,8 +2187,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 81,
-            'macro' => ''
+            'line_nr' => 81
           }
         },
         {
@@ -2264,8 +2203,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 97,
-                    'macro' => ''
+                    'line_nr' => 97
                   },
                   'type' => 'command_as_argument'
                 }
@@ -2318,8 +2256,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 98,
-                        'macro' => ''
+                        'line_nr' => 98
                       },
                       'type' => 'index_entry_command'
                     },
@@ -2358,8 +2295,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 100,
-                        'macro' => ''
+                        'line_nr' => 100
                       }
                     }
                   ],
@@ -2410,8 +2346,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 102,
-                'macro' => ''
+                'line_nr' => 102
               }
             }
           ],
@@ -2425,8 +2360,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 97,
-            'macro' => ''
+            'line_nr' => 97
           }
         },
         {
@@ -2442,8 +2376,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 104,
-                    'macro' => ''
+                    'line_nr' => 104
                   },
                   'type' => 'command_as_argument'
                 }
@@ -2494,8 +2427,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 105,
-                    'macro' => ''
+                    'line_nr' => 105
                   },
                   'type' => 'index_entry_command'
                 },
@@ -2540,8 +2472,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 107,
-                        'macro' => ''
+                        'line_nr' => 107
                       }
                     }
                   ],
@@ -2578,8 +2509,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 108,
-                'macro' => ''
+                'line_nr' => 108
               }
             }
           ],
@@ -2593,8 +2523,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 104,
-            'macro' => ''
+            'line_nr' => 104
           }
         },
         {
@@ -2610,8 +2539,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 110,
-                    'macro' => ''
+                    'line_nr' => 110
                   },
                   'type' => 'command_as_argument'
                 }
@@ -2664,8 +2592,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 111,
-                        'macro' => ''
+                        'line_nr' => 111
                       },
                       'type' => 'index_entry_command'
                     },
@@ -2704,8 +2631,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 113,
-                        'macro' => ''
+                        'line_nr' => 113
                       }
                     }
                   ],
@@ -2756,8 +2682,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 115,
-                'macro' => ''
+                'line_nr' => 115
               }
             }
           ],
@@ -2771,8 +2696,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 110,
-            'macro' => ''
+            'line_nr' => 110
           }
         },
         {
@@ -2788,8 +2712,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 117,
-                    'macro' => ''
+                    'line_nr' => 117
                   },
                   'type' => 'command_as_argument'
                 }
@@ -2840,8 +2763,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 118,
-                    'macro' => ''
+                    'line_nr' => 118
                   },
                   'type' => 'index_entry_command'
                 },
@@ -2886,8 +2808,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 120,
-                        'macro' => ''
+                        'line_nr' => 120
                       }
                     }
                   ],
@@ -2924,8 +2845,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 121,
-                'macro' => ''
+                'line_nr' => 121
               }
             }
           ],
@@ -2939,8 +2859,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 117,
-            'macro' => ''
+            'line_nr' => 117
           }
         },
         {
@@ -2956,8 +2875,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 123,
-                    'macro' => ''
+                    'line_nr' => 123
                   },
                   'type' => 'command_as_argument'
                 }
@@ -3013,8 +2931,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 125,
-                    'macro' => ''
+                    'line_nr' => 125
                   },
                   'type' => 'index_entry_command'
                 },
@@ -3055,8 +2972,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 127,
-                        'macro' => ''
+                        'line_nr' => 127
                       }
                     }
                   ],
@@ -3093,8 +3009,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 128,
-                'macro' => ''
+                'line_nr' => 128
               }
             }
           ],
@@ -3108,8 +3023,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 123,
-            'macro' => ''
+            'line_nr' => 123
           }
         },
         {
@@ -3125,8 +3039,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 130,
-                    'macro' => ''
+                    'line_nr' => 130
                   },
                   'type' => 'command_as_argument'
                 }
@@ -3177,8 +3090,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   },
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 131,
-                    'macro' => ''
+                    'line_nr' => 131
                   },
                   'type' => 'index_entry_command'
                 },
@@ -3219,8 +3131,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 133,
-                        'macro' => ''
+                        'line_nr' => 133
                       }
                     }
                   ],
@@ -3257,8 +3168,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 134,
-                'macro' => ''
+                'line_nr' => 134
               }
             }
           ],
@@ -3272,8 +3182,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 130,
-            'macro' => ''
+            'line_nr' => 130
           }
         },
         {
@@ -3289,8 +3198,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 136,
-                    'macro' => ''
+                    'line_nr' => 136
                   },
                   'type' => 'command_as_argument'
                 }
@@ -3353,8 +3261,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 138,
-                        'macro' => ''
+                        'line_nr' => 138
                       },
                       'type' => 'index_entry_command'
                     },
@@ -3383,8 +3290,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 139,
-                        'macro' => ''
+                        'line_nr' => 139
                       }
                     }
                   ],
@@ -3421,8 +3327,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 140,
-                'macro' => ''
+                'line_nr' => 140
               }
             }
           ],
@@ -3436,8 +3341,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 136,
-            'macro' => ''
+            'line_nr' => 136
           }
         },
         {
@@ -3453,8 +3357,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 142,
-                    'macro' => ''
+                    'line_nr' => 142
                   },
                   'type' => 'command_as_argument'
                 }
@@ -3507,8 +3410,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 143,
-                        'macro' => ''
+                        'line_nr' => 143
                       },
                       'type' => 'index_entry_command'
                     },
@@ -3555,8 +3457,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 145,
-                        'macro' => ''
+                        'line_nr' => 145
                       },
                       'type' => 'index_entry_command'
                     },
@@ -3593,8 +3494,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 146,
-                        'macro' => ''
+                        'line_nr' => 146
                       },
                       'type' => 'index_entry_command'
                     },
@@ -3623,8 +3523,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       },
                       'source_info' => {
                         'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 147,
-                        'macro' => ''
+                        'line_nr' => 147
                       }
                     }
                   ],
@@ -3661,8 +3560,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               },
               'source_info' => {
                 'file_name' => 'indices_in_begin_tables_lists.texi',
-                'line_nr' => 148,
-                'macro' => ''
+                'line_nr' => 148
               }
             }
           ],
@@ -3676,8 +3574,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 142,
-            'macro' => ''
+            'line_nr' => 142
           }
         },
         {
@@ -3696,8 +3593,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
       },
       'source_info' => {
         'file_name' => 'indices_in_begin_tables_lists.texi',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     },
     {
@@ -3730,8 +3626,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
       },
       'source_info' => {
         'file_name' => 'indices_in_begin_tables_lists.texi',
-        'line_nr' => 150,
-        'macro' => ''
+        'line_nr' => 150
       }
     },
     {
@@ -3788,8 +3683,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 153,
-            'macro' => ''
+            'line_nr' => 153
           }
         },
         {
@@ -3827,8 +3721,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 155,
-            'macro' => ''
+            'line_nr' => 155
           }
         },
         {
@@ -3866,8 +3759,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           },
           'source_info' => {
             'file_name' => 'indices_in_begin_tables_lists.texi',
-            'line_nr' => 157,
-            'macro' => ''
+            'line_nr' => 157
           }
         },
         {
@@ -3886,8 +3778,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
       },
       'source_info' => {
         'file_name' => 'indices_in_begin_tables_lists.texi',
-        'line_nr' => 151,
-        'macro' => ''
+        'line_nr' => 151
       }
     },
     {

@@ -27,8 +27,7 @@ $result_trees{'verb_in_xref'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -96,8 +95,7 @@ $result_trees{'verb_in_xref'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -112,8 +110,7 @@ $result_trees{'verb_in_xref'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -150,7 +147,6 @@ $result_errors{'verb_in_xref'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@verb should not appear anywhere inside @xref',
     'type' => 'warning'
   }

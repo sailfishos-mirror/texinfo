@@ -49,8 +49,7 @@ $result_trees{'verb_not_closed_with_char'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -82,7 +81,6 @@ $result_errors{'verb_not_closed_with_char'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@verb missing closing delimiter sequence: *}',
     'type' => 'error'
   }

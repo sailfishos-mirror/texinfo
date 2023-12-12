@@ -151,8 +151,7 @@ $result_trees{'table_nested'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             }
           ],
@@ -162,8 +161,7 @@ $result_trees{'table_nested'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -742,15 +740,13 @@ $result_trees{'table_nested'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 26,
-            'macro' => ''
+            'line_nr' => 26
           }
         },
         {
@@ -1328,15 +1324,13 @@ $result_trees{'table_nested'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
-                'macro' => ''
+                'line_nr' => 33
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 31,
-            'macro' => ''
+            'line_nr' => 31
           }
         },
         {
@@ -1929,15 +1923,13 @@ $result_trees{'table_nested'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 39,
-                    'macro' => ''
+                    'line_nr' => 39
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 37,
-                'macro' => ''
+                'line_nr' => 37
               }
             },
             {
@@ -1968,15 +1960,13 @@ $result_trees{'table_nested'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 40,
-                'macro' => ''
+                'line_nr' => 40
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 36,
-            'macro' => ''
+            'line_nr' => 36
           }
         }
       ],

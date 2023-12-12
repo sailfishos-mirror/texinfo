@@ -39,8 +39,7 @@ $result_trees{'invalid_kbdinputstyle'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -65,7 +64,6 @@ $result_errors{'invalid_kbdinputstyle'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@kbdinputstyle should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -74,7 +72,6 @@ $result_errors{'invalid_kbdinputstyle'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `wrong arg on line following kbdinputstyle\'',
     'type' => 'error'
   }

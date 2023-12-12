@@ -100,8 +100,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -148,8 +147,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -181,15 +179,13 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -209,8 +205,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -316,8 +311,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -384,8 +378,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     },
     {
@@ -416,8 +409,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     }
   ],

@@ -32,8 +32,7 @@ $result_trees{'after_punctuation_character_in_command'} = {
               'cmdname' => 'asis',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {

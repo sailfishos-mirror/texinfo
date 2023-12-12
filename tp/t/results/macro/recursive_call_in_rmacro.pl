@@ -56,8 +56,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -67,8 +66,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {

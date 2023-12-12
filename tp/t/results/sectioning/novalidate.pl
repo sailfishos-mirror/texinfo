@@ -25,8 +25,7 @@ $result_trees{'novalidate'} = {
           'cmdname' => 'novalidate',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -137,8 +136,7 @@ $result_trees{'novalidate'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'menu_entry'
             },
@@ -170,15 +168,13 @@ $result_trees{'novalidate'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -210,8 +206,7 @@ $result_trees{'novalidate'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -233,8 +228,7 @@ $result_trees{'novalidate'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],

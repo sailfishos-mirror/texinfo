@@ -79,8 +79,7 @@ $result_trees{'macro_expansion'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -90,8 +89,7 @@ $result_trees{'macro_expansion'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -905,7 +903,6 @@ $result_errors{'macro_expansion'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => '@macroone defined with zero or more than one argument should be invoked with {}',
     'type' => 'warning'
   },
@@ -932,7 +929,6 @@ $result_errors{'macro_expansion'} = [
 ',
     'file_name' => '',
     'line_nr' => 17,
-    'macro' => '',
     'text' => 'use @comma{} instead of \\, in macro arg',
     'type' => 'warning'
   },

@@ -60,8 +60,7 @@ $result_trees{'footnote_in_center'} = {
                                       'cmdname' => 'asis',
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 5,
-                                        'macro' => ''
+                                        'line_nr' => 5
                                       },
                                       'type' => 'command_as_argument'
                                     }
@@ -106,8 +105,7 @@ $result_trees{'footnote_in_center'} = {
                                           },
                                           'source_info' => {
                                             'file_name' => '',
-                                            'line_nr' => 6,
-                                            'macro' => ''
+                                            'line_nr' => 6
                                           }
                                         }
                                       ],
@@ -158,8 +156,7 @@ $result_trees{'footnote_in_center'} = {
                                   },
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 8,
-                                    'macro' => ''
+                                    'line_nr' => 8
                                   }
                                 }
                               ],
@@ -173,8 +170,7 @@ $result_trees{'footnote_in_center'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 5,
-                                'macro' => ''
+                                'line_nr' => 5
                               }
                             },
                             {
@@ -205,15 +201,13 @@ $result_trees{'footnote_in_center'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 9,
-                                'macro' => ''
+                                'line_nr' => 9
                               }
                             }
                           ],
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 4,
-                            'macro' => ''
+                            'line_nr' => 4
                           }
                         }
                       ],
@@ -223,8 +217,7 @@ $result_trees{'footnote_in_center'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -248,8 +241,7 @@ $result_trees{'footnote_in_center'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

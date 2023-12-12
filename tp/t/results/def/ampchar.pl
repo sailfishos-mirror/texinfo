@@ -27,8 +27,7 @@ $result_trees{'ampchar'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -92,8 +91,7 @@ $result_trees{'ampchar'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     },
                     {
@@ -161,8 +159,7 @@ $result_trees{'ampchar'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               },
               'type' => 'def_line'
             },
@@ -194,8 +191,7 @@ $result_trees{'ampchar'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -206,8 +202,7 @@ $result_trees{'ampchar'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -230,8 +225,7 @@ $result_trees{'ampchar'} = {
               'cmdname' => 'ampchar',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -282,7 +276,6 @@ $result_errors{'ampchar'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   }

@@ -46,8 +46,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
+                    'line_nr' => 3
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -62,8 +61,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
+                    'line_nr' => 3
                   },
                   'type' => 'bracketed_arg'
                 }
@@ -103,8 +101,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                   ],
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 5,
-                                    'macro' => ''
+                                    'line_nr' => 5
                                   },
                                   'type' => 'bracketed_arg'
                                 },
@@ -119,8 +116,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                   ],
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 5,
-                                    'macro' => ''
+                                    'line_nr' => 5
                                   },
                                   'type' => 'bracketed_arg'
                                 }
@@ -161,8 +157,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                       },
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 6,
-                                        'macro' => ''
+                                        'line_nr' => 6
                                       }
                                     },
                                     {
@@ -195,8 +190,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                               },
                                               'source_info' => {
                                                 'file_name' => '',
-                                                'line_nr' => 6,
-                                                'macro' => ''
+                                                'line_nr' => 6
                                               }
                                             },
                                             {
@@ -237,8 +231,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                               },
                                               'source_info' => {
                                                 'file_name' => '',
-                                                'line_nr' => 7,
-                                                'macro' => ''
+                                                'line_nr' => 7
                                               },
                                               'type' => 'index_entry_command'
                                             }
@@ -251,8 +244,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                       },
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 6,
-                                        'macro' => ''
+                                        'line_nr' => 6
                                       }
                                     }
                                   ],
@@ -292,8 +284,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 8,
-                                'macro' => ''
+                                'line_nr' => 8
                               }
                             }
                           ],
@@ -307,8 +298,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 5,
-                            'macro' => ''
+                            'line_nr' => 5
                           }
                         },
                         {
@@ -321,8 +311,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     },
                     {
@@ -347,8 +336,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     }
                   ],
@@ -380,8 +368,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     },
                     {
@@ -414,8 +401,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 10,
-                                'macro' => ''
+                                'line_nr' => 10
                               }
                             },
                             {
@@ -456,8 +442,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 11,
-                                'macro' => ''
+                                'line_nr' => 11
                               },
                               'type' => 'index_entry_command'
                             }
@@ -470,8 +455,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     }
                   ],
@@ -511,8 +495,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
@@ -526,8 +509,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -565,8 +547,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         },
         {
@@ -598,8 +579,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             },
             {
@@ -628,8 +608,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -652,8 +631,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],

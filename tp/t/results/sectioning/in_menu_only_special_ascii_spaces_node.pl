@@ -43,8 +43,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 1,
-        "macro" => ""
+        "line_nr" => 1
       }
     },
     {
@@ -111,8 +110,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-                "line_nr" => 5,
-                "macro" => ""
+                "line_nr" => 5
               },
               "type" => "menu_entry"
             },
@@ -145,8 +143,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-                "line_nr" => 6,
-                "macro" => ""
+                "line_nr" => 6
               },
               "type" => "menu_entry"
             },
@@ -177,15 +174,13 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               },
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-                "line_nr" => 7,
-                "macro" => ""
+                "line_nr" => 7
               }
             }
           ],
           "source_info" => {
             "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-            "line_nr" => 4,
-            "macro" => ""
+            "line_nr" => 4
           }
         },
         {
@@ -201,8 +196,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 2,
-        "macro" => ""
+        "line_nr" => 2
       }
     },
     {
@@ -220,8 +214,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "extra" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 9,
-        "macro" => ""
+        "line_nr" => 9
       }
     },
     {
@@ -257,8 +250,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 10,
-        "macro" => ""
+        "line_nr" => 10
       }
     },
     {
@@ -276,8 +268,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "extra" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 12,
-        "macro" => ""
+        "line_nr" => 12
       }
     },
     {
@@ -313,8 +304,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 13,
-        "macro" => ""
+        "line_nr" => 13
       }
     }
   ],
@@ -468,7 +458,6 @@ $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'empty node name in menu entry',
     'type' => 'error'
   },
@@ -477,7 +466,6 @@ $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'empty node name in menu entry',
     'type' => 'error'
   },
@@ -486,7 +474,6 @@ $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'empty argument in @node',
     'type' => 'error'
   },
@@ -495,7 +482,6 @@ $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
     'line_nr' => 12,
-    'macro' => '',
     'text' => 'empty argument in @node',
     'type' => 'error'
   }

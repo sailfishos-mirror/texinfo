@@ -54,8 +54,7 @@ $result_trees{'command_in_end_ignored_raw_command_after'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -79,15 +78,13 @@ $result_trees{'command_in_end_ignored_raw_command_after'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -111,7 +108,6 @@ $result_errors{'command_in_end_ignored_raw_command_after'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@asis should not appear in @end',
     'type' => 'warning'
   },
@@ -120,7 +116,6 @@ $result_errors{'command_in_end_ignored_raw_command_after'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'bad argument to @end: html@asis{asis}',
     'type' => 'error'
   }

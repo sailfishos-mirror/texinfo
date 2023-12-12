@@ -82,8 +82,7 @@ $result_trees{'section_on_defx_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               },
               'type' => 'def_line'
             },
@@ -136,8 +135,7 @@ $result_trees{'section_on_defx_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'def_line'
             }
@@ -149,8 +147,7 @@ $result_trees{'section_on_defx_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -205,8 +202,7 @@ $result_trees{'section_on_defx_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     }
   ],
@@ -255,7 +251,6 @@ $result_errors{'section_on_defx_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -264,7 +259,6 @@ $result_errors{'section_on_defx_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -273,7 +267,6 @@ $result_errors{'section_on_defx_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@section should not appear on @deffnx line',
     'type' => 'warning'
   },
@@ -282,7 +275,6 @@ $result_errors{'section_on_defx_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -291,7 +283,6 @@ $result_errors{'section_on_defx_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@section seen before @end deffn',
     'type' => 'error'
   },
@@ -300,7 +291,6 @@ $result_errors{'section_on_defx_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'unmatched `@end deffn\'',
     'type' => 'error'
   }

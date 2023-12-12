@@ -106,8 +106,7 @@ $result_trees{'kbdinputstyle'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
@@ -117,8 +116,7 @@ $result_trees{'kbdinputstyle'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -173,8 +171,7 @@ $result_trees{'kbdinputstyle'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         },
         {
@@ -679,8 +676,7 @@ $result_trees{'kbdinputstyle'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 24,
-            'macro' => ''
+            'line_nr' => 24
           }
         },
         {
@@ -1176,8 +1172,7 @@ $result_trees{'kbdinputstyle'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 30,
-            'macro' => ''
+            'line_nr' => 30
           }
         },
         {

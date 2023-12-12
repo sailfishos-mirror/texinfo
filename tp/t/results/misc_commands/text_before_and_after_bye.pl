@@ -63,7 +63,6 @@ $result_errors{'text_before_and_after_bye'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@bye should only appear at the beginning of a line',
     'type' => 'warning'
   }

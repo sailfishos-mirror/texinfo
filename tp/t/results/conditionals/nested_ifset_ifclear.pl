@@ -91,8 +91,7 @@ $result_trees{'nested_ifset_ifclear'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -102,8 +101,7 @@ $result_trees{'nested_ifset_ifclear'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {

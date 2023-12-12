@@ -55,8 +55,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               },
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -99,8 +98,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -136,8 +134,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -169,8 +166,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -227,8 +223,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '\'',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -248,8 +243,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'dfn',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -269,8 +263,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -290,8 +283,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -311,8 +303,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '\'',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -327,8 +318,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'comma',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -343,8 +333,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'exclamdown',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -359,8 +348,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'dots',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -386,8 +374,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'geq',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -402,8 +389,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'enddots',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -418,8 +404,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'AA',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -439,8 +424,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '\'',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -460,8 +444,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'dotaccent',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -476,8 +459,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'l',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -492,8 +474,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'copyright',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -508,8 +489,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -525,8 +505,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'quotedblleft',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             },
             {
@@ -541,8 +520,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'quotedblright',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             },
             {
@@ -557,8 +535,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'expansion',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             },
             {
@@ -574,8 +551,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'minus',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -590,8 +566,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'registeredsymbol',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -627,8 +602,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'u',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -649,8 +623,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -666,8 +639,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'aa',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -682,8 +654,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'AA',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -703,8 +674,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -724,8 +694,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -749,8 +718,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => 'dotless',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 22,
-                        'macro' => ''
+                        'line_nr' => 22
                       }
                     }
                   ],
@@ -760,8 +728,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '~',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -781,8 +748,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'dotless',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -802,8 +768,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'udotaccent',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -827,8 +792,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => '\'',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 22,
-                        'macro' => ''
+                        'line_nr' => 22
                       }
                     }
                   ],
@@ -838,8 +802,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'v',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -867,8 +830,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                               'cmdname' => '~',
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 22,
-                                'macro' => ''
+                                'line_nr' => 22
                               }
                             }
                           ],
@@ -878,8 +840,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => ',',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 22,
-                        'macro' => ''
+                        'line_nr' => 22
                       }
                     }
                   ],
@@ -889,8 +850,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => '=',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -906,8 +866,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'equiv',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -927,8 +886,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => 'aa',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -943,8 +901,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => 'AA',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -964,8 +921,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => '^',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -985,8 +941,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => '^',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -1010,8 +965,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                               'cmdname' => 'dotless',
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 24,
-                                'macro' => ''
+                                'line_nr' => 24
                               }
                             }
                           ],
@@ -1021,8 +975,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => '~',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -1042,8 +995,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => 'dotless',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -1063,8 +1015,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => 'udotaccent',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -1088,8 +1039,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                               'cmdname' => '\'',
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 24,
-                                'macro' => ''
+                                'line_nr' => 24
                               }
                             }
                           ],
@@ -1099,8 +1049,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => 'v',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -1128,8 +1077,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                                       'cmdname' => '~',
                                       'source_info' => {
                                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                        'line_nr' => 24,
-                                        'macro' => ''
+                                        'line_nr' => 24
                                       }
                                     }
                                   ],
@@ -1139,8 +1087,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                               'cmdname' => ',',
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 24,
-                                'macro' => ''
+                                'line_nr' => 24
                               }
                             }
                           ],
@@ -1150,8 +1097,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
                       'cmdname' => '=',
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     }
                   ],
@@ -1161,8 +1107,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
               'cmdname' => 'sc',
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 24,
-                'macro' => ''
+                'line_nr' => 24
               }
             },
             {
@@ -1188,8 +1133,7 @@ $result_trees{'punctuation_sc_accents_default_usascii'} = {
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     }
   ],

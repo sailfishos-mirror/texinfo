@@ -44,8 +44,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -79,8 +78,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -104,8 +102,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -123,8 +120,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -134,8 +130,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -167,8 +162,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -193,8 +187,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -234,8 +227,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -250,8 +242,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

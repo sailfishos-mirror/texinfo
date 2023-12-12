@@ -54,8 +54,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -91,8 +90,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -124,8 +122,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -194,8 +191,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -221,8 +217,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -243,8 +238,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
@@ -268,8 +262,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     },
     {
@@ -290,8 +283,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -331,8 +323,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => 'reference_to_only_special_spaces_node.texi',
-                        'line_nr' => 13,
-                        'macro' => ''
+                        'line_nr' => 13
                       }
                     }
                   ],
@@ -362,8 +353,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => 'reference_to_only_special_spaces_node.texi',
-                        'line_nr' => 13,
-                        'macro' => ''
+                        'line_nr' => 13
                       }
                     }
                   ],
@@ -378,8 +368,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -410,8 +399,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {
@@ -617,7 +605,6 @@ $result_errors{'reference_to_only_special_spaces_node'} = [
 ",
     'file_name' => 'reference_to_only_special_spaces_node.texi',
     'line_nr' => 10,
-    'macro' => '',
     'text' => "\@node `\@code{\x{2000}\x{2001}\x{2002}}' previously defined",
     'type' => 'error'
   },
@@ -627,7 +614,6 @@ $result_errors{'reference_to_only_special_spaces_node'} = [
 ',
     'file_name' => 'reference_to_only_special_spaces_node.texi',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
   },
@@ -636,7 +622,6 @@ $result_errors{'reference_to_only_special_spaces_node'} = [
 ",
     'file_name' => 'reference_to_only_special_spaces_node.texi',
     'line_nr' => 13,
-    'macro' => '',
     'text' => "\@ref to `\@code{\x{2000}\x{2001}\x{2002}}', different from node name `\x{2000}\x{2001}\x{2002}'",
     'type' => 'warning'
   }

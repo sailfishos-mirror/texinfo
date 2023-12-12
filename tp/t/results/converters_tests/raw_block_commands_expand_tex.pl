@@ -65,15 +65,13 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -132,15 +130,13 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -199,15 +195,13 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -249,8 +243,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                           ],
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 15,
-                            'macro' => ''
+                            'line_nr' => 15
                           },
                           'type' => 'balanced_braces'
                         }
@@ -261,8 +254,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 15,
-                    'macro' => ''
+                    'line_nr' => 15
                   }
                 },
                 {
@@ -300,15 +292,13 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         },
         {
@@ -350,8 +340,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                           ],
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 19,
-                            'macro' => ''
+                            'line_nr' => 19
                           },
                           'type' => 'balanced_braces'
                         }
@@ -362,8 +351,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 19,
-                    'macro' => ''
+                    'line_nr' => 19
                   }
                 },
                 {
@@ -401,15 +389,13 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         }
       ],
@@ -480,7 +466,6 @@ $result_converted_errors{'html_text'}->{'raw_block_commands_expand_tex'} = [
 ',
     'file_name' => '',
     'line_nr' => 14,
-    'macro' => '',
     'text' => 'raw format tex is not converted',
     'type' => 'warning'
   }

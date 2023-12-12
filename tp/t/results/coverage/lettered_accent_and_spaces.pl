@@ -30,8 +30,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -68,8 +67,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -106,8 +104,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -144,8 +141,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -181,8 +177,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             },
             {
@@ -219,8 +214,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             },
             {
@@ -257,8 +251,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -295,8 +288,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -368,7 +360,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
   },
@@ -377,7 +368,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
   },
@@ -386,7 +376,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
   },
@@ -395,7 +384,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
 ',
     'file_name' => '',
     'line_nr' => 14,
-    'macro' => '',
     'text' => 'command `@^\' must not be followed by new line',
     'type' => 'warning'
   },
@@ -404,7 +392,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
 ',
     'file_name' => '',
     'line_nr' => 17,
-    'macro' => '',
     'text' => 'command `@^\' must not be followed by new line',
     'type' => 'warning'
   }

@@ -99,8 +99,7 @@ $result_trees{'spaces_in_node_names'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -133,8 +132,7 @@ $result_trees{'spaces_in_node_names'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     }
                   ],
@@ -170,8 +168,7 @@ $result_trees{'spaces_in_node_names'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -222,8 +219,7 @@ $result_trees{'spaces_in_node_names'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -255,15 +251,13 @@ $result_trees{'spaces_in_node_names'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -283,8 +277,7 @@ $result_trees{'spaces_in_node_names'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -329,8 +322,7 @@ $result_trees{'spaces_in_node_names'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     {
@@ -358,8 +350,7 @@ $result_trees{'spaces_in_node_names'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -391,8 +382,7 @@ $result_trees{'spaces_in_node_names'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {
@@ -416,8 +406,7 @@ $result_trees{'spaces_in_node_names'} = {
               'cmdname' => 'w',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
@@ -469,8 +458,7 @@ $result_trees{'spaces_in_node_names'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -512,8 +500,7 @@ $result_trees{'spaces_in_node_names'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 17,
-                        'macro' => ''
+                        'line_nr' => 17
                       }
                     }
                   ],
@@ -532,8 +519,7 @@ $result_trees{'spaces_in_node_names'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -571,8 +557,7 @@ $result_trees{'spaces_in_node_names'} = {
                       'cmdname' => 'w',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 19,
-                        'macro' => ''
+                        'line_nr' => 19
                       }
                     }
                   ],
@@ -591,8 +576,7 @@ $result_trees{'spaces_in_node_names'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -614,8 +598,7 @@ $result_trees{'spaces_in_node_names'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     }
   ],
@@ -778,7 +761,6 @@ $result_errors{'spaces_in_node_names'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => '@verb should not appear on @node line',
     'type' => 'warning'
   },
@@ -787,7 +769,6 @@ $result_errors{'spaces_in_node_names'} = [
 ',
     'file_name' => '',
     'line_nr' => 17,
-    'macro' => '',
     'text' => '@verb should not appear anywhere inside @ref',
     'type' => 'warning'
   },
@@ -796,7 +777,6 @@ $result_errors{'spaces_in_node_names'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@menu entry node name `c@ \' different from node name `c@w{  }\'',
     'type' => 'warning'
   }

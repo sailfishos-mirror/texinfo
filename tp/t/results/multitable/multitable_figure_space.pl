@@ -21,8 +21,7 @@ $result_trees{'multitable_figure_space'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -37,8 +36,7 @@ $result_trees{'multitable_figure_space'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 }
@@ -79,8 +77,7 @@ $result_trees{'multitable_figure_space'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -105,8 +102,7 @@ $result_trees{'multitable_figure_space'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -138,8 +134,7 @@ $result_trees{'multitable_figure_space'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -164,8 +159,7 @@ $result_trees{'multitable_figure_space'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -197,8 +191,7 @@ $result_trees{'multitable_figure_space'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     },
                     {
@@ -223,8 +216,7 @@ $result_trees{'multitable_figure_space'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -264,8 +256,7 @@ $result_trees{'multitable_figure_space'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -279,8 +270,7 @@ $result_trees{'multitable_figure_space'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

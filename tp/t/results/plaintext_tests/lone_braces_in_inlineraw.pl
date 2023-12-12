@@ -31,8 +31,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
                       ],
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       },
                       'type' => 'balanced_braces'
                     }
@@ -52,8 +51,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {

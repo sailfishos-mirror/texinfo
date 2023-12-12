@@ -36,8 +36,7 @@ $result_trees{'transliterated_names_conflicts'} = [
       },
       'source_info' => {
         'file_name' => 'transliterated_names_conflicts.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     'unit_contents' => [
@@ -98,8 +97,7 @@ $result_trees{'transliterated_names_conflicts'} = [
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
-          'line_nr' => 4,
-          'macro' => ''
+          'line_nr' => 4
         }
       }
     ],
@@ -135,8 +133,7 @@ $result_trees{'transliterated_names_conflicts'} = [
       },
       'source_info' => {
         'file_name' => 'transliterated_names_conflicts.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     'unit_contents' => [
@@ -176,8 +173,7 @@ $result_trees{'transliterated_names_conflicts'} = [
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
-          'line_nr' => 7,
-          'macro' => ''
+          'line_nr' => 7
         }
       }
     ],
@@ -213,8 +209,7 @@ $result_trees{'transliterated_names_conflicts'} = [
       },
       'source_info' => {
         'file_name' => 'transliterated_names_conflicts.texi',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     'unit_contents' => [
@@ -261,8 +256,7 @@ $result_trees{'transliterated_names_conflicts'} = [
             },
             'source_info' => {
               'file_name' => 'transliterated_names_conflicts.texi',
-              'line_nr' => 12,
-              'macro' => ''
+              'line_nr' => 12
             }
           },
           {
@@ -342,8 +336,7 @@ $result_trees{'transliterated_names_conflicts'} = [
                 },
                 'source_info' => {
                   'file_name' => 'transliterated_names_conflicts.texi',
-                  'line_nr' => 16,
-                  'macro' => ''
+                  'line_nr' => 16
                 }
               }
             ],
@@ -360,8 +353,7 @@ $result_trees{'transliterated_names_conflicts'} = [
             },
             'source_info' => {
               'file_name' => 'transliterated_names_conflicts.texi',
-              'line_nr' => 14,
-              'macro' => ''
+              'line_nr' => 14
             }
           },
           {
@@ -380,8 +372,7 @@ $result_trees{'transliterated_names_conflicts'} = [
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
-          'line_nr' => 10,
-          'macro' => ''
+          'line_nr' => 10
         }
       },
       {
@@ -1099,7 +1090,6 @@ $result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [
 ",
     'file_name' => 'transliterated_names_conflicts.texi',
     'line_nr' => 14,
-    'macro' => '',
     'text' => "\@float `Pr\x{e8}s' file Pres.html for redirection exists",
     'type' => 'warning'
   },
@@ -1109,7 +1099,6 @@ $result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [
 ",
     'file_name' => 'transliterated_names_conflicts.texi',
     'line_nr' => 6,
-    'macro' => '',
     'text' => "conflict with \@node `Pr\x{e9}s' file",
     'type' => 'warning'
   },
@@ -1118,7 +1107,6 @@ $result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [
 ",
     'file_name' => 'transliterated_names_conflicts.texi',
     'line_nr' => 12,
-    'macro' => '',
     'text' => "\@anchor `Pr\x{ea}s' file Pres.html for redirection exists",
     'type' => 'warning'
   },
@@ -1128,7 +1116,6 @@ $result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [
 ",
     'file_name' => 'transliterated_names_conflicts.texi',
     'line_nr' => 6,
-    'macro' => '',
     'text' => "conflict with \@node `Pr\x{e9}s' file",
     'type' => 'warning'
   }

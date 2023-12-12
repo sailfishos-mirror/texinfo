@@ -17,8 +17,7 @@ $result_trees{'on_index_entry_line'} = {
                   'cmdname' => 'indent',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -39,8 +38,7 @@ $result_trees{'on_index_entry_line'} = {
                   'cmdname' => 'titlefont',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -64,8 +62,7 @@ $result_trees{'on_index_entry_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -87,8 +84,7 @@ $result_trees{'on_index_entry_line'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -119,8 +115,7 @@ $result_trees{'on_index_entry_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -142,8 +137,7 @@ $result_trees{'on_index_entry_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           },
           'type' => 'index_entry_command'
         }
@@ -166,7 +160,6 @@ $result_errors{'on_index_entry_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@indent should not appear on @cindex line',
     'type' => 'warning'
   },
@@ -175,7 +168,6 @@ $result_errors{'on_index_entry_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@titlefont should not appear on @cindex line',
     'type' => 'warning'
   },
@@ -184,7 +176,6 @@ $result_errors{'on_index_entry_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@anchor should not appear on @cindex line',
     'type' => 'warning'
   },
@@ -193,7 +184,6 @@ $result_errors{'on_index_entry_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@footnote should not appear on @cindex line',
     'type' => 'warning'
   },
@@ -202,7 +192,6 @@ $result_errors{'on_index_entry_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -211,7 +200,6 @@ $result_errors{'on_index_entry_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@exdent should not appear on @cindex line',
     'type' => 'warning'
   },
@@ -220,7 +208,6 @@ $result_errors{'on_index_entry_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   }

@@ -41,8 +41,7 @@ $result_trees{'empty_line_in_braces_in_math_at_begin_line'} = {
                       ],
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       },
                       'type' => 'balanced_braces'
                     },
@@ -57,8 +56,7 @@ $result_trees{'empty_line_in_braces_in_math_at_begin_line'} = {
               'cmdname' => 'math',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],

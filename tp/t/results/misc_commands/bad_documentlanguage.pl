@@ -47,8 +47,7 @@ $result_trees{'bad_documentlanguage'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -94,8 +93,7 @@ $result_trees{'bad_documentlanguage'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -113,8 +111,7 @@ $result_trees{'bad_documentlanguage'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -150,8 +147,7 @@ $result_trees{'bad_documentlanguage'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         }
       ],
@@ -181,7 +177,6 @@ $result_errors{'bad_documentlanguage'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@documentlanguage should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -190,7 +185,6 @@ $result_errors{'bad_documentlanguage'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@documentlanguage should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -199,7 +193,6 @@ $result_errors{'bad_documentlanguage'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@documentlanguage should not appear in @documentlanguage',
     'type' => 'warning'
   },
@@ -208,7 +201,6 @@ $result_errors{'bad_documentlanguage'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'bad argument to @documentlanguage: en @documentlanguage  en',
     'type' => 'error'
   },
@@ -217,7 +209,6 @@ $result_errors{'bad_documentlanguage'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'en  after documentlanguage is not a valid language code',
     'type' => 'warning'
   }

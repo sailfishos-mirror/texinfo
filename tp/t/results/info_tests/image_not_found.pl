@@ -46,8 +46,7 @@ $result_trees{'image_not_found'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -66,8 +65,7 @@ $result_trees{'image_not_found'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -131,7 +129,6 @@ $result_converted_errors{'info'}->{'image_not_found'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'could not find @image file `n_f_image.txt\' nor alternate text',
     'type' => 'warning'
   }

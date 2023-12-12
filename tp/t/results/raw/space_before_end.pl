@@ -63,15 +63,13 @@ $result_trees{'space_before_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -130,15 +128,13 @@ $result_trees{'space_before_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -201,15 +197,13 @@ $result_trees{'space_before_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         }
       ],
@@ -245,7 +239,6 @@ $result_errors{'space_before_end'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@end verbatim should only appear at the beginning of a line',
     'type' => 'warning'
   }

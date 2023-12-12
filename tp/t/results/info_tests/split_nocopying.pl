@@ -59,8 +59,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -164,8 +163,7 @@ $result_trees{'split_nocopying'} = {
               ],
               'source_info' => {
                 'file_name' => 'split_nocopying.texi',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               },
               'type' => 'menu_entry'
             },
@@ -197,15 +195,13 @@ $result_trees{'split_nocopying'} = {
               },
               'source_info' => {
                 'file_name' => 'split_nocopying.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
           'source_info' => {
             'file_name' => 'split_nocopying.texi',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -222,8 +218,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -255,8 +250,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     },
     {
@@ -308,8 +302,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     {

@@ -41,8 +41,7 @@ $result_trees{'macro_definition_in_include'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'include',
@@ -93,8 +92,7 @@ $result_trees{'macro_definition_in_include'} = {
               },
               'source_info' => {
                 'file_name' => 'macro_included.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -104,8 +102,7 @@ $result_trees{'macro_definition_in_include'} = {
           },
           'source_info' => {
             'file_name' => 'macro_included.texi',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           },
           'source_marks' => [
             {

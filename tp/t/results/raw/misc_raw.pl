@@ -64,15 +64,13 @@ $result_trees{'misc_raw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -127,8 +125,7 @@ $result_trees{'misc_raw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -139,8 +136,7 @@ $result_trees{'misc_raw'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -200,15 +196,13 @@ $result_trees{'misc_raw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         }
       ],
@@ -245,7 +239,6 @@ $result_errors{'misc_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -254,7 +247,6 @@ $result_errors{'misc_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'unexpected argument on @tex line: in tex',
     'type' => 'warning'
   }

@@ -152,8 +152,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           },
           'source_marks' => [
             {
@@ -215,8 +214,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -312,8 +310,7 @@ $result_trees{'value_in_index_commands'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             },
             {
@@ -432,8 +429,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         },
         {
@@ -495,8 +491,7 @@ $result_trees{'value_in_index_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 22,
-        'macro' => ''
+        'line_nr' => 22
       }
     },
     {
@@ -585,8 +580,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           },
           'type' => 'index_entry_command'
         },
@@ -616,8 +610,7 @@ $result_trees{'value_in_index_commands'} = {
                   'cmdname' => 'var',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 27,
-                    'macro' => ''
+                    'line_nr' => 27
                   }
                 },
                 {
@@ -637,8 +630,7 @@ $result_trees{'value_in_index_commands'} = {
                   'cmdname' => '\'',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 27,
-                    'macro' => ''
+                    'line_nr' => 27
                   }
                 },
                 {
@@ -662,8 +654,7 @@ $result_trees{'value_in_index_commands'} = {
                           'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 27,
-                            'macro' => ''
+                            'line_nr' => 27
                           }
                         }
                       ],
@@ -673,8 +664,7 @@ $result_trees{'value_in_index_commands'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 27,
-                    'macro' => ''
+                    'line_nr' => 27
                   },
                   'source_marks' => [
                     {
@@ -732,8 +722,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 27,
-            'macro' => ''
+            'line_nr' => 27
           },
           'type' => 'index_entry_command'
         },
@@ -805,8 +794,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 29,
-            'macro' => ''
+            'line_nr' => 29
           },
           'type' => 'index_entry_command'
         },
@@ -871,8 +859,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 30,
-            'macro' => ''
+            'line_nr' => 30
           },
           'type' => 'index_entry_command'
         },
@@ -950,8 +937,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 33,
-            'macro' => ''
+            'line_nr' => 33
           }
         },
         {
@@ -1028,8 +1014,7 @@ $result_trees{'value_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 36,
-            'macro' => ''
+            'line_nr' => 36
           }
         }
       ],
@@ -1045,8 +1030,7 @@ $result_trees{'value_in_index_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 23,
-        'macro' => ''
+        'line_nr' => 23
       }
     }
   ],
@@ -1158,7 +1142,6 @@ $result_errors{'value_in_index_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 36,
-    'macro' => '',
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'
   }

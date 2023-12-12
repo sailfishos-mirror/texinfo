@@ -59,8 +59,7 @@ $result_trees{'glossary'} = {
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -110,8 +109,7 @@ $result_trees{'glossary'} = {
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 }
               ],
@@ -121,8 +119,7 @@ $result_trees{'glossary'} = {
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -182,8 +179,7 @@ $result_trees{'glossary'} = {
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   }
                 }
               ],
@@ -193,8 +189,7 @@ $result_trees{'glossary'} = {
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -336,8 +331,7 @@ $result_trees{'glossary'} = {
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
-                    'line_nr' => 33,
-                    'macro' => ''
+                    'line_nr' => 33
                   }
                 }
               ],
@@ -347,8 +341,7 @@ $result_trees{'glossary'} = {
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -391,8 +384,7 @@ $result_trees{'glossary'} = {
       },
       'source_info' => {
         'file_name' => 'glossary.texi',
-        'line_nr' => 35,
-        'macro' => ''
+        'line_nr' => 35
       }
     },
     {
@@ -476,8 +468,7 @@ $result_trees{'glossary'} = {
               ],
               'source_info' => {
                 'file_name' => 'glossary.texi',
-                'line_nr' => 39,
-                'macro' => ''
+                'line_nr' => 39
               },
               'type' => 'menu_entry'
             },
@@ -509,15 +500,13 @@ $result_trees{'glossary'} = {
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
-                'line_nr' => 40,
-                'macro' => ''
+                'line_nr' => 40
               }
             }
           ],
           'source_info' => {
             'file_name' => 'glossary.texi',
-            'line_nr' => 38,
-            'macro' => ''
+            'line_nr' => 38
           }
         },
         {
@@ -1427,8 +1416,7 @@ $result_trees{'glossary'} = {
       },
       'source_info' => {
         'file_name' => 'glossary.texi',
-        'line_nr' => 36,
-        'macro' => ''
+        'line_nr' => 36
       }
     },
     {
@@ -1460,8 +1448,7 @@ $result_trees{'glossary'} = {
       },
       'source_info' => {
         'file_name' => 'glossary.texi',
-        'line_nr' => 45,
-        'macro' => ''
+        'line_nr' => 45
       }
     },
     {
@@ -1596,8 +1583,7 @@ $result_trees{'glossary'} = {
       },
       'source_info' => {
         'file_name' => 'glossary.texi',
-        'line_nr' => 46,
-        'macro' => ''
+        'line_nr' => 46
       }
     }
   ],
@@ -1824,7 +1810,6 @@ $result_errors{'glossary'} = [
 ',
     'file_name' => 'glossary.texi',
     'line_nr' => 42,
-    'macro' => '',
     'text' => 'use @comma{} instead of \\, in macro arg',
     'type' => 'warning'
   },

@@ -254,7 +254,6 @@ $result_errors{'comment_on_clear_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'bad name for @clear',
     'type' => 'error'
   },
@@ -263,7 +262,6 @@ $result_errors{'comment_on_clear_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'bad name for @clear',
     'type' => 'error'
   },
@@ -272,7 +270,6 @@ $result_errors{'comment_on_clear_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'undefined flag: x',
     'type' => 'warning'
   },
@@ -281,7 +278,6 @@ $result_errors{'comment_on_clear_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'undefined flag: y',
     'type' => 'warning'
   }

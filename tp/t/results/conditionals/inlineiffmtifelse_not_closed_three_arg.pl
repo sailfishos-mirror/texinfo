@@ -52,8 +52,7 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -79,7 +78,6 @@ $result_errors{'inlineiffmtifelse_not_closed_three_arg'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@inlinefmtifelse missing closing brace',
     'type' => 'error'
   }

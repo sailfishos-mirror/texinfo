@@ -42,8 +42,7 @@ $result_trees{'documentdescription'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -58,8 +57,7 @@ $result_trees{'documentdescription'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -74,8 +72,7 @@ $result_trees{'documentdescription'} = {
                   'cmdname' => 'enddots',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -99,8 +96,7 @@ $result_trees{'documentdescription'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -115,8 +111,7 @@ $result_trees{'documentdescription'} = {
                   'cmdname' => 'aa',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -140,8 +135,7 @@ $result_trees{'documentdescription'} = {
                           'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 2,
-                            'macro' => ''
+                            'line_nr' => 2
                           }
                         }
                       ],
@@ -151,8 +145,7 @@ $result_trees{'documentdescription'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -176,8 +169,7 @@ $result_trees{'documentdescription'} = {
                           'cmdname' => 'code',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 2,
-                            'macro' => ''
+                            'line_nr' => 2
                           }
                         },
                         {
@@ -190,8 +182,7 @@ $result_trees{'documentdescription'} = {
                   'cmdname' => 'email',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -229,15 +220,13 @@ $result_trees{'documentdescription'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -274,8 +263,7 @@ $result_trees{'documentdescription'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],

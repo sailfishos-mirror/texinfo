@@ -59,8 +59,7 @@ $result_trees{'float_copying'} = {
               },
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -180,8 +179,7 @@ $result_trees{'float_copying'} = {
                                               },
                                               'source_info' => {
                                                 'file_name' => 'float_copying.texi',
-                                                'line_nr' => 14,
-                                                'macro' => ''
+                                                'line_nr' => 14
                                               }
                                             },
                                             {
@@ -230,8 +228,7 @@ $result_trees{'float_copying'} = {
                                           },
                                           'source_info' => {
                                             'file_name' => 'float_copying.texi',
-                                            'line_nr' => 16,
-                                            'macro' => ''
+                                            'line_nr' => 16
                                           },
                                           'type' => 'index_entry_command'
                                         },
@@ -268,8 +265,7 @@ $result_trees{'float_copying'} = {
                                           },
                                           'source_info' => {
                                             'file_name' => 'float_copying.texi',
-                                            'line_nr' => 17,
-                                            'macro' => ''
+                                            'line_nr' => 17
                                           },
                                           'type' => 'index_entry_command'
                                         },
@@ -305,8 +301,7 @@ $result_trees{'float_copying'} = {
                                               'cmdname' => 'ref',
                                               'source_info' => {
                                                 'file_name' => 'float_copying.texi',
-                                                'line_nr' => 19,
-                                                'macro' => ''
+                                                'line_nr' => 19
                                               }
                                             },
                                             {
@@ -334,8 +329,7 @@ $result_trees{'float_copying'} = {
                                   },
                                   'source_info' => {
                                     'file_name' => 'float_copying.texi',
-                                    'line_nr' => 12,
-                                    'macro' => ''
+                                    'line_nr' => 12
                                   }
                                 },
                                 {
@@ -371,8 +365,7 @@ $result_trees{'float_copying'} = {
                               },
                               'source_info' => {
                                 'file_name' => 'float_copying.texi',
-                                'line_nr' => 23,
-                                'macro' => ''
+                                'line_nr' => 23
                               }
                             },
                             {
@@ -413,8 +406,7 @@ $result_trees{'float_copying'} = {
                               },
                               'source_info' => {
                                 'file_name' => 'float_copying.texi',
-                                'line_nr' => 24,
-                                'macro' => ''
+                                'line_nr' => 24
                               },
                               'type' => 'index_entry_command'
                             },
@@ -451,8 +443,7 @@ $result_trees{'float_copying'} = {
                               },
                               'source_info' => {
                                 'file_name' => 'float_copying.texi',
-                                'line_nr' => 25,
-                                'macro' => ''
+                                'line_nr' => 25
                               },
                               'type' => 'index_entry_command'
                             }
@@ -466,8 +457,7 @@ $result_trees{'float_copying'} = {
                       },
                       'source_info' => {
                         'file_name' => 'float_copying.texi',
-                        'line_nr' => 12,
-                        'macro' => ''
+                        'line_nr' => 12
                       }
                     },
                     {
@@ -503,8 +493,7 @@ $result_trees{'float_copying'} = {
                       },
                       'source_info' => {
                         'file_name' => 'float_copying.texi',
-                        'line_nr' => 27,
-                        'macro' => ''
+                        'line_nr' => 27
                       }
                     }
                   ],
@@ -521,8 +510,7 @@ $result_trees{'float_copying'} = {
                   },
                   'source_info' => {
                     'file_name' => 'float_copying.texi',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 },
                 {
@@ -553,15 +541,13 @@ $result_trees{'float_copying'} = {
                   },
                   'source_info' => {
                     'file_name' => 'float_copying.texi',
-                    'line_nr' => 28,
-                    'macro' => ''
+                    'line_nr' => 28
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -604,8 +590,7 @@ $result_trees{'float_copying'} = {
       },
       'source_info' => {
         'file_name' => 'float_copying.texi',
-        'line_nr' => 30,
-        'macro' => ''
+        'line_nr' => 30
       }
     },
     {
@@ -665,8 +650,7 @@ $result_trees{'float_copying'} = {
           },
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 33,
-            'macro' => ''
+            'line_nr' => 33
           },
           'type' => 'index_entry_command'
         },
@@ -702,8 +686,7 @@ $result_trees{'float_copying'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 35,
-                'macro' => ''
+                'line_nr' => 35
               }
             },
             {
@@ -745,8 +728,7 @@ $result_trees{'float_copying'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 37,
-                'macro' => ''
+                'line_nr' => 37
               }
             },
             {
@@ -772,8 +754,7 @@ $result_trees{'float_copying'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 39,
-            'macro' => ''
+            'line_nr' => 39
           }
         },
         {
@@ -838,8 +819,7 @@ $result_trees{'float_copying'} = {
               ],
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 42,
-                'macro' => ''
+                'line_nr' => 42
               },
               'type' => 'menu_entry'
             },
@@ -871,15 +851,13 @@ $result_trees{'float_copying'} = {
               },
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 43,
-                'macro' => ''
+                'line_nr' => 43
               }
             }
           ],
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 41,
-            'macro' => ''
+            'line_nr' => 41
           }
         },
         {
@@ -896,8 +874,7 @@ $result_trees{'float_copying'} = {
       },
       'source_info' => {
         'file_name' => 'float_copying.texi',
-        'line_nr' => 31,
-        'macro' => ''
+        'line_nr' => 31
       }
     },
     {
@@ -930,8 +907,7 @@ $result_trees{'float_copying'} = {
       },
       'source_info' => {
         'file_name' => 'float_copying.texi',
-        'line_nr' => 45,
-        'macro' => ''
+        'line_nr' => 45
       }
     },
     {
@@ -1003,8 +979,7 @@ $result_trees{'float_copying'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 51,
-                'macro' => ''
+                'line_nr' => 51
               }
             },
             {
@@ -1046,8 +1021,7 @@ $result_trees{'float_copying'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'float_copying.texi',
-                'line_nr' => 53,
-                'macro' => ''
+                'line_nr' => 53
               }
             },
             {
@@ -1095,8 +1069,7 @@ $result_trees{'float_copying'} = {
           },
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 55,
-            'macro' => ''
+            'line_nr' => 55
           },
           'type' => 'index_entry_command'
         },
@@ -1116,8 +1089,7 @@ $result_trees{'float_copying'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 57,
-            'macro' => ''
+            'line_nr' => 57
           }
         },
         {
@@ -1131,8 +1103,7 @@ $result_trees{'float_copying'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 58,
-            'macro' => ''
+            'line_nr' => 58
           }
         },
         {
@@ -1165,8 +1136,7 @@ $result_trees{'float_copying'} = {
           },
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 60,
-            'macro' => ''
+            'line_nr' => 60
           }
         },
         {
@@ -1197,8 +1167,7 @@ $result_trees{'float_copying'} = {
           },
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 61,
-            'macro' => ''
+            'line_nr' => 61
           }
         },
         {
@@ -1231,8 +1200,7 @@ $result_trees{'float_copying'} = {
           },
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 63,
-            'macro' => ''
+            'line_nr' => 63
           }
         },
         {
@@ -1265,8 +1233,7 @@ $result_trees{'float_copying'} = {
           },
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 64,
-            'macro' => ''
+            'line_nr' => 64
           }
         },
         {
@@ -1299,8 +1266,7 @@ $result_trees{'float_copying'} = {
           },
           'source_info' => {
             'file_name' => 'float_copying.texi',
-            'line_nr' => 65,
-            'macro' => ''
+            'line_nr' => 65
           }
         },
         {
@@ -1319,8 +1285,7 @@ $result_trees{'float_copying'} = {
       },
       'source_info' => {
         'file_name' => 'float_copying.texi',
-        'line_nr' => 46,
-        'macro' => ''
+        'line_nr' => 46
       }
     },
     {

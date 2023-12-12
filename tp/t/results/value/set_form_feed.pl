@@ -160,8 +160,7 @@ $result_trees{'set_form_feed'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {

@@ -56,8 +56,7 @@ $result_trees{'bad_enumerate_arguments'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -71,8 +70,7 @@ $result_trees{'bad_enumerate_arguments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -127,8 +125,7 @@ $result_trees{'bad_enumerate_arguments'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -142,8 +139,7 @@ $result_trees{'bad_enumerate_arguments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -169,8 +165,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 }
               ],
@@ -213,8 +208,7 @@ $result_trees{'bad_enumerate_arguments'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
@@ -228,8 +222,7 @@ $result_trees{'bad_enumerate_arguments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -287,8 +280,7 @@ $result_trees{'bad_enumerate_arguments'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -302,8 +294,7 @@ $result_trees{'bad_enumerate_arguments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -358,8 +349,7 @@ $result_trees{'bad_enumerate_arguments'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
@@ -373,8 +363,7 @@ $result_trees{'bad_enumerate_arguments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
+            'line_nr' => 13
           }
         }
       ],
@@ -413,7 +402,6 @@ $result_errors{'bad_enumerate_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
   },
@@ -422,7 +410,6 @@ $result_errors{'bad_enumerate_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
   },
@@ -431,7 +418,6 @@ $result_errors{'bad_enumerate_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
   },
@@ -440,7 +426,6 @@ $result_errors{'bad_enumerate_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'superfluous argument to @enumerate',
     'type' => 'error'
   },
@@ -449,7 +434,6 @@ $result_errors{'bad_enumerate_arguments'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
   }

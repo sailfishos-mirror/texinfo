@@ -17,8 +17,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
                 }
@@ -63,8 +62,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -95,8 +93,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
                           'cmdname' => 'code',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 4,
-                            'macro' => ''
+                            'line_nr' => 4
                           }
                         }
                       ],
@@ -137,8 +134,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -175,8 +171,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -190,8 +185,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -221,7 +215,6 @@ $result_errors{'style_not_closed_in_table_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   }

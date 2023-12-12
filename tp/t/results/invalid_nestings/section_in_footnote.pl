@@ -41,8 +41,7 @@ $result_trees{'section_in_footnote'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -79,8 +78,7 @@ $result_trees{'section_in_footnote'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],
@@ -122,7 +120,6 @@ $result_errors{'section_in_footnote'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@section seen before @footnote closing brace',
     'type' => 'error'
   }

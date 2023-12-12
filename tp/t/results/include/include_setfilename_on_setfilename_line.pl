@@ -51,8 +51,7 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 1,
-                            'macro' => ''
+                            'line_nr' => 1
                           }
                         }
                       ],
@@ -70,8 +69,7 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -89,8 +87,7 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -112,7 +109,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@setfilename should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -121,7 +117,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@setfilename should not appear in @setfilename',
     'type' => 'warning'
   },
@@ -130,7 +125,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'multiple @setfilename',
     'type' => 'warning'
   },
@@ -139,7 +133,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -148,7 +141,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@include should not appear in @setfilename',
     'type' => 'warning'
   },
@@ -157,7 +149,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@include: could not find are you joking!',
     'type' => 'error'
   },
@@ -166,7 +157,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'bad argument to @setfilename: other file @include are you joking!',
     'type' => 'error'
   },
@@ -175,7 +165,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'bad argument to @setfilename: file @setfilename other file @include are you joking!',
     'type' => 'error'
   }

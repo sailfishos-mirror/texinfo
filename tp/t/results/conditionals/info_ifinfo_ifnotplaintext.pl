@@ -28,8 +28,7 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                 'cmdname' => 'ifinfo',
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'expanded_conditional_command',
@@ -52,8 +51,7 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                 'cmdname' => 'ifnotplaintext',
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 2,
-                  'macro' => ''
+                  'line_nr' => 2
                 }
               },
               'sourcemark_type' => 'expanded_conditional_command',
@@ -96,8 +94,7 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 4,
-                      'macro' => ''
+                      'line_nr' => 4
                     }
                   },
                   'position' => 42,
@@ -134,8 +131,7 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 5,
-                      'macro' => ''
+                      'line_nr' => 5
                     }
                   },
                   'position' => 42,

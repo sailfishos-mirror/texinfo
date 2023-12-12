@@ -65,8 +65,7 @@ $result_trees{'double_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -145,8 +144,7 @@ $result_trees{'double_top'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -169,8 +167,7 @@ $result_trees{'double_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     }
   ],
@@ -237,7 +234,6 @@ $result_errors{'double_top'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@node `top\' previously defined',
     'type' => 'error'
   },
@@ -247,7 +243,6 @@ $result_errors{'double_top'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
   },
@@ -256,7 +251,6 @@ $result_errors{'double_top'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@anchor `TOP\' previously defined',
     'type' => 'error'
   },
@@ -266,7 +260,6 @@ $result_errors{'double_top'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
   },
@@ -275,7 +268,6 @@ $result_errors{'double_top'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'Next pointer `top\' (for node `ToP\') different from node name `ToP\'',
     'type' => 'warning'
   },
@@ -284,7 +276,6 @@ $result_errors{'double_top'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'Up pointer `Top\' (for node `top\') different from node name `ToP\'',
     'type' => 'warning'
   }

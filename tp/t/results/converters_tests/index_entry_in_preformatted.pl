@@ -39,8 +39,7 @@ $result_trees{'index_entry_in_preformatted'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -76,8 +75,7 @@ $result_trees{'index_entry_in_preformatted'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -109,8 +107,7 @@ $result_trees{'index_entry_in_preformatted'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -186,8 +183,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 8,
-                    'macro' => ''
+                    'line_nr' => 8
                   },
                   'type' => 'index_entry_command'
                 },
@@ -242,8 +238,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
-                    'macro' => ''
+                    'line_nr' => 11
                   },
                   'type' => 'index_entry_command'
                 },
@@ -284,8 +279,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   },
                   'type' => 'index_entry_command'
                 }
@@ -320,15 +314,13 @@ $result_trees{'index_entry_in_preformatted'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         }
       ],
@@ -342,8 +334,7 @@ $result_trees{'index_entry_in_preformatted'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],

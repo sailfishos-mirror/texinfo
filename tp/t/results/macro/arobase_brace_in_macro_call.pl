@@ -64,8 +64,7 @@ $result_trees{'arobase_brace_in_macro_call'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -75,8 +74,7 @@ $result_trees{'arobase_brace_in_macro_call'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -252,7 +250,6 @@ $result_errors{'arobase_brace_in_macro_call'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

@@ -42,8 +42,7 @@ $result_trees{'double_syncodeindex'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -77,8 +76,7 @@ $result_trees{'double_syncodeindex'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -121,8 +119,7 @@ $result_trees{'double_syncodeindex'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -182,8 +179,7 @@ $result_trees{'double_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           },
           'type' => 'index_entry_command'
         },
@@ -220,8 +216,7 @@ $result_trees{'double_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           },
           'type' => 'index_entry_command'
         },
@@ -260,8 +255,7 @@ $result_trees{'double_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -294,8 +288,7 @@ $result_trees{'double_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         }
       ],
@@ -311,8 +304,7 @@ $result_trees{'double_syncodeindex'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],
@@ -383,7 +375,6 @@ $result_errors{'double_syncodeindex'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'
   }

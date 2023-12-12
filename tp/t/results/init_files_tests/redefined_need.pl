@@ -39,8 +39,7 @@ $result_trees{'redefined_need'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -101,7 +100,6 @@ $result_converted_errors{'html'}->{'redefined_need'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'need has the right arg: 0.1',
     'type' => 'warning'
   }

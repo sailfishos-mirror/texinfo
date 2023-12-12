@@ -40,8 +40,7 @@ $result_trees{'non_break_spaces'} = {
               },
               'source_info' => {
                 'file_name' => 'non_break_spaces.texi',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -104,8 +103,7 @@ $result_trees{'non_break_spaces'} = {
       },
       'source_info' => {
         'file_name' => 'non_break_spaces.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     }
   ],

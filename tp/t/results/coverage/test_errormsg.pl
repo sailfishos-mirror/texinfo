@@ -36,8 +36,7 @@ $result_trees{'test_errormsg'} = {
                       'cmdname' => '~',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -57,8 +56,7 @@ $result_trees{'test_errormsg'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -68,8 +66,7 @@ $result_trees{'test_errormsg'} = {
               'cmdname' => 'errormsg',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -98,8 +95,7 @@ $result_trees{'test_errormsg'} = {
               'cmdname' => 'errormsg',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -133,7 +129,6 @@ $result_errors{'test_errormsg'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'Text ',
     'type' => 'error'
   },
@@ -142,7 +137,6 @@ $result_errors{'test_errormsg'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'with surrounding spaces',
     'type' => 'error'
   }

@@ -39,8 +39,7 @@ $result_trees{'contents'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -68,8 +67,7 @@ $result_trees{'contents'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -92,8 +90,7 @@ $result_trees{'contents'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -119,8 +116,7 @@ $result_trees{'contents'} = {
           'cmdname' => 'shortcontents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -142,8 +138,7 @@ $result_trees{'contents'} = {
           'cmdname' => 'shortcontents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -165,8 +160,7 @@ $result_trees{'contents'} = {
           'cmdname' => 'summarycontents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         }
       ],
@@ -199,7 +193,6 @@ $result_errors{'contents'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@contents should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -208,7 +201,6 @@ $result_errors{'contents'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@contents should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -217,7 +209,6 @@ $result_errors{'contents'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@shortcontents should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -226,7 +217,6 @@ $result_errors{'contents'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '@shortcontents should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -235,7 +225,6 @@ $result_errors{'contents'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@summarycontents should only appear at the beginning of a line',
     'type' => 'warning'
   }

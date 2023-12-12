@@ -57,8 +57,7 @@ $result_trees{'double_top_section'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -103,8 +102,7 @@ $result_trees{'double_top_section'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],
@@ -172,7 +170,6 @@ $result_errors{'double_top_section'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'multiple @top',
     'type' => 'warning'
   }

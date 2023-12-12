@@ -59,8 +59,7 @@ $result_trees{'contents_at_end'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -158,8 +157,7 @@ $result_trees{'contents_at_end'} = {
               ],
               'source_info' => {
                 'file_name' => 'contents_at_end.texi',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               },
               'type' => 'menu_entry'
             },
@@ -191,15 +189,13 @@ $result_trees{'contents_at_end'} = {
               },
               'source_info' => {
                 'file_name' => 'contents_at_end.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
           'source_info' => {
             'file_name' => 'contents_at_end.texi',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -216,8 +212,7 @@ $result_trees{'contents_at_end'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -249,8 +244,7 @@ $result_trees{'contents_at_end'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end.texi',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     },
     {
@@ -302,8 +296,7 @@ $result_trees{'contents_at_end'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'contents_at_end.texi',
-            'line_nr' => 17,
-            'macro' => ''
+            'line_nr' => 17
           }
         }
       ],
@@ -317,8 +310,7 @@ $result_trees{'contents_at_end'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end.texi',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     {

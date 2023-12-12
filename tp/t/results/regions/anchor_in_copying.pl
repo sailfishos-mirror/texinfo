@@ -67,8 +67,7 @@ $result_trees{'anchor_in_copying'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     },
                     {
@@ -112,15 +111,13 @@ $result_trees{'anchor_in_copying'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -170,8 +167,7 @@ $result_trees{'anchor_in_copying'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     {
@@ -209,8 +205,7 @@ $result_trees{'anchor_in_copying'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
+            'line_nr' => 13
           }
         },
         {
@@ -229,8 +224,7 @@ $result_trees{'anchor_in_copying'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
-            'macro' => ''
+            'line_nr' => 15
           }
         },
         {
@@ -262,8 +256,7 @@ $result_trees{'anchor_in_copying'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -290,8 +283,7 @@ $result_trees{'anchor_in_copying'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     }
   ],
@@ -409,7 +401,6 @@ $result_converted_errors{'info'}->{'anchor_in_copying'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@anchor output more than once: Copying information',
     'type' => 'error'
   }

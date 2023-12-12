@@ -60,8 +60,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -71,8 +70,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {

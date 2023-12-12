@@ -51,8 +51,7 @@ $result_trees{'macro_in_def_delimiters'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -62,8 +61,7 @@ $result_trees{'macro_in_def_delimiters'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -456,8 +454,7 @@ $result_trees{'macro_in_def_delimiters'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'def_line'
             }
@@ -469,8 +466,7 @@ $result_trees{'macro_in_def_delimiters'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         }
       ],
@@ -499,7 +495,6 @@ $result_errors{'macro_in_def_delimiters'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -508,7 +503,6 @@ $result_errors{'macro_in_def_delimiters'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'no matching `@end deffn\'',
     'type' => 'error'
   }

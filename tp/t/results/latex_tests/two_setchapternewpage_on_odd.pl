@@ -41,8 +41,7 @@ $result_trees{'two_setchapternewpage_on_odd'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -80,8 +79,7 @@ $result_trees{'two_setchapternewpage_on_odd'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -109,7 +107,6 @@ $result_errors{'two_setchapternewpage_on_odd'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'multiple @setchapternewpage',
     'type' => 'warning'
   }

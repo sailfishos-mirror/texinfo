@@ -70,8 +70,7 @@ $result_trees{'ifclear_in_ifset'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 5,
-                      'macro' => ''
+                      'line_nr' => 5
                     }
                   }
                 ],
@@ -82,8 +81,7 @@ $result_trees{'ifclear_in_ifset'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 2,
-                  'macro' => ''
+                  'line_nr' => 2
                 }
               },
               'position' => 1,

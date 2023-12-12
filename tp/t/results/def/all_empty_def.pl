@@ -30,8 +30,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               },
               'type' => 'def_line'
             },
@@ -63,15 +62,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -100,8 +97,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'def_line'
             },
@@ -133,15 +129,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -170,8 +164,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'def_line'
             },
@@ -203,15 +196,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -240,8 +231,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'def_line'
             },
@@ -273,15 +263,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -310,8 +298,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               },
               'type' => 'def_line'
             },
@@ -343,15 +330,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
+            'line_nr' => 13
           }
         },
         {
@@ -380,8 +365,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               },
               'type' => 'def_line'
             },
@@ -413,15 +397,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
-            'macro' => ''
+            'line_nr' => 16
           }
         },
         {
@@ -450,8 +432,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               },
               'type' => 'def_line'
             },
@@ -483,15 +464,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
-            'macro' => ''
+            'line_nr' => 19
           }
         },
         {
@@ -520,8 +499,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               },
               'type' => 'def_line'
             },
@@ -553,15 +531,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 22,
-            'macro' => ''
+            'line_nr' => 22
           }
         },
         {
@@ -590,8 +566,7 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
-                'macro' => ''
+                'line_nr' => 25
               },
               'type' => 'def_line'
             },
@@ -623,15 +598,13 @@ $result_trees{'all_empty_def'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           }
         }
       ],
@@ -686,7 +659,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'missing category for @deffn',
     'type' => 'warning'
   },
@@ -695,7 +667,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'missing category for @defvr',
     'type' => 'warning'
   },
@@ -704,7 +675,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'missing category for @deftypefn',
     'type' => 'warning'
   },
@@ -713,7 +683,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'missing category for @deftypeop',
     'type' => 'warning'
   },
@@ -722,7 +691,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => 'missing category for @deftypevr',
     'type' => 'warning'
   },
@@ -731,7 +699,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 16,
-    'macro' => '',
     'text' => 'missing category for @defcv',
     'type' => 'warning'
   },
@@ -740,7 +707,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 19,
-    'macro' => '',
     'text' => 'missing category for @deftypecv',
     'type' => 'warning'
   },
@@ -749,7 +715,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 22,
-    'macro' => '',
     'text' => 'missing category for @defop',
     'type' => 'warning'
   },
@@ -758,7 +723,6 @@ $result_errors{'all_empty_def'} = [
 ',
     'file_name' => '',
     'line_nr' => 25,
-    'macro' => '',
     'text' => 'missing category for @deftp',
     'type' => 'warning'
   }

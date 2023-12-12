@@ -28,8 +28,7 @@ $result_trees{'additional_space_in_end_conditional_expanded'} = {
                 'cmdname' => 'ifnothtml',
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'expanded_conditional_command',
@@ -72,8 +71,7 @@ $result_trees{'additional_space_in_end_conditional_expanded'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 3,
-                      'macro' => ''
+                      'line_nr' => 3
                     }
                   },
                   'position' => 9,

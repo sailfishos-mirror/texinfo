@@ -44,8 +44,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -81,8 +80,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -115,8 +113,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -174,8 +171,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -214,8 +210,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -256,8 +251,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           },
           'type' => 'index_entry_command'
         },
@@ -299,8 +293,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
+            'line_nr' => 13
           },
           'type' => 'index_entry_command'
         },
@@ -342,8 +335,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
-            'macro' => ''
+            'line_nr' => 15
           },
           'type' => 'index_entry_command'
         },
@@ -382,8 +374,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
-            'macro' => ''
+            'line_nr' => 17
           }
         },
         {
@@ -422,8 +413,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
-            'macro' => ''
+            'line_nr' => 19
           }
         },
         {
@@ -464,8 +454,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
-            'macro' => ''
+            'line_nr' => 21
           },
           'type' => 'index_entry_command'
         },
@@ -504,8 +493,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 23,
-            'macro' => ''
+            'line_nr' => 23
           }
         },
         {
@@ -544,8 +532,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           }
         },
         {
@@ -586,8 +573,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 27,
-            'macro' => ''
+            'line_nr' => 27
           },
           'type' => 'index_entry_command'
         },
@@ -626,8 +612,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 29,
-            'macro' => ''
+            'line_nr' => 29
           }
         }
       ],
@@ -641,8 +626,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],

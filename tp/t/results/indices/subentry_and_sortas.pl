@@ -44,8 +44,7 @@ $result_trees{'subentry_and_sortas'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -71,8 +70,7 @@ $result_trees{'subentry_and_sortas'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -105,8 +103,7 @@ $result_trees{'subentry_and_sortas'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -158,8 +155,7 @@ $result_trees{'subentry_and_sortas'} = {
                   'cmdname' => 'sortas',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 }
               ],
@@ -197,8 +193,7 @@ $result_trees{'subentry_and_sortas'} = {
                       'cmdname' => 'sortas',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -230,8 +225,7 @@ $result_trees{'subentry_and_sortas'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           },
@@ -243,8 +237,7 @@ $result_trees{'subentry_and_sortas'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           },
           'type' => 'index_entry_command'
         },
@@ -279,8 +272,7 @@ $result_trees{'subentry_and_sortas'} = {
                   'cmdname' => 'sortas',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 }
               ],
@@ -318,8 +310,7 @@ $result_trees{'subentry_and_sortas'} = {
                       'cmdname' => 'sortas',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -351,8 +342,7 @@ $result_trees{'subentry_and_sortas'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           },
@@ -364,8 +354,7 @@ $result_trees{'subentry_and_sortas'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           },
           'type' => 'index_entry_command'
         },
@@ -405,8 +394,7 @@ $result_trees{'subentry_and_sortas'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -439,8 +427,7 @@ $result_trees{'subentry_and_sortas'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
-            'macro' => ''
+            'line_nr' => 12
           }
         }
       ],
@@ -454,8 +441,7 @@ $result_trees{'subentry_and_sortas'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],

@@ -39,8 +39,7 @@ $result_trees{'style_not_closed_root_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -124,8 +123,7 @@ $result_trees{'style_not_closed_root_commands'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -157,15 +155,13 @@ $result_trees{'style_not_closed_root_commands'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -195,8 +191,7 @@ $result_trees{'style_not_closed_root_commands'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
@@ -211,8 +206,7 @@ $result_trees{'style_not_closed_root_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -244,8 +238,7 @@ $result_trees{'style_not_closed_root_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     },
     {
@@ -294,8 +287,7 @@ $result_trees{'style_not_closed_root_commands'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
@@ -312,8 +304,7 @@ $result_trees{'style_not_closed_root_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {
@@ -472,7 +463,6 @@ $result_errors{'style_not_closed_root_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   },
@@ -481,7 +471,6 @@ $result_errors{'style_not_closed_root_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   }

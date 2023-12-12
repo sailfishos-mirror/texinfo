@@ -25,8 +25,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -46,8 +45,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'slanted',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -67,8 +65,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'var',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -88,8 +85,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'sub',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -118,8 +114,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'hyphenation',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -141,8 +136,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'indicateurl',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -170,8 +164,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'U',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -191,8 +184,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'cmdname' => 'w',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -216,8 +208,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {

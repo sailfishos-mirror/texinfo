@@ -40,8 +40,7 @@ $result_trees{'alias_non_existing_command'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -81,7 +80,6 @@ $result_errors{'alias_non_existing_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'unknown command `userdefined\'',
     'type' => 'error'
   },
@@ -90,7 +88,6 @@ $result_errors{'alias_non_existing_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -99,7 +96,6 @@ $result_errors{'alias_non_existing_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

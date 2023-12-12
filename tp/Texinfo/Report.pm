@@ -119,11 +119,6 @@ sub format_line_message($$$$;$)
   my %location_info = %{$error_location_info};
   delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
                                   and not defined($location_info{'file_name'}));
-  # FIXME remove this code as soon as possible
-  if (defined($location_info{'line_nr'}) and $location_info{'line_nr'} > 0
-      and !defined ($location_info{'macro'})) {
-    $location_info{'macro'} = "";
-  }
   my $result
     = { 'type' => $type, 'text' => $text, 'error_line' => $message_line,
          %location_info };

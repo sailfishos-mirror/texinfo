@@ -55,8 +55,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -66,8 +65,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -171,8 +169,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                         },
                         'source_info' => {
                           'file_name' => '',
-                          'line_nr' => 8,
-                          'macro' => ''
+                          'line_nr' => 8
                         }
                       }
                     ],
@@ -315,8 +312,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 13,
-                      'macro' => ''
+                      'line_nr' => 13
                     }
                   },
                   'position' => 11,

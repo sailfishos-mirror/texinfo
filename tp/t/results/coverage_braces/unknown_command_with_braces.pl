@@ -132,7 +132,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unknown command `thing\'',
     'type' => 'error'
   },
@@ -141,7 +140,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -150,7 +148,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -159,7 +156,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   },
@@ -168,7 +164,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -177,7 +172,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -186,7 +180,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'unknown command `unknown2\'',
     'type' => 'error'
   },
@@ -195,7 +188,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -204,7 +196,6 @@ $result_errors{'unknown_command_with_braces'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

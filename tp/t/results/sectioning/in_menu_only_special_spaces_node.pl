@@ -52,8 +52,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 2,
-        "macro" => ""
+        "line_nr" => 2
       }
     },
     {
@@ -133,8 +132,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 6,
-                "macro" => ""
+                "line_nr" => 6
               },
               "type" => "menu_entry"
             },
@@ -167,8 +165,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 7,
-                "macro" => ""
+                "line_nr" => 7
               },
               "type" => "menu_entry"
             },
@@ -201,8 +198,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 8,
-                "macro" => ""
+                "line_nr" => 8
               },
               "type" => "menu_entry"
             },
@@ -248,8 +244,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 9,
-                "macro" => ""
+                "line_nr" => 9
               },
               "type" => "menu_entry"
             },
@@ -295,8 +290,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 10,
-                "macro" => ""
+                "line_nr" => 10
               },
               "type" => "menu_entry"
             },
@@ -351,8 +345,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               ],
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 11,
-                "macro" => ""
+                "line_nr" => 11
               },
               "type" => "menu_entry"
             },
@@ -383,15 +376,13 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               },
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 13,
-                "macro" => ""
+                "line_nr" => 13
               }
             }
           ],
           "source_info" => {
             "file_name" => "in_menu_only_special_spaces_node.texi",
-            "line_nr" => 5,
-            "macro" => ""
+            "line_nr" => 5
           }
         },
         {
@@ -411,8 +402,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 3,
-        "macro" => ""
+        "line_nr" => 3
       }
     },
     {
@@ -443,8 +433,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 16,
-        "macro" => ""
+        "line_nr" => 16
       }
     },
     {
@@ -480,8 +469,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 17,
-        "macro" => ""
+        "line_nr" => 17
       }
     },
     {
@@ -499,8 +487,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       "extra" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 19,
-        "macro" => ""
+        "line_nr" => 19
       }
     },
     {
@@ -536,8 +523,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 20,
-        "macro" => ""
+        "line_nr" => 20
       }
     },
     {
@@ -555,8 +541,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       "extra" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 22,
-        "macro" => ""
+        "line_nr" => 22
       }
     },
     {
@@ -592,8 +577,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 23,
-        "macro" => ""
+        "line_nr" => 23
       }
     },
     {
@@ -624,8 +608,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 25,
-        "macro" => ""
+        "line_nr" => 25
       }
     },
     {
@@ -661,8 +644,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 26,
-        "macro" => ""
+        "line_nr" => 26
       }
     },
     {
@@ -693,8 +675,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 28,
-        "macro" => ""
+        "line_nr" => 28
       }
     },
     {
@@ -730,8 +711,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 29,
-        "macro" => ""
+        "line_nr" => 29
       }
     },
     {
@@ -762,8 +742,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 31,
-        "macro" => ""
+        "line_nr" => 31
       }
     },
     {
@@ -839,8 +818,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 32,
-        "macro" => ""
+        "line_nr" => 32
       }
     },
     {
@@ -1281,7 +1259,6 @@ $result_errors{'in_menu_only_special_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_spaces_node.texi',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'empty node name in menu entry',
     'type' => 'error'
   },
@@ -1290,7 +1267,6 @@ $result_errors{'in_menu_only_special_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_spaces_node.texi',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'empty node name in menu entry',
     'type' => 'error'
   },
@@ -1299,7 +1275,6 @@ $result_errors{'in_menu_only_special_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_spaces_node.texi',
     'line_nr' => 19,
-    'macro' => '',
     'text' => 'empty argument in @node',
     'type' => 'error'
   },
@@ -1308,7 +1283,6 @@ $result_errors{'in_menu_only_special_spaces_node'} = [
 ',
     'file_name' => 'in_menu_only_special_spaces_node.texi',
     'line_nr' => 22,
-    'macro' => '',
     'text' => 'empty argument in @node',
     'type' => 'error'
   }

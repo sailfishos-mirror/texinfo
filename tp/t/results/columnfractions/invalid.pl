@@ -38,8 +38,7 @@ $result_trees{'invalid'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -70,8 +69,7 @@ $result_trees{'invalid'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -85,8 +83,7 @@ $result_trees{'invalid'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -108,7 +105,6 @@ $result_errors{'invalid'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'column fraction not a number: 2x.2',
     'type' => 'error'
   },
@@ -117,7 +113,6 @@ $result_errors{'invalid'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'column fraction not a number: 2.23x',
     'type' => 'error'
   }

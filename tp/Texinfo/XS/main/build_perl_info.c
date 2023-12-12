@@ -634,9 +634,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         {
           STORE("line_nr", newSViv (source_info->line_nr), HSH_line_nr);
 
-          if (!source_info->macro)
-            STORE("macro", newSVpv ("", 0), HSH_macro);
-
           if (!source_info->file_name)
             STORE("file_name", newSVpv ("", 0), HSH_file_name);
         }
@@ -1043,13 +1040,6 @@ build_source_info_hash (SOURCE_INFO source_info, HV *hv)
       hv_store (hv, "file_name", strlen ("file_name"),
                 newSVpv (source_info.file_name, 0), 0);
     }
-   /*
-  else
-    {
-      hv_store (hv, "file_name", strlen ("file_name"),
-                newSVpv ("", 0), 0);
-    }
-    */
 
   if (source_info.line_nr)
     {
@@ -1058,9 +1048,6 @@ build_source_info_hash (SOURCE_INFO source_info, HV *hv)
       if (!source_info.file_name)
         hv_store (hv, "file_name", strlen ("file_name"),
                   newSVpv ("", 0), 0);
-      if (!source_info.macro)
-        hv_store (hv, "macro", strlen ("macro"),
-                newSVpv_utf8 ("", 0), 0);
     }
 
   if (source_info.macro)
@@ -1068,13 +1055,6 @@ build_source_info_hash (SOURCE_INFO source_info, HV *hv)
       hv_store (hv, "macro", strlen ("macro"),
                 newSVpv_utf8 (source_info.macro, 0), 0);
     }
-   /*
-  else
-    {
-      hv_store (hv, "macro", strlen ("macro"),
-                newSVpv_utf8 ("", 0), 0);
-    }
-   */
 }
 
 static SV *

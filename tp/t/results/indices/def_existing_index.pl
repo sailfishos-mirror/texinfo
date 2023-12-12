@@ -34,8 +34,7 @@ $result_trees{'def_existing_index'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -57,7 +56,6 @@ $result_errors{'def_existing_index'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'reserved index name cp',
     'type' => 'error'
   }

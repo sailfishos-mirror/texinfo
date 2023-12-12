@@ -48,8 +48,7 @@ $result_trees{'command_in_end_expanded_raw_two_char_before_command'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -76,15 +75,13 @@ $result_trees{'command_in_end_expanded_raw_two_char_before_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -109,7 +106,6 @@ $result_errors{'command_in_end_expanded_raw_two_char_before_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@asis should not appear in @end',
     'type' => 'warning'
   },
@@ -118,7 +114,6 @@ $result_errors{'command_in_end_expanded_raw_two_char_before_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'bad argument to @end: te@asis{}x',
     'type' => 'error'
   }

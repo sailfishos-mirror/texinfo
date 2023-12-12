@@ -32,8 +32,7 @@ $result_trees{'titlefont_in_center'} = {
                   'cmdname' => 'titlefont',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 }
               ],
@@ -54,8 +53,7 @@ $result_trees{'titlefont_in_center'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         }
       ],

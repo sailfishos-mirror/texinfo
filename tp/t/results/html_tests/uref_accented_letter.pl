@@ -32,8 +32,7 @@ $result_trees{'uref_accented_letter'} = {
                       'cmdname' => '"',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     },
                     {
@@ -50,8 +49,7 @@ $result_trees{'uref_accented_letter'} = {
                       'cmdname' => 'ogonek',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
@@ -61,8 +59,7 @@ $result_trees{'uref_accented_letter'} = {
               'cmdname' => 'uref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {

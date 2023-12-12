@@ -51,8 +51,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -62,8 +61,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -200,8 +198,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
@@ -211,8 +208,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -346,7 +342,6 @@ $result_errors{'line_end_accent_command_macro_call'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
   },
@@ -355,7 +350,6 @@ $result_errors{'line_end_accent_command_macro_call'} = [
 ',
     'file_name' => '',
     'line_nr' => 12,
-    'macro' => '',
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
   }

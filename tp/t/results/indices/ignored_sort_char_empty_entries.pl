@@ -68,8 +68,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -95,8 +94,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -157,8 +155,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           },
           'type' => 'index_entry_command'
         },
@@ -196,8 +193,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           },
           'type' => 'index_entry_command'
         },
@@ -235,8 +231,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           },
           'type' => 'index_entry_command'
         },
@@ -258,8 +253,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                   'cmdname' => 'sortas',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
-                    'macro' => ''
+                    'line_nr' => 11
                   }
                 },
                 {
@@ -297,8 +291,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           },
           'type' => 'index_entry_command'
         },
@@ -337,8 +330,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
+            'line_nr' => 13
           }
         }
       ],
@@ -354,8 +346,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     }
   ],
@@ -457,7 +448,6 @@ $result_errors{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -466,7 +456,6 @@ $result_errors{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   }
@@ -519,7 +508,6 @@ $result_converted_errors{'info'}->{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -528,7 +516,6 @@ $result_converted_errors{'info'}->{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   }
@@ -549,7 +536,6 @@ $result_converted_errors{'plaintext'}->{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -558,7 +544,6 @@ $result_converted_errors{'plaintext'}->{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   }
@@ -618,7 +603,6 @@ $result_converted_errors{'html_text'}->{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   },
@@ -627,7 +611,6 @@ $result_converted_errors{'html_text'}->{'ignored_sort_char_empty_entries'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'empty index key in @findex',
     'type' => 'warning'
   }

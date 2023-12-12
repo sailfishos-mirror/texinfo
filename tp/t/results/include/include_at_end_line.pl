@@ -35,8 +35,7 @@ $result_trees{'include_at_end_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -73,7 +72,6 @@ $result_errors{'include_at_end_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'bad argument to @include: inc_file.texi@',
     'type' => 'error'
   }

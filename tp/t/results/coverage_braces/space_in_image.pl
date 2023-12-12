@@ -81,8 +81,7 @@ $result_trees{'space_in_image'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -115,8 +114,7 @@ $result_trees{'space_in_image'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -156,7 +154,6 @@ $result_converted_errors{'html_text'}->{'space_in_image'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `a\' (for HTML) not found, using `a.e\'',
     'type' => 'warning'
   },
@@ -165,7 +162,6 @@ $result_converted_errors{'html_text'}->{'space_in_image'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `f\' (for HTML) not found, using `f.jpg\'',
     'type' => 'warning'
   }
@@ -181,7 +177,6 @@ $result_converted_errors{'latex_text'}->{'space_in_image'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `a\' (for LaTeX) not found',
     'type' => 'warning'
   },
@@ -190,7 +185,6 @@ $result_converted_errors{'latex_text'}->{'space_in_image'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `f\' (for LaTeX) not found',
     'type' => 'warning'
   }

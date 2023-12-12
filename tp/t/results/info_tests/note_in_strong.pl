@@ -53,8 +53,7 @@ $result_trees{'note_in_strong'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -88,8 +87,7 @@ $result_trees{'note_in_strong'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -133,8 +131,7 @@ $result_trees{'note_in_strong'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -168,8 +165,7 @@ $result_trees{'note_in_strong'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             },
             {
@@ -203,8 +199,7 @@ $result_trees{'note_in_strong'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -238,8 +233,7 @@ $result_trees{'note_in_strong'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -261,8 +255,7 @@ $result_trees{'note_in_strong'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -362,7 +355,6 @@ $result_converted_errors{'info'}->{'note_in_strong'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
   },
@@ -371,7 +363,6 @@ $result_converted_errors{'info'}->{'note_in_strong'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
   }

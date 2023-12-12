@@ -36,8 +36,7 @@ $result_trees{'index_and_node_same_name'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -97,8 +96,7 @@ $result_trees{'index_and_node_same_name'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           },
           'type' => 'index_entry_command'
         },
@@ -132,8 +130,7 @@ $result_trees{'index_and_node_same_name'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -154,8 +151,7 @@ $result_trees{'index_and_node_same_name'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     }
   ],

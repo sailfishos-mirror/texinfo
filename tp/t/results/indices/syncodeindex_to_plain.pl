@@ -42,8 +42,7 @@ $result_trees{'syncodeindex_to_plain'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -86,8 +85,7 @@ $result_trees{'syncodeindex_to_plain'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -147,8 +145,7 @@ $result_trees{'syncodeindex_to_plain'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           },
           'type' => 'index_entry_command'
         },
@@ -185,8 +182,7 @@ $result_trees{'syncodeindex_to_plain'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           },
           'type' => 'index_entry_command'
         },
@@ -223,8 +219,7 @@ $result_trees{'syncodeindex_to_plain'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           },
           'type' => 'index_entry_command'
         },
@@ -272,8 +267,7 @@ $result_trees{'syncodeindex_to_plain'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -320,8 +314,7 @@ $result_trees{'syncodeindex_to_plain'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         }
       ],
@@ -337,8 +330,7 @@ $result_trees{'syncodeindex_to_plain'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],

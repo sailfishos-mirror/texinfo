@@ -58,8 +58,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -94,8 +93,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 3,
-                            'macro' => ''
+                            'line_nr' => 3
                           }
                         },
                         {
@@ -120,8 +118,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 4,
-                            'macro' => ''
+                            'line_nr' => 4
                           }
                         }
                       ],
@@ -192,15 +189,13 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                   },
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 8,
-                                    'macro' => ''
+                                    'line_nr' => 8
                                   }
                                 }
                               ],
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 6,
-                                'macro' => ''
+                                'line_nr' => 6
                               }
                             }
                           ],
@@ -209,8 +204,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 5,
-                            'macro' => ''
+                            'line_nr' => 5
                           }
                         },
                         {
@@ -255,8 +249,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 10,
-                                'macro' => ''
+                                'line_nr' => 10
                               }
                             }
                           ],
@@ -265,8 +258,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 9,
-                            'macro' => ''
+                            'line_nr' => 9
                           }
                         }
                       ],
@@ -306,8 +298,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
-                    'macro' => ''
+                    'line_nr' => 11
                   }
                 }
               ],
@@ -322,8 +313,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -354,15 +344,13 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

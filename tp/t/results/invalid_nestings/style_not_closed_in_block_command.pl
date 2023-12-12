@@ -43,8 +43,7 @@ $result_trees{'style_not_closed_in_block_command'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 }
               ],
@@ -78,15 +77,13 @@ $result_trees{'style_not_closed_in_block_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -111,7 +108,6 @@ $result_errors{'style_not_closed_in_block_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@end cartouche seen before @code closing brace',
     'type' => 'error'
   }

@@ -81,8 +81,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
       },
       'source_info' => {
         'file_name' => 'empty_lines_at_beginning_no_setfilename.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -118,8 +117,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
       },
       'source_info' => {
         'file_name' => 'empty_lines_at_beginning_no_setfilename.texi',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     },
     {

@@ -38,8 +38,7 @@ $result_trees{'uref_accented_letter_ascii'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -70,8 +69,7 @@ $result_trees{'uref_accented_letter_ascii'} = {
                       'cmdname' => '"',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -88,8 +86,7 @@ $result_trees{'uref_accented_letter_ascii'} = {
                       'cmdname' => 'ogonek',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -99,8 +96,7 @@ $result_trees{'uref_accented_letter_ascii'} = {
               'cmdname' => 'uref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {

@@ -89,8 +89,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -99,8 +98,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -168,8 +166,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 },
                 {
@@ -200,8 +197,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 }
               ],
@@ -210,8 +206,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -284,8 +279,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   }
                 },
                 {
@@ -316,8 +310,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
-                    'macro' => ''
+                    'line_nr' => 14
                   }
                 }
               ],
@@ -326,8 +319,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             },
             {
@@ -395,8 +387,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 17,
-                    'macro' => ''
+                    'line_nr' => 17
                   }
                 },
                 {
@@ -421,8 +412,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 19,
-                    'macro' => ''
+                    'line_nr' => 19
                   }
                 },
                 {
@@ -453,8 +443,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 20,
-                    'macro' => ''
+                    'line_nr' => 20
                   }
                 }
               ],
@@ -463,8 +452,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             },
             {
@@ -505,15 +493,13 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -572,7 +558,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'
   },
@@ -581,7 +566,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@itemize has text but no @item',
     'type' => 'warning'
   },
@@ -590,7 +574,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'
   },
@@ -599,7 +582,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 12,
-    'macro' => '',
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'
   },
@@ -608,7 +590,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 18,
-    'macro' => '',
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'
   }

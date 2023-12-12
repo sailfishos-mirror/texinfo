@@ -19,8 +19,7 @@ $result_trees{'noindent_in_paragraph'} = {
               'cmdname' => 'noindent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -50,8 +49,7 @@ $result_trees{'noindent_in_paragraph'} = {
               'cmdname' => 'noindent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -96,7 +94,6 @@ $result_errors{'noindent_in_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   },
@@ -105,7 +102,6 @@ $result_errors{'noindent_in_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   }

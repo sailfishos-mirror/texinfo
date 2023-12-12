@@ -26,8 +26,7 @@ $result_trees{'unnumbered_no_argument'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -62,7 +61,6 @@ $result_errors{'unnumbered_no_argument'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@unnumbered missing argument',
     'type' => 'warning'
   }

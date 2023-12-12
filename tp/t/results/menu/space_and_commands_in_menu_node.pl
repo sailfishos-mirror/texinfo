@@ -39,8 +39,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -124,8 +123,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -180,8 +178,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -228,8 +225,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'menu_entry'
             },
@@ -288,8 +284,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               },
               'type' => 'menu_entry'
             },
@@ -344,8 +339,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               },
               'type' => 'menu_entry'
             },
@@ -400,8 +394,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'menu_entry'
             },
@@ -468,8 +461,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               },
               'type' => 'menu_entry'
             },
@@ -528,8 +520,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               },
               'type' => 'menu_entry'
             },
@@ -600,8 +591,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               },
               'type' => 'menu_entry'
             },
@@ -633,15 +623,13 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -658,8 +646,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -697,8 +684,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 16,
-        'macro' => ''
+        'line_nr' => 16
       }
     },
     {
@@ -729,8 +715,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 17,
-        'macro' => ''
+        'line_nr' => 17
       }
     }
   ],
@@ -912,7 +897,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@menu entry node name `chap  b\' different from node name `chap @: b\'',
     'type' => 'warning'
   },
@@ -921,7 +905,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
     'type' => 'warning'
   },
@@ -930,7 +913,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '@menu entry node name `chap@ @ b\' different from node name `chap @: b\'',
     'type' => 'warning'
   },
@@ -939,7 +921,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@menu entry node name `chap@  b\' different from node name `chap @: b\'',
     'type' => 'warning'
   },
@@ -948,7 +929,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => '@menu entry node name `chap @ b\' different from node name `chap @: b\'',
     'type' => 'warning'
   },
@@ -957,7 +937,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 12,
-    'macro' => '',
     'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
     'type' => 'warning'
   },
@@ -966,7 +945,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => '@menu entry node name `chap @ @ b\' different from node name `chap @: b\'',
     'type' => 'warning'
   }

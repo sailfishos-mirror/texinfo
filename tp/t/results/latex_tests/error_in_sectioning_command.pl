@@ -22,8 +22,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'cmdname' => 'contents',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -66,8 +65,7 @@ $result_trees{'error_in_sectioning_command'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -103,8 +101,7 @@ $result_trees{'error_in_sectioning_command'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -134,8 +131,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -150,8 +146,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -179,8 +174,7 @@ $result_trees{'error_in_sectioning_command'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -210,8 +204,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             },
             {
@@ -226,8 +219,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             },
             {
@@ -264,8 +256,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -286,8 +277,7 @@ $result_trees{'error_in_sectioning_command'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     }
   ],

@@ -26,8 +26,7 @@ $result_trees{'def_in_style_command'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -98,8 +97,7 @@ $result_trees{'def_in_style_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'def_line'
             },
@@ -145,8 +143,7 @@ $result_trees{'def_in_style_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -157,8 +154,7 @@ $result_trees{'def_in_style_command'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         }
       ],
@@ -187,7 +183,6 @@ $result_errors{'def_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   },
@@ -196,7 +191,6 @@ $result_errors{'def_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -205,7 +199,6 @@ $result_errors{'def_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

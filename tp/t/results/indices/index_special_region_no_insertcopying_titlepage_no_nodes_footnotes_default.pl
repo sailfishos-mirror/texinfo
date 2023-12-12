@@ -78,8 +78,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   },
                   'type' => 'index_entry_command'
                 },
@@ -104,8 +103,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 6,
-                    'macro' => ''
+                    'line_nr' => 6
                   }
                 },
                 {
@@ -152,8 +150,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                                'line_nr' => 9,
-                                'macro' => ''
+                                'line_nr' => 9
                               }
                             },
                             {
@@ -211,8 +208,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                                'line_nr' => 12,
-                                'macro' => ''
+                                'line_nr' => 12
                               },
                               'type' => 'index_entry_command'
                             }
@@ -223,8 +219,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'cmdname' => 'footnote',
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -269,8 +264,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 15,
-                    'macro' => ''
+                    'line_nr' => 15
                   }
                 },
                 {
@@ -306,15 +300,13 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 17,
-                    'macro' => ''
+                    'line_nr' => 17
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -374,8 +366,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 21,
-                    'macro' => ''
+                    'line_nr' => 21
                   },
                   'type' => 'index_entry_command'
                 },
@@ -400,8 +391,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 22,
-                    'macro' => ''
+                    'line_nr' => 22
                   }
                 },
                 {
@@ -444,8 +434,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                                'line_nr' => 24,
-                                'macro' => ''
+                                'line_nr' => 24
                               }
                             },
                             {
@@ -500,8 +489,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                                'line_nr' => 27,
-                                'macro' => ''
+                                'line_nr' => 27
                               },
                               'type' => 'index_entry_command'
                             }
@@ -512,8 +500,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'cmdname' => 'footnote',
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 24,
-                        'macro' => ''
+                        'line_nr' => 24
                       }
                     },
                     {
@@ -539,8 +526,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'cmdname' => 'insertcopying',
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 30,
-                    'macro' => ''
+                    'line_nr' => 30
                   }
                 },
                 {
@@ -571,15 +557,13 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
-                    'line_nr' => 31,
-                    'macro' => ''
+                    'line_nr' => 31
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -622,8 +606,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
-        'line_nr' => 33,
-        'macro' => ''
+        'line_nr' => 33
       }
     },
     {
@@ -652,8 +635,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
-        'line_nr' => 34,
-        'macro' => ''
+        'line_nr' => 34
       }
     },
     {
@@ -767,8 +749,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 42,
-            'macro' => ''
+            'line_nr' => 42
           },
           'type' => 'index_entry_command'
         },
@@ -795,8 +776,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 44,
-            'macro' => ''
+            'line_nr' => 44
           },
           'type' => 'index_entry_command'
         },
@@ -818,8 +798,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 45,
-                        'macro' => ''
+                        'line_nr' => 45
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -841,8 +820,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 45,
-                        'macro' => ''
+                        'line_nr' => 45
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -862,8 +840,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 45,
-                'macro' => ''
+                'line_nr' => 45
               },
               'type' => 'def_line'
             },
@@ -882,8 +859,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 46,
-                        'macro' => ''
+                        'line_nr' => 46
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -904,8 +880,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 46,
-                'macro' => ''
+                'line_nr' => 46
               },
               'type' => 'def_line'
             },
@@ -919,8 +894,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 47,
-                        'macro' => ''
+                        'line_nr' => 47
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -937,8 +911,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 47,
-                        'macro' => ''
+                        'line_nr' => 47
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -959,8 +932,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 47,
-                'macro' => ''
+                'line_nr' => 47
               },
               'type' => 'def_line'
             },
@@ -992,15 +964,13 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 48,
-                'macro' => ''
+                'line_nr' => 48
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 45,
-            'macro' => ''
+            'line_nr' => 45
           }
         },
         {
@@ -1045,8 +1015,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'cmdname' => 'item',
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 51,
-                        'macro' => ''
+                        'line_nr' => 51
                       }
                     }
                   ],
@@ -1091,8 +1060,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
-                        'line_nr' => 52,
-                        'macro' => ''
+                        'line_nr' => 52
                       }
                     }
                   ],
@@ -1129,8 +1097,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 53,
-                'macro' => ''
+                'line_nr' => 53
               }
             }
           ],
@@ -1139,8 +1106,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 50,
-            'macro' => ''
+            'line_nr' => 50
           }
         },
         {
@@ -1205,8 +1171,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               ],
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 56,
-                'macro' => ''
+                'line_nr' => 56
               },
               'type' => 'menu_entry'
             },
@@ -1238,15 +1203,13 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 57,
-                'macro' => ''
+                'line_nr' => 57
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 55,
-            'macro' => ''
+            'line_nr' => 55
           }
         },
         {
@@ -1265,8 +1228,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
-        'line_nr' => 35,
-        'macro' => ''
+        'line_nr' => 35
       }
     },
     {
@@ -1299,8 +1261,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
-        'line_nr' => 59,
-        'macro' => ''
+        'line_nr' => 59
       }
     },
     {
@@ -1374,8 +1335,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 64,
-            'macro' => ''
+            'line_nr' => 64
           },
           'type' => 'index_entry_command'
         },
@@ -1417,8 +1377,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 66,
-            'macro' => ''
+            'line_nr' => 66
           },
           'type' => 'index_entry_command'
         },
@@ -1451,8 +1410,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 68,
-                'macro' => ''
+                'line_nr' => 68
               }
             },
             {
@@ -1481,8 +1439,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 69,
-                'macro' => ''
+                'line_nr' => 69
               }
             },
             {
@@ -1521,8 +1478,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 71,
-                'macro' => ''
+                'line_nr' => 71
               }
             },
             {
@@ -1551,8 +1507,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
-                'line_nr' => 72,
-                'macro' => ''
+                'line_nr' => 72
               }
             },
             {
@@ -1612,8 +1567,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 76,
-            'macro' => ''
+            'line_nr' => 76
           }
         },
         {
@@ -1646,8 +1600,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 77,
-            'macro' => ''
+            'line_nr' => 77
           }
         },
         {
@@ -1666,8 +1619,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
-            'line_nr' => 79,
-            'macro' => ''
+            'line_nr' => 79
           }
         }
       ],
@@ -1681,8 +1633,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
-        'line_nr' => 60,
-        'macro' => ''
+        'line_nr' => 60
       }
     },
     {
@@ -1960,7 +1911,6 @@ $result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes_footnot
 ',
     'file_name' => 'index_special_region_no_insertcopying.texi',
     'line_nr' => 44,
-    'macro' => '',
     'text' => '@cindex missing argument',
     'type' => 'warning'
   },
@@ -1969,7 +1919,6 @@ $result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes_footnot
 ',
     'file_name' => 'index_special_region_no_insertcopying.texi',
     'line_nr' => 45,
-    'macro' => '',
     'text' => 'missing name for @deffn',
     'type' => 'warning'
   },
@@ -1978,7 +1927,6 @@ $result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes_footnot
 ',
     'file_name' => 'index_special_region_no_insertcopying.texi',
     'line_nr' => 46,
-    'macro' => '',
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
   },
@@ -1987,7 +1935,6 @@ $result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes_footnot
 ',
     'file_name' => 'index_special_region_no_insertcopying.texi',
     'line_nr' => 47,
-    'macro' => '',
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
   },
@@ -1996,7 +1943,6 @@ $result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes_footnot
 ',
     'file_name' => 'index_special_region_no_insertcopying.texi',
     'line_nr' => 50,
-    'macro' => '',
     'text' => 'missing @ftable argument',
     'type' => 'error'
   },
@@ -2005,7 +1951,6 @@ $result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes_footnot
 ',
     'file_name' => 'index_special_region_no_insertcopying.texi',
     'line_nr' => 51,
-    'macro' => '',
     'text' => '@item missing argument',
     'type' => 'warning'
   }

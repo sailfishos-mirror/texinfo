@@ -20,8 +20,7 @@ $result_trees{'ref_in_sectioning'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -61,8 +60,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -94,8 +92,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -123,8 +120,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -183,8 +179,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -264,8 +259,7 @@ $result_trees{'ref_in_sectioning'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'menu_entry'
             },
@@ -312,8 +306,7 @@ $result_trees{'ref_in_sectioning'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               },
               'type' => 'menu_entry'
             },
@@ -345,15 +338,13 @@ $result_trees{'ref_in_sectioning'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -370,8 +361,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -403,8 +393,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {
@@ -469,8 +458,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             },
             {
@@ -504,8 +492,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     },
     {
@@ -537,8 +524,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 14,
-        'macro' => ''
+        'line_nr' => 14
       }
     },
     {
@@ -567,8 +553,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -602,8 +587,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 15,
-        'macro' => ''
+        'line_nr' => 15
       }
     },
     {
@@ -635,8 +619,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -664,8 +647,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -724,8 +706,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -759,8 +740,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 17,
-        'macro' => ''
+        'line_nr' => 17
       }
     },
     {
@@ -802,8 +782,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -837,8 +816,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 19,
-        'macro' => ''
+        'line_nr' => 19
       }
     },
     {
@@ -863,8 +841,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 21,
-                        'macro' => ''
+                        'line_nr' => 21
                       }
                     }
                   ],
@@ -897,8 +874,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'cmdname' => 'samp',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 21,
-                        'macro' => ''
+                        'line_nr' => 21
                       }
                     }
                   ],
@@ -913,8 +889,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -948,8 +923,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 21,
-        'macro' => ''
+        'line_nr' => 21
       }
     },
     {
@@ -974,8 +948,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 23,
-                        'macro' => ''
+                        'line_nr' => 23
                       }
                     }
                   ],
@@ -1011,8 +984,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -1046,8 +1018,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 23,
-        'macro' => ''
+        'line_nr' => 23
       }
     },
     {
@@ -1100,8 +1071,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
-                'macro' => ''
+                'line_nr' => 25
               }
             },
             {
@@ -1135,8 +1105,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 25,
-        'macro' => ''
+        'line_nr' => 25
       }
     },
     {
@@ -1189,8 +1158,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             },
             {
@@ -1224,8 +1192,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 27,
-        'macro' => ''
+        'line_nr' => 27
       }
     },
     {
@@ -1266,8 +1233,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             },
             {
@@ -1301,8 +1267,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 29,
-        'macro' => ''
+        'line_nr' => 29
       }
     },
     {
@@ -1337,8 +1302,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
-                'macro' => ''
+                'line_nr' => 31
               }
             },
             {
@@ -1372,8 +1336,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 31,
-        'macro' => ''
+        'line_nr' => 31
       }
     },
     {
@@ -1427,8 +1390,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'inforef',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
-                'macro' => ''
+                'line_nr' => 33
               }
             },
             {
@@ -1462,8 +1424,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 33,
-        'macro' => ''
+        'line_nr' => 33
       }
     },
     {
@@ -1524,8 +1485,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 35,
-                'macro' => ''
+                'line_nr' => 35
               }
             },
             {
@@ -1559,8 +1519,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 35,
-        'macro' => ''
+        'line_nr' => 35
       }
     },
     {
@@ -1601,8 +1560,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 37,
-                'macro' => ''
+                'line_nr' => 37
               }
             },
             {
@@ -1636,8 +1594,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 37,
-        'macro' => ''
+        'line_nr' => 37
       }
     },
     {
@@ -1679,8 +1636,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 39,
-                'macro' => ''
+                'line_nr' => 39
               }
             },
             {
@@ -1714,8 +1670,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 39,
-        'macro' => ''
+        'line_nr' => 39
       }
     },
     {
@@ -1745,8 +1700,7 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 41,
-                'macro' => ''
+                'line_nr' => 41
               }
             },
             {
@@ -1780,8 +1734,7 @@ $result_trees{'ref_in_sectioning'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 41,
-        'macro' => ''
+        'line_nr' => 41
       }
     }
   ],
@@ -2241,7 +2194,6 @@ $result_errors{'ref_in_sectioning'} = [
 ',
     'file_name' => '',
     'line_nr' => 33,
-    'macro' => '',
     'text' => '@inforef is obsolete',
     'type' => 'warning'
   },
@@ -2250,7 +2202,6 @@ $result_errors{'ref_in_sectioning'} = [
 ',
     'file_name' => '',
     'line_nr' => 21,
-    'macro' => '',
     'text' => '@ref to `@code{node}\', different from node name `node\'',
     'type' => 'warning'
   }

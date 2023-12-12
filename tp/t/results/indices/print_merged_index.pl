@@ -40,8 +40,7 @@ $result_trees{'print_merged_index'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -76,8 +75,7 @@ $result_trees{'print_merged_index'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -123,8 +121,7 @@ $result_trees{'print_merged_index'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         }
       ],
@@ -140,8 +137,7 @@ $result_trees{'print_merged_index'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     }
   ],
@@ -199,7 +195,6 @@ $result_errors{'print_merged_index'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'printing an index `fn\' merged in another one, `cp\'',
     'type' => 'warning'
   }

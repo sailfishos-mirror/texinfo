@@ -46,8 +46,7 @@ $result_trees{'double_macro_definition'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -57,8 +56,7 @@ $result_trees{'double_macro_definition'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -103,8 +101,7 @@ $result_trees{'double_macro_definition'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -114,8 +111,7 @@ $result_trees{'double_macro_definition'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         }
       ],
@@ -142,7 +138,6 @@ $result_errors{'double_macro_definition'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'macro `foo\' previously defined',
     'type' => 'warning'
   },
@@ -151,7 +146,6 @@ $result_errors{'double_macro_definition'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'here is the previous definition of `foo\'',
     'type' => 'warning'
   }

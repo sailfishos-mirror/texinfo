@@ -42,8 +42,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -63,8 +62,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'w',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -83,8 +81,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'w',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -99,8 +96,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'w',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -115,8 +111,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'w',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -157,15 +152,13 @@ $result_trees{'commands_in_math'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -201,8 +194,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '"',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -222,8 +214,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '"',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -243,8 +234,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '~',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -264,8 +254,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -285,8 +274,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '\'',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -306,8 +294,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '=',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -327,8 +314,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '`',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -348,8 +334,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '\'',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -369,8 +354,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'dotless',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -390,8 +374,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'dotless',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -415,8 +398,7 @@ $result_trees{'commands_in_math'} = {
                       'cmdname' => '=',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 8,
-                        'macro' => ''
+                        'line_nr' => 8
                       }
                     }
                   ],
@@ -426,8 +408,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => '`',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -443,8 +424,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'l',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -468,8 +448,7 @@ $result_trees{'commands_in_math'} = {
                       'cmdname' => '\'',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     }
                   ],
@@ -479,8 +458,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => ',',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -504,8 +482,7 @@ $result_trees{'commands_in_math'} = {
                       'cmdname' => '\'',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     }
                   ],
@@ -515,8 +492,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => ',',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -536,8 +512,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => ',',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -557,8 +532,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'H',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -578,8 +552,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'dotaccent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -599,8 +572,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'ringaccent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -620,8 +592,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'tieaccent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -642,8 +613,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'u',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -663,8 +633,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'ubaraccent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -684,8 +653,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'udotaccent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -705,8 +673,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'v',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -726,8 +693,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'ogonek',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -747,8 +713,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'sup',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -765,8 +730,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'sub',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -862,8 +826,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'today',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -898,15 +861,13 @@ $result_trees{'commands_in_math'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -940,8 +901,7 @@ $result_trees{'commands_in_math'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -962,8 +922,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'U',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               }
             },
             {
@@ -979,8 +938,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'TeX',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -995,8 +953,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'LaTeX',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -1011,8 +968,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'bullet',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -1027,8 +983,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'copyright',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -1043,8 +998,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'dots',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -1059,8 +1013,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'enddots',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -1075,8 +1028,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'equiv',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -1092,8 +1044,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -1108,8 +1059,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'expansion',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -1124,8 +1074,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'minus',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -1140,8 +1089,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'point',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -1156,8 +1104,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'print',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -1172,8 +1119,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'result',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -1189,8 +1135,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'aa',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1205,8 +1150,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'AA',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1221,8 +1165,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'ae',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1237,8 +1180,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'oe',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1253,8 +1195,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'AE',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1269,8 +1210,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'OE',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1285,8 +1225,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'o',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1301,8 +1240,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'O',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1317,8 +1255,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'ss',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1333,8 +1270,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'l',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1349,8 +1285,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'L',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1365,8 +1300,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'DH',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -1382,8 +1316,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'TH',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -1398,8 +1331,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'dh',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -1414,8 +1346,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'th',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -1430,8 +1361,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'exclamdown',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -1446,8 +1376,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'questiondown',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -1462,8 +1391,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'pounds',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -1479,8 +1407,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'registeredsymbol',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -1495,8 +1422,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'ordf',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -1511,8 +1437,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'ordm',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -1527,8 +1452,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'comma',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -1563,15 +1487,13 @@ $result_trees{'commands_in_math'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
-                'macro' => ''
+                'line_nr' => 24
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
-            'macro' => ''
+            'line_nr' => 16
           }
         },
         {
@@ -1602,8 +1524,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'quotedblleft',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             },
             {
@@ -1618,8 +1539,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'quotedblright',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             },
             {
@@ -1635,8 +1555,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'quoteleft',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             },
             {
@@ -1651,8 +1570,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'quoteright',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             },
             {
@@ -1667,8 +1585,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'quotedblbase',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             },
             {
@@ -1683,8 +1600,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'quotesinglbase',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             },
             {
@@ -1699,8 +1615,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'guillemetleft',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             },
             {
@@ -1716,8 +1631,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'guillemetright',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             },
             {
@@ -1732,8 +1646,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'guillemotleft',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             },
             {
@@ -1748,8 +1661,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'guillemotright',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             },
             {
@@ -1764,8 +1676,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'guilsinglleft',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             },
             {
@@ -1781,8 +1692,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'guilsinglright',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1797,8 +1707,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'textdegree',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1813,8 +1722,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'euro',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1829,8 +1737,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'arrow',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1845,8 +1752,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'leq',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1861,8 +1767,7 @@ $result_trees{'commands_in_math'} = {
               'cmdname' => 'geq',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1897,15 +1802,13 @@ $result_trees{'commands_in_math'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
-                'macro' => ''
+                'line_nr' => 31
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 26,
-            'macro' => ''
+            'line_nr' => 26
           }
         }
       ],
@@ -1981,7 +1884,6 @@ $result_errors{'commands_in_math'} = [
 ',
     'file_name' => '',
     'line_nr' => 12,
-    'macro' => '',
     'text' => '@| should only appear in heading or footing',
     'type' => 'error'
   }

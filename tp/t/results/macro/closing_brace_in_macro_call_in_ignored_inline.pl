@@ -51,8 +51,7 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -62,8 +61,7 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -124,8 +122,7 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'source_marks' => [
                 {
@@ -182,8 +179,7 @@ after
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           ],
@@ -222,7 +218,6 @@ $result_errors{'closing_brace_in_macro_call_in_ignored_inline'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@inlinefmt missing closing brace',
     'type' => 'error'
   }

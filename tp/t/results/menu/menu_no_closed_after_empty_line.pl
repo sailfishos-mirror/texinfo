@@ -71,8 +71,7 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'menu_entry'
             },
@@ -99,8 +98,7 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -129,7 +127,6 @@ $result_errors{'menu_no_closed_after_empty_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'no matching `@end menu\'',
     'type' => 'error'
   }

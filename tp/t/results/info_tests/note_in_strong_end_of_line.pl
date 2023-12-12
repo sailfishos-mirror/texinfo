@@ -53,8 +53,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -92,8 +91,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -115,8 +113,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -192,7 +189,6 @@ $result_converted_errors{'info'}->{'note_in_strong_end_of_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
   },
@@ -201,7 +197,6 @@ $result_converted_errors{'info'}->{'note_in_strong_end_of_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
   }

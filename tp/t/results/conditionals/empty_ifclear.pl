@@ -70,15 +70,13 @@ $result_trees{'empty_ifclear'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 5,
-                      'macro' => ''
+                      'line_nr' => 5
                     }
                   }
                 ],
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'ignored_conditional_block'
@@ -104,7 +102,6 @@ $result_errors{'empty_ifclear'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@ifclear requires a name',
     'type' => 'error'
   }

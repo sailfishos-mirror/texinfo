@@ -44,8 +44,7 @@ $result_trees{'ref_in_center'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -81,8 +80,7 @@ $result_trees{'ref_in_center'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -114,8 +112,7 @@ $result_trees{'ref_in_center'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -168,8 +165,7 @@ $result_trees{'ref_in_center'} = {
                   'cmdname' => 'ref',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 }
               ],
@@ -190,8 +186,7 @@ $result_trees{'ref_in_center'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -234,8 +229,7 @@ $result_trees{'ref_in_center'} = {
                   'cmdname' => 'ref',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 }
               ],
@@ -250,8 +244,7 @@ $result_trees{'ref_in_center'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -274,8 +267,7 @@ $result_trees{'ref_in_center'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],
@@ -410,7 +402,6 @@ $result_errors{'ref_in_center'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@ref missing closing brace',
     'type' => 'error'
   },
@@ -419,7 +410,6 @@ $result_errors{'ref_in_center'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

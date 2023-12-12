@@ -132,8 +132,7 @@ $result_trees{'value_expansion_in_include'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     },
     {
@@ -224,8 +223,7 @@ $result_trees{'value_expansion_in_include'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 13,
-                      'macro' => ''
+                      'line_nr' => 13
                     }
                   },
                   'position' => 17,
@@ -249,8 +247,7 @@ $result_trees{'value_expansion_in_include'} = {
               'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => 'incl-incl.txi',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -340,8 +337,7 @@ $result_trees{'value_expansion_in_include'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
-            'macro' => ''
+            'line_nr' => 15
           }
         },
         {
@@ -418,8 +414,7 @@ $result_trees{'value_expansion_in_include'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 18,
-                      'macro' => ''
+                      'line_nr' => 18
                     }
                   },
                   'position' => 18,
@@ -443,8 +438,7 @@ $result_trees{'value_expansion_in_include'} = {
               'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => 'incl-incl.txi',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -534,8 +528,7 @@ $result_trees{'value_expansion_in_include'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 20,
-            'macro' => ''
+            'line_nr' => 20
           }
         },
         {
@@ -610,8 +603,7 @@ $result_trees{'value_expansion_in_include'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 23,
-                      'macro' => ''
+                      'line_nr' => 23
                     }
                   },
                   'position' => 18,
@@ -635,8 +627,7 @@ $result_trees{'value_expansion_in_include'} = {
               'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => 'incl-incl.txi',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -724,8 +715,7 @@ $result_trees{'value_expansion_in_include'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           }
         }
       ],
@@ -740,8 +730,7 @@ $result_trees{'value_expansion_in_include'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     }
   ],
@@ -835,7 +824,6 @@ $result_errors{'value_expansion_in_include'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -844,7 +832,6 @@ $result_errors{'value_expansion_in_include'} = [
 ',
     'file_name' => '',
     'line_nr' => 15,
-    'macro' => '',
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -853,7 +840,6 @@ $result_errors{'value_expansion_in_include'} = [
 ',
     'file_name' => '',
     'line_nr' => 18,
-    'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -862,7 +848,6 @@ $result_errors{'value_expansion_in_include'} = [
 ',
     'file_name' => '',
     'line_nr' => 20,
-    'macro' => '',
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -871,7 +856,6 @@ $result_errors{'value_expansion_in_include'} = [
 ',
     'file_name' => '',
     'line_nr' => 23,
-    'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -880,7 +864,6 @@ $result_errors{'value_expansion_in_include'} = [
 ',
     'file_name' => '',
     'line_nr' => 25,
-    'macro' => '',
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
   }

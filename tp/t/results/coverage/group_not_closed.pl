@@ -40,8 +40,7 @@ $result_trees{'group_not_closed'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -67,7 +66,6 @@ $result_errors{'group_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'no matching `@end group\'',
     'type' => 'error'
   }

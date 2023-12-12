@@ -45,8 +45,7 @@ $result_trees{'section_in_flushright'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -80,8 +79,7 @@ $result_trees{'section_in_flushright'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],
@@ -126,7 +124,6 @@ $result_errors{'section_in_flushright'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@section seen before @end flushright',
     'type' => 'error'
   }

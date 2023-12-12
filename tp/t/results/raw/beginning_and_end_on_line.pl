@@ -60,8 +60,7 @@ $result_trees{'beginning_and_end_on_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -72,8 +71,7 @@ $result_trees{'beginning_and_end_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -127,8 +125,7 @@ $result_trees{'beginning_and_end_on_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -139,8 +136,7 @@ $result_trees{'beginning_and_end_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -194,8 +190,7 @@ $result_trees{'beginning_and_end_on_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -206,8 +201,7 @@ $result_trees{'beginning_and_end_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         }
       ],
@@ -237,7 +231,6 @@ $result_errors{'beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -246,7 +239,6 @@ $result_errors{'beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'unexpected argument on @tex line: in tex',
     'type' => 'warning'
   },
@@ -255,7 +247,6 @@ $result_errors{'beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -264,7 +255,6 @@ $result_errors{'beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'unexpected argument on @verbatim line: in verbatim',
     'type' => 'warning'
   },
@@ -273,7 +263,6 @@ $result_errors{'beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -282,7 +271,6 @@ $result_errors{'beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'unexpected argument on @html line: in html',
     'type' => 'warning'
   }

@@ -44,8 +44,7 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -81,8 +80,7 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -114,8 +112,7 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -144,8 +141,7 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -176,8 +172,7 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -209,8 +204,7 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -235,8 +229,7 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     }
   ],
@@ -376,7 +369,6 @@ $result_errors{'double_recursive_self_section_node_reference'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@ref should not appear on @node line',
     'type' => 'warning'
   },
@@ -385,7 +377,6 @@ $result_errors{'double_recursive_self_section_node_reference'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@ref to `to node1\', different from node name `to @ref{node1}\'',
     'type' => 'warning'
   }
@@ -410,7 +401,6 @@ $result_converted_errors{'plaintext'}->{'double_recursive_self_section_node_refe
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@ref node name should not contain `:\'',
     'type' => 'warning'
   }

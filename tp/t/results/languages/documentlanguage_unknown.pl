@@ -239,8 +239,7 @@ $result_trees{'documentlanguage_unknown'} = {
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -283,8 +282,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 24,
-        'macro' => ''
+        'line_nr' => 24
       }
     },
     {
@@ -320,8 +318,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 25,
-        'macro' => ''
+        'line_nr' => 25
       }
     },
     {
@@ -354,8 +351,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 27,
-        'macro' => ''
+        'line_nr' => 27
       }
     },
     {
@@ -406,8 +402,7 @@ $result_trees{'documentlanguage_unknown'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -557,8 +552,7 @@ $result_trees{'documentlanguage_unknown'} = {
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 32,
-                'macro' => ''
+                'line_nr' => 32
               },
               'type' => 'def_line'
             },
@@ -604,8 +598,7 @@ $result_trees{'documentlanguage_unknown'} = {
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               }
             }
           ],
@@ -616,8 +609,7 @@ $result_trees{'documentlanguage_unknown'} = {
           },
           'source_info' => {
             'file_name' => 'documentlanguage.texi',
-            'line_nr' => 32,
-            'macro' => ''
+            'line_nr' => 32
           }
         },
         {
@@ -655,8 +647,7 @@ $result_trees{'documentlanguage_unknown'} = {
           },
           'source_info' => {
             'file_name' => 'documentlanguage.texi',
-            'line_nr' => 36,
-            'macro' => ''
+            'line_nr' => 36
           }
         },
         {
@@ -675,8 +666,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 28,
-        'macro' => ''
+        'line_nr' => 28
       }
     },
     {

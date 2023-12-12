@@ -39,8 +39,7 @@ $result_trees{'combined_fonts'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -83,8 +82,7 @@ $result_trees{'combined_fonts'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -120,8 +118,7 @@ $result_trees{'combined_fonts'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -153,8 +150,7 @@ $result_trees{'combined_fonts'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -197,8 +193,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -218,8 +213,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'dfn',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -239,8 +233,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'var',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -260,8 +253,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -281,8 +273,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'kbd',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -302,8 +293,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -338,8 +328,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'dfn',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
-                        'macro' => ''
+                        'line_nr' => 11
                       }
                     }
                   ],
@@ -349,8 +338,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             },
             {
@@ -375,8 +363,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 12,
-                        'macro' => ''
+                        'line_nr' => 12
                       }
                     }
                   ],
@@ -386,8 +373,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'var',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             },
             {
@@ -412,8 +398,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'var',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 13,
-                        'macro' => ''
+                        'line_nr' => 13
                       }
                     }
                   ],
@@ -423,8 +408,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -449,8 +433,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'kbd',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 14,
-                        'macro' => ''
+                        'line_nr' => 14
                       }
                     }
                   ],
@@ -460,8 +443,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             },
             {
@@ -486,8 +468,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'strong',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
-                        'macro' => ''
+                        'line_nr' => 15
                       }
                     }
                   ],
@@ -497,8 +478,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -523,8 +503,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'samp',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 16,
-                        'macro' => ''
+                        'line_nr' => 16
                       }
                     }
                   ],
@@ -534,8 +513,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'strong',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             },
             {
@@ -566,8 +544,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'cite',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               }
             },
             {
@@ -602,8 +579,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'cite',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 20,
-                        'macro' => ''
+                        'line_nr' => 20
                       }
                     }
                   ],
@@ -613,8 +589,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -639,8 +614,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 21,
-                        'macro' => ''
+                        'line_nr' => 21
                       }
                     }
                   ],
@@ -650,8 +624,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'cite',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -682,8 +655,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -703,8 +675,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'slanted',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -724,8 +695,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'b',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -745,8 +715,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 't',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -781,8 +750,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'slanted',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 25,
-                        'macro' => ''
+                        'line_nr' => 25
                       }
                     }
                   ],
@@ -792,8 +760,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
-                'macro' => ''
+                'line_nr' => 25
               }
             },
             {
@@ -818,8 +785,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 26,
-                        'macro' => ''
+                        'line_nr' => 26
                       }
                     }
                   ],
@@ -829,8 +795,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'slanted',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               }
             },
             {
@@ -855,8 +820,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'slanted',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 27,
-                        'macro' => ''
+                        'line_nr' => 27
                       }
                     }
                   ],
@@ -866,8 +830,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'b',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             },
             {
@@ -892,8 +855,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'b',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 28,
-                        'macro' => ''
+                        'line_nr' => 28
                       }
                     }
                   ],
@@ -903,8 +865,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'slanted',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             },
             {
@@ -929,8 +890,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'slanted',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 29,
-                        'macro' => ''
+                        'line_nr' => 29
                       }
                     }
                   ],
@@ -940,8 +900,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 't',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             },
             {
@@ -966,8 +925,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 't',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 30,
-                        'macro' => ''
+                        'line_nr' => 30
                       }
                     }
                   ],
@@ -977,8 +935,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'slanted',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             },
             {
@@ -1003,8 +960,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 'var',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 31,
-                        'macro' => ''
+                        'line_nr' => 31
                       }
                     }
                   ],
@@ -1014,8 +970,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 't',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
-                'macro' => ''
+                'line_nr' => 31
               }
             },
             {
@@ -1040,8 +995,7 @@ $result_trees{'combined_fonts'} = {
                       'cmdname' => 't',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 32,
-                        'macro' => ''
+                        'line_nr' => 32
                       }
                     }
                   ],
@@ -1051,8 +1005,7 @@ $result_trees{'combined_fonts'} = {
               'cmdname' => 'var',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 32,
-                'macro' => ''
+                'line_nr' => 32
               }
             },
             {
@@ -1097,8 +1050,7 @@ $result_trees{'combined_fonts'} = {
                   'cmdname' => 'var',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 35,
-                    'macro' => ''
+                    'line_nr' => 35
                   }
                 },
                 {
@@ -1119,8 +1071,7 @@ $result_trees{'combined_fonts'} = {
                   'cmdname' => 'cite',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 36,
-                    'macro' => ''
+                    'line_nr' => 36
                   }
                 },
                 {
@@ -1158,15 +1109,13 @@ $result_trees{'combined_fonts'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 37,
-                'macro' => ''
+                'line_nr' => 37
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 34,
-            'macro' => ''
+            'line_nr' => 34
           }
         }
       ],
@@ -1180,8 +1129,7 @@ $result_trees{'combined_fonts'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     }
   ],

@@ -45,8 +45,7 @@ $result_trees{'setfilename'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -77,8 +76,7 @@ $result_trees{'setfilename'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -118,8 +116,7 @@ $result_trees{'setfilename'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -147,8 +144,7 @@ $result_trees{'setfilename'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     },
                     {
@@ -172,8 +168,7 @@ $result_trees{'setfilename'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -208,7 +203,6 @@ $result_errors{'setfilename'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'multiple @setfilename',
     'type' => 'warning'
   },
@@ -217,7 +211,6 @@ $result_errors{'setfilename'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'multiple @setfilename',
     'type' => 'warning'
   },
@@ -226,7 +219,6 @@ $result_errors{'setfilename'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'multiple @setfilename',
     'type' => 'warning'
   },
@@ -235,7 +227,6 @@ $result_errors{'setfilename'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@verb should not appear in @setfilename',
     'type' => 'warning'
   },
@@ -244,7 +235,6 @@ $result_errors{'setfilename'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'bad argument to @setfilename: @ @verb{: name :}@',
     'type' => 'error'
   }

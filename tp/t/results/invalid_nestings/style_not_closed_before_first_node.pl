@@ -31,8 +31,7 @@ $result_trees{'style_not_closed_before_first_node'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -81,8 +80,7 @@ $result_trees{'style_not_closed_before_first_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     }
   ],
@@ -124,7 +122,6 @@ $result_errors{'style_not_closed_before_first_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   }

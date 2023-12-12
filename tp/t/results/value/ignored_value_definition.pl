@@ -61,8 +61,7 @@ $result_trees{'ignored_value_definition'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {

@@ -91,8 +91,7 @@ $result_trees{'top_node_no_menu_direction'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -139,8 +138,7 @@ $result_trees{'top_node_no_menu_direction'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -172,15 +170,13 @@ $result_trees{'top_node_no_menu_direction'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -200,8 +196,7 @@ $result_trees{'top_node_no_menu_direction'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -268,8 +263,7 @@ $result_trees{'top_node_no_menu_direction'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     }
   ],
@@ -356,7 +350,6 @@ $result_errors{'top_node_no_menu_direction'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'Prev pointer `top\' (for node `chap node\') different from node name `Top\'',
     'type' => 'warning'
   },
@@ -365,7 +358,6 @@ $result_errors{'top_node_no_menu_direction'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'Up pointer `TOP\' (for node `chap node\') different from node name `Top\'',
     'type' => 'warning'
   },
@@ -374,7 +366,6 @@ $result_errors{'top_node_no_menu_direction'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@menu entry node name `TOP\' different from node name `Top\'',
     'type' => 'warning'
   }

@@ -55,8 +55,7 @@ $result_trees{'group_beginning_and_end_on_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -67,8 +66,7 @@ $result_trees{'group_beginning_and_end_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -90,7 +88,6 @@ $result_errors{'group_beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -99,7 +96,6 @@ $result_errors{'group_beginning_and_end_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unexpected argument on @group line: within',
     'type' => 'warning'
   }

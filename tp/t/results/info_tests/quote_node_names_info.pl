@@ -44,8 +44,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -104,8 +103,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -147,8 +145,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -200,8 +197,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             },
             {
@@ -243,8 +239,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -296,8 +291,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -339,8 +333,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             },
             {
@@ -379,8 +372,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -415,8 +407,7 @@ $result_trees{'quote_node_names_info'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 15,
-                        'macro' => ''
+                        'line_nr' => 15
                       }
                     }
                   ],
@@ -434,8 +425,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -477,8 +467,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -538,8 +527,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -599,8 +587,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -675,8 +662,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             },
             {
@@ -751,8 +737,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 25,
-                'macro' => ''
+                'line_nr' => 25
               }
             },
             {
@@ -832,8 +817,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             },
             {
@@ -913,8 +897,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             },
             {
@@ -994,8 +977,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 31,
-                'macro' => ''
+                'line_nr' => 31
               }
             },
             {
@@ -1049,8 +1031,7 @@ $result_trees{'quote_node_names_info'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 34,
-                        'macro' => ''
+                        'line_nr' => 34
                       }
                     },
                     {
@@ -1090,8 +1071,7 @@ $result_trees{'quote_node_names_info'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               },
               'type' => 'menu_entry'
             },
@@ -1132,8 +1112,7 @@ $result_trees{'quote_node_names_info'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 35,
-                        'macro' => ''
+                        'line_nr' => 35
                       }
                     },
                     {
@@ -1173,8 +1152,7 @@ $result_trees{'quote_node_names_info'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 35,
-                'macro' => ''
+                'line_nr' => 35
               },
               'type' => 'menu_entry'
             },
@@ -1221,8 +1199,7 @@ $result_trees{'quote_node_names_info'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 36,
-                'macro' => ''
+                'line_nr' => 36
               },
               'type' => 'menu_entry'
             },
@@ -1251,8 +1228,7 @@ $result_trees{'quote_node_names_info'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 37,
-                        'macro' => ''
+                        'line_nr' => 37
                       }
                     },
                     {
@@ -1281,8 +1257,7 @@ $result_trees{'quote_node_names_info'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 37,
-                        'macro' => ''
+                        'line_nr' => 37
                       }
                     }
                   ],
@@ -1317,8 +1292,7 @@ $result_trees{'quote_node_names_info'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 37,
-                'macro' => ''
+                'line_nr' => 37
               },
               'type' => 'menu_entry'
             },
@@ -1368,8 +1342,7 @@ $result_trees{'quote_node_names_info'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 38,
-                'macro' => ''
+                'line_nr' => 38
               },
               'type' => 'menu_entry'
             },
@@ -1416,15 +1389,13 @@ $result_trees{'quote_node_names_info'} = {
               },
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 40,
-                'macro' => ''
+                'line_nr' => 40
               }
             }
           ],
           'source_info' => {
             'file_name' => 'nodequote.texi',
-            'line_nr' => 33,
-            'macro' => ''
+            'line_nr' => 33
           }
         },
         {
@@ -1436,8 +1407,7 @@ $result_trees{'quote_node_names_info'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -1469,8 +1439,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 42,
-        'macro' => ''
+        'line_nr' => 42
       }
     },
     {
@@ -1522,8 +1491,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 43,
-        'macro' => ''
+        'line_nr' => 43
       }
     },
     {
@@ -1555,8 +1523,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 47,
-        'macro' => ''
+        'line_nr' => 47
       }
     },
     {
@@ -1594,8 +1561,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 48,
-        'macro' => ''
+        'line_nr' => 48
       }
     },
     {
@@ -1625,8 +1591,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'comma',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 50,
-                'macro' => ''
+                'line_nr' => 50
               }
             },
             {
@@ -1684,8 +1649,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'comma',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 50,
-                'macro' => ''
+                'line_nr' => 50
               }
             },
             {
@@ -1766,8 +1730,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 50,
-        'macro' => ''
+        'line_nr' => 50
       }
     },
     {
@@ -1805,8 +1768,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 51,
-        'macro' => ''
+        'line_nr' => 51
       }
     },
     {
@@ -1827,8 +1789,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'asis',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 53,
-                'macro' => ''
+                'line_nr' => 53
               }
             }
           ],
@@ -1853,8 +1814,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 53,
-        'macro' => ''
+        'line_nr' => 53
       }
     },
     {
@@ -1875,8 +1835,7 @@ $result_trees{'quote_node_names_info'} = {
               'cmdname' => 'asis',
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 54,
-                'macro' => ''
+                'line_nr' => 54
               }
             }
           ],
@@ -1907,8 +1866,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 54,
-        'macro' => ''
+        'line_nr' => 54
       }
     },
     {
@@ -1956,8 +1914,7 @@ $result_trees{'quote_node_names_info'} = {
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 56,
-        'macro' => ''
+        'line_nr' => 56
       }
     }
   ],
@@ -2425,7 +2382,6 @@ $result_errors{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 34,
-    'macro' => '',
     'text' => '@menu entry node name `blah@asis{:}blah\' different from node name `blah:blah\'',
     'type' => 'warning'
   },
@@ -2434,7 +2390,6 @@ $result_errors{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 35,
-    'macro' => '',
     'text' => '@menu entry node name `blumpty@asis{.}fump\' different from node name `blumpty.fump\'',
     'type' => 'warning'
   },
@@ -2444,7 +2399,6 @@ $result_errors{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 38,
-    'macro' => '',
     'text' => '@menu reference to nonexistent node `u.al)ext::
 \'',
     'type' => 'error'
@@ -2454,7 +2408,6 @@ $result_errors{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 56,
-    'macro' => '',
     'text' => 'node `top secret node\' unreferenced',
     'type' => 'warning'
   }
@@ -2470,7 +2423,6 @@ $result_converted_errors{'file_info'}->{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '`.\' or `,\' must follow @xref',
     'type' => 'warning'
   },
@@ -2479,7 +2431,6 @@ $result_converted_errors{'file_info'}->{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '`.\' or `,\' must follow @xref',
     'type' => 'warning'
   },
@@ -2488,7 +2439,6 @@ $result_converted_errors{'file_info'}->{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '`.\' or `,\' must follow @xref',
     'type' => 'warning'
   },
@@ -2497,7 +2447,6 @@ $result_converted_errors{'file_info'}->{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '`.\' or `,\' must follow @xref',
     'type' => 'warning'
   },
@@ -2506,7 +2455,6 @@ $result_converted_errors{'file_info'}->{'quote_node_names_info'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 10,
-    'macro' => '',
     'text' => '`.\' or `,\' must follow @xref',
     'type' => 'warning'
   }

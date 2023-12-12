@@ -56,8 +56,7 @@ $result_trees{'text_on_display_command_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -68,8 +67,7 @@ $result_trees{'text_on_display_command_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -133,8 +131,7 @@ $result_trees{'text_on_display_command_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -145,8 +142,7 @@ $result_trees{'text_on_display_command_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -205,15 +201,13 @@ $result_trees{'text_on_display_command_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -277,15 +271,13 @@ $result_trees{'text_on_display_command_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
-                    'macro' => ''
+                    'line_nr' => 14
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -316,15 +308,13 @@ $result_trees{'text_on_display_command_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
-            'macro' => ''
+            'line_nr' => 12
           }
         }
       ],
@@ -365,7 +355,6 @@ $result_errors{'text_on_display_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unexpected argument on @display line: text on line',
     'type' => 'warning'
   },
@@ -374,7 +363,6 @@ $result_errors{'text_on_display_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'unexpected argument on @display line: text on line followed by text',
     'type' => 'warning'
   },
@@ -383,7 +371,6 @@ $result_errors{'text_on_display_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'bad argument to @end: display text after end',
     'type' => 'error'
   },
@@ -392,7 +379,6 @@ $result_errors{'text_on_display_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 14,
-    'macro' => '',
     'text' => 'bad argument to @end: display text after end display nested in display',
     'type' => 'error'
   }

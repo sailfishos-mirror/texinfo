@@ -91,8 +91,7 @@ $result_trees{'unknown_node_in_menu'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -124,15 +123,13 @@ $result_trees{'unknown_node_in_menu'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         }
       ],
@@ -147,8 +144,7 @@ $result_trees{'unknown_node_in_menu'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -194,7 +190,6 @@ $result_errors{'unknown_node_in_menu'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@menu reference to nonexistent node `unknown\'',
     'type' => 'error'
   }

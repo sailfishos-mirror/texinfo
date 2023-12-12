@@ -33,15 +33,13 @@ $result_trees{'on_block_command_line'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -62,8 +60,7 @@ $result_trees{'on_block_command_line'} = {
                   'cmdname' => 'titlefont',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -103,8 +100,7 @@ $result_trees{'on_block_command_line'} = {
                           'cmdname' => 'titlefont',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 2,
-                            'macro' => ''
+                            'line_nr' => 2
                           }
                         },
                         {
@@ -117,8 +113,7 @@ $result_trees{'on_block_command_line'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -158,8 +153,7 @@ $result_trees{'on_block_command_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -173,8 +167,7 @@ $result_trees{'on_block_command_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -190,8 +183,7 @@ $result_trees{'on_block_command_line'} = {
                   'cmdname' => 'indent',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 },
                 {
@@ -212,8 +204,7 @@ $result_trees{'on_block_command_line'} = {
                   'cmdname' => 'titlefont',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 },
                 {
@@ -237,8 +228,7 @@ $result_trees{'on_block_command_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 },
                 {
@@ -260,8 +250,7 @@ $result_trees{'on_block_command_line'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 },
                 {
@@ -292,8 +281,7 @@ $result_trees{'on_block_command_line'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 }
               ],
@@ -330,8 +318,7 @@ $result_trees{'on_block_command_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -342,8 +329,7 @@ $result_trees{'on_block_command_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         }
       ],
@@ -373,7 +359,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@anchor should not appear on @multitable line',
     'type' => 'warning'
   },
@@ -382,7 +367,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@titlefont should not appear on @multitable line',
     'type' => 'warning'
   },
@@ -391,7 +375,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unexpected argument on @multitable line: @titlefont{in titlefont}',
     'type' => 'warning'
   },
@@ -400,7 +383,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@indent should not appear on @quotation line',
     'type' => 'warning'
   },
@@ -409,7 +391,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@titlefont should not appear on @quotation line',
     'type' => 'warning'
   },
@@ -418,7 +399,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@anchor should not appear on @quotation line',
     'type' => 'warning'
   },
@@ -427,7 +407,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@footnote should not appear on @quotation line',
     'type' => 'warning'
   },
@@ -436,7 +415,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -445,7 +423,6 @@ $result_errors{'on_block_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@exdent should not appear on @quotation line',
     'type' => 'warning'
   }

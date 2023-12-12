@@ -28,8 +28,7 @@ $result_trees{'punctuation_in_sc'} = {
               'cmdname' => 'sc',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -49,8 +48,7 @@ $result_trees{'punctuation_in_sc'} = {
               'cmdname' => 'sc',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {

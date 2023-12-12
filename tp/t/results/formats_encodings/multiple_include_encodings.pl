@@ -50,8 +50,7 @@ $result_trees{'multiple_include_encodings'} = {
               },
               'source_info' => {
                 'file_name' => 'multiple_include_encodings.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -110,15 +109,13 @@ $result_trees{'multiple_include_encodings'} = {
                   },
                   'source_info' => {
                     'file_name' => 'multiple_include_encodings.texi',
-                    'line_nr' => 6,
-                    'macro' => ''
+                    'line_nr' => 6
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'multiple_include_encodings.texi',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -153,8 +150,7 @@ $result_trees{'multiple_include_encodings'} = {
                     },
                     'source_info' => {
                       'file_name' => 'multiple_include_encodings.texi',
-                      'line_nr' => 8,
-                      'macro' => ''
+                      'line_nr' => 8
                     }
                   },
                   'position' => 1,
@@ -195,8 +191,7 @@ $result_trees{'multiple_include_encodings'} = {
               },
               'source_info' => {
                 'file_name' => 'documentdescription_EUC_CN.texi',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -255,15 +250,13 @@ $result_trees{'multiple_include_encodings'} = {
                   },
                   'source_info' => {
                     'file_name' => 'documentdescription_EUC_CN.texi',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'documentdescription_EUC_CN.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               },
               'source_marks' => [
                 {
@@ -307,8 +300,7 @@ $result_trees{'multiple_include_encodings'} = {
               },
               'source_info' => {
                 'file_name' => 'multiple_include_encodings.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             },
             {
@@ -351,8 +343,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'multiple_include_encodings.texi',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     },
     {
@@ -406,8 +397,7 @@ $result_trees{'multiple_include_encodings'} = {
                 },
                 'source_info' => {
                   'file_name' => 'multiple_include_encodings.texi',
-                  'line_nr' => 15,
-                  'macro' => ''
+                  'line_nr' => 15
                 }
               },
               'position' => 1,
@@ -450,8 +440,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'multiple_include_encodings.texi',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     {
@@ -483,8 +472,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'multiple_include_encodings.texi',
-        'line_nr' => 17,
-        'macro' => ''
+        'line_nr' => 17
       }
     },
     {
@@ -538,8 +526,7 @@ $result_trees{'multiple_include_encodings'} = {
                 },
                 'source_info' => {
                   'file_name' => 'multiple_include_encodings.texi',
-                  'line_nr' => 20,
-                  'macro' => ''
+                  'line_nr' => 20
                 }
               },
               'position' => 1,
@@ -580,8 +567,7 @@ $result_trees{'multiple_include_encodings'} = {
           },
           'source_info' => {
             'file_name' => 'chapter_japanese_shift_jis.texi',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -612,8 +598,7 @@ $result_trees{'multiple_include_encodings'} = {
           },
           'source_info' => {
             'file_name' => 'chapter_japanese_shift_jis.texi',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -637,8 +622,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'multiple_include_encodings.texi',
-        'line_nr' => 18,
-        'macro' => ''
+        'line_nr' => 18
       }
     },
     {
@@ -670,8 +654,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_japanese_shift_jis.texi',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -742,8 +725,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_japanese_shift_jis.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -775,8 +757,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_japanese_shift_jis.texi',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     {
@@ -857,8 +838,7 @@ $result_trees{'multiple_include_encodings'} = {
                 },
                 'source_info' => {
                   'file_name' => 'multiple_include_encodings.texi',
-                  'line_nr' => 22,
-                  'macro' => ''
+                  'line_nr' => 22
                 }
               },
               'position' => 1,
@@ -899,8 +879,7 @@ $result_trees{'multiple_include_encodings'} = {
           },
           'source_info' => {
             'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -919,8 +898,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_japanese_shift_jis.texi',
-        'line_nr' => 14,
-        'macro' => ''
+        'line_nr' => 14
       }
     },
     {
@@ -953,8 +931,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -1005,8 +982,7 @@ $result_trees{'multiple_include_encodings'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -1051,8 +1027,7 @@ $result_trees{'multiple_include_encodings'} = {
           },
           'source_info' => {
             'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -1127,8 +1102,7 @@ $result_trees{'multiple_include_encodings'} = {
               ],
               'source_info' => {
                 'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               },
               'type' => 'menu_entry'
             },
@@ -1160,15 +1134,13 @@ $result_trees{'multiple_include_encodings'} = {
               },
               'source_info' => {
                 'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
           'source_info' => {
             'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -1187,8 +1159,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -1220,8 +1191,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-        'line_nr' => 15,
-        'macro' => ''
+        'line_nr' => 15
       }
     },
     {
@@ -1281,8 +1251,7 @@ $result_trees{'multiple_include_encodings'} = {
           },
           'source_info' => {
             'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           },
           'type' => 'index_entry_command'
         },
@@ -1331,8 +1300,7 @@ $result_trees{'multiple_include_encodings'} = {
                 },
                 'source_info' => {
                   'file_name' => 'multiple_include_encodings.texi',
-                  'line_nr' => 24,
-                  'macro' => ''
+                  'line_nr' => 24
                 }
               },
               'position' => 1,
@@ -1373,8 +1341,7 @@ $result_trees{'multiple_include_encodings'} = {
           },
           'source_info' => {
             'file_name' => 'chapter_chinese_mixed_with_en_EUC_CN.texi',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -1393,8 +1360,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
-        'line_nr' => 16,
-        'macro' => ''
+        'line_nr' => 16
       }
     },
     {
@@ -1426,8 +1392,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_chinese_mixed_with_en_EUC_CN.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -1676,8 +1641,7 @@ $result_trees{'multiple_include_encodings'} = {
                 },
                 'source_info' => {
                   'file_name' => 'multiple_include_encodings.texi',
-                  'line_nr' => 29,
-                  'macro' => ''
+                  'line_nr' => 29
                 }
               },
               'position' => 1,
@@ -1718,8 +1682,7 @@ $result_trees{'multiple_include_encodings'} = {
           },
           'source_info' => {
             'file_name' => 'chapter_chinese_mixed_with_en.texi',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -1738,8 +1701,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_chinese_mixed_with_en_EUC_CN.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -1771,8 +1733,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_chinese_mixed_with_en.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -1977,8 +1938,7 @@ $result_trees{'multiple_include_encodings'} = {
       },
       'source_info' => {
         'file_name' => 'chapter_chinese_mixed_with_en.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -2670,7 +2630,6 @@ $result_errors{'multiple_include_encodings'} = [
 ',
     'file_name' => 'documentdescription_EUC_CN.texi',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'encoding `EUC-CN\' is not a canonical texinfo encoding',
     'type' => 'warning'
   },
@@ -2679,7 +2638,6 @@ $result_errors{'multiple_include_encodings'} = [
 ',
     'file_name' => 'chapter_japanese_shift_jis.texi',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'encoding `shift_jis\' is not a canonical texinfo encoding',
     'type' => 'warning'
   },
@@ -2688,7 +2646,6 @@ $result_errors{'multiple_include_encodings'} = [
 ',
     'file_name' => 'chapter_chinese_mixed_with_en_EUC_CN.texi',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'encoding `EUC-CN\' is not a canonical texinfo encoding',
     'type' => 'warning'
   }

@@ -720,20 +720,21 @@ sub _input_push_text($$$;$$)
   if (not $self->{'input'}) {
     $self->{'input'} = [];
   }
-  my $input_source_info = {'line_nr' => $line_nr, 'macro' => '',
-                           'file_name' => ''};
+  my $input_source_info = {'line_nr' => $line_nr, 'file_name' => ''};
   if (scalar(@{$self->{'input'}})) {
     $input_source_info->{'file_name'}
       = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
     # context macro expansion
-    $input_source_info->{'macro'}
-      = $self->{'input'}->[0]->{'input_source_info'}->{'macro'};
+    if (exists($self->{'input'}->[0]->{'input_source_info'}->{'macro'})) {
+      $input_source_info->{'macro'}
+        = $self->{'input'}->[0]->{'input_source_info'}->{'macro'};
+    }
   }
   if (defined($macro_name) and $macro_name ne '') {
     # new macro expansion
     $input_source_info->{'macro'} = $macro_name;
   }
-  if (not defined($value_name) and $input_source_info->{'macro'} eq '') {
+  if (not defined($value_name) and not defined($input_source_info->{'macro'})) {
     # this counteracts the increment that would follow from the next
     # call to _next_text.
     $input_source_info->{'line_nr'} -= 1;
@@ -755,7 +756,7 @@ sub _input_pushback_text($$;$)
                           $self->{'input'}->[0]->{'input_source_info'});
     unshift @{$self->{'input'}}, $text_input;
     $text_input->{'input_source_info'}->{'line_nr'} -= 1
-      unless($text_input->{'input_source_info'}->{'macro'} ne '');
+      unless(defined($text_input->{'input_source_info'}->{'macro'}));
   }
 }
 
@@ -852,7 +853,6 @@ sub _input_push_file
           # binary
           'file_name' => $file_name,
           'line_nr' => 0,
-          'macro' => '',
        },
        'fh' => $filehandle,
        'input_file_path' => $input_file_path,
@@ -1100,7 +1100,7 @@ sub _bug_message($$;$$)
     my $file = $source_info->{'file_name'};
     $line_message
       = "last location: $source_info->{'file_name'}:$source_info->{'line_nr'}";
-    if ($source_info->{'macro'} ne '') {
+    if (defined($source_info->{'macro'})) {
       $line_message .= " (possibly involving $source_info->{'macro'})";
     }
     $line_message .= "\n";
@@ -2366,7 +2366,7 @@ sub _next_text($;$)
         # need to decode to characters
         $next_line = Encode::decode('utf-8', $next_line);
         $input->{'input_source_info'}->{'line_nr'} += 1
-          unless ($input->{'input_source_info'}->{'macro'} ne ''
+          unless (defined($input->{'input_source_info'}->{'macro'})
                   or defined($input->{'value_flag'}));
         return ($next_line, { %{$input->{'input_source_info'}} });
       }
@@ -4770,7 +4770,7 @@ sub _check_line_directive {
   if ($self->{'CPP_LINE_DIRECTIVES'}
       and defined($source_info->{'file_name'})
       and $source_info->{'file_name'} ne ''
-      and !$source_info->{'macro'}
+      and !defined($source_info->{'macro'})
       and $line =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/) {
     _save_line_directive($self, int($2), $5);
     return 1;
@@ -7323,7 +7323,10 @@ sub _parse_texi($$$)
       my $additional_debug = '';
       if (0) {
         my $source_info_text = '';
-        $source_info_text = "$source_info->{'line_nr'}.$source_info->{'macro'}"
+        my $macro_name = '';
+        $macro_name = $source_info->{'macro'}
+                       if (defined($source_info->{'macro'}));
+        $source_info_text = "$source_info->{'line_nr'}.$macro_name"
           if ($source_info);
         my @cond_commands = map {$_->[0]} @{$self->{'conditional_stack'}};
         $additional_debug = '('.join('|', $self->_get_context_stack())

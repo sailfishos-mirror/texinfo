@@ -21,8 +21,7 @@ $result_trees{'empty_images'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -88,8 +87,7 @@ $result_trees{'empty_images'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -127,8 +125,7 @@ $result_trees{'empty_images'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -161,8 +158,7 @@ $result_trees{'empty_images'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -199,7 +195,6 @@ $result_errors{'empty_images'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image missing filename argument',
     'type' => 'error'
   },
@@ -208,7 +203,6 @@ $result_errors{'empty_images'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@image missing filename argument',
     'type' => 'error'
   },
@@ -217,7 +211,6 @@ $result_errors{'empty_images'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@image missing filename argument',
     'type' => 'error'
   },
@@ -226,7 +219,6 @@ $result_errors{'empty_images'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@image missing filename argument',
     'type' => 'error'
   }

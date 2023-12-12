@@ -44,8 +44,7 @@ $result_trees{'empty_second_email_argument'} = {
               'cmdname' => 'email',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],

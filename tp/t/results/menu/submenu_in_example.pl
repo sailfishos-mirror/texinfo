@@ -142,15 +142,13 @@ $result_trees{'submenu_in_example'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
-                        'macro' => ''
+                        'line_nr' => 11
                       }
                     }
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 10,
-                    'macro' => ''
+                    'line_nr' => 10
                   }
                 },
                 {
@@ -224,15 +222,13 @@ $result_trees{'submenu_in_example'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
-                        'macro' => ''
+                        'line_nr' => 15
                       }
                     }
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   }
                 },
                 {
@@ -317,15 +313,13 @@ $result_trees{'submenu_in_example'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 20,
-                                'macro' => ''
+                                'line_nr' => 20
                               }
                             }
                           ],
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 18,
-                            'macro' => ''
+                            'line_nr' => 18
                           }
                         }
                       ],
@@ -359,15 +353,13 @@ $result_trees{'submenu_in_example'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 21,
-                        'macro' => ''
+                        'line_nr' => 21
                       }
                     }
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 17,
-                    'macro' => ''
+                    'line_nr' => 17
                   }
                 },
                 {
@@ -407,8 +399,7 @@ $result_trees{'submenu_in_example'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 23,
-                        'macro' => ''
+                        'line_nr' => 23
                       }
                     },
                     {
@@ -457,8 +448,7 @@ $result_trees{'submenu_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 26,
-                            'macro' => ''
+                            'line_nr' => 26
                           }
                         },
                         {
@@ -489,8 +479,7 @@ $result_trees{'submenu_in_example'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 27,
-                            'macro' => ''
+                            'line_nr' => 27
                           }
                         }
                       ],
@@ -499,8 +488,7 @@ $result_trees{'submenu_in_example'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 25,
-                        'macro' => ''
+                        'line_nr' => 25
                       }
                     },
                     {
@@ -544,15 +532,13 @@ $result_trees{'submenu_in_example'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 29,
-                    'macro' => ''
+                    'line_nr' => 29
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             },
             {
@@ -583,15 +569,13 @@ $result_trees{'submenu_in_example'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         }
       ],
@@ -606,8 +590,7 @@ $result_trees{'submenu_in_example'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -688,7 +671,6 @@ $result_errors{'submenu_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@menu in invalid context',
     'type' => 'warning'
   },
@@ -697,7 +679,6 @@ $result_errors{'submenu_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => '@menu in invalid context',
     'type' => 'warning'
   },
@@ -706,7 +687,6 @@ $result_errors{'submenu_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => '@menu in invalid context',
     'type' => 'warning'
   },
@@ -715,7 +695,6 @@ $result_errors{'submenu_in_example'} = [
 ',
     'file_name' => '',
     'line_nr' => 17,
-    'macro' => '',
     'text' => '@menu in invalid context',
     'type' => 'warning'
   }

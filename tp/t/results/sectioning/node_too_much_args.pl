@@ -75,8 +75,7 @@ $result_trees{'node_too_much_args'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -120,7 +119,6 @@ $result_errors{'node_too_much_args'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'superfluous arguments for node',
     'type' => 'warning'
   }

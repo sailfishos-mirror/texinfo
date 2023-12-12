@@ -17,8 +17,7 @@ $result_trees{'section_in_table'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
                 }
@@ -63,8 +62,7 @@ $result_trees{'section_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -94,8 +92,7 @@ $result_trees{'section_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -154,8 +151,7 @@ $result_trees{'section_in_table'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],
@@ -205,7 +201,6 @@ $result_errors{'section_in_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@section seen before @end table',
     'type' => 'error'
   },
@@ -214,7 +209,6 @@ $result_errors{'section_in_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@item outside of table or list',
     'type' => 'error'
   },
@@ -223,7 +217,6 @@ $result_errors{'section_in_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'unmatched `@end table\'',
     'type' => 'error'
   }

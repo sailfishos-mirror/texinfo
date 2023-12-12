@@ -41,8 +41,7 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -101,15 +100,13 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {

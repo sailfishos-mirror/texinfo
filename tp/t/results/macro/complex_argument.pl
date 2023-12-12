@@ -55,8 +55,7 @@ $result_trees{'complex_argument'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -66,8 +65,7 @@ $result_trees{'complex_argument'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -132,8 +130,7 @@ $result_trees{'complex_argument'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
@@ -143,8 +140,7 @@ $result_trees{'complex_argument'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -207,8 +203,7 @@ $result_trees{'complex_argument'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             }
           ],
@@ -218,8 +213,7 @@ $result_trees{'complex_argument'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
-            'macro' => ''
+            'line_nr' => 12
           }
         },
         {
@@ -984,7 +978,6 @@ $result_errors{'complex_argument'} = [
 ',
     'file_name' => '',
     'line_nr' => 35,
-    'macro' => '',
     'text' => 'use @comma{} instead of \\, in macro arg',
     'type' => 'warning'
   },

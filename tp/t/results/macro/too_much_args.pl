@@ -64,8 +64,7 @@ $result_trees{'too_much_args'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -75,8 +74,7 @@ $result_trees{'too_much_args'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -170,7 +168,6 @@ $result_errors{'too_much_args'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'macro `twoargs\' called with too many args',
     'type' => 'error'
   }

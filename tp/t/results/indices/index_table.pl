@@ -59,8 +59,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -139,8 +138,7 @@ $result_trees{'index_table'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -187,8 +185,7 @@ $result_trees{'index_table'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'menu_entry'
             },
@@ -235,8 +232,7 @@ $result_trees{'index_table'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               },
               'type' => 'menu_entry'
             },
@@ -268,15 +264,13 @@ $result_trees{'index_table'} = {
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -293,8 +287,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -326,8 +319,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {
@@ -387,8 +379,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           },
           'type' => 'index_entry_command'
         },
@@ -436,8 +427,7 @@ $result_trees{'index_table'} = {
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               },
               'type' => 'index_entry_command'
             }
@@ -471,8 +461,7 @@ $result_trees{'index_table'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'file_name' => 'index_table.texi',
-                    'line_nr' => 21,
-                    'macro' => ''
+                    'line_nr' => 21
                   },
                   'type' => 'command_as_argument'
                 }
@@ -524,8 +513,7 @@ $result_trees{'index_table'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
-                        'line_nr' => 22,
-                        'macro' => ''
+                        'line_nr' => 22
                       }
                     },
                     {
@@ -560,8 +548,7 @@ $result_trees{'index_table'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
-                        'line_nr' => 23,
-                        'macro' => ''
+                        'line_nr' => 23
                       }
                     }
                   ],
@@ -612,8 +599,7 @@ $result_trees{'index_table'} = {
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 25,
-                'macro' => ''
+                'line_nr' => 25
               }
             }
           ],
@@ -627,8 +613,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 21,
-            'macro' => ''
+            'line_nr' => 21
           }
         },
         {
@@ -657,8 +642,7 @@ $result_trees{'index_table'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'file_name' => 'index_table.texi',
-                    'line_nr' => 28,
-                    'macro' => ''
+                    'line_nr' => 28
                   },
                   'type' => 'command_as_argument'
                 }
@@ -710,8 +694,7 @@ $result_trees{'index_table'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
-                        'line_nr' => 29,
-                        'macro' => ''
+                        'line_nr' => 29
                       }
                     },
                     {
@@ -746,8 +729,7 @@ $result_trees{'index_table'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
-                        'line_nr' => 30,
-                        'macro' => ''
+                        'line_nr' => 30
                       }
                     }
                   ],
@@ -806,8 +788,7 @@ $result_trees{'index_table'} = {
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
-                        'line_nr' => 32,
-                        'macro' => ''
+                        'line_nr' => 32
                       }
                     }
                   ],
@@ -858,8 +839,7 @@ $result_trees{'index_table'} = {
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               }
             }
           ],
@@ -873,8 +853,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 28,
-            'macro' => ''
+            'line_nr' => 28
           }
         },
         {
@@ -893,8 +872,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     },
     {
@@ -927,8 +905,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 36,
-        'macro' => ''
+        'line_nr' => 36
       }
     },
     {
@@ -985,8 +962,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 39,
-            'macro' => ''
+            'line_nr' => 39
           }
         },
         {
@@ -1019,8 +995,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 40,
-            'macro' => ''
+            'line_nr' => 40
           }
         },
         {
@@ -1053,8 +1028,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 41,
-            'macro' => ''
+            'line_nr' => 41
           }
         },
         {
@@ -1073,8 +1047,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 37,
-        'macro' => ''
+        'line_nr' => 37
       }
     },
     {
@@ -1107,8 +1080,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 43,
-        'macro' => ''
+        'line_nr' => 43
       }
     },
     {
@@ -1187,8 +1159,7 @@ $result_trees{'index_table'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 46,
-                'macro' => ''
+                'line_nr' => 46
               },
               'type' => 'menu_entry'
             },
@@ -1220,15 +1191,13 @@ $result_trees{'index_table'} = {
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
-                'line_nr' => 47,
-                'macro' => ''
+                'line_nr' => 47
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 45,
-            'macro' => ''
+            'line_nr' => 45
           }
         },
         {
@@ -1264,8 +1233,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 48,
-            'macro' => ''
+            'line_nr' => 48
           },
           'type' => 'index_entry_command'
         },
@@ -1302,8 +1270,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 49,
-            'macro' => ''
+            'line_nr' => 49
           },
           'type' => 'index_entry_command'
         },
@@ -1340,8 +1307,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 50,
-            'macro' => ''
+            'line_nr' => 50
           },
           'type' => 'index_entry_command'
         },
@@ -1378,8 +1344,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 51,
-            'macro' => ''
+            'line_nr' => 51
           },
           'type' => 'index_entry_command'
         },
@@ -1416,8 +1381,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 52,
-            'macro' => ''
+            'line_nr' => 52
           },
           'type' => 'index_entry_command'
         },
@@ -1454,8 +1418,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 53,
-            'macro' => ''
+            'line_nr' => 53
           },
           'type' => 'index_entry_command'
         },
@@ -1492,8 +1455,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 54,
-            'macro' => ''
+            'line_nr' => 54
           },
           'type' => 'index_entry_command'
         },
@@ -1530,8 +1492,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 55,
-            'macro' => ''
+            'line_nr' => 55
           },
           'type' => 'index_entry_command'
         },
@@ -1568,8 +1529,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 56,
-            'macro' => ''
+            'line_nr' => 56
           },
           'type' => 'index_entry_command'
         },
@@ -1606,8 +1566,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 57,
-            'macro' => ''
+            'line_nr' => 57
           },
           'type' => 'index_entry_command'
         },
@@ -1644,8 +1603,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 58,
-            'macro' => ''
+            'line_nr' => 58
           },
           'type' => 'index_entry_command'
         },
@@ -1682,8 +1640,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 59,
-            'macro' => ''
+            'line_nr' => 59
           },
           'type' => 'index_entry_command'
         },
@@ -1720,8 +1677,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 60,
-            'macro' => ''
+            'line_nr' => 60
           },
           'type' => 'index_entry_command'
         },
@@ -1758,8 +1714,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 61,
-            'macro' => ''
+            'line_nr' => 61
           },
           'type' => 'index_entry_command'
         },
@@ -1796,8 +1751,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 62,
-            'macro' => ''
+            'line_nr' => 62
           },
           'type' => 'index_entry_command'
         },
@@ -1834,8 +1788,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 63,
-            'macro' => ''
+            'line_nr' => 63
           },
           'type' => 'index_entry_command'
         },
@@ -1872,8 +1825,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 64,
-            'macro' => ''
+            'line_nr' => 64
           },
           'type' => 'index_entry_command'
         },
@@ -1910,8 +1862,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 65,
-            'macro' => ''
+            'line_nr' => 65
           },
           'type' => 'index_entry_command'
         },
@@ -1948,8 +1899,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 66,
-            'macro' => ''
+            'line_nr' => 66
           },
           'type' => 'index_entry_command'
         },
@@ -1986,8 +1936,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 67,
-            'macro' => ''
+            'line_nr' => 67
           },
           'type' => 'index_entry_command'
         },
@@ -2024,8 +1973,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 68,
-            'macro' => ''
+            'line_nr' => 68
           },
           'type' => 'index_entry_command'
         },
@@ -2062,8 +2010,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 69,
-            'macro' => ''
+            'line_nr' => 69
           },
           'type' => 'index_entry_command'
         },
@@ -2100,8 +2047,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 70,
-            'macro' => ''
+            'line_nr' => 70
           },
           'type' => 'index_entry_command'
         },
@@ -2138,8 +2084,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 71,
-            'macro' => ''
+            'line_nr' => 71
           },
           'type' => 'index_entry_command'
         },
@@ -2176,8 +2121,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 72,
-            'macro' => ''
+            'line_nr' => 72
           },
           'type' => 'index_entry_command'
         },
@@ -2214,8 +2158,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 73,
-            'macro' => ''
+            'line_nr' => 73
           },
           'type' => 'index_entry_command'
         },
@@ -2252,8 +2195,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 74,
-            'macro' => ''
+            'line_nr' => 74
           },
           'type' => 'index_entry_command'
         },
@@ -2290,8 +2232,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 75,
-            'macro' => ''
+            'line_nr' => 75
           },
           'type' => 'index_entry_command'
         },
@@ -2328,8 +2269,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 76,
-            'macro' => ''
+            'line_nr' => 76
           },
           'type' => 'index_entry_command'
         },
@@ -2366,8 +2306,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 77,
-            'macro' => ''
+            'line_nr' => 77
           },
           'type' => 'index_entry_command'
         },
@@ -2404,8 +2343,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 78,
-            'macro' => ''
+            'line_nr' => 78
           },
           'type' => 'index_entry_command'
         },
@@ -2442,8 +2380,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 79,
-            'macro' => ''
+            'line_nr' => 79
           },
           'type' => 'index_entry_command'
         },
@@ -2480,8 +2417,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 80,
-            'macro' => ''
+            'line_nr' => 80
           },
           'type' => 'index_entry_command'
         },
@@ -2518,8 +2454,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 81,
-            'macro' => ''
+            'line_nr' => 81
           },
           'type' => 'index_entry_command'
         },
@@ -2556,8 +2491,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 82,
-            'macro' => ''
+            'line_nr' => 82
           },
           'type' => 'index_entry_command'
         },
@@ -2594,8 +2528,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 83,
-            'macro' => ''
+            'line_nr' => 83
           },
           'type' => 'index_entry_command'
         },
@@ -2632,8 +2565,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 84,
-            'macro' => ''
+            'line_nr' => 84
           },
           'type' => 'index_entry_command'
         },
@@ -2670,8 +2602,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 85,
-            'macro' => ''
+            'line_nr' => 85
           },
           'type' => 'index_entry_command'
         },
@@ -2708,8 +2639,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 86,
-            'macro' => ''
+            'line_nr' => 86
           },
           'type' => 'index_entry_command'
         },
@@ -2746,8 +2676,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 87,
-            'macro' => ''
+            'line_nr' => 87
           },
           'type' => 'index_entry_command'
         },
@@ -2784,8 +2713,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 88,
-            'macro' => ''
+            'line_nr' => 88
           },
           'type' => 'index_entry_command'
         },
@@ -2822,8 +2750,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 89,
-            'macro' => ''
+            'line_nr' => 89
           },
           'type' => 'index_entry_command'
         },
@@ -2860,8 +2787,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 90,
-            'macro' => ''
+            'line_nr' => 90
           },
           'type' => 'index_entry_command'
         },
@@ -2898,8 +2824,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 91,
-            'macro' => ''
+            'line_nr' => 91
           },
           'type' => 'index_entry_command'
         },
@@ -2936,8 +2861,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 92,
-            'macro' => ''
+            'line_nr' => 92
           },
           'type' => 'index_entry_command'
         },
@@ -2974,8 +2898,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 93,
-            'macro' => ''
+            'line_nr' => 93
           },
           'type' => 'index_entry_command'
         },
@@ -3012,8 +2935,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 94,
-            'macro' => ''
+            'line_nr' => 94
           },
           'type' => 'index_entry_command'
         },
@@ -3050,8 +2972,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 95,
-            'macro' => ''
+            'line_nr' => 95
           },
           'type' => 'index_entry_command'
         },
@@ -3088,8 +3009,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 96,
-            'macro' => ''
+            'line_nr' => 96
           },
           'type' => 'index_entry_command'
         },
@@ -3126,8 +3046,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 97,
-            'macro' => ''
+            'line_nr' => 97
           },
           'type' => 'index_entry_command'
         },
@@ -3164,8 +3083,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 98,
-            'macro' => ''
+            'line_nr' => 98
           },
           'type' => 'index_entry_command'
         },
@@ -3202,8 +3120,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 99,
-            'macro' => ''
+            'line_nr' => 99
           },
           'type' => 'index_entry_command'
         },
@@ -3240,8 +3157,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 100,
-            'macro' => ''
+            'line_nr' => 100
           },
           'type' => 'index_entry_command'
         },
@@ -3278,8 +3194,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 101,
-            'macro' => ''
+            'line_nr' => 101
           },
           'type' => 'index_entry_command'
         },
@@ -3316,8 +3231,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 102,
-            'macro' => ''
+            'line_nr' => 102
           },
           'type' => 'index_entry_command'
         },
@@ -3354,8 +3268,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 103,
-            'macro' => ''
+            'line_nr' => 103
           },
           'type' => 'index_entry_command'
         },
@@ -3392,8 +3305,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 104,
-            'macro' => ''
+            'line_nr' => 104
           },
           'type' => 'index_entry_command'
         },
@@ -3430,8 +3342,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 105,
-            'macro' => ''
+            'line_nr' => 105
           },
           'type' => 'index_entry_command'
         },
@@ -3468,8 +3379,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 106,
-            'macro' => ''
+            'line_nr' => 106
           },
           'type' => 'index_entry_command'
         },
@@ -3506,8 +3416,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 107,
-            'macro' => ''
+            'line_nr' => 107
           },
           'type' => 'index_entry_command'
         },
@@ -3544,8 +3453,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 108,
-            'macro' => ''
+            'line_nr' => 108
           },
           'type' => 'index_entry_command'
         },
@@ -3582,8 +3490,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 109,
-            'macro' => ''
+            'line_nr' => 109
           },
           'type' => 'index_entry_command'
         },
@@ -3620,8 +3527,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 110,
-            'macro' => ''
+            'line_nr' => 110
           },
           'type' => 'index_entry_command'
         },
@@ -3658,8 +3564,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 111,
-            'macro' => ''
+            'line_nr' => 111
           },
           'type' => 'index_entry_command'
         },
@@ -3696,8 +3601,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 112,
-            'macro' => ''
+            'line_nr' => 112
           },
           'type' => 'index_entry_command'
         },
@@ -3734,8 +3638,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 113,
-            'macro' => ''
+            'line_nr' => 113
           },
           'type' => 'index_entry_command'
         },
@@ -3772,8 +3675,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 114,
-            'macro' => ''
+            'line_nr' => 114
           },
           'type' => 'index_entry_command'
         },
@@ -3810,8 +3712,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 115,
-            'macro' => ''
+            'line_nr' => 115
           },
           'type' => 'index_entry_command'
         },
@@ -3848,8 +3749,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 116,
-            'macro' => ''
+            'line_nr' => 116
           },
           'type' => 'index_entry_command'
         },
@@ -3886,8 +3786,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 117,
-            'macro' => ''
+            'line_nr' => 117
           },
           'type' => 'index_entry_command'
         },
@@ -3924,8 +3823,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 118,
-            'macro' => ''
+            'line_nr' => 118
           },
           'type' => 'index_entry_command'
         },
@@ -3962,8 +3860,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 119,
-            'macro' => ''
+            'line_nr' => 119
           },
           'type' => 'index_entry_command'
         },
@@ -4000,8 +3897,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 120,
-            'macro' => ''
+            'line_nr' => 120
           },
           'type' => 'index_entry_command'
         },
@@ -4038,8 +3934,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 121,
-            'macro' => ''
+            'line_nr' => 121
           },
           'type' => 'index_entry_command'
         },
@@ -4076,8 +3971,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 122,
-            'macro' => ''
+            'line_nr' => 122
           },
           'type' => 'index_entry_command'
         },
@@ -4114,8 +4008,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 123,
-            'macro' => ''
+            'line_nr' => 123
           },
           'type' => 'index_entry_command'
         },
@@ -4152,8 +4045,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 124,
-            'macro' => ''
+            'line_nr' => 124
           },
           'type' => 'index_entry_command'
         },
@@ -4190,8 +4082,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 125,
-            'macro' => ''
+            'line_nr' => 125
           },
           'type' => 'index_entry_command'
         },
@@ -4228,8 +4119,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 126,
-            'macro' => ''
+            'line_nr' => 126
           },
           'type' => 'index_entry_command'
         },
@@ -4266,8 +4156,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 127,
-            'macro' => ''
+            'line_nr' => 127
           },
           'type' => 'index_entry_command'
         },
@@ -4304,8 +4193,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 128,
-            'macro' => ''
+            'line_nr' => 128
           },
           'type' => 'index_entry_command'
         },
@@ -4342,8 +4230,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 129,
-            'macro' => ''
+            'line_nr' => 129
           },
           'type' => 'index_entry_command'
         },
@@ -4380,8 +4267,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 130,
-            'macro' => ''
+            'line_nr' => 130
           },
           'type' => 'index_entry_command'
         },
@@ -4418,8 +4304,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 131,
-            'macro' => ''
+            'line_nr' => 131
           },
           'type' => 'index_entry_command'
         },
@@ -4456,8 +4341,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 132,
-            'macro' => ''
+            'line_nr' => 132
           },
           'type' => 'index_entry_command'
         },
@@ -4494,8 +4378,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 133,
-            'macro' => ''
+            'line_nr' => 133
           },
           'type' => 'index_entry_command'
         },
@@ -4532,8 +4415,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 134,
-            'macro' => ''
+            'line_nr' => 134
           },
           'type' => 'index_entry_command'
         },
@@ -4570,8 +4452,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 135,
-            'macro' => ''
+            'line_nr' => 135
           },
           'type' => 'index_entry_command'
         },
@@ -4608,8 +4489,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 136,
-            'macro' => ''
+            'line_nr' => 136
           },
           'type' => 'index_entry_command'
         },
@@ -4646,8 +4526,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 137,
-            'macro' => ''
+            'line_nr' => 137
           },
           'type' => 'index_entry_command'
         },
@@ -4684,8 +4563,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 138,
-            'macro' => ''
+            'line_nr' => 138
           },
           'type' => 'index_entry_command'
         },
@@ -4722,8 +4600,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 139,
-            'macro' => ''
+            'line_nr' => 139
           },
           'type' => 'index_entry_command'
         },
@@ -4760,8 +4637,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 140,
-            'macro' => ''
+            'line_nr' => 140
           },
           'type' => 'index_entry_command'
         },
@@ -4798,8 +4674,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 141,
-            'macro' => ''
+            'line_nr' => 141
           },
           'type' => 'index_entry_command'
         },
@@ -4836,8 +4711,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 142,
-            'macro' => ''
+            'line_nr' => 142
           },
           'type' => 'index_entry_command'
         },
@@ -4874,8 +4748,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 143,
-            'macro' => ''
+            'line_nr' => 143
           },
           'type' => 'index_entry_command'
         },
@@ -4912,8 +4785,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 144,
-            'macro' => ''
+            'line_nr' => 144
           },
           'type' => 'index_entry_command'
         },
@@ -4950,8 +4822,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 145,
-            'macro' => ''
+            'line_nr' => 145
           },
           'type' => 'index_entry_command'
         },
@@ -4988,8 +4859,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 146,
-            'macro' => ''
+            'line_nr' => 146
           },
           'type' => 'index_entry_command'
         },
@@ -5026,8 +4896,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 147,
-            'macro' => ''
+            'line_nr' => 147
           },
           'type' => 'index_entry_command'
         },
@@ -5064,8 +4933,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 148,
-            'macro' => ''
+            'line_nr' => 148
           },
           'type' => 'index_entry_command'
         },
@@ -5102,8 +4970,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 149,
-            'macro' => ''
+            'line_nr' => 149
           },
           'type' => 'index_entry_command'
         },
@@ -5140,8 +5007,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 150,
-            'macro' => ''
+            'line_nr' => 150
           },
           'type' => 'index_entry_command'
         },
@@ -5178,8 +5044,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 151,
-            'macro' => ''
+            'line_nr' => 151
           },
           'type' => 'index_entry_command'
         },
@@ -5216,8 +5081,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 152,
-            'macro' => ''
+            'line_nr' => 152
           },
           'type' => 'index_entry_command'
         },
@@ -5254,8 +5118,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 153,
-            'macro' => ''
+            'line_nr' => 153
           },
           'type' => 'index_entry_command'
         },
@@ -5292,8 +5155,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 154,
-            'macro' => ''
+            'line_nr' => 154
           },
           'type' => 'index_entry_command'
         },
@@ -5330,8 +5192,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 155,
-            'macro' => ''
+            'line_nr' => 155
           },
           'type' => 'index_entry_command'
         },
@@ -5368,8 +5229,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 156,
-            'macro' => ''
+            'line_nr' => 156
           },
           'type' => 'index_entry_command'
         },
@@ -5406,8 +5266,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 157,
-            'macro' => ''
+            'line_nr' => 157
           },
           'type' => 'index_entry_command'
         },
@@ -5444,8 +5303,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 158,
-            'macro' => ''
+            'line_nr' => 158
           },
           'type' => 'index_entry_command'
         },
@@ -5482,8 +5340,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 159,
-            'macro' => ''
+            'line_nr' => 159
           },
           'type' => 'index_entry_command'
         },
@@ -5520,8 +5377,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 160,
-            'macro' => ''
+            'line_nr' => 160
           },
           'type' => 'index_entry_command'
         },
@@ -5558,8 +5414,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 161,
-            'macro' => ''
+            'line_nr' => 161
           },
           'type' => 'index_entry_command'
         },
@@ -5596,8 +5451,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 162,
-            'macro' => ''
+            'line_nr' => 162
           },
           'type' => 'index_entry_command'
         },
@@ -5634,8 +5488,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 163,
-            'macro' => ''
+            'line_nr' => 163
           },
           'type' => 'index_entry_command'
         },
@@ -5672,8 +5525,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 164,
-            'macro' => ''
+            'line_nr' => 164
           },
           'type' => 'index_entry_command'
         },
@@ -5710,8 +5562,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 165,
-            'macro' => ''
+            'line_nr' => 165
           },
           'type' => 'index_entry_command'
         },
@@ -5748,8 +5599,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 166,
-            'macro' => ''
+            'line_nr' => 166
           },
           'type' => 'index_entry_command'
         },
@@ -5786,8 +5636,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 167,
-            'macro' => ''
+            'line_nr' => 167
           },
           'type' => 'index_entry_command'
         },
@@ -5824,8 +5673,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 168,
-            'macro' => ''
+            'line_nr' => 168
           },
           'type' => 'index_entry_command'
         },
@@ -5862,8 +5710,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 169,
-            'macro' => ''
+            'line_nr' => 169
           },
           'type' => 'index_entry_command'
         },
@@ -5900,8 +5747,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 170,
-            'macro' => ''
+            'line_nr' => 170
           },
           'type' => 'index_entry_command'
         },
@@ -5938,8 +5784,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 171,
-            'macro' => ''
+            'line_nr' => 171
           },
           'type' => 'index_entry_command'
         },
@@ -5976,8 +5821,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 172,
-            'macro' => ''
+            'line_nr' => 172
           },
           'type' => 'index_entry_command'
         },
@@ -6014,8 +5858,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 173,
-            'macro' => ''
+            'line_nr' => 173
           },
           'type' => 'index_entry_command'
         },
@@ -6052,8 +5895,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 174,
-            'macro' => ''
+            'line_nr' => 174
           },
           'type' => 'index_entry_command'
         },
@@ -6090,8 +5932,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 175,
-            'macro' => ''
+            'line_nr' => 175
           },
           'type' => 'index_entry_command'
         },
@@ -6150,8 +5991,7 @@ $result_trees{'index_table'} = {
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 179,
-            'macro' => ''
+            'line_nr' => 179
           }
         },
         {
@@ -6170,8 +6010,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 44,
-        'macro' => ''
+        'line_nr' => 44
       }
     },
     {
@@ -6212,8 +6051,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 181,
-        'macro' => ''
+        'line_nr' => 181
       }
     },
     {
@@ -6265,8 +6103,7 @@ $result_trees{'index_table'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'index_table.texi',
-            'line_nr' => 186,
-            'macro' => ''
+            'line_nr' => 186
           }
         }
       ],
@@ -6280,8 +6117,7 @@ $result_trees{'index_table'} = {
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
-        'line_nr' => 182,
-        'macro' => ''
+        'line_nr' => 182
       }
     },
     {
@@ -6942,7 +6778,6 @@ $result_errors{'index_table'} = [
 ',
     'file_name' => 'index_table.texi',
     'line_nr' => 21,
-    'macro' => '',
     'text' => 'command @bullet not accepting argument in brace should not be on @vtable line',
     'type' => 'error'
   },
@@ -6951,7 +6786,6 @@ $result_errors{'index_table'} = [
 ',
     'file_name' => 'index_table.texi',
     'line_nr' => 28,
-    'macro' => '',
     'text' => 'command @bullet not accepting argument in brace should not be on @ftable line',
     'type' => 'error'
   }

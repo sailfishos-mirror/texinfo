@@ -71,8 +71,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'menu_entry'
             },
@@ -96,8 +95,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                           'cmdname' => 'asis',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 4,
-                            'macro' => ''
+                            'line_nr' => 4
                           },
                           'type' => 'command_as_argument'
                         }
@@ -142,8 +140,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 5,
-                                'macro' => ''
+                                'line_nr' => 5
                               }
                             }
                           ],
@@ -181,8 +178,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -216,15 +212,13 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -260,7 +254,6 @@ $result_errors{'table_not_closed_in_menu_comment'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '`@end\' expected `table\', but saw `menu\'',
     'type' => 'error'
   }

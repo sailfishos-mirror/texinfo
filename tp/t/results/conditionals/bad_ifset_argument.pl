@@ -65,8 +65,7 @@ $result_trees{'bad_ifset_argument'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 3,
-                      'macro' => ''
+                      'line_nr' => 3
                     }
                   }
                 ],
@@ -77,8 +76,7 @@ $result_trees{'bad_ifset_argument'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'ignored_conditional_block'
@@ -104,7 +102,6 @@ $result_errors{'bad_ifset_argument'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'bad name for @ifset',
     'type' => 'error'
   }

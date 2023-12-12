@@ -34,8 +34,7 @@ $result_trees{'nodedescription'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -75,8 +74,7 @@ $result_trees{'nodedescription'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -112,8 +110,7 @@ $result_trees{'nodedescription'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -154,8 +151,7 @@ $result_trees{'nodedescription'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 },
                 {
@@ -182,8 +178,7 @@ $result_trees{'nodedescription'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         'normalized' => 'chap'
@@ -195,8 +190,7 @@ $result_trees{'nodedescription'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -255,8 +249,7 @@ $result_trees{'nodedescription'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -283,8 +276,7 @@ $result_trees{'nodedescription'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     }
   ],
@@ -422,7 +414,6 @@ $result_errors{'nodedescription'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@nodedescription outside of any node',
     'type' => 'warning'
   },
@@ -431,7 +422,6 @@ $result_errors{'nodedescription'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'multiple node @nodedescription',
     'type' => 'warning'
   }

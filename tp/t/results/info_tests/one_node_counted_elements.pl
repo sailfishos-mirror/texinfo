@@ -47,8 +47,7 @@ $result_trees{'one_node_counted_elements'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'index_entry_command'
             }
@@ -148,8 +147,7 @@ $result_trees{'one_node_counted_elements'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'index_entry_command'
             }
@@ -184,8 +182,7 @@ $result_trees{'one_node_counted_elements'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -262,8 +259,7 @@ $result_trees{'one_node_counted_elements'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               },
               'type' => 'menu_entry'
             },
@@ -295,15 +291,13 @@ $result_trees{'one_node_counted_elements'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -343,8 +337,7 @@ $result_trees{'one_node_counted_elements'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -403,8 +396,7 @@ $result_trees{'one_node_counted_elements'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
-            'macro' => ''
+            'line_nr' => 19
           }
         }
       ],
@@ -420,8 +412,7 @@ $result_trees{'one_node_counted_elements'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],
@@ -504,7 +495,6 @@ $result_errors{'one_node_counted_elements'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   }
@@ -574,7 +564,6 @@ $result_converted_errors{'info'}->{'one_node_counted_elements'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   }

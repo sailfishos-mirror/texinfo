@@ -36,8 +36,7 @@ $result_trees{'email_in_node'} = {
               'cmdname' => 'email',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -75,8 +74,7 @@ $result_trees{'email_in_node'} = {
               'cmdname' => 'email',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -109,8 +107,7 @@ $result_trees{'email_in_node'} = {
               'cmdname' => 'email',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -135,8 +132,7 @@ $result_trees{'email_in_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],

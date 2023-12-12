@@ -77,8 +77,7 @@ $result_trees{'sc_in_menu'} = {
                       'cmdname' => 'sc',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     }
                   ],
@@ -104,8 +103,7 @@ $result_trees{'sc_in_menu'} = {
                       'cmdname' => 'sc',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     }
                   ],
@@ -141,8 +139,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 5,
-                            'macro' => ''
+                            'line_nr' => 5
                           }
                         },
                         {
@@ -158,8 +155,7 @@ $result_trees{'sc_in_menu'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -186,8 +182,7 @@ $result_trees{'sc_in_menu'} = {
                       'cmdname' => 'sc',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -235,8 +230,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 10,
-                            'macro' => ''
+                            'line_nr' => 10
                           }
                         },
                         {
@@ -256,8 +250,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 10,
-                            'macro' => ''
+                            'line_nr' => 10
                           }
                         },
                         {
@@ -277,8 +270,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 10,
-                            'macro' => ''
+                            'line_nr' => 10
                           }
                         },
                         {
@@ -304,8 +296,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 12,
-                            'macro' => ''
+                            'line_nr' => 12
                           }
                         },
                         {
@@ -343,15 +334,13 @@ $result_trees{'sc_in_menu'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 13,
-                        'macro' => ''
+                        'line_nr' => 13
                       }
                     }
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 }
               ],
@@ -385,15 +374,13 @@ $result_trees{'sc_in_menu'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -413,8 +400,7 @@ $result_trees{'sc_in_menu'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -435,8 +421,7 @@ $result_trees{'sc_in_menu'} = {
               'cmdname' => 'sc',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
@@ -506,8 +491,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 20,
-                            'macro' => ''
+                            'line_nr' => 20
                           }
                         }
                       ],
@@ -542,8 +526,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 20,
-                            'macro' => ''
+                            'line_nr' => 20
                           }
                         }
                       ],
@@ -584,8 +567,7 @@ $result_trees{'sc_in_menu'} = {
                               'cmdname' => 'sc',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 20,
-                                'macro' => ''
+                                'line_nr' => 20
                               }
                             },
                             {
@@ -601,8 +583,7 @@ $result_trees{'sc_in_menu'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 20,
-                    'macro' => ''
+                    'line_nr' => 20
                   },
                   'type' => 'menu_entry'
                 },
@@ -629,8 +610,7 @@ $result_trees{'sc_in_menu'} = {
                           'cmdname' => 'sc',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 22,
-                            'macro' => ''
+                            'line_nr' => 22
                           }
                         },
                         {
@@ -671,15 +651,13 @@ $result_trees{'sc_in_menu'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 23,
-                    'macro' => ''
+                    'line_nr' => 23
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -710,15 +688,13 @@ $result_trees{'sc_in_menu'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
-                'macro' => ''
+                'line_nr' => 24
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         },
         {
@@ -738,8 +714,7 @@ $result_trees{'sc_in_menu'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 16,
-        'macro' => ''
+        'line_nr' => 16
       }
     }
   ],
@@ -839,7 +814,6 @@ $result_errors{'sc_in_menu'} = [
 ',
     'file_name' => '',
     'line_nr' => 19,
-    'macro' => '',
     'text' => '@menu in invalid context',
     'type' => 'warning'
   }

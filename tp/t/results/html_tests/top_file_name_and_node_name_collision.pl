@@ -44,8 +44,7 @@ $result_trees{'top_file_name_and_node_name_collision'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -83,8 +82,7 @@ $result_trees{'top_file_name_and_node_name_collision'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -116,8 +114,7 @@ $result_trees{'top_file_name_and_node_name_collision'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -155,8 +152,7 @@ $result_trees{'top_file_name_and_node_name_collision'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -192,8 +188,7 @@ $result_trees{'top_file_name_and_node_name_collision'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     }
   ],
@@ -336,7 +331,6 @@ $result_errors{'top_file_name_and_node_name_collision'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'
   }

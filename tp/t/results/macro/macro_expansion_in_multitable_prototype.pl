@@ -51,8 +51,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -62,8 +61,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -117,8 +115,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -128,8 +125,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -174,8 +170,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -215,8 +210,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -242,8 +236,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'cmdname' => 'emph',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -277,8 +270,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -338,8 +330,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'source_marks' => [
                     {
@@ -385,8 +376,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'source_marks' => [
                     {
@@ -434,8 +424,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     },
                     {
@@ -459,8 +448,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     },
                     {
@@ -484,8 +472,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     },
                     {
@@ -509,8 +496,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     },
                     {
@@ -535,8 +521,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     }
                   ],
@@ -576,8 +561,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -591,8 +575,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         }
       ],

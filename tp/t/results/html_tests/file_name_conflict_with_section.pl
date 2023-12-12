@@ -44,8 +44,7 @@ $result_trees{'file_name_conflict_with_section'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -85,8 +84,7 @@ $result_trees{'file_name_conflict_with_section'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -108,8 +106,7 @@ $result_trees{'file_name_conflict_with_section'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -140,8 +137,7 @@ $result_trees{'file_name_conflict_with_section'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],
@@ -238,7 +234,6 @@ $result_converted_errors{'file_html'}->{'file_name_conflict_with_section'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@anchor `Chap\' file Chap.html for redirection exists',
     'type' => 'warning'
   },
@@ -248,7 +243,6 @@ $result_converted_errors{'file_html'}->{'file_name_conflict_with_section'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'conflict with @chapter `Chap\' file',
     'type' => 'warning'
   }

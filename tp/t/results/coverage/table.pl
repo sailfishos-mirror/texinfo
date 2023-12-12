@@ -22,8 +22,7 @@ $result_trees{'table'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   },
                   'type' => 'command_as_argument'
                 }
@@ -68,8 +67,7 @@ $result_trees{'table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -97,8 +95,7 @@ $result_trees{'table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -154,8 +151,7 @@ $result_trees{'table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -169,8 +165,7 @@ $result_trees{'table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -186,8 +181,7 @@ $result_trees{'table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   },
                   'type' => 'command_as_argument'
                 }
@@ -253,8 +247,7 @@ $result_trees{'table'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
-                    'macro' => ''
+                    'line_nr' => 11
                   },
                   'type' => 'index_entry_command'
                 },
@@ -301,8 +294,7 @@ $result_trees{'table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 13,
-                        'macro' => ''
+                        'line_nr' => 13
                       }
                     },
                     {
@@ -352,8 +344,7 @@ $result_trees{'table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
-                        'macro' => ''
+                        'line_nr' => 15
                       },
                       'type' => 'index_entry_command'
                     },
@@ -397,8 +388,7 @@ $result_trees{'table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 16,
-                        'macro' => ''
+                        'line_nr' => 16
                       }
                     }
                   ],
@@ -445,8 +435,7 @@ $result_trees{'table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               }
             }
           ],
@@ -460,8 +449,7 @@ $result_trees{'table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -477,8 +465,7 @@ $result_trees{'table'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 20,
-                    'macro' => ''
+                    'line_nr' => 20
                   },
                   'type' => 'command_as_argument'
                 }
@@ -523,8 +510,7 @@ $result_trees{'table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 21,
-                        'macro' => ''
+                        'line_nr' => 21
                       }
                     }
                   ],
@@ -561,8 +547,7 @@ $result_trees{'table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             }
           ],
@@ -576,8 +561,7 @@ $result_trees{'table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 20,
-            'macro' => ''
+            'line_nr' => 20
           }
         }
       ],
@@ -635,7 +619,6 @@ $result_errors{'table'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   },
@@ -644,7 +627,6 @@ $result_errors{'table'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'
   },
@@ -653,7 +635,6 @@ $result_errors{'table'} = [
 ',
     'file_name' => '',
     'line_nr' => 15,
-    'macro' => '',
     'text' => 'entry for index `ky\' outside of any node',
     'type' => 'warning'
   },
@@ -662,7 +643,6 @@ $result_errors{'table'} = [
 ',
     'file_name' => '',
     'line_nr' => 16,
-    'macro' => '',
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'
   },
@@ -671,7 +651,6 @@ $result_errors{'table'} = [
 ',
     'file_name' => '',
     'line_nr' => 20,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   }

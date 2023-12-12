@@ -44,8 +44,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       ],
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       },
                       'type' => 'balanced_braces'
                     },
@@ -63,8 +62,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                           'cmdname' => 'copyright',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 2,
-                            'macro' => ''
+                            'line_nr' => 2
                           }
                         },
                         {
@@ -73,8 +71,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       ],
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       },
                       'type' => 'balanced_braces'
                     }
@@ -85,8 +82,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               'cmdname' => 'sup',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -106,8 +102,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               'cmdname' => 'dotless',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -142,15 +137,13 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -179,8 +172,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'cmdname' => 'minus',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     },
                     {
@@ -195,8 +187,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'cmdname' => 'geq',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     },
                     {
@@ -211,8 +202,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'cmdname' => 'AA',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     },
                     {
@@ -232,8 +222,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'cmdname' => '^',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     }
                   ],
@@ -243,8 +232,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               'cmdname' => 'math',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {

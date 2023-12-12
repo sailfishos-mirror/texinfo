@@ -39,8 +39,7 @@ $result_trees{'all_spaces'} = {
               },
               "source_info" => {
                 "file_name" => "all_spaces.texi",
-                "line_nr" => 1,
-                "macro" => ""
+                "line_nr" => 1
               }
             },
             {
@@ -81,8 +80,7 @@ $result_trees{'all_spaces'} = {
       },
       "source_info" => {
         "file_name" => "all_spaces.texi",
-        "line_nr" => 3,
-        "macro" => ""
+        "line_nr" => 3
       }
     },
     {
@@ -446,8 +444,7 @@ $result_trees{'all_spaces'} = {
       },
       "source_info" => {
         "file_name" => "all_spaces.texi",
-        "line_nr" => 4,
-        "macro" => ""
+        "line_nr" => 4
       }
     }
   ],

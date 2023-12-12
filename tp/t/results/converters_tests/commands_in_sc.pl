@@ -39,8 +39,7 @@ $result_trees{'commands_in_sc'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -76,8 +75,7 @@ $result_trees{'commands_in_sc'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -109,8 +107,7 @@ $result_trees{'commands_in_sc'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -160,8 +157,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => '~',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -176,8 +172,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'aa',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -192,8 +187,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'TeX',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -216,8 +210,7 @@ $result_trees{'commands_in_sc'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -245,8 +238,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'ref',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -287,8 +279,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'xref',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     },
                     {
@@ -335,8 +326,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'ref',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 8,
-                        'macro' => ''
+                        'line_nr' => 8
                       }
                     },
                     {
@@ -381,8 +371,7 @@ $result_trees{'commands_in_sc'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 8,
-                                'macro' => ''
+                                'line_nr' => 8
                               }
                             }
                           ],
@@ -396,8 +385,7 @@ $result_trees{'commands_in_sc'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 8,
-                        'macro' => ''
+                        'line_nr' => 8
                       }
                     },
                     {
@@ -421,8 +409,7 @@ $result_trees{'commands_in_sc'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 8,
-                        'macro' => ''
+                        'line_nr' => 8
                       }
                     },
                     {
@@ -443,8 +430,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'hyphenation',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 8,
-                        'macro' => ''
+                        'line_nr' => 8
                       }
                     },
                     {
@@ -466,8 +452,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'U',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -487,8 +472,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'math',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -513,8 +497,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'footnote',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -534,8 +517,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'url',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -563,8 +545,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'url',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -592,8 +573,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'url',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -620,8 +600,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'url',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     },
                     {
@@ -660,8 +639,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'email',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     },
                     {
@@ -694,8 +672,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'abbr',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     }
                   ],
@@ -705,8 +682,7 @@ $result_trees{'commands_in_sc'} = {
               'cmdname' => 'sc',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -723,8 +699,7 @@ $result_trees{'commands_in_sc'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],
@@ -881,7 +856,6 @@ $result_converted_errors{'plaintext'}->{'commands_in_sc'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'could not find @image file `myimage.txt\' nor alternate text',
     'type' => 'warning'
   }
@@ -922,7 +896,6 @@ $result_converted_errors{'html_text'}->{'commands_in_sc'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@image file `myimage\' (for HTML) not found, using `myimage.jpg\'',
     'type' => 'warning'
   }
@@ -958,7 +931,6 @@ $result_converted_errors{'docbook'}->{'commands_in_sc'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@image file `myimage\' not found, using `myimage.jpg\'',
     'type' => 'warning'
   }
@@ -981,7 +953,6 @@ $result_converted_errors{'latex_text'}->{'commands_in_sc'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@image file `myimage\' (for LaTeX) not found',
     'type' => 'warning'
   }
@@ -1036,7 +1007,6 @@ $result_converted_errors{'info'}->{'commands_in_sc'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'could not find @image file `myimage.txt\' nor alternate text',
     'type' => 'warning'
   }

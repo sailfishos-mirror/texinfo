@@ -37,8 +37,7 @@ $result_trees{'inline_missing_first_arg'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -65,8 +64,7 @@ $result_trees{'inline_missing_first_arg'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -96,7 +94,6 @@ $result_errors{'inline_missing_first_arg'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@inlinefmt missing first argument',
     'type' => 'warning'
   },
@@ -105,7 +102,6 @@ $result_errors{'inline_missing_first_arg'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@inlineraw missing first argument',
     'type' => 'warning'
   }

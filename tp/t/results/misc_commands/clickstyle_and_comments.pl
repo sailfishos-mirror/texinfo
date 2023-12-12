@@ -23,8 +23,7 @@ $result_trees{'clickstyle_and_comments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -41,8 +40,7 @@ $result_trees{'clickstyle_and_comments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -53,8 +51,7 @@ $result_trees{'clickstyle_and_comments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -65,8 +62,7 @@ $result_trees{'clickstyle_and_comments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -83,8 +79,7 @@ $result_trees{'clickstyle_and_comments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -101,8 +96,7 @@ $result_trees{'clickstyle_and_comments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -119,8 +113,7 @@ $result_trees{'clickstyle_and_comments'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         }
       ],
@@ -148,7 +141,6 @@ $result_errors{'clickstyle_and_comments'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'remaining argument on @clickstyle line: a',
     'type' => 'warning'
   },
@@ -157,7 +149,6 @@ $result_errors{'clickstyle_and_comments'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'remaining argument on @clickstyle line: b',
     'type' => 'warning'
   },
@@ -167,7 +158,6 @@ $result_errors{'clickstyle_and_comments'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@clickstyle should only accept an @-command as argument, not ` nocmd@comment c
 \'',
     'type' => 'error'
@@ -178,7 +168,6 @@ $result_errors{'clickstyle_and_comments'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@clickstyle should only accept an @-command as argument, not ` more than one word @comment d
 \'',
     'type' => 'error'
@@ -188,7 +177,6 @@ $result_errors{'clickstyle_and_comments'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'remaining argument on @clickstyle line: on the same line @comment g',
     'type' => 'warning'
   }

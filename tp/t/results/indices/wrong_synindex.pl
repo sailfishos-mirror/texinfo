@@ -39,8 +39,7 @@ $result_trees{'wrong_synindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -62,8 +61,7 @@ $result_trees{'wrong_synindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         }
       ],
@@ -85,7 +83,6 @@ $result_errors{'wrong_synindex'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@synindex leads to a merging of aaa in itself, ignoring',
     'type' => 'warning'
   }

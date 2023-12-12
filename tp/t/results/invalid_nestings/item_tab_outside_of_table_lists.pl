@@ -34,8 +34,7 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -94,7 +93,6 @@ $result_errors{'item_tab_outside_of_table_lists'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@itemx outside of table or list',
     'type' => 'error'
   },
@@ -103,7 +101,6 @@ $result_errors{'item_tab_outside_of_table_lists'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@headitem outside of table or list',
     'type' => 'error'
   },
@@ -112,7 +109,6 @@ $result_errors{'item_tab_outside_of_table_lists'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'unknown command `someitem\'',
     'type' => 'error'
   },
@@ -121,7 +117,6 @@ $result_errors{'item_tab_outside_of_table_lists'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'ignoring @tab outside of multitable',
     'type' => 'error'
   }

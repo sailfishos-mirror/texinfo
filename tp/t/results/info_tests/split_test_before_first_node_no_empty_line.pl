@@ -39,8 +39,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -92,8 +91,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -191,8 +189,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'menu_entry'
             },
@@ -224,15 +221,13 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -249,8 +244,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -282,8 +276,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     {
@@ -335,8 +328,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 14,
-        'macro' => ''
+        'line_nr' => 14
       }
     }
   ],

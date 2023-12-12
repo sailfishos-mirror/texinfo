@@ -91,8 +91,7 @@ $result_trees{'value_after_brace_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'source_marks' => [
                 {
@@ -137,8 +136,7 @@ $result_trees{'value_after_brace_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'source_marks' => [
                 {
@@ -193,8 +191,7 @@ $result_trees{'value_after_brace_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'source_marks' => [
                 {
@@ -239,8 +236,7 @@ $result_trees{'value_after_brace_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'source_marks' => [
                 {
@@ -295,8 +291,7 @@ $result_trees{'value_after_brace_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               },
               'source_marks' => [
                 {
@@ -341,8 +336,7 @@ $result_trees{'value_after_brace_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               },
               'source_marks' => [
                 {
@@ -393,7 +387,6 @@ $result_errors{'value_after_brace_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@ringaccent expected braces',
     'type' => 'error'
   },
@@ -402,7 +395,6 @@ $result_errors{'value_after_brace_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   },
@@ -411,7 +403,6 @@ $result_errors{'value_after_brace_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@^ expected braces',
     'type' => 'error'
   },
@@ -420,7 +411,6 @@ $result_errors{'value_after_brace_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   },
@@ -429,7 +419,6 @@ $result_errors{'value_after_brace_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@code expected braces',
     'type' => 'error'
   },
@@ -438,7 +427,6 @@ $result_errors{'value_after_brace_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   }

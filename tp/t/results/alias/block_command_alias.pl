@@ -40,8 +40,7 @@ $result_trees{'block_command_alias'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -97,8 +96,7 @@ $result_trees{'block_command_alias'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 }
               ],
@@ -110,8 +108,7 @@ $result_trees{'block_command_alias'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         }
       ],
@@ -139,7 +136,6 @@ $result_errors{'block_command_alias'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'environment command lisp as argument to @alias',
     'type' => 'warning'
   },
@@ -148,7 +144,6 @@ $result_errors{'block_command_alias'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'unknown @end lang',
     'type' => 'warning'
   },
@@ -157,7 +152,6 @@ $result_errors{'block_command_alias'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'no matching `@end lisp\'',
     'type' => 'error'
   }

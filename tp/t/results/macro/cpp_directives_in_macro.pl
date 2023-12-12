@@ -67,8 +67,7 @@ $result_trees{'cpp_directives_in_macro'} = {
                   },
                   'source_info' => {
                     'file_name' => 'cpp_directives_in_macro.texi',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -78,8 +77,7 @@ $result_trees{'cpp_directives_in_macro'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_in_macro.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -215,7 +213,6 @@ $result_errors{'cpp_directives_in_macro'} = [
 ',
     'file_name' => 'cpp_directives_in_macro.texi',
     'line_nr' => 12,
-    'macro' => '',
     'text' => 'unknown command `unknownout\'',
     'type' => 'error'
   }

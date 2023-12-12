@@ -78,8 +78,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     },
                     {
@@ -94,8 +93,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                       'cmdname' => 'comma',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     },
                     {
@@ -137,8 +135,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -185,8 +182,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -218,15 +214,13 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -246,8 +240,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -271,8 +264,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'cmdname' => 'asis',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -287,8 +279,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'cmdname' => 'comma',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -344,8 +335,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           },
           'type' => 'index_entry_command'
         },
@@ -382,8 +372,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           },
           'type' => 'index_entry_command'
         },
@@ -420,8 +409,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
-            'macro' => ''
+            'line_nr' => 12
           },
           'type' => 'index_entry_command'
         },
@@ -481,15 +469,13 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         },
         {
@@ -530,8 +516,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           },
           'type' => 'index_entry_command'
         },
@@ -568,8 +553,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
-            'macro' => ''
+            'line_nr' => 19
           },
           'type' => 'index_entry_command'
         },
@@ -606,8 +590,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 20,
-            'macro' => ''
+            'line_nr' => 20
           },
           'type' => 'index_entry_command'
         },
@@ -642,8 +625,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -700,8 +682,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 26,
-            'macro' => ''
+            'line_nr' => 26
           }
         },
         {
@@ -722,8 +703,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 24,
-        'macro' => ''
+        'line_nr' => 24
       }
     }
   ],
@@ -884,7 +864,6 @@ $result_converted_errors{'file_info'}->{'colons_in_index_entries_and_node_no_quo
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'menu entry node name should not contain `:\'',
     'type' => 'warning'
   },
@@ -893,7 +872,6 @@ $result_converted_errors{'file_info'}->{'colons_in_index_entries_and_node_no_quo
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '@node name should not contain `,\': One::node, with entries.',
     'type' => 'warning'
   },
@@ -902,7 +880,6 @@ $result_converted_errors{'file_info'}->{'colons_in_index_entries_and_node_no_quo
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'node name with index entries should not contain `:\'',
     'type' => 'warning'
   }

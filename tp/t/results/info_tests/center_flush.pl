@@ -34,8 +34,7 @@ $result_trees{'center_flush'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -136,8 +135,7 @@ $result_trees{'center_flush'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
-                    'macro' => ''
+                    'line_nr' => 14
                   }
                 },
                 {
@@ -180,15 +178,13 @@ $result_trees{'center_flush'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -289,8 +285,7 @@ $result_trees{'center_flush'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 29,
-                    'macro' => ''
+                    'line_nr' => 29
                   }
                 },
                 {
@@ -323,8 +318,7 @@ $result_trees{'center_flush'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 31,
-                    'macro' => ''
+                    'line_nr' => 31
                   }
                 },
                 {
@@ -366,15 +360,13 @@ $result_trees{'center_flush'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 32,
-                'macro' => ''
+                'line_nr' => 32
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         }
       ],
@@ -507,7 +499,6 @@ $result_converted_errors{'info'}->{'center_flush'} = [
 ',
     'file_name' => '',
     'line_nr' => 14,
-    'macro' => '',
     'text' => '@anchor outside of any node',
     'type' => 'warning'
   },
@@ -516,7 +507,6 @@ $result_converted_errors{'info'}->{'center_flush'} = [
 ',
     'file_name' => '',
     'line_nr' => 29,
-    'macro' => '',
     'text' => '@anchor outside of any node',
     'type' => 'warning'
   },
@@ -525,7 +515,6 @@ $result_converted_errors{'info'}->{'center_flush'} = [
 ',
     'file_name' => '',
     'line_nr' => 31,
-    'macro' => '',
     'text' => '@anchor outside of any node',
     'type' => 'warning'
   }

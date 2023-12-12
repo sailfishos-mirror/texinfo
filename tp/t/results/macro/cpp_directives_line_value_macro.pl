@@ -63,8 +63,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   },
                   'source_info' => {
                     'file_name' => 'cpp_directives_line_value_macro.texi',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -74,8 +73,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_line_value_macro.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -169,8 +167,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_line_value_macro.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
@@ -180,8 +177,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
           },
           'source_info' => {
             'file_name' => 'cpp_directives_line_value_macro.texi',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -276,8 +272,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_line_value_macro.texi',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
@@ -287,8 +282,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
           },
           'source_info' => {
             'file_name' => 'cpp_directives_line_value_macro.texi',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         },
         {
@@ -466,7 +460,6 @@ $result_errors{'cpp_directives_line_value_macro'} = [
 ',
     'file_name' => 'cpp_directives_line_value_macro.texi',
     'line_nr' => 24,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   }

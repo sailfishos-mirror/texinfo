@@ -64,8 +64,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -93,8 +92,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -126,8 +124,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -214,15 +211,13 @@ $result_trees{'sample_utf8'} = {
                   },
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -269,8 +264,7 @@ $result_trees{'sample_utf8'} = {
                   },
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
-                    'line_nr' => 16,
-                    'macro' => ''
+                    'line_nr' => 16
                   }
                 },
                 {
@@ -313,8 +307,7 @@ $result_trees{'sample_utf8'} = {
                   'cmdname' => 'insertcopying',
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
-                    'line_nr' => 20,
-                    'macro' => ''
+                    'line_nr' => 20
                   }
                 },
                 {
@@ -345,15 +338,13 @@ $result_trees{'sample_utf8'} = {
                   },
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
-                    'line_nr' => 21,
-                    'macro' => ''
+                    'line_nr' => 21
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -382,8 +373,7 @@ $result_trees{'sample_utf8'} = {
               'cmdname' => 'contents',
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 24,
-                'macro' => ''
+                'line_nr' => 24
               }
             },
             {
@@ -405,8 +395,7 @@ $result_trees{'sample_utf8'} = {
                     'cmdname' => 'ifnottex',
                     'source_info' => {
                       'file_name' => 'sample_utf8.texi',
-                      'line_nr' => 26,
-                      'macro' => ''
+                      'line_nr' => 26
                     }
                   },
                   'position' => 1,
@@ -453,8 +442,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 27,
-        'macro' => ''
+        'line_nr' => 27
       }
     },
     {
@@ -492,8 +480,7 @@ $result_trees{'sample_utf8'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
-            'line_nr' => 30,
-            'macro' => ''
+            'line_nr' => 30
           },
           'source_marks' => [
             {
@@ -526,8 +513,7 @@ $result_trees{'sample_utf8'} = {
                 },
                 'source_info' => {
                   'file_name' => 'sample_utf8.texi',
-                  'line_nr' => 31,
-                  'macro' => ''
+                  'line_nr' => 31
                 }
               },
               'sourcemark_type' => 'expanded_conditional_command',
@@ -601,8 +587,7 @@ $result_trees{'sample_utf8'} = {
               ],
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               },
               'type' => 'menu_entry'
             },
@@ -649,8 +634,7 @@ $result_trees{'sample_utf8'} = {
               ],
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 36,
-                'macro' => ''
+                'line_nr' => 36
               },
               'type' => 'menu_entry'
             },
@@ -697,8 +681,7 @@ $result_trees{'sample_utf8'} = {
               ],
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 37,
-                'macro' => ''
+                'line_nr' => 37
               },
               'type' => 'menu_entry'
             },
@@ -730,15 +713,13 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 38,
-                'macro' => ''
+                'line_nr' => 38
               }
             }
           ],
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
-            'line_nr' => 33,
-            'macro' => ''
+            'line_nr' => 33
           }
         },
         {
@@ -760,8 +741,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 28,
-        'macro' => ''
+        'line_nr' => 28
       }
     },
     {
@@ -793,8 +773,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 41,
-        'macro' => ''
+        'line_nr' => 41
       }
     },
     {
@@ -854,8 +833,7 @@ $result_trees{'sample_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
-            'line_nr' => 44,
-            'macro' => ''
+            'line_nr' => 44
           },
           'type' => 'index_entry_command'
         },
@@ -903,8 +881,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 47,
-                'macro' => ''
+                'line_nr' => 47
               },
               'type' => 'index_entry_command'
             },
@@ -941,8 +918,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 48,
-                'macro' => ''
+                'line_nr' => 48
               },
               'type' => 'index_entry_command'
             },
@@ -979,8 +955,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 49,
-                'macro' => ''
+                'line_nr' => 49
               },
               'type' => 'index_entry_command'
             }
@@ -1051,8 +1026,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 54,
-                'macro' => ''
+                'line_nr' => 54
               }
             },
             {
@@ -1081,8 +1055,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 57,
-                'macro' => ''
+                'line_nr' => 57
               }
             },
             {
@@ -1113,8 +1086,7 @@ $result_trees{'sample_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 59,
-                'macro' => ''
+                'line_nr' => 59
               }
             }
           ],
@@ -1123,8 +1095,7 @@ $result_trees{'sample_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
-            'line_nr' => 53,
-            'macro' => ''
+            'line_nr' => 53
           }
         },
         {
@@ -1143,8 +1114,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 42,
-        'macro' => ''
+        'line_nr' => 42
       }
     },
     {
@@ -1176,8 +1146,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 61,
-        'macro' => ''
+        'line_nr' => 61
       }
     },
     {
@@ -1229,8 +1198,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 62,
-        'macro' => ''
+        'line_nr' => 62
       }
     },
     {
@@ -1263,8 +1231,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 66,
-        'macro' => ''
+        'line_nr' => 66
       }
     },
     {
@@ -1321,8 +1288,7 @@ $result_trees{'sample_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
-            'line_nr' => 69,
-            'macro' => ''
+            'line_nr' => 69
           }
         },
         {
@@ -1339,8 +1305,7 @@ $result_trees{'sample_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'sample_utf8.texi',
-        'line_nr' => 67,
-        'macro' => ''
+        'line_nr' => 67
       }
     },
     {

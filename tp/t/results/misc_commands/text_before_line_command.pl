@@ -39,8 +39,7 @@ $result_trees{'text_before_line_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -101,8 +100,7 @@ $result_trees{'text_before_line_command'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -148,8 +146,7 @@ $result_trees{'text_before_line_command'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -204,8 +201,7 @@ $result_trees{'text_before_line_command'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 },
                 {
@@ -243,8 +239,7 @@ $result_trees{'text_before_line_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -255,8 +250,7 @@ $result_trees{'text_before_line_command'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         }
       ],
@@ -270,8 +264,7 @@ $result_trees{'text_before_line_command'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     }
   ],
@@ -356,7 +349,6 @@ $result_errors{'text_before_line_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@title should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -365,7 +357,6 @@ $result_errors{'text_before_line_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@node should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -374,7 +365,6 @@ $result_errors{'text_before_line_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@chapter should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -383,7 +373,6 @@ $result_errors{'text_before_line_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@contents should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -392,7 +381,6 @@ $result_errors{'text_before_line_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@author should only appear at the beginning of a line',
     'type' => 'warning'
   }

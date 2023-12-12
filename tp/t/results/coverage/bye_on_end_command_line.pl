@@ -54,15 +54,13 @@ $result_trees{'bye_on_end_command_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -97,7 +95,6 @@ $result_errors{'bye_on_end_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@bye should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -106,7 +103,6 @@ $result_errors{'bye_on_end_command_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@bye should not appear in @end',
     'type' => 'warning'
   }

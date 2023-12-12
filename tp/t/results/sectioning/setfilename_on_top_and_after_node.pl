@@ -44,8 +44,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -83,8 +82,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -126,8 +124,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         }
       ],
@@ -139,8 +136,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     }
   ],
@@ -208,7 +204,6 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@setfilename should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -217,7 +212,6 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@setfilename should not appear on @top line',
     'type' => 'warning'
   },
@@ -226,7 +220,6 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@setfilename after the first element',
     'type' => 'warning'
   },
@@ -235,7 +228,6 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'multiple @setfilename',
     'type' => 'warning'
   },
@@ -244,7 +236,6 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@setfilename after the first element',
     'type' => 'warning'
   }

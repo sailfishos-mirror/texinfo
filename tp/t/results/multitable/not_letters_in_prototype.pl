@@ -86,8 +86,7 @@ $result_trees{'not_letters_in_prototype'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -101,8 +100,7 @@ $result_trees{'not_letters_in_prototype'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -127,7 +125,6 @@ $result_errors{'not_letters_in_prototype'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'empty multitable',
     'type' => 'warning'
   },
@@ -136,7 +133,6 @@ $result_errors{'not_letters_in_prototype'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@item in empty multitable',
     'type' => 'warning'
   },
@@ -145,7 +141,6 @@ $result_errors{'not_letters_in_prototype'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@tab in empty multitable',
     'type' => 'warning'
   },
@@ -154,7 +149,6 @@ $result_errors{'not_letters_in_prototype'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@multitable has text but no @item',
     'type' => 'warning'
   }

@@ -55,8 +55,7 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -66,8 +65,7 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -107,8 +105,7 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -139,8 +136,7 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'definfoenclose_command'
             },
@@ -179,7 +175,6 @@ $result_errors{'macro_replaced_by_definfoenclose'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
   }

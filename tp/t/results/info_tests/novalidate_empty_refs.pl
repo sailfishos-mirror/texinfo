@@ -25,8 +25,7 @@ $result_trees{'novalidate_empty_refs'} = {
           'cmdname' => 'novalidate',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -84,8 +83,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -110,8 +108,7 @@ $result_trees{'novalidate_empty_refs'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     }
                   ],
@@ -129,8 +126,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             },
             {
@@ -157,8 +153,7 @@ $result_trees{'novalidate_empty_refs'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -181,8 +176,7 @@ $result_trees{'novalidate_empty_refs'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     {
@@ -210,8 +204,7 @@ $result_trees{'novalidate_empty_refs'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     },
     {
@@ -232,8 +225,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'cmdname' => 'asis',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -254,8 +246,7 @@ $result_trees{'novalidate_empty_refs'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     }
   ],
@@ -310,7 +301,6 @@ $result_errors{'novalidate_empty_refs'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'empty node name after expansion `@
 \'',
     'type' => 'error'
@@ -320,7 +310,6 @@ $result_errors{'novalidate_empty_refs'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'empty node name after expansion `@:\'',
     'type' => 'error'
   },
@@ -329,7 +318,6 @@ $result_errors{'novalidate_empty_refs'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'empty node name after expansion `@asis{ }\'',
     'type' => 'error'
   }

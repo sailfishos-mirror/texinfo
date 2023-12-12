@@ -21,8 +21,7 @@ $result_trees{'multitable_item_in_index'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -37,8 +36,7 @@ $result_trees{'multitable_item_in_index'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 }
@@ -92,8 +90,7 @@ $result_trees{'multitable_item_in_index'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   },
                   'type' => 'index_entry_command'
                 }
@@ -128,8 +125,7 @@ $result_trees{'multitable_item_in_index'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -143,8 +139,7 @@ $result_trees{'multitable_item_in_index'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -168,7 +163,6 @@ $result_errors{'multitable_item_in_index'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@item should not appear on @vindex line',
     'type' => 'warning'
   },
@@ -177,7 +171,6 @@ $result_errors{'multitable_item_in_index'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@item outside of table or list',
     'type' => 'error'
   },
@@ -186,7 +179,6 @@ $result_errors{'multitable_item_in_index'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'
   },
@@ -195,7 +187,6 @@ $result_errors{'multitable_item_in_index'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@multitable has text but no @item',
     'type' => 'warning'
   }

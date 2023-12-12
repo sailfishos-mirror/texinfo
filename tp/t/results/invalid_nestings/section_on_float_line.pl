@@ -49,8 +49,7 @@ $result_trees{'section_on_float_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -84,8 +83,7 @@ $result_trees{'section_on_float_line'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -124,7 +122,6 @@ $result_errors{'section_on_float_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -133,7 +130,6 @@ $result_errors{'section_on_float_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@section should not appear on @float line',
     'type' => 'warning'
   },
@@ -142,7 +138,6 @@ $result_errors{'section_on_float_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@section seen before @end float',
     'type' => 'error'
   }

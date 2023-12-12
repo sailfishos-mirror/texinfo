@@ -51,8 +51,7 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -62,8 +61,7 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -189,8 +187,7 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 9,
-                      'macro' => ''
+                      'line_nr' => 9
                     }
                   },
                   'position' => 8,

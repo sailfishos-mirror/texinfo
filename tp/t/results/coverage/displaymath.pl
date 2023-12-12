@@ -43,8 +43,7 @@ $result_trees{'displaymath'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               },
               'type' => 'balanced_braces'
             },
@@ -59,8 +58,7 @@ $result_trees{'displaymath'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               },
               'type' => 'balanced_braces'
             },
@@ -96,15 +94,13 @@ $result_trees{'displaymath'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -155,8 +151,7 @@ $result_trees{'displaymath'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -176,8 +171,7 @@ $result_trees{'displaymath'} = {
               'cmdname' => 'sub',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -197,8 +191,7 @@ $result_trees{'displaymath'} = {
               'cmdname' => 'sup',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -233,15 +226,13 @@ $result_trees{'displaymath'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -295,8 +286,7 @@ $result_trees{'displaymath'} = {
                           ],
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 13,
-                            'macro' => ''
+                            'line_nr' => 13
                           },
                           'type' => 'balanced_braces'
                         }
@@ -307,8 +297,7 @@ $result_trees{'displaymath'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   }
                 },
                 {
@@ -317,8 +306,7 @@ $result_trees{'displaymath'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               },
               'type' => 'balanced_braces'
             },
@@ -339,8 +327,7 @@ $result_trees{'displaymath'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               },
               'type' => 'balanced_braces'
             },
@@ -357,8 +344,7 @@ $result_trees{'displaymath'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   },
                   'type' => 'balanced_braces'
                 },
@@ -368,8 +354,7 @@ $result_trees{'displaymath'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               },
               'type' => 'balanced_braces'
             },
@@ -405,15 +390,13 @@ $result_trees{'displaymath'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
-            'macro' => ''
+            'line_nr' => 12
           }
         },
         {
@@ -486,15 +469,13 @@ $result_trees{'displaymath'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
-            'macro' => ''
+            'line_nr' => 17
           }
         }
       ],

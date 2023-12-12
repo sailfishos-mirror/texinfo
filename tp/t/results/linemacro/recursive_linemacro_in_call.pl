@@ -59,8 +59,7 @@ $result_trees{'recursive_linemacro_in_call'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -70,8 +69,7 @@ $result_trees{'recursive_linemacro_in_call'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {

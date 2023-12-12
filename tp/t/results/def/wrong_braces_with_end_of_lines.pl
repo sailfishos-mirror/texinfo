@@ -82,8 +82,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -102,8 +101,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               },
               'type' => 'def_line'
             },
@@ -155,8 +153,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -167,8 +164,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -269,8 +265,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'def_line'
             },
@@ -322,8 +317,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           ],
@@ -334,8 +328,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         }
       ],
@@ -370,7 +363,6 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -379,7 +371,6 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -388,7 +379,6 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -397,7 +387,6 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   }

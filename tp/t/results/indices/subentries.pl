@@ -44,8 +44,7 @@ $result_trees{'subentries'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -71,8 +70,7 @@ $result_trees{'subentries'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -105,8 +103,7 @@ $result_trees{'subentries'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -166,8 +163,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           },
           'type' => 'index_entry_command'
         },
@@ -222,8 +218,7 @@ $result_trees{'subentries'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           },
@@ -235,8 +230,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           },
           'type' => 'index_entry_command'
         },
@@ -311,8 +305,7 @@ $result_trees{'subentries'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 }
               },
@@ -323,8 +316,7 @@ $result_trees{'subentries'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           },
@@ -336,8 +328,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           },
           'type' => 'index_entry_command'
         },
@@ -432,8 +423,7 @@ $result_trees{'subentries'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
-                        'macro' => ''
+                        'line_nr' => 10
                       }
                     }
                   },
@@ -444,8 +434,7 @@ $result_trees{'subentries'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 10,
-                    'macro' => ''
+                    'line_nr' => 10
                   }
                 }
               },
@@ -456,8 +445,7 @@ $result_trees{'subentries'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           },
@@ -469,8 +457,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           },
           'type' => 'index_entry_command'
         },
@@ -515,8 +502,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
-            'macro' => ''
+            'line_nr' => 12
           },
           'type' => 'index_entry_command'
         },
@@ -571,8 +557,7 @@ $result_trees{'subentries'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           },
@@ -584,8 +569,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
+            'line_nr' => 13
           },
           'type' => 'index_entry_command'
         },
@@ -660,8 +644,7 @@ $result_trees{'subentries'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
-                    'macro' => ''
+                    'line_nr' => 14
                   }
                 }
               },
@@ -672,8 +655,7 @@ $result_trees{'subentries'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           },
@@ -685,8 +667,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           },
           'type' => 'index_entry_command'
         },
@@ -781,8 +762,7 @@ $result_trees{'subentries'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
-                        'macro' => ''
+                        'line_nr' => 15
                       }
                     }
                   },
@@ -793,8 +773,7 @@ $result_trees{'subentries'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 15,
-                    'macro' => ''
+                    'line_nr' => 15
                   }
                 }
               },
@@ -805,8 +784,7 @@ $result_trees{'subentries'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             }
           },
@@ -818,8 +796,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
-            'macro' => ''
+            'line_nr' => 15
           },
           'type' => 'index_entry_command'
         },
@@ -861,8 +838,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
-            'macro' => ''
+            'line_nr' => 17
           }
         },
         {
@@ -895,8 +871,7 @@ $result_trees{'subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         }
       ],
@@ -910,8 +885,7 @@ $result_trees{'subentries'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     }
   ],
@@ -1071,7 +1045,6 @@ $result_errors{'subentries'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'no more than two levels of index subentry are allowed',
     'type' => 'error'
   },
@@ -1080,7 +1053,6 @@ $result_errors{'subentries'} = [
 ',
     'file_name' => '',
     'line_nr' => 15,
-    'macro' => '',
     'text' => 'no more than two levels of index subentry are allowed',
     'type' => 'error'
   }

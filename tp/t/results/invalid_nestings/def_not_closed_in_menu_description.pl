@@ -124,8 +124,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 2,
-                            'macro' => ''
+                            'line_nr' => 2
                           },
                           'type' => 'def_line'
                         },
@@ -156,8 +155,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -166,8 +164,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'menu_entry'
             },
@@ -199,15 +196,13 @@ $result_trees{'def_not_closed_in_menu_description'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -238,7 +233,6 @@ $result_errors{'def_not_closed_in_menu_description'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@deffn should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -247,7 +241,6 @@ $result_errors{'def_not_closed_in_menu_description'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -256,7 +249,6 @@ $result_errors{'def_not_closed_in_menu_description'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '`@end\' expected `deffn\', but saw `menu\'',
     'type' => 'error'
   }

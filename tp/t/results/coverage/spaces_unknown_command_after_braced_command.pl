@@ -20,8 +20,7 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -47,8 +46,7 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -88,7 +86,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@code expected braces',
     'type' => 'error'
   },
@@ -97,7 +94,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   },
@@ -106,7 +102,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@~ expected braces',
     'type' => 'error'
   },
@@ -115,7 +110,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'unknown command `notexisting\'',
     'type' => 'error'
   }

@@ -34,8 +34,7 @@ $result_trees{'no_element'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -67,8 +66,7 @@ $result_trees{'no_element'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -99,8 +97,7 @@ $result_trees{'no_element'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -141,8 +138,7 @@ $result_trees{'no_element'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -185,8 +181,7 @@ $result_trees{'no_element'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             },
             {
@@ -239,8 +234,7 @@ $result_trees{'no_element'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
-                        'macro' => ''
+                        'line_nr' => 15
                       }
                     },
                     {
@@ -281,8 +275,7 @@ $result_trees{'no_element'} = {
                           'cmdname' => 'ref',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 18,
-                            'macro' => ''
+                            'line_nr' => 18
                           }
                         },
                         {
@@ -299,8 +292,7 @@ $result_trees{'no_element'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -377,8 +369,7 @@ $result_trees{'no_element'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               }
             }
           ],
@@ -394,8 +385,7 @@ $result_trees{'no_element'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
-            'macro' => ''
+            'line_nr' => 21
           }
         },
         {
@@ -431,8 +421,7 @@ $result_trees{'no_element'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               }
             },
             {
@@ -504,8 +493,7 @@ $result_trees{'no_element'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               },
               'type' => 'menu_entry'
             },
@@ -537,15 +525,13 @@ $result_trees{'no_element'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 28,
-            'macro' => ''
+            'line_nr' => 28
           }
         },
         {
@@ -585,8 +571,7 @@ $result_trees{'no_element'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 32,
-            'macro' => ''
+            'line_nr' => 32
           },
           'type' => 'index_entry_command'
         }
@@ -664,7 +649,6 @@ $result_errors{'no_element'} = [
 ',
     'file_name' => '',
     'line_nr' => 32,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   }
@@ -743,7 +727,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@anchor outside of any node',
     'type' => 'warning'
   },
@@ -752,7 +735,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => '@footnote outside of any node',
     'type' => 'warning'
   },
@@ -761,7 +743,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
 ',
     'file_name' => '',
     'line_nr' => 21,
-    'macro' => '',
     'text' => '@float outside of any node',
     'type' => 'warning'
   },
@@ -770,7 +751,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
 ',
     'file_name' => '',
     'line_nr' => 15,
-    'macro' => '',
     'text' => '@anchor outside of any node',
     'type' => 'warning'
   }

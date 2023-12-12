@@ -35,8 +35,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                       ],
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -90,8 +89,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 3,
-                            'macro' => ''
+                            'line_nr' => 3
                           }
                         }
                       ],
@@ -133,8 +131,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 4,
-                            'macro' => ''
+                            'line_nr' => 4
                           }
                         }
                       ],
@@ -174,8 +171,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   }
                 }
               ],
@@ -189,8 +185,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -221,15 +216,13 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -257,7 +250,6 @@ $result_errors{'multitable_in_example_extraneous_tab'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'too many columns in multitable item (max 1)',
     'type' => 'error'
   },
@@ -266,7 +258,6 @@ $result_errors{'multitable_in_example_extraneous_tab'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'too many columns in multitable item (max 1)',
     'type' => 'error'
   }

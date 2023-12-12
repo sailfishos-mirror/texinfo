@@ -39,8 +39,7 @@ $result_trees{'ref_empty_node'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -82,8 +81,7 @@ $result_trees{'ref_empty_node'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -109,8 +107,7 @@ $result_trees{'ref_empty_node'} = {
               'cmdname' => 'inforef',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -183,8 +180,7 @@ $result_trees{'ref_empty_node'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -218,7 +214,6 @@ $result_errors{'ref_empty_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@inforef is obsolete',
     'type' => 'warning'
   }

@@ -50,8 +50,7 @@ $result_trees{'empty_nodes_with_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -74,8 +73,7 @@ $result_trees{'empty_nodes_with_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -103,8 +101,7 @@ $result_trees{'empty_nodes_with_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -125,8 +122,7 @@ $result_trees{'empty_nodes_with_commands'} = {
               'cmdname' => 'asis',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -147,8 +143,7 @@ $result_trees{'empty_nodes_with_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     }
   ],
@@ -174,7 +169,6 @@ $result_errors{'empty_nodes_with_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'empty argument in @node',
     'type' => 'error'
   },
@@ -184,7 +178,6 @@ $result_errors{'empty_nodes_with_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'empty node name after expansion `@
 \'',
     'type' => 'error'
@@ -194,7 +187,6 @@ $result_errors{'empty_nodes_with_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'empty node name after expansion `@:\'',
     'type' => 'error'
   },
@@ -203,7 +195,6 @@ $result_errors{'empty_nodes_with_commands'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'empty node name after expansion `@asis{ }\'',
     'type' => 'error'
   }

@@ -87,8 +87,7 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               },
               'source_marks' => [
                 {
@@ -145,8 +144,7 @@ after
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -183,7 +181,6 @@ $result_errors{'closing_brace_in_value_in_ignored_inline'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@inlinefmt missing closing brace',
     'type' => 'error'
   }

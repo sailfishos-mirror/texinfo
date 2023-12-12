@@ -30,8 +30,7 @@ $result_trees{'multitable_in_style_command'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -49,8 +48,7 @@ $result_trees{'multitable_in_style_command'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
+                    'line_nr' => 3
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -65,8 +63,7 @@ $result_trees{'multitable_in_style_command'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
+                    'line_nr' => 3
                   },
                   'type' => 'bracketed_arg'
                 }
@@ -107,8 +104,7 @@ $result_trees{'multitable_in_style_command'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     },
                     {
@@ -133,8 +129,7 @@ $result_trees{'multitable_in_style_command'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -174,8 +169,7 @@ $result_trees{'multitable_in_style_command'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -189,8 +183,7 @@ $result_trees{'multitable_in_style_command'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         }
       ],
@@ -219,7 +212,6 @@ $result_errors{'multitable_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   },
@@ -228,7 +220,6 @@ $result_errors{'multitable_in_style_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

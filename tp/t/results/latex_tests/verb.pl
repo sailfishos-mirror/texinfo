@@ -32,8 +32,7 @@ $result_trees{'verb'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -68,8 +67,7 @@ $result_trees{'verb'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -109,8 +107,7 @@ $result_trees{'verb'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -145,8 +142,7 @@ $result_trees{'verb'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -208,7 +204,6 @@ $result_converted_errors{'latex_text'}->{'verb'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'',
     'type' => 'warning'
   }
@@ -221,7 +216,6 @@ $result_converted_errors{'file_latex'}->{'verb'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'',
     'type' => 'warning'
   }

@@ -55,8 +55,7 @@ $result_trees{'cpp_line_latin1'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_line_latin1.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -99,8 +98,7 @@ $result_trees{'cpp_line_latin1'} = {
       },
       'source_info' => {
         'file_name' => 'cpp_line_latin1.texi',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -126,8 +124,7 @@ $result_trees{'cpp_line_latin1'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => 'cpp_line_latin1.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -195,8 +192,7 @@ $result_trees{'cpp_line_latin1'} = {
       },
       'source_info' => {
         'file_name' => 'cpp_line_latin1.texi',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -309,7 +305,6 @@ $result_errors{'cpp_line_latin1'} = [
 ',
     'file_name' => 'foo.ptèxi',
     'line_nr' => 102,
-    'macro' => '',
     'text' => 'unknown command `gggg\'',
     'type' => 'error'
   }

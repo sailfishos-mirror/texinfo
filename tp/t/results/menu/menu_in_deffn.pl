@@ -95,8 +95,7 @@ $result_trees{'menu_in_deffn'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               },
               'type' => 'def_line'
             },
@@ -164,8 +163,7 @@ $result_trees{'menu_in_deffn'} = {
                       ],
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       },
                       'type' => 'menu_entry'
                     },
@@ -197,15 +195,13 @@ $result_trees{'menu_in_deffn'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 6,
-                        'macro' => ''
+                        'line_nr' => 6
                       }
                     }
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -239,8 +235,7 @@ $result_trees{'menu_in_deffn'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -251,8 +246,7 @@ $result_trees{'menu_in_deffn'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         }
       ],
@@ -267,8 +261,7 @@ $result_trees{'menu_in_deffn'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -316,7 +309,6 @@ $result_errors{'menu_in_deffn'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@menu in invalid context',
     'type' => 'warning'
   }

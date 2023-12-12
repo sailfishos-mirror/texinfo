@@ -39,8 +39,7 @@ $result_trees{'at_commands_in_raw'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -109,8 +108,7 @@ $result_trees{'at_commands_in_raw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -120,8 +118,7 @@ $result_trees{'at_commands_in_raw'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -138,8 +135,7 @@ $result_trees{'at_commands_in_raw'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -172,8 +168,7 @@ $result_trees{'at_commands_in_raw'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -238,8 +233,7 @@ $result_trees{'at_commands_in_raw'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 12,
-                    'macro' => ''
+                    'line_nr' => 12
                   }
                 },
                 {
@@ -264,8 +258,7 @@ $result_trees{'at_commands_in_raw'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
-                    'macro' => ''
+                    'line_nr' => 13
                   }
                 },
                 {
@@ -304,15 +297,13 @@ $result_trees{'at_commands_in_raw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -331,8 +322,7 @@ $result_trees{'at_commands_in_raw'} = {
               'cmdname' => 'kbd',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -354,8 +344,7 @@ $result_trees{'at_commands_in_raw'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -632,15 +621,13 @@ $result_trees{'at_commands_in_raw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 61,
-                'macro' => ''
+                'line_nr' => 61
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
-            'macro' => ''
+            'line_nr' => 17
           }
         },
         {
@@ -701,8 +688,7 @@ $result_trees{'at_commands_in_raw'} = {
               'cmdname' => 'kbd',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 67,
-                'macro' => ''
+                'line_nr' => 67
               }
             },
             {
@@ -741,8 +727,7 @@ $result_trees{'at_commands_in_raw'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 69,
-                'macro' => ''
+                'line_nr' => 69
               }
             },
             {
@@ -781,8 +766,7 @@ $result_trees{'at_commands_in_raw'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 71,
-                'macro' => ''
+                'line_nr' => 71
               }
             },
             {
@@ -822,8 +806,7 @@ $result_trees{'at_commands_in_raw'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 72,
-                'macro' => ''
+                'line_nr' => 72
               },
               'type' => 'index_entry_command'
             }
@@ -883,8 +866,7 @@ $result_trees{'at_commands_in_raw'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 76,
-            'macro' => ''
+            'line_nr' => 76
           }
         },
         {
@@ -917,8 +899,7 @@ $result_trees{'at_commands_in_raw'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 77,
-            'macro' => ''
+            'line_nr' => 77
           }
         },
         {
@@ -954,8 +935,7 @@ $result_trees{'at_commands_in_raw'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 79,
-            'macro' => ''
+            'line_nr' => 79
           }
         },
         {
@@ -979,8 +959,7 @@ $result_trees{'at_commands_in_raw'} = {
               'cmdname' => 'acronym',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 81,
-                'macro' => ''
+                'line_nr' => 81
               }
             },
             {
@@ -1087,8 +1066,7 @@ $result_trees{'at_commands_in_raw'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     }
   ],
@@ -1332,7 +1310,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 65,
-    'macro' => '',
     'text' => 'undefined flag: flag',
     'type' => 'warning'
   },
@@ -1341,7 +1318,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 74,
-    'macro' => '',
     'text' => 'unknown command `newindex\'',
     'type' => 'error'
   },
@@ -1350,7 +1326,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 83,
-    'macro' => '',
     'text' => 'unknown command `a\'',
     'type' => 'error'
   },
@@ -1359,7 +1334,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 83,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -1368,7 +1342,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 83,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -1377,7 +1350,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 85,
-    'macro' => '',
     'text' => 'unknown command `moviecite\'',
     'type' => 'error'
   },
@@ -1386,7 +1358,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 85,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -1395,7 +1366,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 85,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -1404,7 +1374,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 89,
-    'macro' => '',
     'text' => 'unknown command `mymacro\'',
     'type' => 'error'
   },
@@ -1413,7 +1382,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 89,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -1422,7 +1390,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 89,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -1431,7 +1398,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 89,
-    'macro' => '',
     'text' => 'unknown command `macroarg\'',
     'type' => 'error'
   },
@@ -1440,7 +1406,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 89,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -1449,7 +1414,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 89,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -1458,7 +1422,6 @@ $result_errors{'at_commands_in_raw'} = [
 ',
     'file_name' => '',
     'line_nr' => 71,
-    'macro' => '',
     'text' => '@ref reference to nonexistent node `anchor in tex\'',
     'type' => 'error'
   }

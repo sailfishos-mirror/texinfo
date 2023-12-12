@@ -63,8 +63,7 @@ $result_trees{'top_without_node_nodes'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     'unit_contents' => [
@@ -113,8 +112,7 @@ $result_trees{'top_without_node_nodes'} = [
         },
         'source_info' => {
           'file_name' => '',
-          'line_nr' => 1,
-          'macro' => ''
+          'line_nr' => 1
         }
       },
       {},
@@ -162,8 +160,7 @@ $result_trees{'top_without_node_nodes'} = [
         },
         'source_info' => {
           'file_name' => '',
-          'line_nr' => 5,
-          'macro' => ''
+          'line_nr' => 5
         }
       }
     ],

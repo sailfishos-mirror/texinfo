@@ -28,8 +28,7 @@ $result_trees{'raw_block_on_line'} = {
                   'cmdname' => 'tex',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 }
               ],
@@ -51,8 +50,7 @@ $result_trees{'raw_block_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           },
           'type' => 'index_entry_command'
         }
@@ -75,7 +73,6 @@ $result_errors{'raw_block_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'no matching `@end tex\'',
     'type' => 'error'
   },
@@ -84,7 +81,6 @@ $result_errors{'raw_block_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   },
@@ -93,7 +89,6 @@ $result_errors{'raw_block_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'empty index key in @cindex',
     'type' => 'warning'
   }

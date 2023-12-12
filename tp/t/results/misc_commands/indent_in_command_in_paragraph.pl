@@ -22,8 +22,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                       'cmdname' => 'indent',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
@@ -33,8 +32,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -55,8 +53,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                               'cmdname' => 'noindent',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 1,
-                                'macro' => ''
+                                'line_nr' => 1
                               }
                             }
                           ],
@@ -66,8 +63,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                       'cmdname' => 'b',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
@@ -77,8 +73,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
               'cmdname' => 'asis',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -108,7 +103,6 @@ $result_errors{'indent_in_command_in_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@indent should not appear in @code',
     'type' => 'warning'
   },
@@ -117,7 +111,6 @@ $result_errors{'indent_in_command_in_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@indent is useless inside of a paragraph',
     'type' => 'warning'
   },
@@ -126,7 +119,6 @@ $result_errors{'indent_in_command_in_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@noindent should not appear in @b',
     'type' => 'warning'
   },
@@ -135,7 +127,6 @@ $result_errors{'indent_in_command_in_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   }

@@ -40,8 +40,7 @@ $result_trees{'footnote_in_command_not_closed'} = {
                       'cmdname' => 'footnote',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
@@ -51,8 +50,7 @@ $result_trees{'footnote_in_command_not_closed'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -76,7 +74,6 @@ $result_errors{'footnote_in_command_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@footnote missing closing brace',
     'type' => 'error'
   },
@@ -85,7 +82,6 @@ $result_errors{'footnote_in_command_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
   }

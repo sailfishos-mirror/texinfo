@@ -33,8 +33,7 @@ $result_trees{'ref_to_unknown_node'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -62,7 +61,6 @@ $result_errors{'ref_to_unknown_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@xref reference to nonexistent node `unknown node\'',
     'type' => 'error'
   }

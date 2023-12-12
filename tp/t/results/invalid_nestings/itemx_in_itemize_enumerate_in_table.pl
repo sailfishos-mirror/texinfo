@@ -17,8 +17,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
                 }
@@ -63,8 +62,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -133,8 +131,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 6,
-                                'macro' => ''
+                                'line_nr' => 6
                               }
                             }
                           ],
@@ -168,8 +165,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 7,
-                            'macro' => ''
+                            'line_nr' => 7
                           }
                         }
                       ],
@@ -178,8 +174,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     },
                     {
@@ -228,8 +223,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                               },
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 10,
-                                'macro' => ''
+                                'line_nr' => 10
                               }
                             }
                           ],
@@ -263,8 +257,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 11,
-                            'macro' => ''
+                            'line_nr' => 11
                           }
                         }
                       ],
@@ -273,8 +266,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     },
                     {
@@ -316,8 +308,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
@@ -331,8 +322,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -375,7 +365,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@itemx outside of table or list',
     'type' => 'error'
   },
@@ -384,7 +373,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@itemize has text but no @item',
     'type' => 'warning'
   },
@@ -393,7 +381,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => '@itemx outside of table or list',
     'type' => 'error'
   },
@@ -402,7 +389,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@enumerate has text but no @item',
     'type' => 'warning'
   }

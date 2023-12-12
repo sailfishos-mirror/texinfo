@@ -47,8 +47,7 @@ $result_trees{'top_no_argument_and_content'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],

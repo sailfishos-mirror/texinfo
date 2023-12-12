@@ -21,8 +21,7 @@ $result_trees{'multitable_not_closed_item_tab'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 },
@@ -37,8 +36,7 @@ $result_trees{'multitable_not_closed_item_tab'} = {
                   ],
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
                 }
@@ -79,8 +77,7 @@ $result_trees{'multitable_not_closed_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     },
                     {
@@ -105,8 +102,7 @@ $result_trees{'multitable_not_closed_item_tab'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -129,8 +125,7 @@ $result_trees{'multitable_not_closed_item_tab'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -154,7 +149,6 @@ $result_errors{'multitable_not_closed_item_tab'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'no matching `@end multitable\'',
     'type' => 'error'
   }

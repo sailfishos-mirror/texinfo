@@ -29,8 +29,7 @@ $result_trees{'empty_copying_not_ended'} = {
           'cmdname' => 'copying',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         }
       ],
@@ -54,7 +53,6 @@ $result_errors{'empty_copying_not_ended'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'no matching `@end copying\'',
     'type' => 'error'
   }

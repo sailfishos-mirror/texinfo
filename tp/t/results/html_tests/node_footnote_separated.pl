@@ -107,8 +107,7 @@ $result_trees{'node_footnote_separated'} = {
                       'cmdname' => '\'',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
-                        'line_nr' => 8,
-                        'macro' => ''
+                        'line_nr' => 8
                       }
                     }
                   ],
@@ -143,8 +142,7 @@ $result_trees{'node_footnote_separated'} = {
               ],
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               },
               'type' => 'menu_entry'
             },
@@ -170,8 +168,7 @@ $result_trees{'node_footnote_separated'} = {
                       'cmdname' => '^',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
-                        'line_nr' => 9,
-                        'macro' => ''
+                        'line_nr' => 9
                       }
                     }
                   ],
@@ -206,8 +203,7 @@ $result_trees{'node_footnote_separated'} = {
               ],
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               },
               'type' => 'menu_entry'
             },
@@ -254,8 +250,7 @@ $result_trees{'node_footnote_separated'} = {
               ],
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'menu_entry'
             },
@@ -281,8 +276,7 @@ $result_trees{'node_footnote_separated'} = {
                       'cmdname' => '`',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
-                        'line_nr' => 11,
-                        'macro' => ''
+                        'line_nr' => 11
                       }
                     }
                   ],
@@ -317,8 +311,7 @@ $result_trees{'node_footnote_separated'} = {
               ],
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               },
               'type' => 'menu_entry'
             },
@@ -350,15 +343,13 @@ $result_trees{'node_footnote_separated'} = {
               },
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
           'source_info' => {
             'file_name' => 'node_footnote.texi',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -378,8 +369,7 @@ $result_trees{'node_footnote_separated'} = {
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -400,8 +390,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => '\'',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             }
           ],
@@ -440,8 +429,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => '\'',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             },
             {
@@ -474,8 +462,7 @@ $result_trees{'node_footnote_separated'} = {
                           'cmdname' => '\'',
                           'source_info' => {
                             'file_name' => 'node_footnote.texi',
-                            'line_nr' => 17,
-                            'macro' => ''
+                            'line_nr' => 17
                           }
                         }
                       ],
@@ -488,8 +475,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               }
             },
             {
@@ -516,8 +502,7 @@ $result_trees{'node_footnote_separated'} = {
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
-        'line_nr' => 14,
-        'macro' => ''
+        'line_nr' => 14
       }
     },
     {
@@ -538,8 +523,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             }
           ],
@@ -578,8 +562,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -612,8 +595,7 @@ $result_trees{'node_footnote_separated'} = {
                           'cmdname' => '^',
                           'source_info' => {
                             'file_name' => 'node_footnote.texi',
-                            'line_nr' => 22,
-                            'macro' => ''
+                            'line_nr' => 22
                           }
                         }
                       ],
@@ -626,8 +608,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             },
             {
@@ -654,8 +635,7 @@ $result_trees{'node_footnote_separated'} = {
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
-        'line_nr' => 19,
-        'macro' => ''
+        'line_nr' => 19
       }
     },
     {
@@ -687,8 +667,7 @@ $result_trees{'node_footnote_separated'} = {
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
-        'line_nr' => 24,
-        'macro' => ''
+        'line_nr' => 24
       }
     },
     {
@@ -751,8 +730,7 @@ $result_trees{'node_footnote_separated'} = {
                       'cmdname' => '`',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
-                        'line_nr' => 28,
-                        'macro' => ''
+                        'line_nr' => 28
                       }
                     }
                   ],
@@ -787,8 +765,7 @@ $result_trees{'node_footnote_separated'} = {
               ],
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               },
               'type' => 'menu_entry'
             },
@@ -820,15 +797,13 @@ $result_trees{'node_footnote_separated'} = {
               },
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             }
           ],
           'source_info' => {
             'file_name' => 'node_footnote.texi',
-            'line_nr' => 27,
-            'macro' => ''
+            'line_nr' => 27
           }
         },
         {
@@ -847,8 +822,7 @@ $result_trees{'node_footnote_separated'} = {
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
-        'line_nr' => 25,
-        'macro' => ''
+        'line_nr' => 25
       }
     },
     {
@@ -869,8 +843,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => '`',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 31,
-                'macro' => ''
+                'line_nr' => 31
               }
             }
           ],
@@ -909,8 +882,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => '`',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 33,
-                'macro' => ''
+                'line_nr' => 33
               }
             },
             {
@@ -943,8 +915,7 @@ $result_trees{'node_footnote_separated'} = {
                           'cmdname' => '`',
                           'source_info' => {
                             'file_name' => 'node_footnote.texi',
-                            'line_nr' => 34,
-                            'macro' => ''
+                            'line_nr' => 34
                           }
                         }
                       ],
@@ -957,8 +928,7 @@ $result_trees{'node_footnote_separated'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               }
             },
             {
@@ -985,8 +955,7 @@ $result_trees{'node_footnote_separated'} = {
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
-        'line_nr' => 31,
-        'macro' => ''
+        'line_nr' => 31
       }
     },
     {

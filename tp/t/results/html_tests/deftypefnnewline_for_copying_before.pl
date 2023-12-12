@@ -44,8 +44,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -146,8 +145,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
+                    'line_nr' => 5
                   },
                   'type' => 'def_line'
                 },
@@ -193,8 +191,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 }
               ],
@@ -205,8 +202,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -237,15 +233,13 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -285,8 +279,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     },
     {
@@ -322,8 +315,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {
@@ -355,8 +347,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     {
@@ -462,8 +453,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               },
               'type' => 'def_line'
             },
@@ -509,8 +499,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               }
             }
           ],
@@ -521,8 +510,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
-            'macro' => ''
+            'line_nr' => 16
           }
         },
         {
@@ -541,8 +529,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 14,
-        'macro' => ''
+        'line_nr' => 14
       }
     }
   ],

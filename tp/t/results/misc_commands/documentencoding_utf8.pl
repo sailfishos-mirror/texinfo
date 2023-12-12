@@ -38,8 +38,7 @@ $result_trees{'documentencoding_utf8'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -68,7 +67,6 @@ $result_errors{'documentencoding_utf8'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'encoding `utf8\' is not a canonical texinfo encoding',
     'type' => 'warning'
   }

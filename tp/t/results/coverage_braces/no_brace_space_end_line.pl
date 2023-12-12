@@ -30,8 +30,7 @@ $result_trees{'no_brace_space_end_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -58,8 +57,7 @@ $result_trees{'no_brace_space_end_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -76,8 +74,7 @@ $result_trees{'no_brace_space_end_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -112,7 +109,6 @@ $result_errors{'no_brace_space_end_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'command `@TeX\' must not be followed by new line',
     'type' => 'warning'
   },
@@ -121,7 +117,6 @@ $result_errors{'no_brace_space_end_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@TeX expected braces',
     'type' => 'error'
   },
@@ -130,7 +125,6 @@ $result_errors{'no_brace_space_end_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'command `@code\' must not be followed by new line',
     'type' => 'warning'
   },
@@ -139,7 +133,6 @@ $result_errors{'no_brace_space_end_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@code expected braces',
     'type' => 'error'
   }

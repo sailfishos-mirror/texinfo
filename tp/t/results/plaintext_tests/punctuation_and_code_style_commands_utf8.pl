@@ -38,8 +38,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -58,8 +57,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'command',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -83,8 +81,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'cmdname' => '~',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -94,8 +91,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -114,8 +110,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'cmdname' => 'aa',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       }
                     }
                   ],
@@ -125,8 +120,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -147,8 +141,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'command',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -172,8 +165,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'cmdname' => '~',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -183,8 +175,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -203,8 +194,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'cmdname' => 'AA',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -214,8 +204,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -236,8 +225,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'command',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -264,8 +252,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'cmdname' => '~',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -275,8 +262,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'code',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -298,8 +284,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'cmdname' => 'AA',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -309,8 +294,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
               'cmdname' => 'samp',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {

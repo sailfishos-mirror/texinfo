@@ -30,8 +30,7 @@ $result_trees{'prototype_no_brace'} = {
                   'cmdname' => 'var',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -77,8 +76,7 @@ $result_trees{'prototype_no_brace'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -92,8 +90,7 @@ $result_trees{'prototype_no_brace'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -116,7 +113,6 @@ $result_errors{'prototype_no_brace'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'unexpected argument on @multitable line: @var{FF}',
     'type' => 'warning'
   },
@@ -125,7 +121,6 @@ $result_errors{'prototype_no_brace'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'empty multitable',
     'type' => 'warning'
   }

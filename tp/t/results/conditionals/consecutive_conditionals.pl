@@ -60,15 +60,13 @@ $result_trees{'consecutive_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 3,
-                      'macro' => ''
+                      'line_nr' => 3
                     }
                   }
                 ],
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'ignored_conditional_block'
@@ -122,15 +120,13 @@ $result_trees{'consecutive_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 6,
-                      'macro' => ''
+                      'line_nr' => 6
                     }
                   }
                 ],
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 4,
-                  'macro' => ''
+                  'line_nr' => 4
                 }
               },
               'sourcemark_type' => 'ignored_conditional_block'
@@ -216,8 +212,7 @@ $result_trees{'consecutive_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 12,
-                      'macro' => ''
+                      'line_nr' => 12
                     }
                   }
                 ],
@@ -228,8 +223,7 @@ $result_trees{'consecutive_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 10,
-                  'macro' => ''
+                  'line_nr' => 10
                 }
               },
               'position' => 1,
@@ -289,8 +283,7 @@ $result_trees{'consecutive_conditionals'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 15,
-                      'macro' => ''
+                      'line_nr' => 15
                     }
                   }
                 ],
@@ -301,8 +294,7 @@ $result_trees{'consecutive_conditionals'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 13,
-                  'macro' => ''
+                  'line_nr' => 13
                 }
               },
               'position' => 1,

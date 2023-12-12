@@ -44,8 +44,7 @@ $result_trees{'inlineraw_with_empty_line'} = {
                       'cmdname' => 'lbracechar',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -67,8 +66,7 @@ $result_trees{'inlineraw_with_empty_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -113,8 +111,7 @@ $result_trees{'inlineraw_with_empty_line'} = {
                       'cmdname' => 'acronym',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 6,
-                        'macro' => ''
+                        'line_nr' => 6
                       }
                     },
                     {
@@ -136,8 +133,7 @@ $result_trees{'inlineraw_with_empty_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {

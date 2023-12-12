@@ -47,8 +47,7 @@ $result_trees{'end_of_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -81,7 +80,6 @@ $result_errors{'end_of_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@verb without associated character',
     'type' => 'error'
   }

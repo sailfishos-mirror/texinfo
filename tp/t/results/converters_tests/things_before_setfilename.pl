@@ -44,8 +44,7 @@ $result_trees{'things_before_setfilename'} = {
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -86,8 +85,7 @@ $result_trees{'things_before_setfilename'} = {
                   'cmdname' => 'ref',
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 6,
-                    'macro' => ''
+                    'line_nr' => 6
                   }
                 },
                 {
@@ -130,8 +128,7 @@ $result_trees{'things_before_setfilename'} = {
                   'cmdname' => 'ref',
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 },
                 {
@@ -184,8 +181,7 @@ $result_trees{'things_before_setfilename'} = {
                           },
                           'source_info' => {
                             'file_name' => 'things_before_setfilename.texi',
-                            'line_nr' => 13,
-                            'macro' => ''
+                            'line_nr' => 13
                           }
                         },
                         {
@@ -226,8 +222,7 @@ $result_trees{'things_before_setfilename'} = {
                               'cmdname' => 'ref',
                               'source_info' => {
                                 'file_name' => 'things_before_setfilename.texi',
-                                'line_nr' => 16,
-                                'macro' => ''
+                                'line_nr' => 16
                               }
                             },
                             {
@@ -244,8 +239,7 @@ $result_trees{'things_before_setfilename'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 11,
-                    'macro' => ''
+                    'line_nr' => 11
                   }
                 },
                 {
@@ -322,8 +316,7 @@ $result_trees{'things_before_setfilename'} = {
                   },
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 21,
-                    'macro' => ''
+                    'line_nr' => 21
                   }
                 }
               ],
@@ -339,8 +332,7 @@ $result_trees{'things_before_setfilename'} = {
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               }
             },
             {
@@ -376,8 +368,7 @@ $result_trees{'things_before_setfilename'} = {
                   'cmdname' => 'ref',
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 24,
-                    'macro' => ''
+                    'line_nr' => 24
                   }
                 },
                 {
@@ -458,8 +449,7 @@ $result_trees{'things_before_setfilename'} = {
                   },
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 29,
-                    'macro' => ''
+                    'line_nr' => 29
                   }
                 },
                 {
@@ -495,8 +485,7 @@ $result_trees{'things_before_setfilename'} = {
                   },
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 30,
-                    'macro' => ''
+                    'line_nr' => 30
                   }
                 }
               ],
@@ -513,8 +502,7 @@ $result_trees{'things_before_setfilename'} = {
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               }
             },
             {
@@ -533,8 +521,7 @@ $result_trees{'things_before_setfilename'} = {
               'cmdname' => 'contents',
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 32,
-                'macro' => ''
+                'line_nr' => 32
               }
             },
             {
@@ -599,8 +586,7 @@ $result_trees{'things_before_setfilename'} = {
                   ],
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 35,
-                    'macro' => ''
+                    'line_nr' => 35
                   },
                   'type' => 'menu_entry'
                 },
@@ -632,15 +618,13 @@ $result_trees{'things_before_setfilename'} = {
                   },
                   'source_info' => {
                     'file_name' => 'things_before_setfilename.texi',
-                    'line_nr' => 36,
-                    'macro' => ''
+                    'line_nr' => 36
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               }
             },
             {
@@ -680,8 +664,7 @@ $result_trees{'things_before_setfilename'} = {
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 38,
-                'macro' => ''
+                'line_nr' => 38
               },
               'type' => 'index_entry_command'
             },
@@ -720,8 +703,7 @@ $result_trees{'things_before_setfilename'} = {
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 40,
-                'macro' => ''
+                'line_nr' => 40
               }
             },
             {
@@ -757,8 +739,7 @@ $result_trees{'things_before_setfilename'} = {
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 42,
-                'macro' => ''
+                'line_nr' => 42
               }
             },
             {
@@ -799,8 +780,7 @@ $result_trees{'things_before_setfilename'} = {
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 44,
-                'macro' => ''
+                'line_nr' => 44
               }
             },
             {
@@ -843,8 +823,7 @@ $result_trees{'things_before_setfilename'} = {
       },
       'source_info' => {
         'file_name' => 'things_before_setfilename.texi',
-        'line_nr' => 46,
-        'macro' => ''
+        'line_nr' => 46
       }
     },
     {
@@ -880,8 +859,7 @@ $result_trees{'things_before_setfilename'} = {
       },
       'source_info' => {
         'file_name' => 'things_before_setfilename.texi',
-        'line_nr' => 47,
-        'macro' => ''
+        'line_nr' => 47
       }
     },
     {
@@ -913,8 +891,7 @@ $result_trees{'things_before_setfilename'} = {
       },
       'source_info' => {
         'file_name' => 'things_before_setfilename.texi',
-        'line_nr' => 49,
-        'macro' => ''
+        'line_nr' => 49
       }
     },
     {
@@ -969,8 +946,7 @@ $result_trees{'things_before_setfilename'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 53,
-                'macro' => ''
+                'line_nr' => 53
               }
             },
             {
@@ -1013,8 +989,7 @@ $result_trees{'things_before_setfilename'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 56,
-                'macro' => ''
+                'line_nr' => 56
               }
             },
             {
@@ -1040,8 +1015,7 @@ $result_trees{'things_before_setfilename'} = {
       },
       'source_info' => {
         'file_name' => 'things_before_setfilename.texi',
-        'line_nr' => 50,
-        'macro' => ''
+        'line_nr' => 50
       }
     }
   ],
@@ -1259,7 +1233,6 @@ $result_errors{'things_before_setfilename'} = [
 ',
     'file_name' => 'things_before_setfilename.texi',
     'line_nr' => 38,
-    'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
   },
@@ -1268,7 +1241,6 @@ $result_errors{'things_before_setfilename'} = [
 ',
     'file_name' => 'things_before_setfilename.texi',
     'line_nr' => 40,
-    'macro' => '',
     'text' => 'printindex before document beginning: @printindex cp',
     'type' => 'warning'
   }

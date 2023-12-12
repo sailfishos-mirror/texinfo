@@ -46,8 +46,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -131,8 +130,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -164,15 +162,13 @@ $result_trees{'chapter_node_before_and_after_part'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -191,8 +187,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -228,8 +223,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     {
@@ -261,8 +255,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     {
@@ -300,8 +293,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         }
       ],
@@ -316,8 +308,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
-        'macro' => ''
+        'line_nr' => 12
       }
     }
   ],
@@ -485,7 +476,6 @@ $result_errors{'chapter_node_before_and_after_part'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'node `Top\' is up for `after\' in menu but not in sectioning',
     'type' => 'warning'
   }

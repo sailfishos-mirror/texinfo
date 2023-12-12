@@ -18,8 +18,7 @@ $result_trees{'empty_anchor'} = {
           'cmdname' => 'anchor',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -42,8 +41,7 @@ $result_trees{'empty_anchor'} = {
               'cmdname' => 'anchor',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -75,7 +73,6 @@ $result_errors{'empty_anchor'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'empty argument in @anchor',
     'type' => 'error'
   },
@@ -84,7 +81,6 @@ $result_errors{'empty_anchor'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'empty argument in @anchor',
     'type' => 'error'
   }

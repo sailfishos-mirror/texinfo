@@ -36,8 +36,7 @@ $result_trees{'footnotestyle_separate_late'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     'unit_contents' => [
@@ -83,8 +82,7 @@ $result_trees{'footnotestyle_separate_late'} = [
         },
         'source_info' => {
           'file_name' => '',
-          'line_nr' => 2,
-          'macro' => ''
+          'line_nr' => 2
         }
       }
     ],
@@ -120,8 +118,7 @@ $result_trees{'footnotestyle_separate_late'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     'unit_contents' => [
@@ -171,8 +168,7 @@ $result_trees{'footnotestyle_separate_late'} = [
                 'cmdname' => 'footnote',
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 7,
-                  'macro' => ''
+                  'line_nr' => 7
                 }
               },
               {
@@ -198,8 +194,7 @@ $result_trees{'footnotestyle_separate_late'} = [
         },
         'source_info' => {
           'file_name' => '',
-          'line_nr' => 5,
-          'macro' => ''
+          'line_nr' => 5
         }
       }
     ],
@@ -235,8 +230,7 @@ $result_trees{'footnotestyle_separate_late'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     },
     'unit_contents' => [
@@ -286,8 +280,7 @@ $result_trees{'footnotestyle_separate_late'} = [
                 'cmdname' => 'footnote',
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 12,
-                  'macro' => ''
+                  'line_nr' => 12
                 }
               },
               {
@@ -332,8 +325,7 @@ $result_trees{'footnotestyle_separate_late'} = [
             },
             'source_info' => {
               'file_name' => '',
-              'line_nr' => 14,
-              'macro' => ''
+              'line_nr' => 14
             }
           }
         ],
@@ -347,8 +339,7 @@ $result_trees{'footnotestyle_separate_late'} = [
         },
         'source_info' => {
           'file_name' => '',
-          'line_nr' => 10,
-          'macro' => ''
+          'line_nr' => 10
         }
       }
     ],

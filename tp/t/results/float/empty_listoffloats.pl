@@ -30,8 +30,7 @@ $result_trees{'empty_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

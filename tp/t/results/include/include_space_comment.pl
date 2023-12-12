@@ -49,8 +49,7 @@ $result_trees{'include_space_comment'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 1,
-                  'macro' => ''
+                  'line_nr' => 1
                 }
               },
               'sourcemark_type' => 'include',

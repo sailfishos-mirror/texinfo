@@ -95,8 +95,7 @@ $result_trees{'a_comma_after_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -138,7 +137,6 @@ $result_errors{'a_comma_after_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'Next reference to nonexistent `Requirements\'',
     'type' => 'error'
   },
@@ -147,7 +145,6 @@ $result_errors{'a_comma_after_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'Prev reference to nonexistent `Nodes and Menus\'',
     'type' => 'error'
   }

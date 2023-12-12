@@ -92,15 +92,13 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                   },
                   'source_info' => {
                     'file_name' => 'cond.texi',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'cond.texi',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -122,8 +120,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     'cmdname' => 'ifhtml',
                     'source_info' => {
                       'file_name' => 'cond.texi',
-                      'line_nr' => 9,
-                      'macro' => ''
+                      'line_nr' => 9
                     }
                   },
                   'position' => 1,
@@ -172,8 +169,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     },
                     'source_info' => {
                       'file_name' => 'cond.texi',
-                      'line_nr' => 11,
-                      'macro' => ''
+                      'line_nr' => 11
                     }
                   },
                   'position' => 21,
@@ -238,15 +234,13 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     },
                     'source_info' => {
                       'file_name' => 'cond.texi',
-                      'line_nr' => 15,
-                      'macro' => ''
+                      'line_nr' => 15
                     }
                   }
                 ],
                 'source_info' => {
                   'file_name' => 'cond.texi',
-                  'line_nr' => 13,
-                  'macro' => ''
+                  'line_nr' => 13
                 }
               },
               'position' => 1,
@@ -294,8 +288,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
       },
       'source_info' => {
         'file_name' => 'cond.texi',
-        'line_nr' => 17,
-        'macro' => ''
+        'line_nr' => 17
       }
     },
     {
@@ -331,8 +324,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
       },
       'source_info' => {
         'file_name' => 'cond.texi',
-        'line_nr' => 18,
-        'macro' => ''
+        'line_nr' => 18
       }
     },
     {
@@ -378,8 +370,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                 'cmdname' => 'ifinfo',
                 'source_info' => {
                   'file_name' => 'cond.texi',
-                  'line_nr' => 23,
-                  'macro' => ''
+                  'line_nr' => 23
                 }
               },
               'position' => 1,
@@ -425,8 +416,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     },
                     'source_info' => {
                       'file_name' => 'cond.texi',
-                      'line_nr' => 25,
-                      'macro' => ''
+                      'line_nr' => 25
                     }
                   },
                   'position' => 21,
@@ -491,15 +481,13 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     },
                     'source_info' => {
                       'file_name' => 'cond.texi',
-                      'line_nr' => 29,
-                      'macro' => ''
+                      'line_nr' => 29
                     }
                   }
                 ],
                 'source_info' => {
                   'file_name' => 'cond.texi',
-                  'line_nr' => 27,
-                  'macro' => ''
+                  'line_nr' => 27
                 }
               },
               'position' => 1,
@@ -571,15 +559,13 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               }
             }
           ],
           'source_info' => {
             'file_name' => 'cond.texi',
-            'line_nr' => 32,
-            'macro' => ''
+            'line_nr' => 32
           }
         },
         {
@@ -601,8 +587,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                 'cmdname' => 'iftex',
                 'source_info' => {
                   'file_name' => 'cond.texi',
-                  'line_nr' => 36,
-                  'macro' => ''
+                  'line_nr' => 36
                 }
               },
               'position' => 1,
@@ -648,8 +633,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     },
                     'source_info' => {
                       'file_name' => 'cond.texi',
-                      'line_nr' => 38,
-                      'macro' => ''
+                      'line_nr' => 38
                     }
                   },
                   'position' => 20,
@@ -714,15 +698,13 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     },
                     'source_info' => {
                       'file_name' => 'cond.texi',
-                      'line_nr' => 42,
-                      'macro' => ''
+                      'line_nr' => 42
                     }
                   }
                 ],
                 'source_info' => {
                   'file_name' => 'cond.texi',
-                  'line_nr' => 40,
-                  'macro' => ''
+                  'line_nr' => 40
                 }
               },
               'position' => 1,
@@ -750,8 +732,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
       },
       'source_info' => {
         'file_name' => 'cond.texi',
-        'line_nr' => 20,
-        'macro' => ''
+        'line_nr' => 20
       }
     },
     {
@@ -960,7 +941,6 @@ $result_converted_errors{'html'}->{'cond_ifhtml_ifinfo_iftex'} = [
 ',
     'file_name' => 'cond.texi',
     'line_nr' => 32,
-    'macro' => '',
     'text' => 'raw format tex is not converted',
     'type' => 'warning'
   }

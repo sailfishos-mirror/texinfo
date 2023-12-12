@@ -50,8 +50,7 @@ $result_trees{'command_in_end_expanded_raw_one_char_not_in_command'} = {
                           'cmdname' => 'asis',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 3,
-                            'macro' => ''
+                            'line_nr' => 3
                           }
                         }
                       ],
@@ -75,8 +74,7 @@ $result_trees{'command_in_end_expanded_raw_one_char_not_in_command'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
+                    'line_nr' => 3
                   }
                 }
               ],
@@ -85,8 +83,7 @@ $result_trees{'command_in_end_expanded_raw_one_char_not_in_command'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -111,7 +108,6 @@ $result_errors{'command_in_end_expanded_raw_one_char_not_in_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@asis should not appear in @end',
     'type' => 'warning'
   },
@@ -120,7 +116,6 @@ $result_errors{'command_in_end_expanded_raw_one_char_not_in_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'unknown @end t',
     'type' => 'warning'
   },
@@ -129,7 +124,6 @@ $result_errors{'command_in_end_expanded_raw_one_char_not_in_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'bad argument to @end: t@asis{ex}',
     'type' => 'error'
   },
@@ -138,7 +132,6 @@ $result_errors{'command_in_end_expanded_raw_one_char_not_in_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'no matching `@end tex\'',
     'type' => 'error'
   }

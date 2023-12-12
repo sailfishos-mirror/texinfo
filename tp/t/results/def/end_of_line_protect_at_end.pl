@@ -73,8 +73,7 @@ $result_trees{'end_of_line_protect_at_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'def_line'
             }
@@ -86,8 +85,7 @@ $result_trees{'end_of_line_protect_at_end'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         }
       ],
@@ -112,7 +110,6 @@ $result_errors{'end_of_line_protect_at_end'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'unexpected @',
     'type' => 'error'
   },
@@ -121,7 +118,6 @@ $result_errors{'end_of_line_protect_at_end'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -130,7 +126,6 @@ $result_errors{'end_of_line_protect_at_end'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'no matching `@end deffn\'',
     'type' => 'error'
   }

@@ -62,15 +62,13 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
+                    'line_nr' => 3
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -123,8 +121,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 6,
-                    'macro' => ''
+                    'line_nr' => 6
                   }
                 },
                 {
@@ -158,8 +155,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
+                    'line_nr' => 7
                   }
                 },
                 {
@@ -193,8 +189,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 8,
-                    'macro' => ''
+                    'line_nr' => 8
                   }
                 },
                 {
@@ -231,8 +226,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
+                    'line_nr' => 9
                   }
                 },
                 {
@@ -304,8 +298,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                       ],
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 15,
-                                        'macro' => ''
+                                        'line_nr' => 15
                                       },
                                       'type' => 'balanced_braces'
                                     },
@@ -317,8 +310,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                       ],
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 15,
-                                        'macro' => ''
+                                        'line_nr' => 15
                                       },
                                       'type' => 'balanced_braces'
                                     },
@@ -354,15 +346,13 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                       },
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 16,
-                                        'macro' => ''
+                                        'line_nr' => 16
                                       }
                                     }
                                   ],
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 14,
-                                    'macro' => ''
+                                    'line_nr' => 14
                                   }
                                 }
                               ],
@@ -372,8 +362,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                           'cmdname' => 'footnote',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 10,
-                            'macro' => ''
+                            'line_nr' => 10
                           }
                         }
                       ],
@@ -397,8 +386,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 10,
-                    'macro' => ''
+                    'line_nr' => 10
                   }
                 },
                 {
@@ -452,8 +440,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   'cmdname' => 'insertcopying',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 22,
-                    'macro' => ''
+                    'line_nr' => 22
                   }
                 },
                 {
@@ -484,15 +471,13 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 23,
-                    'macro' => ''
+                    'line_nr' => 23
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {
@@ -535,8 +520,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 25,
-        'macro' => ''
+        'line_nr' => 25
       }
     },
     {
@@ -572,8 +556,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 26,
-        'macro' => ''
+        'line_nr' => 26
       }
     },
     {
@@ -605,8 +588,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 28,
-        'macro' => ''
+        'line_nr' => 28
       }
     },
     {
@@ -658,8 +640,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 29,
-        'macro' => ''
+        'line_nr' => 29
       }
     }
   ],
@@ -817,7 +798,6 @@ $result_errors{'titlepage_with_commands_classical'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => '@footnote should not appear on @author line',
     'type' => 'warning'
   },
@@ -826,7 +806,6 @@ $result_errors{'titlepage_with_commands_classical'} = [
 ',
     'file_name' => '',
     'line_nr' => 14,
-    'macro' => '',
     'text' => '@displaymath should not appear on @author line',
     'type' => 'warning'
   }

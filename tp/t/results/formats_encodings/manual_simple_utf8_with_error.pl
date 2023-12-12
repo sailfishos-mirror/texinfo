@@ -59,8 +59,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -96,8 +95,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -136,8 +134,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -169,8 +166,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -225,8 +221,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
-        'line_nr' => 9,
-        'macro' => ''
+        'line_nr' => 9
       }
     }
   ],
@@ -370,7 +365,6 @@ $result_errors{'manual_simple_utf8_with_error'} = [
 ",
     'file_name' => 'manual_simple_utf8_with_error.texi',
     'line_nr' => 11,
-    'macro' => '',
     'text' => "undefined flag: non_conn\x{f9}e",
     'type' => 'warning'
   },
@@ -379,7 +373,6 @@ $result_errors{'manual_simple_utf8_with_error'} = [
 ",
     'file_name' => 'manual_simple_utf8_with_error.texi',
     'line_nr' => 6,
-    'macro' => '',
     'text' => "node `\x{e9}sseul\x{e9}' unreferenced",
     'type' => 'warning'
   }

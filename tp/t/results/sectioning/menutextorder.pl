@@ -66,8 +66,7 @@ $result_trees{'menutextorder'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               },
               'type' => 'menu_entry'
             },
@@ -114,8 +113,7 @@ $result_trees{'menutextorder'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               },
               'type' => 'menu_entry'
             },
@@ -147,15 +145,13 @@ $result_trees{'menutextorder'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -195,8 +191,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -280,8 +275,7 @@ $result_trees{'menutextorder'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'menu_entry'
             },
@@ -313,15 +307,13 @@ $result_trees{'menutextorder'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -340,8 +332,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     },
     {
@@ -373,8 +364,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     {
@@ -412,8 +402,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 14,
-        'macro' => ''
+        'line_nr' => 14
       }
     },
     {
@@ -445,8 +434,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 16,
-        'macro' => ''
+        'line_nr' => 16
       }
     },
     {
@@ -489,8 +477,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 17,
-        'macro' => ''
+        'line_nr' => 17
       }
     },
     {
@@ -522,8 +509,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 20,
-        'macro' => ''
+        'line_nr' => 20
       }
     },
     {
@@ -607,8 +593,7 @@ $result_trees{'menutextorder'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
-                'macro' => ''
+                'line_nr' => 24
               },
               'type' => 'menu_entry'
             },
@@ -655,8 +640,7 @@ $result_trees{'menutextorder'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
-                'macro' => ''
+                'line_nr' => 25
               },
               'type' => 'menu_entry'
             },
@@ -703,8 +687,7 @@ $result_trees{'menutextorder'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
-                'macro' => ''
+                'line_nr' => 26
               },
               'type' => 'menu_entry'
             },
@@ -736,15 +719,13 @@ $result_trees{'menutextorder'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 23,
-            'macro' => ''
+            'line_nr' => 23
           }
         },
         {
@@ -763,8 +744,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 21,
-        'macro' => ''
+        'line_nr' => 21
       }
     },
     {
@@ -796,8 +776,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 29,
-        'macro' => ''
+        'line_nr' => 29
       }
     },
     {
@@ -835,8 +814,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 30,
-        'macro' => ''
+        'line_nr' => 30
       }
     },
     {
@@ -868,8 +846,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 32,
-        'macro' => ''
+        'line_nr' => 32
       }
     },
     {
@@ -907,8 +884,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 33,
-        'macro' => ''
+        'line_nr' => 33
       }
     },
     {
@@ -940,8 +916,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 35,
-        'macro' => ''
+        'line_nr' => 35
       }
     },
     {
@@ -972,8 +947,7 @@ $result_trees{'menutextorder'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 36,
-        'macro' => ''
+        'line_nr' => 36
       }
     }
   ],
@@ -1401,7 +1375,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => 'node next for `onesub1\' is `onesub2\' in sectioning but not in menu',
     'type' => 'warning'
   },
@@ -1410,7 +1383,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
     'text' => 'node up for `onesub1\' is `bar\' in sectioning but not in menu',
     'type' => 'warning'
   },
@@ -1419,7 +1391,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'node `bar\' lacks menu item for `onesub1\' despite being its Up target',
     'type' => 'warning'
   },
@@ -1428,7 +1399,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 16,
-    'macro' => '',
     'text' => 'node prev for `onesub2\' is `onesub1\' in sectioning but not in menu',
     'type' => 'warning'
   },
@@ -1437,7 +1407,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 29,
-    'macro' => '',
     'text' => 'node next pointer for `sub1\' is `sub2\' but next is `sub3\' in menu',
     'type' => 'warning'
   },
@@ -1446,7 +1415,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 32,
-    'macro' => '',
     'text' => 'node next for `sub2\' is `sub3\' in sectioning but not in menu',
     'type' => 'warning'
   },
@@ -1455,7 +1423,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 32,
-    'macro' => '',
     'text' => 'node prev pointer for `sub2\' is `sub1\' but prev is `sub3\' in menu',
     'type' => 'warning'
   },
@@ -1464,7 +1431,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 35,
-    'macro' => '',
     'text' => 'node `sub2\' is next for `sub3\' in menu but not in sectioning',
     'type' => 'warning'
   },
@@ -1473,7 +1439,6 @@ $result_errors{'menutextorder'} = [
 ',
     'file_name' => '',
     'line_nr' => 35,
-    'macro' => '',
     'text' => 'node prev pointer for `sub3\' is `sub2\' but prev is `sub1\' in menu',
     'type' => 'warning'
   }

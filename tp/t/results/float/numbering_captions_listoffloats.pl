@@ -44,8 +44,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -125,8 +124,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                           'cmdname' => 'enddots',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 6,
-                            'macro' => ''
+                            'line_nr' => 6
                           }
                         }
                       ],
@@ -147,8 +145,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -171,8 +168,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                           'cmdname' => 'TeX',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 7,
-                            'macro' => ''
+                            'line_nr' => 7
                           }
                         },
                         {
@@ -191,8 +187,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             },
             {
@@ -228,8 +223,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
@@ -248,8 +242,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -312,8 +305,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             },
             {
@@ -343,8 +335,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
+                'line_nr' => 14
               }
             },
             {
@@ -380,8 +371,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             }
           ],
@@ -398,8 +388,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -465,8 +454,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               }
             },
             {
@@ -496,8 +484,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             },
             {
@@ -533,8 +520,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               }
             }
           ],
@@ -553,8 +539,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
-            'macro' => ''
+            'line_nr' => 17
           }
         },
         {
@@ -631,8 +616,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               }
             }
           ],
@@ -649,8 +633,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           }
         },
         {
@@ -719,8 +702,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               }
             }
           ],
@@ -730,8 +712,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 31,
-            'macro' => ''
+            'line_nr' => 31
           }
         },
         {
@@ -784,8 +765,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 38,
-                'macro' => ''
+                'line_nr' => 38
               }
             },
             {
@@ -815,8 +795,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 39,
-                'macro' => ''
+                'line_nr' => 39
               }
             },
             {
@@ -852,8 +831,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 40,
-                'macro' => ''
+                'line_nr' => 40
               }
             }
           ],
@@ -865,8 +843,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 36,
-            'macro' => ''
+            'line_nr' => 36
           }
         },
         {
@@ -932,8 +909,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 45,
-                'macro' => ''
+                'line_nr' => 45
               }
             },
             {
@@ -963,8 +939,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 46,
-                'macro' => ''
+                'line_nr' => 46
               }
             },
             {
@@ -1000,8 +975,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 47,
-                'macro' => ''
+                'line_nr' => 47
               }
             }
           ],
@@ -1020,8 +994,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 42,
-            'macro' => ''
+            'line_nr' => 42
           }
         },
         {
@@ -1095,8 +1068,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 52,
-                'macro' => ''
+                'line_nr' => 52
               }
             },
             {
@@ -1126,8 +1098,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 53,
-                'macro' => ''
+                'line_nr' => 53
               }
             },
             {
@@ -1163,8 +1134,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 54,
-                'macro' => ''
+                'line_nr' => 54
               }
             }
           ],
@@ -1183,8 +1153,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 49,
-            'macro' => ''
+            'line_nr' => 49
           }
         },
         {
@@ -1249,8 +1218,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 57,
-                'macro' => ''
+                'line_nr' => 57
               },
               'type' => 'menu_entry'
             },
@@ -1297,8 +1265,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 58,
-                'macro' => ''
+                'line_nr' => 58
               },
               'type' => 'menu_entry'
             },
@@ -1345,8 +1312,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 59,
-                'macro' => ''
+                'line_nr' => 59
               },
               'type' => 'menu_entry'
             },
@@ -1393,8 +1359,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 60,
-                'macro' => ''
+                'line_nr' => 60
               },
               'type' => 'menu_entry'
             },
@@ -1441,8 +1406,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 61,
-                'macro' => ''
+                'line_nr' => 61
               },
               'type' => 'menu_entry'
             },
@@ -1474,15 +1438,13 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 62,
-                'macro' => ''
+                'line_nr' => 62
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 56,
-            'macro' => ''
+            'line_nr' => 56
           }
         },
         {
@@ -1499,8 +1461,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     {
@@ -1532,8 +1493,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 64,
-        'macro' => ''
+        'line_nr' => 64
       }
     },
     {
@@ -1626,8 +1586,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 70,
-                'macro' => ''
+                'line_nr' => 70
               }
             },
             {
@@ -1663,8 +1622,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 71,
-                'macro' => ''
+                'line_nr' => 71
               }
             }
           ],
@@ -1682,8 +1640,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 67,
-            'macro' => ''
+            'line_nr' => 67
           }
         },
         {
@@ -1739,8 +1696,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                           'cmdname' => 'enddots',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 74,
-                            'macro' => ''
+                            'line_nr' => 74
                           }
                         }
                       ],
@@ -1761,8 +1717,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 74,
-                'macro' => ''
+                'line_nr' => 74
               }
             },
             {
@@ -1798,8 +1753,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 75,
-                'macro' => ''
+                'line_nr' => 75
               }
             }
           ],
@@ -1817,8 +1771,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 73,
-            'macro' => ''
+            'line_nr' => 73
           }
         },
         {
@@ -1847,8 +1800,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                   'cmdname' => '\'',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 77,
-                    'macro' => ''
+                    'line_nr' => 77
                   }
                 },
                 {
@@ -1868,8 +1820,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                   'cmdname' => '`',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 77,
-                    'macro' => ''
+                    'line_nr' => 77
                   }
                 },
                 {
@@ -1917,8 +1868,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                   'cmdname' => '\'',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 78,
-                    'macro' => ''
+                    'line_nr' => 78
                   }
                 },
                 {
@@ -1938,8 +1888,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                   'cmdname' => '`',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 78,
-                    'macro' => ''
+                    'line_nr' => 78
                   }
                 },
                 {
@@ -1977,8 +1926,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                           'cmdname' => '\'',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 80,
-                            'macro' => ''
+                            'line_nr' => 80
                           }
                         },
                         {
@@ -1998,8 +1946,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                           'cmdname' => '`',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 80,
-                            'macro' => ''
+                            'line_nr' => 80
                           }
                         },
                         {
@@ -2018,8 +1965,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 80,
-                'macro' => ''
+                'line_nr' => 80
               }
             },
             {
@@ -2055,8 +2001,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 81,
-                'macro' => ''
+                'line_nr' => 81
               }
             }
           ],
@@ -2074,8 +2019,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 77,
-            'macro' => ''
+            'line_nr' => 77
           }
         },
         {
@@ -2141,8 +2085,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 86,
-                'macro' => ''
+                'line_nr' => 86
               }
             },
             {
@@ -2172,8 +2115,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 87,
-                'macro' => ''
+                'line_nr' => 87
               }
             },
             {
@@ -2209,8 +2151,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 88,
-                'macro' => ''
+                'line_nr' => 88
               }
             }
           ],
@@ -2229,8 +2170,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 83,
-            'macro' => ''
+            'line_nr' => 83
           }
         },
         {
@@ -2304,8 +2244,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 93,
-                'macro' => ''
+                'line_nr' => 93
               }
             },
             {
@@ -2335,8 +2274,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 94,
-                'macro' => ''
+                'line_nr' => 94
               }
             },
             {
@@ -2372,8 +2310,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 95,
-                'macro' => ''
+                'line_nr' => 95
               }
             }
           ],
@@ -2392,8 +2329,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 90,
-            'macro' => ''
+            'line_nr' => 90
           }
         },
         {
@@ -2458,8 +2394,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 98,
-                'macro' => ''
+                'line_nr' => 98
               },
               'type' => 'menu_entry'
             },
@@ -2491,15 +2426,13 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 99,
-                'macro' => ''
+                'line_nr' => 99
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 97,
-            'macro' => ''
+            'line_nr' => 97
           }
         },
         {
@@ -2518,8 +2451,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 65,
-        'macro' => ''
+        'line_nr' => 65
       }
     },
     {
@@ -2551,8 +2483,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 101,
-        'macro' => ''
+        'line_nr' => 101
       }
     },
     {
@@ -2656,8 +2587,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 108,
-                'macro' => ''
+                'line_nr' => 108
               }
             }
           ],
@@ -2674,8 +2604,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 104,
-            'macro' => ''
+            'line_nr' => 104
           }
         },
         {
@@ -2694,8 +2623,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 102,
-        'macro' => ''
+        'line_nr' => 102
       }
     },
     {
@@ -2727,8 +2655,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 110,
-        'macro' => ''
+        'line_nr' => 110
       }
     },
     {
@@ -2812,8 +2739,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 114,
-                'macro' => ''
+                'line_nr' => 114
               },
               'type' => 'menu_entry'
             },
@@ -2845,15 +2771,13 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 115,
-                'macro' => ''
+                'line_nr' => 115
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 113,
-            'macro' => ''
+            'line_nr' => 113
           }
         },
         {
@@ -2917,8 +2841,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 118,
-                'macro' => ''
+                'line_nr' => 118
               }
             },
             {
@@ -2948,8 +2871,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 119,
-                'macro' => ''
+                'line_nr' => 119
               }
             },
             {
@@ -2985,8 +2907,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 120,
-                'macro' => ''
+                'line_nr' => 120
               }
             }
           ],
@@ -3005,8 +2926,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 116,
-            'macro' => ''
+            'line_nr' => 116
           }
         },
         {
@@ -3067,8 +2987,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 124,
-                'macro' => ''
+                'line_nr' => 124
               }
             },
             {
@@ -3098,8 +3017,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 125,
-                'macro' => ''
+                'line_nr' => 125
               }
             },
             {
@@ -3135,8 +3053,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 126,
-                'macro' => ''
+                'line_nr' => 126
               }
             }
           ],
@@ -3155,8 +3072,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 121,
-            'macro' => ''
+            'line_nr' => 121
           }
         },
         {
@@ -3178,8 +3094,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 111,
-        'macro' => ''
+        'line_nr' => 111
       }
     },
     {
@@ -3211,8 +3126,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 129,
-        'macro' => ''
+        'line_nr' => 129
       }
     },
     {
@@ -3305,8 +3219,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 135,
-                'macro' => ''
+                'line_nr' => 135
               }
             },
             {
@@ -3336,8 +3249,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 136,
-                'macro' => ''
+                'line_nr' => 136
               }
             },
             {
@@ -3373,8 +3285,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 137,
-                'macro' => ''
+                'line_nr' => 137
               }
             }
           ],
@@ -3393,8 +3304,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 133,
-            'macro' => ''
+            'line_nr' => 133
           }
         },
         {
@@ -3411,8 +3321,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 130,
-        'macro' => ''
+        'line_nr' => 130
       }
     },
     {
@@ -3444,8 +3353,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 139,
-        'macro' => ''
+        'line_nr' => 139
       }
     },
     {
@@ -3529,8 +3437,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 143,
-                'macro' => ''
+                'line_nr' => 143
               },
               'type' => 'menu_entry'
             },
@@ -3562,15 +3469,13 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 144,
-                'macro' => ''
+                'line_nr' => 144
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 142,
-            'macro' => ''
+            'line_nr' => 142
           }
         },
         {
@@ -3634,8 +3539,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 147,
-                'macro' => ''
+                'line_nr' => 147
               }
             },
             {
@@ -3665,8 +3569,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 148,
-                'macro' => ''
+                'line_nr' => 148
               }
             },
             {
@@ -3702,8 +3605,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 149,
-                'macro' => ''
+                'line_nr' => 149
               }
             }
           ],
@@ -3722,8 +3624,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 145,
-            'macro' => ''
+            'line_nr' => 145
           }
         },
         {
@@ -3742,8 +3643,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 140,
-        'macro' => ''
+        'line_nr' => 140
       }
     },
     {
@@ -3775,8 +3675,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 151,
-        'macro' => ''
+        'line_nr' => 151
       }
     },
     {
@@ -3864,8 +3763,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 156,
-                'macro' => ''
+                'line_nr' => 156
               }
             },
             {
@@ -3895,8 +3793,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 157,
-                'macro' => ''
+                'line_nr' => 157
               }
             },
             {
@@ -3932,8 +3829,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 158,
-                'macro' => ''
+                'line_nr' => 158
               }
             }
           ],
@@ -3952,8 +3848,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 154,
-            'macro' => ''
+            'line_nr' => 154
           }
         },
         {
@@ -4019,8 +3914,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 163,
-                'macro' => ''
+                'line_nr' => 163
               }
             },
             {
@@ -4050,8 +3944,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 164,
-                'macro' => ''
+                'line_nr' => 164
               }
             },
             {
@@ -4087,8 +3980,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 165,
-                'macro' => ''
+                'line_nr' => 165
               }
             }
           ],
@@ -4107,8 +3999,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 160,
-            'macro' => ''
+            'line_nr' => 160
           }
         },
         {
@@ -4125,8 +4016,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 152,
-        'macro' => ''
+        'line_nr' => 152
       }
     },
     {
@@ -4158,8 +4048,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 167,
-        'macro' => ''
+        'line_nr' => 167
       }
     },
     {
@@ -4252,8 +4141,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 173,
-                'macro' => ''
+                'line_nr' => 173
               }
             },
             {
@@ -4283,8 +4171,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 174,
-                'macro' => ''
+                'line_nr' => 174
               }
             },
             {
@@ -4320,8 +4207,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 175,
-                'macro' => ''
+                'line_nr' => 175
               }
             }
           ],
@@ -4340,8 +4226,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 170,
-            'macro' => ''
+            'line_nr' => 170
           }
         },
         {
@@ -4360,8 +4245,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 168,
-        'macro' => ''
+        'line_nr' => 168
       }
     },
     {
@@ -4393,8 +4277,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 177,
-        'macro' => ''
+        'line_nr' => 177
       }
     },
     {
@@ -4448,8 +4331,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 180,
-                'macro' => ''
+                'line_nr' => 180
               }
             },
             {
@@ -4481,8 +4363,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               'cmdname' => 'pxref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 181,
-                'macro' => ''
+                'line_nr' => 181
               }
             },
             {
@@ -4511,8 +4392,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 182,
-                'macro' => ''
+                'line_nr' => 182
               }
             },
             {
@@ -4581,8 +4461,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 185,
-                'macro' => ''
+                'line_nr' => 185
               }
             },
             {
@@ -4663,8 +4542,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 188,
-                'macro' => ''
+                'line_nr' => 188
               }
             },
             {
@@ -4748,8 +4626,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 191,
-                'macro' => ''
+                'line_nr' => 191
               }
             },
             {
@@ -4791,8 +4668,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
               'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 193,
-                'macro' => ''
+                'line_nr' => 193
               }
             },
             {
@@ -4835,8 +4711,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 195,
-            'macro' => ''
+            'line_nr' => 195
           }
         },
         {
@@ -4860,8 +4735,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                   'cmdname' => '\'',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 196,
-                    'macro' => ''
+                    'line_nr' => 196
                   }
                 },
                 {
@@ -4881,8 +4755,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                   'cmdname' => '`',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 196,
-                    'macro' => ''
+                    'line_nr' => 196
                   }
                 },
                 {
@@ -4909,8 +4782,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 196,
-            'macro' => ''
+            'line_nr' => 196
           }
         },
         {
@@ -4927,8 +4799,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 178,
-        'macro' => ''
+        'line_nr' => 178
       }
     },
     {

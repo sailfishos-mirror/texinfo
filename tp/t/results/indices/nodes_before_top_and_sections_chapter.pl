@@ -132,8 +132,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           },
           'type' => 'index_entry_command'
         },
@@ -181,8 +180,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 7,
-            'macro' => ''
+            'line_nr' => 7
           }
         },
         {
@@ -224,8 +222,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -294,8 +291,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               },
               'type' => 'menu_entry'
             },
@@ -327,15 +323,13 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {
@@ -356,8 +350,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -439,8 +432,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 17,
-            'macro' => ''
+            'line_nr' => 17
           },
           'type' => 'index_entry_command'
         },
@@ -483,8 +475,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 19,
-            'macro' => ''
+            'line_nr' => 19
           }
         },
         {
@@ -534,8 +525,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 22,
-            'macro' => ''
+            'line_nr' => 22
           },
           'type' => 'index_entry_command'
         },
@@ -562,8 +552,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 15,
-        'macro' => ''
+        'line_nr' => 15
       }
     },
     {
@@ -642,8 +631,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 26,
-            'macro' => ''
+            'line_nr' => 26
           },
           'type' => 'index_entry_command'
         },
@@ -686,8 +674,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 28,
-            'macro' => ''
+            'line_nr' => 28
           }
         },
         {
@@ -725,8 +712,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 30,
-            'macro' => ''
+            'line_nr' => 30
           }
         },
         {
@@ -778,8 +764,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 34,
-            'macro' => ''
+            'line_nr' => 34
           }
         },
         {
@@ -800,8 +785,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 25,
-        'macro' => ''
+        'line_nr' => 25
       }
     },
     {
@@ -856,8 +840,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 37,
-            'macro' => ''
+            'line_nr' => 37
           },
           'type' => 'index_entry_command'
         },
@@ -937,8 +920,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 42,
-                'macro' => ''
+                'line_nr' => 42
               },
               'type' => 'menu_entry'
             },
@@ -985,8 +967,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 43,
-                'macro' => ''
+                'line_nr' => 43
               },
               'type' => 'menu_entry'
             },
@@ -1033,8 +1014,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 44,
-                'macro' => ''
+                'line_nr' => 44
               },
               'type' => 'menu_entry'
             },
@@ -1066,15 +1046,13 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 45,
-                'macro' => ''
+                'line_nr' => 45
               }
             }
           ],
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 41,
-            'macro' => ''
+            'line_nr' => 41
           }
         },
         {
@@ -1091,8 +1069,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 36,
-        'macro' => ''
+        'line_nr' => 36
       }
     },
     {
@@ -1191,8 +1168,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 49,
-                'macro' => ''
+                'line_nr' => 49
               },
               'type' => 'index_entry_command'
             },
@@ -1229,8 +1205,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 50,
-                'macro' => ''
+                'line_nr' => 50
               },
               'type' => 'index_entry_command'
             },
@@ -1267,8 +1242,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 51,
-                'macro' => ''
+                'line_nr' => 51
               },
               'type' => 'index_entry_command'
             }
@@ -1310,8 +1284,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 53,
-            'macro' => ''
+            'line_nr' => 53
           }
         },
         {
@@ -1376,8 +1349,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 56,
-                'macro' => ''
+                'line_nr' => 56
               },
               'type' => 'menu_entry'
             },
@@ -1409,15 +1381,13 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 57,
-                'macro' => ''
+                'line_nr' => 57
               }
             }
           ],
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 55,
-            'macro' => ''
+            'line_nr' => 55
           }
         },
         {
@@ -1438,8 +1408,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 47,
-        'macro' => ''
+        'line_nr' => 47
       }
     },
     {
@@ -1540,8 +1509,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 61,
-                'macro' => ''
+                'line_nr' => 61
               },
               'type' => 'menu_entry'
             },
@@ -1588,8 +1556,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               ],
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 62,
-                'macro' => ''
+                'line_nr' => 62
               },
               'type' => 'menu_entry'
             },
@@ -1621,15 +1588,13 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
-                'line_nr' => 63,
-                'macro' => ''
+                'line_nr' => 63
               }
             }
           ],
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 60,
-            'macro' => ''
+            'line_nr' => 60
           }
         },
         {
@@ -1667,8 +1632,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 65,
-            'macro' => ''
+            'line_nr' => 65
           }
         },
         {
@@ -1689,8 +1653,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 59,
-        'macro' => ''
+        'line_nr' => 59
       }
     },
     {
@@ -1798,8 +1761,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 69,
-            'macro' => ''
+            'line_nr' => 69
           },
           'type' => 'index_entry_command'
         },
@@ -1836,8 +1798,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 70,
-            'macro' => ''
+            'line_nr' => 70
           },
           'type' => 'index_entry_command'
         },
@@ -1874,8 +1835,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 71,
-            'macro' => ''
+            'line_nr' => 71
           },
           'type' => 'index_entry_command'
         },
@@ -1896,8 +1856,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 67,
-        'macro' => ''
+        'line_nr' => 67
       }
     },
     {
@@ -1997,8 +1956,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 74,
-            'macro' => ''
+            'line_nr' => 74
           },
           'type' => 'index_entry_command'
         },
@@ -2037,8 +1995,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 76,
-            'macro' => ''
+            'line_nr' => 76
           }
         },
         {
@@ -2079,8 +2036,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 78,
-            'macro' => ''
+            'line_nr' => 78
           },
           'type' => 'index_entry_command'
         },
@@ -2117,8 +2073,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 79,
-            'macro' => ''
+            'line_nr' => 79
           },
           'type' => 'index_entry_command'
         },
@@ -2157,8 +2112,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 81,
-            'macro' => ''
+            'line_nr' => 81
           }
         },
         {
@@ -2179,8 +2133,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 73,
-        'macro' => ''
+        'line_nr' => 73
       }
     },
     {
@@ -2248,8 +2201,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 83,
-        'macro' => ''
+        'line_nr' => 83
       }
     },
     {
@@ -2306,8 +2258,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 86,
-            'macro' => ''
+            'line_nr' => 86
           }
         },
         {
@@ -2326,8 +2277,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 84,
-        'macro' => ''
+        'line_nr' => 84
       }
     },
     {
@@ -2427,8 +2377,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 90,
-            'macro' => ''
+            'line_nr' => 90
           },
           'type' => 'index_entry_command'
         },
@@ -2449,8 +2398,7 @@ $result_trees{'nodes_before_top_and_sections_chapter'} = {
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
-        'line_nr' => 88,
-        'macro' => ''
+        'line_nr' => 88
       }
     },
     {

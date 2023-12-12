@@ -30,8 +30,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               },
               'type' => 'def_line'
             },
@@ -77,15 +76,13 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -111,8 +108,7 @@ $result_trees{'no_category_or_no_name'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       },
                       'type' => 'bracketed_arg'
                     }
@@ -132,8 +128,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'def_line'
             },
@@ -179,8 +174,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
@@ -191,8 +185,7 @@ $result_trees{'no_category_or_no_name'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -273,8 +266,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               },
               'type' => 'def_line'
             },
@@ -310,8 +302,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'def_line'
             },
@@ -334,8 +325,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               },
               'type' => 'def_line'
             },
@@ -381,8 +371,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               }
             }
           ],
@@ -393,8 +382,7 @@ $result_trees{'no_category_or_no_name'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         }
       ],
@@ -437,7 +425,6 @@ $result_errors{'no_category_or_no_name'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'missing category for @deffn',
     'type' => 'warning'
   },
@@ -446,7 +433,6 @@ $result_errors{'no_category_or_no_name'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'missing name for @deffn',
     'type' => 'warning'
   },
@@ -455,7 +441,6 @@ $result_errors{'no_category_or_no_name'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -464,7 +449,6 @@ $result_errors{'no_category_or_no_name'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
   },
@@ -473,7 +457,6 @@ $result_errors{'no_category_or_no_name'} = [
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
     'text' => 'missing category for @deffnx',
     'type' => 'warning'
   }

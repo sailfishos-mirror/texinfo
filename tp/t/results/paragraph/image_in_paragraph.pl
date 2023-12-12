@@ -63,8 +63,7 @@ $result_trees{'image_in_paragraph'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -108,7 +107,6 @@ $result_converted_errors{'html_text'}->{'image_in_paragraph'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
     'type' => 'warning'
   }

@@ -80,8 +80,7 @@ $result_trees{'paragraphindent_none_first'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {

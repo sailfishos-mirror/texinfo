@@ -63,8 +63,7 @@ $result_trees{'verb_with_arobase_in_linemacro_call'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -74,8 +73,7 @@ $result_trees{'verb_with_arobase_in_linemacro_call'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -179,7 +177,6 @@ $result_errors{'verb_with_arobase_in_linemacro_call'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@mycommand missing closing brace',
     'type' => 'error'
   }

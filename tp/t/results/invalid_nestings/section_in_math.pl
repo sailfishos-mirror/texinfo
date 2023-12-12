@@ -43,8 +43,7 @@ $result_trees{'section_in_math'} = {
                       ],
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
+                        'line_nr' => 2
                       },
                       'type' => 'balanced_braces'
                     }
@@ -55,8 +54,7 @@ $result_trees{'section_in_math'} = {
               'cmdname' => 'math',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -119,8 +117,7 @@ $result_trees{'section_in_math'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             }
           ],
@@ -137,8 +134,7 @@ $result_trees{'section_in_math'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -169,8 +165,7 @@ $result_trees{'section_in_math'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     }
   ],
@@ -240,7 +235,6 @@ $result_errors{'section_in_math'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@section should not appear anywhere inside @math',
     'type' => 'warning'
   },
@@ -249,7 +243,6 @@ $result_errors{'section_in_math'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
   },
@@ -258,7 +251,6 @@ $result_errors{'section_in_math'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@section seen before @math closing brace',
     'type' => 'error'
   },
@@ -267,7 +259,6 @@ $result_errors{'section_in_math'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => '@section should not appear anywhere inside @math',
     'type' => 'warning'
   },
@@ -276,7 +267,6 @@ $result_errors{'section_in_math'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@section seen before @math closing brace',
     'type' => 'error'
   }

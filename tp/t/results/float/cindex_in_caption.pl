@@ -44,8 +44,7 @@ $result_trees{'cindex_in_caption'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -100,8 +99,7 @@ $result_trees{'cindex_in_caption'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -191,8 +189,7 @@ $result_trees{'cindex_in_caption'} = {
                           },
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 9,
-                            'macro' => ''
+                            'line_nr' => 9
                           },
                           'type' => 'index_entry_command'
                         }
@@ -209,8 +206,7 @@ $result_trees{'cindex_in_caption'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             },
             {
@@ -246,8 +242,7 @@ $result_trees{'cindex_in_caption'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
+                'line_nr' => 11
               }
             }
           ],
@@ -264,8 +259,7 @@ $result_trees{'cindex_in_caption'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -303,8 +297,7 @@ $result_trees{'cindex_in_caption'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
+            'line_nr' => 13
           }
         },
         {
@@ -325,8 +318,7 @@ $result_trees{'cindex_in_caption'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     }
   ],

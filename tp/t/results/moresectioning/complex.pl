@@ -78,8 +78,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -126,8 +125,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -174,8 +172,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -222,8 +219,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'menu_entry'
             },
@@ -270,8 +266,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               },
               'type' => 'menu_entry'
             },
@@ -318,8 +313,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               },
               'type' => 'menu_entry'
             },
@@ -351,15 +345,13 @@ $result_trees{'complex'} = [
               },
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
           'source_info' => {
             'file_name' => 'complex_sectioning_case.texi',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         {
@@ -371,8 +363,7 @@ $result_trees{'complex'} = [
       'extra' => {},
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     },
     'unit_contents' => [
@@ -450,8 +441,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 1,
-          'macro' => ''
+          'line_nr' => 1
         }
       },
       {}
@@ -549,8 +539,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 17,
-                'macro' => ''
+                'line_nr' => 17
               },
               'type' => 'menu_entry'
             },
@@ -597,8 +586,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               },
               'type' => 'menu_entry'
             },
@@ -645,8 +633,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 19,
-                'macro' => ''
+                'line_nr' => 19
               },
               'type' => 'menu_entry'
             },
@@ -693,15 +680,13 @@ $result_trees{'complex'} = [
               },
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               }
             }
           ],
           'source_info' => {
             'file_name' => 'complex_sectioning_case.texi',
-            'line_nr' => 16,
-            'macro' => ''
+            'line_nr' => 16
           }
         },
         {
@@ -720,8 +705,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     'unit_contents' => [
@@ -789,8 +773,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 12,
-          'macro' => ''
+          'line_nr' => 12
         }
       },
       {}
@@ -879,8 +862,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               },
               'type' => 'menu_entry'
             },
@@ -927,8 +909,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               },
               'type' => 'menu_entry'
             },
@@ -975,8 +956,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               },
               'type' => 'menu_entry'
             },
@@ -1023,8 +1003,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 30,
-                'macro' => ''
+                'line_nr' => 30
               },
               'type' => 'menu_entry'
             },
@@ -1056,15 +1035,13 @@ $result_trees{'complex'} = [
               },
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 31,
-                'macro' => ''
+                'line_nr' => 31
               }
             }
           ],
           'source_info' => {
             'file_name' => 'complex_sectioning_case.texi',
-            'line_nr' => 26,
-            'macro' => ''
+            'line_nr' => 26
           }
         },
         {
@@ -1081,8 +1058,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 24,
-        'macro' => ''
+        'line_nr' => 24
       }
     },
     'unit_contents' => [
@@ -1115,8 +1091,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 23,
-          'macro' => ''
+          'line_nr' => 23
         }
       },
       {}
@@ -1157,8 +1132,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 34,
-        'macro' => ''
+        'line_nr' => 34
       }
     },
     'unit_contents' => [
@@ -1191,8 +1165,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 33,
-          'macro' => ''
+          'line_nr' => 33
         }
       },
       {}
@@ -1233,8 +1206,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 37,
-        'macro' => ''
+        'line_nr' => 37
       }
     },
     'unit_contents' => [
@@ -1267,8 +1239,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 36,
-          'macro' => ''
+          'line_nr' => 36
         }
       },
       {}
@@ -1309,8 +1280,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 40,
-        'macro' => ''
+        'line_nr' => 40
       }
     },
     'unit_contents' => [
@@ -1343,8 +1313,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 39,
-          'macro' => ''
+          'line_nr' => 39
         }
       },
       {}
@@ -1385,8 +1354,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 43,
-        'macro' => ''
+        'line_nr' => 43
       }
     },
     'unit_contents' => [
@@ -1419,8 +1387,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 42,
-          'macro' => ''
+          'line_nr' => 42
         }
       },
       {}
@@ -1509,8 +1476,7 @@ $result_trees{'complex'} = [
               ],
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 49,
-                'macro' => ''
+                'line_nr' => 49
               },
               'type' => 'menu_entry'
             },
@@ -1542,15 +1508,13 @@ $result_trees{'complex'} = [
               },
               'source_info' => {
                 'file_name' => 'complex_sectioning_case.texi',
-                'line_nr' => 50,
-                'macro' => ''
+                'line_nr' => 50
               }
             }
           ],
           'source_info' => {
             'file_name' => 'complex_sectioning_case.texi',
-            'line_nr' => 48,
-            'macro' => ''
+            'line_nr' => 48
           }
         },
         {
@@ -1567,8 +1531,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 46,
-        'macro' => ''
+        'line_nr' => 46
       }
     },
     'unit_contents' => [
@@ -1601,8 +1564,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 45,
-          'macro' => ''
+          'line_nr' => 45
         }
       },
       {}
@@ -1648,8 +1610,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 53,
-        'macro' => ''
+        'line_nr' => 53
       }
     },
     'unit_contents' => [
@@ -1682,8 +1643,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 52,
-          'macro' => ''
+          'line_nr' => 52
         }
       },
       {}
@@ -1726,8 +1686,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 57,
-        'macro' => ''
+        'line_nr' => 57
       }
     },
     'unit_contents' => [
@@ -1760,8 +1719,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 56,
-          'macro' => ''
+          'line_nr' => 56
         }
       },
       {},
@@ -1837,8 +1795,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 59,
-          'macro' => ''
+          'line_nr' => 59
         }
       }
     ],
@@ -1894,8 +1851,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 67,
-        'macro' => ''
+        'line_nr' => 67
       }
     },
     'unit_contents' => [
@@ -1984,8 +1940,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 63,
-          'macro' => ''
+          'line_nr' => 63
         }
       },
       {}
@@ -2040,8 +1995,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 72,
-        'macro' => ''
+        'line_nr' => 72
       }
     },
     'unit_contents' => [
@@ -2074,8 +2028,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 71,
-          'macro' => ''
+          'line_nr' => 71
         }
       },
       {}
@@ -2134,8 +2087,7 @@ $result_trees{'complex'} = [
       },
       'source_info' => {
         'file_name' => 'complex_sectioning_case.texi',
-        'line_nr' => 77,
-        'macro' => ''
+        'line_nr' => 77
       }
     },
     'unit_contents' => [
@@ -2229,8 +2181,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 76,
-          'macro' => ''
+          'line_nr' => 76
         }
       },
       {},
@@ -2304,8 +2255,7 @@ $result_trees{'complex'} = [
             'cmdname' => 'contents',
             'source_info' => {
               'file_name' => 'complex_sectioning_case.texi',
-              'line_nr' => 84,
-              'macro' => ''
+              'line_nr' => 84
             }
           }
         ],
@@ -2320,8 +2270,7 @@ $result_trees{'complex'} = [
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
-          'line_nr' => 82,
-          'macro' => ''
+          'line_nr' => 82
         }
       },
       {

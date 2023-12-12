@@ -33,8 +33,7 @@ $result_trees{'transparent_text'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -54,8 +53,7 @@ $result_trees{'transparent_text'} = {
               'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {

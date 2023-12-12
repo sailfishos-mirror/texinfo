@@ -38,8 +38,7 @@ $result_trees{'inlineifset_false_not_closed'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -64,7 +63,6 @@ $result_errors{'inlineifset_false_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@inlineifset missing closing brace',
     'type' => 'error'
   }

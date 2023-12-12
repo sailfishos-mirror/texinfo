@@ -18,8 +18,7 @@ $result_trees{'noindent_indent'} = {
           'cmdname' => 'indent',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -48,8 +47,7 @@ $result_trees{'noindent_indent'} = {
           'cmdname' => 'noindent',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -82,8 +80,7 @@ $result_trees{'noindent_indent'} = {
           'cmdname' => 'noindent',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         {
@@ -111,8 +108,7 @@ $result_trees{'noindent_indent'} = {
           'cmdname' => 'indent',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
+            'line_nr' => 11
           }
         },
         {

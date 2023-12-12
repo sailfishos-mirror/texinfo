@@ -31,8 +31,7 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -51,8 +50,7 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     }
   ],
@@ -104,7 +102,6 @@ $result_errors{'two_unnumbered_no_argument'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@unnumbered missing argument',
     'type' => 'warning'
   },
@@ -113,7 +110,6 @@ $result_errors{'two_unnumbered_no_argument'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => '@unnumbered missing argument',
     'type' => 'warning'
   }

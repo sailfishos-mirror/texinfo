@@ -96,8 +96,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -191,8 +190,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
                                   'cmdname' => 'dotless',
                                   'source_info' => {
                                     'file_name' => 'sectioning.texi',
-                                    'line_nr' => 9,
-                                    'macro' => ''
+                                    'line_nr' => 9
                                   }
                                 }
                               ],
@@ -202,8 +200,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
                           'cmdname' => '^',
                           'source_info' => {
                             'file_name' => 'sectioning.texi',
-                            'line_nr' => 9,
-                            'macro' => ''
+                            'line_nr' => 9
                           }
                         },
                         {
@@ -227,8 +224,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
                           'cmdname' => 'cite',
                           'source_info' => {
                             'file_name' => 'sectioning.texi',
-                            'line_nr' => 10,
-                            'macro' => ''
+                            'line_nr' => 10
                           }
                         },
                         {
@@ -244,8 +240,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -315,8 +310,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               },
               'type' => 'menu_entry'
             },
@@ -386,8 +380,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               },
               'type' => 'menu_entry'
             },
@@ -458,8 +451,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               },
               'type' => 'menu_entry'
             },
@@ -506,8 +498,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               },
               'type' => 'menu_entry'
             },
@@ -563,15 +554,13 @@ $result_trees{'sectioning_check_menu_structure'} = {
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 27,
-                'macro' => ''
+                'line_nr' => 27
               }
             }
           ],
           'source_info' => {
             'file_name' => 'sectioning.texi',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -583,8 +572,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       'extra' => {},
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 4,
-        'macro' => ''
+        'line_nr' => 4
       }
     },
     {
@@ -651,8 +639,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 29,
-        'macro' => ''
+        'line_nr' => 29
       }
     },
     {
@@ -745,8 +732,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               },
               'type' => 'menu_entry'
             },
@@ -793,8 +779,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 35,
-                'macro' => ''
+                'line_nr' => 35
               },
               'type' => 'menu_entry'
             },
@@ -841,8 +826,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 36,
-                'macro' => ''
+                'line_nr' => 36
               },
               'type' => 'menu_entry'
             },
@@ -889,15 +873,13 @@ $result_trees{'sectioning_check_menu_structure'} = {
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 38,
-                'macro' => ''
+                'line_nr' => 38
               }
             }
           ],
           'source_info' => {
             'file_name' => 'sectioning.texi',
-            'line_nr' => 33,
-            'macro' => ''
+            'line_nr' => 33
           }
         },
         {
@@ -916,8 +898,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 30,
-        'macro' => ''
+        'line_nr' => 30
       }
     },
     {
@@ -949,8 +930,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 40,
-        'macro' => ''
+        'line_nr' => 40
       }
     },
     {
@@ -1034,8 +1014,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 44,
-                'macro' => ''
+                'line_nr' => 44
               },
               'type' => 'menu_entry'
             },
@@ -1082,8 +1061,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 45,
-                'macro' => ''
+                'line_nr' => 45
               },
               'type' => 'menu_entry'
             },
@@ -1130,8 +1108,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 46,
-                'macro' => ''
+                'line_nr' => 46
               },
               'type' => 'menu_entry'
             },
@@ -1178,8 +1155,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 47,
-                'macro' => ''
+                'line_nr' => 47
               },
               'type' => 'menu_entry'
             },
@@ -1211,15 +1187,13 @@ $result_trees{'sectioning_check_menu_structure'} = {
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 48,
-                'macro' => ''
+                'line_nr' => 48
               }
             }
           ],
           'source_info' => {
             'file_name' => 'sectioning.texi',
-            'line_nr' => 43,
-            'macro' => ''
+            'line_nr' => 43
           }
         },
         {
@@ -1236,8 +1210,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 41,
-        'macro' => ''
+        'line_nr' => 41
       }
     },
     {
@@ -1269,8 +1242,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 50,
-        'macro' => ''
+        'line_nr' => 50
       }
     },
     {
@@ -1306,8 +1278,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 51,
-        'macro' => ''
+        'line_nr' => 51
       }
     },
     {
@@ -1339,8 +1310,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 53,
-        'macro' => ''
+        'line_nr' => 53
       }
     },
     {
@@ -1376,8 +1346,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 54,
-        'macro' => ''
+        'line_nr' => 54
       }
     },
     {
@@ -1409,8 +1378,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 56,
-        'macro' => ''
+        'line_nr' => 56
       }
     },
     {
@@ -1446,8 +1414,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 57,
-        'macro' => ''
+        'line_nr' => 57
       }
     },
     {
@@ -1479,8 +1446,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 59,
-        'macro' => ''
+        'line_nr' => 59
       }
     },
     {
@@ -1516,8 +1482,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 60,
-        'macro' => ''
+        'line_nr' => 60
       }
     },
     {
@@ -1549,8 +1514,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 62,
-        'macro' => ''
+        'line_nr' => 62
       }
     },
     {
@@ -1634,8 +1598,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
               ],
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 66,
-                'macro' => ''
+                'line_nr' => 66
               },
               'type' => 'menu_entry'
             },
@@ -1667,15 +1630,13 @@ $result_trees{'sectioning_check_menu_structure'} = {
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
-                'line_nr' => 67,
-                'macro' => ''
+                'line_nr' => 67
               }
             }
           ],
           'source_info' => {
             'file_name' => 'sectioning.texi',
-            'line_nr' => 65,
-            'macro' => ''
+            'line_nr' => 65
           }
         },
         {
@@ -1692,8 +1653,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 63,
-        'macro' => ''
+        'line_nr' => 63
       }
     },
     {
@@ -1725,8 +1685,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 69,
-        'macro' => ''
+        'line_nr' => 69
       }
     },
     {
@@ -1767,8 +1726,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 70,
-        'macro' => ''
+        'line_nr' => 70
       }
     },
     {
@@ -1800,8 +1758,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 73,
-        'macro' => ''
+        'line_nr' => 73
       }
     },
     {
@@ -1839,8 +1796,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 74,
-        'macro' => ''
+        'line_nr' => 74
       }
     },
     {
@@ -1915,8 +1871,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 76,
-        'macro' => ''
+        'line_nr' => 76
       }
     },
     {
@@ -2004,8 +1959,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 80,
-        'macro' => ''
+        'line_nr' => 80
       }
     },
     {
@@ -2057,8 +2011,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 84,
-        'macro' => ''
+        'line_nr' => 84
       }
     },
     {
@@ -2090,8 +2043,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 88,
-        'macro' => ''
+        'line_nr' => 88
       }
     },
     {
@@ -2146,8 +2098,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 89,
-        'macro' => ''
+        'line_nr' => 89
       }
     },
     {
@@ -2220,8 +2171,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'sectioning.texi',
-            'line_nr' => 96,
-            'macro' => ''
+            'line_nr' => 96
           }
         }
       ],
@@ -2236,8 +2186,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
-        'line_nr' => 94,
-        'macro' => ''
+        'line_nr' => 94
       }
     },
     {
@@ -3124,7 +3073,6 @@ $result_errors{'sectioning_check_menu_structure'} = [
 ',
     'file_name' => 'sectioning.texi',
     'line_nr' => 88,
-    'macro' => '',
     'text' => 'node `Last node no description\' is next for `Third node unnumbered\' in menu but not in sectioning',
     'type' => 'warning'
   }

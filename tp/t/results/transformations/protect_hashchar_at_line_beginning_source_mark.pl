@@ -63,8 +63,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   },
                   'source_info' => {
                     'file_name' => 'cpp_directives_line_value_macro.texi',
-                    'line_nr' => 4,
-                    'macro' => ''
+                    'line_nr' => 4
                   }
                 }
               ],
@@ -74,8 +73,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_line_value_macro.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             },
             {
@@ -177,8 +175,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_line_value_macro.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               }
             }
           ],
@@ -188,8 +185,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
           },
           'source_info' => {
             'file_name' => 'cpp_directives_line_value_macro.texi',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -291,8 +287,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_line_value_macro.texi',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
@@ -302,8 +297,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
           },
           'source_info' => {
             'file_name' => 'cpp_directives_line_value_macro.texi',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         },
         {
@@ -496,7 +490,6 @@ $result_errors{'protect_hashchar_at_line_beginning_source_mark'} = [
 ',
     'file_name' => 'cpp_directives_line_value_macro.texi',
     'line_nr' => 24,
-    'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
   },
@@ -505,7 +498,6 @@ $result_errors{'protect_hashchar_at_line_beginning_source_mark'} = [
 ',
     'file_name' => 'cpp_directives_line_value_macro.texi',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'could not protect hash character in @macro',
     'type' => 'warning'
   }

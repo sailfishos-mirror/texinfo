@@ -47,8 +47,7 @@ $result_trees{'menu_no_closed_in_entry'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -71,7 +70,6 @@ $result_errors{'menu_no_closed_in_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'no matching `@end menu\'',
     'type' => 'error'
   }

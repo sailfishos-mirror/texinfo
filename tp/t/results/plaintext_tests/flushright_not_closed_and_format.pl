@@ -88,22 +88,19 @@ $result_trees{'flushright_not_closed_and_format'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 6,
-                    'macro' => ''
+                    'line_nr' => 6
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -133,7 +130,6 @@ $result_errors{'flushright_not_closed_and_format'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'no matching `@end flushright\'',
     'type' => 'error'
   }

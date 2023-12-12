@@ -23,8 +23,7 @@ $result_trees{'test_tie'} = {
               'cmdname' => 'tie',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {

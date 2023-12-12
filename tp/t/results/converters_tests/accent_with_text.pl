@@ -25,8 +25,7 @@ $result_trees{'accent_with_text'} = {
               'cmdname' => 'u',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -46,8 +45,7 @@ $result_trees{'accent_with_text'} = {
               'cmdname' => 'dotless',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -74,8 +72,7 @@ $result_trees{'accent_with_text'} = {
                       'cmdname' => 'dotless',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
@@ -85,8 +82,7 @@ $result_trees{'accent_with_text'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -113,8 +109,7 @@ $result_trees{'accent_with_text'} = {
                       'cmdname' => 'dotless',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     }
                   ],
@@ -124,8 +119,7 @@ $result_trees{'accent_with_text'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -145,8 +139,7 @@ $result_trees{'accent_with_text'} = {
               'cmdname' => '^',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {
@@ -176,7 +169,6 @@ $result_errors{'accent_with_text'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@dotless expects `i\' or `j\' as argument, not `--b\'',
     'type' => 'error'
   }

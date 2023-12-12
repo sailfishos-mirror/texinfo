@@ -20,8 +20,7 @@ $result_trees{'unknown_node_direction_novalidate'} = {
           'cmdname' => 'novalidate',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -80,8 +79,7 @@ $result_trees{'unknown_node_direction_novalidate'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     }
   ],

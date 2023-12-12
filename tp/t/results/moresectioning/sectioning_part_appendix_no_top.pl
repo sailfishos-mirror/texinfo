@@ -42,8 +42,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     'unit_contents' => [
@@ -90,8 +89,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     'unit_contents' => [
@@ -135,8 +133,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     'unit_contents' => [
@@ -180,8 +177,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     },
     'unit_contents' => [
@@ -249,8 +245,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         },
         'section_number' => '2'
@@ -262,8 +257,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     },
     'unit_contents' => [
@@ -308,8 +302,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
-        'macro' => ''
+        'line_nr' => 13
       }
     },
     'unit_contents' => [
@@ -351,8 +344,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 15,
-        'macro' => ''
+        'line_nr' => 15
       }
     },
     'unit_contents' => [
@@ -396,8 +388,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 17,
-        'macro' => ''
+        'line_nr' => 17
       }
     },
     'unit_contents' => [
@@ -434,8 +425,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 19,
-        'macro' => ''
+        'line_nr' => 19
       }
     },
     'unit_contents' => [

@@ -39,8 +39,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     {
@@ -92,8 +91,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         },
         {
@@ -170,8 +168,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -203,15 +200,13 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         }
       ],
@@ -223,8 +218,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
+        'line_nr' => 2
       }
     }
   ],
@@ -297,7 +291,6 @@ $result_errors{'direntry_dircategory_after_first_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@dircategory after first node',
     'type' => 'warning'
   },
@@ -306,7 +299,6 @@ $result_errors{'direntry_dircategory_after_first_node'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@direntry after first node',
     'type' => 'warning'
   }

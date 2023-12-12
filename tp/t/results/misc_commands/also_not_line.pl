@@ -46,8 +46,7 @@ $result_trees{'also_not_line'} = {
               'cmdname' => 'noindent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             },
             {
@@ -76,8 +75,7 @@ $result_trees{'also_not_line'} = {
           'cmdname' => 'noindent',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -94,8 +92,7 @@ $result_trees{'also_not_line'} = {
               'cmdname' => 'noindent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               }
             },
             {
@@ -114,8 +111,7 @@ $result_trees{'also_not_line'} = {
               'cmdname' => 'noindent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             },
             {
@@ -193,8 +189,7 @@ $result_trees{'also_not_line'} = {
               'cmdname' => 'noindent',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               }
             },
             {
@@ -225,8 +220,7 @@ $result_trees{'also_not_line'} = {
               'cmdname' => 'novalidate',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
@@ -262,8 +256,7 @@ $result_trees{'also_not_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
-            'macro' => ''
+            'line_nr' => 18
           }
         },
         {
@@ -331,8 +324,7 @@ $result_trees{'also_not_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 23,
-            'macro' => ''
+            'line_nr' => 23
           }
         }
       ],
@@ -397,7 +389,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@page should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -406,7 +397,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   },
@@ -415,7 +405,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@refill is obsolete',
     'type' => 'warning'
   },
@@ -424,7 +413,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   },
@@ -433,7 +421,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   },
@@ -442,7 +429,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 14,
-    'macro' => '',
     'text' => '@page should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -451,7 +437,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 15,
-    'macro' => '',
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   },
@@ -460,7 +445,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 15,
-    'macro' => '',
     'text' => '@refill is obsolete',
     'type' => 'warning'
   },
@@ -469,7 +453,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 16,
-    'macro' => '',
     'text' => '@novalidate should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -478,7 +461,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 21,
-    'macro' => '',
     'text' => '@vskip should only appear at the beginning of a line',
     'type' => 'warning'
   },
@@ -487,7 +469,6 @@ $result_errors{'also_not_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 23,
-    'macro' => '',
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
   }

@@ -46,8 +46,7 @@ $result_trees{'defx_after_paragraph_end'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
-                        'macro' => ''
+                        'line_nr' => 1
                       }
                     },
                     {
@@ -97,8 +96,7 @@ $result_trees{'defx_after_paragraph_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               },
               'type' => 'def_line'
             },
@@ -136,8 +134,7 @@ $result_trees{'defx_after_paragraph_end'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       },
                       'type' => 'bracketed_arg'
                     },
@@ -195,8 +192,7 @@ $result_trees{'defx_after_paragraph_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'def_line'
             },
@@ -222,8 +218,7 @@ $result_trees{'defx_after_paragraph_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -234,8 +229,7 @@ $result_trees{'defx_after_paragraph_end'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -266,7 +260,6 @@ $result_errors{'defx_after_paragraph_end'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   },
@@ -275,7 +268,6 @@ $result_errors{'defx_after_paragraph_end'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'must be after `@deffn\' to use `@deffnx\'',
     'type' => 'error'
   },
@@ -284,7 +276,6 @@ $result_errors{'defx_after_paragraph_end'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
   }

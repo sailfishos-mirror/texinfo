@@ -59,8 +59,7 @@ $result_trees{'part_before_top'} = [
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       },
@@ -71,8 +70,7 @@ $result_trees{'part_before_top'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     'unit_contents' => [
@@ -154,7 +152,6 @@ $result_errors{'part_before_top'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@part should not be associated with @top',
     'type' => 'warning'
   }

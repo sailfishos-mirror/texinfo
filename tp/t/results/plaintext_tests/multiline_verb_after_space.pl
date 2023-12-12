@@ -37,8 +37,7 @@ $result_trees{'multiline_verb_after_space'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             },
             {

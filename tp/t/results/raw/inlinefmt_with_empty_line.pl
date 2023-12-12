@@ -51,8 +51,7 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
+                'line_nr' => 1
               }
             }
           ],
@@ -69,8 +68,7 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               'cmdname' => 'lbracechar',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -114,8 +112,7 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -140,8 +137,7 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               'cmdname' => 'acronym',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               }
             },
             {
@@ -181,7 +177,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@inlinefmt missing closing brace',
     'type' => 'error'
   },
@@ -190,7 +185,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   },
@@ -199,7 +193,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => '@inlinefmt missing closing brace',
     'type' => 'error'
   },
@@ -208,7 +201,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

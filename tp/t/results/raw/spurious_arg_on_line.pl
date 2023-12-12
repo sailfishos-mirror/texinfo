@@ -70,8 +70,7 @@ $result_trees{'spurious_arg_on_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               }
             }
           ],
@@ -82,8 +81,7 @@ $result_trees{'spurious_arg_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -143,8 +141,7 @@ $result_trees{'spurious_arg_on_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
@@ -155,8 +152,7 @@ $result_trees{'spurious_arg_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -221,8 +217,7 @@ $result_trees{'spurious_arg_on_line'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
-                'macro' => ''
+                'line_nr' => 12
               }
             }
           ],
@@ -233,8 +228,7 @@ $result_trees{'spurious_arg_on_line'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         }
       ],
@@ -272,7 +266,6 @@ $result_errors{'spurious_arg_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 2,
-    'macro' => '',
     'text' => 'unexpected argument on @tex line: argt',
     'type' => 'warning'
   },
@@ -281,7 +274,6 @@ $result_errors{'spurious_arg_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'unexpected argument on @verbatim line: argverbatim',
     'type' => 'warning'
   },
@@ -290,7 +282,6 @@ $result_errors{'spurious_arg_on_line'} = [
 ',
     'file_name' => '',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'unexpected argument on @html line: argh',
     'type' => 'warning'
   }

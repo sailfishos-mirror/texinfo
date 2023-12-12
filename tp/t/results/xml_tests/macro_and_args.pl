@@ -54,8 +54,7 @@ $result_trees{'macro_and_args'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
+                'line_nr' => 2
               }
             }
           ],
@@ -65,8 +64,7 @@ $result_trees{'macro_and_args'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -123,8 +121,7 @@ $result_trees{'macro_and_args'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -137,8 +134,7 @@ $result_trees{'macro_and_args'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           }
         }
       ],
@@ -165,7 +161,6 @@ $result_errors{'macro_and_args'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'bad or empty @macro formal argument: ggg"@@^_ ff',
     'type' => 'error'
   },
@@ -174,7 +169,6 @@ $result_errors{'macro_and_args'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'bad or empty @macro formal argument: ccc v',
     'type' => 'error'
   }

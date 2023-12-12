@@ -33,8 +33,7 @@ $result_trees{'listoffloats_with_commands'} = {
                   'cmdname' => '\'',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -54,8 +53,7 @@ $result_trees{'listoffloats_with_commands'} = {
                   'cmdname' => '`',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
+                    'line_nr' => 1
                   }
                 },
                 {
@@ -82,8 +80,7 @@ $result_trees{'listoffloats_with_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],

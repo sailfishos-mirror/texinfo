@@ -47,8 +47,7 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                           'cmdname' => 'code',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 3,
-                            'macro' => ''
+                            'line_nr' => 3
                           }
                         }
                       ],
@@ -69,8 +68,7 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
+                    'line_nr' => 3
                   }
                 }
               ],
@@ -79,8 +77,7 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -105,7 +102,6 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@code should not appear in @end',
     'type' => 'warning'
   },
@@ -114,7 +110,6 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'bad argument to @end: @code{tex}',
     'type' => 'error'
   },
@@ -123,7 +118,6 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => 'no matching `@end tex\'',
     'type' => 'error'
   }

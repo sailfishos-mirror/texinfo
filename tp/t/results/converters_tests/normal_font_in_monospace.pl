@@ -49,8 +49,7 @@ $result_trees{'normal_font_in_monospace'} = {
                           'cmdname' => 'code',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 2,
-                            'macro' => ''
+                            'line_nr' => 2
                           }
                         }
                       ],
@@ -60,8 +59,7 @@ $result_trees{'normal_font_in_monospace'} = {
                   'cmdname' => 'r',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
+                    'line_nr' => 2
                   }
                 },
                 {
@@ -99,15 +97,13 @@ $result_trees{'normal_font_in_monospace'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -145,8 +141,7 @@ $result_trees{'normal_font_in_monospace'} = {
                               'cmdname' => 'file',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 5,
-                                'macro' => ''
+                                'line_nr' => 5
                               }
                             }
                           ],
@@ -156,8 +151,7 @@ $result_trees{'normal_font_in_monospace'} = {
                       'cmdname' => 'r',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     }
                   ],
@@ -167,8 +161,7 @@ $result_trees{'normal_font_in_monospace'} = {
               'cmdname' => 'command',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             },
             {

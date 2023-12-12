@@ -82,8 +82,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 4,
-            'macro' => ''
+            'line_nr' => 4
           },
           'type' => 'index_entry_command'
         },
@@ -122,8 +121,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         },
         {
@@ -161,8 +159,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 8,
-            'macro' => ''
+            'line_nr' => 8
           }
         },
         {
@@ -214,8 +211,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 12,
-            'macro' => ''
+            'line_nr' => 12
           }
         },
         {
@@ -280,8 +276,7 @@ $result_trees{'index_nodes'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 15,
-                'macro' => ''
+                'line_nr' => 15
               },
               'type' => 'menu_entry'
             },
@@ -313,15 +308,13 @@ $result_trees{'index_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 16,
-                'macro' => ''
+                'line_nr' => 16
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 14,
-            'macro' => ''
+            'line_nr' => 14
           }
         },
         {
@@ -342,8 +335,7 @@ $result_trees{'index_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'index_nodes.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {
@@ -442,8 +434,7 @@ $result_trees{'index_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 20,
-                'macro' => ''
+                'line_nr' => 20
               },
               'type' => 'index_entry_command'
             },
@@ -480,8 +471,7 @@ $result_trees{'index_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 21,
-                'macro' => ''
+                'line_nr' => 21
               },
               'type' => 'index_entry_command'
             },
@@ -518,8 +508,7 @@ $result_trees{'index_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 22,
-                'macro' => ''
+                'line_nr' => 22
               },
               'type' => 'index_entry_command'
             },
@@ -556,8 +545,7 @@ $result_trees{'index_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 23,
-                'macro' => ''
+                'line_nr' => 23
               },
               'type' => 'index_entry_command'
             }
@@ -599,8 +587,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 25,
-            'macro' => ''
+            'line_nr' => 25
           }
         },
         {
@@ -665,8 +652,7 @@ $result_trees{'index_nodes'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 28,
-                'macro' => ''
+                'line_nr' => 28
               },
               'type' => 'menu_entry'
             },
@@ -698,15 +684,13 @@ $result_trees{'index_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 29,
-                'macro' => ''
+                'line_nr' => 29
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 27,
-            'macro' => ''
+            'line_nr' => 27
           }
         },
         {
@@ -727,8 +711,7 @@ $result_trees{'index_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'index_nodes.texi',
-        'line_nr' => 18,
-        'macro' => ''
+        'line_nr' => 18
       }
     },
     {
@@ -829,8 +812,7 @@ $result_trees{'index_nodes'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 33,
-                'macro' => ''
+                'line_nr' => 33
               },
               'type' => 'menu_entry'
             },
@@ -877,8 +859,7 @@ $result_trees{'index_nodes'} = {
               ],
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 34,
-                'macro' => ''
+                'line_nr' => 34
               },
               'type' => 'menu_entry'
             },
@@ -910,15 +891,13 @@ $result_trees{'index_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'index_nodes.texi',
-                'line_nr' => 35,
-                'macro' => ''
+                'line_nr' => 35
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 32,
-            'macro' => ''
+            'line_nr' => 32
           }
         },
         {
@@ -956,8 +935,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 37,
-            'macro' => ''
+            'line_nr' => 37
           }
         },
         {
@@ -978,8 +956,7 @@ $result_trees{'index_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'index_nodes.texi',
-        'line_nr' => 31,
-        'macro' => ''
+        'line_nr' => 31
       }
     },
     {
@@ -1087,8 +1064,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 41,
-            'macro' => ''
+            'line_nr' => 41
           },
           'type' => 'index_entry_command'
         },
@@ -1125,8 +1101,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 42,
-            'macro' => ''
+            'line_nr' => 42
           },
           'type' => 'index_entry_command'
         },
@@ -1163,8 +1138,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 43,
-            'macro' => ''
+            'line_nr' => 43
           },
           'type' => 'index_entry_command'
         },
@@ -1185,8 +1159,7 @@ $result_trees{'index_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'index_nodes.texi',
-        'line_nr' => 39,
-        'macro' => ''
+        'line_nr' => 39
       }
     },
     {
@@ -1286,8 +1259,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 46,
-            'macro' => ''
+            'line_nr' => 46
           },
           'type' => 'index_entry_command'
         },
@@ -1326,8 +1298,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 48,
-            'macro' => ''
+            'line_nr' => 48
           }
         },
         {
@@ -1368,8 +1339,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 50,
-            'macro' => ''
+            'line_nr' => 50
           },
           'type' => 'index_entry_command'
         },
@@ -1406,8 +1376,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 51,
-            'macro' => ''
+            'line_nr' => 51
           },
           'type' => 'index_entry_command'
         },
@@ -1446,8 +1415,7 @@ $result_trees{'index_nodes'} = {
           },
           'source_info' => {
             'file_name' => 'index_nodes.texi',
-            'line_nr' => 53,
-            'macro' => ''
+            'line_nr' => 53
           }
         },
         {
@@ -1468,8 +1436,7 @@ $result_trees{'index_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'index_nodes.texi',
-        'line_nr' => 45,
-        'macro' => ''
+        'line_nr' => 45
       }
     },
     {

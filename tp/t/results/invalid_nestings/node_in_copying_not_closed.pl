@@ -50,8 +50,7 @@ $result_trees{'node_in_copying_not_closed'} = {
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         }
       ],
@@ -86,8 +85,7 @@ $result_trees{'node_in_copying_not_closed'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -125,8 +123,7 @@ $result_trees{'node_in_copying_not_closed'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'line_nr' => 9
           }
         }
       ],
@@ -138,8 +135,7 @@ $result_trees{'node_in_copying_not_closed'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
+        'line_nr' => 7
       }
     }
   ],
@@ -212,7 +208,6 @@ $result_errors{'node_in_copying_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@node seen before @end copying',
     'type' => 'error'
   }

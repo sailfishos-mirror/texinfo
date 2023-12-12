@@ -63,8 +63,7 @@ $result_trees{'brace_command_not_closed'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             }
           ],
@@ -74,8 +73,7 @@ $result_trees{'brace_command_not_closed'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -185,7 +183,6 @@ $result_errors{'brace_command_not_closed'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => '@mycommand missing closing brace',
     'type' => 'error'
   },

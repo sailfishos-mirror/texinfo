@@ -55,8 +55,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               },
               'source_info' => {
                 'file_name' => 'manual_simple_latin1_with_error.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -99,8 +98,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_latin1_with_error.texi',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     {
@@ -136,8 +134,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_latin1_with_error.texi',
-        'line_nr' => 6,
-        'macro' => ''
+        'line_nr' => 6
       }
     },
     {
@@ -176,8 +173,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_latin1_with_error.texi',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -209,8 +205,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_latin1_with_error.texi',
-        'line_nr' => 10,
-        'macro' => ''
+        'line_nr' => 10
       }
     },
     {
@@ -265,8 +260,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       },
       'source_info' => {
         'file_name' => 'manual_simple_latin1_with_error.texi',
-        'line_nr' => 11,
-        'macro' => ''
+        'line_nr' => 11
       }
     }
   ],
@@ -413,7 +407,6 @@ $result_errors{'manual_simple_latin1_with_error'} = [
 ",
     'file_name' => 'manual_simple_latin1_with_error.texi',
     'line_nr' => 13,
-    'macro' => '',
     'text' => "undefined flag: non_conn\x{f9}e",
     'type' => 'warning'
   },
@@ -422,7 +415,6 @@ $result_errors{'manual_simple_latin1_with_error'} = [
 ",
     'file_name' => 'manual_simple_latin1_with_error.texi',
     'line_nr' => 8,
-    'macro' => '',
     'text' => "node `\x{e9}sseul\x{e9}' unreferenced",
     'type' => 'warning'
   }

@@ -40,8 +40,7 @@ $result_trees{'top_part_chapter'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     },
     'unit_contents' => [
@@ -105,8 +104,7 @@ $result_trees{'top_part_chapter'} = [
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         },
         'section_number' => '1'
@@ -118,8 +116,7 @@ $result_trees{'top_part_chapter'} = [
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
+        'line_nr' => 5
       }
     },
     'unit_contents' => [

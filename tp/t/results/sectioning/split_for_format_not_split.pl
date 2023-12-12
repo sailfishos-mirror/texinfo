@@ -86,8 +86,7 @@ $result_trees{'split_for_format_not_split'} = {
       },
       'source_info' => {
         'file_name' => 'simplest.texi',
-        'line_nr' => 3,
-        'macro' => ''
+        'line_nr' => 3
       }
     },
     {

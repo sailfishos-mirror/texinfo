@@ -61,8 +61,7 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               }
             }
           ],
@@ -72,8 +71,7 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -106,7 +104,6 @@ $result_errors{'macro_imbricated_with_beginning_command_name'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'unmatched `@end macro\'',
     'type' => 'error'
   }

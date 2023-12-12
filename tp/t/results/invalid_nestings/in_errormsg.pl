@@ -32,8 +32,7 @@ $result_trees{'in_errormsg'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
+            'line_nr' => 2
           }
         },
         {
@@ -68,8 +67,7 @@ $result_trees{'in_errormsg'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     },
                     {
@@ -98,8 +96,7 @@ $result_trees{'in_errormsg'} = {
                       'cmdname' => 'ref',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 3,
-                        'macro' => ''
+                        'line_nr' => 3
                       }
                     }
                   ],
@@ -109,8 +106,7 @@ $result_trees{'in_errormsg'} = {
               'cmdname' => 'errormsg',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
+                'line_nr' => 3
               }
             },
             {
@@ -140,8 +136,7 @@ $result_trees{'in_errormsg'} = {
           'cmdname' => 'errormsg',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
+            'line_nr' => 5
           }
         },
         {
@@ -152,8 +147,7 @@ $result_trees{'in_errormsg'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 6,
-                    'macro' => ''
+                    'line_nr' => 6
                   },
                   'type' => 'command_as_argument'
                 }
@@ -198,8 +192,7 @@ $result_trees{'in_errormsg'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     }
                   ],
@@ -236,8 +229,7 @@ $result_trees{'in_errormsg'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               }
             }
           ],
@@ -251,8 +243,7 @@ $result_trees{'in_errormsg'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
+            'line_nr' => 6
           }
         }
       ],
@@ -287,7 +278,6 @@ $result_errors{'in_errormsg'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@anchor should not appear anywhere inside @errormsg',
     'type' => 'warning'
   },
@@ -296,7 +286,6 @@ $result_errors{'in_errormsg'} = [
 ',
     'file_name' => '',
     'line_nr' => 3,
-    'macro' => '',
     'text' => '@ref should not appear anywhere inside @errormsg',
     'type' => 'warning'
   },
@@ -305,7 +294,6 @@ $result_errors{'in_errormsg'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => '@errormsg missing closing brace',
     'type' => 'error'
   },
@@ -314,7 +302,6 @@ $result_errors{'in_errormsg'} = [
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
   }

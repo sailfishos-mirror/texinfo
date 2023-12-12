@@ -125,8 +125,7 @@ $result_trees{'defcondx_Dbar'} = {
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
-                'line_nr' => 10,
-                'macro' => ''
+                'line_nr' => 10
               },
               'type' => 'def_line'
             },
@@ -161,8 +160,7 @@ $result_trees{'defcondx_Dbar'} = {
                         },
                         'source_info' => {
                           'file_name' => 'defxcond.texi',
-                          'line_nr' => 12,
-                          'macro' => ''
+                          'line_nr' => 12
                         }
                       },
                       'position' => 1,
@@ -209,8 +207,7 @@ $result_trees{'defcondx_Dbar'} = {
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
-                'line_nr' => 13,
-                'macro' => ''
+                'line_nr' => 13
               },
               'source_marks' => [
                 {
@@ -243,8 +240,7 @@ $result_trees{'defcondx_Dbar'} = {
                     },
                     'source_info' => {
                       'file_name' => 'defxcond.texi',
-                      'line_nr' => 14,
-                      'macro' => ''
+                      'line_nr' => 14
                     }
                   },
                   'sourcemark_type' => 'expanded_conditional_command',
@@ -305,8 +301,7 @@ $result_trees{'defcondx_Dbar'} = {
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
-                'line_nr' => 18,
-                'macro' => ''
+                'line_nr' => 18
               }
             }
           ],
@@ -317,8 +312,7 @@ $result_trees{'defcondx_Dbar'} = {
           },
           'source_info' => {
             'file_name' => 'defxcond.texi',
-            'line_nr' => 10,
-            'macro' => ''
+            'line_nr' => 10
           }
         },
         {
@@ -335,8 +329,7 @@ $result_trees{'defcondx_Dbar'} = {
       },
       'source_info' => {
         'file_name' => 'defxcond.texi',
-        'line_nr' => 8,
-        'macro' => ''
+        'line_nr' => 8
       }
     },
     {
@@ -410,7 +403,6 @@ $result_errors{'defcondx_Dbar'} = [
 ',
     'file_name' => 'defxcond.texi',
     'line_nr' => 10,
-    'macro' => '',
     'text' => 'missing name for @deffn',
     'type' => 'warning'
   },
@@ -419,7 +411,6 @@ $result_errors{'defcondx_Dbar'} = [
 ',
     'file_name' => 'defxcond.texi',
     'line_nr' => 13,
-    'macro' => '',
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
   }

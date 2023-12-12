@@ -43,8 +43,7 @@ $result_trees{'image_extension'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
+            'line_nr' => 1
           }
         },
         {
@@ -81,7 +80,6 @@ $result_converted_errors{'plaintext'}->{'image_extension'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'could not find @image file `f---ile.txt\' nor alternate text',
     'type' => 'warning'
   }
@@ -98,7 +96,6 @@ $result_converted_errors{'html_text'}->{'image_extension'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `f---ile\' (for HTML) not found, using `f---ile.gr--a\'',
     'type' => 'warning'
   }
@@ -119,7 +116,6 @@ $result_converted_errors{'docbook'}->{'image_extension'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `f---ile\' not found, using `f---ile.jpg\'',
     'type' => 'warning'
   }
@@ -136,7 +132,6 @@ $result_converted_errors{'latex_text'}->{'image_extension'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => '@image file `f---ile\' (for LaTeX) not found',
     'type' => 'warning'
   }
@@ -171,7 +166,6 @@ $result_converted_errors{'info'}->{'image_extension'} = [
 ',
     'file_name' => '',
     'line_nr' => 1,
-    'macro' => '',
     'text' => 'could not find @image file `f---ile.txt\' nor alternate text',
     'type' => 'warning'
   }

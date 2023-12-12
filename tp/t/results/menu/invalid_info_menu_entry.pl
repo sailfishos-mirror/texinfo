@@ -79,8 +79,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
-                        'macro' => ''
+                        'line_nr' => 4
                       }
                     }
                   ],
@@ -120,8 +119,7 @@ $result_trees{'invalid_info_menu_entry'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
+                'line_nr' => 4
               },
               'type' => 'menu_entry'
             },
@@ -147,8 +145,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 5,
-                        'macro' => ''
+                        'line_nr' => 5
                       }
                     }
                   ],
@@ -209,8 +206,7 @@ $result_trees{'invalid_info_menu_entry'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
+                'line_nr' => 5
               },
               'type' => 'menu_entry'
             },
@@ -257,8 +253,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 6,
-                        'macro' => ''
+                        'line_nr' => 6
                       }
                     }
                   ],
@@ -298,8 +293,7 @@ $result_trees{'invalid_info_menu_entry'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
+                'line_nr' => 6
               },
               'type' => 'menu_entry'
             },
@@ -346,8 +340,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
+                        'line_nr' => 7
                       }
                     }
                   ],
@@ -387,8 +380,7 @@ $result_trees{'invalid_info_menu_entry'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
+                'line_nr' => 7
               },
               'type' => 'menu_entry'
             },
@@ -435,8 +427,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 8,
-                        'macro' => ''
+                        'line_nr' => 8
                       }
                     }
                   ],
@@ -476,8 +467,7 @@ $result_trees{'invalid_info_menu_entry'} = {
               ],
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
+                'line_nr' => 8
               },
               'type' => 'menu_entry'
             },
@@ -509,15 +499,13 @@ $result_trees{'invalid_info_menu_entry'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
+                'line_nr' => 9
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
+            'line_nr' => 3
           }
         }
       ],
@@ -532,8 +520,7 @@ $result_trees{'invalid_info_menu_entry'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
+        'line_nr' => 1
       }
     }
   ],
@@ -612,7 +599,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 4,
-    'macro' => '',
     'text' => 'menu entry node name should not contain `:\'',
     'type' => 'warning'
   },
@@ -621,7 +607,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 5,
-    'macro' => '',
     'text' => 'menu entry name should not contain `:\'',
     'type' => 'warning'
   },
@@ -630,7 +615,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 6,
-    'macro' => '',
     'text' => 'menu entry node name should not contain `. \'',
     'type' => 'warning'
   },
@@ -639,7 +623,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 7,
-    'macro' => '',
     'text' => 'menu entry node name should not contain `,\'',
     'type' => 'warning'
   },
@@ -648,7 +631,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
 ',
     'file_name' => '',
     'line_nr' => 8,
-    'macro' => '',
     'text' => 'menu entry node name should not contain `	\'',
     'type' => 'warning'
   }
