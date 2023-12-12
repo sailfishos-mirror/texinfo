@@ -24,7 +24,7 @@
 #include "options_types.h"
 #include "document_types.h"
 #include "tree.h"
-#include "errors.h"
+#include "errors_parser.h"
 #include "debug.h"
 #include "command_stack.h"
 #include "context_stack.h"

@@ -30,17 +30,10 @@
 #include "document_types.h"
 /* also for xvasprintf */
 #include "text.h"
-/* for debug_output */
-#include "debug.h"
 /* for fatal */
 #include "utils.h"
 #include "errors.h"
 
-
-/* Current filename and line number.  Used for reporting. */
-SOURCE_INFO current_source_info;
-
-ERROR_MESSAGE_LIST error_messages_list;
 
 static ERROR_MESSAGE *
 reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages)
@@ -132,12 +125,12 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
     fprintf (stderr, "%s", error_message->error_line);
 }
 
-static void
-message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
-                                  enum error_type type, int continuation,
-                                  int warn,
-                                  const SOURCE_INFO *cmd_source_info,
-                                  const char *format, va_list v)
+void
+vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
+                          enum error_type type, int continuation,
+                          int warn,
+                          const SOURCE_INFO *cmd_source_info,
+                          const char *format, va_list v)
 {
   char *message;
 
@@ -238,54 +231,6 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
                                             continuation, message);
 }
 
-static void
-line_error_internal (enum error_type type, int continuation,
-                     const SOURCE_INFO *cmd_source_info,
-                     const char *format, va_list v)
-{
-  message_list_line_error_internal (&error_messages_list,
-                      type, continuation, debug_output, cmd_source_info,
-                      format, v);
-}
-
-void
-line_error_ext (enum error_type type, int continuation,
-                SOURCE_INFO *cmd_source_info,
-                const char *format, ...)
-{
-  va_list v;
-
-  va_start (v, format);
-  line_error_internal (type, continuation, cmd_source_info, format, v);
-}
-
-void
-line_error (const char *format, ...)
-{
-  va_list v;
-
-  va_start (v, format);
-  line_error_internal (MSG_error, 0, &current_source_info, format, v);
-}
-
-void
-line_warn (const char *format, ...)
-{
-  va_list v;
-
-  va_start (v, format);
-  line_error_internal (MSG_warning, 0, &current_source_info, format, v);
-}
-
-void
-command_warn (const ELEMENT *e, const char *format, ...)
-{
-  va_list v;
-
-  va_start (v, format);
-  line_error_internal (MSG_warning, 0, &e->source_info, format, v);
-}
-
 void
 message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
                              OPTIONS *conf,
@@ -295,9 +240,9 @@ message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_line_error_internal (error_messages, type, continuation,
-                                    (conf && conf->DEBUG > 0),
-                                    cmd_source_info, format, v);
+  vmessage_list_line_error (error_messages, type, continuation,
+                            (conf && conf->DEBUG > 0),
+                            cmd_source_info, format, v);
 }
 
 void
@@ -308,9 +253,9 @@ message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_line_error_internal (error_messages, MSG_warning, 0,
-                                    (conf && conf->DEBUG > 0),
-                                    &e->source_info, format, v);
+  vmessage_list_line_error (error_messages, MSG_warning, 0,
+                            (conf && conf->DEBUG > 0),
+                             &e->source_info, format, v);
 }
 
 /* similar as message_list_command_warn, to be used only when the calling
@@ -320,18 +265,9 @@ vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                             OPTIONS *conf,
                             const ELEMENT *e, const char *format, va_list v)
 {
-  message_list_line_error_internal (error_messages, MSG_warning, 0,
-                                    (conf && conf->DEBUG > 0),
-                                    &e->source_info, format, v);
-}
-
-void
-command_error (const ELEMENT *e, const char *format, ...)
-{
-  va_list v;
-
-  va_start (v, format);
-  line_error_internal (MSG_error, 0, &e->source_info, format, v);
+  vmessage_list_line_error (error_messages, MSG_warning, 0,
+                            (conf && conf->DEBUG > 0),
+                            &e->source_info, format, v);
 }
 
 void
@@ -342,9 +278,9 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
   va_list v;
 
   va_start (v, format);
-  message_list_line_error_internal (error_messages, MSG_error, 0,
-                                    (conf && conf->DEBUG > 0),
-                                    &e->source_info, format, v);
+  vmessage_list_line_error (error_messages, MSG_error, 0,
+                           (conf && conf->DEBUG > 0),
+                           &e->source_info, format, v);
 }
 
 /* FIXME continuation? */
@@ -399,44 +335,3 @@ clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
   wipe_error_messages (error_messages);
   error_messages->number = 0;
 }
-
-/* not used */
-void
-wipe_errors (void)
-{
-  wipe_error_message_list (&error_messages_list);
-}
-
-void
-forget_errors (void)
-{
-  memset (&error_messages_list, 0, sizeof (ERROR_MESSAGE_LIST));
-}
-
-static void
-bug_message_internal (char *format, va_list v)
-{
-  fprintf (stderr, "You found a bug: ");
-  vfprintf (stderr, format, v);
-  fprintf (stderr, "\n");
-  if (current_source_info.file_name)
-    {
-      fprintf (stderr,
-               "last location %s:%d", current_source_info.file_name,
-                                         current_source_info.line_nr);
-      if (current_source_info.macro)
-        fprintf (stderr, " (possibly involving @%s)", current_source_info.macro);
-      fprintf (stderr, "\n");
-    }
-  exit (1);
-}
-
-void
-bug_message (char *format, ...)
-{
-  va_list v;
-
-  va_start (v, format);
-  bug_message_internal (format, v);
-}
-

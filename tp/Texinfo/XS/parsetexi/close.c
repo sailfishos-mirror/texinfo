@@ -24,7 +24,7 @@
 #include "def.h"
 #include "debug.h"
 #include "debug_parser.h"
-#include "errors.h"
+#include "errors_parser.h"
 #include "counter.h"
 #include "builtin_commands.h"
 #include "source_marks.h"

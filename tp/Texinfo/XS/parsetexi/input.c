@@ -23,9 +23,9 @@
 
 /* for global_info */
 #include "parser.h"
-#include "utils.h"
 /* for xasprintf and other */
-#include "errors.h"
+#include "utils.h"
+#include "errors_parser.h"
 #include "debug.h"
 #include "input.h"
 #include "text.h"

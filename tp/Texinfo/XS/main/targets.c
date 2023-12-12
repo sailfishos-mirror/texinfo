@@ -22,7 +22,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "tree.h"
-#include "errors.h"
+#include "errors_parser.h"
 #include "debug.h"
 #include "builtin_commands.h"
 /* for get_label_element and fatal */

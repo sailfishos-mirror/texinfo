@@ -1,5 +1,20 @@
 2023-12-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/main/errors.c (vmessage_list_line_error),
+	tp/Texinfo/XS/parsetexi/errors_parser.c,
+	tp/Texinfo/XS/parsetexi/errors_parser.h: rename
+	message_list_line_error_internal as vmessage_list_line_error. Update
+	callers.
+	Add errors_parser.c and move functions using parser internal
+	structures, current_source_info, error_messages_list and debug_output
+	from errors.c to errors_parser.c.  This corresponds to
+	line_error_internal, line_error_ext, line_error, line_warn,
+	command_warn, command_error, forget_errors, bug_message_internal
+	and bug_message.
+
+2023-12-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/errors.c (message_list_line_error_internal)
 	(line_error_internal, message_list_line_error_ext)
 	(message_list_command_warn, vmessage_list_command_warn)

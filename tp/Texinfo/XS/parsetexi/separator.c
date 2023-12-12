@@ -28,7 +28,7 @@
 #include "builtin_commands.h"
 #include "debug.h"
 #include "debug_parser.h"
-#include "errors.h"
+#include "errors_parser.h"
 #include "command_stack.h"
 #include "context_stack.h"
 /* for parse_node_manual */

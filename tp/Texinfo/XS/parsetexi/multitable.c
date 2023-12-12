@@ -17,7 +17,7 @@
 
 #include "tree_types.h"
 #include "tree.h"
-#include "errors.h"
+#include "errors_parser.h"
 /* for item_line_parent */
 #include "utils.h"
 #include "builtin_commands.h"

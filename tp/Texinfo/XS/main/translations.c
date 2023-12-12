@@ -34,7 +34,7 @@
 #include "text.h"
 #include "utils.h"
 #include "tree.h"
-#include "errors.h"
+#include "errors_parser.h"
 #include "debug.h"
 #include "api.h"
 #include "document.h"

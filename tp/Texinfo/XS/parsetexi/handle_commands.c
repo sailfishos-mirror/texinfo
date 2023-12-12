@@ -38,7 +38,7 @@
 #include "commands.h"
 #include "def.h"
 #include "debug.h"
-#include "errors.h"
+#include "errors_parser.h"
 #include "tree.h"
 #include "input.h"
 #include "extra.h"

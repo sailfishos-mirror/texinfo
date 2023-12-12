@@ -23,7 +23,7 @@
 #include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
-#include "errors.h"
+#include "errors_parser.h"
 /* for whitespace_chars and count_multibyte */
 #include "utils.h"
 /* for parse_node_manual */

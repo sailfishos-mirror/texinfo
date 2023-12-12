@@ -31,7 +31,7 @@
 #include "debug.h"
 #include "debug_parser.h"
 /* error_messages_list forget_errors ... */
-#include "errors.h"
+#include "errors_parser.h"
 #include "text.h"
 #include "counter.h"
 #include "builtin_commands.h"

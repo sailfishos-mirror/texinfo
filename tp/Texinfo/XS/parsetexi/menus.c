@@ -22,7 +22,7 @@
 #include "tree.h"
 #include "element_types.h"
 #include "debug.h"
-#include "errors.h"
+#include "errors_parser.h"
 /* for whitespace_chars */
 #include "utils.h"
 /* for parse_node_manual */

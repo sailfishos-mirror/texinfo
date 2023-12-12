@@ -162,6 +162,8 @@ libtexinfo_la_SOURCES= \
 		      parsetexi/context_stack.h \
 		      parsetexi/debug_parser.c \
 		      parsetexi/debug_parser.h \
+		      parsetexi/errors_parser.c \
+		      parsetexi/errors_parser.h \
 		      parsetexi/end_line.c \
 		      parsetexi/separator.c \
 		      parsetexi/multitable.c \
