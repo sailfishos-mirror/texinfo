@@ -1974,7 +1974,8 @@ noticed_line_warn (CONVERTER *self, const ELEMENT *element,
 
   va_start (v, format);
 
-  vmessage_list_command_warn (&self->error_messages, element, format, v);
+  vmessage_list_command_warn (&self->error_messages, self->conf,
+                              element, format, v);
 }
 
 /* to be inlined in text parsing codes */
@@ -2855,6 +2856,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                                                       source_command))
                     {
                       message_list_command_warn (&self->error_messages,
+                                                 self->conf,
                                                  source_command,
                              "no htmlxref.cnf entry found for `%s'",
                                                  manual_name);
@@ -8228,7 +8230,7 @@ html_prepare_converted_output_info (CONVERTER *self)
       cmd_source_info.file_name = self->document->global_info->input_file_name;
       /* TODO the message is not registered for gettext.  In perl source,
          it is registered */
-      message_list_line_error_ext(&self->error_messages,
+      message_list_line_error_ext(&self->error_messages, self->conf,
                                   MSG_warning, 0, &cmd_source_info,
                       "must specify a title with a title command or @top");
     }

@@ -1262,6 +1262,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
 {
   DOCUMENT *document = (DOCUMENT *) argument;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  OPTIONS *options = document->options;
 
   if (current->text.end > 0)
     {
@@ -1311,7 +1312,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                   && parent_for_warn->source_info.line_nr)
                                 {
                                   message_list_command_warn (
-                                    error_messages,
+                                    error_messages, options,
                                     parent_for_warn ,
                                     "could not protect hash character in @%s",
                                 builtin_command_name (parent_for_warn->cmd));

@@ -135,6 +135,7 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
 static void
 message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
                                   enum error_type type, int continuation,
+                                  int warn,
                                   const SOURCE_INFO *cmd_source_info,
                                   const char *format, va_list v)
 {
@@ -150,7 +151,7 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
   message_list_line_formatted_message (error_messages,
                              type, continuation,
-                             cmd_source_info, message, debug_output);
+                             cmd_source_info, message, warn);
 }
 
 void
@@ -243,7 +244,7 @@ line_error_internal (enum error_type type, int continuation,
                      const char *format, va_list v)
 {
   message_list_line_error_internal (&error_messages_list,
-                      type, continuation, cmd_source_info,
+                      type, continuation, debug_output, cmd_source_info,
                       format, v);
 }
 
@@ -287,6 +288,7 @@ command_warn (const ELEMENT *e, const char *format, ...)
 
 void
 message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
+                             OPTIONS *conf,
                              enum error_type type, int continuation,
                      SOURCE_INFO *cmd_source_info, const char *format, ...)
 {
@@ -294,17 +296,20 @@ message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
 
   va_start (v, format);
   message_list_line_error_internal (error_messages, type, continuation,
+                                    (conf && conf->DEBUG > 0),
                                     cmd_source_info, format, v);
 }
 
 void
 message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
+                           OPTIONS *conf,
                            const ELEMENT *e, const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
   message_list_line_error_internal (error_messages, MSG_warning, 0,
+                                    (conf && conf->DEBUG > 0),
                                     &e->source_info, format, v);
 }
 
@@ -312,9 +317,11 @@ message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
    function already has a variable argument */
 void
 vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
+                            OPTIONS *conf,
                             const ELEMENT *e, const char *format, va_list v)
 {
   message_list_line_error_internal (error_messages, MSG_warning, 0,
+                                    (conf && conf->DEBUG > 0),
                                     &e->source_info, format, v);
 }
 
@@ -329,12 +336,14 @@ command_error (const ELEMENT *e, const char *format, ...)
 
 void
 message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
+                            OPTIONS *conf,
                             const ELEMENT *e, const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
   message_list_line_error_internal (error_messages, MSG_error, 0,
+                                    (conf && conf->DEBUG > 0),
                                     &e->source_info, format, v);
 }
 

@@ -291,7 +291,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                                               &status, &current->source_info);
               else
                 decoded_file = file;
-              message_list_command_error (error_messages, current,
+              message_list_command_error (error_messages, options, current,
                                           "could not read %s: %s",
                                           decoded_file, strerror (errno));
               if (file_name_encoding)
@@ -338,7 +338,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                                                   &current->source_info);
                   else
                     decoded_file = file;
-                  message_list_command_error (error_messages, current,
+                  message_list_command_error (error_messages, options, current,
                              "error on closing @verbatiminclude file %s: %s",
                                  decoded_file, strerror (errno));
                   if (file_name_encoding)
@@ -350,7 +350,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
     }
   else if (error_messages)
     {
-      message_list_command_error (error_messages, current,
+      message_list_command_error (error_messages, options, current,
                                   "@%s: could not find %s",
                                   builtin_command_name (current->cmd),
                                   file_name_text);

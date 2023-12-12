@@ -26,12 +26,15 @@ void message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                            const SOURCE_INFO *cmd_source_info,
                            char *message, int warn);
 void message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
-                                enum error_type type, int continuation,
+                             OPTIONS *conf,
+                             enum error_type type, int continuation,
                      SOURCE_INFO *cmd_source_info, const char *format, ...);
 void message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
-                                 const ELEMENT *e, const char *format, ...);
+                            OPTIONS *conf,
+                            const ELEMENT *e, const char *format, ...);
 void message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                                const ELEMENT *e, const char *format, ...);
+                           OPTIONS *conf,
+                           const ELEMENT *e, const char *format, ...);
 
 void message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                                          OPTIONS *conf,
@@ -44,6 +47,7 @@ void message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
                                  OPTIONS *conf,
                                  const char *format, ...);
 void vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
+                            OPTIONS *conf,
                             const ELEMENT *e, const char *format, va_list v);
 
 extern ERROR_MESSAGE_LIST error_messages_list;
