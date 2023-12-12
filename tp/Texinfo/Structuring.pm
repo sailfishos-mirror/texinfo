@@ -2492,7 +2492,7 @@ sub setup_sortable_index_entries($$$$$;$)
             = $main_entry_element->{'extra'}->{'original_def_cmdname'}
               if (!defined($entry_cmdname));
           if (!$silent) {
-            _converted_or_registrar_line_warn($registrar,
+            _converter_or_registrar_line_warn($registrar,
                                 $customization_information,
                          sprintf(__("empty index sub entry %d key in \@%s"),
                                     $subentry_nr, $entry_cmdname),
