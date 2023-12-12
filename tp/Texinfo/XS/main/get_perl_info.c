@@ -223,7 +223,7 @@ get_source_info (SV *source_info_sv)
 
   if (file_name_sv && SvOK (*file_name_sv))
     {
-      char *file_name = (char *) SvPVutf8_nolen (*file_name_sv);
+      char *file_name = (char *) SvPVbyte_nolen (*file_name_sv);
       if (strlen (file_name))
         source_info->file_name = strdup (file_name);
     }
