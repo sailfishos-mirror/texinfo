@@ -2419,25 +2419,41 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
 }
 
 static TREE_ADDED_ELEMENTS *
-new_tree_added_elements ()
+new_tree_added_elements (enum tree_added_elements_status status)
 {
   TREE_ADDED_ELEMENTS *new
     = (TREE_ADDED_ELEMENTS *) malloc (sizeof (TREE_ADDED_ELEMENTS));
   memset (new, 0, sizeof (TREE_ADDED_ELEMENTS));
+  new->status = status;
   return new;
 }
 
 static void
 clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
 {
-  if (tree_elements->status != tree_added_status_reused_tree)
+  /*
+   targets have all associated tree added elements structures that can be
+   left as 0, in particular with tree_added_status_none if nothing refers to
+   them, and are always cleared in the end.  So it is normal to have cleared
+   tree added elements with status none, but they also should not have any
+   added elements.
+   */
+   /*
+  if (tree_elements->status == tree_added_status_none)
+    {
+      fprintf (stderr, "CTAE: %p no status (%zu)\n", tree_elements, tree_elements->added.number);
+    }
+   */
+
+  if (tree_elements->tree
+      && tree_elements->status != tree_added_status_reused_tree)
     remove_element_from_list (&self->tree_to_build, tree_elements->tree);
 
   if (tree_elements->status == tree_added_status_new_tree)
     destroy_element_and_children (tree_elements->tree);
-  else if (tree_elements->status == tree_added_status_normal)
+  else if (tree_elements->status == tree_added_status_elements_added)
     {
-      int i;
+      size_t i;
       for (i = 0; i < tree_elements->added.number; i++)
         {
           ELEMENT *added_e = tree_elements->added.list[i];
@@ -3436,7 +3452,7 @@ html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
       ELEMENT *node_content = lookup_extra_element (command,
                                                     "node_content");
 
-      tree = new_tree_added_elements ();
+      tree = new_tree_added_elements (tree_added_status_elements_added);
 
       root_code = new_element_added (tree, ET__code);
       open_p = new_element_added (tree, ET_NONE);
@@ -3462,7 +3478,7 @@ html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
       if (!target_info->tree.status)
         {
           tree = &target_info->tree;
-          tree->status = tree_added_status_normal;
+          tree->status = tree_added_status_elements_added;
           if (command->type == ET_special_unit_element)
             {
               const char *special_unit_variety
@@ -3569,18 +3585,22 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
                                                   "manual_content");
   if (manual_content)
     {
+      /* FIXME command_tree not destroyed anywhere */
       TREE_ADDED_ELEMENTS *command_tree = html_command_tree (self, command, 0);
       TREE_ADDED_ELEMENTS *string_tree = 0;
       if (type == HCTT_string)
         {
           ELEMENT *tree_root_string;
 
-          string_tree = new_tree_added_elements ();
+          string_tree
+            = new_tree_added_elements (tree_added_status_elements_added);
 
           tree_root_string = new_element_added (string_tree, ET__string);
 
           add_to_element_contents (tree_root_string, command_tree->tree);
           tree_root = tree_root_string;
+          /* TODO tree_root_string/tree_root probably remains in tree_to_build
+                  as it is not removed nor set to string_tree->tree */
           add_to_element_list (&self->tree_to_build, tree_root);
         }
       else
@@ -3643,12 +3663,15 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
             {
               ELEMENT *tree_root_string;
 
-              string_tree = new_tree_added_elements ();
+              string_tree
+                = new_tree_added_elements (tree_added_status_elements_added);
 
               tree_root_string = new_element_added (string_tree, ET__string);
 
               add_to_element_contents (tree_root_string, selected_tree);
               tree_root = tree_root_string;
+          /* TODO tree_root_string/tree_root probably remains in tree_to_build
+                  as it is not removed nor set to string_tree->tree */
               add_to_element_list (&self->tree_to_build, tree_root);
             }
           else
@@ -6335,15 +6358,20 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
   text_append (&def_call, "");
   if (parsed_def->type)
     {
+      char *type_text;
       size_t type_text_len;
-      TREE_ADDED_ELEMENTS *code_tree = new_tree_added_elements ();
+      TREE_ADDED_ELEMENTS *code_tree
+        = new_tree_added_elements (tree_added_status_elements_added);
 
       ELEMENT *root_code = new_element_added (code_tree, ET__code);
       add_to_contents_as_array (root_code, parsed_def->type);
 
       add_to_element_list (&self->tree_to_build, root_code);
 
-      char *type_text = html_convert_tree (self, root_code, 0);
+      type_text = html_convert_tree (self, root_code, 0);
+
+      remove_element_from_list (&self->tree_to_build, root_code);
+
       destroy_tree_added_elements (self, code_tree);
       type_text_len = strlen (type_text);
 
@@ -6366,13 +6394,15 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
         }
       else if (type_text_len > 0)
         text_append_n (&def_call, " ", 1);
+      free (type_text);
     }
 
   if (parsed_def->name)
     {
       char *attribute_class = html_attribute_class (self, "strong",
                                                     &def_name_classes);
-      TREE_ADDED_ELEMENTS *code_tree = new_tree_added_elements ();
+      TREE_ADDED_ELEMENTS *code_tree
+         = new_tree_added_elements (tree_added_status_elements_added);
 
       ELEMENT *root_code = new_element_added (code_tree, ET__code);
       add_to_contents_as_array (root_code, parsed_def->name);
@@ -6382,8 +6412,12 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       text_append (&def_call, attribute_class);
       free (attribute_class);
       text_append_n (&def_call, ">", 1);
+
       convert_to_html_internal (self, root_code, &def_call, 0);
+
+      remove_element_from_list (&self->tree_to_build, root_code);
       destroy_tree_added_elements (self, code_tree);
+
       text_append_n (&def_call, "</strong>", 9);
     }
 
@@ -6396,7 +6430,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       if (strlen (builtin_command_name(base_cmd)) >= 7
           && !memcmp (builtin_command_name(base_cmd), "deftype", 7))
         {
-          TREE_ADDED_ELEMENTS *code_tree = new_tree_added_elements ();
+          TREE_ADDED_ELEMENTS *code_tree
+            = new_tree_added_elements (tree_added_status_elements_added);
 
           ELEMENT *root_code = new_element_added (code_tree, ET__code);
           add_to_contents_as_array (root_code, parsed_def->args);
@@ -6404,7 +6439,10 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
           add_to_element_list (&self->tree_to_build, root_code);
 
           args_formatted = html_convert_tree (self, root_code, 0);
+
+          remove_element_from_list (&self->tree_to_build, root_code);
           destroy_tree_added_elements (self, code_tree);
+
           if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
             {
               char *attribute_class = html_attribute_class (self, "code",
@@ -6442,6 +6480,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
               text_append_n (&def_call, "</var>", 6);
             }
         }
+      free (args_formatted);
     }
 
   if (self->conf->DEF_TABLE > 0)
@@ -6555,6 +6594,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
               text_append_n (result, attribute_open, open_len);
               text_append_n (result, ">", 1);
             }
+          free (attribute_open);
           add_to_element_list (&self->tree_to_build, category_tree);
           convert_to_html_internal (self, category_tree, result, 0);
           remove_element_from_list (&self->tree_to_build, category_tree);
@@ -6563,6 +6603,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
             text_append_n (result, "</span>", 7);
         }
     }
+
+  destroy_parsed_def (parsed_def);
 
   anchor = get_copiable_anchor (self, index_id);
   anchor_str_len = strlen (anchor);
@@ -6708,6 +6750,7 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
           if (conv_context[context].text || conv_context[context].element)
             formatted_cmd = upper_case_cmd;
         }
+      free (upper_case_command);
     }
 
   specification
@@ -8184,7 +8227,7 @@ html_prepare_converted_output_info (CONVERTER *self)
 
       self->title_tree = fulltitle_tree;
 
-      string_tree = new_tree_added_elements ();
+      string_tree = new_tree_added_elements (tree_added_status_elements_added);
       tree_root_string = new_element_added (string_tree, ET__string);
       add_to_contents_as_array (tree_root_string, fulltitle_tree);
 
@@ -8193,6 +8236,7 @@ html_prepare_converted_output_info (CONVERTER *self)
       html_title_string = convert_tree_new_formatting_context (self,
                             tree_root_string, "title_string", 0, 0, 0);
 
+      remove_element_from_list (&self->tree_to_build, tree_root_string);
       destroy_tree_added_elements (self, string_tree);
       if (html_title_string[strspn (html_title_string, whitespace_chars)]
            == '\0')
@@ -8212,7 +8256,7 @@ html_prepare_converted_output_info (CONVERTER *self)
 
       self->title_tree = default_title;
 
-      string_tree = new_tree_added_elements ();
+      string_tree = new_tree_added_elements (tree_added_status_elements_added);
       tree_root_string = new_element_added (string_tree, ET__string);
 
       add_to_contents_as_array (tree_root_string, default_title);
@@ -8277,7 +8321,7 @@ html_prepare_converted_output_info (CONVERTER *self)
       tmp->contents
         = self->document->global_commands->documentdescription->contents;
 
-      string_tree = new_tree_added_elements ();
+      string_tree = new_tree_added_elements (tree_added_status_elements_added);
       tree_root_string = new_element_added (string_tree, ET__string);
 
       add_to_element_contents (tree_root_string, tmp);
@@ -10240,6 +10284,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       if (self->conf->DEBUG > 0)
         fprintf (stderr, "UNNAMED HOLDER => `%s'\n", content_formatted.text);
       ADD(content_formatted.text);
+      free (content_formatted.text);
       goto out;
     }
   else

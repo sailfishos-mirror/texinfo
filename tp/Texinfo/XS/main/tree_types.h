@@ -316,7 +316,7 @@ typedef struct STRING_LIST {
 
 enum tree_added_elements_status {
   tree_added_status_none,
-  tree_added_status_normal,
+  tree_added_status_elements_added,
   tree_added_status_new_tree,
   tree_added_status_reused_tree,
   tree_added_status_no_tree,
