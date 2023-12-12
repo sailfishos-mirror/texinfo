@@ -1,5 +1,11 @@
 2023-12-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/get_perl_info.c (get_source_info): do not check
+	the length of macro and file_name anymore, as the key should not be
+	there if they are not set.
+
+2023-12-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree_types.h (enum tree_added_elements_status):
 	rename tree_added_status_normal as tree_added_status_elements_added.
 
