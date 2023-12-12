@@ -62,7 +62,6 @@ $result_trees{'value_in_misc_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -126,7 +125,6 @@ $result_trees{'value_in_misc_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -206,7 +204,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -300,7 +297,6 @@ $result_trees{'value_in_misc_commands'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 16
                 }
               },
@@ -367,7 +363,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17
           },
           'source_marks' => [
@@ -400,7 +395,6 @@ $result_trees{'value_in_misc_commands'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 18
                 }
               },
@@ -443,7 +437,6 @@ $result_trees{'value_in_misc_commands'} = {
           ],
           'cmdname' => 'afourpaper',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           }
         },
@@ -499,7 +492,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 20
           }
         },
@@ -555,7 +547,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 21
           }
         },
@@ -611,7 +602,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 22
           }
         },
@@ -655,7 +645,6 @@ $result_trees{'value_in_misc_commands'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 26
                 }
               },
@@ -727,7 +716,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 27
           },
           'source_marks' => [
@@ -760,7 +748,6 @@ $result_trees{'value_in_misc_commands'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 28
                 }
               },
@@ -911,7 +898,6 @@ $result_trees{'value_in_misc_commands'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 36
                 }
               },
@@ -959,7 +945,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 37
               }
             }
@@ -993,7 +978,6 @@ $result_trees{'value_in_misc_commands'} = {
                 'command_name' => 'phoo'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 39
               },
               'type' => 'definfoenclose_command'
@@ -1029,7 +1013,6 @@ $result_trees{'value_in_misc_commands'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 40
                     }
                   },
@@ -1127,7 +1110,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 43
           }
         },
@@ -1158,7 +1140,6 @@ $result_trees{'value_in_misc_commands'} = {
                 'command_name' => 'phi'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45
               },
               'type' => 'definfoenclose_command'
@@ -1263,7 +1244,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 50
               }
             },
@@ -1366,7 +1346,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 52
           }
         },
@@ -1429,7 +1408,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 54
               },
               'type' => 'definfoenclose_command'
@@ -1461,7 +1439,6 @@ $result_trees{'value_in_misc_commands'} = {
               ],
               'cmdname' => 'kbd',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               }
             },
@@ -1553,7 +1530,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 59
           }
         },
@@ -1580,7 +1556,6 @@ $result_trees{'value_in_misc_commands'} = {
                 'code' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -1628,7 +1603,6 @@ $result_trees{'value_in_misc_commands'} = {
                     'code' => 1
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 64
                   }
                 },
@@ -1666,13 +1640,11 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 63
           }
         },
@@ -1830,7 +1802,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 73
           }
         },
@@ -1893,7 +1864,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 74
           }
         },
@@ -1956,7 +1926,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 75
           }
         },
@@ -2019,7 +1988,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 76
           }
         },
@@ -2082,7 +2050,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 77
           }
         },
@@ -2145,7 +2112,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 78
           }
         },
@@ -2247,7 +2213,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 82
           }
         },
@@ -2310,7 +2275,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 83
           }
         },
@@ -2394,7 +2358,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 86
           }
         },
@@ -2504,7 +2467,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 91
               }
             }
@@ -2578,7 +2540,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 94
               }
             },
@@ -2687,7 +2648,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 99
           }
         },
@@ -2750,7 +2710,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 100
           }
         },
@@ -2845,7 +2804,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 104
           }
         },
@@ -2967,7 +2925,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 110
           }
         },
@@ -3035,7 +2992,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 112
           }
         },
@@ -3180,7 +3136,6 @@ $result_trees{'value_in_misc_commands'} = {
         {
           'cmdname' => 'noindent',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 120
           }
         },
@@ -3226,7 +3181,6 @@ $result_trees{'value_in_misc_commands'} = {
             {
               'cmdname' => 'noindent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 121
               }
             },
@@ -3274,7 +3228,6 @@ $result_trees{'value_in_misc_commands'} = {
             {
               'cmdname' => 'noindent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 123
               }
             },
@@ -3441,7 +3394,6 @@ $result_trees{'value_in_misc_commands'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 131
           }
         },
@@ -3534,7 +3486,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 136
           }
         },
@@ -3619,7 +3570,6 @@ $result_trees{'value_in_misc_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 139
           }
         },
@@ -3663,7 +3613,6 @@ $result_trees{'value_in_misc_commands'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 143
           }
         },
@@ -3710,7 +3659,6 @@ $result_trees{'value_in_misc_commands'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 145
           }
         },
@@ -3772,7 +3720,6 @@ $result_trees{'value_in_misc_commands'} = {
           ],
           'cmdname' => 'shortcontents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 148
           }
         },
@@ -3836,7 +3783,6 @@ $result_trees{'value_in_misc_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       },
       'source_marks' => [
@@ -4160,7 +4106,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'bad argument to @headings: on line following headings atext
 ',
-    'file_name' => '',
     'line_nr' => 20,
     'text' => 'bad argument to @headings: on line following headings atext',
     'type' => 'error'
@@ -4168,7 +4113,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 37,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -4176,7 +4120,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 37,
     'text' => '@definfoenclose should only appear at the beginning of a line',
     'type' => 'warning'
@@ -4184,7 +4127,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 43,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -4192,7 +4134,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 52,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -4200,7 +4141,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: multiple @footnotestyle
 ',
-    'file_name' => '',
     'line_nr' => 83,
     'text' => 'multiple @footnotestyle',
     'type' => 'warning'
@@ -4208,7 +4148,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 91,
     'text' => '@documentlanguage should only appear at the beginning of a line',
     'type' => 'warning'
@@ -4216,7 +4155,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 118,
     'text' => '@page should only appear at the beginning of a line',
     'type' => 'warning'
@@ -4224,7 +4162,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @noindent is useless inside of a paragraph
 ',
-    'file_name' => '',
     'line_nr' => 121,
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
@@ -4232,7 +4169,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @noindent is useless inside of a paragraph
 ',
-    'file_name' => '',
     'line_nr' => 123,
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
@@ -4240,7 +4176,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 128,
     'text' => '@page should only appear at the beginning of a line',
     'type' => 'warning'
@@ -4248,7 +4183,6 @@ $result_errors{'value_in_misc_commands'} = [
   {
     'error_line' => 'warning: remaining argument on @clickstyle line: {result_macro}
 ',
-    'file_name' => '',
     'line_nr' => 143,
     'text' => 'remaining argument on @clickstyle line: {result_macro}',
     'type' => 'warning'

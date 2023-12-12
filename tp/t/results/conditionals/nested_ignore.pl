@@ -90,7 +90,6 @@ $result_trees{'nested_ignore'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -124,7 +123,6 @@ $result_errors{'nested_ignore'} = [
   {
     'error_line' => 'no matching `@end ignore\'
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => 'no matching `@end ignore\'',
     'type' => 'error'

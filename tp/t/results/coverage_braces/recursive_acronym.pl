@@ -36,7 +36,6 @@ $result_trees{'recursive_acronym'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -54,7 +53,6 @@ $result_trees{'recursive_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },

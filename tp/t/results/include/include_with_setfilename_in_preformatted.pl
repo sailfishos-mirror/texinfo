@@ -54,7 +54,6 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 2
                     }
                   },
@@ -145,13 +144,11 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

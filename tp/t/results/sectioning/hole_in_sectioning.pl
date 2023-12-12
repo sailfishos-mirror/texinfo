@@ -42,7 +42,6 @@ $result_trees{'hole_in_sectioning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -80,7 +79,6 @@ $result_trees{'hole_in_sectioning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -118,7 +116,6 @@ $result_trees{'hole_in_sectioning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -156,7 +153,6 @@ $result_trees{'hole_in_sectioning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     },
@@ -187,7 +183,6 @@ $result_trees{'hole_in_sectioning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     }
@@ -302,7 +297,6 @@ $result_errors{'hole_in_sectioning'} = [
   {
     'error_line' => 'raising the section level of @subsubsection which is too low
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'raising the section level of @subsubsection which is too low',
     'type' => 'error'

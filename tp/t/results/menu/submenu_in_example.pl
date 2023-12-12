@@ -141,13 +141,11 @@ $result_trees{'submenu_in_example'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 10
                   }
                 },
@@ -221,13 +219,11 @@ $result_trees{'submenu_in_example'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 13
                   }
                 },
@@ -312,13 +308,11 @@ $result_trees{'submenu_in_example'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 20
                               }
                             }
                           ],
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 18
                           }
                         }
@@ -352,13 +346,11 @@ $result_trees{'submenu_in_example'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 21
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 17
                   }
                 },
@@ -398,7 +390,6 @@ $result_trees{'submenu_in_example'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 23
                       }
                     },
@@ -447,7 +438,6 @@ $result_trees{'submenu_in_example'} = {
                             'item_number' => 1
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 26
                           }
                         },
@@ -478,7 +468,6 @@ $result_trees{'submenu_in_example'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 27
                           }
                         }
@@ -487,7 +476,6 @@ $result_trees{'submenu_in_example'} = {
                         'enumerate_specification' => '1'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -531,13 +519,11 @@ $result_trees{'submenu_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 29
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -568,13 +554,11 @@ $result_trees{'submenu_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -589,7 +573,6 @@ $result_trees{'submenu_in_example'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -669,7 +652,6 @@ $result_errors{'submenu_in_example'} = [
   {
     'error_line' => 'warning: @menu in invalid context
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@menu in invalid context',
     'type' => 'warning'
@@ -677,7 +659,6 @@ $result_errors{'submenu_in_example'} = [
   {
     'error_line' => 'warning: @menu in invalid context
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@menu in invalid context',
     'type' => 'warning'
@@ -685,7 +666,6 @@ $result_errors{'submenu_in_example'} = [
   {
     'error_line' => 'warning: @menu in invalid context
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@menu in invalid context',
     'type' => 'warning'
@@ -693,7 +673,6 @@ $result_errors{'submenu_in_example'} = [
   {
     'error_line' => 'warning: @menu in invalid context
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => '@menu in invalid context',
     'type' => 'warning'

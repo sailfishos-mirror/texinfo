@@ -50,7 +50,6 @@ $result_trees{'macro_for_end'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'macro_for_end'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -138,14 +136,12 @@ $result_trees{'macro_for_end'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6,
                 'macro' => 'myend'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }

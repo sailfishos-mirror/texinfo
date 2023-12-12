@@ -76,7 +76,6 @@ $result_trees{'pxref_test'} = {
               ],
               'cmdname' => 'pxref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -133,7 +132,6 @@ $result_trees{'pxref_test'} = {
               ],
               'cmdname' => 'pxref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -178,7 +176,6 @@ $result_trees{'pxref_test'} = {
               ],
               'cmdname' => 'pxref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -235,7 +232,6 @@ $result_trees{'pxref_test'} = {
               ],
               'cmdname' => 'pxref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -257,7 +253,6 @@ $result_trees{'pxref_test'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

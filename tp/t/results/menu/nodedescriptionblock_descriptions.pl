@@ -38,7 +38,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -122,7 +121,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -169,7 +167,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -228,7 +225,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -290,7 +286,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'menu_entry'
@@ -337,7 +332,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'menu_entry'
@@ -369,13 +363,11 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -392,7 +384,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -436,7 +427,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   ],
                   'cmdname' => 'emph',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 16
                   }
                 },
@@ -453,7 +443,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   ],
                   'cmdname' => 'w',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 16
                   }
                 },
@@ -477,7 +466,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                     'delimiter' => ':'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 16
                   }
                 },
@@ -502,7 +490,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 16
                   }
                 },
@@ -529,7 +516,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           }
         },
@@ -583,7 +569,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             }
@@ -592,7 +577,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             'element_node' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         },
@@ -604,7 +588,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     },
@@ -654,7 +637,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 14
       }
     },
@@ -728,7 +710,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             }
@@ -737,7 +718,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             'element_node' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 25
           }
         },
@@ -750,7 +730,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 22
       }
     },
@@ -794,7 +773,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 23
       }
     },
@@ -910,13 +888,11 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 39
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 37
               }
             },
@@ -947,7 +923,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 40
               }
             }
@@ -956,7 +931,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             'element_node' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 32
           }
         },
@@ -969,7 +943,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 29
       }
     },
@@ -1013,7 +986,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 30
       }
     },
@@ -1064,7 +1036,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 49
           }
         },
@@ -1118,7 +1089,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             }
@@ -1127,7 +1097,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             'element_node' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 45
           }
         },
@@ -1139,7 +1108,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 42
       }
     },
@@ -1189,7 +1157,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 43
       }
     },
@@ -1263,7 +1230,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               }
             }
@@ -1272,7 +1238,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             'element_node' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 54
           }
         },
@@ -1285,7 +1250,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 51
       }
     },
@@ -1369,7 +1333,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 60
               }
             }
@@ -1378,7 +1341,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
             'element_node' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 58
           }
         },
@@ -1397,7 +1359,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 52
       }
     }
@@ -1866,7 +1827,6 @@ $result_errors{'nodedescriptionblock_descriptions'} = [
   {
     'error_line' => 'warning: multiple node @nodedescriptionblock
 ',
-    'file_name' => '',
     'line_nr' => 58,
     'text' => 'multiple node @nodedescriptionblock',
     'type' => 'warning'

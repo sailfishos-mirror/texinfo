@@ -28,7 +28,6 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -68,7 +67,6 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
                 'delimiter' => '|'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },

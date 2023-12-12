@@ -16,7 +16,6 @@ $result_trees{'email_table_command_as_argument'} = {
                 {
                   'cmdname' => 'email',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -67,7 +66,6 @@ $result_trees{'email_table_command_as_argument'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -118,7 +116,6 @@ $result_trees{'email_table_command_as_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -132,7 +129,6 @@ $result_trees{'email_table_command_as_argument'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

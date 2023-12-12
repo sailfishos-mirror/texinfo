@@ -74,7 +74,6 @@ $result_trees{'raw_and_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -85,7 +84,6 @@ $result_trees{'raw_and_comments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -165,7 +163,6 @@ $result_trees{'raw_and_comments'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 8
                   }
                 }
@@ -176,7 +173,6 @@ $result_trees{'raw_and_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }

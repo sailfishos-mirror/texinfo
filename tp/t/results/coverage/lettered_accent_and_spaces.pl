@@ -29,7 +29,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -66,7 +65,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -103,7 +101,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -140,7 +137,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -176,7 +172,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -213,7 +208,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -250,7 +244,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -287,7 +280,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             },
@@ -358,7 +350,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
   {
     'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
@@ -366,7 +357,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
   {
     'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
@@ -374,7 +364,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
   {
     'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
@@ -382,7 +371,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
   {
     'error_line' => 'warning: command `@^\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => 'command `@^\' must not be followed by new line',
     'type' => 'warning'
@@ -390,7 +378,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
   {
     'error_line' => 'warning: command `@^\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => 'command `@^\' must not be followed by new line',
     'type' => 'warning'

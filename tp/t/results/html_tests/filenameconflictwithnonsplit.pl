@@ -43,7 +43,6 @@ $result_trees{'filenameconflictwithnonsplit'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -88,7 +87,6 @@ $result_trees{'filenameconflictwithnonsplit'} = {
             'normalized' => 'filenameconflictwithnonsplit'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -110,7 +108,6 @@ $result_trees{'filenameconflictwithnonsplit'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }

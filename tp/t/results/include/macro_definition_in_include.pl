@@ -40,7 +40,6 @@ $result_trees{'macro_definition_in_include'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },

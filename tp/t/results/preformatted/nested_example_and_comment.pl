@@ -91,13 +91,11 @@ $result_trees{'nested_example_and_comment'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -137,13 +135,11 @@ $result_trees{'nested_example_and_comment'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -243,13 +239,11 @@ $result_trees{'nested_example_and_comment'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 13
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -289,13 +283,11 @@ $result_trees{'nested_example_and_comment'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -395,13 +387,11 @@ $result_trees{'nested_example_and_comment'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 21
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             },
@@ -450,13 +440,11 @@ $result_trees{'nested_example_and_comment'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17
           }
         }

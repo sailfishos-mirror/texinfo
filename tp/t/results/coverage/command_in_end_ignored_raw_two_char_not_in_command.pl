@@ -40,7 +40,6 @@ $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -63,7 +62,6 @@ $result_errors{'command_in_end_ignored_raw_two_char_not_in_command'} = [
   {
     'error_line' => 'no matching `@end html\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'no matching `@end html\'',
     'type' => 'error'

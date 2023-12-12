@@ -43,7 +43,6 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -110,7 +108,6 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     }

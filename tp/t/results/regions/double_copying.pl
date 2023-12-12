@@ -92,13 +92,11 @@ $result_trees{'double_copying'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -129,13 +127,11 @@ $result_trees{'double_copying'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -163,7 +159,6 @@ $result_errors{'double_copying'} = [
   {
     'error_line' => 'warning: @copying should not appear in @copying block
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@copying should not appear in @copying block',
     'type' => 'warning'
@@ -171,7 +166,6 @@ $result_errors{'double_copying'} = [
   {
     'error_line' => 'warning: multiple @copying
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'multiple @copying',
     'type' => 'warning'

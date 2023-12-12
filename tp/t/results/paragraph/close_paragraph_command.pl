@@ -30,7 +30,6 @@ $result_trees{'close_paragraph_command'} = {
           ],
           'cmdname' => 'titlefont',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -86,7 +85,6 @@ $result_trees{'close_paragraph_command'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },

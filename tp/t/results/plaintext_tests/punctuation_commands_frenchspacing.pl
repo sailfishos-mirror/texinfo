@@ -38,7 +38,6 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -110,7 +109,6 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -125,7 +123,6 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -184,7 +181,6 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -251,7 +247,6 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },

@@ -42,7 +42,6 @@ $result_trees{'verbatiminclude'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         }

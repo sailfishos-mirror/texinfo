@@ -27,7 +27,6 @@ $result_trees{'unknown_synindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -47,7 +46,6 @@ $result_errors{'unknown_synindex'} = [
   {
     'error_line' => 'unknown source index in @synindex: c
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unknown source index in @synindex: c',
     'type' => 'error'
@@ -55,7 +53,6 @@ $result_errors{'unknown_synindex'} = [
   {
     'error_line' => 'unknown destination index in @synindex: truc
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unknown destination index in @synindex: truc',
     'type' => 'error'

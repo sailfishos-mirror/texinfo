@@ -50,7 +50,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'command_conditionals_user_defined'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -98,7 +96,6 @@ $result_trees{'command_conditionals_user_defined'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -138,7 +135,6 @@ $result_trees{'command_conditionals_user_defined'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -177,7 +173,6 @@ $result_trees{'command_conditionals_user_defined'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -209,7 +204,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 11
                 }
               },
@@ -258,7 +252,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 13
                     }
                   },
@@ -319,7 +312,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                           }
                         },
                         'source_info' => {
-                          'file_name' => '',
                           'line_nr' => 16
                         }
                       }
@@ -330,7 +322,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 14
                     }
                   },
@@ -372,7 +363,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 18
                 }
               },
@@ -424,7 +414,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 20
                     }
                   },
@@ -485,7 +474,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                           }
                         },
                         'source_info' => {
-                          'file_name' => '',
                           'line_nr' => 23
                         }
                       }
@@ -496,7 +484,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 21
                     }
                   },
@@ -538,7 +525,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 25
                 }
               },
@@ -590,7 +576,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 27
                     }
                   },
@@ -651,7 +636,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                           }
                         },
                         'source_info' => {
-                          'file_name' => '',
                           'line_nr' => 30
                         }
                       }
@@ -662,7 +646,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 28
                     }
                   },
@@ -704,7 +687,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 32
                 }
               },
@@ -756,7 +738,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 34
                     }
                   },
@@ -817,7 +798,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                           }
                         },
                         'source_info' => {
-                          'file_name' => '',
                           'line_nr' => 37
                         }
                       }
@@ -828,7 +808,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 35
                     }
                   },
@@ -886,7 +865,6 @@ $result_errors{'command_conditionals_user_defined'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'

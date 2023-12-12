@@ -35,7 +35,6 @@ $result_trees{'footnotestyle_separate_late'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -81,7 +80,6 @@ $result_trees{'footnotestyle_separate_late'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 2
         }
       }
@@ -117,7 +115,6 @@ $result_trees{'footnotestyle_separate_late'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -167,7 +164,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                 ],
                 'cmdname' => 'footnote',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 7
                 }
               },
@@ -193,7 +189,6 @@ $result_trees{'footnotestyle_separate_late'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 5
         }
       }
@@ -229,7 +224,6 @@ $result_trees{'footnotestyle_separate_late'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -279,7 +273,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                 ],
                 'cmdname' => 'footnote',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 12
                 }
               },
@@ -324,7 +317,6 @@ $result_trees{'footnotestyle_separate_late'} = [
               }
             },
             'source_info' => {
-              'file_name' => '',
               'line_nr' => 14
             }
           }
@@ -338,7 +330,6 @@ $result_trees{'footnotestyle_separate_late'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 10
         }
       }

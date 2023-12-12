@@ -90,7 +90,6 @@ $result_trees{'top_node_no_menu_direction'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -137,7 +136,6 @@ $result_trees{'top_node_no_menu_direction'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -169,13 +167,11 @@ $result_trees{'top_node_no_menu_direction'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -195,7 +191,6 @@ $result_trees{'top_node_no_menu_direction'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -262,7 +257,6 @@ $result_trees{'top_node_no_menu_direction'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     }
@@ -348,7 +342,6 @@ $result_errors{'top_node_no_menu_direction'} = [
   {
     'error_line' => 'warning: Prev pointer `top\' (for node `chap node\') different from node name `Top\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'Prev pointer `top\' (for node `chap node\') different from node name `Top\'',
     'type' => 'warning'
@@ -356,7 +349,6 @@ $result_errors{'top_node_no_menu_direction'} = [
   {
     'error_line' => 'warning: Up pointer `TOP\' (for node `chap node\') different from node name `Top\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'Up pointer `TOP\' (for node `chap node\') different from node name `Top\'',
     'type' => 'warning'
@@ -364,7 +356,6 @@ $result_errors{'top_node_no_menu_direction'} = [
   {
     'error_line' => 'warning: @menu entry node name `TOP\' different from node name `Top\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@menu entry node name `TOP\' different from node name `Top\'',
     'type' => 'warning'

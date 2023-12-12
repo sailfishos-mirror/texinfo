@@ -1217,7 +1217,7 @@ sub handle_errors($$$)
   foreach my $error_message (@$errors) {
     if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN')) {
       my $s = '';
-      if ($error_message->{'file_name'}) {
+      if (defined($error_message->{'file_name'})) {
         my $file = $error_message->{'file_name'};
 
         if (get_conf('TEST')) {

@@ -41,7 +41,6 @@ $result_trees{'chapter_before_part'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -84,7 +83,6 @@ $result_trees{'chapter_before_part'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -164,7 +162,6 @@ $result_errors{'chapter_before_part'} = [
   {
     'error_line' => 'warning: no sectioning command associated with @part
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'no sectioning command associated with @part',
     'type' => 'warning'

@@ -80,7 +80,6 @@ $result_trees{'value_in_macro_formal_arg'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -93,7 +92,6 @@ $result_trees{'value_in_macro_formal_arg'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -137,7 +135,6 @@ $result_errors{'value_in_macro_formal_arg'} = [
   {
     'error_line' => 'bad or empty @macro formal argument: the@value{argument
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'bad or empty @macro formal argument: the@value{argument',
     'type' => 'error'
@@ -145,7 +142,6 @@ $result_errors{'value_in_macro_formal_arg'} = [
   {
     'error_line' => 'bad syntax for @macro argument: }
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'bad syntax for @macro argument: }',
     'type' => 'error'
@@ -153,7 +149,6 @@ $result_errors{'value_in_macro_formal_arg'} = [
   {
     'error_line' => 'unknown command `testvalue\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'unknown command `testvalue\'',
     'type' => 'error'
@@ -161,7 +156,6 @@ $result_errors{'value_in_macro_formal_arg'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -169,7 +163,6 @@ $result_errors{'value_in_macro_formal_arg'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'misplaced }',
     'type' => 'error'

@@ -29,7 +29,6 @@ $result_trees{'section_on_xtable_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -71,7 +70,6 @@ $result_trees{'section_on_xtable_line'} = {
                 {
                   'cmdname' => 'TeX',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   },
                   'type' => 'command_as_argument'
@@ -95,7 +93,6 @@ $result_trees{'section_on_xtable_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -109,7 +106,6 @@ $result_trees{'section_on_xtable_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -144,7 +140,6 @@ $result_trees{'section_on_xtable_line'} = {
                 {
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   },
                   'type' => 'command_as_argument'
@@ -168,7 +163,6 @@ $result_trees{'section_on_xtable_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -182,7 +176,6 @@ $result_trees{'section_on_xtable_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -226,7 +219,6 @@ $result_trees{'section_on_xtable_line'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -244,7 +236,6 @@ $result_trees{'section_on_xtable_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -258,7 +249,6 @@ $result_trees{'section_on_xtable_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -289,7 +279,6 @@ $result_trees{'section_on_xtable_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }
@@ -392,7 +381,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @vtable line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should not appear on @vtable line',
     'type' => 'warning'
@@ -400,7 +388,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'missing @vtable argument
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'missing @vtable argument',
     'type' => 'error'
@@ -408,7 +395,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => '@section seen before @end vtable
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section seen before @end vtable',
     'type' => 'error'
@@ -416,7 +402,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -424,7 +409,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @table line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should not appear on @table line',
     'type' => 'warning'
@@ -432,7 +416,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'command @TeX not accepting argument in brace should not be on @table line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'command @TeX not accepting argument in brace should not be on @table line',
     'type' => 'error'
@@ -440,7 +423,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => '@section seen before @end table
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section seen before @end table',
     'type' => 'error'
@@ -448,7 +430,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -456,7 +437,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @table line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section should not appear on @table line',
     'type' => 'warning'
@@ -464,7 +444,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => '@section seen before @end table
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section seen before @end table',
     'type' => 'error'
@@ -472,7 +451,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => '@ringaccent expected braces
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@ringaccent expected braces',
     'type' => 'error'
@@ -480,7 +458,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -488,7 +465,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @ftable line
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@section should not appear on @ftable line',
     'type' => 'warning'
@@ -496,7 +472,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => 'bad argument to @ftable: @ringaccent 
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'bad argument to @ftable: @ringaccent ',
     'type' => 'error'
@@ -504,7 +479,6 @@ $result_errors{'section_on_xtable_line'} = [
   {
     'error_line' => '@section seen before @end ftable
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@section seen before @end ftable',
     'type' => 'error'

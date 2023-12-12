@@ -43,7 +43,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -194,7 +191,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -225,7 +221,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
@@ -234,7 +229,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -296,7 +290,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 15
                   },
                   'type' => 'index_entry_command'
@@ -330,7 +323,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -361,7 +353,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
@@ -370,7 +361,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           }
         },
@@ -432,7 +422,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 22
                   },
                   'type' => 'index_entry_command'
@@ -461,7 +450,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               }
             },
@@ -492,7 +480,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               }
             }
@@ -501,7 +488,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 20
           }
         },
@@ -558,7 +544,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 27
                   },
                   'type' => 'index_entry_command'
@@ -592,7 +577,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               }
             },
@@ -623,7 +607,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             }
@@ -632,7 +615,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 26
           }
         },
@@ -695,7 +677,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 34
                       },
                       'type' => 'index_entry_command'
@@ -727,7 +708,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 35
               }
             },
@@ -758,7 +738,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               }
             }
@@ -767,7 +746,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 32
           }
         },
@@ -824,7 +802,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 39
                   },
                   'type' => 'index_entry_command'
@@ -871,7 +848,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 41
                   },
                   'type' => 'index_entry_command'
@@ -908,7 +884,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 42
                   },
                   'type' => 'index_entry_command'
@@ -937,7 +912,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             },
@@ -968,7 +942,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             }
@@ -977,7 +950,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 38
           }
         },
@@ -996,7 +968,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }

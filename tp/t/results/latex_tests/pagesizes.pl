@@ -35,7 +35,6 @@ $result_trees{'pagesizes'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -78,7 +77,6 @@ $result_trees{'pagesizes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -114,7 +112,6 @@ $result_trees{'pagesizes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -146,7 +143,6 @@ $result_trees{'pagesizes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -198,7 +194,6 @@ $result_trees{'pagesizes'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -217,7 +212,6 @@ $result_trees{'pagesizes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     },
@@ -269,7 +263,6 @@ $result_trees{'pagesizes'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           }
         },
@@ -302,7 +295,6 @@ $result_trees{'pagesizes'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         }
@@ -316,7 +308,6 @@ $result_trees{'pagesizes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     }
@@ -475,7 +466,6 @@ $result_errors{'pagesizes'} = [
   {
     'error_line' => 'warning: multiple @pagesizes
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'multiple @pagesizes',
     'type' => 'warning'
@@ -483,7 +473,6 @@ $result_errors{'pagesizes'} = [
   {
     'error_line' => 'warning: multiple @pagesizes
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'multiple @pagesizes',
     'type' => 'warning'
@@ -491,7 +480,6 @@ $result_errors{'pagesizes'} = [
   {
     'error_line' => 'warning: multiple @pagesizes
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'multiple @pagesizes',
     'type' => 'warning'

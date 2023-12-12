@@ -40,7 +40,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -78,7 +77,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -143,7 +141,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -196,7 +193,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -268,7 +264,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               },
               'type' => 'menu_entry'
@@ -300,13 +295,11 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           }
         },
@@ -323,7 +316,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -355,7 +347,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 17
       }
     },
@@ -420,7 +411,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             },
@@ -473,7 +463,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               }
             },
@@ -499,7 +488,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 18
       }
     }

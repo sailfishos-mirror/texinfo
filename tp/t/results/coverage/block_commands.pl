@@ -64,13 +64,11 @@ $result_trees{'block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -134,7 +132,6 @@ $result_trees{'block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -145,7 +142,6 @@ $result_trees{'block_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -238,7 +234,6 @@ $result_trees{'block_commands'} = {
                 'float' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -274,7 +269,6 @@ $result_trees{'block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             }
@@ -291,7 +285,6 @@ $result_trees{'block_commands'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         }

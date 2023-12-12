@@ -45,7 +45,6 @@ $result_trees{'also_not_line'} = {
             {
               'cmdname' => 'noindent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -74,7 +73,6 @@ $result_trees{'also_not_line'} = {
         {
           'cmdname' => 'noindent',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -91,7 +89,6 @@ $result_trees{'also_not_line'} = {
             {
               'cmdname' => 'noindent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -110,7 +107,6 @@ $result_trees{'also_not_line'} = {
             {
               'cmdname' => 'noindent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -188,7 +184,6 @@ $result_trees{'also_not_line'} = {
             {
               'cmdname' => 'noindent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -219,7 +214,6 @@ $result_trees{'also_not_line'} = {
               ],
               'cmdname' => 'novalidate',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             }
@@ -255,7 +249,6 @@ $result_trees{'also_not_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         },
@@ -323,7 +316,6 @@ $result_trees{'also_not_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 23
           }
         }
@@ -387,7 +379,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@page should only appear at the beginning of a line',
     'type' => 'warning'
@@ -395,7 +386,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @noindent is useless inside of a paragraph
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
@@ -403,7 +393,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @refill is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@refill is obsolete',
     'type' => 'warning'
@@ -411,7 +400,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @noindent is useless inside of a paragraph
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
@@ -419,7 +407,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @noindent is useless inside of a paragraph
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
@@ -427,7 +414,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => '@page should only appear at the beginning of a line',
     'type' => 'warning'
@@ -435,7 +421,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @noindent is useless inside of a paragraph
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
@@ -443,7 +428,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @refill is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@refill is obsolete',
     'type' => 'warning'
@@ -451,7 +435,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @novalidate should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@novalidate should only appear at the beginning of a line',
     'type' => 'warning'
@@ -459,7 +442,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @vskip should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 21,
     'text' => '@vskip should only appear at the beginning of a line',
     'type' => 'warning'
@@ -467,7 +449,6 @@ $result_errors{'also_not_line'} = [
   {
     'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'

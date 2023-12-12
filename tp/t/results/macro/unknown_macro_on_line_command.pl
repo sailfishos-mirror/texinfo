@@ -30,7 +30,6 @@ $result_trees{'unknown_macro_on_line_command'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -50,7 +49,6 @@ $result_errors{'unknown_macro_on_line_command'} = [
   {
     'error_line' => 'unknown command `begin\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unknown command `begin\'',
     'type' => 'error'
@@ -58,7 +56,6 @@ $result_errors{'unknown_macro_on_line_command'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -66,7 +63,6 @@ $result_errors{'unknown_macro_on_line_command'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'misplaced }',
     'type' => 'error'

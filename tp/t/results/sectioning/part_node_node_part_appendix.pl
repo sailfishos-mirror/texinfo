@@ -87,7 +87,6 @@ $result_trees{'part_node_node_part_appendix'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -134,7 +133,6 @@ $result_trees{'part_node_node_part_appendix'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -166,13 +164,11 @@ $result_trees{'part_node_node_part_appendix'} = [
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -189,7 +185,6 @@ $result_trees{'part_node_node_part_appendix'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -225,7 +220,6 @@ $result_trees{'part_node_node_part_appendix'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -292,7 +286,6 @@ $result_trees{'part_node_node_part_appendix'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -304,7 +297,6 @@ $result_trees{'part_node_node_part_appendix'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     },
@@ -338,7 +330,6 @@ $result_trees{'part_node_node_part_appendix'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 11
         }
       },
@@ -398,7 +389,6 @@ $result_trees{'part_node_node_part_appendix'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -410,7 +400,6 @@ $result_trees{'part_node_node_part_appendix'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 17
       }
     },
@@ -443,7 +432,6 @@ $result_trees{'part_node_node_part_appendix'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 14
         }
       },
@@ -981,7 +969,6 @@ $result_errors{'part_node_node_part_appendix'} = [
   {
     'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@node precedes @part, but parts may not be associated with nodes',
     'type' => 'warning'

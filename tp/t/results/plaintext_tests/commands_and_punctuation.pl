@@ -34,7 +34,6 @@ $result_trees{'commands_and_punctuation'} = {
               ],
               'cmdname' => 'dots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -49,7 +48,6 @@ $result_trees{'commands_and_punctuation'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },

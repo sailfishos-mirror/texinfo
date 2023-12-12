@@ -26,7 +26,6 @@ $result_trees{'accent_argument'} = {
                   ],
                   'cmdname' => '~',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -63,7 +62,6 @@ $result_trees{'accent_argument'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -94,7 +92,6 @@ $result_trees{'accent_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -105,7 +102,6 @@ $result_trees{'accent_argument'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -131,7 +127,6 @@ $result_trees{'accent_argument'} = {
                   ],
                   'cmdname' => '~',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 }
@@ -168,7 +163,6 @@ $result_trees{'accent_argument'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -199,7 +193,6 @@ $result_trees{'accent_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -210,7 +203,6 @@ $result_trees{'accent_argument'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -241,7 +233,6 @@ $result_trees{'accent_argument'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
@@ -278,7 +269,6 @@ $result_trees{'accent_argument'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -309,7 +299,6 @@ $result_trees{'accent_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
@@ -320,7 +309,6 @@ $result_trees{'accent_argument'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         }

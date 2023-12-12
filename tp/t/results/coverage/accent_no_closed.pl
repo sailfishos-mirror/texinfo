@@ -24,7 +24,6 @@ $result_trees{'accent_no_closed'} = {
               ],
               'cmdname' => '~',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -47,7 +46,6 @@ $result_errors{'accent_no_closed'} = [
   {
     'error_line' => '@~ missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@~ missing closing brace',
     'type' => 'error'

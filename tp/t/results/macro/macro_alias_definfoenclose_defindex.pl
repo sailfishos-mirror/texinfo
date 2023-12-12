@@ -38,7 +38,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -74,7 +73,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -107,7 +105,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -180,7 +177,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -190,7 +186,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           },
           'source_marks' => [
@@ -270,7 +265,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -296,7 +290,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 'command_name' => 'phooindex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               },
               'type' => 'definfoenclose_command'
@@ -343,7 +336,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -365,7 +357,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 'alias_of' => 'phooindex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -410,7 +401,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         },
@@ -446,7 +436,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           },
           'type' => 'index_entry_command'
@@ -487,7 +476,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 21
           }
         },
@@ -513,7 +501,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 'command_name' => 'phooindex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               },
               'type' => 'definfoenclose_command'
@@ -575,7 +562,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             }
@@ -585,7 +571,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 24
           },
           'source_marks' => [
@@ -666,7 +651,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 29
           }
         },
@@ -702,7 +686,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 30
           },
           'type' => 'index_entry_command'
@@ -757,7 +740,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 34
               }
             }
@@ -767,7 +749,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 32
           },
           'source_marks' => [
@@ -849,7 +830,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 37
           }
         },
@@ -871,7 +851,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 'alias_of' => 'phooindex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 38
               }
             },
@@ -918,7 +897,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 40
           }
         },
@@ -944,7 +922,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 'command_name' => 'phoo'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               },
               'type' => 'definfoenclose_command'
@@ -990,7 +967,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 43
           }
         },
@@ -1026,7 +1002,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 44
           },
           'type' => 'index_entry_command'
@@ -1066,7 +1041,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 46
           }
         },
@@ -1088,7 +1062,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 'alias_of' => 'phooindex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             },
@@ -1149,7 +1122,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 51
               }
             }
@@ -1159,7 +1131,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 49
           },
           'source_marks' => [
@@ -1237,7 +1208,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 54
           }
         }
@@ -1251,7 +1221,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -1452,7 +1421,6 @@ $result_errors{'macro_alias_definfoenclose_defindex'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -1460,7 +1428,6 @@ $result_errors{'macro_alias_definfoenclose_defindex'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 21,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -1468,7 +1435,6 @@ $result_errors{'macro_alias_definfoenclose_defindex'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 40,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'

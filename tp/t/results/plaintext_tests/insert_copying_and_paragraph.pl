@@ -59,13 +59,11 @@ $result_trees{'insert_copying_and_paragraph'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -93,7 +91,6 @@ $result_trees{'insert_copying_and_paragraph'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         }

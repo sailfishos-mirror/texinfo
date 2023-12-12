@@ -43,7 +43,6 @@ $result_trees{'ref_in_center'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'ref_in_center'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'ref_in_center'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -164,7 +161,6 @@ $result_trees{'ref_in_center'} = {
                   ],
                   'cmdname' => 'ref',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -185,7 +181,6 @@ $result_trees{'ref_in_center'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -228,7 +223,6 @@ $result_trees{'ref_in_center'} = {
                   ],
                   'cmdname' => 'ref',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
@@ -243,7 +237,6 @@ $result_trees{'ref_in_center'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -266,7 +259,6 @@ $result_trees{'ref_in_center'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -400,7 +392,6 @@ $result_errors{'ref_in_center'} = [
   {
     'error_line' => '@ref missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@ref missing closing brace',
     'type' => 'error'
@@ -408,7 +399,6 @@ $result_errors{'ref_in_center'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'misplaced }',
     'type' => 'error'

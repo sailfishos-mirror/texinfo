@@ -58,7 +58,6 @@ $result_trees{'top_node_part_top'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -69,7 +68,6 @@ $result_trees{'top_node_part_top'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -117,7 +115,6 @@ $result_trees{'top_node_part_top'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -257,7 +254,6 @@ $result_errors{'top_node_part_top'} = [
   {
     'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@node precedes @part, but parts may not be associated with nodes',
     'type' => 'warning'
@@ -265,7 +261,6 @@ $result_errors{'top_node_part_top'} = [
   {
     'error_line' => 'warning: @part should not be associated with @top
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@part should not be associated with @top',
     'type' => 'warning'

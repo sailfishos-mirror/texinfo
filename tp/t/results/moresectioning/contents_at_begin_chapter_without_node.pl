@@ -19,7 +19,6 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -59,7 +58,6 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -95,7 +93,6 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -126,7 +123,6 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     }

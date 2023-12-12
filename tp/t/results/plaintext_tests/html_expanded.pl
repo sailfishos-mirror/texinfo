@@ -65,13 +65,11 @@ $result_trees{'html_expanded'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },

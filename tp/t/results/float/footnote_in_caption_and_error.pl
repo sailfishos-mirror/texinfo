@@ -43,7 +43,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -98,7 +97,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -167,7 +165,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                                     {
                                       'cmdname' => 'error',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 8
                                       }
                                     }
@@ -180,7 +177,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                           ],
                           'cmdname' => 'footnote',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 8
                           }
                         }
@@ -196,7 +192,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                 'float' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -232,7 +227,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -249,7 +243,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         }
@@ -264,7 +257,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }
@@ -332,7 +324,6 @@ $result_errors{'footnote_in_caption_and_error'} = [
   {
     'error_line' => '@error expected braces
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@error expected braces',
     'type' => 'error'

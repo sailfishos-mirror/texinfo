@@ -40,7 +40,6 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -78,7 +77,6 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -116,7 +114,6 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -146,7 +143,6 @@ $result_errors{'three_setchapternewpage_on_odd_off'} = [
   {
     'error_line' => 'warning: multiple @setchapternewpage
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'multiple @setchapternewpage',
     'type' => 'warning'
@@ -154,7 +150,6 @@ $result_errors{'three_setchapternewpage_on_odd_off'} = [
   {
     'error_line' => 'warning: multiple @setchapternewpage
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'multiple @setchapternewpage',
     'type' => 'warning'

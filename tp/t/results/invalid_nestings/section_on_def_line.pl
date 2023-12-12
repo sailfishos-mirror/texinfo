@@ -54,7 +54,6 @@ $result_trees{'section_on_def_line'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -66,7 +65,6 @@ $result_trees{'section_on_def_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -121,7 +119,6 @@ $result_trees{'section_on_def_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -166,7 +163,6 @@ $result_errors{'section_on_def_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -174,7 +170,6 @@ $result_errors{'section_on_def_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @deffn line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should not appear on @deffn line',
     'type' => 'warning'
@@ -182,7 +177,6 @@ $result_errors{'section_on_def_line'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
@@ -190,7 +184,6 @@ $result_errors{'section_on_def_line'} = [
   {
     'error_line' => '@section seen before @end deffn
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section seen before @end deffn',
     'type' => 'error'
@@ -198,7 +191,6 @@ $result_errors{'section_on_def_line'} = [
   {
     'error_line' => 'unmatched `@end deffn\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'unmatched `@end deffn\'',
     'type' => 'error'

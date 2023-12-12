@@ -46,7 +46,6 @@ $result_trees{'bad_documentlanguage'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -92,7 +91,6 @@ $result_trees{'bad_documentlanguage'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -110,7 +108,6 @@ $result_trees{'bad_documentlanguage'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -146,7 +143,6 @@ $result_trees{'bad_documentlanguage'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         }
@@ -175,7 +171,6 @@ $result_errors{'bad_documentlanguage'} = [
   {
     'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@documentlanguage should only appear at the beginning of a line',
     'type' => 'warning'
@@ -183,7 +178,6 @@ $result_errors{'bad_documentlanguage'} = [
   {
     'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@documentlanguage should only appear at the beginning of a line',
     'type' => 'warning'
@@ -191,7 +185,6 @@ $result_errors{'bad_documentlanguage'} = [
   {
     'error_line' => 'warning: @documentlanguage should not appear in @documentlanguage
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@documentlanguage should not appear in @documentlanguage',
     'type' => 'warning'
@@ -199,7 +192,6 @@ $result_errors{'bad_documentlanguage'} = [
   {
     'error_line' => 'bad argument to @documentlanguage: en @documentlanguage  en
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'bad argument to @documentlanguage: en @documentlanguage  en',
     'type' => 'error'
@@ -207,7 +199,6 @@ $result_errors{'bad_documentlanguage'} = [
   {
     'error_line' => 'warning: en  after documentlanguage is not a valid language code
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'en  after documentlanguage is not a valid language code',
     'type' => 'warning'

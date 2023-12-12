@@ -72,7 +72,6 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -82,7 +81,6 @@ $result_trees{'macro_call_empty_middle_arg'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

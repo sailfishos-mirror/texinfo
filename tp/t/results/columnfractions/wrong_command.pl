@@ -30,7 +30,6 @@ $result_trees{'wrong_command'} = {
                           ],
                           'cmdname' => 'b',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 1
                           }
                         }
@@ -51,7 +50,6 @@ $result_trees{'wrong_command'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -82,7 +80,6 @@ $result_trees{'wrong_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -96,7 +93,6 @@ $result_trees{'wrong_command'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -117,7 +113,6 @@ $result_errors{'wrong_command'} = [
   {
     'error_line' => 'warning: @b should not appear in @columnfractions
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@b should not appear in @columnfractions',
     'type' => 'warning'
@@ -125,7 +120,6 @@ $result_errors{'wrong_command'} = [
   {
     'error_line' => 'superfluous argument to @columnfractions
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'superfluous argument to @columnfractions',
     'type' => 'error'

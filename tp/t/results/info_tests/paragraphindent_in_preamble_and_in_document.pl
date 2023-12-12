@@ -75,13 +75,11 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -119,7 +117,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -176,7 +173,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -267,7 +263,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         },
@@ -298,7 +293,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     },

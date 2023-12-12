@@ -38,7 +38,6 @@ $result_trees{'anchor_and_spaces'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -78,7 +77,6 @@ $result_trees{'anchor_and_spaces'} = {
             'normalized' => 'anchor-0'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -114,7 +112,6 @@ $result_trees{'anchor_and_spaces'} = {
                 'normalized' => 'anchor1'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -152,7 +149,6 @@ $result_trees{'anchor_and_spaces'} = {
                 'normalized' => 'anchor2'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -171,7 +167,6 @@ $result_trees{'anchor_and_spaces'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }

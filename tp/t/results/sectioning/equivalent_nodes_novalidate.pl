@@ -19,7 +19,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
           ],
           'cmdname' => 'novalidate',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -56,7 +55,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
               ],
               'cmdname' => 'emph',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -123,7 +121,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -158,7 +155,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -190,13 +186,11 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -216,7 +210,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -237,7 +230,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -281,7 +273,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -303,7 +294,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     }

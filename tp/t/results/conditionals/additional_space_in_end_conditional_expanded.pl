@@ -27,7 +27,6 @@ $result_trees{'additional_space_in_end_conditional_expanded'} = {
                 ],
                 'cmdname' => 'ifnothtml',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },
@@ -70,7 +69,6 @@ $result_trees{'additional_space_in_end_conditional_expanded'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 3
                     }
                   },

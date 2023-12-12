@@ -45,7 +45,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -95,7 +94,6 @@ $result_trees{'empty_def_arguments'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -124,7 +122,6 @@ $result_trees{'empty_def_arguments'} = {
                               ],
                               'cmdname' => 'samp',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 2
                               }
                             },
@@ -140,7 +137,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -165,7 +161,6 @@ $result_trees{'empty_def_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               },
               'type' => 'def_line'
@@ -188,7 +183,6 @@ $result_trees{'empty_def_arguments'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               },
               'type' => 'def_line'
@@ -224,7 +218,6 @@ $result_trees{'empty_def_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'def_line'
@@ -238,7 +231,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       },
                       'type' => 'bracketed_arg'
@@ -255,7 +247,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       },
                       'type' => 'bracketed_arg'
@@ -281,7 +272,6 @@ $result_trees{'empty_def_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'def_line'
@@ -295,7 +285,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       },
                       'type' => 'bracketed_arg'
@@ -316,7 +305,6 @@ $result_trees{'empty_def_arguments'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'def_line'
@@ -335,7 +323,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       },
                       'type' => 'bracketed_arg'
@@ -357,7 +344,6 @@ $result_trees{'empty_def_arguments'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       },
                       'type' => 'bracketed_arg'
@@ -378,7 +364,6 @@ $result_trees{'empty_def_arguments'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'def_line'
@@ -397,7 +382,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       },
                       'type' => 'bracketed_arg'
@@ -418,7 +402,6 @@ $result_trees{'empty_def_arguments'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'def_line'
@@ -432,7 +415,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       },
                       'type' => 'bracketed_arg'
@@ -449,7 +431,6 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       },
                       'type' => 'bracketed_arg'
@@ -470,7 +451,6 @@ $result_trees{'empty_def_arguments'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'def_line'
@@ -502,7 +482,6 @@ $result_trees{'empty_def_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -513,7 +492,6 @@ $result_trees{'empty_def_arguments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -552,7 +530,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
@@ -560,7 +537,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
@@ -568,7 +544,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing category for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'missing category for @deffnx',
     'type' => 'warning'
@@ -576,7 +551,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
@@ -584,7 +558,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
@@ -592,7 +565,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
@@ -600,7 +572,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
@@ -608,7 +579,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
@@ -616,7 +586,6 @@ $result_errors{'empty_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'

@@ -16,7 +16,6 @@ $result_trees{'long_item'} = {
                 {
                   'cmdname' => 'emph',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -61,7 +60,6 @@ $result_trees{'long_item'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -89,7 +87,6 @@ $result_trees{'long_item'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -145,7 +142,6 @@ $result_trees{'long_item'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -159,7 +155,6 @@ $result_trees{'long_item'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

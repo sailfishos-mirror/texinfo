@@ -36,7 +36,6 @@ $result_trees{'exdent_and_formats'} = {
                   ],
                   'cmdname' => 'TeX',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 2
                   }
                 },
@@ -88,7 +87,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -128,13 +126,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -186,7 +182,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -223,7 +218,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -263,13 +257,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -346,13 +338,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         },
@@ -457,13 +447,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 32
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 29
           }
         },
@@ -536,13 +524,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 38
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 34
           }
         },
@@ -621,7 +607,6 @@ $result_trees{'exdent_and_formats'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 44
                   }
                 },
@@ -652,13 +637,11 @@ $result_trees{'exdent_and_formats'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 45
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 42
               }
             },
@@ -689,13 +672,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 40
           }
         },
@@ -742,7 +723,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 49
               }
             },
@@ -773,13 +753,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 50
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 48
           }
         },
@@ -835,7 +813,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 54
               }
             },
@@ -866,13 +843,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 55
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 52
           }
         },
@@ -919,7 +894,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -959,13 +933,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 60
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 57
           }
         },
@@ -1012,7 +984,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 63
               }
             },
@@ -1040,7 +1011,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             },
@@ -1071,13 +1041,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 62
           }
         },
@@ -1124,7 +1092,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 68
               }
             },
@@ -1152,7 +1119,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 69
               }
             },
@@ -1183,13 +1149,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 67
           }
         },
@@ -1245,7 +1209,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             },
@@ -1276,13 +1239,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 75
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 72
           }
         },
@@ -1329,7 +1290,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 78
               }
             },
@@ -1357,7 +1317,6 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 79
               }
             },
@@ -1388,13 +1347,11 @@ $result_trees{'exdent_and_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 80
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 77
           }
         }

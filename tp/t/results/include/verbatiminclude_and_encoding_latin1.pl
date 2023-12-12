@@ -37,7 +37,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -74,7 +73,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }

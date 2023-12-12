@@ -55,7 +55,6 @@ $result_trees{'text_on_display_command_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -66,7 +65,6 @@ $result_trees{'text_on_display_command_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -130,7 +128,6 @@ $result_trees{'text_on_display_command_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -141,7 +138,6 @@ $result_trees{'text_on_display_command_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -200,13 +196,11 @@ $result_trees{'text_on_display_command_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -270,13 +264,11 @@ $result_trees{'text_on_display_command_line'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -307,13 +299,11 @@ $result_trees{'text_on_display_command_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         }
@@ -353,7 +343,6 @@ $result_errors{'text_on_display_command_line'} = [
   {
     'error_line' => 'warning: unexpected argument on @display line: text on line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unexpected argument on @display line: text on line',
     'type' => 'warning'
@@ -361,7 +350,6 @@ $result_errors{'text_on_display_command_line'} = [
   {
     'error_line' => 'warning: unexpected argument on @display line: text on line followed by text
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'unexpected argument on @display line: text on line followed by text',
     'type' => 'warning'
@@ -369,7 +357,6 @@ $result_errors{'text_on_display_command_line'} = [
   {
     'error_line' => 'bad argument to @end: display text after end
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'bad argument to @end: display text after end',
     'type' => 'error'
@@ -377,7 +364,6 @@ $result_errors{'text_on_display_command_line'} = [
   {
     'error_line' => 'bad argument to @end: display text after end display nested in display
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => 'bad argument to @end: display text after end display nested in display',
     'type' => 'error'

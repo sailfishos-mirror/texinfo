@@ -60,7 +60,6 @@ $result_trees{'macro_in_value'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -70,7 +69,6 @@ $result_trees{'macro_in_value'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

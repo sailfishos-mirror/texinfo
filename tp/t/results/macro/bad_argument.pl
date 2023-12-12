@@ -44,7 +44,6 @@ $result_trees{'bad_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -57,7 +56,6 @@ $result_trees{'bad_argument'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -107,7 +105,6 @@ $result_trees{'bad_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -120,7 +117,6 @@ $result_trees{'bad_argument'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -174,7 +170,6 @@ $result_trees{'bad_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
@@ -187,7 +182,6 @@ $result_trees{'bad_argument'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -231,7 +225,6 @@ $result_trees{'bad_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
@@ -244,7 +237,6 @@ $result_trees{'bad_argument'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           }
         }
@@ -282,7 +274,6 @@ $result_errors{'bad_argument'} = [
   {
     'error_line' => '@macro requires a name
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@macro requires a name',
     'type' => 'error'
@@ -290,7 +281,6 @@ $result_errors{'bad_argument'} = [
   {
     'error_line' => 'bad syntax for @rmacro argument: aaa
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'bad syntax for @rmacro argument: aaa',
     'type' => 'error'
@@ -298,7 +288,6 @@ $result_errors{'bad_argument'} = [
   {
     'error_line' => 'bad syntax for @macro argument: more  
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'bad syntax for @macro argument: more  ',
     'type' => 'error'
@@ -306,7 +295,6 @@ $result_errors{'bad_argument'} = [
   {
     'error_line' => '@macro requires a name
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@macro requires a name',
     'type' => 'error'

@@ -64,13 +64,11 @@ $result_trees{'raw_in_para'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -135,13 +133,11 @@ $result_trees{'raw_in_para'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -222,13 +218,11 @@ $result_trees{'raw_in_para'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 17
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }

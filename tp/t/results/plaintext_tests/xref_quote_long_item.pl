@@ -16,7 +16,6 @@ $result_trees{'xref_quote_long_item'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -67,7 +66,6 @@ $result_trees{'xref_quote_long_item'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 3
                               }
                             }
@@ -88,7 +86,6 @@ $result_trees{'xref_quote_long_item'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -114,7 +111,6 @@ $result_trees{'xref_quote_long_item'} = {
                                   ],
                                   'cmdname' => 'comma',
                                   'source_info' => {
-                                    'file_name' => '',
                                     'line_nr' => 4
                                   }
                                 },
@@ -129,7 +125,6 @@ $result_trees{'xref_quote_long_item'} = {
                                   ],
                                   'cmdname' => 'comma',
                                   'source_info' => {
-                                    'file_name' => '',
                                     'line_nr' => 4
                                   }
                                 },
@@ -183,7 +178,6 @@ $result_trees{'xref_quote_long_item'} = {
                           ],
                           'cmdname' => 'xref',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 4
                           }
                         },
@@ -232,7 +226,6 @@ $result_trees{'xref_quote_long_item'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -246,7 +239,6 @@ $result_trees{'xref_quote_long_item'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

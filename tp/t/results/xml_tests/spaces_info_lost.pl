@@ -64,7 +64,6 @@ $result_trees{'spaces_info_lost'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -75,7 +74,6 @@ $result_trees{'spaces_info_lost'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -130,13 +128,11 @@ $result_trees{'spaces_info_lost'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -166,7 +162,6 @@ $result_errors{'spaces_info_lost'} = [
   {
     'error_line' => 'warning: unexpected argument on @display line: text on display line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unexpected argument on @display line: text on display line',
     'type' => 'warning'

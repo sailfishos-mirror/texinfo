@@ -20,7 +20,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
                 {
                   'cmdname' => 'bullet',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -65,7 +64,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -102,7 +100,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -116,7 +113,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -141,7 +137,6 @@ $result_errors{'no_arg_brace_command_on_table_line'} = [
   {
     'error_line' => 'command @bullet not accepting argument in brace should not be on @table line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'command @bullet not accepting argument in brace should not be on @table line',
     'type' => 'error'

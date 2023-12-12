@@ -35,7 +35,6 @@ $result_trees{'section_on_enumerate_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -92,7 +91,6 @@ $result_trees{'section_on_enumerate_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -106,7 +104,6 @@ $result_trees{'section_on_enumerate_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -137,7 +134,6 @@ $result_trees{'section_on_enumerate_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }
@@ -196,7 +192,6 @@ $result_errors{'section_on_enumerate_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -204,7 +199,6 @@ $result_errors{'section_on_enumerate_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @enumerate line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should not appear on @enumerate line',
     'type' => 'warning'
@@ -212,7 +206,6 @@ $result_errors{'section_on_enumerate_line'} = [
   {
     'error_line' => 'bad argument to @enumerate
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
@@ -220,7 +213,6 @@ $result_errors{'section_on_enumerate_line'} = [
   {
     'error_line' => '@section seen before @end enumerate
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section seen before @end enumerate',
     'type' => 'error'
@@ -228,7 +220,6 @@ $result_errors{'section_on_enumerate_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -236,7 +227,6 @@ $result_errors{'section_on_enumerate_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @enumerate line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should not appear on @enumerate line',
     'type' => 'warning'
@@ -244,7 +234,6 @@ $result_errors{'section_on_enumerate_line'} = [
   {
     'error_line' => '@section seen before @end enumerate
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section seen before @end enumerate',
     'type' => 'error'

@@ -27,7 +27,6 @@ $result_trees{'plaintext_ifinfo'} = {
                 ],
                 'cmdname' => 'ifinfo',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 2
                 }
               },
@@ -73,7 +72,6 @@ $result_trees{'plaintext_ifinfo'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 4
                     }
                   },

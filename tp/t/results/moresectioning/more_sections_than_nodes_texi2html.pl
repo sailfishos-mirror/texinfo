@@ -43,7 +43,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -127,7 +126,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -174,7 +172,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -221,7 +218,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -253,13 +249,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -276,7 +270,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -314,7 +307,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -346,7 +338,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     },
@@ -384,7 +375,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     },
@@ -422,7 +412,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 15
       }
     },
@@ -515,7 +504,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 17
       }
     },
@@ -599,7 +587,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               },
               'type' => 'menu_entry'
@@ -631,13 +618,11 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 20
           }
         },
@@ -656,7 +641,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 18
       }
     },
@@ -694,7 +678,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 24
       }
     },
@@ -726,7 +709,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 26
       }
     },
@@ -764,7 +746,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 27
       }
     },
@@ -802,7 +783,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 29
       }
     },
@@ -840,7 +820,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 31
       }
     },
@@ -878,7 +857,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 33
       }
     },
@@ -916,7 +894,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 35
       }
     },
@@ -983,7 +960,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 37
       }
     },
@@ -1021,7 +997,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 38
       }
     },
@@ -1052,7 +1027,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 40
       }
     }

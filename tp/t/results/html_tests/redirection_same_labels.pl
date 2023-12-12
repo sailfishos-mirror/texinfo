@@ -127,7 +127,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'menu_entry'
@@ -174,7 +173,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'menu_entry'
@@ -206,13 +204,11 @@ $result_trees{'redirection_same_labels'} = [
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -229,7 +225,6 @@ $result_trees{'redirection_same_labels'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -270,7 +265,6 @@ $result_trees{'redirection_same_labels'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -338,7 +332,6 @@ $result_trees{'redirection_same_labels'} = [
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -373,7 +366,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               },
               'type' => 'menu_entry'
@@ -403,7 +395,6 @@ $result_trees{'redirection_same_labels'} = [
                               ],
                               'cmdname' => 'dotless',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 17
                               }
                             }
@@ -413,7 +404,6 @@ $result_trees{'redirection_same_labels'} = [
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     }
@@ -448,7 +438,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               },
               'type' => 'menu_entry'
@@ -480,13 +469,11 @@ $result_trees{'redirection_same_labels'} = [
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -505,7 +492,6 @@ $result_trees{'redirection_same_labels'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     },
@@ -538,7 +524,6 @@ $result_trees{'redirection_same_labels'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 12
         }
       },
@@ -560,7 +545,6 @@ $result_trees{'redirection_same_labels'} = [
                 ],
                 'cmdname' => '"',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 20
                 }
               }
@@ -592,7 +576,6 @@ $result_trees{'redirection_same_labels'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 20
         }
       },
@@ -617,7 +600,6 @@ $result_trees{'redirection_same_labels'} = [
                         ],
                         'cmdname' => 'dotless',
                         'source_info' => {
-                          'file_name' => '',
                           'line_nr' => 22
                         }
                       }
@@ -627,7 +609,6 @@ $result_trees{'redirection_same_labels'} = [
                 ],
                 'cmdname' => '~',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 22
                 }
               }
@@ -659,7 +640,6 @@ $result_trees{'redirection_same_labels'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 22
         }
       }
@@ -726,7 +706,6 @@ $result_trees{'redirection_same_labels'} = [
                       ],
                       'cmdname' => '^',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       }
                     }
@@ -761,7 +740,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               },
               'type' => 'menu_entry'
@@ -793,13 +771,11 @@ $result_trees{'redirection_same_labels'} = [
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 27
           }
         },
@@ -818,7 +794,6 @@ $result_trees{'redirection_same_labels'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 25
       }
     },
@@ -851,7 +826,6 @@ $result_trees{'redirection_same_labels'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 24
         }
       },
@@ -873,7 +847,6 @@ $result_trees{'redirection_same_labels'} = [
                 ],
                 'cmdname' => '^',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 31
                 }
               }
@@ -898,7 +871,6 @@ $result_trees{'redirection_same_labels'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 31
         }
       }
@@ -1630,7 +1602,6 @@ $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
   {
     'error_line' => 'warning: @node `@"i\' file i.html for redirection exists
 ',
-    'file_name' => '',
     'line_nr' => 20,
     'text' => '@node `@"i\' file i.html for redirection exists',
     'type' => 'warning'
@@ -1639,7 +1610,6 @@ $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
     'continuation' => 1,
     'error_line' => 'warning: conflict with @node `@^i\' redirection file
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'conflict with @node `@^i\' redirection file',
     'type' => 'warning'
@@ -1647,7 +1617,6 @@ $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
   {
     'error_line' => 'warning: @node `@~{@dotless{i}}\' file i.html for redirection exists
 ',
-    'file_name' => '',
     'line_nr' => 22,
     'text' => '@node `@~{@dotless{i}}\' file i.html for redirection exists',
     'type' => 'warning'
@@ -1656,7 +1625,6 @@ $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
     'continuation' => 1,
     'error_line' => 'warning: conflict with @node `@^i\' redirection file
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'conflict with @node `@^i\' redirection file',
     'type' => 'warning'

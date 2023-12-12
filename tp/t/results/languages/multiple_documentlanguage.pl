@@ -38,7 +38,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -182,7 +181,6 @@ $result_trees{'multiple_documentlanguage'} = {
                         'original_def_cmdname' => 'defivar'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       },
                       'type' => 'def_line'
@@ -199,7 +197,6 @@ $result_trees{'multiple_documentlanguage'} = {
                               ],
                               'cmdname' => 'error',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 5
                               }
                             },
@@ -240,7 +237,6 @@ $result_trees{'multiple_documentlanguage'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -251,7 +247,6 @@ $result_trees{'multiple_documentlanguage'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 },
@@ -282,13 +277,11 @@ $result_trees{'multiple_documentlanguage'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -331,7 +324,6 @@ $result_trees{'multiple_documentlanguage'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -367,7 +359,6 @@ $result_trees{'multiple_documentlanguage'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -400,7 +391,6 @@ $result_trees{'multiple_documentlanguage'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     },
@@ -549,7 +539,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 'original_def_cmdname' => 'defivar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               },
               'type' => 'def_line'
@@ -566,7 +555,6 @@ $result_trees{'multiple_documentlanguage'} = {
                       ],
                       'cmdname' => 'error',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     },
@@ -607,7 +595,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             }
@@ -618,7 +605,6 @@ $result_trees{'multiple_documentlanguage'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -654,7 +640,6 @@ $result_trees{'multiple_documentlanguage'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           }
         },
@@ -673,7 +658,6 @@ $result_trees{'multiple_documentlanguage'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 21
           }
         },
@@ -709,7 +693,6 @@ $result_trees{'multiple_documentlanguage'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 23
           }
         },
@@ -839,7 +822,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 'original_def_cmdname' => 'defivar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               },
               'type' => 'def_line'
@@ -856,7 +838,6 @@ $result_trees{'multiple_documentlanguage'} = {
                       ],
                       'cmdname' => 'error',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     },
@@ -897,7 +878,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             }
@@ -908,7 +888,6 @@ $result_trees{'multiple_documentlanguage'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 25
           }
         },
@@ -927,7 +906,6 @@ $result_trees{'multiple_documentlanguage'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 29
           }
         },
@@ -965,7 +943,6 @@ $result_trees{'multiple_documentlanguage'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 31
           }
         }
@@ -979,7 +956,6 @@ $result_trees{'multiple_documentlanguage'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     }

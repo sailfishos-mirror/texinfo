@@ -49,7 +49,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -72,7 +71,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -100,7 +98,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -121,7 +118,6 @@ $result_trees{'empty_nodes_with_commands'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -142,7 +138,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     }
@@ -167,7 +162,6 @@ $result_errors{'empty_nodes_with_commands'} = [
   {
     'error_line' => 'empty argument in @node
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'empty argument in @node',
     'type' => 'error'
@@ -176,7 +170,6 @@ $result_errors{'empty_nodes_with_commands'} = [
     'error_line' => 'empty node name after expansion `@
 \'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'empty node name after expansion `@
 \'',
@@ -185,7 +178,6 @@ $result_errors{'empty_nodes_with_commands'} = [
   {
     'error_line' => 'empty node name after expansion `@:\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'empty node name after expansion `@:\'',
     'type' => 'error'
@@ -193,7 +185,6 @@ $result_errors{'empty_nodes_with_commands'} = [
   {
     'error_line' => 'empty node name after expansion `@asis{ }\'
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'empty node name after expansion `@asis{ }\'',
     'type' => 'error'

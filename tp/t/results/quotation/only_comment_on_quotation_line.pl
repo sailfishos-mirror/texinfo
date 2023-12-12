@@ -65,7 +65,6 @@ $result_trees{'only_comment_on_quotation_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -76,7 +75,6 @@ $result_trees{'only_comment_on_quotation_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

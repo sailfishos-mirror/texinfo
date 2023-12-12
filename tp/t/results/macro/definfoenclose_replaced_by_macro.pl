@@ -40,7 +40,6 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -94,7 +93,6 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -104,7 +102,6 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -180,7 +177,6 @@ $result_errors{'definfoenclose_replaced_by_macro'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'

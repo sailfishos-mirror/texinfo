@@ -80,7 +80,6 @@ $result_trees{'formats_only_title_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -89,7 +88,6 @@ $result_trees{'formats_only_title_comments'} = {
             'command_as_argument' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -169,7 +167,6 @@ $result_trees{'formats_only_title_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -183,7 +180,6 @@ $result_trees{'formats_only_title_comments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -199,7 +195,6 @@ $result_trees{'formats_only_title_comments'} = {
                 {
                   'cmdname' => 'emph',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 11
                   },
                   'type' => 'command_as_argument'
@@ -267,7 +262,6 @@ $result_trees{'formats_only_title_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
@@ -281,7 +275,6 @@ $result_trees{'formats_only_title_comments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -297,7 +290,6 @@ $result_trees{'formats_only_title_comments'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 16
                   },
                   'type' => 'command_as_argument'
@@ -364,7 +356,6 @@ $result_trees{'formats_only_title_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
@@ -378,7 +369,6 @@ $result_trees{'formats_only_title_comments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           }
         },
@@ -421,7 +411,6 @@ $result_trees{'formats_only_title_comments'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20
                   }
                 }
@@ -482,7 +471,6 @@ $result_trees{'formats_only_title_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               }
             }
@@ -497,7 +485,6 @@ $result_trees{'formats_only_title_comments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 20
           }
         }
@@ -553,7 +540,6 @@ $result_errors{'formats_only_title_comments'} = [
   {
     'error_line' => 'warning: @itemize has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@itemize has text but no @item',
     'type' => 'warning'
@@ -561,7 +547,6 @@ $result_errors{'formats_only_title_comments'} = [
   {
     'error_line' => 'warning: @enumerate has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@enumerate has text but no @item',
     'type' => 'warning'
@@ -569,7 +554,6 @@ $result_errors{'formats_only_title_comments'} = [
   {
     'error_line' => 'warning: @table has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@table has text but no @item',
     'type' => 'warning'
@@ -577,7 +561,6 @@ $result_errors{'formats_only_title_comments'} = [
   {
     'error_line' => 'warning: @vtable has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@vtable has text but no @item',
     'type' => 'warning'
@@ -585,7 +568,6 @@ $result_errors{'formats_only_title_comments'} = [
   {
     'error_line' => 'warning: @multitable has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 20,
     'text' => '@multitable has text but no @item',
     'type' => 'warning'

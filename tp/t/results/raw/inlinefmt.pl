@@ -37,7 +37,6 @@ $result_trees{'inlinefmt'} = {
                       ],
                       'cmdname' => 'lbracechar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -59,7 +58,6 @@ $result_trees{'inlinefmt'} = {
                 'format' => 'plaintext'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -95,7 +93,6 @@ $result_trees{'inlinefmt'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -117,7 +114,6 @@ $result_trees{'inlinefmt'} = {
                 'format' => 'html'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },

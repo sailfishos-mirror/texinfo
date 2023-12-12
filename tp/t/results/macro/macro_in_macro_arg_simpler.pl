@@ -50,7 +50,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -123,7 +121,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -133,7 +130,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },

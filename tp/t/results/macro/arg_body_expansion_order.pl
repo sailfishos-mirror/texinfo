@@ -55,7 +55,6 @@ $result_trees{'arg_body_expansion_order'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -65,7 +64,6 @@ $result_trees{'arg_body_expansion_order'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -139,7 +137,6 @@ $result_trees{'arg_body_expansion_order'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
@@ -149,7 +146,6 @@ $result_trees{'arg_body_expansion_order'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -236,7 +232,6 @@ $result_trees{'arg_body_expansion_order'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14,
                 'macro' => 'redefineothermacro'
               }
@@ -247,7 +242,6 @@ $result_trees{'arg_body_expansion_order'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14,
             'macro' => 'redefineothermacro'
           },

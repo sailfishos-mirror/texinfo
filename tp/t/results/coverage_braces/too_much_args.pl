@@ -37,7 +37,6 @@ $result_trees{'too_much_args'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }

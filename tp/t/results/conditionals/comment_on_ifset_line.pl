@@ -60,7 +60,6 @@ $result_trees{'comment_on_ifset_line'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 3
                 }
               },
@@ -106,7 +105,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 5
                     }
                   },
@@ -146,7 +144,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 6
                     }
                   },
@@ -189,7 +186,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 8
                     }
                   },
@@ -229,7 +225,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 9
                     }
                   },
@@ -272,7 +267,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 11
                     }
                   },
@@ -315,7 +309,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 12
                     }
                   },
@@ -358,7 +351,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 14
                     }
                   },
@@ -401,7 +393,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 15
                     }
                   },
@@ -444,7 +435,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 17
                     }
                   },
@@ -487,7 +477,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 18
                     }
                   },
@@ -530,7 +519,6 @@ $result_trees{'comment_on_ifset_line'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 20
                     }
                   },

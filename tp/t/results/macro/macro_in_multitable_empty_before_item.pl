@@ -45,7 +45,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -55,7 +54,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -99,7 +97,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -164,7 +161,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     },
@@ -189,7 +185,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -229,7 +224,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -244,7 +238,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         }

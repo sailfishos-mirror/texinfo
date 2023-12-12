@@ -43,7 +43,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -91,7 +90,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -115,7 +113,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -147,7 +144,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -206,7 +202,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
             'normalized' => 'filenameconflictwithspecialelement-fot'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -230,7 +225,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }
@@ -372,7 +366,6 @@ $result_converted_errors{'file_html'}->{'filenameconflictwithspecialelement'} = 
   {
     'error_line' => 'warning: @anchor `filenameconflictwithspecialelement fot\' file filenameconflictwithspecialelement-fot.html for redirection exists
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@anchor `filenameconflictwithspecialelement fot\' file filenameconflictwithspecialelement-fot.html for redirection exists',
     'type' => 'warning'

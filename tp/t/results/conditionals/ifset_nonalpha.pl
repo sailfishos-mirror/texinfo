@@ -59,7 +59,6 @@ $result_trees{'ifset_nonalpha'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 2
                     }
                   }
@@ -70,7 +69,6 @@ $result_trees{'ifset_nonalpha'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },

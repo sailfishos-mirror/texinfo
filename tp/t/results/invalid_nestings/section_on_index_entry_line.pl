@@ -39,7 +39,6 @@ $result_trees{'section_on_index_entry_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           },
           'type' => 'index_entry_command'
@@ -90,7 +89,6 @@ $result_trees{'section_on_index_entry_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -131,7 +129,6 @@ $result_errors{'section_on_index_entry_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -139,7 +136,6 @@ $result_errors{'section_on_index_entry_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @cindex line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should not appear on @cindex line',
     'type' => 'warning'
@@ -147,7 +143,6 @@ $result_errors{'section_on_index_entry_line'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'

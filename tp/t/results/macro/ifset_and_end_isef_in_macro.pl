@@ -50,7 +50,6 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -110,7 +108,6 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -120,7 +117,6 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -184,7 +180,6 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 9,
                   'macro' => 'beginifset'
                 }
@@ -223,7 +218,6 @@ $result_errors{'ifset_and_end_isef_in_macro'} = [
   {
     'error_line' => 'no matching `@end ifset\'
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'no matching `@end ifset\'',
     'type' => 'error'

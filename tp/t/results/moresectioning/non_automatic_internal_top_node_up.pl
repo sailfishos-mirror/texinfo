@@ -65,7 +65,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -83,7 +82,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -134,7 +132,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -152,7 +149,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -192,7 +188,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -281,7 +276,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
                   }
                 ],
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 5
                 },
                 'type' => 'menu_entry'
@@ -313,13 +307,11 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 6
                 }
               }
             ],
             'source_info' => {
-              'file_name' => '',
               'line_nr' => 4
             }
           },
@@ -336,7 +328,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 2
         }
       }
@@ -410,7 +401,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -428,7 +418,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -468,7 +457,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -706,7 +694,6 @@ $result_errors{'non_automatic_internal_top_node_up'} = [
   {
     'error_line' => 'Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'',
     'type' => 'error'
@@ -714,7 +701,6 @@ $result_errors{'non_automatic_internal_top_node_up'} = [
   {
     'error_line' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'',
     'type' => 'error'
@@ -722,7 +708,6 @@ $result_errors{'non_automatic_internal_top_node_up'} = [
   {
     'error_line' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'',
     'type' => 'error'

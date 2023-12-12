@@ -138,7 +138,6 @@ $result_trees{'value_in_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -254,7 +253,6 @@ $result_trees{'value_in_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -286,13 +284,11 @@ $result_trees{'value_in_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -309,7 +305,6 @@ $result_trees{'value_in_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -414,7 +409,6 @@ $result_trees{'value_in_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -547,7 +541,6 @@ $result_trees{'value_in_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               },
               'type' => 'menu_entry'
@@ -579,13 +572,11 @@ $result_trees{'value_in_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -604,7 +595,6 @@ $result_trees{'value_in_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -736,7 +726,6 @@ $result_trees{'value_in_node'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             },
@@ -758,7 +747,6 @@ $result_trees{'value_in_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 19
       }
     }

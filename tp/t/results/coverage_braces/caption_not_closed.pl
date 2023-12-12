@@ -90,7 +90,6 @@ $result_trees{'caption_not_closed'} = {
                 'float' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -121,7 +120,6 @@ $result_trees{'caption_not_closed'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -136,7 +134,6 @@ $result_trees{'caption_not_closed'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -186,7 +183,6 @@ $result_errors{'caption_not_closed'} = [
   {
     'error_line' => '@end float seen before @caption closing brace
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@end float seen before @caption closing brace',
     'type' => 'error'

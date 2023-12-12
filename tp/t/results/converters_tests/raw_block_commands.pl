@@ -64,13 +64,11 @@ $result_trees{'raw_block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -129,13 +127,11 @@ $result_trees{'raw_block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -194,13 +190,11 @@ $result_trees{'raw_block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         },
@@ -242,7 +236,6 @@ $result_trees{'raw_block_commands'} = {
                             }
                           ],
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 15
                           },
                           'type' => 'balanced_braces'
@@ -253,7 +246,6 @@ $result_trees{'raw_block_commands'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 15
                   }
                 },
@@ -291,13 +283,11 @@ $result_trees{'raw_block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           }
         },
@@ -339,7 +329,6 @@ $result_trees{'raw_block_commands'} = {
                             }
                           ],
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 19
                           },
                           'type' => 'balanced_braces'
@@ -350,7 +339,6 @@ $result_trees{'raw_block_commands'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 19
                   }
                 },
@@ -388,13 +376,11 @@ $result_trees{'raw_block_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         }

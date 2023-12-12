@@ -87,7 +87,6 @@ $result_trees{'node_part_chapter_after_top'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -119,13 +118,11 @@ $result_trees{'node_part_chapter_after_top'} = [
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -142,7 +139,6 @@ $result_trees{'node_part_chapter_after_top'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -178,7 +174,6 @@ $result_trees{'node_part_chapter_after_top'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -238,7 +233,6 @@ $result_trees{'node_part_chapter_after_top'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -250,7 +244,6 @@ $result_trees{'node_part_chapter_after_top'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -283,7 +276,6 @@ $result_trees{'node_part_chapter_after_top'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 8
         }
       },
@@ -610,7 +602,6 @@ $result_errors{'node_part_chapter_after_top'} = [
   {
     'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@node precedes @part, but parts may not be associated with nodes',
     'type' => 'warning'

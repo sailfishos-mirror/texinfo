@@ -56,7 +56,6 @@ $result_trees{'double_top_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -101,7 +100,6 @@ $result_trees{'double_top_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -168,7 +166,6 @@ $result_errors{'double_top_section'} = [
   {
     'error_line' => 'warning: multiple @top
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'multiple @top',
     'type' => 'warning'

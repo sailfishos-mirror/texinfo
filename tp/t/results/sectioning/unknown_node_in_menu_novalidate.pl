@@ -19,7 +19,6 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
           ],
           'cmdname' => 'novalidate',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -111,7 +110,6 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -143,13 +141,11 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -164,7 +160,6 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }

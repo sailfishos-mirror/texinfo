@@ -74,7 +74,6 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

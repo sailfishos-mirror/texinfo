@@ -102,7 +102,6 @@ $result_trees{'empty_menu_entry_name'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -156,7 +155,6 @@ $result_trees{'empty_menu_entry_name'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -188,13 +186,11 @@ $result_trees{'empty_menu_entry_name'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -214,7 +210,6 @@ $result_trees{'empty_menu_entry_name'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -246,7 +241,6 @@ $result_trees{'empty_menu_entry_name'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     }
@@ -322,7 +316,6 @@ $result_errors{'empty_menu_entry_name'} = [
   {
     'error_line' => 'warning: empty menu entry name in `* : (vvv). \'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'empty menu entry name in `* : (vvv). \'',
     'type' => 'warning'
@@ -330,7 +323,6 @@ $result_errors{'empty_menu_entry_name'} = [
   {
     'error_line' => 'warning: empty menu entry name in `* :aaa,\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'empty menu entry name in `* :aaa,\'',
     'type' => 'warning'

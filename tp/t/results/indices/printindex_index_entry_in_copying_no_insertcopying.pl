@@ -62,7 +62,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   },
                   'type' => 'index_entry_command'
@@ -137,7 +136,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         'original_def_cmdname' => 'defun'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       },
                       'type' => 'def_line'
@@ -210,7 +208,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       },
                       'type' => 'def_line'
@@ -256,7 +253,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -267,7 +263,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 },
@@ -283,7 +278,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         {
                           'cmdname' => 'asis',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 10
                           },
                           'type' => 'command_as_argument'
@@ -335,7 +329,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 11
                               }
                             },
@@ -370,7 +363,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 12
                               }
                             }
@@ -407,7 +399,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     }
@@ -421,7 +412,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 10
                   }
                 },
@@ -459,7 +449,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 15
                   }
                 },
@@ -495,13 +484,11 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 17
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -544,7 +531,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 19
       }
     },
@@ -642,7 +628,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               },
               'type' => 'menu_entry'
@@ -674,13 +659,11 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 24
           }
         },
@@ -697,7 +680,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 20
       }
     },
@@ -730,7 +712,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 28
       }
     },
@@ -792,7 +773,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 32
           }
         },
@@ -811,7 +791,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 29
       }
     }

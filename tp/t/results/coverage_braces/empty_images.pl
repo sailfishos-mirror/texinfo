@@ -20,7 +20,6 @@ $result_trees{'empty_images'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -86,7 +85,6 @@ $result_trees{'empty_images'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -124,7 +122,6 @@ $result_trees{'empty_images'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -157,7 +154,6 @@ $result_trees{'empty_images'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -193,7 +189,6 @@ $result_errors{'empty_images'} = [
   {
     'error_line' => '@image missing filename argument
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@image missing filename argument',
     'type' => 'error'
@@ -201,7 +196,6 @@ $result_errors{'empty_images'} = [
   {
     'error_line' => '@image missing filename argument
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@image missing filename argument',
     'type' => 'error'
@@ -209,7 +203,6 @@ $result_errors{'empty_images'} = [
   {
     'error_line' => '@image missing filename argument
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@image missing filename argument',
     'type' => 'error'
@@ -217,7 +210,6 @@ $result_errors{'empty_images'} = [
   {
     'error_line' => '@image missing filename argument
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@image missing filename argument',
     'type' => 'error'

@@ -45,7 +45,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -118,7 +117,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => '~',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 6
                               }
                             },
@@ -133,7 +131,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => 'aa',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 6
                               }
                             },
@@ -148,7 +145,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => 'TeX',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 6
                               }
                             }
@@ -158,7 +154,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -178,7 +173,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -202,7 +196,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => 'dotless',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 6
                               }
                             }
@@ -212,7 +205,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -236,7 +228,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => '=',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 6
                               }
                             }
@@ -246,7 +237,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '`',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -261,7 +251,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'l',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -285,7 +274,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => '\'',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 6
                               }
                             }
@@ -295,7 +283,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => ',',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -310,7 +297,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'exclamdown',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -358,7 +344,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -390,13 +375,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -413,7 +396,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -444,7 +426,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -459,7 +440,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'aa',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -474,7 +454,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'TeX',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     }
@@ -484,7 +463,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -504,7 +482,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => '"',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -528,7 +505,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     }
@@ -538,7 +514,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => '"',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -562,7 +537,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '=',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     }
@@ -572,7 +546,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => '`',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -587,7 +560,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'l',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -611,7 +583,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '\'',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     }
@@ -621,7 +592,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => ',',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -636,7 +606,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'exclamdown',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -661,7 +630,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -685,7 +653,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -705,7 +672,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => '"',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -729,7 +695,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -739,7 +704,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => '"',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -763,7 +727,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '=',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -773,7 +736,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => '`',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -788,7 +750,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'l',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -812,7 +773,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '\'',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -822,7 +782,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => ',',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -837,7 +796,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'exclamdown',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -883,7 +841,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -903,7 +860,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -915,7 +871,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'comma',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -935,7 +890,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -947,7 +901,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'comma',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -971,7 +924,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => 'dotless',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 12
                               }
                             }
@@ -981,7 +933,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -1005,7 +956,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => '=',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 12
                               }
                             }
@@ -1015,7 +965,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '`',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -1030,7 +979,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'exclamdown',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     }
@@ -1074,7 +1022,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -1119,7 +1066,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => '~',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 14
                               }
                             },
@@ -1134,7 +1080,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => 'aa',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 14
                               }
                             },
@@ -1149,7 +1094,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => 'TeX',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 14
                               }
                             }
@@ -1159,7 +1103,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1179,7 +1122,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1203,7 +1145,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => 'dotless',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 14
                               }
                             }
@@ -1213,7 +1154,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1237,7 +1177,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => '=',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 14
                               }
                             }
@@ -1247,7 +1186,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => '`',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1262,7 +1200,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'l',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1286,7 +1223,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                               ],
                               'cmdname' => '\'',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 14
                               }
                             }
@@ -1296,7 +1232,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => ',',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1311,7 +1246,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                       ],
                       'cmdname' => 'exclamdown',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     }
@@ -1342,7 +1276,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -1363,7 +1296,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     }

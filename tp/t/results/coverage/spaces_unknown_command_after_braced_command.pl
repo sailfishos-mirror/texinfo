@@ -19,7 +19,6 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -45,7 +44,6 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -84,7 +82,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
   {
     'error_line' => '@code expected braces
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@code expected braces',
     'type' => 'error'
@@ -92,7 +89,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
   {
     'error_line' => 'unknown command `unknown\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
@@ -100,7 +96,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
   {
     'error_line' => '@~ expected braces
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@~ expected braces',
     'type' => 'error'
@@ -108,7 +103,6 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
   {
     'error_line' => 'unknown command `notexisting\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'unknown command `notexisting\'',
     'type' => 'error'

@@ -155,7 +155,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => '@set requires a name
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@set requires a name',
     'type' => 'error'
@@ -163,7 +162,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => '@set requires a name
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@set requires a name',
     'type' => 'error'
@@ -171,7 +169,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad name for @set
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'bad name for @set',
     'type' => 'error'
@@ -179,7 +176,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad name for @set
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'bad name for @set',
     'type' => 'error'
@@ -187,7 +183,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad name for @set
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'bad name for @set',
     'type' => 'error'
@@ -195,7 +190,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad name for @set
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'bad name for @set',
     'type' => 'error'
@@ -203,7 +197,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad name for @set
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'bad name for @set',
     'type' => 'error'
@@ -211,7 +204,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad name for @clear
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'bad name for @clear',
     'type' => 'error'
@@ -219,7 +211,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad name for @clear
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'bad name for @clear',
     'type' => 'error'
@@ -227,7 +218,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'bad syntax for @value
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'bad syntax for @value',
     'type' => 'error'
@@ -235,7 +225,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -243,7 +232,6 @@ $result_errors{'bad_syntax'} = [
   {
     'error_line' => 'warning: undefined flag: unknown
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'undefined flag: unknown',
     'type' => 'warning'

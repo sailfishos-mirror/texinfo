@@ -54,7 +54,6 @@ $result_trees{'end_conditional_in_linemacro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'end_conditional_in_linemacro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -96,7 +94,6 @@ $result_trees{'end_conditional_in_linemacro'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 5
                 }
               },
@@ -182,7 +179,6 @@ $result_trees{'end_conditional_in_linemacro'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 7,
                       'macro' => 'lm'
                     }
@@ -252,7 +248,6 @@ $result_trees{'end_conditional_in_linemacro'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 11
                     }
                   }
@@ -263,7 +258,6 @@ $result_trees{'end_conditional_in_linemacro'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 9
                 }
               },
@@ -307,7 +301,6 @@ $result_errors{'end_conditional_in_linemacro'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'misplaced }',
     'type' => 'error'

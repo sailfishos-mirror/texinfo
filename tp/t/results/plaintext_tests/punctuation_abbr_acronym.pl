@@ -24,7 +24,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -44,7 +43,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -64,7 +62,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -84,7 +81,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -118,7 +114,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -151,7 +146,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -184,7 +178,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -218,7 +211,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },

@@ -32,7 +32,6 @@ $result_trees{'empty_line_in_email'} = {
               ],
               'cmdname' => 'email',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -87,7 +86,6 @@ $result_errors{'empty_line_in_email'} = [
   {
     'error_line' => '@email missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@email missing closing brace',
     'type' => 'error'
@@ -95,7 +93,6 @@ $result_errors{'empty_line_in_email'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'misplaced }',
     'type' => 'error'

@@ -27,7 +27,6 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -44,7 +43,6 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -61,7 +59,6 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -81,7 +78,6 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -98,7 +94,6 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
               ],
               'cmdname' => 'emph',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },

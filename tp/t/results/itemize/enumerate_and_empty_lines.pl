@@ -44,7 +44,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -115,13 +114,11 @@ $result_trees{'enumerate_and_empty_lines'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -130,7 +127,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 'item_number' => 2
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -161,7 +157,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 'item_number' => 3
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -228,13 +223,11 @@ $result_trees{'enumerate_and_empty_lines'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14
                   }
                 }
@@ -243,7 +236,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 'item_number' => 4
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -305,13 +297,11 @@ $result_trees{'enumerate_and_empty_lines'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 20
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 18
                   }
                 },
@@ -325,7 +315,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 'item_number' => 5
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -392,13 +381,11 @@ $result_trees{'enumerate_and_empty_lines'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 24
                   }
                 }
@@ -407,7 +394,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 'item_number' => 6
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             },
@@ -438,7 +424,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             }
@@ -447,7 +432,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -491,7 +475,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             },
@@ -522,7 +505,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 31
               }
             }
@@ -531,7 +513,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 29
           }
         }

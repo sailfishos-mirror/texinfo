@@ -59,7 +59,6 @@ $result_trees{'beginning_and_end_on_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -70,7 +69,6 @@ $result_trees{'beginning_and_end_on_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -124,7 +122,6 @@ $result_trees{'beginning_and_end_on_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -135,7 +132,6 @@ $result_trees{'beginning_and_end_on_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -189,7 +185,6 @@ $result_trees{'beginning_and_end_on_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -200,7 +195,6 @@ $result_trees{'beginning_and_end_on_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         }
@@ -229,7 +223,6 @@ $result_errors{'beginning_and_end_on_line'} = [
   {
     'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
@@ -237,7 +230,6 @@ $result_errors{'beginning_and_end_on_line'} = [
   {
     'error_line' => 'warning: unexpected argument on @tex line: in tex
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'unexpected argument on @tex line: in tex',
     'type' => 'warning'
@@ -245,7 +237,6 @@ $result_errors{'beginning_and_end_on_line'} = [
   {
     'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
@@ -253,7 +244,6 @@ $result_errors{'beginning_and_end_on_line'} = [
   {
     'error_line' => 'warning: unexpected argument on @verbatim line: in verbatim
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'unexpected argument on @verbatim line: in verbatim',
     'type' => 'warning'
@@ -261,7 +251,6 @@ $result_errors{'beginning_and_end_on_line'} = [
   {
     'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
@@ -269,7 +258,6 @@ $result_errors{'beginning_and_end_on_line'} = [
   {
     'error_line' => 'warning: unexpected argument on @html line: in html
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'unexpected argument on @html line: in html',
     'type' => 'warning'

@@ -63,7 +63,6 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -73,7 +72,6 @@ $result_trees{'arobase_brace_in_macro_call'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -239,7 +237,6 @@ $result_errors{'arobase_brace_in_macro_call'} = [
   {
     'error_line' => '@| should only appear in heading or footing (possibly involving @simplemac)
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'macro' => 'simplemac',
     'text' => '@| should only appear in heading or footing',
@@ -248,7 +245,6 @@ $result_errors{'arobase_brace_in_macro_call'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'misplaced }',
     'type' => 'error'

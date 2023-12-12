@@ -56,7 +56,6 @@ $result_trees{'ref_in_ref'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -74,7 +73,6 @@ $result_trees{'ref_in_ref'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -92,7 +90,6 @@ $result_trees{'ref_in_ref'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -129,7 +126,6 @@ $result_errors{'ref_in_ref'} = [
   {
     'error_line' => 'warning: @ref should not appear anywhere inside @ref
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@ref should not appear anywhere inside @ref',
     'type' => 'warning'
@@ -137,7 +133,6 @@ $result_errors{'ref_in_ref'} = [
   {
     'error_line' => 'warning: @ref to `@ref{first}\', different from node name `first\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@ref to `@ref{first}\', different from node name `first\'',
     'type' => 'warning'

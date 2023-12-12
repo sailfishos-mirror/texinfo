@@ -47,7 +47,6 @@ $result_trees{'test_sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -104,7 +103,6 @@ $result_trees{'test_sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -142,7 +140,6 @@ $result_trees{'test_sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -198,7 +195,6 @@ $result_trees{'test_sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -254,7 +250,6 @@ $result_trees{'test_sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           }
         }

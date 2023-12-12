@@ -38,7 +38,6 @@ $result_trees{'refs_formatting'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -93,7 +92,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -129,7 +127,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -162,7 +159,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -201,7 +197,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -234,7 +229,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -275,7 +269,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -308,7 +301,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -352,7 +344,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -385,7 +376,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -432,7 +422,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -465,7 +454,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -511,7 +499,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -544,7 +531,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -593,7 +579,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -626,7 +611,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -677,7 +661,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -710,7 +693,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -764,7 +746,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -797,7 +778,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -866,7 +846,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -899,7 +878,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -945,7 +923,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -978,7 +955,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -1027,7 +1003,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -1060,7 +1035,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -1124,7 +1098,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -1157,7 +1130,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -1206,7 +1178,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -1249,7 +1220,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             },
@@ -1298,7 +1268,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             },
@@ -1331,7 +1300,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             },
@@ -1383,7 +1351,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             },
@@ -1416,7 +1383,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             },
@@ -1471,7 +1437,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             },
@@ -1504,7 +1469,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             },
@@ -1562,7 +1526,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             },
@@ -1595,7 +1558,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               }
             },
@@ -1655,7 +1617,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               }
             },
@@ -1688,7 +1649,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               }
             },
@@ -1748,7 +1708,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               }
             },
@@ -1781,7 +1740,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               }
             },
@@ -1844,7 +1802,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               }
             },
@@ -1877,7 +1834,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             },
@@ -1942,7 +1898,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             },
@@ -1975,7 +1930,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             },
@@ -2043,7 +1997,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             },
@@ -2076,7 +2029,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               }
             },
@@ -2159,7 +2111,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               }
             },
@@ -2192,7 +2143,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               }
             },
@@ -2252,7 +2202,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               }
             },
@@ -2285,7 +2234,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             },
@@ -2348,7 +2296,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             },
@@ -2381,7 +2328,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 31
               }
             },
@@ -2459,7 +2405,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 31
               }
             },
@@ -2492,7 +2437,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 32
               }
             },
@@ -2555,7 +2499,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 32
               }
             },
@@ -2598,7 +2541,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 34
               }
             },
@@ -2651,7 +2593,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'inforef',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 34
               }
             },
@@ -2684,7 +2625,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 35
               }
             },
@@ -2712,7 +2652,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'inforef',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 35
               }
             },
@@ -2745,7 +2684,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               }
             },
@@ -2786,7 +2724,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'inforef',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               }
             },
@@ -2819,7 +2756,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 37
               }
             },
@@ -2857,7 +2793,6 @@ $result_trees{'refs_formatting'} = {
               ],
               'cmdname' => 'inforef',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 37
               }
             },
@@ -2878,7 +2813,6 @@ $result_trees{'refs_formatting'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }
@@ -3061,7 +2995,6 @@ $result_errors{'refs_formatting'} = [
   {
     'error_line' => 'warning: @inforef is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 34,
     'text' => '@inforef is obsolete',
     'type' => 'warning'
@@ -3069,7 +3002,6 @@ $result_errors{'refs_formatting'} = [
   {
     'error_line' => 'warning: @inforef is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 35,
     'text' => '@inforef is obsolete',
     'type' => 'warning'
@@ -3077,7 +3009,6 @@ $result_errors{'refs_formatting'} = [
   {
     'error_line' => 'warning: @inforef is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 36,
     'text' => '@inforef is obsolete',
     'type' => 'warning'
@@ -3085,7 +3016,6 @@ $result_errors{'refs_formatting'} = [
   {
     'error_line' => 'warning: @inforef is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 37,
     'text' => '@inforef is obsolete',
     'type' => 'warning'

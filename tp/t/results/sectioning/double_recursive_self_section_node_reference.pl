@@ -43,7 +43,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -140,7 +137,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -171,7 +167,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -203,7 +198,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -228,7 +222,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }
@@ -367,7 +360,6 @@ $result_errors{'double_recursive_self_section_node_reference'} = [
   {
     'error_line' => 'warning: @ref should not appear on @node line
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@ref should not appear on @node line',
     'type' => 'warning'
@@ -375,7 +367,6 @@ $result_errors{'double_recursive_self_section_node_reference'} = [
   {
     'error_line' => 'warning: @ref to `to node1\', different from node name `to @ref{node1}\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@ref to `to node1\', different from node name `to @ref{node1}\'',
     'type' => 'warning'
@@ -399,7 +390,6 @@ $result_converted_errors{'plaintext'}->{'double_recursive_self_section_node_refe
   {
     'error_line' => 'warning: @ref node name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@ref node name should not contain `:\'',
     'type' => 'warning'

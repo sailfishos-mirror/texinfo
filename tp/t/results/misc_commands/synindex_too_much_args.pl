@@ -33,7 +33,6 @@ $result_trees{'synindex_too_much_args'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -54,7 +53,6 @@ $result_errors{'synindex_too_much_args'} = [
   {
     'error_line' => 'bad argument to @syncodeindex: cp fn    truc
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad argument to @syncodeindex: cp fn    truc',
     'type' => 'error'

@@ -33,7 +33,6 @@ $result_trees{'accents_errors'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -59,7 +58,6 @@ $result_trees{'accents_errors'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -75,7 +73,6 @@ $result_trees{'accents_errors'} = {
             {
               'cmdname' => 'ringaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -117,7 +114,6 @@ $result_trees{'accents_errors'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -147,7 +143,6 @@ $result_trees{'accents_errors'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -163,7 +158,6 @@ $result_trees{'accents_errors'} = {
             {
               'cmdname' => '~',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -204,7 +198,6 @@ $result_errors{'accents_errors'} = [
   {
     'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
@@ -212,7 +205,6 @@ $result_errors{'accents_errors'} = [
   {
     'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'command `@ringaccent\' must not be followed by new line',
     'type' => 'warning'
@@ -220,7 +212,6 @@ $result_errors{'accents_errors'} = [
   {
     'error_line' => '@ringaccent expected braces
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@ringaccent expected braces',
     'type' => 'error'
@@ -228,7 +219,6 @@ $result_errors{'accents_errors'} = [
   {
     'error_line' => 'warning: command `@~\' must not be followed by new line
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'command `@~\' must not be followed by new line',
     'type' => 'warning'
@@ -236,7 +226,6 @@ $result_errors{'accents_errors'} = [
   {
     'error_line' => '@~ expected braces
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@~ expected braces',
     'type' => 'error'

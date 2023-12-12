@@ -54,7 +54,6 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -147,7 +145,6 @@ $result_errors{'protection_of_end_of_line_by_command'} = [
   {
     'error_line' => 'misplaced { (possibly involving @lm)
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'macro' => 'lm',
     'text' => 'misplaced {',
@@ -156,7 +153,6 @@ $result_errors{'protection_of_end_of_line_by_command'} = [
   {
     'error_line' => 'misplaced } (possibly involving @lm)
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'macro' => 'lm',
     'text' => 'misplaced }',

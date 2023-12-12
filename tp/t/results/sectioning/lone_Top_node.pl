@@ -34,7 +34,6 @@ $result_trees{'lone_Top_node'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -127,7 +126,6 @@ $result_trees{'lone_Top_node'} = [
                   }
                 ],
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 4
                 },
                 'type' => 'menu_entry'
@@ -159,13 +157,11 @@ $result_trees{'lone_Top_node'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 5
                 }
               }
             ],
             'source_info' => {
-              'file_name' => '',
               'line_nr' => 3
             }
           },
@@ -185,7 +181,6 @@ $result_trees{'lone_Top_node'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -217,7 +212,6 @@ $result_trees{'lone_Top_node'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 7
         }
       },
@@ -377,7 +371,6 @@ $result_errors{'lone_Top_node'} = [
   {
     'error_line' => 'warning: node `Top\' is up for `First\' in menu but not in sectioning
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'node `Top\' is up for `First\' in menu but not in sectioning',
     'type' => 'warning'

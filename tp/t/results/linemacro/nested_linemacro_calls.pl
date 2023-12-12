@@ -58,7 +58,6 @@ $result_trees{'nested_linemacro_calls'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -68,7 +67,6 @@ $result_trees{'nested_linemacro_calls'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -135,7 +133,6 @@ $result_trees{'nested_linemacro_calls'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -145,7 +142,6 @@ $result_trees{'nested_linemacro_calls'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -299,7 +295,6 @@ $result_trees{'nested_linemacro_calls'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11,
                         'macro' => 'outside'
                       },
@@ -409,7 +404,6 @@ $result_trees{'nested_linemacro_calls'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11,
                 'macro' => 'outside'
               },
@@ -506,7 +500,6 @@ $result_trees{'nested_linemacro_calls'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 11,
                     'macro' => 'outside'
                   },
@@ -542,13 +535,11 @@ $result_trees{'nested_linemacro_calls'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         }
@@ -585,7 +576,6 @@ $result_errors{'nested_linemacro_calls'} = [
   {
     'error_line' => 'misplaced { (possibly involving @inside)
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'macro' => 'inside',
     'text' => 'misplaced {',
@@ -594,7 +584,6 @@ $result_errors{'nested_linemacro_calls'} = [
   {
     'error_line' => 'misplaced { (possibly involving @inside)
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'macro' => 'inside',
     'text' => 'misplaced {',
@@ -603,7 +592,6 @@ $result_errors{'nested_linemacro_calls'} = [
   {
     'error_line' => 'misplaced } (possibly involving @inside)
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'macro' => 'inside',
     'text' => 'misplaced }',
@@ -612,7 +600,6 @@ $result_errors{'nested_linemacro_calls'} = [
   {
     'error_line' => 'misplaced } (possibly involving @inside)
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'macro' => 'inside',
     'text' => 'misplaced }',
@@ -621,7 +608,6 @@ $result_errors{'nested_linemacro_calls'} = [
   {
     'error_line' => 'misplaced { (possibly involving @inside)
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'macro' => 'inside',
     'text' => 'misplaced {',
@@ -630,7 +616,6 @@ $result_errors{'nested_linemacro_calls'} = [
   {
     'error_line' => 'misplaced } (possibly involving @inside)
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'macro' => 'inside',
     'text' => 'misplaced }',
@@ -639,7 +624,6 @@ $result_errors{'nested_linemacro_calls'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'

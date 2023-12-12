@@ -43,7 +43,6 @@ $result_trees{'seealso_duplicate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -88,7 +87,6 @@ $result_trees{'seealso_duplicate'} = {
                   ],
                   'cmdname' => 'command',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -135,7 +133,6 @@ $result_trees{'seealso_duplicate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -147,7 +144,6 @@ $result_trees{'seealso_duplicate'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           },
           'type' => 'index_entry_command'
@@ -170,7 +166,6 @@ $result_trees{'seealso_duplicate'} = {
                   ],
                   'cmdname' => 'command',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 }
@@ -221,7 +216,6 @@ $result_trees{'seealso_duplicate'} = {
                               ],
                               'cmdname' => 'command',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 5
                               }
                             }
@@ -231,7 +225,6 @@ $result_trees{'seealso_duplicate'} = {
                       ],
                       'cmdname' => 'seealso',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -256,7 +249,6 @@ $result_trees{'seealso_duplicate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -268,7 +260,6 @@ $result_trees{'seealso_duplicate'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           },
           'type' => 'index_entry_command'
@@ -308,7 +299,6 @@ $result_trees{'seealso_duplicate'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -324,7 +314,6 @@ $result_trees{'seealso_duplicate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }

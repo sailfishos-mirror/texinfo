@@ -43,7 +43,6 @@ $result_trees{'anchor_in_caption'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -98,7 +97,6 @@ $result_trees{'anchor_in_caption'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -172,7 +170,6 @@ $result_trees{'anchor_in_caption'} = {
                             'normalized' => 'in-anchor'
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 8
                           }
                         }
@@ -188,7 +185,6 @@ $result_trees{'anchor_in_caption'} = {
                 'float' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -224,7 +220,6 @@ $result_trees{'anchor_in_caption'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -241,7 +236,6 @@ $result_trees{'anchor_in_caption'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         }
@@ -256,7 +250,6 @@ $result_trees{'anchor_in_caption'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }

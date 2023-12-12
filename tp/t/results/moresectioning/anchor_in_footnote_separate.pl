@@ -38,7 +38,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -73,7 +72,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -133,7 +131,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
                             'normalized' => 'Anchor-in-footnote'
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 6
                           }
                         },
@@ -150,7 +147,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -222,7 +218,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'menu_entry'
@@ -254,13 +249,11 @@ $result_trees{'anchor_in_footnote_separate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -277,7 +270,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -309,7 +301,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     },
@@ -360,7 +351,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -381,7 +371,6 @@ $result_trees{'anchor_in_footnote_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 14
       }
     }

@@ -50,7 +50,6 @@ $result_trees{'undefined_node_filename'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -82,7 +81,6 @@ $result_trees{'undefined_node_filename'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }

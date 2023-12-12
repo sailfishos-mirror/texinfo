@@ -35,7 +35,6 @@ $result_trees{'equivalent_nodes'} = {
               ],
               'cmdname' => 'emph',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -102,7 +101,6 @@ $result_trees{'equivalent_nodes'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       }
                     }
@@ -137,7 +135,6 @@ $result_trees{'equivalent_nodes'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -169,13 +166,11 @@ $result_trees{'equivalent_nodes'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -195,7 +190,6 @@ $result_trees{'equivalent_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -216,7 +210,6 @@ $result_trees{'equivalent_nodes'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -260,7 +253,6 @@ $result_trees{'equivalent_nodes'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -282,7 +274,6 @@ $result_trees{'equivalent_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }
@@ -359,7 +350,6 @@ $result_errors{'equivalent_nodes'} = [
   {
     'error_line' => 'warning: @xref to `node\', different from node name `@samp{node}\'
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@xref to `node\', different from node name `@samp{node}\'',
     'type' => 'warning'
@@ -367,7 +357,6 @@ $result_errors{'equivalent_nodes'} = [
   {
     'error_line' => 'warning: Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'',
     'type' => 'warning'
@@ -375,7 +364,6 @@ $result_errors{'equivalent_nodes'} = [
   {
     'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `@samp{node}\'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@menu entry node name `@strong{node}\' different from node name `@samp{node}\'',
     'type' => 'warning'

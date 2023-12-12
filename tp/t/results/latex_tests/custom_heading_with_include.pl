@@ -40,7 +40,6 @@ $result_trees{'custom_heading_with_include'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -92,7 +91,6 @@ $result_trees{'custom_heading_with_include'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -135,7 +133,6 @@ $result_trees{'custom_heading_with_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -173,7 +170,6 @@ $result_trees{'custom_heading_with_include'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -190,7 +186,6 @@ $result_trees{'custom_heading_with_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -222,7 +217,6 @@ $result_trees{'custom_heading_with_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -296,7 +290,6 @@ $result_trees{'custom_heading_with_include'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 13
                 }
               },
@@ -441,7 +434,6 @@ $result_trees{'custom_heading_with_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -1065,7 +1057,6 @@ $result_trees{'custom_heading_with_include'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 15
                 }
               },
@@ -1314,7 +1305,6 @@ $result_trees{'custom_heading_with_include'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 17
                 }
               },
@@ -1826,7 +1816,6 @@ $result_trees{'custom_heading_with_include'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 19
                 }
               },
@@ -2091,7 +2080,6 @@ $result_trees{'custom_heading_with_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 21
       }
     },
@@ -2129,7 +2117,6 @@ $result_trees{'custom_heading_with_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 22
       }
     }

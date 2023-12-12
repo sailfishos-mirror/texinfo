@@ -55,7 +55,6 @@ $result_trees{'protected_brace'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -87,7 +86,6 @@ $result_trees{'protected_brace'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -98,7 +96,6 @@ $result_trees{'protected_brace'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -122,7 +119,6 @@ $result_errors{'protected_brace'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'

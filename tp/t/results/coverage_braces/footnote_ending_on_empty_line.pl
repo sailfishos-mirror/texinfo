@@ -43,7 +43,6 @@ $result_trees{'footnote_ending_on_empty_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }

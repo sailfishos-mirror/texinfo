@@ -39,7 +39,6 @@ $result_trees{'simple'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -87,7 +86,6 @@ $result_trees{'simple'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -117,7 +115,6 @@ $result_trees{'simple'} = {
                 'alias_of' => 'myalias'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -156,7 +153,6 @@ $result_trees{'simple'} = {
                 'delimiter' => '!'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },

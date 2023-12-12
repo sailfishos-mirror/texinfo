@@ -54,7 +54,6 @@ $result_trees{'heading_in_quotation'} = {
                       ],
                       'cmdname' => 'emph',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -75,7 +74,6 @@ $result_trees{'heading_in_quotation'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -111,13 +109,11 @@ $result_trees{'heading_in_quotation'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

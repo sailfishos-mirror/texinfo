@@ -70,7 +70,6 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               },
               'type' => 'menu_entry'
@@ -94,7 +93,6 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                         {
                           'cmdname' => 'asis',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 4
                           },
                           'type' => 'command_as_argument'
@@ -139,7 +137,6 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 5
                               }
                             }
@@ -177,7 +174,6 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -211,13 +207,11 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -252,7 +246,6 @@ $result_errors{'table_not_closed_in_menu_comment'} = [
   {
     'error_line' => '`@end\' expected `table\', but saw `menu\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '`@end\' expected `table\', but saw `menu\'',
     'type' => 'error'

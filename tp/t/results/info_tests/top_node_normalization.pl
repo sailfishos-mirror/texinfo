@@ -57,7 +57,6 @@ $result_trees{'top_node_normalization'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -85,7 +84,6 @@ $result_trees{'top_node_normalization'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -157,7 +155,6 @@ $result_trees{'top_node_normalization'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -189,13 +186,11 @@ $result_trees{'top_node_normalization'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -210,7 +205,6 @@ $result_trees{'top_node_normalization'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -271,7 +265,6 @@ $result_errors{'top_node_normalization'} = [
   {
     'error_line' => 'warning: @xref to `TOP\', different from node name `ToP\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@xref to `TOP\', different from node name `ToP\'',
     'type' => 'warning'
@@ -279,7 +272,6 @@ $result_errors{'top_node_normalization'} = [
   {
     'error_line' => 'warning: @xref to `tOP\', different from node name `ToP\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@xref to `tOP\', different from node name `ToP\'',
     'type' => 'warning'
@@ -287,7 +279,6 @@ $result_errors{'top_node_normalization'} = [
   {
     'error_line' => 'warning: @menu entry node name `tOP\' different from node name `ToP\'
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@menu entry node name `tOP\' different from node name `ToP\'',
     'type' => 'warning'

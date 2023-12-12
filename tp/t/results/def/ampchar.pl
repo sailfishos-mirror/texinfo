@@ -26,7 +26,6 @@ $result_trees{'ampchar'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       },
                       'type' => 'bracketed_arg'
@@ -90,7 +89,6 @@ $result_trees{'ampchar'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -158,7 +156,6 @@ $result_trees{'ampchar'} = {
                 'original_def_cmdname' => 'defop'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -190,7 +187,6 @@ $result_trees{'ampchar'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -201,7 +197,6 @@ $result_trees{'ampchar'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -224,7 +219,6 @@ $result_trees{'ampchar'} = {
               ],
               'cmdname' => 'ampchar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -274,7 +268,6 @@ $result_errors{'ampchar'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'

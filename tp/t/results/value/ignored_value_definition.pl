@@ -60,7 +60,6 @@ $result_trees{'ignored_value_definition'} = {
                 'format' => 'tex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },

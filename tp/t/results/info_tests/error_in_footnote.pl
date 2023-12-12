@@ -102,7 +102,6 @@ $result_trees{'error_in_footnote'} = {
                         {
                           'cmdname' => 'TeX',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 8
                           }
                         },
@@ -126,7 +125,6 @@ $result_trees{'error_in_footnote'} = {
                           ],
                           'cmdname' => 'strong',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 9
                           }
                         },
@@ -146,7 +144,6 @@ $result_trees{'error_in_footnote'} = {
                                     {
                                       'cmdname' => 'LaTeX',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 10
                                       }
                                     },
@@ -170,7 +167,6 @@ $result_trees{'error_in_footnote'} = {
                                       ],
                                       'cmdname' => 'strong',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 11
                                       }
                                     },
@@ -186,7 +182,6 @@ $result_trees{'error_in_footnote'} = {
                           ],
                           'cmdname' => 'footnote',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 10
                           }
                         }
@@ -202,7 +197,6 @@ $result_trees{'error_in_footnote'} = {
                 'float' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -238,7 +232,6 @@ $result_trees{'error_in_footnote'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
@@ -255,7 +248,6 @@ $result_trees{'error_in_footnote'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -291,7 +283,6 @@ $result_trees{'error_in_footnote'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           }
         },
@@ -327,7 +318,6 @@ $result_trees{'error_in_footnote'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           }
         }
@@ -342,7 +332,6 @@ $result_trees{'error_in_footnote'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }
@@ -402,7 +391,6 @@ $result_errors{'error_in_footnote'} = [
   {
     'error_line' => '@TeX expected braces
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@TeX expected braces',
     'type' => 'error'
@@ -410,7 +398,6 @@ $result_errors{'error_in_footnote'} = [
   {
     'error_line' => '@LaTeX expected braces
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@LaTeX expected braces',
     'type' => 'error'
@@ -480,7 +467,6 @@ $result_converted_errors{'info'}->{'error_in_footnote'} = [
   {
     'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
@@ -488,7 +474,6 @@ $result_converted_errors{'info'}->{'error_in_footnote'} = [
   {
     'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
@@ -496,7 +481,6 @@ $result_converted_errors{'info'}->{'error_in_footnote'} = [
   {
     'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
@@ -504,7 +488,6 @@ $result_converted_errors{'info'}->{'error_in_footnote'} = [
   {
     'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'

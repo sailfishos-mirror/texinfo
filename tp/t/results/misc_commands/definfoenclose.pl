@@ -50,7 +50,6 @@ $result_trees{'definfoenclose'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -84,7 +83,6 @@ $result_trees{'definfoenclose'} = {
                 'command_name' => 'phoo'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'definfoenclose_command'
@@ -137,7 +135,6 @@ $result_trees{'definfoenclose'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -171,7 +168,6 @@ $result_trees{'definfoenclose'} = {
                 'command_name' => 'phi'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'definfoenclose_command'
@@ -203,7 +199,6 @@ $result_trees{'definfoenclose'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -250,7 +245,6 @@ $result_trees{'definfoenclose'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -281,7 +275,6 @@ $result_trees{'definfoenclose'} = {
                 'command_name' => 'strong'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               },
               'type' => 'definfoenclose_command'
@@ -334,7 +327,6 @@ $result_errors{'definfoenclose'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -342,7 +334,6 @@ $result_errors{'definfoenclose'} = [
   {
     'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@definfoenclose should only appear at the beginning of a line',
     'type' => 'warning'
@@ -350,7 +341,6 @@ $result_errors{'definfoenclose'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -358,7 +348,6 @@ $result_errors{'definfoenclose'} = [
   {
     'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@definfoenclose should only appear at the beginning of a line',
     'type' => 'warning'
@@ -366,7 +355,6 @@ $result_errors{'definfoenclose'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'

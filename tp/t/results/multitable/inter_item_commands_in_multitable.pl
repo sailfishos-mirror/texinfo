@@ -20,7 +20,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
@@ -113,7 +112,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 6
                           },
                           'type' => 'index_entry_command'
@@ -128,7 +126,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       }
                     }
@@ -171,7 +168,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -211,7 +207,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -225,7 +220,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -268,7 +262,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 12
                   }
                 }
@@ -302,7 +295,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -327,7 +319,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     }
@@ -364,7 +355,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -399,7 +389,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     }
@@ -431,7 +420,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     },
@@ -479,7 +467,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 17
                               },
                               'type' => 'index_entry_command'
@@ -492,7 +479,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -525,7 +511,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     }
@@ -565,7 +550,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             }
@@ -580,7 +564,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -600,7 +583,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 21
                   },
                   'type' => 'bracketed_arg'
@@ -656,7 +638,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 23
                       },
                       'type' => 'index_entry_command'
@@ -692,7 +673,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 24
                       }
                     }
@@ -732,7 +712,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               }
             }
@@ -746,7 +725,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 21
           }
         },
@@ -812,7 +790,6 @@ $result_errors{'inter_item_commands_in_multitable'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -820,7 +797,6 @@ $result_errors{'inter_item_commands_in_multitable'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -828,7 +804,6 @@ $result_errors{'inter_item_commands_in_multitable'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'

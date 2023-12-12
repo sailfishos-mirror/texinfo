@@ -34,7 +34,6 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
                     'delimiter' => ''
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -52,7 +51,6 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -73,7 +71,6 @@ $result_errors{'unclosed_verb_end_of_line_on_misc_line'} = [
   {
     'error_line' => 'warning: @verb should not appear in @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@verb should not appear in @setfilename',
     'type' => 'warning'
@@ -81,7 +78,6 @@ $result_errors{'unclosed_verb_end_of_line_on_misc_line'} = [
   {
     'error_line' => '@verb without associated character
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@verb without associated character',
     'type' => 'error'
@@ -89,7 +85,6 @@ $result_errors{'unclosed_verb_end_of_line_on_misc_line'} = [
   {
     'error_line' => '@verb missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@verb missing closing brace',
     'type' => 'error'
@@ -98,7 +93,6 @@ $result_errors{'unclosed_verb_end_of_line_on_misc_line'} = [
     'error_line' => 'bad argument to @setfilename: name @verb{
 }
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad argument to @setfilename: name @verb{
 }',

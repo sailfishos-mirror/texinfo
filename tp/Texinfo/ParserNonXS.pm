@@ -720,10 +720,12 @@ sub _input_push_text($$$;$$)
   if (not $self->{'input'}) {
     $self->{'input'} = [];
   }
-  my $input_source_info = {'line_nr' => $line_nr, 'file_name' => ''};
+  my $input_source_info = {'line_nr' => $line_nr};
   if (scalar(@{$self->{'input'}})) {
-    $input_source_info->{'file_name'}
-      = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
+    if (exists($self->{'input'}->[0]->{'input_source_info'}->{'file_name'})) {
+      $input_source_info->{'file_name'}
+        = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
+    }
     # context macro expansion
     if (exists($self->{'input'}->[0]->{'input_source_info'}->{'macro'})) {
       $input_source_info->{'macro'}
@@ -1097,9 +1099,14 @@ sub _bug_message($$;$$)
 
   my $line_message = '';
   if ($source_info) {
-    my $file = $source_info->{'file_name'};
+    my $file_name;
+    if (defined($source_info->{'file_name'})) {
+      $file_name = $source_info->{'file_name'};
+    } else {
+      $file_name = '';
+    }
     $line_message
-      = "last location: $source_info->{'file_name'}:$source_info->{'line_nr'}";
+      = "last location: $file_name:$source_info->{'line_nr'}";
     if (defined($source_info->{'macro'})) {
       $line_message .= " (possibly involving $source_info->{'macro'})";
     }
@@ -2390,7 +2397,13 @@ sub _next_text($;$)
         my $partially_decoded = Encode::decode($input->{'file_input_encoding'},
                                       $duplicate_input_line, Encode::FB_QUIET);
         my $error_byte = substr($duplicate_input_line, 0, 1);
-        warn("$input->{'input_source_info'}->{'file_name'}:"
+        my $file_name;
+        if (defined($input->{'input_source_info'}->{'file_name'})) {
+          $file_name = $input->{'input_source_info'}->{'file_name'};
+        } else {
+          $file_name = '';
+        }
+        warn("${file_name}:"
             . ($input->{'input_source_info'}->{'line_nr'} + 1).
                sprintf(": encoding error at byte 0x%2x\n", ord($error_byte)));
         # show perl message but only with debugging

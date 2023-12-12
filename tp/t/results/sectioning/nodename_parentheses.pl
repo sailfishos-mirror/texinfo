@@ -38,7 +38,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -122,7 +121,6 @@ $result_trees{'nodename_parentheses'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -169,7 +167,6 @@ $result_trees{'nodename_parentheses'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -230,7 +227,6 @@ $result_trees{'nodename_parentheses'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -262,13 +258,11 @@ $result_trees{'nodename_parentheses'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -285,7 +279,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -317,7 +310,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -369,7 +361,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -401,7 +392,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 15
       }
     },
@@ -455,7 +445,6 @@ $result_trees{'nodename_parentheses'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             },
@@ -510,7 +499,6 @@ $result_trees{'nodename_parentheses'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             },
@@ -536,7 +524,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 16
       }
     },
@@ -568,7 +555,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 22
       }
     },
@@ -627,7 +613,6 @@ $result_trees{'nodename_parentheses'} = {
             'normalized' => '_0028manual_0029anchor'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 27
           }
         },
@@ -655,7 +640,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 23
       }
     }
@@ -951,7 +935,6 @@ $result_errors{'nodename_parentheses'} = [
   {
     'error_line' => 'syntax for an external node used for `(manual)node\'
 ',
-    'file_name' => '',
     'line_nr' => 22,
     'text' => 'syntax for an external node used for `(manual)node\'',
     'type' => 'error'
@@ -959,7 +942,6 @@ $result_errors{'nodename_parentheses'} = [
   {
     'error_line' => 'syntax for an external node used for `(manual)anchor\'
 ',
-    'file_name' => '',
     'line_nr' => 27,
     'text' => 'syntax for an external node used for `(manual)anchor\'',
     'type' => 'error'
@@ -967,7 +949,6 @@ $result_errors{'nodename_parentheses'} = [
   {
     'error_line' => 'warning: node prev for `(manual)node\' is `Other node\' in sectioning but not in menu
 ',
-    'file_name' => '',
     'line_nr' => 22,
     'text' => 'node prev for `(manual)node\' is `Other node\' in sectioning but not in menu',
     'type' => 'warning'
@@ -975,7 +956,6 @@ $result_errors{'nodename_parentheses'} = [
   {
     'error_line' => 'warning: node up for `(manual)node\' is `Top\' in sectioning but not in menu
 ',
-    'file_name' => '',
     'line_nr' => 22,
     'text' => 'node up for `(manual)node\' is `Top\' in sectioning but not in menu',
     'type' => 'warning'
@@ -983,7 +963,6 @@ $result_errors{'nodename_parentheses'} = [
   {
     'error_line' => 'warning: node `Top\' lacks menu item for `(manual)node\' despite being its Up target
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'node `Top\' lacks menu item for `(manual)node\' despite being its Up target',
     'type' => 'warning'

@@ -25,7 +25,6 @@ $result_trees{'verbatim_in_brace_command'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -78,13 +77,11 @@ $result_trees{'verbatim_in_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -117,7 +114,6 @@ $result_errors{'verbatim_in_brace_command'} = [
   {
     'error_line' => '@samp missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@samp missing closing brace',
     'type' => 'error'
@@ -125,7 +121,6 @@ $result_errors{'verbatim_in_brace_command'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'misplaced }',
     'type' => 'error'

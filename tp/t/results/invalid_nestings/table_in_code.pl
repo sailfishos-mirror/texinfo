@@ -29,7 +29,6 @@ $result_trees{'table_in_code'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -43,7 +42,6 @@ $result_trees{'table_in_code'} = {
                 {
                   'cmdname' => 'emph',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   },
                   'type' => 'command_as_argument'
@@ -88,7 +86,6 @@ $result_trees{'table_in_code'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       }
                     }
@@ -139,7 +136,6 @@ $result_trees{'table_in_code'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -153,7 +149,6 @@ $result_trees{'table_in_code'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -191,7 +186,6 @@ $result_errors{'table_in_code'} = [
   {
     'error_line' => '@code missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@code missing closing brace',
     'type' => 'error'
@@ -199,7 +193,6 @@ $result_errors{'table_in_code'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'misplaced }',
     'type' => 'error'

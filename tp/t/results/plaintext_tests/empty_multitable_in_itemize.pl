@@ -90,7 +90,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -99,7 +98,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                     'max_columns' => 0
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 },
@@ -113,7 +111,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -144,7 +141,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -155,7 +151,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -185,7 +180,6 @@ $result_errors{'empty_multitable_in_itemize'} = [
   {
     'error_line' => 'warning: empty multitable
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'empty multitable',
     'type' => 'warning'

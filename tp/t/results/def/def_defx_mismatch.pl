@@ -44,7 +44,6 @@ $result_trees{'def_defx_mismatch'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       },
                       'type' => 'bracketed_arg'
@@ -85,7 +84,6 @@ $result_trees{'def_defx_mismatch'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -107,7 +105,6 @@ $result_trees{'def_defx_mismatch'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     }
@@ -131,7 +128,6 @@ $result_trees{'def_defx_mismatch'} = {
                 'original_def_cmdname' => 'defun'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -150,7 +146,6 @@ $result_trees{'def_defx_mismatch'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       },
                       'type' => 'bracketed_arg'
@@ -172,7 +167,6 @@ $result_trees{'def_defx_mismatch'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       },
                       'type' => 'bracketed_arg'
@@ -256,7 +250,6 @@ $result_trees{'def_defx_mismatch'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               },
               'type' => 'def_line'
@@ -312,7 +305,6 @@ $result_trees{'def_defx_mismatch'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -323,7 +315,6 @@ $result_trees{'def_defx_mismatch'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -356,7 +347,6 @@ $result_errors{'def_defx_mismatch'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
@@ -364,7 +354,6 @@ $result_errors{'def_defx_mismatch'} = [
   {
     'error_line' => 'must be after `@deffn\' to use `@deffnx\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'must be after `@deffn\' to use `@deffnx\'',
     'type' => 'error'
@@ -372,7 +361,6 @@ $result_errors{'def_defx_mismatch'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'

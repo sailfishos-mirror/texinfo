@@ -88,7 +88,6 @@ $result_trees{'double_part'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -120,13 +119,11 @@ $result_trees{'double_part'} = [
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -143,7 +140,6 @@ $result_trees{'double_part'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -184,7 +180,6 @@ $result_trees{'double_part'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -235,7 +230,6 @@ $result_trees{'double_part'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -313,7 +307,6 @@ $result_trees{'double_part'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -325,7 +318,6 @@ $result_trees{'double_part'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 15
       }
     },
@@ -359,7 +351,6 @@ $result_trees{'double_part'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 14
         }
       },
@@ -808,7 +799,6 @@ $result_errors{'double_part'} = [
   {
     'error_line' => 'warning: no sectioning command associated with @part
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'no sectioning command associated with @part',
     'type' => 'warning'
@@ -816,7 +806,6 @@ $result_errors{'double_part'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -824,7 +813,6 @@ $result_errors{'double_part'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@part not empty',
     'type' => 'warning'

@@ -34,7 +34,6 @@ $result_trees{'simple_no_eol'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },

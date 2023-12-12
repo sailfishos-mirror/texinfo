@@ -80,13 +80,11 @@ $result_trees{'format_in_titlepage_titlepage'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 },
@@ -122,13 +120,11 @@ $result_trees{'format_in_titlepage_titlepage'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -171,7 +167,6 @@ $result_trees{'format_in_titlepage_titlepage'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -210,7 +205,6 @@ $result_trees{'format_in_titlepage_titlepage'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     }

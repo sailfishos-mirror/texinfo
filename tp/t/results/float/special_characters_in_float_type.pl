@@ -43,7 +43,6 @@ $result_trees{'special_characters_in_float_type'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'special_characters_in_float_type'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'special_characters_in_float_type'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -165,7 +162,6 @@ $result_trees{'special_characters_in_float_type'} = {
                   ],
                   'cmdname' => 'var',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -196,7 +192,6 @@ $result_trees{'special_characters_in_float_type'} = {
                   ],
                   'cmdname' => 'var',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -252,7 +247,6 @@ $result_trees{'special_characters_in_float_type'} = {
                           ],
                           'cmdname' => 'var',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 9
                           }
                         }
@@ -268,7 +262,6 @@ $result_trees{'special_characters_in_float_type'} = {
                 'float' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -304,7 +297,6 @@ $result_trees{'special_characters_in_float_type'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -322,7 +314,6 @@ $result_trees{'special_characters_in_float_type'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -357,7 +348,6 @@ $result_trees{'special_characters_in_float_type'} = {
                   ],
                   'cmdname' => 'var',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 12
                   }
                 }
@@ -381,7 +371,6 @@ $result_trees{'special_characters_in_float_type'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         }
@@ -395,7 +384,6 @@ $result_trees{'special_characters_in_float_type'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }

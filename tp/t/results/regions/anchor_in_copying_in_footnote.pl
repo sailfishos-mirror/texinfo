@@ -65,7 +65,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                                     'normalized' => 'Copying-footnote'
                                   },
                                   'source_info' => {
-                                    'file_name' => '',
                                     'line_nr' => 5
                                   }
                                 },
@@ -89,7 +88,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     },
@@ -132,13 +130,11 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 8
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -188,7 +184,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -226,7 +221,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           }
         },
@@ -245,7 +239,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           }
         },
@@ -277,7 +270,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             },
@@ -304,7 +296,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     }
@@ -434,7 +425,6 @@ $result_converted_errors{'info'}->{'anchor_in_copying_in_footnote'} = [
   {
     'error_line' => '@anchor output more than once: Copying footnote
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@anchor output more than once: Copying footnote',
     'type' => 'error'

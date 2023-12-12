@@ -44,7 +44,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -61,7 +60,6 @@ $result_trees{'many_lines'} = {
               ],
               'cmdname' => 'afourpaper',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -78,7 +76,6 @@ $result_trees{'many_lines'} = {
               ],
               'cmdname' => 'smallbook',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -109,7 +106,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -140,7 +136,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -171,7 +166,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -202,7 +196,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -233,7 +226,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -264,7 +256,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -295,7 +286,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -329,7 +319,6 @@ $result_trees{'many_lines'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -370,7 +359,6 @@ $result_trees{'many_lines'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -403,7 +391,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -460,7 +447,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -477,7 +463,6 @@ $result_trees{'many_lines'} = {
               ],
               'cmdname' => 'afourpaper',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -494,7 +479,6 @@ $result_trees{'many_lines'} = {
               ],
               'cmdname' => 'afourlatex',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             },
@@ -511,7 +495,6 @@ $result_trees{'many_lines'} = {
               ],
               'cmdname' => 'afourwide',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             },
@@ -547,7 +530,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             },
@@ -583,7 +565,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             },
@@ -619,7 +600,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             },
@@ -655,7 +635,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               }
             },
@@ -691,7 +670,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               }
             },
@@ -722,7 +700,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               }
             },
@@ -753,7 +730,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             },
@@ -789,7 +765,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             },
@@ -825,7 +800,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               }
             },
@@ -861,7 +835,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               }
             },
@@ -895,7 +868,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             },
@@ -927,7 +899,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 31
               }
             },
@@ -963,7 +934,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 32
               }
             },
@@ -999,7 +969,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 33
               }
             },
@@ -1035,7 +1004,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 34
               }
             },
@@ -1066,7 +1034,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 35
               }
             },
@@ -1099,7 +1066,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               }
             },
@@ -1132,7 +1098,6 @@ $result_trees{'many_lines'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 37
               }
             }
@@ -1284,7 +1249,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @pagesizes should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@pagesizes should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1292,7 +1256,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @afourpaper should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@afourpaper should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1300,7 +1263,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @smallbook should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@smallbook should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1308,7 +1270,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @headings should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@headings should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1316,7 +1277,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'bad argument to @headings: on line following headings
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'bad argument to @headings: on line following headings',
     'type' => 'error'
@@ -1324,7 +1284,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @oddfooting should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@oddfooting should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1332,7 +1291,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @everyheading should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@everyheading should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1340,7 +1298,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @everyfooting should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@everyfooting should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1348,7 +1305,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @evenheading should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@evenheading should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1356,7 +1312,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @evenfooting should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@evenfooting should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1364,7 +1319,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @oddheading should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@oddheading should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1372,7 +1326,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @need should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@need should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1380,7 +1333,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'bad argument to @need: 0.1 on line following
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'bad argument to @need: 0.1 on line following',
     'type' => 'error'
@@ -1388,7 +1340,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @need should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '@need should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1396,7 +1347,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @setchapternewpage should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@setchapternewpage should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1404,7 +1354,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => '@setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'',
     'type' => 'error'
@@ -1412,7 +1361,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @raisesections should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => '@raisesections should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1420,7 +1368,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @lowersections should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@lowersections should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1428,7 +1375,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @kbdinputstyle should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@kbdinputstyle should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1436,7 +1382,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => '@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'',
     'type' => 'error'
@@ -1444,7 +1389,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @afourpaper should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => '@afourpaper should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1452,7 +1396,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: multiple @afourpaper
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => 'multiple @afourpaper',
     'type' => 'warning'
@@ -1460,7 +1403,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @afourlatex should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => '@afourlatex should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1468,7 +1410,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @afourwide should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => '@afourwide should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1476,7 +1417,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 20,
     'text' => '@paragraphindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1484,7 +1424,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 21,
     'text' => '@paragraphindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1492,7 +1431,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 22,
     'text' => '@paragraphindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1500,7 +1438,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => '@paragraphindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1508,7 +1445,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @firstparagraphindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 24,
     'text' => '@firstparagraphindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1516,7 +1452,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @firstparagraphindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 25,
     'text' => '@firstparagraphindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1524,7 +1459,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => '@firstparagraphindent arg must be `none\' or `insert\', not `3\'
 ',
-    'file_name' => '',
     'line_nr' => 25,
     'text' => '@firstparagraphindent arg must be `none\' or `insert\', not `3\'',
     'type' => 'error'
@@ -1532,7 +1466,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 26,
     'text' => '@exampleindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1540,7 +1473,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
 ',
-    'file_name' => '',
     'line_nr' => 26,
     'text' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'',
     'type' => 'error'
@@ -1548,7 +1480,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 27,
     'text' => '@exampleindent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1556,7 +1487,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 28,
     'text' => '@footnotestyle should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1564,7 +1494,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 29,
     'text' => '@footnotestyle should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1572,7 +1501,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: multiple @footnotestyle
 ',
-    'file_name' => '',
     'line_nr' => 29,
     'text' => 'multiple @footnotestyle',
     'type' => 'warning'
@@ -1580,7 +1508,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @documentencoding should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 30,
     'text' => '@documentencoding should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1588,7 +1515,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: encoding `US-ascii encoding name\' is not a canonical texinfo encoding
 ',
-    'file_name' => '',
     'line_nr' => 30,
     'text' => 'encoding `US-ascii encoding name\' is not a canonical texinfo encoding',
     'type' => 'warning'
@@ -1596,7 +1522,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: unhandled encoding name `US-ascii encoding name\'
 ',
-    'file_name' => '',
     'line_nr' => 30,
     'text' => 'unhandled encoding name `US-ascii encoding name\'',
     'type' => 'warning'
@@ -1604,7 +1529,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 32,
     'text' => '@frenchspacing should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1612,7 +1536,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 33,
     'text' => '@frenchspacing should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1620,7 +1543,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @fonttextsize should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 34,
     'text' => '@fonttextsize should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1628,7 +1550,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @everyheadingmarks should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 35,
     'text' => '@everyheadingmarks should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1636,7 +1557,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => '@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'
 ',
-    'file_name' => '',
     'line_nr' => 35,
     'text' => '@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'',
     'type' => 'error'
@@ -1644,7 +1564,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @finalout should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 39,
     'text' => '@finalout should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1652,7 +1571,6 @@ $result_errors{'many_lines'} = [
   {
     'error_line' => 'warning: @finalout should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 41,
     'text' => '@finalout should only appear at the beginning of a line',
     'type' => 'warning'

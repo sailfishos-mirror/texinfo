@@ -58,7 +58,6 @@ $result_trees{'verbatim_in_ref'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -111,13 +110,11 @@ $result_trees{'verbatim_in_ref'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -145,7 +142,6 @@ $result_trees{'verbatim_in_ref'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -189,7 +185,6 @@ $result_errors{'verbatim_in_ref'} = [
   {
     'error_line' => '@xref missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@xref missing closing brace',
     'type' => 'error'
@@ -197,7 +192,6 @@ $result_errors{'verbatim_in_ref'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'misplaced }',
     'type' => 'error'

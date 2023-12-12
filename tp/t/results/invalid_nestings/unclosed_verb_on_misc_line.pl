@@ -33,7 +33,6 @@ $result_trees{'unclosed_verb_on_misc_line'} = {
                     'delimiter' => 'f'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -51,7 +50,6 @@ $result_trees{'unclosed_verb_on_misc_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -71,7 +69,6 @@ $result_errors{'unclosed_verb_on_misc_line'} = [
   {
     'error_line' => 'warning: @verb should not appear in @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@verb should not appear in @setfilename',
     'type' => 'warning'
@@ -79,7 +76,6 @@ $result_errors{'unclosed_verb_on_misc_line'} = [
   {
     'error_line' => '@verb missing closing delimiter sequence: f}
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@verb missing closing delimiter sequence: f}',
     'type' => 'error'
@@ -87,7 +83,6 @@ $result_errors{'unclosed_verb_on_misc_line'} = [
   {
     'error_line' => 'bad argument to @setfilename: name @verb{file.texif}
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad argument to @setfilename: name @verb{file.texif}',
     'type' => 'error'

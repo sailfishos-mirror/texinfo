@@ -633,9 +633,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       if (source_info->line_nr)
         {
           STORE("line_nr", newSViv (source_info->line_nr), HSH_line_nr);
-
-          if (!source_info->file_name)
-            STORE("file_name", newSVpv ("", 0), HSH_file_name);
         }
 
       if (source_info->macro)
@@ -1045,9 +1042,6 @@ build_source_info_hash (SOURCE_INFO source_info, HV *hv)
     {
       hv_store (hv, "line_nr", strlen ("line_nr"),
                 newSViv (source_info.line_nr), 0);
-      if (!source_info.file_name)
-        hv_store (hv, "file_name", strlen ("file_name"),
-                  newSVpv ("", 0), 0);
     }
 
   if (source_info.macro)

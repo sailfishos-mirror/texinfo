@@ -50,7 +50,6 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

@@ -44,7 +44,6 @@ $result_trees{'setfilename'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -75,7 +74,6 @@ $result_trees{'setfilename'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -115,7 +113,6 @@ $result_trees{'setfilename'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -143,7 +140,6 @@ $result_trees{'setfilename'} = {
                         'delimiter' => ':'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       }
                     },
@@ -167,7 +163,6 @@ $result_trees{'setfilename'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -201,7 +196,6 @@ $result_errors{'setfilename'} = [
   {
     'error_line' => 'warning: multiple @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'multiple @setfilename',
     'type' => 'warning'
@@ -209,7 +203,6 @@ $result_errors{'setfilename'} = [
   {
     'error_line' => 'warning: multiple @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'multiple @setfilename',
     'type' => 'warning'
@@ -217,7 +210,6 @@ $result_errors{'setfilename'} = [
   {
     'error_line' => 'warning: multiple @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'multiple @setfilename',
     'type' => 'warning'
@@ -225,7 +217,6 @@ $result_errors{'setfilename'} = [
   {
     'error_line' => 'warning: @verb should not appear in @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@verb should not appear in @setfilename',
     'type' => 'warning'
@@ -233,7 +224,6 @@ $result_errors{'setfilename'} = [
   {
     'error_line' => 'bad argument to @setfilename: @ @verb{: name :}@
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'bad argument to @setfilename: @ @verb{: name :}@',
     'type' => 'error'

@@ -77,7 +77,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 8
                   }
                 }
@@ -87,7 +86,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
 '
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -217,7 +215,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 28
                   }
                 }
@@ -227,7 +224,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
 '
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -300,7 +296,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -333,7 +328,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -344,7 +338,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -377,7 +370,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -388,7 +380,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -421,7 +412,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -432,7 +422,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -465,7 +454,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -476,7 +464,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'kbd',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -509,7 +496,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -520,7 +506,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'samp',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -610,14 +595,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'allquotes'
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 31,
                     'macro' => 'allquotes'
                   }
@@ -636,7 +619,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'codequoteundirected',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 31,
                     'macro' => 'allquotes'
                   }
@@ -655,7 +637,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'codequotebacktick',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 31,
                     'macro' => 'allquotes'
                   },
@@ -691,7 +672,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -724,7 +704,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -735,7 +714,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -768,7 +746,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -779,7 +756,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -812,7 +788,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -823,7 +798,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -856,7 +830,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -867,7 +840,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'kbd',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -900,7 +872,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -911,7 +882,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'samp',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -1001,14 +971,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'allquotes'
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 31,
                     'macro' => 'allquotes'
                   }
@@ -1042,7 +1010,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 31,
                     'macro' => 'allquotes'
                   }
@@ -1076,7 +1043,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 31,
                     'macro' => 'allquotes'
                   },
@@ -1112,7 +1078,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -1145,7 +1110,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -1156,7 +1120,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -1189,7 +1152,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -1200,7 +1162,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -1233,7 +1194,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -1244,7 +1204,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -1277,7 +1236,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -1288,7 +1246,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'kbd',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -1321,7 +1278,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               ],
                               'cmdname' => 'quotedblleft',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
                               }
@@ -1332,7 +1288,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'samp',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31,
                         'macro' => 'quotes'
                       }
@@ -1389,13 +1344,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 32
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             },
@@ -1432,7 +1385,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'insertcopying',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 35
                   }
                 },
@@ -1463,13 +1415,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 36
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 33
               }
             },
@@ -1517,7 +1467,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 39
       }
     },
@@ -1553,7 +1502,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 40
       }
     },
@@ -1585,7 +1533,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 42
       }
     },
@@ -1662,7 +1609,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'quotedblleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -1695,7 +1641,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -1706,7 +1651,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -1739,7 +1683,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -1750,7 +1693,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -1783,7 +1725,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -1794,7 +1735,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -1827,7 +1767,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -1838,7 +1777,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'kbd',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -1871,7 +1809,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -1882,7 +1819,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -1972,14 +1908,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'allquotes'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 45,
             'macro' => 'allquotes'
           }
@@ -1998,7 +1932,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
           ],
           'cmdname' => 'codequoteundirected',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 45,
             'macro' => 'allquotes'
           }
@@ -2017,7 +1950,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
           ],
           'cmdname' => 'codequotebacktick',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 45,
             'macro' => 'allquotes'
           },
@@ -2053,7 +1985,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'quotedblleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2086,7 +2017,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2097,7 +2027,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2130,7 +2059,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2141,7 +2069,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2174,7 +2101,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2185,7 +2111,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2218,7 +2143,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2229,7 +2153,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'kbd',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2262,7 +2185,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2273,7 +2195,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2363,14 +2284,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'allquotes'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 45,
             'macro' => 'allquotes'
           }
@@ -2404,7 +2323,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 45,
             'macro' => 'allquotes'
           }
@@ -2438,7 +2356,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 45,
             'macro' => 'allquotes'
           },
@@ -2474,7 +2391,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'quotedblleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2507,7 +2423,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2518,7 +2433,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2551,7 +2465,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2562,7 +2475,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2595,7 +2507,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2606,7 +2517,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2639,7 +2549,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2650,7 +2559,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'kbd',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2683,7 +2591,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 45,
                         'macro' => 'quotes'
                       }
@@ -2694,7 +2601,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45,
                 'macro' => 'quotes'
               }
@@ -2790,7 +2696,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'quotedblleft',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -2823,7 +2728,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -2834,7 +2738,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -2867,7 +2770,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -2878,7 +2780,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -2911,7 +2812,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -2922,7 +2822,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'strong',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -2955,7 +2854,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -2966,7 +2864,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'kbd',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -2999,7 +2896,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3010,7 +2906,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'samp',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3100,14 +2995,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'allquotes'
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 48,
                 'macro' => 'allquotes'
               }
@@ -3128,7 +3021,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'codequoteundirected',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'allquotes'
                   }
@@ -3147,7 +3039,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'codequotebacktick',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'allquotes'
                   },
@@ -3181,7 +3072,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'quotedblleft',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3214,7 +3104,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3225,7 +3114,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3258,7 +3146,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3269,7 +3156,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3302,7 +3188,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3313,7 +3198,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'strong',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3346,7 +3230,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3357,7 +3240,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'kbd',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3390,7 +3272,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3401,7 +3282,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'samp',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3491,14 +3371,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'allquotes'
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 48,
                 'macro' => 'allquotes'
               }
@@ -3534,7 +3412,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'allquotes'
                   }
@@ -3568,7 +3445,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'allquotes'
                   },
@@ -3602,7 +3478,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'quotedblleft',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3635,7 +3510,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3646,7 +3520,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3679,7 +3552,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3690,7 +3562,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3723,7 +3594,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3734,7 +3604,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'strong',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3767,7 +3636,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3778,7 +3646,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'kbd',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3811,7 +3678,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           ],
                           'cmdname' => 'quotedblleft',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 48,
                             'macro' => 'quotes'
                           }
@@ -3822,7 +3688,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'samp',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 48,
                     'macro' => 'quotes'
                   }
@@ -3879,13 +3744,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 49
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 47
           }
         },
@@ -3904,7 +3767,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 43
       }
     }
@@ -4256,7 +4118,6 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
   {
     'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'macro' => 'allquotes',
     'text' => '@codequoteundirected missing argument',
@@ -4265,7 +4126,6 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
   {
     'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'macro' => 'allquotes',
     'text' => '@codequotebacktick missing argument',
@@ -4274,7 +4134,6 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
   {
     'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
 ',
-    'file_name' => '',
     'line_nr' => 45,
     'macro' => 'allquotes',
     'text' => '@codequoteundirected missing argument',
@@ -4283,7 +4142,6 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
   {
     'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
 ',
-    'file_name' => '',
     'line_nr' => 45,
     'macro' => 'allquotes',
     'text' => '@codequotebacktick missing argument',
@@ -4292,7 +4150,6 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
   {
     'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
 ',
-    'file_name' => '',
     'line_nr' => 48,
     'macro' => 'allquotes',
     'text' => '@codequoteundirected missing argument',
@@ -4301,7 +4158,6 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
   {
     'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
 ',
-    'file_name' => '',
     'line_nr' => 48,
     'macro' => 'allquotes',
     'text' => '@codequotebacktick missing argument',

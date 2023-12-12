@@ -38,7 +38,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -90,7 +89,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -167,7 +165,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -199,13 +196,11 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -217,7 +212,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }
@@ -289,7 +283,6 @@ $result_errors{'direntry_dircategory_after_first_node'} = [
   {
     'error_line' => 'warning: @dircategory after first node
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@dircategory after first node',
     'type' => 'warning'
@@ -297,7 +290,6 @@ $result_errors{'direntry_dircategory_after_first_node'} = [
   {
     'error_line' => 'warning: @direntry after first node
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@direntry after first node',
     'type' => 'warning'

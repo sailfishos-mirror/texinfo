@@ -87,7 +87,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -134,7 +133,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -181,7 +179,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -213,13 +210,11 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -236,7 +231,6 @@ $result_trees{'two_nodes_between_chapters'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -277,7 +271,6 @@ $result_trees{'two_nodes_between_chapters'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -320,7 +313,6 @@ $result_trees{'two_nodes_between_chapters'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -414,7 +406,6 @@ $result_trees{'two_nodes_between_chapters'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 10
         }
       },
@@ -454,7 +445,6 @@ $result_trees{'two_nodes_between_chapters'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 13
         }
       }
@@ -489,7 +479,6 @@ $result_trees{'two_nodes_between_chapters'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 16
       }
     },
@@ -522,7 +511,6 @@ $result_trees{'two_nodes_between_chapters'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 15
         }
       },
@@ -1046,7 +1034,6 @@ $result_errors{'two_nodes_between_chapters'} = [
   {
     'error_line' => 'warning: node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu',
     'type' => 'warning'
@@ -1054,7 +1041,6 @@ $result_errors{'two_nodes_between_chapters'} = [
   {
     'error_line' => 'warning: node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu',
     'type' => 'warning'

@@ -131,7 +131,6 @@ $result_trees{'example_class'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -142,7 +141,6 @@ $result_trees{'example_class'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

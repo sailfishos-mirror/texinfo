@@ -16,7 +16,6 @@ $result_trees{'on_subheading_line'} = {
                 {
                   'cmdname' => 'noindent',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -40,7 +39,6 @@ $result_trees{'on_subheading_line'} = {
                   ],
                   'cmdname' => 'titlefont',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -64,7 +62,6 @@ $result_trees{'on_subheading_line'} = {
                     'normalized' => 'in-anchor'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -86,7 +83,6 @@ $result_trees{'on_subheading_line'} = {
                   ],
                   'cmdname' => 'footnote',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -117,7 +113,6 @@ $result_trees{'on_subheading_line'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -132,7 +127,6 @@ $result_trees{'on_subheading_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -155,7 +149,6 @@ $result_errors{'on_subheading_line'} = [
   {
     'error_line' => 'warning: @noindent should not appear on @subheading line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@noindent should not appear on @subheading line',
     'type' => 'warning'
@@ -163,7 +156,6 @@ $result_errors{'on_subheading_line'} = [
   {
     'error_line' => 'warning: @titlefont should not appear on @subheading line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@titlefont should not appear on @subheading line',
     'type' => 'warning'
@@ -171,7 +163,6 @@ $result_errors{'on_subheading_line'} = [
   {
     'error_line' => 'warning: @anchor should not appear on @subheading line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@anchor should not appear on @subheading line',
     'type' => 'warning'
@@ -179,7 +170,6 @@ $result_errors{'on_subheading_line'} = [
   {
     'error_line' => 'warning: @footnote should not appear on @subheading line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@footnote should not appear on @subheading line',
     'type' => 'warning'
@@ -187,7 +177,6 @@ $result_errors{'on_subheading_line'} = [
   {
     'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -195,7 +184,6 @@ $result_errors{'on_subheading_line'} = [
   {
     'error_line' => 'warning: @exdent should not appear on @subheading line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@exdent should not appear on @subheading line',
     'type' => 'warning'

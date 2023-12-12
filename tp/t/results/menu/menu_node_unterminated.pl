@@ -90,7 +90,6 @@ $result_trees{'menu_node_unterminated'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -122,13 +121,11 @@ $result_trees{'menu_node_unterminated'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -143,7 +140,6 @@ $result_trees{'menu_node_unterminated'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -190,7 +186,6 @@ $result_errors{'menu_node_unterminated'} = [
     'error_line' => '@menu reference to nonexistent node `Examples of Login Verification Functions
 \'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@menu reference to nonexistent node `Examples of Login Verification Functions
 \'',

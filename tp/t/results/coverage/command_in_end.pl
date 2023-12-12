@@ -46,7 +46,6 @@ $result_trees{'command_in_end'} = {
                           ],
                           'cmdname' => 'code',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 3
                           }
                         }
@@ -67,7 +66,6 @@ $result_trees{'command_in_end'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 }
@@ -119,7 +117,6 @@ $result_trees{'command_in_end'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 7
                               }
                             }
@@ -143,7 +140,6 @@ $result_trees{'command_in_end'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -195,7 +191,6 @@ $result_trees{'command_in_end'} = {
                                   ],
                                   'cmdname' => 'code',
                                   'source_info' => {
-                                    'file_name' => '',
                                     'line_nr' => 11
                                   }
                                 }
@@ -219,7 +214,6 @@ $result_trees{'command_in_end'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 11
                           }
                         }
@@ -271,7 +265,6 @@ $result_trees{'command_in_end'} = {
                                       ],
                                       'cmdname' => 'asis',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 15
                                       }
                                     },
@@ -298,7 +291,6 @@ $result_trees{'command_in_end'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 15
                               }
                             }
@@ -348,7 +340,6 @@ $result_trees{'command_in_end'} = {
                                       ],
                                       'cmdname' => 'asis',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 19
                                       }
                                     },
@@ -375,13 +366,11 @@ $result_trees{'command_in_end'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 19
                               }
                             }
                           ],
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 17
                           }
                         },
@@ -428,7 +417,6 @@ $result_trees{'command_in_end'} = {
                                       ],
                                       'cmdname' => 'asis',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 23
                                       }
                                     },
@@ -455,13 +443,11 @@ $result_trees{'command_in_end'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 23
                               }
                             }
                           ],
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 21
                           }
                         },
@@ -508,7 +494,6 @@ $result_trees{'command_in_end'} = {
                                       ],
                                       'cmdname' => 'asis',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 27
                                       }
                                     },
@@ -535,13 +520,11 @@ $result_trees{'command_in_end'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 27
                               }
                             }
                           ],
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 25
                           }
                         },
@@ -576,31 +559,26 @@ $result_trees{'command_in_end'} = {
                             }
                           ],
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 29
                           }
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -667,7 +645,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: @code should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@code should not appear in @end',
     'type' => 'warning'
@@ -675,7 +652,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'bad argument to @end: @code{quotation}
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'bad argument to @end: @code{quotation}',
     'type' => 'error'
@@ -683,7 +659,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: @code should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@code should not appear in @end',
     'type' => 'warning'
@@ -691,7 +666,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: unknown @end q
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'unknown @end q',
     'type' => 'warning'
@@ -699,7 +673,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'bad argument to @end: q@code{uotation}
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'bad argument to @end: q@code{uotation}',
     'type' => 'error'
@@ -707,7 +680,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: @code should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@code should not appear in @end',
     'type' => 'warning'
@@ -715,7 +687,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: unknown @end qu
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'unknown @end qu',
     'type' => 'warning'
@@ -723,7 +694,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'bad argument to @end: qu@code{otation}
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'bad argument to @end: qu@code{otation}',
     'type' => 'error'
@@ -731,7 +701,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: @asis should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@asis should not appear in @end',
     'type' => 'warning'
@@ -739,7 +708,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: unknown @end quotn
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'unknown @end quotn',
     'type' => 'warning'
@@ -747,7 +715,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'bad argument to @end: quot@asis{atio}n
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'bad argument to @end: quot@asis{atio}n',
     'type' => 'error'
@@ -755,7 +722,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: @asis should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => '@asis should not appear in @end',
     'type' => 'warning'
@@ -763,7 +729,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'bad argument to @end: q@asis{}uotation
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => 'bad argument to @end: q@asis{}uotation',
     'type' => 'error'
@@ -771,7 +736,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: @asis should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => '@asis should not appear in @end',
     'type' => 'warning'
@@ -779,7 +743,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'bad argument to @end: qu@asis{}otation
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => 'bad argument to @end: qu@asis{}otation',
     'type' => 'error'
@@ -787,7 +750,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'warning: @asis should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 27,
     'text' => '@asis should not appear in @end',
     'type' => 'warning'
@@ -795,7 +757,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'bad argument to @end: quot@asis{}ation
 ',
-    'file_name' => '',
     'line_nr' => 27,
     'text' => 'bad argument to @end: quot@asis{}ation',
     'type' => 'error'
@@ -803,7 +764,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'no matching `@end verbatim\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'no matching `@end verbatim\'',
     'type' => 'error'
@@ -811,7 +771,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
@@ -819,7 +778,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
@@ -827,7 +785,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
@@ -835,7 +792,6 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'

@@ -27,7 +27,6 @@ $result_trees{'before_accent_punctuation'} = {
               ],
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }

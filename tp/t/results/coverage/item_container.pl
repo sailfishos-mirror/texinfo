@@ -54,7 +54,6 @@ $result_trees{'item_container'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -85,7 +84,6 @@ $result_trees{'item_container'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -96,7 +94,6 @@ $result_trees{'item_container'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -112,7 +109,6 @@ $result_trees{'item_container'} = {
                 {
                   'cmdname' => 'bullet',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 6
                   },
                   'type' => 'command_as_argument'
@@ -155,7 +151,6 @@ $result_trees{'item_container'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -186,7 +181,6 @@ $result_trees{'item_container'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -200,7 +194,6 @@ $result_trees{'item_container'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -250,7 +243,6 @@ $result_trees{'item_container'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -281,7 +273,6 @@ $result_trees{'item_container'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -290,7 +281,6 @@ $result_trees{'item_container'} = {
             'command_as_argument' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         }

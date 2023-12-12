@@ -38,7 +38,6 @@ $result_trees{'titlepage_no_title'} = {
                   ],
                   'cmdname' => 'titlefont',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 2
                   }
                 },
@@ -78,7 +77,6 @@ $result_trees{'titlepage_no_title'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 },
@@ -109,13 +107,11 @@ $result_trees{'titlepage_no_title'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -158,7 +154,6 @@ $result_trees{'titlepage_no_title'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     },
@@ -194,7 +189,6 @@ $result_trees{'titlepage_no_title'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -226,7 +220,6 @@ $result_trees{'titlepage_no_title'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -273,7 +266,6 @@ $result_trees{'titlepage_no_title'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     }

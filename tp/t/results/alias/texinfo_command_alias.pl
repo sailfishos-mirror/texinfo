@@ -54,7 +54,6 @@ $result_trees{'texinfo_command_alias'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'texinfo_command_alias'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -103,7 +101,6 @@ $result_trees{'texinfo_command_alias'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -190,7 +187,6 @@ $result_trees{'texinfo_command_alias'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -222,7 +218,6 @@ $result_trees{'texinfo_command_alias'} = {
                 'command_name' => 'mystrong'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'definfoenclose_command'
@@ -274,7 +269,6 @@ $result_errors{'texinfo_command_alias'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'

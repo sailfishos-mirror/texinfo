@@ -45,7 +45,6 @@ $result_trees{'macro_in_empty_table_empty_before_item'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -55,7 +54,6 @@ $result_trees{'macro_in_empty_table_empty_before_item'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -71,7 +69,6 @@ $result_trees{'macro_in_empty_table_empty_before_item'} = {
                 {
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   },
                   'type' => 'command_as_argument'
@@ -141,7 +138,6 @@ $result_trees{'macro_in_empty_table_empty_before_item'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -155,7 +151,6 @@ $result_trees{'macro_in_empty_table_empty_before_item'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         }

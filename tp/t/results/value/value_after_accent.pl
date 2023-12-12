@@ -68,7 +68,6 @@ $result_trees{'value_after_accent'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               },
               'source_marks' => [
@@ -122,7 +121,6 @@ $result_trees{'value_after_accent'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               },
               'source_marks' => [

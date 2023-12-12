@@ -107,7 +107,6 @@ $result_trees{'empty_menu_description'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -154,13 +153,11 @@ $result_trees{'empty_menu_description'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -175,7 +172,6 @@ $result_trees{'empty_menu_description'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

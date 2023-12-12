@@ -60,7 +60,6 @@ $result_trees{'line_after_recursive_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -70,7 +69,6 @@ $result_trees{'line_after_recursive_call'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           },
           'source_marks' => [
@@ -136,7 +134,6 @@ $result_errors{'line_after_recursive_call'} = [
   {
     'error_line' => 'recursive call of macro mac is not allowed; use @rmacro if needed (possibly involving @mac)
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'macro' => 'mac',
     'text' => 'recursive call of macro mac is not allowed; use @rmacro if needed',

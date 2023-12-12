@@ -190,13 +190,11 @@ $result_trees{'nested_ignore_with_comments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

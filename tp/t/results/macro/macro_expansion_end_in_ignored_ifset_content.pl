@@ -55,7 +55,6 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -65,7 +64,6 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -153,7 +151,6 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 7
                     }
                   }
@@ -164,7 +161,6 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 6,
                   'macro' => 'beginifsetcontent'
                 }

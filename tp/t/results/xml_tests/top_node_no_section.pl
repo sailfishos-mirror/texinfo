@@ -38,7 +38,6 @@ $result_trees{'top_node_no_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

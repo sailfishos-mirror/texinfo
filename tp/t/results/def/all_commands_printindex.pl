@@ -38,7 +38,6 @@ $result_trees{'all_commands_printindex'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -113,7 +112,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defvr'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'def_line'
@@ -159,7 +157,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -170,7 +167,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -239,7 +235,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'def_line'
@@ -285,7 +280,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -296,7 +290,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -352,7 +345,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               },
               'type' => 'def_line'
@@ -398,7 +390,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
@@ -409,7 +400,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -491,7 +481,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypefn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               },
               'type' => 'def_line'
@@ -537,7 +526,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
@@ -548,7 +536,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           }
         },
@@ -617,7 +604,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypefn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               },
               'type' => 'def_line'
@@ -663,7 +649,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             }
@@ -674,7 +659,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 20
           }
         },
@@ -806,7 +790,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypeop'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               },
               'type' => 'def_line'
@@ -852,7 +835,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             }
@@ -863,7 +845,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 24
           }
         },
@@ -982,7 +963,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypeop'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               },
               'type' => 'def_line'
@@ -1028,7 +1008,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             }
@@ -1039,7 +1018,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 28
           }
         },
@@ -1108,7 +1086,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypevr'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 32
               },
               'type' => 'def_line'
@@ -1154,7 +1131,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 34
               }
             }
@@ -1165,7 +1141,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 32
           }
         },
@@ -1234,7 +1209,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defcv'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               },
               'type' => 'def_line'
@@ -1280,7 +1254,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 38
               }
             }
@@ -1291,7 +1264,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 36
           }
         },
@@ -1373,7 +1345,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defcv'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 40
               },
               'type' => 'def_line'
@@ -1419,7 +1390,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 42
               }
             }
@@ -1430,7 +1400,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 40
           }
         },
@@ -1549,7 +1518,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypecv'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               },
               'type' => 'def_line'
@@ -1595,7 +1563,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             }
@@ -1606,7 +1573,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 44
           }
         },
@@ -1738,7 +1704,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypecv'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 48
               },
               'type' => 'def_line'
@@ -1784,7 +1749,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 50
               }
             }
@@ -1795,7 +1759,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 48
           }
         },
@@ -1914,7 +1877,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defop'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               },
               'type' => 'def_line'
@@ -1960,7 +1922,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 54
               }
             }
@@ -1971,7 +1932,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 52
           }
         },
@@ -2077,7 +2037,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defop'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               },
               'type' => 'def_line'
@@ -2123,7 +2082,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             }
@@ -2134,7 +2092,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 56
           }
         },
@@ -2203,7 +2160,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftp'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 60
               },
               'type' => 'def_line'
@@ -2249,7 +2205,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             }
@@ -2260,7 +2215,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 60
           }
         },
@@ -2334,7 +2288,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defun'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               },
               'type' => 'def_line'
@@ -2380,7 +2333,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 66
               }
             }
@@ -2391,7 +2343,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 64
           }
         },
@@ -2465,7 +2416,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defmac'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 68
               },
               'type' => 'def_line'
@@ -2511,7 +2461,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             }
@@ -2522,7 +2471,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 68
           }
         },
@@ -2596,7 +2544,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defspec'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 72
               },
               'type' => 'def_line'
@@ -2642,7 +2589,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             }
@@ -2653,7 +2599,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 72
           }
         },
@@ -2714,7 +2659,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defvar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 76
               },
               'type' => 'def_line'
@@ -2760,7 +2704,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 78
               }
             }
@@ -2771,7 +2714,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 76
           }
         },
@@ -2858,7 +2800,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defvar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 80
               },
               'type' => 'def_line'
@@ -2904,7 +2845,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 82
               }
             }
@@ -2915,7 +2855,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 80
           }
         },
@@ -2976,7 +2915,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defopt'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 84
               },
               'type' => 'def_line'
@@ -3022,7 +2960,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 86
               }
             }
@@ -3033,7 +2970,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 84
           }
         },
@@ -3120,7 +3056,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypefun'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 88
               },
               'type' => 'def_line'
@@ -3166,7 +3101,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 90
               }
             }
@@ -3177,7 +3111,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 88
           }
         },
@@ -3251,7 +3184,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypevar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 92
               },
               'type' => 'def_line'
@@ -3297,7 +3229,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 94
               }
             }
@@ -3308,7 +3239,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 92
           }
         },
@@ -3419,7 +3349,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defivar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 96
               },
               'type' => 'def_line'
@@ -3465,7 +3394,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 98
               }
             }
@@ -3476,7 +3404,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 96
           }
         },
@@ -3600,7 +3527,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypeivar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               },
               'type' => 'def_line'
@@ -3646,7 +3572,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 102
               }
             }
@@ -3657,7 +3582,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 100
           }
         },
@@ -3781,7 +3705,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'defmethod'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               },
               'type' => 'def_line'
@@ -3827,7 +3750,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 106
               }
             }
@@ -3838,7 +3760,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 104
           }
         },
@@ -3975,7 +3896,6 @@ $result_trees{'all_commands_printindex'} = {
                 'original_def_cmdname' => 'deftypemethod'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 108
               },
               'type' => 'def_line'
@@ -4021,7 +3941,6 @@ $result_trees{'all_commands_printindex'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 110
               }
             }
@@ -4032,7 +3951,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 108
           }
         },
@@ -4065,7 +3983,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 112
           }
         },
@@ -4098,7 +4015,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 113
           }
         },
@@ -4131,7 +4047,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 115
           }
         },
@@ -4164,7 +4079,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 116
           }
         },
@@ -4197,7 +4111,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 118
           }
         },
@@ -4230,7 +4143,6 @@ $result_trees{'all_commands_printindex'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 119
           }
         }
@@ -4246,7 +4158,6 @@ $result_trees{'all_commands_printindex'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }

@@ -65,13 +65,11 @@ $result_trees{'line_breaks'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -110,7 +108,6 @@ $result_trees{'line_breaks'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -144,7 +141,6 @@ $result_trees{'line_breaks'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -183,7 +179,6 @@ $result_trees{'line_breaks'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -199,7 +194,6 @@ $result_trees{'line_breaks'} = {
                 {
                   'cmdname' => 'strong',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 10
                   },
                   'type' => 'command_as_argument'
@@ -250,7 +244,6 @@ $result_trees{'line_breaks'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -284,7 +277,6 @@ $result_trees{'line_breaks'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     }
@@ -335,7 +327,6 @@ $result_trees{'line_breaks'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
@@ -349,7 +340,6 @@ $result_trees{'line_breaks'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         },
@@ -419,7 +409,6 @@ $result_trees{'line_breaks'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
@@ -430,7 +419,6 @@ $result_trees{'line_breaks'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           }
         }

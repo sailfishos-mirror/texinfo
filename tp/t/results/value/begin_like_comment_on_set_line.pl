@@ -113,7 +113,6 @@ $result_errors{'begin_like_comment_on_set_line'} = [
   {
     'error_line' => 'bad name for @set
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad name for @set',
     'type' => 'error'
@@ -121,7 +120,6 @@ $result_errors{'begin_like_comment_on_set_line'} = [
   {
     'error_line' => 'warning: undefined flag: x
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'undefined flag: x',
     'type' => 'warning'
@@ -129,7 +127,6 @@ $result_errors{'begin_like_comment_on_set_line'} = [
   {
     'error_line' => 'unknown command `commentary\'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'unknown command `commentary\'',
     'type' => 'error'

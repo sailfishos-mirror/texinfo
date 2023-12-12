@@ -78,7 +78,6 @@ $result_trees{'macro_expansion'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -88,7 +87,6 @@ $result_trees{'macro_expansion'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -200,14 +198,12 @@ $result_trees{'macro_expansion'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9,
                 'macro' => 'macroone'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9,
             'macro' => 'macroone'
           }
@@ -259,7 +255,6 @@ $result_trees{'macro_expansion'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11,
                 'macro' => 'macroone'
               }
@@ -325,14 +320,12 @@ $result_trees{'macro_expansion'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11,
                 'macro' => 'macroone'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11,
             'macro' => 'macroone'
           }
@@ -419,14 +412,12 @@ $result_trees{'macro_expansion'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13,
                 'macro' => 'macroone'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13,
             'macro' => 'macroone'
           }
@@ -536,14 +527,12 @@ $result_trees{'macro_expansion'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15,
                 'macro' => 'macroone'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15,
             'macro' => 'macroone'
           }
@@ -653,14 +642,12 @@ $result_trees{'macro_expansion'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17,
                 'macro' => 'macroone'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17,
             'macro' => 'macroone'
           }
@@ -792,14 +779,12 @@ now'
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23,
                 'macro' => 'macroone'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 23,
             'macro' => 'macroone'
           }
@@ -883,7 +868,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'macro' => 'macroone',
     'text' => 'bad argument to @end: verbatim.',
@@ -892,7 +876,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'macro' => 'macroone',
     'text' => 'bad argument to @end: verbatim.',
@@ -901,7 +884,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'warning: @macroone defined with zero or more than one argument should be invoked with {}
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@macroone defined with zero or more than one argument should be invoked with {}',
     'type' => 'warning'
@@ -909,7 +891,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'bad argument to @end: verbatim my arg. (possibly involving @macroone)
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'macro' => 'macroone',
     'text' => 'bad argument to @end: verbatim my arg.',
@@ -918,7 +899,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'macro' => 'macroone',
     'text' => 'bad argument to @end: verbatim.',
@@ -927,7 +907,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'warning: use @comma{} instead of \\, in macro arg
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => 'use @comma{} instead of \\, in macro arg',
     'type' => 'warning'
@@ -935,7 +914,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'macro' => 'macroone',
     'text' => 'bad argument to @end: verbatim.',
@@ -944,7 +922,6 @@ $result_errors{'macro_expansion'} = [
   {
     'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'macro' => 'macroone',
     'text' => 'bad argument to @end: verbatim.',

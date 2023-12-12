@@ -45,7 +45,6 @@ $result_trees{'section_node_before_part'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -83,7 +82,6 @@ $result_trees{'section_node_before_part'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -112,7 +110,6 @@ $result_trees{'section_node_before_part'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -192,7 +189,6 @@ $result_errors{'section_node_before_part'} = [
   {
     'error_line' => 'warning: no chapter-level command before @part
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'no chapter-level command before @part',
     'type' => 'warning'
@@ -200,7 +196,6 @@ $result_errors{'section_node_before_part'} = [
   {
     'error_line' => 'warning: no sectioning command associated with @part
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'no sectioning command associated with @part',
     'type' => 'warning'

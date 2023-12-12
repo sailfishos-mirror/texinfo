@@ -43,7 +43,6 @@ $result_trees{'verb_delimiter_not_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'verb_delimiter_not_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'verb_delimiter_not_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -153,7 +150,6 @@ $result_trees{'verb_delimiter_not_ascii'} = {
                 'delimiter' => "\x{ea}"
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -174,7 +170,6 @@ $result_trees{'verb_delimiter_not_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }

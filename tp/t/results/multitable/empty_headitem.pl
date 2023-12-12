@@ -44,7 +44,6 @@ $result_trees{'empty_headitem'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -70,7 +69,6 @@ $result_trees{'empty_headitem'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -94,7 +92,6 @@ $result_trees{'empty_headitem'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -119,7 +116,6 @@ $result_trees{'empty_headitem'} = {
                         'cell_number' => 3
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -148,7 +144,6 @@ $result_trees{'empty_headitem'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     },
@@ -174,7 +169,6 @@ $result_trees{'empty_headitem'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 3
                               }
                             },
@@ -189,7 +183,6 @@ $result_trees{'empty_headitem'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     },
@@ -215,7 +208,6 @@ $result_trees{'empty_headitem'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 3
                               }
                             },
@@ -231,7 +223,6 @@ $result_trees{'empty_headitem'} = {
                         'cell_number' => 3
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -271,7 +262,6 @@ $result_trees{'empty_headitem'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -286,7 +276,6 @@ $result_trees{'empty_headitem'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

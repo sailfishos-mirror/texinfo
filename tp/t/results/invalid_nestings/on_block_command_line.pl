@@ -32,13 +32,11 @@ $result_trees{'on_block_command_line'} = {
                         'normalized' => 'in-anchor'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
@@ -59,7 +57,6 @@ $result_trees{'on_block_command_line'} = {
                   ],
                   'cmdname' => 'titlefont',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -99,7 +96,6 @@ $result_trees{'on_block_command_line'} = {
                           ],
                           'cmdname' => 'titlefont',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 2
                           }
                         },
@@ -112,7 +108,6 @@ $result_trees{'on_block_command_line'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -152,7 +147,6 @@ $result_trees{'on_block_command_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -166,7 +160,6 @@ $result_trees{'on_block_command_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -182,7 +175,6 @@ $result_trees{'on_block_command_line'} = {
                 {
                   'cmdname' => 'indent',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 },
@@ -203,7 +195,6 @@ $result_trees{'on_block_command_line'} = {
                   ],
                   'cmdname' => 'titlefont',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 },
@@ -227,7 +218,6 @@ $result_trees{'on_block_command_line'} = {
                     'normalized' => 'in-quotation-anchor'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 },
@@ -249,7 +239,6 @@ $result_trees{'on_block_command_line'} = {
                   ],
                   'cmdname' => 'footnote',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 },
@@ -280,7 +269,6 @@ $result_trees{'on_block_command_line'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 }
@@ -317,7 +305,6 @@ $result_trees{'on_block_command_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -328,7 +315,6 @@ $result_trees{'on_block_command_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -357,7 +343,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @anchor should not appear on @multitable line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@anchor should not appear on @multitable line',
     'type' => 'warning'
@@ -365,7 +350,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @titlefont should not appear on @multitable line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@titlefont should not appear on @multitable line',
     'type' => 'warning'
@@ -373,7 +357,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: unexpected argument on @multitable line: @titlefont{in titlefont}
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unexpected argument on @multitable line: @titlefont{in titlefont}',
     'type' => 'warning'
@@ -381,7 +364,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @indent should not appear on @quotation line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@indent should not appear on @quotation line',
     'type' => 'warning'
@@ -389,7 +371,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @titlefont should not appear on @quotation line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@titlefont should not appear on @quotation line',
     'type' => 'warning'
@@ -397,7 +378,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @anchor should not appear on @quotation line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@anchor should not appear on @quotation line',
     'type' => 'warning'
@@ -405,7 +385,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @footnote should not appear on @quotation line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@footnote should not appear on @quotation line',
     'type' => 'warning'
@@ -413,7 +392,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -421,7 +399,6 @@ $result_errors{'on_block_command_line'} = [
   {
     'error_line' => 'warning: @exdent should not appear on @quotation line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@exdent should not appear on @quotation line',
     'type' => 'warning'

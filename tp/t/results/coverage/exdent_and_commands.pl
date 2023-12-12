@@ -54,7 +54,6 @@ $result_trees{'exdent_and_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -103,7 +102,6 @@ $result_trees{'exdent_and_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -143,13 +141,11 @@ $result_trees{'exdent_and_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -203,7 +199,6 @@ $result_trees{'exdent_and_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -252,7 +247,6 @@ $result_trees{'exdent_and_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -292,13 +286,11 @@ $result_trees{'exdent_and_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         }

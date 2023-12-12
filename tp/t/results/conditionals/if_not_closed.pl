@@ -21,7 +21,6 @@ $result_trees{'if_not_closed'} = {
                 ],
                 'cmdname' => 'iftex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },
@@ -46,7 +45,6 @@ $result_errors{'if_not_closed'} = [
   {
     'error_line' => 'no matching `@end iftex\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'no matching `@end iftex\'',
     'type' => 'error'

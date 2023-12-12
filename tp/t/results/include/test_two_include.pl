@@ -42,7 +42,6 @@ $result_trees{'test_two_include'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 2
                     }
                   },
@@ -226,7 +225,6 @@ $result_trees{'test_two_include'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 5
                     }
                   },

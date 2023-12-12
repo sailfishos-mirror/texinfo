@@ -51,7 +51,6 @@ $result_trees{'sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -84,7 +83,6 @@ $result_trees{'sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -125,7 +123,6 @@ $result_trees{'sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -149,7 +146,6 @@ $result_trees{'sp'} = {
                     ],
                     'cmdname' => 'ifnottex',
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 6
                     }
                   },
@@ -188,7 +184,6 @@ $result_trees{'sp'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           },
           'source_marks' => [
@@ -221,7 +216,6 @@ $result_trees{'sp'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 8
                 }
               },
@@ -258,7 +252,6 @@ $result_errors{'sp'} = [
   {
     'error_line' => 'warning: @sp should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@sp should only appear at the beginning of a line',
     'type' => 'warning'
@@ -266,7 +259,6 @@ $result_errors{'sp'} = [
   {
     'error_line' => 'warning: @sp should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@sp should only appear at the beginning of a line',
     'type' => 'warning'
@@ -274,7 +266,6 @@ $result_errors{'sp'} = [
   {
     'error_line' => '@sp arg must be numeric, not `2 a number after sp\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@sp arg must be numeric, not `2 a number after sp\'',
     'type' => 'error'

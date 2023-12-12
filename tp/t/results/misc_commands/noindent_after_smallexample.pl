@@ -72,20 +72,17 @@ $result_trees{'noindent_after_smallexample'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
         {
           'cmdname' => 'noindent',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },

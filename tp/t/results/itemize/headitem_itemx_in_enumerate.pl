@@ -63,7 +63,6 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 },
@@ -85,7 +84,6 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -116,7 +114,6 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -125,7 +122,6 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
             'enumerate_specification' => '1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -153,7 +149,6 @@ $result_errors{'headitem_itemx_in_enumerate'} = [
   {
     'error_line' => '@itemx outside of table or list
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@itemx outside of table or list',
     'type' => 'error'
@@ -161,7 +156,6 @@ $result_errors{'headitem_itemx_in_enumerate'} = [
   {
     'error_line' => '@headitem not meaningful inside `@enumerate\' block
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@headitem not meaningful inside `@enumerate\' block',
     'type' => 'error'

@@ -40,7 +40,6 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }

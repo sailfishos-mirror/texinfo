@@ -27,7 +27,6 @@ $result_trees{'w_end_sentence'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }

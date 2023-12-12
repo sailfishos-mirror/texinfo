@@ -48,7 +48,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -86,13 +85,11 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -135,7 +132,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -171,7 +167,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -203,7 +198,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -241,7 +235,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -306,7 +299,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               },
               'type' => 'menu_entry'
@@ -338,13 +330,11 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           }
         },
@@ -363,7 +353,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -395,7 +384,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 17
       }
     },
@@ -433,7 +421,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 18
       }
     }

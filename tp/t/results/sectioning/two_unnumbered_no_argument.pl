@@ -30,7 +30,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'cmdname' => 'unnumbered',
       'extra' => {},
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -49,7 +48,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'cmdname' => 'unnumbered',
       'extra' => {},
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }
@@ -100,7 +98,6 @@ $result_errors{'two_unnumbered_no_argument'} = [
   {
     'error_line' => 'warning: @unnumbered missing argument
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@unnumbered missing argument',
     'type' => 'warning'
@@ -108,7 +105,6 @@ $result_errors{'two_unnumbered_no_argument'} = [
   {
     'error_line' => 'warning: @unnumbered missing argument
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@unnumbered missing argument',
     'type' => 'warning'

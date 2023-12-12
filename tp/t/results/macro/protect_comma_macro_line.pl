@@ -69,7 +69,6 @@ $result_trees{'protect_comma_macro_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -79,7 +78,6 @@ $result_trees{'protect_comma_macro_line'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

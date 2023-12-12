@@ -45,7 +45,6 @@ $result_trees{'double_node_anchor_float'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -89,7 +88,6 @@ $result_trees{'double_node_anchor_float'} = {
             'normalized' => 'node1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -120,7 +118,6 @@ $result_trees{'double_node_anchor_float'} = {
             'normalized' => 'anchor1'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -144,7 +141,6 @@ $result_trees{'double_node_anchor_float'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -229,7 +225,6 @@ $result_trees{'double_node_anchor_float'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
@@ -244,7 +239,6 @@ $result_trees{'double_node_anchor_float'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -310,7 +304,6 @@ $result_trees{'double_node_anchor_float'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
@@ -325,7 +318,6 @@ $result_trees{'double_node_anchor_float'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           }
         },
@@ -391,7 +383,6 @@ $result_trees{'double_node_anchor_float'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
@@ -407,7 +398,6 @@ $result_trees{'double_node_anchor_float'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17
           }
         },
@@ -426,7 +416,6 @@ $result_trees{'double_node_anchor_float'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -457,7 +446,6 @@ $result_trees{'double_node_anchor_float'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 20
       }
     }
@@ -555,7 +543,6 @@ $result_errors{'double_node_anchor_float'} = [
   {
     'error_line' => '@node `anchor1\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@node `anchor1\' previously defined',
     'type' => 'error'
@@ -564,7 +551,6 @@ $result_errors{'double_node_anchor_float'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @anchor
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'here is the previous definition as @anchor',
     'type' => 'error'
@@ -572,7 +558,6 @@ $result_errors{'double_node_anchor_float'} = [
   {
     'error_line' => '@float `anchor1\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => '@float `anchor1\' previously defined',
     'type' => 'error'
@@ -581,7 +566,6 @@ $result_errors{'double_node_anchor_float'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @anchor
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'here is the previous definition as @anchor',
     'type' => 'error'
@@ -589,7 +573,6 @@ $result_errors{'double_node_anchor_float'} = [
   {
     'error_line' => '@node `float1\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 20,
     'text' => '@node `float1\' previously defined',
     'type' => 'error'
@@ -598,7 +581,6 @@ $result_errors{'double_node_anchor_float'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @float
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => 'here is the previous definition as @float',
     'type' => 'error'
@@ -606,7 +588,6 @@ $result_errors{'double_node_anchor_float'} = [
   {
     'error_line' => '@node `node1\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@node `node1\' previously defined',
     'type' => 'error'
@@ -615,7 +596,6 @@ $result_errors{'double_node_anchor_float'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
@@ -623,7 +603,6 @@ $result_errors{'double_node_anchor_float'} = [
   {
     'error_line' => '@anchor `node1\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@anchor `node1\' previously defined',
     'type' => 'error'
@@ -632,7 +611,6 @@ $result_errors{'double_node_anchor_float'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
@@ -640,7 +618,6 @@ $result_errors{'double_node_anchor_float'} = [
   {
     'error_line' => '@float `node1\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@float `node1\' previously defined',
     'type' => 'error'
@@ -649,7 +626,6 @@ $result_errors{'double_node_anchor_float'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'here is the previous definition as @node',
     'type' => 'error'

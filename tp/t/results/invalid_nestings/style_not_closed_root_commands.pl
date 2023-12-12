@@ -38,7 +38,6 @@ $result_trees{'style_not_closed_root_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -122,7 +121,6 @@ $result_trees{'style_not_closed_root_commands'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -154,13 +152,11 @@ $result_trees{'style_not_closed_root_commands'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -190,7 +186,6 @@ $result_trees{'style_not_closed_root_commands'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -205,7 +200,6 @@ $result_trees{'style_not_closed_root_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -237,7 +231,6 @@ $result_trees{'style_not_closed_root_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -286,7 +279,6 @@ $result_trees{'style_not_closed_root_commands'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -303,7 +295,6 @@ $result_trees{'style_not_closed_root_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -461,7 +452,6 @@ $result_errors{'style_not_closed_root_commands'} = [
   {
     'error_line' => '@code missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@code missing closing brace',
     'type' => 'error'
@@ -469,7 +459,6 @@ $result_errors{'style_not_closed_root_commands'} = [
   {
     'error_line' => '@code missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@code missing closing brace',
     'type' => 'error'

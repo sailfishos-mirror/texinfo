@@ -20,7 +20,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
@@ -35,7 +34,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'bracketed_arg'
@@ -97,7 +95,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -111,7 +108,6 @@ $result_trees{'multitable_begin_with_tab'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -131,7 +127,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   },
                   'type' => 'bracketed_arg'
@@ -146,7 +141,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   },
                   'type' => 'bracketed_arg'
@@ -206,7 +200,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -246,7 +239,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -260,7 +252,6 @@ $result_trees{'multitable_begin_with_tab'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -292,7 +283,6 @@ $result_errors{'multitable_begin_with_tab'} = [
   {
     'error_line' => '@tab before @item
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@tab before @item',
     'type' => 'error'
@@ -300,7 +290,6 @@ $result_errors{'multitable_begin_with_tab'} = [
   {
     'error_line' => 'warning: @multitable has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@multitable has text but no @item',
     'type' => 'warning'
@@ -308,7 +297,6 @@ $result_errors{'multitable_begin_with_tab'} = [
   {
     'error_line' => '@tab before @item
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@tab before @item',
     'type' => 'error'

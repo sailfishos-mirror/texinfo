@@ -38,7 +38,6 @@ $result_trees{'contain_plain_text_nestings'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -74,7 +73,6 @@ $result_trees{'contain_plain_text_nestings'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -107,7 +105,6 @@ $result_trees{'contain_plain_text_nestings'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -157,7 +154,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -170,7 +166,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -195,7 +190,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -208,7 +202,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               ],
               'cmdname' => 'hyphenation',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -234,7 +227,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -247,7 +239,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               ],
               'cmdname' => 'key',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -283,7 +274,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 10
                               }
                             },
@@ -296,7 +286,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'sortas',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -326,7 +315,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'index_entry_command'
@@ -392,7 +380,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -405,7 +392,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -451,7 +437,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -464,7 +449,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               ],
               'cmdname' => 'hyphenation',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -511,7 +495,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -524,7 +507,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               ],
               'cmdname' => 'key',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -581,7 +563,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                               ],
                               'cmdname' => 'ref',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 16
                               }
                             },
@@ -594,7 +575,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                       ],
                       'cmdname' => 'sortas',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -624,7 +604,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               },
               'type' => 'index_entry_command'
@@ -666,7 +645,6 @@ $result_trees{'contain_plain_text_nestings'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         }
@@ -680,7 +658,6 @@ $result_trees{'contain_plain_text_nestings'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -831,7 +808,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @code should not appear in @hyphenation
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@code should not appear in @hyphenation',
     'type' => 'warning'
@@ -839,7 +815,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @code should not appear in @key
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@code should not appear in @key',
     'type' => 'warning'
@@ -847,7 +822,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @code should not appear in @sortas
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@code should not appear in @sortas',
     'type' => 'warning'
@@ -855,7 +829,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @ref should not appear anywhere inside @w
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@ref should not appear anywhere inside @w',
     'type' => 'warning'
@@ -863,7 +836,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @ref should not appear in @hyphenation
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => '@ref should not appear in @hyphenation',
     'type' => 'warning'
@@ -871,7 +843,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @ref should not appear in @key
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@ref should not appear in @key',
     'type' => 'warning'
@@ -879,7 +850,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @ref should not appear in @sortas
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@ref should not appear in @sortas',
     'type' => 'warning'
@@ -887,7 +857,6 @@ $result_errors{'contain_plain_text_nestings'} = [
   {
     'error_line' => 'warning: @ref should not appear on @cindex line
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@ref should not appear on @cindex line',
     'type' => 'warning'

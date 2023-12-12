@@ -27,7 +27,6 @@ $result_trees{'invalid_clickstyle'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -52,7 +51,6 @@ $result_trees{'invalid_clickstyle'} = {
                 'clickstyle' => 'result'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -81,7 +79,6 @@ $result_trees{'invalid_clickstyle'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -106,7 +103,6 @@ $result_trees{'invalid_clickstyle'} = {
                 'clickstyle' => 'nocmd'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -129,7 +125,6 @@ $result_trees{'invalid_clickstyle'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         },
@@ -154,7 +149,6 @@ $result_trees{'invalid_clickstyle'} = {
                 'clickstyle' => 'nocmd'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -202,7 +196,6 @@ $result_errors{'invalid_clickstyle'} = [
   {
     'error_line' => 'warning: remaining argument on @clickstyle line: on the same line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'remaining argument on @clickstyle line: on the same line',
     'type' => 'warning'
@@ -211,7 +204,6 @@ $result_errors{'invalid_clickstyle'} = [
     'error_line' => '@clickstyle should only accept an @-command as argument, not ` something
 \'
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@clickstyle should only accept an @-command as argument, not ` something
 \'',

@@ -37,7 +37,6 @@ $result_trees{'sections'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

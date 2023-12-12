@@ -85,7 +85,6 @@ $result_trees{'not_letters_in_prototype'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -99,7 +98,6 @@ $result_trees{'not_letters_in_prototype'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -123,7 +121,6 @@ $result_errors{'not_letters_in_prototype'} = [
   {
     'error_line' => 'warning: empty multitable
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'empty multitable',
     'type' => 'warning'
@@ -131,7 +128,6 @@ $result_errors{'not_letters_in_prototype'} = [
   {
     'error_line' => 'warning: @item in empty multitable
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@item in empty multitable',
     'type' => 'warning'
@@ -139,7 +135,6 @@ $result_errors{'not_letters_in_prototype'} = [
   {
     'error_line' => 'warning: @tab in empty multitable
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@tab in empty multitable',
     'type' => 'warning'
@@ -147,7 +142,6 @@ $result_errors{'not_letters_in_prototype'} = [
   {
     'error_line' => 'warning: @multitable has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@multitable has text but no @item',
     'type' => 'warning'

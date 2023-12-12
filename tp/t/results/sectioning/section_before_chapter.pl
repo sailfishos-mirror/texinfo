@@ -44,7 +44,6 @@ $result_trees{'section_before_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -75,7 +74,6 @@ $result_trees{'section_before_chapter'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }
@@ -134,7 +132,6 @@ $result_errors{'section_before_chapter'} = [
   {
     'error_line' => 'warning: lowering the section level of @chapter appearing after a lower element
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'lowering the section level of @chapter appearing after a lower element',
     'type' => 'warning'

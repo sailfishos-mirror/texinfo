@@ -57,7 +57,6 @@ $result_trees{'footnote_no_node'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -76,7 +75,6 @@ $result_trees{'footnote_no_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

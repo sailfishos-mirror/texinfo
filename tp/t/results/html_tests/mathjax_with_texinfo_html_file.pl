@@ -43,7 +43,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       },
                       'type' => 'balanced_braces'
@@ -61,7 +60,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                           ],
                           'cmdname' => 'copyright',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 2
                           }
                         },
@@ -70,7 +68,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       },
                       'type' => 'balanced_braces'
@@ -81,7 +78,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
               ],
               'cmdname' => 'sup',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -101,7 +97,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
               ],
               'cmdname' => 'dotless',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -136,13 +131,11 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -171,7 +164,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                       ],
                       'cmdname' => 'minus',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     },
@@ -186,7 +178,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                       ],
                       'cmdname' => 'geq',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     },
@@ -201,7 +192,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                       ],
                       'cmdname' => 'AA',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     },
@@ -221,7 +211,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
                       ],
                       'cmdname' => '^',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -231,7 +220,6 @@ $result_trees{'mathjax_with_texinfo_html_file'} = {
               ],
               'cmdname' => 'math',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },

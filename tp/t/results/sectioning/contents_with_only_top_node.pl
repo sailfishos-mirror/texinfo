@@ -59,7 +59,6 @@ $result_trees{'contents_with_only_top_node'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         }
@@ -74,7 +73,6 @@ $result_trees{'contents_with_only_top_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }

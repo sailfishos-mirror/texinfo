@@ -2452,7 +2452,6 @@ $result_errors{'recursive_expansion_in_set'} = [
   {
     'error_line' => 'warning: value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)',
     'type' => 'warning'

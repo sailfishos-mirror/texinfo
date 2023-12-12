@@ -44,7 +44,6 @@ $result_trees{'brace_in_index'} = {
               ],
               'cmdname' => 'math',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -108,13 +107,11 @@ $result_trees{'brace_in_index'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -154,7 +151,6 @@ $result_trees{'brace_in_index'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           },
           'type' => 'index_entry_command'
@@ -181,7 +177,6 @@ $result_trees{'brace_in_index'} = {
                   ],
                   'cmdname' => 'math',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 11
                   }
                 }
@@ -209,7 +204,6 @@ $result_trees{'brace_in_index'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           },
           'type' => 'index_entry_command'
@@ -236,7 +230,6 @@ $result_trees{'brace_in_index'} = {
                   ],
                   'cmdname' => 'samp',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 13
                   }
                 }
@@ -264,7 +257,6 @@ $result_trees{'brace_in_index'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           },
           'type' => 'index_entry_command'
@@ -363,7 +355,6 @@ $result_trees{'brace_in_index'} = {
                 'original_def_cmdname' => 'defun'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               },
               'type' => 'def_line'
@@ -409,7 +400,6 @@ $result_trees{'brace_in_index'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             }
@@ -420,7 +410,6 @@ $result_trees{'brace_in_index'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         }
@@ -469,7 +458,6 @@ $result_errors{'brace_in_index'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -477,7 +465,6 @@ $result_errors{'brace_in_index'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -485,7 +472,6 @@ $result_errors{'brace_in_index'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -493,7 +479,6 @@ $result_errors{'brace_in_index'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'

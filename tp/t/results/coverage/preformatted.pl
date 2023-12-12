@@ -73,13 +73,11 @@ $result_trees{'preformatted'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -109,7 +107,6 @@ $result_trees{'preformatted'} = {
                     {
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       },
                       'type' => 'command_as_argument'
@@ -160,7 +157,6 @@ $result_trees{'preformatted'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 10
                           }
                         }
@@ -216,7 +212,6 @@ $result_trees{'preformatted'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 13
                   }
                 }
@@ -230,7 +225,6 @@ $result_trees{'preformatted'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -261,13 +255,11 @@ $result_trees{'preformatted'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         }
@@ -310,7 +302,6 @@ $result_errors{'preformatted'} = [
   {
     'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'

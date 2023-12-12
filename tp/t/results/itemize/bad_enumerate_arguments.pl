@@ -55,7 +55,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -69,7 +68,6 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -124,7 +122,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -138,7 +135,6 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -164,7 +160,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -207,7 +202,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -221,7 +215,6 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -279,7 +272,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
@@ -293,7 +285,6 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         },
@@ -348,7 +339,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
@@ -362,7 +352,6 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           }
         }
@@ -400,7 +389,6 @@ $result_errors{'bad_enumerate_arguments'} = [
   {
     'error_line' => 'bad argument to @enumerate
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
@@ -408,7 +396,6 @@ $result_errors{'bad_enumerate_arguments'} = [
   {
     'error_line' => 'bad argument to @enumerate
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
@@ -416,7 +403,6 @@ $result_errors{'bad_enumerate_arguments'} = [
   {
     'error_line' => 'bad argument to @enumerate
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'bad argument to @enumerate',
     'type' => 'error'
@@ -424,7 +410,6 @@ $result_errors{'bad_enumerate_arguments'} = [
   {
     'error_line' => 'superfluous argument to @enumerate
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'superfluous argument to @enumerate',
     'type' => 'error'
@@ -432,7 +417,6 @@ $result_errors{'bad_enumerate_arguments'} = [
   {
     'error_line' => 'bad argument to @enumerate
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'bad argument to @enumerate',
     'type' => 'error'

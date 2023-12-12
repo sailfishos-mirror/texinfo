@@ -38,7 +38,6 @@ $result_trees{'split_test_before_first_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -95,7 +94,6 @@ $result_trees{'split_test_before_first_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -193,7 +191,6 @@ $result_trees{'split_test_before_first_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'menu_entry'
@@ -225,13 +222,11 @@ $result_trees{'split_test_before_first_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         },
@@ -248,7 +243,6 @@ $result_trees{'split_test_before_first_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -280,7 +274,6 @@ $result_trees{'split_test_before_first_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 14
       }
     },
@@ -332,7 +325,6 @@ $result_trees{'split_test_before_first_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 15
       }
     }

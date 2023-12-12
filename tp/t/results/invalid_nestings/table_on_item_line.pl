@@ -16,7 +16,6 @@ $result_trees{'table_on_item_line'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -51,7 +50,6 @@ $result_trees{'table_on_item_line'} = {
                                     {
                                       'cmdname' => 'asis',
                                       'source_info' => {
-                                        'file_name' => '',
                                         'line_nr' => 2
                                       },
                                       'type' => 'command_as_argument'
@@ -76,7 +74,6 @@ $result_trees{'table_on_item_line'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 2
                               }
                             }
@@ -91,7 +88,6 @@ $result_trees{'table_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -138,7 +134,6 @@ $result_trees{'table_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -196,7 +191,6 @@ $result_trees{'table_on_item_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -210,7 +204,6 @@ $result_trees{'table_on_item_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -251,7 +244,6 @@ $result_errors{'table_on_item_line'} = [
   {
     'error_line' => 'warning: @table should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@table should only appear at the beginning of a line',
     'type' => 'warning'
@@ -259,7 +251,6 @@ $result_errors{'table_on_item_line'} = [
   {
     'error_line' => 'warning: @table should not appear in @item
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@table should not appear in @item',
     'type' => 'warning'
@@ -267,7 +258,6 @@ $result_errors{'table_on_item_line'} = [
   {
     'error_line' => 'no matching `@end table\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'no matching `@end table\'',
     'type' => 'error'
@@ -275,7 +265,6 @@ $result_errors{'table_on_item_line'} = [
   {
     'error_line' => 'unmatched `@end table\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'unmatched `@end table\'',
     'type' => 'error'

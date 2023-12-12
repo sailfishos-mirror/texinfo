@@ -33,7 +33,6 @@ $result_trees{'no_element'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -65,7 +64,6 @@ $result_trees{'no_element'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -96,7 +94,6 @@ $result_trees{'no_element'} = {
             'normalized' => 'An-anchor'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -137,7 +134,6 @@ $result_trees{'no_element'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -180,7 +176,6 @@ $result_trees{'no_element'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -233,7 +228,6 @@ $result_trees{'no_element'} = {
                         'normalized' => 'Anchor-in-footnote'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -274,7 +268,6 @@ $result_trees{'no_element'} = {
                           ],
                           'cmdname' => 'ref',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 18
                           }
                         },
@@ -291,7 +284,6 @@ $result_trees{'no_element'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -368,7 +360,6 @@ $result_trees{'no_element'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               }
             }
@@ -384,7 +375,6 @@ $result_trees{'no_element'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 21
           }
         },
@@ -420,7 +410,6 @@ $result_trees{'no_element'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             },
@@ -492,7 +481,6 @@ $result_trees{'no_element'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               },
               'type' => 'menu_entry'
@@ -524,13 +512,11 @@ $result_trees{'no_element'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 28
           }
         },
@@ -570,7 +556,6 @@ $result_trees{'no_element'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 32
           },
           'type' => 'index_entry_command'
@@ -647,7 +632,6 @@ $result_errors{'no_element'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 32,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -725,7 +709,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
   {
     'error_line' => 'warning: @anchor outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@anchor outside of any node',
     'type' => 'warning'
@@ -733,7 +716,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
   {
     'error_line' => 'warning: @footnote outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@footnote outside of any node',
     'type' => 'warning'
@@ -741,7 +723,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
   {
     'error_line' => 'warning: @float outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 21,
     'text' => '@float outside of any node',
     'type' => 'warning'
@@ -749,7 +730,6 @@ $result_converted_errors{'info'}->{'no_element'} = [
   {
     'error_line' => 'warning: @anchor outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@anchor outside of any node',
     'type' => 'warning'

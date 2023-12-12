@@ -39,7 +39,6 @@ $result_trees{'recursive_alias'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -78,7 +77,6 @@ $result_trees{'recursive_alias'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -117,7 +115,6 @@ $result_trees{'recursive_alias'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -144,7 +141,6 @@ $result_trees{'recursive_alias'} = {
                 'alias_of' => 'other'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -200,7 +196,6 @@ $result_errors{'recursive_alias'} = [
   {
     'error_line' => 'warning: recursive alias definition of strong through other ignored
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'recursive alias definition of strong through other ignored',
     'type' => 'warning'
@@ -208,7 +203,6 @@ $result_errors{'recursive_alias'} = [
   {
     'error_line' => 'unknown command `other\'
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'unknown command `other\'',
     'type' => 'error'
@@ -216,7 +210,6 @@ $result_errors{'recursive_alias'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -224,7 +217,6 @@ $result_errors{'recursive_alias'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'misplaced }',
     'type' => 'error'

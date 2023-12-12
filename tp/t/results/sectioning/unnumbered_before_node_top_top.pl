@@ -53,7 +53,6 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -102,7 +101,6 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -135,7 +133,6 @@ $result_trees{'unnumbered_before_node_top_top'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 5
         }
       },
@@ -351,7 +348,6 @@ $result_errors{'unnumbered_before_node_top_top'} = [
   {
     'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'

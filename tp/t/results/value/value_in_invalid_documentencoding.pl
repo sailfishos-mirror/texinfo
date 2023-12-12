@@ -83,7 +83,6 @@ $result_trees{'value_in_invalid_documentencoding'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         }
@@ -105,7 +104,6 @@ $result_errors{'value_in_invalid_documentencoding'} = [
   {
     'error_line' => 'warning: encoding `bad\' is not a canonical texinfo encoding
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'encoding `bad\' is not a canonical texinfo encoding',
     'type' => 'warning'
@@ -113,7 +111,6 @@ $result_errors{'value_in_invalid_documentencoding'} = [
   {
     'error_line' => 'warning: unhandled encoding name `bad\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'unhandled encoding name `bad\'',
     'type' => 'warning'

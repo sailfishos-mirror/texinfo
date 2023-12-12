@@ -69,14 +69,12 @@ $result_trees{'menu_no_closed_in_description'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               },
               'type' => 'menu_entry'
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -99,7 +97,6 @@ $result_errors{'menu_no_closed_in_description'} = [
   {
     'error_line' => 'no matching `@end menu\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'no matching `@end menu\'',
     'type' => 'error'

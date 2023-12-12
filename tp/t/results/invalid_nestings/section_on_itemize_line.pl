@@ -21,7 +21,6 @@ $result_trees{'section_on_itemize_line'} = {
                   ],
                   'cmdname' => 'minus',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -45,7 +44,6 @@ $result_trees{'section_on_itemize_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -88,7 +86,6 @@ $result_trees{'section_on_itemize_line'} = {
                   ],
                   'cmdname' => 'minus',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 },
@@ -111,7 +108,6 @@ $result_trees{'section_on_itemize_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -125,7 +121,6 @@ $result_trees{'section_on_itemize_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -175,7 +170,6 @@ $result_trees{'section_on_itemize_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -189,7 +183,6 @@ $result_trees{'section_on_itemize_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -229,7 +222,6 @@ $result_trees{'section_on_itemize_line'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -244,7 +236,6 @@ $result_trees{'section_on_itemize_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -258,7 +249,6 @@ $result_trees{'section_on_itemize_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -289,7 +279,6 @@ $result_trees{'section_on_itemize_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }
@@ -390,7 +379,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -398,7 +386,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @itemize line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should not appear on @itemize line',
     'type' => 'warning'
@@ -406,7 +393,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => '@section seen before @end itemize
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section seen before @end itemize',
     'type' => 'error'
@@ -414,7 +400,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -422,7 +407,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @itemize line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should not appear on @itemize line',
     'type' => 'warning'
@@ -430,7 +414,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => '@section seen before @end itemize
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section seen before @end itemize',
     'type' => 'error'
@@ -438,7 +421,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @itemize line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section should not appear on @itemize line',
     'type' => 'warning'
@@ -446,7 +428,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => '@section seen before @end itemize
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section seen before @end itemize',
     'type' => 'error'
@@ -454,7 +435,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => '@ringaccent expected braces
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@ringaccent expected braces',
     'type' => 'error'
@@ -462,7 +442,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -470,7 +449,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @itemize line
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@section should not appear on @itemize line',
     'type' => 'warning'
@@ -478,7 +456,6 @@ $result_errors{'section_on_itemize_line'} = [
   {
     'error_line' => '@section seen before @end itemize
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@section seen before @end itemize',
     'type' => 'error'

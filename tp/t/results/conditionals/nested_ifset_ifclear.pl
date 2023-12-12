@@ -90,7 +90,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
@@ -100,7 +99,6 @@ $result_trees{'nested_ifset_ifclear'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -185,7 +183,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 15,
                   'macro' => 'conditionals'
                 }
@@ -219,7 +216,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 15,
                   'macro' => 'conditionals'
                 }
@@ -262,7 +258,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 15,
                       'macro' => 'conditionals'
                     }
@@ -324,7 +319,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                           }
                         },
                         'source_info' => {
-                          'file_name' => '',
                           'line_nr' => 15,
                           'macro' => 'conditionals'
                         }
@@ -336,7 +330,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 15,
                       'macro' => 'conditionals'
                     }
@@ -381,7 +374,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 15,
                       'macro' => 'conditionals'
                     }
@@ -474,7 +466,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 19,
                   'macro' => 'conditionals'
                 }
@@ -535,7 +526,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 19,
                       'macro' => 'conditionals'
                     }
@@ -547,7 +537,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 19,
                   'macro' => 'conditionals'
                 }
@@ -580,7 +569,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 19,
                   'macro' => 'conditionals'
                 }
@@ -623,7 +611,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 19,
                       'macro' => 'conditionals'
                     }
@@ -669,7 +656,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 19,
                       'macro' => 'conditionals'
                     }
@@ -796,7 +782,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 23,
                                 'macro' => 'conditionals'
                               }
@@ -858,7 +843,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 23,
                       'macro' => 'conditionals'
                     }
@@ -870,7 +854,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 23,
                   'macro' => 'conditionals'
                 }
@@ -986,7 +969,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 27,
                                 'macro' => 'conditionals'
                               }
@@ -1048,7 +1030,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 27,
                       'macro' => 'conditionals'
                     }
@@ -1060,7 +1041,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 27,
                   'macro' => 'conditionals'
                 }

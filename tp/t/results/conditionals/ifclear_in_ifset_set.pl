@@ -59,7 +59,6 @@ $result_trees{'ifclear_in_ifset_set'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 4
                 }
               },
@@ -102,7 +101,6 @@ $result_trees{'ifclear_in_ifset_set'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 5
                 }
               },
@@ -142,7 +140,6 @@ $result_trees{'ifclear_in_ifset_set'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -179,7 +176,6 @@ $result_errors{'ifclear_in_ifset_set'} = [
   {
     'error_line' => 'warning: unknown @end junky
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'unknown @end junky',
     'type' => 'warning'
@@ -187,7 +183,6 @@ $result_errors{'ifclear_in_ifset_set'} = [
   {
     'error_line' => 'unmatched `@end ifset\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
@@ -195,7 +190,6 @@ $result_errors{'ifclear_in_ifset_set'} = [
   {
     'error_line' => 'expected @end ifclear
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'expected @end ifclear',
     'type' => 'error'
@@ -203,7 +197,6 @@ $result_errors{'ifclear_in_ifset_set'} = [
   {
     'error_line' => 'expected @end ifset
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'expected @end ifset',
     'type' => 'error'

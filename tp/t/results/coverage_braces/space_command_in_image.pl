@@ -39,7 +39,6 @@ $result_trees{'space_command_in_image'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -76,7 +75,6 @@ $result_trees{'space_command_in_image'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

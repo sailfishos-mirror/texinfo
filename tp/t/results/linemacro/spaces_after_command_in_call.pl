@@ -72,7 +72,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -82,7 +81,6 @@ $result_trees{'spaces_after_command_in_call'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -195,7 +193,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7,
                         'macro' => 'mylinecommand'
                       }
@@ -241,7 +238,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7,
                         'macro' => 'mylinecommand'
                       }
@@ -294,7 +290,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'mylinecommand'
               },
@@ -335,14 +330,12 @@ $result_trees{'spaces_after_command_in_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'mylinecommand'
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7,
             'macro' => 'mylinecommand'
           }

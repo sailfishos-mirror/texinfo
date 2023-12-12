@@ -34,7 +34,6 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       },
                       'type' => 'balanced_braces'
@@ -45,7 +44,6 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
               ],
               'cmdname' => 'math',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -72,7 +70,6 @@ $result_errors{'math_bracketed_not_closed_next_line'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -80,7 +77,6 @@ $result_errors{'math_bracketed_not_closed_next_line'} = [
   {
     'error_line' => '@math missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@math missing closing brace',
     'type' => 'error'

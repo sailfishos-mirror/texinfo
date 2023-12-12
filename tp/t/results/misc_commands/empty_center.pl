@@ -23,7 +23,6 @@ $result_trees{'empty_center'} = {
           ],
           'cmdname' => 'center',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -45,7 +44,6 @@ $result_errors{'empty_center'} = [
   {
     'error_line' => 'warning: @center missing argument
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@center missing argument',
     'type' => 'warning'

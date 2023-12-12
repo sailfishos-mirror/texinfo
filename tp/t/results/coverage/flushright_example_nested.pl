@@ -78,13 +78,11 @@ $result_trees{'flushright_example_nested'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -115,13 +113,11 @@ $result_trees{'flushright_example_nested'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -203,13 +199,11 @@ $result_trees{'flushright_example_nested'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 13
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -240,13 +234,11 @@ $result_trees{'flushright_example_nested'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         }

@@ -63,13 +63,11 @@ $result_trees{'misc_raw'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -124,7 +122,6 @@ $result_trees{'misc_raw'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -135,7 +132,6 @@ $result_trees{'misc_raw'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -195,13 +191,11 @@ $result_trees{'misc_raw'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         }
@@ -237,7 +231,6 @@ $result_errors{'misc_raw'} = [
   {
     'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
@@ -245,7 +238,6 @@ $result_errors{'misc_raw'} = [
   {
     'error_line' => 'warning: unexpected argument on @tex line: in tex
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'unexpected argument on @tex line: in tex',
     'type' => 'warning'

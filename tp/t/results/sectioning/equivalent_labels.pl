@@ -51,7 +51,6 @@ $result_trees{'equivalent_labels'} = {
                   ],
                   'cmdname' => 'samp',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 }
@@ -65,7 +64,6 @@ $result_trees{'equivalent_labels'} = {
             'normalized' => 'anch'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -149,7 +147,6 @@ $result_trees{'equivalent_labels'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -165,7 +162,6 @@ $result_trees{'equivalent_labels'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -230,7 +226,6 @@ $result_trees{'equivalent_labels'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'menu_entry'
@@ -256,7 +251,6 @@ $result_trees{'equivalent_labels'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     }
@@ -291,7 +285,6 @@ $result_trees{'equivalent_labels'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'menu_entry'
@@ -323,13 +316,11 @@ $result_trees{'equivalent_labels'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         }
@@ -344,7 +335,6 @@ $result_trees{'equivalent_labels'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -403,7 +393,6 @@ $result_errors{'equivalent_labels'} = [
   {
     'error_line' => 'warning: @menu entry node name `anch\' different from anchor name `@samp{anch}\'
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@menu entry node name `anch\' different from anchor name `@samp{anch}\'',
     'type' => 'warning'
@@ -411,7 +400,6 @@ $result_errors{'equivalent_labels'} = [
   {
     'error_line' => 'warning: @menu entry node name `@code{floa}\' different from float name `floa\'
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@menu entry node name `@code{floa}\' different from float name `floa\'',
     'type' => 'warning'

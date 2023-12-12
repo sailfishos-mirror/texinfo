@@ -75,7 +75,6 @@ $result_trees{'empty_set_in_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 5
                     }
                   }
@@ -86,7 +85,6 @@ $result_trees{'empty_set_in_ifclear'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 3
                 }
               },

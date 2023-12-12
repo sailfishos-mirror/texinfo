@@ -116,7 +116,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -205,7 +204,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -272,7 +270,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -344,7 +341,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'menu_entry'
@@ -396,7 +392,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'menu_entry'
@@ -443,7 +438,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'menu_entry'
@@ -475,13 +469,11 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -498,7 +490,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -561,7 +552,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 14
       }
     },
@@ -652,7 +642,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 16
       }
     },
@@ -716,7 +705,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             },
@@ -737,7 +725,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 17
       }
     }
@@ -1030,7 +1017,6 @@ $result_converted_errors{'html'}->{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: no htmlxref.cnf entry found for `../there/no_existing_no_manual_direction\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'no htmlxref.cnf entry found for `../there/no_existing_no_manual_direction\'',
     'type' => 'warning'
@@ -1038,7 +1024,6 @@ $result_converted_errors{'html'}->{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'no htmlxref.cnf entry found for `no_existing_no_manual.info\'',
     'type' => 'warning'
@@ -1046,7 +1031,6 @@ $result_converted_errors{'html'}->{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'no htmlxref.cnf entry found for `no_existing_no_manual.info\'',
     'type' => 'warning'
@@ -1054,7 +1038,6 @@ $result_converted_errors{'html'}->{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => 'no htmlxref.cnf entry found for `no_existing_no_manual.info\'',
     'type' => 'warning'
@@ -1062,7 +1045,6 @@ $result_converted_errors{'html'}->{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: no htmlxref.cnf entry found for `chap_not_existing\'
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => 'no htmlxref.cnf entry found for `chap_not_existing\'',
     'type' => 'warning'
@@ -1070,7 +1052,6 @@ $result_converted_errors{'html'}->{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: no htmlxref.cnf entry found for `dir\'
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => 'no htmlxref.cnf entry found for `dir\'',
     'type' => 'warning'
@@ -1078,7 +1059,6 @@ $result_converted_errors{'html'}->{'check_htmlxref_ignore_ref_top_up'} = [
   {
     'error_line' => 'warning: no htmlxref.cnf entry found for `some_name_inf.inf\'
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => 'no htmlxref.cnf entry found for `some_name_inf.inf\'',
     'type' => 'warning'

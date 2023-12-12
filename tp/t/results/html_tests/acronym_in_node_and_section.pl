@@ -38,7 +38,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -74,7 +73,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -106,7 +104,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -144,7 +141,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -176,7 +172,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     },
@@ -232,7 +227,6 @@ $result_trees{'acronym_in_node_and_section'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -258,7 +252,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -282,7 +275,6 @@ $result_trees{'acronym_in_node_and_section'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
@@ -307,7 +299,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     },
@@ -331,7 +322,6 @@ $result_trees{'acronym_in_node_and_section'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -370,7 +360,6 @@ $result_trees{'acronym_in_node_and_section'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -391,7 +380,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     }

@@ -56,7 +56,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -88,7 +87,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -172,7 +170,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'menu_entry'
@@ -219,7 +216,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'menu_entry'
@@ -251,13 +247,11 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -276,7 +270,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -326,7 +319,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     },
@@ -365,7 +357,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 17
       }
     },
@@ -415,7 +406,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 19
       }
     },
@@ -447,7 +437,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 23
       }
     },
@@ -497,7 +486,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 24
       }
     },
@@ -536,7 +524,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 28
       }
     },
@@ -586,7 +573,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 30
       }
     },
@@ -636,7 +622,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 34
       }
     },
@@ -675,7 +660,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 38
       }
     },
@@ -725,7 +709,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 40
       }
     },
@@ -764,7 +747,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 44
       }
     },
@@ -803,7 +785,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 46
       }
     }
@@ -1233,7 +1214,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part should not be associated with @top
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@part should not be associated with @top',
     'type' => 'warning'
@@ -1241,7 +1221,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
-    'file_name' => '',
     'line_nr' => 24,
     'text' => '@node precedes @part, but parts may not be associated with nodes',
     'type' => 'warning'
@@ -1249,7 +1228,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: no sectioning command associated with @part
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => 'no sectioning command associated with @part',
     'type' => 'warning'
@@ -1257,7 +1235,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: no sectioning command associated with @part
 ',
-    'file_name' => '',
     'line_nr' => 30,
     'text' => 'no sectioning command associated with @part',
     'type' => 'warning'
@@ -1265,7 +1242,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -1273,7 +1249,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -1281,7 +1256,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -1289,7 +1263,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 24,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -1297,7 +1270,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 30,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -1305,7 +1277,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 34,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -1313,7 +1284,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: @part not empty
 ',
-    'file_name' => '',
     'line_nr' => 40,
     'text' => '@part not empty',
     'type' => 'warning'
@@ -1321,7 +1291,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => '@menu reference to nonexistent node `chapter node\'
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@menu reference to nonexistent node `chapter node\'',
     'type' => 'error'
@@ -1329,7 +1298,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: node `Top\' lacks menu item for `node between part and chapter\' despite being its Up target
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'node `Top\' lacks menu item for `node between part and chapter\' despite being its Up target',
     'type' => 'warning'
@@ -1337,7 +1305,6 @@ $result_errors{'non_empty_part_no_top_node_output'} = [
   {
     'error_line' => 'warning: node `node between part and chapter\' unreferenced
 ',
-    'file_name' => '',
     'line_nr' => 44,
     'text' => 'node `node between part and chapter\' unreferenced',
     'type' => 'warning'

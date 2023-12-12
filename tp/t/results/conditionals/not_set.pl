@@ -74,7 +74,6 @@ $result_trees{'not_set'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 5
                     }
                   }
@@ -85,7 +84,6 @@ $result_trees{'not_set'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },

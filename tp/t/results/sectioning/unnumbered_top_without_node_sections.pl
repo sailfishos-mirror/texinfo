@@ -53,7 +53,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -121,7 +120,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 1
         }
       },
@@ -171,7 +169,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -224,7 +221,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -284,7 +280,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 9
         }
       },
@@ -699,7 +694,6 @@ $result_errors{'unnumbered_top_without_node_sections'} = [
   {
     'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'
@@ -707,7 +701,6 @@ $result_errors{'unnumbered_top_without_node_sections'} = [
   {
     'error_line' => 'warning: node `second\' unreferenced
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'node `second\' unreferenced',
     'type' => 'warning'

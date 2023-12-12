@@ -50,7 +50,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                 'format' => 'plaintext'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -67,7 +66,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               ],
               'cmdname' => 'lbracechar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -111,7 +109,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                 'format' => 'html'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -136,7 +133,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -175,7 +171,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
   {
     'error_line' => '@inlinefmt missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@inlinefmt missing closing brace',
     'type' => 'error'
@@ -183,7 +178,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'misplaced }',
     'type' => 'error'
@@ -191,7 +185,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
   {
     'error_line' => '@inlinefmt missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@inlinefmt missing closing brace',
     'type' => 'error'
@@ -199,7 +192,6 @@ $result_errors{'inlinefmt_with_empty_line'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'misplaced }',
     'type' => 'error'

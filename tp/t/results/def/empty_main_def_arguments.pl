@@ -37,7 +37,6 @@ $result_trees{'empty_main_def_arguments'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -69,7 +68,6 @@ $result_trees{'empty_main_def_arguments'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -80,7 +78,6 @@ $result_trees{'empty_main_def_arguments'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -103,7 +100,6 @@ $result_errors{'empty_main_def_arguments'} = [
   {
     'error_line' => 'warning: missing name for @deffn
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'missing name for @deffn',
     'type' => 'warning'

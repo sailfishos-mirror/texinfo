@@ -25,7 +25,6 @@ $result_trees{'section_on_multitable_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -73,7 +72,6 @@ $result_trees{'section_on_multitable_line'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 }
@@ -96,7 +94,6 @@ $result_trees{'section_on_multitable_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -110,7 +107,6 @@ $result_trees{'section_on_multitable_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -149,7 +145,6 @@ $result_trees{'section_on_multitable_line'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   },
                   'type' => 'bracketed_arg'
@@ -164,7 +159,6 @@ $result_trees{'section_on_multitable_line'} = {
                     }
                   ],
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 5
                   },
                   'type' => 'bracketed_arg'
@@ -188,7 +182,6 @@ $result_trees{'section_on_multitable_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         }
@@ -202,7 +195,6 @@ $result_trees{'section_on_multitable_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -233,7 +225,6 @@ $result_trees{'section_on_multitable_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -312,7 +303,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @multitable line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section should not appear on @multitable line',
     'type' => 'warning'
@@ -320,7 +310,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: empty multitable
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'empty multitable',
     'type' => 'warning'
@@ -328,7 +317,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => '@section seen before @end multitable
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@section seen before @end multitable',
     'type' => 'error'
@@ -336,7 +324,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -344,7 +331,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @multitable line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section should not appear on @multitable line',
     'type' => 'warning'
@@ -352,7 +338,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: unexpected argument on @multitable line: @code{this}
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'unexpected argument on @multitable line: @code{this}',
     'type' => 'warning'
@@ -360,7 +345,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: empty multitable
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'empty multitable',
     'type' => 'warning'
@@ -368,7 +352,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => '@section seen before @end multitable
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@section seen before @end multitable',
     'type' => 'error'
@@ -376,7 +359,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section should only appear at the beginning of a line',
     'type' => 'warning'
@@ -384,7 +366,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => 'warning: @section should not appear on @multitable line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section should not appear on @multitable line',
     'type' => 'warning'
@@ -392,7 +373,6 @@ $result_errors{'section_on_multitable_line'} = [
   {
     'error_line' => '@section seen before @end multitable
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section seen before @end multitable',
     'type' => 'error'

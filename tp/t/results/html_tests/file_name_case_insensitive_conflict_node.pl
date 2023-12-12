@@ -43,7 +43,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -156,7 +153,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
             'normalized' => 'fOO'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -180,7 +176,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -212,7 +207,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -250,7 +244,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -282,7 +275,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     },
@@ -320,7 +312,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     },
@@ -352,7 +343,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 15
       }
     },
@@ -403,7 +393,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             },
@@ -442,7 +431,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               }
             },
@@ -463,7 +451,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 16
       }
     }
@@ -751,7 +738,6 @@ $result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_nod
   {
     'error_line' => 'warning: @anchor `fOO\' file Foo.html for redirection exists
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@anchor `fOO\' file Foo.html for redirection exists',
     'type' => 'warning'
@@ -760,7 +746,6 @@ $result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_nod
     'continuation' => 1,
     'error_line' => 'warning: conflict with @node `Foo\' file
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'conflict with @node `Foo\' file',
     'type' => 'warning'
@@ -768,7 +753,6 @@ $result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_nod
   {
     'error_line' => 'warning: @node `foo\' file Foo.html for redirection exists
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@node `foo\' file Foo.html for redirection exists',
     'type' => 'warning'
@@ -777,7 +761,6 @@ $result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_nod
     'continuation' => 1,
     'error_line' => 'warning: conflict with @node `Foo\' file
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'conflict with @node `Foo\' file',
     'type' => 'warning'

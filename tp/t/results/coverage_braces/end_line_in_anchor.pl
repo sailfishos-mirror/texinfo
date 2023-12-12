@@ -30,7 +30,6 @@ $result_trees{'end_line_in_anchor'} = {
             'normalized' => 'an-anchor'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },

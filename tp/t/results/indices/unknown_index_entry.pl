@@ -40,7 +40,6 @@ $result_errors{'unknown_index_entry'} = [
   {
     'error_line' => 'unknown command `someindex\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unknown command `someindex\'',
     'type' => 'error'

@@ -43,7 +43,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -143,7 +142,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -254,7 +252,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -275,7 +272,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'atchar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -290,7 +286,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'lbracechar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -305,7 +300,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'rbracechar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -320,7 +314,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'backslashchar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -335,7 +328,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'hashchar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -378,7 +370,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -399,7 +390,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'LaTeX',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -414,7 +404,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'TeX',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -429,7 +418,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'bullet',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -444,7 +432,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'comma',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -459,7 +446,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'copyright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -474,7 +460,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dots',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -489,7 +474,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'enddots',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -536,7 +520,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'menu_entry'
@@ -557,7 +540,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'equiv',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -572,7 +554,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'error',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -587,7 +568,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'euro',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -602,7 +582,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'exclamdown',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -617,7 +596,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'expansion',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -632,7 +610,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'minus',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     }
@@ -677,7 +654,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'menu_entry'
@@ -698,7 +674,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'geq',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     },
@@ -713,7 +688,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'leq',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     },
@@ -728,7 +702,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'arrow',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -767,7 +740,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'menu_entry'
@@ -788,7 +760,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ordf',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -803,7 +774,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ordm',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -818,7 +788,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'point',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -833,7 +802,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'pounds',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -848,7 +816,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'print',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -863,7 +830,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'questiondown',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -878,7 +844,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'registeredsymbol',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     }
@@ -925,7 +890,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'menu_entry'
@@ -946,7 +910,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'result',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -961,7 +924,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'textdegree',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -976,7 +938,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'tie',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -991,7 +952,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'today',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     },
@@ -1006,7 +966,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'aa',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       }
                     }
@@ -1049,7 +1008,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               },
               'type' => 'menu_entry'
@@ -1070,7 +1028,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'AA',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1085,7 +1042,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ae',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1100,7 +1056,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'oe',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1115,7 +1070,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'AE',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1130,7 +1084,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'OE',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1145,7 +1098,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'o',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1160,7 +1112,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'O',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1175,7 +1126,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ss',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1190,7 +1140,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'l',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1205,7 +1154,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'L',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1220,7 +1168,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'DH',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1235,7 +1182,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dh',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1250,7 +1196,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'TH',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     },
@@ -1265,7 +1210,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'th',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     }
@@ -1326,7 +1270,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               },
               'type' => 'menu_entry'
@@ -1352,7 +1295,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1372,7 +1314,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1396,7 +1337,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'dotless',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 14
                               }
                             }
@@ -1406,7 +1346,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '^',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1426,7 +1365,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '^',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1446,7 +1384,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '`',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1466,7 +1403,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '\'',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1486,7 +1422,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => ',',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1506,7 +1441,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '=',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1526,7 +1460,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ringaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1546,7 +1479,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'H',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     },
@@ -1566,7 +1498,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ogonek',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     }
@@ -1621,7 +1552,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               },
               'type' => 'menu_entry'
@@ -1647,7 +1577,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -1667,7 +1596,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'u',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -1687,7 +1615,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ubaraccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -1707,7 +1634,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'udotaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -1727,7 +1653,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'v',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -1747,7 +1672,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     },
@@ -1767,7 +1691,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'tieaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     }
@@ -1814,7 +1737,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               },
               'type' => 'menu_entry'
@@ -1840,7 +1762,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     },
@@ -1864,7 +1785,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => '=',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 16
                               }
                             }
@@ -1874,7 +1794,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '`',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     },
@@ -1898,7 +1817,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => '\'',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 16
                               }
                             }
@@ -1908,7 +1826,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => ',',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -1947,7 +1864,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               },
               'type' => 'menu_entry'
@@ -1968,7 +1884,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     },
@@ -1983,7 +1898,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotedblright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     },
@@ -1998,7 +1912,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quoteleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     },
@@ -2013,7 +1926,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quoteright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     },
@@ -2028,7 +1940,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotedblbase',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     },
@@ -2043,7 +1954,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotesinglbase',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     }
@@ -2088,7 +1998,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               },
               'type' => 'menu_entry'
@@ -2109,7 +2018,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemetleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     },
@@ -2124,7 +2032,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemetright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     },
@@ -2139,7 +2046,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemotleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     },
@@ -2154,7 +2060,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemotright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     },
@@ -2169,7 +2074,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guilsinglleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     },
@@ -2184,7 +2088,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guilsinglright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     }
@@ -2229,7 +2132,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               },
               'type' => 'menu_entry'
@@ -2276,7 +2178,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               },
               'type' => 'menu_entry'
@@ -2315,7 +2216,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 20
                       }
                     },
@@ -2335,7 +2235,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 20
                       }
                     },
@@ -2355,7 +2254,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 20
                       }
                     }
@@ -2394,7 +2292,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               },
               'type' => 'menu_entry'
@@ -2433,7 +2330,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'abbr',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 21
                       }
                     },
@@ -2453,7 +2349,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'abbr',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 21
                       }
                     },
@@ -2473,7 +2368,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'abbr',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 21
                       }
                     }
@@ -2512,7 +2406,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               },
               'type' => 'menu_entry'
@@ -2557,7 +2450,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'email',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 22
                       }
                     },
@@ -2583,7 +2475,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'email',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 22
                       }
                     }
@@ -2620,7 +2511,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               },
               'type' => 'menu_entry'
@@ -2649,7 +2539,6 @@ $result_trees{'at_commands_in_refs'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 23
                       }
                     },
@@ -2704,7 +2593,6 @@ $result_trees{'at_commands_in_refs'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 23
                       }
                     }
@@ -2741,7 +2629,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 23
               },
               'type' => 'menu_entry'
@@ -2771,7 +2658,6 @@ $result_trees{'at_commands_in_refs'} = {
                         'delimiter' => '.'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 24
                       }
                     }
@@ -2806,7 +2692,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               },
               'type' => 'menu_entry'
@@ -2839,7 +2724,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'asis',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 25
                               }
                             }
@@ -2849,7 +2733,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'cite',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -2882,7 +2765,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'b',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 25
                               }
                             }
@@ -2892,7 +2774,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'w',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -2912,7 +2793,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'r',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -2932,7 +2812,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -2952,7 +2831,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -2972,7 +2850,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 't',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -2992,7 +2869,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'var',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -3012,7 +2888,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dfn',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     },
@@ -3032,7 +2907,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'i',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     }
@@ -3083,7 +2957,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               },
               'type' => 'menu_entry'
@@ -3109,7 +2982,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'env',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     },
@@ -3129,7 +3001,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     },
@@ -3149,7 +3020,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'option',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     },
@@ -3169,7 +3039,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'samp',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     },
@@ -3189,7 +3058,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'command',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     },
@@ -3209,7 +3077,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'file',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     },
@@ -3236,7 +3103,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'key',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 26
                               }
                             }
@@ -3246,7 +3112,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'kbd',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 26
                       }
                     }
@@ -3293,7 +3158,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               },
               'type' => 'menu_entry'
@@ -3322,7 +3186,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dmn',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 27
                       }
                     }
@@ -3358,7 +3221,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               },
               'type' => 'menu_entry'
@@ -3384,7 +3246,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sansserif',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       }
                     },
@@ -3404,7 +3265,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'slanted',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       }
                     }
@@ -3441,7 +3301,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               },
               'type' => 'menu_entry'
@@ -3467,7 +3326,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'indicateurl',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 29
                       }
                     }
@@ -3502,7 +3360,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               },
               'type' => 'menu_entry'
@@ -3528,7 +3385,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sub',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 30
                       }
                     },
@@ -3548,7 +3404,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sup',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 30
                       }
                     }
@@ -3585,7 +3440,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 30
               },
               'type' => 'menu_entry'
@@ -3611,7 +3465,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31
                       }
                     },
@@ -3644,7 +3497,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31
                       }
                     },
@@ -3675,7 +3527,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'uref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31
                       }
                     }
@@ -3714,7 +3565,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 31
               },
               'type' => 'menu_entry'
@@ -3746,13 +3596,11 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 32
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -3769,7 +3617,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -3813,7 +3660,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 34
       }
     },
@@ -3863,7 +3709,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 35
       }
     },
@@ -3943,7 +3788,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 37
       }
     },
@@ -4029,7 +3873,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 38
       }
     },
@@ -4045,7 +3888,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'atchar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 40
               }
             },
@@ -4060,7 +3902,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'lbracechar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 40
               }
             },
@@ -4075,7 +3916,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'rbracechar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 40
               }
             },
@@ -4090,7 +3930,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'backslashchar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 40
               }
             },
@@ -4105,7 +3944,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'hashchar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 40
               }
             }
@@ -4130,7 +3968,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 40
       }
     },
@@ -4146,7 +3983,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'atchar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               }
             },
@@ -4161,7 +3997,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'lbracechar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               }
             },
@@ -4176,7 +4011,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'rbracechar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               }
             },
@@ -4191,7 +4025,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'backslashchar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               }
             },
@@ -4206,7 +4039,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'hashchar',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               }
             }
@@ -4237,7 +4069,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 41
       }
     },
@@ -4253,7 +4084,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'LaTeX',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             },
@@ -4268,7 +4098,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'TeX',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             },
@@ -4283,7 +4112,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'bullet',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             },
@@ -4298,7 +4126,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'comma',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             },
@@ -4313,7 +4140,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'copyright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             },
@@ -4328,7 +4154,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             },
@@ -4343,7 +4168,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 43
               }
             }
@@ -4368,7 +4192,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 43
       }
     },
@@ -4384,7 +4207,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'LaTeX',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             },
@@ -4399,7 +4221,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'TeX',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             },
@@ -4414,7 +4235,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'bullet',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             },
@@ -4429,7 +4249,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'comma',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             },
@@ -4444,7 +4263,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'copyright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             },
@@ -4459,7 +4277,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             },
@@ -4474,7 +4291,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 44
               }
             }
@@ -4505,7 +4321,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 44
       }
     },
@@ -4521,7 +4336,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'equiv',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             },
@@ -4536,7 +4350,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             },
@@ -4551,7 +4364,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'euro',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             },
@@ -4566,7 +4378,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'exclamdown',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             },
@@ -4581,7 +4392,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'expansion',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             },
@@ -4596,7 +4406,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'minus',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 46
               }
             }
@@ -4621,7 +4430,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 46
       }
     },
@@ -4637,7 +4445,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'equiv',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             },
@@ -4652,7 +4459,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             },
@@ -4667,7 +4473,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'euro',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             },
@@ -4682,7 +4487,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'exclamdown',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             },
@@ -4697,7 +4501,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'expansion',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             },
@@ -4712,7 +4515,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'minus',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 47
               }
             }
@@ -4743,7 +4545,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 47
       }
     },
@@ -4759,7 +4560,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'geq',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 49
               }
             },
@@ -4774,7 +4574,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'leq',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 49
               }
             },
@@ -4789,7 +4588,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'arrow',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 49
               }
             }
@@ -4814,7 +4612,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 49
       }
     },
@@ -4830,7 +4627,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'geq',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 50
               }
             },
@@ -4845,7 +4641,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'leq',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 50
               }
             },
@@ -4860,7 +4655,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'arrow',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 50
               }
             }
@@ -4891,7 +4685,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 50
       }
     },
@@ -4907,7 +4700,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ordf',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               }
             },
@@ -4922,7 +4714,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ordm',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               }
             },
@@ -4937,7 +4728,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'point',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               }
             },
@@ -4952,7 +4742,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'pounds',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               }
             },
@@ -4967,7 +4756,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'print',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               }
             },
@@ -4982,7 +4770,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'questiondown',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               }
             },
@@ -4997,7 +4784,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'registeredsymbol',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 52
               }
             }
@@ -5022,7 +4808,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 52
       }
     },
@@ -5038,7 +4823,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ordf',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 53
               }
             },
@@ -5053,7 +4837,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ordm',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 53
               }
             },
@@ -5068,7 +4851,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'point',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 53
               }
             },
@@ -5083,7 +4865,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'pounds',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 53
               }
             },
@@ -5098,7 +4879,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'print',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 53
               }
             },
@@ -5113,7 +4893,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'questiondown',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 53
               }
             },
@@ -5128,7 +4907,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'registeredsymbol',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 53
               }
             }
@@ -5159,7 +4937,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 53
       }
     },
@@ -5175,7 +4952,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'result',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 55
               }
             },
@@ -5190,7 +4966,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'textdegree',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 55
               }
             },
@@ -5205,7 +4980,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'tie',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 55
               }
             },
@@ -5220,7 +4994,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'today',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 55
               }
             },
@@ -5235,7 +5008,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'aa',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 55
               }
             }
@@ -5260,7 +5032,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 55
       }
     },
@@ -5276,7 +5047,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'result',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               }
             },
@@ -5291,7 +5061,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'textdegree',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               }
             },
@@ -5306,7 +5075,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'tie',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               }
             },
@@ -5321,7 +5089,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'today',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               }
             },
@@ -5336,7 +5103,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'aa',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 56
               }
             }
@@ -5367,7 +5133,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 56
       }
     },
@@ -5383,7 +5148,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'AA',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5398,7 +5162,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ae',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5413,7 +5176,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'oe',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5428,7 +5190,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'AE',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5443,7 +5204,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'OE',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5458,7 +5218,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'o',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5473,7 +5232,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'O',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5488,7 +5246,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ss',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5503,7 +5260,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'l',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5518,7 +5274,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'L',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5533,7 +5288,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'DH',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5548,7 +5302,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dh',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5563,7 +5316,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'TH',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             },
@@ -5578,7 +5330,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'th',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 58
               }
             }
@@ -5603,7 +5354,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 58
       }
     },
@@ -5619,7 +5369,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'AA',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5634,7 +5383,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ae',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5649,7 +5397,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'oe',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5664,7 +5411,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'AE',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5679,7 +5425,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'OE',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5694,7 +5439,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'o',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5709,7 +5453,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'O',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5724,7 +5467,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ss',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5739,7 +5481,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'l',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5754,7 +5495,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'L',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5769,7 +5509,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'DH',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5784,7 +5523,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dh',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5799,7 +5537,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'TH',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -5814,7 +5551,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'th',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             }
@@ -5845,7 +5581,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 59
       }
     },
@@ -5866,7 +5601,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '"',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -5886,7 +5620,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '~',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -5910,7 +5643,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 61
                       }
                     }
@@ -5920,7 +5652,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -5940,7 +5671,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -5960,7 +5690,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '`',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -5980,7 +5709,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '\'',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -6000,7 +5728,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => ',',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -6020,7 +5747,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '=',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -6040,7 +5766,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ringaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -6060,7 +5785,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'H',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             },
@@ -6080,7 +5804,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ogonek',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 61
               }
             }
@@ -6105,7 +5828,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 61
       }
     },
@@ -6126,7 +5848,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '"',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6146,7 +5867,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '~',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6170,7 +5890,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 62
                       }
                     }
@@ -6180,7 +5899,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6200,7 +5918,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6220,7 +5937,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '`',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6240,7 +5956,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '\'',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6260,7 +5975,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => ',',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6280,7 +5994,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '=',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6300,7 +6013,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ringaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6320,7 +6032,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'H',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             },
@@ -6340,7 +6051,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ogonek',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 62
               }
             }
@@ -6371,7 +6081,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 62
       }
     },
@@ -6392,7 +6101,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dotaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             },
@@ -6412,7 +6120,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'u',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             },
@@ -6432,7 +6139,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ubaraccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             },
@@ -6452,7 +6158,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'udotaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             },
@@ -6472,7 +6177,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'v',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             },
@@ -6492,7 +6196,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dotless',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             },
@@ -6512,7 +6215,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'tieaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 64
               }
             }
@@ -6537,7 +6239,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 64
       }
     },
@@ -6558,7 +6259,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dotaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             },
@@ -6578,7 +6278,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'u',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             },
@@ -6598,7 +6297,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ubaraccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             },
@@ -6618,7 +6316,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'udotaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             },
@@ -6638,7 +6335,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'v',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             },
@@ -6658,7 +6354,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dotless',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             },
@@ -6678,7 +6373,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'tieaccent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 65
               }
             }
@@ -6709,7 +6403,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 65
       }
     },
@@ -6730,7 +6423,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dotless',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 67
               }
             },
@@ -6754,7 +6446,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '=',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 67
                       }
                     }
@@ -6764,7 +6455,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '`',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 67
               }
             },
@@ -6788,7 +6478,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '\'',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 67
                       }
                     }
@@ -6798,7 +6487,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => ',',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 67
               }
             }
@@ -6823,7 +6511,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 67
       }
     },
@@ -6844,7 +6531,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dotless',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 68
               }
             },
@@ -6868,7 +6554,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '=',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 68
                       }
                     }
@@ -6878,7 +6563,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => '`',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 68
               }
             },
@@ -6902,7 +6586,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '\'',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 68
                       }
                     }
@@ -6912,7 +6595,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => ',',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 68
               }
             }
@@ -6943,7 +6625,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 68
       }
     },
@@ -6959,7 +6640,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotedblleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             },
@@ -6974,7 +6654,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotedblright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             },
@@ -6989,7 +6668,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quoteleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             },
@@ -7004,7 +6682,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quoteright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             },
@@ -7019,7 +6696,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotedblbase',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             },
@@ -7034,7 +6710,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotesinglbase',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 70
               }
             }
@@ -7059,7 +6734,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 70
       }
     },
@@ -7075,7 +6749,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotedblleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 71
               }
             },
@@ -7090,7 +6763,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotedblright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 71
               }
             },
@@ -7105,7 +6777,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quoteleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 71
               }
             },
@@ -7120,7 +6791,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quoteright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 71
               }
             },
@@ -7135,7 +6805,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotedblbase',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 71
               }
             },
@@ -7150,7 +6819,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'quotesinglbase',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 71
               }
             }
@@ -7181,7 +6849,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 71
       }
     },
@@ -7197,7 +6864,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemetleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 73
               }
             },
@@ -7212,7 +6878,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemetright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 73
               }
             },
@@ -7227,7 +6892,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemotleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 73
               }
             },
@@ -7242,7 +6906,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemotright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 73
               }
             },
@@ -7257,7 +6920,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guilsinglleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 73
               }
             },
@@ -7272,7 +6934,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guilsinglright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 73
               }
             }
@@ -7297,7 +6958,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 73
       }
     },
@@ -7313,7 +6973,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemetleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             },
@@ -7328,7 +6987,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemetright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             },
@@ -7343,7 +7001,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemotleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             },
@@ -7358,7 +7015,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guillemotright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             },
@@ -7373,7 +7029,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guilsinglleft',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             },
@@ -7388,7 +7043,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'guilsinglright',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 74
               }
             }
@@ -7419,7 +7073,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 74
       }
     },
@@ -7451,7 +7104,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 76
       }
     },
@@ -7489,7 +7141,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 77
       }
     },
@@ -7523,7 +7174,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 79
               }
             },
@@ -7543,7 +7193,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 79
               }
             },
@@ -7563,7 +7212,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 79
               }
             }
@@ -7588,7 +7236,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 79
       }
     },
@@ -7622,7 +7269,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 80
               }
             },
@@ -7642,7 +7288,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 80
               }
             },
@@ -7662,7 +7307,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'acronym',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 80
               }
             }
@@ -7693,7 +7337,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 80
       }
     },
@@ -7727,7 +7370,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 82
               }
             },
@@ -7747,7 +7389,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 82
               }
             },
@@ -7767,7 +7408,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 82
               }
             }
@@ -7801,7 +7441,6 @@ $result_trees{'at_commands_in_refs'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 83
                 }
               },
@@ -7822,7 +7461,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 82
       }
     },
@@ -7856,7 +7494,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 84
               }
             },
@@ -7876,7 +7513,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 84
               }
             },
@@ -7896,7 +7532,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 84
               }
             }
@@ -7943,7 +7578,6 @@ $result_trees{'at_commands_in_refs'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 85
                 }
               },
@@ -7968,7 +7602,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 84
       }
     },
@@ -8008,7 +7641,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'email',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 87
               }
             },
@@ -8034,7 +7666,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'email',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 87
               }
             }
@@ -8059,7 +7690,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 87
       }
     },
@@ -8099,7 +7729,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'email',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 88
               }
             },
@@ -8125,7 +7754,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'email',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 88
               }
             }
@@ -8156,7 +7784,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 88
       }
     },
@@ -8180,7 +7807,6 @@ $result_trees{'at_commands_in_refs'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 90
               }
             },
@@ -8235,7 +7861,6 @@ $result_trees{'at_commands_in_refs'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 90
               }
             }
@@ -8269,7 +7894,6 @@ $result_trees{'at_commands_in_refs'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 91
                 }
               },
@@ -8290,7 +7914,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 90
       }
     },
@@ -8314,7 +7937,6 @@ $result_trees{'at_commands_in_refs'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 92
               }
             },
@@ -8369,7 +7991,6 @@ $result_trees{'at_commands_in_refs'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 92
               }
             }
@@ -8416,7 +8037,6 @@ $result_trees{'at_commands_in_refs'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 93
                 }
               },
@@ -8441,7 +8061,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 92
       }
     },
@@ -8466,7 +8085,6 @@ $result_trees{'at_commands_in_refs'} = {
                 'delimiter' => '.'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 95
               }
             }
@@ -8500,7 +8118,6 @@ $result_trees{'at_commands_in_refs'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 96
                 }
               },
@@ -8521,7 +8138,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 95
       }
     },
@@ -8546,7 +8162,6 @@ $result_trees{'at_commands_in_refs'} = {
                 'delimiter' => '.'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 97
               }
             }
@@ -8593,7 +8208,6 @@ $result_trees{'at_commands_in_refs'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 98
                 }
               },
@@ -8618,7 +8232,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 97
       }
     },
@@ -8646,7 +8259,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 100
                       }
                     }
@@ -8656,7 +8268,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'cite',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8689,7 +8300,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'b',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 100
                       }
                     }
@@ -8699,7 +8309,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8719,7 +8328,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'r',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8739,7 +8347,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8759,7 +8366,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8779,7 +8385,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 't',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8799,7 +8404,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8819,7 +8423,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dfn',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             },
@@ -8839,7 +8442,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'i',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 100
               }
             }
@@ -8864,7 +8466,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 100
       }
     },
@@ -8892,7 +8493,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 101
                       }
                     }
@@ -8902,7 +8502,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'cite',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -8935,7 +8534,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'b',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 101
                       }
                     }
@@ -8945,7 +8543,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -8965,7 +8562,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'r',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -8985,7 +8581,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -9005,7 +8600,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -9025,7 +8619,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 't',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -9045,7 +8638,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -9065,7 +8657,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dfn',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             },
@@ -9085,7 +8676,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'i',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 101
               }
             }
@@ -9116,7 +8706,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 101
       }
     },
@@ -9137,7 +8726,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'env',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 103
               }
             },
@@ -9157,7 +8745,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 103
               }
             },
@@ -9177,7 +8764,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'option',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 103
               }
             },
@@ -9197,7 +8783,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 103
               }
             },
@@ -9217,7 +8802,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'command',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 103
               }
             },
@@ -9237,7 +8821,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'file',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 103
               }
             },
@@ -9264,7 +8847,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'key',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 103
                       }
                     }
@@ -9274,7 +8856,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'kbd',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 103
               }
             }
@@ -9299,7 +8880,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 103
       }
     },
@@ -9320,7 +8900,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'env',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               }
             },
@@ -9340,7 +8919,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               }
             },
@@ -9360,7 +8938,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'option',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               }
             },
@@ -9380,7 +8957,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'samp',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               }
             },
@@ -9400,7 +8976,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'command',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               }
             },
@@ -9420,7 +8995,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'file',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               }
             },
@@ -9447,7 +9021,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'key',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 104
                       }
                     }
@@ -9457,7 +9030,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'kbd',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 104
               }
             }
@@ -9488,7 +9060,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 104
       }
     },
@@ -9512,7 +9083,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dmn',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 106
               }
             }
@@ -9537,7 +9107,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 106
       }
     },
@@ -9561,7 +9130,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'dmn',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 107
               }
             }
@@ -9592,7 +9160,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 107
       }
     },
@@ -9613,7 +9180,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sansserif',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 109
               }
             },
@@ -9633,7 +9199,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'slanted',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 109
               }
             }
@@ -9658,7 +9223,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 109
       }
     },
@@ -9679,7 +9243,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sansserif',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 110
               }
             },
@@ -9699,7 +9262,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'slanted',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 110
               }
             }
@@ -9730,7 +9292,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 110
       }
     },
@@ -9751,7 +9312,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'indicateurl',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 112
               }
             }
@@ -9776,7 +9336,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 112
       }
     },
@@ -9797,7 +9356,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'indicateurl',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 113
               }
             }
@@ -9828,7 +9386,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 113
       }
     },
@@ -9849,7 +9406,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sub',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 115
               }
             },
@@ -9869,7 +9425,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sup',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 115
               }
             }
@@ -9894,7 +9449,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 115
       }
     },
@@ -9915,7 +9469,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sub',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 116
               }
             },
@@ -9935,7 +9488,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'sup',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 116
               }
             }
@@ -9966,7 +9518,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 116
       }
     },
@@ -9987,7 +9538,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'url',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 118
               }
             },
@@ -10020,7 +9570,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'url',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 118
               }
             },
@@ -10051,7 +9600,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 118
               }
             }
@@ -10076,7 +9624,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 118
       }
     },
@@ -10097,7 +9644,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'url',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 119
               }
             },
@@ -10130,7 +9676,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'url',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 119
               }
             },
@@ -10161,7 +9706,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 119
               }
             }
@@ -10221,7 +9765,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 121
               }
             },
@@ -10324,7 +9867,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 123
               }
             },
@@ -10354,7 +9896,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'atchar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 125
                       }
                     },
@@ -10369,7 +9910,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'lbracechar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 125
                       }
                     },
@@ -10384,7 +9924,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'rbracechar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 125
                       }
                     },
@@ -10399,7 +9938,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'backslashchar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 125
                       }
                     },
@@ -10414,7 +9952,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'hashchar',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 125
                       }
                     }
@@ -10440,7 +9977,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 125
               }
             },
@@ -10470,7 +10006,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'LaTeX',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 127
                       }
                     },
@@ -10485,7 +10020,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'TeX',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 127
                       }
                     },
@@ -10500,7 +10034,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'bullet',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 127
                       }
                     },
@@ -10515,7 +10048,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'comma',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 127
                       }
                     },
@@ -10530,7 +10062,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'copyright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 127
                       }
                     },
@@ -10545,7 +10076,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dots',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 127
                       }
                     },
@@ -10560,7 +10090,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'enddots',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 127
                       }
                     }
@@ -10590,7 +10119,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 127
               }
             },
@@ -10620,7 +10148,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'equiv',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 129
                       }
                     },
@@ -10635,7 +10162,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'error',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 129
                       }
                     },
@@ -10650,7 +10176,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'euro',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 129
                       }
                     },
@@ -10665,7 +10190,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'exclamdown',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 129
                       }
                     },
@@ -10680,7 +10204,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'expansion',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 129
                       }
                     },
@@ -10695,7 +10218,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'minus',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 129
                       }
                     }
@@ -10723,7 +10245,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 129
               }
             },
@@ -10753,7 +10274,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'geq',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 131
                       }
                     },
@@ -10768,7 +10288,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'leq',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 131
                       }
                     },
@@ -10783,7 +10302,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'arrow',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 131
                       }
                     }
@@ -10805,7 +10323,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 131
               }
             },
@@ -10835,7 +10352,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ordf',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 133
                       }
                     },
@@ -10850,7 +10366,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ordm',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 133
                       }
                     },
@@ -10865,7 +10380,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'point',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 133
                       }
                     },
@@ -10880,7 +10394,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'pounds',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 133
                       }
                     },
@@ -10895,7 +10408,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'print',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 133
                       }
                     },
@@ -10910,7 +10422,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'questiondown',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 133
                       }
                     },
@@ -10925,7 +10436,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'registeredsymbol',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 133
                       }
                     }
@@ -10955,7 +10465,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 133
               }
             },
@@ -10985,7 +10494,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'result',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 135
                       }
                     },
@@ -11000,7 +10508,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'textdegree',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 135
                       }
                     },
@@ -11015,7 +10522,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'tie',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 135
                       }
                     },
@@ -11030,7 +10536,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'today',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 135
                       }
                     },
@@ -11045,7 +10550,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'aa',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 135
                       }
                     }
@@ -11071,7 +10575,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 135
               }
             },
@@ -11101,7 +10604,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'AA',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11116,7 +10618,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ae',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11131,7 +10632,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'oe',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11146,7 +10646,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'AE',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11161,7 +10660,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'OE',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11176,7 +10674,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'o',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11191,7 +10688,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'O',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11206,7 +10702,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ss',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11221,7 +10716,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'l',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11236,7 +10730,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'L',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11251,7 +10744,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'DH',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11266,7 +10758,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dh',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11281,7 +10772,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'TH',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     },
@@ -11296,7 +10786,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'th',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 137
                       }
                     }
@@ -11340,7 +10829,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 137
               }
             },
@@ -11375,7 +10863,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '"',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11395,7 +10882,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11419,7 +10905,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'dotless',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 139
                               }
                             }
@@ -11429,7 +10914,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '^',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11449,7 +10933,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '^',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11469,7 +10952,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '`',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11489,7 +10971,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '\'',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11509,7 +10990,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => ',',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11529,7 +11009,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '=',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11549,7 +11028,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ringaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11569,7 +11047,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'H',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     },
@@ -11589,7 +11066,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ogonek',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 139
                       }
                     }
@@ -11627,7 +11103,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 139
               }
             },
@@ -11662,7 +11137,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 141
                       }
                     },
@@ -11682,7 +11156,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'u',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 141
                       }
                     },
@@ -11702,7 +11175,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'ubaraccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 141
                       }
                     },
@@ -11722,7 +11194,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'udotaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 141
                       }
                     },
@@ -11742,7 +11213,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'v',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 141
                       }
                     },
@@ -11762,7 +11232,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 141
                       }
                     },
@@ -11782,7 +11251,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'tieaccent',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 141
                       }
                     }
@@ -11812,7 +11280,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 141
               }
             },
@@ -11847,7 +11314,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dotless',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 143
                       }
                     },
@@ -11871,7 +11337,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => '=',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 143
                               }
                             }
@@ -11881,7 +11346,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => '`',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 143
                       }
                     },
@@ -11905,7 +11369,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => '\'',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 143
                               }
                             }
@@ -11915,7 +11378,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => ',',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 143
                       }
                     }
@@ -11937,7 +11399,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 143
               }
             },
@@ -11967,7 +11428,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotedblleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 145
                       }
                     },
@@ -11982,7 +11442,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotedblright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 145
                       }
                     },
@@ -11997,7 +11456,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quoteleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 145
                       }
                     },
@@ -12012,7 +11470,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quoteright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 145
                       }
                     },
@@ -12027,7 +11484,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotedblbase',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 145
                       }
                     },
@@ -12042,7 +11498,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'quotesinglbase',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 145
                       }
                     }
@@ -12070,7 +11525,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 145
               }
             },
@@ -12100,7 +11554,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemetleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 147
                       }
                     },
@@ -12115,7 +11568,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemetright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 147
                       }
                     },
@@ -12130,7 +11582,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemotleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 147
                       }
                     },
@@ -12145,7 +11596,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guillemotright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 147
                       }
                     },
@@ -12160,7 +11610,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guilsinglleft',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 147
                       }
                     },
@@ -12175,7 +11624,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'guilsinglright',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 147
                       }
                     }
@@ -12203,7 +11651,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 147
               }
             },
@@ -12242,7 +11689,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 149
               }
             },
@@ -12290,7 +11736,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 151
                       }
                     },
@@ -12310,7 +11755,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 151
                       }
                     },
@@ -12330,7 +11774,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'acronym',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 151
                       }
                     }
@@ -12352,7 +11795,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 151
               }
             },
@@ -12381,7 +11823,6 @@ $result_trees{'at_commands_in_refs'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 153
                 }
               },
@@ -12426,7 +11867,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'abbr',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 154
                       }
                     },
@@ -12446,7 +11886,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'abbr',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 154
                       }
                     },
@@ -12466,7 +11905,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'abbr',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 154
                       }
                     }
@@ -12488,7 +11926,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 154
               }
             },
@@ -12523,7 +11960,6 @@ $result_trees{'at_commands_in_refs'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 155
                     }
                   },
@@ -12581,7 +12017,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'email',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 157
                       }
                     },
@@ -12607,7 +12042,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'email',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 157
                       }
                     }
@@ -12627,7 +12061,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 157
               }
             },
@@ -12656,7 +12089,6 @@ $result_trees{'at_commands_in_refs'} = {
                 ],
                 'cmdname' => 'ifnottex',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 159
                 }
               },
@@ -12691,7 +12123,6 @@ $result_trees{'at_commands_in_refs'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 160
                       }
                     },
@@ -12746,7 +12177,6 @@ $result_trees{'at_commands_in_refs'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 160
                       }
                     }
@@ -12766,7 +12196,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 160
               }
             },
@@ -12805,7 +12234,6 @@ $result_trees{'at_commands_in_refs'} = {
                         'delimiter' => '.'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 162
                       }
                     }
@@ -12823,7 +12251,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 162
               }
             },
@@ -12858,7 +12285,6 @@ $result_trees{'at_commands_in_refs'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 163
                     }
                   },
@@ -12904,7 +12330,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'asis',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 165
                               }
                             }
@@ -12914,7 +12339,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'cite',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -12947,7 +12371,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'b',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 165
                               }
                             }
@@ -12957,7 +12380,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'w',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -12977,7 +12399,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'r',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -12997,7 +12418,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -13017,7 +12437,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -13037,7 +12456,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 't',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -13057,7 +12475,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'var',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -13077,7 +12494,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dfn',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     },
@@ -13097,7 +12513,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'i',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 165
                       }
                     }
@@ -13131,7 +12546,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 165
               }
             },
@@ -13166,7 +12580,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'env',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 167
                       }
                     },
@@ -13186,7 +12599,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 167
                       }
                     },
@@ -13206,7 +12618,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'option',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 167
                       }
                     },
@@ -13226,7 +12637,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'samp',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 167
                       }
                     },
@@ -13246,7 +12656,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'command',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 167
                       }
                     },
@@ -13266,7 +12675,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'file',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 167
                       }
                     },
@@ -13293,7 +12701,6 @@ $result_trees{'at_commands_in_refs'} = {
                               ],
                               'cmdname' => 'key',
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 167
                               }
                             }
@@ -13303,7 +12710,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'kbd',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 167
                       }
                     }
@@ -13333,7 +12739,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 167
               }
             },
@@ -13371,7 +12776,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'dmn',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 169
                       }
                     }
@@ -13390,7 +12794,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 169
               }
             },
@@ -13425,7 +12828,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sansserif',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 171
                       }
                     },
@@ -13445,7 +12847,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'slanted',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 171
                       }
                     }
@@ -13465,7 +12866,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 171
               }
             },
@@ -13500,7 +12900,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'indicateurl',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 173
                       }
                     }
@@ -13518,7 +12917,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 173
               }
             },
@@ -13553,7 +12951,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sub',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 175
                       }
                     },
@@ -13573,7 +12970,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'sup',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 175
                       }
                     }
@@ -13593,7 +12989,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 175
               }
             },
@@ -13628,7 +13023,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 177
                       }
                     },
@@ -13661,7 +13055,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 177
                       }
                     },
@@ -13692,7 +13085,6 @@ $result_trees{'at_commands_in_refs'} = {
                       ],
                       'cmdname' => 'uref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 177
                       }
                     }
@@ -13714,7 +13106,6 @@ $result_trees{'at_commands_in_refs'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 177
               }
             },
@@ -13740,7 +13131,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 119
       }
     },
@@ -16180,7 +15570,6 @@ $result_errors{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @verb should not appear on @node line
 ',
-    'file_name' => '',
     'line_nr' => 95,
     'text' => '@verb should not appear on @node line',
     'type' => 'warning'
@@ -16188,7 +15577,6 @@ $result_errors{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @verb should not appear on @chapter line
 ',
-    'file_name' => '',
     'line_nr' => 97,
     'text' => '@verb should not appear on @chapter line',
     'type' => 'warning'
@@ -16196,7 +15584,6 @@ $result_errors{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @verb should not appear anywhere inside @ref
 ',
-    'file_name' => '',
     'line_nr' => 162,
     'text' => '@verb should not appear anywhere inside @ref',
     'type' => 'warning'
@@ -16355,7 +15742,6 @@ $result_converted_errors{'plaintext'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
-    'file_name' => '',
     'line_nr' => 92,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -16363,7 +15749,6 @@ $result_converted_errors{'plaintext'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
-    'file_name' => '',
     'line_nr' => 90,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -16371,7 +15756,6 @@ $result_converted_errors{'plaintext'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @ref node name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 177,
     'text' => '@ref node name should not contain `:\'',
     'type' => 'warning'
@@ -16755,7 +16139,6 @@ $result_converted_errors{'html'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 92,
     'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
     'type' => 'warning'
@@ -16763,7 +16146,6 @@ $result_converted_errors{'html'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 90,
     'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
     'type' => 'warning'
@@ -16771,7 +16153,6 @@ $result_converted_errors{'html'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 92,
     'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
     'type' => 'warning'
@@ -16779,7 +16160,6 @@ $result_converted_errors{'html'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 160,
     'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
     'type' => 'warning'
@@ -17158,7 +16538,6 @@ $result_converted_errors{'docbook'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' not found, using `f--ile1.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 92,
     'text' => '@image file `f--ile1\' not found, using `f--ile1.jpg\'',
     'type' => 'warning'
@@ -17166,7 +16545,6 @@ $result_converted_errors{'docbook'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' not found, using `f--ile1.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 160,
     'text' => '@image file `f--ile1\' not found, using `f--ile1.jpg\'',
     'type' => 'warning'
@@ -17318,7 +16696,6 @@ $result_converted_errors{'latex_text'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for LaTeX) not found
 ',
-    'file_name' => '',
     'line_nr' => 92,
     'text' => '@image file `f--ile1\' (for LaTeX) not found',
     'type' => 'warning'
@@ -17326,7 +16703,6 @@ $result_converted_errors{'latex_text'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for LaTeX) not found
 ',
-    'file_name' => '',
     'line_nr' => 90,
     'text' => '@image file `f--ile1\' (for LaTeX) not found',
     'type' => 'warning'
@@ -17636,7 +17012,6 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -17644,7 +17019,6 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'menu entry node name should not contain `:\'',
     'type' => 'warning'
@@ -17652,7 +17026,6 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
   {
     'error_line' => "warning: \@node name should not contain `,': LaTeX TeX \x{2022} , \x{a9} ... ...
 ",
-    'file_name' => '',
     'line_nr' => 43,
     'text' => "\@node name should not contain `,': LaTeX TeX \x{2022} , \x{a9} ... ...",
     'type' => 'warning'
@@ -17660,7 +17033,6 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
-    'file_name' => '',
     'line_nr' => 90,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -17668,7 +17040,6 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
-    'file_name' => '',
     'line_nr' => 92,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -17676,7 +17047,6 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
-    'file_name' => '',
     'line_nr' => 90,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -17684,7 +17054,6 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @ref node name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 177,
     'text' => '@ref node name should not contain `:\'',
     'type' => 'warning'

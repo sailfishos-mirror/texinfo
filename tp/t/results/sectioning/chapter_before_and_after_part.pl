@@ -41,7 +41,6 @@ $result_trees{'chapter_before_and_after_part'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -93,7 +92,6 @@ $result_trees{'chapter_before_and_after_part'} = [
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -131,7 +129,6 @@ $result_trees{'chapter_before_and_after_part'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -143,7 +140,6 @@ $result_trees{'chapter_before_and_after_part'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },

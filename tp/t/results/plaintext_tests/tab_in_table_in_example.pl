@@ -30,7 +30,6 @@ $result_trees{'tab_in_table_in_example'} = {
                     {
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       },
                       'type' => 'command_as_argument'
@@ -93,7 +92,6 @@ $result_trees{'tab_in_table_in_example'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 4
                           }
                         }
@@ -157,7 +155,6 @@ $result_trees{'tab_in_table_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -171,7 +168,6 @@ $result_trees{'tab_in_table_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -202,13 +198,11 @@ $result_trees{'tab_in_table_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -241,7 +235,6 @@ $result_errors{'tab_in_table_in_example'} = [
   {
     'error_line' => '@tab not meaningful inside `@table\' block
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@tab not meaningful inside `@table\' block',
     'type' => 'error'
@@ -249,7 +242,6 @@ $result_errors{'tab_in_table_in_example'} = [
   {
     'error_line' => '@tab not meaningful inside `@table\' block
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@tab not meaningful inside `@table\' block',
     'type' => 'error'

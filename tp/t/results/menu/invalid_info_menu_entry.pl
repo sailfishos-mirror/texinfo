@@ -78,7 +78,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       }
                     }
@@ -118,7 +117,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -144,7 +142,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -205,7 +202,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -252,7 +248,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -292,7 +287,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -339,7 +333,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -379,7 +372,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -426,7 +418,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -466,7 +457,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'menu_entry'
@@ -498,13 +488,11 @@ $result_trees{'invalid_info_menu_entry'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -519,7 +507,6 @@ $result_trees{'invalid_info_menu_entry'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -597,7 +584,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'menu entry node name should not contain `:\'',
     'type' => 'warning'
@@ -605,7 +591,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
   {
     'error_line' => 'warning: menu entry name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'menu entry name should not contain `:\'',
     'type' => 'warning'
@@ -613,7 +598,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `. \'
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'menu entry node name should not contain `. \'',
     'type' => 'warning'
@@ -621,7 +605,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `,\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'menu entry node name should not contain `,\'',
     'type' => 'warning'
@@ -629,7 +612,6 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `	\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'menu entry node name should not contain `	\'',
     'type' => 'warning'

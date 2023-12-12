@@ -83,13 +83,11 @@ $result_trees{'nested_formats'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 6
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -120,13 +118,11 @@ $result_trees{'nested_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -209,13 +205,11 @@ $result_trees{'nested_formats'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -246,13 +240,11 @@ $result_trees{'nested_formats'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         }

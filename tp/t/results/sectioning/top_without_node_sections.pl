@@ -48,7 +48,6 @@ $result_trees{'top_without_node_sections'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -104,7 +103,6 @@ $result_trees{'top_without_node_sections'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -164,7 +162,6 @@ $result_trees{'top_without_node_sections'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 4
         }
       },

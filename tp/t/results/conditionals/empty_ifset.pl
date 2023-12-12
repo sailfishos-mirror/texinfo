@@ -69,13 +69,11 @@ $result_trees{'empty_ifset'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 5
                     }
                   }
                 ],
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },
@@ -100,7 +98,6 @@ $result_errors{'empty_ifset'} = [
   {
     'error_line' => '@ifset requires a name
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@ifset requires a name',
     'type' => 'error'

@@ -38,7 +38,6 @@ $result_trees{'bad_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -67,7 +66,6 @@ $result_trees{'bad_line'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -88,7 +86,6 @@ $result_trees{'bad_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         }
@@ -114,7 +111,6 @@ $result_errors{'bad_line'} = [
   {
     'error_line' => 'bad argument to @alias
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'bad argument to @alias',
     'type' => 'error'
@@ -122,7 +118,6 @@ $result_errors{'bad_line'} = [
   {
     'error_line' => 'warning: @code should not appear in @alias
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@code should not appear in @alias',
     'type' => 'warning'
@@ -130,7 +125,6 @@ $result_errors{'bad_line'} = [
   {
     'error_line' => 'superfluous argument to @alias
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'superfluous argument to @alias',
     'type' => 'error'
@@ -138,7 +132,6 @@ $result_errors{'bad_line'} = [
   {
     'error_line' => 'bad argument to @alias
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'bad argument to @alias',
     'type' => 'error'

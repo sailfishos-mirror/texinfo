@@ -19,7 +19,6 @@ $result_trees{'invalid_U'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -31,7 +30,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -51,7 +49,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -71,7 +68,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -91,7 +87,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -111,7 +106,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -131,7 +125,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -160,7 +153,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -180,7 +172,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -208,7 +199,6 @@ $result_trees{'invalid_U'} = {
               ],
               'cmdname' => 'U',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -239,7 +229,6 @@ $result_errors{'invalid_U'} = [
   {
     'error_line' => '@U expected braces
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@U expected braces',
     'type' => 'error'
@@ -247,7 +236,6 @@ $result_errors{'invalid_U'} = [
   {
     'error_line' => 'warning: no argument specified for @U
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'no argument specified for @U',
     'type' => 'warning'
@@ -255,7 +243,6 @@ $result_errors{'invalid_U'} = [
   {
     'error_line' => 'non-hex digits in argument for @U: z
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'non-hex digits in argument for @U: z',
     'type' => 'error'
@@ -263,7 +250,6 @@ $result_errors{'invalid_U'} = [
   {
     'error_line' => 'warning: fewer than four hex digits in argument for @U: abc
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'fewer than four hex digits in argument for @U: abc',
     'type' => 'warning'
@@ -271,7 +257,6 @@ $result_errors{'invalid_U'} = [
   {
     'error_line' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999',
     'type' => 'error'
@@ -279,7 +264,6 @@ $result_errors{'invalid_U'} = [
   {
     'error_line' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 110000
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 110000',
     'type' => 'error'
@@ -287,7 +271,6 @@ $result_errors{'invalid_U'} = [
   {
     'error_line' => 'non-hex digits in argument for @U: wxyz
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'non-hex digits in argument for @U: wxyz',
     'type' => 'error'
@@ -326,7 +309,6 @@ $result_converted_errors{'docbook'}->{'invalid_U'} = [
   {
     'error_line' => 'warning: no argument specified for @U
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'no argument specified for @U',
     'type' => 'warning'

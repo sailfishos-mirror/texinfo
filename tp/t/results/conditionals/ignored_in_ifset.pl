@@ -64,7 +64,6 @@ $result_trees{'ignored_in_ifset'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 4
                     }
                   }
@@ -75,7 +74,6 @@ $result_trees{'ignored_in_ifset'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 2
                 }
               },
@@ -151,7 +149,6 @@ $result_trees{'ignored_in_ifset'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 11
                     }
                   }
@@ -162,7 +159,6 @@ $result_trees{'ignored_in_ifset'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 9
                 }
               },
@@ -229,7 +225,6 @@ $result_trees{'ignored_in_ifset'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 17
                     }
                   }
@@ -240,7 +235,6 @@ $result_trees{'ignored_in_ifset'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 15
                 }
               },
@@ -287,7 +281,6 @@ $result_errors{'ignored_in_ifset'} = [
   {
     'error_line' => 'unmatched `@end ignore\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'unmatched `@end ignore\'',
     'type' => 'error'
@@ -295,7 +288,6 @@ $result_errors{'ignored_in_ifset'} = [
   {
     'error_line' => 'unmatched `@end ifset\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
@@ -303,7 +295,6 @@ $result_errors{'ignored_in_ifset'} = [
   {
     'error_line' => 'unmatched `@end verbatim\'
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => 'unmatched `@end verbatim\'',
     'type' => 'error'
@@ -311,7 +302,6 @@ $result_errors{'ignored_in_ifset'} = [
   {
     'error_line' => 'unmatched `@end ifset\'
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
@@ -319,7 +309,6 @@ $result_errors{'ignored_in_ifset'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => 'misplaced }',
     'type' => 'error'
@@ -327,7 +316,6 @@ $result_errors{'ignored_in_ifset'} = [
   {
     'error_line' => 'unmatched `@end ifset\'
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => 'unmatched `@end ifset\'',
     'type' => 'error'

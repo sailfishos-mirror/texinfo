@@ -52,7 +52,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -90,7 +89,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
               ],
               'cmdname' => 'strong',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -112,7 +110,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -187,7 +184,6 @@ $result_converted_errors{'info'}->{'note_in_strong_end_of_line'} = [
   {
     'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'
@@ -195,7 +191,6 @@ $result_converted_errors{'info'}->{'note_in_strong_end_of_line'} = [
   {
     'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
     'type' => 'warning'

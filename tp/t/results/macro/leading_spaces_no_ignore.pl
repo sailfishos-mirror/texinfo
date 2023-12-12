@@ -55,7 +55,6 @@ $result_trees{'leading_spaces_no_ignore'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -65,7 +64,6 @@ $result_trees{'leading_spaces_no_ignore'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

@@ -21,7 +21,6 @@ $result_trees{'pagetype'} = {
               ],
               'cmdname' => 'afourpaper',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -40,7 +39,6 @@ $result_trees{'pagetype'} = {
               ],
               'cmdname' => 'afourwide',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -83,7 +81,6 @@ $result_trees{'pagetype'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -119,7 +116,6 @@ $result_trees{'pagetype'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -151,7 +147,6 @@ $result_trees{'pagetype'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -189,7 +184,6 @@ $result_trees{'pagetype'} = {
           ],
           'cmdname' => 'smallbook',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -232,7 +226,6 @@ $result_trees{'pagetype'} = {
               ],
               'cmdname' => 'afourpaper',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             }
@@ -268,7 +261,6 @@ $result_trees{'pagetype'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -315,7 +307,6 @@ $result_trees{'pagetype'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 20
       }
     }
@@ -488,7 +479,6 @@ $result_errors{'pagetype'} = [
   {
     'error_line' => 'unknown command `Chapter\'
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'unknown command `Chapter\'',
     'type' => 'error'
@@ -496,7 +486,6 @@ $result_errors{'pagetype'} = [
   {
     'error_line' => 'warning: multiple @afourpaper
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => 'multiple @afourpaper',
     'type' => 'warning'

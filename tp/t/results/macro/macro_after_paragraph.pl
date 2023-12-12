@@ -55,7 +55,6 @@ $result_trees{'macro_after_paragraph'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -65,7 +64,6 @@ $result_trees{'macro_after_paragraph'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

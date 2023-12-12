@@ -22,7 +22,6 @@ $result_trees{'empty_titlefont'} = {
           ],
           'cmdname' => 'titlefont',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },

@@ -50,7 +50,6 @@ $result_trees{'empty_macro_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'empty_macro_argument'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -238,7 +236,6 @@ $result_trees{'empty_macro_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -248,7 +245,6 @@ $result_trees{'empty_macro_argument'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -405,7 +401,6 @@ $result_errors{'empty_macro_argument'} = [
   {
     'error_line' => 'macro `mymacro\' declared without argument called with an argument
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'macro `mymacro\' declared without argument called with an argument',
     'type' => 'error'

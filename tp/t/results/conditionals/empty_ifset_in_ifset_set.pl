@@ -59,7 +59,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 4
                 }
               },
@@ -118,13 +117,11 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           },
           'source_marks' => [
@@ -157,7 +154,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 8
                 }
               },

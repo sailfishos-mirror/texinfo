@@ -50,7 +50,6 @@ $result_trees{'menu_in_style_command'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -118,7 +117,6 @@ $result_trees{'menu_in_style_command'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -150,13 +148,11 @@ $result_trees{'menu_in_style_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         }
@@ -171,7 +167,6 @@ $result_trees{'menu_in_style_command'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -218,7 +213,6 @@ $result_errors{'menu_in_style_command'} = [
   {
     'error_line' => '@code missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@code missing closing brace',
     'type' => 'error'
@@ -226,7 +220,6 @@ $result_errors{'menu_in_style_command'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'misplaced }',
     'type' => 'error'

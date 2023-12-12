@@ -47,7 +47,6 @@ $result_trees{'def_groupings_args'} = {
                           ],
                           'cmdname' => 'code',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 1
                           }
                         },
@@ -80,7 +79,6 @@ $result_trees{'def_groupings_args'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -112,7 +110,6 @@ $result_trees{'def_groupings_args'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -123,7 +120,6 @@ $result_trees{'def_groupings_args'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -157,7 +153,6 @@ $result_trees{'def_groupings_args'} = {
                           ],
                           'cmdname' => 'samp',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 4
                           }
                         }
@@ -182,7 +177,6 @@ $result_trees{'def_groupings_args'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'def_line'
@@ -214,7 +208,6 @@ $result_trees{'def_groupings_args'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -225,7 +218,6 @@ $result_trees{'def_groupings_args'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -256,7 +248,6 @@ $result_trees{'def_groupings_args'} = {
                           ],
                           'cmdname' => 'var',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 7
                           }
                         },
@@ -294,7 +285,6 @@ $result_trees{'def_groupings_args'} = {
                           ],
                           'cmdname' => 'samp',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 7
                           }
                         }
@@ -303,7 +293,6 @@ $result_trees{'def_groupings_args'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       },
                       'type' => 'bracketed_arg'
@@ -337,7 +326,6 @@ $result_trees{'def_groupings_args'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -368,7 +356,6 @@ $result_trees{'def_groupings_args'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'def_line'
@@ -400,7 +387,6 @@ $result_trees{'def_groupings_args'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -411,7 +397,6 @@ $result_trees{'def_groupings_args'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -446,7 +431,6 @@ $result_errors{'def_groupings_args'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
@@ -454,7 +438,6 @@ $result_errors{'def_groupings_args'} = [
   {
     'error_line' => 'warning: missing name for @deffn
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'missing name for @deffn',
     'type' => 'warning'
@@ -462,7 +445,6 @@ $result_errors{'def_groupings_args'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'

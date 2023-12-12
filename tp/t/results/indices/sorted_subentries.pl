@@ -43,7 +43,6 @@ $result_trees{'sorted_subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -69,7 +68,6 @@ $result_trees{'sorted_subentries'} = {
       ],
       'extra' => {},
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -101,7 +99,6 @@ $result_trees{'sorted_subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -179,7 +176,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -191,7 +187,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           },
           'type' => 'index_entry_command'
@@ -247,7 +242,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -259,7 +253,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           },
           'type' => 'index_entry_command'
@@ -315,7 +308,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -327,7 +319,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           },
           'type' => 'index_entry_command'
@@ -383,7 +374,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -395,7 +385,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           },
           'type' => 'index_entry_command'
@@ -475,7 +464,6 @@ $result_trees{'sorted_subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 12
                   }
                 }
@@ -486,7 +474,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
@@ -498,7 +485,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           },
           'type' => 'index_entry_command'
@@ -555,7 +541,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -567,7 +552,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           },
           'type' => 'index_entry_command'
@@ -605,7 +589,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           },
           'type' => 'index_entry_command'
@@ -660,7 +643,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
@@ -672,7 +654,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           },
           'type' => 'index_entry_command'
@@ -718,7 +699,6 @@ $result_trees{'sorted_subentries'} = {
                 'level' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             }
@@ -730,7 +710,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 16
           },
           'type' => 'index_entry_command'
@@ -768,7 +747,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17
           },
           'type' => 'index_entry_command'
@@ -861,7 +839,6 @@ $result_trees{'sorted_subentries'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 18
                       }
                     }
@@ -872,7 +849,6 @@ $result_trees{'sorted_subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 18
                   }
                 }
@@ -883,7 +859,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
@@ -895,7 +870,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           },
           'type' => 'index_entry_command'
@@ -918,7 +892,6 @@ $result_trees{'sorted_subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -951,7 +924,6 @@ $result_trees{'sorted_subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 20
       }
     },
@@ -1043,7 +1015,6 @@ $result_trees{'sorted_subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 22
                   }
                 }
@@ -1054,7 +1025,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             }
@@ -1066,7 +1036,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 22
           },
           'type' => 'index_entry_command'
@@ -1105,7 +1074,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 23
           },
           'type' => 'index_entry_command'
@@ -1127,7 +1095,6 @@ $result_trees{'sorted_subentries'} = {
                   ],
                   'cmdname' => 'samp',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 24
                   }
                 }
@@ -1174,7 +1141,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 24
               }
             }
@@ -1186,7 +1152,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 24
           },
           'type' => 'index_entry_command'
@@ -1209,7 +1174,6 @@ $result_trees{'sorted_subentries'} = {
                   ],
                   'cmdname' => 'kbd',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 25
                   }
                 }
@@ -1246,7 +1210,6 @@ $result_trees{'sorted_subentries'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     }
@@ -1287,7 +1250,6 @@ $result_trees{'sorted_subentries'} = {
                           ],
                           'cmdname' => 'email',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 25
                           }
                         }
@@ -1311,7 +1273,6 @@ $result_trees{'sorted_subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 25
                   }
                 }
@@ -1322,7 +1283,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               }
             }
@@ -1334,7 +1294,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 25
           },
           'type' => 'index_entry_command'
@@ -1376,7 +1335,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             }
@@ -1388,7 +1346,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 26
           },
           'type' => 'index_entry_command'
@@ -1460,7 +1417,6 @@ $result_trees{'sorted_subentries'} = {
                           ],
                           'cmdname' => 'sortas',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 27
                           }
                         }
@@ -1485,7 +1441,6 @@ $result_trees{'sorted_subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 27
                   }
                 }
@@ -1496,7 +1451,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             }
@@ -1508,7 +1462,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 27
           },
           'type' => 'index_entry_command'
@@ -1584,7 +1537,6 @@ $result_trees{'sorted_subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 28
                   }
                 }
@@ -1595,7 +1547,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               }
             }
@@ -1607,7 +1558,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 28
           },
           'type' => 'index_entry_command'
@@ -1683,7 +1633,6 @@ $result_trees{'sorted_subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 29
                   }
                 }
@@ -1694,7 +1643,6 @@ $result_trees{'sorted_subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               }
             }
@@ -1706,7 +1654,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 29
           },
           'type' => 'index_entry_command'
@@ -1747,7 +1694,6 @@ $result_trees{'sorted_subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 31
           }
         }
@@ -1761,7 +1707,6 @@ $result_trees{'sorted_subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 21
       }
     }
@@ -2008,7 +1953,6 @@ $result_errors{'sorted_subentries'} = [
   {
     'error_line' => 'warning: @subentry missing argument
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@subentry missing argument',
     'type' => 'warning'
@@ -2016,7 +1960,6 @@ $result_errors{'sorted_subentries'} = [
   {
     'error_line' => 'no more than two levels of index subentry are allowed
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => 'no more than two levels of index subentry are allowed',
     'type' => 'error'
@@ -2024,7 +1967,6 @@ $result_errors{'sorted_subentries'} = [
   {
     'error_line' => 'warning: @cindex missing argument
 ',
-    'file_name' => '',
     'line_nr' => 26,
     'text' => '@cindex missing argument',
     'type' => 'warning'
@@ -2032,7 +1974,6 @@ $result_errors{'sorted_subentries'} = [
   {
     'error_line' => 'warning: empty index sub entry 1 key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => 'empty index sub entry 1 key in @cindex',
     'type' => 'warning'
@@ -2131,7 +2072,6 @@ $result_converted_errors{'info'}->{'sorted_subentries'} = [
   {
     'error_line' => 'warning: empty index sub entry 1 key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => 'empty index sub entry 1 key in @cindex',
     'type' => 'warning'
@@ -2173,7 +2113,6 @@ $result_converted_errors{'plaintext'}->{'sorted_subentries'} = [
   {
     'error_line' => 'warning: empty index sub entry 1 key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => 'empty index sub entry 1 key in @cindex',
     'type' => 'warning'
@@ -2285,7 +2224,6 @@ $result_converted_errors{'html_text'}->{'sorted_subentries'} = [
   {
     'error_line' => 'warning: empty index sub entry 1 key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => 'empty index sub entry 1 key in @cindex',
     'type' => 'warning'

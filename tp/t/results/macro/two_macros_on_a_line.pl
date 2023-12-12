@@ -50,7 +50,6 @@ $result_trees{'two_macros_on_a_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'two_macros_on_a_line'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -124,7 +122,6 @@ $result_trees{'two_macros_on_a_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -134,7 +131,6 @@ $result_trees{'two_macros_on_a_line'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },

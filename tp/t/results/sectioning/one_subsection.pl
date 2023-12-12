@@ -42,7 +42,6 @@ $result_trees{'one_subsection'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

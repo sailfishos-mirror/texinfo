@@ -38,7 +38,6 @@ $result_trees{'commands_in_var'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -74,7 +73,6 @@ $result_trees{'commands_in_var'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -106,7 +104,6 @@ $result_trees{'commands_in_var'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -156,7 +153,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -171,7 +167,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'aa',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -186,7 +181,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'TeX',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -209,7 +203,6 @@ $result_trees{'commands_in_var'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -237,7 +230,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -278,7 +270,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'xref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -325,7 +316,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -370,7 +360,6 @@ $result_trees{'commands_in_var'} = {
                                 'delimiter' => '!'
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 8
                               }
                             }
@@ -384,7 +373,6 @@ $result_trees{'commands_in_var'} = {
                         'format' => 'latex'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -408,7 +396,6 @@ $result_trees{'commands_in_var'} = {
                         'normalized' => 'inanchor'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -429,7 +416,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'hyphenation',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     },
@@ -451,7 +437,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'U',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -471,7 +456,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'math',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -496,7 +480,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'footnote',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -516,7 +499,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -544,7 +526,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -572,7 +553,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -599,7 +579,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'url',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     },
@@ -638,7 +617,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'email',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     },
@@ -671,7 +649,6 @@ $result_trees{'commands_in_var'} = {
                       ],
                       'cmdname' => 'abbr',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -681,7 +658,6 @@ $result_trees{'commands_in_var'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -698,7 +674,6 @@ $result_trees{'commands_in_var'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -854,7 +829,6 @@ $result_converted_errors{'plaintext'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: could not find @image file `myimage.txt\' nor alternate text
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'could not find @image file `myimage.txt\' nor alternate text',
     'type' => 'warning'
@@ -894,7 +868,6 @@ $result_converted_errors{'html_text'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: @image file `myimage\' (for HTML) not found, using `myimage.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@image file `myimage\' (for HTML) not found, using `myimage.jpg\'',
     'type' => 'warning'
@@ -929,7 +902,6 @@ $result_converted_errors{'docbook'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: @image file `myimage\' not found, using `myimage.jpg\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@image file `myimage\' not found, using `myimage.jpg\'',
     'type' => 'warning'
@@ -951,7 +923,6 @@ $result_converted_errors{'latex_text'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: @image file `myimage\' (for LaTeX) not found
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@image file `myimage\' (for LaTeX) not found',
     'type' => 'warning'

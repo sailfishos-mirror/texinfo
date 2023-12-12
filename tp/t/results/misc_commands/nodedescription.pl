@@ -33,7 +33,6 @@ $result_trees{'nodedescription'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -73,7 +72,6 @@ $result_trees{'nodedescription'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -109,7 +107,6 @@ $result_trees{'nodedescription'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -150,7 +147,6 @@ $result_trees{'nodedescription'} = {
                   ],
                   'cmdname' => 'emph',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 },
@@ -177,7 +173,6 @@ $result_trees{'nodedescription'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -189,7 +184,6 @@ $result_trees{'nodedescription'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -248,7 +242,6 @@ $result_trees{'nodedescription'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -275,7 +268,6 @@ $result_trees{'nodedescription'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }
@@ -412,7 +404,6 @@ $result_errors{'nodedescription'} = [
   {
     'error_line' => 'warning: @nodedescription outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@nodedescription outside of any node',
     'type' => 'warning'
@@ -420,7 +411,6 @@ $result_errors{'nodedescription'} = [
   {
     'error_line' => 'warning: multiple node @nodedescription
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'multiple node @nodedescription',
     'type' => 'warning'

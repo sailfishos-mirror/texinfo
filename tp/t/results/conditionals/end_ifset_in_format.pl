@@ -59,7 +59,6 @@ $result_trees{'end_ifset_in_format'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 4
                 }
               },
@@ -118,13 +117,11 @@ $result_trees{'end_ifset_in_format'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -161,7 +158,6 @@ $result_trees{'end_ifset_in_format'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 9
                     }
                   },
@@ -204,7 +200,6 @@ $result_trees{'end_ifset_in_format'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 11
                 }
               },
@@ -263,13 +258,11 @@ $result_trees{'end_ifset_in_format'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           },
           'source_marks' => [
@@ -302,7 +295,6 @@ $result_trees{'end_ifset_in_format'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 15
                 }
               },
@@ -339,7 +331,6 @@ $result_trees{'end_ifset_in_format'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 17
                 }
               },
@@ -377,7 +368,6 @@ $result_trees{'end_ifset_in_format'} = {
                 'delimiter' => '%'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             },
@@ -412,7 +402,6 @@ $result_trees{'end_ifset_in_format'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 21
                     }
                   },

@@ -37,7 +37,6 @@ $result_trees{'image_text_encoded'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -62,7 +61,6 @@ $result_trees{'image_text_encoded'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },

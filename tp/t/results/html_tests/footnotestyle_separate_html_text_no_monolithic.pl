@@ -38,7 +38,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -78,7 +77,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -124,7 +122,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -148,7 +145,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -180,7 +176,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     },
@@ -218,7 +213,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     }

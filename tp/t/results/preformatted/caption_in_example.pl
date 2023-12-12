@@ -82,7 +82,6 @@ $result_trees{'caption_in_example'} = {
                     'float' => {}
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 6
                   }
                 },
@@ -135,13 +134,11 @@ $result_trees{'caption_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -172,7 +169,6 @@ $result_trees{'caption_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -187,7 +183,6 @@ $result_trees{'caption_in_example'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -226,7 +221,6 @@ $result_errors{'caption_in_example'} = [
   {
     'error_line' => 'warning: @caption should be right below `@float\'
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@caption should be right below `@float\'',
     'type' => 'warning'

@@ -26,7 +26,6 @@ $result_trees{'indent_in_quotation'} = {
             {
               'cmdname' => 'indent',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -74,13 +73,11 @@ $result_trees{'indent_in_quotation'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

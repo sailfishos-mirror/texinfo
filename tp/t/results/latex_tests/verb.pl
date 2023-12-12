@@ -31,7 +31,6 @@ $result_trees{'verb'} = {
                 'delimiter' => '!'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -66,7 +65,6 @@ $result_trees{'verb'} = {
                 'delimiter' => '!'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -106,7 +104,6 @@ $result_trees{'verb'} = {
                 'delimiter' => '!'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -141,7 +138,6 @@ $result_trees{'verb'} = {
                 'delimiter' => '%'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -202,7 +198,6 @@ $result_converted_errors{'latex_text'}->{'verb'} = [
   {
     'error_line' => 'warning: \\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'',
     'type' => 'warning'
@@ -214,7 +209,6 @@ $result_converted_errors{'file_latex'}->{'verb'} = [
   {
     'error_line' => 'warning: \\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'',
     'type' => 'warning'

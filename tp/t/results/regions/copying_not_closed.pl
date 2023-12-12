@@ -39,7 +39,6 @@ $result_trees{'copying_not_closed'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -62,7 +61,6 @@ $result_errors{'copying_not_closed'} = [
   {
     'error_line' => 'no matching `@end copying\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'no matching `@end copying\'',
     'type' => 'error'

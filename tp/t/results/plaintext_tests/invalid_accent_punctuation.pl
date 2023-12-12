@@ -17,7 +17,6 @@ $result_trees{'invalid_accent_punctuation'} = {
             {
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -43,7 +42,6 @@ $result_errors{'invalid_accent_punctuation'} = [
   {
     'error_line' => '@^ expected braces
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@^ expected braces',
     'type' => 'error'

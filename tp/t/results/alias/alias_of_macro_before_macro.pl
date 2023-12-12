@@ -39,7 +39,6 @@ $result_trees{'alias_of_macro_before_macro'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -93,7 +92,6 @@ $result_trees{'alias_of_macro_before_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -103,7 +101,6 @@ $result_trees{'alias_of_macro_before_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },

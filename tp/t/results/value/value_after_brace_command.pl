@@ -90,7 +90,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'source_marks' => [
@@ -135,7 +134,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'source_marks' => [
@@ -190,7 +188,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'source_marks' => [
@@ -235,7 +232,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'source_marks' => [
@@ -290,7 +286,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'source_marks' => [
@@ -335,7 +330,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'source_marks' => [
@@ -385,7 +379,6 @@ $result_errors{'value_after_brace_command'} = [
   {
     'error_line' => '@ringaccent expected braces
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@ringaccent expected braces',
     'type' => 'error'
@@ -393,7 +386,6 @@ $result_errors{'value_after_brace_command'} = [
   {
     'error_line' => 'unknown command `unknown\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
@@ -401,7 +393,6 @@ $result_errors{'value_after_brace_command'} = [
   {
     'error_line' => '@^ expected braces
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@^ expected braces',
     'type' => 'error'
@@ -409,7 +400,6 @@ $result_errors{'value_after_brace_command'} = [
   {
     'error_line' => 'unknown command `unknown\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
@@ -417,7 +407,6 @@ $result_errors{'value_after_brace_command'} = [
   {
     'error_line' => '@code expected braces
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@code expected braces',
     'type' => 'error'
@@ -425,7 +414,6 @@ $result_errors{'value_after_brace_command'} = [
   {
     'error_line' => 'unknown command `unknown\'
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'unknown command `unknown\'',
     'type' => 'error'

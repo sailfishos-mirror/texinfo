@@ -21,7 +21,6 @@ $result_trees{'lone_contents'} = {
               ],
               'cmdname' => 'contents',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }

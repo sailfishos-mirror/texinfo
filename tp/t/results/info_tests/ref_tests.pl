@@ -77,7 +77,6 @@ $result_trees{'ref_tests'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -119,7 +118,6 @@ $result_trees{'ref_tests'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -165,7 +163,6 @@ $result_trees{'ref_tests'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -175,7 +172,6 @@ $result_trees{'ref_tests'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -245,7 +241,6 @@ $result_trees{'ref_tests'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -300,7 +295,6 @@ $result_trees{'ref_tests'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -359,7 +353,6 @@ $result_trees{'ref_tests'} = {
                       ],
                       'cmdname' => 'ref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     }
@@ -369,7 +362,6 @@ $result_trees{'ref_tests'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -424,7 +416,6 @@ $result_trees{'ref_tests'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -451,7 +442,6 @@ $result_trees{'ref_tests'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }
@@ -556,7 +546,6 @@ $result_converted_errors{'info'}->{'ref_tests'} = [
   {
     'error_line' => 'warning: @ref node name should not contain `.\'
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '@ref node name should not contain `.\'',
     'type' => 'warning'

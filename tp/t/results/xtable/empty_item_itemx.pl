@@ -16,7 +16,6 @@ $result_trees{'empty_item_itemx'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -91,7 +90,6 @@ $result_trees{'empty_item_itemx'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     },
@@ -109,7 +107,6 @@ $result_trees{'empty_item_itemx'} = {
                       ],
                       'cmdname' => 'itemx',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -143,7 +140,6 @@ $result_trees{'empty_item_itemx'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -171,7 +167,6 @@ $result_trees{'empty_item_itemx'} = {
                       ],
                       'cmdname' => 'item',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -215,7 +210,6 @@ $result_trees{'empty_item_itemx'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     }
@@ -252,7 +246,6 @@ $result_trees{'empty_item_itemx'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -266,7 +259,6 @@ $result_trees{'empty_item_itemx'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -305,7 +297,6 @@ $result_errors{'empty_item_itemx'} = [
   {
     'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'
@@ -313,7 +304,6 @@ $result_errors{'empty_item_itemx'} = [
   {
     'error_line' => 'warning: @itemx missing argument
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@itemx missing argument',
     'type' => 'warning'
@@ -321,7 +311,6 @@ $result_errors{'empty_item_itemx'} = [
   {
     'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'
@@ -329,7 +318,6 @@ $result_errors{'empty_item_itemx'} = [
   {
     'error_line' => 'warning: @item missing argument
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@item missing argument',
     'type' => 'warning'
@@ -337,7 +325,6 @@ $result_errors{'empty_item_itemx'} = [
   {
     'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'

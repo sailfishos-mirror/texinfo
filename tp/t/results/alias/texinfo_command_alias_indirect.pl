@@ -54,7 +54,6 @@ $result_trees{'texinfo_command_alias_indirect'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'texinfo_command_alias_indirect'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -103,7 +101,6 @@ $result_trees{'texinfo_command_alias_indirect'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -142,7 +139,6 @@ $result_trees{'texinfo_command_alias_indirect'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },

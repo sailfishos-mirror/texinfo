@@ -76,7 +76,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -102,7 +101,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     },
@@ -125,7 +123,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -161,7 +158,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'comma',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     },
@@ -201,7 +197,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -227,7 +222,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -262,7 +256,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -294,13 +287,11 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -320,7 +311,6 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -341,7 +331,6 @@ $result_trees{'invalid_node_name_warning'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -373,7 +362,6 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -392,7 +380,6 @@ $result_trees{'invalid_node_name_warning'} = {
               ],
               'cmdname' => 'comma',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -427,7 +414,6 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     },
@@ -448,7 +434,6 @@ $result_trees{'invalid_node_name_warning'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
@@ -488,7 +473,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -518,7 +502,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -533,7 +516,6 @@ $result_trees{'invalid_node_name_warning'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -555,7 +537,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'comma',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     },
@@ -591,7 +572,6 @@ $result_trees{'invalid_node_name_warning'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -616,7 +596,6 @@ $result_trees{'invalid_node_name_warning'} = {
                       ],
                       'cmdname' => 'asis',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     }
@@ -634,7 +613,6 @@ $result_trees{'invalid_node_name_warning'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -656,7 +634,6 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 14
       }
     }
@@ -856,7 +833,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: menu entry name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'menu entry name should not contain `:\'',
     'type' => 'warning'
@@ -864,7 +840,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `. \'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'menu entry node name should not contain `. \'',
     'type' => 'warning'
@@ -872,7 +847,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `,\'
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'menu entry node name should not contain `,\'',
     'type' => 'warning'
@@ -880,7 +854,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: menu entry node name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'menu entry node name should not contain `:\'',
     'type' => 'warning'
@@ -888,7 +861,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: @node name should not contain `,\': node,comma
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '@node name should not contain `,\': node,comma',
     'type' => 'warning'
@@ -896,7 +868,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: @ref cross-reference name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@ref cross-reference name should not contain `:\'',
     'type' => 'warning'
@@ -904,7 +875,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: @ref node name should not contain `.\'
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@ref node name should not contain `.\'',
     'type' => 'warning'
@@ -912,7 +882,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: @ref node name should not contain `,\'
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@ref node name should not contain `,\'',
     'type' => 'warning'
@@ -920,7 +889,6 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
     'error_line' => 'warning: @ref node name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => '@ref node name should not contain `:\'',
     'type' => 'warning'

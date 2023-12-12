@@ -43,7 +43,6 @@ $result_trees{'informative_commands_in_top_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -100,7 +99,6 @@ $result_trees{'informative_commands_in_top_node'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -156,7 +154,6 @@ $result_trees{'informative_commands_in_top_node'} = {
                   ],
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 6
                   }
                 }
@@ -177,7 +174,6 @@ $result_trees{'informative_commands_in_top_node'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -210,7 +206,6 @@ $result_trees{'informative_commands_in_top_node'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -227,7 +222,6 @@ $result_trees{'informative_commands_in_top_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -259,7 +253,6 @@ $result_trees{'informative_commands_in_top_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -306,7 +299,6 @@ $result_trees{'informative_commands_in_top_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     }

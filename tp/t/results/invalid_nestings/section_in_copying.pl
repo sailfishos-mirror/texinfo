@@ -44,7 +44,6 @@ $result_trees{'section_in_copying'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -78,7 +77,6 @@ $result_trees{'section_in_copying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -119,7 +117,6 @@ $result_errors{'section_in_copying'} = [
   {
     'error_line' => '@section seen before @end copying
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@section seen before @end copying',
     'type' => 'error'

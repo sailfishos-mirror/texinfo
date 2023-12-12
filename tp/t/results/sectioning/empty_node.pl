@@ -31,7 +31,6 @@ $result_trees{'empty_node'} = {
         }
       ],
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -115,7 +114,6 @@ $result_trees{'empty_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }
@@ -139,7 +137,6 @@ $result_errors{'empty_node'} = [
   {
     'error_line' => 'empty argument in @node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'empty argument in @node',
     'type' => 'error'
@@ -147,7 +144,6 @@ $result_errors{'empty_node'} = [
   {
     'error_line' => 'empty argument in @node
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'empty argument in @node',
     'type' => 'error'

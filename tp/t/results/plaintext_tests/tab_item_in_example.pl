@@ -76,13 +76,11 @@ $result_trees{'tab_item_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -108,7 +106,6 @@ $result_errors{'tab_item_in_example'} = [
   {
     'error_line' => 'ignoring @tab outside of multitable
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'ignoring @tab outside of multitable',
     'type' => 'error'
@@ -116,7 +113,6 @@ $result_errors{'tab_item_in_example'} = [
   {
     'error_line' => '@item outside of table or list
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@item outside of table or list',
     'type' => 'error'

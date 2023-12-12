@@ -104,7 +104,6 @@ $result_trees{'multiple_menus'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -136,13 +135,11 @@ $result_trees{'multiple_menus'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -221,7 +218,6 @@ $result_trees{'multiple_menus'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'menu_entry'
@@ -253,13 +249,11 @@ $result_trees{'multiple_menus'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -274,7 +268,6 @@ $result_trees{'multiple_menus'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -338,7 +331,6 @@ $result_errors{'multiple_menus'} = [
   {
     'error_line' => 'warning: multiple @menu
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'multiple @menu',
     'type' => 'warning'

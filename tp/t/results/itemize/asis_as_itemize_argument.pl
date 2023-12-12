@@ -16,7 +16,6 @@ $result_trees{'asis_as_itemize_argument'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -54,7 +53,6 @@ $result_trees{'asis_as_itemize_argument'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -85,7 +83,6 @@ $result_trees{'asis_as_itemize_argument'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -99,7 +96,6 @@ $result_trees{'asis_as_itemize_argument'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

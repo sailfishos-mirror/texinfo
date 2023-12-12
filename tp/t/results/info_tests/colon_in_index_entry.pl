@@ -64,7 +64,6 @@ $result_trees{'colon_in_index_entry'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -105,7 +104,6 @@ $result_trees{'colon_in_index_entry'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           },
           'type' => 'index_entry_command'
@@ -122,7 +120,6 @@ $result_trees{'colon_in_index_entry'} = {
                 {
                   'cmdname' => 'emph',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   },
                   'type' => 'command_as_argument'
@@ -174,7 +171,6 @@ $result_trees{'colon_in_index_entry'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -211,7 +207,6 @@ $result_trees{'colon_in_index_entry'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -225,7 +220,6 @@ $result_trees{'colon_in_index_entry'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -251,7 +245,6 @@ $result_trees{'colon_in_index_entry'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       },
                       'type' => 'bracketed_arg'
@@ -273,7 +266,6 @@ $result_trees{'colon_in_index_entry'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       },
                       'type' => 'bracketed_arg'
@@ -325,7 +317,6 @@ $result_trees{'colon_in_index_entry'} = {
                 'original_def_cmdname' => 'defvr'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'def_line'
@@ -344,7 +335,6 @@ $result_trees{'colon_in_index_entry'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       },
                       'type' => 'bracketed_arg'
@@ -366,7 +356,6 @@ $result_trees{'colon_in_index_entry'} = {
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 12
                       },
                       'type' => 'bracketed_arg'
@@ -437,7 +426,6 @@ $result_trees{'colon_in_index_entry'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               },
               'type' => 'def_line'
@@ -469,7 +457,6 @@ $result_trees{'colon_in_index_entry'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -480,7 +467,6 @@ $result_trees{'colon_in_index_entry'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -518,7 +504,6 @@ $result_trees{'colon_in_index_entry'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         }
@@ -534,7 +519,6 @@ $result_trees{'colon_in_index_entry'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

@@ -42,7 +42,6 @@ $result_trees{'customize_informative_commands'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

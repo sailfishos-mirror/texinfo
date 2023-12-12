@@ -50,7 +50,6 @@ $result_trees{'node_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -82,7 +81,6 @@ $result_trees{'node_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -118,7 +116,6 @@ $result_trees{'node_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -150,7 +147,6 @@ $result_trees{'node_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -201,7 +197,6 @@ $result_trees{'node_before_top'} = {
               ],
               'cmdname' => 'pxref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -222,7 +217,6 @@ $result_trees{'node_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }

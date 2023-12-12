@@ -12,7 +12,6 @@ $result_trees{'noindent_empty_para'} = {
         {
           'cmdname' => 'noindent',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

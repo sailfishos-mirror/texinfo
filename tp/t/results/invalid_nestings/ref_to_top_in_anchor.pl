@@ -57,7 +57,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
                   ],
                   'cmdname' => 'ref',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 2
                   }
                 }
@@ -71,7 +70,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
             'normalized' => 'TOP-Top'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         }
@@ -86,7 +84,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -122,7 +119,6 @@ $result_errors{'ref_to_top_in_anchor'} = [
   {
     'error_line' => 'warning: @ref should not appear anywhere inside @anchor
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@ref should not appear anywhere inside @anchor',
     'type' => 'warning'

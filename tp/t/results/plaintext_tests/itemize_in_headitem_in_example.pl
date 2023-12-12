@@ -88,7 +88,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -97,7 +96,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                 'command_as_argument' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -165,7 +163,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 1
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 },
@@ -196,7 +193,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
@@ -205,7 +201,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                 'command_as_argument' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -278,7 +273,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 1
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 13
                   }
                 },
@@ -309,7 +303,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14
                   }
                 }
@@ -318,7 +311,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                 'command_as_argument' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -386,7 +378,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 1
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 17
                   }
                 },
@@ -411,7 +402,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 2
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 19
                   }
                 },
@@ -442,7 +432,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20
                   }
                 }
@@ -451,7 +440,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                 'command_as_argument' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },
@@ -492,13 +480,11 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -556,7 +542,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
   {
     'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'
@@ -564,7 +549,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
   {
     'error_line' => 'warning: @itemize has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@itemize has text but no @item',
     'type' => 'warning'
@@ -572,7 +556,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
   {
     'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'
@@ -580,7 +563,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
   {
     'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'
@@ -588,7 +570,6 @@ $result_errors{'itemize_in_headitem_in_example'} = [
   {
     'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => '@headitem not meaningful inside `@itemize\' block',
     'type' => 'error'

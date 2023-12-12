@@ -62,7 +62,6 @@ $result_trees{'image_in_paragraph'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -105,7 +104,6 @@ $result_converted_errors{'html_text'}->{'image_in_paragraph'} = [
   {
     'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
     'type' => 'warning'

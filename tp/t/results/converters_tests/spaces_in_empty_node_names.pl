@@ -94,7 +94,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               },
               'type' => 'menu_entry'
@@ -124,7 +123,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                         'delimiter' => ':'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -159,7 +157,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -206,7 +203,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -238,13 +234,11 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -264,7 +258,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -302,7 +295,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     },
@@ -327,7 +319,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 'delimiter' => ':'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
@@ -355,7 +346,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -376,7 +366,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -424,7 +413,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -463,7 +451,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                         'delimiter' => ':'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     }
@@ -481,7 +468,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -516,7 +502,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                       ],
                       'cmdname' => 'w',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 19
                       }
                     }
@@ -534,7 +519,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             },
@@ -552,7 +536,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     }
@@ -629,7 +612,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => 'empty node name after expansion `@ @ \'
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'empty node name after expansion `@ @ \'',
     'type' => 'error'
@@ -637,7 +619,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => 'warning: @verb should not appear on @node line
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@verb should not appear on @node line',
     'type' => 'warning'
@@ -645,7 +626,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => 'empty node name after expansion `@verb{:  :}\'
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'empty node name after expansion `@verb{:  :}\'',
     'type' => 'error'
@@ -653,7 +633,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => 'empty node name after expansion `@w{  }\'
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => 'empty node name after expansion `@w{  }\'',
     'type' => 'error'
@@ -661,7 +640,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => 'warning: @verb should not appear anywhere inside @ref
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => '@verb should not appear anywhere inside @ref',
     'type' => 'warning'
@@ -669,7 +647,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => '@ref reference to nonexistent node `@ @ \'
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@ref reference to nonexistent node `@ @ \'',
     'type' => 'error'
@@ -677,7 +654,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => '@ref reference to nonexistent node `@verb{:  :}\'
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => '@ref reference to nonexistent node `@verb{:  :}\'',
     'type' => 'error'
@@ -685,7 +661,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => '@ref reference to nonexistent node `@w{  }\'
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => '@ref reference to nonexistent node `@w{  }\'',
     'type' => 'error'
@@ -693,7 +668,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => '@menu reference to nonexistent node `@ @ \'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@menu reference to nonexistent node `@ @ \'',
     'type' => 'error'
@@ -701,7 +675,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => '@menu reference to nonexistent node `@verb{:  :}\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@menu reference to nonexistent node `@verb{:  :}\'',
     'type' => 'error'
@@ -709,7 +682,6 @@ $result_errors{'spaces_in_empty_node_names'} = [
   {
     'error_line' => '@menu reference to nonexistent node `@ \'
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@menu reference to nonexistent node `@ \'',
     'type' => 'error'

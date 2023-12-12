@@ -59,13 +59,11 @@ $result_trees{'raw'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -130,13 +128,11 @@ $result_trees{'raw'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 8
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }

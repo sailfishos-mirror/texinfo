@@ -19,7 +19,6 @@ $result_trees{'modified_translation'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -62,7 +61,6 @@ $result_trees{'modified_translation'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -84,7 +82,6 @@ $result_trees{'modified_translation'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -127,7 +124,6 @@ $result_trees{'modified_translation'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -149,7 +145,6 @@ $result_trees{'modified_translation'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },

@@ -105,7 +105,6 @@ $result_trees{'star_at_command_formatting'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
@@ -115,7 +114,6 @@ $result_trees{'star_at_command_formatting'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -256,7 +254,6 @@ $result_trees{'star_at_command_formatting'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16,
                 'macro' => 'mymacro'
               }
@@ -281,7 +278,6 @@ $result_trees{'star_at_command_formatting'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16,
                 'macro' => 'mymacro'
               }
@@ -310,7 +306,6 @@ $result_trees{'star_at_command_formatting'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16,
                 'macro' => 'mymacro'
               }
@@ -347,7 +342,6 @@ $result_trees{'star_at_command_formatting'} = {
               ],
               'cmdname' => 'asis',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16,
                 'macro' => 'mymacro'
               }
@@ -521,7 +515,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20,
                     'macro' => 'mymacro'
                   }
@@ -546,7 +539,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20,
                     'macro' => 'mymacro'
                   }
@@ -575,7 +567,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20,
                     'macro' => 'mymacro'
                   }
@@ -612,7 +603,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20,
                     'macro' => 'mymacro'
                   }
@@ -663,13 +653,11 @@ $result_trees{'star_at_command_formatting'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         },
@@ -828,7 +816,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 25,
                     'macro' => 'mymacro'
                   }
@@ -853,7 +840,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 25,
                     'macro' => 'mymacro'
                   }
@@ -882,7 +868,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 25,
                     'macro' => 'mymacro'
                   }
@@ -919,7 +904,6 @@ $result_trees{'star_at_command_formatting'} = {
                   ],
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 25,
                     'macro' => 'mymacro'
                   }
@@ -970,13 +954,11 @@ $result_trees{'star_at_command_formatting'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 23
           }
         },

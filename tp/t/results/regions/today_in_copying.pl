@@ -35,7 +35,6 @@ $result_trees{'today_in_copying'} = {
                       ],
                       'cmdname' => 'today',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -73,13 +72,11 @@ $result_trees{'today_in_copying'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -122,7 +119,6 @@ $result_trees{'today_in_copying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -158,7 +154,6 @@ $result_trees{'today_in_copying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -196,7 +191,6 @@ $result_trees{'today_in_copying'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         }
@@ -211,7 +205,6 @@ $result_trees{'today_in_copying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     }

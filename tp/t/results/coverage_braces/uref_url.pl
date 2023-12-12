@@ -32,7 +32,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -53,7 +52,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -77,7 +75,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -114,7 +111,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -146,7 +142,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -178,7 +173,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -205,7 +199,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -234,7 +227,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'url',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -271,7 +263,6 @@ $result_trees{'uref_url'} = {
               ],
               'cmdname' => 'url',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },

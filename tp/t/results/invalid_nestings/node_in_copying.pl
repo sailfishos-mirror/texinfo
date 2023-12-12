@@ -23,7 +23,6 @@ $result_trees{'node_in_copying'} = {
           ],
           'cmdname' => 'copying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -65,7 +64,6 @@ $result_trees{'node_in_copying'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }
@@ -103,7 +101,6 @@ $result_errors{'node_in_copying'} = [
   {
     'error_line' => '@node seen before @end copying
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@node seen before @end copying',
     'type' => 'error'
@@ -111,7 +108,6 @@ $result_errors{'node_in_copying'} = [
   {
     'error_line' => 'unmatched `@end copying\'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'unmatched `@end copying\'',
     'type' => 'error'

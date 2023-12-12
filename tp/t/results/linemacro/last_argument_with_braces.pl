@@ -63,7 +63,6 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -73,7 +72,6 @@ $result_trees{'last_argument_with_braces'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -215,7 +213,6 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'defbuiltin'
               },
@@ -295,7 +292,6 @@ $result_trees{'last_argument_with_braces'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7,
                         'macro' => 'defbuiltin'
                       },
@@ -324,7 +320,6 @@ $result_trees{'last_argument_with_braces'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7,
                         'macro' => 'defbuiltin'
                       },
@@ -359,7 +354,6 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'defbuiltin'
               },
@@ -487,7 +481,6 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9,
                 'macro' => 'defbuiltin'
               },
@@ -541,7 +534,6 @@ $result_trees{'last_argument_with_braces'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9,
                         'macro' => 'defbuiltin'
                       },
@@ -559,7 +551,6 @@ $result_trees{'last_argument_with_braces'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9,
                         'macro' => 'defbuiltin'
                       },
@@ -594,7 +585,6 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9,
                 'macro' => 'defbuiltin'
               },
@@ -722,7 +712,6 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11,
                 'macro' => 'defbuiltin'
               },
@@ -781,7 +770,6 @@ $result_trees{'last_argument_with_braces'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11,
                         'macro' => 'defbuiltin'
                       },
@@ -830,7 +818,6 @@ $result_trees{'last_argument_with_braces'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11,
                         'macro' => 'defbuiltin'
                       },
@@ -865,7 +852,6 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11,
                 'macro' => 'defbuiltin'
               },
@@ -898,13 +884,11 @@ $result_trees{'last_argument_with_braces'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         }

@@ -50,7 +50,6 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 1
                           }
                         }
@@ -68,7 +67,6 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -86,7 +84,6 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -107,7 +104,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => 'warning: @setfilename should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@setfilename should only appear at the beginning of a line',
     'type' => 'warning'
@@ -115,7 +111,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => 'warning: @setfilename should not appear in @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@setfilename should not appear in @setfilename',
     'type' => 'warning'
@@ -123,7 +118,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => 'warning: multiple @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'multiple @setfilename',
     'type' => 'warning'
@@ -131,7 +125,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
@@ -139,7 +132,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => 'warning: @include should not appear in @setfilename
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@include should not appear in @setfilename',
     'type' => 'warning'
@@ -147,7 +139,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => '@include: could not find are you joking!
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@include: could not find are you joking!',
     'type' => 'error'
@@ -155,7 +146,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => 'bad argument to @setfilename: other file @include are you joking!
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad argument to @setfilename: other file @include are you joking!',
     'type' => 'error'
@@ -163,7 +153,6 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
     'error_line' => 'bad argument to @setfilename: file @setfilename other file @include are you joking!
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'bad argument to @setfilename: file @setfilename other file @include are you joking!',
     'type' => 'error'

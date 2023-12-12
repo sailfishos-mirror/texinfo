@@ -41,7 +41,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -84,7 +83,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -110,7 +108,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
       ],
       'extra' => {},
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -143,7 +140,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -234,7 +230,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     }
@@ -259,7 +254,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'def_line'
@@ -305,7 +299,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -316,7 +309,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -377,7 +369,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 'original_def_cmdname' => 'defvar'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               },
               'type' => 'def_line'
@@ -423,7 +414,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             }
@@ -434,7 +424,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -472,7 +461,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           }
         }
@@ -486,7 +474,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }

@@ -68,7 +68,6 @@ $result_trees{'uref_in_ref'} = {
                       ],
                       'cmdname' => 'uref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     }
@@ -106,7 +105,6 @@ $result_trees{'uref_in_ref'} = {
                       ],
                       'cmdname' => 'uref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     }
@@ -144,7 +142,6 @@ $result_trees{'uref_in_ref'} = {
                       ],
                       'cmdname' => 'uref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     }
@@ -182,7 +179,6 @@ $result_trees{'uref_in_ref'} = {
                       ],
                       'cmdname' => 'uref',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     }
@@ -197,7 +193,6 @@ $result_trees{'uref_in_ref'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -240,7 +235,6 @@ $result_converted_errors{'plaintext'}->{'uref_in_ref'} = [
   {
     'error_line' => 'warning: @ref cross-reference name should not contain `:\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@ref cross-reference name should not contain `:\'',
     'type' => 'warning'

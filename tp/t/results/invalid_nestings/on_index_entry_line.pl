@@ -16,7 +16,6 @@ $result_trees{'on_index_entry_line'} = {
                 {
                   'cmdname' => 'indent',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -37,7 +36,6 @@ $result_trees{'on_index_entry_line'} = {
                   ],
                   'cmdname' => 'titlefont',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -61,7 +59,6 @@ $result_trees{'on_index_entry_line'} = {
                     'normalized' => 'in-anchor'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -83,7 +80,6 @@ $result_trees{'on_index_entry_line'} = {
                   ],
                   'cmdname' => 'footnote',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -114,7 +110,6 @@ $result_trees{'on_index_entry_line'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -136,7 +131,6 @@ $result_trees{'on_index_entry_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           },
           'type' => 'index_entry_command'
@@ -158,7 +152,6 @@ $result_errors{'on_index_entry_line'} = [
   {
     'error_line' => 'warning: @indent should not appear on @cindex line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@indent should not appear on @cindex line',
     'type' => 'warning'
@@ -166,7 +159,6 @@ $result_errors{'on_index_entry_line'} = [
   {
     'error_line' => 'warning: @titlefont should not appear on @cindex line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@titlefont should not appear on @cindex line',
     'type' => 'warning'
@@ -174,7 +166,6 @@ $result_errors{'on_index_entry_line'} = [
   {
     'error_line' => 'warning: @anchor should not appear on @cindex line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@anchor should not appear on @cindex line',
     'type' => 'warning'
@@ -182,7 +173,6 @@ $result_errors{'on_index_entry_line'} = [
   {
     'error_line' => 'warning: @footnote should not appear on @cindex line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@footnote should not appear on @cindex line',
     'type' => 'warning'
@@ -190,7 +180,6 @@ $result_errors{'on_index_entry_line'} = [
   {
     'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@exdent should only appear at the beginning of a line',
     'type' => 'warning'
@@ -198,7 +187,6 @@ $result_errors{'on_index_entry_line'} = [
   {
     'error_line' => 'warning: @exdent should not appear on @cindex line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@exdent should not appear on @cindex line',
     'type' => 'warning'
@@ -206,7 +194,6 @@ $result_errors{'on_index_entry_line'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'

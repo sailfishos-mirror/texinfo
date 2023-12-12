@@ -54,7 +54,6 @@ $result_trees{'redefine_texinfo_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'redefine_texinfo_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -112,7 +110,6 @@ $result_trees{'redefine_texinfo_macro'} = {
               ],
               'cmdname' => 'emph',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'code'
               },
@@ -154,7 +151,6 @@ $result_errors{'redefine_texinfo_macro'} = [
   {
     'error_line' => 'warning: redefining Texinfo language command: @code
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'redefining Texinfo language command: @code',
     'type' => 'warning'

@@ -19,7 +19,6 @@ $result_trees{'test_today'} = {
               ],
               'cmdname' => 'today',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },

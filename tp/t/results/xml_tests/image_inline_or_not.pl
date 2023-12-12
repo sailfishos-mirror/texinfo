@@ -25,7 +25,6 @@ $result_trees{'image_inline_or_not'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -59,7 +58,6 @@ $result_trees{'image_inline_or_not'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -106,7 +104,6 @@ $result_trees{'image_inline_or_not'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -150,7 +147,6 @@ $result_trees{'image_inline_or_not'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -184,7 +180,6 @@ $result_trees{'image_inline_or_not'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -237,7 +232,6 @@ $result_trees{'image_inline_or_not'} = {
                     'input_encoding_name' => 'utf-8'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14
                   }
                 },
@@ -270,7 +264,6 @@ $result_trees{'image_inline_or_not'} = {
                     'input_encoding_name' => 'utf-8'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 17
                   }
                 },
@@ -308,13 +301,11 @@ $result_trees{'image_inline_or_not'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 18
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -343,7 +334,6 @@ $result_trees{'image_inline_or_not'} = {
                     'input_encoding_name' => 'utf-8'
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20
                   }
                 }
@@ -375,7 +365,6 @@ $result_trees{'image_inline_or_not'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             },
@@ -410,7 +399,6 @@ $result_trees{'image_inline_or_not'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             }
@@ -421,7 +409,6 @@ $result_trees{'image_inline_or_not'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 20
           }
         },
@@ -437,7 +424,6 @@ $result_trees{'image_inline_or_not'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 24
                   },
                   'type' => 'command_as_argument'
@@ -478,7 +464,6 @@ $result_trees{'image_inline_or_not'} = {
                                 'input_encoding_name' => 'utf-8'
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 25
                               }
                             }
@@ -499,7 +484,6 @@ $result_trees{'image_inline_or_not'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 25
                       }
                     }
@@ -529,7 +513,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 27
                       }
                     },
@@ -563,7 +546,6 @@ $result_trees{'image_inline_or_not'} = {
                             'input_encoding_name' => 'utf-8'
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 29
                           }
                         },
@@ -595,7 +577,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 31
                       }
                     },
@@ -636,7 +617,6 @@ $result_trees{'image_inline_or_not'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 32
               }
             }
@@ -650,7 +630,6 @@ $result_trees{'image_inline_or_not'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 24
           }
         },
@@ -697,7 +676,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 35
                       }
                     }
@@ -736,7 +714,6 @@ $result_trees{'image_inline_or_not'} = {
                             'input_encoding_name' => 'utf-8'
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 35
                           }
                         },
@@ -752,7 +729,6 @@ $result_trees{'image_inline_or_not'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 35
               },
               'type' => 'menu_entry'
@@ -781,7 +757,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 36
                       }
                     }
@@ -819,7 +794,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 36
                       }
                     }
@@ -859,7 +833,6 @@ $result_trees{'image_inline_or_not'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               },
               'type' => 'menu_entry'
@@ -889,7 +862,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 38
                       }
                     },
@@ -930,13 +902,11 @@ $result_trees{'image_inline_or_not'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 39
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 34
           }
         },
@@ -953,7 +923,6 @@ $result_trees{'image_inline_or_not'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -977,7 +946,6 @@ $result_trees{'image_inline_or_not'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               }
             }
@@ -1002,7 +970,6 @@ $result_trees{'image_inline_or_not'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 41
       }
     },
@@ -1026,7 +993,6 @@ $result_trees{'image_inline_or_not'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 42
               }
             }
@@ -1077,7 +1043,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 46
                       }
                     },
@@ -1097,7 +1062,6 @@ $result_trees{'image_inline_or_not'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 45
               }
             },
@@ -1144,7 +1108,6 @@ $result_trees{'image_inline_or_not'} = {
                             'input_encoding_name' => 'utf-8'
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 51
                           }
                         },
@@ -1172,7 +1135,6 @@ $result_trees{'image_inline_or_not'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 49
               }
             },
@@ -1236,7 +1198,6 @@ $result_trees{'image_inline_or_not'} = {
                 'input_encoding_name' => 'utf-8'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 57
               }
             },
@@ -1269,7 +1230,6 @@ $result_trees{'image_inline_or_not'} = {
                         'input_encoding_name' => 'utf-8'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 59
                       }
                     },
@@ -1294,7 +1254,6 @@ $result_trees{'image_inline_or_not'} = {
                             'input_encoding_name' => 'utf-8'
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 59
                           }
                         }
@@ -1310,7 +1269,6 @@ $result_trees{'image_inline_or_not'} = {
                 'float' => {}
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 59
               }
             },
@@ -1346,7 +1304,6 @@ $result_trees{'image_inline_or_not'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 60
               }
             }
@@ -1364,7 +1321,6 @@ $result_trees{'image_inline_or_not'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 55
           }
         }
@@ -1378,7 +1334,6 @@ $result_trees{'image_inline_or_not'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 42
       }
     }

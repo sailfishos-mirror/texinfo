@@ -22,7 +22,6 @@ $result_trees{'math_bracketed_inside_not_closed'} = {
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       },
                       'type' => 'balanced_braces'
@@ -37,7 +36,6 @@ $result_trees{'math_bracketed_inside_not_closed'} = {
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       },
                       'type' => 'balanced_braces'
@@ -48,7 +46,6 @@ $result_trees{'math_bracketed_inside_not_closed'} = {
               ],
               'cmdname' => 'math',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -71,7 +68,6 @@ $result_errors{'math_bracketed_inside_not_closed'} = [
   {
     'error_line' => '@math missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@math missing closing brace',
     'type' => 'error'

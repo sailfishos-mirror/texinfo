@@ -41,7 +41,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'html'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -74,7 +73,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'plaintext'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -107,7 +105,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'xml'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -140,7 +137,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'docbook'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -176,7 +172,6 @@ $result_trees{'inline_expand_tex'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -195,7 +190,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'tex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -228,7 +222,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'latex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -276,7 +269,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'html'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -309,7 +301,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'plaintext'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -342,7 +333,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'xml'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             },
@@ -375,7 +365,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'docbook'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -417,7 +406,6 @@ $result_trees{'inline_expand_tex'} = {
                                     }
                                   ],
                                   'source_info' => {
-                                    'file_name' => '',
                                     'line_nr' => 14
                                   },
                                   'type' => 'balanced_braces'
@@ -428,7 +416,6 @@ $result_trees{'inline_expand_tex'} = {
                           ],
                           'cmdname' => 'code',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 14
                           }
                         },
@@ -437,7 +424,6 @@ $result_trees{'inline_expand_tex'} = {
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       },
                       'type' => 'balanced_braces'
@@ -460,7 +446,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'tex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -493,7 +478,6 @@ $result_trees{'inline_expand_tex'} = {
                 'format' => 'latex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -550,7 +534,6 @@ $result_errors{'inline_expand_tex'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -558,7 +541,6 @@ $result_errors{'inline_expand_tex'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -566,7 +548,6 @@ $result_errors{'inline_expand_tex'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'misplaced }',
     'type' => 'error'
@@ -574,7 +555,6 @@ $result_errors{'inline_expand_tex'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => 'misplaced }',
     'type' => 'error'

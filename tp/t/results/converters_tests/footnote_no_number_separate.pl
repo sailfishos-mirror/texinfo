@@ -38,7 +38,6 @@ $result_trees{'footnote_no_number_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -74,7 +73,6 @@ $result_trees{'footnote_no_number_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -106,7 +104,6 @@ $result_trees{'footnote_no_number_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -157,7 +154,6 @@ $result_trees{'footnote_no_number_separate'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -196,7 +192,6 @@ $result_trees{'footnote_no_number_separate'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -217,7 +212,6 @@ $result_trees{'footnote_no_number_separate'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }

@@ -16,7 +16,6 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -86,7 +85,6 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -100,7 +98,6 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -129,7 +126,6 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -137,7 +133,6 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
   {
     'error_line' => 'unknown command `itemTop\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'unknown command `itemTop\'',
     'type' => 'error'
@@ -145,7 +140,6 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'misplaced }',
     'type' => 'error'
@@ -153,7 +147,6 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
   {
     'error_line' => 'warning: @table has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@table has text but no @item',
     'type' => 'warning'

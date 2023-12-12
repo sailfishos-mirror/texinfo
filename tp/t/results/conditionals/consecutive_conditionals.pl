@@ -59,13 +59,11 @@ $result_trees{'consecutive_conditionals'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 3
                     }
                   }
                 ],
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },
@@ -119,13 +117,11 @@ $result_trees{'consecutive_conditionals'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 6
                     }
                   }
                 ],
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 4
                 }
               },
@@ -211,7 +207,6 @@ $result_trees{'consecutive_conditionals'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 12
                     }
                   }
@@ -222,7 +217,6 @@ $result_trees{'consecutive_conditionals'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 10
                 }
               },
@@ -282,7 +276,6 @@ $result_trees{'consecutive_conditionals'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 15
                     }
                   }
@@ -293,7 +286,6 @@ $result_trees{'consecutive_conditionals'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 13
                 }
               },

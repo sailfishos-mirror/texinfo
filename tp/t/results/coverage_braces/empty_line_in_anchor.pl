@@ -28,7 +28,6 @@ $result_trees{'empty_line_in_anchor'} = {
           ],
           'cmdname' => 'anchor',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -61,7 +60,6 @@ $result_errors{'empty_line_in_anchor'} = [
   {
     'error_line' => '@anchor missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@anchor missing closing brace',
     'type' => 'error'
@@ -69,7 +67,6 @@ $result_errors{'empty_line_in_anchor'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'misplaced }',
     'type' => 'error'

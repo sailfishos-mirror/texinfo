@@ -38,7 +38,6 @@ $result_trees{'paragraph_indent_asis'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -123,13 +122,11 @@ $result_trees{'paragraph_indent_asis'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },

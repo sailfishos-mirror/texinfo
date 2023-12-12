@@ -41,7 +41,6 @@ $result_trees{'syncode_index_print_both'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -84,7 +83,6 @@ $result_trees{'syncode_index_print_both'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -120,7 +118,6 @@ $result_trees{'syncode_index_print_both'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -153,7 +150,6 @@ $result_trees{'syncode_index_print_both'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     },
@@ -213,7 +209,6 @@ $result_trees{'syncode_index_print_both'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           },
           'type' => 'index_entry_command'
@@ -250,7 +245,6 @@ $result_trees{'syncode_index_print_both'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           },
           'type' => 'index_entry_command'
@@ -308,7 +302,6 @@ $result_trees{'syncode_index_print_both'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -360,7 +353,6 @@ $result_trees{'syncode_index_print_both'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           }
         },
@@ -379,7 +371,6 @@ $result_trees{'syncode_index_print_both'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     }
@@ -531,7 +522,6 @@ $result_errors{'syncode_index_print_both'} = [
   {
     'error_line' => 'warning: printing an index `fn\' merged in another one, `cp\'
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'printing an index `fn\' merged in another one, `cp\'',
     'type' => 'warning'

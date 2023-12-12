@@ -64,7 +64,6 @@ $result_trees{'ifclear_in_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -74,7 +73,6 @@ $result_trees{'ifclear_in_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -133,7 +131,6 @@ $result_trees{'ifclear_in_macro'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 9,
                   'macro' => 'note'
                 }
@@ -195,7 +192,6 @@ $result_trees{'ifclear_in_macro'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 9,
                   'macro' => 'note'
                 }

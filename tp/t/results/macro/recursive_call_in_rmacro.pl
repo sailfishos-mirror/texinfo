@@ -55,7 +55,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -65,7 +64,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -2213,7 +2211,6 @@ $result_errors{'recursive_call_in_rmacro'} = [
   {
     'error_line' => 'warning: macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100) (possibly involving @rec)
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'macro' => 'rec',
     'text' => 'macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)',

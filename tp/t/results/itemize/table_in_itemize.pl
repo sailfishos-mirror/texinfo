@@ -16,7 +16,6 @@ $result_trees{'table_in_itemize'} = {
                 {
                   'cmdname' => 'bullet',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -54,7 +53,6 @@ $result_trees{'table_in_itemize'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -73,7 +71,6 @@ $result_trees{'table_in_itemize'} = {
                         {
                           'cmdname' => 'asis',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 4
                           },
                           'type' => 'command_as_argument'
@@ -118,7 +115,6 @@ $result_trees{'table_in_itemize'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 5
                               }
                             }
@@ -184,7 +180,6 @@ $result_trees{'table_in_itemize'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 9
                               }
                             }
@@ -249,7 +244,6 @@ $result_trees{'table_in_itemize'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 13
                       }
                     }
@@ -263,7 +257,6 @@ $result_trees{'table_in_itemize'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 4
                   }
                 }
@@ -272,7 +265,6 @@ $result_trees{'table_in_itemize'} = {
                 'item_number' => 2
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -297,7 +289,6 @@ $result_trees{'table_in_itemize'} = {
                 'item_number' => 3
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -322,7 +313,6 @@ $result_trees{'table_in_itemize'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
@@ -336,7 +326,6 @@ $result_trees{'table_in_itemize'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

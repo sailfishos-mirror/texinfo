@@ -39,7 +39,6 @@ $result_trees{'index_below'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -86,7 +85,6 @@ $result_trees{'index_below'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -151,7 +149,6 @@ $result_trees{'index_below'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           },
           'type' => 'index_entry_command'
@@ -185,7 +182,6 @@ $result_trees{'index_below'} = [
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         }
@@ -199,7 +195,6 @@ $result_trees{'index_below'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },

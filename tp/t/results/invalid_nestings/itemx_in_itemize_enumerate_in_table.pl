@@ -16,7 +16,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                 {
                   'cmdname' => 'strong',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -61,7 +60,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -130,7 +128,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 6
                               }
                             }
@@ -164,7 +161,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 7
                           }
                         }
@@ -173,7 +169,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                         'command_as_argument' => {}
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     },
@@ -222,7 +217,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 10
                               }
                             }
@@ -256,7 +250,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 11
                           }
                         }
@@ -265,7 +258,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                         'enumerate_specification' => '1'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -307,7 +299,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -321,7 +312,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -363,7 +353,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
   {
     'error_line' => '@itemx outside of table or list
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@itemx outside of table or list',
     'type' => 'error'
@@ -371,7 +360,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
   {
     'error_line' => 'warning: @itemize has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@itemize has text but no @item',
     'type' => 'warning'
@@ -379,7 +367,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
   {
     'error_line' => '@itemx outside of table or list
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@itemx outside of table or list',
     'type' => 'error'
@@ -387,7 +374,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
   {
     'error_line' => 'warning: @enumerate has text but no @item
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@enumerate has text but no @item',
     'type' => 'warning'

@@ -48,7 +48,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     }
@@ -62,7 +61,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 'format' => 'html'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -117,7 +115,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       ],
                       'cmdname' => 'emph',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -131,7 +128,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 'format' => 'plaintext'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -186,7 +182,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       ],
                       'cmdname' => 'env',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -205,7 +200,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 'format' => 'xml'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -268,7 +262,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     },
@@ -290,7 +283,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 'format' => 'docbook'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -342,7 +334,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       ],
                       'cmdname' => 'var',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 9
                       }
                     },
@@ -359,7 +350,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 'format' => 'tex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -411,7 +401,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -428,7 +417,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 'format' => 'latex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },

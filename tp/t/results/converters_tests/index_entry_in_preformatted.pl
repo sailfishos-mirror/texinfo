@@ -38,7 +38,6 @@ $result_trees{'index_entry_in_preformatted'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -74,7 +73,6 @@ $result_trees{'index_entry_in_preformatted'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -106,7 +104,6 @@ $result_trees{'index_entry_in_preformatted'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -182,7 +179,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 8
                   },
                   'type' => 'index_entry_command'
@@ -237,7 +233,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 11
                   },
                   'type' => 'index_entry_command'
@@ -278,7 +273,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 13
                   },
                   'type' => 'index_entry_command'
@@ -313,13 +307,11 @@ $result_trees{'index_entry_in_preformatted'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -333,7 +325,6 @@ $result_trees{'index_entry_in_preformatted'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }

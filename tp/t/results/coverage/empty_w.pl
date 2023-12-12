@@ -19,7 +19,6 @@ $result_trees{'empty_w'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -39,7 +38,6 @@ $result_trees{'empty_w'} = {
               ],
               'cmdname' => 'w',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },

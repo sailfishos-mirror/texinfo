@@ -24,7 +24,6 @@ $result_trees{'simple'} = {
               ],
               'cmdname' => 'b',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },

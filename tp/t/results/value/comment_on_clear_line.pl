@@ -252,7 +252,6 @@ $result_errors{'comment_on_clear_line'} = [
   {
     'error_line' => 'bad name for @clear
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => 'bad name for @clear',
     'type' => 'error'
@@ -260,7 +259,6 @@ $result_errors{'comment_on_clear_line'} = [
   {
     'error_line' => 'bad name for @clear
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'bad name for @clear',
     'type' => 'error'
@@ -268,7 +266,6 @@ $result_errors{'comment_on_clear_line'} = [
   {
     'error_line' => 'warning: undefined flag: x
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'undefined flag: x',
     'type' => 'warning'
@@ -276,7 +273,6 @@ $result_errors{'comment_on_clear_line'} = [
   {
     'error_line' => 'warning: undefined flag: y
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'undefined flag: y',
     'type' => 'warning'

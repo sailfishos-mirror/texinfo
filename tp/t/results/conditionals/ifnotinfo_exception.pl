@@ -59,13 +59,11 @@ $result_trees{'ifnotinfo_exception'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 3
                     }
                   }
                 ],
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },

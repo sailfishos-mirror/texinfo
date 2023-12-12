@@ -70,7 +70,6 @@ $result_trees{'empty_ref_arg'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -120,7 +119,6 @@ $result_trees{'empty_ref_arg'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -175,7 +173,6 @@ $result_trees{'empty_ref_arg'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },
@@ -274,7 +271,6 @@ $result_trees{'empty_ref_arg'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -296,7 +292,6 @@ $result_trees{'empty_ref_arg'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }
@@ -350,7 +345,6 @@ $result_errors{'empty_ref_arg'} = [
   {
     'error_line' => 'warning: in @ref empty cross reference name after expansion `@ \'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'in @ref empty cross reference name after expansion `@ \'',
     'type' => 'warning'
@@ -358,7 +352,6 @@ $result_errors{'empty_ref_arg'} = [
   {
     'error_line' => 'warning: in @ref empty cross reference title after expansion `@ \'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'in @ref empty cross reference title after expansion `@ \'',
     'type' => 'warning'
@@ -366,7 +359,6 @@ $result_errors{'empty_ref_arg'} = [
   {
     'error_line' => 'warning: in @ref empty cross reference name after expansion `@ \'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'in @ref empty cross reference name after expansion `@ \'',
     'type' => 'warning'
@@ -374,7 +366,6 @@ $result_errors{'empty_ref_arg'} = [
   {
     'error_line' => 'warning: in @ref empty cross reference title after expansion `@:\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'in @ref empty cross reference title after expansion `@:\'',
     'type' => 'warning'
@@ -385,7 +376,6 @@ $result_errors{'empty_ref_arg'} = [
 @c ggg
 \'
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'in @ref empty cross reference name after expansion `@c aaa
  @ 
@@ -398,7 +388,6 @@ $result_errors{'empty_ref_arg'} = [
 @c
 \'
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'in @ref empty cross reference title after expansion `@c fff
 @c

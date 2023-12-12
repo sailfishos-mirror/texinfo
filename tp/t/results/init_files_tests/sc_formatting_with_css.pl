@@ -31,7 +31,6 @@ $result_trees{'sc_formatting_with_css'} = {
                       ],
                       'cmdname' => 'sc',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 1
                       }
                     },
@@ -50,7 +49,6 @@ $result_trees{'sc_formatting_with_css'} = {
               ],
               'cmdname' => 'settitle',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -77,7 +75,6 @@ $result_trees{'sc_formatting_with_css'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -122,7 +119,6 @@ $result_trees{'sc_formatting_with_css'} = {
                   ],
                   'cmdname' => 'sc',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 6
                   }
                 },
@@ -160,13 +156,11 @@ $result_trees{'sc_formatting_with_css'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -204,7 +198,6 @@ $result_errors{'sc_formatting_with_css'} = [
   {
     'error_line' => 'misplaced {
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'misplaced {',
     'type' => 'error'
@@ -212,7 +205,6 @@ $result_errors{'sc_formatting_with_css'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'misplaced }',
     'type' => 'error'

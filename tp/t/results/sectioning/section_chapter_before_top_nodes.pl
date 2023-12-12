@@ -43,7 +43,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -81,7 +80,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -113,7 +111,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -197,7 +194,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'menu_entry'
@@ -229,13 +225,11 @@ $result_trees{'section_chapter_before_top_nodes'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         },
@@ -254,7 +248,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -286,7 +279,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     },
@@ -370,7 +362,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               },
               'type' => 'menu_entry'
@@ -402,13 +393,11 @@ $result_trees{'section_chapter_before_top_nodes'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           }
         },
@@ -425,7 +414,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 12
       }
     }
@@ -627,7 +615,6 @@ $result_errors{'section_chapter_before_top_nodes'} = [
   {
     'error_line' => 'warning: lowering the section level of @chapter appearing after a lower element
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'lowering the section level of @chapter appearing after a lower element',
     'type' => 'warning'
@@ -635,7 +622,6 @@ $result_errors{'section_chapter_before_top_nodes'} = [
   {
     'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'
@@ -643,7 +629,6 @@ $result_errors{'section_chapter_before_top_nodes'} = [
   {
     'error_line' => 'warning: node `chapter node\' is up for `section node\' in menu but not in sectioning
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'node `chapter node\' is up for `section node\' in menu but not in sectioning',
     'type' => 'warning'
@@ -651,7 +636,6 @@ $result_errors{'section_chapter_before_top_nodes'} = [
   {
     'error_line' => 'warning: node `Top\' is up for `chapter node\' in menu but not in sectioning
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'node `Top\' is up for `chapter node\' in menu but not in sectioning',
     'type' => 'warning'

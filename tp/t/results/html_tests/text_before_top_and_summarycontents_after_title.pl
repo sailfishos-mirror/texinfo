@@ -59,7 +59,6 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -109,7 +108,6 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -147,7 +145,6 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
           ],
           'cmdname' => 'summarycontents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -166,7 +163,6 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 9
       }
     }

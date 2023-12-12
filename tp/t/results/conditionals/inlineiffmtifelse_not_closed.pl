@@ -38,7 +38,6 @@ $result_trees{'inlineiffmtifelse_not_closed'} = {
                 'format' => 'html'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -62,7 +61,6 @@ $result_errors{'inlineiffmtifelse_not_closed'} = [
   {
     'error_line' => '@inlinefmtifelse missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@inlinefmtifelse missing closing brace',
     'type' => 'error'

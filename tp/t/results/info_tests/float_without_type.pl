@@ -99,7 +99,6 @@ $result_trees{'float_without_type'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -113,7 +112,6 @@ $result_trees{'float_without_type'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -149,7 +147,6 @@ $result_trees{'float_without_type'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         }
@@ -164,7 +161,6 @@ $result_trees{'float_without_type'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     }

@@ -38,7 +38,6 @@ $result_trees{'menu_no_closed_entry_beginning'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -59,7 +58,6 @@ $result_errors{'menu_no_closed_entry_beginning'} = [
   {
     'error_line' => 'no matching `@end menu\'
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'no matching `@end menu\'',
     'type' => 'error'

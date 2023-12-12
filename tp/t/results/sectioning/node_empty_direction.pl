@@ -40,7 +40,6 @@ $result_trees{'node_empty_direction'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

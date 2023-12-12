@@ -22,7 +22,6 @@ $result_trees{'clickstyle'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -47,7 +46,6 @@ $result_trees{'clickstyle'} = {
                 'clickstyle' => 'result'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -76,7 +74,6 @@ $result_trees{'clickstyle'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -101,7 +98,6 @@ $result_trees{'clickstyle'} = {
                 'clickstyle' => 'equiv'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },

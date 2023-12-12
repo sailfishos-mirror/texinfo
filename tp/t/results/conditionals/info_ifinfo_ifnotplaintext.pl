@@ -27,7 +27,6 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                 ],
                 'cmdname' => 'ifinfo',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },
@@ -50,7 +49,6 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                 ],
                 'cmdname' => 'ifnotplaintext',
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 2
                 }
               },
@@ -93,7 +91,6 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 4
                     }
                   },
@@ -130,7 +127,6 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 5
                     }
                   },

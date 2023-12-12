@@ -43,7 +43,6 @@ $result_trees{'subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -69,7 +68,6 @@ $result_trees{'subentries'} = {
       ],
       'extra' => {},
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -102,7 +100,6 @@ $result_trees{'subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -162,7 +159,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           },
           'type' => 'index_entry_command'
@@ -217,7 +213,6 @@ $result_trees{'subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -229,7 +224,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           },
           'type' => 'index_entry_command'
@@ -304,7 +298,6 @@ $result_trees{'subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
@@ -315,7 +308,6 @@ $result_trees{'subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -327,7 +319,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           },
           'type' => 'index_entry_command'
@@ -422,7 +413,6 @@ $result_trees{'subentries'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -433,7 +423,6 @@ $result_trees{'subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 10
                   }
                 }
@@ -444,7 +433,6 @@ $result_trees{'subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -456,7 +444,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           },
           'type' => 'index_entry_command'
@@ -501,7 +488,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           },
           'type' => 'index_entry_command'
@@ -556,7 +542,6 @@ $result_trees{'subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -568,7 +553,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 13
           },
           'type' => 'index_entry_command'
@@ -643,7 +627,6 @@ $result_trees{'subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14
                   }
                 }
@@ -654,7 +637,6 @@ $result_trees{'subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
@@ -666,7 +648,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           },
           'type' => 'index_entry_command'
@@ -761,7 +742,6 @@ $result_trees{'subentries'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     }
@@ -772,7 +752,6 @@ $result_trees{'subentries'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 15
                   }
                 }
@@ -783,7 +762,6 @@ $result_trees{'subentries'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             }
@@ -795,7 +773,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           },
           'type' => 'index_entry_command'
@@ -837,7 +814,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17
           }
         },
@@ -870,7 +846,6 @@ $result_trees{'subentries'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18
           }
         }
@@ -884,7 +859,6 @@ $result_trees{'subentries'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -1043,7 +1017,6 @@ $result_errors{'subentries'} = [
   {
     'error_line' => 'no more than two levels of index subentry are allowed
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'no more than two levels of index subentry are allowed',
     'type' => 'error'
@@ -1051,7 +1024,6 @@ $result_errors{'subentries'} = [
   {
     'error_line' => 'no more than two levels of index subentry are allowed
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => 'no more than two levels of index subentry are allowed',
     'type' => 'error'

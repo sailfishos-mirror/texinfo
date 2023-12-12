@@ -26,7 +26,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
             'normalized' => 'An-anchor'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -67,7 +66,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -110,7 +108,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -163,7 +160,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                         'normalized' => 'Anchor-in-footnote'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     },
@@ -204,7 +200,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                           ],
                           'cmdname' => 'ref',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 14
                           }
                         },
@@ -221,7 +216,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -298,7 +292,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 19
               }
             }
@@ -314,7 +307,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17
           }
         },
@@ -350,7 +342,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             },
@@ -422,7 +413,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               },
               'type' => 'menu_entry'
@@ -454,13 +444,11 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 24
           }
         },
@@ -500,7 +488,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 28
           },
           'type' => 'index_entry_command'
@@ -564,7 +551,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 33
               }
             },
@@ -607,7 +593,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
               ],
               'cmdname' => 'ref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               }
             },
@@ -628,7 +613,6 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 30
       }
     }
@@ -731,7 +715,6 @@ $result_errors{'placed_things_before_element_no_use_node'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 28,
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -816,7 +799,6 @@ $result_converted_errors{'info'}->{'placed_things_before_element_no_use_node'} =
   {
     'error_line' => 'warning: @anchor outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@anchor outside of any node',
     'type' => 'warning'
@@ -824,7 +806,6 @@ $result_converted_errors{'info'}->{'placed_things_before_element_no_use_node'} =
   {
     'error_line' => 'warning: @footnote outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@footnote outside of any node',
     'type' => 'warning'
@@ -832,7 +813,6 @@ $result_converted_errors{'info'}->{'placed_things_before_element_no_use_node'} =
   {
     'error_line' => 'warning: @float outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 17,
     'text' => '@float outside of any node',
     'type' => 'warning'
@@ -840,7 +820,6 @@ $result_converted_errors{'info'}->{'placed_things_before_element_no_use_node'} =
   {
     'error_line' => 'warning: @anchor outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => '@anchor outside of any node',
     'type' => 'warning'

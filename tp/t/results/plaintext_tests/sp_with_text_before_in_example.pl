@@ -62,7 +62,6 @@ $result_trees{'sp_with_text_before_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 },
@@ -100,13 +99,11 @@ $result_trees{'sp_with_text_before_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         }
@@ -137,7 +134,6 @@ $result_errors{'sp_with_text_before_in_example'} = [
   {
     'error_line' => 'warning: @sp should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@sp should only appear at the beginning of a line',
     'type' => 'warning'

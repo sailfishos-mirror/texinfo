@@ -54,7 +54,6 @@ $result_trees{'include_after_empty_line_arg'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'include_after_empty_line_arg'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -107,7 +105,6 @@ $result_trees{'include_after_empty_line_arg'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'mymacro'
               },
@@ -150,7 +147,6 @@ $result_trees{'include_after_empty_line_arg'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 6
                     }
                   },

@@ -60,7 +60,6 @@ $result_trees{'section_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -98,7 +97,6 @@ $result_trees{'section_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -130,7 +128,6 @@ $result_trees{'section_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -214,7 +211,6 @@ $result_trees{'section_before_top'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'menu_entry'
@@ -246,13 +242,11 @@ $result_trees{'section_before_top'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           }
         }
@@ -264,7 +258,6 @@ $result_trees{'section_before_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -399,7 +392,6 @@ $result_errors{'section_before_top'} = [
   {
     'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'

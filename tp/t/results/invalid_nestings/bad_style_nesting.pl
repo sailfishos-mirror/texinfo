@@ -25,7 +25,6 @@ $result_trees{'bad_style_nesting'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -82,13 +81,11 @@ $result_trees{'bad_style_nesting'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         }
@@ -114,7 +111,6 @@ $result_errors{'bad_style_nesting'} = [
   {
     'error_line' => '@code missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@code missing closing brace',
     'type' => 'error'
@@ -122,7 +118,6 @@ $result_errors{'bad_style_nesting'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'misplaced }',
     'type' => 'error'

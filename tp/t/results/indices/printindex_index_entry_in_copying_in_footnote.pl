@@ -77,7 +77,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                                     }
                                   },
                                   'source_info' => {
-                                    'file_name' => '',
                                     'line_nr' => 5
                                   },
                                   'type' => 'index_entry_command'
@@ -102,7 +101,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     },
@@ -147,7 +145,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 },
@@ -183,13 +180,11 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 11
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -232,7 +227,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 13
       }
     },
@@ -279,7 +273,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 17
           }
         },
@@ -344,7 +337,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 20
               },
               'type' => 'menu_entry'
@@ -376,13 +368,11 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           }
         },
@@ -399,7 +389,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 14
       }
     },
@@ -431,7 +420,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 23
       }
     },
@@ -469,7 +457,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
           ],
           'cmdname' => 'insertcopying',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 26
           }
         },
@@ -488,7 +475,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 24
       }
     }

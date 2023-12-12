@@ -69,13 +69,11 @@ $result_trees{'empty_ifclear'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 5
                     }
                   }
                 ],
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },
@@ -100,7 +98,6 @@ $result_errors{'empty_ifclear'} = [
   {
     'error_line' => '@ifclear requires a name
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@ifclear requires a name',
     'type' => 'error'

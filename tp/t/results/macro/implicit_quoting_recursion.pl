@@ -58,7 +58,6 @@ $result_trees{'implicit_quoting_recursion'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -68,7 +67,6 @@ $result_trees{'implicit_quoting_recursion'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },

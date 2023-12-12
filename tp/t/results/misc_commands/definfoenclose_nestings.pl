@@ -40,7 +40,6 @@ $result_trees{'definfoenclose_nestings'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -75,7 +74,6 @@ $result_trees{'definfoenclose_nestings'} = {
                         'command_name' => 'phoo'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       },
                       'type' => 'definfoenclose_command'
@@ -86,7 +84,6 @@ $result_trees{'definfoenclose_nestings'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -121,7 +118,6 @@ $result_trees{'definfoenclose_nestings'} = {
                       ],
                       'cmdname' => 'code',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -138,7 +134,6 @@ $result_trees{'definfoenclose_nestings'} = {
                 'command_name' => 'phoo'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'definfoenclose_command'
@@ -178,7 +173,6 @@ $result_trees{'definfoenclose_nestings'} = {
                 'command_name' => 'phoo'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'definfoenclose_command'
@@ -210,7 +204,6 @@ $result_trees{'definfoenclose_nestings'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },
@@ -252,7 +245,6 @@ $result_errors{'definfoenclose_nestings'} = [
   {
     'error_line' => 'warning: @definfoenclose is obsolete
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
@@ -260,7 +252,6 @@ $result_errors{'definfoenclose_nestings'} = [
   {
     'error_line' => 'warning: @phoo should not appear in @code
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@phoo should not appear in @code',
     'type' => 'warning'
@@ -268,7 +259,6 @@ $result_errors{'definfoenclose_nestings'} = [
   {
     'error_line' => '@phoo missing closing brace
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@phoo missing closing brace',
     'type' => 'error'
@@ -276,7 +266,6 @@ $result_errors{'definfoenclose_nestings'} = [
   {
     'error_line' => 'misplaced }
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'misplaced }',
     'type' => 'error'

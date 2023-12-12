@@ -17,7 +17,6 @@ $result_trees{'empty_commands'} = {
           ],
           'cmdname' => 'titlefont',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -40,7 +39,6 @@ $result_trees{'empty_commands'} = {
               ],
               'cmdname' => 'uref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -55,7 +53,6 @@ $result_trees{'empty_commands'} = {
               ],
               'cmdname' => 'abbr',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -70,7 +67,6 @@ $result_trees{'empty_commands'} = {
               ],
               'cmdname' => 'email',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -85,7 +81,6 @@ $result_trees{'empty_commands'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -97,7 +92,6 @@ $result_trees{'empty_commands'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -112,7 +106,6 @@ $result_trees{'empty_commands'} = {
               ],
               'cmdname' => '~',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -127,7 +120,6 @@ $result_trees{'empty_commands'} = {
               ],
               'cmdname' => 'dotless',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -145,7 +137,6 @@ $result_trees{'empty_commands'} = {
                 'delimiter' => ';'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -178,7 +169,6 @@ $result_errors{'empty_commands'} = [
   {
     'error_line' => 'warning: @abbr missing first argument
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@abbr missing first argument',
     'type' => 'warning'

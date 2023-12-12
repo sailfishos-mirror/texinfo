@@ -59,7 +59,6 @@ $result_trees{'expand_two_same'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -69,7 +68,6 @@ $result_trees{'expand_two_same'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -131,7 +129,6 @@ arg}
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8,
                 'macro' => 'macrotwo'
               }
@@ -160,7 +157,6 @@ arg}
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8,
                 'macro' => 'macrotwo'
               }

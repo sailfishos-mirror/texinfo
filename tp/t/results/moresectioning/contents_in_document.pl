@@ -38,7 +38,6 @@ $result_trees{'contents_in_document'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -76,7 +75,6 @@ $result_trees{'contents_in_document'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -93,7 +91,6 @@ $result_trees{'contents_in_document'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -124,7 +121,6 @@ $result_trees{'contents_in_document'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 6
       }
     }

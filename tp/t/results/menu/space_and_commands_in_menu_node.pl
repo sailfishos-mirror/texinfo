@@ -38,7 +38,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -122,7 +121,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -177,7 +175,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               },
               'type' => 'menu_entry'
@@ -224,7 +221,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               },
               'type' => 'menu_entry'
@@ -283,7 +279,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               },
               'type' => 'menu_entry'
@@ -338,7 +333,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'menu_entry'
@@ -393,7 +387,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'menu_entry'
@@ -460,7 +453,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'menu_entry'
@@ -519,7 +511,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               },
               'type' => 'menu_entry'
@@ -590,7 +581,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               },
               'type' => 'menu_entry'
@@ -622,13 +612,11 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -645,7 +633,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -683,7 +670,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 16
       }
     },
@@ -714,7 +700,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 17
       }
     }
@@ -895,7 +880,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `chap  b\' different from node name `chap @: b\'
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@menu entry node name `chap  b\' different from node name `chap @: b\'',
     'type' => 'warning'
@@ -903,7 +887,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `chap b\' different from node name `chap @: b\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
     'type' => 'warning'
@@ -911,7 +894,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `chap@ @ b\' different from node name `chap @: b\'
 ',
-    'file_name' => '',
     'line_nr' => 8,
     'text' => '@menu entry node name `chap@ @ b\' different from node name `chap @: b\'',
     'type' => 'warning'
@@ -919,7 +901,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `chap@  b\' different from node name `chap @: b\'
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@menu entry node name `chap@  b\' different from node name `chap @: b\'',
     'type' => 'warning'
@@ -927,7 +908,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `chap @ b\' different from node name `chap @: b\'
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => '@menu entry node name `chap @ b\' different from node name `chap @: b\'',
     'type' => 'warning'
@@ -935,7 +915,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `chap b\' different from node name `chap @: b\'
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
     'type' => 'warning'
@@ -943,7 +922,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `chap @ @ b\' different from node name `chap @: b\'
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@menu entry node name `chap @ @ b\' different from node name `chap @: b\'',
     'type' => 'warning'

@@ -32,7 +32,6 @@ $result_trees{'node_simple'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

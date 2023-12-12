@@ -36,7 +36,6 @@ $result_trees{'documentencoding_zero'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -57,7 +56,6 @@ $result_errors{'documentencoding_zero'} = [
   {
     'error_line' => 'warning: encoding `0\' is not a canonical texinfo encoding
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'encoding `0\' is not a canonical texinfo encoding',
     'type' => 'warning'
@@ -65,7 +63,6 @@ $result_errors{'documentencoding_zero'} = [
   {
     'error_line' => 'warning: unhandled encoding name `0\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unhandled encoding name `0\'',
     'type' => 'warning'

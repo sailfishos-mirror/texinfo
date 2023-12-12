@@ -43,7 +43,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -149,7 +146,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
               ],
               'cmdname' => 'dotless',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -175,7 +171,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -196,7 +191,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -323,7 +317,6 @@ $result_errors{'dotless_argument_non_ascii'} = [
   {
     'error_line' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'
 ",
-    'file_name' => '',
     'line_nr' => 6,
     'text' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'",
     'type' => 'error'
@@ -331,7 +324,6 @@ $result_errors{'dotless_argument_non_ascii'} = [
   {
     'error_line' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'
 ",
-    'file_name' => '',
     'line_nr' => 7,
     'text' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'",
     'type' => 'error'

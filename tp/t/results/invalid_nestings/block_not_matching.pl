@@ -34,7 +34,6 @@ $result_trees{'block_not_matching'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -60,7 +59,6 @@ $result_trees{'block_not_matching'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       },
                       'type' => 'bracketed_arg'
@@ -111,7 +109,6 @@ $result_trees{'block_not_matching'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'def_line'
@@ -137,7 +134,6 @@ $result_trees{'block_not_matching'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -153,7 +149,6 @@ $result_trees{'block_not_matching'} = {
                 {
                   'cmdname' => 'asis',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   },
                   'type' => 'command_as_argument'
@@ -198,7 +193,6 @@ $result_trees{'block_not_matching'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -232,7 +226,6 @@ $result_trees{'block_not_matching'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         },
@@ -248,7 +241,6 @@ $result_trees{'block_not_matching'} = {
                 {
                   'cmdname' => 'emph',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14
                   },
                   'type' => 'command_as_argument'
@@ -293,7 +285,6 @@ $result_trees{'block_not_matching'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 15
                       }
                     }
@@ -327,7 +318,6 @@ $result_trees{'block_not_matching'} = {
                         }
                       ],
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -347,7 +337,6 @@ $result_trees{'block_not_matching'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14
           }
         },
@@ -381,7 +370,6 @@ $result_trees{'block_not_matching'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 21
           }
         },
@@ -415,7 +403,6 @@ $result_trees{'block_not_matching'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 25
           }
         },
@@ -449,7 +436,6 @@ $result_trees{'block_not_matching'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 29
           }
         },
@@ -483,7 +469,6 @@ $result_trees{'block_not_matching'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 33
           }
         }
@@ -550,7 +535,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `quotation\', but saw `cartouche\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '`@end\' expected `quotation\', but saw `cartouche\'',
     'type' => 'error'
@@ -558,7 +542,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end cartouche\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'unmatched `@end cartouche\'',
     'type' => 'error'
@@ -566,7 +549,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
@@ -574,7 +556,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `deffn\', but saw `deftypefun\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '`@end\' expected `deffn\', but saw `deftypefun\'',
     'type' => 'error'
@@ -582,7 +563,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end deftypefun\'
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => 'unmatched `@end deftypefun\'',
     'type' => 'error'
@@ -590,7 +570,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `table\', but saw `vtable\'
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => '`@end\' expected `table\', but saw `vtable\'',
     'type' => 'error'
@@ -598,7 +577,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end vtable\'
 ',
-    'file_name' => '',
     'line_nr' => 12,
     'text' => 'unmatched `@end vtable\'',
     'type' => 'error'
@@ -606,7 +584,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `example\', but saw `display\'
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => '`@end\' expected `example\', but saw `display\'',
     'type' => 'error'
@@ -614,7 +591,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `table\', but saw `display\'
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => '`@end\' expected `table\', but saw `display\'',
     'type' => 'error'
@@ -622,7 +598,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end display\'
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => 'unmatched `@end display\'',
     'type' => 'error'
@@ -630,7 +605,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end table\'
 ',
-    'file_name' => '',
     'line_nr' => 19,
     'text' => 'unmatched `@end table\'',
     'type' => 'error'
@@ -638,7 +612,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `group\', but saw `table\'
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => '`@end\' expected `group\', but saw `table\'',
     'type' => 'error'
@@ -646,7 +619,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end table\'
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => 'unmatched `@end table\'',
     'type' => 'error'
@@ -654,7 +626,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `group\', but saw `cartouche\'
 ',
-    'file_name' => '',
     'line_nr' => 27,
     'text' => '`@end\' expected `group\', but saw `cartouche\'',
     'type' => 'error'
@@ -662,7 +633,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end cartouche\'
 ',
-    'file_name' => '',
     'line_nr' => 27,
     'text' => 'unmatched `@end cartouche\'',
     'type' => 'error'
@@ -670,7 +640,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `cartouche\', but saw `group\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => '`@end\' expected `cartouche\', but saw `group\'',
     'type' => 'error'
@@ -678,7 +647,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end group\'
 ',
-    'file_name' => '',
     'line_nr' => 31,
     'text' => 'unmatched `@end group\'',
     'type' => 'error'
@@ -686,7 +654,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => '`@end\' expected `cartouche\', but saw `float\'
 ',
-    'file_name' => '',
     'line_nr' => 35,
     'text' => '`@end\' expected `cartouche\', but saw `float\'',
     'type' => 'error'
@@ -694,7 +661,6 @@ $result_errors{'block_not_matching'} = [
   {
     'error_line' => 'unmatched `@end float\'
 ',
-    'file_name' => '',
     'line_nr' => 35,
     'text' => 'unmatched `@end float\'',
     'type' => 'error'

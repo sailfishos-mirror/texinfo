@@ -37,7 +37,6 @@ $result_trees{'not_fraction'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 }
@@ -68,7 +67,6 @@ $result_trees{'not_fraction'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -82,7 +80,6 @@ $result_trees{'not_fraction'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -103,7 +100,6 @@ $result_errors{'not_fraction'} = [
   {
     'error_line' => 'column fraction not a number: aaa
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'column fraction not a number: aaa',
     'type' => 'error'

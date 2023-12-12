@@ -29,7 +29,6 @@ $result_trees{'no_category_or_no_name'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               },
               'type' => 'def_line'
@@ -75,13 +74,11 @@ $result_trees{'no_category_or_no_name'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -107,7 +104,6 @@ $result_trees{'no_category_or_no_name'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       },
                       'type' => 'bracketed_arg'
@@ -127,7 +123,6 @@ $result_trees{'no_category_or_no_name'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'def_line'
@@ -173,7 +168,6 @@ $result_trees{'no_category_or_no_name'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -184,7 +178,6 @@ $result_trees{'no_category_or_no_name'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -265,7 +258,6 @@ $result_trees{'no_category_or_no_name'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               },
               'type' => 'def_line'
@@ -301,7 +293,6 @@ $result_trees{'no_category_or_no_name'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               },
               'type' => 'def_line'
@@ -324,7 +315,6 @@ $result_trees{'no_category_or_no_name'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               },
               'type' => 'def_line'
@@ -370,7 +360,6 @@ $result_trees{'no_category_or_no_name'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             }
@@ -381,7 +370,6 @@ $result_trees{'no_category_or_no_name'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         }
@@ -423,7 +411,6 @@ $result_errors{'no_category_or_no_name'} = [
   {
     'error_line' => 'warning: missing category for @deffn
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'missing category for @deffn',
     'type' => 'warning'
@@ -431,7 +418,6 @@ $result_errors{'no_category_or_no_name'} = [
   {
     'error_line' => 'warning: missing name for @deffn
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'missing name for @deffn',
     'type' => 'warning'
@@ -439,7 +425,6 @@ $result_errors{'no_category_or_no_name'} = [
   {
     'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => 'entry for index `fn\' outside of any node',
     'type' => 'warning'
@@ -447,7 +432,6 @@ $result_errors{'no_category_or_no_name'} = [
   {
     'error_line' => 'warning: missing name for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'missing name for @deffnx',
     'type' => 'warning'
@@ -455,7 +439,6 @@ $result_errors{'no_category_or_no_name'} = [
   {
     'error_line' => 'warning: missing category for @deffnx
 ',
-    'file_name' => '',
     'line_nr' => 11,
     'text' => 'missing category for @deffnx',
     'type' => 'warning'

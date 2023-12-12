@@ -45,7 +45,6 @@ $result_trees{'paragraph_and_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -55,7 +54,6 @@ $result_trees{'paragraph_and_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -105,7 +103,6 @@ $result_trees{'paragraph_and_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -115,7 +112,6 @@ $result_trees{'paragraph_and_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         },
@@ -165,7 +161,6 @@ $result_trees{'paragraph_and_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -175,7 +170,6 @@ $result_trees{'paragraph_and_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         },

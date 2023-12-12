@@ -64,7 +64,6 @@ $result_trees{'double_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -143,7 +142,6 @@ $result_trees{'double_top'} = {
             'normalized' => 'Top'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -166,7 +164,6 @@ $result_trees{'double_top'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }
@@ -232,7 +229,6 @@ $result_errors{'double_top'} = [
   {
     'error_line' => '@node `top\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@node `top\' previously defined',
     'type' => 'error'
@@ -241,7 +237,6 @@ $result_errors{'double_top'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
@@ -249,7 +244,6 @@ $result_errors{'double_top'} = [
   {
     'error_line' => '@anchor `TOP\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@anchor `TOP\' previously defined',
     'type' => 'error'
@@ -258,7 +252,6 @@ $result_errors{'double_top'} = [
     'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
@@ -266,7 +259,6 @@ $result_errors{'double_top'} = [
   {
     'error_line' => 'warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'Next pointer `top\' (for node `ToP\') different from node name `ToP\'',
     'type' => 'warning'
@@ -274,7 +266,6 @@ $result_errors{'double_top'} = [
   {
     'error_line' => 'warning: Up pointer `Top\' (for node `top\') different from node name `ToP\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'Up pointer `Top\' (for node `top\') different from node name `ToP\'',
     'type' => 'warning'

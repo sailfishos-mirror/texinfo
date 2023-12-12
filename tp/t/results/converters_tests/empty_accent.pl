@@ -19,7 +19,6 @@ $result_trees{'empty_accent'} = {
               ],
               'cmdname' => '`',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },

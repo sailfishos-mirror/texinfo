@@ -45,7 +45,6 @@ $result_trees{'double_macro_definition'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -55,7 +54,6 @@ $result_trees{'double_macro_definition'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -100,7 +98,6 @@ $result_trees{'double_macro_definition'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             }
@@ -110,7 +107,6 @@ $result_trees{'double_macro_definition'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         }
@@ -136,7 +132,6 @@ $result_errors{'double_macro_definition'} = [
   {
     'error_line' => 'warning: macro `foo\' previously defined
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'macro `foo\' previously defined',
     'type' => 'warning'
@@ -144,7 +139,6 @@ $result_errors{'double_macro_definition'} = [
   {
     'error_line' => 'warning: here is the previous definition of `foo\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'here is the previous definition of `foo\'',
     'type' => 'warning'

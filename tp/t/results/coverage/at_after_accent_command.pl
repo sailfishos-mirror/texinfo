@@ -19,7 +19,6 @@ $result_trees{'at_after_accent_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -32,7 +31,6 @@ $result_trees{'at_after_accent_command'} = {
             {
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             },
@@ -64,7 +62,6 @@ $result_errors{'at_after_accent_command'} = [
   {
     'error_line' => '@ringaccent expected braces
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@ringaccent expected braces',
     'type' => 'error'
@@ -72,7 +69,6 @@ $result_errors{'at_after_accent_command'} = [
   {
     'error_line' => '@^ expected braces
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@^ expected braces',
     'type' => 'error'

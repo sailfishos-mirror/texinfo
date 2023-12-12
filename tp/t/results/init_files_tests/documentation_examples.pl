@@ -57,7 +57,6 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'email',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -77,7 +76,6 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'sansserif',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -92,7 +90,6 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'error',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     },
@@ -107,7 +104,6 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'equiv',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -128,7 +124,6 @@ $result_trees{'documentation_examples'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -171,7 +166,6 @@ $result_trees{'documentation_examples'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -207,7 +201,6 @@ $result_trees{'documentation_examples'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -239,7 +232,6 @@ $result_trees{'documentation_examples'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 7
       }
     },
@@ -282,7 +274,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'sansserif',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -303,7 +294,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -318,7 +308,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'equiv',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -347,7 +336,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -369,7 +357,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'footnote',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -393,7 +380,6 @@ $result_trees{'documentation_examples'} = {
           ],
           'cmdname' => 'titlefont',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         },
@@ -435,7 +421,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'email',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -456,7 +441,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14
               }
             },
@@ -477,7 +461,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -512,7 +495,6 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'sansserif',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     },
@@ -533,7 +515,6 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'error',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     },
@@ -548,7 +529,6 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'equiv',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 17
                       }
                     }
@@ -558,7 +538,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'math',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -603,7 +582,6 @@ $result_trees{'documentation_examples'} = {
                   ],
                   'cmdname' => 'sansserif',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20
                   }
                 },
@@ -624,7 +602,6 @@ $result_trees{'documentation_examples'} = {
                   ],
                   'cmdname' => 'error',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20
                   }
                 },
@@ -639,7 +616,6 @@ $result_trees{'documentation_examples'} = {
                   ],
                   'cmdname' => 'equiv',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 20
                   }
                 },
@@ -677,13 +653,11 @@ $result_trees{'documentation_examples'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           }
         },
@@ -719,7 +693,6 @@ $result_trees{'documentation_examples'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 23
           }
         },
@@ -738,7 +711,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 25
               }
             },
@@ -764,7 +736,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'equiv',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 27
               }
             },
@@ -790,7 +761,6 @@ $result_trees{'documentation_examples'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 8
       }
     },
@@ -845,7 +815,6 @@ $result_trees{'documentation_examples'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 31
           }
         },
@@ -864,7 +833,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 33
               }
             },
@@ -890,7 +858,6 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'equiv',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 35
               }
             },
@@ -922,7 +889,6 @@ $result_trees{'documentation_examples'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 29
       }
     }

@@ -50,7 +50,6 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -118,7 +116,6 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 4
           }
         }
@@ -142,7 +139,6 @@ $result_errors{'macro_in_invalid_documentencoding'} = [
   {
     'error_line' => 'warning: encoding `badm\' is not a canonical texinfo encoding
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'encoding `badm\' is not a canonical texinfo encoding',
     'type' => 'warning'
@@ -150,7 +146,6 @@ $result_errors{'macro_in_invalid_documentencoding'} = [
   {
     'error_line' => 'warning: unhandled encoding name `badm\'
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => 'unhandled encoding name `badm\'',
     'type' => 'warning'

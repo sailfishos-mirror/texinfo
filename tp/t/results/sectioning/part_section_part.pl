@@ -42,7 +42,6 @@ $result_trees{'part_section_part'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -81,7 +80,6 @@ $result_trees{'part_section_part'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -110,7 +108,6 @@ $result_trees{'part_section_part'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -185,7 +182,6 @@ $result_errors{'part_section_part'} = [
   {
     'error_line' => 'raising the section level of @section which is too low
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'raising the section level of @section which is too low',
     'type' => 'error'
@@ -193,7 +189,6 @@ $result_errors{'part_section_part'} = [
   {
     'error_line' => 'warning: no sectioning command associated with @part
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'no sectioning command associated with @part',
     'type' => 'warning'

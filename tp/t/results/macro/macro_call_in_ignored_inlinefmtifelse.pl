@@ -50,7 +50,6 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -100,7 +98,6 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
                 'format' => 'tex'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               }
             },

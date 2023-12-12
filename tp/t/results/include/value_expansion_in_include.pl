@@ -131,7 +131,6 @@ $result_trees{'value_expansion_in_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 10
       }
     },
@@ -222,7 +221,6 @@ $result_trees{'value_expansion_in_include'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 13
                     }
                   },
@@ -336,7 +334,6 @@ $result_trees{'value_expansion_in_include'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 15
           }
         },
@@ -413,7 +410,6 @@ $result_trees{'value_expansion_in_include'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 18
                     }
                   },
@@ -527,7 +523,6 @@ $result_trees{'value_expansion_in_include'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 20
           }
         },
@@ -602,7 +597,6 @@ $result_trees{'value_expansion_in_include'} = {
                       }
                     },
                     'source_info' => {
-                      'file_name' => '',
                       'line_nr' => 23
                     }
                   },
@@ -714,7 +708,6 @@ $result_trees{'value_expansion_in_include'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 25
           }
         }
@@ -729,7 +722,6 @@ $result_trees{'value_expansion_in_include'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 11
       }
     }
@@ -822,7 +814,6 @@ $result_errors{'value_expansion_in_include'} = [
   {
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 13,
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
@@ -830,7 +821,6 @@ $result_errors{'value_expansion_in_include'} = [
   {
     'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 15,
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
@@ -838,7 +828,6 @@ $result_errors{'value_expansion_in_include'} = [
   {
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 18,
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
@@ -846,7 +835,6 @@ $result_errors{'value_expansion_in_include'} = [
   {
     'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 20,
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
@@ -854,7 +842,6 @@ $result_errors{'value_expansion_in_include'} = [
   {
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 23,
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
@@ -862,7 +849,6 @@ $result_errors{'value_expansion_in_include'} = [
   {
     'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 25,
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'

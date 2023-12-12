@@ -50,7 +50,6 @@ $result_trees{'empty_index_entry'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -90,7 +89,6 @@ $result_trees{'empty_index_entry'} = {
                         'def_role' => 'category'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       },
                       'type' => 'bracketed_arg'
@@ -112,7 +110,6 @@ $result_trees{'empty_index_entry'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       },
                       'type' => 'bracketed_arg'
@@ -132,7 +129,6 @@ $result_trees{'empty_index_entry'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'def_line'
@@ -164,7 +160,6 @@ $result_trees{'empty_index_entry'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
@@ -175,7 +170,6 @@ $result_trees{'empty_index_entry'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -213,7 +207,6 @@ $result_trees{'empty_index_entry'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         }
@@ -229,7 +222,6 @@ $result_trees{'empty_index_entry'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }
@@ -295,7 +287,6 @@ $result_errors{'empty_index_entry'} = [
   {
     'error_line' => 'warning: missing name for @deffn
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => 'missing name for @deffn',
     'type' => 'warning'

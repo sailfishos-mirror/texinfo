@@ -53,7 +53,6 @@ $result_trees{'no_empty_line_between_headings'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         }
@@ -65,7 +64,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -96,7 +94,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -127,7 +124,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     }

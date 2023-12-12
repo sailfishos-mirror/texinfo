@@ -58,7 +58,6 @@ $result_trees{'protect_in_body_one_arg'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -68,7 +67,6 @@ $result_trees{'protect_in_body_one_arg'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -129,7 +127,6 @@ $result_trees{'protect_in_body_one_arg'} = {
                       ],
                       'cmdname' => 'samp',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5,
                         'macro' => 'macroone'
                       }
@@ -140,7 +137,6 @@ $result_trees{'protect_in_body_one_arg'} = {
               ],
               'cmdname' => 'emph',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'macroone'
               }
@@ -156,7 +152,6 @@ $result_trees{'protect_in_body_one_arg'} = {
               ],
               'cmdname' => 'emph',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'macroone'
               },

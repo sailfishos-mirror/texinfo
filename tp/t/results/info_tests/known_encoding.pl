@@ -42,7 +42,6 @@ $result_trees{'known_encoding'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -89,7 +88,6 @@ $result_trees{'known_encoding'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     }
@@ -131,7 +129,6 @@ $result_errors{'known_encoding'} = [
   {
     'error_line' => 'warning: encoding `latin1\' is not a canonical texinfo encoding
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => 'encoding `latin1\' is not a canonical texinfo encoding',
     'type' => 'warning'

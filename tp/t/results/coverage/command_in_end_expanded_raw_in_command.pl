@@ -46,7 +46,6 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                           ],
                           'cmdname' => 'code',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 3
                           }
                         }
@@ -67,7 +66,6 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 }
@@ -76,7 +74,6 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -100,7 +97,6 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
   {
     'error_line' => 'warning: @code should not appear in @end
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@code should not appear in @end',
     'type' => 'warning'
@@ -108,7 +104,6 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
   {
     'error_line' => 'bad argument to @end: @code{tex}
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'bad argument to @end: @code{tex}',
     'type' => 'error'
@@ -116,7 +111,6 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
   {
     'error_line' => 'no matching `@end tex\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => 'no matching `@end tex\'',
     'type' => 'error'

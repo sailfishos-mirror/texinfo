@@ -54,7 +54,6 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -181,7 +179,6 @@ in quotation
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             }
@@ -192,7 +189,6 @@ in quotation
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8,
             'macro' => 'lm'
           }
@@ -291,7 +287,6 @@ in quotation
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15,
                 'macro' => 'lm'
               }
@@ -303,7 +298,6 @@ in quotation
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 11
           }
         },
@@ -454,7 +448,6 @@ in quotation
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 22
               }
             }
@@ -465,7 +458,6 @@ in quotation
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 18,
             'macro' => 'lm'
           }
@@ -575,13 +567,11 @@ ignored ',
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 28
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26,
                 'macro' => 'lm'
               }
@@ -704,7 +694,6 @@ args \\e\\|\\f\\|
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 35
                   }
                 }
@@ -714,7 +703,6 @@ args \\e\\|\\f\\|
 '
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 34,
                 'macro' => 'lm'
               }
@@ -821,7 +809,6 @@ args \\e\\|\\f\\|
                         'def_role' => 'name'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 38,
                         'macro' => 'lm'
                       },
@@ -844,7 +831,6 @@ args \\e\\|\\f\\|
                         'def_role' => 'arg'
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 38,
                         'macro' => 'lm'
                       },
@@ -921,7 +907,6 @@ args \\e\\|\\f\\|
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 38,
                 'macro' => 'mymac'
               },
@@ -980,13 +965,11 @@ args \\e\\|\\f\\|
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 39
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 37
           }
         },

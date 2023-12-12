@@ -43,7 +43,6 @@ $result_trees{'double_seeentry_seealso'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'double_seeentry_seealso'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -112,7 +110,6 @@ $result_trees{'double_seeentry_seealso'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -164,7 +161,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   ],
                   'cmdname' => 'seeentry',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 },
@@ -185,7 +181,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   ],
                   'cmdname' => 'seeentry',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
@@ -215,7 +210,6 @@ $result_trees{'double_seeentry_seealso'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 7
           },
           'type' => 'index_entry_command'
@@ -237,7 +231,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   ],
                   'cmdname' => 'seealso',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 8
                   }
                 },
@@ -265,7 +258,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   ],
                   'cmdname' => 'seealso',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 8
                   }
                 }
@@ -295,7 +287,6 @@ $result_trees{'double_seeentry_seealso'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           },
           'type' => 'index_entry_command'
@@ -324,7 +315,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   ],
                   'cmdname' => 'seeentry',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 },
@@ -345,7 +335,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   ],
                   'cmdname' => 'seealso',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 }
@@ -376,7 +365,6 @@ $result_trees{'double_seeentry_seealso'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           },
           'type' => 'index_entry_command'
@@ -398,7 +386,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   ],
                   'cmdname' => 'seealso',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 10
                   }
                 }
@@ -443,7 +430,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       ],
                       'cmdname' => 'seeentry',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     }
@@ -468,7 +454,6 @@ $result_trees{'double_seeentry_seealso'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -480,7 +465,6 @@ $result_trees{'double_seeentry_seealso'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           },
           'type' => 'index_entry_command'
@@ -520,7 +504,6 @@ $result_trees{'double_seeentry_seealso'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 12
           }
         }
@@ -534,7 +517,6 @@ $result_trees{'double_seeentry_seealso'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }
@@ -679,7 +661,6 @@ $result_errors{'double_seeentry_seealso'} = [
   {
     'error_line' => 'warning: empty index key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'empty index key in @cindex',
     'type' => 'warning'
@@ -749,7 +730,6 @@ $result_converted_errors{'info'}->{'double_seeentry_seealso'} = [
   {
     'error_line' => 'warning: empty index key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'empty index key in @cindex',
     'type' => 'warning'
@@ -770,7 +750,6 @@ $result_converted_errors{'plaintext'}->{'double_seeentry_seealso'} = [
   {
     'error_line' => 'warning: empty index key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'empty index key in @cindex',
     'type' => 'warning'
@@ -844,7 +823,6 @@ $result_converted_errors{'html_text'}->{'double_seeentry_seealso'} = [
   {
     'error_line' => 'warning: empty index key in @cindex
 ',
-    'file_name' => '',
     'line_nr' => 10,
     'text' => 'empty index key in @cindex',
     'type' => 'warning'

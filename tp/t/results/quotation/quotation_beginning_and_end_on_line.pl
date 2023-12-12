@@ -54,7 +54,6 @@ $result_trees{'quotation_beginning_and_end_on_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -65,7 +64,6 @@ $result_trees{'quotation_beginning_and_end_on_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -87,7 +85,6 @@ $result_errors{'quotation_beginning_and_end_on_line'} = [
   {
     'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'

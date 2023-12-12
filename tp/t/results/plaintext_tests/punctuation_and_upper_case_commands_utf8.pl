@@ -37,7 +37,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -56,7 +55,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -80,7 +78,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -90,7 +87,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -109,7 +105,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => 'aa',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -119,7 +114,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -140,7 +134,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -164,7 +157,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -174,7 +166,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -193,7 +184,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => 'AA',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 3
                       }
                     }
@@ -203,7 +193,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },
@@ -224,7 +213,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -251,7 +239,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       }
                     }
@@ -261,7 +248,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -283,7 +269,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => 'AA',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 4
                       }
                     }
@@ -293,7 +278,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'var',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -324,7 +308,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -348,7 +331,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -358,7 +340,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -377,7 +358,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => 'aa',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -387,7 +367,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -408,7 +387,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -432,7 +410,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -442,7 +419,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -461,7 +437,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => 'AA',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -471,7 +446,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -492,7 +466,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -519,7 +492,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => '~',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -529,7 +501,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },
@@ -551,7 +522,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
                       ],
                       'cmdname' => 'AA',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 8
                       }
                     }
@@ -561,7 +531,6 @@ $result_trees{'punctuation_and_upper_case_commands_utf8'} = {
               ],
               'cmdname' => 'sc',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             },

@@ -16,7 +16,6 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -69,7 +68,6 @@ $result_trees{'set_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 2
                       }
                     }
@@ -136,7 +134,6 @@ $result_trees{'set_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 5
                       }
                     }
@@ -199,7 +196,6 @@ $result_trees{'set_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 7
                       }
                     }
@@ -236,7 +232,6 @@ $result_trees{'set_on_item_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
@@ -250,7 +245,6 @@ $result_trees{'set_on_item_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -266,7 +260,6 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'cmdname' => 'code',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 10
                   },
                   'type' => 'command_as_argument'
@@ -319,7 +312,6 @@ $result_trees{'set_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 11
                       }
                     }
@@ -386,7 +378,6 @@ $result_trees{'set_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14
                       }
                     }
@@ -449,7 +440,6 @@ $result_trees{'set_on_item_line'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 16
                       }
                     }
@@ -486,7 +476,6 @@ $result_trees{'set_on_item_line'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             }
@@ -500,7 +489,6 @@ $result_trees{'set_on_item_line'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         }
@@ -552,7 +540,6 @@ $result_errors{'set_on_item_line'} = [
   {
     'error_line' => 'warning: @set should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'text' => '@set should only appear at the beginning of a line',
     'type' => 'warning'
@@ -560,7 +547,6 @@ $result_errors{'set_on_item_line'} = [
   {
     'error_line' => 'warning: @set should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 7,
     'text' => '@set should only appear at the beginning of a line',
     'type' => 'warning'
@@ -568,7 +554,6 @@ $result_errors{'set_on_item_line'} = [
   {
     'error_line' => 'warning: @set should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 14,
     'text' => '@set should only appear at the beginning of a line',
     'type' => 'warning'
@@ -576,7 +561,6 @@ $result_errors{'set_on_item_line'} = [
   {
     'error_line' => 'warning: @set should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 16,
     'text' => '@set should only appear at the beginning of a line',
     'type' => 'warning'

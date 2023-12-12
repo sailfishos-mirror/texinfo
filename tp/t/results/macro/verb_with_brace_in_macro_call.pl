@@ -67,7 +67,6 @@ $result_trees{'verb_with_brace_in_macro_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -77,7 +76,6 @@ $result_trees{'verb_with_brace_in_macro_call'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -163,7 +161,6 @@ $result_trees{'verb_with_brace_in_macro_call'} = {
                 'delimiter' => ':'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6,
                 'macro' => 'mycommand'
               }
@@ -198,7 +195,6 @@ $result_errors{'verb_with_brace_in_macro_call'} = [
   {
     'error_line' => '@verb missing closing delimiter sequence: :} (possibly involving @mycommand)
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'macro' => 'mycommand',
     'text' => '@verb missing closing delimiter sequence: :}',

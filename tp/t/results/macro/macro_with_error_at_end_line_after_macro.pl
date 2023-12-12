@@ -54,7 +54,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -64,7 +63,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -118,7 +116,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
           ],
           'cmdname' => 'center',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5,
             'macro' => 'witherror'
           }
@@ -146,7 +143,6 @@ $result_errors{'macro_with_error_at_end_line_after_macro'} = [
   {
     'error_line' => 'warning: @center missing argument (possibly involving @witherror)
 ',
-    'file_name' => '',
     'line_nr' => 5,
     'macro' => 'witherror',
     'text' => '@center missing argument',

@@ -119,7 +119,6 @@ $result_trees{'empty_leading_menu_comment'} = {
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 5
               },
               'type' => 'menu_entry'
@@ -151,13 +150,11 @@ $result_trees{'empty_leading_menu_comment'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         }
@@ -172,7 +169,6 @@ $result_trees{'empty_leading_menu_comment'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

@@ -86,13 +86,11 @@ $result_trees{'flushleft_flushright'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -173,13 +171,11 @@ $result_trees{'flushleft_flushright'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 10
           }
         }

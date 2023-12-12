@@ -63,7 +63,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             }
@@ -73,7 +72,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -141,7 +139,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             }
@@ -151,7 +148,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -271,7 +267,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                     {
                       'cmdname' => 'emph',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 14,
                         'macro' => 'mymacro'
                       },
@@ -317,7 +312,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                             }
                           },
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 14,
                             'macro' => 'mymacro'
                           }
@@ -363,7 +357,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14,
                     'macro' => 'mymacro'
                   }
@@ -378,7 +371,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 14,
                 'macro' => 'mymacro'
               }
@@ -401,7 +393,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   ],
                   'cmdname' => 'var',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 14,
                     'macro' => 'lm'
                   },
@@ -457,7 +448,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             }
@@ -468,7 +458,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 14,
             'macro' => 'lm'
           }

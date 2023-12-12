@@ -38,7 +38,6 @@ $result_trees{'text_before_line_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 1
               }
             }
@@ -99,7 +98,6 @@ $result_trees{'text_before_line_command'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     },
@@ -145,7 +143,6 @@ $result_trees{'text_before_line_command'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 6
           }
         },
@@ -200,7 +197,6 @@ $result_trees{'text_before_line_command'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   }
                 },
@@ -238,7 +234,6 @@ $result_trees{'text_before_line_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             }
@@ -249,7 +244,6 @@ $result_trees{'text_before_line_command'} = {
             ]
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 8
           }
         }
@@ -263,7 +257,6 @@ $result_trees{'text_before_line_command'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     }
@@ -347,7 +340,6 @@ $result_errors{'text_before_line_command'} = [
   {
     'error_line' => 'warning: @title should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => '@title should only appear at the beginning of a line',
     'type' => 'warning'
@@ -355,7 +347,6 @@ $result_errors{'text_before_line_command'} = [
   {
     'error_line' => 'warning: @node should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@node should only appear at the beginning of a line',
     'type' => 'warning'
@@ -363,7 +354,6 @@ $result_errors{'text_before_line_command'} = [
   {
     'error_line' => 'warning: @chapter should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 4,
     'text' => '@chapter should only appear at the beginning of a line',
     'type' => 'warning'
@@ -371,7 +361,6 @@ $result_errors{'text_before_line_command'} = [
   {
     'error_line' => 'warning: @contents should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 6,
     'text' => '@contents should only appear at the beginning of a line',
     'type' => 'warning'
@@ -379,7 +368,6 @@ $result_errors{'text_before_line_command'} = [
   {
     'error_line' => 'warning: @author should only appear at the beginning of a line
 ',
-    'file_name' => '',
     'line_nr' => 9,
     'text' => '@author should only appear at the beginning of a line',
     'type' => 'warning'

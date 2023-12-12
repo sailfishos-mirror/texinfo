@@ -75,7 +75,6 @@ $result_trees{'ifset_in_command'} = {
                                   }
                                 },
                                 'source_info' => {
-                                  'file_name' => '',
                                   'line_nr' => 5
                                 }
                               }
@@ -86,7 +85,6 @@ $result_trees{'ifset_in_command'} = {
                               }
                             },
                             'source_info' => {
-                              'file_name' => '',
                               'line_nr' => 3
                             }
                           },
@@ -119,7 +117,6 @@ $result_trees{'ifset_in_command'} = {
                               }
                             },
                             'source_info' => {
-                              'file_name' => '',
                               'line_nr' => 6
                             }
                           },
@@ -162,7 +159,6 @@ $result_trees{'ifset_in_command'} = {
                               }
                             },
                             'source_info' => {
-                              'file_name' => '',
                               'line_nr' => 8
                             }
                           },
@@ -180,7 +176,6 @@ $result_trees{'ifset_in_command'} = {
               ],
               'cmdname' => 'file',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },

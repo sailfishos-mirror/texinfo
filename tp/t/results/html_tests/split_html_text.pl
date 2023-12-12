@@ -35,7 +35,6 @@ $result_trees{'split_html_text'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -85,7 +84,6 @@ $result_trees{'split_html_text'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 2
         }
       }
@@ -121,7 +119,6 @@ $result_trees{'split_html_text'} = [
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     },
@@ -154,7 +151,6 @@ $result_trees{'split_html_text'} = [
           }
         },
         'source_info' => {
-          'file_name' => '',
           'line_nr' => 6
         }
       }

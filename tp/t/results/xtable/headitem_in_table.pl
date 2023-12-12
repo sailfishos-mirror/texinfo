@@ -16,7 +16,6 @@ $result_trees{'headitem_in_table'} = {
                 {
                   'cmdname' => 'strong',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   },
                   'type' => 'command_as_argument'
@@ -98,7 +97,6 @@ $result_trees{'headitem_in_table'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -135,7 +133,6 @@ $result_trees{'headitem_in_table'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -149,7 +146,6 @@ $result_trees{'headitem_in_table'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -182,7 +178,6 @@ $result_errors{'headitem_in_table'} = [
   {
     'error_line' => '@headitem not meaningful inside `@table\' block
 ',
-    'file_name' => '',
     'line_nr' => 2,
     'text' => '@headitem not meaningful inside `@table\' block',
     'type' => 'error'

@@ -37,7 +37,6 @@ $result_trees{'utf8_enable_encoding_use_numeric_entity'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -64,7 +63,6 @@ $result_trees{'utf8_enable_encoding_use_numeric_entity'} = {
               ],
               'cmdname' => '^',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             },

@@ -44,7 +44,6 @@ $result_trees{'table_in_display_in_example'} = {
                         {
                           'cmdname' => 'asis',
                           'source_info' => {
-                            'file_name' => '',
                             'line_nr' => 3
                           },
                           'type' => 'command_as_argument'
@@ -89,7 +88,6 @@ $result_trees{'table_in_display_in_example'} = {
                                 }
                               },
                               'source_info' => {
-                                'file_name' => '',
                                 'line_nr' => 4
                               }
                             }
@@ -140,7 +138,6 @@ $result_trees{'table_in_display_in_example'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 6
                       }
                     }
@@ -154,7 +151,6 @@ $result_trees{'table_in_display_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 3
                   }
                 },
@@ -185,13 +181,11 @@ $result_trees{'table_in_display_in_example'} = {
                     }
                   },
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 7
                   }
                 }
               ],
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             },
@@ -222,13 +216,11 @@ $result_trees{'table_in_display_in_example'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 8
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }

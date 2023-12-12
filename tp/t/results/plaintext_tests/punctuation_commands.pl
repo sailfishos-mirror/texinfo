@@ -77,7 +77,6 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -92,7 +91,6 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 4
               }
             },
@@ -151,7 +149,6 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 9
               }
             },
@@ -218,7 +215,6 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 16
               }
             },

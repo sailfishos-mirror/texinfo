@@ -29,7 +29,6 @@ $result_trees{'prototype_no_brace'} = {
                   ],
                   'cmdname' => 'var',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 1
                   }
                 },
@@ -75,7 +74,6 @@ $result_trees{'prototype_no_brace'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -89,7 +87,6 @@ $result_trees{'prototype_no_brace'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -111,7 +108,6 @@ $result_errors{'prototype_no_brace'} = [
   {
     'error_line' => 'warning: unexpected argument on @multitable line: @var{FF}
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'unexpected argument on @multitable line: @var{FF}',
     'type' => 'warning'
@@ -119,7 +115,6 @@ $result_errors{'prototype_no_brace'} = [
   {
     'error_line' => 'warning: empty multitable
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'empty multitable',
     'type' => 'warning'

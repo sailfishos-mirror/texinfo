@@ -50,7 +50,6 @@ $result_trees{'macro_in_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 3
               }
             }
@@ -60,7 +59,6 @@ $result_trees{'macro_in_brace_command'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         },
@@ -110,7 +108,6 @@ $result_trees{'macro_in_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             }
@@ -120,7 +117,6 @@ $result_trees{'macro_in_brace_command'} = {
 '
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 5
           }
         },
@@ -136,7 +132,6 @@ $result_trees{'macro_in_brace_command'} = {
                 {
                   'cmdname' => 'bullet',
                   'source_info' => {
-                    'file_name' => '',
                     'line_nr' => 9
                   },
                   'type' => 'command_as_argument'
@@ -236,7 +231,6 @@ $result_trees{'macro_in_brace_command'} = {
                       ],
                       'cmdname' => 'email',
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 10
                       }
                     },
@@ -256,7 +250,6 @@ $result_trees{'macro_in_brace_command'} = {
                 'item_number' => 1
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 10
               }
             },
@@ -287,7 +280,6 @@ $result_trees{'macro_in_brace_command'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 12
               }
             }
@@ -301,7 +293,6 @@ $result_trees{'macro_in_brace_command'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 9
           }
         }

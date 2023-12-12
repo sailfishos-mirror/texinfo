@@ -43,7 +43,6 @@ $result_trees{'accent_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -79,7 +78,6 @@ $result_trees{'accent_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 2
       }
     },
@@ -111,7 +109,6 @@ $result_trees{'accent_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 4
       }
     },
@@ -149,7 +146,6 @@ $result_trees{'accent_argument_non_ascii'} = {
               ],
               'cmdname' => '\'',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 6
               }
             },
@@ -170,7 +166,6 @@ $result_trees{'accent_argument_non_ascii'} = {
               ],
               'cmdname' => '\'',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 7
               }
             },
@@ -191,7 +186,6 @@ $result_trees{'accent_argument_non_ascii'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 5
       }
     }

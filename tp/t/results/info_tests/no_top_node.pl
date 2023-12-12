@@ -38,7 +38,6 @@ $result_trees{'no_top_node'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     }

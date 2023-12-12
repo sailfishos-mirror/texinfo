@@ -45,7 +45,6 @@ $result_trees{'form_feeds'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 1
       }
     },
@@ -154,7 +153,6 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 11
               }
             },
@@ -185,7 +183,6 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 13
               }
             },
@@ -216,7 +213,6 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'code',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 15
               }
             },
@@ -255,7 +251,6 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'xref',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 17
               }
             },
@@ -321,13 +316,11 @@ $result_trees{'form_feeds'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 21
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 19
           }
         },
@@ -360,7 +353,6 @@ $result_trees{'form_feeds'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 23
           }
         },
@@ -388,7 +380,6 @@ $result_trees{'form_feeds'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 24
           }
         },
@@ -412,7 +403,6 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'indicateurl',
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 26
               }
             },
@@ -453,7 +443,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       },
                       'type' => 'bracketed_arg'
@@ -483,7 +472,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       },
                       'type' => 'bracketed_arg'
@@ -513,7 +501,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       },
                       'type' => 'bracketed_arg'
@@ -543,7 +530,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       },
                       'type' => 'bracketed_arg'
@@ -573,7 +559,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 28
                       },
                       'type' => 'bracketed_arg'
@@ -599,7 +584,6 @@ $result_trees{'form_feeds'} = {
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 28
               },
               'type' => 'def_line'
@@ -626,7 +610,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 29
                       },
                       'type' => 'bracketed_arg'
@@ -656,7 +639,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 29
                       },
                       'type' => 'bracketed_arg'
@@ -686,7 +668,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 29
                       },
                       'type' => 'bracketed_arg'
@@ -716,7 +697,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 29
                       },
                       'type' => 'bracketed_arg'
@@ -746,7 +726,6 @@ $result_trees{'form_feeds'} = {
                         }
                       },
                       'source_info' => {
-                        'file_name' => '',
                         'line_nr' => 29
                       },
                       'type' => 'bracketed_arg'
@@ -778,7 +757,6 @@ $result_trees{'form_feeds'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 29
               },
               'type' => 'def_line'
@@ -824,7 +802,6 @@ $result_trees{'form_feeds'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 31
               }
             }
@@ -835,7 +812,6 @@ $result_trees{'form_feeds'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 28
           }
         },
@@ -913,7 +889,6 @@ $result_trees{'form_feeds'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 35
               }
             },
@@ -976,7 +951,6 @@ $result_trees{'form_feeds'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 36
               }
             },
@@ -1020,7 +994,6 @@ $result_trees{'form_feeds'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 37
               }
             }
@@ -1031,7 +1004,6 @@ $result_trees{'form_feeds'} = {
             'shortcaption' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 33
           }
         },
@@ -1111,7 +1083,6 @@ $result_trees{'form_feeds'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 41
               }
             }
@@ -1127,7 +1098,6 @@ $result_trees{'form_feeds'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 39
           }
         },
@@ -1163,7 +1133,6 @@ $result_trees{'form_feeds'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 43
           }
         },
@@ -1183,7 +1152,6 @@ $result_trees{'form_feeds'} = {
         }
       },
       'source_info' => {
-        'file_name' => '',
         'line_nr' => 3
       }
     }

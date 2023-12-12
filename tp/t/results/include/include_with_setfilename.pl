@@ -40,7 +40,6 @@ $result_trees{'include_with_setfilename'} = {
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
                   'line_nr' => 1
                 }
               },
@@ -134,7 +133,6 @@ $result_trees{'include_with_setfilename'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         }

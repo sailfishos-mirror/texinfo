@@ -29,7 +29,6 @@ $result_trees{'no_paragraph_commands'} = {
           ],
           'cmdname' => 'titlefont',
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 2
           }
         },
@@ -85,7 +84,6 @@ $result_trees{'no_paragraph_commands'} = {
             'input_encoding_name' => 'utf-8'
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 3
           }
         },
@@ -136,7 +134,6 @@ $result_converted_errors{'html_text'}->{'no_paragraph_commands'} = [
   {
     'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 ',
-    'file_name' => '',
     'line_nr' => 3,
     'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
     'type' => 'warning'

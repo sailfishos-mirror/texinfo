@@ -32,7 +32,6 @@ $result_trees{'not_closed_itemize'} = {
             'command_as_argument' => {}
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
@@ -54,7 +53,6 @@ $result_errors{'not_closed_itemize'} = [
   {
     'error_line' => 'no matching `@end itemize\'
 ',
-    'file_name' => '',
     'line_nr' => 1,
     'text' => 'no matching `@end itemize\'',
     'type' => 'error'

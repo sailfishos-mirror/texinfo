@@ -61,7 +61,6 @@ $result_trees{'empty_label_with_space'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
                 'line_nr' => 2
               }
             }
@@ -75,7 +74,6 @@ $result_trees{'empty_label_with_space'} = {
             }
           },
           'source_info' => {
-            'file_name' => '',
             'line_nr' => 1
           }
         }
