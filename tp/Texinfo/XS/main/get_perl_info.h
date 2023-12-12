@@ -17,6 +17,10 @@ enum sv_string_type {
   svt_char,
 };
 
+/* in options_get_perl.c */
+void get_sv_option (OPTIONS *options, const char *key, SV *value,
+                    CONVERTER *converter);
+
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 

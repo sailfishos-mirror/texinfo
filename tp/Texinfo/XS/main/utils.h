@@ -207,10 +207,12 @@ void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 void wipe_index (INDEX *idx);
 void wipe_index_names (INDEX **index_names);
 
-OPTIONS *new_options (void);
+/* in options_init_free.c */
+void initialize_options (OPTIONS *options);
 void free_options (OPTIONS *options);
-COMMAND_OPTION_REF *get_command_option (OPTIONS *options, enum command_id cmd);
 
+OPTIONS *new_options (void);
+COMMAND_OPTION_REF *get_command_option (OPTIONS *options, enum command_id cmd);
 
 void add_include_directory (char *filename, STRING_LIST *include_dirs_list);
 char *locate_include_file (char *filename, STRING_LIST *include_dirs_list);
@@ -246,4 +248,5 @@ ELEMENT *get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
                                       enum command_id cmd);
 
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
+
 #endif

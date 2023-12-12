@@ -253,9 +253,6 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
   free (source_info);
 }
 
-/* contains get_sv_option (), automatically generated from options_data.txt */
-#include "options_get_perl.c"
-
 void
 get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter)
 {

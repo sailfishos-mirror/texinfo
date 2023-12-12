@@ -138,6 +138,9 @@ libtexinfo_la_SOURCES= \
 		      main/cmd_structuring.c \
 		      main/targets.c \
 		      main/targets.h \
+		      main/options_init_free.c \
+		      main/options_types.h \
+		      main/global_commands_types.h \
 		      main/utils.c \
 		      main/utils.h \
 		      main/converter_types.h \
@@ -193,12 +196,8 @@ EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_symbol.c
 EXTRA_DIST += main/cmd_text.c
-EXTRA_DIST += main/global_commands_types.h
 EXTRA_DIST += main/global_multi_commands_case.c
 EXTRA_DIST += main/global_unique_commands_case.c
-EXTRA_DIST += main/options_init_free.c
-EXTRA_DIST += main/options_get_perl.c
-EXTRA_DIST += main/options_types.h
 
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
@@ -283,7 +282,8 @@ libtexinfoxs_la_SOURCES= \
 		      main/get_perl_info.c \
 		      main/get_perl_info.h \
 		      main/call_perl_function.c \
-		      main/call_perl_function.h
+		      main/call_perl_function.h \
+		      main/options_get_perl.c
 
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)

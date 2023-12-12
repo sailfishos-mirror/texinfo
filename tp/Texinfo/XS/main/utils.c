@@ -43,8 +43,6 @@
 #include "api_to_perl.h"
 #include "utils.h"
 
-#include "options_init_free.c"
-
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
 

@@ -130,7 +130,10 @@ close(HEADER);
 open (CODE, ">$code_file") or die "Open $code_file: $!\n";
 print CODE "/* Automatically generated from $0 */\n\n";
 
+print CODE '#include <config.h>'."\n\n";
+
 print CODE '#include <stdlib.h>'."\n\n";
+print CODE '#include <string.h>'."\n\n";
 
 print CODE '#include "options_types.h"'."\n";
 print CODE '#include "converter_types.h"'."\n";
@@ -165,7 +168,7 @@ foreach my $category (sort(keys(%option_categories))) {
     } elsif ($type eq 'char *') {
       print CODE " free (options->$option);\n";
     } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
-      print GET "  html_free_button_specification_list (options->$option);\n";
+      print CODE "  html_free_button_specification_list (options->$option);\n";
     }
   }
 }
