@@ -87,43 +87,37 @@ set_conf (SV *converter_in, conf, SV *value)
 void
 converter_line_error (SV *converter_in, text, SV *error_location_info, ...)
           char *text = (char *)SvPVutf8_nolen($arg);
-      PROTOTYPE: $$$;$$
+      PROTOTYPE: $$$;$
       PREINIT:
          CONVERTER *self;
          int continuation = 0;
-         int silent = 0;
       CODE:
          self = get_sv_converter (converter_in, 0);
          if (items > 3 && SvOK(ST(3)))
            continuation = SvIV (ST(3));
-         if (items > 4 && SvOK(ST(4)))
-           silent = SvIV (ST(4));
 
          if (self)
            {
              get_line_message (self, MSG_error, continuation,
-                               error_location_info, strdup (text), silent);
+                               error_location_info, strdup (text));
            }
 
 void
 converter_line_warn (SV *converter_in, text, SV *error_location_info, ...)
           char *text = (char *)SvPVutf8_nolen($arg);
-      PROTOTYPE: $$$;$$
+      PROTOTYPE: $$$;$
       PREINIT:
          CONVERTER *self;
          int continuation = 0;
-         int silent = 0;
       CODE:
          self = get_sv_converter (converter_in, 0);
          if (items > 3 && SvOK(ST(3)))
            continuation = SvIV (ST(3));
-         if (items > 4 && SvOK(ST(4)))
-           silent = SvIV (ST(4));
 
          if (self)
            {
              get_line_message (self, MSG_warning, continuation,
-                               error_location_info, strdup (text), silent);
+                               error_location_info, strdup (text));
            }
 
 void

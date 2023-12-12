@@ -239,9 +239,9 @@ get_source_info (SV *source_info_sv)
 
 void
 get_line_message (CONVERTER *self, enum error_type type, int continuation,
-                  SV *error_location_info, char *message, int silent)
+                  SV *error_location_info, char *message)
 {
-  int do_warn = (self->conf->DEBUG > 1 && !silent);
+  int do_warn = (self->conf->DEBUG > 1);
   SOURCE_INFO *source_info = get_source_info (error_location_info);
   message_list_line_formatted_message (&self->error_messages,
                                        type, continuation, source_info,

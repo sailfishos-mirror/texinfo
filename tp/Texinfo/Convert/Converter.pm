@@ -503,35 +503,29 @@ sub destroy($)
 {
 }
 
-sub converter_line_error($$$;$$)
+sub converter_line_error($$$;$)
 {
   my $self = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
-  my $silent = shift;
-
-  my $warn = ($self->get_conf('DEBUG')
-              and not $silent);
 
   my $message = Texinfo::Report::format_line_message ('error', $text,
-                        $error_location_info, $continuation, $warn);
+                                 $error_location_info, $continuation,
+                                            $self->get_conf('DEBUG'));
   push @{$self->{'error_warning_messages'}}, $message;
 }
 
-sub converter_line_warn($$$;$$)
+sub converter_line_warn($$$;$)
 {
   my $self = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
-  my $silent = shift;
-
-  my $warn = ($self->get_conf('DEBUG')
-              and not $silent);
 
   my $message = Texinfo::Report::format_line_message ('warning', $text,
-                           $error_location_info, $continuation, $warn);
+                                   $error_location_info, $continuation,
+                                              $self->get_conf('DEBUG'));
   push @{$self->{'error_warning_messages'}}, $message;
 }
 
