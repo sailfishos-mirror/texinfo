@@ -226,7 +226,7 @@ sub chm_init($)
                       $self->output_files_information(), $self,
                       $encoded_hhk_file_path_name);
   if (!defined($hhk_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
                   $hhk_file_path_name, $hhk_error_message));
     return 1;
@@ -244,7 +244,7 @@ sub chm_init($)
   print $hhk_fh "</OBJECT>\n";
 
   my ($index_entries, $index_entries_sort_strings)
-       = Texinfo::Structuring::sort_indices_by_index($self, $self,
+       = Texinfo::Structuring::sort_indices_by_index(undef, $self,
                              $self->get_info('index_entries'),
                              $self->get_info('indices_information'));
   if ($index_entries) {
@@ -278,7 +278,7 @@ sub chm_init($)
   Texinfo::Common::output_files_register_closed(
     $self->output_files_information(), $encoded_hhk_file_path_name);
   if (!close ($hhk_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
            sprintf(__("chm.pm: error on closing %s: %s"),
                           $hhk_file_path_name, $!));
     return 1;
@@ -292,7 +292,7 @@ sub chm_init($)
                       $self->output_files_information(), $self,
                       $encoded_hhc_file_path_name);
   if (!defined($hhc_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
                   $hhc_file_path_name, $hhc_error_message));
     return 1;
@@ -359,7 +359,7 @@ sub chm_init($)
   Texinfo::Common::output_files_register_closed(
     $self->output_files_information(), $encoded_hhc_file_path_name);
   if (!close ($hhc_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
            sprintf(__("chm.pm: error on closing %s: %s"),
                           $hhc_file_path_name, $!));
     return 1;
@@ -373,7 +373,7 @@ sub chm_init($)
                       $self->output_files_information(), $self,
                       $encoded_hhp_file_path_name);
   if (!defined($hhp_fh)) {
-    $self->document_error(
+    $self->converter_document_error(
            $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"),
                   $hhp_file_path_name, $hhp_error_message));
     return 1;
@@ -425,7 +425,7 @@ EOT
   Texinfo::Common::output_files_register_closed(
     $self->output_files_information(), $encoded_hhp_file_path_name);
   if (!close ($hhp_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("chm.pm: error on closing %s: %s"),
                           $hhp_file_path_name, $!));
     return 1;

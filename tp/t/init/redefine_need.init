@@ -12,11 +12,11 @@ sub my_need_formatting($$$)
 
   if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
       and @{$command->{'extra'}->{'misc_args'}}) {
-    $converter->line_warn($converter,
+    $converter->converter_line_warn(
             "need has the right arg: $command->{'extra'}->{'misc_args'}->[0]",
                            $command->{'source_info'});
   } else {
-    $converter->line_warn($converter, "Bad arg for $cmdname",
+    $converter->converter_line_warn("Bad arg for $cmdname",
                           $command->{'source_info'});
   }
   my $arg_text;

@@ -1,6 +1,78 @@
+2023-12-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Report.pm (format_line_message): add empty macro if there
+	are lines numbers.  This is not good, but is for consistency with what
+	is done for Parser messages.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash): store
+	empty string for macro and file_name only if line_nr is set.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_document_or_warn): document
+	descriptor in converter can be undef.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_errors): rename
+	get_errors as build_errors. Update callers.
+
+	* tp/Texinfo/Report.pm (format_document_message, document_warn)
+	(document_error, format_line_message, line_error, line_warn): make
+	format_document_message and format_line_message independent of
+	converter/Report object.  Move the corresponding code back to
+	document_warn, document_error, line_error, line_warn.
+
+	* tp/Texinfo/XS/main/errors.c (message_list_line_error_internal)
+	(message_list_line_formatted_message)
+	(message_list_document_error_internal)
+	(message_list_document_formatted_message): split
+	message_list_line_formatted_message out of
+	message_list_line_error_internal and
+	message_list_document_formatted_message out of
+	message_list_document_error_internal to be able to format/register an
+	already translated message.
+
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides)
+	(_XS_converter_initialize, converter, _XS_html_converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (converter_initialize),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/get_perl_info.c
+	(converter_initialize): separate generic converter initialization from
+	HTML converter initialization and initialize generic converter in
+	Converter.pm converter/get_perl_info.c converter_initialize. 
+
+	* tp/Texinfo/Convert/Converter.pm (converter_line_error,
+	converter_line_warn, converter_document_error)
+	(converter_document_warn, get_converter_errors),
+	tp/Texinfo/Convert/Plaintext.pm (plaintext_line_warn)
+	(plaintext_line_error), tp/Texinfo/Convert/Text.pm
+	(converter_line_error, converter_document_warn),
+	tp/Texinfo/Convert/Utils.pm (expand_verbatiminclude),
+	tp/Texinfo/Structuring.pm (_converter_or_registrar_line_warn)
+	(setup_sortable_index_entries): use specific error reporting for
+	converters, which use Texinfo::Report for formatting, but register in
+	converter.  Use get_converter_errors to get errors to
+	Texinfo::Register, both for XS and perl converters.  Update all calls
+	to Texinfo::Report to be converter_* calls.  Rename
+	converter_line_error and converter_line_warn in Plaintext.pm as
+	plaintext_line_error and plaintext_line_warn as the method names are
+	now the generic converter method names.  Use only one argument for
+	converter in expand_verbatiminclude.  setup_sortable_index_entries
+	error messages can be both called from converters or Texinfo::Report
+	object separate from customization information, so use a specific
+	function to call Texinfo::Report or converter functions.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (%XS_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (converter_line_error)
+	(converter_line_warn, converter_document_error)
+	(converter_document_warn), tp/Texinfo/XS/main/get_perl_info.c
+	(get_source_info, get_line_message), tp/t/test_utils.pl
+	(convert_to_plaintext, convert_to_info, convert_to_html)
+	(convert_to_xml, convert_to_docbook, convert_to_latex):
+	override converter_line_*, converter_document_* in XS.  This is for
+	all the converters.
+
 2023-12-10  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/Report.pm (format_line_message, line_warn, line_error)
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides),
+	tp/Texinfo/Report.pm (format_line_message, line_warn, line_error)
 	(format_document_message, document_warn, document_error): split
 	formatting messages out of line_* and document_*, adding
 	format_line_message for line messages and format_document_message for

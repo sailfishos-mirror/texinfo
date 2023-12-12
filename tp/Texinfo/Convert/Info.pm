@@ -118,7 +118,7 @@ sub output($$)
   my @indirect_files;
   if (!defined($tree_units) or not defined($tree_units->[0])
       or not defined($tree_units->[0]->{'unit_command'})) {
-    $self->line_warn($self, __("document without nodes"),
+    $self->converter_line_warn(__("document without nodes"),
              {'file_name' => $self->{'document_info'}->{'input_file_name'}});
     my $output = $header.$self->convert_tree($root);
     $self->count_context_bug_message('no element ');
@@ -135,7 +135,7 @@ sub output($$)
   } else {
     unless ($self->{'identifiers_target'}
             and $self->{'identifiers_target'}->{'Top'}) {
-      $self->line_warn($self, __("document without Top node"),
+      $self->converter_line_warn(__("document without Top node"),
              {'file_name' => $self->{'document_info'}->{'input_file_name'}});
     }
     $out_file_nr = 1;
@@ -176,7 +176,7 @@ sub output($$)
         if ($out_file_nr == 1) {
           $self->_register_closed_info_file($output_file);
           if (defined($close_error)) {
-            $self->document_error($self,
+            $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
                                   $output_file, $close_error));
             return undef;
@@ -186,7 +186,7 @@ sub output($$)
                   $output_file.'-'.$out_file_nr."\n";
           }
           unless (rename($output_file, $output_file.'-'.$out_file_nr)) {
-            $self->document_error($self,
+            $self->converter_document_error(
                   sprintf(__("rename %s failed: %s"),
                                          $output_file, $!));
             return undef;
@@ -203,7 +203,7 @@ sub output($$)
         } else {
           $self->_register_closed_info_file($output_file.'-'.$out_file_nr);
           if (defined($close_error)) {
-            $self->document_error($self,
+            $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
                                   $output_file.'-'.$out_file_nr,
                                   $close_error));
@@ -232,7 +232,7 @@ sub output($$)
   if ($out_file_nr > 1) {
     $self->_register_closed_info_file($output_file.'-'.$out_file_nr);
     if (!close ($fh)) {
-      $self->document_error($self,
+      $self->converter_document_error(
                sprintf(__("error on closing %s: %s"),
                             $output_file.'-'.$out_file_nr, $!));
       return undef;
@@ -271,7 +271,7 @@ sub output($$)
     my ($label_text, $byte_count) = $self->node_name($label->{'root'});
 
     if ($seen_anchors{$label_text}) {
-      $self->converter_line_error($self,
+      $self->plaintext_line_error($self,
                                   sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
           Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' =>
@@ -298,7 +298,7 @@ sub output($$)
     unless ($output_file eq '-') {
       $self->_register_closed_info_file($output_file);
       if (!close ($fh)) {
-        $self->document_error($self,
+        $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
                               $output_file, $!));
       }
@@ -324,7 +324,7 @@ sub _open_info_file($$)
                                $encoded_filename, 'use_binmode');
 
   if (!$fh) {
-    $self->document_error($self, sprintf(
+    $self->converter_document_error(sprintf(
         __("could not open %s for writing: %s"),
         $filename, $error_message));
     return undef;
@@ -427,7 +427,7 @@ sub format_error_outside_of_any_node($$)
   my $self = shift;
   my $element = shift;
   if (!$self->{'current_node'}) {
-    $self->converter_line_warn($self,
+    $self->plaintext_line_warn($self,
          sprintf(__("\@%s outside of any node"),
                  $element->{'cmdname'}), $element->{'source_info'});
   }
@@ -475,7 +475,7 @@ sub format_node($$)
   my $post_quote = '';
   if ($node_text =~ /,/) {
     if ($self->{'info_special_chars_warning'}) {
-      $self->converter_line_warn($self, sprintf(__(
+      $self->plaintext_line_warn($self, sprintf(__(
                  "\@node name should not contain `,': %s"), $node_text),
                                $node->{'source_info'});
     }
@@ -513,7 +513,7 @@ sub format_node($$)
               # warn only for external nodes, internal nodes should already
               # trigger a warning when defined
               and $node_direction->{'extra'}->{'manual_content'}) {
-            $self->converter_line_warn($self, sprintf(__(
+            $self->plaintext_line_warn($self, sprintf(__(
                  "\@node %s name should not contain `,': %s"),
                                            $direction, $node_text),
                              $node->{'source_info'});

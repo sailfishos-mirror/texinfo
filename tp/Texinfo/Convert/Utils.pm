@@ -259,15 +259,13 @@ sub find_innermost_accent_contents($)
   }
 }
 
-# $REGISTRAR argument (in practice, a converter) is optional.
-# $CONFIGURATION_INFORMATION is also optional, but without this
+# $CONVERTER is optional, but without this
 # argument and the 'INCLUDE_DIRECTORIES' available through
 # get_conf(), the included file can only be found in specific
 # circumstances.
-sub expand_verbatiminclude($$$)
+sub expand_verbatiminclude($$)
 {
-  my $registrar = shift;
-  my $customization_information = shift;
+  my $converter = shift;
   my $current = shift;
 
   return undef unless ($current->{'extra'}
@@ -278,22 +276,22 @@ sub expand_verbatiminclude($$$)
     = Texinfo::Common::element_associated_processing_encoding($current);
 
   my ($file_name, $file_name_encoding)
-    = encoded_input_file_name($customization_information,
+    = encoded_input_file_name($converter,
                               $file_name_text, $input_encoding);
 
-  my $file = Texinfo::Common::locate_include_file($customization_information,
+  my $file = Texinfo::Common::locate_include_file($converter,
                                                   $file_name);
 
   my $verbatiminclude;
 
   if (defined($file)) {
     if (!open(VERBINCLUDE, $file)) {
-      if ($registrar) {
+      if ($converter) {
         my $decoded_file = $file;
         # need to decode to the internal perl codepoints for error message
         $decoded_file = Encode::decode($file_name_encoding, $file)
            if (defined($file_name_encoding));
-        $registrar->line_error($customization_information,
+        $converter->converter_line_error(
                       sprintf(__("could not read %s: %s"), $decoded_file, $!),
                       $current->{'source_info'});
       }
@@ -310,20 +308,20 @@ sub expand_verbatiminclude($$$)
                   {'type' => 'raw', 'text' => $_ };
       }
       if (!close (VERBINCLUDE)) {
-        if ($registrar) {
+        if ($converter) {
           my $decoded_file = $file;
           # need to decode to the internal perl codepoints for error message
           $decoded_file = Encode::decode($file_name_encoding, $file)
              if (defined($file_name_encoding));
-          $registrar->document_warn(
-                 $customization_information, sprintf(__(
+          $converter->converter_document_warn(
+                 sprintf(__(
                       "error on closing \@verbatiminclude file %s: %s"),
                           $decoded_file, $!));
         }
       }
     }
-  } elsif ($registrar) {
-    $registrar->line_error($customization_information,
+  } elsif ($converter) {
+    $converter->converter_line_error(
                            sprintf(__("\@%s: could not find %s"),
                                        $current->{'cmdname'}, $file_name_text),
                            $current->{'source_info'});
@@ -541,7 +539,7 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
   
   my $today_tree = Texinfo::Convert::Utils::expand_today($converter);
   my $verbatiminclude_tree
-     = Texinfo::Convert::Utils::expand_verbatiminclude(undef, $converter,
+     = Texinfo::Convert::Utils::expand_verbatiminclude($converter,
                                                        $verbatiminclude);
 
 =head1 NOTES
@@ -630,16 +628,14 @@ Expand today's date, as a texinfo tree with translations.  The I<$converter>
 argument is not optional and is used both to retrieve customization information
 and to translate strings.
 
-=item $tree = expand_verbatiminclude($registrar, $customization_information, $verbatiminclude)
+=item $tree = expand_verbatiminclude($converter, $verbatiminclude)
 X<C<expand_verbatiminclude>>
 
-The I<$registrar> argument may be undef.  The I<$customization_information>
-argument is required and is used to retrieve customization information
-L<Texinfo::Convert::Converter/Getting and setting customization variables>.
-I<$verbatiminclude> is a C<@verbatiminclude> tree element.  This function
-returns a C<@verbatim> tree elements after finding the included file and
-reading it.  If I<$registrar> is not defined, error messages are not
-registered.
+The I<$converter> argument is required and is used to output error messages and
+retrieve customization information L<Texinfo::Convert::Converter/Getting and
+setting customization variables>.  I<$verbatiminclude> is a C<@verbatiminclude>
+tree element.  This function returns a C<@verbatim> tree elements after finding
+the included file and reading it.
 
 =item ($contents_element, \@accent_commands) = find_innermost_accent_contents($element)
 X<C<find_innermost_accent_contents>>

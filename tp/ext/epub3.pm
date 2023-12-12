@@ -288,7 +288,7 @@ sub epub_convert_image_command($$$$)
     $epub_file_nr += 1;
     if (defined($image_file)) {
       if (not defined($image_path)) {
-        $self->document_error($self,
+        $self->converter_document_error(
               sprintf(__("\@image file `%s' can not be copied"),
                      $image_basefile));
       } else {
@@ -300,7 +300,7 @@ sub epub_convert_image_command($$$$)
         my $error_creating_dir;
         if (! -d $encoded_images_destination_dir) {
           if (!mkdir($encoded_images_destination_dir, oct(755))) {
-            $self->document_error($self, sprintf(__(
+            $self->converter_document_error(sprintf(__(
                              "could not create images directory `%s': %s"),
                                          $images_destination_dir, $!));
             $error_creating_dir = 1;
@@ -320,7 +320,7 @@ sub epub_convert_image_command($$$$)
             } else {
               $image_path_text = $image_path;
             }
-            $self->document_error($self, sprintf(__(
+            $self->converter_document_error(sprintf(__(
                      "could not copy `%s' to `%s': %s"),
                         $image_path_text, $image_destination_path_name, $!));
           }
@@ -400,12 +400,12 @@ sub _epub_remove_container_folder($$)
     for my $diag (@$err_remove_tree) {
       my ($file, $message) = %$diag;
       if ($file eq '') {
-        $self->document_error($self,
+        $self->converter_document_error(
            sprintf(__("error removing directory: %s: %s"),
                    $epub_destination_directory, $message));
       }
       else {
-        $self->document_error($self,
+        $self->converter_document_error(
           sprintf(__("error removing directory: %s: unlinking %s: %s"),
                   $epub_destination_directory, $file, $message));
       }
@@ -447,7 +447,7 @@ sub epub_setup($)
 
   if ($self->get_conf('EPUB_CREATE_CONTAINER_FILE')
       and $archive_zip_loading_error) {
-    $self->document_error($self,
+    $self->converter_document_error(
        __("Archive::Zip is required for EPUB file output"));
     return 150;
   }
@@ -542,12 +542,12 @@ sub epub_setup($)
     for my $diag (@$err_make_path) {
       my ($file, $message) = %$diag;
       if ($file eq '') {
-        $self->document_error($self,
+        $self->converter_document_error(
            sprintf(__("error creating directory: %s: %s"),
                   $epub_document_destination_directory, $message));
       }
       else {
-        $self->document_error($self,
+        $self->converter_document_error(
           sprintf(__("error creating directory: %s: creating %s: %s"),
                  $epub_document_destination_directory, $file, $message));
       }
@@ -572,8 +572,7 @@ sub epub_finish($$)
     if (defined($self->{'current_filename'})) {
       push @epub_output_filenames, $self->{'current_filename'};
     } else {
-      $self->document_warn($self,
-        __("epub: no filename output"));
+      $self->converter_document_warn(__("epub: no filename output"));
     }
   }
 
@@ -583,7 +582,7 @@ sub epub_finish($$)
   my ($encoded_meta_inf_directory, $meta_inf_directory_encoding)
     = $self->encoded_output_file_name($meta_inf_directory);
   if (!mkdir($encoded_meta_inf_directory, oct(755))) {
-    $self->document_error($self, sprintf(__(
+    $self->converter_document_error(sprintf(__(
                    "could not create meta informations directory `%s': %s"),
                                          $meta_inf_directory, $!));
     return 1;
@@ -597,7 +596,7 @@ sub epub_finish($$)
                           $self->output_files_information(), $self,
                           $encoded_container_file_path_name, undef, 'utf-8');
   if (!defined($container_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                   $container_file_path_name, $error_message_container));
     return 1;
@@ -617,7 +616,7 @@ EOT
   Texinfo::Common::output_files_register_closed(
     $self->output_files_information(), $encoded_container_file_path_name);
   if (!close ($container_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("epub3.pm: error on closing %s: %s"),
                           $container_file_path_name, $!));
     return 1;
@@ -633,7 +632,7 @@ EOT
                         $self->output_files_information(), $self,
                         $encoded_mimetype_file_path_name, undef, 'utf-8');
   if (!defined($mimetype_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                   $mimetype_file_path_name, $error_message_mimetype));
     return 1;
@@ -645,7 +644,7 @@ EOT
   Texinfo::Common::output_files_register_closed(
     $self->output_files_information(), $encoded_mimetype_file_path_name);
   if (!close ($mimetype_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("epub3.pm: error on closing %s: %s"),
                           $mimetype_file_path_name, $!));
     return 1;
@@ -663,7 +662,7 @@ EOT
                        $self->output_files_information(), $self,
                        $encoded_nav_file_path_name, undef, 'utf-8');
     if (!defined($nav_fh)) {
-      $self->document_error($self,
+      $self->converter_document_error(
            sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                     $nav_file_path_name, $error_message_nav));
       return 1;
@@ -744,7 +743,7 @@ EOT
     Texinfo::Common::output_files_register_closed(
       $self->output_files_information(), $encoded_nav_file_path_name);
     if (!close ($nav_fh)) {
-      $self->document_error($self,
+      $self->converter_document_error(
            sprintf(__("epub3.pm: error on closing %s: %s"),
                             $nav_file_path_name, $!));
       return 1;
@@ -774,7 +773,7 @@ EOT
                    $self->output_files_information(), $self,
                    $encoded_opf_file_path_name, undef, 'utf-8');
   if (!defined($opf_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                   $opf_file_path_name, $error_message_opf));
     return 1;
@@ -875,7 +874,7 @@ EOT
                                     $epub_document_dir_name, $epub_info_js_dir_name);
     my $opendir_success = opendir(JSPATH, $info_js_destination_dir);
     if (not $opendir_success) {
-      $self->document_error($self,
+      $self->converter_document_error(
            sprintf(__("epub3.pm: readdir %s error: %s"),
                           $info_js_destination_dir, $!));
     } else {
@@ -923,7 +922,7 @@ EOT
   Texinfo::Common::output_files_register_closed(
     $self->output_files_information(), $encoded_opf_file_path_name);
   if (!close ($opf_fh)) {
-    $self->document_error($self,
+    $self->converter_document_error(
          sprintf(__("epub3.pm: error on closing %s: %s"),
                           $opf_file_path_name, $!));
     return 1;
@@ -943,7 +942,7 @@ EOT
       = $zip->addFile($encoded_mimetype_file_path_name, $mimetype_filename,
                       Archive::Zip->COMPRESSION_LEVEL_NONE);
     if (not(defined($mimetype_added))) {
-      $self->document_error($self,
+      $self->converter_document_error(
         sprintf(__("epub3.pm: error adding %s to archive"),
                $mimetype_file_path_name));
       return 1;
@@ -952,7 +951,7 @@ EOT
     my $meta_inf_directory_ret_code
       = $zip->addTree($encoded_meta_inf_directory, $meta_inf_directory_name);
     if ($meta_inf_directory_ret_code != Archive::Zip->AZ_OK) {
-      $self->document_error($self,
+      $self->converter_document_error(
         sprintf(__("epub3.pm: error adding %s to archive"),
                $meta_inf_directory));
       return 1;
@@ -965,7 +964,7 @@ EOT
     my $epub_document_dir_name_ret_code
       = $zip->addTree($encoded_epub_document_dir_path, $epub_document_dir_name);
     if ($epub_document_dir_name_ret_code != Archive::Zip->AZ_OK) {
-      $self->document_error($self,
+      $self->converter_document_error(
         sprintf(__("epub3.pm: error adding %s to archive"),
                $epub_document_dir_path));
       return 1;
@@ -974,7 +973,7 @@ EOT
     my ($encoded_epub_outfile, $epub_outfile_encoding)
       = $self->encoded_output_file_name($epub_outfile);
     unless ($zip->writeToFileNamed($encoded_epub_outfile) == Archive::Zip->AZ_OK) {
-      $self->document_error($self,
+      $self->converter_document_error(
            sprintf(__("epub3.pm: error writing archive %s"),
                    $epub_outfile));
       return 1;

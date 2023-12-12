@@ -80,15 +80,13 @@ sub add_formatted_message($$)
   push @{$self->{'errors_warnings'}}, $message;
 }
 
-sub format_line_message($$$$$;$$)
+sub format_line_message($$$$;$)
 {
-  my $self = shift;
-  my $configuration_information = shift;
   my $type = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
-  my $silent = shift;
+  my $warn = shift;
 
   # TODO actually a bug, add a bug message/cluck
   return if (!defined($error_location_info));
@@ -117,12 +115,15 @@ sub format_line_message($$$$$;$$)
       $message_line = $text."\n";
     }
   }
-  warn $message_line if (defined($configuration_information)
-                      and $configuration_information->get_conf('DEBUG')
-                      and not $silent);
+  warn $message_line if ($warn);
   my %location_info = %{$error_location_info};
   delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
                                   and not defined($location_info{'file_name'}));
+  # FIXME remove this code as soon as possible
+  if (defined($location_info{'line_nr'}) and $location_info{'line_nr'} > 0
+      and !defined ($location_info{'macro'})) {
+    $location_info{'macro'} = "";
+  }
   my $result
     = { 'type' => $type, 'text' => $text, 'error_line' => $message_line,
          %location_info };
@@ -141,12 +142,16 @@ sub line_warn($$$$;$$)
   my $continuation = shift;
   my $silent = shift;
 
-  my $warning = $self->format_line_message($configuration_information,
-            'warning', $text, $error_location_info, $continuation, $silent);
+  my $warn = (defined($configuration_information)
+              and $configuration_information->get_conf('DEBUG')
+              and not $silent);
+
+  my $warning = format_line_message('warning', $text, $error_location_info,
+                                    $continuation, $warn);
   $self->add_formatted_message($warning);
 }
 
-sub line_error($$$$;$)
+sub line_error($$$$;$$)
 {
   my $self = shift;
   my $configuration_information = shift;
@@ -155,29 +160,30 @@ sub line_error($$$$;$)
   my $continuation = shift;
   my $silent = shift;
 
-  my $error = $self->format_line_message($configuration_information, 'error',
-                        $text, $error_location_info, $continuation, $silent);
+  my $warn = (defined($configuration_information)
+              and $configuration_information->get_conf('DEBUG')
+              and not $silent);
+
+  my $error = format_line_message('error', $text, $error_location_info,
+                                  $continuation, $warn);
   $self->add_formatted_message($error);
 }
 
-sub format_document_message($$$$;$)
+sub format_document_message($$;$$)
 {
-  my $self = shift;
-  my $configuration_information = shift;
   my $type = shift;
   my $text = shift;
+  my $program_name = shift;
   my $continuation = shift;
 
   my $message_line;
-  if (defined($configuration_information)
-      and defined($configuration_information->get_conf('PROGRAM'))
-      and $configuration_information->get_conf('PROGRAM') ne '') {
+  if (defined($program_name)) {
     if ($type eq 'warning') {
       $message_line = sprintf(__p("whole document warning", "%s: warning: %s")."\n",
-                    $configuration_information->get_conf('PROGRAM'), $text);
+                              $program_name, $text);
     } else {
       $message_line = sprintf("%s: %s\n",
-            $configuration_information->get_conf('PROGRAM'), $text);
+            $program_name, $text);
     }
   } else {
     if ($type eq 'warning') {
@@ -199,8 +205,16 @@ sub document_warn($$$;$)
   my $text = shift;
   my $continuation = shift;
 
-  my $warning = $self->format_document_message($configuration_information,
-                                               'warning', $text, $continuation);
+  my $program_name;
+
+  if (defined($configuration_information)
+      and defined($configuration_information->get_conf('PROGRAM'))
+      and $configuration_information->get_conf('PROGRAM') ne '') {
+    $program_name = $configuration_information->get_conf('PROGRAM');
+  }
+
+  my $warning = format_document_message('warning', $text, $program_name,
+                                        $continuation);
   $self->add_formatted_message($warning);
 }
 
@@ -211,8 +225,16 @@ sub document_error($$$;$)
   my $text = shift;
   my $continuation = shift;
 
-  my $error = $self->format_document_message($configuration_information,
-                                             'error', $text, $continuation);
+  my $program_name;
+
+  if (defined($configuration_information)
+      and defined($configuration_information->get_conf('PROGRAM'))
+      and $configuration_information->get_conf('PROGRAM') ne '') {
+    $program_name = $configuration_information->get_conf('PROGRAM');
+  }
+
+  my $error = format_document_message('error', $text, $program_name,
+                                      $continuation);
   $self->add_formatted_message($error);
 }
 

@@ -309,7 +309,7 @@ sub output($$)
                              $self->output_files_information(), $self,
                              $encoded_output_file);
     if (!$fh) {
-      $self->document_error($self,
+      $self->converter_document_error(
                  sprintf(__("could not open %s for writing: %s"),
                                     $output_file, $error_message));
       return undef;
@@ -336,7 +336,7 @@ sub output($$)
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
-      $self->document_error($self,
+      $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
                                     $output_file, $!));
     }

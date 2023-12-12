@@ -70,7 +70,11 @@ init (...)
         RETVAL
 
 void
-set_conf(SV *converter_in, conf, SV *value)
+converter_initialize (SV *converter_in)
+
+
+void
+set_conf (SV *converter_in, conf, SV *value)
          char *conf = (char *)SvPVbyte_nolen($arg);
       PREINIT:
          CONVERTER *self;
@@ -79,6 +83,82 @@ set_conf(SV *converter_in, conf, SV *value)
          self = get_sv_converter (converter_in, 0);
          if (self)
            set_conf (self, conf, value);
+
+void
+converter_line_error (SV *converter_in, text, SV *error_location_info, ...)
+          char *text = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$$;$$
+      PREINIT:
+         CONVERTER *self;
+         int continuation = 0;
+         int silent = 0;
+      CODE:
+         self = get_sv_converter (converter_in, 0);
+         if (items > 3 && SvOK(ST(3)))
+           continuation = SvIV (ST(3));
+         if (items > 4 && SvOK(ST(4)))
+           silent = SvIV (ST(4));
+
+         if (self)
+           {
+             get_line_message (self, MSG_error, continuation,
+                               error_location_info, strdup (text), silent);
+           }
+
+void
+converter_line_warn (SV *converter_in, text, SV *error_location_info, ...)
+          char *text = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$$;$$
+      PREINIT:
+         CONVERTER *self;
+         int continuation = 0;
+         int silent = 0;
+      CODE:
+         self = get_sv_converter (converter_in, 0);
+         if (items > 3 && SvOK(ST(3)))
+           continuation = SvIV (ST(3));
+         if (items > 4 && SvOK(ST(4)))
+           silent = SvIV (ST(4));
+
+         if (self)
+           {
+             get_line_message (self, MSG_warning, continuation,
+                               error_location_info, strdup (text), silent);
+           }
+
+void
+converter_document_error (SV *converter_in, text, ...)
+          char *text = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$;$
+      PREINIT:
+         CONVERTER *self;
+         int continuation = 0;
+      CODE:
+         self = get_sv_converter (converter_in, 0);
+         if (items > 2 && SvOK(ST(2)))
+           continuation = SvIV (ST(2));
+         if (self)
+           {
+             message_list_document_formatted_message (&self->error_messages,
+               self->conf, MSG_document_error, continuation, strdup (text)); 
+           }
+
+void
+converter_document_warn (SV *converter_in, text, ...)
+          char *text = (char *)SvPVutf8_nolen($arg);
+      PROTOTYPE: $$;$
+      PREINIT:
+         CONVERTER *self;
+         int continuation = 0;
+      CODE:
+         self = get_sv_converter (converter_in, 0);
+         if (items > 2 && SvOK(ST(2)))
+           continuation = SvIV (ST(2));
+         if (self)
+           {
+             message_list_document_formatted_message (&self->error_messages,
+                      self->conf, MSG_document_warning, continuation, strdup (text));
+           }
 
 void
 get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
@@ -136,8 +216,8 @@ get_converter_errors (SV *converter_in)
          self = get_sv_converter (converter_in, 0);
          if (self && self->error_messages.number)
            {
-             errors_av = get_errors (self->error_messages.list,
-                                     self->error_messages.number);
+             errors_av = build_errors (self->error_messages.list,
+                                       self->error_messages.number);
              wipe_error_message_list (&self->error_messages);
            }
          else
@@ -219,7 +299,7 @@ text_convert_tree (SV *text_options_in, SV *tree_in, unused=0)
 void
 html_format_init ()
 
-int
+void
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body)
 
 void

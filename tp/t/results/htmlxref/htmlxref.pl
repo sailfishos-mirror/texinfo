@@ -2983,6 +2983,7 @@ $result_converted_errors{'file_html'}->{'htmlxref'} = [
 ',
     'file_name' => 'htmlxref.cnf',
     'line_nr' => 15,
+    'macro' => '',
     'text' => 'unrecognized type: foo',
     'type' => 'warning'
   },
@@ -2991,6 +2992,7 @@ $result_converted_errors{'file_html'}->{'htmlxref'} = [
 ',
     'file_name' => 'htmlxref.cnf',
     'line_nr' => 16,
+    'macro' => '',
     'text' => 'missing type',
     'type' => 'warning'
   }

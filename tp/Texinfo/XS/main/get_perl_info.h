@@ -26,13 +26,16 @@ int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 void add_svav_to_string_list (SV *sv, STRING_LIST *string_list,
                               enum sv_string_type type);
 
+SOURCE_INFO *get_source_info (SV *source_info_sv);
+void get_line_message (CONVERTER *self, enum error_type type, int continuation,
+                      SV *error_location_info, char *message, int silent);
 OPTIONS *copy_sv_options (SV *sv_in, CONVERTER *converter);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
 
 CONVERTER *set_output_converter_sv (SV *sv_in, char *warn_string);
 CONVERTER *get_sv_converter (SV *sv_in, char *warn_string);
 
-void converter_initialize (SV *converter_sv, CONVERTER *converter);
+int converter_initialize (SV *converter_sv);
 
 INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
                  (INDEX **index_names, SV *index_entries_sorted_by_letter);

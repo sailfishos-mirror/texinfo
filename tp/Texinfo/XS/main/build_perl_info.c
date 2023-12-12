@@ -629,20 +629,22 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           STORE("file_name", newSVpv (source_info->file_name, 0),
                 HSH_file_name);
         }
-      else
-        STORE("file_name", newSVpv ("", 0), HSH_file_name);
 
       if (source_info->line_nr)
         {
           STORE("line_nr", newSViv (source_info->line_nr), HSH_line_nr);
+
+          if (!source_info->macro)
+            STORE("macro", newSVpv ("", 0), HSH_macro);
+
+          if (!source_info->file_name)
+            STORE("file_name", newSVpv ("", 0), HSH_file_name);
         }
 
       if (source_info->macro)
         {
           STORE("macro", newSVpv_utf8 (source_info->macro, 0), HSH_macro);
         }
-      else
-        STORE("macro", newSVpv ("", 0), HSH_macro);
 #undef STORE
     }
 }
@@ -1109,7 +1111,7 @@ convert_error (ERROR_MESSAGE e)
 
 /* Errors */
 AV *
-get_errors (ERROR_MESSAGE* error_list, size_t error_number)
+build_errors (ERROR_MESSAGE* error_list, size_t error_number)
 {
   AV *av;
   int i;
@@ -1152,8 +1154,8 @@ get_document (size_t document_descriptor)
 
   hv_info = build_global_info (document->global_info, document->global_commands);
 
-  av_errors_list = get_errors (document->error_messages->list,
-                               document->error_messages->number);
+  av_errors_list = build_errors (document->error_messages->list,
+                                 document->error_messages->number);
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   STORE("tree", hv_tree);
@@ -1231,8 +1233,8 @@ build_document (size_t document_descriptor, int no_store)
   av_labels_list = build_target_elements_list (document->labels_list->list,
                                                document->labels_list->number);
 
-  av_errors_list = get_errors (document->error_messages->list,
-                               document->error_messages->number);
+  av_errors_list = build_errors (document->error_messages->list,
+                                 document->error_messages->number);
 
   if (document->nodes_list)
     av_nodes_list = build_elements_list (document->nodes_list);

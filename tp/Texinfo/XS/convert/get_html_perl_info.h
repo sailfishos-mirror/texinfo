@@ -5,7 +5,7 @@
 #include "EXTERN.h"
 #include "perl.h"
 
-int html_converter_initialize_sv (SV *converter_sv,
+void html_converter_initialize_sv (SV *converter_sv,
                                   SV *default_formatting_references,
                                   SV *default_css_string_formatting_references,
                                   SV *default_commands_open,

@@ -532,6 +532,12 @@ sub convert_to_plaintext($$$$$$;$)
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
+
+  my $converter_errors = $converter->get_converter_errors();
+  foreach my $error (@$converter_errors) {
+    $converter->add_formatted_message($error);
+  }
+
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result, $converter);
 }
@@ -557,6 +563,12 @@ sub convert_to_info($$$$$;$)
   my $result = $converter->output($document);
   close_files($converter);
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
+
+  my $converter_errors = $converter->get_converter_errors();
+  foreach my $error (@$converter_errors) {
+    $converter->add_formatted_message($error);
+  }
+
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result, $converter);
 }
@@ -590,10 +602,8 @@ sub convert_to_html($$$$$$;$)
   }
 
   my $converter_errors = $converter->get_converter_errors();
-  if (defined($converter_errors)) {
-    foreach my $error (@$converter_errors) {
-      $converter->add_formatted_message($error);
-    }
+  foreach my $error (@$converter_errors) {
+    $converter->add_formatted_message($error);
   }
 
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
@@ -628,6 +638,12 @@ sub convert_to_xml($$$$$$;$)
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
+
+  my $converter_errors = $converter->get_converter_errors();
+  foreach my $error (@$converter_errors) {
+    $converter->add_formatted_message($error);
+  }
+
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result, $converter);
 }
@@ -678,6 +694,12 @@ sub convert_to_docbook($$$$$$;$)
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
+
+  my $converter_errors = $converter->get_converter_errors();
+  foreach my $error (@$converter_errors) {
+    $converter->add_formatted_message($error);
+  }
+
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result, $converter);
 }
@@ -707,6 +729,12 @@ sub convert_to_latex($$$$$$;$)
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
+
+  my $converter_errors = $converter->get_converter_errors();
+  foreach my $error (@$converter_errors) {
+    $converter->add_formatted_message($error);
+  }
+
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result, $converter);
 }

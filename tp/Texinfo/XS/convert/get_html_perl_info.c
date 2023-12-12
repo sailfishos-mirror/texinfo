@@ -116,7 +116,7 @@ compare_ints (const void *a, const void *b)
   return (*int_a > *int_b) - (*int_a < *int_b);
 }
 
-int
+void
 html_converter_initialize_sv (SV *converter_sv,
                               SV *default_formatting_references,
                               SV *default_css_string_formatting_references,
@@ -159,15 +159,11 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *types_open_hv;
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
-  int converter_descriptor = 0;
   CONVERTER *converter;
 
   dTHX;
 
-  converter_descriptor = new_converter ();
-  converter = retrieve_converter (converter_descriptor);
-
-  converter_initialize (converter_sv, converter);
+  converter = get_sv_converter (converter_sv, "html_converter_initialize_sv");
 
   converter_hv = (HV *)SvRV (converter_sv);
 
@@ -823,15 +819,6 @@ html_converter_initialize_sv (SV *converter_sv,
     }
 
   html_converter_initialize (converter);
-
-  converter->hv = converter_hv;
-
-  /* store converter_descriptor in perl converter */
-  hv_store (converter_hv, "converter_descriptor",
-            strlen("converter_descriptor"),
-            newSViv (converter_descriptor), 0);
-
-  return converter_descriptor;
 }
 
 void

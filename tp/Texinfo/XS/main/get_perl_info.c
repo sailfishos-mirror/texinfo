@@ -43,6 +43,7 @@ FIXME add an initialization of translations?
 #include "converter_types.h"
 #include "utils.h"
 #include "builtin_commands.h"
+#include "errors.h"
 #include "document.h"
 #include "output_unit.h"
 #include "convert_to_text.h"
@@ -61,7 +62,7 @@ get_document_or_warn (SV *sv_in, char *key, char *warn_string)
 
   hv_in = (HV *)SvRV (sv_in);
   document_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
-  if (document_descriptor_sv)
+  if (document_descriptor_sv && SvOK (*document_descriptor_sv))
     {
       document_descriptor = SvIV (*document_descriptor_sv);
       document = retrieve_document (document_descriptor);
@@ -191,6 +192,67 @@ add_svav_to_string_list (SV *sv, STRING_LIST *string_list, enum sv_string_type t
             add_string (string, string_list);
         }
     }
+}
+
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
+SOURCE_INFO *
+get_source_info (SV *source_info_sv)
+{
+  HV *hv_in;
+  SV **macro_sv;
+  SV **file_name_sv;
+  SV **line_nr_sv;
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (source_info_sv);
+
+  SOURCE_INFO *source_info = (SOURCE_INFO *) malloc (sizeof (SOURCE_INFO));
+  memset (source_info, 0, sizeof (SOURCE_INFO));
+
+  FETCH(macro)
+
+  if (macro_sv)
+    {
+      char *macro = (char *) SvPVutf8_nolen (*macro_sv);
+      if (strlen (macro))
+        source_info->macro = strdup (macro);
+    }
+
+  FETCH(file_name)
+
+  if (file_name_sv && SvOK (*file_name_sv))
+    {
+      char *file_name = (char *) SvPVutf8_nolen (*file_name_sv);
+      if (strlen (file_name))
+        source_info->file_name = strdup (file_name);
+    }
+
+  FETCH(line_nr)
+
+  if (line_nr_sv)
+    source_info->line_nr = SvIV (*line_nr_sv);
+
+  return source_info;
+}
+#undef FETCH
+
+void
+get_line_message (CONVERTER *self, enum error_type type, int continuation,
+                  SV *error_location_info, char *message, int silent)
+{
+  int do_warn = (self->conf->DEBUG > 1 && !silent);
+  SOURCE_INFO *source_info = get_source_info (error_location_info);
+  message_list_line_formatted_message (&self->error_messages,
+                                       type, continuation, source_info,
+                                       message, do_warn);
+  if (source_info->file_name)
+    add_string (source_info->file_name, self->document->small_strings);
+
+  if (source_info->macro)
+    add_string (source_info->macro, self->document->small_strings);
+
+  free (source_info);
 }
 
 /* contains get_sv_option (), automatically generated from options_data.txt */
@@ -343,23 +405,64 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
     }
 }
 
-#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
-void
-converter_initialize (SV *converter_sv, CONVERTER *converter)
+/* Texinfo::Convert::Converter generic initialization for all the converters */
+int
+converter_initialize (SV *converter_sv)
 {
   HV *hv_in;
   SV **conf_sv;
   SV **converter_init_conf_sv;
   SV **output_format_sv;
   DOCUMENT *document;
+  int converter_descriptor = 0;
+  CONVERTER *converter;
 
   dTHX;
+
+  converter_descriptor = new_converter ();
+  converter = retrieve_converter (converter_descriptor);
 
   hv_in = (HV *)SvRV (converter_sv);
 
   document = get_sv_document_document (converter_sv, 0);
+  if (!document)
+    {
+      /* happens in tests for PlainTexinfo for example */
+      unregister_converter_descriptor (converter_descriptor);
+      return 0;
+      /*
+      I32 hv_number;
+      I32 i;
+      hv_number = hv_iterinit (hv_in);
+      fprintf (stderr, "REMARK: no document for SV %p HV %p\n", converter_sv,
+                       hv_in);
+      for (i = 0; i < hv_number; i++)
+        {
+          char *key;
+          I32 retlen;
+          SV *value = hv_iternextsv(hv_in, &key, &retlen);
+          if (value && SvOK (value))
+            {
+              fprintf (stderr, "  %s: %p\n", key, value);
+            }
+        }
+       */
+    }
   converter->document = document;
 
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
+  FETCH(output_format)
+
+  if (output_format_sv && SvOK (*output_format_sv))
+    {
+      converter->output_format
+         = strdup (SvPVutf8_nolen (*output_format_sv));
+    }
+
+   /*
+  fprintf (stderr, "XS|CONVERTER Init: %d; doc %d; %s\n", converter_descriptor,
+                   converter->document->descriptor, converter->output_format);
+    */
   FETCH(conf)
 
   if (conf_sv && SvOK (*conf_sv))
@@ -376,17 +479,18 @@ converter_initialize (SV *converter_sv, CONVERTER *converter)
          = copy_sv_options (*converter_init_conf_sv, converter);
     }
 
-  FETCH(output_format)
-
-  if (output_format_sv && SvOK (*output_format_sv))
-    {
-      converter->output_format
-         = strdup (SvPVutf8_nolen (*output_format_sv));
-    }
-
   set_translated_commands (converter, hv_in);
 
   get_expanded_formats (hv_in, &converter->expanded_formats);
+
+  converter->hv = hv_in;
+
+  /* store converter_descriptor in perl converter */
+  hv_store (hv_in, "converter_descriptor",
+            strlen("converter_descriptor"),
+            newSViv (converter_descriptor), 0);
+
+  return converter_descriptor;
 }
 
 /* initialize an XS converter from a perl converter right before conversion */
@@ -785,7 +889,7 @@ html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
   result->list = (BUTTON_SPECIFICATION *)
     malloc (result->number * sizeof (BUTTON_SPECIFICATION));
   memset (result->list, 0, result->number * sizeof (BUTTON_SPECIFICATION));
- 
+
   for (i = 0; i < buttons_nr; i++)
     {
       SV** button_sv = av_fetch (buttons_av, i, 0);

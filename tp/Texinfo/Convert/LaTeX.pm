@@ -1076,7 +1076,7 @@ sub output($$)
                              $self->output_files_information(), $self,
                              $encoded_output_file);
     if (!$fh) {
-      $self->document_error($self,
+      $self->converter_document_error(
              sprintf(__("could not open %s for writing: %s"),
                                     $output_file, $error_message));
       return undef;
@@ -1145,7 +1145,7 @@ sub output($$)
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
-      $self->document_error($self,
+      $self->converter_document_error(
                    sprintf(__("error on closing %s: %s"),
                                     $output_file, $!));
     }
@@ -2960,7 +2960,7 @@ sub _convert($$)
             next LINE;
           }
         }
-        $self->line_warn($self,
+        $self->converter_line_warn(
            sprintf(__("\\verb delimiter `%s' (for LaTeX) used in text `%s'"),
                       $delim, $line),
            $element->{'source_info'});
@@ -2992,7 +2992,7 @@ sub _convert($$)
           }
         }
         if (not $image_file_found) {
-          $self->line_warn($self,
+          $self->converter_line_warn(
                          sprintf(__("\@image file `%s' (for LaTeX) not found"),
                                  $basefile),
                            $element->{'source_info'});
@@ -3844,7 +3844,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'verbatiminclude') {
-      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
+      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude(
                                                               $self, $element);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);

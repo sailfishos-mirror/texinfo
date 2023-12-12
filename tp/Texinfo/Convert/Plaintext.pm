@@ -756,7 +756,7 @@ sub new_formatter($$;$)
 }
 
 # intercept messages, in case some Texinfo is processed twice
-sub converter_line_warn($$$$)
+sub plaintext_line_warn($$$$)
 {
   my $self = shift;
   my $configuration_information = shift;
@@ -764,11 +764,11 @@ sub converter_line_warn($$$$)
   my $error_location_info = shift;
 
   if (!$self->{'silent'}) {
-    $self->line_warn($configuration_information, $text, $error_location_info);
+    $self->converter_line_warn($text, $error_location_info);
   }
 }
 
-sub converter_line_error($$$$)
+sub plaintext_line_error($$$$)
 {
   my $self = shift;
   my $configuration_information = shift;
@@ -776,7 +776,7 @@ sub converter_line_error($$$$)
   my $error_location_info = shift;
 
   if (!$self->{'silent'}) {
-    $self->line_error($configuration_information, $text, $error_location_info);
+    $self->converter_line_error($text, $error_location_info);
   }
 }
 
@@ -1354,7 +1354,7 @@ sub process_printindex($$;$)
       = Texinfo::Structuring::merge_indices($indices_information);
     my $index_entries_sort_strings;
     ($self->{'index_entries'}, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices_by_index($self, $self,
+      = Texinfo::Structuring::sort_indices_by_index(undef, $self,
                                            $merged_index_entries,
                                            $indices_information);
   }
@@ -1482,7 +1482,7 @@ sub process_printindex($$;$)
       $entry_cmdname
         = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
-      $self->converter_line_warn ($self,
+      $self->plaintext_line_warn ($self,
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
                 $entry_cmdname,
                 Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),
@@ -1529,7 +1529,7 @@ sub process_printindex($$;$)
       # done by the Parser.
       # Warn, only once.
       if (!$self->{'index_entries_no_node'}->{$entry}) {
-        $self->converter_line_warn($self,
+        $self->plaintext_line_warn($self,
            sprintf(__("entry for index `%s' outside of any node"),
                       $index_name), $main_entry_element->{'source_info'});
         $self->{'index_entries_no_node'}->{$entry} = 1;
@@ -1545,7 +1545,7 @@ sub process_printindex($$;$)
         if ($self->{'info_special_chars_warning'}) {
           # Warn only once
           if (! $self->{'index_entry_node_colon'}->{$node_name}) {
-            $self->converter_line_warn($self, sprintf(__(
+            $self->plaintext_line_warn($self, sprintf(__(
              "node name with index entries should not contain `%s'"),
                                             $warned_char),
                            $node->{'source_info'});
@@ -1656,7 +1656,7 @@ sub image_formatted_text($$$$)
     $result = '[' .Texinfo::Convert::Text::convert_to_text(
          $element->{'args'}->[3], $self->{'convert_text_options'}) .']';
   } else {
-    $self->converter_line_warn($self, sprintf(__(
+    $self->plaintext_line_warn($self, sprintf(__(
                     "could not find \@image file `%s.txt' nor alternate text"),
                              $basefile), $element->{'source_info'});
     $result = '['.$basefile.']';
@@ -2002,7 +2002,7 @@ sub _convert($$)
                     =~ /^Note\s/i
               and $self->{'converted_format'}
               and $self->{'converted_format'} eq 'info') {
-            $self->converter_line_warn($self, __(
+            $self->plaintext_line_warn($self, __(
       "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"),
                              $element->{'source_info'});
           }
@@ -2168,7 +2168,7 @@ sub _convert($$)
             my $quoting_required = 0;
             if ($name_text_checked =~ /:/m) {
               if ($self->{'info_special_chars_warning'}) {
-                $self->converter_line_warn($self, sprintf(__(
+                $self->plaintext_line_warn($self, sprintf(__(
                    "\@%s cross-reference name should not contain `:'"),
                                          $command), $element->{'source_info'});
               }
@@ -2227,7 +2227,7 @@ sub _convert($$)
           my $quoting_required = 0;
           if ($node_line_name =~ /([$check_chars])/m) {
             if ($self->{'info_special_chars_warning'}) {
-              $self->converter_line_warn($self, sprintf(__(
+              $self->plaintext_line_warn($self, sprintf(__(
                  "\@%s node name should not contain `%s'"), $command, $1),
                                $element->{'source_info'});
             }
@@ -2293,11 +2293,11 @@ sub _convert($$)
                   my $text = $next->{'text'};
                   $text =~ s/^\s*//;
                   my $char = substr($text, 0, 1);
-                  $self->converter_line_warn($self, sprintf(__(
+                  $self->plaintext_line_warn($self, sprintf(__(
                               "`.' or `,' must follow \@xref, not %s"),
                                            $char), $element->{'source_info'});
                 } else {
-                  $self->converter_line_warn($self,
+                  $self->plaintext_line_warn($self,
                              __("`.' or `,' must follow \@xref"),
                                    $element->{'source_info'});
                 }
@@ -2943,7 +2943,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'verbatiminclude') {
-      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
+      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude(
                                                                $self, $element);
       $result .= _convert($self, $expansion) if (defined($expansion));
       return $result;
@@ -3422,7 +3422,7 @@ sub _convert($$)
           if ($entry_name_seen) {
             if ($node_text =~ /([,\t]|\.\s)/) {
               if ($self->{'info_special_chars_warning'}) {
-                $self->converter_line_warn($self, sprintf(__(
+                $self->plaintext_line_warn($self, sprintf(__(
                    "menu entry node name should not contain `%s'"), $1),
                                $element->{'source_info'});
               }
@@ -3433,7 +3433,7 @@ sub _convert($$)
           } else {
             if ($node_text =~ /:/) {
               if ($self->{'info_special_chars_warning'}) {
-                $self->converter_line_warn($self, __(
+                $self->plaintext_line_warn($self, __(
                  "menu entry node name should not contain `:'"),
                                $element->{'source_info'});
               }
@@ -3456,7 +3456,7 @@ sub _convert($$)
           $pre_quote = $post_quote = '';
           if ($entry_name =~ /:/) {
             if ($self->{'info_special_chars_warning'}) {
-              $self->converter_line_warn($self, __(
+              $self->plaintext_line_warn($self, __(
                  "menu entry name should not contain `:'"),
                                $element->{'source_info'});
             }

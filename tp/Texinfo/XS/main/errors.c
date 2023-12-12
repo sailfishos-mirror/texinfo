@@ -59,22 +59,15 @@ reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages)
   return error_message;
 }
 
-static void
-message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
-                                  enum error_type type, int continuation,
-                                  const SOURCE_INFO *cmd_source_info,
-                                  const char *format, va_list v)
+/* only directly used for messages passed from perl */
+void
+message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
+                           enum error_type type, int continuation,
+                           const SOURCE_INFO *cmd_source_info,
+                           char *message, int warn)
 {
-  char *message;
   TEXT error_line;
   ERROR_MESSAGE *error_message;
-
-#ifdef ENABLE_NLS
-  xvasprintf (&message, gettext(format), v);
-#else
-  xvasprintf (&message, format, v);
-#endif
-  if (!message) fatal ("vasprintf failed");
 
   error_message = reallocate_error_messages (error_messages);
 
@@ -135,26 +128,39 @@ message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
   error_message->error_line = error_line.text;
 
-  if (debug_output)
+  if (warn)
     fprintf (stderr, "%s", error_message->error_line);
 }
 
 static void
-message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
-                                      OPTIONS *conf,
-                                      enum error_type type, int continuation,
-                                      const char *format, va_list v)
+message_list_line_error_internal (ERROR_MESSAGE_LIST *error_messages,
+                                  enum error_type type, int continuation,
+                                  const SOURCE_INFO *cmd_source_info,
+                                  const char *format, va_list v)
 {
   char *message;
-  TEXT error_line;
-  ERROR_MESSAGE *error_message;
 
 #ifdef ENABLE_NLS
   xvasprintf (&message, gettext(format), v);
 #else
   xvasprintf (&message, format, v);
 #endif
+
   if (!message) fatal ("vasprintf failed");
+
+  message_list_line_formatted_message (error_messages,
+                             type, continuation,
+                             cmd_source_info, message, debug_output);
+}
+
+void
+message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
+                                         OPTIONS *conf,
+                                         enum error_type type, int continuation,
+                                         char *message)
+{
+  TEXT error_line;
+  ERROR_MESSAGE *error_message;
 
   error_message = reallocate_error_messages (error_messages);
 
@@ -210,6 +216,25 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
   if (conf && conf->DEBUG > 0)
     fprintf (stderr, "%s", error_message->error_line);
+}
+
+static void
+message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
+                                      OPTIONS *conf,
+                                      enum error_type type, int continuation,
+                                      const char *format, va_list v)
+{
+  char *message;
+
+#ifdef ENABLE_NLS
+  xvasprintf (&message, gettext(format), v);
+#else
+  xvasprintf (&message, format, v);
+#endif
+  if (!message) fatal ("vasprintf failed");
+
+  message_list_document_formatted_message (error_messages, conf, type,
+                                            continuation, message);
 }
 
 static void

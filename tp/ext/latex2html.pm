@@ -119,7 +119,7 @@ sub l2h_to_latex($$$$$)
   my $latex_texts = shift;
 
   unless (open(L2H_LATEX, ">$l2h_latex_path_string")) {
-    $self->document_error($self, sprintf(__(
+    $self->converter_document_error(sprintf(__(
           "l2h: could not open latex file %s for writing: %s"),
                                   $l2h_latex_path_name, $!));
     return 0;
@@ -359,7 +359,7 @@ sub l2h_process($$)
       if ($latex_converted_count != $html_converted_count) {
         # unless latex2html somewhat mangles the output this cannot
         # actually happen, so it could also be presented as an error or a bug.
-        $self->document_warn($self, sprintf(__(
+        $self->converter_document_warn(sprintf(__(
           "latex2html.pm: processing produced %d items in HTML; expected %d"),
                           $html_converted_count, $latex_converted_count));
       }
@@ -397,13 +397,13 @@ sub l2h_to_html($$$)
   # Check for dot in directory where dvips will work
   if ($self->get_conf('L2H_TMP')) {
     if ($self->get_conf('L2H_TMP') =~ /\./) {
-      $self->document_warn($self,
+      $self->converter_document_warn(
         __("l2h: L2H_TMP directory contains a dot"));
       $dotbug = 1;
     }
   } else {
     if (cwd() =~ /\./) {
-      $self->document_warn($self,
+      $self->converter_document_warn(
             __("l2h: current directory contains a dot"));
       $dotbug = 1;
     }
@@ -411,7 +411,7 @@ sub l2h_to_html($$$)
 
   my $latex2html_command = $self->get_conf('L2H_L2H');
   if (not defined($latex2html_command) or $latex2html_command !~ /\S/) {
-    $self->document_error($self, __("l2h: command not set"));
+    $self->converter_document_error(__("l2h: command not set"));
     return 0;
   }
 
@@ -465,7 +465,7 @@ sub l2h_to_html($$$)
 
   warn "# l2h: executing '$encoded_call'\n" if ($verbose);
   if (system($encoded_call)) {
-    $self->document_error($self, sprintf(__("l2h: command did not succeed: %s"),
+    $self->converter_document_error(sprintf(__("l2h: command did not succeed: %s"),
                                          $call));
     return 0;
   } else  {
@@ -509,7 +509,7 @@ sub l2h_change_image_file_names($$)
         # document extension. copying the file could result in
         # overwriting an output file (almost surely if the default
         # texi2html file names are used).
-        $self->document_warn($self, sprintf(__(
+        $self->converter_document_warn(sprintf(__(
                             "l2h: image has invalid extension: %s"), $src));
         next;
       }
@@ -540,7 +540,7 @@ sub l2h_change_image_file_names($$)
         copy($encoded_file_src, $encoded_file_dest);
       } else {
         if (!rename($encoded_file_src, $encoded_file_dest)) {
-          $self->document_warn($self,
+          $self->converter_document_warn(
                  sprintf(__("l2h: rename %s as %s failed: %s"),
                                  $src_file, $file_dest, $!));
         }
@@ -566,7 +566,7 @@ sub l2h_retrieve_from_html($$)
                                                  $encoded_l2h_html_file_name);
 
   if (! open(L2H_HTML, "<$l2h_html_path_string")) {
-    $self->document_error($self,
+    $self->converter_document_error(
                 sprintf(__("l2h: could not open %s: %s"),
                                  $l2h_html_path_name, $!));
     # return empty array
@@ -600,7 +600,7 @@ sub l2h_retrieve_from_html($$)
       }
       unless ($h_end_found) {
         # couldn't found the closing comment. Should be a bug.
-        $self->document_warn($self,
+        $self->converter_document_warn(
                 sprintf(__("latex2html.pm: end of \@%s text %d not found"),
                                       $l2h_name, $latex_text_index));
         last;
@@ -680,7 +680,7 @@ sub l2h_convert_command($$$;$$)
       # it could also probably be marked as a bug (or error) as there is no
       # situation in which this could happen with the conditions on succeeding
       # conversion.
-      $self->document_warn($self, sprintf(__(
+      $self->converter_document_warn(sprintf(__(
         "l2h: could not extract the fragment %d for \@%s, text %d, from HTML"),
                    $command_count, $cmdname, $latex_text_index));
     } elsif ($verbose) {
@@ -772,16 +772,16 @@ sub l2h_init_cache($)
     my $rdo = do "$loaded_path";
     unless ($rdo) {
       # FIXME error or warning?
-      $self->document_error($self,
+      $self->converter_document_error(
                sprintf(__("l2h: could not compile %s: %s"),
                                   $l2h_cache_path_name, $@))
         if ($@);
       if (! defined($rdo)) {
-        $self->document_error($self,
+        $self->converter_document_error(
                sprintf(__("l2h: could not load %s: %s"),
                                   $l2h_cache_path_name, $!));
       } else {
-        $self->document_error($self,
+        $self->converter_document_error(
                sprintf(__("l2h: error loading %s"),
                                    $l2h_cache_path_name));
       }
@@ -801,7 +801,7 @@ sub l2h_store_cache($)
   my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
     = $self->encoded_output_file_name($l2h_cache_path_name);
   unless (open(FH, ">$encoded_l2h_cache_path_name")) {
-    $self->document_error($self,
+    $self->converter_document_error(
           sprintf(__("l2h: could not open %s for writing: %s"),
                                   $l2h_cache_path_name, $!));
     return;

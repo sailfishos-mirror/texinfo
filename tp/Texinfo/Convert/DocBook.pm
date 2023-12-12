@@ -353,7 +353,7 @@ sub output($$)
                               $self->output_files_information(), $self,
                               $encoded_output_file);
     if (!$fh) {
-      $self->document_error($self,
+      $self->converter_document_error(
            sprintf(__("could not open %s for writing: %s"),
                                     $output_file, $error_message));
       return undef;
@@ -518,7 +518,7 @@ sub output($$)
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
-      $self->document_error($self,
+      $self->converter_document_error(
             sprintf(__("error on closing %s: %s"),
                                     $output_file, $!));
     }
@@ -980,7 +980,7 @@ sub _convert($$;$)
         }
       } elsif ($element->{'cmdname'} eq 'verbatiminclude') {
         my $verbatim_include_verbatim
-          = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $element);
+          = Texinfo::Convert::Utils::expand_verbatiminclude($self, $element);
         if (defined($verbatim_include_verbatim)) {
           $result .= $self->_convert($verbatim_include_verbatim);
         } else {
@@ -1299,7 +1299,7 @@ sub _convert($$;$)
                .'</literallayout></textobject>';
           }
           if (!defined($image_text) and !$image_file_found) {
-            $self->line_warn($self, sprintf(
+            $self->converter_line_warn(sprintf(
                      __("\@image file `%s' not found, using `%s'"), 
                        $basefile, "$basefile.jpg"), $element->{'source_info'});
           }
@@ -1434,7 +1434,7 @@ sub _convert($$;$)
         if ($argument) {
           $result = "&#x$argument;";
         } else {
-          $self->line_warn($self,
+          $self->converter_line_warn(
                   __("no argument specified for \@U"),
                            $element->{'source_info'});
           $result = '';

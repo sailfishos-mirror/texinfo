@@ -737,11 +737,10 @@ sub _convert($;$)
           # output as for the main $options->{'converter'}.
           $verbatim_include_verbatim
             = Texinfo::Convert::Utils::expand_verbatiminclude(
-                $options->{'converter'}, $options->{'converter'}, $element);
+                                          $options->{'converter'}, $element);
         } else {
           $verbatim_include_verbatim
-            = Texinfo::Convert::Utils::expand_verbatiminclude(undef,
-                                                        $options, $element);
+            = Texinfo::Convert::Utils::expand_verbatiminclude($options, $element);
         }
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($verbatim_include_verbatim, $options);
@@ -1037,6 +1036,14 @@ sub set_conf($$$)
   $self->{$conf} = $value;
 
   return 1;
+}
+
+sub converter_line_error()
+{
+}
+
+sub converter_document_warn()
+{
 }
 
 sub errors()

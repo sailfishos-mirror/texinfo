@@ -112,7 +112,7 @@ my %XS_overrides = (
 my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_XS_format_init"
    => "Texinfo::Convert::ConvertXS::html_format_init",
-  "Texinfo::Convert::HTML::_XS_converter_initialize"
+  "Texinfo::Convert::HTML::_XS_html_converter_initialize"
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
   "Texinfo::Convert::HTML::_XS_initialize_output_state"
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
@@ -2743,7 +2743,7 @@ sub _noticed_line_warn($$$)
   my $text = shift;
   my $line_nr = shift;
   return if ($self->{'ignore_notice'});
-  $self->line_warn($self, $text, $line_nr);
+  $self->converter_line_warn($text, $line_nr);
 }
 
 my %kept_line_commands;
@@ -4896,7 +4896,7 @@ sub _convert_verbatiminclude_command($$$$)
   my $args = shift;
 
   my $verbatim_include_verbatim
-    = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $command);
+    = Texinfo::Convert::Utils::expand_verbatiminclude($self, $command);
   if (defined($verbatim_include_verbatim)) {
     return $self->convert_tree($verbatim_include_verbatim,
                                'convert verbatiminclude');
@@ -5689,6 +5689,7 @@ sub _convert_xref_commands($$$$)
     } elsif ($cmdname eq 'ref' or $cmdname eq 'link') {
       $tree = $self->gdt('{reference_name}',
          { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
+
     }
   } else {
     # external reference
@@ -6170,7 +6171,7 @@ sub _convert_printindex_command($$$$)
           # NOTE _noticed_line_warn is not used as printindex should not
           # happen in multiple tree parsing that lead to ignore_notice being set,
           # but the error message is printed only for the first entry formatting.
-          $self->line_warn($self,
+          $self->converter_line_warn(
                            sprintf(
            __("entry for index `%s' for \@printindex %s outside of any node"),
                                    $index_entry_ref->{'index_name'},
@@ -6201,7 +6202,7 @@ sub _convert_printindex_command($$$$)
             # happen in multiple tree parsing that lead to ignore_notice being set,
             # but the error message is printed only for the first entry formatting.
             # NOTE the index entry may be associated to a node in that case.
-            $self->line_warn($self,
+            $self->converter_line_warn(
                              sprintf(
         __("entry for index `%s' for \@printindex %s outside of any section"),
                                      $index_entry_ref->{'index_name'},
@@ -7986,7 +7987,7 @@ sub _parse_htmlxref_files($$)
       if (defined($encoding)) {
         $htmlxref_file_name = decode($encoding, $htmlxref_file_name);
       }
-      $self->document_warn($self,
+      $self->converter_document_warn(
         sprintf(__("could not open html refs config file %s: %s"),
           $htmlxref_file_name, $!));
       next;
@@ -8015,11 +8016,11 @@ sub _parse_htmlxref_files($$)
       my $split_or_mono = shift @htmlxref;
       #print STDERR "$split_or_mono $Texi2HTML::Config::htmlxref_entries{$split_or_mono} $line_nr\n";
       if (!defined($split_or_mono)) {
-        $self->line_warn($self, __("missing type"),
+        $self->converter_line_warn(__("missing type"),
                  {'file_name' => $fname, 'line_nr' => $line_nr});
         next;
       } elsif (!defined($htmlxref_entries{$split_or_mono})) {
-        $self->line_warn($self, sprintf(__("unrecognized type: %s"),
+        $self->converter_line_warn(sprintf(__("unrecognized type: %s"),
                                         $split_or_mono),
                     {'file_name' => $fname, 'line_nr' => $line_nr});
         next;
@@ -8040,7 +8041,7 @@ sub _parse_htmlxref_files($$)
       $htmlxref->{$manual}->{$split_or_mono} = $href;
     }
     if (!close (HTMLXREF)) {
-      $self->document_warn($self, sprintf(__(
+      $self->converter_document_warn(sprintf(__(
                        "error on closing html refs config file %s: %s"),
                              $file, $!));
     }
@@ -8064,7 +8065,7 @@ sub _load_htmlxref_files {
     if (-e $encoded_htmlxref_file_name and -r $encoded_htmlxref_file_name) {
       @htmlxref_files = ($encoded_htmlxref_file_name);
     } else {
-      $self->document_warn($self,
+      $self->converter_document_warn(
         sprintf(__("could not find html refs config file %s"),
           $htmlxref_file_name));
     }
@@ -8225,7 +8226,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_converter_initialize($$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$)
 {
 }
 
@@ -8587,7 +8588,7 @@ sub converter_initialize($)
   foreach my $customized_file_id_setting_ref
        (sort(keys(%{$customized_file_id_setting_references}))) {
     if (!$customizable_file_id_setting_references{$customized_file_id_setting_ref}) {
-      $self->document_warn($self,
+      $self->converter_document_warn(
                            sprintf(__("Unknown file and id setting function: %s"),
                                    $customized_file_id_setting_ref));
     } else {
@@ -8603,7 +8604,8 @@ sub converter_initialize($)
   foreach my $customized_formatting_reference
        (sort(keys(%{$customized_formatting_references}))) {
     if (!exists($default_formatting_references{$customized_formatting_reference})) {
-      $self->document_warn($self, sprintf(__("Unknown formatting function: %s"),
+      $self->converter_document_warn(
+            sprintf(__("Unknown formatting function: %s"),
                                           $customized_formatting_reference));
     }
   }
@@ -8718,7 +8720,7 @@ sub converter_initialize($)
       $self->{'sorted_special_unit_varieties'}
         = [sort(keys(%all_special_unit_varieties))];
     }
-    _XS_converter_initialize($self,
+    _XS_html_converter_initialize($self,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
                              \%default_commands_open,
@@ -8935,11 +8937,11 @@ sub _process_css_file($$$)
       }
     }
   }
-  $self->line_warn($self, __("string not closed in css file"),
+  $self->converter_line_warn(__("string not closed in css file"),
                  {'file_name' => $file, 'line_nr' => $line_nr}) if ($in_string);
-  $self->line_warn($self, __("--css-include ended in comment"),
+  $self->converter_line_warn(__("--css-include ended in comment"),
                  {'file_name' => $file, 'line_nr' => $line_nr}) if ($in_comment);
-  $self->line_warn($self, __("\@import not finished in css file"),
+  $self->converter_line_warn(__("\@import not finished in css file"),
                  {'file_name' => $file, 'line_nr' => $line_nr})
     if ($in_import and !$in_comment and !$in_string);
   return ($imports, $rules);
@@ -8969,7 +8971,7 @@ sub _prepare_css($)
         if (defined($encoding)) {
           $input_file_name = decode($encoding, $input_file_name);
         }
-        $self->document_warn($self, sprintf(
+        $self->converter_document_warn(sprintf(
                __("CSS file %s not found"), $input_file_name));
         next;
       }
@@ -8979,7 +8981,7 @@ sub _prepare_css($)
         if (defined($encoding)) {
           $css_file_name = decode($encoding, $css_file_name);
         }
-        $self->document_warn($self, sprintf(__(
+        $self->converter_document_warn(sprintf(__(
              "could not open --include-file %s: %s"),
               $css_file_name, $!));
         next;
@@ -8998,7 +9000,7 @@ sub _prepare_css($)
       if (defined($encoding)) {
         $css_file_name = decode($encoding, $css_file_name);
       }
-      $self->document_warn($self,
+      $self->converter_document_warn(
             sprintf(__("error on closing CSS file %s: %s"),
                                    $css_file_name, $!));
     }
@@ -9199,7 +9201,7 @@ sub _set_root_commands_targets_node_files($)
         if (defined($user_node_filename)) {
           $node_filename = $user_node_filename;
         } elsif ($self->get_conf('VERBOSE')) {
-          $self->document_warn($self, sprintf(__(
+          $self->converter_document_warn(sprintf(__(
               "user-defined node file name not set for `%s'"),
               $node_filename));
 
@@ -9507,7 +9509,7 @@ sub _html_set_pages_files($$$$$$$$$)
           # is undef and the other is not
           if (defined($user_filepath) and defined($previous_filepath)
               and $user_filepath ne $previous_filepath) {
-            $self->document_warn($self,
+            $self->converter_document_warn(
              sprintf(__("resetting %s file path %s to %s"),
               $user_filename, $previous_filepath, $user_filepath));
           }
@@ -10066,9 +10068,9 @@ sub _sort_index_entries($)
     my $index_entries_sort_strings;
 
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-            = Texinfo::Structuring::sort_indices_by_letter($self,
-                                    $self, $merged_index_entries,
-                                    $indices_information);
+            = Texinfo::Structuring::sort_indices_by_letter(undef, $self,
+                                               $merged_index_entries,
+                                               $indices_information);
     $self->{'index_entries'} = $merged_index_entries;
 
     # pass sorted index entries to XS for a reproducible sorting.
@@ -10246,14 +10248,14 @@ sub _external_node_href($$$;$)
         if (defined($source_command) and $source_command->{'source_info'}) {
           my $node_manual_key = $source_command.'-'.$manual_name;
           if (!$self->{'check_htmlxref_already_warned'}->{$node_manual_key}) {
-            $self->line_warn($self, sprintf(__(
+            $self->converter_line_warn(sprintf(__(
                     "no htmlxref.cnf entry found for `%s'"), $manual_name),
                              $source_command->{'source_info'});
             $self->{'check_htmlxref_already_warned'}->{$node_manual_key} = 1;
           }
         } else {
           if (!$self->{'check_htmlxref_already_warned'}->{'UNDEF-'.$manual_name}) {
-            $self->document_warn($self, sprintf(__(
+            $self->converter_document_warn(sprintf(__(
               "no htmlxref.cnf entry found for `%s'"), $manual_name),
               );
             $self->{'check_htmlxref_already_warned'}->{'UNDEF-'.$manual_name} = 1;
@@ -10703,7 +10705,7 @@ sub _file_header_information($$;$)
 
   if (defined($self->get_conf('INFO_JS_DIR'))) {
     if (!$self->get_conf('SPLIT')) {
-      $self->document_error($self,
+      $self->converter_document_error(
         sprintf(__("%s not meaningful for non-split output"),
                    'INFO_JS_DIR'));
     } else {
@@ -11161,7 +11163,7 @@ sub _do_jslicenses_file {
   $a .= "</table>\n</body></html>\n";
 
   if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/) {
-    $self->document_warn($self, sprintf(
+    $self->converter_document_warn(sprintf(
 __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
     return;
   }
@@ -11183,12 +11185,12 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $licence_file_path);
     if (!close ($fh)) {
-      $self->document_error($self,
+      $self->converter_document_error(
                sprintf(__("error on closing %s: %s"),
                                     $license_file, $!));
     }
   } else {
-    $self->document_error($self,
+    $self->converter_document_error(
            sprintf(__("could not open %s for writing: %s"),
                    $license_file, $error_message_licence_file));
   }
@@ -11559,7 +11561,7 @@ sub run_stage_handlers($$$)
       my $status = &{$handler}($converter, $root, $stage);
       if ($status != 0) {
         if ($status < 0) {
-          $converter->document_error($converter,
+          $converter->converter_document_error(
              sprintf(__("handler %d of stage %s priority %s failed"),
                         $handler_idx, $stage, $priority));
         } else {
@@ -11611,7 +11613,7 @@ sub _do_js_files($$)
     }
     if (!-d $jsdir) {
       if (-f $jsdir) {
-        $self->document_error($self,
+        $self->converter_document_error(
           sprintf(__("%s already exists but is not a directory"), $jsdir));
       } else {
         mkdir $jsdir;
@@ -11632,7 +11634,7 @@ sub _do_js_files($$)
           my $from = File::Spec->catfile($jssrcdir, $f);
 
           if (!copy($from, $jsdir)) {
-            $self->document_error($self,
+            $self->converter_document_error(
               sprintf(__("error on copying %s into %s"), $from, $jsdir));
           }
         }
@@ -11641,12 +11643,12 @@ sub _do_js_files($$)
         for my $f ('info.js', 'modernizr.js', 'info.css') {
           my $filename = File::Spec->catfile($jsdir, $f);
           if (!open (FH, '>', $filename)) {
-            $self->document_error($self,
+            $self->converter_document_error(
               sprintf(__("error on creating empty %s: %s"),
                       $filename, $!));
           }
           if (!close(FH)) {
-            $self->document_error($self,
+            $self->converter_document_error(
               sprintf(__("error on closing empty %s: %s"),
                       $filename, $!));
           }
@@ -11713,7 +11715,7 @@ sub _prepare_converted_output_info($)
     # for line_warn.  Not clear what is the right way to do.  There is
     # no file level warn, as in general document_warn is used for messages
     # for other files than the main file name.
-    $self->line_warn($self, __(
+    $self->converter_line_warn(__(
                          "must specify a title with a title command or \@top"),
                {'file_name' => $self->{'document_info'}->{'input_file_name'}});
   } else {
@@ -11847,7 +11849,7 @@ sub _html_convert_output($$$$$$$$)
                          $self->output_files_information(), $self,
                          $encoded_out_filepath);
         if (!$file_fh) {
-          $self->document_error($self,
+          $self->converter_document_error(
                sprintf(__("could not open %s for writing: %s"),
                                     $out_filepath, $error_message));
           return undef;
@@ -11867,7 +11869,7 @@ sub _html_convert_output($$$$$$$$)
           Texinfo::Common::output_files_register_closed(
              $self->output_files_information(), $encoded_out_filepath);
           if (!close($file_fh)) {
-            $self->document_error($self,
+            $self->converter_document_error(
                        sprintf(__("error on closing %s: %s"),
                                   $out_filepath, $!));
             return undef;
@@ -12174,7 +12176,7 @@ sub output($$)
         # first condition finds conflict with tree elements
         if ($self->{'elements_in_file_count'}->{$redirection_filename}
             or $redirection_filenames{$redirection_filename}) {
-          $self->line_warn($self,
+          $self->converter_line_warn(
              sprintf(__("\@%s `%s' file %s for redirection exists"),
                $target_element->{'cmdname'},
                Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
@@ -12191,24 +12193,24 @@ sub output($$)
               # with potentially conflicting name will also be in the
               # non-split output document and therefore does not need
               # a redirection.
-              $self->document_warn($self,
+              $self->converter_document_warn(
                             __("conflict with whole document file"), 1);
             } elsif ($name eq 'Top') {
-              $self->document_warn($self,
+              $self->converter_document_warn(
                            __("conflict with Top file"), 1);
             } elsif ($name eq 'user_defined') {
-              $self->document_warn($self,
+              $self->converter_document_warn(
                             __("conflict with user-defined file"), 1);
            } elsif ($name eq 'unknown_node') {
-              $self->document_warn($self,
+              $self->converter_document_warn(
                            __("conflict with unknown node file"), 1);
             } elsif ($name eq 'unknown') {
-              $self->document_warn($self,
+              $self->converter_document_warn(
                             __("conflict with file without known source"), 1);
             }
           } elsif ($file_info_type eq 'node') {
             my $conflicting_node = $file_source->{'file_info_element'};
-            $self->line_warn($self,
+            $self->converter_line_warn(
          sprintf(__p('conflict of redirection file with file based on node name',
                      "conflict with \@%s `%s' file"),
                  $conflicting_node->{'cmdname'},
@@ -12220,7 +12222,7 @@ sub output($$)
             my $conflicting_node = $file_source->{'file_info_element'};
             my $conflicting_label_contents
                  = $file_source->{'file_info_label_contents'};
-            $self->line_warn($self,
+            $self->converter_line_warn(
                sprintf(__("conflict with \@%s `%s' redirection file"),
                  $conflicting_node->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
@@ -12229,7 +12231,7 @@ sub output($$)
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'section') {
             my $conflicting_section = $file_source->{'file_info_element'};
-            $self->line_warn($self,
+            $self->converter_line_warn(
          sprintf(__p('conflict of redirection file with file based on section name',
                      "conflict with \@%s `%s' file"),
                  $conflicting_section->{'cmdname'},
@@ -12242,7 +12244,7 @@ sub output($$)
             my $special_unit = $unit_command->{'associated_unit'};
             my $output_unit_variety
               = $special_unit->{'special_unit_variety'};
-            $self->document_warn($self,
+            $self->converter_document_warn(
                sprintf(__("conflict with %s special element"),
                        $output_unit_variety), 1);
           }
@@ -12271,7 +12273,7 @@ sub output($$)
                              $self->output_files_information(), $self,
                              $encoded_out_filename);
         if (!$file_fh) {
-         $self->document_error($self, sprintf(__(
+         $self->converter_document_error(sprintf(__(
                                     "could not open %s for writing: %s"),
                                     $out_filename, $error_message));
         } else {
@@ -12279,7 +12281,7 @@ sub output($$)
           Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_out_filename);
           if (!close ($file_fh)) {
-            $self->document_error($self, sprintf(__(
+            $self->converter_document_error(sprintf(__(
                              "error on closing redirection node file %s: %s"),
                                     $out_filename, $!));
             $self->_finalize_output_state();
