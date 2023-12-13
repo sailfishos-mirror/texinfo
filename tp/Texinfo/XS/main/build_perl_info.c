@@ -899,10 +899,13 @@ build_global_info (GLOBAL_INFO *global_info_ref,
   if (global_info.input_directory)
     hv_store (hv, "input_directory", strlen ("input_directory"),
               newSVpv (global_info.input_directory, 0), 0);
+  if (global_info.input_perl_encoding)
+    hv_store (hv, "input_perl_encoding", strlen ("input_perl_encoding"),
+              newSVpv (global_info.input_perl_encoding, 0), 0);
 
-  /* duplicate information to avoid needing to use global_commands and build
-     tree elements, for information useful for structuring and transformation
-     codes */
+  /* duplicate information with global_commands to avoid needing to use
+     global_commands and build tree elements in other codes, for
+     information useful for structuring and transformation codes */
   if (global_commands.novalidate)
     hv_store (hv, "novalidate", strlen ("novalidate"),
               newSViv (1), 0);

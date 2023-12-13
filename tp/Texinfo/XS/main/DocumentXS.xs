@@ -69,50 +69,11 @@ rebuild_document (SV *document_in, ...)
                                            strlen (descriptor_key), 0);
         if (document_descriptor_sv)
           {
-            SV **info_sv;
             SV *rebuilt_doc_sv;
-            HV *rebuilt_doc_hv;
 
             document_descriptor = SvIV (*document_descriptor_sv);
             rebuilt_doc_sv = build_document (document_descriptor, no_store);
             RETVAL = rebuilt_doc_sv;
-            rebuilt_doc_hv = (HV *)SvRV (rebuilt_doc_sv);
-            info_sv = hv_fetch (hv_in, "global_info",
-                                strlen ("global_info"), 0);
-            /* copy input document info keys values not already in new document
-               info.  Should only happen for info keys set in perl only. */
-            if (info_sv)
-              {
-                I32 hv_number;
-                I32 i;
-                HV *info_hv = (HV *)SvRV (*info_sv);
-                SV **rebuilt_info_sv = hv_fetch (rebuilt_doc_hv, "global_info",
-                                                strlen ("global_info"), 0);
-                HV *rebuilt_info_hv = 0;
-                if (!rebuilt_info_sv)
-                  {
-                    HV *rebuilt_info_hv = newHV ();
-                    SV *rebuilt_info_ref = newRV_noinc ((SV *) rebuilt_info_hv);
-                    hv_store (rebuilt_doc_hv, "info", strlen ("info"),
-                              rebuilt_info_ref, 0);
-                  }
-                else
-                  {
-                    rebuilt_info_hv = (HV *)SvRV (*rebuilt_info_sv);
-                  }
-                hv_number = hv_iterinit (info_hv);
-                for (i = 0; i < hv_number; i++)
-                  {
-                    char *key;
-                    I32 retlen;
-                    SV *value = hv_iternextsv(info_hv,
-                                              &key, &retlen);
-                    SV **existing_key_sv = hv_fetch (rebuilt_info_hv, key,
-                                                     strlen (key), 0);
-                    if (!existing_key_sv)
-                      hv_store (rebuilt_info_hv, key, strlen (key), value, 0);
-                  }
-              }
           }
         else
           {
@@ -121,6 +82,37 @@ rebuild_document (SV *document_in, ...)
           }
     OUTPUT:
         RETVAL
+
+void
+set_document_global_info (SV *document_in, char *key, SV *value_sv)
+      PREINIT:
+        DOCUMENT *document = 0;
+      CODE:
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          {
+            if (!strcmp (key, "input_file_name"))
+              {
+                char *value = (char *)SvPVbyte_nolen(value_sv);
+                if (document->global_info->input_file_name)
+                  {
+                    fprintf (stderr,
+                        "BUG: %d: reset input_file_name '%s' -> '%s'\n",
+                        document->descriptor,
+                        document->global_info->input_file_name, value);
+                    free (document->global_info->input_file_name);
+                  }
+                document->global_info->input_file_name = strdup (value);
+              }
+            else if (!strcmp (key, "input_perl_encoding"))
+              {
+                /* should not be needed, but in case global information
+                   is reused, it will be ok */
+                free (document->global_info->input_perl_encoding);
+                document->global_info->input_perl_encoding
+                   = strdup ((char *)SvPVbyte_nolen(value_sv));
+              }
+          }
 
 SV *
 rebuild_tree (SV *tree_in, ...)

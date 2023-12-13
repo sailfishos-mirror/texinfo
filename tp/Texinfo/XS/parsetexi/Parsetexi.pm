@@ -29,10 +29,7 @@
 # * the 'file_name' values in 'source_info' from convert_errors and in
 #   the tree elements 'source_info' are returned as binary strings
 #
-# The following information is directly determined from the
-# input file name as binary strings
-# ->{'global_info'}->{'input_file_name'}
-# ->{'global_info'}->{'input_directory'}
+# Binary strings are passed from parse_texi_file as arguments of parse_file.
 
 package Texinfo::Parser;
 
@@ -224,12 +221,12 @@ sub _get_parser_info($$;$$) {
   clear_document_errors($document_descriptor);
 
   # additional info relevant in perl only.
-  $document->{'global_info'}->{'input_perl_encoding'} = 'utf-8';
   my $perl_encoding
     = Texinfo::Common::get_perl_encoding($document->{'commands_info'},
                               $registrar, $configuration_information);
-  $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
-     if (defined($perl_encoding));
+  $perl_encoding = 'utf-8' if (!defined($perl_encoding));
+  Texinfo::Document::set_document_global_info($document,
+                     'input_perl_encoding', $perl_encoding);
 
   return $document;
 }
@@ -244,7 +241,7 @@ sub parse_texi_file ($$;$)
   # the file is already a byte string, taken as is from the command
   # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
   # it is not useful for the XS parser.
-  # FIXME instead of using fileparse here, reimplement fileparse
+  # TODO instead of using fileparse here, reimplement fileparse
   # in XS, or use a file name parsing code from somewhere else?
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
   my $document_descriptor = parse_file ($input_file_path,

@@ -437,10 +437,10 @@ wipe_parser_global_info (void)
   global_kbdinputstyle = kbd_distinct;
 
   delete_global_info (&global_info);
-  delete_global_commands (&global_commands);
-
-  /* clear the rest of the fields and reset elements lists */
   memset (&global_info, 0, sizeof (global_info));
+
+  delete_global_commands (&global_commands);
+  /* clear the fields and reset elements lists */
   memset (&global_commands, 0, sizeof (global_commands));
 }
 

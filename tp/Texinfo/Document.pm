@@ -52,6 +52,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::clear_document_errors",
   "Texinfo::Document::remove_document_descriptor"
     => "Texinfo::DocumentXS::remove_document_descriptor",
+  "Texinfo::Document::_XS_set_document_global_info",
+    => "Texinfo::DocumentXS::set_document_global_info",
 );
 
 # needed by structure code
@@ -119,6 +121,22 @@ sub register_document_sections_list($$)
   my $document = shift;
   my $sections_list = shift;
   $document->{'sections_list'} = $sections_list;
+}
+
+sub _XS_set_document_global_info($$$)
+{
+}
+
+# TODO document
+sub set_document_global_info($$$)
+{
+  my $document = shift;
+  my $key = shift;
+  my $value = shift;
+  if ($XS_parser) {
+    _XS_set_document_global_info($document, $key, $value);
+  }
+  $document->{'global_info'}->{$key} = $value;
 }
 
 sub tree($)

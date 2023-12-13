@@ -54,6 +54,9 @@ typedef struct GLOBAL_INFO {
     ELEMENT_LIST dircategory_direntry; /* an array of elements */
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
+
+    /* perl specific */
+    char *input_perl_encoding;
 } GLOBAL_INFO;
 
 typedef struct DOCUMENT {
