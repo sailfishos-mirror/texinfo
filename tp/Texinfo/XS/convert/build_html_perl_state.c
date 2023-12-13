@@ -1009,6 +1009,9 @@ build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack)
 void
 build_simpletitle (CONVERTER *converter, HV *converter_hv)
 {
+
+  dTHX;
+
   hv_store (converter_hv, "simpletitle_tree",
             strlen ("simpletitle_tree"),
             newRV_inc ((SV *) converter->simpletitle_tree->hv), 0);
