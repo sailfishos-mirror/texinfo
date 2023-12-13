@@ -79,7 +79,7 @@ set_conf (SV *converter_in, conf, SV *value)
       PREINIT:
          CONVERTER *self;
       CODE:
-         /* warn? */
+         /* Warn? Calling code checks 'converter_descriptor' is set */
          self = get_sv_converter (converter_in, 0);
          if (self)
            set_conf (self, conf, value);

@@ -603,12 +603,7 @@ sub set_conf($$$)
     return 0;
   } else {
     if ($self->{'converter_descriptor'} and $XS_convert) {
-      if (ref($value) eq ''
-       and not $Texinfo::Common::non_decoded_customization_variables{$conf}) {
-        _XS_set_conf($self, $conf, Encode::encode("UTF-8", $value));
-      } else {
-        _XS_set_conf($self, $conf, $value);
-      }
+      _XS_set_conf($self, $conf, $value);
     }
     $self->{'conf'}->{$conf} = $value;
     return 1;
@@ -625,12 +620,7 @@ sub force_conf($$$)
     return undef;
   }
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    if (ref($value) eq ''
-     and not $Texinfo::Common::non_decoded_customization_variables{$conf}) {
-      _XS_set_conf($self, $conf, Encode::encode("UTF-8", $value));
-    } else {
-      _XS_set_conf($self, $conf, $value);
-    }
+    _XS_set_conf($self, $conf, $value);
   }
   $self->{'conf'}->{$conf} = $value;
   return 1;

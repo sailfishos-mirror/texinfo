@@ -174,6 +174,9 @@ add_svav_to_string_list (SV *sv, STRING_LIST *string_list, enum sv_string_type t
 
   dTHX;
 
+  if (!SvOK (sv))
+    return;
+
   AV *av = (AV *)SvRV (sv);
   strings_nr = av_top_index (av) +1;
   for (i = 0; i < strings_nr; i++)
@@ -870,6 +873,9 @@ html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
   SSize_t i;
 
   dTHX;
+
+  if (!SvOK (buttons_sv))
+    return 0;
 
   result = (BUTTON_SPECIFICATION_LIST *)
             malloc (sizeof (BUTTON_SPECIFICATION_LIST));

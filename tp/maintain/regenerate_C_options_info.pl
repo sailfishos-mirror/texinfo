@@ -280,7 +280,9 @@ print GET '
 
 ';
 
-print GET '#include <string.h>'."\n\n";
+# FIXME include before or after perl?  Include config.h?
+print GET '#include <string.h>'."\n";
+print GET '#include <stdlib.h>'."\n\n";
 
 print GET '#include "options_types.h"'."\n";
 print GET '#include "converter_types.h"'."\n";
@@ -322,12 +324,20 @@ foreach my $category (sort(keys(%option_categories))) {
         options->$option = 0;
     }\n";
     } elsif ($type eq 'int') {
-      print GET "    options->$option = SvIV (value);\n";
+      print GET "    {
+      if (SvOK (value))
+        options->$option = SvIV (value);
+      else
+        options->$option = -1;
+    }\n";
     } elsif ($type eq 'STRING_LIST') {
       my $dir_string_arg = 'svt_byte';
       $dir_string_arg = 'svt_dir'
         if ($option eq 'INCLUDE_DIRECTORIES');
-      print GET "    add_svav_to_string_list (value, &options->$option, $dir_string_arg);\n";
+      print GET "    {\n";
+      print GET "      clear_strings_list (&options->$option);\n";
+      print GET "      add_svav_to_string_list (value, &options->$option, $dir_string_arg);\n";
+      print GET "    }\n";
     } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
       print GET "    {\n";
       print GET "      html_free_button_specification_list (options->$option);\n";
