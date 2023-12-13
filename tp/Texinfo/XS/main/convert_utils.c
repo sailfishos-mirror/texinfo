@@ -21,6 +21,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <errno.h>
+#include <time.h>
 
 #include "options_types.h"
 #include "element_types.h"
@@ -50,6 +51,62 @@ element_associated_processing_encoding (const ELEMENT *element)
 {
   char *input_encoding = lookup_extra_string (element, "input_encoding_name");
   return input_encoding;
+}
+
+ELEMENT *
+expand_today (OPTIONS *options)
+{
+  time_t tloc;
+  struct tm *time_tm;
+  int year;
+  char *source_date_epoch;
+  NAMED_STRING_ELEMENT_LIST *substrings;
+  ELEMENT *month_tree;
+  ELEMENT *day_element;
+  ELEMENT *year_element;
+  ELEMENT *result;
+
+  if (options->TEST > 0)
+    {
+      result = new_element (ET_NONE);
+      text_append (&result->text, "a sunny day");
+      return result;
+    }
+
+  /* See https://reproducible-builds.org/specs/source-date-epoch/ */
+  source_date_epoch = getenv ("SOURCE_DATE_EPOCH");
+
+  if (source_date_epoch)
+    {
+   /* This assumes that the SOURCE_DATE_EPOCH environment variable will contain
+      a correct, positive integer in the time_t range */
+      tloc = (time_t)strtoll(source_date_epoch, NULL, 10);
+      time_tm = gmtime (&tloc);
+    }
+  else
+    {
+      tloc = time (NULL);
+      time_tm = localtime (&tloc);
+    }
+
+  year = time_tm->tm_year + 1900;
+
+  month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0, options,
+                         0, 0, 0);
+  day_element = new_element (ET_NONE);
+  year_element = new_element (ET_NONE);
+  text_printf (&day_element->text, "%d", time_tm->tm_mday);
+  text_printf (&year_element->text, "%d", year);
+
+  substrings = new_named_string_element_list ();
+  add_element_to_named_string_element_list (substrings, "month", month_tree);
+  add_element_to_named_string_element_list (substrings, "day", day_element);
+  add_element_to_named_string_element_list (substrings, "year", year_element);
+
+  result = gdt_tree ("{month} {day}, {year}", 0, options, substrings, 0, 0);
+  destroy_named_string_element_list (substrings);
+
+  return result;
 }
 
 ACCENTS_STACK *

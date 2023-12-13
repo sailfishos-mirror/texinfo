@@ -19,6 +19,8 @@ typedef struct PARSED_DEF {
     ELEMENT *args;
 } PARSED_DEF;
 
+ELEMENT *expand_today (OPTIONS *options);
+
 ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
 char *add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,

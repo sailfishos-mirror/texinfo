@@ -524,13 +524,14 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               ADD(sort_brace_no_arg_commands[data_cmd]);
               return;
             }
-/* TODO when this can be tested with other converters
-      elsif ($options->{'converter'}) {
-        return _convert(Texinfo::Convert::Utils::expand_today(
-                                         $options->{'converter'}),
-                        $options);
-      }
-*/
+          else if (text_options->other_converter_options)
+            {
+              ELEMENT *today_element
+                = expand_today (text_options->other_converter_options);
+              convert_to_text_internal (today_element,
+                                        text_options, result);
+              destroy_element_and_children (today_element);
+            }
           else if (text_options->TEST)
             {
               ADD("a sunny day");
@@ -541,7 +542,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               time_t tloc;
               struct tm *time_tm;
               int year;
-              time (&tloc);
+              tloc = time (NULL);
               time_tm = localtime (&tloc);
               year = time_tm->tm_year + 1900;
               text_printf (result, "%s %d, %d",

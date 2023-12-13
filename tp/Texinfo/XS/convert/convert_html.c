@@ -6807,6 +6807,21 @@ css_string_convert_no_arg_command (CONVERTER *self,
     self->html_command_conversion[formatted_cmd][HCC_type_css_string].text);
 }
 
+void
+convert_today_command (CONVERTER *self, const enum command_id cmd,
+                       const ELEMENT *element,
+                       const HTML_ARGS_FORMATTED *args_formatted,
+                       const char *content, TEXT *result)
+{
+  ELEMENT *today_element = expand_today (self->conf);
+
+  add_to_element_list (&self->tree_to_build, today_element);
+
+  convert_to_html_internal (self, today_element, result, "convert today");
+
+  remove_element_from_list (&self->tree_to_build, today_element);
+  destroy_element_and_children (today_element);
+}
 
 void
 convert_w_command (CONVERTER *self, const enum command_id cmd,
@@ -7799,6 +7814,7 @@ convert_contents_command (CONVERTER *self, const enum command_id cmd,
 /* associate command to the C function implementing the conversion */
 static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_w, &convert_w_command},
+  {CM_today, &convert_today_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
