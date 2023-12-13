@@ -18,8 +18,10 @@ typedef struct TEXT_OPTIONS {
     int NUMBER_SECTIONS;
     EXPANDED_FORMAT *expanded_formats;
     STRING_LIST include_directories;
+    CONVERTER *converter;
     OPTIONS *other_converter_options; /* corresponds to converter passed
-                                         to convert_to_text text options */
+                                         to convert_to_text text options.
+      same than converter if set, but can be set directly from perl */
     OPTIONS *self_converter_options; /* text converter options available
                                         as the OPTIONS structure */
     int document_descriptor;

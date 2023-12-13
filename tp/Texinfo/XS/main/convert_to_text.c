@@ -37,6 +37,7 @@
 #include "document.h"
 #include "convert_to_texinfo.h"
 #include "debug.h"
+#include "translations.h"
 #include "convert_to_text.h"
 
 #include "cmd_symbol.c"
@@ -169,6 +170,7 @@ copy_options_for_convert_text (CONVERTER *self,
           sizeof (STRING_LIST));
 
   options->other_converter_options = self->conf;
+  options->converter = self;
 
   return options;
 }
@@ -234,16 +236,12 @@ brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
         result = strdup (brace_no_arg_unicode);
     }
 
-  /* TODO to do when it is possible to test
-  if (!defined($result) and $options and $options->{'converter'}) {
-    my $tree
-     = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
-                                                        $command);
-    if ($tree) {
-      $result = _convert($tree, $options);
+  if (!result && options->converter)
+    {
+      ELEMENT *tree = translated_command_tree (options->converter, cmd);
+      if (tree)
+        result = convert_to_text (tree, options);
     }
-  }
-  */
   if (!result)
     {
       if (options->sort_string
@@ -424,19 +422,27 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
   /* or element->text.space? */
   if (element->text.end > 0)
     {
+      if (element->type == ET_untranslated && text_options->converter)
+        {
 /*
-    if ($element->{'type'} and $element->{'type'} eq 'untranslated'
-        and $options and $options->{'converter'}) {
-      # the tree documentlanguage corresponds to the documentlanguage
-      # at the place of the tree, but the converter may want to use
-      # another documentlanguage, for instance the documentlanguage at
-      # the end of the preamble, so we let the converter set it.
-      #my $tree = $options->{'converter'}->gdt($element->{'text'}, undef,
-      #                  undef, $element->{'extra'}->{'documentlanguage'});
-      my $tree = $options->{'converter'}->gdt($element->{'text'});
-      $result = _convert($tree, $options);
-    } else
+       the tree documentlanguage corresponds to the documentlanguage
+       at the place of the tree, but the converter may want to use
+       another documentlanguage, for instance the documentlanguage at
+       the end of the preamble, so we let the converter set it.
+          documentlanguage = lookup_extra_string (element, "documentlanguage");
 */
+          char *translation_context
+            = lookup_extra_string (element, "translation_context");
+          ELEMENT *tree = gdt_tree (element->text.text,
+                                    text_options->converter->document,
+                                    text_options->converter->conf, 0,
+                                    translation_context, 0);
+          if (tree)
+            {
+              convert_to_text_internal (tree, text_options, result);
+            }
+        }
+      else
         {
           char *p;
           if (element->type == ET_raw
@@ -791,11 +797,14 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       else if (element->cmd == CM_verbatiminclude)
         {
           ELEMENT *verbatim_include_verbatim = 0;
+          ERROR_MESSAGE_LIST *error_messages = 0;
+          if (text_options->converter)
+            error_messages = &text_options->converter->error_messages;
+
           if (text_options->other_converter_options) {
-            /* TODO retrieve other converter document information
-               and error messages */
             verbatim_include_verbatim
-             = expand_verbatiminclude (0, text_options->other_converter_options,
+             = expand_verbatiminclude (error_messages,
+                                       text_options->other_converter_options,
                                        0, element);
           } else {
             GLOBAL_INFO *global_information = 0;
@@ -835,7 +844,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
     {
       PARSED_DEF *parsed_def = definition_arguments_content (element);
       ELEMENT *parsed_definition_category
-         = definition_category_tree (0, /* $options->{'converter'} */
+         = definition_category_tree (text_options->other_converter_options,
                                      element);
       if (parsed_definition_category)
         {

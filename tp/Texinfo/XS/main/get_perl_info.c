@@ -477,6 +477,7 @@ converter_initialize (SV *converter_sv)
          = copy_sv_options (*converter_init_conf_sv, converter);
     }
 
+#undef FETCH
   set_translated_commands (converter, hv_in);
 
   get_expanded_formats (hv_in, &converter->expanded_formats);
@@ -491,13 +492,31 @@ converter_initialize (SV *converter_sv)
   return converter_descriptor;
 }
 
+void
+recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
+                          OPTIONS **conf, const char *conf_key)
+{
+  SV **conf_sv;
+
+  dTHX;
+
+  conf_sv = hv_fetch (hv, conf_key, strlen (conf_key), 0);
+
+  if (conf_sv && SvOK(*conf_sv))
+    {
+      if (*conf)
+        free_options (*conf);
+      free (*conf);
+
+      *conf = copy_sv_options (*conf_sv, converter);
+    }
+}
+
 /* initialize an XS converter from a perl converter right before conversion */
 CONVERTER *
 set_output_converter_sv (SV *sv_in, char *warn_string)
 {
   HV *hv_in;
-  SV **conf_sv;
-  SV **output_init_conf_sv;
   CONVERTER *converter = 0;
 
   dTHX;
@@ -506,33 +525,12 @@ set_output_converter_sv (SV *sv_in, char *warn_string)
 
   hv_in = (HV *)SvRV (sv_in);
 
-  FETCH(conf)
+  recopy_converter_conf_sv (hv_in, converter, &converter->conf, "conf");
 
-  if (conf_sv)
-    {
-      if (converter->conf)
-        free_options (converter->conf);
-      free (converter->conf);
-
-      converter->conf
-         = copy_sv_options (*conf_sv, converter);
-    }
-
-  FETCH(output_init_conf)
-
-  if (output_init_conf_sv && SvOK(*output_init_conf_sv))
-    {
-      if (converter->init_conf)
-        free_options (converter->init_conf);
-      free (converter->init_conf);
-
-      converter->init_conf
-         = copy_sv_options (*output_init_conf_sv, converter);
-    }
-
+  recopy_converter_conf_sv (hv_in, converter, &converter->init_conf,
+                            "output_init_conf");
   return converter;
 }
-#undef FETCH
 
 /* code in comments allow to sort the index names to have a fixed order
    in the data structure.  Not clear that it is useful or not, not enabled

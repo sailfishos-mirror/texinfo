@@ -120,8 +120,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
   "Texinfo::Convert::HTML::_prepare_simpletitle"
    => "Texinfo::Convert::ConvertXS::html_prepare_simpletitle",
-#  "Texinfo::Convert::HTML::_prepare_converted_output_info"
-#   => "Texinfo::Convert::ConvertXS::html_prepare_converted_output_info",
+  "Texinfo::Convert::HTML::_prepare_converted_output_info"
+   => "Texinfo::Convert::ConvertXS::html_prepare_converted_output_info",
 
   "Texinfo::Convert::HTML::_register_id"
    => "Texinfo::Convert::ConvertXS::html_register_id",

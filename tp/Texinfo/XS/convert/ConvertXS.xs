@@ -1253,10 +1253,13 @@ html_prepare_converted_output_info (SV *converter_in)
   PREINIT:
          CONVERTER *self = 0;
     CODE:
-         self = get_sv_converter (converter_in, "html_prepare_title_titlepage");
+         self = get_sv_converter (converter_in,
+                                  "html_prepare_converted_output_info");
          if (self)
            {
              HV *converter_hv = (HV *) SvRV (converter_in);
+
+             recopy_converter_conf_sv (converter_hv, self, &self->conf, "conf");
 
              html_prepare_converted_output_info (self);
              if (self->added_title_tree)
