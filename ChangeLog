@@ -1,4 +1,10 @@
-2023-12-13  Patrice Dumas  <pertusus@free.fr>
+2023-12-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
+	(converter_initialize): move document_context and multiple_pass
+	initialization to _initialize_output_state.
+
+2023-12-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/convert_utils.c (add_heading_number): implement
 	the case of translations, with a converter with translations support

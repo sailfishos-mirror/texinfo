@@ -8676,9 +8676,6 @@ sub converter_initialize($)
       = $customized_special_unit_body->{$special_unit_variety};
   }
 
-  $self->{'document_context'} = [];
-  $self->{'multiple_pass'} = [];
-
   # TODO warn if the split specification is not one known?  The main
   # program warns if the specific command line option value is not known.
   if ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'chapter'
@@ -11224,6 +11221,9 @@ sub _initialize_output_state($$)
   # TODO override the whole function and add a C build_ function to setup
   # the perl state similarly with what is done in that function.
   _XS_initialize_output_state($self, $context.'C');
+
+  $self->{'document_context'} = [];
+  $self->{'multiple_pass'} = [];
 
   # for diverse API used in conversion
   $self->{'shared_conversion_state'} = {};
