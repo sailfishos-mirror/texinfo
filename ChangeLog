@@ -1,5 +1,14 @@
 2023-12-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_initialize_output_state, _initialize_XS_NonXS_output_state): add
+	_initialize_XS_NonXS_output_state, which sets up the states that need
+	to be set up both in perl and XS, and calls _initialize_output_state,
+	now directly overriden, that sets up the states that only need to be
+	setup if there is no XS.
+
+2023-12-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, reset_converter),
 	tp/Texinfo/XS/convert/ConvertXS.xs (reset_converter)
 	(html_finalize_output_state), tp/texi2any.pl, tp/t/test_utils.pl

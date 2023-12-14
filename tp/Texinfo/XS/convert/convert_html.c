@@ -8887,10 +8887,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
   self->current_types_conversion_function = &self->type_conversion_function[0];
   self->current_format_protect_text = &html_default_format_protect_text;
 
-  /* FIXME now done through HTML _initialize_output_state, would need
-     to readd when the HTML function is overriden
   html_new_document_context (self, context, 0, 0);
-   */
 }
 
 void

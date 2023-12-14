@@ -114,7 +114,7 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_format_init",
   "Texinfo::Convert::HTML::_XS_html_converter_initialize"
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
-  "Texinfo::Convert::HTML::_XS_initialize_output_state"
+  "Texinfo::Convert::HTML::_initialize_output_state"
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
   "Texinfo::Convert::HTML::_finalize_output_state"
    => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
@@ -11207,30 +11207,18 @@ sub _has_contents_or_shortcontents($)
   return 0;
 }
 
-sub _XS_initialize_output_state($$)
-{
-}
-
 # to be called before starting conversion.
 # NOTE not called directly by convert_tree, which means that convert_tree
 # needs to be called from a converter which would have had this function
 # called already.
+
+# This function initializes states that are initialized either in XS or in perl
 sub _initialize_output_state($$)
 {
   my $self = shift;
   my $context = shift;
 
-  # TODO override the whole function and add a C build_ function to setup
-  # the perl state similarly with what is done in that function.
-  _XS_initialize_output_state($self, $context.'C');
-
   $self->{'document_context'} = [];
-  $self->{'multiple_pass'} = [];
-
-  # for diverse API used in conversion
-  $self->{'shared_conversion_state'} = {};
-  $self->{'shared_conversion_state_integers'} = {};
-  $self->{'shared_conversion_accessed_integers'} = {};
 
   $self->{'associated_inline_content'} = {};
 
@@ -11240,6 +11228,31 @@ sub _initialize_output_state($$)
   # Needed for CSS gathering, even if nothing related to CSS is output
   $self->{'document_global_context_css'} = {};
   $self->{'page_css'} = {};
+
+  $self->{'seen_ids'} = {};
+
+  # other
+  $self->{'pending_footnotes'} = [];
+  $self->{'pending_closes'} = [];
+
+  $self->_new_document_context($context);
+}
+
+# This function initializes states that are initialized both in XS and
+# in perl.
+sub _initialize_XS_NonXS_output_state($$)
+{
+  my $self = shift;
+  my $context = shift;
+
+  $self->_initialize_output_state($context);
+
+  $self->{'multiple_pass'} = [];
+
+  # for diverse API used in conversion
+  $self->{'shared_conversion_state'} = {};
+  $self->{'shared_conversion_state_integers'} = {};
+  $self->{'shared_conversion_accessed_integers'} = {};
 
   # direction strings
   foreach my $string_type (keys(%default_translated_directions_strings)) {
@@ -11252,7 +11265,6 @@ sub _initialize_output_state($$)
   # used for diverse tree elements: nodes and sectioning commands, indices,
   # footnotes, special output units elements...
   $self->{'targets'} = {};
-  $self->{'seen_ids'} = {};
 
   # for global directions always set, and for directions to special elements,
   # only filled if special elements are actually used.
@@ -11261,19 +11273,12 @@ sub _initialize_output_state($$)
   # for footnotes
   $self->{'special_targets'} = {'footnote_location' => {}};
 
-  # other
-  $self->{'pending_footnotes'} = [];
-  # not used if conversion with XS
-  $self->{'pending_closes'} = [];
-
   # to avoid infinite recursions when a section refers to itself, possibly
   # indirectly
   $self->{'referred_command_stack'} = [];
 
   $self->{'check_htmlxref_already_warned'} = {}
     if ($self->get_conf('CHECK_HTMLXREF'));
-
-  $self->_new_document_context($context);
 }
 
 sub _finalize_output_state($)
@@ -11362,7 +11367,7 @@ sub convert($$)
   my $converter_info;
   my $root = $document->tree();
 
-  $self->_initialize_output_state('_convert');
+  $self->_initialize_XS_NonXS_output_state('_convert');
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
@@ -11898,7 +11903,7 @@ sub output($$)
   # therefore set in converter_info early too (using the reference).
   $self->{'current_filename'} = undef;
 
-  $self->_initialize_output_state('_output');
+  $self->_initialize_XS_NonXS_output_state('_output');
 
   # no splitting when writing to the null device or to stdout or returning
   # a string
