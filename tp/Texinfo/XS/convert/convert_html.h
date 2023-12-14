@@ -8,6 +8,12 @@
 /* for FILE_SOURCE_INFO_LIST */
 #include "utils.h"
 
+enum count_elements_in_filename_type {
+  CEFT_total,
+  CEFT_remaining,
+  CEFT_current,
+};
+
 extern char *html_conversion_context_type_names[];
 extern char *html_global_unit_direction_names[];
 
@@ -16,6 +22,8 @@ extern char *html_formatting_reference_names[];
 extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
+
+extern char *count_elements_in_filename_type_names[];
 
 void html_format_init (void);
 
@@ -61,6 +69,10 @@ STRING_STACK *html_preformatted_classes_stack (CONVERTER *self);
 enum command_id html_in_align (CONVERTER *self);
 
 char *debug_print_html_contexts (CONVERTER *self);
+
+size_t html_count_elements_in_filename (CONVERTER *self,
+                 enum count_elements_in_filename_type type,
+                 const char *filename);
 
 void html_register_file_information (CONVERTER *self, const char *key,
                                      int value);
@@ -142,6 +154,7 @@ char *html_convert_output (CONVERTER *self, const ELEMENT *root,
 
 void html_check_transfer_state_finalization (CONVERTER *self);
 void html_free_converter (CONVERTER *self);
+void html_reset_converter (CONVERTER *self);
 void html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
 
 #endif

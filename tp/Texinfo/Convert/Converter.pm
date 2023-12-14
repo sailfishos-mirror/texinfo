@@ -103,6 +103,8 @@ my %XS_overrides = (
   "Texinfo::Convert::Converter::converter_document_warn"
    => "Texinfo::Convert::ConvertXS::converter_document_warn",
 
+  "Texinfo::Convert::Converter::reset_converter"
+   => "Texinfo::Convert::ConvertXS::reset_converter",
   "Texinfo::Convert::Converter::destroy"
    => "Texinfo::Convert::ConvertXS::destroy",
 );
@@ -496,6 +498,11 @@ sub output($$)
     }
   }
   return undef;
+}
+
+# Nothing to do in perl.  XS function resets converter
+sub reset_converter($)
+{
 }
 
 # Nothing to do in perl.  XS function frees memory

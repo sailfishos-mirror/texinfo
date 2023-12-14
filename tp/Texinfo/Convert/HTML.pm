@@ -187,6 +187,8 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::in_align"
    => "Texinfo::Convert::ConvertXS::html_in_align",
 
+  "Texinfo::Convert::HTML::count_elements_in_filename"
+   => "Texinfo::Convert::ConvertXS::html_count_elements_in_filename",
   "Texinfo::Convert::HTML::register_file_information"
    => "Texinfo::Convert::ConvertXS::html_register_file_information",
   "Texinfo::Convert::HTML::get_file_information",
@@ -12174,7 +12176,7 @@ sub output($$)
         my $redirection_filename
           = $self->register_normalize_case_filename($node_filename);
         # first condition finds conflict with tree elements
-        if ($self->{'elements_in_file_count'}->{$redirection_filename}
+        if ($self->count_elements_in_filename('total', $redirection_filename)
             or $redirection_filenames{$redirection_filename}) {
           $self->converter_line_warn(
              sprintf(__("\@%s `%s' file %s for redirection exists"),

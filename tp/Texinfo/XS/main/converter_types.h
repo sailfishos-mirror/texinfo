@@ -350,8 +350,6 @@ typedef struct FILE_NAME_PATH_COUNTER {
                                    'elements_in_file_count' */
     TEXT body;           /* file body output, used for HTML */
     const OUTPUT_UNIT *first_unit;
-    int counter_changed;  /* indicator to determine if the file has already
-                             been setup for change in counter passed to perl */
 } FILE_NAME_PATH_COUNTER;
 
 typedef struct FILE_NAME_PATH_COUNTER_LIST {
@@ -718,8 +716,6 @@ typedef struct CONVERTER {
     ELEMENT_LIST reset_target_commands; /* element targets that should have
                                            their texts reset after language
                                            change */
-    ARRAY_INDEX_LIST file_changed_counter;  /* index of files in
-                                 output_unit_files with changed counter */
     HTML_ADDED_TARGET_LIST added_targets; /* targets added */
     STRING_LIST shared_conversion_state_integer; /* modified */
     /* next 4 allow to switch from normal HTML formatting to css strings

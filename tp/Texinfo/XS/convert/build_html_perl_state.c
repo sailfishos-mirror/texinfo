@@ -683,9 +683,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   if (flags & HMSF_converter_state)
     {
-      STORE("document_global_context",
-        newSViv (converter->document_global_context));
-
       STORE("ignore_notice",
         newSViv (converter->ignore_notice));
     }
@@ -785,34 +782,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         }
     }
 
-  if (converter->file_changed_counter.number)
-    {
-      SV **file_counters_sv;
-      HV *file_counters_hv;
-
-      FETCH(file_counters);
-      file_counters_hv = (HV *) SvRV (*file_counters_sv);
-
-      int j;
-      for (j = 0; j < converter->file_changed_counter.number; j++)
-        {
-          size_t file_idx = converter->file_changed_counter.list[j];
-          FILE_NAME_PATH_COUNTER *output_unit_file
-            = &converter->output_unit_files.list[file_idx];
-          char *filename = output_unit_file->filename;
-
-          SV *filename_sv = newSVpv_utf8 (filename, 0);
-
-          hv_store_ent (file_counters_hv, filename_sv,
-                        newSViv (output_unit_file->counter), 0);
-
-          output_unit_file->counter_changed = 0;
-        }
-      memset (converter->file_changed_counter.list, 0,
-              converter->file_changed_counter.number * sizeof (size_t));
-      converter->file_changed_counter.number = 0;
-    }
-
   if (converter->added_targets.number)
     {
       SV **targets_sv;
@@ -872,22 +841,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         }
       clear_strings_list (&converter->shared_conversion_state_integer);
     }
-
-  /*
-  files_information_sv = hv_fetch (hv, "files_information",
-                                  strlen ("files_information"), 0);
-
-  if (!files_information_sv)
-    {
-      files_information_hv = newHV ();
-      STORE("files_information", newRV_noinc ((SV *) files_information_hv));
-    }
-  else
-    {
-      files_information_hv = (HV *) SvRV (*files_information_sv);
-      hv_clear (files_information_av);
-    }
-  */
 
 #undef STORE
 

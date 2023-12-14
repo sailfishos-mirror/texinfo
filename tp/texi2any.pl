@@ -1768,6 +1768,12 @@ while(@input_files) {
     }
   }
 
+  # Texinfo::Converter::Text does not define it. Alternatively could be
+  # a mandated part of the converter API
+  if ($converter->can('reset_converter')) {
+    $converter->reset_converter();
+  }
+
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
     require Texinfo::Convert::TextContent;
     my $sort_element_converter_options = { %$main_program_default_options,
@@ -1827,6 +1833,8 @@ while(@input_files) {
 
     push @opened_files, Texinfo::Common::output_files_opened_files(
                                       $sort_elem_files_information);
+
+    $converter_element_count->destroy();
     # we do not need to go through unclosed files of
     # $sort_elem_files_information as we know that the file is
     # already closed if needed.

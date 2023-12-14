@@ -1323,6 +1323,7 @@ sub test($$)
           }
         }
       }
+      $converter->reset_converter();
       $converter->destroy();
     }
   }

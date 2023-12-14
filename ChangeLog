@@ -1,5 +1,41 @@
 2023-12-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, reset_converter),
+	tp/Texinfo/XS/convert/ConvertXS.xs (reset_converter)
+	(html_finalize_output_state), tp/texi2any.pl, tp/t/test_utils.pl
+	(test): split reset_converter out of html_finalize_output_state, and
+	call reset_converter later than html_finalize_output_state, when the
+	converter data is not needed anymore.  In html_finalize_output_state
+	the finalization of the converting state is kept.
+
+	* tp/Texinfo/Convert/HTML.pm (output): call count_elements_in_filename
+	instead of accessing directly 'elements_in_file_count'.
+
+	* tp/Texinfo/XS/convert/convert_html.c (find_page_name_number): return
+	0 if the file is not found.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_count_elements_in_filename),
+	tp/Texinfo/XS/convert/convert_html.c (count_elements_in_filename_type)
+	(html_count_elements_in_filename, count_elements_in_file_number),
+	tp/Texinfo/XS/convert/convert_html.h
+	(enum count_elements_in_filename_type):
+	rename count_elements_in_filename as count_elements_in_file_number.
+	Update callers. Add html_count_elements_in_filename. Add an XS
+	interface for count_elements_in_filename.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(html_new_document_context, document_global_context)
+	(html_set_pages_files, html_finalize_output_state),
+	tp/Texinfo/XS/main/converter_types.h (FILE_NAME_PATH_COUNTER)
+	(CONVERTER): remove document_global_context, and file_counters
+	information passed to perl it is not needed with overrides.  Remove
+	corresponding structures in C, file_changed_counter in converter, and
+	counter_changed in FILE_NAME_PATH_COUNTER.
+
+2023-12-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
 	(converter_initialize): move document_context and multiple_pass
 	initialization to _initialize_output_state.

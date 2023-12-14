@@ -134,7 +134,7 @@ converter_document_error (SV *converter_in, text, ...)
          if (self)
            {
              message_list_document_formatted_message (&self->error_messages,
-               self->conf, MSG_document_error, continuation, strdup (text)); 
+               self->conf, MSG_document_error, continuation, strdup (text));
            }
 
 void
@@ -220,6 +220,21 @@ get_converter_errors (SV *converter_in)
          RETVAL = newRV_noinc ((SV *) errors_av);
     OUTPUT:
          RETVAL
+
+void
+reset_converter (SV *converter_in)
+      PREINIT:
+         CONVERTER *self = 0;
+         HV *stash;
+         char *name;
+      CODE:
+         stash = SvSTASH (SvRV (converter_in));
+         name = HvNAME (stash);
+         if (!strcmp (name, "Texinfo::Convert::HTML"))
+           {
+             self = get_sv_converter (converter_in, "reset html converter");
+             html_reset_converter (self);
+           }
 
 void
 destroy (SV *converter_in)
@@ -692,6 +707,38 @@ html_in_align (SV *converter_in)
                                   "html_in_align");
          cmd = html_in_align (self);
          RETVAL = builtin_command_name (cmd);
+    OUTPUT:
+         RETVAL
+
+SV *
+html_count_elements_in_filename (SV *converter_in, char *spec, filename)
+         char *filename = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         IV count = -1;
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_count_elements_in_filename");
+         if (self)
+           {
+             int i;
+             for (i = 0; count_elements_in_filename_type_names[i]; i++)
+               if (!strcmp (spec, count_elements_in_filename_type_names[i]))
+                 break;
+             if (!count_elements_in_filename_type_names[i])
+               {
+                 fprintf (stderr, "ERROR: unknown count type: %s\n", spec);
+               }
+             else
+               {
+                 count = (IV) html_count_elements_in_filename (self, i,
+                                                               filename);
+               }
+           }
+         if (count >= 0)
+           RETVAL = newSViv (count);
+         else
+           RETVAL = newSV (0);
     OUTPUT:
          RETVAL
 

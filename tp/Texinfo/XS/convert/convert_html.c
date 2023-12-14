@@ -53,11 +53,8 @@
 #include "structuring.h"
 #include "convert_html.h"
 
-enum count_elements_in_filename_type {
-  CEFT_total,
-  CEFT_remaining,
-  CEFT_current,
-};
+char *count_elements_in_filename_type_names[] = {
+ "total", "remaining", "current"};
 
 typedef struct ROOT_AND_UNIT {
     const OUTPUT_UNIT *output_unit;
@@ -748,8 +745,42 @@ html_in_multi_expanded (CONVERTER *self)
   return 0;
 }
 
+static int
+compare_page_name_number (const void *a, const void *b)
+{
+  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
+  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
+
+  return strcmp (pnn_a->page_name, pnn_b->page_name);
+}
+
 size_t
-count_elements_in_filename (CONVERTER *self,
+find_page_name_number
+     (const PAGE_NAME_NUMBER_LIST *page_name_number,
+                                          const char *page_name)
+{
+  PAGE_NAME_NUMBER *result = 0;
+  static PAGE_NAME_NUMBER searched_page_name;
+  searched_page_name.page_name = page_name;
+  if (page_name_number->number == 0)
+    {
+      char *msg;
+      xasprintf (&msg, "no pages, searching for '%s'\n", page_name);
+      fatal (msg);
+      free (msg);
+    }
+
+  result = (PAGE_NAME_NUMBER *) bsearch (&searched_page_name,
+                page_name_number->list,
+                page_name_number->number, sizeof(PAGE_NAME_NUMBER),
+                compare_page_name_number);
+  if (!result)
+    return 0;
+  return result->number;
+}
+
+size_t
+count_elements_in_file_number (CONVERTER *self,
                  enum count_elements_in_filename_type type,
                  size_t file_number)
 {
@@ -763,6 +794,21 @@ count_elements_in_filename (CONVERTER *self,
     return file_counter->counter;
   else /* if (type == CEFT_current) */
     return file_counter->elements_in_file_count - file_counter->counter +1;
+}
+
+/* called from perl */
+size_t
+html_count_elements_in_filename (CONVERTER *self,
+                 enum count_elements_in_filename_type type,
+                 const char *filename)
+{
+  size_t page_number = find_page_name_number (&self->page_name_number,
+                                              filename);
+
+  if (!page_number)
+    return 0;
+
+  return count_elements_in_file_number (self, type, page_number);
 }
 
 ELEMENT *
@@ -1080,31 +1126,6 @@ html_get_associated_formatted_inline_content (CONVERTER *self,
       return result;
     }
   return strdup ("");
-}
-
-static int
-compare_page_name_number (const void *a, const void *b)
-{
-  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
-  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
-
-  return strcmp (pnn_a->page_name, pnn_b->page_name);
-}
-
-size_t
-find_page_name_number
-     (const PAGE_NAME_NUMBER_LIST *page_name_number,
-                                          const char *page_name)
-{
-  PAGE_NAME_NUMBER *result = 0;
-  static PAGE_NAME_NUMBER searched_page_name;
-  searched_page_name.page_name = page_name;
-
-  result = (PAGE_NAME_NUMBER *) bsearch (&searched_page_name,
-                page_name_number->list,
-                page_name_number->number, sizeof(PAGE_NAME_NUMBER),
-                compare_page_name_number);
-  return result->number;
 }
 
 /* API to register an information to a file and get it.  To be able to
@@ -2536,7 +2557,6 @@ html_new_document_context (CONVERTER *self,
   if (document_global_context)
     {
       self->document_global_context++;
-      self->modified_state |= HMSF_converter_state;
     }
 
   push_html_formatting_context (&doc_context->formatting_context,
@@ -2570,7 +2590,6 @@ html_pop_document_context (CONVERTER *self)
   if (document_ctx->document_global_context)
     {
       self->document_global_context--;
-      self->modified_state |= HMSF_converter_state;
     }
 
   stack->top--;
@@ -3203,7 +3222,7 @@ char *html_command_href (CONVERTER *self, const ELEMENT *command,
                   if (target_filename->file_number > 0)
                     {
                       size_t count_in_file
-                       = count_elements_in_filename (self, CEFT_total,
+                       = count_elements_in_file_number (self, CEFT_total,
                                                   target_filename->file_number);
                       if (count_in_file == 1)
                         target = "";
@@ -3601,6 +3620,8 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
           tree_root = tree_root_string;
           /* TODO tree_root_string/tree_root probably remains in tree_to_build
                   as it is not removed nor set to string_tree->tree */
+          fprintf (stderr, "TODO: manual_content check tree_to_build '%s'\n",
+                            convert_to_texinfo (tree_root));
           add_to_element_list (&self->tree_to_build, tree_root);
         }
       else
@@ -3672,6 +3693,8 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
               tree_root = tree_root_string;
           /* TODO tree_root_string/tree_root probably remains in tree_to_build
                   as it is not removed nor set to string_tree->tree */
+              fprintf (stderr, "TODO: command_text check tree_to_build '%s'\n",
+                               convert_to_texinfo (tree_root));
               add_to_element_list (&self->tree_to_build, tree_root);
             }
           else
@@ -4897,12 +4920,6 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
         }
     }
 
-  /* initialize data that requires output_unit_files number */
-  self->file_changed_counter.list = (size_t *)
-      malloc (self->output_unit_files.number * sizeof (size_t));
-  memset (self->file_changed_counter.list, 0,
-          self->output_unit_files.number * sizeof (size_t));
-
   /* 0 is for document_global_context_css, the remaining indices
      for the output unit files */
   self->page_css.number = self->output_unit_files.number +1;
@@ -5962,7 +5979,8 @@ html_default_format_element_header (CONVERTER *self,
         {
           file_index = self->output_unit_file_indices[output_unit->index];
           count_in_file
-            = count_elements_in_filename (self, CEFT_current, file_index +1);
+            = count_elements_in_file_number (self, CEFT_current,
+                                             file_index +1);
           if (count_in_file == 1)
             first_in_page = 1;
         }
@@ -8060,7 +8078,7 @@ convert_special_unit_type (CONVERTER *self,
     {
       size_t file_index = self->special_unit_file_indices[output_unit->index];
       count_in_file
-        = count_elements_in_filename (self, CEFT_current, file_index +1);
+        = count_elements_in_file_number (self, CEFT_current, file_index +1);
     }
 
   if (self->conf->HEADERS > 0
@@ -8879,6 +8897,89 @@ void
 html_finalize_output_state (CONVERTER *self)
 {
   int i;
+  for (i = 0; i < self->html_files_information.number; i++)
+    {
+      destroy_associated_info (&self->html_files_information.list[i]);
+    }
+  free (self->html_files_information.list);
+
+  /* should not be possible with default code, as
+     close_registered_sections_level(0)
+     is called at the end of processing or at the end of each file.
+     However, it could happen if the conversion functions are user
+     defined.
+   */
+  if (self->pending_closes.top > 0)
+    {
+      message_list_document_warn (&self->error_messages, self->conf,
+         "%zu registered opened sections not closed",
+          self->pending_closes.top);
+      clear_string_stack (&self->pending_closes);
+    }
+
+  if (self->pending_inline_content.top > 0)
+    {
+      char *inline_content = html_get_pending_formatted_inline_content (self);
+      message_list_document_warn (&self->error_messages, self->conf,
+         "%zu registered inline contents: %s",
+           self->pending_inline_content.top, inline_content);
+      free (inline_content);
+    }
+
+  for (i = 0; i < self->associated_inline_content.number; i++)
+    {
+      HTML_ASSOCIATED_INLINE_CONTENT *associated_content
+        = &self->associated_inline_content.list[i];
+      if (associated_content->inline_content.space > 0)
+        {
+          char *inline_content = associated_content->inline_content.text;
+          if (associated_content->element)
+            {
+              char *element_str
+                = print_element_debug (associated_content->element, 0);
+              message_list_document_warn (&self->error_messages, self->conf,
+                "left inline content associated to %s: '%s'", element_str,
+                inline_content);
+              free (element_str);
+            }
+          else if (associated_content->hv)
+            {
+              message_list_document_warn (&self->error_messages, self->conf,
+                "left inline content of %p: '%s'", associated_content->hv,
+                inline_content);
+            }
+          else
+            message_list_document_warn (&self->error_messages, self->conf,
+               "left inline content associated: '%s'", inline_content);
+          free (associated_content->inline_content.text);
+        }
+    }
+  self->associated_inline_content.number = 0;
+
+  self->shared_conversion_state.integers.info_number = 0;
+
+  html_pop_document_context (self);
+
+  /* could change to 0 in releases? */
+  if (1)
+    {
+      if (self->html_document_context.top > 0)
+        fprintf (stderr, "BUG: document context top > 0: %zu\n",
+                         self->html_document_context.top);
+      if (self->document_global_context)
+        fprintf (stderr, "BUG: document_global_context: %d\n",
+                         self->document_global_context);
+      if (self->ignore_notice)
+        fprintf (stderr, "BUG: ignore_notice: %d\n",
+                         self->ignore_notice);
+    }
+
+}
+
+void
+html_reset_converter (CONVERTER *self)
+{
+  int i;
   reset_translated_special_unit_info_tree (self);
   /* targets */
   reset_html_targets (self, &self->html_targets);
@@ -8966,69 +9067,6 @@ html_finalize_output_state (CONVERTER *self)
     }
   free (self->page_css.list);
 
-  for (i = 0; i < self->html_files_information.number; i++)
-    {
-      destroy_associated_info (&self->html_files_information.list[i]);
-    }
-  free (self->html_files_information.list);
-
-  /* should not be possible with default code, as
-     close_registered_sections_level(0)
-     is called at the end of processing or at the end of each file.
-     However, it could happen if the conversion functions are user
-     defined.
-   */
-  if (self->pending_closes.top > 0)
-    {
-      message_list_document_warn (&self->error_messages, self->conf,
-         "%zu registered opened sections not closed",
-          self->pending_closes.top);
-      clear_string_stack (&self->pending_closes);
-    }
-
-  if (self->pending_inline_content.top > 0)
-    {
-      char *inline_content = html_get_pending_formatted_inline_content (self);
-      message_list_document_warn (&self->error_messages, self->conf,
-         "%zu registered inline contents: %s",
-           self->pending_inline_content.top, inline_content);
-      free (inline_content);
-    }
-
-  for (i = 0; i < self->associated_inline_content.number; i++)
-    {
-      HTML_ASSOCIATED_INLINE_CONTENT *associated_content
-        = &self->associated_inline_content.list[i];
-      if (associated_content->inline_content.space > 0)
-        {
-          char *inline_content = associated_content->inline_content.text;
-          if (associated_content->element)
-            {
-              char *element_str
-                = print_element_debug (associated_content->element, 0);
-              message_list_document_warn (&self->error_messages, self->conf,
-                "left inline content associated to %s: '%s'", element_str,
-                inline_content);
-              free (element_str);
-            }
-          else if (associated_content->hv)
-            {
-              message_list_document_warn (&self->error_messages, self->conf,
-                "left inline content of %p: '%s'", associated_content->hv,
-                inline_content);
-            }
-          else
-            message_list_document_warn (&self->error_messages, self->conf,
-               "left inline content associated: '%s'", inline_content);
-          free (associated_content->inline_content.text);
-        }
-    }
-  self->associated_inline_content.number = 0;
-
-  self->shared_conversion_state.integers.info_number = 0;
-
-  html_pop_document_context (self);
-
   /* could change to 0 in releases? */
   if (1)
     {
@@ -9048,19 +9086,8 @@ html_finalize_output_state (CONVERTER *self)
                 }
             }
         }
-      if (self->html_document_context.top > 0)
-        fprintf (stderr, "BUG: document context top > 0: %zu\n",
-                         self->html_document_context.top);
-      if (self->document_global_context)
-        fprintf (stderr, "BUG: document_global_context: %d\n",
-                         self->document_global_context);
-      if (self->ignore_notice)
-        fprintf (stderr, "BUG: ignore_notice: %d\n",
-                         self->ignore_notice);
     }
-
   free (self->tree_to_build.list);
-
 }
 
 void
@@ -9081,9 +9108,6 @@ html_check_transfer_state_finalization (CONVERTER *self)
       if (self->reset_target_commands.number)
         fprintf (stderr, "BUG: reset_target_commands: %zu\n",
                          self->reset_target_commands.number);
-      if (self->file_changed_counter.number)
-        fprintf (stderr, "BUG: file_changed_counter: %zu\n",
-                         self->file_changed_counter.number);
     }
 }
 
@@ -9190,7 +9214,6 @@ html_free_converter (CONVERTER *self)
 
   free (self->no_arg_formatted_cmd_translated.list);
   free (self->reset_target_commands.list);
-  free (self->file_changed_counter.list);
 
   free (self->referred_command_stack.stack);
 
@@ -10513,14 +10536,6 @@ convert_output_output_unit_internal (CONVERTER *self,
     }
 
   unit_file->counter--;
-  if (!unit_file->counter_changed)
-    {
-      self->file_changed_counter.list[self->file_changed_counter.number]
-        = file_index;
-      self->file_changed_counter.number++;
-      unit_file->counter_changed = 1;
-      self->modified_state |= HMSF_file_counter;
-    }
 
       /* register the output but do not print anything. Printing
          only when file_counters reach 0, to be sure that all the
