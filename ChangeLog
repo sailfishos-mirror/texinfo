@@ -1,5 +1,19 @@
 2023-12-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_utils.c (add_heading_number): implement
+	the case of translations, with a converter with translations support
+	present.
+
+	* tp/t/convert_to_text.t: test a call of
+	Texinfo::Convert::Utils::add_heading_number from
+	Texinfo::Convert::Text with a converter associated to the text
+	options.  This cannot happen otherwise, as either there is a converter
+	with translations support associated but no conversion of sectioning
+	commands, or the converter is the simple Text converter without
+	support for translations.
+
+2023-12-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_today_command)
 	(commands_internal_conversion_table),
 	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),

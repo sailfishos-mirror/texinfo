@@ -424,13 +424,13 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
     {
       if (element->type == ET_untranslated && text_options->converter)
         {
-/*
+       /*
        the tree documentlanguage corresponds to the documentlanguage
        at the place of the tree, but the converter may want to use
        another documentlanguage, for instance the documentlanguage at
        the end of the preamble, so we let the converter set it.
           documentlanguage = lookup_extra_string (element, "documentlanguage");
-*/
+        */
           char *translation_context
             = lookup_extra_string (element, "translation_context");
           ELEMENT *tree = gdt_tree (element->text.text,

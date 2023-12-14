@@ -187,42 +187,58 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
   if (numbered != 0)
     number = lookup_extra_string (current, "section_number");
 
-  /* TODO translate code to use options as $self translation
-     to be done when this can be tested, so when Text converter
-     is called from another converter
-  if ($self) {
-    if (defined($number)) {
-      if ($current->{'cmdname'} eq 'appendix'
-          and $current->{'extra'}->{'section_level'} == 1) {
-        $result = $self->gdt_string('Appendix {number} {section_title}',
-                   {'number' => $number, 'section_title' => $text});
-      } else {
-        $result = $self->gdt_string('{number} {section_title}',
-                   {'number' => $number, 'section_title' => $text});
-      }
-    } else {
-      $result = $text;
-    }
-  } else
-*/
+  text_init (&result);
 
-  {
-    text_init (&result);
-    if (current->cmd == CM_appendix)
-      {
-        int status;
-        int section_level = lookup_extra_integer (current, "section_level",
-                                                  &status);
-        if (section_level == 1)
-          text_append (&result, "Appendix ");
-      }
-    if (number)
-      {
-        text_append (&result, number);
-        text_append (&result, " ");
-      }
-    text_append (&result, text);
-   }
+  if (options)
+    {
+      if (number)
+        {
+          char *numbered_heading = 0;
+          NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+          add_string_to_named_string_element_list (substrings,
+                                                  "number", number);
+          add_string_to_named_string_element_list (substrings,
+                                             "section_title", text);
+          if (current->cmd == CM_appendix)
+            {
+              int status;
+              int section_level
+                    = lookup_extra_integer (current, "section_level",
+                                            &status);
+              if (section_level == 1)
+                {
+                  numbered_heading
+                   = gdt_string ("Appendix {number} {section_title}",
+                                 options, substrings, 0, 0);
+                }
+            }
+          if (!numbered_heading)
+            numbered_heading = gdt_string ("{number} {section_title}",
+                                          options, substrings, 0, 0);
+          text_append (&result, numbered_heading);
+          free (numbered_heading);
+        }
+      else
+        text_append (&result, text);
+    }
+  else
+    {
+      if (current->cmd == CM_appendix)
+        {
+          int status;
+          int section_level = lookup_extra_integer (current, "section_level",
+                                                    &status);
+          if (section_level == 1)
+            text_append (&result, "Appendix ");
+        }
+      if (number)
+        {
+          text_append (&result, number);
+          text_append (&result, " ");
+        }
+      text_append (&result, text);
+    }
   return result.text;
 }
 

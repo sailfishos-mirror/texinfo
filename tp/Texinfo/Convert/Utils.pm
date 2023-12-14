@@ -348,6 +348,12 @@ sub add_heading_number($$$;$)
 
   my $result;
   if ($self) {
+    # NOTE we reach here when called from Texinfo::Convert::Text
+    # only if associated with a converter.  This should not happen
+    # for sectioning commands, so in practice this code is not reached
+    # from Texinfo::Convert::Text when called from texi2any.pl.
+    # There is a test especially crafted to reach that point in
+    # convert_to_text.t
     if (defined($number)) {
       if ($current->{'cmdname'} eq 'appendix'
           and $current->{'extra'}->{'section_level'} == 1) {
