@@ -10800,14 +10800,8 @@ sub _default_format_begin_file($$$)
       $node_command = $element_command->{'extra'}->{'associated_node'};
     }
 
-    if ($self->get_conf('SPLIT')) {
-      if (defined($element_command)) {
-        $command_for_title = $element_command;
-      } else {
-        # this should correspond to special_unit units only
-        # FIXME the API should be modified to handle differently
-        $command_for_title = $output_unit;
-      }
+    if ($self->get_conf('SPLIT') and defined($element_command)) {
+      $command_for_title = $element_command;
     }
   }
 
@@ -12158,7 +12152,6 @@ sub output($$)
     foreach my $label (sort(keys (%{$self->{'identifiers_target'}}))) {
       my $target_element = $self->{'identifiers_target'}->{$label};
       my $label_element = Texinfo::Common::get_label_element($target_element);
-      my $label_contents = $label_element->{'contents'};
       my $target = $self->_get_target($target_element);
       # filename may not be defined in case of an @anchor or similar in
       # @titlepage, and @titlepage is not used.
@@ -12186,8 +12179,8 @@ sub output($$)
           $self->converter_line_warn(
              sprintf(__("\@%s `%s' file %s for redirection exists"),
                $target_element->{'cmdname'},
-               Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                                   => $label_contents}),
+               Texinfo::Convert::Texinfo::convert_to_texinfo(
+                       {'contents' => $label_element->{'contents'}}),
                $redirection_filename),
             $target_element->{'source_info'});
           my $file_source = $files_source_info->{$redirection_filename};
@@ -12227,13 +12220,13 @@ sub output($$)
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'redirection') {
             my $conflicting_node = $file_source->{'file_info_element'};
-            my $conflicting_label_contents
-                 = $file_source->{'file_info_label_contents'};
+            my $conflicting_label_element
+                 = $file_source->{'file_info_label_element'};
             $self->converter_line_warn(
                sprintf(__("conflict with \@%s `%s' redirection file"),
                  $conflicting_node->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                            => $conflicting_label_contents}),
+                 Texinfo::Convert::Texinfo::convert_to_texinfo(
+                  {'contents' => $conflicting_label_element->{'contents'}})
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'section') {
@@ -12262,7 +12255,7 @@ sub output($$)
           = {'file_info_type' => 'redirection',
              'file_info_element' => $target_element,
              'file_info_path' => undef,
-             'file_info_label_contents' => $label_contents};
+             'file_info_label_element' => $label_element};
         my $redirection_page
           = &{$self->formatting_function('format_node_redirection_page')}($self,
                                                                $target_element);

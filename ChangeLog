@@ -1,5 +1,14 @@
 2023-12-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_begin_file): do not set
+	$command_for_title to an output unit, it should be a tree element.
+	The associated element should be defined anyway.
+
+	* tp/Texinfo/Convert/HTML.pm (output): keep file_info_label_element
+	conflicting with redirection file, not the associated contents.
+
+2023-12-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
 	(_initialize_output_state, _initialize_XS_NonXS_output_state): add
 	_initialize_XS_NonXS_output_state, which sets up the states that need
