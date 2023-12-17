@@ -1,5 +1,24 @@
 2023-12-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Do not distribute xsubpp-generated files
+
+	* tp/Texinfo/XS/Makefile.am (TestXS_la_SOURCES, MiscXS_la_SOURCES)
+	(XSParagraph_la_SOURCES Parsetexi_la_SOURCES DocumentXS_la_SOURCES)
+	(StructuringTransfoXS_la_SOURCES, ConvertXS_la_SOURCES):
+	Do not distribute *.c files generated from *.xs files by
+	xsubpp.  List these files in the corresponding nodist_* variable.
+	(CLEANFILES): Add these *.c files.
+	(.xs.c): Generate in builddir not srcdir.
+
+	This avoids the possibility of one of the distributed
+	files being overwritten with no way to get back the original
+	contents, while users expect "make distclean" to restore the
+	original state of a distribution.
+
+	Report from Hilmar Preuße <hille42@web.de>.
+
+2023-12-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac (AM_INIT_AUTOMAKE): Remove dist-xz for speed
 	when testing.
 

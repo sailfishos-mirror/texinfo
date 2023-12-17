@@ -38,7 +38,7 @@ AM_CPPFLAGS += -DDATADIR=\"$(datadir)\"
 xsdir = $(pkglibdir)
 
 .xs.c:
-	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $(srcdir)/$*.c
+	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $*.c
 
 # -------------------------------------------------------
 
@@ -56,7 +56,9 @@ XSLIBS_LDFLAGS += $(perl_conf_LDFLAGS)
 ########################## Test XS used in top source dir configure.ac
 
 xs_LTLIBRARIES = TestXS.la
-TestXS_la_SOURCES = TestXS.c ppport.h
+nodist_TestXS_la_SOURCES = TestXS.c
+CLEANFILES += TestXS.c
+TestXS_la_SOURCES = ppport.h
 TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 TestXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 TestXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
@@ -73,16 +75,20 @@ install-data-hook:
 ########################## Specific XS used in targeted override
 
 xs_LTLIBRARIES += MiscXS.la
-MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
+nodist_MiscXS_la_SOURCES = MiscXS.c
+CLEANFILES += MiscXS.c
+MiscXS_la_SOURCES = misc.c miscxs.h ppport.h
 MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
 MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 xs_LTLIBRARIES += XSParagraph.la
+nodist_XSParagraph_la_SOURCES = XSParagraph.c
+CLEANFILES += XSParagraph.c
 # FIXME use main/text.*?
-XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
-                          xspara_text.c xspara_text.h ppport.h
+XSParagraph_la_SOURCES = xspara.c xspara.h \
+                         xspara_text.c xspara_text.h ppport.h
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
@@ -305,7 +311,8 @@ if HAVE_ICONV
 xs_LTLIBRARIES += Parsetexi.la
 endif
 
-Parsetexi_la_SOURCES= parsetexi/Parsetexi.c
+nodist_Parsetexi_la_SOURCES = parsetexi/Parsetexi.c
+CLEANFILES += parsetexi/Parsetexi.c
 
 EXTRA_DIST += parsetexi/Parsetexi.xs
 
@@ -321,8 +328,8 @@ if HAVE_ICONV
 xs_LTLIBRARIES += DocumentXS.la
 endif
 
-DocumentXS_la_SOURCES = \
-                       main/DocumentXS.c
+nodist_DocumentXS_la_SOURCES = main/DocumentXS.c
+CLEANFILES += main/DocumentXS.c
 
 EXTRA_DIST += main/DocumentXS.xs
 
@@ -338,8 +345,11 @@ if HAVE_ICONV
 xs_LTLIBRARIES += StructuringTransfoXS.la
 endif
 
+nodist_StructuringTransfoXS_la_SOURCES = \
+                    structuring_transfo/StructuringTransfoXS.c
+CLEANFILES += \
+                    structuring_transfo/StructuringTransfoXS.c
 StructuringTransfoXS_la_SOURCES = \
-                    structuring_transfo/StructuringTransfoXS.c \
                     structuring_transfo/transformations.c \
                     structuring_transfo/transformations.h
 
@@ -357,8 +367,10 @@ if HAVE_ICONV
 xs_LTLIBRARIES += ConvertXS.la
 endif
 
+nodist_ConvertXS_la_SOURCES = convert/ConvertXS.c
+CLEANFILES += convert/ConvertXS.c
+
 ConvertXS_la_SOURCES = \
-                       convert/ConvertXS.c \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \
