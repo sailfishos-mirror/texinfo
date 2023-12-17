@@ -280,6 +280,10 @@ typedef struct HTML_SHARED_CONVERSION_STATE {
     int formatted_index_entries; /* formatted_index_entries->{INDEX_ENTRY $index_entry_ref} = 1, ++ */
     int formatted_nodedescriptions; /* formatted_nodedescriptions->{ELEMENT $node_description} = 1, ++ */
     ASSOCIATED_INFO integers;
+    STRING_LIST key_strings; /* used to save the keys used in
+                                ASSOCIATED_INFO integers such that they can be
+                                free'd later.  In general constant strings are
+                                for keys, if not, key_strings should be used */
 } HTML_SHARED_CONVERSION_STATE;
 
 typedef struct MERGED_INDEX {

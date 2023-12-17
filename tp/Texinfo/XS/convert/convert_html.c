@@ -350,6 +350,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                                                 insertcopying, find_container);
                   if (cur_result->output_unit || cur_result->root)
                     return cur_result;
+                  free (cur_result);
                 }
             }
           else if (data_cmd == CM_titlepage
@@ -9686,6 +9687,7 @@ html_finalize_output_state (CONVERTER *self)
   self->associated_inline_content.number = 0;
 
   self->shared_conversion_state.integers.info_number = 0;
+  clear_strings_list (&self->shared_conversion_state.key_strings);
 
   html_pop_document_context (self);
 
@@ -9979,6 +9981,7 @@ html_free_converter (CONVERTER *self)
   free_strings_list (&self->shared_conversion_state_integer);
 
   destroy_associated_info (&self->shared_conversion_state.integers);
+  free_strings_list (&self->shared_conversion_state.key_strings);
 
   free (self->no_arg_formatted_cmd_translated.list);
   free (self->reset_target_commands.list);
@@ -10657,7 +10660,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
           convert_to_html_internal (self, translated, &text_result,
                                     "translated TEXT");
+
           remove_element_from_list (&self->tree_to_build, translated);
+          destroy_element_and_children (translated);
         }
       else
         {

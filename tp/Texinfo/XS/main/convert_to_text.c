@@ -240,7 +240,10 @@ brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
     {
       ELEMENT *tree = translated_command_tree (options->converter, cmd);
       if (tree)
-        result = convert_to_text (tree, options);
+        {
+          result = convert_to_text (tree, options);
+          destroy_element_and_children (tree);
+        }
     }
   if (!result)
     {
@@ -440,6 +443,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (tree)
             {
               convert_to_text_internal (tree, text_options, result);
+              destroy_element_and_children (tree);
             }
         }
       else

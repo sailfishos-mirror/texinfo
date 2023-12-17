@@ -94,14 +94,18 @@ get_shared_conversion_state (CONVERTER *self)
           HE *next = hv_iternext (accessed_integers_v);
           SV *selector_sv = hv_iterkeysv (next);
           char *selector = (char *) SvPVutf8_nolen (selector_sv);
+          char *saved_selector;
 
           HE *conversion_state_he = hv_fetch_ent (conversion_state_hv,
                                                   selector_sv, 0, 0);
           ref_value_sv = HeVAL (conversion_state_he);
           value = SvIV (SvRV (ref_value_sv));
 
+          saved_selector
+             = add_string (selector,
+                           &self->shared_conversion_state.key_strings);
           add_associated_info_integer (&self->shared_conversion_state.integers,
-                                       selector, value);
+                                       saved_selector, value);
 
           hv_delete_ent (accessed_integers_v, selector_sv, 0, 0);
         }

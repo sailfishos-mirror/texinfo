@@ -216,6 +216,9 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
           if (!numbered_heading)
             numbered_heading = gdt_string ("{number} {section_title}",
                                           options, substrings, 0, 0);
+
+          destroy_named_string_element_list (substrings);
+
           text_append (&result, numbered_heading);
           free (numbered_heading);
         }

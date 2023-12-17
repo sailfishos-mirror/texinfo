@@ -1,5 +1,23 @@
 2023-12-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(get_shared_conversion_state), tp/Texinfo/XS/main/converter_types.h
+	(HTML_SHARED_CONVERSION_STATE), tp/Texinfo/XS/convert/convert_html.c
+	(html_finalize_output_state, html_free_converter): add key_strings
+	STRING_LIST field in HTML_SHARED_CONVERSION_STATE to allocate and save
+	key strings, such that they can be freed in the end.
+
+	* tp/Texinfo/XS/convert/converter.c (free_generic_converter): wipe
+	error messages memory.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (brace_no_arg_command)
+	(convert_to_text_internal), tp/Texinfo/XS/main/convert_utils.c
+	(add_heading_number), tp/Texinfo/XS/convert/convert_html.c
+	(html_get_tree_root_element, convert_to_html_internal): destroy tree
+	elements and free data to fix memory leaks detected by valgrind.
+
+2023-12-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (add_string): return the newly duplicated
 	string.
 
