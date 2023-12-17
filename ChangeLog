@@ -1,5 +1,14 @@
 2023-12-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (add_string): return the newly duplicated
+	string.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_line_message): replace
+	strings in source_info by the strings saved in
+	self->document->small_strings.
+
+2023-12-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c: free memory/destroy
 	elements to fix memory leaks shown by valgrind.
 

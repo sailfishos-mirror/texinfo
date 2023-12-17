@@ -244,14 +244,25 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
 {
   int do_warn = (self->conf->DEBUG > 1);
   SOURCE_INFO *source_info = get_source_info (error_location_info);
+  if (source_info->file_name)
+    {
+      char *saved_string = add_string (source_info->file_name,
+                                       self->document->small_strings);
+      free (source_info->file_name);
+      source_info->file_name = saved_string;
+    }
+
+  if (source_info->macro)
+    {
+      char *saved_string = add_string (source_info->macro,
+                                       self->document->small_strings);
+      free (source_info->macro);
+      source_info->macro = saved_string;
+    }
+
   message_list_line_formatted_message (&self->error_messages,
                                        type, continuation, source_info,
                                        message, do_warn);
-  if (source_info->file_name)
-    add_string (source_info->file_name, self->document->small_strings);
-
-  if (source_info->macro)
-    add_string (source_info->macro, self->document->small_strings);
 
   free (source_info);
 }
