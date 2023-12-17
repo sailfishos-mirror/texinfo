@@ -23,6 +23,9 @@ extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
+extern const char *direction_string_type_names[];
+extern const char *direction_string_context_names[];
+
 extern char *count_elements_in_filename_type_names[];
 
 void html_format_init (void);
@@ -108,6 +111,10 @@ void html_associate_pending_formatted_inline_content (CONVERTER *self,
 char *html_get_associated_formatted_inline_content (CONVERTER *self,
                                               const ELEMENT *element,
                                               void *hv);
+
+size_t html_check_htmlxref_already_warned (CONVERTER *self,
+                                           const char *manual_name,
+                                           const SOURCE_INFO *source_info);
 
 void html_merge_index_entries (CONVERTER *self);
 

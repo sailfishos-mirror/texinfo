@@ -70,6 +70,9 @@ char *call_formatting_function_format_footnotes_segment (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference);
 char *call_formatting_function_format_footnotes_sequence (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference);
+char *call_formatting_function_format_css_lines (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                                              const char *filename);
 char *call_formatting_function_format_end_file (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
                     const char *filename, const OUTPUT_UNIT *output_unit);

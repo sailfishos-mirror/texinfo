@@ -1098,6 +1098,29 @@ html_get_associated_formatted_inline_content (SV *converter_in, SV *element_sv)
     OUTPUT:
          RETVAL
 
+int
+html_check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_info_sv)
+         char *manual_name = (char *)SvPVutf8_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+         SOURCE_INFO *source_info = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_check_htmlxref_already_warned");
+         if (SvOK (source_info_sv))
+           source_info = get_source_info (source_info_sv);
+
+         RETVAL = html_check_htmlxref_already_warned (self, manual_name,
+                                                      source_info);
+         if (source_info)
+           {
+             free (source_info->macro);
+             free (source_info->file_name);
+             free (source_info);
+           }
+    OUTPUT:
+         RETVAL
+
 void
 html_merge_index_entries (SV *converter_in)
       PREINIT:

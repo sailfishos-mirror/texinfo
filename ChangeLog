@@ -1,5 +1,90 @@
 2023-12-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_file_id_setting_label_target_name): allow null label_element.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_css_lines),
+	tp/Texinfo/XS/convert/convert_html.c (format_css_lines): add.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(convert_string_tree_new_formatting_context)
+	(html_prepare_converted_output_info): add to replace similar
+	code used in diverse places.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_default_entity_nbsp)
+	(substitute_html_non_breaking_space, close_html_lone_element):
+	implement substitute_html_non_breaking_space and
+	close_html_lone_element in C.
+
+	* tp/Texinfo/XS/main/converter_types.h (enum html_text_type)
+	(direction_unit_direction), tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_direction_index): rename enum html_command_text_type as enum
+	html_text_type, rename HCTT_* as HTT_* add possibilities of
+	from_element_direction.  Rename enum button_unit_direction as enum
+	direction_unit_direction.  Rename D_button_* as D_direction_*.  Define
+	FIRSTINFILE_MIN_IDX, FIRSTINFILE_MAX_IDX, FIRSTINFILE_OFFSET,
+	FIRSTINFILE_NR, NON_SPECIAL_DIRECTIONS_NR.
+
+	* tp/Texinfo/XS/convert/convert_html.c (from_element_direction):
+	implement in C.
+
+	* tp/Texinfo/XS/convert/convert_html.c (BEGIN_FILE_INFORMATION)
+	(destroy_begin_file_information, root_html_element_attributes_string)
+	(file_header_information, html_reset_converter, html_convert_output),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): implement
+	file_header_information in C, set date_in_header in converter.
+
+	* tp/Texinfo/XS/convert/convert_html.c (direction_string_type_names)
+	(direction_string_context_names, clear_direction_string_type)
+	(direction_type_translation_context, direction_string)
+	(html_free_converter, html_translate_names),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(enum direction_string_context, enum direction_string_type)
+	(HTML_DIRECTION_STRING_TRANSLATED, CONVERTER): get direction strings and
+	translated direction s trings information from perl. implement
+	direction_string in C.  Rename enum direction_string as enum
+	direction_string_type.
+
+	* tp/Texinfo/XS/convert/convert_html.c (get_links): implement in C.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_text): fix case
+	of string type, by removing element in tree to build, using
+	add_to_contents_as_array instead of add_to_element_contents and
+	destroying elements.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_text): return an
+	empty string instead of 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c (normalized_label_id_file):
+	label_element can be null.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_begin_file, format_begin_file): implement in C.
+
+	* tp/Texinfo/Convert/HTML.pm (_check_htmlxref_already_warned)
+	(_external_node_href), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_check_htmlxref_already_warned),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_check_htmlxref_already_warned, external_node_href)
+	(source_info_id, html_reset_converter, html_free_converter),
+	tp/Texinfo/XS/main/converter_types.h (CONVERT): use a
+	function for check_htmlxref_already_warned in perl, rename function to
+	html_check_htmlxref_already_warned in C, add source_info_id, use
+	source_info information to avoid duplicate messages for missing
+	htmlxref.cnf entry in C.  Make check_htmlxref_already_warned a
+	STRING_LIST, remove HTMLXREF_MANUAL_ELEMENT_WARNED_LIST and
+	HTMLXREF_MANUAL_ELEMENT_WARNED.
+
+	* tp/Texinfo/XS/convert/convert_html.c (external_node_href): bugfix
+	setting up paths of external hrefs.
+
+	* tp/Texinfo/Convert/HTML.pm (_source_info_id): remove code without
+	effect.
+
+2023-12-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (from_element_direction): remove
 	unreachable code.
 
@@ -10,7 +95,7 @@
 	$command, $command as $target_root and $node as $target_node.
 
 	* tp/Texinfo/Convert/HTML.pm (_source_info_id, _external_node_href):
-	use source_info information to avoid duplicate messages above missing
+	use source_info information to avoid duplicate messages for missing
 	htmlxref.cnf entry, not tree element.
 
 	* tp/Texinfo/Convert/HTML.pm (_file_header_information): change order

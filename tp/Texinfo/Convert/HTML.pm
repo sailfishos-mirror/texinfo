@@ -215,6 +215,9 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_associate_pending_formatted_inline_content",
   "Texinfo::Convert::HTML::get_associated_formatted_inline_content",
    => "Texinfo::Convert::ConvertXS::html_get_associated_formatted_inline_content",
+  "Texinfo::Convert::HTML::_check_htmlxref_already_warned"
+   => "Texinfo::Convert::ConvertXS::html_check_htmlxref_already_warned",
+
   "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter"
    => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
   "Texinfo::Convert::HTML::_XS_html_merge_index_entries"
@@ -10175,8 +10178,6 @@ sub _source_info_id($)
   $result .= '-';
   if (defined($source_info->{'macro'})) {
     $result .= $source_info->{'macro'};
-  } else {
-    $result .= '';
   }
   $result .= '-';
   if (defined($source_info->{'line_nr'})) {
@@ -10185,6 +10186,26 @@ sub _source_info_id($)
     $result .= '0';
   }
   return $result;
+}
+
+sub _check_htmlxref_already_warned($$$)
+{
+  my $self = shift;
+  my $manual_name = shift;
+  my $source_info = shift;
+
+  my $node_manual_key;
+  if ($source_info) {
+    $node_manual_key = _source_info_id($source_info).'-'.$manual_name;
+  } else {
+    $node_manual_key = 'UNDEF-'.$manual_name;
+  }
+  if ($self->{'check_htmlxref_already_warned'}->{$node_manual_key}) {
+    return 1;
+  } else {
+    $self->{'check_htmlxref_already_warned'}->{$node_manual_key} = 1;
+    return 0;
+  }
 }
 
 sub _external_node_href($$$;$)
@@ -10261,20 +10282,17 @@ sub _external_node_href($$$;$)
     } else { # nothing specified for that manual, use default
       if ($self->get_conf('CHECK_HTMLXREF')) {
         if (defined($source_command) and $source_command->{'source_info'}) {
-          my $node_manual_key
-            = _source_info_id($source_command->{'source_info'}).'-'.$manual_name;
-          if (!$self->{'check_htmlxref_already_warned'}->{$node_manual_key}) {
+          if (!_check_htmlxref_already_warned($self, $manual_name,
+                                         $source_command->{'source_info'})) {
             $self->converter_line_warn(sprintf(__(
                     "no htmlxref.cnf entry found for `%s'"), $manual_name),
                              $source_command->{'source_info'});
-            $self->{'check_htmlxref_already_warned'}->{$node_manual_key} = 1;
           }
         } else {
-          if (!$self->{'check_htmlxref_already_warned'}->{'UNDEF-'.$manual_name}) {
+          if (!_check_htmlxref_already_warned($self, $manual_name, undef)) {
             $self->converter_document_warn(sprintf(__(
               "no htmlxref.cnf entry found for `%s'"), $manual_name),
               );
-            $self->{'check_htmlxref_already_warned'}->{'UNDEF-'.$manual_name} = 1;
             cluck;
           }
         }

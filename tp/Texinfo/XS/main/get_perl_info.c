@@ -842,12 +842,12 @@ html_get_direction_index (CONVERTER *converter, const char *direction)
 {
   int i;
   int idx;
-  for (i = 0; i < D_button_FirstInFileNodeUp +1; i++)
+  for (i = 0; i < FIRSTINFILE_MAX_IDX +1; i++)
     {
       if (!strcmp (direction, html_button_direction_names[i]))
         return i;
     }
-  idx = D_button_FirstInFileNodeUp +1;
+  idx = FIRSTINFILE_MAX_IDX +1;
   if (converter)
     {
       for (i = 0; i < converter->special_unit_varieties.number; i++)
