@@ -38,7 +38,7 @@ PERL_INC = $(PERL_CONF_archlibexp)/CORE
 XSUBPPARGS = -typemap $(PERL_CONF_privlibexp)/ExtUtils/typemap
 
 .xs.c:
-	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $(srcdir)/$*.c
+	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $*.c
 
 EXTRA_DIST += TestXS.pm
 
@@ -47,12 +47,18 @@ EXTRA_DIST += TestXS.pm
 CLEANFILES =
 
 xs_LTLIBRARIES = XSParagraph.la TestXS.la
-XSParagraph_la_SOURCES = XSParagraph.c xspara.c xspara.h \
+nodist_XSParagraph_la_SOURCES = XSParagraph.c
+CLEANFILES += XSParagraph.c
+XSParagraph_la_SOURCES = xspara.c xspara.h \
 			 text.c text.h ppport.h
-TestXS_la_SOURCES = TestXS.c ppport.h
+nodist_TestXS_la_SOURCES = TestXS.c
+CLEANFILES += TestXS.c
+TestXS_la_SOURCES = ppport.h
 
 xs_LTLIBRARIES += MiscXS.la
-MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
+nodist_MiscXS_la_SOURCES = MiscXS.c
+CLEANFILES += MiscXS.c
+MiscXS_la_SOURCES = misc.c miscxs.h ppport.h
 MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
 
 
@@ -97,8 +103,10 @@ if HAVE_ICONV
 xs_LTLIBRARIES += Parsetexi.la
 endif
 
-Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
-                      parsetexi/api.c \
+nodist_Parsetexi_la_SOURCES= parsetexi/Parsetexi.c
+CLEANFILES += parsetexi/Parsetexi.c
+
+Parsetexi_la_SOURCES= parsetexi/api.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \
 		      parsetexi/parser.h \
