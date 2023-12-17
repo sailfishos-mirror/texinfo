@@ -378,20 +378,21 @@ Upload texi2dvi, texi2pdf (official releases only)
 
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
+Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
+
 Update translations:
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo/ po
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo_document/ \
                  po_document # note the trailing slashes in these commands
-  git status -u to check for new translations
+  git status -u  # to check for new translations
 
 run "make -C po check-linguas" and "make -C po_document check-linguas"
 to check that LINGUAS under po and po_document match actual file list.
 
-Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
-
-make
-make update-po            # both po and po_document needed, build a dist first
-( cd po_document ; for f in *.po ; do ./adjust-translations.pl $f ; done )
+  make
+  make update-po  # both po and po_document needed, build a dist first
+  ( cd po_document ; for f in *.po ; do ./adjust-translations.pl $f ; done )
+  make update-po  # in case po files change again after last step
 
 
 - Official releases only:

@@ -1,5 +1,10 @@
 2023-12-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: tweak instructions for updating translations
+	to stop po files changing again in a released distribution
+
+2023-12-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Do not distribute xsubpp-generated files
 
 	* tp/Texinfo/XS/Makefile.am (TestXS_la_SOURCES, MiscXS_la_SOURCES)
