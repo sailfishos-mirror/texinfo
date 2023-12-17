@@ -8,7 +8,7 @@
 	Do not distribute xsubpp-generated files
 
 	* tp/Texinfo/XS/Makefile.am (TestXS_la_SOURCES, MiscXS_la_SOURCES)
-	(XSParagraph_la_SOURCES Parsetexi_la_SOURCES DocumentXS_la_SOURCES)
+	(XSParagraph_la_SOURCES, Parsetexi_la_SOURCES, DocumentXS_la_SOURCES)
 	(StructuringTransfoXS_la_SOURCES, ConvertXS_la_SOURCES):
 	Do not distribute *.c files generated from *.xs files by
 	xsubpp.  List these files in the corresponding nodist_* variable.
