@@ -289,7 +289,7 @@ PREFIX                             converter_customization undef   char *
 PROGRAM                            converter_customization undef   char *
 PROGRAM_NAME_IN_ABOUT              converter_customization undef   char *
 PROGRAM_NAME_IN_FOOTER             converter_customization undef   int
-SECTION_NAME_IN_TITLE              converter_customization undef   char *
+SECTION_NAME_IN_TITLE              converter_customization undef   int
 SHORT_TOC_LINK_TO_TOC              converter_customization undef   int
 SHOW_TITLE                         converter_customization undef   int
 T4H_LATEX_CONVERSION               converter_customization undef   char *

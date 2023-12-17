@@ -1448,7 +1448,7 @@ foreach my $no_number_type ('text', 'string') {
 # Return text used for linking from $SOURCE_UNIT in direction $DIRECTION.
 # The text returned depends on $TYPE.
 #
-# This is used both for tree unit elements and external nodes
+# This is used both for output units and external nodes
 #
 # If $SOURCE_UNIT is undef, $self->{'current_output_unit'} is used.
 #
@@ -1458,10 +1458,8 @@ foreach my $no_number_type ('text', 'string') {
 # are about external nodes not found.
 #
 # $self->{'current_output_unit'} undef happens at least when there is no
-# output file, or for the table of content when frames are used.  That call
-# would result for instance from from_element_direction being called from
-# _get_links, itself called from 'format_begin_file' which, in the default case
-# points to _default_format_begin_file.
+# output file  That call would result for instance from from_element_direction
+# being called from _get_links, itself called from 'format_begin_file'.
 # TODO are there other cases?
 sub from_element_direction($$$;$$$)
 {
@@ -1570,13 +1568,6 @@ sub from_element_direction($$$;$$$)
       }
       $target = $self->{'targets'}->{$command} if ($command);
     }
-  } elsif ($self->global_direction_unit($direction)) {
-    my $special_unit = $self->global_direction_unit($direction);
-    $command = $special_unit->{'unit_command'};
-    if ($type eq 'href') {
-      return $self->command_href($command, $source_filename);
-    }
-    $target = $self->{'targets'}->{$command};
   } else {
     return undef;
   }
@@ -1674,12 +1665,12 @@ sub direction_string($$$;$)
     } elsif (defined($translated_directions_strings->{$string_type}
                                             ->{$direction}->{'to_convert'})) {
       # translate direction strings that need to be translated and converted
-      my $context_string = $direction;
-      $context_string .= ' (current section)' if ($direction eq 'This');
-      $context_string = $context_string.' direction '
+      my $translation_context = $direction;
+      $translation_context .= ' (current section)' if ($direction eq 'This');
+      $translation_context .= ' direction '
                        .$direction_type_translation_context{$string_type};
       my $translated_tree
-        = $self->pgdt($context_string,
+        = $self->pgdt($translation_context,
                       $translated_directions_strings->{$string_type}
                                             ->{$direction}->{'to_convert'});
       my $converted_tree;
@@ -5588,7 +5579,7 @@ sub _convert_xref_commands($$$$)
 {
   my $self = shift;
   my $cmdname = shift;
-  my $root = shift;
+  my $command = shift;
   my $args = shift;
 
   my $tree;
@@ -5620,7 +5611,7 @@ sub _convert_xref_commands($$$$)
   $book = $args->[4]->{'normal'}
     if ($args->[4] and defined($args->[4]->{'normal'}));
 
-  my $node_arg = $root->{'args'}->[0];
+  my $node_arg = $command->{'args'}->[0];
 
   # internal reference
   if ($cmdname ne 'inforef' and $book eq '' and $file eq ''
@@ -5628,33 +5619,34 @@ sub _convert_xref_commands($$$$)
       and defined($node_arg->{'extra'}->{'normalized'})
       and !$node_arg->{'extra'}->{'manual_content'}
       and $self->label_command($node_arg->{'extra'}->{'normalized'})) {
-    my $node
+    my $target_node
      = $self->label_command($node_arg->{'extra'}->{'normalized'});
     # This is the node if USE_NODES, otherwise this may be the sectioning
     # command (if the sectioning command is really associated to the node)
-    my $command = $self->command_root_element_command($node);
-    $command = $node if (!$node->{'extra'}->{'associated_section'}
-                         or $node->{'extra'}->{'associated_section'} ne $command);
+    my $target_root = $self->command_root_element_command($target_node);
+    $target_root = $target_node
+         if (!$target_node->{'extra'}->{'associated_section'}
+             or $target_node->{'extra'}->{'associated_section'} ne $target_root);
 
-    my $href = $self->command_href($command, undef, $root);
+    my $href = $self->command_href($target_root, undef, $command);
 
     if (!defined($name)) {
       if ($self->get_conf('xrefautomaticsectiontitle') eq 'on'
-         and $node->{'extra'}
-         and $node->{'extra'}->{'associated_section'}
+         and $target_node->{'extra'}
+         and $target_node->{'extra'}->{'associated_section'}
          # this condition avoids infinite recursions, indeed in that case
          # the node will be used and not the section.  There should not be
          # @*ref in nodes, and even if there are, it does not seems to be
          # possible to construct an infinite recursion with nodes only
          # as the node must both be a reference target and refer to a specific
          # target at the same time, which is not possible.
-         and not grep {$_ eq $node->{'extra'}->{'associated_section'}}
+         and not grep {$_ eq $target_node->{'extra'}->{'associated_section'}}
                      @{$self->{'referred_command_stack'}}) {
-        $command = $node->{'extra'}->{'associated_section'};
-        $name = $self->command_text($command, 'text_nonumber');
-      } elsif ($node->{'cmdname'} eq 'float') {
+        $target_root = $target_node->{'extra'}->{'associated_section'};
+        $name = $self->command_text($target_root, 'text_nonumber');
+      } elsif ($target_node->{'cmdname'} eq 'float') {
         if (!$self->get_conf('XREF_USE_FLOAT_LABEL')) {
-          $name = $self->command_text($command);
+          $name = $self->command_text($target_root);
         }
         if (!defined($name) or $name eq '') {
           if (defined($args->[0]->{'monospace'})) {
@@ -5666,8 +5658,8 @@ sub _convert_xref_commands($$$$)
       } elsif (!$self->get_conf('XREF_USE_NODE_NAME_ARG')
                and (defined($self->get_conf('XREF_USE_NODE_NAME_ARG'))
                     or !in_preformatted_context($self))) {
-        $name = $self->command_text($command, 'text_nonumber');
-        #die "$command $command->{'normalized'}" if (!defined($name));
+        $name = $self->command_text($target_root, 'text_nonumber');
+        #die "$target_root $target_root->{'normalized'}" if (!defined($name));
       } elsif (defined($args->[0]->{'monospace'})) {
         $name = $args->[0]->{'monospace'};
       } else {
@@ -5679,9 +5671,9 @@ sub _convert_xref_commands($$$$)
                       ." href=\"$href\">$name</a>" if ($href ne ''
                                                        and !in_string($self));
 
-    my $is_section = ($command->{'cmdname'} ne 'node'
-                      and $command->{'cmdname'} ne 'anchor'
-                      and $command->{'cmdname'} ne 'float');
+    my $is_section = ($target_root->{'cmdname'} ne 'node'
+                      and $target_root->{'cmdname'} ne 'anchor'
+                      and $target_root->{'cmdname'} ne 'float');
     if ($cmdname eq 'pxref') {
       $tree = $self->gdt('see {reference_name}',
         { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
@@ -5722,7 +5714,7 @@ sub _convert_xref_commands($$$$)
    'contents' => [$label_element->{'extra'}->{'manual_content'}]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
-    my $href = $self->command_href($label_element, undef, $root);
+    my $href = $self->command_href($label_element, undef, $command);
 
     if ($book eq '') {
       if (!defined($name)) {
@@ -10171,6 +10163,30 @@ sub _prepare_footnotes_targets($)
   }
 }
 
+sub _source_info_id($)
+{
+  my $source_info = shift;
+  my $result;
+  if (defined($source_info->{'file_name'})) {
+    $result = $source_info->{'file_name'};
+  } else {
+    $result = '';
+  }
+  $result .= '-';
+  if (defined($source_info->{'macro'})) {
+    $result .= $source_info->{'macro'};
+  } else {
+    $result .= '';
+  }
+  $result .= '-';
+  if (defined($source_info->{'line_nr'})) {
+    $result .= $source_info->{'line_nr'};
+  } else {
+    $result .= '0';
+  }
+  return $result;
+}
+
 sub _external_node_href($$$;$)
 {
   my $self = shift;
@@ -10245,7 +10261,8 @@ sub _external_node_href($$$;$)
     } else { # nothing specified for that manual, use default
       if ($self->get_conf('CHECK_HTMLXREF')) {
         if (defined($source_command) and $source_command->{'source_info'}) {
-          my $node_manual_key = $source_command.'-'.$manual_name;
+          my $node_manual_key
+            = _source_info_id($source_command->{'source_info'}).'-'.$manual_name;
           if (!$self->{'check_htmlxref_already_warned'}->{$node_manual_key}) {
             $self->converter_line_warn(sprintf(__(
                     "no htmlxref.cnf entry found for `%s'"), $manual_name),
@@ -10689,9 +10706,6 @@ sub _file_header_information($$;$)
   my $after_body_open = '';
   $after_body_open = $self->get_conf('AFTER_BODY_OPEN')
     if (defined($self->get_conf('AFTER_BODY_OPEN')));
-  my $extra_head = '';
-  $extra_head = $self->get_conf('EXTRA_HEAD')
-    if (defined($self->get_conf('EXTRA_HEAD')));
   my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION_OPTION');
   my $program_homepage = $self->get_conf('PACKAGE_URL_OPTION');
   my $program = $self->get_conf('PROGRAM');
@@ -10701,6 +10715,10 @@ sub _file_header_information($$;$)
       $self->close_html_lone_element(
         "<meta name=\"Generator\" content=\"$program\"") . "\n";
   }
+
+  my $extra_head = '';
+  $extra_head = $self->get_conf('EXTRA_HEAD')
+    if (defined($self->get_conf('EXTRA_HEAD')));
 
   if (defined($self->get_conf('INFO_JS_DIR'))) {
     if (!$self->get_conf('SPLIT')) {
@@ -10715,12 +10733,14 @@ sub _file_header_information($$;$)
         $jsdir =~ s,/*$,/,; # append a single slash
       }
 
+      my $protected_jsdir = $self->url_protect_url_text($jsdir);
+
       $extra_head .= $self->close_html_lone_element(
         '<link rel="stylesheet" type="text/css" href="'.
-                     $self->url_protect_url_text($jsdir).'info.css"')."\n".
-'<script src="'.$self->url_protect_url_text($jsdir)
+                     $protected_jsdir.'info.css"')."\n".
+'<script src="'.$protected_jsdir
                       .'modernizr.js" type="text/javascript"></script>
-<script src="'.$self->url_protect_url_text($jsdir)
+<script src="'.$protected_jsdir
                       .'info.js" type="text/javascript"></script>';
     }
   }
@@ -10757,19 +10777,19 @@ sub _get_links($$$$)
 {
   my $self = shift;
   my $filename = shift;
-  my $element = shift;
+  my $output_unit = shift;
   my $node_command = shift;
 
   my $links = '';
   if ($self->get_conf('USE_LINKS')) {
     my $link_buttons = $self->get_conf('LINKS_BUTTONS');
     foreach my $link (@$link_buttons) {
-      my $link_href = $self->from_element_direction($link, 'href', $element,
+      my $link_href = $self->from_element_direction($link, 'href', $output_unit,
                                                     $filename, $node_command);
       #print STDERR "$link -> ".(defined($link_href) ? $link_href : 'UNDEF')."\n";
       if ($link_href and $link_href ne '') {
         my $link_string = $self->from_element_direction($link, 'string',
-                                                        $element);
+                                                        $output_unit);
         my $link_title = '';
         $link_title = " title=\"$link_string\"" if (defined($link_string));
         my $rel = '';

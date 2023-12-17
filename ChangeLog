@@ -1,3 +1,27 @@
+2023-12-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction): remove
+	unreachable code.
+
+	* tp/Texinfo/Convert/HTML.pm (direction_string): rename variable
+	$context_string as $translation_context.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands): rename $root as
+	$command, $command as $target_root and $node as $target_node.
+
+	* tp/Texinfo/Convert/HTML.pm (_source_info_id, _external_node_href):
+	use source_info information to avoid duplicate messages above missing
+	htmlxref.cnf entry, not tree element.
+
+	* tp/Texinfo/Convert/HTML.pm (_file_header_information): change order
+	of code.  Add intermediary variable $protected_jsdir.
+
+	* tp/Texinfo/Convert/HTML.pm (_get_links): rename $element as
+	$output_unit.
+
+	* tp/Texinfo/options_data.txt (SECTION_NAME_IN_TITLE):
+	SECTION_NAME_IN_TITLE is an int.
+
 2023-12-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: tweak instructions for updating translations
