@@ -2946,7 +2946,10 @@ html_check_htmlxref_already_warned (CONVERTER *self, const char *manual_name,
   entry_nr = find_string (htmlxref_warned_list, node_manual_key);
 
   if (entry_nr)
-    return entry_nr;
+    {
+      free (node_manual_key);
+      return entry_nr;
+    }
 
   add_string (node_manual_key, htmlxref_warned_list);
   free (node_manual_key);
@@ -5973,6 +5976,7 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
           text_append (&result, open);
           text_append_n (&result, ">", 1);
         }
+      free (open);
 
       format_program_string (self, &result);
 
@@ -6026,6 +6030,8 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
               convert_to_html_internal (self, tree, &result, 0);
               remove_element_from_list (&self->tree_to_build, tree);
 
+              destroy_element_and_children (tree);
+
               text_append_n (&result, "</small></a>", 12);
             }
         }
@@ -6074,6 +6080,8 @@ destroy_begin_file_information (BEGIN_FILE_INFORMATION *begin_info)
   free (begin_info->bodytext);
   free (begin_info->generator);
   free (begin_info->extra_head);
+
+  free (begin_info);
 }
 
 static char *
@@ -6194,6 +6202,8 @@ file_header_information (CONVERTER *self, ELEMENT *command,
             = html_gdt_tree ("{element_text} ({title})",
                                    self->document, self, substrings, 0, 0);
 
+          destroy_named_string_element_list (substrings);
+
           add_to_element_list (&self->tree_to_build, title_tree);
 
           begin_info->title
@@ -6204,6 +6214,7 @@ file_header_information (CONVERTER *self, ELEMENT *command,
           remove_element_from_list (&self->tree_to_build, title_tree);
           destroy_element_and_children (title_tree);
         }
+      free (command_string);
     }
   if (!begin_info->title)
     begin_info->title = strdup (self->title_string);
@@ -6334,6 +6345,7 @@ file_header_information (CONVERTER *self, ELEMENT *command,
 "</script><script type=\"text/javascript\" id=\"MathJax-script\" async\n"
 "  src=\"%s\">\n"
 "</script>", mathjax_script);
+      free (mathjax_script);
     }
   begin_info->extra_head = text.text;
   return begin_info;
@@ -6887,6 +6899,8 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           attribute_class = html_attribute_class (self, "h5",
                             &foot_body_heading_classes);
           text_append (result, attribute_class);
+          free (attribute_class);
+
           text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
                        footid, footnote_location_href, footnote_mark);
 
@@ -7564,6 +7578,7 @@ css_string_convert_no_arg_command (CONVERTER *self,
         }
       /* TODO the mapping could be done once for all */
       upper_case_cmd = lookup_builtin_command (upper_case_command);
+      free (upper_case_command);
       if (upper_case_cmd)
         {
           HTML_COMMAND_CONVERSION *conv_context
@@ -8038,6 +8053,7 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
           format_protect_text (self, css_string, result);
           text_append_n (result, "'\"", 2);
         }
+      free (css_string);
     }
 
   text_append_n (result, ">\n", 2);
@@ -9968,6 +9984,8 @@ html_free_converter (CONVERTER *self)
   free (self->reset_target_commands.list);
 
   free (self->referred_command_stack.stack);
+
+  free (self->multiple_pass.stack);
 
   free (self->html_document_context.stack);
 
