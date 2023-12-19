@@ -11,4 +11,6 @@ void unregister_perl_button (BUTTON_SPECIFICATION *button);
 void call_switch_to_global_locale (void);
 void call_sync_locale (void);
 void croak_message (char *message);
+
+char *get_perl_scalar_reference_value (const void *sv_string);
 #endif

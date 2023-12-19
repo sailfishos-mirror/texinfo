@@ -84,6 +84,10 @@ char *call_formatting_function_format_translate_message (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
                                   const char *message, const char *lang,
                                   const char *message_context);
+char * call_formatting_function_format_button_icon_img (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                         const char *button_name,
+                         const char *icon, const char *name);
 FORMATTED_BUTTON_INFO *call_formatting_function_format_button (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
                                   const BUTTON_SPECIFICATION *button,
@@ -146,4 +150,9 @@ void call_special_unit_body_formatting (CONVERTER *self,
                               TEXT *result);
 
 
+FORMATTED_BUTTON_INFO *call_button_simple_function (CONVERTER *self,
+                                         void *formatting_reference_sv);
+FORMATTED_BUTTON_INFO *call_button_direction_function (CONVERTER *self,
+                             void *formatting_reference_sv,
+                             int direction, const ELEMENT *element);
 #endif

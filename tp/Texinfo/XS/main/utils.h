@@ -41,6 +41,7 @@ extern const char *output_unit_type_names[];
 extern const char *command_location_names[];
 
 extern const char *html_button_direction_names[];
+extern char *html_command_text_type_name[];
 
 typedef struct {
     char *encoding_name;
@@ -248,5 +249,6 @@ ELEMENT *get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
                                       enum command_id cmd);
 
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
+void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 
 #endif

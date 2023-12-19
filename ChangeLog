@@ -1,3 +1,51 @@
+2023-12-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_href)
+	(from_element_direction, mini_toc_internal): return 0 instead of an
+	empty string.
+
+	* tp/Texinfo/XS/convert/convert_html.c, tp/Texinfo/XS/main/utils.c
+	(html_command_text_type_name): move html_command_text_type_name to
+	utils.c and complete.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize)
+	(html_free_converter), tp/Texinfo/XS/convert/convert_html.c
+	(direction_string), tp/Texinfo/XS/main/api_to_perl.h (CONVERTER),
+	tp/Texinfo/XS/main/get_perl_info.c (html_get_direction_index):
+	setup self->direction_unit_direction_name with all the direction
+	names.  In direction_string, distinguish index in the full direction
+	units array, to use self->direction_unit_direction_name and index in
+	direction_string data.  Use in html_get_direction_index.
+
+	* tp/Texinfo/XS/main/converter_types.h (DIRECTION_ICON_LIST),
+	tp/Texinfo/XS/main/get_perl_info.c (html_get_direction_icons_sv),
+	tp/Texinfo/XS/main/utils.c (html_free_direction_icons),
+	tp/Texinfo/options_data.txt, tp/maintain/regenerate_C_options_info.pl:
+	use a specific type for icon direction associated file list, get them
+	from perl.
+
+	* tp/Texinfo/XS/main/api_to_perl.h (enum button_specification_type),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list): use two different types of
+	button_information_type, with selected and href
+	direction_information_type, and determine the type index in
+	html_get_button_specification_list.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_button_icon_img)
+	(call_button_simple_function, call_button_direction_function),
+	tp/Texinfo/XS/convert/convert_html.c (format_button_icon_img): add
+	call_formatting_function_format_button_icon_img and functions called
+	for button formatting.
+
+	* tp/Texinfo/XS/main/api_to_perl.c (get_perl_scalar_reference_value):
+	add a function to get a perl text reference value, used in buttons
+	formatting.
+
+	* tp/Texinfo/XS/convert/convert_html.c (direction_href_attributes)
+	(direction_anchor, html_default_format_button, format_button):
+	implement format_button in C.
+
 2023-12-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/call_html_perl_function.c

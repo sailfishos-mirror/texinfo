@@ -55,6 +55,15 @@ unregister_perl_button (BUTTON_SPECIFICATION *button)
   SvREFCNT_dec (button->sv);
 }
 
+char *
+get_perl_scalar_reference_value (const void *sv_string)
+{
+  dTHX;
+
+  char *value = strdup ((char *) SvPVutf8_nolen (SvRV ((SV *) sv_string)));
+  return value;
+}
+
 void
 call_switch_to_global_locale (void)
 {

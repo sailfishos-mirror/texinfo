@@ -128,6 +128,12 @@ const char *html_button_direction_names[] = {
   #undef rud_type
 };
 
+/* keep in sync with enum html_text_type */
+char *html_command_text_type_name[] = {
+  "text", "text_nonumber", "string", "string_nonumber",
+  "href", "target", "node", "section",
+};
+
 /* wrapper for asprintf */
 int
 xasprintf (char **ptr, const char *template, ...)
@@ -1337,4 +1343,22 @@ html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
   free (buttons->list);
   free (buttons);
 }
+
+void
+html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
+{
+  if (!direction_icons)
+    return;
+
+  if (direction_icons->number > 0)
+    {
+      size_t i;
+      for (i = 0; i < direction_icons->number; i++)
+        {
+          free (direction_icons->list[i]);
+        }
+    }
+  free (direction_icons->list);
+}
+
 

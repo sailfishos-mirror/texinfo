@@ -852,23 +852,26 @@ int
 html_get_direction_index (CONVERTER *converter, const char *direction)
 {
   int i;
-  int idx;
-  for (i = 0; i < FIRSTINFILE_MAX_IDX +1; i++)
+  if (converter && converter->direction_unit_direction_name)
     {
-      if (!strcmp (direction, html_button_direction_names[i]))
-        return i;
-    }
-  idx = FIRSTINFILE_MAX_IDX +1;
-  if (converter)
-    {
-      for (i = 0; i < converter->special_unit_varieties.number; i++)
+      for (i = 0; converter->direction_unit_direction_name[i]; i++)
         {
-          if (!strcmp(direction,
-                  converter->special_unit_info[SUI_type_direction][i]))
-            return idx;
-          idx++;
+          if (!strcmp (direction, converter->direction_unit_direction_name[i]))
+            return i;
         }
     }
+   /* we could do the following, but there is no point in getting the
+      buttons if not all can be determined */
+   /*
+  else
+    {
+      for (i = 0; i < NON_SPECIAL_DIRECTIONS_NR; i++)
+        {
+          if (!strcmp (direction, html_button_direction_names[i]))
+            return i;
+        }
+    }
+    */
   return -1;
 }
 
@@ -949,10 +952,34 @@ html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
                 }
               else
                 {
-                  button_spec->type = BIT_direction_information_type;
-                  button_spec->direction_information_type
-                   = html_get_direction_index (converter,
-                                 SvPVutf8_nolen (*button_spec_info_type));
+                  int j;
+                  char *text_type_string
+                     = SvPVutf8_nolen (*button_spec_info_type);
+                  char *text_type_p;
+                  if (strlen (text_type_string) > 2
+                      && !(memcmp (text_type_string, "->", 2)))
+                    {
+                      button_spec->type
+                        = BIT_selected_direction_information_type;
+                      text_type_p = text_type_string +2;
+                      text_type_p += strspn (text_type_p, whitespace_chars);
+                    }
+                  else
+                    {
+                      text_type_p = text_type_string;
+                      button_spec->type
+                        = BIT_href_direction_information_type;
+                    }
+                  button_spec->direction_information_type = -1;
+                  for (j = 0; j < HTT_section +1; j++)
+                    {
+                      if (!strcmp (html_command_text_type_name[j],
+                                   text_type_p))
+                        {
+                          button_spec->direction_information_type = j;
+                          break;
+                        }
+                    }
                 }
             }
           else
@@ -970,5 +997,44 @@ html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
     }
 
   return result;
+}
+
+/* HTML specific, but needs to be there for options_get_perl.c */
+void
+html_get_direction_icons_sv (CONVERTER *converter,
+                             DIRECTION_ICON_LIST *direction_icons,
+                             SV *icons_sv)
+{
+  HV *icons_hv;
+  int i;
+
+  dTHX;
+
+  if (!SvOK (icons_sv))
+    return;
+
+  if (!converter || !converter->direction_unit_direction_name)
+    return;
+
+  direction_icons->number = converter->special_unit_varieties.number
+                        + NON_SPECIAL_DIRECTIONS_NR;
+  direction_icons->list = (char **) malloc
+           (direction_icons->number * sizeof (char *));
+  memset (direction_icons->list, 0, direction_icons->number * sizeof (char *));
+
+  icons_hv = (HV *)SvRV (icons_sv);
+
+  for (i = 0; converter->direction_unit_direction_name[i] ; i++)
+    {
+      const char *direction_name
+        = converter->direction_unit_direction_name[i];
+      SV **direction_icon_sv = hv_fetch (icons_hv, direction_name,
+                                         strlen (direction_name), 0);
+      if (direction_icon_sv && SvOK (*direction_icon_sv))
+        {
+          direction_icons->list[i]
+            = strdup (SvPVutf8_nolen (*direction_icon_sv));
+        }
+    }
 }
 

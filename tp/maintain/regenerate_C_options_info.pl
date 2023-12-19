@@ -104,13 +104,6 @@ print HEADER "#ifndef OPTIONS_TYPE_H\n#define OPTIONS_TYPE_H\n\n";
 print HEADER "#include \"tree_types.h\"\n";
 print HEADER "#include \"converter_types.h\"\n\n";
 
-print HEADER '
-/* temporary */
-typedef struct {
-} ICONS;
-
-';
-
 print HEADER "typedef struct OPTIONS {\n";
 
 foreach my $category (sort(keys(%option_categories))) {
@@ -145,7 +138,7 @@ foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    if ($type eq 'STRING_LIST') {
+    if ($type eq 'STRING_LIST' or $type eq 'DIRECTION_ICON_LIST') {
       print CODE "  memset (&options->$option, 0, sizeof ($type));\n";
     } else {
       my $init_value = 0;
@@ -169,6 +162,8 @@ foreach my $category (sort(keys(%option_categories))) {
       print CODE " free (options->$option);\n";
     } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
       print CODE "  html_free_button_specification_list (options->$option);\n";
+    } elsif ($type eq 'DIRECTION_ICON_LIST') {
+      print CODE "  html_free_direction_icons (&options->$option);\n";
     }
   }
 }
@@ -343,6 +338,11 @@ foreach my $category (sort(keys(%option_categories))) {
       print GET "      html_free_button_specification_list (options->$option);\n";
       print GET "      options->$option = "
                         ."html_get_button_specification_list (converter, value);\n";
+      print GET "    }\n";
+    } elsif ($type eq 'DIRECTION_ICON_LIST') {
+      print GET "    {\n";
+      print GET "      html_free_direction_icons (&options->$option);\n";
+      print GET "      html_get_direction_icons_sv (converter, &options->$option, value);\n";
       print GET "    }\n";
     } else {
       print GET "    {}\n";

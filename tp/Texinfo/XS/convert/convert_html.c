@@ -51,6 +51,7 @@
 #include "manipulate_tree.h"
 /* for new_complete_menu_master_menu */
 #include "structuring.h"
+#include "api_to_perl.h"
 #include "convert_html.h"
 
 char *count_elements_in_filename_type_names[] = {
@@ -2749,8 +2750,12 @@ direction_string (CONVERTER *self, int direction,
                   enum direction_string_type string_type,
                   enum direction_string_context context)
 {
+  int direction_unit_direction_idx = direction;
   if (direction >= FIRSTINFILE_MIN_IDX && direction <= FIRSTINFILE_MAX_IDX)
-    direction += FIRSTINFILE_OFFSET;
+    {
+      direction += FIRSTINFILE_OFFSET;
+      direction_unit_direction_idx = direction;
+    }
   else if (direction > NON_SPECIAL_DIRECTIONS_NR - 1)
     direction -= FIRSTINFILE_NR;
 
@@ -2768,12 +2773,8 @@ direction_string (CONVERTER *self, int direction,
           const char *direction_name;
           TREE_ADDED_ELEMENTS *string_tree = 0;
           text_init (&translation_context);
-          if (direction < FIRSTINFILE_MIN_IDX)
-            direction_name = html_button_direction_names[direction];
-          else
-            direction_name =
-               self->special_unit_info[SUI_type_direction]
-                                  [direction - FIRSTINFILE_MIN_IDX];
+          direction_name
+           = self->direction_unit_direction_name[direction_unit_direction_idx];
           text_append (&translation_context, direction_name);
 
           if (direction == RUD_type_This)
@@ -3375,7 +3376,7 @@ char *html_command_href (CONVERTER *self, const ELEMENT *command,
         target = target_info->target;
     }
   if (!target)
-    return strdup ("");
+    return 0;
 
   text_init (&href);
   text_append (&href, "");
@@ -3779,11 +3780,6 @@ html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
   return 0;
 }
 
-/* keep in sync with enum html_text_type */
-static char *html_command_text_type_name[] = {
-  "text", "text_nonumber", "string", "string_nonumber"
-};
-
 /* return value to be freed by caller */
 char *
 html_command_text (CONVERTER *self, const ELEMENT *command,
@@ -4041,7 +4037,7 @@ from_element_direction (CONVERTER *self, int direction,
                 return html_command_href (self, command,
                                           filename_from, 0, 0);
               else
-                return strdup ("");
+                return 0;
             }
 
           if (command)
@@ -5490,6 +5486,42 @@ format_separate_anchor (CONVERTER *self, const char *id,
     }
 }
 
+static void
+direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
+{
+  if (self->conf->USE_ACCESSKEY > 0)
+    {
+      char *accesskey
+        = direction_string (self, direction, TDS_type_accesskey,
+                                    TDS_context_string);
+      if (accesskey && strlen (accesskey))
+        text_printf (result, " accesskey=\"%s\"", accesskey);
+    }
+
+  if (self->conf->USE_REL_REV)
+    {
+      char *button_rel
+        = direction_string (self, direction, TDS_type_rel,
+                                    TDS_context_string);
+      if (button_rel && strlen (button_rel))
+        text_printf (result, " rel=\"%s\"", button_rel);
+    }
+}
+
+static char *
+direction_anchor (CONVERTER *self, int direction, const char *href,
+                  const char *text)
+{
+  TEXT result;
+  text_init (&result);
+  text_printf (&result, "<a href=\"%s\"", href);
+  direction_href_attributes (self, direction, &result);
+  text_append_n (&result, ">", 1);
+  text_append (&result, text);
+  text_append_n (&result, "</a>", 4);
+  return result.text;
+}
+
 void
 html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
                      const STRING_LIST *classes, const char *text,
@@ -6493,6 +6525,259 @@ format_begin_file (CONVERTER *self, const char *filename,
     }
 }
 
+char *
+format_button_icon_img (CONVERTER *self,
+                        const char *button_name,
+                        const char *icon, const char *name)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_button_icon_img];
+/*
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_button_icon_img (self, button_name,
+                                                        icon, name);
+    }
+  else
+*/
+    {
+      return call_formatting_function_format_button_icon_img (self,
+                                                     formatting_reference,
+                                                     button_name,
+                                                     icon, name);
+    }
+}
+
+FORMATTED_BUTTON_INFO *
+html_default_format_button (CONVERTER *self,
+                            const BUTTON_SPECIFICATION *button,
+                            const ELEMENT *element)
+{
+  if (button->type == BST_function)
+    {
+      return call_button_simple_function (self, button->sv_reference);
+    }
+  else if (button->type == BST_direction_info
+           && button->button_info->type == BIT_function)
+    {
+      return call_button_direction_function (self,
+                      button->button_info->sv_reference,
+                      button->button_info->direction, element);
+    }
+  else
+    {
+      FORMATTED_BUTTON_INFO *formatted_button;
+      formatted_button = (FORMATTED_BUTTON_INFO *)
+        malloc (sizeof (FORMATTED_BUTTON_INFO));
+      memset (formatted_button, 0, sizeof (FORMATTED_BUTTON_INFO));
+
+      if (button->type == BST_string)
+        {
+          formatted_button->active
+            = get_perl_scalar_reference_value (button->sv_string);
+          formatted_button->need_delimiter = 1;
+        }
+      else if (button->type == BST_direction_info)
+        {
+          int direction = button->button_info->direction;
+          if (button->button_info->type == BIT_string)
+            {
+              /* use given text */
+              char *text = get_perl_scalar_reference_value
+                                      (button->button_info->sv_string);
+              if (text)
+                {
+                  char *href = from_element_direction (self, direction,
+                                                HTT_href, 0, 0, element);
+                  if (href)
+                    {
+                      formatted_button->active
+                        = direction_anchor (self, direction, href, text);
+                      free (href);
+                    }
+                  else
+                    {
+                      formatted_button->passive = text;
+                    }
+                }
+            }
+          else if (button->button_info->type
+                   == BIT_selected_direction_information_type)
+            {
+         /* this case is mostly for tests, to test the direction type
+            in direction_information_type with the direction direction */
+              if (button->button_info->direction_information_type >= 0)
+                formatted_button->active
+                  = from_element_direction (self, direction,
+                         button->button_info->direction_information_type,
+                                                           0, 0, element);
+            }
+          else if (button->button_info->type
+                   == BIT_href_direction_information_type)
+            {
+              char *href = from_element_direction (self, direction,
+                                                   HTT_href, 0, 0, element);
+              if (button->button_info->direction_information_type >= 0)
+                {
+                  char *text_formatted = from_element_direction (self,
+                                                                 direction,
+                            button->button_info->direction_information_type,
+                                                                 0, 0, 0);
+                  if (href)
+                    {
+                      formatted_button->active
+                        = direction_anchor (self, direction, href,
+                                                    text_formatted);
+                    }
+                  else
+                    formatted_button->passive = strdup (text_formatted);
+                  free (text_formatted);
+                }
+              free (href);
+            }
+          formatted_button->need_delimiter = 1;
+        }
+      /* for the next cases, button->type == BST_direction */
+      else if (button->direction == D_direction_Space)
+        {
+          /* handle space button */
+          if (self->conf->ICONS > 0 && self->conf->ACTIVE_ICONS.number > 0
+              && self->conf->ACTIVE_ICONS.list[button->direction]
+              && strlen (self->conf->ACTIVE_ICONS.list[button->direction]))
+            {
+              char *button_name_string = direction_string (self,
+                                     button->direction, TDS_type_button,
+                                                      TDS_context_string);
+              formatted_button->active
+                = format_button_icon_img (self, button_name_string,
+                       self->conf->ACTIVE_ICONS.list[button->direction], 0);
+            }
+          else
+            {
+              formatted_button->active = strdup (direction_string (self,
+                                    button->direction, TDS_type_text, 0));
+            }
+          formatted_button->need_delimiter = 0;
+        }
+      else
+        {
+          char *href = from_element_direction (self, button->direction,
+                                               HTT_href, 0, 0, element);
+          /*
+          fprintf (stderr, "HHH '%s' %s\n", href, print_element_debug (element, 0));
+           */
+          if (href)
+            {
+              /* button is active */
+              TEXT active_text;
+              char *active_icon = 0;
+              char *description = direction_string (self, button->direction,
+                                   TDS_type_description, TDS_context_string);
+
+              if (self->conf->ICONS > 0 && self->conf->ACTIVE_ICONS.number > 0
+                  && self->conf->ACTIVE_ICONS.list[button->direction]
+                  && strlen (self->conf->ACTIVE_ICONS.list[button->direction]))
+                active_icon = self->conf->ACTIVE_ICONS.list[button->direction];
+
+              text_init (&active_text);
+              if (!active_icon)
+                text_append_n (&active_text, "[", 1);
+              text_printf (&active_text, "<a href=\"%s\"", href);
+              if (description)
+                text_printf (&active_text, " title=\"%s\"", description);
+              if (self->conf->USE_ACCESSKEY > 0)
+                {
+                  char *accesskey = direction_string (self, button->direction,
+                                      TDS_type_accesskey, TDS_context_string);
+                  if (accesskey && strlen (accesskey))
+                    text_printf (&active_text, " accesskey=\"%s\"", accesskey);
+                }
+              if (self->conf->USE_REL_REV > 0)
+                {
+                  char *button_rel = direction_string (self, button->direction,
+                                     TDS_type_rel, TDS_context_string);
+                  if (button_rel && strlen (button_rel))
+                    text_printf (&active_text, " rel=\"%s\"", button_rel);
+                }
+              text_append_n (&active_text, ">", 1);
+              if (active_icon)
+                {
+                  char *button_name_string = direction_string (self,
+                                     button->direction, TDS_type_button,
+                                                      TDS_context_string);
+                  char *icon_name = from_element_direction (self,
+                                                        button->direction,
+                                                               HTT_string,
+                                                                 0, 0, 0);
+                  char *icon_img
+                    = format_button_icon_img (self, button_name_string,
+                                              active_icon, icon_name);
+                  free (icon_name);
+
+                  text_append (&active_text, icon_img);
+                  free (icon_img);
+                }
+              else
+                text_append (&active_text,
+                             direction_string (self, button->direction,
+                                               TDS_type_text, 0));
+
+              text_append_n (&active_text, "</a>", 4);
+
+              if (!active_icon)
+                text_append_n (&active_text, "]", 1);
+
+              formatted_button->active = active_text.text;
+              free (href);
+            }
+          else
+            {
+              TEXT passive_text;
+              char *passive_icon = 0;
+
+              text_init (&passive_text);
+
+              if (self->conf->ICONS > 0 && self->conf->PASSIVE_ICONS.number > 0
+                  && self->conf->PASSIVE_ICONS.list[button->direction]
+                  && strlen (self->conf->PASSIVE_ICONS.list[button->direction]))
+                {
+                  passive_icon
+                    = self->conf->PASSIVE_ICONS.list[button->direction];
+                }
+              if (passive_icon)
+                {
+                  char *button_name_string = direction_string (self,
+                                     button->direction, TDS_type_button,
+                                                      TDS_context_string);
+                  char *icon_name = from_element_direction (self,
+                                                        button->direction,
+                                                               HTT_string,
+                                                                 0, 0, 0);
+                  char *icon_img
+                    = format_button_icon_img (self, button_name_string,
+                                              passive_icon, icon_name);
+                  free (icon_name);
+
+                  text_append (&passive_text, icon_img);
+                  free (icon_img);
+                }
+              else
+                {
+                  text_append_n (&passive_text, "[", 1);
+                  text_append (&passive_text,
+                             direction_string (self, button->direction,
+                                               TDS_type_text, 0));
+                  text_append_n (&passive_text, "]", 1);
+                }
+              formatted_button->passive = passive_text.text;
+            }
+          formatted_button->need_delimiter = 0;
+        }
+      return formatted_button;
+    }
+  return 0;
+}
+
 FORMATTED_BUTTON_INFO *
 format_button (CONVERTER *self,
                const BUTTON_SPECIFICATION *button,
@@ -6500,13 +6785,11 @@ format_button (CONVERTER *self,
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_button];
-/*
   if (formatting_reference->status == FRS_status_default_set)
     {
-      html_default_format_button (self, button, element, result);
+      return html_default_format_button (self, button, element);
     }
   else
-*/
     {
       return call_formatting_function_format_button (self,
                                                      formatting_reference,
@@ -8119,7 +8402,7 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
 
           if (strlen (text))
             {
-              if (strlen (href))
+              if (href)
                 {
                   text_printf (result, "<li><a href=\"%s\"%s>%s</a>",
                                href, accesskey, text);
@@ -9354,6 +9637,21 @@ html_converter_initialize (CONVERTER *self)
 
   nr_special_units = self->special_unit_varieties.number;
 
+  self->direction_unit_direction_name = (const char **) malloc
+     ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
+  memcpy (self->direction_unit_direction_name, html_button_direction_names,
+          NON_SPECIAL_DIRECTIONS_NR * sizeof (char *));
+  memcpy (self->direction_unit_direction_name + NON_SPECIAL_DIRECTIONS_NR,
+          self->special_unit_info[SUI_type_direction],
+          nr_special_units * sizeof (char *));
+  self->direction_unit_direction_name[
+               nr_special_units + NON_SPECIAL_DIRECTIONS_NR] = 0;
+  /*
+  for (i = 0; self->direction_unit_direction_name[i]; i++)
+    fprintf (stderr, "DEBUG: direction unit names: %d '%s'\n", i,
+             self->direction_unit_direction_name[i]);
+   */
+
   /* allocate space for translated tree types, they will be created
      on-demand during the conversion */
   for (i = 0; i < SUIT_type_heading+1; i++)
@@ -9867,6 +10165,8 @@ html_free_converter (CONVERTER *self)
     }
 
   free_generic_converter (self);
+
+  free (self->direction_unit_direction_name);
 
   free (self->special_unit_body);
   free (self->special_unit_body_formatting);

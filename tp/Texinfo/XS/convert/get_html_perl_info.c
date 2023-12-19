@@ -825,6 +825,8 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
+  /* The corresponding direction without FirstInFile are used instead
+     of FirstInFile*, so the directions_strings are not set */
   nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
                      + converter->special_unit_varieties.number;
 

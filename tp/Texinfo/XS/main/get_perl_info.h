@@ -50,5 +50,8 @@ TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
 BUTTON_SPECIFICATION_LIST *html_get_button_specification_list
                                 (CONVERTER *converter, SV *buttons_sv);
+void html_get_direction_icons_sv (CONVERTER *converter,
+                             DIRECTION_ICON_LIST *direction_icons,
+                             SV *icons_sv);
 
 #endif

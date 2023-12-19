@@ -695,6 +695,7 @@ typedef struct CONVERTER {
     /* set for a converter, modified in a document */
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
     char ***directions_strings[TDS_TYPE_MAX_NR];
+    const char **direction_unit_direction_name;
 
     /* set for a document */
     enum htmlxref_split_type document_htmlxref_split_type;
@@ -803,7 +804,8 @@ enum button_specification_type {
 enum button_information_type {
   BIT_string,
   BIT_function,
-  BIT_direction_information_type,
+  BIT_selected_direction_information_type,
+  BIT_href_direction_information_type,
 };
 
 typedef struct BUTTON_SPECIFICATION_INFO {
@@ -850,5 +852,10 @@ typedef struct FORMATTED_BUTTON_INFO {
     char *passive;
     int need_delimiter;
 } FORMATTED_BUTTON_INFO;
+
+typedef struct DIRECTION_ICON_LIST {
+    size_t number;
+    char **list;
+} DIRECTION_ICON_LIST;
 
 #endif

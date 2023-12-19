@@ -1361,6 +1361,78 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   return result;
 }
 
+char *
+call_formatting_function_format_button_icon_img (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                         const char *button_name,
+                         const char *icon, const char *name)
+
+{
+  int count;
+  SV *name_sv;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv = formatting_reference->sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  if (name)
+    name_sv = newSVpv_utf8 (name, 0);
+  else
+    name_sv = newSV (0);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (button_name, 0)));
+  /* FIXME could also be a byte string */
+  PUSHs(sv_2mortal (newSVpv_utf8 (icon, 0)));
+  PUSHs(sv_2mortal (name_sv));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_button_icon_img should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
 FORMATTED_BUTTON_INFO *
 call_formatting_function_format_button (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
@@ -1425,7 +1497,7 @@ call_formatting_function_format_button (CONVERTER *self,
   if (SvOK (passive_sv))
     {
       STRLEN len;
-      char *passive_ret = SvPV (passive_sv, len);
+      char *passive_ret = SvPVutf8 (passive_sv, len);
       result->passive = strdup (passive_ret);
     }
 
@@ -1433,7 +1505,7 @@ call_formatting_function_format_button (CONVERTER *self,
   if (SvOK (active_sv))
     {
       STRLEN len;
-      char *active_ret = SvPV (active_sv, len);
+      char *active_ret = SvPVutf8 (active_sv, len);
       result->active = strdup (active_ret);
     }
 
@@ -2347,5 +2419,151 @@ call_special_unit_body_formatting (CONVERTER *self,
 
   get_shared_conversion_state (self);
 }
+
+
+
+FORMATTED_BUTTON_INFO *
+call_button_simple_function (CONVERTER *self,
+                             void *formatting_reference_sv)
+{
+  int count;
+  FORMATTED_BUTTON_INFO *result;
+  SV *need_delimiter_sv;
+  SV *active_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  build_tree_to_build (&self->tree_to_build);
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  result
+   = (FORMATTED_BUTTON_INFO *) malloc (sizeof (FORMATTED_BUTTON_INFO));
+  memset (result, 0, sizeof (FORMATTED_BUTTON_INFO));
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUTBACK;
+
+  count = call_sv ((SV *) formatting_reference_sv,
+                   G_ARRAY);
+
+  SPAGAIN;
+
+  if (count != 2)
+    croak("button_simple_function should return 2 items\n");
+
+  need_delimiter_sv = POPs;
+  if (SvOK (need_delimiter_sv))
+    {
+      result->need_delimiter = SvIV (need_delimiter_sv);
+    }
+
+  active_sv = POPs;
+  if (SvOK (active_sv))
+    {
+      STRLEN len;
+      char *active_ret = SvPVutf8 (active_sv, len);
+      result->active = strdup (active_ret);
+    }
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
+FORMATTED_BUTTON_INFO *
+call_button_direction_function (CONVERTER *self,
+                             void *formatting_reference_sv,
+                             int direction, const ELEMENT *element)
+{
+  int count;
+  FORMATTED_BUTTON_INFO *result;
+  SV *need_delimiter_sv;
+  SV *active_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  build_tree_to_build (&self->tree_to_build);
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  result
+   = (FORMATTED_BUTTON_INFO *) malloc (sizeof (FORMATTED_BUTTON_INFO));
+  memset (result, 0, sizeof (FORMATTED_BUTTON_INFO));
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv (self->direction_unit_direction_name[direction],
+                             0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+
+  PUTBACK;
+
+  count = call_sv ((SV *) formatting_reference_sv,
+                   G_ARRAY);
+
+  SPAGAIN;
+
+  if (count != 2)
+    croak("button_direction_function should return 2 items\n");
+
+  need_delimiter_sv = POPs;
+  if (SvOK (need_delimiter_sv))
+    {
+      result->need_delimiter = SvIV (need_delimiter_sv);
+    }
+
+  active_sv = POPs;
+  if (SvOK (active_sv))
+    {
+      STRLEN len;
+      char *active_ret = SvPVutf8 (active_sv, len);
+      result->active = strdup (active_ret);
+    }
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  get_shared_conversion_state (self);
+
+  return result;
+}
+
 
 
