@@ -947,7 +947,8 @@ html_converter_initialize_sv (SV *converter_sv,
 
                       SV **to_convert_sv = hv_fetch (spec_hv, "to_convert",
                                                      strlen ("to_convert"), 0);
-                      if (to_convert_sv)
+                      /* can be undef if set through Config */
+                      if (to_convert_sv && SvOK (*to_convert_sv))
                         {
                           converter
                            ->translated_direction_strings[DS_type][i].to_convert

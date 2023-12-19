@@ -1,5 +1,11 @@
 2023-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): to_convert key in translated direction
+	strings can be undef if set through Config.
+
+2023-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_command_href)
 	(from_element_direction, mini_toc_internal): return 0 instead of an
 	empty string.
