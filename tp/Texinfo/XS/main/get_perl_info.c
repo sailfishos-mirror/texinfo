@@ -875,6 +875,15 @@ html_get_direction_index (CONVERTER *converter, const char *direction)
   return -1;
 }
 
+/* should be consistent with enum button_function_type */
+static const char *button_function_type_string[] = {
+  0,
+  "::_default_panel_button_dynamic_direction_section_footer",
+  "::_default_panel_button_dynamic_direction_node_footer",
+  "::_default_panel_button_dynamic_direction",
+  0,
+};
+
 /* HTML specific, but needs to be there for options_get_perl.c */
 BUTTON_SPECIFICATION_LIST *
 html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
@@ -941,8 +950,23 @@ html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
                 {
                   if (SvTYPE (SvRV(*button_spec_info_type)) == SVt_PVCV) /* CODE */
                     {
+                      int j;
+                      char *button_fun_name;
+                      enum button_function_type button_fun_type = 0;
                       button_spec->type = BIT_function;
-                      button_spec->sv_reference = *button_spec_info_type;
+                      button_spec->button_function.sv_reference
+                                          = *button_spec_info_type;
+                      button_fun_name
+                       = SvPV_nolen (cv_name ((CV *) SvRV (*button_spec_info_type),
+                                              0, 0));
+                      for (j = 1; button_function_type_string[j]; j++)
+                        if (strstr (button_fun_name,
+                                    button_function_type_string[j]))
+                          {
+                            button_fun_type = j;
+                            break;
+                          }
+                      button_spec->button_function.type = button_fun_type;
                     }
                   else
                     {

@@ -109,10 +109,10 @@ enum global_unit_direction {
    rud_type(SectionPrev) \
    rud_type(SectionUp) \
    rud_type(NodeNext) \
-   rud_type(NodeForward) \
-   rud_type(NodeBack) \
    rud_type(NodePrev) \
-   rud_type(NodeUp)
+   rud_type(NodeUp) \
+   rud_type(NodeForward) \
+   rud_type(NodeBack)
 
 /* relative output unit file directions */
 #define RUD_FILE_DIRECTIONS_TYPES \
@@ -191,7 +191,7 @@ typedef struct OUTPUT_UNIT {
     struct OUTPUT_UNIT *tree_unit_directions[2];
 
     struct OUTPUT_UNIT *first_in_page;
-    struct OUTPUT_UNIT *directions[RUD_type_FirstInFileNodeUp+1];
+    struct OUTPUT_UNIT *directions[RUD_type_FirstInFileNodeBack+1];
 
     /* for special output units only */
     /* could be an enum as for now new special types cannot be customized

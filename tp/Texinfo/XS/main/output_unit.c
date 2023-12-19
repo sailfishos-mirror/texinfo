@@ -464,7 +464,7 @@ print_output_unit_directions (OUTPUT_UNIT *output_unit)
   text_printf (&result, "output unit: %s\n",
                output_unit_texi(output_unit));
 
-  for (i = 0; i < RUD_type_FirstInFileNodeUp+1; i++)
+  for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
     {
       OUTPUT_UNIT *direction = output_unit->directions[i];
       if (direction)
@@ -848,7 +848,7 @@ units_file_directions (OUTPUT_UNIT_LIST *output_units)
         {
           memcpy (&output_unit->directions[RUD_type_FirstInFileThis],
                   &first_unit_in_file->directions[RUD_type_This],
-                  (RUD_type_NodeUp - RUD_type_This +1) * sizeof (OUTPUT_UNIT *));
+                  (RUD_type_NodeBack - RUD_type_This +1) * sizeof (OUTPUT_UNIT *));
         }
     }
 }

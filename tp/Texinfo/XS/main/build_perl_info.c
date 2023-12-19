@@ -1292,7 +1292,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   sv = newRV_noinc ((SV *) directions_hv);
   STORE("directions");
 
-  for (i = 0; i < RUD_type_FirstInFileNodeUp+1; i++)
+  for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
     {
       if (output_unit->directions[i])
         {

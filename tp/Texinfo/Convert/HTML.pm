@@ -3909,15 +3909,15 @@ sub _default_panel_button_dynamic_direction($$;$$$)
     $node = $self->from_element_direction($direction, 'node');
   }
 
-  my $hyperlink;
-  if (defined($href) and $href ne '' and defined($node) and $node =~ /\S/) {
-    my $hyperlink_attributes = $omit_rel ? ''
-      : $self->_direction_href_attributes($direction);
-    $hyperlink = "<a href=\"$href\"${hyperlink_attributes}>$node</a>";
-  } elsif (defined($node) and $node =~ /\S/) {
-    $hyperlink = $node;
-  }
-  if (defined($hyperlink)) {
+  if (defined($node) and $node =~ /\S/) {
+    my $hyperlink;
+    if (defined($href) and $href ne '') {
+      my $hyperlink_attributes = $omit_rel ? ''
+        : $self->_direction_href_attributes($direction);
+      $hyperlink = "<a href=\"$href\"${hyperlink_attributes}>$node</a>";
+    } else {
+      $hyperlink = $node;
+    }
     # i18n
     $result = $self->direction_string($direction, 'text').": $hyperlink";
   }

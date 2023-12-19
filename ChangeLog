@@ -1,5 +1,38 @@
 2023-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm
+	(_default_panel_button_dynamic_direction): rearrange conditions to
+	avoid redundant code.
+
+	* tp/Texinfo/XS/main/converter_types.h (enum button_function_type)
+	(BUTTON_FUNCTION, BUTTON_SPECIFICATION_INFO),
+	tp/Texinfo/XS/main/get_perl_info.c (button_function_type_string)
+	(html_get_button_specification_list): get the function reference name
+	used to format buttons with directions.  Based on the name, associate
+	to an enum, one for each of the default button formatting functions.
+
+	* tp/Texinfo/XS/main/converter_types.h (NODE_DIRECTIONS_OFFSET),
+	tp/Texinfo/XS/main/tree_types.h (RUD_DIRECTIONS_TYPES_LIST): move
+	NodeNext directions such that there is a fix offset between non
+	prefixed Prev, Next, Up directions and Node prefixed corresponding
+	directions.  NodeBack is now the last relative direction.
+
+	* tp/Texinfo/XS/convert/convert_html.c (direction_anchor)
+	(default_panel_button_dynamic_direction_internal)
+	(default_panel_button_dynamic_direction)
+	(default_panel_button_dynamic_direction_node_footer)
+	'default_panel_button_dynamic_direction_section_footer):
+	add omit_rel argument to direction_anchor, update callers.  Implement
+	default_panel_button_dynamic_direction*.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_format_button_function)
+	(button_direction_function, html_default_format_button): add
+	html_format_button_function array and button_direction_function to
+	call the C functions for the buttons formatting for default button
+	formatting functions.
+
+2023-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv): to_convert key in translated direction
 	strings can be undef if set through Config.

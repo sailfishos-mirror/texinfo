@@ -788,9 +788,10 @@ enum direction_unit_direction {
 };
 
 #define FIRSTINFILE_MIN_IDX D_direction_FirstInFileThis
-#define FIRSTINFILE_MAX_IDX D_direction_FirstInFileNodeUp
+#define FIRSTINFILE_MAX_IDX D_direction_FirstInFileNodeBack
 #define FIRSTINFILE_OFFSET (D_direction_This - D_direction_FirstInFileThis)
 #define FIRSTINFILE_NR (FIRSTINFILE_MAX_IDX - FIRSTINFILE_MIN_IDX +1)
+#define NODE_DIRECTIONS_OFFSET (D_direction_NodeNext - D_direction_Next)
 
 #define NON_SPECIAL_DIRECTIONS_NR (FIRSTINFILE_MAX_IDX +1)
 
@@ -808,14 +809,34 @@ enum button_information_type {
   BIT_href_direction_information_type,
 };
 
+/* enum value corresponding to a default button formatting function
+   used later on to select a C function to replace the default function */
+/* longest strings first to avoid ambiguity */
+enum button_function_type {
+  BFT_type_none,
+  /* _default_panel_button_dynamic_direction_section_footer */
+  BFT_type_panel_section_footer,
+  /* _default_panel_button_dynamic_direction_node_footer */
+  BFT_type_panel_node_footer,
+  /* _default_panel_button_dynamic_direction */
+  BFT_type_panel_directions,
+};
+
+typedef struct BUTTON_FUNCTION {
+ /* perl references. This should be SV *sv_*,
+    but we don't want to include the Perl headers everywhere; */
+    void *sv_reference;
+    enum button_function_type type;
+} BUTTON_FUNCTION;
+
 typedef struct BUTTON_SPECIFICATION_INFO {
      /* both global and relative directions index */
     int direction;
     enum button_information_type type;
     union {
+      BUTTON_FUNCTION button_function; /* BIT_function */
   /* perl references. This should be SV *sv_*,
      but we don't want to include the Perl headers everywhere; */
-      void *sv_reference; /* BIT_function */
       void *sv_string; /* BIT_string */
      /* both global and relative directions index */
       int direction_information_type; /* BIT_direction_information_type

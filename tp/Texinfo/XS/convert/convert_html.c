@@ -5510,12 +5510,13 @@ direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
 
 static char *
 direction_anchor (CONVERTER *self, int direction, const char *href,
-                  const char *text)
+                  const char *text, int omit_rel)
 {
   TEXT result;
   text_init (&result);
   text_printf (&result, "<a href=\"%s\"", href);
-  direction_href_attributes (self, direction, &result);
+  if (!omit_rel)
+    direction_href_attributes (self, direction, &result);
   text_append_n (&result, ">", 1);
   text_append (&result, text);
   text_append_n (&result, "</a>", 4);
@@ -6548,6 +6549,106 @@ format_button_icon_img (CONVERTER *self,
     }
 }
 
+static FORMATTED_BUTTON_INFO *
+default_panel_button_dynamic_direction_internal (CONVERTER *self,
+                               int direction, const ELEMENT *element,
+                               int omit_rel,
+                             int use_first_element_in_file_directions)
+{
+  char *href;
+  char *node = 0;
+  FORMATTED_BUTTON_INFO *formatted_button;
+
+  formatted_button = (FORMATTED_BUTTON_INFO *)
+    malloc (sizeof (FORMATTED_BUTTON_INFO));
+  memset (formatted_button, 0, sizeof (FORMATTED_BUTTON_INFO));
+
+  formatted_button->need_delimiter = 1;
+
+  if (self->conf->USE_NODE_DIRECTIONS > 0
+      || (self->conf->USE_NODE_DIRECTIONS < 0
+          && self->conf->USE_NODES > 0))
+    direction += NODE_DIRECTIONS_OFFSET;
+
+  if (use_first_element_in_file_directions)
+    direction -= FIRSTINFILE_OFFSET;
+
+  href = from_element_direction (self, direction, HTT_href, 0, 0, element);
+
+  if (!strcmp (self->conf->xrefautomaticsectiontitle, "on"))
+    node = from_element_direction (self, direction, HTT_section, 0, 0, 0);
+
+  if (!node)
+    node = from_element_direction (self, direction, HTT_node, 0, 0, 0);
+
+  if (node && node[strspn (node, whitespace_chars)] != '\0')
+    {
+      char *hyperlink;
+      char *text = direction_string (self, direction, TDS_type_text, 0);
+      if (href && strlen (href))
+        {
+          hyperlink =
+           direction_anchor (self, direction, href, node, omit_rel);
+          free (node);
+        }
+      else
+        hyperlink = node;
+
+      xasprintf (&formatted_button->active, "%s: %s", text, hyperlink);
+      free (hyperlink);
+      return formatted_button;
+    }
+
+  free (node);
+  return formatted_button;
+}
+
+static FORMATTED_BUTTON_INFO *
+default_panel_button_dynamic_direction (CONVERTER *self,
+                               int direction, const ELEMENT *element)
+{
+  return default_panel_button_dynamic_direction_internal (self,
+                                        direction, element, 0, 0);
+}
+
+static FORMATTED_BUTTON_INFO *
+default_panel_button_dynamic_direction_node_footer (CONVERTER *self,
+                               int direction, const ELEMENT *element)
+{
+  return default_panel_button_dynamic_direction_internal (self,
+                                        direction, element, 1, 0);
+}
+
+static FORMATTED_BUTTON_INFO *
+default_panel_button_dynamic_direction_section_footer (CONVERTER *self,
+                               int direction, const ELEMENT *element)
+{
+  return default_panel_button_dynamic_direction_internal (self,
+                                        direction, element, 0, 1);
+}
+
+/* the order corresponds to enum button_function_type */
+FORMATTED_BUTTON_INFO * (*html_format_button_function[]) (CONVERTER *self,
+                               int direction, const ELEMENT *element) = {
+ 0,
+ 0,
+ 0,
+ &default_panel_button_dynamic_direction,
+ 0
+};
+
+FORMATTED_BUTTON_INFO *
+button_direction_function (CONVERTER *self, BUTTON_FUNCTION *button_function,
+                           int direction, const ELEMENT *element)
+{
+  if (html_format_button_function[button_function->type])
+    return (*html_format_button_function[button_function->type])
+                                         (self, direction, element);
+  else
+    return call_button_direction_function (self, button_function->sv_reference,
+                                                      direction, element);
+}
+
 FORMATTED_BUTTON_INFO *
 html_default_format_button (CONVERTER *self,
                             const BUTTON_SPECIFICATION *button,
@@ -6560,8 +6661,8 @@ html_default_format_button (CONVERTER *self,
   else if (button->type == BST_direction_info
            && button->button_info->type == BIT_function)
     {
-      return call_button_direction_function (self,
-                      button->button_info->sv_reference,
+      return button_direction_function (self,
+                      &button->button_info->button_function,
                       button->button_info->direction, element);
     }
   else
@@ -6592,7 +6693,7 @@ html_default_format_button (CONVERTER *self,
                   if (href)
                     {
                       formatted_button->active
-                        = direction_anchor (self, direction, href, text);
+                        = direction_anchor (self, direction, href, text, 0);
                       free (href);
                     }
                   else
@@ -6627,7 +6728,7 @@ html_default_format_button (CONVERTER *self,
                     {
                       formatted_button->active
                         = direction_anchor (self, direction, href,
-                                                    text_formatted);
+                                                    text_formatted, 0);
                     }
                   else
                     formatted_button->passive = strdup (text_formatted);
