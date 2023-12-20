@@ -31,6 +31,10 @@
 
 2023-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.h: properly comment unused code.
+
+2023-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
 	(_push_referred_command_stack_command, _pop_referred_command_stack)
 	(_command_is_in_referred_command_stack, command_text)
