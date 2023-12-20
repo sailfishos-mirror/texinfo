@@ -1625,7 +1625,6 @@ sub _anchor($$)
 }
 
 my $listoffloat_entry_length = 41;
-my $listoffloat_append = '...';
 
 sub ensure_end_of_line($$)
 {
@@ -2979,7 +2978,12 @@ sub _convert($$)
           my $float_entry = $self->float_type_number($float);
           next if !defined($float_entry);
 
-          my $formatter = $self->new_formatter('line');
+          my $formatter = $self->new_formatter('paragraph',
+            {
+              'indent_length' => 0,
+              'indent_length_next' => $listoffloat_entry_length,
+              'max' => $self->{'text_element_context'}->[-1]->{'max'},
+            });
           my $container = $formatter->{'container'};
           push @{$self->{'formatters'}}, $formatter;
 
@@ -2999,7 +3003,7 @@ sub _convert($$)
           $result .= _count_added($self, $container,
                                   add_next($container, '.'));
           $result .= _count_added($self, $container,
-            Texinfo::Convert::Paragraph::end($container));
+            Texinfo::Convert::Paragraph::add_pending_word($container));
 
           # NB we trust that only $container was used to format text
           # inside the call to convert_line so that all output text is
@@ -3007,17 +3011,15 @@ sub _convert($$)
           my $line_width
              = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
-          pop @{$self->{'formatters'}};
-
           if ($line_width > $listoffloat_entry_length) {
-            $result .= "\n" . ' ' x $listoffloat_entry_length;
+            $result .= _count_added($self, $container,
+              Texinfo::Convert::Paragraph::end_line($container));
             $lines_count++;
           } else {
-            $result .= ' ' x ($listoffloat_entry_length - $line_width);
+            $result .= _count_added($self, $container, add_next($container,
+                         ' ' x ($listoffloat_entry_length - $line_width)));
           }
-          $line_width = $listoffloat_entry_length;
 
-          my $float_line = '';
           my $caption;
           if ($float->{'extra'}->{'shortcaption'}) {
             $caption = $float->{'extra'}->{'shortcaption'};
@@ -3026,29 +3028,35 @@ sub _convert($$)
           }
           if ($caption and $caption->{'args'}->[0]
               and $caption->{'args'}->[0]->{'contents'}) {
-            $self->{'multiple_pass'} = 1;
             push @{$self->{'context'}}, 'listoffloats';
-            my $caption_text = _convert($self, $caption->{'args'}->[0]);
-            my $old_context = pop @{$self->{'context'}};
-            delete $self->{'multiple_pass'};
-            die if ($old_context ne 'listoffloats');
-            while ($caption_text
-                     =~ s/^\s*(\p{Unicode::EastAsianWidth::InFullwidth}\s*|\S+\s*)//) {
-              my $new_word = $1;
-              $new_word =~ s/\n//g;
-              if ((Texinfo::Convert::Unicode::string_width($new_word) +
-                   $line_width) >
-                       ($self->{'text_element_context'}->[-1]->{'max'} - 3)) {
-                $float_line .= $listoffloat_append;
+            $self->{'multiple_pass'} = 1;
+            my $caption_arg = $caption->{'args'}->[0];
+
+            # we do not want to start a new paragraph formatter so
+            # we iterate over the contents of a paragraph rather than
+            # converting the paragraph itself.
+            for my $element (@{$caption_arg->{'contents'}}) {
+              if (defined($element->{'type'})
+                    and $element->{'type'} eq 'paragraph'
+                    and defined($element->{'contents'})) {
+                for my $subelement (@{$element->{'contents'}}) {
+                  $result .= _convert($self, $subelement);
+                }
                 last;
               } else {
-                $float_line .= $new_word;
-                $line_width +=
-                  Texinfo::Convert::Unicode::string_width($new_word);
+                $result .= _convert($self, $element);
+                last;
               }
             }
+            delete $self->{'multiple_pass'};
+            my $old_context = pop @{$self->{'context'}};
           }
-          $result .= $float_line. "\n";
+          # flush
+          $result .= _count_added($self, $container,
+            Texinfo::Convert::Paragraph::end($container));
+
+          pop @{$self->{'formatters'}};
+
           $lines_count++;
         }
         $result .= "\n";

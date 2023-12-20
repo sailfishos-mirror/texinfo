@@ -1,3 +1,17 @@
+2023-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Paragraph formatter for @listoffloats output
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <@listoffloats>:
+	Use a single paragraph formatter to convert a whole entry in the
+	list of floats.  Use 'indent_length_next' setting for indenting
+	subsequent lines, rather than adding spaces to the results string.
+	Do not process the result of converting a caption twice.  Do not
+	process the converted caption with a regex splitting into words.
+	Do not truncate caption at a fixed column or append "...".
+	Eliminate use of Texinfo::Convert::Unicode::string_width on
+	converted output.
+
 2023-12-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm

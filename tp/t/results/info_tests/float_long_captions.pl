@@ -395,8 +395,10 @@ Text 2: AAAAAAAAAAAAAAAA BBBBBB CCCCCCCCCCC
 
 * Menu:
 
-* Text 1: text1.                         AAAAAAAAAAAAAAAA BBBBB ...
-* Text 2: text2.                         AAAAAAAAAAAAAAAA BBBBBB ...
+* Text 1: text1.                         AAAAAAAAAAAAAAAA BBBBB
+                                         CCCCCCCCCCC
+* Text 2: text2.                         AAAAAAAAAAAAAAAA BBBBBB
+                                         CCCCCCCCCCC
 
 
 

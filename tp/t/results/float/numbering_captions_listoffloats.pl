@@ -6201,7 +6201,8 @@ text with a lot of features.
 * Text 1: text with a lot of features.   TeX and someething
 * Text 1.1: text in chapter.             C Text in chapter
 * Text 1.2: float with a lot of features and no shortcaption.
-                                         An example of float ...
+                                         An example of float caption, no
+                                         shortcaption...
 * Text 1.3: text in section.             
 * Text 5: unnumbered float.              SC unnumbered float
 * Text 6: Section within unnumbered float.

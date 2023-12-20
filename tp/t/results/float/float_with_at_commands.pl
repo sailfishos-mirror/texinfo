@@ -388,7 +388,8 @@ entrée 1: La première entrée est importante
 
 * Menu:
 
-* entrée 1: première entrée.             La première entrée est ...
+* entrée 1: première entrée.             La première entrée est
+                                         importante
 
 ';
 

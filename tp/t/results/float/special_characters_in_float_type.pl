@@ -561,7 +561,8 @@ VAR
 * Menu:
 
 * A < " " \' \' \' \\aaa . -- IN VAR 1.1: L < " `` ` \' \' \\aaa . --- IN VAR.
-                                         float A < " " \' \' \' \\aaa .  ...
+                                         float A < " " \' \' \' \\aaa .  --
+                                         IN VAR
 
 ';
 
@@ -592,7 +593,8 @@ VAR
 * Menu:
 
 * A < " " \' \' \' \\aaa . -- IN VAR 1.1: L < " `` ` \' \' \\aaa . --- IN VAR.
-                                         float A < " " \' \' \' \\aaa .  ...
+                                         float A < " " \' \' \' \\aaa .  --
+                                         IN VAR
 
 
 

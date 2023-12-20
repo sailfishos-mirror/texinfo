@@ -3195,7 +3195,7 @@ In text [alt î-le..  a
 
 * Menu:
 
-* Image 1: Image with commands.          [f@i--le..  a@<"%@  < & @ % ...
+* Image 1: Image with commands.          
 
 ';
 
@@ -3228,14 +3228,6 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
     'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 ',
     'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => 'could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
-',
-    'line_nr' => 27,
     'macro' => 'files-char',
     'text' => 'could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text',
     'type' => 'warning'

@@ -438,11 +438,15 @@ Text 1: Caption.  TeX.  In caption *note caption*.  Now footnote(1)
 
 * Menu:
 
-* Text 1: label.                         Caption.  TeX.  In caption ...
+* Text 1: label.                         Caption.  TeX.  In caption
+                                         *note caption*.  Now
+                                         footnote(1)
 
 * Menu:
 
-* Text 1: label.                         Caption.  TeX.  In caption ...
+* Text 1: label.                         Caption.  TeX.  In caption
+                                         *note caption*.  Now
+                                         footnote(1)
 
    ---------- Footnotes ----------
 
@@ -453,7 +457,7 @@ Text 1: Caption.  TeX.  In caption *note caption*.  Now footnote(1)
 Tag Table:
 Node: Top27
 Ref: label61
-Ref: Top-Footnote-1343
+Ref: Top-Footnote-1565
 
 End Tag Table
 
