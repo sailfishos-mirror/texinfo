@@ -31,6 +31,34 @@
 
 2023-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_push_referred_command_stack_command, _pop_referred_command_stack)
+	(_command_is_in_referred_command_stack, command_text)
+	(_convert_xref_commands), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_push_referred_command_stack_command)
+	(html_pop_referred_command_stack)
+	(html_command_is_in_referred_command_stack),
+	tp/Texinfo/XS/convert/convert_html.c (html_command_text),
+	tp/Texinfo/XS/main/command_stack.c
+	(push_element_reference_stack_element)
+	(pop_element_reference_stack, command_is_in_referred_command_stack),
+	tp/Texinfo/XS/main/converter_types.h (ELEMENT_REFERENCE)
+	(ELEMENT_REFERENCE_STACK, CONVERTER): add accessors around
+	referred_command_stack state and override them to make sure that the
+	state viewed from perl and C is the same, both from C to perl and perl
+	to C.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state): remove the previous way to synchronize
+	referred_command_stack from C to perl.
+
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
+	(_initialize_XS_NonXS_output_state): move
+	check_htmlxref_already_warned and referred_command_stack
+	initialization to _initialize_output_state.
+
+2023-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm
 	(_default_panel_button_dynamic_direction): rearrange conditions to
 	avoid redundant code.

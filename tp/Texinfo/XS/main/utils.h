@@ -138,7 +138,7 @@ enum command_location {
 #define HMSF_translations            0x4000
 #define HMSF_            0x8000
 #define HMSF_added_target            0x00010000
-#define HMSF_referred_command_stack  0x00020000
+#define HMSF_  0x00020000
 
 typedef struct TARGET_FILENAME {
     char *target;

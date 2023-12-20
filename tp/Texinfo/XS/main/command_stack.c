@@ -219,6 +219,56 @@ pop_stack_element (ELEMENT_STACK *stack)
 }
 
 
+/* elements stack that can also be called from an external language (perl)
+   where there is no reference to C elements */
+void
+push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
+                                      const ELEMENT *e, const void *hv)
+{
+  if (stack->top >= stack->space)
+  {
+    stack->stack
+      = realloc (stack->stack,
+                 (stack->space += 5) * sizeof (ELEMENT_STACK));
+  }
+
+  memset (&stack->stack[stack->top], 0, sizeof (ELEMENT_STACK));
+
+  if (e)
+    stack->stack[stack->top].element = e;
+  if (hv)
+    stack->stack[stack->top].hv = hv;
+
+  stack->top++;
+}
+
+void
+pop_element_reference_stack (ELEMENT_REFERENCE_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("element reference stack empty for top");
+
+  stack->top--;
+}
+
+int
+command_is_in_referred_command_stack (ELEMENT_REFERENCE_STACK *stack,
+                                      const ELEMENT *e, const void *hv)
+{
+  size_t i;
+  for (i = 0; i < stack->top; i++)
+    {
+      ELEMENT_REFERENCE *element_reference = &stack->stack[i];
+      if (e && element_reference->element == e
+          || hv && element_reference->hv == hv)
+        {
+          return 1;
+        }
+    }
+  return 0;
+}
+
+
 /* HTML specific but also used to build perl */
 HTML_DOCUMENT_CONTEXT *
 html_top_document_context (CONVERTER *self)

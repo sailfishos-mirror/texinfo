@@ -230,6 +230,21 @@ typedef struct ELEMENT_STACK {
     size_t space;
 } ELEMENT_STACK;
 
+/* an element in C, and/or a reference to an external language (perl)
+   for stack functions called from outside of the C converter */
+typedef struct ELEMENT_REFERENCE {
+    const ELEMENT *element;
+  /* perl element. This should be HV *hv,
+     but we don't want to include the Perl headers everywhere; */
+    const void *hv;
+} ELEMENT_REFERENCE;
+
+typedef struct ELEMENT_REFERENCE_STACK {
+    ELEMENT_REFERENCE *stack;
+    size_t top;
+    size_t space;
+} ELEMENT_REFERENCE_STACK;
+
 typedef struct FILE_NUMBER_NAME {
     size_t file_number;
     char *filename;
@@ -750,7 +765,7 @@ typedef struct CONVERTER {
     STRING_STACK multiple_pass;
     STRING_STACK pending_closes;
     FILE_NUMBER_NAME current_filename;
-    ELEMENT_STACK referred_command_stack;
+    ELEMENT_REFERENCE_STACK referred_command_stack;
     HTML_SHARED_CONVERSION_STATE shared_conversion_state;
     HTML_INLINE_CONTENT_STACK pending_inline_content;
     HTML_PENDING_FOOTNOTE_STACK pending_footnotes;

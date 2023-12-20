@@ -215,6 +215,12 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_associate_pending_formatted_inline_content",
   "Texinfo::Convert::HTML::get_associated_formatted_inline_content",
    => "Texinfo::Convert::ConvertXS::html_get_associated_formatted_inline_content",
+  "Texinfo::Convert::HTML::_push_referred_command_stack_command"
+   => "Texinfo::Convert::ConvertXS::html_push_referred_command_stack_command",
+  "Texinfo::Convert::HTML::_pop_referred_command_stack"
+   => "Texinfo::Convert::ConvertXS::html_pop_referred_command_stack",
+  "Texinfo::Convert::HTML::_command_is_in_referred_command_stack"
+   => "Texinfo::Convert::ConvertXS::html_command_is_in_referred_command_stack",
   "Texinfo::Convert::HTML::_check_htmlxref_already_warned"
    => "Texinfo::Convert::ConvertXS::html_check_htmlxref_already_warned",
 
@@ -1261,6 +1267,27 @@ sub command_tree($$;$)
   return undef;
 }
 
+sub _push_referred_command_stack_command($$)
+{
+  my $self = shift;
+  my $command = shift;
+  push @{$self->{'referred_command_stack'}}, $command;
+}
+
+sub _pop_referred_command_stack($)
+{
+  my $self = shift;
+  pop @{$self->{'referred_command_stack'}};
+}
+
+sub _command_is_in_referred_command_stack($$)
+{
+  my $self = shift;
+  my $command = shift;
+
+  return grep {$_ eq $command} @{$self->{'referred_command_stack'}};
+}
+
 # Return text to be used for a hyperlink to $COMMAND.
 # $TYPE refers to the type of value returned from this function:
 #  'text' - return text
@@ -1335,9 +1362,10 @@ sub command_text($$;$)
     }
 
     $self->{'ignore_notice'}++;
-    push @{$self->{'referred_command_stack'}}, $command;
+
+    _push_referred_command_stack_command($self, $command);
     $target->{$type} = $self->_convert($tree_root, $explanation);
-    pop @{$self->{'referred_command_stack'}};
+    _pop_referred_command_stack($self);
     $self->{'ignore_notice'}--;
 
     $self->_pop_document_context();
@@ -5643,8 +5671,8 @@ sub _convert_xref_commands($$$$)
          # possible to construct an infinite recursion with nodes only
          # as the node must both be a reference target and refer to a specific
          # target at the same time, which is not possible.
-         and not grep {$_ eq $target_node->{'extra'}->{'associated_section'}}
-                     @{$self->{'referred_command_stack'}}) {
+         and not _command_is_in_referred_command_stack($self,
+                          $target_node->{'extra'}->{'associated_section'})) {
         $target_root = $target_node->{'extra'}->{'associated_section'};
         $name = $self->command_text($target_root, 'text_nonumber');
       } elsif ($target_node->{'cmdname'} eq 'float') {
@@ -11267,6 +11295,13 @@ sub _initialize_output_state($$)
   $self->{'pending_footnotes'} = [];
   $self->{'pending_closes'} = [];
 
+  # to avoid infinite recursions when a section refers to itself, possibly
+  # indirectly
+  $self->{'referred_command_stack'} = [];
+
+  $self->{'check_htmlxref_already_warned'} = {}
+    if ($self->get_conf('CHECK_HTMLXREF'));
+
   $self->_new_document_context($context);
 }
 
@@ -11304,13 +11339,6 @@ sub _initialize_XS_NonXS_output_state($$)
 
   # for footnotes
   $self->{'special_targets'} = {'footnote_location' => {}};
-
-  # to avoid infinite recursions when a section refers to itself, possibly
-  # indirectly
-  $self->{'referred_command_stack'} = [];
-
-  $self->{'check_htmlxref_already_warned'} = {}
-    if ($self->get_conf('CHECK_HTMLXREF'));
 }
 
 sub _finalize_output_state($)

@@ -44,6 +44,12 @@ int top_integer_stack (INTEGER_STACK *stack);
 void push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e);
 const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);
 
+void push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
+                                      const ELEMENT *e, const void *hv);
+void pop_element_reference_stack (ELEMENT_REFERENCE_STACK *stack);
+int command_is_in_referred_command_stack (ELEMENT_REFERENCE_STACK *stack,
+                                      const ELEMENT *e, const void *hv);
+
 HTML_DOCUMENT_CONTEXT *html_top_document_context (CONVERTER *self);
 
 HTML_FORMATTING_CONTEXT *html_top_formatting_context

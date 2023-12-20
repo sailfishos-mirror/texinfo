@@ -3884,16 +3884,15 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
             tree_root = selected_tree;
 
           self->ignore_notice++;
-          push_stack_element (&self->referred_command_stack, command);
-          self->modified_state |= HMSF_referred_command_stack
-                                   | HMSF_converter_state;
+          push_element_reference_stack_element (&self->referred_command_stack,
+                                                command, command->hv);
+          self->modified_state |= HMSF_converter_state;
           target_info->command_text[type]
             = html_convert_tree (self, tree_root, explanation);
           free (explanation);
-          pop_stack_element (&self->referred_command_stack);
+          pop_element_reference_stack (&self->referred_command_stack);
           self->ignore_notice--;
-          self->modified_state |= HMSF_referred_command_stack
-                                   | HMSF_converter_state;
+          self->modified_state |= HMSF_converter_state;
 
           html_pop_document_context (self);
 

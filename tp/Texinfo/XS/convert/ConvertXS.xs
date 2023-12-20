@@ -1098,6 +1098,54 @@ html_get_associated_formatted_inline_content (SV *converter_in, SV *element_sv)
     OUTPUT:
          RETVAL
 
+# we do not increase here and decrease in pop the element_hv refcount, under
+# the assumption that there is already a reference held by the C tree on
+# the element.
+void
+html_push_referred_command_stack_command (SV *converter_in, SV *element_sv)
+      PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_push_referred_command_stack_command");
+         if (self)
+           {
+             const HV *element_hv = (HV *) SvRV (element_sv);
+             push_element_reference_stack_element (
+              &self->referred_command_stack, 0, (const void *)element_hv);
+           }
+
+void
+html_pop_referred_command_stack (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_pop_referred_command_stack");
+         if (self)
+           {
+             pop_element_reference_stack (&self->referred_command_stack);
+           }
+
+int
+html_command_is_in_referred_command_stack (SV *converter_in, SV *element_sv)
+      PREINIT:
+         CONVERTER *self;
+         int found = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                               "html_command_is_in_referred_command_stack");
+         if (self)
+           {
+             const HV *element_hv = (HV *) SvRV (element_sv);
+             found = command_is_in_referred_command_stack (
+                      &self->referred_command_stack, 0,
+                      (const void *)element_hv);
+           }
+         RETVAL = found;
+    OUTPUT:
+         RETVAL
+
 int
 html_check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_info_sv)
          char *manual_name = (char *)SvPVutf8_nolen($arg);

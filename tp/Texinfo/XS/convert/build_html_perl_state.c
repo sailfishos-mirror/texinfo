@@ -755,33 +755,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         }
     }
 
-  if (flags & HMSF_referred_command_stack)
-    {
-      SV **referred_command_stack_sv;
-      AV *referred_command_stack_av;
-
-      FETCH(referred_command_stack);
-
-      if (!referred_command_stack_sv)
-        {
-          referred_command_stack_av = newAV ();
-          STORE("referred_command_stack",
-                newRV_noinc ((SV *) referred_command_stack_av));
-        }
-      else
-        {
-          referred_command_stack_av = (AV *) SvRV (*referred_command_stack_sv);
-          av_clear (referred_command_stack_av);
-        }
-
-      for (i = 0; i < converter->referred_command_stack.top; i++)
-        {
-          const ELEMENT *referred_e = converter->referred_command_stack.stack[i];
-          av_push (referred_command_stack_av,
-                   newRV_inc ((SV *) referred_e->hv));
-        }
-    }
-
   if (converter->added_targets.number)
     {
       SV **targets_sv;
