@@ -6637,8 +6637,8 @@ default_panel_button_dynamic_direction_section_footer (CONVERTER *self,
 FORMATTED_BUTTON_INFO * (*html_format_button_function[]) (CONVERTER *self,
                                int direction, const ELEMENT *element) = {
  0,
- 0,
- 0,
+ &default_panel_button_dynamic_direction_section_footer,
+ &default_panel_button_dynamic_direction_node_footer,
  &default_panel_button_dynamic_direction,
  0
 };

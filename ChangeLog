@@ -1,5 +1,12 @@
 2023-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_format_button_function):
+	use default_panel_button_dynamic_direction_section_footer and
+	default_panel_button_dynamic_direction C functions for dynamic buttons
+	formatting.
+
+2023-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (external_node_href): call
 	url_protect_file_text and not url_protect_url_text for files.
 
