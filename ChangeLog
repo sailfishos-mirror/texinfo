@@ -1,5 +1,18 @@
 2023-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands): remove
+	file_arg_tree intermediary variable.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands): if @*ref
+	book argument is set, do not use the node name as section name.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands): do not set
+	$reference to $name for a clearer code.
+
+	* tp/t/30sectioning.t (novalidate): move to @tests_info.
+
+2023-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi, tp/Texinfo/Convert/HTML.pm (command_href)
 	(command_contents_href, from_element_direction): return undef if there
 	is no href, or the string is empty.  Update callers.

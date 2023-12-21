@@ -925,7 +925,19 @@ $unnumbered_top_without_node_text,
 
 @node section
 @section sec
-']
+'],
+['novalidate',
+'
+@novalidate
+
+@node first, unknown node
+
+@menu
+* not a node::
+@end menu
+
+@xref{unknown ref}.
+'],
 );
 
 
@@ -1110,18 +1122,6 @@ second node.
 @node chap first node, no return,, Top
 
 @node no return,,, Top 
-'],
-['novalidate',
-'
-@novalidate
-
-@node first, unknown node
-
-@menu
-* not a node::
-@end menu
-
-@xref{unknown ref}.
 '],
 ['loop_nodes',
 '@node Top

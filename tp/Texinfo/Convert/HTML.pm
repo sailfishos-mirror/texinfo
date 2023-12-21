@@ -5643,12 +5643,10 @@ sub _convert_xref_commands($$$$)
     $file_arg = $args->[3];
   }
 
-  my $file_arg_tree;
   my $file;
   if ($file_arg
       and defined($file_arg->{'filenametext'})
       and $file_arg->{'filenametext'} ne '') {
-    $file_arg_tree = $file_arg->{'tree'};
     $file = $file_arg->{'filenametext'};
   }
 
@@ -5727,7 +5725,7 @@ sub _convert_xref_commands($$$$)
       $tree = $self->gdt('{reference_name}', $substrings);
     }
   } else {
-    # external reference
+    # external reference, including unknown node without file nor book
 
     # We setup a label_element based on the node argument and not directly the
     # node argument to be able to use the $file argument
@@ -5743,13 +5741,13 @@ sub _convert_xref_commands($$$$)
       }
     }
     # file argument takes precedence over the file in the node (file)node entry
-    if (defined($file_arg_tree)) {
+    if (defined($file)) {
       if (!$label_element) {
         $label_element = {'extra' => {}};
       } elsif (!$label_element->{'extra'}) {
         $label_element->{'extra'} = {};
       }
-      $label_element->{'extra'}->{'manual_content'} = $file_arg_tree;
+      $label_element->{'extra'}->{'manual_content'} = $file_arg->{'tree'};
     } elsif ($arg_node and $arg_node->{'extra'}
              and $arg_node->{'extra'}->{'manual_content'}) {
       my $manual_content = $arg_node->{'extra'}->{'manual_content'};
@@ -5763,41 +5761,47 @@ sub _convert_xref_commands($$$$)
                                  'contents' => [$manual_content]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
-    my $href = $self->command_href($label_element, undef, $command);
 
     if (!defined($name)) {
-      if (!defined($book) and $label_element) {
-        $name = $self->command_text($label_element);
-      } elsif ($node_content) {
-        my $node_no_file_tree = {'type' => '_code',
-                                 'contents' => [$node_content]};
-        my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
-        if (defined($node_name) and $node_name ne 'Top') {
-          $name = $node_name;
+      if ($book) {
+        if ($node_content) {
+          my $node_no_file_tree = {'type' => '_code',
+                                   'contents' => [$node_content]};
+          my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
+          if (defined($node_name) and $node_name ne 'Top') {
+            $name = $node_name;
+          }
+        }
+      } else {
+        if ($label_element) {
+          $name = $self->command_text($label_element);
+        }
+        if (!defined($name)
+            and defined($args->[0])
+            and defined($args->[0]->{'monospace'})
+            and $args->[0]->{'monospace'} ne ''
+            and $args->[0]->{'monospace'} ne 'Top') {
+          # unknown node (and no book nor file) or @inforef without file
+          $name = $args->[0]->{'monospace'};
         }
       }
-
-      # not exactly sure when it happens.  Something like @ref{(file),,,Manual}?
-      $name = $args->[0]->{'monospace'}
-        if (!defined($name)
-          and defined($args->[0])
-          and defined($args->[0]->{'monospace'})
-          # FIXME could it really be Top?
-          and $args->[0]->{'monospace'} ne 'Top');
-
     }
 
-    my $reference = $name;
+    my $href;
+    if ($label_element and !in_string($self)) {
+      $href = $self->command_href($label_element, undef, $command);
+    }
+
+    my $reference;
     my $book_reference;
-    if (!in_string($self) and defined($href)) {
+    if (defined($href)) {
       # attribute to distiguish links to Texinfo manuals from other links
       # and to provide manual name of target
       my $manual_name_attribute = '';
-      if (defined($file)) {
-        if (not $self->get_conf('NO_CUSTOM_HTML_ATTRIBUTE')) {
-          $manual_name_attribute = "data-manual=\"".
-           &{$self->formatting_function('format_protect_text')}($self, $file)."\" ";
-        }
+      if (defined($file)
+          and not $self->get_conf('NO_CUSTOM_HTML_ATTRIBUTE')) {
+        $manual_name_attribute = "data-manual=\"".
+         &{$self->formatting_function('format_protect_text')}($self, $file)."\" ";
       }
       if (defined($name)) {
         $reference = "<a ${manual_name_attribute}href=\"$href\">$name</a>";
@@ -5806,7 +5810,7 @@ sub _convert_xref_commands($$$$)
       }
     }
     my $substrings;
-    if (defined($book) and defined($href) and defined($reference)) {
+    if (defined($book) and defined($reference)) {
       $substrings = {'reference'
                        => {'type' => '_converted', 'text' => $reference},
                      'book' => {'type' => '_converted', 'text' => $book }};
@@ -5827,9 +5831,9 @@ sub _convert_xref_commands($$$$)
       } else { # @ref
         $tree = $self->gdt('@cite{{book_reference}}', $substrings);
       }
-    } elsif (defined($book) and defined($reference)) {
+    } elsif (defined($book) and defined($name)) {
       $substrings = {
-              'section' => {'type' => '_converted', 'text' => $reference},
+              'section' => {'type' => '_converted', 'text' => $name},
               'book' => {'type' => '_converted', 'text' => $book }};
       if ($cmdname eq 'pxref') {
         $tree = $self->gdt('see `{section}\' in @cite{{book}}', $substrings);
@@ -5847,7 +5851,7 @@ sub _convert_xref_commands($$$$)
       } else { # @ref
         $tree = $self->gdt('@cite{{book}}', $substrings);
       }
-    } elsif (defined($href)) {
+    } elsif (defined($reference)) {
       $substrings = { 'reference'
                         => {'type' => '_converted', 'text' => $reference} };
       if ($cmdname eq 'pxref') {
@@ -5857,9 +5861,9 @@ sub _convert_xref_commands($$$$)
       } else { # @ref
         $tree = $self->gdt('{reference}', $substrings);
       }
-    } elsif (defined($reference)) {
+    } elsif (defined($name)) {
       $substrings = { 'section'
-                        => {'type' => '_converted', 'text' => $reference} };
+                        => {'type' => '_converted', 'text' => $name} };
       if ($cmdname eq 'pxref') {
         $tree = $self->gdt('see `{section}\'', $substrings);
       } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {

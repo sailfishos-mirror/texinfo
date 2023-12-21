@@ -3397,7 +3397,8 @@ Returns the file name of the @var{\%target_element} tree element.
 
 @deftypefun {@var{$href} =} @var{$converter}->command_href (@var{\%target_element}, @
        @var{$source_filename}, @var{$source_command}, @var{$specified_target})
-Return string for linking to @var{\%target_element} with @code{<a href>}.
+Return string for linking to @var{\%target_element} with @code{<a href>}
+or @code{undef} if not found or empty.
 @var{$source_filename} is the file the link comes from. If not set, the current
 file name is used.  @var{$source_command} is an optional argument, the
 @@-command the link comes from.  It is only used for messages.
@@ -3508,6 +3509,7 @@ location in the table of contents, if @var{$contents_or_shortcontents} is
 @var{$contents_or_shortcontents} is set to @samp{shortcontents} or
 @samp{summarycontents}.  @var{$source_filename} is the file the link comes
 from. If not set, the current file name is used.
+Returns @code{undef} if no string is found or the string is empty.
 @end deftypefun
 
 To determine if a output unit is associated to the top output unit, use
