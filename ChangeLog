@@ -1,5 +1,11 @@
 2023-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_button_icon_img, format_button_icon_img):
+	implement format_button_icon_img in C.
+
+2023-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_format_button_function):
 	use default_panel_button_dynamic_direction_section_footer and
 	default_panel_button_dynamic_direction C functions for dynamic buttons

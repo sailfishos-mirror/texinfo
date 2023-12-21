@@ -6533,20 +6533,53 @@ format_begin_file (CONVERTER *self, const char *filename,
 }
 
 char *
+html_default_format_button_icon_img (CONVERTER *self,
+                        const char *button_name,
+                        const char *icon, const char *name)
+{
+  TEXT result;
+  char *icon_protected;
+
+  if (!icon)
+    return strdup ("");
+
+  text_init (&result);
+
+  text_append_n (&result, "<img src=\"", 10);
+  icon_protected = url_protect_url_text (self, icon);
+  text_append (&result, icon_protected);
+  free (icon_protected);
+
+  text_append_n (&result, "\" border=\"0\" alt=\"", 18);
+  if (name)
+    {
+      if (button_name)
+        text_printf (&result, "%s: %s", button_name, name);
+      else
+        text_append (&result, name);
+    }
+  else if (button_name)
+    text_append (&result, button_name);
+
+  text_append_n (&result, "\" align=\"middle\"", 16);
+  close_html_lone_element (self, &result);
+
+  return result.text;
+}
+
+char *
 format_button_icon_img (CONVERTER *self,
                         const char *button_name,
                         const char *icon, const char *name)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_button_icon_img];
-/*
   if (formatting_reference->status == FRS_status_default_set)
     {
       return html_default_format_button_icon_img (self, button_name,
                                                         icon, name);
     }
   else
-*/
     {
       return call_formatting_function_format_button_icon_img (self,
                                                      formatting_reference,
