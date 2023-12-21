@@ -1,5 +1,25 @@
 2023-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (external_node_href): call
+	url_protect_file_text and not url_protect_url_text for files.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_href)
+	(html_command_contents_href): return 0 if there is no href, or the
+	string is empty.  Update callers.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_href): set
+	filename based on the first output unit if the filename is null, not
+	only if the target_filename is null.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_xref_commands)
+	(commands_internal_conversion_table): implement convert_xref_commands
+	in C.
+
+	* tp/Texinfo/XS/convert/converter.c (float_type_number): float_number
+	extra information is a string.
+
+2023-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands): remove
 	file_arg_tree intermediary variable.
 

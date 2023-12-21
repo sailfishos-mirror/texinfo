@@ -57,6 +57,7 @@ get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
 
 /* Add an extra key that is a reference to another element (for example, 
    'associated_section' on a node command element. */
+/* TODO would be good to have ELEMENT be const */
 void
 add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
 {

@@ -2437,10 +2437,7 @@ static const char *file_path_punct = "-_.~/:";
  are not protected.   All the other characters that can be percent
  protected are protected, including characters with specific meaning in url.
  */
-/* TODO readd static when the function is used
-static 
-*/
-char *
+static char *
 url_protect_file_text (CONVERTER *self, const char *input_string)
 {
   TEXT text;
@@ -3138,7 +3135,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                   text_append_n (&dir_path, "_", 1);
                   text_append (&dir_path, self->output_format);
                 }
-              url_encoded_path = url_protect_url_text (self, dir_path.text);
+              url_encoded_path = url_protect_file_text (self, dir_path.text);
               free (dir_path.text);
               directory_part = url_encoded_path;
             }
@@ -3171,7 +3168,8 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
               if (extension)
                 text_printf (&file_path, ".%s", extension);
 
-              file = url_protect_url_text (self, file_path.text);
+
+              file = url_protect_file_text (self, file_path.text);
               free (file_path.text);
             }
         }
@@ -3379,10 +3377,9 @@ char *html_command_href (CONVERTER *self, const ELEMENT *command,
     return 0;
 
   text_init (&href);
-  text_append (&href, "");
 
   target_filename = html_command_filename (self, command);
-  if (!target_filename)
+  if (!target_filename || !target_filename->filename)
     {
    /* Happens if there are no pages, for example if OUTPUT is set to ''
       as in the test cases.  Also for things in @titlepage when
@@ -3441,6 +3438,12 @@ char *html_command_href (CONVERTER *self, const ELEMENT *command,
 
   if (target_filename_to_be_freed)
     free (target_filename);
+
+  if (href.end <= 0)
+    {
+      free (href.text);
+      return 0;
+    }
 
   return href.text;
 }
@@ -3523,7 +3526,6 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
             }
 
           text_init (&href);
-          text_append (&href, "");
 
           if (target_filename && target_filename->filename
               && (!filename_from
@@ -3536,6 +3538,11 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
               text_append (&href, target);
             }
 
+          if (href.end <= 0)
+            {
+              free (href.text);
+              return 0;
+            }
           return href.text;
         }
     }
@@ -5716,14 +5723,14 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                         text_append_n (&result, " ", 1);
                     }
                   text_append_n (&result, "<li>", 4);
-                  if ((toc_id && strlen (toc_id)) || (href && strlen (href)))
+                  if ((toc_id && strlen (toc_id)) || href)
                     {
                       ELEMENT *associated_node = lookup_extra_element (section,
                                                   "associated_node");
                       text_append_n (&result, "<a", 2);
                       if (toc_id && strlen (toc_id))
                         text_printf (&result, " id=\"%s\"", toc_id);
-                      if (href && strlen (href))
+                      if (href)
                         text_printf (&result, " href=\"%s\"", href);
                       if (associated_node)
                         {
@@ -6402,7 +6409,7 @@ get_links (CONVERTER* self, const char *filename,
           link_href = from_element_direction (self, link->direction,
                                               HTT_href, output_unit,
                                               filename, node_command);
-          if (link_href && strlen (link_href))
+          if (link_href)
             {
               char *link_string
                 = from_element_direction (self, link->direction, HTT_string,
@@ -6763,9 +6770,6 @@ html_default_format_button (CONVERTER *self,
         {
           char *href = from_element_direction (self, button->direction,
                                                HTT_href, 0, 0, element);
-          /*
-          fprintf (stderr, "HHH '%s' %s\n", href, print_element_debug (element, 0));
-           */
           if (href)
             {
               /* button is active */
@@ -8033,6 +8037,481 @@ convert_raw_command (CONVERTER *self, const enum command_id cmd,
   format_protect_text (self, content, result);
 }
 
+void
+convert_xref_commands (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *name = 0;
+  HTML_ARG_FORMATTED *file_arg = 0;
+  const char *file = 0;
+  const char *book = 0;
+  const ELEMENT *arg_node = 0;
+  const ELEMENT *target_node = 0;
+  ELEMENT *tree = 0;
+
+  ELEMENT *book_element = 0;
+  ELEMENT *reference_element = 0;
+
+  if (cmd != CM_link && cmd != CM_inforef && args_formatted->number > 2
+      && args_formatted->args[2].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[2].formatted[AFT_type_normal]))
+    {
+      name = strdup (args_formatted->args[2].formatted[AFT_type_normal]);
+    }
+  else if (args_formatted->number > 1
+           && args_formatted->args[1].formatted[AFT_type_normal]
+           && strlen (args_formatted->args[1].formatted[AFT_type_normal]))
+    {
+      name = strdup (args_formatted->args[1].formatted[AFT_type_normal]);
+    }
+
+  if (cmd == CM_link || cmd == CM_inforef)
+    {
+      if (args_formatted->number > 2)
+        file_arg = &args_formatted->args[2];
+    }
+  else if (args_formatted->number > 3)
+    file_arg = &args_formatted->args[3];
+
+  if (file_arg && file_arg->formatted[AFT_type_filenametext]
+      && strlen (file_arg->formatted[AFT_type_filenametext]))
+    {
+      file = file_arg->formatted[AFT_type_filenametext];
+    }
+
+  if (args_formatted->number > 4
+      && args_formatted->args[4].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[4].formatted[AFT_type_normal]))
+    book = args_formatted->args[4].formatted[AFT_type_normal];
+
+  if (element->args.number > 0)
+    arg_node = element->args.list[0];
+
+  /* check for internal reference */
+  if (cmd != CM_inforef && !book && !file && arg_node)
+    {
+      char *normalized = lookup_extra_string (arg_node, "normalized");
+      ELEMENT *manual_content = lookup_extra_element (arg_node,
+                                                      "manual_content");
+      if (normalized && !manual_content)
+        {
+          target_node = find_identifier_target (
+                                  self->document->identifiers_target,
+                                  normalized);
+        }
+    }
+
+  /* internal reference */
+  if (target_node)
+    {
+      char *href;
+      STRING_LIST *classes = 0;
+     /* This is the node if USE_NODES, otherwise this may be the sectioning
+        command (if the sectioning command is really associated to the node) */
+      const ELEMENT *target_root
+             = command_root_element_command (self, target_node);
+      const ELEMENT *associated_section = lookup_extra_element (target_node,
+                                                       "associated_section");
+      reference_element = new_element (ET__converted);
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+
+      if (!associated_section || associated_section != target_root)
+        target_root = target_node;
+
+      href = html_command_href (self, target_root, 0, element, 0);
+
+      if (!name)
+        {
+          if (!strcmp (self->conf->xrefautomaticsectiontitle, "on")
+              && associated_section
+        /* this condition avoids infinite recursions, indeed in that case
+           the node will be used and not the section.  There should not be
+           @*ref in nodes, and even if there are, it does not seems to be
+           possible to construct an infinite recursion with nodes only
+           as the node must both be a reference target and refer to a specific
+           target at the same time, which is not possible.
+         */
+             && !command_is_in_referred_command_stack (
+                   &self->referred_command_stack, associated_section, 0))
+            {
+              target_root = associated_section;
+              name = html_command_text (self, target_root, HTT_text_nonumber);
+            }
+          else if (target_node->cmd == CM_float)
+            {
+              if (self->conf->XREF_USE_FLOAT_LABEL <= 0)
+                {
+                  name = html_command_text (self, target_root, 0);
+                }
+              if (!name || !strlen (name))
+                {
+                  if (args_formatted->number > 1
+                      && args_formatted->args[0].formatted[AFT_type_monospace])
+                    {
+                      name
+                       = strdup (
+                          args_formatted->args[0].formatted[AFT_type_monospace]);
+                    }
+                  else
+                    name = strdup ("");
+                }
+            }
+          else if (self->conf->XREF_USE_NODE_NAME_ARG <= 0
+                   && (self->conf->XREF_USE_NODE_NAME_ARG == 0
+                       || !html_in_preformatted_context (self)))
+            {
+              name = html_command_text (self, target_root, HTT_text_nonumber);
+            }
+          else if (args_formatted->number > 0
+                   && args_formatted->args[0].formatted[AFT_type_monospace])
+            {
+              name
+               = strdup (args_formatted->args[0].formatted[AFT_type_monospace]);
+            }
+          else
+            name = strdup ("");
+        }
+
+      if (href && !html_in_string (self))
+        {
+          char *attribute_class;
+          classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+          memset (classes, 0, sizeof (STRING_LIST));
+          add_string (builtin_command_name (cmd), classes);
+
+          attribute_class = html_attribute_class (self, "a", classes);
+          text_append (&reference_element->text, attribute_class);
+          text_printf (&reference_element->text, " href=\"%s\">%s</a>",
+                                              href, name);
+          free (attribute_class);
+          destroy_strings_list (classes);
+        }
+      else
+        {
+          text_append (&reference_element->text, name);
+        }
+
+      add_element_to_named_string_element_list (substrings,
+                          "reference_name", reference_element);
+      if (cmd == CM_pxref)
+        {
+          tree = html_gdt_tree ("see {reference_name}", self->document,
+                                self, substrings, 0, 0);
+        }
+      else if (cmd == CM_xref)
+        {
+          tree = html_gdt_tree ("See {reference_name}", self->document,
+                                self, substrings, 0, 0);
+        }
+      else if (cmd == CM_ref || cmd == CM_link)
+        {
+          tree = html_gdt_tree ("{reference_name}", self->document,
+                                self, substrings, 0, 0);
+        }
+      destroy_named_string_element_list (substrings);
+    }
+  else
+    {
+     /* external reference */
+      char *href = 0;
+      char *reference = 0;
+      char *book_reference = 0;
+
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+
+ /* We setup a label_element based on the node argument and not directly the
+    node argument to be able to use the $file argument */
+
+      ELEMENT *label_element = 0;
+      ELEMENT *manual_content = 0;
+      ELEMENT *node_content = 0;
+
+      if (arg_node)
+        {
+          node_content = lookup_extra_element (arg_node, "node_content");
+          if (node_content)
+            {
+              char *normalized = lookup_extra_string (arg_node, "normalized");
+              label_element = new_element (ET_NONE);
+              add_extra_element (label_element, "node_content", node_content);
+              if (normalized)
+                add_extra_string_dup (label_element, "normalized", normalized);
+            }
+        }
+
+ /* file argument takes precedence over the file in the node (file)node entry */
+      if (file)
+        {
+          if (!label_element)
+            label_element = new_element (ET_NONE);
+          /* TODO would be better to have add_extra_element argument const */
+          add_extra_element (label_element, "manual_content",
+                             (ELEMENT *)file_arg->tree);
+        }
+      else
+        {
+          manual_content = lookup_extra_element (arg_node, "manual_content");
+        }
+
+      if (manual_content)
+        {
+          ELEMENT *root_code;
+
+          if (!label_element)
+            label_element = new_element (ET_NONE);
+
+          add_extra_element (label_element, "manual_content",
+                             manual_content);
+
+          root_code = new_element (ET__code);
+
+          add_to_contents_as_array (root_code, manual_content);
+
+          add_to_element_list (&self->tree_to_build, root_code);
+          file = html_convert_tree (self, root_code, "node file in ref");
+          remove_element_from_list (&self->tree_to_build, root_code);
+          destroy_element (root_code);
+        }
+
+      if (!name)
+        {
+          if (book)
+            {
+              if (node_content)
+                {
+                  char *node_name;
+                  ELEMENT *node_no_file_tree = new_element (ET__code);
+                  add_to_contents_as_array (node_no_file_tree, node_content);
+
+                  add_to_element_list (&self->tree_to_build, node_no_file_tree);
+                  node_name = html_convert_tree (self, node_no_file_tree,
+                                                 "node in ref");
+                  remove_element_from_list (&self->tree_to_build, node_no_file_tree);
+                  destroy_element (node_no_file_tree);
+
+                  if (node_name && strcmp (node_name, "Top"))
+                    name = node_name;
+                  else
+                    free (node_name);
+                }
+            }
+          else
+            {
+              if (label_element)
+                name = html_command_text (self, label_element, 0);
+              if (!name && args_formatted->number > 0
+                  && args_formatted->args[0].formatted[AFT_type_monospace]
+                  && strcmp (args_formatted->args[0].formatted[AFT_type_monospace],
+                             "Top"))
+                name
+               = strdup (args_formatted->args[0].formatted[AFT_type_monospace]);
+            }
+        }
+
+      if (label_element && !html_in_string (self))
+        href = html_command_href (self, label_element, 0, element, 0);
+
+      if (href)
+        {
+       /* attribute to distiguish links to Texinfo manuals from other links
+          and to provide manual name of target */
+          TEXT manual_name_attribute;
+          text_init (&manual_name_attribute);
+          text_append (&manual_name_attribute, "");
+          if (file && self->conf->NO_CUSTOM_HTML_ATTRIBUTE <= 0)
+            {
+              text_append_n (&manual_name_attribute, "data-manual=\"", 13);
+              format_protect_text (self, file, &manual_name_attribute);
+              text_append_n (&manual_name_attribute, "\" ", 2);
+            }
+          if (name)
+            {
+              xasprintf (&reference, "<a %shref=\"%s\">%s</a>",
+                         manual_name_attribute.text, href, name);
+            }
+          else if (book)
+            {
+              xasprintf (&book_reference, "<a %shref=\"%s\">%s</a>",
+                         manual_name_attribute.text, href, book);
+            }
+          free (manual_name_attribute.text);
+          free (href);
+        }
+
+
+      if (book && reference)
+        {
+          book_element = new_element (ET__converted);
+          text_append (&book_element->text, book);
+          reference_element = new_element (ET__converted);
+          text_append (&reference_element->text, reference);
+
+          add_element_to_named_string_element_list (substrings,
+                                          "book", book_element);
+          add_element_to_named_string_element_list (substrings,
+                                         "reference", reference_element);
+          if (cmd == CM_pxref)
+            {
+              tree = html_gdt_tree ("see {reference} in @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else if (cmd == CM_xref)
+            {
+              tree = html_gdt_tree ("See {reference} in @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else /* @ref */
+            {
+              tree = html_gdt_tree ("{reference} in @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+        }
+      else if (book_reference)
+        {
+          book_element = new_element (ET__converted);
+          text_append (&book_element->text, book_reference);
+
+          add_element_to_named_string_element_list (substrings,
+                                          "book_reference", book_element);
+          if (cmd == CM_pxref)
+            {
+              tree = html_gdt_tree ("see @cite{{book_reference}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else if (cmd == CM_xref || cmd == CM_inforef)
+            {
+              tree = html_gdt_tree ("See @cite{{book_reference}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else /* @ref */
+            {
+              tree = html_gdt_tree ("@cite{{book_reference}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+        }
+      else if (book && name)
+        {
+          book_element = new_element (ET__converted);
+          text_append (&book_element->text, book);
+          reference_element = new_element (ET__converted);
+          text_append (&reference_element->text, name);
+
+          add_element_to_named_string_element_list (substrings,
+                                          "book", book_element);
+          add_element_to_named_string_element_list (substrings,
+                                         "section", reference_element);
+          if (cmd == CM_pxref)
+            {
+              tree = html_gdt_tree ("see `{section}' in @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else if (cmd == CM_xref || cmd == CM_inforef)
+            {
+              tree = html_gdt_tree ("See `{section}' in @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else /* @ref */
+            {
+              tree = html_gdt_tree ("`{section}' in @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+        }
+      else if (book)
+        {
+          book_element = new_element (ET__converted);
+          text_append (&book_element->text, book);
+
+          add_element_to_named_string_element_list (substrings,
+                                          "book", book_element);
+          if (cmd == CM_pxref)
+            {
+              tree = html_gdt_tree ("see @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else if (cmd == CM_xref || cmd == CM_inforef)
+            {
+              tree = html_gdt_tree ("See @cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else /* @ref */
+            {
+              tree = html_gdt_tree ("@cite{{book}}",
+                                    self->document, self, substrings, 0, 0);
+            }
+        }
+      else if (reference)
+        {
+          reference_element = new_element (ET__converted);
+          text_append (&reference_element->text, reference);
+
+          add_element_to_named_string_element_list (substrings,
+                                         "reference", reference_element);
+          if (cmd == CM_pxref)
+            {
+              tree = html_gdt_tree ("see {reference}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else if (cmd == CM_xref || cmd == CM_inforef)
+            {
+              tree = html_gdt_tree ("See {reference}",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else /* @ref */
+            {
+              tree = html_gdt_tree ("{reference}",
+                                    self->document, self, substrings, 0, 0);
+            }
+        }
+      else if (name)
+        {
+          reference_element = new_element (ET__converted);
+          text_append (&reference_element->text, name);
+
+          add_element_to_named_string_element_list (substrings,
+                                         "section", reference_element);
+          if (cmd == CM_pxref)
+            {
+              tree = html_gdt_tree ("see `{section}'",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else if (cmd == CM_xref || cmd == CM_inforef)
+            {
+              tree = html_gdt_tree ("See `{section}'",
+                                    self->document, self, substrings, 0, 0);
+            }
+          else /* @ref */
+            {
+              tree = html_gdt_tree ("`{section}'",
+                                    self->document, self, substrings, 0, 0);
+            }
+        }
+      free (reference);
+      free (book_reference);
+      destroy_named_string_element_list (substrings);
+    }
+
+  if (tree)
+    {
+      char *context_str;
+      xasprintf (&context_str, "convert xref %s", builtin_command_name (cmd));
+      add_to_element_list (&self->tree_to_build, tree);
+      convert_to_html_internal (self, tree, result, context_str);
+      remove_element_from_list (&self->tree_to_build, tree);
+      free (context_str);
+    }
+
+  if (reference_element)
+    destroy_element (reference_element);
+  if (book_element)
+    destroy_element (book_element);
+
+  free (name);
+}
+
 /* command is NULL unless called from @-command formatting function */
 static char *
 contents_inline_element (CONVERTER *self, const enum command_id cmd,
@@ -8883,14 +9362,11 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                                                            CM_contents, 0);
           if (content_href)
             {
-              if (strlen (content_href))
-                {
-                  char *heading_tmp = strdup (heading);
-                  free (heading);
-                  xasprintf (&heading, "<a href=\"%s\">%s</a>",
-                                       content_href, heading_tmp);
-                  free (heading_tmp);
-                }
+              char *heading_tmp = strdup (heading);
+              free (heading);
+              xasprintf (&heading, "<a href=\"%s\">%s</a>",
+                                   content_href, heading_tmp);
+              free (heading_tmp);
               free (content_href);
             }
         }
@@ -9020,6 +9496,12 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_xml, &convert_raw_command},
   {CM_docbook, &convert_raw_command},
   {CM_latex, &convert_raw_command},
+
+  {CM_inforef, &convert_xref_commands},
+  {CM_link, &convert_xref_commands},
+  {CM_xref, &convert_xref_commands},
+  {CM_ref, &convert_xref_commands},
+  {CM_pxref, &convert_xref_commands},
 
   {0, 0},
 };
