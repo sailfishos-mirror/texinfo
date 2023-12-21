@@ -2864,9 +2864,9 @@ sub _convert($$)
       }
       $result .= _count_added($self, $line->{'container'},
                       Texinfo::Convert::Paragraph::end($line->{'container'}));
-      pop @{$self->{'formatters'}};
       $self->{'text_element_context'}->[-1]->{'counter'} +=
-         Texinfo::Convert::Unicode::string_width($result);
+         Texinfo::Convert::Paragraph::counter($line->{'container'});
+      pop @{$self->{'formatters'}};
       $self->{'empty_lines_count'} = 0 unless ($result eq '');
     # open a multitable cell
     } elsif ($command eq 'headitem' or $command eq 'item'

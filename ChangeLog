@@ -1,5 +1,12 @@
 2023-12-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert)
+	<@item in @enumerate/@itemize>:
+	Use Texinfo::Convert::Paragraph::counter rather than
+	Texinfo::Convert::Unicode::string_width.
+
+2023-12-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/t/test_utils.pl (convert_to_plaintext): If not outputting to
 	a file, set OUTPUT_PERL_ENCODING to an empty string to disable
 	any character encoding.
