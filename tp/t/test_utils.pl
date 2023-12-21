@@ -518,6 +518,14 @@ sub convert_to_plaintext($$$$$$;$)
     }
   }
 
+  # If not outputing to a file, do not do any encoding.  Return value from
+  # 'output' is an unencoded character string.  This will be encoded to
+  # UTF-8 in the results file.
+  if (defined($converter_options->{'OUTFILE'})
+      and $converter_options->{'OUTFILE'} eq '') {
+    $converter_options->{'OUTPUT_PERL_ENCODING'} = '';
+  }
+
   my $converter =
      Texinfo::Convert::Plaintext->converter({'DEBUG' => $self->{'DEBUG'},
                                              'document' => $document,

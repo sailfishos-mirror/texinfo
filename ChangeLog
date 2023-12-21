@@ -1,3 +1,13 @@
+2023-12-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/t/test_utils.pl (convert_to_plaintext): If not outputting to
+	a file, set OUTPUT_PERL_ENCODING to an empty string to disable
+	any character encoding.
+
+	This currently has no effect on the test suite results, but
+	is needed for when Texinfo::Convert::Plaintext::convert starts
+	returning an encoded string in the future.
+
 2023-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Paragraph formatter for @listoffloats output
