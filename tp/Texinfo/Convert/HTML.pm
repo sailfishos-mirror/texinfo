@@ -1044,7 +1044,7 @@ sub command_href($$;$$$)
     my $target_information = $self->_get_target($target_command);
     $target = $target_information->{'target'} if ($target_information);
   }
-  return '' if (!defined($target));
+  return undef if (!defined($target));
   my $href = '';
 
   my $target_filename = $self->command_filename($command);
@@ -1085,6 +1085,10 @@ sub command_href($$;$$$)
     }
   }
   $href .= '#' . $target if ($target ne '');
+
+  if ($href eq '') {
+    return undef;
+  }
   return $href;
 }
 
@@ -1124,6 +1128,11 @@ sub command_contents_href($$$;$)
     $href .= $target_filename;
   }
   $href .= '#' . $target if ($target ne '');
+
+  if ($href eq '') {
+    return undef;
+  }
+
   return $href;
 }
 
@@ -1594,7 +1603,7 @@ sub from_element_direction($$$;$$$)
         if (defined($command)) {
           return $self->command_href($command, $source_filename);
         } else {
-          return '';
+          return undef;
         }
       }
       $target = $self->{'targets'}->{$command} if ($command);
@@ -4050,7 +4059,7 @@ sub _default_format_button($$;$)
       # use given text
       my $href = $self->from_element_direction($direction, 'href',
                                                undef, undef, $source_command);
-      if ($href) {
+      if (defined($href)) {
         my $anchor_attributes = $self->_direction_href_attributes($direction);
         $active = "<a href=\"$href\"${anchor_attributes}>$$text</a>";
       } else {
@@ -4073,7 +4082,7 @@ sub _default_format_button($$;$)
         my $href = $self->from_element_direction($direction, 'href',
                                                  undef, undef, $source_command);
         my $text_formatted = $self->from_element_direction($direction, $text);
-        if ($href) {
+        if (defined($href)) {
           my $anchor_attributes = $self->_direction_href_attributes($direction);
           $active = "<a href=\"$href\"${anchor_attributes}>$text_formatted</a>";
         } else {
@@ -4098,7 +4107,7 @@ sub _default_format_button($$;$)
   } else {
     my $href = $self->from_element_direction($button, 'href',
                                              undef, undef, $source_command);
-    if ($href) {
+    if (defined($href)) {
       # button is active
       my $btitle = '';
       my $description = $self->direction_string($button, 'description', 'string');
@@ -4647,7 +4656,7 @@ sub _convert_heading_command($$$$$)
         and $Texinfo::Commands::root_commands{$cmdname}
         and $sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents');
-      if ($content_href ne '') {
+      if (defined($content_href)) {
         $heading = "<a href=\"$content_href\">$heading</a>";
       }
     }
@@ -5105,7 +5114,7 @@ sub _convert_listoffloats_command($$$$)
     my $result = $self->html_attribute_class('dl', [$cmdname]).">\n" ;
     foreach my $float (@{$floats->{$listoffloats_name}}) {
       my $float_href = $self->command_href($float);
-      next if (!$float_href);
+      next if (!defined($float_href));
       $result .= '<dt>';
       my $float_text = $self->command_text($float);
       if (defined($float_text) and $float_text ne '') {
@@ -5624,34 +5633,40 @@ sub _convert_xref_commands($$$$)
     $name = $args->[1]->{'normal'}
   }
 
+  my $file_arg;
+
   if ($cmdname eq 'link' or $cmdname eq 'inforef') {
-    $args->[3] = $args->[2];
-    $args->[2] = undef;
+    if ($args->[2]) {
+      $file_arg = $args->[2];
+    }
+  } elsif ($args->[3]) {
+    $file_arg = $args->[3];
   }
 
   my $file_arg_tree;
-  my $file = '';
-  if ($args->[3]
-      and defined($args->[3]->{'filenametext'})
-      and $args->[3]->{'filenametext'} ne '') {
-    $file_arg_tree = $args->[3]->{'tree'};
-    $file = $args->[3]->{'filenametext'};
+  my $file;
+  if ($file_arg
+      and defined($file_arg->{'filenametext'})
+      and $file_arg->{'filenametext'} ne '') {
+    $file_arg_tree = $file_arg->{'tree'};
+    $file = $file_arg->{'filenametext'};
   }
 
-  my $book = '';
+  my $book;
   $book = $args->[4]->{'normal'}
-    if ($args->[4] and defined($args->[4]->{'normal'}));
+    if ($args->[4] and defined($args->[4]->{'normal'})
+        and $args->[4]->{'normal'} ne '');
 
-  my $node_arg = $command->{'args'}->[0];
+  my $arg_node = $command->{'args'}->[0];
 
   # internal reference
-  if ($cmdname ne 'inforef' and $book eq '' and $file eq ''
-      and $node_arg and $node_arg->{'extra'}
-      and defined($node_arg->{'extra'}->{'normalized'})
-      and !$node_arg->{'extra'}->{'manual_content'}
-      and $self->label_command($node_arg->{'extra'}->{'normalized'})) {
+  if ($cmdname ne 'inforef' and !defined($book) and !defined($file)
+      and $arg_node and $arg_node->{'extra'}
+      and defined($arg_node->{'extra'}->{'normalized'})
+      and !$arg_node->{'extra'}->{'manual_content'}
+      and $self->label_command($arg_node->{'extra'}->{'normalized'})) {
     my $target_node
-     = $self->label_command($node_arg->{'extra'}->{'normalized'});
+     = $self->label_command($arg_node->{'extra'}->{'normalized'});
     # This is the node if USE_NODES, otherwise this may be the sectioning
     # command (if the sectioning command is really associated to the node)
     my $target_root = $self->command_root_element_command($target_node);
@@ -5699,165 +5714,161 @@ sub _convert_xref_commands($$$$)
     }
     my $reference = $name;
     $reference = $self->html_attribute_class('a', [$cmdname])
-                      ." href=\"$href\">$name</a>" if ($href ne ''
+                      ." href=\"$href\">$name</a>" if (defined($href)
                                                        and !in_string($self));
+    my $substrings
+      = { 'reference_name' => {'type' => '_converted', 'text' => $reference} };
 
-    my $is_section = ($target_root->{'cmdname'} ne 'node'
-                      and $target_root->{'cmdname'} ne 'anchor'
-                      and $target_root->{'cmdname'} ne 'float');
     if ($cmdname eq 'pxref') {
-      $tree = $self->gdt('see {reference_name}',
-        { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
+      $tree = $self->gdt('see {reference_name}', $substrings);
     } elsif ($cmdname eq 'xref') {
-      $tree = $self->gdt('See {reference_name}',
-        { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
+      $tree = $self->gdt('See {reference_name}', $substrings);
     } elsif ($cmdname eq 'ref' or $cmdname eq 'link') {
-      $tree = $self->gdt('{reference_name}',
-         { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
-
+      $tree = $self->gdt('{reference_name}', $substrings);
     }
   } else {
     # external reference
 
     # We setup a label_element based on the node argument and not directly the
     # node argument to be able to use the $file argument
-    my $label_element = {};
-    if ($node_arg and $node_arg->{'extra'}) {
-      if ($node_arg->{'extra'}->{'node_content'}) {
-        $label_element->{'extra'}
-          = {'node_content' => $node_arg->{'extra'}->{'node_content'}};
-        if (exists($node_arg->{'extra'}->{'normalized'})) {
-          $label_element->{'extra'}->{'normalized'}
-            = $node_arg->{'extra'}->{'normalized'};
-        }
+    my $label_element;
+    my $node_content;
+    if ($arg_node and $arg_node->{'extra'}
+        and $arg_node->{'extra'}->{'node_content'}) {
+      $node_content = $arg_node->{'extra'}->{'node_content'};
+      $label_element = {'extra' => {'node_content' => $node_content}};
+      if (exists($arg_node->{'extra'}->{'normalized'})) {
+        $label_element->{'extra'}->{'normalized'}
+          = $arg_node->{'extra'}->{'normalized'};
       }
     }
     # file argument takes precedence over the file in the node (file)node entry
-    if (defined($file_arg_tree) and $file ne '') {
-      $label_element->{'extra'} = {} if (!$label_element->{'extra'});
+    if (defined($file_arg_tree)) {
+      if (!$label_element) {
+        $label_element = {'extra' => {}};
+      } elsif (!$label_element->{'extra'}) {
+        $label_element->{'extra'} = {};
+      }
       $label_element->{'extra'}->{'manual_content'} = $file_arg_tree;
-    } elsif ($node_arg and $node_arg->{'extra'}
-             and $node_arg->{'extra'}->{'manual_content'}) {
-      $label_element->{'extra'} = {} if (!$label_element->{'extra'});
-      $label_element->{'extra'}->{'manual_content'}
-        = $node_arg->{'extra'}->{'manual_content'};
+    } elsif ($arg_node and $arg_node->{'extra'}
+             and $arg_node->{'extra'}->{'manual_content'}) {
+      my $manual_content = $arg_node->{'extra'}->{'manual_content'};
+      if (!$label_element) {
+        $label_element = {'extra' => {}};
+      } elsif (!$label_element->{'extra'}) {
+        $label_element->{'extra'} = {};
+      }
+      $label_element->{'extra'}->{'manual_content'} = $manual_content;
       my $file_with_node_tree = {'type' => '_code',
-   'contents' => [$label_element->{'extra'}->{'manual_content'}]};
+                                 'contents' => [$manual_content]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
     my $href = $self->command_href($label_element, undef, $command);
 
-    if ($book eq '') {
-      if (!defined($name)) {
-        my $node_name = $self->command_text($label_element);
-        $name = $node_name;
+    if (!defined($name)) {
+      if (!defined($book) and $label_element) {
+        $name = $self->command_text($label_element);
+      } elsif ($node_content) {
+        my $node_no_file_tree = {'type' => '_code',
+                                 'contents' => [$node_content]};
+        my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
+        if (defined($node_name) and $node_name ne 'Top') {
+          $name = $node_name;
+        }
       }
-    } elsif (!defined($name) and $label_element->{'extra'}
-             and $label_element->{'extra'}->{'node_content'}) {
-      my $node_no_file_tree = {'type' => '_code',
-                 'contents' => [$label_element->{'extra'}->{'node_content'}]};
-      my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
-      if (defined($node_name) and $node_name ne 'Top') {
-        $name = $node_name;
-      }
+
+      # not exactly sure when it happens.  Something like @ref{(file),,,Manual}?
+      $name = $args->[0]->{'monospace'}
+        if (!defined($name)
+          and defined($args->[0])
+          and defined($args->[0]->{'monospace'})
+          # FIXME could it really be Top?
+          and $args->[0]->{'monospace'} ne 'Top');
+
     }
 
-    # not exactly sure when it happens.  Something like @ref{(file),,,Manual}?
-    $name = $args->[0]->{'monospace'}
-       if (!defined($name)
-           and defined($args->[0])
-           # FIXME could it really be Top?
-           and $args->[0]->{'monospace'} ne 'Top');
-    $name = '' if (!defined($name));
-
     my $reference = $name;
-    my $book_reference = '';
-    if (!in_string($self) and $href ne '') {
+    my $book_reference;
+    if (!in_string($self) and defined($href)) {
       # attribute to distiguish links to Texinfo manuals from other links
       # and to provide manual name of target
       my $manual_name_attribute = '';
-      if ($file) {
+      if (defined($file)) {
         if (not $self->get_conf('NO_CUSTOM_HTML_ATTRIBUTE')) {
           $manual_name_attribute = "data-manual=\"".
            &{$self->formatting_function('format_protect_text')}($self, $file)."\" ";
         }
       }
-      if ($name ne '') {
+      if (defined($name)) {
         $reference = "<a ${manual_name_attribute}href=\"$href\">$name</a>";
-      } elsif ($book ne '') {
+      } elsif (defined($book)) {
         $book_reference = "<a ${manual_name_attribute}href=\"$href\">$book</a>";
       }
     }
-    if ($cmdname eq 'pxref') {
-      if (($book ne '') and ($href ne '') and ($reference ne '')) {
-        $tree = $self->gdt('see {reference} in @cite{{book}}',
-            { 'reference' => {'type' => '_converted', 'text' => $reference},
-              'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($book_reference ne '') {
-        $tree = $self->gdt('see @cite{{book_reference}}',
-            { 'book_reference' => {'type' => '_converted',
-                                   'text' => $book_reference }});
-      } elsif (($book ne '') and ($reference ne '')) {
-        $tree = $self->gdt('see `{section}\' in @cite{{book}}',
-            { 'section' => {'type' => '_converted', 'text' => $reference},
-              'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($book ne '') { # should seldom or even never happen
-        $tree = $self->gdt('see @cite{{book}}',
-              {'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($href ne '') {
-        $tree = $self->gdt('see {reference}',
-             { 'reference' => {'type' => '_converted', 'text' => $reference} });
-      } elsif ($reference ne '') {
-        $tree = $self->gdt('see `{section}\'', {
-              'section' => {'type' => '_converted', 'text' => $reference} });
+    my $substrings;
+    if (defined($book) and defined($href) and defined($reference)) {
+      $substrings = {'reference'
+                       => {'type' => '_converted', 'text' => $reference},
+                     'book' => {'type' => '_converted', 'text' => $book }};
+      if ($cmdname eq 'pxref') {
+        $tree = $self->gdt('see {reference} in @cite{{book}}', $substrings);
+      } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+        $tree = $self->gdt('See {reference} in @cite{{book}}', $substrings);
+      } else { # @ref
+        $tree = $self->gdt('{reference} in @cite{{book}}', $substrings);
       }
-    } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
-      if (($book ne '') and ($href ne '') and ($reference ne '')) {
-        $tree = $self->gdt('See {reference} in @cite{{book}}',
-            { 'reference' => {'type' => '_converted', 'text' => $reference},
-              'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($book_reference ne '') {
-        $tree = $self->gdt('See @cite{{book_reference}}',
-            { 'book_reference' => {'type' => '_converted',
-                                   'text' => $book_reference }});
-      } elsif (($book ne '') and ($reference ne '')) {
-        $tree = $self->gdt('See `{section}\' in @cite{{book}}',
-            { 'section' => {'type' => '_converted', 'text' => $reference},
-              'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($book ne '') { # should seldom or even never happen
-        $tree = $self->gdt('See @cite{{book}}',
-              {'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($href ne '') {
-        $tree = $self->gdt('See {reference}',
-             { 'reference' => {'type' => '_converted', 'text' => $reference} });
-      } elsif ($reference ne '') {
-        $tree = $self->gdt('See `{section}\'', {
-              'section' => {'type' => '_converted', 'text' => $reference} });
+    } elsif (defined($book_reference)) {
+      $substrings = { 'book_reference' => {'type' => '_converted',
+                                           'text' => $book_reference }};
+      if ($cmdname eq 'pxref') {
+        $tree = $self->gdt('see @cite{{book_reference}}', $substrings);
+      } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+        $tree = $self->gdt('See @cite{{book_reference}}', $substrings);
+      } else { # @ref
+        $tree = $self->gdt('@cite{{book_reference}}', $substrings);
       }
-    } else { # @ref
-      if (($book ne '') and ($href ne '') and ($reference ne '')) {
-        $tree = $self->gdt('{reference} in @cite{{book}}',
-            { 'reference' => {'type' => '_converted', 'text' => $reference},
-              'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($book_reference ne '') {
-        $tree = $self->gdt('@cite{{book_reference}}',
-            { 'book_reference' => {'type' => '_converted',
-                                   'text' => $book_reference }});
-      } elsif (($book ne '') and ($reference ne '')) {
-        $tree = $self->gdt('`{section}\' in @cite{{book}}',
-            { 'section' => {'type' => '_converted', 'text' => $reference},
-              'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($book ne '') { # should seldom or even never happen
-        $tree = $self->gdt('@cite{{book}}',
-              {'book' => {'type' => '_converted', 'text' => $book }});
-      } elsif ($href ne '') {
-        $tree = $self->gdt('{reference}',
-             { 'reference' => {'type' => '_converted', 'text' => $reference} });
-      } elsif ($reference ne '') {
-        $tree = $self->gdt('`{section}\'', {
-              'section' => {'type' => '_converted', 'text' => $reference} });
+    } elsif (defined($book) and defined($reference)) {
+      $substrings = {
+              'section' => {'type' => '_converted', 'text' => $reference},
+              'book' => {'type' => '_converted', 'text' => $book }};
+      if ($cmdname eq 'pxref') {
+        $tree = $self->gdt('see `{section}\' in @cite{{book}}', $substrings);
+      } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+        $tree = $self->gdt('See `{section}\' in @cite{{book}}', $substrings);
+      } else { # @ref
+        $tree = $self->gdt('`{section}\' in @cite{{book}}', $substrings);
+      }
+    } elsif (defined($book)) { # should seldom or even never happen
+      $substrings = {'book' => {'type' => '_converted', 'text' => $book }};
+      if ($cmdname eq 'pxref') {
+        $tree = $self->gdt('see @cite{{book}}', $substrings);
+      } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+        $tree = $self->gdt('See @cite{{book}}', $substrings);
+      } else { # @ref
+        $tree = $self->gdt('@cite{{book}}', $substrings);
+      }
+    } elsif (defined($href)) {
+      $substrings = { 'reference'
+                        => {'type' => '_converted', 'text' => $reference} };
+      if ($cmdname eq 'pxref') {
+        $tree = $self->gdt('see {reference}', $substrings);
+      } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+        $tree = $self->gdt('See {reference}', $substrings);
+      } else { # @ref
+        $tree = $self->gdt('{reference}', $substrings);
+      }
+    } elsif (defined($reference)) {
+      $substrings = { 'section'
+                        => {'type' => '_converted', 'text' => $reference} };
+      if ($cmdname eq 'pxref') {
+        $tree = $self->gdt('see `{section}\'', $substrings);
+      } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+        $tree = $self->gdt('See `{section}\'', $substrings);
+      } else { # @ref
+        $tree = $self->gdt('`{section}\'', $substrings);
       }
     }
+
     if (!defined($tree)) {
       # May happen if there is no argument
       #die "external: $cmdname, ($args), '$name' '$file' '$book' '$href' '$reference'. tree undef";
@@ -6246,9 +6257,12 @@ sub _convert_printindex_command($$$$)
         .$self->html_attribute_class('td', \@td_entry_classes).'>'
          . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>'
         .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
-      $entries_text
-        .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
-         if ($associated_command_href);
+      if (defined($associated_command_href)) {
+        $entries_text
+         .= "<a href=\"$associated_command_href\">$associated_command_text</a>";
+      } elsif (defined($associated_command_text)) {
+        $entries_text .= $associated_command_text;
+      }
       $entries_text .= "</td></tr>\n";
     }
     # a letter and associated indice entries
@@ -6929,7 +6943,7 @@ sub _convert_menu_entry_type($$$)
     }
   }
 
-  my $href = '';
+  my $href;
   my $rel = '';
   my $section;
 
@@ -7030,8 +7044,8 @@ sub _convert_menu_entry_type($$$)
          {'type' => '_code',
           'contents' => $menu_entry_node->{'contents'}},
                        "menu_arg menu_entry_node preformatted");
-      if ($href ne '' and !$in_string) {
-        $result_name_node .= "<a href=\"$href\"$rel$accesskey>".$name."</a>";
+      if (defined($href) and !$in_string) {
+        $result_name_node .= "<a href=\"$href\"$rel$accesskey>$name</a>";
       } else {
         $result_name_node .= $name;
       }
@@ -7076,8 +7090,8 @@ sub _convert_menu_entry_type($$$)
   if ($section) {
     $name = $self->command_text($section);
     $name_no_number = $self->command_text($section, 'text_nonumber');
-    if ($href ne '' and $name ne '') {
-      $name = "<a href=\"$href\"$rel$accesskey>".$name."</a>";
+    if (defined($href) and $name ne '') {
+      $name = "<a href=\"$href\"$rel$accesskey>$name</a>";
     }
   }
   if (!defined($name) or $name eq '') {
@@ -7098,8 +7112,8 @@ sub _convert_menu_entry_type($$$)
     }
     $name =~ s/^\s*//;
     $name_no_number = $name;
-    if ($href ne '') {
-      $name = "<a href=\"$href\"$rel$accesskey>".$name."</a>";
+    if (defined($href)) {
+      $name = "<a href=\"$href\"$rel$accesskey>$name</a>";
     }
     $name = "$MENU_SYMBOL ".$name;
   }
@@ -10432,10 +10446,11 @@ sub _mini_toc
 
       my $href = $self->command_href($section);
       if ($text ne '') {
-        if ($href ne '') {
-          $result .= "<li><a href=\"$href\"$accesskey>$text</a>";
+        $result .= "<li>";
+        if (defined($href)) {
+          $result .= "<a href=\"$href\"$accesskey>$text</a>";
         } else {
-          $result .= "<li>$text";
+          $result .= $text;
         }
         $result .= "</li>\n";
       }
@@ -10521,12 +10536,12 @@ sub _default_format_contents($$;$$)
             (2*($section->{'extra'}->{'section_level'} - $min_root_level)))
               if ($is_contents);
           $result .= "<li>";
-          if ($toc_id ne '' or $href ne '') {
+          if ($toc_id ne '' or defined($href)) {
             $result .= "<a";
             if ($toc_id ne '') {
               $result .= " id=\"$toc_id\"";
             }
-            if ($href ne '') {
+            if (defined($href)) {
               $result .= " href=\"$href\"";
             }
             if ($section->{'extra'}
@@ -10833,7 +10848,7 @@ sub _get_links($$$$)
       my $link_href = $self->from_element_direction($link, 'href', $output_unit,
                                                     $filename, $node_command);
       #print STDERR "$link -> ".(defined($link_href) ? $link_href : 'UNDEF')."\n";
-      if ($link_href and $link_href ne '') {
+      if (defined($link_href) and $link_href ne '') {
         my $link_string = $self->from_element_direction($link, 'string',
                                                         $output_unit);
         my $link_title = '';

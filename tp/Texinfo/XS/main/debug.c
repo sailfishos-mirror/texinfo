@@ -137,7 +137,7 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_misc_args:
           {
             int j;
-            ELEMENT *f = k->element;
+            const ELEMENT *f = k->element;
             text_append (&text, "array: ");
             for (j = 0; j < f->contents.number; j++)
               {
@@ -152,7 +152,7 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_contents:
           {
             int j;
-            ELEMENT_LIST *l = k->list;
+            const ELEMENT_LIST *l = k->list;
             text_append (&text, "contents: ");
             for (j = 0; j < l->number; j++)
               {
@@ -166,7 +166,7 @@ char *print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_container:
           {
             int j;
-            ELEMENT *f = k->element;
+            const ELEMENT *f = k->element;
             text_append (&text, "contents: ");
             for (j = 0; j < f->contents.number; j++)
               {
