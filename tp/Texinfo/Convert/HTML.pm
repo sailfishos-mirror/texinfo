@@ -3320,40 +3320,20 @@ sub _convert_explained_command($$$$)
   my $explained_commands
     = $self->shared_conversion_state('explained_commands', {});
   $explained_commands->{$cmdname} = {} if (!$explained_commands->{$cmdname});
-  my $element_explanation_content
-    = $self->shared_conversion_state('element_explanation_content', {});
+
   if ($args and $args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $with_explanation = 1;
     $explanation_string = $args->[1]->{'string'};
 
-    # Convert the explanation of the acronym.  Must do this before we save
-    # the explanation for the future, otherwise we get infinite recursion
-    # for recursively-defined acronyms.
+    # Convert the explanation of the acronym.  Doing this before of after
+    # saving the explanation for the future changes the output for
+    # recursively-defined acronyms.
     $explanation_result = $self->convert_tree($args->[1]->{'tree'},
                                               "convert $cmdname explanation");
     $explained_commands->{$cmdname}->{$normalized_type} = $explanation_string;
-  } elsif (exists($element_explanation_content->{$command})) {
-    # if an acronym element is formatted more than once, this ensures that
-    # only the first explanation (including a lack of explanation) is reused.
-    # Note that this means that acronyms converted first on a sectioning
-    # command line for a direction text may not get the explanation
-    # from acronyms appearing later on in the document but before
-    # the sectioning command.
-    $explanation_string = $element_explanation_content->{$command};
   } elsif ($explained_commands->{$cmdname}->{$normalized_type}) {
     $explanation_string = $explained_commands->{$cmdname}->{$normalized_type};
-    $element_explanation_content->{$command} = $explanation_string;
-  } else {
-    # Avoid ever giving an explanation for this element, even if an
-    # explanation could appear later on, for instance if acronym is
-    # formatted early on a sectioning command line and the acronym is
-    # defined before the sectioning command in the document.  This prevents
-    # infinite recursion for a recursively-defined acronym, when an
-    # @acronym within the explanation could end up referring to the
-    # containing @acronym.
-
-    $element_explanation_content->{$command} = undef;
   }
   my $result = '';
   if ($args and defined($args->[0])) {
@@ -8157,7 +8137,6 @@ sub _load_htmlxref_files {
 #  shared_conversion_state
 #   Set through the shared_conversion_state API (among others):
 #  explained_commands         # used only in an @-command conversion function
-#  element_explanation_contents    # same as above
 #
 #     API exists
 #  current_filename
