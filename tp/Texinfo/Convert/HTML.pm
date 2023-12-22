@@ -3332,31 +3332,18 @@ sub _convert_explained_command($$$$)
     # for recursively-defined acronyms.
     $explanation_result = $self->convert_tree($args->[1]->{'tree'},
                                               "convert $cmdname explanation");
-    $explained_commands->{$cmdname}->{$normalized_type} =
-                                          $command->{'args'}->[1];
-  } elsif ($element_explanation_content->{$command}) {
+    $explained_commands->{$cmdname}->{$normalized_type} = $explanation_string;
+  } elsif (exists($element_explanation_content->{$command})) {
     # if an acronym element is formatted more than once, this ensures that
     # only the first explanation (including a lack of explanation) is reused.
     # Note that this means that acronyms converted first on a sectioning
     # command line for a direction text may not get the explanation
     # from acronyms appearing later on in the document but before
     # the sectioning command.
-    if ($element_explanation_content->{$command}->{'contents'}
-     and scalar(@{$element_explanation_content->{$command}->{'contents'}})) {
-      $explanation_string = $self->convert_tree_new_formatting_context(
-        {'type' => '_string',
-         'contents' => [$element_explanation_content->{$command}]},
-        $cmdname, $cmdname);
-    }
+    $explanation_string = $element_explanation_content->{$command};
   } elsif ($explained_commands->{$cmdname}->{$normalized_type}) {
-    $explanation_string = $self->convert_tree_new_formatting_context(
-                      {'type' => '_string',
-                       'contents' => [$explained_commands
-                                     ->{$cmdname}->{$normalized_type}]},
-                                                   $cmdname, $cmdname);
-
-    $element_explanation_content->{$command}
-       = $explained_commands->{$cmdname}->{$normalized_type};
+    $explanation_string = $explained_commands->{$cmdname}->{$normalized_type};
+    $element_explanation_content->{$command} = $explanation_string;
   } else {
     # Avoid ever giving an explanation for this element, even if an
     # explanation could appear later on, for instance if acronym is
@@ -3366,7 +3353,7 @@ sub _convert_explained_command($$$$)
     # @acronym within the explanation could end up referring to the
     # containing @acronym.
 
-    $element_explanation_content->{$command} = {};
+    $element_explanation_content->{$command} = undef;
   }
   my $result = '';
   if ($args and defined($args->[0])) {
