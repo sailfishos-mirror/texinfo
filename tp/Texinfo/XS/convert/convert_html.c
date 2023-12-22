@@ -8393,6 +8393,23 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_anchor_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+
+  if (!html_in_multi_expanded (self) && !html_in_string (self))
+    {
+      char *id = html_command_id (self, element);
+      if (id && strlen (id))
+        {
+          format_separate_anchor (self, id, "anchor", result);
+        }
+    }
+}
+
+void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -9883,6 +9900,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_email, &convert_email_command},
   {CM_abbr, &convert_explained_command},
   {CM_acronym, &convert_explained_command},
+  {CM_anchor, &convert_anchor_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to

@@ -3370,11 +3370,12 @@ sub _convert_anchor_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $id = $self->command_id($command);
-  if (defined($id) and $id ne '' and !in_multi_expanded($self)
-      and !in_string($self)) {
-    return &{$self->formatting_function('format_separate_anchor')}($self,
-                                                           $id, 'anchor');
+  if (!in_multi_expanded($self) and !in_string($self)) {
+    my $id = $self->command_id($command);
+    if (defined($id) and $id ne '') {
+      return &{$self->formatting_function('format_separate_anchor')}($self,
+                                                             $id, 'anchor');
+    }
   }
   return '';
 }
