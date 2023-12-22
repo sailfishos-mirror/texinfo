@@ -3307,7 +3307,6 @@ sub _convert_explained_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $with_explanation;
   my $explanation_result;
   my $explanation_string;
   my $normalized_type = '';
@@ -3324,7 +3323,6 @@ sub _convert_explained_command($$$$)
 
   if ($args and $args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
-    $with_explanation = 1;
     $explanation_string = $args->[1]->{'string'};
 
     # Convert the explanation of the acronym.  Doing this before of after
@@ -3348,7 +3346,7 @@ sub _convert_explained_command($$$$)
     $result = $self->html_attribute_class($html_element, [$cmdname])
          ."${explanation}>".$result."</$html_element>";
   }
-  if ($with_explanation) {
+  if (defined($explanation_result)) {
     # TRANSLATORS: abbreviation or acronym explanation
     $result = $self->convert_tree($self->gdt('{explained_string} ({explanation})',
           {'explained_string' => {'type' => '_converted',

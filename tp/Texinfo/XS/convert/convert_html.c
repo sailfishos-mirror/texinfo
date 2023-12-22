@@ -8221,6 +8221,177 @@ convert_email_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+EXPLAINED_COMMAND_TYPE *
+find_explained_command_string (EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
+                               const enum command_id cmd, const char *type)
+{
+  size_t i;
+  for (i = 0; i < type_explanations->number; i++)
+    {
+      EXPLAINED_COMMAND_TYPE *type_explanation = &type_explanations->list[i];
+      if (type_explanation->cmd == cmd
+          && !strcmp (type_explanation->type, type))
+        return type_explanation;
+    }
+  return 0;
+}
+
+void
+register_explained_command_string (
+               EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
+                    const enum command_id cmd,
+                    const char *type, const char *explanation)
+{
+  EXPLAINED_COMMAND_TYPE *type_explanation
+    = find_explained_command_string (type_explanations, cmd, type);
+  if (!type_explanation)
+    {
+      if (type_explanations->number == type_explanations->space)
+        {
+          type_explanations->list
+           = realloc (type_explanations->list,
+            sizeof (EXPLAINED_COMMAND_TYPE) * (type_explanations->space += 5));
+        }
+      type_explanation = &type_explanations->list[type_explanations->number];
+      type_explanation->cmd = cmd;
+      type_explanation->type = strdup (type);
+
+      type_explanations->number++;
+    }
+  else
+    free (type_explanation->explanation);
+
+  type_explanation->explanation = strdup (explanation);
+}
+
+void
+convert_explained_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  TEXT explained_string;
+  TEXT *text_result;
+  char *explained_arg = 0;
+  char *normalized_type = 0;
+  char *explanation_result = 0;
+  char *explanation_string = 0;
+  EXPLAINED_COMMAND_TYPE_LIST *type_explanations
+    = &self->shared_conversion_state.explained_commands;
+
+  if (element->args.number > 0
+      && element->args.list[0]->contents.number > 0)
+    {
+      normalized_type = convert_to_identifier (element->args.list[0]);
+    }
+  else
+    normalized_type = strdup ("");
+
+  if (args_formatted && args_formatted->number > 1
+      && args_formatted->args[1].formatted[AFT_type_string])
+    {
+      explanation_string
+        = args_formatted->args[1].formatted[AFT_type_string];
+
+      if (explanation_string[strspn
+                     (explanation_string, whitespace_chars)] != '\0')
+        {
+          char *conversion_description;
+   /* Convert the explanation of the acronym.  Doing this before of after
+      saving the explanation for the future changes the output for
+      recursively-defined acronyms. */
+          xasprintf (&conversion_description, "convert %s explanation",
+                                            builtin_command_name (cmd));
+          explanation_result
+            = html_convert_tree (self, args_formatted->args[1].tree,
+                                 conversion_description);
+          free (conversion_description);
+          register_explained_command_string (type_explanations,
+                           cmd, normalized_type, explanation_string);
+        }
+      else
+        explanation_string = 0;
+    }
+  else
+    {
+      EXPLAINED_COMMAND_TYPE *type_explanation
+          = find_explained_command_string (type_explanations,
+                                                     cmd, normalized_type);
+      if (type_explanation)
+        explanation_string = type_explanation->explanation;
+    }
+
+  free (normalized_type);
+
+  if (explanation_result)
+    {
+      text_init (&explained_string);
+      text_result = &explained_string;
+    }
+  else
+    text_result = result;
+
+  if (args_formatted->number > 0 &&
+      args_formatted->args[0].formatted[AFT_type_normal])
+    explained_arg = args_formatted->args[0].formatted[AFT_type_normal];
+  else
+    explained_arg = "";
+
+  if (!html_in_string (self))
+    {
+      char *attribute_class;
+      STRING_LIST *classes;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+
+      attribute_class = html_attribute_class (self, "abbr", classes);
+      destroy_strings_list (classes);
+      text_append (text_result, attribute_class);
+      free (attribute_class);
+
+      if (explanation_string)
+        text_printf (text_result, " title=\"%s\"", explanation_string);
+      text_append_n (text_result, ">", 1);
+      text_append (text_result, explained_arg);
+      text_append_n (text_result, "</abbr>", 7);
+    }
+  else
+    text_append (text_result, explained_arg);
+
+  if (explanation_result)
+    {
+      char *context_str;
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+      ELEMENT *explained_string_element = new_element (ET__converted);
+      ELEMENT *explanation_result_element = new_element (ET__converted);
+      ELEMENT *tree;
+
+      text_append (&explained_string_element->text, text_result->text);
+      free (text_result->text);
+      text_append (&explanation_result_element->text, explanation_result);
+      free (explanation_result);
+
+      add_element_to_named_string_element_list (substrings,
+                          "explained_string", explained_string_element);
+      add_element_to_named_string_element_list (substrings,
+                          "explanation", explanation_result_element);
+      tree = html_gdt_tree ("{explained_string} ({explanation})",
+                             self->document, self, substrings, 0, 0);
+      destroy_named_string_element_list (substrings);
+
+      xasprintf (&context_str, "convert explained  %s",
+                 builtin_command_name (cmd));
+      add_to_element_list (&self->tree_to_build, tree);
+      convert_to_html_internal (self, tree, result, context_str);
+      remove_element_from_list (&self->tree_to_build, tree);
+      free (context_str);
+      /* should destroy explained_*_element */
+      destroy_element_and_children (tree);
+    }
+}
+
 void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -9710,6 +9881,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_today, &convert_today_command},
   {CM_value, &convert_value_command},
   {CM_email, &convert_email_command},
+  {CM_abbr, &convert_explained_command},
+  {CM_acronym, &convert_explained_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
@@ -10872,6 +11045,9 @@ void
 html_reset_converter (CONVERTER *self)
 {
   int i;
+  EXPLAINED_COMMAND_TYPE_LIST *type_explanations
+   = &self->shared_conversion_state.explained_commands;
+
   reset_translated_special_unit_info_tree (self);
   /* targets */
   reset_html_targets (self, &self->html_targets);
@@ -10984,6 +11160,18 @@ html_reset_converter (CONVERTER *self)
         }
     }
   free (self->tree_to_build.list);
+
+  if (type_explanations->number > 0)
+    {
+      for (i = 0; i < type_explanations->number; i++)
+        {
+          EXPLAINED_COMMAND_TYPE *type_explanation
+            = &type_explanations->list[i];
+          free (type_explanation->type);
+          free (type_explanation->explanation);
+        }
+      type_explanations->number = 0;
+    }
 }
 
 void
@@ -11014,6 +11202,8 @@ html_free_converter (CONVERTER *self)
   int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
                      + self->special_unit_varieties.number;
   int nr_dir_str_contexts = TDS_context_string + 1;
+  EXPLAINED_COMMAND_TYPE_LIST *type_explanations
+   = &self->shared_conversion_state.explained_commands;
 
 
   if (self->error_messages.number)
@@ -11168,6 +11358,8 @@ html_free_converter (CONVERTER *self)
   free (self->multiple_pass.stack);
 
   free (self->html_document_context.stack);
+
+  free (type_explanations->list);
 
   free_strings_list (&self->special_unit_varieties);
 }

@@ -287,6 +287,7 @@ char *normalize_top_name (const char *text)
   return strdup (text);
 }
 
+/* to be freed by caller */
 char *
 convert_to_identifier (const ELEMENT *root)
 {

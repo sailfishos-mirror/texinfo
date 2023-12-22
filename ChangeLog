@@ -1,5 +1,18 @@
 2023-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_explained_command): remove
+	$with_explanation, use directly $explanation_result.
+
+	* tp/Texinfo/XS/convert/convert_html.c (find_explained_command_string)
+	(register_explained_command_string, convert_explained_command)
+	(commands_internal_conversion_table, html_reset_converter)
+	(html_free_converter), tp/Texinfo/XS/main/converter_types.h
+	(EXPLAINED_COMMAND_TYPE, EXPLAINED_COMMAND_TYPE_LIST)
+	(HTML_SHARED_CONVERSION_STATE): finalize type of explained commands
+	strings. Implement convert_explained_command.
+
+2023-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_email_command)
 	(commands_internal_conversion_table): implement in C.
 

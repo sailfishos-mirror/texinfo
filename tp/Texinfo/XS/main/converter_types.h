@@ -282,9 +282,22 @@ typedef struct HTML_TARGET_LIST {
     HTML_TARGET *list;
 } HTML_TARGET_LIST;
 
+typedef struct EXPLAINED_COMMAND_TYPE {
+    enum command_id cmd;
+    char *type;
+    char *explanation;
+} EXPLAINED_COMMAND_TYPE;
+
+typedef struct EXPLAINED_COMMAND_TYPE_LIST {
+    size_t number;
+    size_t space;
+    EXPLAINED_COMMAND_TYPE *list;
+} EXPLAINED_COMMAND_TYPE_LIST;
+
 typedef struct HTML_SHARED_CONVERSION_STATE {
-    int explained_commands; /* explained_commands->{char $cmdname}->{char $normalized_type}
-                               = ELEMENT */
+    EXPLAINED_COMMAND_TYPE_LIST explained_commands;
+        /* explained_commands->{char $cmdname}->{char $normalized_type}
+                               = explanation */
     int footnote_id_numbers; /* footnote_id_numbers->{char $footid} = int */
     /* Not useful, directly use expanded formats in the converter.
        Needed in perl as expanded formats are accessed per format in the API
