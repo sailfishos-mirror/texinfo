@@ -1,3 +1,21 @@
+2023-12-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): increment
+	converter->no_arg_formatted_cmd.number only if there was no error on
+	the command and it is not undef.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): add style_formatted_cmd, the list of style formatted
+	commands, set and free associated data fully.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_style_command)
+	(convert_indicateurl_command, commands_internal_conversion_table)
+	(html_converter_initialize): implement convert_style_command and
+	convert_indicateurl_command.
+
 2023-12-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c

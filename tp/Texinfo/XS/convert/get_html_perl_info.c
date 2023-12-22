@@ -630,7 +630,7 @@ html_converter_initialize_sv (SV *converter_sv,
 
       converter->no_arg_formatted_cmd.list = (enum command_id *)
         malloc (hv_number * sizeof (enum command_id));
-      converter->no_arg_formatted_cmd.number = hv_number;
+      converter->no_arg_formatted_cmd.number = 0;
 
       for (i = 0; i < hv_number; i++)
         {
@@ -643,14 +643,16 @@ html_converter_initialize_sv (SV *converter_sv,
               HV *context_hv = (HV *)SvRV (context_sv);
               enum command_id cmd = lookup_builtin_command (cmdname);
 
-              converter->no_arg_formatted_cmd.list[i] = cmd;
-
               if (!cmd)
                 fprintf (stderr, "ERROR: %s: no no arg command\n", cmdname);
               else
                 {
                   I32 context_nr;
                   I32 j;
+
+                  converter->no_arg_formatted_cmd.list[
+                               converter->no_arg_formatted_cmd.number] = cmd;
+                  converter->no_arg_formatted_cmd.number++;
 
                   context_nr = hv_iterinit (context_hv);
                   for (j = 0; j < context_nr; j++)
@@ -746,6 +748,10 @@ html_converter_initialize_sv (SV *converter_sv,
         = (HV *)SvRV (*style_commands_formatting_sv);
 
       hv_number = hv_iterinit (style_commands_formatting_hv);
+      converter->style_formatted_cmd.list = (enum command_id *)
+        malloc (hv_number * sizeof (enum command_id));
+      converter->style_formatted_cmd.number = 0;
+
       for (i = 0; i < hv_number; i++)
         {
           char *cmdname;
@@ -762,6 +768,10 @@ html_converter_initialize_sv (SV *converter_sv,
                 {
                   I32 context_nr;
                   I32 j;
+
+                  converter->style_formatted_cmd.list[
+                                 converter->style_formatted_cmd.number] = cmd;
+                  converter->style_formatted_cmd.number++;
 
                   context_nr = hv_iterinit (context_hv);
                   for (j = 0; j < context_nr; j++)
@@ -809,15 +819,16 @@ html_converter_initialize_sv (SV *converter_sv,
                                                            &key, &retlen);
                               if (!strcmp (key, "element"))
                                 {
-                                   /* TODO add when it is used, and free
                                   char *tmp_spec
                                     = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->element = strdup (tmp_spec);
-                                    */
                                 }
                               else if (!strcmp (key, "quote"))
                                 format_spec->quote = SvIV (spec_sv);
                             }
+                            /*
+                          fprintf (stderr, "HHH %d %d %s %d %d %s %d %s\n", i, cmd, cmdname, j, context_idx, context_name, format_spec->quote, format_spec->element);
+                             */
                         }
                     }
                 }

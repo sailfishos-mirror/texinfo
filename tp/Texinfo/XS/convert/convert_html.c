@@ -8030,6 +8030,91 @@ convert_today_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_style_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  enum command_id style_cmd = cmd;
+  HTML_COMMAND_CONVERSION *formatting_spec;
+
+  /* happens with bogus @-commands without argument, like @strong something */
+  if (!args_formatted || args_formatted->number <= 0
+      || !args_formatted->args[0].formatted[AFT_type_normal])
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
+      return;
+    }
+
+  if (cmd == CM_kbd)
+    {
+      int status;
+      int code = lookup_extra_integer (element, "code", &status);
+      if (code > 0)
+        style_cmd = CM_code;
+    }
+
+  if (html_in_preformatted_context (self))
+    formatting_spec
+      = &self->html_command_conversion[style_cmd][HCC_type_preformatted];
+  else
+    formatting_spec
+      = &self->html_command_conversion[style_cmd][HCC_type_normal];
+
+  if (formatting_spec->element)
+    {
+      STRING_LIST *classes;
+      char *open;
+      size_t open_len;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (style_cmd), classes);
+
+      if (style_cmd != cmd)
+        {
+          char *style_as_cmd;
+          xasprintf (&style_as_cmd, "as-%s-%s",
+                     builtin_command_name (style_cmd),
+                     builtin_command_name (cmd));
+          add_string (style_as_cmd, classes);
+          free (style_as_cmd);
+        }
+
+      if (formatting_spec->quote)
+        text_append (result, self->conf->OPEN_QUOTE_SYMBOL);
+
+      open
+        = html_attribute_class (self, formatting_spec->element, classes);
+      open_len = strlen (open);
+      destroy_strings_list (classes);
+
+      if (open_len > 0)
+        {
+          text_append (result, open);
+          text_append_n (result, ">", 1);
+          free (open);
+        }
+
+      text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
+
+      if (open_len > 0)
+        {
+          text_append_n (result, "</", 2);
+          text_append (result, formatting_spec->element);
+          text_append_n (result, ">", 1);
+        }
+
+      if (formatting_spec->quote)
+        text_append (result, self->conf->CLOSE_QUOTE_SYMBOL);
+    }
+  else
+    text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
+}
+
+void
 convert_w_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -8045,6 +8130,43 @@ convert_w_command (CONVERTER *self, const enum command_id cmd,
     {
       text_append (result, "<!-- /@w -->");
     }
+}
+
+void
+convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  /* happens with bogus @-commands without argument, like @strong something */
+  if (!args_formatted || args_formatted->number <= 0
+      || !args_formatted->args[0].formatted[AFT_type_normal])
+    return;
+
+  text_append (result, self->conf->OPEN_QUOTE_SYMBOL);
+
+  if (!html_in_string (self))
+    {
+      char *attribute_class;
+      STRING_LIST *classes;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+
+      attribute_class = html_attribute_class (self, "code", classes);
+      destroy_strings_list (classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+
+      text_append_n (result, ">", 1);
+
+      text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
+      text_append_n (result, "</code>", 7);
+    }
+  else
+    text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
+
+  text_append (result, self->conf->CLOSE_QUOTE_SYMBOL);
 }
 
 void
@@ -9495,6 +9617,11 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_w, &convert_w_command},
   {CM_today, &convert_today_command},
 
+  /* note that this prevents indicateurl to be associated to
+     convert_style_command, otherwise it would be as it is in
+     self->style_formatted_cmd */
+  {CM_indicateurl, &convert_indicateurl_command},
+
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
   {CM_summarycontents, &convert_contents_command},
@@ -10413,6 +10540,35 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
+  /* all the commands in style_formatted_cmd are implemented in C.
+     It is not only the style commands, some others too.  indicateurl
+     is on style_formatted_cmd, but is not set as it is already set
+     from commands_internal_conversion_table since it has a specific
+     formatting function */
+  if (self->style_formatted_cmd.number)
+    {
+      for (i = 0; i < self->style_formatted_cmd.number; i++)
+        {
+          enum command_id cmd = self->style_formatted_cmd.list[i];
+          COMMAND_CONVERSION_FUNCTION *command_conversion
+               = &self->command_conversion_function[cmd];
+          COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
+               = &self->css_string_command_conversion_function[cmd];
+          if (command_conversion->status == FRS_status_default_set)
+            {
+              command_conversion->formatting_reference = 0;
+              command_conversion->status = FRS_status_internal;
+              command_conversion->command_conversion
+                = &convert_style_command;
+            }
+
+          css_string_command_conversion->formatting_reference = 0;
+          css_string_command_conversion->status = FRS_status_internal;
+          css_string_command_conversion->command_conversion
+            = &convert_style_command;
+        }
+    }
+
   for (i = 0; commands_internal_open_table[i].command_open; i++)
     {
       enum command_id cmd = commands_internal_open_table[i].cmd;
@@ -10835,6 +10991,18 @@ html_free_converter (CONVERTER *self)
         }
     }
 
+  for (i = 0; i < self->style_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = self->style_formatted_cmd.list[i];
+      enum conversion_context cctx;
+      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+        {
+          HTML_COMMAND_CONVERSION *format_spec
+                = &self->html_command_conversion[cmd][cctx];
+          free (format_spec->element);
+        }
+    }
+
   for (i = 0; i < SUI_type_heading+1; i++)
     {
       int k;
@@ -10887,6 +11055,8 @@ html_free_converter (CONVERTER *self)
   free (self->htmlxref.list);
 
   free (self->no_arg_formatted_cmd.list);
+
+  free (self->style_formatted_cmd.list);
 
   free (self->pending_closes.stack);
   free (self->pending_inline_content.stack);

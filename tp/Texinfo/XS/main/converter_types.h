@@ -677,6 +677,7 @@ typedef struct CONVERTER {
   /* HTML specific */
     /* set for a converter */
     COMMAND_ID_LIST no_arg_formatted_cmd;
+    COMMAND_ID_LIST style_formatted_cmd;
     int code_types[TXI_TREE_TYPES_NUMBER];
     char *pre_class_types[TXI_TREE_TYPES_NUMBER];
     int upper_case[BUILTIN_CMD_NUMBER];
