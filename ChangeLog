@@ -1,5 +1,21 @@
 2023-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (direction_a): rename
+	direction_anchor as direction_a.  Update callers.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(default_panel_button_dynamic_direction_internal): rearrange code
+	and free href.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_xref_commands):
+	allocate and free file, free href, destroy label_element and tree,
+	removing leaks found by valgrind.
+
+	* tp/Texinfo/XS/convert/convert_html.c (external_node_href):
+	free parentheses_manual_name, removing leaks found by valgrind.
+
+2023-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_value_command)
 	(commands_internal_conversion_table): implement convert_value_command
 	in C.

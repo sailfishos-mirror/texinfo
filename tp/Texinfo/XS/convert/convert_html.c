@@ -3027,6 +3027,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                   free (target_filebase);
                   return strdup ("");
                 }
+              free (parentheses_manual_name);
             }
         }
       p = strrchr (manual_name, '/');
@@ -5515,8 +5516,8 @@ direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
 }
 
 static char *
-direction_anchor (CONVERTER *self, int direction, const char *href,
-                  const char *text, int omit_rel)
+direction_a (CONVERTER *self, int direction, const char *href,
+             const char *text, int omit_rel)
 {
   TEXT result;
   text_init (&result);
@@ -6622,22 +6623,19 @@ default_panel_button_dynamic_direction_internal (CONVERTER *self,
 
   if (node && node[strspn (node, whitespace_chars)] != '\0')
     {
-      char *hyperlink;
       char *text = direction_string (self, direction, TDS_type_text, 0);
       if (href && strlen (href))
         {
-          hyperlink =
-           direction_anchor (self, direction, href, node, omit_rel);
-          free (node);
+          char *hyperlink
+           = direction_a (self, direction, href, node, omit_rel);
+          xasprintf (&formatted_button->active, "%s: %s", text, hyperlink);
+          free (hyperlink);
         }
       else
-        hyperlink = node;
-
-      xasprintf (&formatted_button->active, "%s: %s", text, hyperlink);
-      free (hyperlink);
-      return formatted_button;
+        xasprintf (&formatted_button->active, "%s: %s", text, node);
     }
 
+  free (href);
   free (node);
   return formatted_button;
 }
@@ -6732,7 +6730,7 @@ html_default_format_button (CONVERTER *self,
                   if (href)
                     {
                       formatted_button->active
-                        = direction_anchor (self, direction, href, text, 0);
+                        = direction_a (self, direction, href, text, 0);
                       free (href);
                     }
                   else
@@ -6766,8 +6764,8 @@ html_default_format_button (CONVERTER *self,
                   if (href)
                     {
                       formatted_button->active
-                        = direction_anchor (self, direction, href,
-                                                    text_formatted, 0);
+                        = direction_a (self, direction, href,
+                                       text_formatted, 0);
                     }
                   else
                     formatted_button->passive = strdup (text_formatted);
@@ -8227,7 +8225,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
 {
   char *name = 0;
   HTML_ARG_FORMATTED *file_arg = 0;
-  const char *file = 0;
+  char *file = 0;
   const char *book = 0;
   const ELEMENT *arg_node = 0;
   const ELEMENT *target_node = 0;
@@ -8260,7 +8258,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   if (file_arg && file_arg->formatted[AFT_type_filenametext]
       && strlen (file_arg->formatted[AFT_type_filenametext]))
     {
-      file = file_arg->formatted[AFT_type_filenametext];
+      file = strdup (file_arg->formatted[AFT_type_filenametext]);
     }
 
   if (args_formatted->number > 4
@@ -8367,7 +8365,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
           attribute_class = html_attribute_class (self, "a", classes);
           text_append (&reference_element->text, attribute_class);
           text_printf (&reference_element->text, " href=\"%s\">%s</a>",
-                                              href, name);
+                                                 href, name);
           free (attribute_class);
           destroy_strings_list (classes);
         }
@@ -8375,6 +8373,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
         {
           text_append (&reference_element->text, name);
         }
+      free (href);
 
       add_element_to_named_string_element_list (substrings,
                           "reference_name", reference_element);
@@ -8494,8 +8493,12 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
             }
         }
 
-      if (label_element && !html_in_string (self))
-        href = html_command_href (self, label_element, 0, element, 0);
+      if (label_element)
+        {
+          if (!html_in_string (self))
+            href = html_command_href (self, label_element, 0, element, 0);
+          destroy_element (label_element);
+        }
 
       if (href)
         {
@@ -8684,13 +8687,11 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       convert_to_html_internal (self, tree, result, context_str);
       remove_element_from_list (&self->tree_to_build, tree);
       free (context_str);
+      /* should destroy reference_element and book_element */
+      destroy_element_and_children (tree);
     }
 
-  if (reference_element)
-    destroy_element (reference_element);
-  if (book_element)
-    destroy_element (book_element);
-
+  free (file);
   free (name);
 }
 
