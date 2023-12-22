@@ -8133,6 +8133,33 @@ convert_w_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_value_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  ELEMENT *tree;
+  ELEMENT *value_text = new_element (ET_NONE);
+  NAMED_STRING_ELEMENT_LIST *substrings = new_named_string_element_list ();
+
+  text_append (&value_text->text,
+               args_formatted->args[0].formatted[AFT_type_monospacestring]);
+  add_element_to_named_string_element_list (substrings,
+                                            "value", value_text);
+
+  tree = html_gdt_tree ("@{No value for `{value}'@}", self->document,
+                        self, substrings, 0, 0);
+
+  add_to_element_list (&self->tree_to_build, tree);
+  convert_to_html_internal (self, tree, result, 0);
+  remove_element_from_list (&self->tree_to_build, tree);
+
+  destroy_element_and_children (tree);
+
+  destroy_named_string_element_list (substrings);
+}
+
+void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -9616,6 +9643,7 @@ convert_contents_command (CONVERTER *self, const enum command_id cmd,
 static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_w, &convert_w_command},
   {CM_today, &convert_today_command},
+  {CM_value, &convert_value_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
