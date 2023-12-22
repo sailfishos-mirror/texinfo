@@ -1,5 +1,12 @@
 2023-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%style_commands_formatting): do not put
+	indicateurl in %style_commands_formatting and do not associate it,
+	even temporarily, to _convert_style_command, as it has its own
+	formatting function.
+
+2023-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv): increment
 	converter->no_arg_formatted_cmd.number only if there was no error on

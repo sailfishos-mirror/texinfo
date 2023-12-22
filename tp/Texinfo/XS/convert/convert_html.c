@@ -9617,9 +9617,9 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_w, &convert_w_command},
   {CM_today, &convert_today_command},
 
-  /* note that this prevents indicateurl to be associated to
-     convert_style_command, otherwise it would be as it is in
-     self->style_formatted_cmd */
+  /* note that if indicateurl had been in self->style_formatted_cmd this
+     would have prevented indicateurl to be associated to
+     convert_style_command */
   {CM_indicateurl, &convert_indicateurl_command},
 
   {CM_contents, &convert_contents_command},
@@ -10542,9 +10542,7 @@ html_converter_initialize (CONVERTER *self)
 
   /* all the commands in style_formatted_cmd are implemented in C.
      It is not only the style commands, some others too.  indicateurl
-     is on style_formatted_cmd, but is not set as it is already set
-     from commands_internal_conversion_table since it has a specific
-     formatting function */
+     is not in style_formatted_cmd for now either */
   if (self->style_formatted_cmd.number)
     {
       for (i = 0; i < self->style_formatted_cmd.number; i++)

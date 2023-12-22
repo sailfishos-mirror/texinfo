@@ -3125,6 +3125,8 @@ my @all_style_commands = keys %{{ map { $_ => 1 }
       keys(%style_commands_element), keys(%quoted_style_commands)) }};
 
 foreach my $command (@all_style_commands) {
+  # indicateurl is formatted with a specific function
+  next if ($command eq 'indicateurl');
   $style_commands_formatting{$command} = {};
   # default is no element.
   foreach my $context ('normal', 'string', 'preformatted') {
