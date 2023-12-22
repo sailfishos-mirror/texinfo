@@ -3287,7 +3287,8 @@ sub _convert_email_command($$$$)
   }
   $text = $mail_string unless ($text ne '');
   # match a non-space character.  Both ascii and non-ascii spaces are
-  # considered as spaces.
+  # considered as spaces.  When perl 5.18 is the oldest version
+  # supported, it could become [^\s]
   return $text unless ($mail =~ /[^\v\h\s]/);
   if (in_string($self)) {
     return "$mail_string ($text)";

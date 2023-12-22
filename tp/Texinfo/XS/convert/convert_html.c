@@ -8158,6 +8158,70 @@ convert_value_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_email_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *mail = 0;
+  char *mail_string = 0;
+  char *text = 0;
+
+  if (args_formatted->number > 0)
+    {
+      mail = args_formatted->args[0].formatted[AFT_type_url];
+      mail_string
+       = args_formatted->args[0].formatted[AFT_type_monospacestring];
+    }
+
+  if (args_formatted->number > 1
+      && args_formatted->args[1].formatted[AFT_type_normal])
+    {
+      text = args_formatted->args[1].formatted[AFT_type_normal];
+    }
+
+  if (!text || !strlen (text))
+    {
+      text = mail_string;
+    }
+
+  /* FIXME match unicode spaces in perl */
+  if (!mail || mail[strspn (mail, whitespace_chars)] == '\0')
+    {
+      if (text)
+        text_append (result, text);
+      return;
+    }
+
+  if (html_in_string (self))
+    {
+      text_printf (result, "%s (%s)", mail_string, text);
+    }
+  else
+    {
+      char *attribute_class;
+      char *protected_mailto;
+      char *mailto;
+      STRING_LIST *classes;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+
+      attribute_class = html_attribute_class (self, "a", classes);
+      destroy_strings_list (classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+
+      xasprintf (&mailto, "mailto:%s", mail);
+      protected_mailto = url_protect_url_text (self, mailto);
+      free (mailto);
+
+      text_printf (result, " href=\"%s\">%s</a>", protected_mailto, text);
+      free (protected_mailto);
+    }
+}
+
+void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -9645,6 +9709,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_w, &convert_w_command},
   {CM_today, &convert_today_command},
   {CM_value, &convert_value_command},
+  {CM_email, &convert_email_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
