@@ -341,9 +341,8 @@ my %underline_symbol = (
   4 => '.'
 );
 
-# TODO not documented, used in other converters
 # Return the text of an underlined heading, possibly indented.
-sub text_heading($$$;$$)
+sub _text_heading($$$;$$)
 {
   my $current = shift;
   my $text = shift;
@@ -375,7 +374,7 @@ sub text_heading($$$;$$)
     $section_level = $current->{'extra'}->{'section_level'};
   }
   # $text is indented if indent_length is set, so $indent_length need to
-  # be substracted to have the width of heading only.
+  # be subtracted to have the width of the heading only.
   $result .= ($underline_symbol{$section_level}
      x (Texinfo::Convert::Unicode::string_width($text) - $indent_length))."\n";
   return $result;
@@ -712,7 +711,7 @@ sub _convert($;$)
         }
         if ($Texinfo::Commands::sectioning_heading_commands{
                                                     $element->{'cmdname'}}) {
-          $result = text_heading($element, $result, $options->{'converter'},
+          $result = _text_heading($element, $result, $options->{'converter'},
                                  $options->{'NUMBER_SECTIONS'});
         } else {
         # we always want an end of line even if is was eaten by a command

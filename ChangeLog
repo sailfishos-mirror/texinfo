@@ -1,5 +1,12 @@
 2023-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Text.pm (text_heading, _text_heading):
+	Rename with leading _ to indicate that this function is not
+	called from outside the module any more.  Fix spelling and
+	grammar in a comment.
+
+2023-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Headings in Plaintext.pm
 
 	* tp/Texinfo/Convert/Plaintext.pm (_text_heading): Incorporate
