@@ -118,24 +118,24 @@ node                    line,formatted_line,root,contain_basic_inline           
 top                     line,formatted_line,root,contain_basic_inline,sectioning_heading,global_unique,unnumbered LINE_line
 chapter                 line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
 unnumbered              line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               LINE_line
-chapheading             line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+chapheading             line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    LINE_line
 appendix                line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               LINE_line
 section                 line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
 unnumberedsec           line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               LINE_line
-heading                 line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+heading                 line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    LINE_line
 appendixsec             line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               LINE_line
 subsection              line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
 unnumberedsubsec        line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               LINE_line
-subheading              line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+subheading              line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    LINE_line
 appendixsubsec          line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               LINE_line
 subsubsection           line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
 unnumberedsubsubsec     line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               LINE_line
-subsubheading           line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+subsubheading           line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    LINE_line
 appendixsubsubsec       line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               LINE_line
 
 part                    line,formatted_line,root,contain_basic_inline,sectioning_heading,global,unnumbered        LINE_line
 appendixsection         line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               LINE_line
-majorheading            line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+majorheading            line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    LINE_line
 centerchap              line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered,deprecated    LINE_line
 
 # end of document, end of block
