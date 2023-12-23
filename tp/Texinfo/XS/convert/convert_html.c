@@ -916,7 +916,7 @@ special_unit_info (CONVERTER *self, enum special_unit_info_type type,
 void
 html_register_footnote (CONVERTER *self, const ELEMENT *command,
      const char *footid, const char *docid, const int number_in_doc,
-     const char *footnote_location_filename, char *multi_expanded_region)
+     const char *footnote_location_filename, const char *multi_expanded_region)
 {
   HTML_PENDING_FOOTNOTE_STACK *stack;
   HTML_PENDING_FOOTNOTE *pending_footnote;
@@ -4524,18 +4524,56 @@ prepare_index_entries_targets (CONVERTER *self)
     }
 }
 
+static int
+compare_footnote_id (const void *a, const void *b)
+{
+  const FOOTNOTE_ID_NUMBER *fid_a = (const FOOTNOTE_ID_NUMBER *) a;
+  const FOOTNOTE_ID_NUMBER *fid_b = (const FOOTNOTE_ID_NUMBER *) b;
+
+  return strcmp (fid_a->footnote_id, fid_b->footnote_id);
+}
+
+FOOTNOTE_ID_NUMBER *
+find_footnote_id_number (CONVERTER *self, const char *footnote_id)
+{
+  const ELEMENT_LIST *global_footnotes
+    = &self->document->global_commands->footnotes;
+
+  FOOTNOTE_ID_NUMBER *result = 0;
+  static FOOTNOTE_ID_NUMBER searched_footnote_id;
+  searched_footnote_id.footnote_id = footnote_id;
+  if (global_footnotes->number == 0)
+    {
+      char *msg;
+      xasprintf (&msg, "no footnotes, searching for '%s'\n", footnote_id);
+      fatal (msg);
+      free (msg);
+    }
+
+  result = (FOOTNOTE_ID_NUMBER *) bsearch (&searched_footnote_id,
+                self->shared_conversion_state.footnote_id_numbers,
+                global_footnotes->number, sizeof(FOOTNOTE_ID_NUMBER),
+                compare_footnote_id);
+  return result;
+}
+
 static const char *footid_base = "FOOT";
 static const char *docid_base = "DOCF";
 
 static void
 prepare_footnotes_targets (CONVERTER *self)
 {
-  const ELEMENT_LIST *global_footnotes = &self->document->global_commands->footnotes;
+  const ELEMENT_LIST *global_footnotes
+    = &self->document->global_commands->footnotes;
   if (global_footnotes->number > 0)
     {
       int i;
+      self->shared_conversion_state.footnote_id_numbers
+        = (FOOTNOTE_ID_NUMBER *) malloc (global_footnotes->number *
+                                         sizeof (FOOTNOTE_ID_NUMBER));
       for (i = 0; i < global_footnotes->number; i++)
         {
+          HTML_TARGET *element_target;
           const ELEMENT *footnote = global_footnotes->list[i];
           TEXT footid;
           TEXT docid;
@@ -4565,7 +4603,7 @@ prepare_footnotes_targets (CONVERTER *self)
             }
           add_string (footid.text, &self->seen_ids);
           add_string (docid.text, &self->seen_ids);
-          add_element_target (self, footnote, footid.text);
+          element_target = add_element_target (self, footnote, footid.text);
           add_special_target (self, ST_footnote_location, footnote,
                               docid.text);
 
@@ -4576,9 +4614,15 @@ prepare_footnotes_targets (CONVERTER *self)
                        footid.text, nr, footnote_txi);
               free (footnote_txi);
             }
+          self->shared_conversion_state.footnote_id_numbers[i].footnote_id
+             = element_target->target;
+          self->shared_conversion_state.footnote_id_numbers[i].number = 0;
           free (footid.text);
           free (docid.text);
         }
+      qsort (self->shared_conversion_state.footnote_id_numbers,
+             global_footnotes->number,
+             sizeof (FOOTNOTE_ID_NUMBER), compare_footnote_id);
     }
 }
 
@@ -8398,7 +8442,6 @@ convert_anchor_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-
   if (!html_in_multi_expanded (self) && !html_in_string (self))
     {
       char *id = html_command_id (self, element);
@@ -8407,6 +8450,127 @@ convert_anchor_command (CONVERTER *self, const enum command_id cmd,
           format_separate_anchor (self, id, "anchor", result);
         }
     }
+}
+
+void
+convert_footnote_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  const static char *target_prefix = "t_f";
+  char *footnote_mark;
+  const char *footnote_id;
+  const char *footnote_docid;
+  char *footid;
+  char *docid;
+  int multiple_expanded_footnote = 0;
+  const char *multi_expanded_region;
+  int foot_num;
+  char *footnote_href;
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  self->shared_conversion_state.footnote_number++;
+  foot_num = self->shared_conversion_state.footnote_number;
+
+  if (self->conf->NUMBER_FOOTNOTES > 0)
+    xasprintf (&footnote_mark, "%d", foot_num);
+  else
+    footnote_mark = strdup (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL);
+
+  if (html_in_string (self))
+    {
+      text_printf (result, "(%s)", footnote_mark);
+      free (footnote_mark);
+      return;
+    }
+
+  footnote_id = html_command_id (self, element);
+
+  /* happens for bogus footnotes */
+  if (!footnote_id)
+    return;
+
+  /* ID for linking back to the main text from the footnote. */
+  footnote_docid = html_footnote_location_target (self, element);
+
+  multi_expanded_region = html_in_multi_expanded (self);
+  if (multi_expanded_region)
+    {
+    /* to avoid duplicate names, use a prefix that cannot happen in anchors */
+      xasprintf (&footid, "%s%s_%s_%d\n", target_prefix, multi_expanded_region,
+                 footnote_id, foot_num);
+      xasprintf (&docid, "%s%s_%s_%d\n", target_prefix, multi_expanded_region,
+                 footnote_docid, foot_num);
+    }
+  else
+    {
+      FOOTNOTE_ID_NUMBER *footnote_id_number
+        = find_footnote_id_number (self, footnote_id);
+      if (!footnote_id_number)
+        fatal ("footnote_id not found");
+      if (!footnote_id_number->number)
+        {
+          footid = strdup (footnote_id);
+          docid = strdup (footnote_docid);
+        }
+      else
+        {
+    /* This should rarely happen, except for @footnote in @copying and
+       multiple @insertcopying...
+       Here it is not checked that there is no clash with another anchor.
+       However, unless there are more than 1000 footnotes this should not
+       happen at all, and even in that case it is very unlikely.
+     */
+          xasprintf (&footid, "%s_%d", footnote_id, foot_num);
+          xasprintf (&docid, "%s_%d", footnote_docid, foot_num);
+          multiple_expanded_footnote = 1;
+        }
+      footnote_id_number->number++;
+    }
+
+  if (!strcmp (self->conf->footnotestyle, "end")
+      && (multi_expanded_region || multiple_expanded_footnote))
+    {
+   /* if the footnote appears multiple times, command_href() will select
+      one, but it may not be the one expanded at the location currently
+      formatted (in general the first one, but it depends if it is in a
+      tree element or not, for instance in @titlepage).
+      With footnotestyle end, considering that the footnote is in the same file
+      has a better chance of being correct.
+    */
+      xasprintf (&footnote_href, "#%s", footid);
+    }
+  else
+    footnote_href = html_command_href (self, element, 0, 0, footid);
+
+  html_register_footnote (self, element, footid, docid, foot_num,
+                          self->current_filename.filename,
+                          multi_expanded_region);
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  attribute_class = html_attribute_class (self, "a", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  text_printf (result, " id=\"%s\" href=\"%s\">", docid, footnote_href);
+
+  if (html_in_preformatted_context (self))
+    text_printf (result, "(%s)", footnote_mark);
+  else
+    text_printf (result, "<sup>%s</sup>", footnote_mark);
+
+  text_append_n (result, "</a>", 4);
+
+  free (footnote_href);
+  free (footnote_mark);
+  free (footid);
+  free (docid);
 }
 
 void
@@ -9901,6 +10065,9 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_abbr, &convert_explained_command},
   {CM_acronym, &convert_explained_command},
   {CM_anchor, &convert_anchor_command},
+  /* TODO shared_conversion_state not passed to/from perl
+  {CM_footnote, &convert_footnote_command},
+   */
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
@@ -11074,6 +11241,8 @@ html_reset_converter (CONVERTER *self)
     {
       reset_html_targets (self, &self->html_special_targets[i]);
     }
+
+  free (self->shared_conversion_state.footnote_id_numbers);
 
   self->added_targets.number = 0;
 

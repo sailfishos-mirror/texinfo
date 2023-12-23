@@ -1,5 +1,16 @@
 2023-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (compare_footnote_id)
+	(find_footnote_id_number, prepare_footnotes_targets)
+	(convert_footnote_command, html_reset_converter),
+	tp/Texinfo/XS/main/converter_types.h (FOOTNOTE_ID_NUMBER,
+	HTML_SHARED_CONVERSION_STATE): setup and free shared conversion state
+	footnote_id_numbers and associated functions.  Implement
+	convert_footnote_command in C.  Do not use, because the shared
+	conversion states are not passed properly between C and perl.
+
+2023-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_footnote_command): distinguish
 	footnote id and docid and output footid and docid after disambiguation
 	for footnote elements converted more than once.

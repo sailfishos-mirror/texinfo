@@ -294,11 +294,17 @@ typedef struct EXPLAINED_COMMAND_TYPE_LIST {
     EXPLAINED_COMMAND_TYPE *list;
 } EXPLAINED_COMMAND_TYPE_LIST;
 
+typedef struct FOOTNOTE_ID_NUMBER {
+    const char *footnote_id;
+    int number;
+} FOOTNOTE_ID_NUMBER;
+
 typedef struct HTML_SHARED_CONVERSION_STATE {
     EXPLAINED_COMMAND_TYPE_LIST explained_commands;
         /* explained_commands->{char $cmdname}->{char $normalized_type}
                                = explanation */
-    int footnote_id_numbers; /* footnote_id_numbers->{char $footid} = int */
+    int footnote_number;
+    FOOTNOTE_ID_NUMBER *footnote_id_numbers; /* footnote_id_numbers->{char $footid} = int */
     /* Not useful, directly use expanded formats in the converter.
        Needed in perl as expanded formats are accessed per format in the API
     int expanded_format_raw;
