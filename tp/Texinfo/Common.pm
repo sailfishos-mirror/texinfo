@@ -2420,11 +2420,13 @@ sub _relate_index_entries_to_table_items_in($$)
       # the term itself.
 
       my $index_entry;
+      my $index_element;
       foreach my $content (@{$term->{'contents'}}) {
         if ($content->{'type'}
             and $content->{'type'} eq 'index_entry_command') {
           if (!$index_entry) {
             my $index_info;
+            $index_element = $content;
             ($index_entry, $index_info)
               = Texinfo::Common::lookup_index_entry(
                               $content->{'extra'}->{'index_entry'},
@@ -2437,6 +2439,10 @@ sub _relate_index_entries_to_table_items_in($$)
           # This is better than overwriting 'entry_element', which
           # holds important information.
           $index_entry->{'entry_associated_element'} = $item;
+          # also add a reference from element to index entry in index
+          $item->{'extra'} = {} if (!$item->{'extra'});
+          $item->{'extra'}->{'associated_index_entry'}
+             = [@{$index_element->{'extra'}->{'index_entry'}}];
           last;
         }
       }

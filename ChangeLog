@@ -1,5 +1,14 @@
 2023-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in),
+	tp/Texinfo/XS/main/tree_types.h (INDEX_ENTRY_AND_INDEX),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(lookup_index_entry, relate_index_entries_to_table_items_in): add an
+	extra associated_index_entry reference to the index entry information
+	in the item reassociated to an index entry.
+
+2023-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (compare_footnote_id)
 	(find_footnote_id_number, prepare_footnotes_targets)
 	(convert_footnote_command, html_reset_converter),

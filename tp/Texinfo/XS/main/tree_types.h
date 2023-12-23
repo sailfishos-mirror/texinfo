@@ -260,6 +260,7 @@ typedef struct INDEX {
 typedef struct INDEX_ENTRY_AND_INDEX {
     INDEX *index;
     INDEX_ENTRY *index_entry;
+    int entry_number;
 } INDEX_ENTRY_AND_INDEX;
 
 /* See parse_node_manual function. */

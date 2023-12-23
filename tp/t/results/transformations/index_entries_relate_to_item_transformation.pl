@@ -322,6 +322,12 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                         }
                       ],
                       'cmdname' => 'item',
+                      'extra' => {
+                        'associated_index_entry' => [
+                          'cp',
+                          1
+                        ]
+                      },
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '

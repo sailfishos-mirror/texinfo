@@ -64,8 +64,9 @@ lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
   if (!index_info)
     return 0;
 
-  result = malloc (sizeof (INDEX_ENTRY_AND_INDEX));
+  result = (INDEX_ENTRY_AND_INDEX *) malloc (sizeof (INDEX_ENTRY_AND_INDEX));
   result->index = index_info;
+  result->entry_number = entry_number;
   result->index_entry = 0;
   if (index_info->entries_number && entry_number <= index_info->entries_number)
     {
@@ -369,7 +370,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
         }
       if (term->type == ET_table_term)
         {
-          INDEX_ENTRY *index_entry = 0;
+          INDEX_ENTRY_AND_INDEX *entry_idx_info = 0;
           int j;
          /*
          Relate the first index_entry_command in the 'table_term' to
@@ -380,7 +381,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
               ELEMENT *content = term->contents.list[j];
               if (content->type == ET_index_entry_command)
                 {
-                  if (!index_entry)
+                  if (!entry_idx_info)
                     {
                       INDEX_ENTRY_AND_INDEX *idx_info;
                       ELEMENT *index_entry_info = lookup_extra_element (content,
@@ -388,8 +389,9 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                       idx_info = lookup_index_entry (index_entry_info,
                                                      indices_information);
                       if (idx_info->index_entry)
-                        index_entry = idx_info->index_entry;
-                      free (idx_info);
+                        entry_idx_info = idx_info;
+                      else
+                        free (idx_info);
                    }
                 }
               /* the command in the tree is CM_item, not CM_item_LINE */
@@ -398,13 +400,25 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                   if (!item)
                     item = content;
                 }
-              if (item && index_entry)
+              if (item && entry_idx_info)
                 {
+                  ELEMENT *index_entry_command = new_element (ET_NONE);
+                  ELEMENT *e = new_element (ET_NONE);
                  /*
                   This is better than overwriting 'entry_element', which
                   holds important information.
                   */
-                  index_entry->entry_associated_element = item;
+                  entry_idx_info->index_entry->entry_associated_element = item;
+              /* also add a reference from element to index entry in index */
+                  text_append (&e->text, entry_idx_info->index->name);
+                  add_to_element_contents (index_entry_command, e);
+                  e = new_element (ET_NONE);
+                  add_extra_integer (e, "integer",
+                                     entry_idx_info->entry_number);
+                  add_to_element_contents (index_entry_command, e);
+                  add_extra_misc_args (item, "associated_index_entry",
+                                       index_entry_command);
+                  free (entry_idx_info);
                   break;
                 }
             }

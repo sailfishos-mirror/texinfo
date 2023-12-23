@@ -218,6 +218,12 @@ $result_trees{'item_index_transformation'} = {
                         }
                       ],
                       'cmdname' => 'item',
+                      'extra' => {
+                        'associated_index_entry' => [
+                          'cp',
+                          2
+                        ]
+                      },
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -517,6 +523,12 @@ $result_trees{'item_index_transformation'} = {
                         }
                       ],
                       'cmdname' => 'item',
+                      'extra' => {
+                        'associated_index_entry' => [
+                          'cp',
+                          4
+                        ]
+                      },
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -816,6 +828,12 @@ $result_trees{'item_index_transformation'} = {
                         }
                       ],
                       'cmdname' => 'item',
+                      'extra' => {
+                        'associated_index_entry' => [
+                          'cp',
+                          6
+                        ]
+                      },
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -1139,6 +1157,12 @@ $result_trees{'item_index_transformation'} = {
                         }
                       ],
                       'cmdname' => 'item',
+                      'extra' => {
+                        'associated_index_entry' => [
+                          'cp',
+                          8
+                        ]
+                      },
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
