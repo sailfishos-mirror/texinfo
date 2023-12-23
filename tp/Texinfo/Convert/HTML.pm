@@ -3402,35 +3402,43 @@ sub _convert_footnote_command($$$$)
   return "($footnote_mark)" if (in_string($self));
 
   #print STDERR "FOOTNOTE $command\n";
-  my $footid = $self->command_id($command);
+  my $footnote_id = $self->command_id($command);
 
   # happens for bogus footnotes
-  if (!defined($footid)) {
+  if (!defined($footnote_id)) {
     return '';
   }
   # ID for linking back to the main text from the footnote.
-  my $docid = $self->footnote_location_target($command);
+  my $footnote_docid = $self->footnote_location_target($command);
+
+  # id used in output
+  my $footid;
+  my $docid;
 
   my $multiple_expanded_footnote = 0;
   my $multi_expanded_region = in_multi_expanded($self);
   if (defined($multi_expanded_region)) {
     # to avoid duplicate names, use a prefix that cannot happen in anchors
     my $target_prefix = "t_f";
-    $footid = $target_prefix.$multi_expanded_region.'_'.$footid.'_'.$$foot_num;
-    $docid = $target_prefix.$multi_expanded_region.'_'.$docid.'_'.$$foot_num;
+    $footid = $target_prefix.$multi_expanded_region.'_'
+                    .$footnote_id.'_'.$$foot_num;
+    $docid = $target_prefix.$multi_expanded_region.'_'
+                     .$footnote_docid.'_'.$$foot_num;
   } else {
     my $footnote_id_numbers
       = $self->shared_conversion_state('footnote_id_numbers', {});
-    if (!defined($footnote_id_numbers->{$footid})) {
-      $footnote_id_numbers->{$footid} = $$foot_num;
+    if (!defined($footnote_id_numbers->{$footnote_id})) {
+      $footnote_id_numbers->{$footnote_id} = $$foot_num;
+      $footid = $footnote_id;
+      $docid = $footnote_docid;
     } else {
       # This should rarely happen, except for @footnote in @copying and
       # multiple @insertcopying...
       # Here it is not checked that there is no clash with another anchor.
       # However, unless there are more than 1000 footnotes this should not
-      # happen.
-      $footid .= '_'.$$foot_num;
-      $docid .= '_'.$$foot_num;
+      # happen at all, and even in that case it is very unlikely.
+      $footid = $footnote_id.'_'.$$foot_num;
+      $docid = $footnote_docid.'_'.$$foot_num;
       $multiple_expanded_footnote = 1;
     }
   }
@@ -3443,7 +3451,7 @@ sub _convert_footnote_command($$$$)
     # formatted (in general the first one, but it depends if it is in a
     # tree element or not, for instance in @titlepage).
     # With footnotestyle end, considering that the footnote is in the same file
-    # has a better change of being correct.
+    # has a better chance of being correct.
     $footnote_href = "#$footid";
   } else {
     $footnote_href = $self->command_href($command, undef, undef, $footid);
