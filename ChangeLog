@@ -1649,7 +1649,7 @@
 	* tp/Texinfo/Convert/Plaintext.pm (convert_line_new_context):
 	New function, like convert_line but with a new context pushed
 	onto $self->{'count_context'}.
-	(_count): Use convert_line_new_context wherever we previously
+	(_convert): Use convert_line_new_context wherever we previously
 	surrounded a call to convert_line with pushing and popping
 	a new context.
 
