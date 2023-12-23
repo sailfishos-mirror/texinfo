@@ -1,3 +1,20 @@
+2023-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Headings in Plaintext.pm
+
+	* tp/Texinfo/Convert/Plaintext.pm (_text_heading): Incorporate
+	code from 'text_heading' in Texinfo/Convert/Text.pm and
+	'add_heading_number' in Texinfo/Convert/Utils.pm.  Make $self
+	the first argument.  Take an element argument for the heading
+	text rather than an already-converted string, and convert it
+	with convert_line_new_context.  Centralise code for getting the
+	width of the heading text in screen columns.
+	* tp/Texinfo/Translations.pm (gdt_string_columns): New function.
+
+	This has no effect at present, but is in preparation for encoding
+	the output throughout the conversion in Plaintext.pm in order to
+	keep track of byte offsets in a simpler and more reliable way.
+
 2023-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/build_perl_info.c (output_unit_to_perl_hash): add

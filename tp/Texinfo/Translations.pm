@@ -42,6 +42,8 @@ use Texinfo::Parser;
 
 use Texinfo::DocumentXS;
 
+use Texinfo::Convert::Unicode;
+
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.
 Locale::Messages->select_package ('gettext_pp');
@@ -336,6 +338,21 @@ sub gdt_string($$;$$$)
 
   return replace_substrings ($customization_information, $translated_string,
                              $replaced_substrings);
+}
+
+# Like gdt_string, but additionally return the width of the result in
+# screen columns.
+# TODO: In the future, this function may return an encoded string, and
+# take encoded arguments.  The plan is to save the width in columns before
+# encoding the string.
+sub gdt_string_columns($$;$$$)
+{
+  my ($customization_information, $string, $replaced_substrings,
+      $translation_context, $lang) = @_;
+
+  my $result = gdt_string($customization_information, $string,
+                          $replaced_substrings, $translation_context, $lang);
+  return ($result, Texinfo::Convert::Unicode::string_width($result));
 }
 
 sub replace_substrings($$;$)

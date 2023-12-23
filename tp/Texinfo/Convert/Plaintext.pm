@@ -1690,6 +1690,74 @@ sub format_image($$)
   return ('', 0);
 }
 
+my %underline_symbol = (
+  0 => '*',
+  1 => '*',
+  2 => '=',
+  3 => '-',
+  4 => '.'
+);
+
+# Return the text of an underlined heading, possibly indented.
+sub _text_heading($$$;$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $heading_element = shift;
+  my $numbered = shift;
+  my $indent_length = shift;
+
+  my $number;
+  if ($current->{'extra'}
+      and defined($current->{'extra'}->{'section_number'})
+      and ($numbered or !defined($numbered))) {
+    $number = $current->{'extra'}->{'section_number'};
+  }
+
+  my $heading = $self->convert_line_new_context (
+                         {'type' => 'frenchspacing',
+                          'contents' => [$heading_element]});
+  my ($text, $columns);
+  if (defined($number)) {
+    if ($current->{'cmdname'} eq 'appendix'
+        and $current->{'extra'}->{'section_level'} == 1) {
+      ($text, $columns) = $self->gdt_string_columns(
+                 'Appendix {number} {section_title}',
+                 {'number' => $number, 'section_title' => $heading});
+    } else {
+      ($text, $columns) = $self->gdt_string_columns(
+                 '{number} {section_title}',
+                 {'number' => $number, 'section_title' => $heading});
+    }
+  } else {
+    $text = $heading;
+    $columns = Texinfo::Convert::Unicode::string_width($heading);
+  }
+
+  return '' if ($text !~ /\S/);
+  my $result = $text ."\n";
+  if (defined($indent_length)) {
+    if ($indent_length < 0) {
+      $indent_length = 0;
+    }
+    $result .= (' ' x $indent_length);
+  } else {
+    $indent_length = 0;
+  }
+  my $section_level;
+  if (!defined($current->{'extra'})
+      or !defined($current->{'extra'}->{'section_level'})) {
+    $section_level = Texinfo::Common::section_level($current);
+  } else {
+    $section_level = $current->{'extra'}->{'section_level'};
+  }
+  # $text is indented if indent_length is set, so $indent_length needs to
+  # be subtracted to have the width of the heading only.
+  $result .= ($underline_symbol{$section_level}
+                x ($columns - $indent_length))."\n";
+  return $result;
+}
+
 sub _get_form_feeds($)
 {
   my $form_feeds = shift;
@@ -2562,13 +2630,11 @@ sub _convert($$)
         die if ($old_context ne $command);
         return $result;
       } elsif ($command eq 'titlefont') {
-        $result = $self->convert_line_new_context (
-                     {'type' => 'frenchspacing',
-                      'contents' => [$element->{'args'}->[0]]});
-        $result = Texinfo::Convert::Text::text_heading(
+        $result = $self->_text_heading(
                           {'extra' => {'section_level' => 0},
                            'cmdname' => 'titlefont'},
-                            $result, $self, $self->get_conf('NUMBER_SECTIONS'),
+                            $element->{'args'}->[0],
+                            $self->get_conf('NUMBER_SECTIONS'),
           ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);
         $result =~ s/\n$//; # final newline has its own tree element
         $self->{'empty_lines_count'} = 0 unless ($result eq '');
@@ -2800,14 +2866,11 @@ sub _convert($$)
       }
 
       if ($heading_element) {
-        my $heading = $self->convert_line_new_context (
-                        {'type' => 'frenchspacing',
-                         'contents' => [$heading_element]});
         # @* leads to an end of line, underlying appears on the line below
         # over one line
         my $heading_underlined =
-             Texinfo::Convert::Text::text_heading($element, $heading, $self,
-                                             $self->get_conf('NUMBER_SECTIONS'),
+             $self->_text_heading($element, $heading_element,
+                           $self->get_conf('NUMBER_SECTIONS'),
                            ($self->{'format_context'}->[-1]->{'indent_level'})
                                            * $indent_length);
         $result .= _add_newline_if_needed($self);
