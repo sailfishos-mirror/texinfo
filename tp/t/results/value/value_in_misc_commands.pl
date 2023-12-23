@@ -198,6 +198,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -486,6 +487,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'headings',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -3393,6 +3395,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 131
           }
@@ -3608,6 +3611,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @value{result_macro}
 '
@@ -3658,6 +3662,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 145
           }
@@ -3719,6 +3724,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 148
           }

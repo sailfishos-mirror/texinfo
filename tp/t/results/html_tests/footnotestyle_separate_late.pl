@@ -163,6 +163,7 @@ $result_trees{'footnotestyle_separate_late'} = [
                   }
                 ],
                 'cmdname' => 'footnote',
+                'extra' => {},
                 'source_info' => {
                   'line_nr' => 7
                 }
@@ -272,6 +273,7 @@ $result_trees{'footnotestyle_separate_late'} = [
                   }
                 ],
                 'cmdname' => 'footnote',
+                'extra' => {},
                 'source_info' => {
                   'line_nr' => 12
                 }

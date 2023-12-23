@@ -274,6 +274,7 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 13
           }

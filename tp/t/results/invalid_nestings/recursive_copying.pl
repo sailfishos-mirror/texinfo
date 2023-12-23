@@ -91,6 +91,7 @@ $result_trees{'recursive_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 8
           }

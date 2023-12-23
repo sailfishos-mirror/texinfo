@@ -201,6 +201,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                 }
               ],
               'cmdname' => 'hyphenation',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 8
               }
@@ -448,6 +449,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                 }
               ],
               'cmdname' => 'hyphenation',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 14
               }

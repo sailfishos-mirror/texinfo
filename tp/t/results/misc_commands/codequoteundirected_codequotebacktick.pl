@@ -618,6 +618,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequoteundirected',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 31,
                     'macro' => 'allquotes'
@@ -636,6 +637,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequotebacktick',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 31,
                     'macro' => 'allquotes'
@@ -1384,6 +1386,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 35
                   }
@@ -1931,6 +1934,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             }
           ],
           'cmdname' => 'codequoteundirected',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 45,
             'macro' => 'allquotes'
@@ -1949,6 +1953,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             }
           ],
           'cmdname' => 'codequotebacktick',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 45,
             'macro' => 'allquotes'
@@ -3020,6 +3025,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequoteundirected',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'allquotes'
@@ -3038,6 +3044,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     }
                   ],
                   'cmdname' => 'codequotebacktick',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'allquotes'

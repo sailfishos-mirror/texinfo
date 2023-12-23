@@ -100,6 +100,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'headings',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -441,6 +442,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'kbdinputstyle',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -694,6 +696,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'firstparagraphindent',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -724,6 +727,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'exampleindent',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

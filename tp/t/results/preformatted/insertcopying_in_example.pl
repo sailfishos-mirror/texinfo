@@ -32,6 +32,7 @@ $result_trees{'insertcopying_in_example'} = {
                 }
               ],
               'cmdname' => 'insertcopying',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 2
               }

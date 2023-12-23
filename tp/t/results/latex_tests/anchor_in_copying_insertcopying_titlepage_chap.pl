@@ -165,6 +165,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 9
                   }
@@ -383,6 +384,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 20
           }

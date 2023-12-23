@@ -217,6 +217,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
+                      'extra' => {},
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
                         'line_nr' => 9
@@ -498,6 +499,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
+                      'extra' => {},
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
                         'line_nr' => 24
@@ -524,6 +526,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
                     'line_nr' => 30
@@ -1617,6 +1620,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
             'line_nr' => 79

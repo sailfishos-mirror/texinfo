@@ -283,6 +283,7 @@ $result_trees{'no_element'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 13
               }

@@ -92,6 +92,7 @@ $result_trees{'unnumbered_before_top_node'} = [
               }
             ],
             'cmdname' => 'titlefont',
+            'extra' => {},
             'source_info' => {
               'line_nr' => 6
             }

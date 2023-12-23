@@ -2169,6 +2169,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'sectioning.texi',
             'line_nr' => 96

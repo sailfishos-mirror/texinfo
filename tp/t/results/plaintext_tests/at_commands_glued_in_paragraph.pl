@@ -208,6 +208,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 8
               }

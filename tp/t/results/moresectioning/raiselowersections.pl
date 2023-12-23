@@ -1461,6 +1461,7 @@ $result_trees{'raiselowersections'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 35
           }

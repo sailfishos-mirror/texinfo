@@ -1159,6 +1159,9 @@ sub _register_global_command {
   if ($global_multiple_commands{$command}) {
     push @{$self->{'commands_info'}->{$command}}, $current;
     $current->{'source_info'} = $source_info if (!$current->{'source_info'});
+    $current->{'extra'} = {} if (!$current->{'extra'});
+    $current->{'extra'}->{'global_command_number'}
+      = scalar(@{$self->{'commands_info'}->{$command}});
     return 1;
   } elsif ($global_unique_commands{$command}) {
     # setfilename ignored in an included file

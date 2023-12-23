@@ -657,6 +657,7 @@ $result_trees{'multiple_documentlanguage'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 21
           }
@@ -905,6 +906,7 @@ $result_trees{'multiple_documentlanguage'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 29
           }

@@ -20,6 +20,7 @@ $result_trees{'no_argument_and_contents'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 1
               }

@@ -129,6 +129,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 6
           }
@@ -147,6 +148,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 8
           }

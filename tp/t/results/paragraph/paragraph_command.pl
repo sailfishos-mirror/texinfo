@@ -240,6 +240,7 @@ $result_trees{'paragraph_command'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 14
               }

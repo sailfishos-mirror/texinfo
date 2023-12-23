@@ -180,6 +180,7 @@ $result_trees{'detailmenu'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 5
               }

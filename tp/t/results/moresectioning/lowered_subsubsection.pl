@@ -1037,6 +1037,7 @@ $result_trees{'lowered_subsubsection'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 45
           }

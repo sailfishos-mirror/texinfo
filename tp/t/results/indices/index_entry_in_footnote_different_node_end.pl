@@ -351,6 +351,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 10
               }

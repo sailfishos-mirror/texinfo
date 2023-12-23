@@ -81,6 +81,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
+                      'extra' => {},
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => '
@@ -220,6 +221,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 14
           }
@@ -238,6 +240,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 16
           }

@@ -90,6 +90,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 5

@@ -18,6 +18,7 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 1
           }

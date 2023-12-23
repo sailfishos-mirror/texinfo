@@ -514,6 +514,7 @@ $result_trees{'contents_in_middle_section_inline'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'contents_in_middle_section.texi',
             'line_nr' => 25

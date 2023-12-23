@@ -294,6 +294,7 @@ $result_trees{'contents_at_end_inline'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'contents_at_end.texi',
             'line_nr' => 17

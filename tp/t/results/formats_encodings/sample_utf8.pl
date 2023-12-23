@@ -305,6 +305,7 @@ $result_trees{'sample_utf8'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
                     'line_nr' => 20
@@ -371,6 +372,7 @@ $result_trees{'sample_utf8'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 24
@@ -478,6 +480,7 @@ $result_trees{'sample_utf8'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
             'line_nr' => 30

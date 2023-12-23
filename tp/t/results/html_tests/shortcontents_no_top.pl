@@ -117,6 +117,7 @@ $result_trees{'shortcontents_no_top'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 7
           }

@@ -2642,6 +2642,7 @@ $result_trees{'test_index'} = {
             }
           ],
           'cmdname' => 'chapheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

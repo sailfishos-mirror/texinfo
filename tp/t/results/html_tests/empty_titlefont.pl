@@ -21,6 +21,7 @@ $result_trees{'empty_titlefont'} = {
             }
           ],
           'cmdname' => 'titlefont',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 2
           }

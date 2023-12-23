@@ -58,6 +58,7 @@ $result_trees{'contents_with_only_top_node'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 4
           }

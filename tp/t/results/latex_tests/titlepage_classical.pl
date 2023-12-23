@@ -133,6 +133,7 @@ $result_trees{'titlepage_classical'} = {
                     }
                   ],
                   'cmdname' => 'subtitle',
+                  'extra' => {},
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -160,6 +161,7 @@ $result_trees{'titlepage_classical'} = {
                     }
                   ],
                   'cmdname' => 'subtitle',
+                  'extra' => {},
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -283,6 +285,7 @@ $result_trees{'titlepage_classical'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 16
                   }

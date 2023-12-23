@@ -1458,6 +1458,7 @@ $result_trees{'menu'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 38
               }

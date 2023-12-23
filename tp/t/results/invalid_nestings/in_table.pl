@@ -196,6 +196,7 @@ $result_trees{'in_table'} = {
                                 }
                               ],
                               'cmdname' => 'titlefont',
+                              'extra' => {},
                               'source_info' => {
                                 'line_nr' => 9
                               }
@@ -240,6 +241,7 @@ $result_trees{'in_table'} = {
                                 }
                               ],
                               'cmdname' => 'footnote',
+                              'extra' => {},
                               'source_info' => {
                                 'line_nr' => 9
                               }
@@ -315,6 +317,7 @@ $result_trees{'in_table'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 10
                           }

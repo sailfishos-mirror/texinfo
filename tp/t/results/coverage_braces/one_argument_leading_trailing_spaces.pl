@@ -108,6 +108,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'hyphenation',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 2
               }

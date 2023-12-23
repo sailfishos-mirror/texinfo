@@ -169,6 +169,7 @@ $result_trees{'custom_heading_with_include'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 7
           }

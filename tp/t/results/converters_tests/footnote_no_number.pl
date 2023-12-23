@@ -153,6 +153,7 @@ $result_trees{'footnote_no_number'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 7
               }
@@ -191,6 +192,7 @@ $result_trees{'footnote_no_number'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 9
               }

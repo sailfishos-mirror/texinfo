@@ -277,6 +277,7 @@ $result_trees{'detailmenu_on_subnodes'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 8
               }
@@ -452,6 +453,7 @@ $result_trees{'detailmenu_on_subnodes'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 12
               }

@@ -30,6 +30,7 @@ $result_trees{'section_below_unnumbered'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 2
               }

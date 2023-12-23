@@ -165,6 +165,7 @@ $result_trees{'detailmenu_in_description'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }

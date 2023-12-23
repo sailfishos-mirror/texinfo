@@ -113,6 +113,7 @@ $result_trees{'nested_in_sc'} = {
                                 }
                               ],
                               'cmdname' => 'footnote',
+                              'extra' => {},
                               'source_info' => {
                                 'line_nr' => 1
                               }

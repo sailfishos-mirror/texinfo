@@ -35,6 +35,7 @@ $result_trees{'contents_at_document_begin_inline'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'contents_at_document_begin.texi',
                 'line_nr' => 3

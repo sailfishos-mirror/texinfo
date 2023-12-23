@@ -11917,6 +11917,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
             }
           ],
           'cmdname' => 'heading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -11981,6 +11982,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
             }
           ],
           'cmdname' => 'heading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -12045,6 +12047,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
             }
           ],
           'cmdname' => 'heading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

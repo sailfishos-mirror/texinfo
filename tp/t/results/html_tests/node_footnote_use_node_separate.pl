@@ -473,6 +473,7 @@ $result_trees{'node_footnote_use_node_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 17
@@ -606,6 +607,7 @@ $result_trees{'node_footnote_use_node_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 22
@@ -926,6 +928,7 @@ $result_trees{'node_footnote_use_node_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 34

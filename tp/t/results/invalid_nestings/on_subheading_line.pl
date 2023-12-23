@@ -38,6 +38,7 @@ $result_trees{'on_subheading_line'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -82,6 +83,7 @@ $result_trees{'on_subheading_line'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -121,6 +123,7 @@ $result_trees{'on_subheading_line'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

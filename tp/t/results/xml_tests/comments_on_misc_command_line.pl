@@ -151,6 +151,7 @@ $result_trees{'comments_on_misc_command_line'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 5
           }

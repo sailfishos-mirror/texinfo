@@ -576,6 +576,7 @@ $result_trees{'printindex_index_entry_in_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 23
           }
@@ -761,6 +762,7 @@ $result_trees{'printindex_index_entry_in_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 32
           }

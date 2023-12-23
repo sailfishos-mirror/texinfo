@@ -544,6 +544,7 @@ $result_trees{'contents_and_parts'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 23
           }
@@ -557,6 +558,7 @@ $result_trees{'contents_and_parts'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 24
           }

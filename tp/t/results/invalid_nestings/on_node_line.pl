@@ -164,6 +164,7 @@ $result_trees{'on_node_line'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 1
               }

@@ -119,6 +119,7 @@ $result_trees{'node_in_copying_not_closed'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 9
           }

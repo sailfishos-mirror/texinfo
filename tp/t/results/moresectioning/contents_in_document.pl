@@ -74,6 +74,7 @@ $result_trees{'contents_in_document'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 4
           }

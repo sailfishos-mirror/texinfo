@@ -197,6 +197,7 @@ $result_trees{'macro_in_menu_comment_closed_by_detailmenu'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 6
               }

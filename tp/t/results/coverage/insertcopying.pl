@@ -158,6 +158,7 @@ $result_trees{'insertcopying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 11
           }

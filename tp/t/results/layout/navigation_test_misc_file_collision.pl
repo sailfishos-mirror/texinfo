@@ -798,6 +798,7 @@ $result_trees{'navigation_test_misc_file_collision'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'navigation.texi',
             'line_nr' => 54

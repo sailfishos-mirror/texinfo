@@ -67,6 +67,7 @@ $result_trees{'customize_special_element'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }
@@ -80,6 +81,7 @@ $result_trees{'customize_special_element'} = {
                 }
               ],
               'cmdname' => 'shortcontents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 5
               }
@@ -336,6 +338,7 @@ $result_trees{'customize_special_element'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 17
               }

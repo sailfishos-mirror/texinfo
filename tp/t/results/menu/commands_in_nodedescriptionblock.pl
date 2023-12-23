@@ -397,6 +397,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 17
                   }

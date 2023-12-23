@@ -17,6 +17,7 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => '@comment a
 '
@@ -33,6 +34,7 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @comment b
 '
@@ -43,6 +45,7 @@ $result_trees{'clickstyle_and_comments'} = {
         },
         {
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' nocmd@comment c
 '
@@ -53,6 +56,7 @@ $result_trees{'clickstyle_and_comments'} = {
         },
         {
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' more than one word @comment d
 '
@@ -69,6 +73,7 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @result@comment e
 '
@@ -85,6 +90,7 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @result   @comment f
 '
@@ -101,6 +107,7 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @result on the same line @comment g
 '

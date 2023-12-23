@@ -37,6 +37,7 @@ $result_trees{'titlepage_no_title'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 2
                   }

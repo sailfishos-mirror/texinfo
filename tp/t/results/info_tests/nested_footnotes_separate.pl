@@ -113,6 +113,7 @@ $result_trees{'nested_footnotes_separate'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 6
                           }
@@ -129,6 +130,7 @@ $result_trees{'nested_footnotes_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }

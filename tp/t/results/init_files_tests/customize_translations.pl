@@ -30,6 +30,7 @@ $result_trees{'customize_translations'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 2
               }

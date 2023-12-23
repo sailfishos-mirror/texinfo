@@ -106,6 +106,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }
@@ -158,6 +159,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 8
               }
@@ -376,6 +378,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 19
               }
@@ -428,6 +431,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 23
               }

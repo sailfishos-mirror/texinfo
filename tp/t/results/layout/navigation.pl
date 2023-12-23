@@ -798,6 +798,7 @@ $result_trees{'navigation'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'navigation.texi',
             'line_nr' => 54

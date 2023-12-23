@@ -268,6 +268,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 12
           }

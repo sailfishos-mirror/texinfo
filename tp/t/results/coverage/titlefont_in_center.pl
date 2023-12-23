@@ -30,6 +30,7 @@ $result_trees{'titlefont_in_center'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 2
                   }

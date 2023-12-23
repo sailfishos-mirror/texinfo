@@ -6101,6 +6101,7 @@ $result_trees{'index_table'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'index_table.texi',
             'line_nr' => 186

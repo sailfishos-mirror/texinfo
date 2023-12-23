@@ -1055,6 +1055,7 @@ $result_trees{'image_inline_or_not'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '
@@ -1128,6 +1129,7 @@ $result_trees{'image_inline_or_not'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '

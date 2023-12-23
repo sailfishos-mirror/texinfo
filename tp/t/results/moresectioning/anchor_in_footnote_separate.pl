@@ -146,6 +146,7 @@ $result_trees{'anchor_in_footnote_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 5
               }

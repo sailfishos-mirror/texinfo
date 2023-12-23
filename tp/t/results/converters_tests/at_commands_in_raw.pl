@@ -226,6 +226,7 @@ $result_trees{'at_commands_in_raw'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 12
                   }
@@ -332,6 +333,7 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 15
               }

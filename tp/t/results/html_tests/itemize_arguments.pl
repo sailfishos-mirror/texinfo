@@ -3574,6 +3574,7 @@ $result_trees{'itemize_arguments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @result
 '

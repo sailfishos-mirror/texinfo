@@ -28,6 +28,7 @@ $result_trees{'no_paragraph_commands'} = {
             }
           ],
           'cmdname' => 'titlefont',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 2
           }

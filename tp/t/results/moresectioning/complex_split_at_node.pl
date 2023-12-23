@@ -2263,6 +2263,7 @@ $result_trees{'complex_split_at_node'} = [
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'complex_sectioning_case.texi',
             'line_nr' => 84

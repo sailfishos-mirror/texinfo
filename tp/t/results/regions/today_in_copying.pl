@@ -190,6 +190,7 @@ $result_trees{'today_in_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 10
           }

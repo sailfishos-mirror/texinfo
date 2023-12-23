@@ -341,6 +341,7 @@ $result_trees{'chapter_between_nodes'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 18
           }

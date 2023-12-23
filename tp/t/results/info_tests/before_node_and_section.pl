@@ -101,6 +101,7 @@ $result_trees{'before_node_and_section'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }
@@ -339,6 +340,7 @@ $result_trees{'before_node_and_section'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 15
               }

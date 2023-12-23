@@ -31,6 +31,7 @@ $result_trees{'transparent_text'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 1
               }

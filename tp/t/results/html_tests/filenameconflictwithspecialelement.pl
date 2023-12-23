@@ -89,6 +89,7 @@ $result_trees{'filenameconflictwithspecialelement'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }

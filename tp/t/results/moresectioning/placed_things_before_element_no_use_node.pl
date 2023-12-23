@@ -215,6 +215,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 9
               }

@@ -145,6 +145,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     }
                   ],
                   'cmdname' => 'subtitle',
+                  'extra' => {},
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -178,6 +179,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     }
                   ],
                   'cmdname' => 'subtitle',
+                  'extra' => {},
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -350,6 +352,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -426,6 +429,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 22
                   }

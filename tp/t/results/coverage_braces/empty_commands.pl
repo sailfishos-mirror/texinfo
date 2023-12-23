@@ -16,6 +16,7 @@ $result_trees{'empty_commands'} = {
             }
           ],
           'cmdname' => 'titlefont',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 1
           }
@@ -91,6 +92,7 @@ $result_trees{'empty_commands'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 3
               }

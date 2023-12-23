@@ -155,6 +155,7 @@ $result_trees{'index_no_node_no_top'} = {
             }
           ],
           'cmdname' => 'printindex',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

@@ -289,6 +289,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'contents_in_middle_chapter.texi',
             'line_nr' => 16

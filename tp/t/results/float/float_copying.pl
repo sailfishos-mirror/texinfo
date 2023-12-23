@@ -261,6 +261,7 @@ $result_trees{'float_copying'} = {
                                     }
                                   ],
                                   'cmdname' => 'footnote',
+                                  'extra' => {},
                                   'info' => {
                                     'spaces_before_argument' => {
                                       'text' => '
@@ -556,6 +557,7 @@ $result_trees{'float_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 29
           }
@@ -741,6 +743,7 @@ $result_trees{'float_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 38
           }
@@ -754,6 +757,7 @@ $result_trees{'float_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 39
           }

@@ -31,6 +31,7 @@ $result_trees{'space_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

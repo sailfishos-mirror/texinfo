@@ -207,6 +207,7 @@ $result_trees{'htmlxref_only_mono_nodes'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -832,6 +833,7 @@ $result_trees{'htmlxref_only_mono_nodes'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -1013,6 +1015,7 @@ $result_trees{'htmlxref_only_mono_nodes'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

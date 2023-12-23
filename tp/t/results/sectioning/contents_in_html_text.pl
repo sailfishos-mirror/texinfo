@@ -152,6 +152,7 @@ $result_trees{'contents_in_html_text'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 9
           }
@@ -165,6 +166,7 @@ $result_trees{'contents_in_html_text'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 10
           }

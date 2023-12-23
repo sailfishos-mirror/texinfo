@@ -81,6 +81,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 1
               }
@@ -174,6 +175,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 6
               }

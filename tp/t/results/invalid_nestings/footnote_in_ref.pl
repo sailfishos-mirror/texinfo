@@ -82,6 +82,7 @@ $result_trees{'footnote_in_ref'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
+                      'extra' => {},
                       'source_info' => {
                         'line_nr' => 3
                       }

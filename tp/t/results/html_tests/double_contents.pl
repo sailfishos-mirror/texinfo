@@ -35,6 +35,7 @@ $result_trees{'double_contents'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'double_contents.texi',
                 'line_nr' => 3
@@ -301,6 +302,7 @@ $result_trees{'double_contents'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'double_contents.texi',
             'line_nr' => 17
@@ -497,6 +499,7 @@ $result_trees{'double_contents'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'double_contents.texi',
             'line_nr' => 26

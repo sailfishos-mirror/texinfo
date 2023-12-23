@@ -22,6 +22,7 @@ $result_trees{'invalid_clickstyle'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @result on the same line
 '
@@ -74,6 +75,7 @@ $result_trees{'invalid_clickstyle'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' @nocmd
 '
@@ -120,6 +122,7 @@ $result_trees{'invalid_clickstyle'} = {
         },
         {
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => ' something
 '

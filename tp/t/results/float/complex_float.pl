@@ -763,6 +763,7 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 47
                   }
@@ -1658,6 +1659,7 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 82
                           }
@@ -2958,6 +2960,7 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 129
                           }

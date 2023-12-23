@@ -63,6 +63,7 @@ $result_trees{'heading_in_example'} = {
                 }
               ],
               'cmdname' => 'heading',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

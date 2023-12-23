@@ -170,6 +170,7 @@ $result_trees{'footnote_in_caption'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 8
                           }

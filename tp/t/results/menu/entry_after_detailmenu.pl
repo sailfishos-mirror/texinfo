@@ -139,6 +139,7 @@ $result_trees{'entry_after_detailmenu'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }
@@ -319,6 +320,7 @@ $result_trees{'entry_after_detailmenu'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 12
               }

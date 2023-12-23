@@ -209,6 +209,7 @@ $result_trees{'footnote_in_center'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
                   }

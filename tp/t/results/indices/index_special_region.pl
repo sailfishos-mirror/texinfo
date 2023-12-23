@@ -217,6 +217,7 @@ $result_trees{'index_special_region'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
+                      'extra' => {},
                       'source_info' => {
                         'file_name' => 'index_special_region.texi',
                         'line_nr' => 9
@@ -498,6 +499,7 @@ $result_trees{'index_special_region'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
+                      'extra' => {},
                       'source_info' => {
                         'file_name' => 'index_special_region.texi',
                         'line_nr' => 24
@@ -524,6 +526,7 @@ $result_trees{'index_special_region'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'file_name' => 'index_special_region.texi',
                     'line_nr' => 30
@@ -680,6 +683,7 @@ $result_trees{'index_special_region'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'index_special_region.texi',
             'line_nr' => 37
@@ -1535,6 +1539,7 @@ $result_trees{'index_special_region'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'index_special_region.texi',
             'line_nr' => 74
@@ -1625,6 +1630,7 @@ $result_trees{'index_special_region'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'index_special_region.texi',
             'line_nr' => 79

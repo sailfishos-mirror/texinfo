@@ -415,6 +415,7 @@ $result_trees{'commands_in_sc'} = {
                         }
                       ],
                       'cmdname' => 'hyphenation',
+                      'extra' => {},
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -479,6 +480,7 @@ $result_trees{'commands_in_sc'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
+                      'extra' => {},
                       'source_info' => {
                         'line_nr' => 9
                       }

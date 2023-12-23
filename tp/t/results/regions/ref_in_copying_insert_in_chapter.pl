@@ -234,6 +234,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 11
           }

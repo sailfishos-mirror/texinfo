@@ -20,6 +20,7 @@ $result_trees{'lone_contents'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 1
               }

@@ -50,6 +50,7 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 2
                   }

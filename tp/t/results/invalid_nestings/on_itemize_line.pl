@@ -35,6 +35,7 @@ $result_trees{'on_itemize_line'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -79,6 +80,7 @@ $result_trees{'on_itemize_line'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
                   }

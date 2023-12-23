@@ -413,6 +413,7 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 23
           }

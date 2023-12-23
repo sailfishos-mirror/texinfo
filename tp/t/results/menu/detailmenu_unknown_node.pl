@@ -139,6 +139,7 @@ $result_trees{'detailmenu_unknown_node'} = {
                   }
                 }
               ],
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 4
               }

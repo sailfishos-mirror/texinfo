@@ -615,6 +615,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'cmdname' => 'heading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -641,6 +642,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'cmdname' => 'titlefont',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 30
           }
@@ -732,6 +734,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 36
           }

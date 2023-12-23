@@ -151,6 +151,7 @@ $result_trees{'appendix_translated'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 8
           }

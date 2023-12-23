@@ -222,6 +222,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 9
                   }

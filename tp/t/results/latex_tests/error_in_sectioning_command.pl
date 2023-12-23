@@ -20,6 +20,7 @@ $result_trees{'error_in_sectioning_command'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 1
               }

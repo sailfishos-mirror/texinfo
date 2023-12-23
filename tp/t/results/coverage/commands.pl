@@ -348,6 +348,7 @@ $result_trees{'commands'} = {
             }
           ],
           'cmdname' => 'majorheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

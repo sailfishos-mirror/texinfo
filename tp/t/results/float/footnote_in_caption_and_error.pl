@@ -176,6 +176,7 @@ $result_trees{'footnote_in_caption_and_error'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 8
                           }

@@ -85,6 +85,7 @@ $result_trees{'section_before_part'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 5
           }

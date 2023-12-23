@@ -1287,6 +1287,9 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   sv = newSVpv (output_unit_type_names[output_unit->unit_type], 0);
   STORE("unit_type");
 
+  sv = newSViv ((IV) output_unit->index);
+  STORE("unit_index");
+
   /* setup an hash reference in any case */
   directions_hv = newHV ();
   sv = newRV_noinc ((SV *) directions_hv);

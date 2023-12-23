@@ -68,6 +68,7 @@ $result_trees{'heading_in_copying'} = {
                 }
               ],
               'cmdname' => 'heading',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -158,6 +159,7 @@ $result_trees{'heading_in_copying'} = {
                 }
               ],
               'cmdname' => 'subheading',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -274,6 +276,7 @@ $result_trees{'heading_in_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 12
           }

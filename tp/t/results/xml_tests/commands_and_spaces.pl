@@ -92,6 +92,7 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'cmdname' => 'clickstyle',
+          'extra' => {},
           'info' => {
             'arg_line' => '  @arrow
 '
@@ -1262,6 +1263,7 @@ $result_trees{'commands_and_spaces'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '  '

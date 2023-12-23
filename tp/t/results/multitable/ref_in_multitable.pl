@@ -338,6 +338,7 @@ $result_trees{'ref_in_multitable'} = {
                                 }
                               ],
                               'cmdname' => 'footnote',
+                              'extra' => {},
                               'source_info' => {
                                 'line_nr' => 11
                               }

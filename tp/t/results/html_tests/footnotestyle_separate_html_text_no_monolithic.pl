@@ -121,6 +121,7 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 5
               }

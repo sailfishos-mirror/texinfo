@@ -20,6 +20,7 @@ $result_trees{'test_separated_contents_shortcontents'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 1
               }
@@ -233,6 +234,7 @@ $result_trees{'test_separated_contents_shortcontents'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 12
           }

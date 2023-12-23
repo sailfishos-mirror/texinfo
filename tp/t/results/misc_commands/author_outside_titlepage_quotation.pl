@@ -27,6 +27,7 @@ $result_trees{'author_outside_titlepage_quotation'} = {
             }
           ],
           'cmdname' => 'author',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

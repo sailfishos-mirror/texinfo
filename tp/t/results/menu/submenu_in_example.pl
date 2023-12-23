@@ -384,6 +384,7 @@ $result_trees{'submenu_in_example'} = {
                         }
                       ],
                       'cmdname' => 'subheading',
+                      'extra' => {},
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '

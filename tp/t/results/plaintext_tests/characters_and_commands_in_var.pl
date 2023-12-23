@@ -290,6 +290,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 8
               }

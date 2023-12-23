@@ -47,6 +47,7 @@ $result_trees{'no_empty_line_between_headings'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

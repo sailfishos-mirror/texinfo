@@ -208,6 +208,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 7
           }
@@ -263,6 +264,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 11
           }

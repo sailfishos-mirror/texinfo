@@ -37,6 +37,7 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 2
           }
@@ -64,6 +65,7 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 3
           }
@@ -86,6 +88,7 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 5
           }
@@ -111,6 +114,7 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 7
           }
@@ -132,6 +136,7 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 8
           }
@@ -153,6 +158,7 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'summarycontents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 9
           }

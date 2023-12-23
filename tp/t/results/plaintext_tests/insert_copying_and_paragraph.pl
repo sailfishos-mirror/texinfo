@@ -90,6 +90,7 @@ $result_trees{'insert_copying_and_paragraph'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 6
           }

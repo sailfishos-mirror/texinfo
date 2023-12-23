@@ -181,6 +181,7 @@ $result_trees{'error_in_footnote'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 10
                           }

@@ -29,6 +29,7 @@ $result_trees{'close_paragraph_command'} = {
             }
           ],
           'cmdname' => 'titlefont',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 1
           }

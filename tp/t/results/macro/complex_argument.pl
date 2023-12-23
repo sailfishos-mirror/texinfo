@@ -401,6 +401,7 @@ macroseven defined
                 }
               ],
               'cmdname' => 'headings',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

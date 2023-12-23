@@ -168,6 +168,7 @@ $result_trees{'ref_in_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 8
           }

@@ -56,6 +56,7 @@ $result_trees{'on_block_command_line'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -95,6 +96,7 @@ $result_trees{'on_block_command_line'} = {
                             }
                           ],
                           'cmdname' => 'titlefont',
+                          'extra' => {},
                           'source_info' => {
                             'line_nr' => 2
                           }
@@ -194,6 +196,7 @@ $result_trees{'on_block_command_line'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 5
                   }
@@ -238,6 +241,7 @@ $result_trees{'on_block_command_line'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 5
                   }

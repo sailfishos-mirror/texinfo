@@ -243,6 +243,7 @@ $result_trees{'also_not_line'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

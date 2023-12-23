@@ -31,6 +31,7 @@ $result_trees{'hyphenation'} = {
             }
           ],
           'cmdname' => 'hyphenation',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 2
           }

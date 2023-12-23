@@ -125,6 +125,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' 
@@ -167,6 +168,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '  '

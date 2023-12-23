@@ -307,6 +307,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -591,6 +592,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
             }
           ],
           'cmdname' => 'subheading',
+          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

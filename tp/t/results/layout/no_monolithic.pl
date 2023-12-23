@@ -108,6 +108,7 @@ $result_trees{'no_monolithic'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'no_monolithic.texi',
                 'line_nr' => 6
@@ -362,6 +363,7 @@ $result_trees{'no_monolithic'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
             'line_nr' => 19
@@ -376,6 +378,7 @@ $result_trees{'no_monolithic'} = {
             }
           ],
           'cmdname' => 'shortcontents',
+          'extra' => {},
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
             'line_nr' => 20

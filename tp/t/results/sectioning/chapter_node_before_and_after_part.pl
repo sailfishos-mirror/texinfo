@@ -284,6 +284,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 14
           }

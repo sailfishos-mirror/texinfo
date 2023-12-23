@@ -792,6 +792,7 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '
@@ -842,6 +843,7 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '

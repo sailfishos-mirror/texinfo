@@ -22,6 +22,7 @@ $result_trees{'empty_documentencoding'} = {
             }
           ],
           'cmdname' => 'documentencoding',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 1
           }

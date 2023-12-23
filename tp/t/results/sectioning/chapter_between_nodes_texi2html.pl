@@ -336,6 +336,7 @@ $result_trees{'chapter_between_nodes_texi2html'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 18
           }

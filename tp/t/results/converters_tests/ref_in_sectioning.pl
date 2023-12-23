@@ -18,6 +18,7 @@ $result_trees{'ref_in_sectioning'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 1
           }

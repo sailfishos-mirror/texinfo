@@ -237,6 +237,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
+                  'extra' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 11
@@ -519,6 +520,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 }
               ],
               'cmdname' => 'contents',
+              'extra' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 32

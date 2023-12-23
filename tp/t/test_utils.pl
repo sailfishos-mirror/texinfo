@@ -393,7 +393,9 @@ sub new_test($;$$$)
 my @contents_keys = ('contents', 'args', 'parent', 'source_info',
   'node_content', 'invalid_nesting', 'info', 'text_arg',
   'node_description', 'node_long_description', 'is_target',
-  'tree_document_descriptor', 'unit_contents', 'output_units_descriptor');
+  'unit_contents', 'global_command_number',
+  # only set with the XS parser
+  'tree_document_descriptor', 'output_units_descriptor');
 my @menus_keys = ('menu_directions', 'menus', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.
@@ -411,7 +413,7 @@ my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
     'float_number', 'tree_unit_directions', 'directions',
     'associated_unit',
-    'parent',
+    'parent', 'global_command_number',
     # only set with the XS parser
     'tree_document_descriptor', 'output_units_descriptor');
 foreach my $avoided_key(@avoided_keys_tree) {

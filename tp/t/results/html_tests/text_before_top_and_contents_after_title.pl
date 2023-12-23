@@ -144,6 +144,7 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
             }
           ],
           'cmdname' => 'contents',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 11
           }

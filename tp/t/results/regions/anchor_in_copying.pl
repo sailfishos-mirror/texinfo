@@ -199,6 +199,7 @@ $result_trees{'anchor_in_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 13
           }
@@ -217,6 +218,7 @@ $result_trees{'anchor_in_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 15
           }

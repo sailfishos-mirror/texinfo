@@ -1105,6 +1105,7 @@ $result_trees{'test_image'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 18
           }

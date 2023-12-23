@@ -356,6 +356,7 @@ $result_trees{'documentation_examples'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 11
               }
@@ -379,6 +380,7 @@ $result_trees{'documentation_examples'} = {
             }
           ],
           'cmdname' => 'titlefont',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 12
           }

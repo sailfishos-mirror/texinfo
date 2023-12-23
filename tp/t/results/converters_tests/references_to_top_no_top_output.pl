@@ -333,6 +333,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'footnote',
+              'extra' => {},
               'source_info' => {
                 'line_nr' => 18
               }
@@ -358,6 +359,7 @@ $result_trees{'references_to_top_no_top_output'} = {
             }
           ],
           'cmdname' => 'insertcopying',
+          'extra' => {},
           'source_info' => {
             'line_nr' => 20
           }

@@ -32,6 +32,7 @@ $result_trees{'invalid_kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'kbdinputstyle',
+              'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

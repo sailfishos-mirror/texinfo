@@ -193,6 +193,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
+                  'extra' => {},
                   'source_info' => {
                     'line_nr' => 10
                   }
