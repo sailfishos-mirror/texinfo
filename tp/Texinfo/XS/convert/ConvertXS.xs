@@ -923,19 +923,39 @@ html_register_footnote (SV *converter_in, SV *command, footid, docid, int number
                                   "html_register_footnote");
          if (self)
            {
-             /* find footnote in XS.  First use number_in_doc, if not
-                effective, do a linear search */
-             /* TODO if not found, could determine an offset with
-                     number_in_doc and reuse it. */
-             /* TODO another possibility would be to setup a sorted array
-                when setting up the footnotes targets and use bsearch,
-                although it is not clear that it would be more efficient */
+             /* find footnote in XS.  First use index in global commands,
+                then number_in_doc, and if not effective, do a linear search */
              ELEMENT *footnote = 0;
              ELEMENT *current;
              HV *command_hv = (HV *) SvRV (command);
              ELEMENT_LIST *footnotes
                 = &self->document->global_commands->footnotes;
-             if (number_in_doc - 1 < footnotes->number)
+             SV **extra_sv
+                 = hv_fetch (command_hv, "extra", strlen ("extra"), 0);
+             int global_command_number = 0;
+
+             if (extra_sv)
+               {
+                 HV *extra_hv = (HV *) SvRV (*extra_sv);
+                 SV **global_command_number_sv
+                    = hv_fetch (extra_hv, "global_command_number",
+                                strlen ("global_command_number"), 0);
+                 if (global_command_number_sv)
+                   global_command_number = SvIV (*global_command_number_sv);
+               }
+             if (global_command_number > 0
+                 && global_command_number - 1 < footnotes->number)
+               {
+                 ELEMENT *current = footnotes->list[global_command_number - 1];
+                 if (command_hv == current->hv)
+                   footnote = current;
+                 else
+                   fprintf (stderr,
+                         "REMARK: global footnote %d %s not directly found\n",
+                            global_command_number, footid);
+               }
+             /* the next two ways should never be needed */
+             if (!footnote && number_in_doc - 1 < footnotes->number)
                {
                  ELEMENT *current = footnotes->list[number_in_doc - 1];
                  if (command_hv == current->hv)
