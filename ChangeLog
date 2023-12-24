@@ -1,5 +1,15 @@
 2023-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_state.c: remove
+	build_html_formatting_context_ctx, build_html_formatting_context,
+	build_html_formatting_context_stack,
+	build_html_composition_context_stack,
+	build_html_preformatted_classes_stack and
+	build_html_block_commands_stack, which are not used since the states
+	are accessed through overrides and not passed to perl.
+
+2023-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_command_root_element_command): rename
 	command_root_element_command as html_command_root_element_command.
