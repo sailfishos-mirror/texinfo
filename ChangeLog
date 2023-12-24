@@ -1,5 +1,11 @@
 2023-12-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/languages.t (appendix_translated): Check translated
+	appendix heading in Spanish rather than French, as the accented
+	character in "Apéndice" is more problematic than the French "Annexe".
+
+2023-12-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Translations.pm (replace_substrings)
 	(replace_convert_substrings): Remove comment stating origin
 	of a line of code, which is distracting and unnecessary.  (It was

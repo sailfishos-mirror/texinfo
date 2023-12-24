@@ -16,7 +16,7 @@ $result_trees{'appendix_translated'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'fr'
+                      'text' => 'es'
                     }
                   ],
                   'info' => {
@@ -30,7 +30,7 @@ $result_trees{'appendix_translated'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'text_arg' => 'fr'
+                'text_arg' => 'es'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -173,7 +173,7 @@ $result_trees{'appendix_translated'} = {
   'type' => 'document_root'
 };
 
-$result_texis{'appendix_translated'} = '@documentlanguage fr
+$result_texis{'appendix_translated'} = '@documentlanguage es
 
 @node Top
 @top top
@@ -266,11 +266,11 @@ $result_floats{'appendix_translated'} = {};
 $result_converted{'plaintext'}->{'appendix_translated'} = 'top
 ***
 
-Annexe A dernier
-****************
+Apéndice A dernier
+******************
 
 top
-Annexe A dernier
+Apéndice A dernier
 ';
 
 
@@ -282,8 +282,8 @@ File: ,  Node: Top,  Up: (dir)
 top
 ***
 
-Annexe A dernier
-****************
+Apéndice A dernier
+******************
 
 
 
@@ -313,7 +313,7 @@ $result_converted{'html'}->{'appendix_translated'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
-<link href="#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="#SEC_Contents" rel="contents" title="Índice general">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -325,23 +325,23 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="fr">
+<body lang="es">
 
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <div class="element-contents" id="SEC_Contents">
-<h2 class="contents-heading">Table des mati&egrave;res</h2>
+<h2 class="contents-heading">Índice general</h2>
 
 <div class="contents">
 
 <ul class="toc-numbered-mark">
-  <li><a id="toc-dernier" href="#dernier">Annexe A dernier</a></li>
+  <li><a id="toc-dernier" href="#dernier">Apéndice A dernier</a></li>
 </ul>
 </div>
 </div>
 <div class="appendix-level-extent" id="dernier">
-<h2 class="appendix"><span>Annexe A dernier<a class="copiable-link" href="#dernier"> &para;</a></span></h2>
+<h2 class="appendix"><span>Apéndice A dernier<a class="copiable-link" href="#dernier"> &para;</a></span></h2>
 
 </div>
 </div>

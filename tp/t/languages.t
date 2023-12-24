@@ -125,7 +125,7 @@ Text ending the preamble
 @end defivar
 '],
 ['appendix_translated',
-'@documentlanguage fr
+'@documentlanguage es
 
 @node Top
 @top top
