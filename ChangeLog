@@ -1,3 +1,10 @@
+2023-12-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Translations.pm (replace_substrings)
+	(replace_convert_substrings): Remove comment stating origin
+	of a line of code, which is distracting and unnecessary.  (It was
+	"# next line taken from libintl perl, copyright Guido. sub __expand".)
+
 2023-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Text.pm (text_heading, _text_heading):

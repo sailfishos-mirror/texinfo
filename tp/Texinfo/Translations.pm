@@ -365,7 +365,6 @@ sub replace_substrings($$;$)
 
   if (defined($replaced_substrings) and ref($replaced_substrings)) {
     my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
-    # next line taken from libintl perl, copyright Guido. sub __expand
     $translation_result
   =~ s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
   }
@@ -390,7 +389,6 @@ sub replace_convert_substrings($$;$)
   # with @-commands used in translations.
   if (defined($replaced_substrings) and ref($replaced_substrings)) {
     my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
-    # next line taken from libintl perl, copyright Guido. sub __expand
     $texinfo_line =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
 
