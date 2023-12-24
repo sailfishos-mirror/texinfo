@@ -1,3 +1,49 @@
+2023-12-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_special_unit_variety_direction_index, html_get_target): rename
+	special_unit_variety_direction_index
+	as html_special_unit_variety_direction_index and get_target as
+	html_get_target.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(find_element_target_number, find_element_target)
+	(register_added_target_number, html_get_target),
+	tp/Texinfo/XS/main/converter_types.h (HTML_ADDED_TARGET_LIST): pass
+	added targets as the target number instead of the target info pointer,
+	as the list may be reallocated in the mean time.
+
+	* tp/Texinfo/Convert/HTML.pm (_external_node_href),
+	tp/Texinfo/XS/convert/convert_html.c (external_node_href): remove
+	unused source_filename argument.
+
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction),
+	tp/Texinfo/XS/convert/convert_html.c (from_element_direction): call
+	_external_node_href directly for external node.
+
+	* tp/Texinfo/Convert/HTML.pm (_internal_command_href, command_href)
+	(command_tree, _internal_command_tree, _external_command_tree)
+	(_internal_command_text, command_text),
+	tp/Texinfo/XS/convert/convert_html.c (html_command_href)
+	(html_internal_command_href, html_command_tree)
+	(html_internal_command_tree, html_external_command_tree)
+	(html_internal_command_text, html_command_text): split
+	*internal_command* out of html_command_tree, html_command_text and
+	command_text, for clearer code and to prepare to override these
+	functions only.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(find_index_entry_element, find_root_command, find_element_from_sv):
+	add find_element_from_sv to get the C tree element based on perl
+	element, for elements with targets.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_get_target)
+	(html_command_id), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(get_output_units_descriptor_converter_sv): prepare overriding
+	_get_target and command_id. Not set up as an override for now as all
+	the functions accessing targets need to be overriden at once.
+
 2023-12-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/t/languages.t (appendix_translated): Check translated

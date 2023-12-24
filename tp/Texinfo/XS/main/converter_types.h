@@ -486,7 +486,7 @@ typedef struct STRING_WITH_LEN {
 typedef struct HTML_ADDED_TARGET_LIST {
     size_t space;
     size_t number;
-    HTML_TARGET **list;
+    size_t *list;
 } HTML_ADDED_TARGET_LIST;
 
 typedef struct CSS_SELECTOR_STYLE {
@@ -762,7 +762,7 @@ typedef struct CONVERTER {
     ELEMENT_LIST reset_target_commands; /* element targets that should have
                                            their texts reset after language
                                            change */
-    HTML_ADDED_TARGET_LIST added_targets; /* targets added */
+    HTML_ADDED_TARGET_LIST added_targets; /* target numbers of added targets */
     STRING_LIST shared_conversion_state_integer; /* modified */
     /* next 4 allow to switch from normal HTML formatting to css strings
        formatting */

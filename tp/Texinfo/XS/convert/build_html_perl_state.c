@@ -766,7 +766,9 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
       int j;
       for (j = 0; j < converter->added_targets.number; j++)
         {
-          HTML_TARGET *html_target = converter->added_targets.list[j];
+          size_t target_number = converter->added_targets.list[j];
+          HTML_TARGET *html_target
+            = &converter->html_targets.list[target_number -1];;
           add_html_element_target (targets_hv, html_target);
         }
       converter->added_targets.number = 0;

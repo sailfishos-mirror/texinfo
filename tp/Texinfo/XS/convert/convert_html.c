@@ -290,7 +290,7 @@ unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 }
 
 int
-special_unit_variety_direction_index (CONVERTER *self,
+html_special_unit_variety_direction_index (CONVERTER *self,
                                       char *special_unit_variety)
 {
   /* number is index +1 */
@@ -384,7 +384,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                   char *special_unit_variety
                 = self->special_unit_varieties.list[cmd_variety_index.index];
                   int special_unit_direction_index
-                    = special_unit_variety_direction_index (self,
+                    = html_special_unit_variety_direction_index (self,
                                                 special_unit_variety);
                   const OUTPUT_UNIT *special_unit
                 = self->global_units_directions[special_unit_direction_index];
@@ -421,10 +421,13 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
     }
 }
 
-HTML_TARGET *
-find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
+/* this number should be safe to use even after targets list has been
+   reallocated */
+size_t
+find_element_target_number (const HTML_TARGET_LIST *targets,
+                            const ELEMENT *element)
 {
-  int i;
+  size_t i;
 
   if (!targets->number)
     return 0;
@@ -433,8 +436,20 @@ find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
     {
       HTML_TARGET *target = &targets->list[i];
       if (target->element == element)
-        return target;
+        return i + 1;
     }
+  return 0;
+}
+
+/* becomes invalid if the targets list is reallocated */
+HTML_TARGET *
+find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
+{
+  size_t i = find_element_target_number (targets, element);
+
+  if (i > 0)
+    return &targets->list[i - 1];
+
   return 0;
 }
 
@@ -1900,7 +1915,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
   if (self->conf->DEBUG > 0)
     {
       char *command_name = element_command_name (command);
-      fprintf (stderr, "Register %s %s\n", command_name, target);
+      fprintf (stderr, "XS|Register %s %s\n", command_name, target);
     }
 
   HTML_TARGET *element_target
@@ -2838,20 +2853,23 @@ direction_string (CONVERTER *self, int direction,
 }
 
 static void
-register_added_target (HTML_ADDED_TARGET_LIST *added_targets,
-                       HTML_TARGET *target)
+register_added_target_number (HTML_ADDED_TARGET_LIST *added_targets,
+                              size_t target_number)
 {
   if (added_targets->number == added_targets->space)
     {
       added_targets->list = realloc (added_targets->list,
-                   sizeof (HTML_TARGET *) * (added_targets->space += 5));
+                   sizeof (size_t) * (added_targets->space += 5));
     }
-  added_targets->list[added_targets->number] = target;
+  added_targets->list[added_targets->number] = target_number;
   added_targets->number++;
 }
 
-static HTML_TARGET *
-get_target (CONVERTER *self, const ELEMENT *element)
+/* note that the returned pointer may be invalidated if the targets list
+   is reallocated.  Callers should make sure that the html target is
+   used before a reallocation is possible */
+HTML_TARGET *
+html_get_target (CONVERTER *self, const ELEMENT *element)
 {
   HTML_TARGET *result
    = find_element_target (&self->html_targets, element);
@@ -2862,11 +2880,15 @@ get_target (CONVERTER *self, const ELEMENT *element)
       && flags & CF_sectioning_heading
       && !(flags & CF_root))
     {
+      size_t target_number;
       new_sectioning_command_target (self, element);
 
-      result = find_element_target (&self->html_targets, element);
+      target_number = find_element_target_number (&self->html_targets, element);
+      result = &self->html_targets.list[target_number -1];
 
-      register_added_target (&self->added_targets, result);
+      /* register the number and not the target, as the list may be
+         reallocated before the modified state is passed to perl */
+      register_added_target_number (&self->added_targets, target_number);
       self->modified_state |= HMSF_added_target;
     }
   return result;
@@ -2874,7 +2896,7 @@ get_target (CONVERTER *self, const ELEMENT *element)
 
 char *html_command_id (CONVERTER *self, const ELEMENT *command)
 {
-  HTML_TARGET *target_info = get_target (self, command);
+  HTML_TARGET *target_info = html_get_target (self, command);
   if (target_info)
     return target_info->target;
   else
@@ -2958,7 +2980,6 @@ html_check_htmlxref_already_warned (CONVERTER *self, const char *manual_name,
 
 char *
 external_node_href (CONVERTER *self, const ELEMENT *external_node,
-                    const char *source_filename, /* unused */
                     const ELEMENT *source_command) /* for messages only */
 {
   TEXT result;
@@ -3262,7 +3283,7 @@ html_command_filename (CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *target_info;
 
-  target_info = get_target (self, command);
+  target_info = html_get_target (self, command);
 
   if (target_info)
     {
@@ -3303,7 +3324,7 @@ command_root_element_command (CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *target_info;
 
-  target_info = get_target (self, command);
+  target_info = html_get_target (self, command);
   if (target_info)
     {
       if (!target_info->root_element_command_set)
@@ -3334,31 +3355,25 @@ command_root_element_command (CONVERTER *self, const ELEMENT *command)
   return 0;
 }
 
-/* Return string for linking to $COMMAND with <a href> */
 /* return value to be freed */
-char *html_command_href (CONVERTER *self, const ELEMENT *command,
+char *
+html_internal_command_href (CONVERTER *self, const ELEMENT *command,
                          const char *source_filename,
                          const ELEMENT *source_command, /* for messages only */
             const char *specified_target) /* to specify explicitly the target */
 {
+  HTML_TARGET *target_info;
   TEXT href;
   const char *filename_from;
-  HTML_TARGET *target_info;
   const char *target = 0;
   FILE_NUMBER_NAME *target_filename;
   int target_filename_to_be_freed = 0;
-  ELEMENT *manual_content = lookup_extra_element (command,
-                                                  "manual_content");
+
   if (source_filename)
     filename_from = source_filename;
   else
     filename_from = self->current_filename.filename;
 
-  if (manual_content)
-    {
-      return external_node_href (self, command, filename_from,
-                                 source_command);
-    }
 
   if (specified_target)
     target = specified_target;
@@ -3370,7 +3385,7 @@ char *html_command_href (CONVERTER *self, const ELEMENT *command,
                                                        "associated_node");
       if (associated_node)
         target_command = associated_node;
-      target_info = get_target (self, target_command);
+      target_info = html_get_target (self, target_command);
       if (target_info)
         target = target_info->target;
     }
@@ -3449,6 +3464,24 @@ char *html_command_href (CONVERTER *self, const ELEMENT *command,
   return href.text;
 }
 
+/* Return string for linking to $COMMAND with <a href> */
+/* return value to be freed */
+char *html_command_href (CONVERTER *self, const ELEMENT *command,
+                         const char *source_filename,
+                         const ELEMENT *source_command, /* for messages only */
+            const char *specified_target) /* to specify explicitly the target */
+{
+  ELEMENT *manual_content = lookup_extra_element (command,
+                                                  "manual_content");
+  if (manual_content)
+    {
+      return external_node_href (self, command, source_command);
+    }
+
+  return html_internal_command_href (self, command, source_filename,
+                                     source_command, specified_target);
+}
+
 char *
 html_command_contents_target (CONVERTER *self, const ELEMENT *command,
                               enum command_id contents_or_shortcontents)
@@ -3458,7 +3491,7 @@ html_command_contents_target (CONVERTER *self, const ELEMENT *command,
   if (contents_or_shortcontents == CM_summarycontents)
     contents_or_shortcontents = CM_shortcontents;
 
-  target_info = get_target (self, command);
+  target_info = html_get_target (self, command);
   if (target_info)
     {
       if (contents_or_shortcontents == CM_shortcontents)
@@ -3516,7 +3549,7 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
           char *special_unit_variety
             = self->special_unit_varieties.list[cmd_variety_index.index];
           int special_unit_direction_index
-                = special_unit_variety_direction_index (self,
+                = html_special_unit_variety_direction_index (self,
                                            special_unit_variety);
           const OUTPUT_UNIT *special_unit
             = self->global_units_directions[special_unit_direction_index];
@@ -3656,43 +3689,13 @@ register_modified_shared_conversion_state_integer (CONVERTER *self,
 }
 
 TREE_ADDED_ELEMENTS *
-html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
+html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
+                            int no_number)
 {
   TREE_ADDED_ELEMENTS *tree;
   HTML_TARGET *target_info;
 
-  ELEMENT *manual_content = lookup_extra_element (command,
-                                                  "manual_content");
-  if (manual_content)
-    {
-      ELEMENT *root_code;
-      ELEMENT *open_p;
-      ELEMENT *close_p;
-
-      ELEMENT *node_content = lookup_extra_element (command,
-                                                    "node_content");
-
-      tree = new_tree_added_elements (tree_added_status_elements_added);
-
-      root_code = new_element_added (tree, ET__code);
-      open_p = new_element_added (tree, ET_NONE);
-      close_p = new_element_added (tree, ET_NONE);
-
-      text_append_n (&open_p->text, "(", 1);
-      text_append_n (&close_p->text, ")", 1);
-
-      add_to_element_contents (root_code, open_p);
-      add_to_contents_as_array (root_code, manual_content);
-      add_to_element_contents (root_code, close_p);
-      if (node_content)
-        add_to_contents_as_array (root_code, node_content);
-
-      tree->tree = root_code;
-      add_to_element_list (&self->tree_to_build, root_code);
-      return tree;
-    }
-
-  target_info = get_target (self, command);
+  target_info = html_get_target (self, command);
   if (target_info)
     {
       if (!target_info->tree.status)
@@ -3788,62 +3791,73 @@ html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
   return 0;
 }
 
-/* return value to be freed by caller */
-char *
-html_command_text (CONVERTER *self, const ELEMENT *command,
-                   const enum html_text_type type)
+TREE_ADDED_ELEMENTS *
+html_external_command_tree (CONVERTER *self, const ELEMENT *command,
+                            ELEMENT *manual_content)
 {
-  char *result;
-  HTML_TARGET *target_info;
-  ELEMENT *tree_root;
+  TREE_ADDED_ELEMENTS *tree;
+
+  ELEMENT *root_code;
+  ELEMENT *open_p;
+  ELEMENT *close_p;
+
+  ELEMENT *node_content = lookup_extra_element (command,
+                                                "node_content");
+
+  tree = new_tree_added_elements (tree_added_status_elements_added);
+
+  root_code = new_element_added (tree, ET__code);
+  open_p = new_element_added (tree, ET_NONE);
+  close_p = new_element_added (tree, ET_NONE);
+
+  text_append_n (&open_p->text, "(", 1);
+  text_append_n (&close_p->text, ")", 1);
+
+  add_to_element_contents (root_code, open_p);
+  add_to_contents_as_array (root_code, manual_content);
+  add_to_element_contents (root_code, close_p);
+  if (node_content)
+    add_to_contents_as_array (root_code, node_content);
+
+  tree->tree = root_code;
+  add_to_element_list (&self->tree_to_build, root_code);
+  return tree;
+}
+
+TREE_ADDED_ELEMENTS *
+html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
+{
+
   ELEMENT *manual_content = lookup_extra_element (command,
                                                   "manual_content");
   if (manual_content)
     {
-      TREE_ADDED_ELEMENTS *command_tree = html_command_tree (self, command, 0);
-      TREE_ADDED_ELEMENTS *string_tree = 0;
-      if (type == HTT_string)
-        {
-          ELEMENT *tree_root_string;
-
-          string_tree
-            = new_tree_added_elements (tree_added_status_elements_added);
-
-          tree_root_string = new_element_added (string_tree, ET__string);
-
-          add_to_contents_as_array (tree_root_string, command_tree->tree);
-          tree_root = tree_root_string;
-          add_to_element_list (&self->tree_to_build, tree_root);
-        }
-      else
-        tree_root = command_tree->tree;
-
-      result = convert_tree_new_formatting_context (self, tree_root,
-                                     element_command_name(command),
-                                     "command_text-manual_content", 0, 0);
-
-      if (type == HTT_string)
-        {
-          remove_element_from_list (&self->tree_to_build, tree_root);
-          destroy_tree_added_elements (self, string_tree);
-        }
-      destroy_tree_added_elements (self, command_tree);
-      return result;
+      return html_external_command_tree (self, command, manual_content);
     }
 
-  target_info = get_target (self, command);
+  return html_internal_command_tree (self, command, no_number);
+}
+
+/* return value to be freed by caller */
+char *
+html_internal_command_text (CONVERTER *self, const ELEMENT *command,
+                            const enum html_text_type type)
+{
+  HTML_TARGET *target_info = html_get_target (self, command);
+
   if (target_info)
     {
       if (target_info->command_text[type])
         return strdup (target_info->command_text[type]);
       else
         {
+          ELEMENT *tree_root;
           TREE_ADDED_ELEMENTS *string_tree = 0;
           char *explanation = 0;
           char *context_name;
           ELEMENT *selected_tree;
           TREE_ADDED_ELEMENTS *command_tree
-            = html_command_tree (self, command, 0);
+            = html_internal_command_tree (self, command, 0);
 
           if (!command_tree->tree)
             return strdup ("");
@@ -3929,6 +3943,52 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
 
 /* return value to be freed by caller */
 char *
+html_command_text (CONVERTER *self, const ELEMENT *command,
+                   const enum html_text_type type)
+{
+  char *result;
+  ELEMENT *manual_content = lookup_extra_element (command,
+                                                  "manual_content");
+  if (manual_content)
+    {
+      ELEMENT *tree_root;
+      TREE_ADDED_ELEMENTS *command_tree
+        = html_external_command_tree (self, command, manual_content);
+      TREE_ADDED_ELEMENTS *string_tree = 0;
+      if (type == HTT_string)
+        {
+          ELEMENT *tree_root_string;
+
+          string_tree
+            = new_tree_added_elements (tree_added_status_elements_added);
+
+          tree_root_string = new_element_added (string_tree, ET__string);
+
+          add_to_contents_as_array (tree_root_string, command_tree->tree);
+          tree_root = tree_root_string;
+          add_to_element_list (&self->tree_to_build, tree_root);
+        }
+      else
+        tree_root = command_tree->tree;
+
+      result = convert_tree_new_formatting_context (self, tree_root,
+                                     element_command_name(command),
+                                     "command_text-manual_content", 0, 0);
+
+      if (type == HTT_string)
+        {
+          remove_element_from_list (&self->tree_to_build, tree_root);
+          destroy_tree_added_elements (self, string_tree);
+        }
+      destroy_tree_added_elements (self, command_tree);
+      return result;
+    }
+
+  return html_internal_command_text (self, command, type);
+}
+
+/* return value to be freed by caller */
+char *
 from_element_direction (CONVERTER *self, int direction,
                         enum  html_text_type type,
                         const OUTPUT_UNIT *source_unit,
@@ -3983,8 +4043,8 @@ from_element_direction (CONVERTER *self, int direction,
         {
           ELEMENT *external_node_element = target_unit->unit_command;
           if (type == HTT_href)
-            return html_command_href (self, external_node_element,
-                                      filename_from, source_command, 0);
+            return external_node_href (self, external_node_element,
+                                       source_command);
           else if (type == HTT_text || type == HTT_node)
             return html_command_text (self, external_node_element, 0);
           else if (type == HTT_string)
@@ -4778,7 +4838,7 @@ html_prepare_output_units_global_targets (CONVERTER *self,
               const OUTPUT_UNIT *special_unit = units_list->list[j];
               char *special_unit_variety = special_unit->special_unit_variety;
               int special_unit_direction_index
-                = special_unit_variety_direction_index (self,
+                = html_special_unit_variety_direction_index (self,
                                                 special_unit_variety);
               self->global_units_directions[special_unit_direction_index]
                 = special_unit;
@@ -9141,7 +9201,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
               char *special_unit_variety
                 = self->special_unit_varieties.list[cmd_variety_index.index];
               int special_unit_direction_index
-                    = special_unit_variety_direction_index (self,
+                    = html_special_unit_variety_direction_index (self,
                                                 special_unit_variety);
               const OUTPUT_UNIT *special_unit
                 = self->global_units_directions[special_unit_direction_index];
@@ -11716,7 +11776,7 @@ html_translate_names (CONVERTER *self)
     {
       char *special_unit_variety = special_unit_varieties->list[j];
       int special_unit_direction_index
-       = special_unit_variety_direction_index (self, special_unit_variety);
+       = html_special_unit_variety_direction_index (self, special_unit_variety);
       if (special_unit_direction_index >= 0)
         {
           const OUTPUT_UNIT *special_unit

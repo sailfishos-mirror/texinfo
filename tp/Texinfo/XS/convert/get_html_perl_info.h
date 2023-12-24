@@ -5,6 +5,8 @@
 #include "EXTERN.h"
 #include "perl.h"
 
+int get_output_units_descriptor_converter_sv (SV *converter_in);
+
 void html_converter_initialize_sv (SV *converter_sv,
                                   SV *default_formatting_references,
                                   SV *default_css_string_formatting_references,
@@ -19,4 +21,6 @@ void html_converter_initialize_sv (SV *converter_sv,
 
 void html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter);
 
+ELEMENT *find_element_from_sv (CONVERTER *converter, SV *element_sv,
+                               int output_units_descriptor);
 #endif

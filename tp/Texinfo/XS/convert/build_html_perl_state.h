@@ -12,6 +12,7 @@
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
 
+HV *build_html_target (HTML_TARGET *html_target);
 void pass_html_element_targets (SV *converter_sv,
                                 HTML_TARGET_LIST *html_targets);
 void pass_html_special_targets (SV *converter_sv,

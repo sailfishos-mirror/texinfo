@@ -791,6 +791,64 @@ html_get_file_information (SV *converter_in, key, ...)
          PUSHs(sv_2mortal(found_sv));
          PUSHs(sv_2mortal(result_sv));
 
+SV *
+html_get_target (SV *converter_in, SV *element_sv)
+     PREINIT:
+         CONVERTER *self;
+         HV *html_target_hv = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_get_target");
+         if (self)
+           {
+             int output_units_descriptor
+               = get_output_units_descriptor_converter_sv (converter_in);
+             ELEMENT *element;
+             element = find_element_from_sv (self, element_sv,
+                                             output_units_descriptor);
+             if (element)
+               {
+                 HTML_TARGET *target_info = html_get_target (self, element);
+                 if (target_info)
+                   html_target_hv = build_html_target (target_info);
+               }
+           }
+         if (html_target_hv)
+           {
+             RETVAL = newRV_noinc ((SV *) html_target_hv);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+SV *
+html_command_id (SV *converter_in, SV *element_sv)
+     PREINIT:
+         CONVERTER *self;
+         char *id = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_command_id");
+         if (self)
+           {
+             int output_units_descriptor
+               = get_output_units_descriptor_converter_sv (converter_in);
+             ELEMENT *element;
+             element = find_element_from_sv (self, element_sv,
+                                             output_units_descriptor);
+             if (element)
+               id = html_command_id (self, element);
+           }
+         if (id)
+           {
+             RETVAL = newSVpv_utf8 (id, 0);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 void
 html_register_opened_section_level (SV *converter_in, int level, close_string)
          char *close_string = (char *)SvPVutf8_nolen($arg);

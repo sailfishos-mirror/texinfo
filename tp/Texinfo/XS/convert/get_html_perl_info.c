@@ -38,8 +38,14 @@ FIXME add an initialization of translations?
 #endif
 */
 
+#include "command_ids.h"
 #include "converter_types.h"
 #include "utils.h"
+#include "targets.h"
+#include "builtin_commands.h"
+#include "debug.h"
+#include "convert_to_texinfo.h"
+#include "output_unit.h"
 #include "converter.h"
 #include "convert_html.h"
 #include "get_perl_info.h"
@@ -1128,3 +1134,250 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
 
 #undef FETCH
 
+ELEMENT *
+find_index_entry_element (CONVERTER *converter, SV *index_entry_sv)
+{
+  AV *index_entry_av;
+  SV **index_name_sv;
+  char *index_name = 0;
+
+  dTHX;
+
+  if (!converter->document->index_names)
+    return 0;
+
+  index_entry_av = (AV *) SvRV (index_entry_sv);
+
+  index_name_sv = av_fetch (index_entry_av, 0, 0);
+  if (index_name_sv)
+    {
+      index_name = SvPVutf8_nolen (*index_name_sv);
+    }
+
+  if (index_name)
+    {
+      SV **number_sv = av_fetch (index_entry_av, 1, 0);
+      if (number_sv)
+        {
+          int entry_number = SvIV (*number_sv);
+          INDEX **index_names = converter->document->index_names;
+          INDEX *idx = indices_info_index_by_name (index_names, index_name);
+
+          if (idx)
+            {
+              INDEX_ENTRY *index_entry = &idx->index_entries[entry_number -1];
+              if (index_entry->entry_associated_element)
+                return index_entry->entry_associated_element;
+              else if (index_entry->entry_element)
+                return index_entry->entry_element;
+            }
+        }
+    }
+  return 0;
+}
+
+#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
+/* find C tree root element corresponding to perl tree element element_hv */
+ELEMENT *find_root_command (CONVERTER *converter, HV *element_hv,
+                            int output_units_descriptor)
+{
+  SV **associated_unit_sv;
+  ELEMENT *root;
+  size_t i;
+
+  dTHX;
+
+  FETCH(associated_unit)
+
+  if (associated_unit_sv)
+    {
+      /* find the associated ouput unit and then find the element
+         in unit contents */
+      HV *associated_unit_hv = (HV *) SvRV (*associated_unit_sv);
+      SV **unit_index_sv = hv_fetch (associated_unit_hv, "unit_index",
+                                     strlen ("unit_index"), 0);
+
+      if (unit_index_sv)
+        {
+          int unit_index = SvIV (*unit_index_sv);
+          const OUTPUT_UNIT_LIST *output_units
+           = retrieve_output_units (output_units_descriptor);
+
+          if (output_units && unit_index < output_units->number)
+            {
+              OUTPUT_UNIT *output_unit = output_units->list[unit_index];
+              size_t i;
+              for (i = 0; i < output_unit->unit_contents.number; i++)
+                {
+                  ELEMENT *content = output_unit->unit_contents.list[i];
+                  if (content->hv == element_hv)
+                    return content;
+                }
+            }
+        }
+    }
+
+  /* if there are no output units go through the root element children */
+  root = converter->document->tree;
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *content = root->contents.list[i];
+      if (content->hv == element_hv)
+        return content;
+    }
+  return 0;
+}
+
+/* find C Texinfo tree element based on element_sv perl tree element.
+   Only for elements that can be targets of links. */
+ELEMENT *
+find_element_from_sv (CONVERTER *converter, SV *element_sv,
+                      int output_units_descriptor)
+{
+  enum command_id cmd = 0;
+  HV *element_hv;
+  SV **cmdname_sv;
+  SV **extra_sv;
+  SV **type_sv;
+
+  dTHX;
+
+  element_hv = (HV *) SvRV (element_sv);
+
+  FETCH(cmdname)
+
+  if (cmdname_sv)
+    {
+      char *cmdname = SvPVutf8_nolen (*cmdname_sv);
+      cmd = lookup_builtin_command (cmdname);
+
+      if (builtin_command_data[cmd].flags & CF_root
+          && cmd != CM_node)
+        {
+          ELEMENT *element = find_root_command (converter, element_hv,
+                                                output_units_descriptor);
+          if (element)
+            return element;
+        }
+    }
+
+  FETCH(extra)
+
+#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen(#key), 0);
+  if (extra_sv)
+    {
+      HV *extra_hv = (HV *) SvRV (*extra_sv);
+      SV **normalized_sv;
+      SV **global_command_number_sv;
+      SV **index_entry_sv;
+      SV **associated_index_entry_sv;
+
+      EXTRA(normalized)
+      if (normalized_sv)
+        {
+          char *normalized = SvPVutf8_nolen (*normalized_sv);
+          if (converter->document->identifiers_target)
+            {
+              ELEMENT *element_found
+                = find_identifier_target
+                      (converter->document->identifiers_target, normalized);
+         /* check the element found in case of multiple defined identifier */
+              if (element_found && element_hv == element_found->hv)
+                return element_found;
+            }
+        }
+
+      EXTRA(global_command_number)
+      if (global_command_number_sv)
+        {
+          int global_command_number = SvIV (*global_command_number_sv);
+          ELEMENT_LIST *global_cmd_list
+            = get_cmd_global_multi_command (
+                          converter->document->global_commands, cmd);
+
+          if (global_command_number > 0
+              && global_command_number - 1 < global_cmd_list->number)
+            return global_cmd_list->list[global_command_number - 1];
+        }
+
+      EXTRA(associated_index_entry)
+      if (associated_index_entry_sv)
+        {
+          ELEMENT *index_element = find_index_entry_element (converter,
+                                               *associated_index_entry_sv);
+          /* there should be no ambiguity, but we check nevertheless */
+          if (index_element && index_element->hv == element_hv)
+            return (index_element);
+        }
+
+      EXTRA(index_entry)
+      if (index_entry_sv)
+        {
+          ELEMENT *index_element = find_index_entry_element (converter,
+                                                          *index_entry_sv);
+          /* it is important to check if the index entry was reassociated */
+          if (index_element && index_element->hv == element_hv)
+            return (index_element);
+        }
+    }
+
+  FETCH(type)
+
+  if (type_sv)
+    {
+      char *type_name = SvPVutf8_nolen (*type_sv);
+      if (!strcmp (type_name, "special_unit_element"))
+        {
+          SV **associated_unit_sv;
+          FETCH(associated_unit)
+          if (associated_unit_sv)
+            {
+              HV *associated_unit_hv = (HV *) SvRV (*associated_unit_sv);
+              SV **special_unit_variety_hv
+                = hv_fetch (associated_unit_hv, "special_unit_variety",
+                            strlen ("special_unit_variety"), 0);
+              if (special_unit_variety_hv)
+                {
+                  char *special_unit_variety
+                    = SvPVutf8_nolen (*special_unit_variety_hv);
+                  int special_unit_direction_index
+                    = html_special_unit_variety_direction_index (converter,
+                                                special_unit_variety);
+                  const OUTPUT_UNIT *special_unit
+            = converter->global_units_directions[special_unit_direction_index];
+                  if (special_unit)
+                    return special_unit->unit_command;
+                }
+            }
+        }
+    }
+
+  return 0;
+}
+
+#undef EXTRA
+
+#undef FETCH
+
+/* Not sure if it is generic or HTML specific */
+int
+get_output_units_descriptor_converter_sv (SV *converter_in)
+{
+  HV *converter_hv;
+  SV **output_units_sv;
+
+  dTHX;
+
+  int output_units_descriptor = 0;
+
+  converter_hv = (HV *) SvRV (converter_in);
+
+  output_units_sv = hv_fetch (converter_hv, "document_units",
+                              strlen ("document_units"), 0);
+  if (output_units_sv && SvOK (*output_units_sv))
+    output_units_descriptor
+        = get_sv_output_units_descriptor (*output_units_sv,
+                     "html_command_id output units");
+
+  return output_units_descriptor;
+}

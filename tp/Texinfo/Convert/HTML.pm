@@ -128,6 +128,11 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_id_is_registered"
    => "Texinfo::Convert::ConvertXS::html_id_is_registered",
 
+#  "Texinfo::Convert::HTML::_get_target"
+#   => "Texinfo::Convert::ConvertXS::html_get_target",
+#  "Texinfo::Convert::HTML::command_id"
+#   => "Texinfo::Convert::ConvertXS::html_command_id",
+
   "Texinfo::Convert::HTML::_open_command_update_context"
    => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
   "Texinfo::Convert::HTML::_convert_command_update_context",
@@ -1014,8 +1019,7 @@ sub command_node($$)
   return undef;
 }
 
-# Return string for linking to $COMMAND with <a href>
-sub command_href($$;$$$)
+sub _internal_command_href($$;$$$)
 {
   my $self = shift;
   my $command = shift;
@@ -1026,11 +1030,6 @@ sub command_href($$;$$$)
   my $specified_target = shift;
 
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
-
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
-    return $self->_external_node_href($command, $source_filename,
-                                      $source_command);
-  }
 
   my $target;
   if (defined($specified_target)) {
@@ -1090,6 +1089,25 @@ sub command_href($$;$$$)
     return undef;
   }
   return $href;
+}
+
+# Return string for linking to $COMMAND with <a href>
+sub command_href($$;$$$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $source_filename = shift;
+  # for messages only
+  my $source_command = shift;
+  # to specify explicitly the target
+  my $specified_target = shift;
+
+  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+    return _external_node_href($self, $command, $source_command);
+  }
+
+  return _internal_command_href($self, $command, $source_filename,
+                                $source_command, $specified_target);
 }
 
 my %contents_command_special_unit_variety = (
@@ -1193,27 +1211,11 @@ sub footnote_location_href($$;$$$)
   return $href;
 }
 
-sub command_tree($$;$)
+sub _internal_command_tree($$$)
 {
   my $self = shift;
   my $command = shift;
   my $no_number = shift;
-
-  if (!defined($command)) {
-    cluck "in command_tree command not defined";
-  }
-
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
-    my $node_content = $command->{'extra'}->{'node_content'};
-    my $tree = {'type' => '_code',
-          'contents' => [{'text' => '('},
-                         $command->{'extra'}->{'manual_content'},
-                         {'text' => ')'}]};
-    if ($node_content) {
-      push @{$tree->{'contents'}}, $node_content;
-    }
-    return $tree;
-  }
 
   my $target = $self->_get_target($command);
   if ($target) {
@@ -1276,6 +1278,39 @@ sub command_tree($$;$)
   return undef;
 }
 
+sub _external_command_tree($$)
+{
+  my $self = shift;
+  my $command = shift;
+
+  my $node_content = $command->{'extra'}->{'node_content'};
+  my $tree = {'type' => '_code',
+        'contents' => [{'text' => '('},
+                       $command->{'extra'}->{'manual_content'},
+                       {'text' => ')'}]};
+  if ($node_content) {
+    push @{$tree->{'contents'}}, $node_content;
+  }
+  return $tree;
+}
+
+sub command_tree($$;$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $no_number = shift;
+
+  if (!defined($command)) {
+    cluck "in command_tree command not defined";
+  }
+
+  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+    return _external_command_tree($self, $command);
+  }
+
+  return _internal_command_tree($self, $command, $no_number);
+}
+
 sub _push_referred_command_stack_command($$)
 {
   my $self = shift;
@@ -1297,42 +1332,18 @@ sub _command_is_in_referred_command_stack($$)
   return grep {$_ eq $command} @{$self->{'referred_command_stack'}};
 }
 
-# Return text to be used for a hyperlink to $COMMAND.
-# $TYPE refers to the type of value returned from this function:
-#  'text' - return text
-#  'text_nonumber' - return text, without the section/chapter number
-#  'string' - return simpler text that can be used in element attributes
-sub command_text($$;$)
+sub _internal_command_text($$$)
 {
   my $self = shift;
   my $command = shift;
   my $type = shift;
-
-  if (!defined($type)) {
-    $type = 'text';
-  }
-  if (!defined($command)) {
-    cluck "in command_text($type) command not defined";
-  }
-
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
-    my $tree = command_tree($self, $command);
-    if ($type eq 'string') {
-      $tree = {'type' => '_string',
-               'contents' => [$tree]};
-    }
-    my $result = $self->convert_tree_new_formatting_context(
-      # FIXME check if $document_global_context argument would be needed?
-          $tree, $command->{'cmdname'}, 'command_text-manual_content');
-    return $result;
-  }
 
   my $target = $self->_get_target($command);
   if ($target) {
     if (defined($target->{$type})) {
       return $target->{$type};
     }
-    my $command_tree = $self->command_tree($command);
+    my $command_tree = _internal_command_tree($self, $command, 0);
     return '' if (!defined($command_tree));
 
     my $explanation;
@@ -1390,6 +1401,41 @@ sub command_text($$;$)
   # * with @inforef with node argument only, without manual argument.
   return undef;
 }
+
+# Return text to be used for a hyperlink to $COMMAND.
+# $TYPE refers to the type of value returned from this function:
+#  'text' - return text
+#  'text_nonumber' - return text, without the section/chapter number
+#  'string' - return simpler text that can be used in element attributes
+sub command_text($$;$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $type = shift;
+
+  if (!defined($type)) {
+    $type = 'text';
+  }
+
+  if (!defined($command)) {
+    cluck "in command_text($type) command not defined";
+  }
+
+  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+    my $tree = _external_command_tree($self, $command);
+    if ($type eq 'string') {
+      $tree = {'type' => '_string',
+               'contents' => [$tree]};
+    }
+    my $result = $self->convert_tree_new_formatting_context(
+      # FIXME check if $document_global_context argument would be needed?
+          $tree, $command->{'cmdname'}, 'command_text-manual_content');
+    return $result;
+  }
+
+  return _internal_command_text($self, $command, $type);
+}
+
 
 # Return the element in the tree that $LABEL refers to.
 sub label_command($$)
@@ -1563,7 +1609,7 @@ sub from_element_direction($$$;$$$)
       #print STDERR "FROM_ELEMENT_DIRECTION ext node $type $direction\n"
       #  if ($self->get_conf('DEBUG'));
       if ($type eq 'href') {
-        return $self->command_href($external_node_element, $source_filename,
+        return _external_node_href($self, $external_node_element,
                                    $source_command);
       } elsif ($type eq 'text' or $type eq 'node') {
         return $self->command_text($external_node_element);
@@ -10230,12 +10276,10 @@ sub _check_htmlxref_already_warned($$$)
   }
 }
 
-sub _external_node_href($$$;$)
+sub _external_node_href($$$)
 {
   my $self = shift;
   my $external_node = shift;
-  # unused
-  my $source_filename = shift;
   # for messages only
   my $source_command = shift;
 
@@ -12213,7 +12257,6 @@ sub output($$)
     foreach my $label (sort(keys (%{$self->{'identifiers_target'}}))) {
       my $target_element = $self->{'identifiers_target'}->{$label};
       my $label_element = Texinfo::Common::get_label_element($target_element);
-      my $target = $self->_get_target($target_element);
       # filename may not be defined in case of an @anchor or similar in
       # @titlepage, and @titlepage is not used.
       my $filename = $self->command_filename($target_element);
@@ -12228,6 +12271,7 @@ sub output($$)
           and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
         $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
       } else {
+        my $target = $self->_get_target($target_element);
         $node_filename = $target->{'node_filename'};
       }
 

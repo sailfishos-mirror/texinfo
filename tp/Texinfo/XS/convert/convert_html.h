@@ -82,6 +82,12 @@ void html_register_file_information (CONVERTER *self, const char *key,
 int html_get_file_information (CONVERTER *self, const char *key,
                                const char *filename, int *status);
 
+int html_special_unit_variety_direction_index (CONVERTER *self,
+                                        char *special_unit_variety);
+
+HTML_TARGET *html_get_target (CONVERTER *self, const ELEMENT *element);
+char *html_command_id (CONVERTER *self, const ELEMENT *command);
+
 void html_register_opened_section_level (CONVERTER *self, int level,
                                          const char *close_string);
 STRING_LIST *html_close_registered_sections_level (CONVERTER *self,
