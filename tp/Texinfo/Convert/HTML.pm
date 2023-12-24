@@ -7300,8 +7300,8 @@ sub _convert_def_line_type($$$$)
 
   my $def_call = '';
   if ($type_element) {
-    my $type_text = $self->_convert({'type' => '_code',
-       'contents' => [$type_element]});
+    my $type_text = $self->convert_tree({'type' => '_code',
+                                         'contents' => [$type_element]});
     if ($type_text ne '') {
       $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
           $type_text .'</code>';
@@ -7317,7 +7317,7 @@ sub _convert_def_line_type($$$$)
 
   if ($name_element) {
     $def_call .= $self->html_attribute_class('strong', ['def-name']).'>'.
-       $self->_convert({'type' => '_code', 'contents' => [$name_element]})
+       $self->convert_tree({'type' => '_code', 'contents' => [$name_element]})
        .'</strong>';
   }
 
@@ -7325,8 +7325,8 @@ sub _convert_def_line_type($$$$)
   # arguments not only metasyntactic variables
   # (deftypefn, deftypevr, deftypeop, deftypecv)
     if ($Texinfo::Common::def_no_var_arg_commands{$base_command_name}) {
-      my $arguments_formatted = $self->_convert({'type' => '_code',
-                                                 'contents' => [$arguments]});
+      my $arguments_formatted = $self->convert_tree({'type' => '_code',
+                                                  'contents' => [$arguments]});
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
         $def_call .= $self->html_attribute_class('code',
@@ -7337,7 +7337,7 @@ sub _convert_def_line_type($$$$)
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
       # FIXME not part of the API
       _set_code_context($self, 0);
-      my $arguments_formatted = $self->_convert($arguments);
+      my $arguments_formatted = $self->convert_tree($arguments);
       _pop_code_context($self);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
@@ -11531,8 +11531,8 @@ sub convert($$)
   $self->_reset_info();
 
   # main conversion here
-  my $result = $self->_html_convert_convert ($root, $output_units,
-                                             $special_units);
+  my $result = $self->_html_convert_convert($root, $output_units,
+                                            $special_units);
 
   $self->_finalize_output_state();
   return $result;
