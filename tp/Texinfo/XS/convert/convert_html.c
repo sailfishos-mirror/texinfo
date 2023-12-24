@@ -2852,19 +2852,6 @@ direction_string (CONVERTER *self, int direction,
   return self->directions_strings[string_type][direction][context];
 }
 
-static void
-register_added_target_number (HTML_ADDED_TARGET_LIST *added_targets,
-                              size_t target_number)
-{
-  if (added_targets->number == added_targets->space)
-    {
-      added_targets->list = realloc (added_targets->list,
-                   sizeof (size_t) * (added_targets->space += 5));
-    }
-  added_targets->list[added_targets->number] = target_number;
-  added_targets->number++;
-}
-
 /* note that the returned pointer may be invalidated if the targets list
    is reallocated.  Callers should make sure that the html target is
    used before a reallocation is possible */
@@ -2885,16 +2872,12 @@ html_get_target (CONVERTER *self, const ELEMENT *element)
 
       target_number = find_element_target_number (&self->html_targets, element);
       result = &self->html_targets.list[target_number -1];
-
-      /* register the number and not the target, as the list may be
-         reallocated before the modified state is passed to perl */
-      register_added_target_number (&self->added_targets, target_number);
-      self->modified_state |= HMSF_added_target;
     }
   return result;
 }
 
-char *html_command_id (CONVERTER *self, const ELEMENT *command)
+char *
+html_command_id (CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *target_info = html_get_target (self, command);
   if (target_info)
@@ -3319,8 +3302,8 @@ html_command_filename (CONVERTER *self, const ELEMENT *command)
   return 0;
 }
 
-ELEMENT *
-command_root_element_command (CONVERTER *self, const ELEMENT *command)
+const ELEMENT *
+html_command_root_element_command (CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *target_info;
 
@@ -3355,12 +3338,51 @@ command_root_element_command (CONVERTER *self, const ELEMENT *command)
   return 0;
 }
 
+const ELEMENT *
+html_command_node (CONVERTER *self, const ELEMENT *command)
+{
+  HTML_TARGET *target_info;
+
+  target_info = html_get_target (self, command);
+  if (target_info)
+    {
+      if (!target_info->node_command_set)
+        {
+         /* this finds a special element for footnote command if
+            such an element exists */
+          ROOT_AND_UNIT *root_unit
+            = html_get_tree_root_element (self, command, 1);
+          if (root_unit)
+            {
+              if (root_unit->root)
+                {
+                  const ELEMENT *root_command = root_unit->root;
+                  if (root_command && root_command->cmd == CM_node)
+                    target_info->node_command = root_command;
+                  else
+                    {
+                      const ELEMENT *associated_node
+                     = lookup_extra_element (root_command, "associated_node");
+                      if (associated_node)
+                        target_info->node_command = associated_node;
+                    }
+                }
+              free (root_unit);
+            }
+          target_info->node_command_set = 1;
+        }
+      return target_info->node_command;
+    }
+  return 0;
+}
+
 /* return value to be freed */
+/* SPECIFIED_TARGET can be used to specify explicitly the target.
+ */
 char *
 html_internal_command_href (CONVERTER *self, const ELEMENT *command,
-                         const char *source_filename,
-                         const ELEMENT *source_command, /* for messages only */
-            const char *specified_target) /* to specify explicitly the target */
+                            const char *source_filename,
+                            const char *specified_target)
 {
   HTML_TARGET *target_info;
   TEXT href;
@@ -3419,8 +3441,8 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
       if (!filename_from
           || strcmp (target_filename->filename, filename_from))
         {
-          ELEMENT *command_root_element
-             = command_root_element_command (self, command);
+          const ELEMENT *command_root_element
+             = html_command_root_element_command (self, command);
           text_append (&href, target_filename->filename);
      /* omit target if the command is an element command, there is only
         one element in file and there is a file in the href */
@@ -3464,12 +3486,16 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
   return href.text;
 }
 
-/* Return string for linking to $COMMAND with <a href> */
 /* return value to be freed */
-char *html_command_href (CONVERTER *self, const ELEMENT *command,
-                         const char *source_filename,
-                         const ELEMENT *source_command, /* for messages only */
-            const char *specified_target) /* to specify explicitly the target */
+/* Return string for linking to $COMMAND with <a href>.
+   SOURCE_COMMAND is for messages only.
+   SPECIFIED_TARGET can be set to specify explicitly the target
+ */
+char *
+html_command_href (CONVERTER *self, const ELEMENT *command,
+                   const char *source_filename,
+                   const ELEMENT *source_command,
+                   const char *specified_target)
 {
   ELEMENT *manual_content = lookup_extra_element (command,
                                                   "manual_content");
@@ -3479,7 +3505,7 @@ char *html_command_href (CONVERTER *self, const ELEMENT *command,
     }
 
   return html_internal_command_href (self, command, source_filename,
-                                     source_command, specified_target);
+                                     specified_target);
 }
 
 char *
@@ -3583,11 +3609,15 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
   return 0;
 }
 
+/*
+ SPECIFIED_TARGET can be set to specify explicitly the target.
+ TARGET_FILENAME_IN can be set to specify explicitly the file.
+ */
 char *
 html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
-                         const char *source_filename,
-            const char *specified_target, /* specify explicitly the target */
-            const char *target_filename_in) /* to specify explicitly the file */
+                             const char *source_filename,
+                             const char *specified_target,
+                             const char *target_filename_in)
 {
   TEXT href;
   const char *filename_from;
@@ -3998,7 +4028,6 @@ from_element_direction (CONVERTER *self, int direction,
   const char *filename_from;
   const OUTPUT_UNIT *target_unit = 0;
   ELEMENT *command = 0;
-  HTML_TARGET *target = 0;
 
   if (!source_unit)
     source_unit = self->current_output_unit;
@@ -4066,11 +4095,6 @@ from_element_direction (CONVERTER *self, int direction,
                     command = associated_node;
                 }
             }
-          if (command)
-            {
-              target
-                = find_element_target (&self->html_targets, command);
-            }
           type = HTT_text;
         }
       else if (type == HTT_section)
@@ -4088,11 +4112,6 @@ from_element_direction (CONVERTER *self, int direction,
                     command = associated_section;
                 }
             }
-          if (command)
-            {
-              target
-                = find_element_target (&self->html_targets, command);
-            }
           type = HTT_text_nonumber;
         }
       else
@@ -4106,28 +4125,19 @@ from_element_direction (CONVERTER *self, int direction,
               else
                 return 0;
             }
-
-          if (command)
+          else if (type == HTT_target)
             {
-              target
-                = find_element_target (&self->html_targets, command);
+              if (command)
+                return html_command_id (self, command);
+              else
+                return 0;
             }
         }
     }
   else
     return 0;
 
-  if (type == HTT_target)
-    {
-      if (target && target->target)
-        return (strdup (target->target));
-      else
-        return 0;
-    }
-
-  if (target && target->command_text[type])
-    return strdup (target->command_text[type]);
-  else if (command)
+  if (command)
     return html_command_text (self, command, type);
 
   /*
@@ -8767,7 +8777,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
      /* This is the node if USE_NODES, otherwise this may be the sectioning
         command (if the sectioning command is really associated to the node) */
       const ELEMENT *target_root
-             = command_root_element_command (self, target_node);
+             = html_command_root_element_command (self, target_node);
       const ELEMENT *associated_section = lookup_extra_element (target_node,
                                                        "associated_section");
       reference_element = new_element (ET__converted);
@@ -10954,6 +10964,36 @@ html_converter_initialize (CONVERTER *self)
              &self->css_string_types_conversion[i]);
     }
 
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      register_command_conversion_function (
+           &self->command_conversion_function[i],
+           i, &self->commands_conversion[i]);
+      register_command_open_function (
+           &self->command_open_function[i],
+           i, &self->commands_open[i]);
+      register_command_conversion_function (
+            &self->css_string_command_conversion_function[i], i,
+             &self->css_string_commands_conversion[i]);
+    }
+
+  for (i = 0; i < OU_special_unit+1; i++)
+    {
+      register_output_unit_conversion_function
+                                  (&self->output_unit_conversion_function[i],
+                                        i, &self->output_units_conversion[i]);
+    }
+
+  self->special_unit_body_formatting = (SPECIAL_UNIT_BODY_FORMATTING *)
+   malloc (nr_special_units * sizeof (SPECIAL_UNIT_BODY_FORMATTING));
+
+  for (i = 0; i < nr_special_units; i++)
+    {
+      register_special_unit_body_formatting_function
+                                  (&self->special_unit_body_formatting[i],
+          self->special_unit_varieties.list[i], &self->special_unit_body[i]);
+    }
+
   for (i = 0; types_internal_conversion_table[i].type_conversion; i++)
     {
       enum element_type type = types_internal_conversion_table[i].type;
@@ -10989,19 +11029,6 @@ html_converter_initialize (CONVERTER *self)
           type_open->type_open
               = types_internal_open_table[i].type_open;
         }
-    }
-
-  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
-    {
-      register_command_conversion_function (
-           &self->command_conversion_function[i],
-           i, &self->commands_conversion[i]);
-      register_command_open_function (
-           &self->command_open_function[i],
-           i, &self->commands_open[i]);
-      register_command_conversion_function (
-            &self->css_string_command_conversion_function[i], i,
-             &self->css_string_commands_conversion[i]);
     }
 
   for (i = 0; commands_internal_conversion_table[i].command_conversion; i++)
@@ -11092,13 +11119,6 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < OU_special_unit+1; i++)
-    {
-      register_output_unit_conversion_function
-                                  (&self->output_unit_conversion_function[i],
-                                        i, &self->output_units_conversion[i]);
-    }
-
   for (i = 0;
      output_units_internal_conversion_table[i].output_unit_conversion; i++)
     {
@@ -11113,16 +11133,6 @@ html_converter_initialize (CONVERTER *self)
           output_unit_conversion->output_unit_conversion
            = output_units_internal_conversion_table[i].output_unit_conversion;
         }
-    }
-
-  self->special_unit_body_formatting = (SPECIAL_UNIT_BODY_FORMATTING *)
-   malloc (nr_special_units * sizeof (SPECIAL_UNIT_BODY_FORMATTING));
-
-  for (i = 0; i < nr_special_units; i++)
-    {
-      register_special_unit_body_formatting_function
-                                  (&self->special_unit_body_formatting[i],
-          self->special_unit_varieties.list[i], &self->special_unit_body[i]);
     }
 
   qsort (self->htmlxref.list, self->htmlxref.number,
@@ -11304,8 +11314,6 @@ html_reset_converter (CONVERTER *self)
 
   free (self->shared_conversion_state.footnote_id_numbers);
 
-  self->added_targets.number = 0;
-
   free (self->special_units_direction_name);
   self->special_units_direction_name = 0;
   free (self->output_unit_file_indices);
@@ -11436,9 +11444,6 @@ html_check_transfer_state_finalization (CONVERTER *self)
       if (self->no_arg_formatted_cmd_translated.number)
         fprintf (stderr, "BUG: no_arg_formatted_cmd_translated: %zu\n",
                          self->no_arg_formatted_cmd_translated.number);
-      if (self->reset_target_commands.number)
-        fprintf (stderr, "BUG: reset_target_commands: %zu\n",
-                         self->reset_target_commands.number);
     }
 }
 
@@ -11478,8 +11483,6 @@ html_free_converter (CONVERTER *self)
     {
       free (self->html_special_targets[i].list);
     }
-
-  free (self->added_targets.list);
 
   free_strings_list (&self->check_htmlxref_already_warned);
 
@@ -11598,7 +11601,6 @@ html_free_converter (CONVERTER *self)
   free_strings_list (&self->shared_conversion_state.key_strings);
 
   free (self->no_arg_formatted_cmd_translated.list);
-  free (self->reset_target_commands.list);
 
   free (self->referred_command_stack.stack);
 
@@ -11768,10 +11770,6 @@ html_translate_names (CONVERTER *self)
 
   /* delete the tree and formatted results for special elements
      such that they are redone with the new tree when needed. */
-  /* if reset_target_commands was still set, we will fill with the
-     same elements again, but it is not a big deal as we need to go
-     through the loop anyway and the memory will be reused */
-  self->reset_target_commands.number = 0;
   for (j = 0; j < special_unit_varieties->number; j++)
     {
       char *special_unit_variety = special_unit_varieties->list[j];
@@ -11798,9 +11796,6 @@ html_translate_names (CONVERTER *self)
                        target_info->command_text[HTT_string] = 0;
                        free (target_info->command_text[HTT_text]);
                        target_info->command_text[HTT_text] = 0;
-                       /* gather elements to pass information to perl */
-                       add_to_element_list (&self->reset_target_commands,
-                                            command);
                      }
                  }
              }
@@ -12219,7 +12214,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       char *contexts_str = debug_print_html_contexts (self);
       text_init (&debug_str);
       text_printf (&debug_str, "XS|ELEMENT(%s) %s, ->", explanation,
-                                                       contexts_str);
+                                                        contexts_str);
       free (contexts_str);
       if (command_name)
         text_printf (&debug_str, " cmd: %s,", command_name);

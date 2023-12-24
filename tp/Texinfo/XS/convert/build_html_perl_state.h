@@ -13,11 +13,7 @@
 #include "translations.h"
 
 HV *build_html_target (HTML_TARGET *html_target);
-void pass_html_element_targets (SV *converter_sv,
-                                HTML_TARGET_LIST *html_targets);
-void pass_html_special_targets (SV *converter_sv,
-                                HTML_TARGET_LIST *html_special_targets);
-void pass_html_seen_ids (SV *converter_sv, STRING_LIST *seen_ids);
+void build_html_translated_names (HV *hv, CONVERTER *converter);
 
 void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
                             HV *converter_hv);
@@ -38,5 +34,7 @@ SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 void build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack);
 
 void build_simpletitle (CONVERTER *converter, HV *converter_hv);
+
+void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 
 #endif

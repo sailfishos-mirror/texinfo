@@ -38,8 +38,8 @@ void recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
                                OPTIONS **conf, const char *conf_key);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
 
-CONVERTER *set_output_converter_sv (SV *sv_in, char *warn_string);
-CONVERTER *get_sv_converter (SV *sv_in, char *warn_string);
+CONVERTER *set_output_converter_sv (SV *sv_in, const char *warn_string);
+CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
 
 int converter_initialize (SV *converter_sv);
 

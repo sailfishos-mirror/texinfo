@@ -1381,3 +1381,22 @@ get_output_units_descriptor_converter_sv (SV *converter_in)
 
   return output_units_descriptor;
 }
+
+/* find converter and element */
+ELEMENT *
+element_converter_from_sv (SV *converter_in, SV *element_sv,
+                           const char *warn_string, CONVERTER **converter_out)
+{
+  int output_units_descriptor;
+
+  *converter_out = get_sv_converter (converter_in, warn_string);
+
+  if (!*converter_out)
+    return 0;
+
+  output_units_descriptor
+    = get_output_units_descriptor_converter_sv (converter_in);
+
+  return find_element_from_sv (*converter_out, element_sv,
+                               output_units_descriptor);
+}

@@ -334,7 +334,7 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
 }
 
 CONVERTER *
-get_sv_converter (SV *sv_in, char *warn_string)
+get_sv_converter (SV *sv_in, const char *warn_string)
 {
   int converter_descriptor = 0;
   CONVERTER *converter = 0;
@@ -525,7 +525,7 @@ recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
 
 /* initialize an XS converter from a perl converter right before conversion */
 CONVERTER *
-set_output_converter_sv (SV *sv_in, char *warn_string)
+set_output_converter_sv (SV *sv_in, const char *warn_string)
 {
   HV *hv_in;
   CONVERTER *converter = 0;

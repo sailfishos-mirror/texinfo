@@ -41,20 +41,6 @@
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
-static void
-build_tree_to_build (ELEMENT_LIST *tree_to_build)
-{
-  if (tree_to_build->number > 0)
-    {
-      int i;
-      for (i = 0; i < tree_to_build->number; i++)
-        {
-          build_texinfo_tree (tree_to_build->list[i], 1);
-        }
-      tree_to_build->number = 0;
-    }
-}
-
 /* in general we get information from perl by overriding functions setting
    that information, but for shared_conversion the reference obtained
    through a function call may be modified afterwards, so it is better to

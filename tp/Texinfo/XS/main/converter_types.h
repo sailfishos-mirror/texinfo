@@ -269,11 +269,10 @@ typedef struct HTML_TARGET {
     TREE_ADDED_ELEMENTS tree_nonumber;
     FILE_NUMBER_NAME file_number_name;
     int filename_set;
-    ELEMENT *root_element_command;
+    const ELEMENT *root_element_command;
     int root_element_command_set;
-    /*
-    ELEMENT *node_command;
-    */
+    const ELEMENT *node_command;
+    int node_command_set;
 } HTML_TARGET;
 
 typedef struct HTML_TARGET_LIST {
@@ -482,12 +481,6 @@ typedef struct STRING_WITH_LEN {
     char *string;
     size_t len;
 } STRING_WITH_LEN;
-
-typedef struct HTML_ADDED_TARGET_LIST {
-    size_t space;
-    size_t number;
-    size_t *list;
-} HTML_ADDED_TARGET_LIST;
 
 typedef struct CSS_SELECTOR_STYLE {
     char *selector;
@@ -759,10 +752,6 @@ typedef struct CONVERTER {
                                before calling perl functions on it */
     COMMAND_ID_LIST no_arg_formatted_cmd_translated; /* list of commands that
                          were translated and need to be passed back to perl */
-    ELEMENT_LIST reset_target_commands; /* element targets that should have
-                                           their texts reset after language
-                                           change */
-    HTML_ADDED_TARGET_LIST added_targets; /* target numbers of added targets */
     STRING_LIST shared_conversion_state_integer; /* modified */
     /* next 4 allow to switch from normal HTML formatting to css strings
        formatting */

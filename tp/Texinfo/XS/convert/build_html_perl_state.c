@@ -97,144 +97,6 @@ build_html_target (HTML_TARGET *html_target)
   return html_target_hv;
 }
 
-static void
-add_html_element_target (HV *hv, HTML_TARGET *html_target)
-{
-  SV *html_target_sv;
-  HV *html_target_hv;
-  SV *element_sv;
-
-  dTHX;
-
-  html_target_hv = build_html_target (html_target);
-
-  if (!html_target->element->hv)
-    {
-      fprintf (stderr, "BUG: No hv for target '%s'\n", html_target->target);
-      fatal ("No hv for target");
-    }
-
-  element_sv = newRV_inc ((SV *) html_target->element->hv);
-  html_target_sv = newRV_noinc ((SV *) html_target_hv);
-  hv_store_ent (hv, element_sv, html_target_sv, 0);
-}
-
-/* this function is used to set the initial targets information. */
-/* Dynamical changes are done in other functions, build_html_translated_names
-   .... */
-void
-build_html_element_targets (HV *hv, HTML_TARGET_LIST *html_targets)
-{
-  int i;
-
-  dTHX;
-
-  if (!html_targets || html_targets->number <= 0)
-    return;
-
-  for (i = 0; i < html_targets->number; i++)
-    {
-      HTML_TARGET *html_target = &html_targets->list[i];
-      add_html_element_target (hv, html_target);
-    }
-}
-
-void
-pass_html_element_targets (SV *converter_sv, HTML_TARGET_LIST *html_targets)
-{
-  HV *targets_hv;
-  HV *hv;
-
-  dTHX;
-
-  hv = (HV *) SvRV (converter_sv);
-
-  targets_hv = newHV ();
-  build_html_element_targets (targets_hv, html_targets);
-
-  hv_store (hv, "targets", strlen ("targets"),
-            newRV_noinc ((SV *) targets_hv), 0);
-}
-
-HV *
-build_html_special_targets (HTML_TARGET_LIST *html_special_targets)
-{
-  HV *hv;
-  HV *html_special_target_hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  /* could be generalized if needed */
-
-  HTML_TARGET_LIST *html_special_target
-    = &html_special_targets[ST_footnote_location];
-  html_special_target_hv = newHV ();
-  build_html_element_targets (html_special_target_hv, html_special_target);
-
-  hv_store (hv, "footnote_location", strlen ("footnote_location"),
-            newRV_noinc ((SV *) html_special_target_hv), 0);
-
-  return hv;
-}
-
-void
-pass_html_special_targets (SV *converter_sv,
-                          HTML_TARGET_LIST *html_special_targets)
-{
-  HV *special_targets_hv;
-  HV *hv;
-
-  dTHX;
-
-  hv = (HV *) SvRV (converter_sv);
-
-  special_targets_hv = build_html_special_targets (html_special_targets);
-
-  hv_store (hv, "special_targets", strlen ("special_targets"),
-            newRV_noinc ((SV *) special_targets_hv), 0);
-}
-
-HV *
-build_html_seen_ids (STRING_LIST *seen_ids)
-{
-  HV *hv;
-  int i;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (seen_ids && seen_ids->number > 0)
-    {
-      for (i = 0; i < seen_ids->number; i++)
-        {
-          char *target = seen_ids->list[i];
-          SV *target_sv = newSVpv_utf8 (target, 0);
-          hv_store_ent (hv, target_sv, newSViv (1), 0);
-        }
-    }
-
-  return hv;
-}
-
-void
-pass_html_seen_ids (SV *converter_sv, STRING_LIST *seen_ids)
-{
-  HV *seen_ids_hv;
-  HV *hv;
-
-  dTHX;
-
-  hv = (HV *) SvRV (converter_sv);
-
-  seen_ids_hv = build_html_seen_ids (seen_ids);
-
-  hv_store (hv, "seen_ids", strlen ("seen_ids"),
-            newRV_noinc ((SV *) seen_ids_hv), 0);
-}
-
 SV *
 build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 {
@@ -401,7 +263,6 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   HV *directions_strings_hv;
   SV **special_unit_info_sv;
   HV *special_unit_info_hv;
-  SV **targets_sv;
   SV **no_arg_commands_formatting_sv;
   HV *direction_string_hv;
 
@@ -433,41 +294,6 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
       hv_store (special_unit_info_hv, key, strlen (key),
                 newRV_noinc ((SV *) special_unit_hv), 0);
       free (key);
-    }
-
-  /* remove some info that will be redone on demand */
-  if (converter->reset_target_commands.number > 0)
-    {
-      int j;
-      HV *targets_hv;
-      FETCH(targets);
-      targets_hv = (HV *) SvRV (*targets_sv);
-
-      for (j = 0; j < converter->reset_target_commands.number; j++)
-        {
-          ELEMENT *command = converter->reset_target_commands.list[j];
-          SV *command_sv = newRV_noinc ((SV *) command->hv);
-          HE *target_he = hv_fetch_ent (targets_hv, command_sv, 0, 0);
-          if (!target_he)
-            {
-              char *element_str = print_element_debug (command, 0);
-              fprintf (stderr, "BUG: cannot retrieve target %d %s\n",
-                       j, element_str);
-              free (element_str);
-            }
-          else
-            {
-              SV *target_sv = HeVAL (target_he);
-              HV *target_hv = (HV *) SvRV (target_sv);
-              if (hv_exists (target_hv, "text", strlen ("text")))
-                hv_delete (target_hv, "text", strlen ("text"), G_DISCARD);
-              if (hv_exists (target_hv, "string", strlen ("string")))
-                hv_delete (target_hv, "string", strlen ("string"), G_DISCARD);
-              if (hv_exists (target_hv, "tree", strlen ("tree")))
-                hv_delete (target_hv, "tree", strlen ("tree"), G_DISCARD);
-            }
-        }
-      converter->reset_target_commands.number = 0;
     }
 
   /* pass all the information for each context for translated commands */
@@ -755,25 +581,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
         }
     }
 
-  if (converter->added_targets.number)
-    {
-      SV **targets_sv;
-      HV *targets_hv;
-
-      FETCH(targets);
-      targets_hv = (HV *) SvRV (*targets_sv);
-
-      int j;
-      for (j = 0; j < converter->added_targets.number; j++)
-        {
-          size_t target_number = converter->added_targets.list[j];
-          HTML_TARGET *html_target
-            = &converter->html_targets.list[target_number -1];;
-          add_html_element_target (targets_hv, html_target);
-        }
-      converter->added_targets.number = 0;
-    }
-
   if (flags & HMSF_shared_conversion_state_integer)
     {
       int j;
@@ -947,3 +754,18 @@ build_simpletitle (CONVERTER *converter, HV *converter_hv)
             strlen ("simpletitle_command_name"),
             newSVpv (builtin_command_name (converter->simpletitle_cmd), 0), 0);
 }
+
+void
+build_tree_to_build (ELEMENT_LIST *tree_to_build)
+{
+  if (tree_to_build->number > 0)
+    {
+      int i;
+      for (i = 0; i < tree_to_build->number; i++)
+        {
+          build_texinfo_tree (tree_to_build->list[i], 1);
+        }
+      tree_to_build->number = 0;
+    }
+}
+

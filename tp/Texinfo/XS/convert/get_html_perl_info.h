@@ -23,4 +23,7 @@ void html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter);
 
 ELEMENT *find_element_from_sv (CONVERTER *converter, SV *element_sv,
                                int output_units_descriptor);
+
+ELEMENT *element_converter_from_sv (SV *converter_in, SV *element_sv,
+                       const char *warn_string, CONVERTER **converter_out);
 #endif

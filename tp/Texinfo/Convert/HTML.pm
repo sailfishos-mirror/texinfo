@@ -128,10 +128,28 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_id_is_registered"
    => "Texinfo::Convert::ConvertXS::html_id_is_registered",
 
-#  "Texinfo::Convert::HTML::_get_target"
-#   => "Texinfo::Convert::ConvertXS::html_get_target",
-#  "Texinfo::Convert::HTML::command_id"
-#   => "Texinfo::Convert::ConvertXS::html_command_id",
+  "Texinfo::Convert::HTML::_get_target"
+   => "Texinfo::Convert::ConvertXS::html_get_target",
+  "Texinfo::Convert::HTML::command_id"
+   => "Texinfo::Convert::ConvertXS::html_command_id",
+  "Texinfo::Convert::HTML::command_contents_target"
+   => "Texinfo::Convert::ConvertXS::html_command_contents_target",
+  "Texinfo::Convert::HTML::footnote_location_target"
+   => "Texinfo::Convert::ConvertXS::html_footnote_location_target",
+  "Texinfo::Convert::HTML::command_filename"
+   => "Texinfo::Convert::ConvertXS::html_command_filename",
+  "Texinfo::Convert::HTML::command_root_element_command"
+   => "Texinfo::Convert::ConvertXS::html_command_root_element_command",
+  "Texinfo::Convert::HTML::command_node"
+   => "Texinfo::Convert::ConvertXS::html_command_node",
+  "Texinfo::Convert::HTML::_internal_command_href"
+   => "Texinfo::Convert::ConvertXS::html_internal_command_href",
+  "Texinfo::Convert::HTML::command_contents_href"
+   => "Texinfo::Convert::ConvertXS::html_command_contents_href",
+  "Texinfo::Convert::HTML::_internal_command_tree"
+   => "Texinfo::Convert::ConvertXS::html_internal_command_tree",
+  "Texinfo::Convert::HTML::_internal_command_text"
+   => "Texinfo::Convert::ConvertXS::html_internal_command_text",
 
   "Texinfo::Convert::HTML::_open_command_update_context"
    => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
@@ -1019,13 +1037,11 @@ sub command_node($$)
   return undef;
 }
 
-sub _internal_command_href($$;$$$)
+sub _internal_command_href($$;$$)
 {
   my $self = shift;
   my $command = shift;
   my $source_filename = shift;
-  # for messages only
-  my $source_command = shift;
   # to specify explicitly the target
   my $specified_target = shift;
 
@@ -1107,7 +1123,7 @@ sub command_href($$;$$$)
   }
 
   return _internal_command_href($self, $command, $source_filename,
-                                $source_command, $specified_target);
+                                $specified_target);
 }
 
 my %contents_command_special_unit_variety = (
@@ -1559,7 +1575,6 @@ sub from_element_direction($$$;$$$)
 
   my $target_unit;
   my $command;
-  my $target;
 
   $source_unit = $self->{'current_output_unit'} if (!defined($source_unit));
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
@@ -1628,7 +1643,6 @@ sub from_element_direction($$$;$$$)
                                       ->{'extra'}->{'associated_node'};
         }
       }
-      $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text';
     } elsif ($type eq 'section') {
       if ($target_unit->{'unit_command'}) {
@@ -1641,7 +1655,6 @@ sub from_element_direction($$$;$$$)
                                         ->{'extra'}->{'associated_section'};
         }
       }
-      $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text_nonumber';
     } else {
       $command = $target_unit->{'unit_command'};
@@ -1651,18 +1664,19 @@ sub from_element_direction($$$;$$$)
         } else {
           return undef;
         }
+      } elsif ($type eq 'target') {
+        if (defined($command)) {
+          return $self->command_id($command);
+        } else {
+          return undef;
+        }
       }
-      $target = $self->{'targets'}->{$command} if ($command);
     }
   } else {
     return undef;
   }
 
-  if ($target and exists($target->{$type})) {
-    return $target->{$type};
-  } elsif ($type eq 'target') {
-    return undef;
-  } elsif ($command) {
+  if ($command) {
     #print STDERR "FROM_ELEMENT_DIRECTION $type $direction\n"
     #  if ($self->get_conf('DEBUG'));
     return $self->command_text($command, $type);
@@ -11328,6 +11342,15 @@ sub _initialize_output_state($$)
   $self->{'document_global_context_css'} = {};
   $self->{'page_css'} = {};
 
+  # targets
+
+  # used for diverse tree elements: nodes and sectioning commands, indices,
+  # footnotes, special output units elements...
+  $self->{'targets'} = {};
+
+  # for footnotes
+  $self->{'special_targets'} = {'footnote_location' => {}};
+
   $self->{'seen_ids'} = {};
 
   # other
@@ -11366,18 +11389,11 @@ sub _initialize_XS_NonXS_output_state($$)
     $self->{'directions_strings'}->{$string_type} = {};
   };
 
-  # targets and directions
-
-  # used for diverse tree elements: nodes and sectioning commands, indices,
-  # footnotes, special output units elements...
-  $self->{'targets'} = {};
+  # directions
 
   # for global directions always set, and for directions to special elements,
   # only filled if special elements are actually used.
   $self->{'global_units_directions'} = {};
-
-  # for footnotes
-  $self->{'special_targets'} = {'footnote_location' => {}};
 }
 
 sub _finalize_output_state($)

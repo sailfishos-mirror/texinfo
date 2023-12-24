@@ -87,6 +87,28 @@ int html_special_unit_variety_direction_index (CONVERTER *self,
 
 HTML_TARGET *html_get_target (CONVERTER *self, const ELEMENT *element);
 char *html_command_id (CONVERTER *self, const ELEMENT *command);
+char *html_command_contents_target (CONVERTER *self, const ELEMENT *command,
+                                    enum command_id contents_or_shortcontents);
+char *html_footnote_location_target (CONVERTER *self, const ELEMENT *command);
+FILE_NUMBER_NAME *html_command_filename (CONVERTER *self,
+                                         const ELEMENT *command);
+const ELEMENT *html_command_root_element_command (CONVERTER *self,
+                                            const ELEMENT *command);
+const ELEMENT *html_command_node (CONVERTER *self, const ELEMENT *command);
+char *html_internal_command_href (CONVERTER *self, const ELEMENT *command,
+                            const char *source_filename,
+                            const char *specified_target);
+char *html_command_contents_href (CONVERTER *self, const ELEMENT *command,
+                            enum command_id contents_or_shortcontents,
+                            const char *source_filename);
+char *html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
+                             const char *source_filename,
+                             const char *specified_target,
+                             const char *target_filename_in);
+TREE_ADDED_ELEMENTS *html_internal_command_tree (CONVERTER *self,
+                            const ELEMENT *command, int no_number);
+char *html_internal_command_text (CONVERTER *self, const ELEMENT *command,
+                                  const enum html_text_type type);
 
 void html_register_opened_section_level (CONVERTER *self, int level,
                                          const char *close_string);

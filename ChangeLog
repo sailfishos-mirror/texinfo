@@ -1,6 +1,59 @@
 2023-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c
+	(html_command_root_element_command): rename
+	command_root_element_command as html_command_root_element_command.
+
+	* tp/Texinfo/Convert/HTML.pm (_internal_command_href, command_href),
+	tp/Texinfo/XS/convert/convert_html.c (html_command_href)
+	(html_internal_command_href): remove source_command argument, it is not
+	used.
+
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction),
+	tp/Texinfo/XS/convert/convert_html.c (from_element_direction): do not
+	access targets state directly for the target, but through command_id
+	for target type and command_text.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_command_id)
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(element_converter_from_sv): add element_converter_from_sv to get both
+	the converter and element in C based on perl input.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c (build_tree_to_build),
+	tp/Texinfo/XS/convert/call_html_perl_function.c: move
+	build_tree_to_build to build_html_perl_state.c.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_node),
+	tp/Texinfo/XS/main/converter_types.h (HTML_TARGET): add.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_command_contents_target)
+	(html_footnote_location_target, html_command_filename)
+	(html_command_root_element_command, html_command_node)
+	(html_internal_command_href, html_command_contents_href)
+	(html_footnote_location_href, html_internal_command_tree)
+	(html_internal_command_text):
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
+	tp/Texinfo/Convert/HTML.pm (_initialize_XS_NonXS_output_state)
+	(_initialize_output_state),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_translated_names, build_html_formatting_state),
+	tp/Texinfo/XS/convert/convert_html.c (html_get_target)
+	(html_reset_converter, html_check_transfer_state_finalization)
+	(html_free_converter, html_translate_names),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): remove functions and
+	code used to pass targets state information to perl, as now all the
+	accesses are through overriden functions, such that perl targets state
+	needs not to be set.  Remove add_html_element_target,
+	build_html_element_targets, pass_html_element_targets,
+	build_html_special_targets, pass_html_special_targets.  Remove also
+	register_added_target_number and HTML_ADDED_TARGET_LIST.  Also remove
+	build_html_seen_ids and pass_html_seen_ids that are unused too. 
+
+2023-12-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c
 	(html_special_unit_variety_direction_index, html_get_target): rename
 	special_unit_variety_direction_index
 	as html_special_unit_variety_direction_index and get_target as
