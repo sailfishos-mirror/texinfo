@@ -1,5 +1,13 @@
 2023-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)
+	(_convert_explained_command), tp/Texinfo/XS/convert/convert_html.c
+	(default_commands_args, convert_explained_command): set 'normal'
+	command arg for the second argument of explained commands and use
+	it instead of calling convert_tree in convert_explained_command.
+
+2023-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): call
 	convert_tree and not _convert.
 

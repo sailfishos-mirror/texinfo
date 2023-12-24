@@ -245,8 +245,8 @@ static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
   {CM_item, {F_AFT_none}}, /* no flag */
   {CM_itemx, {F_AFT_none}}, /* no flag */
   {CM_value, {F_AFT_monospacestring}},
-  {CM_abbr, {F_AFT_normal, F_AFT_string}},
-  {CM_acronym, {F_AFT_normal, F_AFT_string}},
+  {CM_abbr, {F_AFT_normal, F_AFT_string | F_AFT_normal}},
+  {CM_acronym, {F_AFT_normal, F_AFT_string | F_AFT_normal}},
 };
 
 typedef struct COMMAND_ARGS_SPECIFICATION {
@@ -8388,8 +8388,8 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
   TEXT *text_result;
   char *explained_arg = 0;
   char *normalized_type = 0;
-  char *explanation_result = 0;
   char *explanation_string = 0;
+  char *explanation_result = 0;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
     = &self->shared_conversion_state.explained_commands;
 
@@ -8401,32 +8401,27 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
   else
     normalized_type = strdup ("");
 
-  if (args_formatted && args_formatted->number > 1
-      && args_formatted->args[1].formatted[AFT_type_string])
+  if (args_formatted && args_formatted->number > 1)
     {
-      explanation_string
-        = args_formatted->args[1].formatted[AFT_type_string];
-
-      if (explanation_string[strspn
-                     (explanation_string, whitespace_chars)] != '\0')
+      if (args_formatted->args[1].formatted[AFT_type_string])
         {
-          char *conversion_description;
-   /* Convert the explanation of the acronym.  Doing this before of after
-      saving the explanation for the future changes the output for
-      recursively-defined acronyms. */
-          xasprintf (&conversion_description, "convert %s explanation",
-                                            builtin_command_name (cmd));
-          explanation_result
-            = html_convert_tree (self, args_formatted->args[1].tree,
-                                 conversion_description);
-          free (conversion_description);
-          register_explained_command_string (type_explanations,
+          explanation_string
+            = args_formatted->args[1].formatted[AFT_type_string];
+
+          if (explanation_string[strspn
+                     (explanation_string, whitespace_chars)] != '\0')
+            {
+              register_explained_command_string (type_explanations,
                            cmd, normalized_type, explanation_string);
-        }
-      else
-        explanation_string = 0;
+            }
+          else
+            explanation_string = 0;
+       }
+     if (args_formatted->args[1].formatted[AFT_type_normal])
+       explanation_result = args_formatted->args[1].formatted[AFT_type_normal];
     }
-  else
+
+  if (!explanation_string)
     {
       EXPLAINED_COMMAND_TYPE *type_explanation
           = find_explained_command_string (type_explanations,
@@ -8485,7 +8480,6 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
       text_append (&explained_string_element->text, text_result->text);
       free (text_result->text);
       text_append (&explanation_result_element->text, explanation_result);
-      free (explanation_result);
 
       add_element_to_named_string_element_list (substrings,
                           "explained_string", explained_string_element);

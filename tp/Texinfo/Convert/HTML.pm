@@ -2825,7 +2825,7 @@ my %default_commands_args = (
 
 foreach my $explained_command (keys(%explained_commands)) {
   $default_commands_args{$explained_command}
-     = [['normal'], ['string']];
+     = [['normal'], ['normal', 'string']];
 }
 
 # intercept warning and error messages to take 'ignore_notice' into
@@ -3384,16 +3384,11 @@ sub _convert_explained_command($$$$)
   if ($args and $args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $explanation_string = $args->[1]->{'string'};
-
-    # Convert the explanation of the acronym.  Doing this before of after
-    # saving the explanation for the future changes the output for
-    # recursively-defined acronyms.
-    $explanation_result = $self->convert_tree($args->[1]->{'tree'},
-                                              "convert $cmdname explanation");
     $explained_commands->{$cmdname}->{$normalized_type} = $explanation_string;
   } elsif ($explained_commands->{$cmdname}->{$normalized_type}) {
     $explanation_string = $explained_commands->{$cmdname}->{$normalized_type};
   }
+
   my $result = '';
   if ($args and defined($args->[0])) {
     $result = $args->[0]->{'normal'};
@@ -3406,7 +3401,8 @@ sub _convert_explained_command($$$$)
     $result = $self->html_attribute_class($html_element, [$cmdname])
          ."${explanation}>".$result."</$html_element>";
   }
-  if (defined($explanation_result)) {
+  if ($args and $args->[1] and defined($args->[1]->{'normal'})) {
+    my $explanation_result = $args->[1]->{'normal'};
     # TRANSLATORS: abbreviation or acronym explanation
     $result = $self->convert_tree($self->gdt('{explained_string} ({explanation})',
           {'explained_string' => {'type' => '_converted',
