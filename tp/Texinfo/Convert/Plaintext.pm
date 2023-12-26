@@ -1112,11 +1112,8 @@ sub _align_lines($$$$$$)
       }
     }
 
-    my $orig_line;
     if (!$image) {
       my $chomped = chomp($line);
-      # for debugging.
-      $orig_line = $line;
       $removed_line_bytes_end -= count_bytes($self, $chomped);
       $line =~ s/^(\s*)//;
       $removed_line_bytes_begin -= count_bytes($self, $1);
