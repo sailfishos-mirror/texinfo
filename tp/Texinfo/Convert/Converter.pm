@@ -56,7 +56,7 @@ use Texinfo::Translations;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Report Texinfo::Translations);
+@ISA = qw(Exporter Texinfo::Translations);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
 xml_protect_text
@@ -310,7 +310,6 @@ sub converter($;$)
   # and not closed files.  Accessed through output_files_information()
   $converter->{'output_files'} = Texinfo::Common::output_files_initialize();
 
-  $converter->Texinfo::Report::new();
   $converter->{'error_warning_messages'} = [];
 
   # XS converter initialization
@@ -2068,8 +2067,7 @@ in HTML converter, either through $converter-E<gt>get_info() or label_command())
 
 The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations,
-especially when a document is given among the options.  The converter is
-also initialized as a L<Texinfo::Report>.
+especially when a document is given among the options.
 
 =back
 

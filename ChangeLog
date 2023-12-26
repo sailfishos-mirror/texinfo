@@ -10,7 +10,30 @@
 
 2023-12-26  Patrice Dumas  <pertusus@free.fr>
 
-	* * doc/texi2any_api.texi: do not use Perl tree as it could also be a
+	* tp/Texinfo/XS/convert/get_html_perl_info.c,
+	tp/Texinfo/XS/main/build_perl_info.c (build_expanded_formats): rename
+	get_expanded_formats as build_expanded_formats and move to
+	build_perl_info.c.
+
+	* tp/Texinfo/Convert/Converter.pm (converter): do not inherit
+	Texinfo::Report. 
+
+	* tp/t/test_utils.pl (convert_to_*), tp/texi2any.pl: use separate
+	registrar from converters to store and get the errors.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (pass_converter_errors):
+	rename converter_hv as report_hv and verify that the errors_warnings
+	key is set to clarify and make sure that the function is applied to a
+	report object.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units):
+	do not call pass_converter_errors, the converter is not a
+	Texinfo::Report object anymore and all the messages are stored in the
+	C converter.
+
+2023-12-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi: do not use Perl tree as it could also be a
 	tree in C.  Other misc changes.
 
 2023-12-26  Patrice Dumas  <pertusus@free.fr>

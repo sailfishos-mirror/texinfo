@@ -1632,8 +1632,6 @@ html_prepare_conversion_units (SV *converter_in, ...)
               output_units_descriptor, special_units_descriptor,
               associated_special_units_descriptor);
 
-         pass_converter_errors (&self->error_messages, self->hv);
-
          EXTEND(SP, 3);
          PUSHs(sv_2mortal(output_units_sv));
          PUSHs(sv_2mortal(special_units_sv));

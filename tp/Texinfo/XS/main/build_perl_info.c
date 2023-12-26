@@ -1054,6 +1054,8 @@ build_source_info_hash (SOURCE_INFO source_info, HV *hv)
     }
 }
 
+/* build perl already 'formatted' message, same as the output of
+   Texinfo::Report::format*message */
 static SV *
 convert_error (ERROR_MESSAGE e)
 {
@@ -1484,10 +1486,14 @@ build_output_units_list (size_t output_units_descriptor)
   return newRV_noinc ((SV *) av_output_units);
 }
 
-/* implements Texinfo::Report::add_formatted_message */
+/* add C messages to a Texinfo::Report object, like
+   Texinfo::Report::add_formatted_message does.
+   TODO it could replace the calls to add_formatted_message
+   in perl code, if it is found relevant.
+ */
 void
 pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
-                       HV *converter_hv)
+                       HV *report_hv)
 {
   int i;
   SV **errors_warnings_sv;
@@ -1501,16 +1507,16 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
       return;
     }
 
-  if (!converter_hv)
+  if (!report_hv)
     {
-      fprintf (stderr, "pass_converter_errors: BUG: no perl converter\n");
+      fprintf (stderr, "pass_converter_errors: BUG: no perl report\n");
       return;
     }
 
-  errors_warnings_sv = hv_fetch (converter_hv, "errors_warnings",
-                                      strlen ("errors_warnings"), 0);
+  errors_warnings_sv = hv_fetch (report_hv, "errors_warnings",
+                                 strlen ("errors_warnings"), 0);
 
-  error_nrs_sv = hv_fetch (converter_hv, "error_nrs",
+  error_nrs_sv = hv_fetch (report_hv, "error_nrs",
                                       strlen ("error_nrs"), 0);
 
   if (errors_warnings_sv && SvOK(*errors_warnings_sv))
@@ -1530,8 +1536,14 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
           av_push (av, sv);
         }
       if (error_nrs)
-        hv_store (converter_hv, "error_nrs",
+        hv_store (report_hv, "error_nrs",
                   strlen ("error_nrs"), newSViv (error_nrs), 0);
+    }
+  else
+    {
+      /* warn if it does not looks like a Texinfo::Report object, as
+         it is likely that the error messages are going to disappear */
+      fprintf (stderr, "BUG? no 'errors_warnings'. Not a Perl Texinfo::Report?\n");
     }
 
   clear_error_message_list (error_messages);
@@ -1832,3 +1844,24 @@ build_output_files_information (SV *converter_sv,
                                      output_files_information);
 }
 
+/* not used for now */
+SV *
+build_expanded_formats (EXPANDED_FORMAT *expanded_formats)
+{
+  int i;
+  HV *expanded_hv;
+
+  dTHX;
+
+  expanded_hv = newHV ();
+  for (i = 0; i < expanded_formats_number (); i++)
+    {
+      if (expanded_formats[i].expandedp)
+        {
+          char *format = expanded_formats[i].format;
+          hv_store (expanded_hv, format, strlen (format),
+                    newSViv (1), 0);
+        }
+    }
+  return newRV_noinc ((SV *)expanded_hv);
+}

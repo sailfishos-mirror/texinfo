@@ -44,9 +44,6 @@ AV *build_integer_stack (INTEGER_STACK *integer_stack);
 void pass_output_unit_files (SV *converter_sv,
                         FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
-void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
-                            HV *converter_hv);
-
 void build_output_files_information (SV *converter_sv,
                    OUTPUT_FILES_INFORMATION *output_files_information);
 

@@ -15,9 +15,6 @@
 HV *build_html_target (HTML_TARGET *html_target);
 void build_html_translated_names (HV *hv, CONVERTER *converter);
 
-void pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
-                            HV *converter_hv);
-
 SV *build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
 void pass_html_global_units_directions (SV *converter_sv,
                        const OUTPUT_UNIT **global_units_directions,

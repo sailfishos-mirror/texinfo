@@ -1508,7 +1508,9 @@ find_node_target_info_nodedescription_sv (CONVERTER *converter,
   return 0;
 }
 
-
+/* This function could be in a build* file as it builds perl data.
+   However, since it has a lot of code and logic in common with the
+   associated get function below, it is kept here. */
 void
 html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const char *cmdname, const char *state_name,
@@ -1635,23 +1637,4 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
   else if (!strcmp (state_name, "in_skipped_node_top"))
     return newSViv(converter->shared_conversion_state.in_skipped_node_top);
   return newSV (0);
-}
-
-SV *
-get_expanded_formats (EXPANDED_FORMAT *expanded_formats)
-{
-  dTHX;
-
-  int i;
-  HV *expanded_hv = newHV ();
-  for (i = 0; i < expanded_formats_number (); i++)
-    {
-      if (expanded_formats[i].expandedp)
-        {
-          char *format = expanded_formats[i].format;
-          hv_store (expanded_hv, format, strlen (format),
-                    newSViv (1), 0);
-        }
-    }
-  return newRV_noinc ((SV *)expanded_hv);
 }
