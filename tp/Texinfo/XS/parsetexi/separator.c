@@ -101,7 +101,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
             {
 #define float floatxx
               ELEMENT *float;
-              char *caption_cmdname = command_name(command);
+              const char *caption_cmdname = command_name(command);
               nesting_context.caption++;
               if (!current->parent->parent
                   || current->parent->parent->cmd != CM_float)

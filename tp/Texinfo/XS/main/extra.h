@@ -19,18 +19,18 @@
 
 #include "tree_types.h"
 
-void add_extra_element (ELEMENT *e, char *key, ELEMENT *value);
+void add_extra_element (ELEMENT *e, const char *key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value);
 void add_extra_container (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_directions (ELEMENT *e, const char *key, ELEMENT *value);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_string (ELEMENT *e, char *key, char *value);
-void add_extra_string_dup (ELEMENT *e, char *key, char *value);
+void add_extra_string (ELEMENT *e, const char *key, char *value);
+void add_extra_string_dup (ELEMENT *e, const char *key, const char *value);
 void add_extra_integer (ELEMENT *e, char *key, long value);
 void add_info_string (ELEMENT *e, char *key, char *value);
-void add_info_string_dup (ELEMENT *e, char *key, char *value);
+void add_info_string_dup (ELEMENT *e, const char *key, const char *value);
 void add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_associated_info_integer (ASSOCIATED_INFO *a,
                                   const char *key, int value);

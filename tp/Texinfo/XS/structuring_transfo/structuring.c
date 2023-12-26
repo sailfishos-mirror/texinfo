@@ -51,7 +51,7 @@ new_block_command (ELEMENT *element, enum command_id cmd)
   ELEMENT *end_spaces_before = new_element (ET_NONE);
   ELEMENT *end_spaces_after = new_element (ET_NONE);
   ELEMENT *command_name_text = new_element (ET_NONE);
-  char *command_name = builtin_command_name(cmd);
+  const char *command_name = builtin_command_name(cmd);
 
   element->cmd = cmd;
 

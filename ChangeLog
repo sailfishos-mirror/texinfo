@@ -1,3 +1,79 @@
+2023-12-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c (find_element_from_sv):
+	use output_units_descriptor only if set.
+
+	* tp/Texinfo/XS/main/utils.c (expanded_formats_number): add.
+
+	* tp/Texinfo/XS/main/utils.c (index_number_index_by_name): add.
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_index_entries_targets)
+	(html_initialize_output_state, html_reset_converter),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER, INDEX_NUMBER)
+	(SORTED_INDEX_NAMES): sort index names
+	and add a corresponding structure.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_reset_converter),
+	tp/Texinfo/XS/main/converter_types.h (HTML_SHARED_CONVERSION_STATE):
+	add formatted_index_entries shared_conversion_state.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_reset_converter),
+	tp/Texinfo/XS/main/converter_types.h (HTML_SHARED_CONVERSION_STATE): add
+	expanded_format_raw shared_conversion_state.
+
+	* tp/Texinfo/XS/main/converter_types.h (HTML_TARGET): add
+	formatted_nodedescription_nr for formatted_nodedescriptions
+	shared_conversion_state.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(find_index_entry_numbers_extra_index_entry_sv)
+	(find_index_entry_extra_index_entry_sv): rename
+	find_index_entry_element as find_element_extra_index_entry_sv, add
+	find_index_entry_numbers_extra_index_entry_sv.
+
+	* tp/Texinfo/Convert/HTML.pm (%default_shared_conversion_states)
+	(define_shared_conversion_state, get_shared_conversion_state)
+	(set_shared_conversion_state, register_footnote)
+	(_convert_explained_command, _convert_footnote_command)
+	(_convert_heading_command, _convert_menu_command)
+	(_convert_printindex_command, _convert_menu_entry_type)
+	(_initialize_XS_NonXS_output_state),
+	tp/Texinfo/XS/convert/convert_html.c (html_register_footnote)
+	(prepare_index_entries_targets, convert_heading_command),
+	tp/init/book.pm b/tp/init/book.pm: change shared_conversion_state API,
+	replace with define_shared_conversion_state, which sets the data
+	specification, get_shared_conversion_state and
+	set_shared_conversion_state.  Add %default_shared_conversion_states
+	for the share_conversion_state data description used in default HTML
+	conversion code.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_XS_get_shared_conversion_state, get_shared_conversion_state)
+	(_get_shared_conversion_state, _XS_set_shared_conversion_state)
+	(get_shared_conversion_state, _initialize_output_state),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_set_shared_conversion_state)
+	(html_get_shared_conversion_state),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(find_index_entry_numbers_index_entry_sv)
+	(find_node_target_info_nodedescription_sv)
+	(html_set_shared_conversion_state, html_get_shared_conversion_state):
+	XS override for get_shared_conversion_state and
+	set_shared_conversion_state for the share_conversion_state data used
+	in default HTML conversion code.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state),
+	tp/Texinfo/XS/convert/call_html_perl_function.c,
+	tp/Texinfo/XS/convert/convert_html.c (html_finalize_output_state)
+	(html_free_converter), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): remove code for passing information to and from C and
+	perl for previous shared_conversion_state.  Remove
+	get_shared_conversion_state, get_shared_conversion_state_integer and
+	register_modified_shared_conversion_state_integer.
+
+	* tp/Texinfo/XS/*/*.*: add some const, with some minor code
+	modification when needed.
+
 2023-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)

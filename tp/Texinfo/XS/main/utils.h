@@ -120,8 +120,8 @@ enum command_location {
 
 /* HTML modified state flags */
 #define HMSF_current_root            0x0001
-#define HMSF_shared_conversion_state_integer  0x0002
 /*
+#define HMSF_  0x0002
 #define HMSF_      0x0004
 #define HMSF_     0x0008
 #define HMSF_    0x0010
@@ -191,6 +191,8 @@ ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (const ELEMENT *e);
 INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
 INDEX *ultimate_index (INDEX *index);
+size_t index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
+                                   const char *name);
 char *read_flag_name (char **ptr);
 int section_level (const ELEMENT *section);
 enum command_id section_level_adjusted_command_name (const ELEMENT *element);
@@ -233,7 +235,8 @@ char *encode_string (char *input_string, char *encoding, int *status,
 EXPANDED_FORMAT *new_expanded_formats (void);
 void clear_expanded_formats (EXPANDED_FORMAT *formats);
 void add_expanded_format (EXPANDED_FORMAT *formats, char *format);
-int format_expanded_p (EXPANDED_FORMAT *formats, char *format);
+int format_expanded_p (EXPANDED_FORMAT *formats, const char *format);
+int expanded_formats_number (void);
 
 char *enumerate_item_representation (char *specification, int number);
 

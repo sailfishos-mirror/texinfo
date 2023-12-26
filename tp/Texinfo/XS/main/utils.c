@@ -504,7 +504,7 @@ new_expanded_formats (void)
 }
 
 int
-format_expanded_p (EXPANDED_FORMAT *formats, char *format)
+format_expanded_p (EXPANDED_FORMAT *formats, const char *format)
 {
   int i;
   for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
@@ -514,6 +514,12 @@ format_expanded_p (EXPANDED_FORMAT *formats, char *format)
         return formats[i].expandedp;
     }
   return 0;
+}
+
+int
+expanded_formats_number (void)
+{
+  return sizeof (expanded_formats)/sizeof (*expanded_formats);
 }
 
 
@@ -564,6 +570,23 @@ ultimate_index (INDEX *index)
     index = index->merged_in;
   return index;
 }
+
+/* only used in conversion, on sorted indices names */
+/* TODO also a bsearch? */
+size_t
+index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
+                            const char *name)
+{
+  size_t i;
+
+  for (i = 0; i < sorted_indices->number; i++)
+    {
+      if (!strcmp (sorted_indices->list[i].index->name, name))
+        return i+1;
+    }
+  return 0;
+}
+
 
 
 /* text parsing functions used in diverse situations */

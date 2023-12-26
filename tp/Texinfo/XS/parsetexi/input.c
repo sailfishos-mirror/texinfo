@@ -251,7 +251,7 @@ save_line_directive (int line_nr, char *filename)
 
 
 int
-expanding_macro (char *macro)
+expanding_macro (const char *macro)
 {
   int i;
   for (i = 0; i < input_number; i++)
@@ -265,7 +265,7 @@ expanding_macro (char *macro)
   return 0;
 }
 
-char *save_string (char *string);
+char *save_string (const char *string);
 
 void
 input_pushback (char *string)
@@ -457,11 +457,11 @@ next_text (ELEMENT *current)
    VALUE_FLAG will be later free'd, but not MACRO_NAME.
  */
 void
-input_push_text (char *text, int line_number, char *macro_name,
+input_push_text (char *text, int line_number, const char *macro_name,
                  char *value_flag)
 {
   char *filename = 0;
-  char *in_macro = 0;
+  const char *in_macro = 0;
 
   if (!text)
     return;
@@ -515,7 +515,7 @@ size_t small_strings_num = 0;
 static size_t small_strings_space;
 
 char *
-save_string (char *string)
+save_string (const char *string)
 {
   char *ret = string ? strdup (string) : 0;
   if (ret)

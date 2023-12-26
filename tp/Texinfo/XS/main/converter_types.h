@@ -273,6 +273,8 @@ typedef struct HTML_TARGET {
     int root_element_command_set;
     const ELEMENT *node_command;
     int node_command_set;
+
+    int formatted_nodedescription_nr;
 } HTML_TARGET;
 
 typedef struct HTML_TARGET_LIST {
@@ -299,22 +301,19 @@ typedef struct FOOTNOTE_ID_NUMBER {
 } FOOTNOTE_ID_NUMBER;
 
 typedef struct HTML_SHARED_CONVERSION_STATE {
+    int in_skipped_node_top;
+    /* not used in C, directly use expanded formats in the converter.
+      Needed in perl as expanded formats are accessed per format in the API */
+    EXPANDED_FORMAT *expanded_format_raw;
     EXPLAINED_COMMAND_TYPE_LIST explained_commands;
         /* explained_commands->{char $cmdname}->{char $normalized_type}
                                = explanation */
     int footnote_number;
     FOOTNOTE_ID_NUMBER *footnote_id_numbers; /* footnote_id_numbers->{char $footid} = int */
-    /* Not useful, directly use expanded formats in the converter.
-       Needed in perl as expanded formats are accessed per format in the API
-    int expanded_format_raw;
-     */
-    int formatted_index_entries; /* formatted_index_entries->{INDEX_ENTRY $index_entry_ref} = 1, ++ */
-    int formatted_nodedescriptions; /* formatted_nodedescriptions->{ELEMENT $node_description} = 1, ++ */
-    ASSOCIATED_INFO integers;
-    STRING_LIST key_strings; /* used to save the keys used in
-                                ASSOCIATED_INFO integers such that they can be
-                                free'd later.  In general constant strings are
-                                for keys, if not, key_strings should be used */
+    int html_menu_entry_index;
+    int **formatted_index_entries; /* formatted_index_entries->{INDEX_ENTRY $index_entry_ref} = 1, ++ */
+    /* stored in HTML_TARGET formatted_nodedescription_nr */
+    /* formatted_nodedescriptions */
 } HTML_SHARED_CONVERSION_STATE;
 
 typedef struct MERGED_INDEX {
@@ -656,6 +655,16 @@ typedef struct JSLICENSE_CATEGORY_LIST {
     JSLICENSE_FILE_INFO_LIST *list;
 } JSLICENSE_CATEGORY_LIST;
 
+typedef struct INDEX_NUMBER {
+    size_t number;
+    INDEX *index;
+} INDEX_NUMBER;
+
+typedef struct SORTED_INDEX_NAMES {
+    size_t number;
+    INDEX_NUMBER *list;
+} SORTED_INDEX_NAMES;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -728,6 +737,7 @@ typedef struct CONVERTER {
     const OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
+    SORTED_INDEX_NAMES sorted_index_names;
     STRING_LIST seen_ids;
     HTML_TARGET_LIST html_targets;
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
@@ -752,7 +762,6 @@ typedef struct CONVERTER {
                                before calling perl functions on it */
     COMMAND_ID_LIST no_arg_formatted_cmd_translated; /* list of commands that
                          were translated and need to be passed back to perl */
-    STRING_LIST shared_conversion_state_integer; /* modified */
     /* next 4 allow to switch from normal HTML formatting to css strings
        formatting */
     FORMATTING_REFERENCE *current_formatting_references;

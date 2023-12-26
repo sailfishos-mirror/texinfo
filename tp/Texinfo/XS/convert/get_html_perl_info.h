@@ -26,4 +26,11 @@ ELEMENT *find_element_from_sv (CONVERTER *converter, SV *element_sv,
 
 ELEMENT *element_converter_from_sv (SV *converter_in, SV *element_sv,
                        const char *warn_string, CONVERTER **converter_out);
+
+void html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
+                               const char *cmdname, const char *state_name,
+                               const int args_nr, SV **args_sv);
+SV *html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
+                               const char *cmdname, const char *state_name,
+                               const int args_nr, SV **args_sv);
 #endif

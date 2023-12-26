@@ -45,7 +45,7 @@ void html_open_type_update_context (CONVERTER *self,
                                     enum element_type type);
 void html_convert_type_update_context (CONVERTER *self, enum element_type type);
 void html_new_document_context (CONVERTER *self,
-        char *context_name, char *document_global_context,
+        const char *context_name, const char *document_global_context,
         enum command_id block_command);
 void html_pop_document_context (CONVERTER *self);
 void html_set_code_context (CONVERTER *self, int code);
@@ -109,6 +109,16 @@ TREE_ADDED_ELEMENTS *html_internal_command_tree (CONVERTER *self,
                             const ELEMENT *command, int no_number);
 char *html_internal_command_text (CONVERTER *self, const ELEMENT *command,
                                   const enum html_text_type type);
+
+EXPLAINED_COMMAND_TYPE *find_explained_command_string
+                           (EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
+                               const enum command_id cmd, const char *type);
+void register_explained_command_string (
+               EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
+                    const enum command_id cmd,
+                    const char *type, const char *explanation);
+FOOTNOTE_ID_NUMBER *find_footnote_id_number (CONVERTER *self,
+                                           const char *footnote_id);
 
 void html_register_opened_section_level (CONVERTER *self, int level,
                                          const char *close_string);

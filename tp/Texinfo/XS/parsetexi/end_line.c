@@ -1102,7 +1102,7 @@ end_line_starting_block (ELEMENT *current)
         }
       else if (!memcmp (command_name(command), "if", 2)) /* e.g. @ifhtml */
         {
-          char *p;
+          const char *p;
           /* Handle @if* and @ifnot* */
 
           p = command_name(command) + 2; /* After "if". */

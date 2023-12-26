@@ -312,7 +312,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
             = converter->no_arg_formatted_cmd_translated.list[j];
           HTML_COMMAND_CONVERSION *conversion_contexts
                 = converter->html_command_conversion[cmd];
-          char *cmdname = builtin_command_data[cmd].cmdname;
+          const char *cmdname = builtin_command_data[cmd].cmdname;
           SV **no_arg_command_sv
              = hv_fetch (no_arg_commands_formatting_hv,
                          cmdname, strlen (cmdname), 0);
@@ -456,49 +456,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
           const char *multiple_pass_str = converter->multiple_pass.stack[i];
           av_push (multiple_pass_av, newSVpv_utf8(multiple_pass_str, 0));
         }
-    }
-
-  if (flags & HMSF_shared_conversion_state_integer)
-    {
-      int j;
-      SV **shared_conversion_state_sv;
-      HV *shared_conversion_state_hv;
-
-      FETCH(shared_conversion_state)
-
-      if (!shared_conversion_state_sv)
-        {
-          shared_conversion_state_hv = newHV ();
-          STORE("shared_conversion_state",
-             newRV_noinc ((SV *) shared_conversion_state_hv));
-        }
-      else
-        shared_conversion_state_hv
-          = (HV *) SvRV (*shared_conversion_state_sv);
-
-      for (j = 0; j < converter->shared_conversion_state_integer.number; j++)
-        {
-          const char *key = converter->shared_conversion_state_integer.list[j];
-          KEY_PAIR *k
-            = lookup_associated_info (
-                 &converter->shared_conversion_state.integers, key);
-
-          SV **int_key_sv = hv_fetch (shared_conversion_state_hv,
-                                  key, strlen (key), 0);
-          if (!int_key_sv)
-            {
-              SV *int_value_sv = newSViv ((IV) k->integer);
-              SV *int_sv = newRV_noinc (int_value_sv);
-              hv_store (shared_conversion_state_hv, key,
-                        strlen (key), int_sv, 0);
-            }
-          else
-            {
-              SV *int_value_sv = SvRV (*int_key_sv);
-              sv_setiv (int_value_sv, (IV) k->integer);
-            }
-        }
-      clear_strings_list (&converter->shared_conversion_state_integer);
     }
 
 #undef STORE

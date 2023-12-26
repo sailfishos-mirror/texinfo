@@ -90,7 +90,7 @@ debug_print_protected_string (char *input_string)
    user-defined commands information.
 */
 
-char *
+const char *
 debug_parser_command_name (enum command_id cmd)
 {
   if (cmd == CM_TAB)

@@ -200,7 +200,7 @@ CMD_VARIETY command_special_unit_variety[] = {
 
 typedef struct HTML_COMMAND_STRUCT {
     unsigned long flags;
-    char *pre_class;
+    const char *pre_class;
 } HTML_COMMAND_STRUCT;
 
 static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
@@ -936,10 +936,7 @@ html_register_footnote (CONVERTER *self, const ELEMENT *command,
   HTML_PENDING_FOOTNOTE_STACK *stack;
   HTML_PENDING_FOOTNOTE *pending_footnote;
 
-  KEY_PAIR *k = lookup_associated_info (&self->shared_conversion_state.integers,
-                                        "in_skipped_node_top");
-
-  if (k && k->integer > 0)
+  if (self->shared_conversion_state.in_skipped_node_top == 1)
     return;
 
   stack = &self->pending_footnotes;
@@ -1509,7 +1506,7 @@ register_format_context_command (enum command_id cmd)
 
 void register_pre_class_command (enum command_id cmd, enum command_id main_cmd)
 {
-  char *pre_class_str;
+  const char *pre_class_str;
 
   if (main_cmd)
     pre_class_str = builtin_command_data[main_cmd].cmdname;
@@ -1914,7 +1911,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
 
   if (self->conf->DEBUG > 0)
     {
-      char *command_name = element_command_name (command);
+      const char *command_name = element_command_name (command);
       fprintf (stderr, "XS|Register %s %s\n", command_name, target);
     }
 
@@ -2020,7 +2017,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
 
           if (self->conf->DEBUG > 0)
             {
-              char *command_name = element_command_name (target_element);
+              const char *command_name = element_command_name (target_element);
               fprintf (stderr, "Label @%s %s, %s\n", command_name, target,
                                node_filename);
             }
@@ -2601,7 +2598,7 @@ pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
 
 void
 html_new_document_context (CONVERTER *self,
-        char *context_name, char *document_global_context,
+        const char *context_name, const char *document_global_context,
         enum command_id block_command)
 {
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
@@ -2617,7 +2614,8 @@ html_new_document_context (CONVERTER *self,
   doc_context = &stack->stack[stack->top];
   memset (doc_context, 0, sizeof (HTML_DOCUMENT_CONTEXT));
   doc_context->context = strdup (context_name);
-  doc_context->document_global_context = document_global_context;
+  if (document_global_context)
+    doc_context->document_global_context = strdup (document_global_context);
 
   push_integer_stack_integer (&doc_context->monospace, 0);
   push_integer_stack_integer (&doc_context->preformatted_context, 0);
@@ -2648,6 +2646,7 @@ html_pop_document_context (CONVERTER *self)
   document_ctx = &stack->stack[stack->top -1];
 
   free (document_ctx->context);
+  free (document_ctx->document_global_context);
   free (document_ctx->monospace.stack);
   free (document_ctx->preformatted_context.stack);
   free (document_ctx->composition_context.stack);
@@ -2681,8 +2680,8 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
    Texinfo tree need to be converted. */
 char *
 convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
-                              char *context_string, char *multiple_pass,
-                              char *document_global_context,
+                              const char *context_string, char *multiple_pass,
+                              const char *document_global_context,
                               enum command_id block_cmd)
 {
   char *result;
@@ -3693,31 +3692,6 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
   return href.text;
 }
 
-int *
-get_shared_conversion_state_integer (CONVERTER *self, char *key,
-                                     int value)
-{
-  KEY_PAIR *k
-    = lookup_associated_info (&self->shared_conversion_state.integers, key);
-
-  if (!k)
-    {
-      add_associated_info_integer (&self->shared_conversion_state.integers,
-                                   key, value);
-      k = lookup_associated_info (&self->shared_conversion_state.integers, key);
-    }
-  return &k->integer;
-}
-
-static void
-register_modified_shared_conversion_state_integer (CONVERTER *self,
-                                                   const char *key)
-{
-  self->modified_state |= HMSF_shared_conversion_state_integer;
-  if (!find_string (&self->shared_conversion_state_integer, key))
-    add_string (key, &self->shared_conversion_state_integer);
-}
-
 TREE_ADDED_ELEMENTS *
 html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                             int no_number)
@@ -3884,7 +3858,7 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           ELEMENT *tree_root;
           TREE_ADDED_ELEMENTS *string_tree = 0;
           char *explanation = 0;
-          char *context_name;
+          const char *context_name;
           ELEMENT *selected_tree;
           TREE_ADDED_ELEMENTS *command_tree
             = html_internal_command_tree (self, command, 0);
@@ -3894,7 +3868,7 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
 
           if (command->cmd)
             {
-              char *command_name = element_command_name(command);
+              const char *command_name = element_command_name(command);
               context_name = command_name;
               xasprintf (&explanation, "command_text:%s @%s",
                          html_command_text_type_name[type],
@@ -4491,28 +4465,19 @@ prepare_index_entries_targets (CONVERTER *self)
 {
   if (self->document->index_names)
     {
-      INDEX **i, *idx;
-      INDEX **index_names = self->document->index_names;
-      INDEX **sorted_index_names;
-      int index_nr = 0;
-
-      /* TODO sort indices by name before? when registering in document?
-         In parser?
-         Depending on size?  And use bsearch in some places?
-       */
-      for (i = index_names; (idx = *i); i++)
-        index_nr++;
-
-      sorted_index_names = (INDEX **) malloc ((index_nr+1) * sizeof (INDEX *));
-
-      memcpy (sorted_index_names, index_names, (index_nr+1) * sizeof (INDEX *));
-      qsort (sorted_index_names, index_nr, sizeof (INDEX *),
-             compare_index_name);
-
-      for (i = sorted_index_names; (idx = *i); i++)
+      size_t i;
+      self->shared_conversion_state.formatted_index_entries
+        = (int **) malloc (self->sorted_index_names.number * sizeof (int *));
+      for (i = 0; i < self->sorted_index_names.number; i++)
         {
+          INDEX *idx = self->sorted_index_names.list[i].index;
+          self->shared_conversion_state.formatted_index_entries[i] = 0;
           if (idx->entries_number > 0)
             {
+              self->shared_conversion_state.formatted_index_entries[i]
+                = (int *) malloc (idx->entries_number * sizeof (int));
+              memset (self->shared_conversion_state.formatted_index_entries[i],
+                      0, idx->entries_number * sizeof (int));
               int j;
               for (j = 0; j < idx->entries_number; j++)
                 {
@@ -4590,7 +4555,6 @@ prepare_index_entries_targets (CONVERTER *self)
                 }
             }
         }
-      free (sorted_index_names);
     }
 }
 
@@ -6242,7 +6206,7 @@ destroy_begin_file_information (BEGIN_FILE_INFORMATION *begin_info)
 static char *
 convert_string_tree_new_formatting_context (CONVERTER *self,
                                             ELEMENT *tree,
-                                   char *context_string, char *multiple_pass)
+                              const char *context_string, char *multiple_pass)
 {
   TREE_ADDED_ELEMENTS *string_tree = 0;
   ELEMENT *tree_root_string;
@@ -9512,8 +9476,8 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
                     const char *content, TEXT *result)
 {
   ELEMENT *command_as_argument;
-  char *command_as_argument_name = 0;
-  char *mark_class_name = 0;
+  const char *command_as_argument_name = 0;
+  const char *mark_class_name = 0;
   STRING_LIST *classes;
   char *attribute_class;
   CSS_SELECTOR_STYLE *selector_style = 0;
@@ -9791,8 +9755,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       && builtin_command_data[cmd].flags & CF_root)
     {
       const ELEMENT *node_element = 0;
-      int *in_skipped_node_top
-        = get_shared_conversion_state_integer (self, "in_skipped_node_top", 0);
+      int in_skipped_node_top
+        = self->shared_conversion_state.in_skipped_node_top;
 
       if (cmd == CM_node)
         node_element = element;
@@ -9813,19 +9777,19 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
               if (normalized && !strcmp (normalized, "Top"))
                 {
                   node_is_top = 1;
-                  *in_skipped_node_top = 1;
-                  register_modified_shared_conversion_state_integer (self,
-                                                       "in_skipped_node_top");
+                  in_skipped_node_top = 1;
+                  self->shared_conversion_state.in_skipped_node_top
+                    = in_skipped_node_top;
                 }
             }
-          if (!node_is_top && *in_skipped_node_top == 1)
+          if (!node_is_top && in_skipped_node_top == 1)
             {
-              *in_skipped_node_top = -1;
-              register_modified_shared_conversion_state_integer (self,
-                                                     "in_skipped_node_top");
+              in_skipped_node_top = -1;
+              self->shared_conversion_state.in_skipped_node_top
+                = in_skipped_node_top;
             }
         }
-      if (*in_skipped_node_top == 1)
+      if (in_skipped_node_top == 1)
         {
           format_separate_anchor (self, element_id,
                                   builtin_command_name(cmd), result);
@@ -10000,12 +9964,11 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
              xasprintf (&id_class, "%s-id", builtin_command_name (cmd));
            }
          else
-           id_class = builtin_command_name (cmd);
+           id_class = strdup (builtin_command_name (cmd));
 
          format_separate_anchor (self, element_id, id_class, result);
 
-         if (do_heading)
-           free (id_class);
+         free (id_class);
        }
      else
        heading_id = element_id;
@@ -10186,7 +10149,7 @@ void
 open_quotation_command (CONVERTER *self, const enum command_id cmd,
                         const ELEMENT *element, TEXT *result)
 {
-  char *cmdname = element_command_name (element);
+  const char *cmdname = element_command_name (element);
   char *formatted_quotation_arg_to_prepend = 0;
   if (element->args.number > 0 && element->args.list[0]->contents.number > 0)
     {
@@ -11133,7 +11096,8 @@ html_converter_initialize (CONVERTER *self)
          sizeof (HTMLXREF_MANUAL), compare_htmlxref_manual);
 }
 
-/* called in the end of html_converter_prepare_output_sv */
+/* called in the end of html_converter_prepare_output_sv, just before
+   html_prepare_title_titlepage and just before the start of conversion */
 void
 html_converter_prepare_output (CONVERTER* self)
 {
@@ -11173,6 +11137,8 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
     }
 }
 
+/* called very early in conversion functions, before updating
+   customization, before calling user-defined functions...  */
 void
 html_initialize_output_state (CONVERTER *self, char *context)
 {
@@ -11204,6 +11170,37 @@ html_initialize_output_state (CONVERTER *self, char *context)
   self->current_format_protect_text = &html_default_format_protect_text;
 
   html_new_document_context (self, context, 0, 0);
+
+  if (self->document->index_names)
+    {
+      INDEX **i, *idx;
+      size_t j;
+      INDEX **index_names = self->document->index_names;
+      INDEX **sorted_index_names;
+      size_t index_nr = 0;
+
+      for (i = index_names; (idx = *i); i++)
+        index_nr++;
+
+      self->sorted_index_names.number = index_nr;
+
+      sorted_index_names = (INDEX **) malloc (index_nr * sizeof (INDEX *));
+
+      memcpy (sorted_index_names, index_names, index_nr * sizeof (INDEX *));
+      qsort (sorted_index_names, index_nr, sizeof (INDEX *),
+             compare_index_name);
+      self->sorted_index_names.list = (INDEX_NUMBER *)
+         malloc (index_nr * sizeof (INDEX_NUMBER));
+      for (j = 0; j < index_nr; j++)
+        {
+          self->sorted_index_names.list[j].index = sorted_index_names[j];
+          self->sorted_index_names.list[j].number = j+1;
+        }
+      free (sorted_index_names);
+    }
+
+  self->shared_conversion_state.expanded_format_raw
+    = new_expanded_formats ();
 }
 
 void
@@ -11269,9 +11266,6 @@ html_finalize_output_state (CONVERTER *self)
     }
   self->associated_inline_content.number = 0;
 
-  self->shared_conversion_state.integers.info_number = 0;
-  clear_strings_list (&self->shared_conversion_state.key_strings);
-
   html_pop_document_context (self);
 
   /* could change to 0 in releases? */
@@ -11307,6 +11301,19 @@ html_reset_converter (CONVERTER *self)
     }
 
   free (self->shared_conversion_state.footnote_id_numbers);
+  free (self->shared_conversion_state.expanded_format_raw);
+
+  if (self->document->index_names)
+    {
+      for (i = 0; i < self->sorted_index_names.number; i++)
+        {
+          free (self->shared_conversion_state.formatted_index_entries[i]);
+        }
+    free (self->shared_conversion_state.formatted_index_entries);
+  }
+
+  free (self->sorted_index_names.list);
+  memset (&self->sorted_index_names, 0, sizeof (SORTED_INDEX_NAMES));
 
   free (self->special_units_direction_name);
   self->special_units_direction_name = 0;
@@ -11588,11 +11595,6 @@ html_free_converter (CONVERTER *self)
   free (self->pending_inline_content.stack);
 
   free (self->associated_inline_content.list);
-
-  free_strings_list (&self->shared_conversion_state_integer);
-
-  destroy_associated_info (&self->shared_conversion_state.integers);
-  free_strings_list (&self->shared_conversion_state.key_strings);
 
   free (self->no_arg_formatted_cmd_translated.list);
 
@@ -12192,7 +12194,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
   /* for debugging, for explanations */
   TEXT command_type;
   char *debug_str;
-  char *command_name = element_command_name (element);
+  const char *command_name = element_command_name (element);
   enum command_id cmd = element_builtin_cmd (element);
 
   text_init (&command_type);

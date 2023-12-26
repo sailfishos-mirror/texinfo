@@ -11,14 +11,14 @@ char *next_text (ELEMENT *current);
 
 void save_line_directive (int line_nr, char *filename);
 
-void input_push_text (char *text, int line_number, char *macro_name,
+void input_push_text (char *text, int line_number, const char *macro_name,
                       char *value_flag);
 int input_push_file (char *filename);
 void input_pushback (char *line);
 void set_input_source_mark (SOURCE_MARK *source_mark);
 void input_reset_input_stack (void);
 void parser_reset_encoding_list (void);
-int expanding_macro (char *macro);
+int expanding_macro (const char *macro);
 int top_file_index (void);
 
 char *parser_locate_include_file (char *filename);
@@ -31,7 +31,7 @@ void parser_clear_include_directories (void);
 extern char **small_strings;
 extern size_t small_strings_num;
 
-char *save_string (char *string);
+char *save_string (const char *string);
 void free_small_strings (void);
 void forget_small_strings (void);
 

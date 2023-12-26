@@ -151,6 +151,11 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_internal_command_text"
    => "Texinfo::Convert::ConvertXS::html_internal_command_text",
 
+  "Texinfo::Convert::HTML::_XS_set_shared_conversion_state"
+   => "Texinfo::Convert::ConvertXS::html_set_shared_conversion_state",
+  "Texinfo::Convert::HTML::_XS_get_shared_conversion_state"
+   => "Texinfo::Convert::ConvertXS::html_get_shared_conversion_state",
+
   "Texinfo::Convert::HTML::_open_command_update_context"
    => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
   "Texinfo::Convert::HTML::_convert_command_update_context",
@@ -1958,29 +1963,182 @@ sub get_value($$)
   }
 }
 
-# $INITIALIZATION_VALUE is only used for the initialization.
-# If it is not a reference, it is turned into a scalar reference.
-sub shared_conversion_state($$;$)
+my %default_shared_conversion_states = (
+  'top' => {'in_skipped_node_top' => ['integer'],
+            'expanded_format_raw' => ['string', 'integer']},
+  'abbr' => {'explained_commands' => ['string', 'string']},
+  'acronym' => {'explained_commands' => ['string', 'string']},
+  'footnote' => {'footnote_number' => ['integer'],
+                 'footnote_id_numbers' => ['string', 'integer']},
+  'menu' => {'html_menu_entry_index' => ['integer']},
+  'printindex' => {'formatted_index_entries' => ['index_entry', 'integer']},
+  'nodedescription' => {'formatted_nodedescriptions' => ['element', 'integer']},
+);
+
+sub define_shared_conversion_state($$$$)
 {
   my $self = shift;
+  my $cmdname = shift;
   my $state_name = shift;
-  my $initialization_value = shift;
+  my $specification = shift;
 
-  if (not defined($self->{'shared_conversion_state'}->{$state_name})) {
-    if ($initialization_value =~ /^\d+$/) {
-      $self->{'shared_conversion_state_integers'}->{$state_name} = 1;
-    }
-    if (not ref($initialization_value)) {
-      $self->{'shared_conversion_state'}->{$state_name} = \$initialization_value;
-    } else {
-      $self->{'shared_conversion_state'}->{$state_name} = $initialization_value;
-    }
+  if (not defined($self->{'shared_conversion_state'}->{$cmdname})) {
+    $self->{'shared_conversion_state'}->{$cmdname} = {};
   }
-  # set for XS code to notify that value may have changed
-  if ($self->{'shared_conversion_state_integers'}->{$state_name}) {
-    $self->{'shared_conversion_accessed_integers'}->{$state_name} = 1;
+  if (not defined($self->{'shared_conversion_state'}
+                                      ->{$cmdname}->{$state_name})) {
+    $self->{'shared_conversion_state'}->{$cmdname}->{$state_name} = {};
   }
-  return $self->{'shared_conversion_state'}->{$state_name};
+
+  my $state = $self->{'shared_conversion_state'}->{$cmdname}->{$state_name};
+
+  if ($state->{'spec'}) {
+    warn("BUG: redefining shared_conversion_state: $cmdname: $state_name");
+  }
+  $state->{'spec'} = $specification;
+}
+
+sub _get_shared_conversion_state($$$;@)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $state_name = shift;
+  my @args = @_;
+
+  my $state = $self->{'shared_conversion_state'}->{$cmdname}->{$state_name};
+
+  if (!defined($state)) {
+    #print STDERR "DEBUG: [".
+    #     join('|',keys(%{$self->{'shared_conversion_state'}->{$cmdname}}))."]\n";
+    confess("BUG: $self: undef shared_conversion_state: $cmdname: $state_name\n");
+  }
+
+  my $spec_nr = scalar(@{$state->{'spec'}});
+
+  if ($spec_nr == 1) {
+    return $state->{'values'};
+  }
+
+  if (!defined($state->{'values'})) {
+    $state->{'values'} = {};
+  }
+  my $spec_idx = 1;
+  my $current = $state->{'values'};
+  foreach my $arg (@args) {
+    if (!defined($arg)) {
+      return $current;
+    }
+    if ($spec_idx == $spec_nr - 1) {
+      return $current->{$arg};
+    }
+    if (!$current->{$arg}) {
+      $current->{$arg} = {};
+    }
+    $current = $current->{$arg};
+    $spec_idx++;
+  }
+  return $current;
+}
+
+sub _XS_get_shared_conversion_state($$$;@)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $state_name = shift;
+  my @args = @_;
+
+  return _get_shared_conversion_state($self, $cmdname,
+                                      $state_name, @args);
+}
+
+sub get_shared_conversion_state($$$;@)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $state_name = shift;
+  my @args = @_;
+
+  if ($default_shared_conversion_states{$cmdname}
+      and $default_shared_conversion_states{$cmdname}->{$state_name}) {
+    my $result = _XS_get_shared_conversion_state($self, $cmdname,
+                                           $state_name, @args);
+    return $result;
+  }
+
+  return _get_shared_conversion_state($self, $cmdname,
+                                      $state_name, @args);
+}
+
+sub _set_shared_conversion_state($$$;@)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $state_name = shift;
+  my @args = @_;
+
+  my $state = $self->{'shared_conversion_state'}->{$cmdname}->{$state_name};
+
+  my $spec_nr = scalar(@{$state->{'spec'}});
+  if (scalar(@args) != $spec_nr) {
+    return undef;
+  }
+
+  if ($spec_nr == 1) {
+    if (!defined($args[0])) {
+      return undef;
+    }
+    $state->{'values'} = $args[0];
+    return $args[0];
+  }
+
+  if (!defined($state->{'values'})) {
+    $state->{'values'} = {};
+  }
+  my $spec_idx = 1;
+  my $current = $state->{'values'};
+  foreach my $arg (@args) {
+    if (!defined($arg)) {
+      return undef;
+    }
+    if ($spec_idx == $spec_nr - 1) {
+      $current->{$arg} = $args[$spec_idx];
+      return $current->{$arg};
+    }
+    if (!defined($current->{$arg})) {
+      $current->{$arg} = {};
+    }
+    $current = $current->{$arg};
+    $spec_idx++;
+  }
+}
+
+sub _XS_set_shared_conversion_state($$$;@)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $state_name = shift;
+  my @args = @_;
+
+  _set_shared_conversion_state($self, $cmdname,
+                               $state_name, @args);
+}
+
+sub set_shared_conversion_state($$$;@)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $state_name = shift;
+  my @args = @_;
+
+  if ($default_shared_conversion_states{$cmdname}
+      and $default_shared_conversion_states{$cmdname}->{$state_name}) {
+    _XS_set_shared_conversion_state($self, $cmdname,
+                                    $state_name, @args);
+    return;
+  }
+
+  _set_shared_conversion_state($self, $cmdname,
+                                    $state_name, @args);
 }
 
 sub register_footnote($$$$$$$)
@@ -1988,8 +2146,8 @@ sub register_footnote($$$$$$$)
   my ($self, $command, $footid, $docid, $number_in_doc,
       $footnote_location_filename, $multi_expanded_region) = @_;
   my $in_skipped_node_top
-    = $self->shared_conversion_state('in_skipped_node_top', 0);
-  if ($$in_skipped_node_top != 1) {
+    = $self->get_shared_conversion_state('top', 'in_skipped_node_top');
+  if (!defined($in_skipped_node_top) or $in_skipped_node_top != 1) {
     push @{$self->{'pending_footnotes'}}, [$command, $footid, $docid,
       $number_in_doc, $footnote_location_filename, $multi_expanded_region];
   }
@@ -3377,16 +3535,15 @@ sub _convert_explained_command($$$$)
                                    $command->{'args'}->[0]);
   }
 
-  my $explained_commands
-    = $self->shared_conversion_state('explained_commands', {});
-  $explained_commands->{$cmdname} = {} if (!$explained_commands->{$cmdname});
-
   if ($args and $args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $explanation_string = $args->[1]->{'string'};
-    $explained_commands->{$cmdname}->{$normalized_type} = $explanation_string;
-  } elsif ($explained_commands->{$cmdname}->{$normalized_type}) {
-    $explanation_string = $explained_commands->{$cmdname}->{$normalized_type};
+    $self->set_shared_conversion_state($cmdname, 'explained_commands',
+                                       $normalized_type, $explanation_string);
+  } else {
+    $explanation_string
+      = $self->get_shared_conversion_state($cmdname, 'explained_commands',
+                                           $normalized_type);
   }
 
   my $result = '';
@@ -3445,9 +3602,16 @@ sub _convert_footnote_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $foot_num = $self->shared_conversion_state('footnote_number', 0);
-  ${$foot_num}++;
-  my $number_in_doc = $$foot_num;
+  my $foot_num
+    = $self->get_shared_conversion_state('footnote', 'footnote_number');
+  if (!defined($foot_num)) {
+    $foot_num = 0;
+  }
+
+  $foot_num++;
+  $self->set_shared_conversion_state('footnote', 'footnote_number',
+                                     $foot_num);
+  my $number_in_doc = $foot_num;
   my $footnote_mark;
   if ($self->get_conf('NUMBER_FOOTNOTES')) {
     $footnote_mark = $number_in_doc;
@@ -3477,14 +3641,16 @@ sub _convert_footnote_command($$$$)
     # to avoid duplicate names, use a prefix that cannot happen in anchors
     my $target_prefix = "t_f";
     $footid = $target_prefix.$multi_expanded_region.'_'
-                    .$footnote_id.'_'.$$foot_num;
+                    .$footnote_id.'_'.$foot_num;
     $docid = $target_prefix.$multi_expanded_region.'_'
-                     .$footnote_docid.'_'.$$foot_num;
+                     .$footnote_docid.'_'.$foot_num;
   } else {
-    my $footnote_id_numbers
-      = $self->shared_conversion_state('footnote_id_numbers', {});
-    if (!defined($footnote_id_numbers->{$footnote_id})) {
-      $footnote_id_numbers->{$footnote_id} = $$foot_num;
+    my $footnote_id_number
+      = $self->get_shared_conversion_state('footnote', 'footnote_id_numbers',
+                                           $footnote_id);
+    if (!defined($footnote_id_number)) {
+      $self->set_shared_conversion_state('footnote', 'footnote_id_numbers',
+                                         $footnote_id, $foot_num);
       $footid = $footnote_id;
       $docid = $footnote_docid;
     } else {
@@ -3493,8 +3659,8 @@ sub _convert_footnote_command($$$$)
       # Here it is not checked that there is no clash with another anchor.
       # However, unless there are more than 1000 footnotes this should not
       # happen at all, and even in that case it is very unlikely.
-      $footid = $footnote_id.'_'.$$foot_num;
-      $docid = $footnote_docid.'_'.$$foot_num;
+      $footid = $footnote_id.'_'.$foot_num;
+      $docid = $footnote_docid.'_'.$foot_num;
       $multiple_expanded_footnote = 1;
     }
   }
@@ -4523,7 +4689,8 @@ sub _convert_heading_command($$$$$)
   if ($self->get_conf('NO_TOP_NODE_OUTPUT')
       and $Texinfo::Commands::root_commands{$cmdname}) {
     my $in_skipped_node_top
-      = $self->shared_conversion_state('in_skipped_node_top', 0);
+      = $self->get_shared_conversion_state('top', 'in_skipped_node_top');
+    $in_skipped_node_top = 0 if (!defined($in_skipped_node_top));
     my $node_element;
     if ($cmdname eq 'node') {
       $node_element = $element;
@@ -4535,12 +4702,16 @@ sub _convert_heading_command($$$$$)
       if ($node_element and $node_element->{'extra'}
           and $node_element->{'extra'}->{'normalized'}
           and $node_element->{'extra'}->{'normalized'} eq 'Top') {
-        $$in_skipped_node_top = 1;
-      } elsif ($$in_skipped_node_top == 1) {
-        $$in_skipped_node_top = -1;
+        $in_skipped_node_top = 1;
+        $self->set_shared_conversion_state('top', 'in_skipped_node_top',
+                                           $in_skipped_node_top);
+      } elsif ($in_skipped_node_top == 1) {
+        $in_skipped_node_top = -1;
+        $self->set_shared_conversion_state('top', 'in_skipped_node_top',
+                                           $in_skipped_node_top);
       }
     }
-    if ($$in_skipped_node_top == 1) {
+    if ($in_skipped_node_top == 1) {
       my $id_class = $cmdname;
       $result .= &{$self->formatting_function('format_separate_anchor')}($self,
                                                         $element_id, $id_class);
@@ -4611,15 +4782,16 @@ sub _convert_heading_command($$$$$)
         my $use_next_heading = 0;
         if ($self->get_conf('USE_NEXT_HEADING_FOR_LONE_NODE')) {
           my $expanded_format_raw
-             = $self->shared_conversion_state('expanded_format_raw', {});
-
+             = $self->get_shared_conversion_state('top', 'expanded_format_raw');
           # if no format is expanded, the formats will be checked each time
           # but this is very unlikely, as html is always expanded.
-          if (scalar(keys(%$expanded_format_raw)) == 0) {
+          if (!defined($expanded_format_raw)
+              or !scalar(keys(%$expanded_format_raw))) {
             foreach my $output_format_command
                 (keys(%Texinfo::Common::texinfo_output_formats)) {
               if ($self->is_format_expanded($output_format_command)) {
-                $expanded_format_raw->{$output_format_command} = 1;
+                $self->set_shared_conversion_state('top', 'expanded_format_raw',
+                                                   $output_format_command, 1);
               }
             }
           }
@@ -5199,9 +5371,7 @@ sub _convert_menu_command($$$$$)
 
   return $content if ($cmdname eq 'detailmenu');
 
-  my $html_menu_entry_index
-    = $self->shared_conversion_state('html_menu_entry_index', 0);
-  $$html_menu_entry_index = 0;
+  $self->set_shared_conversion_state('menu', 'html_menu_entry_index', 0);
 
   if ($content !~ /\S/) {
     return '';
@@ -5983,8 +6153,6 @@ sub _convert_printindex_command($$$$)
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
   my $result_index_entries = '';
-  my $formatted_index_entries
-    = $self->shared_conversion_state('formatted_index_entries', {});
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $entries_text = '';
@@ -6007,11 +6175,15 @@ sub _convert_printindex_command($$$$)
       # to avoid double error messages, call convert_tree_new_formatting_context
       # below with a multiple_pass argument if an entry was already formatted once,
       # for example if there are multiple printindex.
-      if (!$formatted_index_entries->{$index_entry_ref}) {
-        $formatted_index_entries->{$index_entry_ref} = 1;
-      } else {
-        $formatted_index_entries->{$index_entry_ref}++;
-      }
+      my $formatted_index_entry_nr
+       = $self->get_shared_conversion_state('printindex',
+                                          'formatted_index_entries',
+                                           $index_entry_ref);
+      $formatted_index_entry_nr = 0 if (!defined($formatted_index_entry_nr));
+      $formatted_index_entry_nr++;
+      $self->set_shared_conversion_state('printindex',
+                                          'formatted_index_entries',
+                                $index_entry_ref, $formatted_index_entry_nr);
 
       my $entry_content_element
           = Texinfo::Common::index_content_element($main_entry_element);
@@ -6066,11 +6238,11 @@ sub _convert_printindex_command($$$$)
                                         {'main_index_entry' => $entry_ref_tree,
                                          'seenentry' => $referred_tree});
           }
-          if ($formatted_index_entries->{$index_entry_ref} > 1) {
+          if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($result_tree,
                  "index $index_name l $letter index entry $entry_nr seenentry",
-                 "index-formatted-$formatted_index_entries->{$index_entry_ref}")
+                 "index-formatted-$formatted_index_entry_nr")
           } else {
             $entry = $self->convert_tree($result_tree,
                   "index $index_name l $letter index entry $entry_nr seenentry");
@@ -6081,15 +6253,15 @@ sub _convert_printindex_command($$$$)
           # TRANSLATORS: refer to another index entry
           my $reference_tree = $self->gdt('@emph{See also} {see_also_entry}',
                                        {'see_also_entry' => $referred_tree});
-          if ($formatted_index_entries->{$index_entry_ref} > 1) {
+          if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_ref_tree,
                "index $index_name l $letter index entry $entry_nr (with seealso)",
-               "index-formatted-$formatted_index_entries->{$index_entry_ref}");
+               "index-formatted-$formatted_index_entry_nr");
             $reference
                = $self->convert_tree_new_formatting_context($reference_tree,
                 "index $index_name l $letter index entry $entry_nr seealso",
-                 "index-formatted-$formatted_index_entries->{$index_entry_ref}");
+                 "index-formatted-$formatted_index_entry_nr");
           } else {
             $entry = $self->convert_tree($entry_ref_tree,
              "index $index_name l $letter index entry $entry_nr (with seealso)");
@@ -6177,11 +6349,11 @@ sub _convert_printindex_command($$$$)
         $entry_level = $starting_subentry_level;
         foreach my $level ($starting_subentry_level .. scalar(@entry_trees)-1) {
           my $entry;
-          if ($formatted_index_entries->{$index_entry_ref} > 1) {
+          if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_trees[$level],
                    "index $index_name l $letter index entry $entry_nr subentry $level",
-                   "index-formatted-$formatted_index_entries->{$index_entry_ref}")
+                   "index-formatted-$formatted_index_entry_nr")
           } else {
             $entry = $self->convert_tree($entry_trees[$level],
                   "index $index_name l $letter index entry $entry_nr subentry $level");
@@ -6205,11 +6377,11 @@ sub _convert_printindex_command($$$$)
       }
 
       my $entry;
-      if ($formatted_index_entries->{$index_entry_ref} > 1) {
+      if ($formatted_index_entry_nr > 1) {
         # call with multiple_pass argument
         $entry = $self->convert_tree_new_formatting_context($entry_tree,
                        "index $index_name l $letter index entry $entry_nr",
-                   "index-formatted-$formatted_index_entries->{$index_entry_ref}")
+                   "index-formatted-$formatted_index_entry_nr")
       } else {
         $entry = $self->convert_tree($entry_tree,
                             "index $index_name l $letter index entry $entry_nr");
@@ -6240,7 +6412,7 @@ sub _convert_printindex_command($$$$)
         if (!defined($associated_command)
             # do not warn if the entry is in a special region, like titlepage
             and not $main_entry_element->{'extra'}->{'element_region'}
-            and $formatted_index_entries->{$index_entry_ref} == 1) {
+            and $formatted_index_entry_nr == 1) {
           # NOTE _noticed_line_warn is not used as printindex should not
           # happen in multiple tree parsing that lead to ignore_notice being set,
           # but the error message is printed only for the first entry formatting.
@@ -6270,7 +6442,7 @@ sub _convert_printindex_command($$$$)
               and not $self->get_conf('NODE_NAME_IN_INDEX')
               # do not warn if the entry is in a special region, like titlepage
               and not $main_entry_element->{'extra'}->{'element_region'}
-              and $formatted_index_entries->{$index_entry_ref} == 1) {
+              and $formatted_index_entry_nr == 1) {
             # NOTE _noticed_line_warn is not used as printindex should not
             # happen in multiple tree parsing that lead to ignore_notice being set,
             # but the error message is printed only for the first entry formatting.
@@ -6984,9 +7156,7 @@ sub _convert_menu_entry_type($$$)
   my $rel = '';
   my $section;
 
-  my $formatted_nodedescriptions
-    = $self->shared_conversion_state('formatted_nodedescriptions', {});
-  my $use_nodedescription;
+  my $formatted_nodedescription_nr;
   # external node
   my $external_node;
   if ($menu_entry_node->{'extra'}
@@ -7036,23 +7206,30 @@ sub _convert_menu_entry_type($$$)
             $menu_description = {'contents' => $node_description->{'contents'}};
           }
           # update the number of time the node description was formatted
-          if (!$formatted_nodedescriptions->{$node_description}) {
-            $formatted_nodedescriptions->{$node_description} = 1;
-          } else {
-            $formatted_nodedescriptions->{$node_description}++;
-          }
-          $use_nodedescription = $formatted_nodedescriptions->{$node_description};
+          $formatted_nodedescription_nr
+            = $self->get_shared_conversion_state('nodedescription',
+                                            'formatted_nodedescriptions',
+                                             $node_description);
+          $formatted_nodedescription_nr = 0
+             if (!defined($formatted_nodedescription_nr));
+          $formatted_nodedescription_nr++;
+          $self->set_shared_conversion_state('nodedescription',
+                                            'formatted_nodedescriptions',
+                            $node_description, $formatted_nodedescription_nr);
         }
       }
     }
   }
 
   my $html_menu_entry_index
-    = $self->shared_conversion_state('html_menu_entry_index', 0);
-  ${$html_menu_entry_index}++;
+    = $self->get_shared_conversion_state('menu', 'html_menu_entry_index');
+  $html_menu_entry_index = 0 if (!defined($html_menu_entry_index));
+  $html_menu_entry_index++;
+  $self->set_shared_conversion_state('menu', 'html_menu_entry_index',
+                                    $html_menu_entry_index);
   my $accesskey = '';
-  $accesskey = " accesskey=\"$$html_menu_entry_index\""
-    if ($self->get_conf('USE_ACCESSKEY') and $$html_menu_entry_index < 10);
+  $accesskey = " accesskey=\"$html_menu_entry_index\""
+    if ($self->get_conf('USE_ACCESSKEY') and $html_menu_entry_index < 10);
 
   my $MENU_SYMBOL = $self->get_conf('MENU_SYMBOL');
   my $MENU_ENTRY_COLON = $self->get_conf('MENU_ENTRY_COLON');
@@ -7102,11 +7279,11 @@ sub _convert_menu_entry_type($$$)
 
     my $description = '';
     if ($menu_description) {
-      if ($use_nodedescription) {
+      if ($formatted_nodedescription_nr) {
         my $multiple_formatted;
-        if ($use_nodedescription > 1) {
+        if ($formatted_nodedescription_nr > 1) {
           $multiple_formatted
-            = 'preformatted-node-description-'.$use_nodedescription;
+            = 'preformatted-node-description-'.$formatted_nodedescription_nr;
         }
         $description .= $self->convert_tree_new_formatting_context(
                                   $menu_description,
@@ -7156,11 +7333,11 @@ sub _convert_menu_entry_type($$$)
   }
   my $description = '';
   if ($menu_description) {
-    if ($use_nodedescription) {
+    if ($formatted_nodedescription_nr) {
       my $multiple_formatted;
-      if ($use_nodedescription > 1) {
+      if ($formatted_nodedescription_nr > 1) {
         $multiple_formatted
-          = 'node-description-'.$use_nodedescription;
+          = 'node-description-'.$formatted_nodedescription_nr;
       }
       $description = $self->convert_tree_new_formatting_context(
                               $menu_description, 'menu_arg node description',
@@ -11331,6 +11508,14 @@ sub _initialize_output_state($$)
 
   $self->{'associated_inline_content'} = {};
 
+  foreach my $cmdname (keys(%default_shared_conversion_states)) {
+    foreach my $state_name
+        (keys(%{$default_shared_conversion_states{$cmdname}})) {
+      $self->define_shared_conversion_state($cmdname, $state_name,
+          $default_shared_conversion_states{$cmdname}->{$state_name});
+    }
+  }
+
   # even if there is no actual file, this is needed if the API is used.
   $self->{'html_files_information'} = {};
 
@@ -11370,14 +11555,11 @@ sub _initialize_XS_NonXS_output_state($$)
   my $self = shift;
   my $context = shift;
 
+  $self->{'shared_conversion_state'} = {};
+
   $self->_initialize_output_state($context);
 
   $self->{'multiple_pass'} = [];
-
-  # for diverse API used in conversion
-  $self->{'shared_conversion_state'} = {};
-  $self->{'shared_conversion_state_integers'} = {};
-  $self->{'shared_conversion_accessed_integers'} = {};
 
   # direction strings
   foreach my $string_type (keys(%default_translated_directions_strings)) {

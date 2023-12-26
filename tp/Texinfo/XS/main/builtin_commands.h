@@ -35,8 +35,8 @@ extern COMMAND builtin_command_data[];
 #define command_other_flags(e) \
    (!(e) ? 0 : (builtin_command_data[(e)->cmd].other_flags))
 
-enum command_id lookup_builtin_command (char *cmdname);
-char *element_command_name (const ELEMENT *e);
+enum command_id lookup_builtin_command (const char *cmdname);
+const char *element_command_name (const ELEMENT *e);
 enum command_id element_builtin_cmd (const ELEMENT *e);
 enum command_id element_builtin_data_cmd (const ELEMENT *e);
 

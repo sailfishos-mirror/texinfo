@@ -50,7 +50,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 
   if (cmd)
     {
-      char *cmdname = element_command_name (e);
+      const char *cmdname = element_command_name (e);
       ADD("@");  ADD(cmdname);
       elt = lookup_info_element (e, "spaces_after_cmd_before_arg");
       if (elt)

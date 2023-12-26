@@ -59,7 +59,7 @@ get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
    'associated_section' on a node command element. */
 /* TODO would be good to have ELEMENT be const */
 void
-add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
+add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_element);
@@ -135,7 +135,7 @@ add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value)
 }
 
 void
-add_extra_string (ELEMENT *e, char *key, char *value)
+add_extra_string (ELEMENT *e, const char *key, char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_string);
   k->string = value;
@@ -149,14 +149,14 @@ add_info_string (ELEMENT *e, char *key, char *value)
 }
 
 void
-add_extra_string_dup (ELEMENT *e, char *key, char *value)
+add_extra_string_dup (ELEMENT *e, const char *key, const char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_string);
   k->string = strdup (value);
 }
 
 void
-add_info_string_dup (ELEMENT *e, char *key, char *value)
+add_info_string_dup (ELEMENT *e, const char *key, const char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_string);
   k->string = strdup (value);

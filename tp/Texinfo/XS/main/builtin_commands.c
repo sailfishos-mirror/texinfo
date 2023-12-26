@@ -39,12 +39,13 @@ compare_command_fn (const void *a, const void *b)
 
 /* Return element number in command_data array.  Return 0 if not found. */
 enum command_id
-lookup_builtin_command (char *cmdname)
+lookup_builtin_command (const char *cmdname)
 {
   COMMAND *c;
   COMMAND target;
 
-  target.cmdname = cmdname;
+  /* cast as target.cmdname is not const, though we know we do not modify */
+  target.cmdname = (char *) cmdname;
 
   c = (COMMAND *) bsearch (&target, builtin_command_data + 1,
         /* number of elements */
@@ -63,7 +64,7 @@ lookup_builtin_command (char *cmdname)
 
 /* this should be used when the user-defined commands are not available,
    ie outside of the parser */
-char *
+const char *
 element_command_name (const ELEMENT *e)
 {
   if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)

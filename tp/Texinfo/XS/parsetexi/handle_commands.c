@@ -854,10 +854,9 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   char *base_name;
                   int base_len;
 
-                  base_name = command_name(cmd);
                   add_extra_string_dup (command_e, "original_def_cmdname",
-                                        base_name);
-                  base_name = strdup (base_name);
+                                        command_name(cmd));
+                  base_name = strdup (command_name(cmd));
                   base_len = strlen (base_name);
                   if (base_name[base_len - 1] != 'x')
                     fatal ("no x at end of def command name");
@@ -998,7 +997,7 @@ add_parser_expanded_format (char *format)
 }
 
 int
-parser_format_expanded_p (char *format)
+parser_format_expanded_p (const char *format)
 {
   return format_expanded_p (parser_expanded_formats, format);
 }

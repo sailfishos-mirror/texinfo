@@ -19,7 +19,7 @@ int check_no_text (ELEMENT *current);
 
 void clear_parser_expanded_formats (void);
 void add_parser_expanded_format (char *format);
-int parser_format_expanded_p (char *format);
+int parser_format_expanded_p (const char *format);
 
 extern struct expanded_format parser_expanded_formats[7];
 

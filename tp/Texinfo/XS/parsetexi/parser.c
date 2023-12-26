@@ -1943,7 +1943,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
            */
       || (command_data(cmd).flags & CF_ALIAS))
     {
-      char *unknown_cmd;
+      const char *unknown_cmd;
 
       if (cmd)
         {

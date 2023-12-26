@@ -41,63 +41,6 @@
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
-/* in general we get information from perl by overriding functions setting
-   that information, but for shared_conversion the reference obtained
-   through a function call may be modified afterwards, so it is better to
-   set in perl information allowing to find which item may be modified and
-   get the information here when exiting from user-defined functions */
-void
-get_shared_conversion_state (CONVERTER *self)
-{
-  SV **shared_conversion_accessed_integers_sv;
-
-  dTHX;
-
-  shared_conversion_accessed_integers_sv = hv_fetch (self->hv,
-                       "shared_conversion_accessed_integers",
-                       strlen ("shared_conversion_accessed_integers"), 0);
-
-  if (shared_conversion_accessed_integers_sv)
-    {
-      SV **shared_conversion_state_sv;
-      I32 hv_number;
-      I32 i;
-
-      shared_conversion_state_sv = hv_fetch (self->hv,
-                       "shared_conversion_state",
-                       strlen ("shared_conversion_state"), 0);
-      HV *conversion_state_hv = (HV *) SvRV (*shared_conversion_state_sv);
-
-      HV *accessed_integers_v
-        = (HV *) SvRV (*shared_conversion_accessed_integers_sv);
-
-      hv_number = hv_iterinit (accessed_integers_v);
-
-      for (i = 0; i < hv_number; i++)
-        {
-          SV *ref_value_sv;
-          int value;
-          HE *next = hv_iternext (accessed_integers_v);
-          SV *selector_sv = hv_iterkeysv (next);
-          char *selector = (char *) SvPVutf8_nolen (selector_sv);
-          char *saved_selector;
-
-          HE *conversion_state_he = hv_fetch_ent (conversion_state_hv,
-                                                  selector_sv, 0, 0);
-          ref_value_sv = HeVAL (conversion_state_he);
-          value = SvIV (SvRV (ref_value_sv));
-
-          saved_selector
-             = add_string (selector,
-                           &self->shared_conversion_state.key_strings);
-          add_associated_info_integer (&self->shared_conversion_state.integers,
-                                       saved_selector, value);
-
-          hv_delete_ent (accessed_integers_v, selector_sv, 0, 0);
-        }
-    }
-}
-
 TARGET_FILENAME *
 call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
                          const OUTPUT_UNIT *special_unit, const char *target,
@@ -741,8 +684,6 @@ call_formatting_function_format_comment (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -797,8 +738,6 @@ call_formatting_function_format_program_string (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -855,8 +794,6 @@ call_formatting_function_format_titlepage (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -911,8 +848,6 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -971,8 +906,6 @@ call_formatting_function_format_protect_text (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -1028,8 +961,6 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -1084,8 +1015,6 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1143,8 +1072,6 @@ call_formatting_function_format_css_lines (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1209,8 +1136,6 @@ call_formatting_function_format_end_file (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1277,8 +1202,6 @@ call_formatting_function_format_begin_file (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -1341,8 +1264,6 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1413,8 +1334,6 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1500,8 +1419,6 @@ call_formatting_function_format_button (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -1566,8 +1483,6 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -1630,8 +1545,6 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1724,8 +1637,6 @@ call_formatting_function_format_heading_text (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -1794,8 +1705,6 @@ call_formatting_function_format_contents (CONVERTER *self,
   FREETMPS;
   LEAVE;
 
-  get_shared_conversion_state (self);
-
   return result;
 }
 
@@ -1855,8 +1764,6 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1919,8 +1826,6 @@ call_formatting_function_format_element_header (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -1987,8 +1892,6 @@ call_formatting_function_format_element_footer (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -2067,8 +1970,6 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 }
 
 void
@@ -2128,8 +2029,6 @@ call_types_open (CONVERTER *self, const enum element_type type,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 }
 
 void
@@ -2145,7 +2044,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   SV *result_sv;
   SV *formatting_reference_sv;
   SV *args_formatted_sv;
-  char *command_name;
+  const char *command_name;
 
   dTHX;
 
@@ -2203,8 +2102,6 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 }
 
 void
@@ -2216,7 +2113,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  char *command_name;
+  const char *command_name;
 
   dTHX;
 
@@ -2268,8 +2165,6 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 }
 
 void
@@ -2336,8 +2231,6 @@ call_output_units_conversion (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 }
 
 void
@@ -2402,8 +2295,6 @@ call_special_unit_body_formatting (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 }
 
 
@@ -2471,8 +2362,6 @@ call_button_simple_function (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }
@@ -2545,8 +2434,6 @@ call_button_direction_function (CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
-  get_shared_conversion_state (self);
 
   return result;
 }

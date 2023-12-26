@@ -662,7 +662,7 @@ html_preformatted_number (SV *converter_in)
     OUTPUT:
          RETVAL
 
-char *
+const char *
 html_top_block_command (SV *converter_in)
      PREINIT:
          CONVERTER *self;
@@ -697,7 +697,7 @@ html_preformatted_classes_stack (SV *converter_in)
     OUTPUT:
          RETVAL
 
-char *
+const char *
 html_in_align (SV *converter_in)
      PREINIT:
          CONVERTER *self;
@@ -1123,6 +1123,57 @@ html_internal_command_text (SV *converter_in, SV *element_sv, char *type)
     OUTPUT:
          RETVAL
 
+void
+html_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
+         char *cmdname = (char *)SvPVutf8_nolen($arg);
+         char *state_name = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         CONVERTER *self;
+         SV **args_sv = 0;
+         int args_nr = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_set_shared_conversion_state");
+         args_nr = items - 3;
+         if (args_nr > 0)
+           {
+             int i;
+             args_sv = (SV **) malloc (args_nr * sizeof (SV *));
+             for (i = 0; i < args_nr; i++)
+               {
+                 args_sv[i] = ST(i+3);
+               }
+           }
+         html_set_shared_conversion_state (self, converter_in,
+                                cmdname, state_name, args_nr, args_sv);
+         free (args_sv);
+
+SV *
+html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
+         char *cmdname = (char *)SvPVutf8_nolen($arg);
+         char *state_name = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         CONVERTER *self;
+         SV **args_sv = 0;
+         int args_nr = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_get_shared_conversion_state");
+         args_nr = items - 3;
+         if (args_nr > 0)
+           {
+             int i;
+             args_sv = (SV **) malloc (args_nr * sizeof (SV *));
+             for (i = 0; i < args_nr; i++)
+               {
+                 args_sv[i] = ST(i+3);
+               }
+           }
+         RETVAL = html_get_shared_conversion_state (self, converter_in,
+                                     cmdname, state_name, args_nr, args_sv);
+         free (args_sv);
+    OUTPUT:
+         RETVAL
 
 void
 html_register_opened_section_level (SV *converter_in, int level, close_string)

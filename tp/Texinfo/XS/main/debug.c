@@ -26,7 +26,7 @@
 #include "extra.h"
 #include "debug.h"
 
-char *
+const char *
 debug_element_command_name (const ELEMENT *e)
 {
   if (e->cmd == CM_TAB)
