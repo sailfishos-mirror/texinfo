@@ -10,6 +10,15 @@
 
 2023-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Conversion Customization Variables):
+	add get_conf return value.
+
+	* doc/texi2any_api.texi (Shared Conversion State)
+	(Define Get and Set Shared Conversion State)
+	(Shared Conversion State in Defaut Formatting): document the new API.
+
+2023-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Conversion General Information),
 	tp/Texinfo/Convert/HTML.p (%available_converter_info)
 	(_convert_heading_command), tp/init/book.pm: add expanded_formats to

@@ -1690,10 +1690,10 @@ used in functions, but should be used out of functions in init files
 To get the value of a variable in a converter @code{$converter},
 the function is @code{get_conf}:
 
-@defun @var{$converter}->get_conf ($variable_name)
+@deftypefun {@var{$result} =} @var{$converter}->get_conf (@var{$variable_name})
 @var{$variable_name} is the name of the variable; its value in the converter
 @var{$converter} (possibly @code{undef}) is returned.
-@end defun
+@end deftypefun
 
 For example:
 
@@ -3101,32 +3101,135 @@ Return the value associated to the key @var{$key} and file name @var{$file_name}
 @node Shared Conversion State
 @section Shared Conversion State
 
-For information shared among formatting functions without involving the
-converter, the function @code{shared_conversion_state} can be used both for
-initialization of shared information and to share information:
+An interface is provided for information shared among formatting functions.
+It is required to use that interface when sharing information with the default
+formatting functions.  Each data piece is associated to an @@-command name, has
+a name, and a list of selectors.
 
-@deftypefun {@var{$reference} =} @var{$converter}->shared_conversion_state (@var{$name}, @var{$initialization})
-Return the reference @var{$reference} associated with @var{$name}.
-@var{$initialization} is only read the first time @var{$name} is seen and sets
-up the reference that will be reused afterwards.  If @var{$initialization} is a
-scalar (string or integer, for example), a reference on a scalar is returned,
-the associated value being set to @var{$initialization}.  Otherwise,
-@var{$initialization} should be a reference on a hash or on an array.
+@node Define Get and Set Shared Conversion State
+@subsection Define, Get and Set Shared Conversion State
+
+Four types for selectors and value are currently considered:
+
+@table @code
+@item string
+A string.
+@item integer
+An integer
+@item element
+A Texinfo tree element.
+@item index_entry.
+An index entry reference as appearing in index data structures.
+@xref{Texinfo@asis{::}Document index_entries,,,texi2any_internals}.
+@end table
+
+New shared infomation is defined with @code{define_shared_conversion_state}:
+
+@defun @var{$converter}->define_shared_conversion_state ($cmdname, $name, \@@specification)
+@var{$cmdname} is an @@-command name, with leading @@. @var{name} is the name
+associated to the data.  The @code{top} command name is conventionally used if
+there is no natural association with another @@-command.
+@var{\@@specification} array reference specifies the types of the selectors
+and the type of the value as strings.  The last string of the array specifies
+the type of the value.  The preceding strings specify the number and types of
+selectors@footnote{The number of strings in the specification is the only
+information actually used, to determine the number of selectors. However, it is
+advised to use the specified types for consistency and compatibility with
+future changes.}.
+
+For example, @code{['integer', 'element', 'string']} specifies a @samp{string}
+type for the value, and two selectors, the first with @samp{integer} type,
+and the second with @samp{element} type.  @code{['integer']} specifies
+and integer for the value and no selector.
+@end defun
+
+For example, the following defines a @samp{color} shared conversion state
+formally associated to @code{@@quotation}, with an integer value and
+a string selector.
+@example
+$converter->define_shared_conversion_state ('quotation', 'color',
+                                            ['string', 'integer']);
+@end example
+
+The association with an @@-command is provided for a semantic classification of
+shared conversion information, but has no practical effect.  In
+particular, nothing prevents using shared conversion state information
+associated to an @@-command in the formatting of another @@-command.
+
+The function @code{get_shared_conversion_state} is used to get information:
+
+@deftypefun {@var{$value} =} @var{$converter}->get_shared_conversion_state (@var{$cmdname}, @var{$name}, [@var{$selector} @dots{}])
+Return the reference @var{$value} associated with @var{$cmdname}
+and @var{$name}. The number of selectors given in argument should match
+the number of selectors in the definition (possible none).
 @end deftypefun
+
+For example, continuing with the @samp{color} shared information data
+defined above, with one selector variable:
+@example
+my $number = $converter->get_shared_conversion_state('quotation',
+                                               'color', $element);
+@end example
+
+The function @code{set_shared_conversion_state} is used to set
+shared information:
+
+@defun @var{$converter}->define_shared_conversion_state (@var{$cmmdname}, @var{$name}, [@var{$selector} @dots{}], @var{$value})
+Sets @var{$value} associated with @var{$cmdname}
+and @var{$name}. The number of selectors given in argument should match
+the number of selectors in the definition (possible none).
+@end defun
+
+For example:
+@example
+$converter->set_shared_conversion_state('quotation', 'color',
+                                        $selector_element, 42);
+@end example
 
 The converter is used to hold the information, but does not use nor write.
 
-Examples of use:
-@example
-my $explained_commands_hash
-    = $converter->shared_conversion_state('explained_commands', @{@});
-$explained_commands_hash->@{'key'@} = 'value';
+@node Shared Conversion State in Defaut Formatting
+@subsection Shared Conversion State in Defaut Formatting
 
-my $foot_num_reference
-     = $converter->shared_conversion_state('footnote_number', 0);
-$@{$foot_num_reference@}++;
-@end example
+The following shared conversion state information is defined in the
+default formatting functions:
 
+@multitable {@code{nodedescription}} {@code{formatted_index_entries}} {(@code{@@nodedescription} tree} {integer}
+@headitem Command @tab Name @tab Selectors @tab Value
+@item @code{abbr} @tab @code{explained_commands} @tab string (first argument) @tab string
+@item @code{acronym} @tab @code{explained_commands} @tab string (first argument) @tab string
+@item @code{footnote} @tab @code{footnote_number} @tab @tab integer
+@item @code{footnote} @tab @code{footnote_id_numbers} @tab string (footnote id) @tab integer
+@item @code{menu} @tab @code{html_menu_entry_index} @tab @tab integer
+@item @code{printindex} @tab @code{formatted_index_entries} @tab index_entry (index entry hash) @tab integer
+@item @code{top} @tab @code{in_skipped_node_top} @tab @tab integer
+@item @code{nodedescription} @tab @code{formatted_nodedescriptions} @tab element (@code{@@nodedescription} tree element) @tab integer
+@end multitable
+
+These shared information data correspond to:
+@vtable @code
+@item explained_commands
+Associate the explanation given in a previous @code{@@abbr} or
+@code{@@acronym} second argument to first @code{@@abbr} or 
+@code{@@acronym} arguments.
+@item footnote_number
+The current number of footnotes formatted in document.
+@item footnote_id_numbers
+Associate a footnote identifier, typically used in hyperlink reference,
+to the number of time the corresponding footnote was formatted.  More than
+one corresponds to very rare cases, for instance a footnote in @code{@@copying}
+and multiple @code{@@insertcopying}.
+@item html_menu_entry_index
+Current number of menu entries in a menu. Reset to 0 at @code{@@menu} beginning.
+@item formatted_index_entries
+Associate an index entry to the number of time it was formatted.
+@item in_skipped_node_top
+Set to 1 in a @code{Top} node being skipped, in case
+@code{NO_TOP_NODE_OUTPUT} is set.
+@item formatted_nodedescriptions
+Associate a @code{@@nodedescription} tree element to the number of time
+it was formatted.
+@end vtable
 
 @node Translations Output and Customization
 @chapter Translations Output and Customization
