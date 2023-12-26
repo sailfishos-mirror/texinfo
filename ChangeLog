@@ -1,13 +1,3 @@
-2023-12-26  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* tp/Texinfo/XS/convert/get_html_perl_info.c (get_expanded_formats):
-	Add missing dTHX.
-
-2023-12-26  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* tp/Texinfo/Convert/Plaintext.pm (_align_lines):
-	Remove unused variable.
-
 2023-12-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm: document functions in converter for
@@ -39,6 +29,16 @@
 	do not call pass_converter_errors, the converter is not a
 	Texinfo::Report object anymore and all the messages are stored in the
 	C converter.
+
+2023-12-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c (get_expanded_formats):
+	Add missing dTHX.
+
+2023-12-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_align_lines):
+	Remove unused variable.
 
 2023-12-26  Patrice Dumas  <pertusus@free.fr>
 
