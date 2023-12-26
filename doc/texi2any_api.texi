@@ -1338,12 +1338,12 @@ object.  This object gives access to methods to get information on the
 conversion context and to methods useful for the conversion, both as an HTML
 converter and as a generic @code{Texinfo::Convert::Converter}
 (@pxref{Texinfo::Convert::Converter Helper methods,,,texi2any_internals}).  The
-converter can also be used for error reporting as it is also a
-@code{Texinfo::Report} object (@pxref{Texinfo::Report,,,texi2any_internals}),
-and for in-document strings translation as it is also a
-@code{Texinfo::Translations} object (@pxref{Texinfo::Translations,,,
-texi2any_internals}).  @xref{Error Reporting in User Defined Functions} on
-error reporting.
+converter can be used for error reporting by using
+@code{Texinfo::Convert::Converter} methods. @xref{Error
+Reporting in User Defined Functions} on error reporting.
+The converter can also be used for
+in-document strings translation as it is also a @code{Texinfo::Translations}
+object (@pxref{Texinfo::Translations,,, texi2any_internals}).
 
 
 @node Texinfo Tree Conversion Functions
@@ -1402,49 +1402,38 @@ a Texinfo tree conversion.
 @subsection Error Reporting in User Defined Functions
 
 @cindex Error reporting @subentry conversion
-@cindex @code{Texinfo::Report}
+@cindex @code{Texinfo::Convert::Converter} @subentry error reporting
 
 To report an error or a warning in a user defined function, use the methods
-of @code{Texinfo::Report} through a converter object
+of @code{Texinfo::Convert::Converter} through a converter object
 (@pxref{Converter Object and Conversion Functions}).
 
 To report a warning or an error not specific of an element conversion,
-use @code{document_warn} or @code{document_error}:
+use @code{converter_document_warn} or @code{converter_document_error}:
 
-@defun @var{$converter}->document_error ($text, $converter)
-@defunx @var{$converter}->document_warn ($text, $converter)
+@defun @var{$converter}->converter_document_error ($text, $continuation)
+@defunx @var{$converter}->converter_document_warn ($text, $continuation)
 Register a document-wide error or warning.  @var{$text} is the error
-or warning message.  The @var{$converter} object should be given
-as the second argument.
+or warning message.
+
+The optional @var{$continuation} argument, if set, conveys that the message
+is a continuation of the previous registered message.
 @end defun
 
 To report a warning or an error in element conversion, use
-@code{line_warn} or @code{line_error}
-@defun @var{$converter}->line_error ($text, $converter, $location_info, $continuation, $silent)
-@defunx @var{$converter}->line_warn ($text, $converter, $location_info, $continuation, $silent)
+@code{converter_line_warn} or @code{converter_line_error}
+@defun @var{$converter}->converter_line_error ($text, $location_info, $continuation)
+@defunx @var{$converter}->converter_line_warn ($text, $location_info, $continuation)
 Register a warning or an error.  @var{$text} is the text of the
-error or warning.  The @var{$converter} object should be given
-as the second argument.  The optional
-@var{$location_info} holds the information on the error or
-warning location.  The @var{$location_info} reference on hash may be
+error or warning.  The @var{$location_info} holds the information on the
+error or warning location.  The @var{$location_info} reference on hash may be
 obtained from Texinfo elements @code{source_info} keys.
 
 The optional @var{$continuation} argument, if set, conveys that the message
-is a continuation of the previous registered message.  The optional
-@var{$silent} argument, if set, suppresses the immediate output of a message
-if the @code{DEBUG} customization variable is set.
+is a continuation of the previous registered message.
 @end defun
 
-In general, registering an error does not stop the processing, in
-particular it does not stop the main conversion of the Texinfo tree.
-Write initialization files as if the conversion always continued
-after registering the error.
-
-@xref{Texinfo::Report,,,texi2any_internals} for more on
-@code{Texinfo::Report}.
-@c @xref{Init File Calling at Different Stages} for information on how
-@c to stop the processing from user defined functions called at different
-@c stages.
+Note that registering an error does not stop the processing of the Texinfo tree.
 
 
 @node Texinfo Tree Elements in User Defined Functions
