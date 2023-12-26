@@ -445,6 +445,18 @@ find_element_target_number (const HTML_TARGET_LIST *targets,
 HTML_TARGET *
 find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
 {
+  enum command_id cmd = element_builtin_cmd (element);
+  size_t i = find_element_target_number (&targets[cmd], element);
+
+  if (i > 0)
+    return &targets[cmd].list[i - 1];
+
+  return 0;
+}
+
+HTML_TARGET *
+find_element_special_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
+{
   size_t i = find_element_target_number (targets, element);
 
   if (i > 0)
@@ -452,7 +464,6 @@ find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
 
   return 0;
 }
-
 
 char *
 format_translate_message (CONVERTER *self,
@@ -1540,10 +1551,14 @@ add_element_target_to_list (HTML_TARGET_LIST *targets,
   return element_target;
 }
 
+/* setup a list per command id.  Note that elements associated to targets
+   without cmd are all associated to 0.  This is the case for the special
+   units associated elements with type ET_special_unit_element and cmd 0 */
 static HTML_TARGET *
 add_element_target (CONVERTER *self, const ELEMENT *element, char *target)
 {
-  HTML_TARGET_LIST *targets = &self->html_targets;
+  enum command_id cmd = element_builtin_cmd (element);
+  HTML_TARGET_LIST *targets = &self->html_targets[cmd];
   return add_element_target_to_list (targets, element, target);
 }
 
@@ -2858,7 +2873,7 @@ HTML_TARGET *
 html_get_target (CONVERTER *self, const ELEMENT *element)
 {
   HTML_TARGET *result
-   = find_element_target (&self->html_targets, element);
+   = find_element_target (self->html_targets, element);
 
   return result;
 }
@@ -3519,7 +3534,8 @@ static HTML_TARGET *
 get_footnote_location_target (CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *result
-   = find_element_target (&self->html_special_targets[ST_footnote_location],
+   = find_element_special_target
+                         (&self->html_special_targets[ST_footnote_location],
                           command);
   return result;
 }
@@ -5054,7 +5070,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
             'identifiers_target', and thus in targets.  It is a bug otherwise. */
                           FILE_SOURCE_INFO *file_source_info = 0;
                           HTML_TARGET *node_target
-                            = find_element_target (&self->html_targets,
+                            = find_element_target (self->html_targets,
                                                    root_command);
                           node_filename = node_target->node_filename;
 
@@ -5118,7 +5134,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                       else
                         {
                           HTML_TARGET *section_target
-                            = find_element_target (&self->html_targets,
+                            = find_element_target (self->html_targets,
                                                    command);
                           char *section_filename
                             = section_target->section_filename;
@@ -5285,7 +5301,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           OUTPUT_UNIT *special_unit = special_units->list[i];
           const ELEMENT *unit_command = special_unit->unit_command;
           const HTML_TARGET *special_unit_target
-            = find_element_target (&self->html_targets, unit_command);
+            = find_element_target (self->html_targets, unit_command);
           char *filename = special_unit_target->special_unit_filename;
 
         /* Associate the special elements that have no page with the main page.
@@ -5348,7 +5364,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
             = special_unit->associated_document_unit;
           const ELEMENT *unit_command = special_unit->unit_command;
           HTML_TARGET *element_target
-            = find_element_target (&self->html_targets, unit_command);
+            = find_element_target (self->html_targets, unit_command);
 
           if (element_target->special_unit_filename)
             filename = element_target->special_unit_filename;
@@ -11124,12 +11140,11 @@ html_converter_prepare_output (CONVERTER* self)
 }
 
 void
-reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
+reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
 {
-  size_t i;
-
   if (targets->number)
     {
+      size_t i;
       for (i = 0; i < targets->number; i++)
         {
           int j;
@@ -11152,6 +11167,14 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
               sizeof (HTML_TARGET) * targets->number);
       targets->number = 0;
     }
+}
+
+void
+reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
+{
+  enum command_id cmd;
+  for (cmd = 0; cmd < BUILTIN_CMD_NUMBER; cmd++)
+    reset_html_targets_list (self, &targets[cmd]);
 }
 
 /* called very early in conversion functions, before updating
@@ -11307,11 +11330,11 @@ html_reset_converter (CONVERTER *self)
 
   reset_translated_special_unit_info_tree (self);
   /* targets */
-  reset_html_targets (self, &self->html_targets);
+  reset_html_targets (self, self->html_targets);
   clear_strings_list (&self->seen_ids);
   for (i = 0; i < ST_footnote_location+1; i++)
     {
-      reset_html_targets (self, &self->html_special_targets[i]);
+      reset_html_targets_list (self, &self->html_special_targets[i]);
     }
 
   free (self->shared_conversion_state.footnote_id_numbers);
@@ -11491,7 +11514,8 @@ html_free_converter (CONVERTER *self)
   free (self->special_unit_body_formatting);
 
   free (self->global_units_directions);
-  free (self->html_targets.list);
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    free (self->html_targets[i].list);
   free_strings_list (&self->seen_ids);
   for (i = 0; i < ST_footnote_location+1; i++)
     {
@@ -11794,7 +11818,7 @@ html_translate_names (CONVERTER *self)
                if (command)
                  {
                    HTML_TARGET *target_info
-                     = find_element_target (&self->html_targets, command);
+                     = find_element_target (self->html_targets, command);
                    if (target_info)
                      {
        /* the tree is a reference to special_unit_info_tree, so it should

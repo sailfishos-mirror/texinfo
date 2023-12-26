@@ -1,5 +1,15 @@
 2023-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (find_element_target)
+	(find_element_special_target, add_element_target)
+	(reset_html_targets_list, reset_html_targets)
+	(html_reset_converter, html_free_converter),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): setup one list of
+	targets per command id for regular targets (not for special targets).
+	Update callers.
+
+2023-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_get_target)
 	(_set_heading_commands_targets, _prepare_conversion_units),
 	tp/Texinfo/XS/convert/convert_html.c (html_get_target)

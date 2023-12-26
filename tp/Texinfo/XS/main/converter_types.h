@@ -736,7 +736,9 @@ typedef struct CONVERTER {
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
     STRING_LIST seen_ids;
-    HTML_TARGET_LIST html_targets;
+    /* potentially one target list per command (only for some actually) */
+    /* TODO list with commands possibly associated to targets only? */
+    HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
     JSLICENSE_CATEGORY_LIST jslicenses;
     /* associate cmd and index in special_unit_varieties STRING_LIST */
