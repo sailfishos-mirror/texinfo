@@ -881,24 +881,15 @@ sub _get_target($$)
 {
   my $self = shift;
   my $command = shift;
-  my $target;
   if (!defined($command)) {
     cluck("_get_target command not defined");
   }
 
-  if (!$self->{'targets'}->{$command}
-      and $command->{'cmdname'}
-    # This should only happen for @*heading*, root_commands targets should
-    # already be set.
-      and $sectioning_heading_commands{$command->{'cmdname'}}
-      and !$root_commands{$command->{'cmdname'}}) {
-    $self->_new_sectioning_command_target($command);
+  if ($self->{'targets'}->{$command}) {
+    return $self->{'targets'}->{$command};
   }
 
-  if ($self->{'targets'}->{$command}) {
-    $target = $self->{'targets'}->{$command};
-  }
-  return $target;
+  return undef;
 }
 
 # API for links and elements directions formatting
@@ -9463,6 +9454,22 @@ sub _set_root_commands_targets_node_files($)
   }
 }
 
+sub _set_heading_commands_targets($)
+{
+  my $self = shift;
+
+  if ($self->{'global_commands'}) {
+    foreach my $cmdname (keys(%sectioning_heading_commands)) {
+      if (!$root_commands{$cmdname}
+          and $self->{'global_commands'}->{$cmdname}) {
+        foreach my $command (@{$self->{'global_commands'}->{$cmdname}}) {
+          $self->_new_sectioning_command_target($command);
+        }
+      }
+    }
+  }
+}
+
 sub _html_get_tree_root_element($$;$);
 
 # If $FIND_CONTAINER is set, the element that holds the command output
@@ -9496,7 +9503,7 @@ sub _html_get_tree_root_element($$;$)
         if ($current->{'cmdname'} eq 'copying'
             and $self->{'global_commands'}
             and $self->{'global_commands'}->{'insertcopying'}) {
-          foreach my $insertcopying(@{$self->{'global_commands'}
+          foreach my $insertcopying (@{$self->{'global_commands'}
                                                         ->{'insertcopying'}}) {
             #print STDERR "INSERTCOPYING\n" if ($debug);
             my ($output_unit, $root_command)
@@ -9891,6 +9898,8 @@ sub _prepare_conversion_units($$$)
 
   $self->_prepare_index_entries_targets();
   $self->_prepare_footnotes_targets();
+
+  $self->_set_heading_commands_targets();
 
   return ($output_units, $special_units, $associated_special_units);
 }

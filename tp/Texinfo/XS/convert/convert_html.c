@@ -2859,19 +2859,7 @@ html_get_target (CONVERTER *self, const ELEMENT *element)
 {
   HTML_TARGET *result
    = find_element_target (&self->html_targets, element);
-  enum command_id data_cmd = element_builtin_data_cmd (element);
-  unsigned long flags = builtin_command_data[data_cmd].flags;
 
-  if (!result && data_cmd
-      && flags & CF_sectioning_heading
-      && !(flags & CF_root))
-    {
-      size_t target_number;
-      new_sectioning_command_target (self, element);
-
-      target_number = find_element_target_number (&self->html_targets, element);
-      result = &self->html_targets.list[target_number -1];
-    }
   return result;
 }
 
@@ -4660,6 +4648,33 @@ prepare_footnotes_targets (CONVERTER *self)
     }
 }
 
+static enum command_id heading_commands_list[] = {
+  CM_chapheading, CM_heading, CM_subheading, CM_subsubheading,
+  CM_majorheading, 0,
+};
+
+void
+set_heading_commands_targets (CONVERTER *self)
+{
+  int i;
+  for (i = 0; heading_commands_list[i]; i++)
+    {
+      enum command_id cmd = heading_commands_list[i];
+      const ELEMENT_LIST *global_command
+        = get_cmd_global_multi_command (self->document->global_commands, cmd);
+
+      if (global_command->number > 0)
+        {
+          int j;
+          for (j = 0; j < global_command->number; j++)
+            {
+              const ELEMENT *command = global_command->list[j];
+              new_sectioning_command_target (self, command);
+            }
+        }
+    }
+}
+
 /* for conversion units except for associated special units that require
    files for document units to be set */
 void
@@ -4683,6 +4698,8 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 
   prepare_index_entries_targets (self);
   prepare_footnotes_targets (self);
+
+  set_heading_commands_targets (self);
 }
 
 /* Associate output units to the global targets, First, Last, Top, Index.
