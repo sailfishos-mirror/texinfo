@@ -1,3 +1,18 @@
+2023-12-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Conversion General Information),
+	tp/Texinfo/Convert/HTML.p (%available_converter_info)
+	(_convert_heading_command), tp/init/book.pm: add expanded_formats to
+	available_converter_info.
+
+	* tp/Texinfo/Convert/HTML.pm (%default_shared_conversion_states),
+	tp/Texinfo/XS/convert/convert_html.c (html_initialize_output_state)
+	(html_reset_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_set_shared_conversion_state, html_get_shared_conversion_state)
+	(get_expanded_formats), tp/Texinfo/XS/main/converter_types.h
+	(HTML_SHARED_CONVERSION_STATE): remove expanded_format_raw shared
+	conversion state.
+
 2023-12-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_html_perl_info.c (find_element_from_sv):

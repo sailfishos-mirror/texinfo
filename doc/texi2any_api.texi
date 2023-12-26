@@ -1785,6 +1785,13 @@ string needs to be encoded.  @xref{Encoding File Path Strings}.
 (@pxref{@code{@@documentdescription},,, texinfo, Texinfo}).  @xref{Init File
 Expansion Contexts}.
 
+@item expanded_formats
+Information on output formats such as @samp{html} or @samp{tex}
+expansion (@pxref{Conditional Commands,,, texinfo, Texinfo}).  An
+hash reference with format names as key and a true value as value if
+the format is expanded, according to command-line and init file
+information.
+
 @item floats
 Information on floats. Gathered from the Texinfo parsing result.
 @xref{Texinfo::Document $float_types = floats_information($document),,

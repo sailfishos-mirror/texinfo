@@ -11198,9 +11198,6 @@ html_initialize_output_state (CONVERTER *self, char *context)
         }
       free (sorted_index_names);
     }
-
-  self->shared_conversion_state.expanded_format_raw
-    = new_expanded_formats ();
 }
 
 void
@@ -11301,7 +11298,6 @@ html_reset_converter (CONVERTER *self)
     }
 
   free (self->shared_conversion_state.footnote_id_numbers);
-  free (self->shared_conversion_state.expanded_format_raw);
 
   if (self->document->index_names)
     {

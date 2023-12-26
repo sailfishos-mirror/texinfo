@@ -1570,15 +1570,6 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (target_info)
         target_info->formatted_nodedescription_nr = number;
     }
-  else if (!strcmp (state_name, "expanded_format_raw"))
-    {
-      char *format = (char *)SvPVutf8_nolen(args_sv[0]);
-      int expanded = SvIV (args_sv[1]);
-      if (expanded)
-        add_expanded_format
-            (converter->shared_conversion_state.expanded_format_raw,
-                             format);
-    }
   else if (!strcmp (state_name, "in_skipped_node_top"))
     {
       int in_skipped_node_top = SvIV (args_sv[0]);
@@ -1641,38 +1632,24 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (target_info && target_info->formatted_nodedescription_nr > 0)
         return newSViv (target_info->formatted_nodedescription_nr);
     }
-  else if (!strcmp (state_name, "expanded_format_raw"))
-    {
-      char *format;
-
-      if (args_nr == 0)
-        {
-          int i;
-          HV *expanded_hv = newHV ();
-          for (i = 0; i < expanded_formats_number (); i++)
-            {
-              if (converter->shared_conversion_state
-                                    .expanded_format_raw[i].expandedp)
-                {
-                  char *format = converter->shared_conversion_state
-                                    .expanded_format_raw[i].format;
-                  hv_store (expanded_hv, format, strlen (format),
-                            newSViv (1), 0);
-                }
-            }
-          return newRV_noinc ((SV *)expanded_hv);
-        }
-      else if (args_nr > 0)
-        {
-          format = (char *)SvPVutf8_nolen(args_sv[0]);
-          int expanded
-            = format_expanded_p (
-                converter->shared_conversion_state.expanded_format_raw,
-                                 format);
-          return newSViv(expanded);
-        }
-    }
   else if (!strcmp (state_name, "in_skipped_node_top"))
     return newSViv(converter->shared_conversion_state.in_skipped_node_top);
   return newSV (0);
+}
+
+SV *
+get_expanded_formats (EXPANDED_FORMAT *expanded_formats)
+{
+  int i;
+  HV *expanded_hv = newHV ();
+  for (i = 0; i < expanded_formats_number (); i++)
+    {
+      if (expanded_formats[i].expandedp)
+        {
+          char *format = expanded_formats[i].format;
+          hv_store (expanded_hv, format, strlen (format),
+                    newSViv (1), 0);
+        }
+    }
+  return newRV_noinc ((SV *)expanded_hv);
 }

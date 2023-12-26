@@ -331,23 +331,9 @@ sub book_convert_heading_command($$$$$)
       } else {
         my $use_next_heading = 0;
         if ($self->get_conf('USE_NEXT_HEADING_FOR_LONE_NODE')) {
-          my $expanded_format_raw
-             = $self->get_shared_conversion_state('top', 'expanded_format_raw');
-          # if no format is expanded, the formats will be checked each time
-          # but this is very unlikely, as html is always expanded.
-          if (!defined($expanded_format_raw)
-              or !scalar(keys(%$expanded_format_raw))) {
-            foreach my $output_format_command
-                (keys(%Texinfo::Common::texinfo_output_formats)) {
-              if ($self->is_format_expanded($output_format_command)) {
-                $self->set_shared_conversion_state('top', 'expanded_format_raw',
-                                                   $output_format_command, 1);
-              }
-            }
-          }
           my $next_heading
             = Texinfo::Convert::Utils::find_root_command_next_heading_command(
-                     $element, $expanded_format_raw,
+                     $element, $self->get_info('expanded_formats'),
                      ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'));
           if ($next_heading) {
             $use_next_heading = 1;

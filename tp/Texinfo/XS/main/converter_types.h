@@ -302,9 +302,6 @@ typedef struct FOOTNOTE_ID_NUMBER {
 
 typedef struct HTML_SHARED_CONVERSION_STATE {
     int in_skipped_node_top;
-    /* not used in C, directly use expanded formats in the converter.
-      Needed in perl as expanded formats are accessed per format in the API */
-    EXPANDED_FORMAT *expanded_format_raw;
     EXPLAINED_COMMAND_TYPE_LIST explained_commands;
         /* explained_commands->{char $cmdname}->{char $normalized_type}
                                = explanation */
