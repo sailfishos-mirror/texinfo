@@ -10,6 +10,11 @@
 
 2023-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* * doc/texi2any_api.texi: do not use Perl tree as it could also be a
+	tree in C.  Other misc changes.
+
+2023-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Conversion Customization Variables):
 	add get_conf return value.
 

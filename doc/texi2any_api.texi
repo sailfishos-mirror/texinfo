@@ -67,14 +67,14 @@ available for HTML.
 
 The conversion of Texinfo to HTML is done in two steps.  After reading
 command-line options and init files, input Texinfo code is parsed
-into a Texinfo Perl tree and information is gathered on the document
+into a Texinfo tree and information is gathered on the document
 structure.  This first step can only be customized to a certain extent, by
 using the command-line options and setting customization variables.  The
-Texinfo Perl tree describes a Texinfo document in a structured way which makes
+Texinfo tree describes a Texinfo document in a structured way which makes
 it easy to go through the tree and format @@-commands and other containers.
 
 The second step is the @dfn{conversion} step done in a converter.  The HTML
-converter takes a Texinfo Perl tree as input and transforms it to HTML@.  The
+converter takes a Texinfo tree as input and transforms it to HTML@.  The
 code that is used to go through the tree cannot be customized, but the
 conversion of tree elements can be fully customized.
 
@@ -506,7 +506,7 @@ for @code{@@-} in normal, preformatted (and math) and string context, call
 texinfo_register_no_arg_command_formatting('-', undef, '&shy;');
 @end example
 
-If you want @code{<small>...</small>} to be output for @code{@@enddots}
+If you want ``@code{<small>...</small>}'' to be output for @code{@@enddots}
 in normal context and @code{...} to be output in other contexts, call
 @example
 texinfo_register_no_arg_command_formatting('enddots',
@@ -515,7 +515,7 @@ texinfo_register_no_arg_command_formatting('enddots',
                                            'preformatted', '...');
 @end example
 
-If you want @code{error--&gt;} to be used for @code{@@error} in every context,
+If you want ``@code{error--&gt;}'' to be used for @code{@@error} in every context,
 with a translation when the document language changes, call
 
 @example
@@ -523,7 +523,7 @@ texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
                                            'error--&gt;');
 @end example
 
-If you want @code{is the @strong{same} as} to be used for @code{@@equiv},
+If you want ``@code{is the @strong{same} as}'' to be used for @code{@@equiv},
 translated when the document language changes, and converted from Texinfo to
 HTML in the context of the translation, call
 @example
@@ -1322,11 +1322,12 @@ to a hash and @code{\&function} for a reference on a function.
 To illustrate these conventions, here is the prototype for the
 function associated with @samp{format_thing}:
 
-@deftypefn {Function Reference} @var{$text} format_thing (@var{$arg1}, @var{\@@arg2})
+@defblock
+@defline {Function Reference} @var{$text} format_thing (@var{$arg1}, @var{\@@arg2})
 A function reference associated with @samp{format_thing} has a first argument
 @var{$arg1}, a second argument a reference to an array @var{\@@arg2}, and
 returns the formatted text @var{$text}.
-@end deftypefn
+@end defblock
 
 
 @node Converter Object and Conversion Functions
