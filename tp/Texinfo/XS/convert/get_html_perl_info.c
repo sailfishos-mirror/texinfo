@@ -1640,6 +1640,8 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
 SV *
 get_expanded_formats (EXPANDED_FORMAT *expanded_formats)
 {
+  dTHX;
+
   int i;
   HV *expanded_hv = newHV ();
   for (i = 0; i < expanded_formats_number (); i++)
