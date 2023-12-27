@@ -1,5 +1,13 @@
 2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* contrib/txipsfonts-gildea.diff, contrib/txipsfonts-bronger.tex:
+	Remove these files (from 2002 and 2003).  These files are
+	not integrated into texinfo.tex and may no longer be useful.
+	They were to use PostScript fonts.
+	* contrib/README: Update.
+
+2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* man/info.5, man/texinfo.5: Use https:// for Texinfo
 	homepage URI.  From Mike Frysinger.
 
