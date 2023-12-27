@@ -94,7 +94,6 @@ tp/Texinfo/XS/gnulib/lib/wctype.h
 
 gnulib/lib/**/.dirstamp
 
-doc/*.1
 doc/*.html
 doc/*_html
 doc/*.info
