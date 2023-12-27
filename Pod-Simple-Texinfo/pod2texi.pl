@@ -153,7 +153,7 @@ and all the \@include is generated.");
 
   $pod2texi_help .= __("Email bug reports to bug-texinfo\@gnu.org,
 general questions and discussion to help-texinfo\@gnu.org.
-Texinfo home page: http://www.gnu.org/software/texinfo/")."\n";
+Texinfo home page: https://www.gnu.org/software/texinfo/")."\n";
   return $pod2texi_help;
 }
 
@@ -717,7 +717,7 @@ Display version information and exit.
 =head1 SEE ALSO
 
 L<Pod::Simple::Texinfo>.  L<perlpod>.  The Texinfo manual.
-Texinfo home page: L<http://www.gnu.org/software/texinfo/>
+Texinfo home page: L<https://www.gnu.org/software/texinfo/>
 
 =head1 COPYRIGHT AND LICENSE
 

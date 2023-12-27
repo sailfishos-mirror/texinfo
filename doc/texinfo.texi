@@ -223,7 +223,7 @@ at the @uref{http://www.gnu.org/doc/, GNU documentation web page}.
 We welcome bug reports and suggestions for any aspect of the Texinfo
 system: programs, documentation, installation, etc.  Please email them
 to @email{bug-texinfo@@gnu.org}.  You can get the latest version of
-Texinfo via its home page, @uref{http://www.gnu.org/software/texinfo}.
+Texinfo via its home page, @uref{https://www.gnu.org/software/texinfo}.
 
 @cindex Checklist for bug reports
 For bug reports, please include enough information for the maintainers
@@ -463,7 +463,7 @@ of the Texinfo distribution.
 Texinfo provides a file @file{texinfo.tex} that contains the definitions
 that @TeX{} uses when it typesets a Texinfo file.
 You can get the latest version of @file{texinfo.tex} from
-the Texinfo home page, @uref{http://www.gnu.org/software/texinfo/}.
+the Texinfo home page, @uref{https://www.gnu.org/software/texinfo/}.
 
 A Texinfo-based book is similar to any other typeset, printed work: it
 can have a title page, copyright page, table of contents, and preface,
@@ -12733,7 +12733,7 @@ implementation is reliable in this regard, however.
 @pindex @file{NEWS} file for Texinfo
 You can check the @file{NEWS} file in the Texinfo source distribution
 and linked from the Texinfo home page
-(@url{http://www.gnu.org/software/texinfo}) to see when a particular
+(@url{https://www.gnu.org/software/texinfo}) to see when a particular
 command was added.
 
 @vindex txicommandconditionals
@@ -16669,13 +16669,13 @@ with @code{@@include}.
 @c options and examples in the @command{pod2texi} program itself, since it
 @c may be useful outside of the rest of Texinfo.  Thus, please see the
 @c output of @code{pod2texi --help}, the version on the web at
-@c @url{http://www.gnu.org/software/texinfo/manual/pod2texi.html}, etc.
+@c @url{https://www.gnu.org/software/texinfo/manual/pod2texi.html}, etc.
 
 The @command{pod2texi} program may be useful outside of the rest of Texinfo;
 thus, the invocation of @command{pod2texi} is documented in the Pod language
 using the man page format to follow the convention used in Perl standalone
 programs, with a version on the web
-@url{http://www.gnu.org/software/texinfo/manual/pod2texi.html} and a version
+@url{https://www.gnu.org/software/texinfo/manual/pod2texi.html} and a version
 included below.  The version included in the manual is also an example of
 @command{pod2texi} use, as it is converted from Pod using @command{pod2texi}.
 

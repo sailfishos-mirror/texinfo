@@ -1162,7 +1162,7 @@ puts (_("\
   puts (_("\
 Email bug reports to bug-texinfo@gnu.org,\n\
 general questions and discussion to help-texinfo@gnu.org.\n\
-Texinfo home page: http://www.gnu.org/software/texinfo/"));
+Texinfo home page: https://www.gnu.org/software/texinfo/"));
 
   exit (EXIT_SUCCESS);
 }

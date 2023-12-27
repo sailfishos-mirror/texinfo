@@ -63,7 +63,7 @@ In 2010, @command{texi2html}, then hosted
 at @uref{http://www.nongnu.org/texi2html/} was made
 compatible with @command{makeinfo}, losing the focus on HTML to become a
 more generic translator, and merged in 
-@uref{http://www.gnu.org/software/texinfo/, GNU Texinfo} to
+@uref{https://www.gnu.org/software/texinfo/, GNU Texinfo} to
 replace @command{makeinfo} in C.  That implementation, however, was
 never released and was abandoned in favor of another implementation
 that parses the Texinfo input into a tree for processing.
@@ -343,7 +343,7 @@ something similar with macros. See for example @file{glossary.texi}
 for glossary and @file{my-bib-macros.texi} for bibliography
 in the directory @file{examples}. In the web2c package there is
 an example of use of BibTeX, see @url{http://tug.org/texlive/devsrc/Build/source/TeX/texk/web2c/doc/} (the examples for bibliography are taken from the
-texinfo home page @url{http://www.gnu.org/software/texinfo/texinfo.html}).
+texinfo home page @url{https://www.gnu.org/software/texinfo/texinfo.html}).
 @item don't use @code{T2H_CENTER_IMAGE}. @code{@@center} should be used
 insead, it will give the right output for all the formats.
 @item If a directory creation fails the program aborts. This is much safer.

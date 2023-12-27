@@ -163,7 +163,7 @@ wwwdoc-build:
 	&& echo "Manuals ready for web distribution under: $(doctemp)/"
 #
 # At official release, we need to update:
-# http://www.gnu.org/software/texinfo/manual/
+# https://www.gnu.org/software/texinfo/manual/
 wwwdoc-install:
 	cp -arf $(doctemp)/$(manual1) $(doctemp)/$(manual2) \
 	        $(doctemp)/$(manual3) $(doctemp)/$(manual4) \

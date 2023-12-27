@@ -182,7 +182,7 @@ should give you access to more documentation.
 
 Report bugs to bug-texinfo@gnu.org,
 general questions and discussion to help-texinfo@gnu.org.
-GNU Texinfo home page: <http://www.gnu.org/software/texinfo/>
+GNU Texinfo home page: <https://www.gnu.org/software/texinfo/>
 General help using GNU software: <http://www.gnu.org/gethelp/>
 EOF
   exit 0

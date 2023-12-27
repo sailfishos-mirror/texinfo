@@ -20,7 +20,7 @@ htmlxrefversion=2023-04-02.12; # UTC
 # - have a unique file name (e.g., manual identifier), i.e., be related to the
 #   package name.  Things like "refman" or "tutorial" don't work.
 # - follow the naming convention for nodes described at
-# http://www.gnu.org/software/texinfo/manual/texinfo/html_node/HTML-Xref.html
+# https://www.gnu.org/software/texinfo/manual/texinfo/html_node/HTML-Xref.html
 #   This is what makeinfo and texi2html implement.
 # 
 # Unless the above criteria are met, it's not possible to generate
