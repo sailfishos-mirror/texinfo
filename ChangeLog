@@ -1,5 +1,10 @@
 2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* man/info.5, man/texinfo.5: Use https:// for Texinfo
+	homepage URI.  From Mike Frysinger.
+
+2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/texi2any.pl (makeinfo_help): Use https:// in URI.
 
 2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
