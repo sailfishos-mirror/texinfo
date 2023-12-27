@@ -910,7 +910,7 @@ the behavior is identical, and does not depend on the installed name.\n")
 ."\n";
   $makeinfo_help .= __("Email bug reports to bug-texinfo\@gnu.org,
 general questions and discussion to help-texinfo\@gnu.org.
-Texinfo home page: http://www.gnu.org/software/texinfo/") ."\n";
+Texinfo home page: https://www.gnu.org/software/texinfo/") ."\n";
   return $makeinfo_help;
 }
 
