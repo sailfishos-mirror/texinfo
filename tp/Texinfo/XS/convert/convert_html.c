@@ -10200,9 +10200,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_abbr, &convert_explained_command},
   {CM_acronym, &convert_explained_command},
   {CM_anchor, &convert_anchor_command},
-  /* TODO shared_conversion_state not passed to/from perl
   {CM_footnote, &convert_footnote_command},
-   */
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
