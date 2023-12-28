@@ -482,9 +482,10 @@ sub substitute_html_non_breaking_space($$)
 
 my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
 
-# this allows init files to get the location of the image files
-# which cannot be determined from the result, as the file
-# location is not used in the element output.
+# this can be used in init files to get the path of the image
+# files.  In general the result of image formatting cannot
+# be used to get an image file name path, as the path is not
+# used in the output.
 # FIXME use filenametext or url?  url is always UTF-8 encoded
 # to fit with percent encoding, filenametext uses the output
 # encoding.  As a file name, filenametext could make sense,
@@ -493,57 +494,53 @@ my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
 # In practice, the user should check that the output encoding
 # and the commands used in file names match, so url or
 # filenametext should be the same.
-sub html_image_file_location_name($$$$)
+sub html_image_file_location_name($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $image_basefile = shift;
   my $args = shift;
 
   my @extensions = @image_files_extensions;
 
   my $image_file;
-  my $image_basefile;
   my $image_extension;
   # this variable is bytes encoded in the filesystem encoding
   my ($image_path, $image_path_encoding);
-  if (defined($args->[0]->{'filenametext'})
-      and $args->[0]->{'filenametext'} ne '') {
-    $image_basefile = $args->[0]->{'filenametext'};
-    my $extension;
-    if (defined($args->[4]) and defined($args->[4]->{'filenametext'})) {
-      $extension = $args->[4]->{'filenametext'};
-      unshift @extensions, ("$extension", ".$extension");
-    }
-    foreach my $extension (@extensions) {
-      my ($file_name, $file_name_encoding)
-        = $self->encoded_input_file_name($image_basefile.$extension);
-      my $located_image_path
-           = $self->Texinfo::Common::locate_include_file($file_name);
-      if (defined($located_image_path) and $located_image_path ne '') {
-        $image_path = $located_image_path;
-        $image_path_encoding = $file_name_encoding;
-        # use the @-command argument and not the file found using the
-        # include paths.  It is considered that the files in include paths
-        # will be moved by the caller anyway.
-        # If the file path found was to be used it should be decoded to perl
-        # codepoints too.
-        $image_file = $image_basefile.$extension;
-        $image_extension = $extension;
-        last;
-      }
-    }
-    if (!defined($image_file) or $image_file eq '') {
-      if (defined($extension) and $extension ne '') {
-        $image_file = $image_basefile.$extension;
-        $image_extension = $extension;
-      } else {
-        $image_file = "$image_basefile.jpg";
-        $image_extension = '.jpg';
-      }
+  my $extension;
+  if (defined($args->[4]) and defined($args->[4]->{'filenametext'})) {
+    $extension = $args->[4]->{'filenametext'};
+    unshift @extensions, ("$extension", ".$extension");
+  }
+  foreach my $tried_extension (@extensions) {
+    my ($file_name, $file_name_encoding)
+      = $self->encoded_input_file_name($image_basefile.$tried_extension);
+    my $located_image_path
+          = $self->Texinfo::Common::locate_include_file($file_name);
+    if (defined($located_image_path) and $located_image_path ne '') {
+      $image_path = $located_image_path;
+      $image_path_encoding = $file_name_encoding;
+      # use the @-command argument and not the file found using the
+      # include paths.  It is considered that the files in include paths
+      # will be moved by the caller anyway.
+      # If the file path found was to be used it should be decoded to perl
+      # codepoints too.
+      $image_file = $image_basefile.$tried_extension;
+      $image_extension = $tried_extension;
+      last;
     }
   }
-  return ($image_file, $image_basefile, $image_extension, $image_path,
+  if (!defined($image_file) or $image_file eq '') {
+    if (defined($extension) and $extension ne '') {
+      $image_file = $image_basefile.$extension;
+      $image_extension = $extension;
+    } else {
+      $image_file = "$image_basefile.jpg";
+      $image_extension = '.jpg';
+    }
+  }
+  return ($image_file, $image_extension, $image_path,
           $image_path_encoding);
 }
 
@@ -3737,12 +3734,14 @@ sub _convert_image_command($$$$)
   if ($args and defined($args->[0])
       and defined($args->[0]->{'filenametext'})
       and $args->[0]->{'filenametext'} ne '') {
+    my $image_basefile = $args->[0]->{'filenametext'};
     my $basefile_string = '';
     $basefile_string = $args->[0]->{'monospacestring'}
         if (defined($args->[0]->{'monospacestring'}));
     return $basefile_string if (in_string($self));
-    my ($image_file, $image_basefile, $image_extension, $image_path)
-      = $self->html_image_file_location_name($cmdname, $command, $args);
+    my ($image_file, $image_extension, $image_path)
+      = $self->html_image_file_location_name($cmdname, $command,
+                                             $image_basefile, $args);
     if (not defined($image_path)) {
       $self->_noticed_line_warn(sprintf(
               __("\@image file `%s' (for HTML) not found, using `%s'"),
@@ -3752,10 +3751,10 @@ sub _convert_image_command($$$$)
       $image_file = $self->get_conf('IMAGE_LINK_PREFIX') . $image_file;
     }
     my $alt_string;
-    if (defined($args->[3]) and defined($args->[3]->{'string'})) {
+    if (defined($args->[3]) and defined($args->[3]->{'string'})
+        and $args->[3]->{'string'} ne '') {
       $alt_string = $args->[3]->{'string'};
-    }
-    if (!defined($alt_string) or ($alt_string eq '')) {
+    } else {
       $alt_string = $basefile_string;
     }
     return $self->close_html_lone_element(

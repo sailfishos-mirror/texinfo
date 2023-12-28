@@ -257,12 +257,15 @@ sub epub_convert_image_command($$$$)
 
   if (defined($args->[0]->{'filenametext'})
       and $args->[0]->{'filenametext'} ne '') {
-    my $basefile = $args->[0]->{'filenametext'};
-    return $basefile if ($self->in_string());
+    my $image_basefile = $args->[0]->{'filenametext'};
+    my $basefile_string = '';
+    $basefile_string = $args->[0]->{'monospacestring'}
+        if (defined($args->[0]->{'monospacestring'}));
+    return $basefile_string if ($self->in_string());
 
-    my ($image_file, $image_basefile, $image_extension, $image_path,
-        $image_path_encoding)
-      = $self->html_image_file_location_name($cmdname, $command, $args);
+    my ($image_file, $image_extension, $image_path, $image_path_encoding)
+      = $self->html_image_file_location_name($cmdname, $command,
+                                             $image_basefile, $args);
     if (not defined($image_path)) {
       # FIXME using an internal function.  Also not clear if it is correct to
       # use it, as it is not used for other messages
@@ -339,12 +342,11 @@ sub epub_convert_image_command($$$$)
       $destination_file_name = $destination_basefile_name;
     }
     my $alt_string;
-    if (defined($args->[3]) and defined($args->[3]->{'string'})) {
+    if (defined($args->[3]) and defined($args->[3]->{'string'})
+        and $args->[3]->{'string'} ne '') {
       $alt_string = $args->[3]->{'string'};
-    }
-    if (!defined($alt_string) or ($alt_string eq '')) {
-      $alt_string
-       = &{$self->formatting_function('format_protect_text')}($self, $basefile);
+    } else {
+      $alt_string = $basefile_string;
     }
 
     return $self->close_html_lone_element(
