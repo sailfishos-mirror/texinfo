@@ -2483,7 +2483,10 @@ url_protect_url_text (CONVERTER *self, const char *input_string)
                 }
               for (i = 0; i < char_len; i++)
                 {
-                  text_printf (&text, "%%%02x", *p);
+            /* the reason for forcing (unsigned char) is that the %x modifier
+               expects an unsigned int parameter and a char will usually be
+               promoted to an int when passed to a varargs function */
+                  text_printf (&text, "%%%2x", (unsigned char)*p);
                   p += 1;
                 }
             }
@@ -8710,6 +8713,67 @@ convert_footnote_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_uref_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *attribute_class;
+  STRING_LIST *classes;
+  char *url = 0;
+  char *url_string = 0;
+  char *text = 0;
+  char *protected_url;
+
+  if (args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_url]
+      && args_formatted->args[0].formatted[AFT_type_monospacestring])
+    {
+      url = args_formatted->args[0].formatted[AFT_type_url];
+      url_string = args_formatted->args[0].formatted[AFT_type_monospacestring];
+    }
+  if (args_formatted->number > 1
+      && args_formatted->args[1].formatted[AFT_type_normal])
+    {
+      text = args_formatted->args[1].formatted[AFT_type_normal];
+    }
+  if (args_formatted->number > 2
+      && args_formatted->args[2].formatted[AFT_type_normal])
+    {
+      char *replacement = args_formatted->args[2].formatted[AFT_type_normal];
+      if (strlen (replacement))
+        text = replacement;
+    }
+  if ((!text || !strlen(text)) && url_string)
+    text = url_string;
+
+  if (!url || !strlen (url))
+    {
+      if (text)
+        text_append (result, text);
+       return;
+    }
+
+  if (html_in_string (self))
+    {
+      text_printf (result, "%s (%s)", text, url_string);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  attribute_class = html_attribute_class (self, "a", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  protected_url = url_protect_url_text (self, url);
+  text_printf (result, " href=\"%s\">%s</a>", protected_url, text);
+  free (protected_url);
+}
+
+void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10201,6 +10265,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_acronym, &convert_explained_command},
   {CM_anchor, &convert_anchor_command},
   {CM_footnote, &convert_footnote_command},
+  {CM_uref, &convert_uref_command},
+  {CM_url, &convert_uref_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
