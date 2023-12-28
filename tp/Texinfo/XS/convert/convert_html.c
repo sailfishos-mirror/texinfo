@@ -2542,7 +2542,10 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
                 }
               for (i = 0; i < char_len; i++)
                 {
-                  text_printf (&text, "%%%02x", *p);
+            /* the reason for forcing (unsigned char) is that the %x modifier
+               expects an unsigned int parameter and a char will usually be
+               promoted to an int when passed to a varargs function */
+                  text_printf (&text, "%%%2x", (unsigned char)*p);
                   p += 1;
                 }
             }
@@ -8773,6 +8776,216 @@ convert_uref_command (CONVERTER *self, const enum command_id cmd,
   free (protected_url);
 }
 
+static const char *image_files_extensions[] = {
+".png", ".jpg", ".jpeg", ".gif", 0
+};
+
+/* return, IMAGE_PATH and IMAGE_PATH_ENCODING to be freed by caller */
+static char *
+find_image_extension_file (CONVERTER *self, const ELEMENT *element,
+                                  const char *image_basefile,
+                                  const char *extension,
+                                  char **image_path,
+                                  char **image_path_encoding)
+{
+  char *image_file;
+  char *input_file_encoding;
+  char *file_name;
+  char *located_image_path;
+
+  xasprintf (&image_file, "%s%s", image_basefile, extension);
+  file_name = encoded_input_file_name (self->conf, self->document->global_info,
+                   image_file, 0, &input_file_encoding, &element->source_info);
+
+  located_image_path = locate_include_file (file_name,
+                                            &self->conf->INCLUDE_DIRECTORIES);
+  free (file_name);
+
+  if (located_image_path)
+    {
+      *image_path_encoding = input_file_encoding;
+      *image_path = located_image_path;
+      return image_file;
+    }
+
+  free (image_file);
+  free (input_file_encoding);
+  return 0;
+}
+
+typedef struct IMAGE_FILE_LOCATION_INFO {
+    char *image_file;
+    char *image_extension;
+    char *image_path;
+    char *image_path_encoding;
+} IMAGE_FILE_LOCATION_INFO;
+
+void
+free_image_file_location_info (IMAGE_FILE_LOCATION_INFO *location_info)
+{
+  free (location_info->image_file);
+  free (location_info->image_extension);
+  free (location_info->image_path);
+  free (location_info->image_path_encoding);
+}
+
+IMAGE_FILE_LOCATION_INFO *
+html_image_file_location_name (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element, const char *image_basefile,
+                    const HTML_ARGS_FORMATTED *args_formatted)
+{
+  char *image_file = 0;
+  char *extension = 0;
+
+  IMAGE_FILE_LOCATION_INFO *result = (IMAGE_FILE_LOCATION_INFO *)
+    malloc (sizeof (IMAGE_FILE_LOCATION_INFO));
+
+  if (args_formatted->number > 4
+      && args_formatted->args[4].formatted[AFT_type_filenametext])
+    {
+      extension
+       = args_formatted->args[4].formatted[AFT_type_filenametext];
+      image_file
+        = find_image_extension_file (self, element, image_basefile,
+                                     extension, &result->image_path,
+                                     &result->image_path_encoding);
+      if (!image_file)
+        {
+          char *dot_ext;
+          xasprintf (&dot_ext, ".%s", extension);
+          image_file
+            = find_image_extension_file (self, element, image_basefile,
+                                         dot_ext, &result->image_path,
+                                         &result->image_path_encoding);
+          if (image_file)
+            result->image_extension = dot_ext;
+        }
+      else
+        result->image_extension = strdup (extension);
+    }
+
+  if (!image_file)
+    {
+      int i;
+      for (i = 0; image_files_extensions[i]; i++)
+        {
+          image_file
+            = find_image_extension_file (self, element, image_basefile,
+                        image_files_extensions[i], &result->image_path,
+                              &result->image_path_encoding);
+          if (image_file)
+            {
+              result->image_extension = strdup (image_files_extensions[i]);
+              break;
+            }
+        }
+    }
+
+  if (!image_file)
+    {
+      result->image_path = 0;
+      result->image_path_encoding = 0;
+      if (extension)
+        {
+          xasprintf (&result->image_file, "%s%s", image_basefile,
+                                                  extension);
+          result->image_extension = strdup (extension);
+        }
+      else
+        {
+          xasprintf (&result->image_file, "%s.jpg", image_basefile);
+          result->image_extension = strdup (".jpg");
+        }
+    }
+  else
+    result->image_file = image_file;
+
+  return result;
+}
+
+void
+convert_image_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_filenametext]
+      && strlen (args_formatted->args[0].formatted[AFT_type_filenametext]))
+    {
+      IMAGE_FILE_LOCATION_INFO *image_path_info;
+      char *image_basefile
+        = args_formatted->args[0].formatted[AFT_type_filenametext];
+      char *basefile_string = 0;
+      char *image_file;
+      char *attribute_class;
+      char *protected_image_file;
+      STRING_LIST *classes;
+      const char *alt_string;
+
+      if (args_formatted->args[0].formatted[AFT_type_monospacestring])
+        basefile_string
+          = args_formatted->args[0].formatted[AFT_type_monospacestring];
+
+      if (html_in_string (self))
+        {
+          if (basefile_string)
+            text_append (result, basefile_string);
+          return;
+        }
+
+      image_path_info = html_image_file_location_name (self, cmd, element,
+                                                       image_basefile,
+                                                       args_formatted);
+      image_file = image_path_info->image_file;
+      image_path_info->image_file = 0;
+
+      if (!image_path_info->image_path)
+        {
+          noticed_line_warn (self, element,
+                "@image file `%s' (for HTML) not found, using `%s'",
+                     image_basefile, image_file);
+        }
+      free_image_file_location_info (image_path_info);
+
+      if (self->conf->IMAGE_LINK_PREFIX)
+        {
+          char *tmp;
+          xasprintf (&tmp, "%s%s", self->conf->IMAGE_LINK_PREFIX,
+                                   image_file);
+          free (image_file);
+          image_file = tmp;
+        }
+
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+
+      attribute_class = html_attribute_class (self, "img", classes);
+      destroy_strings_list (classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+
+      protected_image_file = url_protect_file_text (self, image_file);
+      free (image_file);
+
+      if (args_formatted->number > 3
+          && args_formatted->args[3].formatted[AFT_type_string]
+          && strlen (args_formatted->args[3].formatted[AFT_type_string]))
+        alt_string = args_formatted->args[3].formatted[AFT_type_string];
+      else if (basefile_string)
+        alt_string = basefile_string;
+      else
+        alt_string = "";
+
+      text_printf (result, " src=\"%s\" alt=\"%s\"", protected_image_file,
+                           alt_string);
+
+      free (protected_image_file);
+      close_html_lone_element (self, result);
+    }
+}
+
 void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -10267,6 +10480,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_footnote, &convert_footnote_command},
   {CM_uref, &convert_uref_command},
   {CM_url, &convert_uref_command},
+  {CM_image, convert_image_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to

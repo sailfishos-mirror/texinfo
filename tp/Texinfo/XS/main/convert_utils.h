@@ -37,6 +37,11 @@ ELEMENT *definition_category_tree (OPTIONS *options, const ELEMENT *current);
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
 void destroy_translated_commands (TRANSLATED_COMMAND *translated_commands);
 
+char *encoded_input_file_name (OPTIONS *options,
+                         GLOBAL_INFO *global_information,
+                         char *file_name, char *input_file_encoding,
+                         char **file_name_encoding,
+                         const SOURCE_INFO *source_info);
 char *encoded_output_file_name (OPTIONS *options,
                                 GLOBAL_INFO *global_information,
                                 char *file_name, char **file_name_encoding,
