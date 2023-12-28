@@ -424,8 +424,8 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
 /* this number should be safe to use even after targets list has been
    reallocated */
 size_t
-find_element_target_number (const HTML_TARGET_LIST *targets,
-                            const ELEMENT *element)
+find_element_target_number_linear (const HTML_TARGET_LIST *targets,
+                                   const ELEMENT *element)
 {
   size_t i;
 
@@ -441,28 +441,66 @@ find_element_target_number (const HTML_TARGET_LIST *targets,
   return 0;
 }
 
+static int
+compare_element_target (const void *a, const void *b)
+{
+  const HTML_TARGET *ete_a = (const HTML_TARGET *) a;
+  const HTML_TARGET *ete_b = (const HTML_TARGET *) b;
+  /* we cast to uintptr_t because comparison of pointers from different
+     objects is undefined behaviour in C.  In practice it is probably
+     not an issue */
+  uintptr_t a_element_addr = (uintptr_t)ete_a->element;
+  uintptr_t b_element_addr = (uintptr_t)ete_b->element;
+
+  return (a_element_addr > b_element_addr) - (a_element_addr < b_element_addr);
+}
+
+HTML_TARGET *
+find_element_target_search (const HTML_TARGET_LIST *targets,
+                                          const ELEMENT *element)
+{
+  HTML_TARGET *result;
+  static HTML_TARGET searched_element;
+
+  if (targets->number == 0)
+    return 0;
+
+  searched_element.element = element;
+  result = (HTML_TARGET *) bsearch (&searched_element,
+               targets->list, targets->number, sizeof(HTML_TARGET),
+               compare_element_target);
+  return result;
+}
+
 /* becomes invalid if the targets list is reallocated */
 HTML_TARGET *
 find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
 {
   enum command_id cmd = element_builtin_cmd (element);
-  size_t i = find_element_target_number (&targets[cmd], element);
+  return find_element_target_search (&targets[cmd], element);
+  /* with a linear search:
+  size_t i = find_element_target_number_linear (&targets[cmd], element);
 
   if (i > 0)
     return &targets[cmd].list[i - 1];
 
   return 0;
+  */
 }
 
 HTML_TARGET *
-find_element_special_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
+find_element_special_target (const HTML_TARGET_LIST *targets,
+                             const ELEMENT *element)
 {
-  size_t i = find_element_target_number (targets, element);
+  return find_element_target_search (targets, element);
+  /* with a linear search:
+  size_t i = find_element_target_number_linear (targets, element);
 
   if (i > 0)
     return &targets->list[i - 1];
 
   return 0;
+  */
 }
 
 char *
@@ -4691,6 +4729,41 @@ set_heading_commands_targets (CONVERTER *self)
     }
 }
 
+/* It may not be efficient to sort and find back with bsearch
+   if there is a small number of elements.  However, some target
+   elements should already be ordered when they are accessed in
+   their order of appearance in the document.
+   TODO check in which case it is not true and use another data
+   source if possible  */
+void
+sort_cmd_targets (CONVERTER *self)
+{
+  enum command_id cmd;
+  int type;
+
+  for (cmd = 0; cmd < BUILTIN_CMD_NUMBER; cmd++)
+    {
+      if (self->html_targets[cmd].number > 0)
+        {
+          HTML_TARGET_LIST *element_targets = &self->html_targets[cmd];
+          qsort (element_targets->list,
+                 element_targets->number,
+                 sizeof (HTML_TARGET), compare_element_target);
+          push_command (&self->html_target_cmds, cmd);
+        }
+    }
+  for (type = 0; type < ST_footnote_location+1; type++)
+    {
+     if (self->html_special_targets[type].number > 0)
+        {
+          HTML_TARGET_LIST *element_targets = &self->html_special_targets[type];
+          qsort (element_targets->list,
+                 element_targets->number,
+                 sizeof (HTML_TARGET), compare_element_target);
+        }
+    }
+}
+
 /* for conversion units except for associated special units that require
    files for document units to be set */
 void
@@ -4716,6 +4789,8 @@ html_prepare_conversion_units_targets (CONVERTER *self,
   prepare_footnotes_targets (self);
 
   set_heading_commands_targets (self);
+
+  sort_cmd_targets (self);
 }
 
 /* Associate output units to the global targets, First, Last, Top, Index.
@@ -11172,9 +11247,14 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
 void
 reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
 {
-  enum command_id cmd;
-  for (cmd = 0; cmd < BUILTIN_CMD_NUMBER; cmd++)
-    reset_html_targets_list (self, &targets[cmd]);
+  int i;
+  for (i = 0; i < self->html_target_cmds.top; i++)
+    {
+      enum command_id cmd = self->html_target_cmds.stack[i];
+      reset_html_targets_list (self, &targets[cmd]);
+      free (targets[cmd].list);
+      targets[cmd].space = 0;
+    }
 }
 
 /* called very early in conversion functions, before updating
@@ -11335,7 +11415,10 @@ html_reset_converter (CONVERTER *self)
   for (i = 0; i < ST_footnote_location+1; i++)
     {
       reset_html_targets_list (self, &self->html_special_targets[i]);
+      free (self->html_special_targets[i].list);
+      self->html_special_targets[i].space = 0;
     }
+  self->html_target_cmds.top = 0;
 
   free (self->shared_conversion_state.footnote_id_numbers);
 
@@ -11514,13 +11597,10 @@ html_free_converter (CONVERTER *self)
   free (self->special_unit_body_formatting);
 
   free (self->global_units_directions);
-  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
-    free (self->html_targets[i].list);
+
+  free (self->html_target_cmds.stack);
+
   free_strings_list (&self->seen_ids);
-  for (i = 0; i < ST_footnote_location+1; i++)
-    {
-      free (self->html_special_targets[i].list);
-    }
 
   free_strings_list (&self->check_htmlxref_already_warned);
 

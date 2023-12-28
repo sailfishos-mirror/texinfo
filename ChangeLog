@@ -1,3 +1,21 @@
+2023-12-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(find_element_target_number_linear, compare_element_target)
+	(find_element_target_search, find_element_target)
+	(find_element_special_target, sort_cmd_targets)
+	(html_prepare_conversion_units_targets, reset_html_targets)
+	(html_reset_converter, html_free_converter): sort target elements and
+	use bsearch in find_element_target through find_element_target_search.
+	Rename find_element_target_number as
+	find_element_target_number_linear.
+
+	* tp/Texinfo/XS/convert/convert_html.c (reset_html_targets)
+	(html_reset_converter), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): add html_target_cmds, a list of cmd identifiers with
+	associated targets to free only those when resetting parser.  Free
+	targets lists when resetting parser, not when freeing it.
+
 2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* contrib/txipsfonts-gildea.diff, contrib/txipsfonts-bronger.tex:

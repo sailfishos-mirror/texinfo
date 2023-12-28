@@ -740,6 +740,7 @@ typedef struct CONVERTER {
     /* TODO list with commands possibly associated to targets only? */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
+    COMMAND_STACK html_target_cmds; /* list of cmd with targets */
     JSLICENSE_CATEGORY_LIST jslicenses;
     /* associate cmd and index in special_unit_varieties STRING_LIST */
     /* number in sync with command_special_unit_variety, +1 for trailing 0 */
