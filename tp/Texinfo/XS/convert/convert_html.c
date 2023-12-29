@@ -8987,6 +8987,44 @@ convert_image_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_math_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *attribute_class;
+  STRING_LIST *classes;
+  char *arg;
+
+  if (!args_formatted || args_formatted->number <= 0
+      || !args_formatted->args[0].formatted[AFT_type_normal])
+    return;
+
+  arg = args_formatted->args[0].formatted[AFT_type_normal];
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  if (self->conf->HTML_MATH && !strcmp (self->conf->HTML_MATH, "mathjax"))
+    {
+      html_register_file_information (self, "mathjax", 1);
+      add_string ("tex2jax_process", classes);
+      attribute_class = html_attribute_class (self, "em", classes);
+      text_append (result, attribute_class);
+      text_printf (result, ">\\(%s\\)</em>", arg);
+      return;
+    }
+
+  attribute_class = html_attribute_class (self, "em", classes);
+  text_append (result, attribute_class);
+  text_printf (result, ">%s</em>", arg);
+
+  destroy_strings_list (classes);
+  free (attribute_class);
+}
+
+void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10481,6 +10519,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_uref, &convert_uref_command},
   {CM_url, &convert_uref_command},
   {CM_image, convert_image_command},
+  {CM_math, convert_math_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
