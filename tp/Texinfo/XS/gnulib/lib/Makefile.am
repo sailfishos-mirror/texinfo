@@ -46,9 +46,13 @@
 #  uniconv/u8-strconv-from-enc \
 #  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
+#  unictype/category-M \
 #  unictype/category-Mn \
+#  unictype/category-Nd \
 #  unictype/category-test \
 #  unictype/ctype-upper \
+#  unictype/property-alphabetic \
+#  unictype/property-join-control \
 #  uninorm/nfc \
 #  uninorm/nfkd \
 #  uninorm/u8-normalize \
@@ -57,6 +61,7 @@
 #  unistr/u8-mbtouc \
 #  unistr/u8-next \
 #  unistr/u8-strlen \
+#  unistr/u8-strmbtouc \
 #  unistr/u8-uctomb \
 #  uniwidth/u8-strwidth \
 #  uniwidth/u8-width \
@@ -1027,9 +1032,7 @@ EXTRA_DIST += streq.h
 ## begin gnulib module striconveh
 
 libgnu_la_SOURCES += striconveh.h striconveh.c
-if GL_COND_LIBTOOL
 libgnu_la_LDFLAGS += $(LTLIBICONV)
-endif
 
 EXTRA_DIST += iconveh.h
 
@@ -1620,6 +1623,16 @@ EXTRA_DIST += unictype/categ_L.h
 
 ## end   gnulib module unictype/category-L
 
+## begin gnulib module unictype/category-M
+
+if LIBUNISTRING_COMPILE_UNICTYPE_CATEGORY_M
+libgnu_la_SOURCES += unictype/categ_M.c
+endif
+
+EXTRA_DIST += unictype/categ_M.h
+
+## end   gnulib module unictype/category-M
+
 ## begin gnulib module unictype/category-Mn
 
 if LIBUNISTRING_COMPILE_UNICTYPE_CATEGORY_MN
@@ -1629,6 +1642,16 @@ endif
 EXTRA_DIST += unictype/categ_Mn.h
 
 ## end   gnulib module unictype/category-Mn
+
+## begin gnulib module unictype/category-Nd
+
+if LIBUNISTRING_COMPILE_UNICTYPE_CATEGORY_ND
+libgnu_la_SOURCES += unictype/categ_Nd.c
+endif
+
+EXTRA_DIST += unictype/categ_Nd.h
+
+## end   gnulib module unictype/category-Nd
 
 ## begin gnulib module unictype/category-test
 
@@ -1659,6 +1682,26 @@ endif
 EXTRA_DIST += unictype/bitmap.h unictype/ctype_upper.h
 
 ## end   gnulib module unictype/ctype-upper
+
+## begin gnulib module unictype/property-alphabetic
+
+if LIBUNISTRING_COMPILE_UNICTYPE_PROPERTY_ALPHABETIC
+libgnu_la_SOURCES += unictype/pr_alphabetic.c
+endif
+
+EXTRA_DIST += unictype/bitmap.h unictype/pr_alphabetic.h
+
+## end   gnulib module unictype/property-alphabetic
+
+## begin gnulib module unictype/property-join-control
+
+if LIBUNISTRING_COMPILE_UNICTYPE_PROPERTY_JOIN_CONTROL
+libgnu_la_SOURCES += unictype/pr_join_control.c
+endif
+
+EXTRA_DIST += unictype/bitmap.h unictype/pr_join_control.h
+
+## end   gnulib module unictype/property-join-control
 
 ## begin gnulib module unictype/property-soft-dotted
 
@@ -1956,6 +1999,7 @@ unistd.h: unistd.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	      -e 's|@''REPLACE_EXECVP''@|$(REPLACE_EXECVP)|g' \
 	      -e 's|@''REPLACE_EXECVPE''@|$(REPLACE_EXECVPE)|g' \
 	      -e 's|@''REPLACE_FACCESSAT''@|$(REPLACE_FACCESSAT)|g' \
+	      -e 's|@''REPLACE_FCHDIR''@|$(REPLACE_FCHDIR)|g' \
 	      -e 's|@''REPLACE_FCHOWNAT''@|$(REPLACE_FCHOWNAT)|g' \
 	      -e 's|@''REPLACE_FDATASYNC''@|$(REPLACE_FDATASYNC)|g' \
 	      -e 's|@''REPLACE_FTRUNCATE''@|$(REPLACE_FTRUNCATE)|g' \
@@ -2295,6 +2339,7 @@ wchar.h: wchar.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) 
 	      -e 's/@''GNULIB_WCSTOK''@/$(GL_GNULIB_WCSTOK)/g' \
 	      -e 's/@''GNULIB_WCSWIDTH''@/$(GL_GNULIB_WCSWIDTH)/g' \
 	      -e 's/@''GNULIB_WCSFTIME''@/$(GL_GNULIB_WCSFTIME)/g' \
+	      -e 's/@''GNULIB_WGETCWD''@/$(GL_GNULIB_WGETCWD)/g' \
 	      -e 's/@''GNULIB_MDA_WCSDUP''@/$(GL_GNULIB_MDA_WCSDUP)/g' \
 	      -e 's/@''GNULIB_FREE_POSIX''@/$(GL_GNULIB_FREE_POSIX)/g' \
 	      < $(srcdir)/wchar.in.h > $@-t1

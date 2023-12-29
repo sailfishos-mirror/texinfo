@@ -51,9 +51,13 @@
 #  uniconv/u8-strconv-from-enc \
 #  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
+#  unictype/category-M \
 #  unictype/category-Mn \
+#  unictype/category-Nd \
 #  unictype/category-test \
 #  unictype/ctype-upper \
+#  unictype/property-alphabetic \
+#  unictype/property-join-control \
 #  uninorm/nfc \
 #  uninorm/nfkd \
 #  uninorm/u8-normalize \
@@ -62,6 +66,7 @@
 #  unistr/u8-mbtouc \
 #  unistr/u8-next \
 #  unistr/u8-strlen \
+#  unistr/u8-strmbtouc \
 #  unistr/u8-uctomb \
 #  uniwidth/u8-strwidth \
 #  uniwidth/u8-width \
@@ -85,9 +90,13 @@ gl_MODULES([
   uniconv/u8-strconv-from-enc
   uniconv/u8-strconv-to-enc
   unictype/category-L
+  unictype/category-M
   unictype/category-Mn
+  unictype/category-Nd
   unictype/category-test
   unictype/ctype-upper
+  unictype/property-alphabetic
+  unictype/property-join-control
   uninorm/nfc
   uninorm/nfkd
   uninorm/u8-normalize
@@ -96,6 +105,7 @@ gl_MODULES([
   unistr/u8-mbtouc
   unistr/u8-next
   unistr/u8-strlen
+  unistr/u8-strmbtouc
   unistr/u8-uctomb
   uniwidth/u8-strwidth
   uniwidth/u8-width

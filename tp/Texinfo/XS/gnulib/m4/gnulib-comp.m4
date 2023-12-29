@@ -124,10 +124,14 @@ AC_DEFUN([gl_EARLY],
   # Code from module uniconv/u8-strconv-to-enc:
   # Code from module unictype/base:
   # Code from module unictype/category-L:
+  # Code from module unictype/category-M:
   # Code from module unictype/category-Mn:
+  # Code from module unictype/category-Nd:
   # Code from module unictype/category-test:
   # Code from module unictype/combining-class:
   # Code from module unictype/ctype-upper:
+  # Code from module unictype/property-alphabetic:
+  # Code from module unictype/property-join-control:
   # Code from module unictype/property-soft-dotted:
   # Code from module uninorm/base:
   # Code from module uninorm/canonical-decomposition:
@@ -386,12 +390,22 @@ AC_DEFUN([gl_INIT],
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-L])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-M])
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-Mn])
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-Nd])
   AC_REQUIRE([AC_C_INLINE])
   gl_LIBUNISTRING_MODULE([0.9.8], [unictype/category-test])
   gl_LIBUNISTRING_MODULE([1.1], [unictype/combining-class])
   AC_REQUIRE([AC_C_INLINE])
   gl_LIBUNISTRING_MODULE([0.9.11], [unictype/ctype-upper])
+  AC_REQUIRE([AC_C_INLINE])
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/property-alphabetic])
+  AC_REQUIRE([AC_C_INLINE])
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([0.9.8], [unictype/property-join-control])
   AC_REQUIRE([AC_C_INLINE])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/property-soft-dotted])
@@ -762,13 +776,21 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unictype/bitmap.h
   lib/unictype/categ_L.c
   lib/unictype/categ_L.h
+  lib/unictype/categ_M.c
+  lib/unictype/categ_M.h
   lib/unictype/categ_Mn.c
   lib/unictype/categ_Mn.h
+  lib/unictype/categ_Nd.c
+  lib/unictype/categ_Nd.h
   lib/unictype/categ_test.c
   lib/unictype/combiningclass.c
   lib/unictype/combiningclass.h
   lib/unictype/ctype_upper.c
   lib/unictype/ctype_upper.h
+  lib/unictype/pr_alphabetic.c
+  lib/unictype/pr_alphabetic.h
+  lib/unictype/pr_join_control.c
+  lib/unictype/pr_join_control.h
   lib/unictype/pr_soft_dotted.c
   lib/unictype/pr_soft_dotted.h
   lib/uninorm.in.h
