@@ -53,6 +53,7 @@
 #  unictype/ctype-upper \
 #  unictype/property-alphabetic \
 #  unictype/property-join-control \
+#  unictype/property-test \
 #  uninorm/nfc \
 #  uninorm/nfkd \
 #  uninorm/u8-normalize \
@@ -1712,6 +1713,14 @@ endif
 EXTRA_DIST += unictype/bitmap.h unictype/pr_soft_dotted.h
 
 ## end   gnulib module unictype/property-soft-dotted
+
+## begin gnulib module unictype/property-test
+
+if LIBUNISTRING_COMPILE_UNICTYPE_PROPERTY_TEST
+libgnu_la_SOURCES += unictype/pr_test.c
+endif
+
+## end   gnulib module unictype/property-test
 
 ## begin gnulib module uninorm/base
 

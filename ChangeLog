@@ -1,5 +1,12 @@
 2023-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	Add gnulib module for XS
+
+	* tp/Texinfo/XS:
+	Run "gnulib-tool --add-import unictype/property-test"
+
+2023-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	Add gnulib modules for XS
 
 	* tp/Texinfo/XS:

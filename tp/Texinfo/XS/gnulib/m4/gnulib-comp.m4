@@ -133,6 +133,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module unictype/property-alphabetic:
   # Code from module unictype/property-join-control:
   # Code from module unictype/property-soft-dotted:
+  # Code from module unictype/property-test:
   # Code from module uninorm/base:
   # Code from module uninorm/canonical-decomposition:
   # Code from module uninorm/compat-decomposition:
@@ -409,6 +410,7 @@ AC_DEFUN([gl_INIT],
   AC_REQUIRE([AC_C_INLINE])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/property-soft-dotted])
+  gl_LIBUNISTRING_MODULE([0.9.8], [unictype/property-test])
   gl_LIBUNISTRING_LIBHEADER([1.2], [uninorm.h])
   gl_UNINORM_H
   gl_UNINORM_H_REQUIRE_DEFAULTS
@@ -793,6 +795,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unictype/pr_join_control.h
   lib/unictype/pr_soft_dotted.c
   lib/unictype/pr_soft_dotted.h
+  lib/unictype/pr_test.c
   lib/uninorm.in.h
   lib/uninorm/canonical-decomposition.c
   lib/uninorm/compat-decomposition.c

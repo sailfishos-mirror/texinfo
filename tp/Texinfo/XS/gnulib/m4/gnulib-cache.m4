@@ -58,6 +58,7 @@
 #  unictype/ctype-upper \
 #  unictype/property-alphabetic \
 #  unictype/property-join-control \
+#  unictype/property-test \
 #  uninorm/nfc \
 #  uninorm/nfkd \
 #  uninorm/u8-normalize \
@@ -97,6 +98,7 @@ gl_MODULES([
   unictype/ctype-upper
   unictype/property-alphabetic
   unictype/property-join-control
+  unictype/property-test
   uninorm/nfc
   uninorm/nfkd
   uninorm/u8-normalize
