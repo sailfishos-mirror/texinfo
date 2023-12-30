@@ -2451,17 +2451,27 @@ format_protect_text (CONVERTER *self, const char *text, TEXT *result)
 }
 
 char *
+html_default_format_comment (CONVERTER *self, const char *text)
+{
+  char *with_space;
+  char *result;
+
+  xasprintf (&with_space, " %s", text);
+  result = xml_comment (self, with_space);
+  free (with_space);
+  return result;
+}
+
+char *
 format_comment (CONVERTER *self, const char *text)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_comment];
-/*
   if (formatting_reference->status == FRS_status_default_set)
     {
       return html_default_format_comment (self, text);
     }
   else
-*/
     {
       return call_formatting_function_format_comment (self,
                                                formatting_reference,

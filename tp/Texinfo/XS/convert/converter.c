@@ -910,3 +910,36 @@ xml_numeric_entity_accent (enum command_id cmd, const char *text)
   return 0;
 }
 
+/* return to be freed by the caller */
+char *
+xml_comment (CONVERTER *converter, const char *text)
+{
+  const char *p = text;
+
+  TEXT result;
+
+  text_init (&result);
+  text_append_n (&result, "<!--", 4);
+  while (*p)
+    {
+      char *q = strchr (p, '-');
+      if (q)
+        {
+          if (q - p)
+            text_append_n (&result, p, q +1 - p);
+          p = q + 1;
+          p += strspn (p, "-");
+        }
+      else
+        {
+          text_append (&result, p);
+          break;
+        }
+    }
+  if (result.end > 0 && result.text[result.end - 1] == '\n')
+    {
+      result.end--;
+    }
+  text_append_n (&result, " -->\n", 5);
+  return result.text;
+}

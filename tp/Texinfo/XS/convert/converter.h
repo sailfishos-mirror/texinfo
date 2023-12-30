@@ -111,4 +111,5 @@ void free_generic_converter (CONVERTER *self);
 
 void xml_format_text_with_numeric_entities (const char *text, TEXT *result);
 char *xml_numeric_entity_accent (enum command_id cmd, const char *text);
+char *xml_comment (CONVERTER *converter, const char *text);
 #endif
