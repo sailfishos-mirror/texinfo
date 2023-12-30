@@ -10961,9 +10961,22 @@ default_format_special_body_contents (CONVERTER *self,
   free (table_of_contents);
 }
 
+void
+default_format_special_body_shortcontents (CONVERTER *self,
+                               const size_t special_unit_number,
+                               const char *special_unit_variety,
+                               const OUTPUT_UNIT *output_unit,
+                               TEXT *result)
+{
+  char *shortcontents = format_contents (self, CM_shortcontents, 0, 0);
+  text_append (result, shortcontents);
+  free (shortcontents);
+}
+
 static SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
    special_unit_body_internal_formatting_table[] = {
   {"contents", &default_format_special_body_contents},
+  {"shortcontents", &default_format_special_body_shortcontents},
   {0, 0},
 };
 
