@@ -1,5 +1,14 @@
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_heading_text): handle the case of being in
+	string.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_titlefont_command)
+	(commands_internal_conversion_table): implement in C.
+
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_accent_entities_html_accent): do not
 	call xml_accent if accents are not formatted in the end as the only
 	case where it should happen is @dotless with an unknown argument, and

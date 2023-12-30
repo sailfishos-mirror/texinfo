@@ -4049,7 +4049,7 @@ sub _default_format_heading_text($$$$$;$$$)
 
   return '' if ($text !~ /\S/ and not defined($id));
 
-  # This should seldom happen.
+  # This happens with titlefont in title for instance
   if (in_string($self)) {
     $text .= "\n" unless (defined($cmdname) and $cmdname eq 'titlefont');
     return $text;

@@ -5715,6 +5715,15 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
   if (!id && text[strspn (text, whitespace_chars)] == '\0')
     return;
 
+  /* This happens with titlefont in title for instance */
+  if (html_in_string (self))
+    {
+      text_append (result, text);
+      if (cmd != CM_titlefont)
+        text_append_n (result, "\n", 1);
+      return;
+    }
+
   if (level < 1)
     heading_level = 1;
   else if (level > self->conf->MAX_HEADER_LEVEL)
@@ -6054,7 +6063,6 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
                      const STRING_LIST *classes, const char *text,
                      int level, const char *id, const ELEMENT *element,
                      const char *target, TEXT *result)
-
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_heading_text];
@@ -9157,6 +9165,26 @@ convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_titlefont_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
+    {
+      STRING_LIST *classes;
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+      format_heading_text (self, cmd, classes,
+                   args_formatted->args[0].formatted[AFT_type_normal],
+                     0, 0, 0, 0, result);
+    }
+}
+
+void
 convert_raw_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10613,8 +10641,9 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_footnote, &convert_footnote_command},
   {CM_uref, &convert_uref_command},
   {CM_url, &convert_uref_command},
-  {CM_image, convert_image_command},
-  {CM_math, convert_math_command},
+  {CM_image, &convert_image_command},
+  {CM_math, &convert_math_command},
+  {CM_titlefont, &convert_titlefont_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
