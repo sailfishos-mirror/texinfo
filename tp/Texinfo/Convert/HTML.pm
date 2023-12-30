@@ -3835,7 +3835,9 @@ sub _accent_entities_html_accent($$$;$$$)
     return "&${text}$accent_command_entity;"
       if ($accent_command_entity
           and defined($accent_command_text_with_entities)
-          and ($text =~ /^[$accent_command_text_with_entities]$/));
+          # \z ensures that a \n at the end prevents matching, we do not
+          # want an end of line in the middle of the entity
+          and ($text =~ /^[$accent_command_text_with_entities]\z/));
     my $formatted_accent
       = Texinfo::Convert::Converter::xml_numeric_entity_accent($accent, $text);
     if (defined($formatted_accent)) {

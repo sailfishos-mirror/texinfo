@@ -608,7 +608,7 @@ $result_converted{'plaintext'}->{'unknown_accents'} = 'Ẍ ẍ Q̈ Ÿ
 
 $result_converted{'html_text'}->{'unknown_accents'} = '<p>&#7820; &#7821; Q&#776; &#376;
 </p>
-<p>&#394; q&#769; &#341;
+<p>&#378; q&#769; &#341;
 &#377; Q&#769; &#340;
 </p>
 <p>&#7720; &#7721;
@@ -656,7 +656,7 @@ $result_converted{'latex_text'}->{'unknown_accents'} = '\\"{X} \\"{x} \\"{Q} \\"
 
 $result_converted{'docbook'}->{'unknown_accents'} = '<para>&#7820; &#7821; Q&#776; &#376;
 </para>
-<para>&#394; q&#769; &#341;
+<para>&#378; q&#769; &#341;
 &#377; Q&#769; &#340;
 </para>
 <para>&#7720; &#7721;

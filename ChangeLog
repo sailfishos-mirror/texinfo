@@ -1,3 +1,15 @@
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (convert_accents): reorganize code
+	for more clarity.
+
+	* tp/Texinfo/Convert/HTML.pm (_accent_entities_html_accent): do not
+	consider an end of line in an accent command argument to allow to use
+	the entity.
+
+	* tp/Texinfo/Convert/Unicode.pm (%unicode_accented_letters): fix a
+	codepoint.
+
 2023-12-29  Patrice Dumas  <pertusus@free.fr>
 
 	Add gnulib module for XS

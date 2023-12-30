@@ -422,8 +422,8 @@ $result_converted{'html_text'}->{'lettered_accent_and_spaces'} = '<p>&aring;
 </p>
 <p>&acirc;
 </p>
-<p>&a
-circ;
+<p>a
+&#770;
 </p>
 ';
 

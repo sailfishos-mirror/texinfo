@@ -1521,24 +1521,24 @@ sub convert_accents($$$;$$)
 
   my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
-  my $result = $self->convert_tree($contents_element);
+  my $arg_text = $self->convert_tree($contents_element);
 
-  my $encoded;
   if ($output_encoded_characters) {
-    $encoded = Texinfo::Convert::Unicode::encoded_accents($self, $result, $stack,
+    my $encoded = Texinfo::Convert::Unicode::encoded_accents($self,
+                                       $arg_text, $stack,
                                        $self->get_conf('OUTPUT_ENCODING_NAME'),
                                        $format_accents,
                                        $in_upper_case);
-  }
-  if (!defined($encoded)) {
-    foreach my $accent_command (reverse(@$stack)) {
-      $result = &$format_accents ($self, $result, $accent_command,
-                                  $in_upper_case);
+    if (defined($encoded)) {
+      return $encoded;
     }
-    return $result;
-  } else {
-    return $encoded;
   }
+  my $result = $arg_text;
+  foreach my $accent_command (reverse(@$stack)) {
+    $result = &$format_accents ($self, $result, $accent_command,
+                                $in_upper_case);
+  }
+  return $result;
 }
 
 # index sub-entries specified with @subentry, separated by commas, or by

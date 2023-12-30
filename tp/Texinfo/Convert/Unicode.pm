@@ -304,7 +304,7 @@ our %unicode_accented_letters = (
         'Y' => '00DD',
         'y' => '00FD',
         'Z' => '0179',
-        'z' => '018A',
+        'z' => '017A',
     },
     '~' => { # tilde
         'A' => '00C3',
@@ -431,8 +431,8 @@ our %unicode_accented_letters = (
         'o' => '01EB',
     },
     'dotless' => {
-        'i' => '0131',
-        'j' => '0237',
+        'i' => '0131', # 305
+        'j' => '0237', # 567
     }
 );
 
