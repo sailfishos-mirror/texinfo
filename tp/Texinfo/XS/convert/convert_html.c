@@ -10973,10 +10973,21 @@ default_format_special_body_shortcontents (CONVERTER *self,
   free (shortcontents);
 }
 
+void
+default_format_special_body_footnotes (CONVERTER *self,
+                               const size_t special_unit_number,
+                               const char *special_unit_variety,
+                               const OUTPUT_UNIT *output_unit,
+                               TEXT *result)
+{
+  format_footnotes_sequence (self, result);
+}
+
 static SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
    special_unit_body_internal_formatting_table[] = {
   {"contents", &default_format_special_body_contents},
   {"shortcontents", &default_format_special_body_shortcontents},
+  {"footnotes", &default_format_special_body_footnotes},
   {0, 0},
 };
 
