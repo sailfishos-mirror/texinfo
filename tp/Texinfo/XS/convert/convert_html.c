@@ -631,6 +631,24 @@ html_pgdt_tree (const char *translation_context, const char *string,
                         translation_context, in_lang);
 }
 
+static void
+translate_convert_to_html_internal (const char *string, DOCUMENT *document,
+               CONVERTER *self,
+               NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+               const char *translation_context,
+               const char *in_lang, TEXT *result, char *explanation)
+{
+  ELEMENT *translation_tree = html_gdt_tree (string, document, self,
+                           replaced_substrings, translation_context, in_lang);
+
+  add_to_element_list (&self->tree_to_build, translation_tree);
+  convert_to_html_internal (self, translation_tree, result, explanation);
+  remove_element_from_list (&self->tree_to_build, translation_tree);
+
+  destroy_element_and_children (translation_tree);
+}
+
+
 int
 html_in_code (CONVERTER *self)
 {
@@ -10983,11 +11001,173 @@ default_format_special_body_footnotes (CONVERTER *self,
   format_footnotes_sequence (self, result);
 }
 
+static char *button_direction_about_array[] = {"button-direction-about"};
+static const STRING_LIST button_direction_about_classes
+    = {button_direction_about_array, 1, 1};
+
+static char *name_direction_about_array[] = {"name-direction-about"};
+static const STRING_LIST name_direction_about_classes
+    = {name_direction_about_array, 1, 1};
+
+void
+default_format_special_body_about (CONVERTER *self,
+                               const size_t special_unit_number,
+                               const char *special_unit_variety,
+                               const OUTPUT_UNIT *output_unit,
+                               TEXT *result)
+{
+  int i;
+  const BUTTON_SPECIFICATION_LIST *buttons = self->conf->SECTION_BUTTONS;
+
+  if (self->conf->PROGRAM_NAME_IN_ABOUT > 0)
+    {
+      text_append_n (result, "<p>\n  ", 6);
+      format_program_string (self, result);
+      text_append_n (result, "\n</p>\n", 6);
+    }
+
+  text_append_n (result, "<p>\n", 4);
+  translate_convert_to_html_internal (
+   "  The buttons in the navigation panels have the following meaning:",
+   self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "\n</p>\n<table border=\"1\">\n  <tr>\n    <th> ");
+  translate_convert_to_html_internal ("Button", self->document, self, 0,
+                                      0, 0, result, 0);
+  text_append (result, " </th>\n    <th> ");
+  translate_convert_to_html_internal ("Name", self->document, self, 0,
+                                      0, 0, result, 0);
+  text_append (result, " </th>\n    <th> ");
+  translate_convert_to_html_internal ("Go to", self->document, self, 0,
+                                      0, 0, result, 0);
+  text_append (result, " </th>\n    <th> ");
+  translate_convert_to_html_internal ("From 1.2.3 go to", self->document,
+                                      self, 0, 0, 0, result, 0);
+  text_append (result, "</th>\n  </tr>\n");
+
+  for (i = 0; i < buttons->number; i++)
+    {
+      const BUTTON_SPECIFICATION *button = &buttons->list[i];
+      char * attribute_class;
+      int direction = -1;
+
+      if (button->type == BST_direction_info)
+        direction = button->button_info->direction;
+      else if (button->type == BST_direction)
+        direction = button->direction;
+
+      if (direction < 0 || direction == D_direction_Space)
+        continue;
+
+      text_append_n (result, "  <tr>\n    ", 11);
+      attribute_class = html_attribute_class (self, "td",
+                                              &button_direction_about_classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">", 1);
+
+   /* if the button spec is an array we do not know what the button
+      looks like, so we do not show the button but still show explanations. */
+
+      if (button->type == BST_direction)
+        {
+         /* FIXME strip FirstInFile from $button to get active icon file? */
+          if (self->conf->ICONS > 0
+              && self->conf->ACTIVE_ICONS.number > 0
+              && self->conf->ACTIVE_ICONS.list[direction]
+              && strlen (self->conf->ACTIVE_ICONS.list[direction]))
+            {
+              char *button_name_string = direction_string (self, direction,
+                                       TDS_type_button, TDS_context_string);
+              char *button = format_button_icon_img (self, button_name_string,
+                        self->conf->ACTIVE_ICONS.list[direction], 0);
+              text_append (result, button);
+              free (button);
+            }
+          else
+            {
+              text_append_n (result, " [", 2);
+              text_append (result, direction_string (self, direction,
+                                                     TDS_type_text, 0));
+              text_append_n (result, "] ", 2);
+            }
+        }
+      text_append_n (result, "</td>\n    ", 10);
+      attribute_class = html_attribute_class (self, "td",
+                                              &name_direction_about_classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">", 1);
+
+      text_append (result, direction_string (self, direction,
+                                             TDS_type_button, 0));
+      text_append_n (result, "</td>\n    <td>", 14);
+      text_append (result, direction_string (self, direction,
+                                             TDS_type_description, 0));
+      text_append_n (result, "</td>\n    <td>", 14);
+      text_append (result, direction_string (self, direction,
+                                             TDS_type_example, 0));
+      text_append_n (result, "</td>\n  </tr>\n", 14);
+    }
+
+  text_append_n (result, "</table>\n\n<p>\n", 14);
+
+  translate_convert_to_html_internal (
+ "  where the @strong{ Example } assumes that the current position is at "
+ "@strong{ Subsubsection One-Two-Three } of a document of the following "
+ "structure:", self->document, self, 0, 0, 0, result, 0);
+
+  text_append_n (result, "\n</p>\n\n<ul>\n", 12);
+  text_append (result, "  <li> 1. ");
+  translate_convert_to_html_internal ("Section One",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "\n    <ul>\n      <li>1.1 ");
+  translate_convert_to_html_internal ("Subsection One-One",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "\n        <ul>\n          <li>...</li>\n"
+     "        </ul>\n      </li>\n      <li>1.2 ");
+  translate_convert_to_html_internal ("Subsection One-Two",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "\n        <ul>\n          <li>1.2.1 ");
+  translate_convert_to_html_internal ("Subsubsection One-Two-One",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "</li>\n          <li>1.2.2 ");
+  translate_convert_to_html_internal ("Subsubsection One-Two-Two",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "</li>\n          <li>1.2.3 ");
+  translate_convert_to_html_internal ("Subsubsection One-Two-Three",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append_n (result, " ", 1);
+  text_append_n (result,
+                self->special_character[SC_non_breaking_space].string,
+                self->special_character[SC_non_breaking_space].len);
+  text_append_n (result, " ", 1);
+  text_append_n (result,
+                self->special_character[SC_non_breaking_space].string,
+                self->special_character[SC_non_breaking_space].len);
+  text_append_n (result, "\n", 1);
+
+  text_append (result, "            <strong>&lt;== ");
+  translate_convert_to_html_internal ("Current Position",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, " </strong></li>\n          <li>1.2.4 ");
+  translate_convert_to_html_internal ("Subsubsection One-Two-Four",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "</li>\n        </ul>\n      </li>\n      <li>1.3 ");
+  translate_convert_to_html_internal ("Subsection One-Three",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "\n        <ul>\n          <li>...</li>\n"
+  "        </ul>\n      </li>\n      <li>1.4 ");
+  translate_convert_to_html_internal ("Subsection One-Four",
+                           self->document, self, 0, 0, 0, result, 0);
+  text_append (result, "</li>\n    </ul>\n  </li>\n</ul>\n");
+}
+
 static SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
    special_unit_body_internal_formatting_table[] = {
   {"contents", &default_format_special_body_contents},
   {"shortcontents", &default_format_special_body_shortcontents},
   {"footnotes", &default_format_special_body_footnotes},
+  {"about", &default_format_special_body_about},
   {0, 0},
 };
 

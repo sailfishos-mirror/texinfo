@@ -11289,35 +11289,35 @@ EOT
     next if ($button_spec eq ' ' or ref($button_spec) eq 'CODE'
              or ref($button_spec) eq 'SCALAR'
              or (ref($button_spec) eq 'ARRAY' and scalar(@$button_spec) != 2));
-    my $button;
+    my $direction;
     if (ref($button_spec) eq 'ARRAY') {
-      $button = $button_spec->[0];
+      $direction = $button_spec->[0];
     } else {
-      $button = $button_spec;
+      $direction = $button_spec;
     }
     $about .= "  <tr>\n    ".$self->html_attribute_class('td',
                                           ['button-direction-about']) .'>';
-    # if the button spec is an array we do not knwow what the button
+    # if the button spec is an array we do not know what the button
     # looks like, so we do not show the button but still show explanations.
     if (ref($button_spec) ne 'ARRAY') {
       my $button_name_string
-          = $self->direction_string($button, 'button', 'string');
+          = $self->direction_string($direction, 'button', 'string');
       # FIXME strip FirstInFile from $button to get active icon file?
       $about .=
         (($self->get_conf('ICONS') &&
-           $self->get_conf('ACTIVE_ICONS')->{$button}) ?
+           $self->get_conf('ACTIVE_ICONS')->{$direction}) ?
             &{$self->formatting_function('format_button_icon_img')}($self,
-               $button_name_string, $self->get_conf('ACTIVE_ICONS')->{$button})
-        : ' [' . $self->direction_string($button, 'text') . '] ');
+             $button_name_string, $self->get_conf('ACTIVE_ICONS')->{$direction})
+        : ' [' . $self->direction_string($direction, 'text') . '] ');
     }
     $about .= "</td>\n";
     my $button_name
-          = $self->direction_string($button, 'button');
+          = $self->direction_string($direction, 'button');
     $about .=
 '    '.$self->html_attribute_class('td', ['name-direction-about']).'>'
     .$button_name."</td>
-    <td>".$self->direction_string($button, 'description')."</td>
-    <td>".$self->direction_string($button, 'example')."</td>
+    <td>".$self->direction_string($direction, 'description')."</td>
+    <td>".$self->direction_string($direction, 'example')."</td>
   </tr>
 ";
   }
@@ -11361,7 +11361,7 @@ EOT
                   . " $non_breaking_space $non_breaking_space\n"
 .
 '            <strong>&lt;== ' . $self->convert_tree($self->gdt('Current Position')) . " </strong></li>\n" .
-                 # TRANSLATORS: example name of section for section 1.2.3
+                 # TRANSLATORS: example name of section for section 1.2.4
 '          <li>1.2.4 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Four')) . "</li>\n" .
 "        </ul>\n" .
 "      </li>\n" .
