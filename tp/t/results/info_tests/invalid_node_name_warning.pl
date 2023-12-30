@@ -798,7 +798,7 @@ File: ,  Node: Top,  Next: nodename. a,  Up: (dir)
 
 * Menu:
 
-* truc:: nodename. a
+* truc:: nodename. a
 
 * machin: node,comma, def
 * bidule:::

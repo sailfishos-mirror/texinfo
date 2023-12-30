@@ -3466,18 +3466,23 @@ sub _convert($$)
       my $entry_name_seen = 0;
       my $menu_entry_node;
       foreach my $content (@{$element->{'contents'}}) {
-        if ($content->{'type'} eq 'menu_entry_node') {
+        if ($content->{'type'} eq 'menu_entry_leading_text') {
+          if (defined($content->{'text'})) {
+            $result .= _count_added($self, $formatter->{'container'},
+                   add_next($formatter->{'container'}, $content->{'text'}));
+          }
+        } elsif ($content->{'type'} eq 'menu_entry_node') {
+          # Flush output so not to include in node text.
+          $result .= _count_added($self, $formatter->{'container'},
+                           add_pending_word($formatter->{'container'}, 1));
+
           $menu_entry_node = $content;
           my ($pre_quote, $post_quote);
           $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
 
-          # Flush a leading space
-          $result .= _count_added($self, $formatter->{'container'},
-                           add_pending_word($formatter->{'container'}, 1));
-
-          # note that $content->{'contents'} may be undefined in rare case
-          # such as in sectionning in_menu_only_special_ascii_spaces_node
+          # note that $content->{'contents'} may be undefined in rare cases,
+          # such as in 30sectioning.t in_menu_only_special_ascii_spaces_node
           # test
           my $node_text = _convert($self, {'type' => '_code',
                                       'contents' => $content->{'contents'}});
@@ -3512,6 +3517,10 @@ sub _convert($$)
           }
           $result .= $pre_quote . $node_text . $post_quote;
         } elsif ($content->{'type'} eq 'menu_entry_name') {
+          # Flush output so not to include in name text
+          $result .= _count_added($self, $formatter->{'container'},
+                           add_pending_word($formatter->{'container'}, 1));
+
           my ($pre_quote, $post_quote);
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
           my $entry_name = _convert($self, $content);
