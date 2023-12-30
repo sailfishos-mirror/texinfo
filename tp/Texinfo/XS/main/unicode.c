@@ -232,19 +232,13 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
       ucs4_t first_char;
       u8_next (&first_char, encoded_u8);
       if (first_char < 127)
-        xasprintf(&new_eight_bit, "%02lx", first_char);
+        xasprintf(&new_eight_bit, "%02lX", first_char);
       else
         {
           char *codepoint;
           if (first_char <= 0xFFFF)
             {
-              char *p;
-              xasprintf (&codepoint, "%04lx", first_char);
-              for (p = codepoint; *p; p++)
-                {
-                  if (isascii_lower (*p))
-                    *p = toupper (*p);
-                }
+              xasprintf (&codepoint, "%04lX", first_char);
               char *found = (char *)bsearch (&codepoint,
                              unicode_to_eight_bit[encoding_index].codepoints,
                              unicode_to_eight_bit[encoding_index].number,

@@ -9096,7 +9096,8 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
           return formatted_accent;
         }
     }
-  fprintf (stderr, "NNNNNNNNNNn %s %s\n", builtin_command_name (element->cmd), text_set);
+  /* should only be the case of @dotless, as other commands have a diacritic
+     associated, and only if th eargument is not i nor j. */
   return text_set;
 }
 
