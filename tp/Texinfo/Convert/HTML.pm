@@ -6557,9 +6557,10 @@ sub _contents_inline_element($$$)
   my $element = shift;
 
   print STDERR "CONTENTS_INLINE $cmdname\n" if ($self->get_conf('DEBUG'));
-  my $content = &{$self->formatting_function('format_contents')}($self,
-                                                          $cmdname, $element);
-  if ($content) {
+  my $table_of_contents
+   = &{$self->formatting_function('format_contents')}($self,
+                                                $cmdname, $element);
+  if ($table_of_contents) {
     my ($special_unit_variety, $special_unit, $class_base,
         $special_unit_direction)
           = $self->command_name_special_unit_information($cmdname);
@@ -6587,7 +6588,7 @@ sub _contents_inline_element($$$)
     $result .= &{$self->formatting_function('format_heading_text')}($self,
                                   $cmdname, [$class_base.'-heading'], $heading,
                                   $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
-    $result .= $content . "</div>\n";
+    $result .= $table_of_contents . "</div>\n";
     return $result;
   }
   return '';

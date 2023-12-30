@@ -1,6 +1,18 @@
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c
+	(SPECIAL_UNIT_BODY_INTERNAL_CONVERSION)
+	(default_format_special_body_contents, html_converter_initialize)
+	(special_unit_body_internal_formatting_table): add the possibility to
+	format special unit bodies.  Implement special_body_contents.
+
+	* tp/Texinfo/Convert/HTML.pm (_contents_inline_element),
+	tp/Texinfo/XS/convert/convert_html.c (contents_inline_element): rename
+	a variable.
+
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c
 	(html_default_format_heading_text): handle the case of being in
 	string.
 

@@ -103,6 +103,15 @@ typedef struct OUTPUT_UNIT_INTERNAL_CONVERSION {
                         TEXT *result);
 } OUTPUT_UNIT_INTERNAL_CONVERSION;
 
+typedef struct SPECIAL_UNIT_BODY_INTERNAL_CONVERSION {
+    char *special_unit_variety;
+    void (* special_unit_body_formatting) (CONVERTER *self,
+                               const size_t special_unit_number,
+                               const char *special_unit_variety,
+                               const OUTPUT_UNIT *output_unit,
+                               TEXT *result);
+} SPECIAL_UNIT_BODY_INTERNAL_CONVERSION;
+
 char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
    HTML_GLOBAL_DIRECTIONS_LIST
@@ -9690,13 +9699,13 @@ static char *
 contents_inline_element (CONVERTER *self, const enum command_id cmd,
                          const ELEMENT *element)
 {
-  char *content;
+  char *table_of_contents;
 
   if (self->conf->DEBUG > 0)
     fprintf (stderr, "CONTENTS_INLINE %s\n", builtin_command_name (cmd));
 
-  content = format_contents (self, cmd, element, 0);
-  if (content && strlen (content))
+  table_of_contents = format_contents (self, cmd, element, 0);
+  if (table_of_contents && strlen (table_of_contents))
     {
       int j;
       for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
@@ -9777,10 +9786,10 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
 
               text_append_n (&result, "\n", 1);
 
-              text_append (&result, content);
+              text_append (&result, table_of_contents);
               text_append_n (&result, "</div>\n", 7);
 
-              free (content);
+              free (table_of_contents);
               return result.text;
             }
         }
@@ -10940,6 +10949,24 @@ static OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] 
   {0, 0},
 };
 
+void
+default_format_special_body_contents (CONVERTER *self,
+                               const size_t special_unit_number,
+                               const char *special_unit_variety,
+                               const OUTPUT_UNIT *output_unit,
+                               TEXT *result)
+{
+  char *table_of_contents = format_contents (self, CM_contents, 0, 0);
+  text_append (result, table_of_contents);
+  free (table_of_contents);
+}
+
+static SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
+   special_unit_body_internal_formatting_table[] = {
+  {"contents", &default_format_special_body_contents},
+  {0, 0},
+};
+
 static void
 command_conversion_external (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -11500,6 +11527,16 @@ html_converter_initialize (CONVERTER *self)
           self->special_unit_varieties.list[i], &self->special_unit_body[i]);
     }
 
+  qsort (self->htmlxref.list, self->htmlxref.number,
+         sizeof (HTMLXREF_MANUAL), compare_htmlxref_manual);
+
+
+  /* remaining of the file is for the replacement of call to external
+     functions by internal functions in C.  Uncomment the next line
+     to prevent internal functions being used
+  return;
+   */
+
   for (i = 0; types_internal_conversion_table[i].type_conversion; i++)
     {
       enum element_type type = types_internal_conversion_table[i].type;
@@ -11661,8 +11698,28 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
-  qsort (self->htmlxref.list, self->htmlxref.number,
-         sizeof (HTMLXREF_MANUAL), compare_htmlxref_manual);
+  for (i = 0;
+    special_unit_body_internal_formatting_table[i].special_unit_variety; i++)
+    {
+      SPECIAL_UNIT_BODY_INTERNAL_CONVERSION *internal_conversion
+        = &special_unit_body_internal_formatting_table[i];
+      /* number is index +1 */
+      size_t number = find_string (&self->special_unit_varieties,
+                                   internal_conversion->special_unit_variety);
+      int j = number -1;
+      if (j >= 0)
+        {
+          SPECIAL_UNIT_BODY_FORMATTING *body_formatting
+            = &self->special_unit_body_formatting[j];
+          if (body_formatting->status == FRS_status_default_set)
+            {
+              body_formatting->formatting_reference = 0;
+              body_formatting->status = FRS_status_internal;
+              body_formatting->special_unit_body_formatting
+                = internal_conversion->special_unit_body_formatting;
+            }
+        }
+    }
 }
 
 /* called in the end of html_converter_prepare_output_sv, just before
