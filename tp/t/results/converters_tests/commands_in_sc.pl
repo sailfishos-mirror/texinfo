@@ -963,8 +963,8 @@ MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
 Tag Table:
 Node: Top27
 Node: chap124
-Ref: inanchor264
-Ref: chap-Footnote-1346
+Ref: inanchor262
+Ref: chap-Footnote-1343
 
 End Tag Table
 

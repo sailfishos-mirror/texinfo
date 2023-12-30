@@ -16972,33 +16972,33 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
 Tag Table:
 Node: Top27
-Node: { }875
-Node:     ! . . ? @954
-Node: @ { } \\ #1058
-Node: LaTeX TeX • , © ... ...1180
-Node: ≡ error→ € ¡ ↦ −1347
-Node: ≥ ≤ →1510
-Node: ª º ⋆ £ ⊣ ¿ ®1640
-Node: ⇒ ° a b a sunny day å1787
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1975
-Node: ä ẽ î â à é ç ē e̊ e̋ ę2198
-Node: ė ĕ e̲ ẹ ě ȷ e͡e2410
-Node: ı Ḕ Ḉ2573
-Node: “ ” ‘ ’ „ ‚2701
-Node: « » « » ‹ ›2843
-Node: `` \'\' --- -- ` \'2987
-Node: AAA (fff) AAA BBB3119
-Node: CCC (rrr) CCC DDD3259
-Node: the someone <someone@somewher> <no_explain@there>3432
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3732
-Node:  @ {} . 4082
-Node: cite asis in @w b in r SC *str* t VAR dfn i4285
-Node: env code option samp command file C-x <ESC>4537
-Node: 8.27in4827
-Node: sansserif slanted4961
-Node: indicateurl5085
-Node: _{g}H 3^{rd}5211
-Node: <http://somewhere_aaa> text (url) ls5350
+Node: { }783
+Node:     ! . . ? @862
+Node: @ { } \\ #966
+Node: LaTeX TeX • , © ... ...1085
+Node: ≡ error→ € ¡ ↦ −1235
+Node: ≥ ≤ →1367
+Node: ª º ⋆ £ ⊣ ¿ ®1465
+Node: ⇒ ° a b a sunny day å1584
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1741
+Node: ä ẽ î â à é ç ē e̊ e̋ ę1920
+Node: ė ĕ e̲ ẹ ě ȷ e͡e2086
+Node: ı Ḕ Ḉ2216
+Node: “ ” ‘ ’ „ ‚2314
+Node: « » « » ‹ ›2419
+Node: `` \'\' --- -- ` \'2535
+Node: AAA (fff) AAA BBB2659
+Node: CCC (rrr) CCC DDD2799
+Node: the someone <someone@somewher> <no_explain@there>2972
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3272
+Node:  @ {} . 3622
+Node: cite asis in @w b in r SC *str* t VAR dfn i3825
+Node: env code option samp command file C-x <ESC>4069
+Node: 8.27in4331
+Node: sansserif slanted4465
+Node: indicateurl4589
+Node: _{g}H 3^{rd}4711
+Node: <http://somewhere_aaa> text (url) ls4850
 
 End Tag Table
 

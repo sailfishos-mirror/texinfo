@@ -1589,7 +1589,7 @@ see *note (manual)a *strong* ref with SC, a i trema ï, a dotless i trema
 
 Tag Table:
 Node: Top27
-Node: A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡172
+Node: A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡152
 
 End Tag Table
 

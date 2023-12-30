@@ -1,3 +1,15 @@
+2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/t/test_utils.pl (convert_to_info): If not outputting to
+	a file, set OUTPUT_PERL_ENCODING to an empty string to disable
+	any character encoding.
+
+	This is in order to minimise changes to the test results when
+	Texinfo::Convert::Plaintext::convert starts returning an encoded
+	string in the future.  This changes some byte offsets in the
+	test results to meaningless values.  If these offsets needed to be
+	tested, a separate Info output file would have to be used instead.
+
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c
