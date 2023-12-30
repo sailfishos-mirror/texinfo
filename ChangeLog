@@ -1,5 +1,14 @@
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_filename): set
+	file number for regular output units only.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_footnote_command)
+	(html_image_file_location_name), tp/Texinfo/XS/convert/converter.c
+	(next_for_tieaccent): free variables (found with valgrind).
+
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	Fix memory leaks (found with valgrind)
 
 	* tp/Texinfo/XS/convert/convert_html.c (convert_image_command): free

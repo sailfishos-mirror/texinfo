@@ -782,6 +782,7 @@ next_for_tieaccent (const char *text, const char **next)
                                                   iconveh_question_mark);
       ucs4_t first_char;
       u8_next (&first_char, encoded_u8);
+      free (encoded_u8);
       if (uc_is_general_category (first_char, UC_CATEGORY_L)
           /* ASCII digits */
           || (first_char >= 0x0030 && first_char <= 0x0039))

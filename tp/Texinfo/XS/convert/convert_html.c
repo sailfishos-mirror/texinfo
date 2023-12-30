@@ -3326,12 +3326,14 @@ html_command_filename (CONVERTER *self, const ELEMENT *command)
       if (root_unit && root_unit->output_unit
           && root_unit->output_unit->unit_filename)
         {
-          size_t file_index
-            = self->output_unit_file_indices[root_unit->output_unit->index];
-          target_info->file_number_name.file_number
-             = file_index +1;
           target_info->file_number_name.filename
                = root_unit->output_unit->unit_filename;
+          if (root_unit->output_unit->unit_type == OU_unit)
+            {
+              size_t file_index
+               = self->output_unit_file_indices[root_unit->output_unit->index];
+              target_info->file_number_name.file_number = file_index +1;
+            }
         }
       target_info->filename_set = 1;
 
@@ -8601,7 +8603,10 @@ convert_footnote_command (CONVERTER *self, const enum command_id cmd,
 
   /* happens for bogus footnotes */
   if (!footnote_id)
-    return;
+    {
+      free (footnote_mark);
+      return;
+    }
 
   /* ID for linking back to the main text from the footnote. */
   footnote_docid = html_footnote_location_target (self, element);
@@ -8828,6 +8833,8 @@ html_image_file_location_name (CONVERTER *self, const enum command_id cmd,
                                          &result->image_path_encoding);
           if (image_file)
             result->image_extension = dot_ext;
+          else
+            free (dot_ext);
         }
       else
         result->image_extension = strdup (extension);
