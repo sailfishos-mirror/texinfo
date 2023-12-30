@@ -1,5 +1,13 @@
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (direction_string)
+	(html_internal_command_text, html_command_text)
+	(convert_string_tree_new_formatting_context, file_header_information)
+	(convert_def_line_type): do not use TREE_ADDED_ELEMENTS if the tree
+	root element is destroyed in the same function.
+
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_accent_entities_html_accent_internal): remove debugging message.
 

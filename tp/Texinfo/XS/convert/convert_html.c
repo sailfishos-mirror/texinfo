@@ -2841,7 +2841,6 @@ direction_string (CONVERTER *self, int direction,
           ELEMENT *translated_tree;
           ELEMENT *converted_tree;
           const char *direction_name;
-          TREE_ADDED_ELEMENTS *string_tree = 0;
           text_init (&translation_context);
           direction_name
            = self->direction_unit_direction_name[direction_unit_direction_idx];
@@ -2858,11 +2857,7 @@ direction_string (CONVERTER *self, int direction,
           free (translation_context.text);
           if (context == TDS_context_string)
             {
-              string_tree
-               = new_tree_added_elements (tree_added_status_elements_added);
-
-              converted_tree = new_element_added (string_tree, ET__string);
-
+              converted_tree = new_element (ET__string);
               add_to_element_contents (converted_tree, translated_tree);
             }
           else
@@ -2882,7 +2877,7 @@ direction_string (CONVERTER *self, int direction,
           free (context_str);
 
           if (context == TDS_context_string)
-            destroy_tree_added_elements (self, string_tree);
+            destroy_element (converted_tree);
           destroy_element_and_children (translated_tree);
           self->directions_strings[string_type][direction][context]
                 = result_string;
@@ -3904,7 +3899,6 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
       else
         {
           ELEMENT *tree_root;
-          TREE_ADDED_ELEMENTS *string_tree = 0;
           char *explanation = 0;
           const char *context_name;
           ELEMENT *selected_tree;
@@ -3943,15 +3937,8 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
 
           if (type == HTT_string)
             {
-              ELEMENT *tree_root_string;
-
-              string_tree
-                = new_tree_added_elements (tree_added_status_elements_added);
-
-              tree_root_string = new_element_added (string_tree, ET__string);
-
-              add_to_contents_as_array (tree_root_string, selected_tree);
-              tree_root = tree_root_string;
+              tree_root = new_element (ET__string);
+              add_to_contents_as_array (tree_root, selected_tree);
               add_to_element_list (&self->tree_to_build, tree_root);
             }
           else
@@ -3973,7 +3960,7 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           if (type == HTT_string)
             {
               remove_element_from_list (&self->tree_to_build, tree_root);
-              destroy_tree_added_elements (self, string_tree);
+              destroy_element (tree_root);
             }
           return strdup (target_info->command_text[type]);
         }
@@ -4006,18 +3993,10 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       ELEMENT *tree_root;
       TREE_ADDED_ELEMENTS *command_tree
         = html_external_command_tree (self, command, manual_content);
-      TREE_ADDED_ELEMENTS *string_tree = 0;
       if (type == HTT_string)
         {
-          ELEMENT *tree_root_string;
-
-          string_tree
-            = new_tree_added_elements (tree_added_status_elements_added);
-
-          tree_root_string = new_element_added (string_tree, ET__string);
-
-          add_to_contents_as_array (tree_root_string, command_tree->tree);
-          tree_root = tree_root_string;
+          tree_root = new_element (ET__string);
+          add_to_contents_as_array (tree_root, command_tree->tree);
           add_to_element_list (&self->tree_to_build, tree_root);
         }
       else
@@ -4030,7 +4009,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       if (type == HTT_string)
         {
           remove_element_from_list (&self->tree_to_build, tree_root);
-          destroy_tree_added_elements (self, string_tree);
+          destroy_element (tree_root);
         }
       destroy_tree_added_elements (self, command_tree);
       return result;
@@ -6322,12 +6301,9 @@ convert_string_tree_new_formatting_context (CONVERTER *self,
                                             ELEMENT *tree,
                               const char *context_string, char *multiple_pass)
 {
-  TREE_ADDED_ELEMENTS *string_tree = 0;
-  ELEMENT *tree_root_string;
+  ELEMENT *tree_root_string = new_element (ET__string);
   char *result;
 
-  string_tree = new_tree_added_elements (tree_added_status_elements_added);
-  tree_root_string = new_element_added (string_tree, ET__string);
   add_to_contents_as_array (tree_root_string, tree);
 
   add_to_element_list (&self->tree_to_build, tree_root_string);
@@ -6336,7 +6312,7 @@ convert_string_tree_new_formatting_context (CONVERTER *self,
                                        context_string, multiple_pass, 0, 0);
 
   remove_element_from_list (&self->tree_to_build, tree_root_string);
-  destroy_tree_added_elements (self, string_tree);
+  destroy_element (tree_root_string);
   return result;
 }
 
@@ -6398,13 +6374,12 @@ file_header_information (CONVERTER *self, ELEMENT *command,
       if (command_string && strlen (command_string)
           && strcmp (command_string, self->title_string))
         {
-          TREE_ADDED_ELEMENTS *element_tree = 0;
-          TREE_ADDED_ELEMENTS *new_element_tree = 0;
           NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
           ELEMENT *title_tree_copy = copy_tree (self->title_tree);
           ELEMENT *element_tree_copy;
           ELEMENT *title_tree;
+          ELEMENT *command_tree = 0;
 
           if (self->conf->SECTION_NAME_IN_TITLE > 0)
             {
@@ -6412,18 +6387,18 @@ file_header_information (CONVERTER *self, ELEMENT *command,
                 = lookup_extra_element (command, "associated_section");
               if (associated_section && associated_section->args.number > 0)
                 {
-                  new_element_tree
-                   = new_tree_added_elements (tree_added_status_reused_tree);
-                  new_element_tree->tree = associated_section->args.list[0];
-                  element_tree = new_element_tree;
+                  command_tree = associated_section->args.list[0];
                 }
             }
-          if (!element_tree)
-            element_tree = html_command_tree (self, command, 0);
 
-          element_tree_copy = copy_tree (element_tree->tree);
-          if (new_element_tree)
-            destroy_tree_added_elements (self, new_element_tree);
+          if (!command_tree)
+            {
+              TREE_ADDED_ELEMENTS *element_tree
+                  = html_command_tree (self, command, 0);
+              command_tree = element_tree->tree;
+            }
+
+          element_tree_copy = copy_tree (command_tree);
 
           add_element_to_named_string_element_list (substrings, "title",
                                                     title_tree_copy);
@@ -7755,10 +7730,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
     {
       char *type_text;
       size_t type_text_len;
-      TREE_ADDED_ELEMENTS *code_tree
-        = new_tree_added_elements (tree_added_status_elements_added);
+      ELEMENT *root_code = new_element (ET__code);
 
-      ELEMENT *root_code = new_element_added (code_tree, ET__code);
       add_to_contents_as_array (root_code, parsed_def->type);
 
       add_to_element_list (&self->tree_to_build, root_code);
@@ -7767,7 +7740,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
 
       remove_element_from_list (&self->tree_to_build, root_code);
 
-      destroy_tree_added_elements (self, code_tree);
+      destroy_element (root_code);
       type_text_len = strlen (type_text);
 
       if (type_text_len > 0)
@@ -7796,10 +7769,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
     {
       char *attribute_class = html_attribute_class (self, "strong",
                                                     &def_name_classes);
-      TREE_ADDED_ELEMENTS *code_tree
-         = new_tree_added_elements (tree_added_status_elements_added);
+      ELEMENT *root_code = new_element (ET__code);
 
-      ELEMENT *root_code = new_element_added (code_tree, ET__code);
       add_to_contents_as_array (root_code, parsed_def->name);
 
       add_to_element_list (&self->tree_to_build, root_code);
@@ -7811,7 +7782,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       convert_to_html_internal (self, root_code, &def_call, 0);
 
       remove_element_from_list (&self->tree_to_build, root_code);
-      destroy_tree_added_elements (self, code_tree);
+      destroy_element (root_code);
 
       text_append_n (&def_call, "</strong>", 9);
     }
@@ -7825,10 +7796,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       if (strlen (builtin_command_name(base_cmd)) >= 7
           && !memcmp (builtin_command_name(base_cmd), "deftype", 7))
         {
-          TREE_ADDED_ELEMENTS *code_tree
-            = new_tree_added_elements (tree_added_status_elements_added);
+          ELEMENT *root_code = new_element (ET__code);
 
-          ELEMENT *root_code = new_element_added (code_tree, ET__code);
           add_to_contents_as_array (root_code, parsed_def->args);
 
           add_to_element_list (&self->tree_to_build, root_code);
@@ -7836,7 +7805,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
           args_formatted = html_convert_tree (self, root_code, 0);
 
           remove_element_from_list (&self->tree_to_build, root_code);
-          destroy_tree_added_elements (self, code_tree);
+          destroy_element (root_code);
 
           if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
             {
@@ -9097,7 +9066,7 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
         }
     }
   /* should only be the case of @dotless, as other commands have a diacritic
-     associated, and only if th eargument is not i nor j. */
+     associated, and only if the argument is not i nor j. */
   return text_set;
 }
 
