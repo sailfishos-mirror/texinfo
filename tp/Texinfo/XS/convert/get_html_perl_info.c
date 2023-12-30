@@ -334,9 +334,9 @@ html_converter_initialize_sv (SV *converter_sv,
         nr_accent_cmd++;
     }
 
-  converter->accent_formatted_cmd.list = (enum command_id *)
+  converter->accent_cmd.list = (enum command_id *)
     malloc (nr_accent_cmd * sizeof (enum command_id));
-  converter->accent_formatted_cmd.number = 0;
+  converter->accent_cmd.number = 0;
 
   default_css_string_commands_conversion_hv
     = (HV *)SvRV (default_css_string_commands_conversion);
@@ -364,9 +364,8 @@ html_converter_initialize_sv (SV *converter_sv,
   /* NOTE we use the loop to collect the accent commands too */
      if (builtin_command_data[i].flags & CF_accent)
        {
-         converter->accent_formatted_cmd.list[
-            converter->accent_formatted_cmd.number] = i;
-         converter->accent_formatted_cmd.number++;
+         converter->accent_cmd.list[converter->accent_cmd.number] = i;
+         converter->accent_cmd.number++;
        }
     }
 

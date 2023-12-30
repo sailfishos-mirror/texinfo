@@ -5002,9 +5002,8 @@ sub _indent_with_table($$$;$)
   my $content = shift;
   my $extra_classes = shift;
 
-  my @classes;
-  @classes = @$extra_classes if (defined($extra_classes));
-  unshift @classes, $cmdname;
+  my @classes = ($cmdname);
+  push (@classes, @$extra_classes) if (defined($extra_classes));
   return $self->html_attribute_class('table', \@classes)
          .'><tr><td>'.$self->get_info('non_breaking_space').'</td><td>'.$content
                 ."</td></tr></table>\n";
@@ -5018,7 +5017,13 @@ sub _convert_preformatted_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  $content = '' if (!defined($content));
+  if (!defined($content) or $content eq '') {
+    return '';
+  }
+
+  if (in_string($self)) {
+    return $content;
+  }
 
   my @classes;
 
@@ -5050,17 +5055,13 @@ sub _convert_preformatted_command($$$$$)
     $main_cmdname = 'example';
   }
 
-  if ($content ne '' and !in_string($self)) {
-    if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')
-        and $indented_preformatted_commands{$cmdname}) {
-      return _indent_with_table($self, $cmdname, $content, \@classes);
-    } else {
-      unshift @classes, $main_cmdname;
-      return $self->html_attribute_class('div', \@classes)
-                                     .">\n".$content.'</div>'."\n";
-    }
+  if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')
+      and $indented_preformatted_commands{$cmdname}) {
+    return _indent_with_table($self, $cmdname, $content, \@classes);
   } else {
-    return $content;
+    unshift @classes, $main_cmdname;
+    return $self->html_attribute_class('div', \@classes)
+                                   .">\n".$content.'</div>'."\n";
   }
 }
 

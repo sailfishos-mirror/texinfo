@@ -201,11 +201,10 @@ CMD_VARIETY command_special_unit_variety[] = {
 #define HF_format_context       0x0002
 #define HF_format_raw           0x0004
 #define HF_pre_class            0x0008
-/*
-#define HF_           0x0010
- */
+#define HF_small_block_command  0x0010
 #define HF_HTML_align           0x0020
 #define HF_special_variety      0x0040
+#define HF_indented_preformatted 0x0080
 
 typedef struct HTML_COMMAND_STRUCT {
     unsigned long flags;
@@ -9904,6 +9903,125 @@ convert_inline_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+/* strings in extra_classes strings are free'd, but not extra_classes
+   themselves */
+static void
+indent_with_table (CONVERTER *self, const enum command_id cmd,
+                   const char *content, STRING_LIST *extra_classes,
+                   TEXT *result)
+{
+  char *attribute_class;
+  STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  if (extra_classes)
+    merge_strings (classes, extra_classes);
+
+  attribute_class = html_attribute_class (self, "table", classes);
+  text_append (result, attribute_class);
+  text_append_n (result, "><tr><td>", 9);
+  text_append_n (result,
+                self->special_character[SC_non_breaking_space].string,
+                self->special_character[SC_non_breaking_space].len);
+  text_append_n (result, "</td><td>", 9);
+  text_append (result, content);
+  text_append_n (result, "</td></tr></table>\n", 19);
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+void
+convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  STRING_LIST *additional_classes;
+  enum command_id main_cmd = 0;
+
+  if (!content || !strlen (content))
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, content);
+      return;
+    }
+
+  additional_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (additional_classes, 0, sizeof (STRING_LIST));
+
+  if (html_commands_data[cmd].flags & HF_small_block_command)
+    {
+      int i;
+      for (i = 0; small_block_associated_command[i][0]; i++)
+        {
+          enum command_id small_cmd = small_block_associated_command[i][0];
+          if (small_cmd == cmd)
+            {
+              main_cmd = small_block_associated_command[i][1];
+              add_string (builtin_command_name (cmd), additional_classes);
+              break;
+            }
+        }
+    }
+  else
+    main_cmd = cmd;
+
+  if (cmd == CM_example)
+    {
+      if (element->args.number > 0)
+        {
+          int i;
+          for (i = 0; i < element->args.number; i++)
+            {
+              ELEMENT *example_arg = element->args.list[i];
+       /* convert or remove all @-commands, using simple ascii and unicode
+          characters */
+              char *converted_arg = convert_to_normalized (example_arg);
+              if (strlen (converted_arg))
+                {
+                  char *class_name;
+                  xasprintf (&class_name, "user-%s", converted_arg);
+                  add_string (class_name, additional_classes);
+                  free (class_name);
+                }
+              free (converted_arg);
+            }
+        }
+    }
+  else if (main_cmd == CM_lisp)
+    {
+      add_string (builtin_command_name (main_cmd), additional_classes);
+      main_cmd = CM_example;
+    }
+
+  if (self->conf->COMPLEX_FORMAT_IN_TABLE > 0
+      && html_commands_data[cmd].flags & HF_indented_preformatted)
+    {
+      indent_with_table (self, cmd, content,
+                         additional_classes, result);
+    }
+  else
+    {
+      char *attribute_class;
+      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (main_cmd), classes);
+      merge_strings (classes, additional_classes);
+      attribute_class = html_attribute_class (self, "div", classes);
+      text_append (result, attribute_class);
+      text_printf (result, ">\n%s</div>\n", content);
+      free (attribute_class);
+      destroy_strings_list (classes);
+    }
+
+  free (additional_classes->list);
+  free (additional_classes);
+}
+
 void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -11500,6 +11618,8 @@ reset_translated_special_unit_info_tree (CONVERTER *self)
     }
 }
 
+static COMMAND_ID_LIST preformatted_cmd;
+
 /* set information that is independent of customization, only called once */
 void
 html_format_init (void)
@@ -11508,6 +11628,12 @@ html_format_init (void)
   int nr_default_commands
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
+  /* approximate number, used to allocate enough memory */
+  int nr_preformatted_cmd = 0;
+
+  enum command_id indented_format[] = {
+    CM_example, CM_display, CM_lisp, 0
+  };
 
   for (i = 0; i < nr_default_commands; i++)
     {
@@ -11520,13 +11646,30 @@ html_format_init (void)
               max_args * sizeof (unsigned long));
     }
 
+  for (i = 0; indented_format[i]; i++)
+    {
+      enum command_id cmd = indented_format[i];
+      html_commands_data[cmd].flags |= HF_indented_preformatted;
+    }
+
   for (i = 0; small_block_associated_command[i][0]; i++)
     {
       enum command_id small_cmd = small_block_associated_command[i][0];
       enum command_id cmd = small_block_associated_command[i][1];
       if (builtin_command_data[cmd].flags & CF_preformatted)
-        register_pre_class_command (small_cmd, cmd);
+        {
+          register_pre_class_command (small_cmd, cmd);
+          nr_preformatted_cmd += 2;
+        }
+      html_commands_data[small_cmd].flags |= HF_small_block_command;
+      if (html_commands_data[cmd].flags & HF_indented_preformatted)
+        html_commands_data[small_cmd].flags |= HF_indented_preformatted;
     }
+
+  /* since the number is approximate, * 2 to be safe */
+  preformatted_cmd.list = (enum command_id *)
+    malloc (nr_preformatted_cmd * 2 * sizeof (enum command_id));
+  preformatted_cmd.number = 0;
 
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
     {
@@ -11550,6 +11693,8 @@ html_format_init (void)
         {
           if (!(html_commands_data[i].flags & HF_pre_class))
             register_pre_class_command (i, 0);
+          preformatted_cmd.list[preformatted_cmd.number] = i;
+          preformatted_cmd.number++;
         }
     }
   register_pre_class_command (CM_verbatim, 0);
@@ -11903,11 +12048,11 @@ html_converter_initialize (CONVERTER *self)
     }
 
   /* accents commands implemented in C, but not css strings accents */
-  if (self->accent_formatted_cmd.number)
+  if (self->accent_cmd.number)
     {
-      for (i = 0; i < self->accent_formatted_cmd.number; i++)
+      for (i = 0; i < self->accent_cmd.number; i++)
         {
-          enum command_id cmd = self->accent_formatted_cmd.list[i];
+          enum command_id cmd = self->accent_cmd.list[i];
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self->command_conversion_function[cmd];
           if (command_conversion->status == FRS_status_default_set)
@@ -11919,8 +12064,6 @@ html_converter_initialize (CONVERTER *self)
             }
         }
     }
-
-
 
   /* all the commands in style_formatted_cmd are implemented in C.
      It is not only the style commands, some others too.  indicateurl
@@ -11934,6 +12077,7 @@ html_converter_initialize (CONVERTER *self)
                = &self->command_conversion_function[cmd];
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
                = &self->css_string_command_conversion_function[cmd];
+
           if (command_conversion->status == FRS_status_default_set)
             {
               command_conversion->formatting_reference = 0;
@@ -11946,6 +12090,32 @@ html_converter_initialize (CONVERTER *self)
           css_string_command_conversion->status = FRS_status_internal;
           css_string_command_conversion->command_conversion
             = &convert_style_command;
+        }
+    }
+
+  /* preformatted commands are implemented in C */
+  if (preformatted_cmd.number)
+    {
+      for (i = 0; i < preformatted_cmd.number; i++)
+        {
+          enum command_id cmd = preformatted_cmd.list[i];
+          COMMAND_CONVERSION_FUNCTION *command_conversion
+               = &self->command_conversion_function[cmd];
+          COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
+               = &self->css_string_command_conversion_function[cmd];
+
+          if (command_conversion->status == FRS_status_default_set)
+            {
+              command_conversion->formatting_reference = 0;
+              command_conversion->status = FRS_status_internal;
+              command_conversion->command_conversion
+                = &convert_preformatted_command; 
+            }
+
+          css_string_command_conversion->formatting_reference = 0;
+          css_string_command_conversion->status = FRS_status_internal;
+          css_string_command_conversion->command_conversion
+            = &convert_preformatted_command;
         }
     }
 
@@ -12439,9 +12609,9 @@ html_free_converter (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < self->accent_formatted_cmd.number; i++)
+  for (i = 0; i < self->accent_cmd.number; i++)
     {
-      enum command_id cmd = self->accent_formatted_cmd.list[i];
+      enum command_id cmd = self->accent_cmd.list[i];
       ACCENT_ENTITY_INFO *accent_info
           = &self->accent_entities[cmd];
       free (accent_info->entity);
@@ -12513,7 +12683,11 @@ html_free_converter (CONVERTER *self)
 
   free (self->no_arg_formatted_cmd.list);
 
-  free (self->accent_formatted_cmd.list);
+  free (self->accent_cmd.list);
+
+/* should be freed at exit.
+  free (preformatted_cmd.list);
+ */
 
   free (self->style_formatted_cmd.list);
 
