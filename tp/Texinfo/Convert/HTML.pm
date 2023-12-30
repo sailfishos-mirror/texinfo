@@ -3802,7 +3802,7 @@ sub _accent_entities_html_accent($$$;$$$)
   my $accent = $command->{'cmdname'};
 
   if ($in_upper_case and $text =~ /^\w$/) {
-    $text = uc ($text);
+    $text = uc($text);
   }
 
   # do not return a dotless i or j as such if it is further composed
@@ -3844,8 +3844,12 @@ sub _accent_entities_html_accent($$$;$$$)
       return $formatted_accent;
     }
   }
-  return $self->xml_accent($text, $command, $in_upper_case,
-                           $use_numeric_entities);
+
+  # should only be the case of @dotless, as other commands have a diacritic
+  # associated, and only if the argument is not i nor j.
+  return $text;
+  #return $self->xml_accent($text, $command, $in_upper_case,
+  #                         $use_numeric_entities);
 }
 
 sub _accent_entities_numeric_entities_accent($$$;$)
@@ -3890,7 +3894,7 @@ sub _css_string_accent($$$;$)
   my $accent = $command->{'cmdname'};
 
   if ($in_upper_case and $text =~ /^\p{Word}$/) {
-    $text = uc ($text);
+    $text = uc($text);
   }
   if (exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent})
       and exists($Texinfo::Convert::Unicode::unicode_accented_letters{
