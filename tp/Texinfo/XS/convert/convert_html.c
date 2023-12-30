@@ -10023,6 +10023,67 @@ convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_indented_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  enum command_id main_cmd = 0;
+  STRING_LIST *additional_classes;
+
+  if (!content || !strlen (content))
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, content);
+      return;
+    }
+
+  additional_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (additional_classes, 0, sizeof (STRING_LIST));
+
+  if (html_commands_data[cmd].flags & HF_small_block_command)
+    {
+      int i;
+      for (i = 0; small_block_associated_command[i][0]; i++)
+        {
+          enum command_id small_cmd = small_block_associated_command[i][0];
+          if (small_cmd == cmd)
+            {
+              main_cmd = small_block_associated_command[i][1];
+              add_string (builtin_command_name (cmd), additional_classes);
+              break;
+            }
+        }
+    }
+  else
+    main_cmd = cmd;
+
+  if (self->conf->COMPLEX_FORMAT_IN_TABLE > 0)
+    {
+      indent_with_table (self, main_cmd, content,
+                         additional_classes, result);
+    }
+  else
+    {
+      char *attribute_class;
+      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (main_cmd), classes);
+      merge_strings (classes, additional_classes);
+      attribute_class = html_attribute_class (self, "blockquote", classes);
+      text_append (result, attribute_class);
+      text_printf (result, ">\n%s</blockquote>\n", content);
+      free (attribute_class);
+      destroy_strings_list (classes);
+    }
+
+  free (additional_classes->list);
+  free (additional_classes);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10870,6 +10931,9 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_inlinefmtifelse, &convert_inline_command},
   {CM_inlineifclear, &convert_inline_command},
   {CM_inlineifset, &convert_inline_command},
+
+  {CM_indentedblock, &convert_indented_command},
+  {CM_smallindentedblock, &convert_indented_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},

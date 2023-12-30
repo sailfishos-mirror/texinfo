@@ -5078,7 +5078,13 @@ sub _convert_indented_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  $content = '' if (!defined($content));
+  if (!defined($content) or $content eq '') {
+    return '';
+  }
+
+  if (in_string($self)) {
+    return $content;
+  }
 
   my @classes;
 
@@ -5089,16 +5095,13 @@ sub _convert_indented_command($$$$$)
   } else {
     $main_cmdname = $cmdname;
   }
-  if ($content ne '' and !in_string($self)) {
-    if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
-      return _indent_with_table($self, $main_cmdname, $content, \@classes);
-    } else {
-      unshift @classes, $main_cmdname;
-      return $self->html_attribute_class('blockquote', \@classes).">\n"
-                          . $content . '</blockquote>'."\n";
-    }
+
+  if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
+    return _indent_with_table($self, $main_cmdname, $content, \@classes);
   } else {
-    return $content;
+    unshift @classes, $main_cmdname;
+    return $self->html_attribute_class('blockquote', \@classes).">\n"
+                        . $content . '</blockquote>'."\n";
   }
 }
 
