@@ -1,5 +1,18 @@
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	Fix memory leaks (found with valgrind)
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_image_command): free
+	image_path_info.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_math_command):
+	properly free memory before exiting.
+
+	* tp/Texinfo/XS/main/unicode.c (format_eight_bit_accents_stack):
+	free encoded_u8, new_eight_bit and prev_eight_bit.
+
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (direction_string)
 	(html_internal_command_text, html_command_text)
 	(convert_string_tree_new_formatting_context, file_header_information)

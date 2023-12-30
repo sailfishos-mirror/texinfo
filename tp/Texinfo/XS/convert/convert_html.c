@@ -8916,6 +8916,7 @@ convert_image_command (CONVERTER *self, const enum command_id cmd,
                      image_basefile, image_file);
         }
       free_image_file_location_info (image_path_info);
+      free (image_path_info);
 
       if (self->conf->IMAGE_LINK_PREFIX)
         {
@@ -8982,13 +8983,14 @@ convert_math_command (CONVERTER *self, const enum command_id cmd,
       attribute_class = html_attribute_class (self, "em", classes);
       text_append (result, attribute_class);
       text_printf (result, ">\\(%s\\)</em>", arg);
-      return;
+      goto out;
     }
 
   attribute_class = html_attribute_class (self, "em", classes);
   text_append (result, attribute_class);
   text_printf (result, ">%s</em>", arg);
 
+ out:
   destroy_strings_list (classes);
   free (attribute_class);
 }

@@ -218,7 +218,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
     to the character.
    */
 
-  prev_eight_bit = strdup("");
+  prev_eight_bit = strdup ("");
 
   for (j = stack_nr; j >= i; j--)
     {
@@ -231,6 +231,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
                                                iconveh_question_mark);
       ucs4_t first_char;
       u8_next (&first_char, encoded_u8);
+      free (encoded_u8);
       if (first_char < 127)
         xasprintf(&new_eight_bit, "%02lX", first_char);
       else
@@ -274,9 +275,13 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
       if (!strcmp (new_eight_bit, prev_eight_bit)
           && !(stack->stack[j]->cmd == CM_dotless
                && !strcmp (results_stack[j], "i")))
-        break;
+        {
+          free (new_eight_bit);
+          break;
+        }
       free (result);
       result = strdup (results_stack[j]);
+      free (prev_eight_bit);
       prev_eight_bit = strdup (new_eight_bit);
       free (new_eight_bit);
     }
