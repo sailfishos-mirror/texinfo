@@ -9212,6 +9212,21 @@ convert_titlefont_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_U_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (args_formatted && args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
+    {
+      text_printf (result, "&#x%s;",
+                   args_formatted->args[0].formatted[AFT_type_normal]);
+    }
+}
+
+void
 convert_raw_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10671,6 +10686,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_image, &convert_image_command},
   {CM_math, &convert_math_command},
   {CM_titlefont, &convert_titlefont_command},
+  {CM_U, &convert_U_command},
 
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to

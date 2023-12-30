@@ -1,3 +1,8 @@
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_U_command)
+	(commands_internal_conversion_table): implement convert_U_command.
+
 2023-12-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/t/test_utils.pl (convert_to_info): If not outputting to
