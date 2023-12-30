@@ -10084,6 +10084,34 @@ convert_indented_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_verbatim_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+    }
+  else
+    {
+      char *attribute_class;
+      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      add_string (builtin_command_name (cmd), classes);
+      attribute_class = html_attribute_class (self, "pre", classes);
+      text_append (result, attribute_class);
+      text_append_n (result, ">", 1);
+      if (content)
+        text_append (result, content);
+      text_append_n (result, "</pre>", 6);
+      free (attribute_class);
+      destroy_strings_list (classes);
+   }
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10934,6 +10962,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
 
   {CM_indentedblock, &convert_indented_command},
   {CM_smallindentedblock, &convert_indented_command},
+  {CM_verbatim, &convert_verbatim_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
@@ -12173,7 +12202,7 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
-                = &convert_preformatted_command; 
+                = &convert_preformatted_command;
             }
 
           css_string_command_conversion->formatting_reference = 0;
