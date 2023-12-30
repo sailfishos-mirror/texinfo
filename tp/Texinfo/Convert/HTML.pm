@@ -4958,24 +4958,24 @@ sub _convert_inline_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $format_arg = shift @$args;
-
   my $format;
-  if (defined($format_arg)) {
-    $format = $format_arg->{'monospacetext'};
+  if ($args and $args->[0] and defined($args->[0]->{'monospacetext'})
+      and $args->[0]->{'monospacetext'} ne '') {
+    $format = $args->[0]->{'monospacetext'};
+  } else {
+    return '';
   }
-  return '' if (!defined($format) or $format eq '');
 
   my $arg_index = undef;
   if ($inline_format_commands{$cmdname}) {
     if ($cmdname eq 'inlinefmtifelse' and !$self->is_format_expanded($format)) {
-      $arg_index = 1;
+      $arg_index = 2;
     } elsif ($self->is_format_expanded($format)) {
-      $arg_index = 0;
+      $arg_index = 1;
     }
   } elsif (defined($command->{'extra'})
            and defined($command->{'extra'}->{'expand_index'})) {
-    $arg_index = 0;
+    $arg_index = 1;
   }
   if (defined($arg_index) and $arg_index < scalar(@$args)) {
     my $text_arg = $args->[$arg_index];

@@ -9860,6 +9860,51 @@ convert_raw_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_inline_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *format;
+  int arg_index = 0;
+
+  if (args_formatted && args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_monospacetext]
+      && strlen (args_formatted->args[0].formatted[AFT_type_monospacetext]))
+    format = args_formatted->args[0].formatted[AFT_type_monospacetext];
+  else
+    return;
+
+  if (command_other_flags (element) & CF_inline_format)
+    {
+      if (cmd == CM_inlinefmtifelse
+          && !format_expanded_p (self->expanded_formats, format))
+        arg_index = 2;
+      else if (format_expanded_p (self->expanded_formats, format))
+        arg_index = 1;
+    }
+  else
+    {
+      int status;
+      int expand_index = lookup_extra_integer (element, "expand_index",
+                                               &status);
+      if (expand_index > 0)
+        arg_index = 1;
+    }
+  if (arg_index > 0 && arg_index < args_formatted->number)
+    {
+      if (args_formatted->args[arg_index].formatted[AFT_type_normal])
+        {
+          text_append (result,
+                args_formatted->args[arg_index].formatted[AFT_type_normal]);
+        }
+      else if (args_formatted->args[arg_index].formatted[AFT_type_raw])
+        text_append (result,
+               args_formatted->args[arg_index].formatted[AFT_type_raw]);
+    }
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10697,11 +10742,16 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_math, &convert_math_command},
   {CM_titlefont, &convert_titlefont_command},
   {CM_U, &convert_U_command},
-
   /* note that if indicateurl had been in self->style_formatted_cmd this
      would have prevented indicateurl to be associated to
      convert_style_command */
   {CM_indicateurl, &convert_indicateurl_command},
+
+  {CM_inlineraw, &convert_inline_command},
+  {CM_inlinefmt, &convert_inline_command},
+  {CM_inlinefmtifelse, &convert_inline_command},
+  {CM_inlineifclear, &convert_inline_command},
+  {CM_inlineifset, &convert_inline_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
