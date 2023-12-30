@@ -1,5 +1,13 @@
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/XS/convert/converter.c:
+	move contents_inline_element up in source file.
+
+	* tp/Texinfo/XS/convert/converter.c: move mini_toc_internal and
+	convert_heading_command up in source file.
+
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (xml_comment): add.
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_default_format_comment)

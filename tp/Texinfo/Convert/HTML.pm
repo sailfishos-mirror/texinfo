@@ -4600,6 +4600,51 @@ sub close_registered_sections_level($$)
   return \@closed_elements;
 }
 
+sub _contents_inline_element($$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  # undef unless called from @-command formatting function
+  my $element = shift;
+
+  print STDERR "CONTENTS_INLINE $cmdname\n" if ($self->get_conf('DEBUG'));
+  my $table_of_contents
+   = &{$self->formatting_function('format_contents')}($self,
+                                                $cmdname, $element);
+  if ($table_of_contents) {
+    my ($special_unit_variety, $special_unit, $class_base,
+        $special_unit_direction)
+          = $self->command_name_special_unit_information($cmdname);
+    # FIXME is element- the best prefix?
+    my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
+    my $heading;
+    if ($special_unit) {
+      my $unit_command = $special_unit->{'unit_command'};
+      my $id = $self->command_id($unit_command);
+      if (defined($id) and $id ne '') {
+        $result .= " id=\"$id\"";
+      }
+      $heading = $self->command_text($unit_command);
+    } else {
+      # happens when called as convert() and not output()
+      my $heading_tree = $self->special_unit_info('heading_tree',
+                                             $special_unit_variety);
+      if (defined($heading_tree)) {
+        $heading = $self->convert_tree($heading_tree,
+                                       "convert $cmdname special heading");
+      }
+    }
+    $heading = '' if (!defined($heading));
+    $result .= ">\n";
+    $result .= &{$self->formatting_function('format_heading_text')}($self,
+                                  $cmdname, [$class_base.'-heading'], $heading,
+                                  $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
+    $result .= $table_of_contents . "</div>\n";
+    return $result;
+  }
+  return '';
+}
+
 sub _convert_heading_command($$$$$)
 {
   my $self = shift;
@@ -6548,51 +6593,6 @@ sub _convert_printindex_command($$$$)
   return $result . "</div>\n";
 }
 $default_commands_conversion{'printindex'} = \&_convert_printindex_command;
-
-sub _contents_inline_element($$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  # undef unless called from @-command formatting function
-  my $element = shift;
-
-  print STDERR "CONTENTS_INLINE $cmdname\n" if ($self->get_conf('DEBUG'));
-  my $table_of_contents
-   = &{$self->formatting_function('format_contents')}($self,
-                                                $cmdname, $element);
-  if ($table_of_contents) {
-    my ($special_unit_variety, $special_unit, $class_base,
-        $special_unit_direction)
-          = $self->command_name_special_unit_information($cmdname);
-    # FIXME is element- the best prefix?
-    my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
-    my $heading;
-    if ($special_unit) {
-      my $unit_command = $special_unit->{'unit_command'};
-      my $id = $self->command_id($unit_command);
-      if (defined($id) and $id ne '') {
-        $result .= " id=\"$id\"";
-      }
-      $heading = $self->command_text($unit_command);
-    } else {
-      # happens when called as convert() and not output()
-      my $heading_tree = $self->special_unit_info('heading_tree',
-                                             $special_unit_variety);
-      if (defined($heading_tree)) {
-        $heading = $self->convert_tree($heading_tree,
-                                       "convert $cmdname special heading");
-      }
-    }
-    $heading = '' if (!defined($heading));
-    $result .= ">\n";
-    $result .= &{$self->formatting_function('format_heading_text')}($self,
-                                  $cmdname, [$class_base.'-heading'], $heading,
-                                  $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
-    $result .= $table_of_contents . "</div>\n";
-    return $result;
-  }
-  return '';
-}
 
 sub _convert_informative_command($$$)
 {
