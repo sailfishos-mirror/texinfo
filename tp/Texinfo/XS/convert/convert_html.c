@@ -9024,6 +9024,122 @@ convert_math_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
 }
 
+char *
+html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
+                         const ELEMENT *element, int set_case,
+                         int use_numeric_entities)
+{
+  char *text_set;
+
+  if (set_case)
+    {
+      int str_len = strlen (text);
+      if (str_len != 1 || !isascii_alnum (*text))
+        {
+          int w_len = word_bytes_len_multibyte (text);
+          if (w_len != str_len)
+            set_case = 0;
+        }
+    }
+
+  if (set_case)
+    text_set = to_upper_or_lower_multibyte (text, set_case);
+  else
+    text_set = strdup (text);
+
+  /* do not return a dotless i or j as such if it is further composed
+     with an accented letter, return the letter as is */
+  if (element->cmd == CM_dotless
+      && (!strcmp (text_set, "i") || !strcmp (text_set, "j")))
+    {
+      if (element->parent && element->parent->parent
+          && element->parent->parent->cmd)
+        {
+          enum command_id p_cmd = element->parent->parent->cmd;
+          if (builtin_command_data[p_cmd].flags & CF_accent
+              && p_cmd != CM_tieaccent)
+            {
+              return text_set;
+            }
+        }
+    }
+
+  if (use_numeric_entities)
+    {
+      char *formatted_accent
+        = xml_numeric_entity_accent (element->cmd, text_set);
+      if (formatted_accent)
+        {
+          free (text_set);
+          return formatted_accent;
+        }
+    }
+  else
+    {
+      char *formatted_accent;
+      if (strlen (text_set) == 1 && isascii_alpha (*text_set)
+          && self->accent_entities[element->cmd].entity
+          && self->accent_entities[element->cmd].characters
+          && strlen (self->accent_entities[element->cmd].characters)
+          && strrchr (self->accent_entities[element->cmd].characters,
+                       *text_set))
+        {
+          xasprintf (&formatted_accent, "&%s%s;", text_set,
+                     self->accent_entities[element->cmd].entity);
+          free (text_set);
+          return formatted_accent;
+        }
+      formatted_accent = xml_numeric_entity_accent (element->cmd, text_set);
+      if (formatted_accent)
+        {
+          free (text_set);
+          return formatted_accent;
+        }
+    }
+  fprintf (stderr, "NNNNNNNNNNn %s %s\n", builtin_command_name (element->cmd), text_set);
+  return text_set;
+}
+
+char *
+html_accent_entities_html_accent (CONVERTER *self, const char *text,
+                         const ELEMENT *element, int set_case)
+{
+  return html_accent_entities_html_accent_internal (self, text,
+                                            element, set_case, 0);
+}
+
+char *
+html_accent_entities_numeric_entities_accent (CONVERTER *self,
+             const char *text, const ELEMENT *element, int set_case)
+{
+  return html_accent_entities_html_accent_internal (self, text,
+                                            element, set_case, 1);
+}
+
+void
+convert_accent_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *(*format_accents)(CONVERTER *self, const char *text,
+                         const ELEMENT *element, int set_case);
+
+  int output_encoded_characters = (self->conf->OUTPUT_CHARACTERS > 0);
+
+  if (self->conf->USE_NUMERIC_ENTITY > 0)
+    format_accents = &html_accent_entities_numeric_entities_accent;
+  else
+    format_accents = &html_accent_entities_html_accent;
+
+  char *accent_text = convert_accents (self, element, &html_convert_tree,
+                          format_accents, output_encoded_characters,
+                          html_in_upper_case (self));
+
+  text_append (result, accent_text);
+  free (accent_text);
+}
+
 void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -11461,6 +11577,26 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
+  /* accents commands implemented in C, but not css strings accents */
+  if (self->accent_formatted_cmd.number)
+    {
+      for (i = 0; i < self->accent_formatted_cmd.number; i++)
+        {
+          enum command_id cmd = self->accent_formatted_cmd.list[i];
+          COMMAND_CONVERSION_FUNCTION *command_conversion
+               = &self->command_conversion_function[cmd];
+          if (command_conversion->status == FRS_status_default_set)
+            {
+              command_conversion->formatting_reference = 0;
+              command_conversion->status = FRS_status_internal;
+              command_conversion->command_conversion
+                = &convert_accent_command;
+            }
+        }
+    }
+
+
+
   /* all the commands in style_formatted_cmd are implemented in C.
      It is not only the style commands, some others too.  indicateurl
      is not in style_formatted_cmd for now either */
@@ -11958,6 +12094,15 @@ html_free_converter (CONVERTER *self)
         }
     }
 
+  for (i = 0; i < self->accent_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = self->accent_formatted_cmd.list[i];
+      ACCENT_ENTITY_INFO *accent_info
+          = &self->accent_entities[cmd];
+      free (accent_info->entity);
+      free (accent_info->characters);
+    }
+
   for (i = 0; i < self->style_formatted_cmd.number; i++)
     {
       enum command_id cmd = self->style_formatted_cmd.list[i];
@@ -12022,6 +12167,8 @@ html_free_converter (CONVERTER *self)
   free (self->htmlxref.list);
 
   free (self->no_arg_formatted_cmd.list);
+
+  free (self->accent_formatted_cmd.list);
 
   free (self->style_formatted_cmd.list);
 

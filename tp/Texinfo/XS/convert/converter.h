@@ -83,6 +83,13 @@ char *node_information_filename (CONVERTER *self, char *normalized,
 TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
                                                    const ELEMENT *command);
 
+char *convert_accents (CONVERTER *self, const ELEMENT *accent,
+ char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree, char *explanation),
+ char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
+                        int set_case),
+  int output_encoded_characters,
+  int set_case);
+
 ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current_entry,
                                            char *separator);
 void free_comma_index_subentries_tree (ELEMENT_LIST *element);
@@ -103,4 +110,5 @@ void free_generic_converter (CONVERTER *self);
 
 
 void xml_format_text_with_numeric_entities (const char *text, TEXT *result);
+char *xml_numeric_entity_accent (enum command_id cmd, const char *text);
 #endif

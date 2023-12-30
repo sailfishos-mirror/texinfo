@@ -28,6 +28,7 @@
 #include "unistr.h"
 #include "unicase.h"
 #include "uniwidth.h"
+#include <unictype.h>
 
 #include "global_commands_types.h"
 #include "options_types.h"
@@ -240,6 +241,42 @@ width_multibyte (const char *text)
   result = u8_strwidth (u8_text, "UTF-8");
   free (u8_text);
   return result;
+}
+
+/* length of next word in multibyte setting.  Should correspond to \w or
+   \p{Word} in perl */
+int
+word_bytes_len_multibyte (const char *text)
+{
+  uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
+                                                  iconveh_question_mark);
+  uint8_t *current_u8 = encoded_u8;
+  int len = 0;
+  while (1)
+    {
+      ucs4_t next_char;
+      int new_len = u8_strmbtouc (&next_char, current_u8);
+      if (!new_len)
+        {
+          break;
+        }
+      /* (\p{Alnum} = \p{Alphabetic} + \p{Nd}) + \pM + \p{Pc}
+                                              + \p{Join_Control} */
+      if (uc_is_general_category (next_char, UC_CATEGORY_M)
+          || uc_is_general_category (next_char, UC_CATEGORY_Nd)
+          || uc_is_property (next_char, UC_PROPERTY_ALPHABETIC)
+          || uc_is_property (next_char, UC_PROPERTY_JOIN_CONTROL))
+        {
+          len += new_len;
+          current_u8 += new_len;
+        }
+      else
+        {
+          break;
+        }
+    }
+  free (encoded_u8);
+  return len;
 }
 
 

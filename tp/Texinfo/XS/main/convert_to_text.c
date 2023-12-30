@@ -43,8 +43,12 @@
 #include "cmd_symbol.c"
 #include "cmd_text.c"
 
+
+/* the CONVERTER argument is not used, it is there solely to match the
+   calling prototype in accent formatting commands */
 char *
-ascii_accent (const char *text, const ELEMENT *command, int set_case)
+ascii_accent (CONVERTER *self, const char *text,
+              const ELEMENT *command, int set_case)
 {
   const enum command_id cmd = command->cmd;
   TEXT accent_text;
@@ -96,7 +100,8 @@ ascii_accents_internal (const char *text, const ELEMENT_STACK *stack,
   for (i = stack->top - 1; i >= 0; i--)
     {
       const ELEMENT *accent_command = stack->stack[i];
-      char *formatted_accent = ascii_accent (result, accent_command, set_case);
+      char *formatted_accent = ascii_accent (0, result, accent_command,
+                                             set_case);
       free (result);
       result = formatted_accent;
     }
@@ -180,7 +185,7 @@ char *
 text_accents (const ELEMENT *accent, char *encoding, int set_case)
 {
   ACCENTS_STACK *accent_stack = find_innermost_accent_contents (accent);
-  char *text;
+  char *arg_text;
   char *result;
   TEXT_OPTIONS *text_options = new_text_options ();
 
@@ -189,16 +194,16 @@ text_accents (const ELEMENT *accent, char *encoding, int set_case)
   text_options->set_case = set_case;
 
   if (accent_stack->argument)
-    text = convert_to_text (accent_stack->argument, text_options);
+    arg_text = convert_to_text (accent_stack->argument, text_options);
   else
-    text = strdup ("");
+    arg_text = strdup ("");
 
-  result = encoded_accents (text, &accent_stack->stack, encoding,
+  result = encoded_accents (0, arg_text, &accent_stack->stack, encoding,
                             ascii_accent, set_case);
 
   if (!result)
-    result = ascii_accents_internal (text, &accent_stack->stack, set_case);
-  free (text);
+    result = ascii_accents_internal (arg_text, &accent_stack->stack, set_case);
+  free (arg_text);
   destroy_accent_stack (accent_stack);
   destroy_text_options (text_options);
   return result;

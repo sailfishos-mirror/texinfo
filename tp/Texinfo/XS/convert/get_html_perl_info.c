@@ -152,6 +152,7 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **formatting_function_sv;
   SV **sorted_special_unit_varieties_sv;
   SV **no_arg_commands_formatting_sv;
+  SV **accent_entities_sv;
   SV **style_commands_formatting_sv;
   SV **types_open_sv;
   SV **types_conversion_sv;
@@ -175,6 +176,7 @@ html_converter_initialize_sv (SV *converter_sv,
   int nr_string_directions;
   int nr_dir_str_contexts = TDS_context_string +1;
   enum direction_string_type DS_type;
+  int nr_accent_cmd = 0;
 
   dTHX;
 
@@ -326,7 +328,15 @@ html_converter_initialize_sv (SV *converter_sv,
         conversion_formatting_reference, ref_name,
         default_commands_conversion_hv,
         commands_conversion_hv);
+
+  /* NOTE use the loop to collect the number of accent commands too */
+      if (builtin_command_data[i].flags & CF_accent)
+        nr_accent_cmd++;
     }
+
+  converter->accent_formatted_cmd.list = (enum command_id *)
+    malloc (nr_accent_cmd * sizeof (enum command_id));
+  converter->accent_formatted_cmd.number = 0;
 
   default_css_string_commands_conversion_hv
     = (HV *)SvRV (default_css_string_commands_conversion);
@@ -350,6 +360,14 @@ html_converter_initialize_sv (SV *converter_sv,
      register_formatting_reference_default ("css_command_conversion",
         conversion_formatting_reference, ref_name,
         default_css_string_commands_conversion_hv);
+
+  /* NOTE we use the loop to collect the accent commands too */
+     if (builtin_command_data[i].flags & CF_accent)
+       {
+         converter->accent_formatted_cmd.list[
+            converter->accent_formatted_cmd.number] = i;
+         converter->accent_formatted_cmd.number++;
+       }
     }
 
 
@@ -743,6 +761,56 @@ html_converter_initialize_sv (SV *converter_sv,
       qsort (converter->no_arg_formatted_cmd.list, hv_number,
              sizeof (enum command_id), compare_ints);
     }
+
+  FETCH(accent_entities)
+
+  if (accent_entities_sv)
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *accent_entities_hv
+        = (HV *)SvRV (*accent_entities_sv);
+
+      hv_number = hv_iterinit (accent_entities_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          char *cmdname;
+          I32 retlen;
+          SV *spec_sv = hv_iternextsv (accent_entities_hv,
+                                          &cmdname, &retlen);
+          if (SvOK (spec_sv))
+            {
+              enum command_id cmd = lookup_builtin_command (cmdname);
+              if (!cmd)
+                fprintf (stderr, "ERROR: %s: no accent command\n", cmdname);
+              else
+                {
+                  ACCENT_ENTITY_INFO *accent_info
+                    = &converter->accent_entities[cmd];
+                  AV *spec_av = (AV *)SvRV (spec_sv);
+                  SV **entity_sv = av_fetch (spec_av, 0, 0);
+                  SV **characters_sv = av_fetch (spec_av, 1, 0);
+
+                  if (entity_sv)
+                    {
+                      char *entity = (char *) SvPVutf8_nolen (*entity_sv);
+                      accent_info->entity = strdup (entity);
+                    }
+
+                  if (characters_sv && SvOK (*characters_sv))
+                    {
+                      char *characters
+                        = (char *) SvPVutf8_nolen (*characters_sv);
+                      if (strlen (characters))
+                        accent_info->characters = strdup (characters);
+                    }
+                }
+            }
+        }
+    }
+
 
   FETCH(style_commands_formatting)
 

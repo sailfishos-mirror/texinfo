@@ -1,5 +1,44 @@
 2023-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/unicode.c (format_eight_bit_accents_stack): fix
+	level instack at the end of the first phase of gathering codepoints.
+	Do not double free new_eight_bit.
+
+	* tp/Texinfo/XS/main/utils.c (word_bytes_len_multibyte): add a
+	function that counts the bytes in contiguous word characters in a
+	string, emulating \p{Word} or \w with unicode in perl.
+
+	* tp/maintain/setup_converters_code_tables.pl (unicode_diacritics),
+	tp/Texinfo/XS/main/unicode.h (DIACRITIC_UNICODE),
+	tp/Texinfo/XS/main/unicode.c (unicode_accent): add the diacritic
+	numeric representation in addition to the UTF-8 encoded string.
+
+	* tp/Texinfo/XS/convert/converter.c (convert_accents),
+	tp/Texinfo/XS/main/convert_to_text.c (ascii_accent),
+	tp/Texinfo/XS/main/unicode.c (format_eight_bit_accents_stack)
+	(format_unicode_accents_stack_internal): add convert accents. Use
+	converter in accent formatting functions arguments passed to the
+	accents stacks conversion functions.  Update callers.
+
+	* tp/Texinfo/XS/convert/converter.c (next_for_tieaccent)
+	(UNICODE_ACCENT_LETTER, xml_numeric_entity_accent): implement
+	xml_numeric_entity_accent.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_accent_entities_html_accent_internal)
+	(html_accent_entities_html_accent)
+	(html_accent_entities_numeric_entities_accent)
+	(convert_accent_command, html_converter_initialize)
+	(html_free_converter, html_free_converter),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(ACCENT_ENTITY_INFO, CONVERTER): add a list of accent commands,
+	converter->accent_formatted_cmd, collected while getting the
+	formatting references.  Get accent_entities information from perl to
+	C.  Implement convert_accent_command in C.
+
+2023-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (convert_accents): reorganize code
 	for more clarity.
 

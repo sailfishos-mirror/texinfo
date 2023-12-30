@@ -525,6 +525,11 @@ typedef struct HTML_ARGS_FORMATTED {
     HTML_ARG_FORMATTED *args;
 } HTML_ARGS_FORMATTED;
 
+typedef struct ACCENT_ENTITY_INFO {
+    char *entity;
+    char *characters;
+} ACCENT_ENTITY_INFO;
+
 typedef struct COMMAND_CONVERSION_FUNCTION {
     enum formatting_reference_status status;
     /* points to the perl formatting reference if it is used for
@@ -694,9 +699,11 @@ typedef struct CONVERTER {
     /* set for a converter */
     COMMAND_ID_LIST no_arg_formatted_cmd;
     COMMAND_ID_LIST style_formatted_cmd;
+    COMMAND_ID_LIST accent_formatted_cmd;
     int code_types[TXI_TREE_TYPES_NUMBER];
     char *pre_class_types[TXI_TREE_TYPES_NUMBER];
     int upper_case[BUILTIN_CMD_NUMBER];
+    ACCENT_ENTITY_INFO accent_entities[BUILTIN_CMD_NUMBER];
     STRING_WITH_LEN special_character[SC_non_breaking_space+1];
     STRING_WITH_LEN line_break_element;
     CSS_SELECTOR_STYLE_LIST css_element_class_styles;

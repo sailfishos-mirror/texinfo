@@ -18,6 +18,11 @@ typedef struct COMMAND_UNICODE {
     int is_extra;
 } COMMAND_UNICODE;
 
+typedef struct DIACRITIC_UNICODE {
+    char *text; /* UTF-8 encoded */
+    char *codepoint;
+} DIACRITIC_UNICODE;
+
 /* can be inlined in text parsing codes */
 #define OTXI_UNICODE_TEXT_CASES(var) \
         case '-': \
@@ -69,7 +74,7 @@ typedef struct COMMAND_UNICODE {
           break;
 
 
-extern char *unicode_diacritics[];
+extern DIACRITIC_UNICODE unicode_diacritics[];
 extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
 
 int unicode_point_decoded_in_encoding (char *encoding, char *codepoint);
@@ -78,9 +83,10 @@ char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);
 char *unicode_accent (const char *text, const ELEMENT *e);
 
-char *encoded_accents (const char *text, const ELEMENT_STACK *stack,
-  const char *encoding,
-  char *(*format_accent)(const char *text, const ELEMENT *element, int set_case),
+char *encoded_accents (CONVERTER *self, const char *text,
+  const ELEMENT_STACK *stack, const char *encoding,
+  char *(*format_accent)(CONVERTER *self, const char *text,
+                         const ELEMENT *element, int set_case),
   int set_case);
 char *unicode_brace_no_arg_command (enum command_id cmd, char *encoding);
 

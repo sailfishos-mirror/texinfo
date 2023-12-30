@@ -145,7 +145,7 @@ my %extra_unicode_map = %Texinfo::Convert::Unicode::extra_unicode_map;
 open (UNIC, '>', $unicode_file) or die "Open $unicode_file: $!\n";
 
 print UNIC '#include "unicode.h"'."\n\n";
-print UNIC "char *unicode_diacritics[] = {\n";
+print UNIC "DIACRITIC_UNICODE unicode_diacritics[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -154,11 +154,12 @@ foreach my $command_name (@commands_order) {
   #print UNIC "$command; ";
 
   if (defined($unicode_diacritics{$command_name})) {
-    my $result = chr(hex($unicode_diacritics{$command_name}));
+    my $numeric_codepoint = hex($unicode_diacritics{$command_name});
+    my $result = chr($numeric_codepoint);
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print UNIC "\"$protected\",   /* $command */\n";
+    print UNIC "{\"$protected\", \"$numeric_codepoint\"},  /* $command */\n";
   } else {
-    print UNIC "0,\n";
+    print UNIC "{0, 0},\n";
   }
 }
 print UNIC "};\n\n";

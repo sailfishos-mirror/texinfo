@@ -20,6 +20,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <stddef.h>
+#include <inttypes.h>
+#include <unistr.h>
+#include <uniconv.h>
+#include <unictype.h>
 
 #include "command_ids.h"
 #include "tree_types.h"
@@ -32,6 +36,7 @@
 #include "convert_utils.h"
 #include "translations.h"
 #include "manipulate_tree.h"
+#include "unicode.h"
 #include "converter.h"
 
 static CONVERTER **converter_list;
@@ -300,6 +305,94 @@ node_information_filename (CONVERTER *self, char *normalized,
 
   id_to_filename (self, &filename);
   return filename;
+}
+
+ELEMENT *
+float_type_number (CONVERTER *self, const ELEMENT *float_e)
+{
+  ELEMENT *tree = 0;
+  ELEMENT *type_element = 0;
+  NAMED_STRING_ELEMENT_LIST *replaced_substrings
+     = new_named_string_element_list ();
+  char *float_type = lookup_extra_string (float_e, "float_type");
+  char *float_number = lookup_extra_string (float_e, "float_number");
+
+  if (float_type && strlen (float_type))
+    type_element = float_e->args.list[0];
+
+  if (float_number)
+    {
+      ELEMENT *e_number = new_element (ET_NONE);
+      text_append (&e_number->text, float_number);
+      add_element_to_named_string_element_list (replaced_substrings,
+                                     "float_number", e_number);
+    }
+
+  if (type_element)
+    {
+      ELEMENT *type_element_copy = copy_tree (type_element);
+      add_element_to_named_string_element_list (replaced_substrings,
+                                     "float_type", type_element_copy);
+      if (float_number)
+        tree = gdt_tree ("{float_type} {float_number}", self->document,
+                         self->conf, replaced_substrings, 0, 0);
+      else
+        tree = gdt_tree ("{float_type}", self->document, self->conf,
+                         replaced_substrings, 0, 0);
+    }
+  else if (float_number)
+    tree = gdt_tree ("{float_number}", self->document, self->conf,
+                     replaced_substrings, 0, 0);
+
+  destroy_named_string_element_list (replaced_substrings);
+
+  return tree;
+}
+
+char *
+convert_accents (CONVERTER *self, const ELEMENT *accent,
+ char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree, char *explanation),
+ char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
+                        int set_case),
+  int output_encoded_characters,
+  int set_case)
+{
+  ACCENTS_STACK *accent_stack = find_innermost_accent_contents (accent);
+  const ELEMENT_STACK *stack;
+  char *arg_text;
+  char *result;
+  int i;
+
+  if (accent_stack->argument)
+    arg_text = (*convert_tree) (self, accent_stack->argument, 0);
+  else
+    arg_text = strdup ("");
+
+  if (output_encoded_characters)
+    {
+      char *encoded = encoded_accents (self, arg_text, &accent_stack->stack,
+                                 self->conf->OUTPUT_ENCODING_NAME, format_accent,
+                                 set_case);
+      if (encoded)
+        {
+          free (arg_text);
+          destroy_accent_stack (accent_stack);
+          return encoded;
+        }
+    }
+
+  stack = &accent_stack->stack;
+  result = arg_text;
+  for (i = stack->top - 1; i >= 0; i--)
+    {
+      const ELEMENT *accent_command = stack->stack[i];
+      char *formatted_accent = (*format_accent) (self, result, accent_command,
+                                                 set_case);
+      free (result);
+      result = formatted_accent;
+    }
+  destroy_accent_stack (accent_stack);
+  return result;
 }
 
 ELEMENT_LIST *
@@ -652,44 +745,167 @@ xml_protect_text (const char *text, TEXT *result)
     }
 }
 
-ELEMENT *
-float_type_number (CONVERTER *self, const ELEMENT *float_e)
+static char *
+next_for_tieaccent (const char *text, const char **next)
 {
-  ELEMENT *tree = 0;
-  ELEMENT *type_element = 0;
-  NAMED_STRING_ELEMENT_LIST *replaced_substrings
-     = new_named_string_element_list ();
-  char *float_type = lookup_extra_string (float_e, "float_type");
-  char *float_number = lookup_extra_string (float_e, "float_number");
-
-  if (float_type && strlen (float_type))
-    type_element = float_e->args.list[0];
-
-  if (float_number)
+  const char *p;
+  if (!strlen (text))
     {
-      ELEMENT *e_number = new_element (ET_NONE);
-      text_append (&e_number->text, float_number);
-      add_element_to_named_string_element_list (replaced_substrings,
-                                     "float_number", e_number);
+      return 0;
     }
-
-  if (type_element)
+  if (text[0] == '&')
     {
-      ELEMENT *type_element_copy = copy_tree (type_element);
-      add_element_to_named_string_element_list (replaced_substrings,
-                                     "float_type", type_element_copy);
-      if (float_number)
-        tree = gdt_tree ("{float_type} {float_number}", self->document,
-                         self->conf, replaced_substrings, 0, 0);
-      else
-        tree = gdt_tree ("{float_type}", self->document, self->conf,
-                         replaced_substrings, 0, 0);
+      if (strlen (text) > 3 && isascii_alnum(*(text+1)))
+        {
+          p = text +2;
+          while (*p)
+            {
+              if (*p == ';')
+                {
+                  p++;
+                  *next = p;
+                  return strndup (text, p - text);
+                }
+              else if (isascii_alnum (*p))
+                {
+                  p++;
+                }
+              else
+                break;
+            }
+        }
+      return 0;
     }
-  else if (float_number)
-    tree = gdt_tree ("{float_number}", self->document, self->conf,
-                     replaced_substrings, 0, 0);
-
-  destroy_named_string_element_list (replaced_substrings);
-
-  return tree;
+  else
+    {
+      uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
+                                                  iconveh_question_mark);
+      ucs4_t first_char;
+      u8_next (&first_char, encoded_u8);
+      if (uc_is_general_category (first_char, UC_CATEGORY_L)
+          /* ASCII digits */
+          || (first_char >= 0x0030 && first_char <= 0x0039))
+        {
+          char *first_char_text;
+          uint8_t *first_char_u8 = malloc (7 * sizeof(uint8_t));
+          int first_char_len = u8_uctomb (first_char_u8, first_char, 6);
+          if (first_char_len < 0)
+            fatal ("u8_uctomb returns negative value");
+          first_char_u8[first_char_len] = 0;
+          first_char_text = u8_strconv_to_encoding (first_char_u8, "UTF-8",
+                                                    iconveh_question_mark);
+          free (first_char_u8);
+          p = text + strlen (first_char_text);
+          *next = p;
+          return first_char_text;
+        }
+      return 0;
+    }
 }
+
+typedef struct UNICODE_ACCENT_LETTER {
+    enum command_id cmd;
+    char *letter;
+    char *numerical_entity;
+} UNICODE_ACCENT_LETTER;
+
+/* only those that are not obtained through diacritic + normalization */
+static UNICODE_ACCENT_LETTER unicode_accented_letters[] = {
+{CM_dotless, "i", "305"},
+{CM_dotless, "j", "567"},
+{0, 0, 0}
+};
+
+char *
+xml_numeric_entity_accent (enum command_id cmd, const char *text)
+{
+  char *result;
+  if (! builtin_command_data[cmd].flags & CF_accent)
+    {
+      return 0;
+    }
+
+  if (strlen (text) == 1 && isascii_alpha (*text))
+    {
+      int i;
+      for (i = 0; unicode_accented_letters[i].cmd; i++)
+        {
+          UNICODE_ACCENT_LETTER *letter = &unicode_accented_letters[i];
+          if (cmd == letter->cmd && ! strcmp (text, letter->letter))
+            {
+              xasprintf (&result, "&#%s;", letter->numerical_entity);
+              return result;
+            }
+        }
+    }
+
+  if (unicode_diacritics[cmd].text)
+    {
+      if (cmd != CM_tieaccent)
+        {
+          if (strlen (text) == 1 && isascii_alpha (*text))
+            {
+              char *accented_char;
+              char *normalized_char;
+              uint8_t *encoded_u8;
+              ucs4_t first_char;
+              const uint8_t *next;
+
+              xasprintf (&accented_char, "%s%s", text,
+                         unicode_diacritics[cmd].text);
+              normalized_char = normalize_NFC (accented_char);
+              encoded_u8 = u8_strconv_from_encoding (normalized_char, "UTF-8",
+                                                     iconveh_question_mark);
+              next = u8_next (&first_char, encoded_u8);
+              if (next)
+                {
+                  ucs4_t other_char;
+                  const uint8_t *after = u8_next (&other_char, next);
+                  next = after;
+                }
+              free (encoded_u8);
+              free (accented_char);
+              free (normalized_char);
+              if (!next)
+                {
+                  char *entity;
+              /* hex entity
+                 xasprintf (&entity, "&#%04lX;", first_char); */
+        /* seems to be the way for portable uint32_t unsigned integer format */
+                  xasprintf (&entity, "&#%" PRIu32 ";", first_char);
+                  return entity;
+                }
+            }
+          xasprintf (&result, "%s&#%s;", text, unicode_diacritics[cmd].codepoint);
+          return result;
+        }
+      else
+        {
+          char *result;
+          const char *p = 0;
+          const char *remaining = 0;
+          char *first = next_for_tieaccent (text, &p);
+          char *second;
+          if (!first)
+            goto invalid;
+          second = next_for_tieaccent (p, &remaining);
+          if (second)
+            {
+              xasprintf (&result, "%s&#%s;%s%s", first,
+                         unicode_diacritics[cmd].codepoint, second, remaining);
+              free (first);
+              free (second);
+              return result;
+            }
+          else
+            free (first);
+
+         invalid:
+          xasprintf (&result, "%s&#%s;", text,
+                     unicode_diacritics[cmd].codepoint);
+          return result;
+        }
+    }
+  return 0;
+}
+
