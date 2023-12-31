@@ -208,7 +208,7 @@ CMD_VARIETY command_special_unit_variety[] = {
 
 typedef struct HTML_COMMAND_STRUCT {
     unsigned long flags;
-    const char *pre_class;
+    enum command_id pre_class_cmd;
 } HTML_COMMAND_STRUCT;
 
 static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
@@ -769,7 +769,7 @@ html_top_block_command (CONVERTER *self)
   return top_command (&top_document_ctx->block_commands);
 }
 
-STRING_STACK *
+COMMAND_OR_TYPE_STACK *
 html_preformatted_classes_stack (CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
@@ -1581,14 +1581,11 @@ register_format_context_command (enum command_id cmd)
 
 void register_pre_class_command (enum command_id cmd, enum command_id main_cmd)
 {
-  const char *pre_class_str;
-
   if (main_cmd)
-    pre_class_str = builtin_command_data[main_cmd].cmdname;
+    html_commands_data[cmd].pre_class_cmd = main_cmd;
   else
-    pre_class_str = builtin_command_data[cmd].cmdname;
+    html_commands_data[cmd].pre_class_cmd = cmd;
 
-  html_commands_data[cmd].pre_class = pre_class_str;
   html_commands_data[cmd].flags |= HF_pre_class;
 }
 
@@ -2152,6 +2149,34 @@ noticed_line_warn (CONVERTER *self, const ELEMENT *element,
 
 #define ADDN(str,nr) text_append_n (result, str, nr)
 
+/* this function allows to call a conversion function associated to
+   a COMMAND_CONVERSION different from the ELEMENT and CMD arguments
+   associated command conversion */
+static void
+conversion_function_cmd_conversion (CONVERTER *self,
+                       COMMAND_CONVERSION_FUNCTION *command_conversion,
+                    const enum command_id cmd, const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (command_conversion->status == FRS_status_internal)
+    {
+      (command_conversion->command_conversion)
+                   (self, cmd, element, args_formatted,
+                    content, result);
+    }
+  else
+    {
+      FORMATTING_REFERENCE *formatting_reference
+        = command_conversion->formatting_reference;
+      if (formatting_reference->status > 0)
+         call_commands_conversion (self, cmd, formatting_reference,
+                                 element, args_formatted, content,
+                                 result);
+
+    }
+}
+
 void
 default_css_string_format_protect_text (const char *text, TEXT *result)
 {
@@ -2592,75 +2617,6 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
   format_protect_text (self, text.text, &result);
   free (text.text);
   return (result.text);
-}
-
-static TREE_ADDED_ELEMENTS *
-new_tree_added_elements (enum tree_added_elements_status status)
-{
-  TREE_ADDED_ELEMENTS *new
-    = (TREE_ADDED_ELEMENTS *) malloc (sizeof (TREE_ADDED_ELEMENTS));
-  memset (new, 0, sizeof (TREE_ADDED_ELEMENTS));
-  new->status = status;
-  return new;
-}
-
-static void
-clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
-{
-  /*
-   targets have all associated tree added elements structures that can be
-   left as 0, in particular with tree_added_status_none if nothing refers to
-   them, and are always cleared in the end.  So it is normal to have cleared
-   tree added elements with status none, but they also should not have any
-   added elements.
-   */
-   /*
-  if (tree_elements->status == tree_added_status_none)
-    {
-      fprintf (stderr, "CTAE: %p no status (%zu)\n", tree_elements, tree_elements->added.number);
-    }
-   */
-
-  if (tree_elements->tree
-      && tree_elements->status != tree_added_status_reused_tree)
-    remove_element_from_list (&self->tree_to_build, tree_elements->tree);
-
-  if (tree_elements->status == tree_added_status_new_tree)
-    destroy_element_and_children (tree_elements->tree);
-  else if (tree_elements->status == tree_added_status_elements_added)
-    {
-      size_t i;
-      for (i = 0; i < tree_elements->added.number; i++)
-        {
-          ELEMENT *added_e = tree_elements->added.list[i];
-          destroy_element (added_e);
-        }
-      tree_elements->added.number = 0;
-    }
-  tree_elements->tree = 0;
-  tree_elements->status = 0;
-}
-
-static void
-free_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
-{
-  clear_tree_added_elements (self, tree_elements);
-  free (tree_elements->added.list);
-}
-
-static void
-destroy_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
-{
-  free_tree_added_elements (self, tree_elements);
-  free (tree_elements);
-}
-
-ELEMENT *
-new_element_added (TREE_ADDED_ELEMENTS *added_elements, enum element_type type)
-{
-  ELEMENT *new = new_element (type);
-  add_to_element_list (&added_elements->added, new);
-  return new;
 }
 
 static void
@@ -4489,20 +4445,19 @@ static const STRING_LIST copiable_link_classes = {copiable_link_array, 1, 1};
 static char *
 get_copiable_anchor (CONVERTER *self, const char *id)
 {
-  TEXT result;
-
-  text_init (&result);
-  text_append (&result, "");
   if (id && strlen (id) && self->conf->COPIABLE_LINKS > 0)
     {
+      TEXT result;
       char *attribute_class = html_attribute_class (self, "a",
                                                     &copiable_link_classes);
+      text_init (&result);
       text_append (&result, attribute_class);
       free (attribute_class);
       text_printf (&result, " href=\"#%s\"> %s</a>",
                    id, self->special_character[SC_paragraph_symbol].string);
+      return result.text;
     }
-  return result.text;
+  return 0;
 }
 
 void
@@ -5748,6 +5703,8 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
   int heading_level = level;
   char *heading_html_element;
   const char *heading_target;
+  char *copiable_anchor;
+
   if (!id && text[strspn (text, whitespace_chars)] == '\0')
     return;
 
@@ -5788,17 +5745,19 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
 
   text_append_n (result, ">", 1);
 
-  if (heading_target && self->conf->COPIABLE_LINKS > 0)
-    {
-      char *copiable_anchor = get_copiable_anchor(self, heading_target);
-      text_append_n (result, "<span>", 6);
-      text_append (result, text);
+  copiable_anchor = get_copiable_anchor(self, heading_target);
+
+  if (copiable_anchor)
+    text_append_n (result, "<span>", 6);
+
+ text_append (result, text);
+
+  if (copiable_anchor)
+   {
       text_append (result, copiable_anchor);
       free (copiable_anchor);
       text_append_n (result, "</span>", 7);
     }
-  else
-   text_append (result, text);
 
   text_printf (result, "</h%d>", heading_level);
   if (cmd != CM_titlefont)
@@ -7690,7 +7649,6 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
   enum command_id base_cmd = 0;
   TEXT def_call;
   char *anchor;
-  size_t anchor_str_len;
 
   if (html_in_string (self))
     {
@@ -8017,16 +7975,15 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
   destroy_parsed_def (parsed_def);
 
   anchor = get_copiable_anchor (self, index_id);
-  anchor_str_len = strlen (anchor);
 
-  if (anchor_str_len)
+  if (anchor)
     text_append_n (result, "<span>", 6);
 
   text_append_n (result, def_call.text, def_call.end);
   free (def_call.text);
-  if (anchor_str_len)
+  if (anchor)
     {
-      text_append_n (result, anchor, anchor_str_len);
+      text_append (result, anchor);
       text_append_n (result, "</span>", 7);
     }
 
@@ -10631,7 +10588,6 @@ static char *type_number_float_array[] = {"type-number-float"};
 static const STRING_LIST type_number_float_classes
   = {type_number_float_array, 1, 1};
 
-
 void
 convert_float_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -11229,6 +11185,129 @@ convert_xtable_command (CONVERTER *self, const enum command_id cmd,
   text_append_n (result, ">\n", 2);
   text_append (result, content);
   text_append_n (result, "</dl>\n", 6);
+}
+
+static char *table_term_preformatted_code_array[]
+  = {"table-term-preformatted-code"};
+static const STRING_LIST table_term_preformatted_code_classes
+  = {table_term_preformatted_code_array, 1, 1};
+
+void
+convert_item_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+ if (element->parent && element->parent->cmd == CM_itemize)
+    {
+      if (content
+          && content[strspn (content, whitespace_chars)] != '\0')
+        {
+          text_printf (result, "<li>%s</li>", content);
+        }
+    }
+  else if (element->parent && element->parent->cmd == CM_enumerate)
+    {
+      if (content
+          && content[strspn (content, whitespace_chars)] != '\0')
+        {
+          text_printf (result, "<li> %s</li>", content);
+        }
+    }
+  else if (element->parent && element->parent->type == ET_table_term)
+    {
+      if (element->args.number > 0
+          && element->args.list[0]->contents.number > 0)
+        {
+          ELEMENT *converted_e;
+          TREE_ADDED_ELEMENTS *tree;
+          char *anchor = 0;
+          char *index_entry_id;
+          char *pre_class_close = 0;
+
+          if (cmd != CM_item)
+            text_append_n (result, "<dt>", 4);
+
+          index_entry_id = html_command_id (self, element);
+
+          if (index_entry_id)
+            {
+              text_printf (result, "<a id=\"%s\"></a>", index_entry_id);
+              anchor = get_copiable_anchor (self, index_entry_id);
+              if (anchor)
+                text_append_n (result, "<span>", 6);
+            }
+
+          if (html_in_preformatted_context (self))
+            {
+              COMMAND_OR_TYPE_STACK *pre_classes
+                = html_preformatted_classes_stack (self);
+              size_t i;
+              for (i = 0; i < pre_classes->top; i++)
+                {
+                  COMMAND_OR_TYPE *cmd_or_type
+                   = &pre_classes->stack[i];
+                  if (cmd_or_type->variety == CTV_type_command)
+                    {
+                      enum command_id pre_class_cmd = cmd_or_type->cmd;
+                      if (builtin_command_data[pre_class_cmd].flags
+                                                & CF_preformatted_code)
+                        {
+                           char *attribute_class
+                             = html_attribute_class (self, "code",
+                                    &table_term_preformatted_code_classes);
+                          text_append (result, attribute_class);
+                          free (attribute_class);
+                          text_append_n (result, ">", 1);
+
+                          pre_class_close = "</code>";
+                          break;
+                        }
+                    }
+                }
+            }
+
+          tree = table_item_content_tree (self, element);
+          if (tree)
+            {
+              add_to_element_list (&self->tree_to_build, tree->tree);
+              converted_e = tree->tree;
+            }
+          else
+            converted_e = element->args.list[0];
+
+          convert_to_html_internal (self, converted_e, result,
+                                    "convert table_item_tree");
+
+          if (pre_class_close)
+            text_append (result, pre_class_close);
+
+          if (anchor)
+            {
+              text_append (result, anchor);
+              text_append_n (result, "</span>", 7);
+            }
+
+          text_append_n (result, "</dt>\n", 6);
+
+          if (tree)
+            destroy_tree_added_elements (self, tree);
+        }
+    }
+  else if (element->parent->type == ET_row)
+    {
+      conversion_function_cmd_conversion (self,
+                  &self->current_commands_conversion_function[CM_tab],
+                   cmd, element, args_formatted,
+                    content, result);
+    }
 }
 
 void
@@ -11942,6 +12021,9 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_author, &convert_author_command},
   {CM_title, &convert_title_command},
   {CM_subtitle, &convert_subtitle_command},
+  {CM_item, &convert_item_command},
+  {CM_headitem, &convert_item_command},
+  {CM_itemx, &convert_item_command},
 
   {CM_insertcopying, &convert_insertcopying_command},
   {CM_listoffloats, &convert_listoffloats_command},
@@ -13857,8 +13939,8 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           push_command_or_type (&top_document_ctx->composition_context,
                                 preformated_cmd, 0);
       /* should not be needed for at commands no brace translation strings */
-          push_string_stack_string (&top_document_ctx->preformatted_classes,
-                              html_commands_data[preformated_cmd].pre_class);
+          push_command_or_type (&top_document_ctx->preformatted_classes,
+                         html_commands_data[preformated_cmd].pre_class_cmd, 0);
           push_integer_stack_integer (&top_document_ctx->preformatted_context,
                                       1);
           top_document_ctx->inside_preformatted++;
@@ -13868,7 +13950,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           top_document_ctx->inside_preformatted--;
           pop_integer_stack (&top_document_ctx->preformatted_context);
           pop_command_or_type (&top_document_ctx->composition_context);
-          pop_string_stack (&top_document_ctx->preformatted_classes);
+          pop_command_or_type (&top_document_ctx->preformatted_classes);
           html_pop_document_context (self);
         }
       else if (reset_context == HCC_type_string)
@@ -14109,8 +14191,8 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
 
   if (html_commands_data[data_cmd].flags & HF_pre_class)
     {
-      push_string_stack_string (&top_document_ctx->preformatted_classes,
-                                html_commands_data[data_cmd].pre_class);
+      push_command_or_type (&top_document_ctx->preformatted_classes,
+                            html_commands_data[data_cmd].pre_class_cmd, 0);
       if (builtin_command_data[data_cmd].flags & CF_preformatted)
         {
           preformatted = 1;
@@ -14188,7 +14270,7 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
 
   if (html_commands_data[data_cmd].flags & HF_pre_class)
     {
-      pop_string_stack (&top_document_ctx->preformatted_classes);
+      pop_command_or_type (&top_document_ctx->preformatted_classes);
       if (builtin_command_data[data_cmd].flags & CF_preformatted)
         top_document_ctx->inside_preformatted--;
     }
@@ -14262,8 +14344,7 @@ html_open_type_update_context (CONVERTER *self, enum element_type type)
     }
   else if (self->pre_class_types[type])
     {
-      push_string_stack_string (&top_document_ctx->preformatted_classes,
-                                self->pre_class_types[type]);
+      push_command_or_type (&top_document_ctx->preformatted_classes, 0, type);
       push_command_or_type (&top_document_ctx->composition_context,
                             0, type);
       push_integer_stack_integer (&top_document_ctx->preformatted_context, 1);
@@ -14297,7 +14378,7 @@ html_convert_type_update_context (CONVERTER *self, enum element_type type)
 
   if (self->pre_class_types[type])
     {
-      pop_string_stack (&top_document_ctx->preformatted_classes);
+      pop_command_or_type (&top_document_ctx->preformatted_classes);
       pop_command_or_type (&top_document_ctx->composition_context);
       pop_integer_stack (&top_document_ctx->preformatted_context);
     }

@@ -464,7 +464,7 @@ typedef struct HTML_DOCUMENT_CONTEXT {
     COMMAND_OR_TYPE_STACK composition_context;
     COMMAND_STACK block_commands;
     HTML_FORMATTING_CONTEXT_STACK formatting_context;
-    STRING_STACK preformatted_classes;
+    COMMAND_OR_TYPE_STACK preformatted_classes;
 } HTML_DOCUMENT_CONTEXT;
 
 typedef struct HTML_DOCUMENT_CONTEXT_STACK {

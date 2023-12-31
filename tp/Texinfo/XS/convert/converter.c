@@ -366,7 +366,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
   if (!caption_element)
     caption_element = lookup_extra_element (float_e, "shortcaption");
 
-  if (float_type && strlen (float_type)) 
+  if (float_type && strlen (float_type))
     type_element = float_e->args.list[0];
 
   if (float_number)
@@ -422,6 +422,121 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
   destroy_named_string_element_list (replaced_substrings);
 
   return result;
+}
+
+TREE_ADDED_ELEMENTS *
+new_tree_added_elements (enum tree_added_elements_status status)
+{
+  TREE_ADDED_ELEMENTS *new
+    = (TREE_ADDED_ELEMENTS *) malloc (sizeof (TREE_ADDED_ELEMENTS));
+  memset (new, 0, sizeof (TREE_ADDED_ELEMENTS));
+  new->status = status;
+  return new;
+}
+
+/* NOTE in addition to freeing memory, the tree root is removed from
+   tree_to_build if relevant. */
+void
+clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  /*
+   HTML targets have all associated tree added elements structures that can be
+   left as 0, in particular with tree_added_status_none if nothing refers to
+   them, and are always cleared in the end.  So it is normal to have cleared
+   tree added elements with status none, but they also should not have any
+   added elements.
+   */
+   /*
+  if (tree_elements->status == tree_added_status_none)
+    {
+      fprintf (stderr, "CTAE: %p no status (%zu)\n", tree_elements, tree_elements->added.number);
+    }
+   */
+
+  if (tree_elements->tree
+      && tree_elements->status != tree_added_status_reused_tree)
+    remove_element_from_list (&self->tree_to_build, tree_elements->tree);
+
+  if (tree_elements->status == tree_added_status_new_tree)
+    destroy_element_and_children (tree_elements->tree);
+  else if (tree_elements->status == tree_added_status_elements_added)
+    {
+      size_t i;
+      for (i = 0; i < tree_elements->added.number; i++)
+        {
+          ELEMENT *added_e = tree_elements->added.list[i];
+          destroy_element (added_e);
+        }
+      tree_elements->added.number = 0;
+    }
+  tree_elements->tree = 0;
+  tree_elements->status = 0;
+}
+
+void
+free_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  clear_tree_added_elements (self, tree_elements);
+  free (tree_elements->added.list);
+}
+
+void
+destroy_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  free_tree_added_elements (self, tree_elements);
+  free (tree_elements);
+}
+
+ELEMENT *
+new_element_added (TREE_ADDED_ELEMENTS *added_elements, enum element_type type)
+{
+  ELEMENT *new = new_element (type);
+  add_to_element_list (&added_elements->added, new);
+  return new;
+}
+
+TREE_ADDED_ELEMENTS *
+table_item_content_tree (CONVERTER *self, const ELEMENT *element)
+{
+  ELEMENT *table_command = element->parent->parent->parent;
+  ELEMENT *command_as_argument = lookup_extra_element (table_command,
+                                               "command_as_argument");
+
+  if (element->args.number > 0 && command_as_argument)
+    {
+      TREE_ADDED_ELEMENTS *tree
+        = new_tree_added_elements (tree_added_status_elements_added);
+      int status;
+      int command_as_argument_kbd_code;
+      ELEMENT *command = new_element_added (tree, ET_NONE);
+      ELEMENT *arg = new_element_added (tree, ET_brace_command_arg);
+      enum command_id cmd = element_builtin_cmd (command_as_argument);
+
+      tree->tree = command;
+
+      command->cmd = cmd;
+      command->source_info = element->source_info;
+      command_as_argument_kbd_code = lookup_extra_integer (table_command,
+                                 "command_as_argument_kbd_code", &status);
+      if (command_as_argument_kbd_code > 0)
+        add_extra_integer (command, "code", 1);
+
+      if (command_as_argument->type == ET_definfoenclose_command)
+        {
+          char *begin = lookup_extra_string (command_as_argument, "begin");
+          char *end = lookup_extra_string (command_as_argument, "end");
+          command->type = command_as_argument->type;
+          if (begin)
+            add_extra_string_dup (command, "begin", begin);
+          if (end)
+            add_extra_string_dup (command, "end", end);
+        }
+      add_to_element_args (command, arg);
+      add_to_contents_as_array (arg, element->args.list[0]);
+      return tree;
+    }
+
+  return 0;
 }
 
 char *

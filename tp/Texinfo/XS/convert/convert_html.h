@@ -68,7 +68,7 @@ int html_in_raw (CONVERTER *self);
 int html_paragraph_number (CONVERTER *self);
 int html_preformatted_number (CONVERTER *self);
 enum command_id html_top_block_command (CONVERTER *self);
-STRING_STACK *html_preformatted_classes_stack (CONVERTER *self);
+COMMAND_OR_TYPE_STACK *html_preformatted_classes_stack (CONVERTER *self);
 enum command_id html_in_align (CONVERTER *self);
 
 char *debug_print_html_contexts (CONVERTER *self);
