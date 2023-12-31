@@ -10112,6 +10112,52 @@ convert_verbatim_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_displaymath_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+  attribute_class = html_attribute_class (self, "div", classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">", 1);
+
+  clear_strings_list (classes);
+
+  if (self->conf->HTML_MATH && !strcmp (self->conf->HTML_MATH, "mathjax"))
+    {
+      html_register_file_information (self, "mathjax", 1);
+      add_string ("tex2jax_process", classes);
+      attribute_class = html_attribute_class (self, "em", classes);
+      text_append (result, attribute_class);
+      text_printf (result, ">\\[%s\\]</em>", content);
+      goto out;
+    }
+
+  attribute_class = html_attribute_class (self, "em", 0);
+  text_append (result, attribute_class);
+  text_printf (result, ">%s</em>", content);
+
+ out:
+  text_append_n (result, "</div>", 6);
+
+  destroy_strings_list (classes);
+  free (attribute_class);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -10963,6 +11009,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_indentedblock, &convert_indented_command},
   {CM_smallindentedblock, &convert_indented_command},
   {CM_verbatim, &convert_verbatim_command},
+  {CM_displaymath, &convert_displaymath_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
