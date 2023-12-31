@@ -10373,6 +10373,82 @@ convert_author_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_title_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *arg = 0;
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  if (args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
+    arg = args_formatted->args[0].formatted[AFT_type_normal];
+  else
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, arg);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  attribute_class = html_attribute_class (self, "h1", classes);
+  text_append (result, attribute_class);
+  text_append_n (result, ">", 1);
+  text_append (result, arg);
+  text_append_n (result, "</h1>", 5);
+  text_append_n (result, "\n", 1);
+
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+void
+convert_subtitle_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *arg = 0;
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  if (args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
+    arg = args_formatted->args[0].formatted[AFT_type_normal];
+  else
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, arg);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  attribute_class = html_attribute_class (self, "h3", classes);
+  text_append (result, attribute_class);
+  text_append_n (result, ">", 1);
+  text_append (result, arg);
+  text_append_n (result, "</h3>", 5);
+  text_append_n (result, "\n", 1);
+
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11235,6 +11311,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_exdent, &convert_exdent_command},
   {CM_center, &convert_center_command},
   {CM_author, &convert_author_command},
+  {CM_title, &convert_title_command},
+  {CM_subtitle, &convert_subtitle_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
