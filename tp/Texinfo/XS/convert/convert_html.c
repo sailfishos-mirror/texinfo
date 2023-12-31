@@ -10873,6 +10873,225 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_cartouche_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *attribute_class;
+  STRING_LIST *classes;
+  int do_title;
+  int do_content;
+
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+  do_title = (args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[0].formatted[AFT_type_normal]));
+  do_content = (content
+                && content[strspn (content, whitespace_chars)] != '\0');
+
+  if (!do_title && !do_content)
+    return;
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  attribute_class = html_attribute_class (self, "table", classes);
+  text_append (result, attribute_class);
+  text_append (result, " border=\"1\">");
+  if (do_title)
+    {
+      text_append_n (result, "<tr><th>\n", 9);
+      text_append (result,
+                   args_formatted->args[0].formatted[AFT_type_normal]);
+      text_append_n (result, "</th></tr>", 10);
+    }
+  if (do_content)
+    {
+      text_append_n (result, "<tr><td>\n", 9);
+      text_append (result, content);
+      text_append_n (result, "</td></tr>", 10);
+    }
+  text_append_n (result, "</table>\n", 9);
+
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+/* NOTE these switches are not done in perl, so the only perl functions
+   that can be called are perl functions that do not call formatting/conversion
+   functions or the formatting/conversion functions for HTML will be used. */
+char *
+html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanation)
+{
+  char *result;
+  HTML_DOCUMENT_CONTEXT *top_document_ctx;
+
+  void (* saved_current_format_protect_text) (const char *text, TEXT *result);
+  FORMATTING_REFERENCE *saved_formatting_references
+     = self->current_formatting_references;
+  COMMAND_CONVERSION_FUNCTION *saved_commands_conversion_function
+     = self->current_commands_conversion_function;
+  TYPE_CONVERSION_FUNCTION *saved_types_conversion_function
+     = self->current_types_conversion_function;
+  saved_current_format_protect_text = self->current_format_protect_text;
+
+  self->current_formatting_references
+    = &self->css_string_formatting_references[0];
+  self->current_commands_conversion_function
+    = &self->css_string_command_conversion_function[0];
+  self->current_types_conversion_function
+    = &self->css_string_type_conversion_function[0];
+  self->current_format_protect_text = &default_css_string_format_protect_text;
+
+  html_new_document_context (self, "css_string", 0, 0);
+  top_document_ctx = html_top_document_context (self);
+  top_document_ctx->string_ctx++;
+
+  result = html_convert_tree (self, element, explanation);
+
+  html_pop_document_context (self);
+
+  self->current_formatting_references = saved_formatting_references;
+  self->current_commands_conversion_function
+    = saved_commands_conversion_function;
+  self->current_types_conversion_function = saved_types_conversion_function;
+  self->current_format_protect_text = saved_current_format_protect_text;
+
+  return result;
+}
+
+typedef struct SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD {
+    enum command_id cmd;
+    char *string;
+    char *saved;
+} SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD;
+
+static SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD
+            special_list_mark_css_string_no_arg_command[] = {
+ {CM_minus, "\\2212 ", 0},
+ {0, 0, 0},
+};
+
+char *
+html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
+                                       char *explanation)
+{
+  char *result;
+  int i;
+  for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
+    {
+      enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
+      special_list_mark_css_string_no_arg_command[i].saved
+        = self->html_command_conversion[cmd][HCC_type_css_string].text;
+      self->html_command_conversion[cmd][HCC_type_css_string].text
+        = special_list_mark_css_string_no_arg_command[i].string;
+    }
+
+  result = html_convert_css_string (self, element, explanation);
+
+  for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
+    {
+      enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
+      self->html_command_conversion[cmd][HCC_type_css_string].text
+        = special_list_mark_css_string_no_arg_command[i].saved;
+      special_list_mark_css_string_no_arg_command[i].saved = 0;
+    }
+
+  return result;
+}
+
+void
+convert_itemize_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  ELEMENT *command_as_argument;
+  const char *command_as_argument_name = 0;
+  const char *mark_class_name = 0;
+  STRING_LIST *classes;
+  char *attribute_class;
+  CSS_SELECTOR_STYLE *selector_style = 0;
+
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+  command_as_argument = lookup_extra_element (element, "command_as_argument");
+  if (command_as_argument)
+    {
+      if (command_as_argument->cmd == CM_click)
+        {
+          command_as_argument_name = lookup_extra_string (command_as_argument,
+                                                          "clickstyle");
+        }
+      if (!command_as_argument_name)
+        command_as_argument_name = element_command_name (command_as_argument);
+
+      if (!strcmp (command_as_argument_name, "w"))
+        mark_class_name = "none";
+      else
+        mark_class_name = command_as_argument_name;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name(cmd), classes);
+
+  if (mark_class_name)
+    {
+      char *mark_class;
+      char *ul_mark_selector;
+      xasprintf (&mark_class, "mark-%s", mark_class_name);
+      xasprintf (&ul_mark_selector, "ul.%s", mark_class);
+
+      selector_style = find_css_selector_style (&self->css_element_class_styles,
+                                                ul_mark_selector);
+      free (ul_mark_selector);
+      if (selector_style)
+        {
+          add_string (mark_class, classes);
+        }
+      free (mark_class);
+    }
+
+  attribute_class = html_attribute_class (self, "ul", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  if (!selector_style && self->conf->NO_CSS <= 0)
+    {
+      char *css_string
+        = html_convert_css_string_for_list_mark (self, element->args.list[0],
+                                                 "itemize arg");
+      if (css_string && strlen (css_string))
+        {
+          text_append (result, " style=\"list-style-type: '");
+          format_protect_text (self, css_string, result);
+          text_append_n (result, "'\"", 2);
+        }
+      free (css_string);
+    }
+
+  text_append_n (result, ">\n", 2);
+  if (content)
+    text_append (result, content);
+  text_append_n (result, "</ul>\n", 6);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11494,172 +11713,6 @@ format_title_titlepage (CONVERTER *self)
     }
 }
 
-/* NOTE these switches are not done in perl, so the only perl functions
-   that can be callled are perl functions that do not call formatting/conversion
-   functions or the formatting/conversion functions for HTML will be used. */
-char *
-html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanation)
-{
-  char *result;
-  HTML_DOCUMENT_CONTEXT *top_document_ctx;
-
-  void (* saved_current_format_protect_text) (const char *text, TEXT *result);
-  FORMATTING_REFERENCE *saved_formatting_references
-     = self->current_formatting_references;
-  COMMAND_CONVERSION_FUNCTION *saved_commands_conversion_function
-     = self->current_commands_conversion_function;
-  TYPE_CONVERSION_FUNCTION *saved_types_conversion_function
-     = self->current_types_conversion_function;
-  saved_current_format_protect_text = self->current_format_protect_text;
-
-  self->current_formatting_references
-    = &self->css_string_formatting_references[0];
-  self->current_commands_conversion_function
-    = &self->css_string_command_conversion_function[0];
-  self->current_types_conversion_function
-    = &self->css_string_type_conversion_function[0];
-  self->current_format_protect_text = &default_css_string_format_protect_text;
-
-  html_new_document_context (self, "css_string", 0, 0);
-  top_document_ctx = html_top_document_context (self);
-  top_document_ctx->string_ctx++;
-
-  result = html_convert_tree (self, element, explanation);
-
-  html_pop_document_context (self);
-
-  self->current_formatting_references = saved_formatting_references;
-  self->current_commands_conversion_function
-    = saved_commands_conversion_function;
-  self->current_types_conversion_function = saved_types_conversion_function;
-  self->current_format_protect_text = saved_current_format_protect_text;
-
-  return result;
-}
-
-typedef struct SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD {
-    enum command_id cmd;
-    char *string;
-    char *saved;
-} SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD;
-
-static SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD
-            special_list_mark_css_string_no_arg_command[] = {
- {CM_minus, "\\2212 ", 0},
- {0, 0, 0},
-};
-
-char *
-html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
-                                       char *explanation)
-{
-  char *result;
-  int i;
-  for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
-    {
-      enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
-      special_list_mark_css_string_no_arg_command[i].saved
-        = self->html_command_conversion[cmd][HCC_type_css_string].text;
-      self->html_command_conversion[cmd][HCC_type_css_string].text
-        = special_list_mark_css_string_no_arg_command[i].string;
-    }
-
-  result = html_convert_css_string (self, element, explanation);
-
-  for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
-    {
-      enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
-      self->html_command_conversion[cmd][HCC_type_css_string].text
-        = special_list_mark_css_string_no_arg_command[i].saved;
-      special_list_mark_css_string_no_arg_command[i].saved = 0;
-    }
-
-  return result;
-}
-
-void
-convert_itemize_command (CONVERTER *self, const enum command_id cmd,
-                    const ELEMENT *element,
-                    const HTML_ARGS_FORMATTED *args_formatted,
-                    const char *content, TEXT *result)
-{
-  ELEMENT *command_as_argument;
-  const char *command_as_argument_name = 0;
-  const char *mark_class_name = 0;
-  STRING_LIST *classes;
-  char *attribute_class;
-  CSS_SELECTOR_STYLE *selector_style = 0;
-
-  if (html_in_string (self))
-    {
-      if (content)
-        text_append (result, content);
-      return;
-    }
-
-  command_as_argument = lookup_extra_element (element, "command_as_argument");
-  if (command_as_argument)
-    {
-      if (command_as_argument->cmd == CM_click)
-        {
-          command_as_argument_name = lookup_extra_string (command_as_argument,
-                                                          "clickstyle");
-        }
-      if (!command_as_argument_name)
-        command_as_argument_name = element_command_name (command_as_argument);
-
-      if (!strcmp (command_as_argument_name, "w"))
-        mark_class_name = "none";
-      else
-        mark_class_name = command_as_argument_name;
-    }
-
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
-  add_string (builtin_command_name(cmd), classes);
-
-  if (mark_class_name)
-    {
-      char *mark_class;
-      char *ul_mark_selector;
-      xasprintf (&mark_class, "mark-%s", mark_class_name);
-      xasprintf (&ul_mark_selector, "ul.%s", mark_class);
-
-      selector_style = find_css_selector_style (&self->css_element_class_styles,
-                                                ul_mark_selector);
-      free (ul_mark_selector);
-      if (selector_style)
-        {
-          add_string (mark_class, classes);
-        }
-      free (mark_class);
-    }
-
-  attribute_class = html_attribute_class (self, "ul", classes);
-  destroy_strings_list (classes);
-  text_append (result, attribute_class);
-  free (attribute_class);
-
-  if (!selector_style && self->conf->NO_CSS <= 0)
-    {
-      char *css_string
-        = html_convert_css_string_for_list_mark (self, element->args.list[0],
-                                                 "itemize arg");
-      if (css_string && strlen (css_string))
-        {
-          text_append (result, " style=\"list-style-type: '");
-          format_protect_text (self, css_string, result);
-          text_append_n (result, "'\"", 2);
-        }
-      free (css_string);
-    }
-
-  text_append_n (result, ">\n", 2);
-  if (content)
-    text_append (result, content);
-  text_append_n (result, "</ul>\n", 6);
-}
-
 void
 convert_contents_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -11734,6 +11787,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_float, &convert_float_command},
   {CM_quotation, &convert_quotation_command},
   {CM_smallquotation, &convert_quotation_command},
+  {CM_cartouche, &convert_cartouche_command},
+  {CM_itemize, convert_itemize_command},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
   {CM_sp, &convert_sp_command},
@@ -11772,8 +11827,6 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_appendixsection, &convert_heading_command},
   {CM_majorheading, &convert_heading_command},
   {CM_centerchap, &convert_heading_command},
-
-  {CM_itemize, convert_itemize_command},
 
   {CM_html, &convert_raw_command},
   {CM_tex, &convert_raw_command},
