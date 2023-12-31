@@ -10201,6 +10201,36 @@ convert_command_simple_block (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_sp_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
+  if (misc_args && misc_args->contents.number > 0)
+    {
+      int i;
+      ELEMENT *element_with_number = misc_args->contents.list[0];
+      unsigned int sp_nr = strtoul (element_with_number->text.text, NULL, 10);
+
+      if (html_in_preformatted_context (self) || html_in_string (self))
+        {
+          for (i= 0; i < sp_nr; i++)
+            text_append_n (result, "\n", 1);
+        }
+      else
+        {
+          for (i= 0; i < sp_nr; i++)
+            {
+              text_append_n (result, self->line_break_element.string,
+                                     self->line_break_element.len);
+              text_append_n (result, "\n", 1);
+            }
+        }
+    }
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11059,6 +11089,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_group, &convert_command_simple_block},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
+  {CM_sp, &convert_sp_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
