@@ -10582,6 +10582,52 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_menu_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  if (cmd == CM_detailmenu)
+    {
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+  self->shared_conversion_state.html_menu_entry_index = 0;
+
+  if (!content || content[strspn (content, whitespace_chars)] == '\0')
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, content);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  attribute_class = html_attribute_class (self, "table", classes);
+  text_append (result, attribute_class);
+  text_append (result, " border=\"0\" cellspacing=\"0\">");
+  if (html_inside_preformatted (self))
+    text_append_n (result, "<tr><td>", 8);
+  text_append_n (result, "\n", 1);
+  text_append (result, content);
+  if (html_inside_preformatted (self))
+    text_append_n (result, "</td></tr>", 10);
+  text_append_n (result, "</table>\n", 9);
+
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11438,6 +11484,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_flushleft, &convert_command_simple_block},
   {CM_flushright, &convert_command_simple_block},
   {CM_group, &convert_command_simple_block},
+  {CM_menu, &convert_menu_command},
+  {CM_detailmenu, &convert_menu_command},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
   {CM_sp, &convert_sp_command},
