@@ -11092,6 +11092,86 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  STRING_LIST *classes;
+  char *attribute_class;
+  const char *specification;
+
+  if (!content || !strlen (content))
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, content);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name(cmd), classes);
+
+  attribute_class = html_attribute_class (self, "ol", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  specification = lookup_extra_string (element,
+                                       "enumerate_specification");
+
+  if (specification)
+    {
+      unsigned int start = 0;
+      const char *type = 0;
+      size_t specification_len = strlen (specification);
+      if (specification_len == 1 && isascii_alpha (*specification))
+        {
+          if (isascii_lower (*specification))
+            {
+              start = 1 + (*specification - 'a');
+              type = "a";
+            }
+          else
+            {
+              start = 1 + (*specification - 'A');
+              type = "A";
+            }
+        }
+      else
+        {
+          const char *p = specification;
+          int only_digits = 1;
+          while (*p)
+            {
+              if (!isascii_digit (*p))
+                {
+                  only_digits = 0;
+                  break;
+                }
+              p++;
+            }
+          if (only_digits)
+            {
+              unsigned int spec_number = strtoul (specification, NULL, 10);
+              if (spec_number > 1)
+                start = spec_number;
+            }
+        }
+      if (type)
+        text_printf (result, " type=\"%s\"", type);
+      if (start)
+        text_printf (result, " start=\"%u\"", start);
+    }
+
+  text_append_n (result, ">\n", 2);
+  text_append (result, content);
+  text_append_n (result, "</ol>\n", 6);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11789,6 +11869,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_smallquotation, &convert_quotation_command},
   {CM_cartouche, &convert_cartouche_command},
   {CM_itemize, convert_itemize_command},
+  {CM_enumerate, convert_enumerate_command},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
   {CM_sp, &convert_sp_command},
