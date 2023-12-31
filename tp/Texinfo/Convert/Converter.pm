@@ -1477,8 +1477,7 @@ sub table_item_content_tree($$)
     my $command_as_argument
       = $table_command->{'extra'}->{'command_as_argument'};
     my $command = {'cmdname' => $command_as_argument->{'cmdname'},
-                   'source_info' => $element->{'source_info'},
-                   'parent' => $element};
+                   'source_info' => $element->{'source_info'},};
     if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'} = {'code' => 1};
     }

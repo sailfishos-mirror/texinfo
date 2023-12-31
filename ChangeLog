@@ -22,6 +22,11 @@
 
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree): do not
+	set the parent of the returned element.
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),
 	tp/Texinfo/Convert/Plaintext.pm (_convert): remove
 	table_item_content_tree contents element, instead always use
