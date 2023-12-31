@@ -5525,18 +5525,21 @@ sub _convert_quotation_command($$$$$)
 
   $self->cancel_pending_formatted_inline_content($cmdname);
 
-  my @classes;
+  my $result;
+  if (!in_string($self)) {
+    my @classes;
 
-  my $main_cmdname;
-  if ($small_block_associated_command{$cmdname}) {
+    if ($small_block_associated_command{$cmdname}) {
+      push @classes, $small_block_associated_command{$cmdname};
+    }
     push @classes, $cmdname;
-    $main_cmdname = $small_block_associated_command{$cmdname};
-  } else {
-    $main_cmdname = $cmdname;
-  }
-  unshift @classes, $main_cmdname;
 
-  my $attribution = '';
+    $result = $self->html_attribute_class('blockquote', \@classes).">\n"
+                           . $content . "</blockquote>\n";
+  } else {
+    $result = $content;
+  }
+
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
     # FIXME there is no easy way to mark with a class the @author
     # @-command.  Add a span or a div (@center is in a div)?
@@ -5547,18 +5550,13 @@ sub _convert_quotation_command($$$$$)
         my $centered_author = $self->gdt("\@center --- \@emph{{author}}",
            {'author' => $author->{'args'}->[0]});
         $centered_author->{'parent'} = $command;
-        $attribution .= $self->convert_tree($centered_author,
+        $result .= $self->convert_tree($centered_author,
                                             'convert quotation author');
       }
     }
   }
 
-  if (!in_string($self)) {
-    return $self->html_attribute_class('blockquote', \@classes).">\n"
-                           . $content . "</blockquote>\n" . $attribution;
-  } else {
-    return $content.$attribution;
-  }
+  return $result;
 }
 $default_commands_conversion{'quotation'} = \&_convert_quotation_command;
 

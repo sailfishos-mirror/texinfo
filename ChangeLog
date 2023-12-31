@@ -7,6 +7,15 @@
 
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_quotation_command): rearrange
+	for clearer code and to avoid intermediary variable.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_quotation_command)
+	(commands_internal_conversion_table): implement
+	convert_quotation_command.
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (float_name_caption): rename
 	$caption as $caption_element.  Use $substrings variable.
 

@@ -10797,6 +10797,82 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_quotation_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  ELEMENT_LIST *authors;
+
+  html_cancel_pending_formatted_inline_content (self,
+                                            builtin_command_name (cmd));
+
+  if (!html_in_string (self))
+    {
+      STRING_LIST *classes;
+      char *attribute_class;
+
+      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+      if (html_commands_data[cmd].flags & HF_small_block_command)
+        {
+          int i;
+          for (i = 0; small_block_associated_command[i][0]; i++)
+            {
+              enum command_id small_cmd = small_block_associated_command[i][0];
+              if (small_cmd == cmd)
+                {
+                  enum command_id main_cmd = small_block_associated_command[i][1];
+                  add_string (builtin_command_name (main_cmd), classes);
+                  break;
+                }
+            }
+        }
+      add_string (builtin_command_name (cmd), classes);
+      attribute_class = html_attribute_class (self, "blockquote", classes);
+      destroy_strings_list (classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">\n", 2);
+      if (content)
+        text_append (result, content);
+      text_append_n (result, "</blockquote>\n", 14);
+    }
+  else
+    {
+      if (content)
+        text_append (result, content);
+    }
+
+  /* the cast is here to discard const */
+  authors = lookup_extra_contents ((ELEMENT *) element, "authors", 0);
+  if (authors)
+    {
+      int i;
+      for (i = 0; i < authors->number; i++)
+        {
+          ELEMENT *author = authors->list[i];
+          if (author->args.number > 0
+              && author->args.list[0]->contents.number > 0)
+            {
+              NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+              ELEMENT *author_arg_copy = copy_tree (author->args.list[0]);
+              add_element_to_named_string_element_list (substrings,
+                                      "author", author_arg_copy);
+
+              /* TRANSLATORS: quotation author */
+              translate_convert_to_html_internal (
+                             "@center --- @emph{{author}}", self->document,
+                             self, substrings, 0, 0, result,
+                             "convert quotation author");
+              destroy_named_string_element_list (substrings);
+            }
+        }
+    }
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11656,6 +11732,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_menu, &convert_menu_command},
   {CM_detailmenu, &convert_menu_command},
   {CM_float, &convert_float_command},
+  {CM_quotation, &convert_quotation_command},
+  {CM_smallquotation, &convert_quotation_command},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
   {CM_sp, &convert_sp_command},
