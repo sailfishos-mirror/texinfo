@@ -329,6 +329,7 @@ sub gdt_string($$;$$$)
   # $customization_information->translate_string) because
   # $customization_information may not provide the method if it does not
   # inherit from Texinfo::Translations, as is the case for Texinfo::Parser.
+  # (Same is done in gdt_string_columns.)
   my $translate_string_method
      = $customization_information->can('translate_string');
   $translate_string_method = \&translate_string if (!$translate_string_method);
@@ -341,7 +342,8 @@ sub gdt_string($$;$$$)
 }
 
 # Like gdt_string, but additionally return the width of the result in
-# screen columns.
+# screen columns, not counting the width of substituted strings.
+#
 # TODO: In the future, this function may return an encoded string, and
 # take encoded arguments.  The plan is to save the width in columns before
 # encoding the string.
@@ -350,9 +352,29 @@ sub gdt_string_columns($$;$$$)
   my ($customization_information, $string, $replaced_substrings,
       $translation_context, $lang) = @_;
 
-  my $result = gdt_string($customization_information, $string,
-                          $replaced_substrings, $translation_context, $lang);
-  return ($result, Texinfo::Convert::Unicode::string_width($result));
+  # see comment in gdt_string
+  my $translate_string_method
+     = $customization_information->can('translate_string');
+  $translate_string_method = \&translate_string if (!$translate_string_method);
+
+  my $translated_string = &$translate_string_method($customization_information,
+                                       $string, $translation_context, $lang);
+
+  my ($result, $result_counted) = ($translated_string, $translated_string);
+
+  my $re;
+  if (defined($replaced_substrings) and ref($replaced_substrings)) {
+    $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
+
+    # Replace placeholders
+    $result =~
+      s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
+
+    # Strip out placeholders
+    $result_counted =~ s/\{($re)\}//g;
+  }
+
+  return ($result, Texinfo::Convert::Unicode::string_width($result_counted));
 }
 
 sub replace_substrings($$;$)

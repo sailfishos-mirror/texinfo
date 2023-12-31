@@ -1,3 +1,14 @@
+2023-12-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Translations.pm (gdt_string_columns): Adjust to
+	only count width of text that comes from the translated string,
+	itself, not counting substituted text.
+	* tp/Texinfo/Convert/Plaintext.pm (_text_heading):
+	Count width of heading in three parts: the heading, the number,
+	and additional text returned from gdt_string_columns.
+
+	No functional changes intended.
+
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_multitable_command)

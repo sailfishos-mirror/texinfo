@@ -1714,22 +1714,28 @@ sub _text_heading($$$;$$)
   my $heading = $self->convert_line_new_context (
                          {'type' => 'frenchspacing',
                           'contents' => [$heading_element]});
-  my ($text, $columns);
+
+  my $heading_width = Texinfo::Convert::Unicode::string_width($heading);
+
+  my ($text, $number_width, $gdt_width);
   if (defined($number)) {
+    $number_width = length($number);
     if ($current->{'cmdname'} eq 'appendix'
         and $current->{'extra'}->{'section_level'} == 1) {
-      ($text, $columns) = $self->gdt_string_columns(
+      ($text, $gdt_width) = $self->gdt_string_columns(
                  'Appendix {number} {section_title}',
                  {'number' => $number, 'section_title' => $heading});
     } else {
-      ($text, $columns) = $self->gdt_string_columns(
+      ($text, $gdt_width) = $self->gdt_string_columns(
                  '{number} {section_title}',
                  {'number' => $number, 'section_title' => $heading});
     }
   } else {
     $text = $heading;
-    $columns = Texinfo::Convert::Unicode::string_width($heading);
+    $number_width = 0;
+    $gdt_width = 0;
   }
+  my $columns = $heading_width + $number_width + $gdt_width;
 
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
