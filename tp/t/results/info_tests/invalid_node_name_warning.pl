@@ -817,9 +817,9 @@ File: ,  Node: bidule:,  Prev: node,comma,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: nodename. a151
-Node: node,comma224
-Node: bidule:301
+Node: nodename. a159
+Node: node,comma232
+Node: bidule:309
 
 End Tag Table
 

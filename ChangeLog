@@ -1,5 +1,10 @@
 2023-12-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <menu entries>:
+	Correctly include any DEL quoting characters in the count context.
+
+2023-12-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Unicode.pm (string_width):
 	Reset count at a newline.  Add a comment saying what the
 	different character classes mean.

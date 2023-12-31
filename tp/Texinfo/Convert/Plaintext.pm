@@ -3522,6 +3522,7 @@ sub _convert($$)
             }
           }
           $result .= $pre_quote . $node_text . $post_quote;
+          $self->{'count_context'}->[-1]->{'bytes'} += 2 if $pre_quote;
         } elsif ($content->{'type'} eq 'menu_entry_name') {
           # Flush output so not to include in name text
           $result .= _count_added($self, $formatter->{'container'},
@@ -3548,7 +3549,7 @@ sub _convert($$)
             }
           }
           $result .= $pre_quote . $entry_name . $post_quote;
-
+          $self->{'count_context'}->[-1]->{'bytes'} += 2 if $pre_quote;
         # empty description
         } elsif ($content->{'type'} eq 'menu_entry_description'
                  and (not $content->{'contents'}
