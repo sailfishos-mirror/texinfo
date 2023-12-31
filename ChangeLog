@@ -22,6 +22,11 @@
 
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_item_command): rename $index_id
+	as $index_entry_id.
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_get_copiable_anchor): return undef if
 	there is no copiable anchor.  Update callers.
 

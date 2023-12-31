@@ -5772,11 +5772,11 @@ sub _convert_item_command($$$$$)
 
       my $result = ($cmdname eq 'item') ? '' : '<dt>';
 
-      my $index_id = $self->command_id($command);
+      my $index_entry_id = $self->command_id($command);
       my $anchor;
-      if (defined($index_id)) {
-        $result .= "<a id=\"$index_id\"></a>";
-        $anchor = $self->_get_copiable_anchor($index_id);
+      if (defined($index_entry_id)) {
+        $result .= "<a id=\"$index_entry_id\"></a>";
+        $anchor = $self->_get_copiable_anchor($index_entry_id);
         if (defined($anchor)) {
           $result .= '<span>';
         }
