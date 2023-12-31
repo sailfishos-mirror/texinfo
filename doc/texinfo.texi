@@ -23476,18 +23476,24 @@ table entry.
 
 @cindex Local variable section, in Info format
 
-The local variables section is optional and is currently used to give the
-encoding information.  It may be augmented in the future.
+The local variables section is optional.  It is currently used to give
+the encoding information and/or the document language code.
 
 @example
     <local variables> =
 <separator>
 Local Variables:
-coding: <encoding>
+(coding: <encoding>)?
+(Info-documentlanguage: <language>)?
 End:
 @end example
 
-@xref{@code{@@documentencoding}}.
+@xref{@code{@@documentencoding}} for information about the document encoding.
+
+@samp{<language>} should be of the form @var{ll} or @var{ll}_@var{cc}; see
+@ref{@code{@@documentlanguage}}.  Only one language can be specified
+in the local variables section even if @code{@@documentlanguage} occurs
+several times in a Texinfo document.
 
 
 @node Info Format Regular Nodes

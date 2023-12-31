@@ -1070,6 +1070,7 @@ End Tag Table
 
 Local Variables:
 coding: utf-8
+Info-documentlanguage: de
 End:
 ';
 

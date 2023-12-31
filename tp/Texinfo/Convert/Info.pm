@@ -285,9 +285,18 @@ sub output($$)
     $tag_text .=  "$prefix: $label_text\x{7F}$label->{'bytes'}\n";
   }
   $tag_text .=  "\x{1F}\nEnd Tag Table\n";
+
   my $coding = $self->get_conf('OUTPUT_ENCODING_NAME');
-  if ($coding) {
-    $tag_text .= "\n\x{1F}\nLocal Variables:\ncoding: $coding\nEnd:\n";
+  my $documentlanguage = $self->get_conf('documentlanguage');
+
+  if ($coding or $documentlanguage) {
+    # Note: Info readers expect the Local Variables section to be
+    # under 1000 bytes in length so not many variables can be added here.
+    $tag_text .= "\n\x{1F}\nLocal Variables:\n";
+    $tag_text .= "coding: $coding\n" if $coding;
+    $tag_text .= "Info-documentlanguage: $documentlanguage\n"
+      if $documentlanguage;
+    $tag_text .= "End:\n";
   }
   if ($fh) {
     print $fh $tag_text;
