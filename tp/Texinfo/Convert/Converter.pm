@@ -1465,28 +1465,22 @@ sub format_comment_or_return_end_line($$)
   return $end_line;
 }
 
-sub table_item_content_tree($$$)
+sub table_item_content_tree($$)
 {
   my $self = shift;
   my $element = shift;
-  my $contents = shift;
-
-  my $table_item_tree = {'parent' => $element};
-
-  return $table_item_tree
-    if (!defined($contents));
 
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
-  if ($table_command->{'extra'}
-     and $table_command->{'extra'}->{'command_as_argument'}) {
+  if (defined($element->{'args'}) and scalar(@{$element->{'args'}})
+      and $table_command->{'extra'}
+      and $table_command->{'extra'}->{'command_as_argument'}) {
     my $command_as_argument
       = $table_command->{'extra'}->{'command_as_argument'};
     my $command = {'cmdname' => $command_as_argument->{'cmdname'},
-               'source_info' => $element->{'source_info'},
-               'parent' => $table_item_tree };
+                   'source_info' => $element->{'source_info'},
+                   'parent' => $element};
     if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
-      $command->{'extra'} = {} if (!$command->{'extra'});
-      $command->{'extra'}->{'code'} = 1;
+      $command->{'extra'} = {'code' => 1};
     }
     if ($command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
@@ -1495,13 +1489,12 @@ sub table_item_content_tree($$$)
       $command->{'extra'}->{'end'} = $command_as_argument->{'extra'}->{'end'};
     }
     my $arg = {'type' => 'brace_command_arg',
-               'contents' => $contents,
+               'contents' => [$element->{'args'}->[0]],
                'parent' => $command,};
     $command->{'args'} = [$arg];
-    $contents = [$command];
+    return $command;
   }
-  $table_item_tree->{'contents'} = $contents;
-  return $table_item_tree;
+  return undef;
 }
 
 sub convert_accents($$$;$$)
@@ -2382,13 +2375,13 @@ variables are set.
 For more information on the function used to set the value for each of the command, see
 L<Texinfo::Common set_global_document_command|Texinfo::Common/$element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)>.
 
-=item $table_item_tree = $converter->table_item_content_tree($element, $contents)
+=item $table_item_tree = $converter->table_item_content_tree($element)
 X<C<table_item_content_tree>>
 
-I<$element> should be an C<@item> or C<@itemx> tree element,
-I<$contents> should be corresponding texinfo tree contents.
+I<$element> should be an C<@item> or C<@itemx> tree element.
 Returns a tree in which the @-command in argument of C<@*table>
-of the I<$element> has been applied to I<$contents>.
+of the I<$element> has been applied to the I<$element> line argument,
+or C<undef>.
 
 =item $result = $converter->top_node_filename($document_name)
 X<C<top_node_filename>>

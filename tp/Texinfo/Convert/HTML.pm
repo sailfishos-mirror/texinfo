@@ -5768,9 +5768,11 @@ sub _convert_item_command($$$$$)
     }
   } elsif ($command->{'parent'}->{'type'}
            and $command->{'parent'}->{'type'} eq 'table_term') {
-    if ($args->[0]) {
-      my $table_item_tree = $self->table_item_content_tree($command,
-                                                [$args->[0]->{'tree'}]);
+    if ($command->{'args'} and scalar(@{$command->{'args'}})
+        and $command->{'args'}->[0]->{'contents'}) {
+      my $table_item_tree = $self->table_item_content_tree($command);
+      $table_item_tree = $command->{'args'}->[0]
+        if (!defined($table_item_tree));
       my $result = $self->convert_tree($table_item_tree,
                                        'convert table_item_tree');
       if (in_preformatted_context($self)) {

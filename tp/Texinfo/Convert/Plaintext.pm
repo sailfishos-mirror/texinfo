@@ -2890,14 +2890,14 @@ sub _convert($$)
             and $element->{'args'} and $element->{'args'}->[0]
             and $element->{'args'}->[0]->{'type'}
             and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
-      if ($element->{'args'} and @{$element->{'args'}}
+      if ($element->{'args'} and scalar(@{$element->{'args'}})
           and $element->{'args'}->[0]->{'contents'}) {
-
-        my $table_item_tree = $self->table_item_content_tree($element,
-                                         $element->{'args'}->[0]->{'contents'});
-
-        $table_item_tree->{'type'} = 'frenchspacing';
-        $result = $self->convert_line($table_item_tree,
+        my $table_item_tree = $self->table_item_content_tree($element);
+        $table_item_tree = $element->{'args'}->[0]
+          if (!defined($table_item_tree));
+        my $frenchspacing_element = {'type' => 'frenchspacing',
+                                     'contents' => [$table_item_tree]};
+        $result = $self->convert_line($frenchspacing_element,
              {'indent_length' =>
                  ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                    * $indent_length});

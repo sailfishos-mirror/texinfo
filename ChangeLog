@@ -22,6 +22,17 @@
 
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tp/Texinfo/Convert/Plaintext.pm (_convert): remove
+	table_item_content_tree contents element, instead always use
+	$element->{'args'}->[0] in the function.  Return the @-command
+	used to format the item argument directly, undef if there is no
+	command_as_argument.  Update callers to set tree to
+	$element->{'args'}->[0] if the return value is undef.  Also do not
+	modify the element returned in Plaintext.pm.
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_multitable_command)
 	(_convert_xtable_command): rearrange code.
 

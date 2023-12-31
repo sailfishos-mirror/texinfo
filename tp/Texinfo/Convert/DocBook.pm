@@ -779,16 +779,18 @@ sub _convert($$;$)
           $self->{'pending_prepend'} .= " ";
         }
         push @close_format_elements, 'listitem';
-      } elsif (($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx')
+      } elsif (($element->{'cmdname'} eq 'item'
+                or $element->{'cmdname'} eq 'itemx')
                and $element->{'parent'}->{'type'}
                and $element->{'parent'}->{'type'} eq 'table_term') {
 
         $result .= "<term>" if ($element->{'cmdname'} eq 'itemx');
         $result .= $self->_index_entry($element);
-        if ($element->{'args'}->[0]
+        if ($element->{'args'} and scalar(@{$element->{'args'}})
             and $element->{'args'}->[0]->{'contents'}) {
-          my $table_item_tree = $self->table_item_content_tree($element,
-                                         $element->{'args'}->[0]->{'contents'});
+          my $table_item_tree = $self->table_item_content_tree($element);
+          $table_item_tree = $element->{'args'}->[0]
+            if (!defined($table_item_tree));
 
           $result .= $self->_convert($table_item_tree);
         }
