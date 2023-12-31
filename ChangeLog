@@ -1,5 +1,11 @@
 2023-12-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Unicode.pm (string_width):
+	Reset count at a newline.  Add a comment saying what the
+	different character classes mean.
+
+2023-12-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Translations.pm (gdt_string_columns): Adjust to
 	only count width of text that comes from the translated string,
 	itself, not counting substituted text.
@@ -17,7 +23,6 @@
 	* tp/Texinfo/XS/convert/convert_html.c (convert_multitable_command)
 	(convert_xtable_command), commands_internal_conversion_table):
 	implement convert_multitable_command and convert_xtable_command.
-
 
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 

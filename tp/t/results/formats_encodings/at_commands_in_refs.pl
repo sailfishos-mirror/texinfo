@@ -13821,7 +13821,7 @@ $result_texts{'at_commands_in_refs'} = 'Top
 
 2     ! 
  .  . ? @
-*****************
+*********
 
 3 @ { } \\ #
 ***********
@@ -15603,7 +15603,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
 2     !
 . . ? @
-**************
+*********
 
 3 @ { } \\ #
 ***********
@@ -16760,7 +16760,7 @@ File: ,  Node:     ! . . ? @,  Next: @ { } \\ #,  Prev: { },  Up: Top
 
 2     !
 . . ? @
-**************
+*********
 
 
 File: ,  Node: @ { } \\ #,  Next: LaTeX TeX • , © ... ...,  Prev:     ! . . ? @,  Up: Top
@@ -16974,31 +16974,31 @@ Tag Table:
 Node: Top27
 Node: { }783
 Node:     ! . . ? @862
-Node: @ { } \\ #966
-Node: LaTeX TeX • , © ... ...1085
-Node: ≡ error→ € ¡ ↦ −1235
-Node: ≥ ≤ →1367
-Node: ª º ⋆ £ ⊣ ¿ ®1465
-Node: ⇒ ° a b a sunny day å1584
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1741
-Node: ä ẽ î â à é ç ē e̊ e̋ ę1920
-Node: ė ĕ e̲ ẹ ě ȷ e͡e2086
-Node: ı Ḕ Ḉ2216
-Node: “ ” ‘ ’ „ ‚2314
-Node: « » « » ‹ ›2419
-Node: `` \'\' --- -- ` \'2535
-Node: AAA (fff) AAA BBB2659
-Node: CCC (rrr) CCC DDD2799
-Node: the someone <someone@somewher> <no_explain@there>2972
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3272
-Node:  @ {} . 3622
-Node: cite asis in @w b in r SC *str* t VAR dfn i3825
-Node: env code option samp command file C-x <ESC>4069
-Node: 8.27in4331
-Node: sansserif slanted4465
-Node: indicateurl4589
-Node: _{g}H 3^{rd}4711
-Node: <http://somewhere_aaa> text (url) ls4850
+Node: @ { } \\ #961
+Node: LaTeX TeX • , © ... ...1080
+Node: ≡ error→ € ¡ ↦ −1230
+Node: ≥ ≤ →1362
+Node: ª º ⋆ £ ⊣ ¿ ®1460
+Node: ⇒ ° a b a sunny day å1579
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1736
+Node: ä ẽ î â à é ç ē e̊ e̋ ę1915
+Node: ė ĕ e̲ ẹ ě ȷ e͡e2081
+Node: ı Ḕ Ḉ2211
+Node: “ ” ‘ ’ „ ‚2309
+Node: « » « » ‹ ›2414
+Node: `` \'\' --- -- ` \'2530
+Node: AAA (fff) AAA BBB2654
+Node: CCC (rrr) CCC DDD2794
+Node: the someone <someone@somewher> <no_explain@there>2967
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3267
+Node:  @ {} . 3617
+Node: cite asis in @w b in r SC *str* t VAR dfn i3820
+Node: env code option samp command file C-x <ESC>4064
+Node: 8.27in4326
+Node: sansserif slanted4460
+Node: indicateurl4584
+Node: _{g}H 3^{rd}4706
+Node: <http://somewhere_aaa> text (url) ls4845
 
 End Tag Table
 
