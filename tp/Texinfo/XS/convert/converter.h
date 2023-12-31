@@ -68,6 +68,11 @@
             } \
           break;
 
+typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
+    ELEMENT *caption;
+    ELEMENT *prepended;
+} FLOAT_CAPTION_PREPENDED_ELEMENT;
+
 
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter(void);
@@ -97,6 +102,8 @@ void free_comma_index_subentries_tree (ELEMENT_LIST *element);
 char *top_node_filename (CONVERTER *self, char *document_name);
 
 ELEMENT *float_type_number (CONVERTER *self, const ELEMENT *float_e);
+FLOAT_CAPTION_PREPENDED_ELEMENT *float_name_caption (CONVERTER *self,
+                                                 const ELEMENT *float_e);
 
 void initialize_output_units_files (CONVERTER *self);
 size_t set_output_unit_file (CONVERTER *self, OUTPUT_UNIT *output_unit,

@@ -349,6 +349,81 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
   return tree;
 }
 
+FLOAT_CAPTION_PREPENDED_ELEMENT *
+float_name_caption (CONVERTER *self, const ELEMENT *float_e)
+{
+  ELEMENT *prepended = 0;
+  ELEMENT *type_element = 0;
+  FLOAT_CAPTION_PREPENDED_ELEMENT *result = (FLOAT_CAPTION_PREPENDED_ELEMENT *)
+    malloc (sizeof (FLOAT_CAPTION_PREPENDED_ELEMENT));
+  NAMED_STRING_ELEMENT_LIST *replaced_substrings
+     = new_named_string_element_list ();
+
+  char *float_type = lookup_extra_string (float_e, "float_type");
+  char *float_number = lookup_extra_string (float_e, "float_number");
+
+  ELEMENT *caption_element = lookup_extra_element (float_e, "caption");
+  if (!caption_element)
+    caption_element = lookup_extra_element (float_e, "shortcaption");
+
+  if (float_type && strlen (float_type)) 
+    type_element = float_e->args.list[0];
+
+  if (float_number)
+    {
+      ELEMENT *e_number = new_element (ET_NONE);
+      text_append (&e_number->text, float_number);
+      add_element_to_named_string_element_list (replaced_substrings,
+                                     "float_number", e_number);
+    }
+
+  if (type_element)
+    {
+      ELEMENT *type_element_copy = copy_tree (type_element);
+      add_element_to_named_string_element_list (replaced_substrings,
+                                     "float_type", type_element_copy);
+      if (caption_element)
+        {
+          if (float_number)
+            /* TRANSLATORS: added before caption */
+            prepended = gdt_tree ("{float_type} {float_number}: ",
+                                  self->document,
+                                  self->conf, replaced_substrings, 0, 0);
+          else
+            /* TRANSLATORS: added before caption, no float label */
+            prepended = gdt_tree ("{float_type}: ", self->document, self->conf,
+                                 replaced_substrings, 0, 0);
+        }
+      else
+        {
+          if (float_number)
+            prepended = gdt_tree ("{float_type} {float_number}",
+                                  self->document,
+                                  self->conf, replaced_substrings, 0, 0);
+          else
+            prepended = gdt_tree ("{float_type}", self->document, self->conf,
+                                 replaced_substrings, 0, 0);
+        }
+    }
+  else if (float_number)
+    {
+      if (caption_element)
+      /* TRANSLATORS: added before caption, no float type */
+        prepended = gdt_tree ("{float_number}: ", self->document, self->conf,
+                              replaced_substrings, 0, 0);
+      else
+        prepended = gdt_tree ("{float_number}", self->document, self->conf,
+                              replaced_substrings, 0, 0);
+    }
+
+  result->caption = caption_element;
+  result->prepended = prepended;
+
+  destroy_named_string_element_list (replaced_substrings);
+
+  return result;
+}
+
 char *
 convert_accents (CONVERTER *self, const ELEMENT *accent,
  char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree, char *explanation),

@@ -10627,6 +10627,175 @@ convert_menu_command (CONVERTER *self, const enum command_id cmd,
   destroy_strings_list (classes);
 }
 
+static char *type_number_float_array[] = {"type-number-float"};
+static const STRING_LIST type_number_float_classes
+  = {type_number_float_array, 1, 1};
+
+
+void
+convert_float_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  char *id;
+  char *prepended_text = 0;
+  char *caption_text = 0;
+  char *caption_command_name = 0;
+
+  ELEMENT *caption_element;
+  ELEMENT *prepended;
+  FLOAT_CAPTION_PREPENDED_ELEMENT *caption_prepended
+    = float_name_caption (self, element);
+
+  caption_element = caption_prepended->caption;
+  prepended = caption_prepended->prepended;
+
+  free (caption_prepended);
+
+  if (html_in_string (self))
+    {
+      if (prepended)
+        {
+          char *prepended_text;
+          add_to_element_list (&self->tree_to_build, prepended);
+          prepended_text
+            = convert_tree_new_formatting_context (self, prepended,
+                                            "float prepended", 0, 0, 0);
+          remove_element_from_list (&self->tree_to_build, prepended);
+          destroy_element_and_children (prepended);
+          if (prepended_text)
+            {
+              text_append (result, prepended_text);
+              free (prepended_text);
+            }
+        }
+      if (content)
+        text_append (result, content);
+
+      if (caption_element && caption_element->args.number > 0
+          && caption_element->args.list[0]->contents.number > 0)
+        {
+          char *caption_text
+            = convert_tree_new_formatting_context (self,
+               caption_element->args.list[0], "float caption", 0, 0, 0);
+          if (caption_text)
+            {
+              text_append (result, caption_text);
+              free (caption_text);
+            }
+        }
+      return;
+    }
+
+  if (caption_element)
+    caption_command_name = builtin_command_name (caption_element->cmd);
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  attribute_class = html_attribute_class (self, "div", classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  clear_strings_list (classes);
+
+  id = html_command_id (self, element);
+  if (id && strlen (id))
+    text_printf (result, " id=\"%s\"", id);
+
+  text_append_n (result, ">\n", 2);
+  text_append (result, content);
+
+  if (prepended)
+    {
+      ELEMENT *strong_element = new_element (ET_NONE);
+      ELEMENT *args = new_element (ET_brace_command_arg);
+
+      strong_element->cmd = CM_strong;
+      add_to_element_args (strong_element, args);
+      add_to_element_contents (args, prepended);
+
+      add_to_element_list (&self->tree_to_build, strong_element);
+      prepended_text = convert_tree_new_formatting_context (self,
+                        strong_element, "float number type", 0, 0, 0);
+      remove_element_from_list (&self->tree_to_build, strong_element);
+
+      destroy_element_and_children (strong_element);
+
+      if (caption_element)
+        {
+          char *cancelled_prepended;
+      /* register the converted prepended tree to be prepended to
+         the first paragraph in caption formatting */
+          if (prepended_text)
+            html_register_pending_formatted_inline_content (self,
+                              caption_command_name, prepended_text);
+          caption_text = convert_tree_new_formatting_context (self,
+                           caption_element->args.list[0], "float caption",
+                                0, 0, 0);
+          if (prepended_text)
+            {
+              cancelled_prepended
+                = html_cancel_pending_formatted_inline_content (self,
+                                                   caption_command_name);
+           /* unset if prepended text is in caption, i.e. is not cancelled */
+              if (!cancelled_prepended)
+                {
+                  free (prepended_text);
+                  prepended_text = 0;
+                }
+            }
+        }
+      if (prepended_text && strlen (prepended_text))
+        {
+          /* prepended text is not empty and did not find its way in caption */
+          char *tmp;
+          xasprintf (&tmp, "<p>%s</p>", prepended_text);
+          free (prepended_text);
+          prepended_text = tmp;
+        }
+    }
+  else if (caption_element)
+    {
+      caption_text = convert_tree_new_formatting_context (self,
+                           caption_element->args.list[0], "float caption",
+                                0, 0, 0);
+    }
+
+  if (caption_text && strlen (caption_text))
+    {
+      add_string (caption_command_name, classes);
+      attribute_class = html_attribute_class (self, "div", classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+
+      text_append_n (result, ">", 1);
+      text_append (result, caption_text);
+      text_append_n (result, "</div>", 6);
+    }
+  else if (prepended_text && strlen (prepended_text))
+    {
+      attribute_class = html_attribute_class (self, "div",
+                                              &type_number_float_classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">", 1);
+      text_append (result, prepended_text);
+      text_append_n (result, "</div>", 6);
+    }
+
+  free (caption_text);
+  free (prepended_text);
+
+  text_append_n (result, "</div>", 6);
+
+  destroy_strings_list (classes);
+}
+
 void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -11486,6 +11655,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_group, &convert_command_simple_block},
   {CM_menu, &convert_menu_command},
   {CM_detailmenu, &convert_menu_command},
+  {CM_float, &convert_float_command},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
   {CM_sp, &convert_sp_command},

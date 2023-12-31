@@ -1384,63 +1384,56 @@ sub float_name_caption($$)
   my $self = shift;
   my $element = shift;
 
-  my $caption;
+  my $caption_element;
   if ($element->{'extra'} and $element->{'extra'}->{'caption'}) {
-    $caption = $element->{'extra'}->{'caption'};
+    $caption_element = $element->{'extra'}->{'caption'};
   } elsif ($element->{'extra'} and $element->{'extra'}->{'shortcaption'}) {
-    $caption = $element->{'extra'}->{'shortcaption'};
+    $caption_element = $element->{'extra'}->{'shortcaption'};
   }
   #if ($self->get_conf('DEBUG')) {
   #  my $caption_texi =
-  #    Texinfo::Convert::Texinfo::convert_to_texinfo({ 'contents' => $caption->{'contents'}});
+  #    Texinfo::Convert::Texinfo::convert_to_texinfo(
+  #       { 'contents' => $caption_element->{'contents'}});
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
-  my $type_element;
-  if ($element->{'extra'}->{'float_type'} ne '') {
-    $type_element = $element->{'args'}->[0];
+
+  my $substrings = {};
+
+  my $float_number_element;
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'float_number'})) {
+    $float_number_element = {'text' => $element->{'extra'}->{'float_number'}};
+    $substrings->{'float_number'} = $float_number_element;
   }
 
   my $prepended;
-  if ($type_element) {
-    if ($caption) {
-      if ($element->{'extra'}
-          and defined($element->{'extra'}->{'float_number'})) {
+  if ($element->{'extra'} and defined($element->{'extra'}->{'float_type'})
+      and $element->{'extra'}->{'float_type'} ne '') {
+    $substrings->{'float_type'} = $element->{'args'}->[0];
+    if ($caption_element) {
+      if ($float_number_element) {
         # TRANSLATORS: added before caption
-        $prepended = $self->gdt('{float_type} {float_number}: ',
-            {'float_type' => $type_element,
-             'float_number'
-                => {'text' => $element->{'extra'}->{'float_number'}}});
+        $prepended = $self->gdt('{float_type} {float_number}: ', $substrings);
       } else {
         # TRANSLATORS: added before caption, no float label
-        $prepended = $self->gdt('{float_type}: ',
-          {'float_type' => $type_element});
+        $prepended = $self->gdt('{float_type}: ', $substrings);
       }
     } else {
-      if ($element->{'extra'}
-          and defined($element->{'extra'}->{'float_number'})) {
-        $prepended = $self->gdt("{float_type} {float_number}",
-            {'float_type' => $type_element,
-              'float_number'
-                 => {'text' => $element->{'extra'}->{'float_number'}}});
+      if ($float_number_element) {
+        $prepended = $self->gdt("{float_type} {float_number}", $substrings);
       } else {
-        $prepended = $self->gdt("{float_type}",
-            {'float_type' => $type_element});
+        $prepended = $self->gdt("{float_type}", $substrings);
       }
     }
-  } elsif ($element->{'extra'}
-           and defined($element->{'extra'}->{'float_number'})) {
-    if ($caption) {
+  } elsif ($float_number_element) {
+    if ($caption_element) {
       # TRANSLATORS: added before caption, no float type
-      $prepended = $self->gdt('{float_number}: ',
-          {'float_number'
-                => {'text' => $element->{'extra'}->{'float_number'}}});
+      $prepended = $self->gdt('{float_number}: ', $substrings);
     } else {
-      $prepended = $self->gdt("{float_number}",
-           {'float_number'
-                => {'text' => $element->{'extra'}->{'float_number'}}});
+      $prepended = $self->gdt("{float_number}", $substrings);
     }
   }
-  return ($caption, $prepended);
+  return ($caption_element, $prepended);
 }
 
 # This is used when the formatted text has no comment nor new line, but

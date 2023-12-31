@@ -1,5 +1,20 @@
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (float_name_caption): rename
+	$caption as $caption_element.  Use $substrings variable.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): rename $caption
+	as $caption_element.  Avoid using contents when an element can be
+	used.  Reorder code, use less intermediate variables.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_float_command)
+	(commands_internal_conversion_table),
+	tp/Texinfo/XS/convert/converter.c (float_name_caption),
+	tp/Texinfo/XS/convert/converter.h (FLOAT_CAPTION_PREPENDED_ELEMENT):
+	add float_name_caption, implement convert_float_command.
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_menu_command)
 	(commands_internal_conversion_table): implement convert_menu_command.
 

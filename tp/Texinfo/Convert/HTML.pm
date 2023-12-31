@@ -5437,12 +5437,9 @@ sub _convert_float_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  my ($caption, $prepended)
+  my ($caption_element, $prepended)
      = Texinfo::Convert::Converter::float_name_caption($self, $command);
-  my $caption_command_name;
-  if (defined($caption)) {
-    $caption_command_name = $caption->{'cmdname'};
-  }
+
   if (in_string($self)) {
     my $prepended_text;
     if ($prepended) {
@@ -5452,23 +5449,30 @@ sub _convert_float_command($$$$$)
       $prepended_text = '';
     }
     my $caption_text = '';
-    if ($caption and $caption->{'args'}->[0]
-        and $caption->{'args'}->[0]->{'contents'}) {
+    if ($caption_element and $caption_element->{'args'}->[0]
+        and $caption_element->{'args'}->[0]->{'contents'}) {
       $caption_text = $self->convert_tree_new_formatting_context(
-        {'contents' => $caption->{'args'}->[0]->{'contents'}},
-        'float caption');
+                         $caption_element->{'args'}->[0], 'float caption');
     }
     return $prepended.$content.$caption_text;
   }
 
-  my $id = $self->command_id($command);
-  my $id_str = '';;
-  if (defined($id) and $id ne '') {
-    $id_str = " id=\"$id\"";
+  my $caption_command_name;
+  if (defined($caption_element)) {
+    $caption_command_name = $caption_element->{'cmdname'};
   }
 
+  my $result = $self->html_attribute_class('div', [$cmdname]);
+
+  my $id = $self->command_id($command);
+  if (defined($id) and $id ne '') {
+    $result .= " id=\"$id\"";
+  }
+
+  $result .= ">\n" . $content;
+
   my $prepended_text;
-  my $caption_text = '';
+  my $caption_text;
   if ($prepended) {
     # FIXME add a span with a class name for the prependend information
     # if not empty?
@@ -5477,38 +5481,35 @@ sub _convert_float_command($$$$$)
                                 'args' => [{'type' => 'brace_command_arg',
                                             'contents' => [$prepended]}]},
                                'float number type');
-    if ($caption) {
+    if ($caption_element) {
       # register the converted prepended tree to be prepended to
       # the first paragraph in caption formatting
       $self->register_pending_formatted_inline_content($caption_command_name,
                                                        $prepended_text);
       $caption_text = $self->convert_tree_new_formatting_context(
-               $caption->{'args'}->[0], 'float caption');
+               $caption_element->{'args'}->[0], 'float caption');
       my $cancelled_prepended
         = $self->cancel_pending_formatted_inline_content($caption_command_name);
+      # unset if prepended text is in caption, i.e. is not cancelled
       $prepended_text = '' if (not defined($cancelled_prepended));
     }
     if ($prepended_text ne '') {
+      # prepended text is not empty and did not find its way in caption
       $prepended_text = '<p>'.$prepended_text.'</p>';
     }
-  } else {
+  } elsif (defined($caption_element)) {
     $caption_text = $self->convert_tree_new_formatting_context(
-      $caption->{'args'}->[0], 'float caption')
-       if (defined($caption));
+      $caption_element->{'args'}->[0], 'float caption');
   }
 
-  my $float_type_number_caption = '';
-  if ($caption_text ne '') {
-    $float_type_number_caption
-      = $self->html_attribute_class('div', [$caption_command_name]). '>'
+  if (defined($caption_text) and $caption_text ne '') {
+    $result .= $self->html_attribute_class('div', [$caption_command_name]). '>'
                        .$caption_text.'</div>';
   } elsif (defined($prepended) and $prepended_text ne '') {
-    $float_type_number_caption
-      = $self->html_attribute_class('div', ['type-number-float']). '>'
+    $result .= $self->html_attribute_class('div', ['type-number-float']). '>'
                        . $prepended_text .'</div>';
   }
-  return $self->html_attribute_class('div', [$cmdname]). "${id_str}>\n"
-     . $content . $float_type_number_caption . '</div>';
+  return $result . '</div>';
 }
 $default_commands_conversion{'float'} = \&_convert_float_command;
 
