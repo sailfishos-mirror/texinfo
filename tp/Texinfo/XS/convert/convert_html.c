@@ -10158,6 +10158,27 @@ convert_displaymath_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_verbatiminclude_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  ELEMENT *verbatim_include_verbatim
+    = expand_verbatiminclude (&self->error_messages, self->conf,
+                              self->document->global_info, element);
+
+  if (verbatim_include_verbatim)
+    {
+      add_to_element_list (&self->tree_to_build, verbatim_include_verbatim);
+      convert_to_html_internal (self, verbatim_include_verbatim,
+                                result, "convert verbatiminclude");
+      remove_element_from_list (&self->tree_to_build,
+                                verbatim_include_verbatim);
+      destroy_element_and_children (verbatim_include_verbatim);
+    }
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11010,6 +11031,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_smallindentedblock, &convert_indented_command},
   {CM_verbatim, &convert_verbatim_command},
   {CM_displaymath, &convert_displaymath_command},
+
+  {CM_verbatiminclude, &convert_verbatiminclude_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
