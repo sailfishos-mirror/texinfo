@@ -10449,6 +10449,22 @@ convert_subtitle_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_insertcopying_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (self->document->global_commands->copying)
+    {
+      ELEMENT *tmp = new_element (ET_NONE);
+      tmp->contents = self->document->global_commands->copying->contents;
+      convert_to_html_internal (self, tmp, result, "convert insertcopying");
+      tmp->contents.list = 0;
+      destroy_element (tmp);
+    }
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11313,6 +11329,8 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_author, &convert_author_command},
   {CM_title, &convert_title_command},
   {CM_subtitle, &convert_subtitle_command},
+
+  {CM_insertcopying, &convert_insertcopying_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},

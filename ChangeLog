@@ -1,5 +1,11 @@
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (convert_insertcopying_command)
+	(commands_internal_conversion_table): implement
+	convert_insertcopying_command.
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_title_command)
 	(convert_subtitle_command, commands_internal_conversion_table):
 	implement convert_title_command and convert_subtitle_command.
