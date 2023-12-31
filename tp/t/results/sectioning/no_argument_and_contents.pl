@@ -233,7 +233,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <div class="chapter-level-extent">
-<h2 class="chapter"><span>1 </span></h2>
+<h2 class="chapter">1 </h2>
 
 </div>
 </div>

@@ -4073,14 +4073,13 @@ sub _default_format_heading_text($$$$$;$$$)
   }
   $result .= '>';
 
-  if (defined $target && $self->get_conf('COPIABLE_LINKS')) {
-    # Span-wrap this anchor, so that the existing span:hover a.copiable-link
-    # rule applies.
-    $result .= "<span>$text";
-    $result .= $self->_get_copiable_anchor($target);
-    $result .= '</span>';
-  } else {
-    $result .= $text;
+  my $anchor = $self->_get_copiable_anchor($target);
+  if (defined($anchor)) {
+    $result .= '<span>';
+  }
+  $result .= $text;
+  if (defined($anchor)) {
+    $result .= "$anchor</span>";
   }
   $result .= "</h$level>";
 
@@ -5770,39 +5769,44 @@ sub _convert_item_command($$$$$)
            and $command->{'parent'}->{'type'} eq 'table_term') {
     if ($command->{'args'} and scalar(@{$command->{'args'}})
         and $command->{'args'}->[0]->{'contents'}) {
-      my $table_item_tree = $self->table_item_content_tree($command);
-      $table_item_tree = $command->{'args'}->[0]
-        if (!defined($table_item_tree));
-      my $result = $self->convert_tree($table_item_tree,
-                                       'convert table_item_tree');
+
+      my $result = ($cmdname eq 'item') ? '' : '<dt>';
+
+      my $index_id = $self->command_id($command);
+      my $anchor;
+      if (defined($index_id)) {
+        $result .= "<a id=\"$index_id\"></a>";
+        $anchor = $self->_get_copiable_anchor($index_id);
+        if (defined($anchor)) {
+          $result .= '<span>';
+        }
+      }
+
+      my $pre_class_close;
       if (in_preformatted_context($self)) {
         my $pre_classes = $self->preformatted_classes_stack();
         foreach my $pre_class (@$pre_classes) {
           if ($preformatted_code_commands{$pre_class}) {
-            $result = $self->html_attribute_class('code',
-                                    ['table-term-preformatted-code']).'>'
-                        . $result . '</code>';
+            $result .= $self->html_attribute_class('code',
+                                    ['table-term-preformatted-code']).'>';
+            $pre_class_close = '</code>';
             last;
           }
         }
       }
-      my $open_tag = ($cmdname eq 'item') ? '' : '<dt>';
-      my $index_id = $self->command_id($command);
-      my $anchor;
-      my $anchor_span_open = '';
-      my $anchor_span_close = '';
-      if (defined($index_id)) {
-        $anchor = $self->_get_copiable_anchor($index_id);
-        $index_id = "<a id=\"$index_id\"></a>";
-        if ($anchor ne '') {
-          $anchor_span_open = '<span>';
-          $anchor_span_close = '</span>';
-        }
-      } else {
-        $anchor = '';
-        $index_id = '';
+      my $table_item_tree = $self->table_item_content_tree($command);
+      $table_item_tree = $command->{'args'}->[0]
+        if (!defined($table_item_tree));
+      my $converted_item = $self->convert_tree($table_item_tree,
+                                          'convert table_item_tree');
+      $result .= $converted_item;
+      if (defined($pre_class_close)) {
+        $result .= $pre_class_close;
       }
-      return "$open_tag$index_id$anchor_span_open$result$anchor$anchor_span_close</dt>\n";
+      if (defined($anchor)) {
+        $result .= $anchor . '</span>';
+      }
+      return $result . "</dt>\n";
     } else {
       return '';
     }
@@ -7581,11 +7585,11 @@ sub _convert_def_line_type($$$$)
   }
 
   my $anchor = $self->_get_copiable_anchor($index_id);
-  if ($anchor ne '') {
+  if (defined($anchor)) {
     $result .= '<span>';
   }
   $result .= $def_call;
-  if ($anchor ne '') {
+  if (defined($anchor)) {
     $result .= $anchor . '</span>';
   }
   $result .= "</dt>\n";
@@ -7595,13 +7599,12 @@ sub _convert_def_line_type($$$$)
 
 sub _get_copiable_anchor {
   my ($self, $id) = @_;
-  my $result = '';
   if (defined($id) and $id ne '' and $self->get_conf('COPIABLE_LINKS')) {
     my $paragraph_symbol = $self->get_info('paragraph_symbol');
-    $result = $self->html_attribute_class('a', ['copiable-link'])
+    return $self->html_attribute_class('a', ['copiable-link'])
         ." href=\"#$id\"> $paragraph_symbol</a>";
   }
-  return $result;
+  return undef;
 }
 
 $default_types_conversion{'def_line'} = \&_convert_def_line_type;
