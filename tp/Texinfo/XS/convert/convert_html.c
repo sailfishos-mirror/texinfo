@@ -10179,6 +10179,28 @@ convert_verbatiminclude_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_command_simple_block (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (!content)
+    return;
+
+  char *attribute_class;
+  STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+  attribute_class = html_attribute_class (self, "div", classes);
+  text_append (result, attribute_class);
+  text_append_n (result, ">", 1);
+  text_append (result, content);
+  text_append_n (result, "</div>", 6);
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11031,6 +11053,10 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_smallindentedblock, &convert_indented_command},
   {CM_verbatim, &convert_verbatim_command},
   {CM_displaymath, &convert_displaymath_command},
+  {CM_raggedright, &convert_command_simple_block},
+  {CM_flushleft, &convert_command_simple_block},
+  {CM_flushright, &convert_command_simple_block},
+  {CM_group, &convert_command_simple_block},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
 
