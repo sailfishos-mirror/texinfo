@@ -1,5 +1,20 @@
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (convert_footnote_command):
+	remove spurious end of line in identifiers.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_titlefont_command):
+	destroy classes.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_listoffloats_command)
+	(commands_internal_conversion_table): implement
+	convert_listoffloats_command.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_listoffloats_command): rename
+	$caption as $caption_element.
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_insertcopying_command)
 	(commands_internal_conversion_table): implement
 	convert_insertcopying_command.

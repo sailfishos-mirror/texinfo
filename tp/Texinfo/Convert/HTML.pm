@@ -5361,21 +5361,21 @@ sub _convert_listoffloats_command($$$$)
         }
       }
       $result .= '</dt>';
-      my $caption;
+      my $caption_element;
       my $caption_cmdname;
       if ($float->{'extra'} and $float->{'extra'}->{'shortcaption'}) {
-        $caption = $float->{'extra'}->{'shortcaption'};
+        $caption_element = $float->{'extra'}->{'shortcaption'};
         $caption_cmdname = 'shortcaption';
       } elsif ($float->{'extra'} and $float->{'extra'}->{'caption'}) {
-        $caption = $float->{'extra'}->{'caption'};
+        $caption_element = $float->{'extra'}->{'caption'};
         $caption_cmdname = 'caption';
       }
 
       my $caption_text;
       my @caption_classes;
-      if ($caption) {
+      if ($caption_element) {
         $caption_text = $self->convert_tree_new_formatting_context(
-          $caption->{'args'}->[0], $cmdname, 'listoffloats');
+          $caption_element->{'args'}->[0], $cmdname, 'listoffloats');
         push @caption_classes, "${caption_cmdname}-in-${cmdname}";
       } else {
         $caption_text = '';

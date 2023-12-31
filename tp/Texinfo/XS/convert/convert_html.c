@@ -8659,9 +8659,9 @@ convert_footnote_command (CONVERTER *self, const enum command_id cmd,
   if (multi_expanded_region)
     {
     /* to avoid duplicate names, use a prefix that cannot happen in anchors */
-      xasprintf (&footid, "%s%s_%s_%d\n", target_prefix, multi_expanded_region,
+      xasprintf (&footid, "%s%s_%s_%d", target_prefix, multi_expanded_region,
                  footnote_id, foot_num);
-      xasprintf (&docid, "%s%s_%s_%d\n", target_prefix, multi_expanded_region,
+      xasprintf (&docid, "%s%s_%s_%d", target_prefix, multi_expanded_region,
                  footnote_docid, foot_num);
     }
   else
@@ -9217,6 +9217,7 @@ convert_titlefont_command (CONVERTER *self, const enum command_id cmd,
       format_heading_text (self, cmd, classes,
                    args_formatted->args[0].formatted[AFT_type_normal],
                      0, 0, 0, 0, result);
+      destroy_strings_list (classes);
     }
 }
 
@@ -10464,6 +10465,122 @@ convert_insertcopying_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+static char *caption_in_listoffloats_array[] = {"caption-in-listoffloats"};
+static const STRING_LIST caption_in_listoffloats_classes
+  = {caption_in_listoffloats_array, 1, 1};
+static char *shortcaption_in_listoffloats_array[]
+  = {"shortcaption-in-listoffloats"};
+static const STRING_LIST shortcaption_in_listoffloats_classes
+  = {shortcaption_in_listoffloats_array, 1, 1};
+
+void
+convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  LISTOFFLOATS_TYPE_LIST *listoffloats;
+  char *listoffloats_name;
+  int i;
+
+  if (html_in_string (self))
+    return;
+
+  listoffloats = self->document->listoffloats;
+
+  if (!listoffloats->number)
+    return;
+
+  listoffloats_name = lookup_extra_string (element, "float_type");
+
+  for (i = 0; i < listoffloats->number; i++)
+    {
+      LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+      if (!strcmp (float_types->type, listoffloats_name))
+        {
+          char *attribute_class;
+          STRING_LIST *classes;
+          size_t j;
+
+          if (float_types->float_list.number <= 0)
+            return;
+
+          classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+          memset (classes, 0, sizeof (STRING_LIST));
+          add_string (builtin_command_name (cmd), classes);
+
+          attribute_class = html_attribute_class (self, "dl", classes);
+          text_append (result, attribute_class);
+          text_append_n (result, ">\n", 2);
+
+          for (j = 0; j < float_types->float_list.number; j++)
+            {
+              char *caption_attribute_class;
+              ELEMENT *caption_element;
+              const STRING_LIST *caption_classes = 0;
+              ELEMENT *float_elt = float_types->float_list.list[j];
+              char *float_href = html_command_href (self, float_elt, 0, 0, 0);
+              char *float_text;
+
+              if (!float_href)
+                continue;
+
+              text_append_n (result, "<dt>", 4);
+              float_text = html_command_text (self, float_elt, 0);
+              if (float_text && strlen (float_text))
+                {
+                  if (strlen (float_href))
+                    {
+                      text_printf (result, "<a href=\"%s\">%s</a>",
+                                   float_href, float_text);
+                    }
+                  else /* not sure that it can happen */
+                    {
+                      text_append (result, float_text);
+                    }
+                }
+
+              text_append_n (result, "</dt>", 5);
+
+              free (float_text);
+              free (float_href);
+
+              caption_element = lookup_extra_element (float_elt,
+                                                      "shortcaption");
+              if (caption_element)
+                caption_classes = &shortcaption_in_listoffloats_classes;
+              else
+                {
+                  caption_element = lookup_extra_element (float_elt, "caption");
+                  if (caption_element)
+                    caption_classes = &caption_in_listoffloats_classes;
+                }
+
+              caption_attribute_class = html_attribute_class (self, "dd",
+                                                              caption_classes);
+              text_append (result, caption_attribute_class);
+              free (caption_attribute_class);
+              text_append_n (result, ">", 1);
+              if (caption_element)
+                {
+                  char *caption_text
+                    = convert_tree_new_formatting_context (self,
+                        caption_element->args.list[0],
+                        builtin_command_name (cmd),
+                        "listoffloats", 0, 0);
+                  text_append (result, caption_text);
+                  free (caption_text);
+                }
+              text_append_n (result, "</dd>\n", 6);
+            }
+          text_append_n (result, "</dl>\n", 6);
+
+          free (attribute_class);
+          destroy_strings_list (classes);
+        }
+    }
+}
+
 void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -11331,6 +11448,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_subtitle, &convert_subtitle_command},
 
   {CM_insertcopying, &convert_insertcopying_command},
+  {CM_listoffloats, &convert_listoffloats_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
