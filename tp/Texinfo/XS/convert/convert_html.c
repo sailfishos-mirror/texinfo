@@ -11172,6 +11172,66 @@ convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_multitable_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  STRING_LIST *classes;
+  char *attribute_class;
+
+  if (!content || !strlen (content))
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, content);
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name(cmd), classes);
+
+  attribute_class = html_attribute_class (self, "table", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">\n", 2);
+  text_append (result, content);
+  text_append_n (result, "</table>\n", 9);
+}
+
+void
+convert_xtable_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  STRING_LIST *classes;
+  char *attribute_class;
+
+  if (!content || !strlen (content))
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, content);
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name(cmd), classes);
+
+  attribute_class = html_attribute_class (self, "dl", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">\n", 2);
+  text_append (result, content);
+  text_append_n (result, "</dl>\n", 6);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11870,6 +11930,10 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_cartouche, &convert_cartouche_command},
   {CM_itemize, convert_itemize_command},
   {CM_enumerate, convert_enumerate_command},
+  {CM_multitable, &convert_multitable_command},
+  {CM_table, &convert_xtable_command},
+  {CM_ftable, &convert_xtable_command},
+  {CM_vtable, &convert_xtable_command},
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
   {CM_sp, &convert_sp_command},

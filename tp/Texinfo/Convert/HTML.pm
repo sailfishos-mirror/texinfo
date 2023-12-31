@@ -5694,12 +5694,15 @@ sub _convert_multitable_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  $content = '' if (!defined($content));
+  if (!defined($content)) {
+    return '';
+  }
 
   if (in_string($self)) {
     return $content;
   }
-  if ($content =~ /\S/) {
+
+  if ($content ne '') {
     return $self->html_attribute_class('table', [$cmdname]).">\n"
                                      . $content . "</table>\n";
   } else {
@@ -5717,11 +5720,14 @@ sub _convert_xtable_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  $content = '' if (!defined($content));
+  if (!defined($content)) {
+    return '';
+  }
 
   if (in_string($self)) {
     return $content;
   }
+
   if ($content ne '') {
     return $self->html_attribute_class('dl', [$cmdname]).">\n"
       . $content . "</dl>\n";

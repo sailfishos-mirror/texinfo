@@ -1,5 +1,15 @@
 2023-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_multitable_command)
+	(_convert_xtable_command): rearrange code.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_multitable_command)
+	(convert_xtable_command), commands_internal_conversion_table):
+	implement convert_multitable_command and convert_xtable_command.
+
+
+2023-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_enumerate_command)
 	(commands_internal_conversion_table): implement
 	convert_enumerate_command.
