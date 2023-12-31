@@ -10231,6 +10231,63 @@ convert_sp_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_exdent_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *pending_formatted = html_get_pending_formatted_inline_content (self);
+  char *arg = 0;
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  if (args_formatted->number > 0
+      && args_formatted->args[0].formatted[AFT_type_normal]
+      && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
+    arg = args_formatted->args[0].formatted[AFT_type_normal];
+
+  if (html_in_string (self))
+    {
+      if (pending_formatted)
+        {
+          text_append (result, pending_formatted);
+          free (pending_formatted);
+        }
+      if (arg)
+          text_append (result, arg);
+      text_append_n (result, "\n", 1);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+
+  if (html_in_preformatted_context (self))
+    attribute_class = html_attribute_class (self, "pre", classes);
+  else
+    attribute_class = html_attribute_class (self, "p", classes);
+
+  text_append (result, attribute_class);
+  text_append_n (result, ">", 1);
+  if (pending_formatted)
+    {
+      text_append (result, pending_formatted);
+      free (pending_formatted);
+    }
+  if (arg)
+    text_append (result, arg);
+  text_append_n (result, "\n", 1);
+  if (html_in_preformatted_context (self))
+    text_append_n (result, "</pre>", 6);
+  else
+    text_append_n (result, "</p>", 4);
+
+  free (attribute_class);
+  destroy_strings_list (classes);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -11090,6 +11147,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
 
   {CM_verbatiminclude, &convert_verbatiminclude_command},
   {CM_sp, &convert_sp_command},
+  {CM_exdent, &convert_exdent_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},
