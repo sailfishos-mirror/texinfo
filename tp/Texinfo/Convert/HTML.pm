@@ -5829,6 +5829,15 @@ sub _convert_tab_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  $content = '' if (!defined($content));
+
+  $content =~ s/^\s*//;
+  $content =~ s/\s*$//;
+
+  if (in_string($self)) {
+    return $content;
+  }
+
   my $cell_nr = $command->{'extra'}->{'cell_number'};
   my $row = $command->{'parent'};
   my $row_cmdname = $row->{'contents'}->[0]->{'cmdname'};
@@ -5838,20 +5847,12 @@ sub _convert_tab_command($$$$$)
   my $cf = $multitable->{'extra'}->{'columnfractions'};
   if ($cf) {
     if (exists($cf->{'extra'}->{'misc_args'}->[$cell_nr-1])) {
-      my $fraction = sprintf('%d',
+      my $percent = sprintf('%d',
                              100*$cf->{'extra'}->{'misc_args'}->[$cell_nr-1]);
-      $fractions = " width=\"$fraction%\"";
+      $fractions = " width=\"$percent%\"";
     }
   }
 
-  $content = '' if (!defined($content));
-
-  $content =~ s/^\s*//;
-  $content =~ s/\s*$//;
-
-  if (in_string($self)) {
-    return $content;
-  }
   if ($row_cmdname eq 'headitem') {
     return "<th${fractions}>" . $content . '</th>';
   } else {

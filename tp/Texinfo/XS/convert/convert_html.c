@@ -11311,6 +11311,83 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_tab_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *trimmed_content;
+  int cell_nr;
+  int status;
+  ELEMENT *row;
+  ELEMENT *multitable;
+  ELEMENT *columnfractions;
+  const char *html_element = "td";
+
+  if (content)
+    {
+      const char *p = content;
+      size_t str_len;
+      p += strspn (p, whitespace_chars);
+      trimmed_content = strdup (p);
+      str_len = strlen (trimmed_content);
+      if (str_len > 0)
+        {
+          char *q = trimmed_content + str_len - 1;
+          while (q > trimmed_content)
+            {
+              if (!strchr (whitespace_chars, *q))
+                {
+                  break;
+                }
+              q--;
+            }
+          *(q +1) = '\0';
+        }
+    }
+  else
+    trimmed_content = strdup ("");
+
+  if (html_in_string (self))
+    {
+      text_append (result, trimmed_content);
+      free (trimmed_content);
+      return;
+    }
+
+  row = element->parent;
+  if (row->contents.list[0]->cmd == CM_headitem)
+    html_element = "th";
+
+  text_append_n (result, "<", 1);
+  text_append_n (result, html_element, 2);
+
+  cell_nr = lookup_extra_integer (element, "cell_number", &status);
+  multitable = row->parent->parent;
+
+  columnfractions = lookup_extra_element (multitable, "columnfractions");
+
+  if (columnfractions)
+    {
+      ELEMENT *cf_misc_args = lookup_extra_element (columnfractions,
+                                                     "misc_args");
+      if (cf_misc_args->contents.number >= cell_nr)
+        {
+          char *fraction_str
+            = cf_misc_args->contents.list[cell_nr -1]->text.text;
+          double fraction = strtod (fraction_str, NULL);
+          text_printf (result, " width=\"%0.f%%\"", 100 * fraction);
+        }
+    }
+  text_append_n (result, ">", 1);
+  text_append (result, trimmed_content);
+  free (trimmed_content);
+  text_append_n (result, "</", 2);
+  text_append_n (result, html_element, 2);
+  text_append_n (result, ">", 1);
+}
+
+void
 convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -12024,6 +12101,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_item, &convert_item_command},
   {CM_headitem, &convert_item_command},
   {CM_itemx, &convert_item_command},
+  {CM_tab, &convert_tab_command},
 
   {CM_insertcopying, &convert_insertcopying_command},
   {CM_listoffloats, &convert_listoffloats_command},
