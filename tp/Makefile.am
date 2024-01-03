@@ -348,10 +348,10 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
 # FIXME duplicated in Texinfo/XS/Makefile.am. Remove from here?
-$(srcdir)/Texinfo/Commands.pm: Texinfo/command_data.txt
+$(srcdir)/Texinfo/Commands.pm: Texinfo/command_data.txt $(srcdir)/maintain/regenerate_commands_perl_info.pl
 	$(srcdir)/maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/Texinfo/command_data.txt
 
-$(srcdir)/Texinfo/Options.pm: Texinfo/options_data.txt
+$(srcdir)/Texinfo/Options.pm: Texinfo/options_data.txt $(srcdir)/maintain/regenerate_perl_options_info.pl
 	$(srcdir)/maintain/regenerate_perl_options_info.pl $(srcdir)/Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
 
 libsrcdir = $(srcdir)/maintain/lib
