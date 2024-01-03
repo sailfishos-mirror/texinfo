@@ -1627,15 +1627,12 @@ sub ensure_end_of_line($$)
 {
   my ($self, $text) = @_;
 
-  my $chomped = chomp ($text);
-  if ($chomped) {
-    $self->{'count_context'}->[-1]->{'bytes'} -= count_bytes($self, $chomped);
-    $self->{'count_context'}->[-1]->{'lines'} -= 1;
+  if (substr($text, -1) ne "\n") {
+    $text .= "\n";
+    add_text_to_count($self, "\n");
+    _add_lines_count($self, 1);
+    $self->{'text_element_context'}->[-1]->{'counter'} = 0;
   }
-  $text .= "\n";
-  $self->{'text_element_context'}->[-1]->{'counter'} = 0;
-  add_text_to_count($self, "\n");
-  _add_lines_count($self, 1);
   return $text;
 }
 
