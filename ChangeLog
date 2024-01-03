@@ -1,3 +1,24 @@
+2024-01-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_enumerate_command):
+	output a start of 0 with digits.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): rearrange
+	code.  Avoid using contents separately from elements.  Use an array
+	and not an array reference for normalized_entry_levels, renamed as
+	prev_normalized_entry_levels.  Rename seenentry as seeentry.  Use
+	$subentry_level to determine the last level index early, do not remove
+	the last level from @entry_trees.  Redo the loop over levels to use
+	only one index variable and use only one loop, not two.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(get_element_root_command_element): add.
+
+	* tp/Texinfo/XS/convert/convert_html.c (clear_normalized_entry_levels)
+	(normalized_upper_case, printindex_letters_head_foot_internal)
+	(convert_printindex_command, commands_internal_conversion_table):
+	implement convert_printindex_command.
+
 2024-01-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (ensure_end_of_line):

@@ -21,6 +21,10 @@
 #include <errno.h>
 #include <ctype.h>
 #include <stdarg.h>
+#include <iconv.h>
+#include "uniconv.h"
+#include <unistr.h>
+#include <unictype.h>
 
 #include "global_commands_types.h"
 #include "tree_types.h"
@@ -427,6 +431,37 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
           return result;
         }
     }
+}
+
+static ROOT_AND_UNIT *
+get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
+{
+  ROOT_AND_UNIT *root_unit = html_get_tree_root_element (self, command, 0);
+
+  if (root_unit && root_unit->root)
+    {
+      const ELEMENT *root_command = root_unit->root;
+      if (self->conf->USE_NODES > 0)
+        {
+          if (root_command->cmd != CM_node)
+            {
+              const ELEMENT *associated_node =
+                           lookup_extra_element (root_command,
+                                                 "associated_node");
+              if (associated_node)
+                root_unit->root = associated_node;
+            }
+        }
+      else if (root_command->cmd == CM_node)
+        {
+          const ELEMENT *associated_section
+                              = lookup_extra_element (root_command,
+                                                      "associated_section");
+          if (associated_section)
+            root_unit->root = associated_section;
+        }
+    }
+  return root_unit;
 }
 
 /* this number should be safe to use even after targets list has been
@@ -11080,6 +11115,7 @@ convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
 
   if (specification)
     {
+      int use_start = 1;
       unsigned int start = 0;
       const char *type = 0;
       size_t specification_len = strlen (specification);
@@ -11098,27 +11134,34 @@ convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
         }
       else
         {
-          const char *p = specification;
-          int only_digits = 1;
-          while (*p)
+          use_start = 0;
+          if (specification_len > 0)
             {
-              if (!isascii_digit (*p))
+              const char *p = specification;
+              int only_digits = 1;
+              while (*p)
                 {
-                  only_digits = 0;
-                  break;
+                  if (!isascii_digit (*p))
+                    {
+                      only_digits = 0;
+                      break;
+                    }
+                  p++;
                 }
-              p++;
-            }
-          if (only_digits)
-            {
-              unsigned int spec_number = strtoul (specification, NULL, 10);
-              if (spec_number > 1)
-                start = spec_number;
+              if (only_digits)
+                {
+                  unsigned int spec_number = strtoul (specification, NULL, 10);
+                  if (spec_number != 1)
+                    {
+                      use_start = 1;
+                      start = spec_number;
+                    }
+                }
             }
         }
       if (type)
         text_printf (result, " type=\"%s\"", type);
-      if (start)
+      if (use_start)
         text_printf (result, " start=\"%u\"", start);
     }
 
@@ -11865,6 +11908,983 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   free (name);
 }
 
+#define SUBENTRIES_MAX_LEVEL 2
+
+static void
+clear_normalized_entry_levels (char **normalized_entry_levels)
+{
+  int i;
+  for (i = 0; i < SUBENTRIES_MAX_LEVEL; i++)
+    {
+      free (normalized_entry_levels[i]);
+      normalized_entry_levels[i] = 0;
+    }
+}
+
+static char *
+normalized_upper_case (ELEMENT *e)
+{
+  char *normalized = convert_to_normalized (e);
+  char *result = to_upper_or_lower_multibyte (normalized, 1);
+  free (normalized);
+  return result;
+}
+
+static void
+printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
+                           const enum command_id cmd,
+                           STRING_LIST *entry_classes,
+                           const char *head_or_foot, const char *alpha_text,
+                           const char *non_alpha_text, TEXT *result)
+{
+  char *index_name_cmd_class;
+  char *attribute_class;
+
+  xasprintf (&index_name_cmd_class, "%s-letters-%s-%s",
+             index_name, head_or_foot, builtin_command_name (cmd));
+  add_string (index_name_cmd_class, entry_classes);
+  free (index_name_cmd_class);
+  attribute_class = html_attribute_class (self, "table", entry_classes);
+  clear_strings_list (entry_classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, "><tr><th>", 9);
+
+  /* TRANSLATORS: before list of letters and symbols grouping index entries */
+  translate_convert_to_html_internal ("Jump to", self->document, self, 0,
+                                      0, 0, result, 0);
+  text_append_n (result, ": ", 2);
+  text_append_n (result,
+                 self->special_character[SC_non_breaking_space].string,
+                 self->special_character[SC_non_breaking_space].len);
+  text_append_n (result, " </th><td>", 10);
+  if (non_alpha_text)
+    text_append (result, non_alpha_text);
+  if (non_alpha_text && alpha_text)
+    {
+      text_append_n (result, " ", 1);
+      text_append_n (result,
+                     self->special_character[SC_non_breaking_space].string,
+                     self->special_character[SC_non_breaking_space].len);
+      text_append_n (result, " \n", 2);
+      text_append_n (result,
+                     self->line_break_element.string,
+                     self->line_break_element.len);
+      text_append_n (result, "\n", 1);
+    }
+  if (alpha_text)
+    text_append (result, alpha_text);
+  text_append_n (result, "</td></tr></table>\n", 19);
+}
+
+void
+convert_printindex_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  ELEMENT *misc_args;
+  const char *index_name;
+  INDEX_SORTED_BY_LETTER *idx;
+  INDEX_SORTED_BY_LETTER *index_sorted = 0;
+  char *index_element_id;
+  char **letter_id;
+  char **alpha;
+  char **non_alpha;
+  size_t non_alpha_nr = 0;
+  size_t alpha_nr = 0;
+  int *letter_is_symbol;
+  int *letter_has_entries;
+  size_t symbol_idx = 0;
+  size_t i;
+  char *entry_class_seeentry;
+  char *section_class_seeentry;
+  char *cmd_index_entry_class;
+  char *section_class_seealso;
+  char *cmd_index_section_class;
+  char *summary_letter_cmd;
+  char *attribute_class;
+  TEXT entries_text;
+  TEXT result_index_entries;
+  char *index_name_cmd_class;
+  char *alpha_text = 0;
+  char *non_alpha_text = 0;
+
+  if (!self->index_entries_by_letter)
+    return;
+
+  if (html_in_string (self))
+    return;
+
+  misc_args = lookup_extra_element (element, "misc_args");
+  if (misc_args && misc_args->contents.number > 0)
+    index_name = misc_args->contents.list[0]->text.text;
+  else
+    return;
+
+  for (idx = self->index_entries_by_letter; idx->name; idx++)
+    {
+      if (!strcmp (idx->name, index_name))
+        {
+          index_sorted = idx;
+          break;
+        }
+    }
+  if (!index_sorted || !index_sorted->letter_number)
+    return;
+
+  index_element_id = from_element_direction (self, D_direction_This,
+                                             HTT_target, 0, 0, 0);
+  if (!index_element_id)
+    {
+      ROOT_AND_UNIT *root_unit
+        = get_element_root_command_element (self, element);
+      if (root_unit && root_unit->root)
+        {
+          index_element_id = html_command_id (self, root_unit->root);
+        }
+      if (!index_element_id)
+    /* to avoid duplicate names, use a prefix that cannot happen in anchors */
+        index_element_id = "t_i";
+    }
+
+  letter_id = (char **) malloc (index_sorted->letter_number * sizeof (char *));
+  /* we allocate twice as needed here, but it is more practical */
+  alpha = (char **) malloc ((index_sorted->letter_number +1) * sizeof (char *));
+  non_alpha = (char **)
+     malloc ((index_sorted->letter_number +1) * sizeof (char *));
+  memset (alpha, 0, (index_sorted->letter_number +1) * sizeof (char *));
+  memset (non_alpha, 0, (index_sorted->letter_number +1) * sizeof (char *));
+  letter_is_symbol
+    = (int *) malloc (index_sorted->letter_number * sizeof (int));
+  letter_has_entries
+    = (int *) malloc (index_sorted->letter_number * sizeof (int));
+
+  for (i = 0; i < index_sorted->letter_number; i++)
+    {
+      char *letter = index_sorted->letter_entries[i].letter;
+      uint8_t *encoded_u8 = u8_strconv_from_encoding (letter, "UTF-8",
+                                                  iconveh_question_mark);
+      ucs4_t next_char;
+      u8_next (&next_char, encoded_u8);
+      letter_is_symbol[i]
+          = !(uc_is_property (next_char, UC_PROPERTY_ALPHABETIC));
+      free (encoded_u8);
+      if (letter_is_symbol[i])
+        {
+          symbol_idx++;
+          xasprintf (&letter_id[i], "%s_%s_symbol-%zu", index_element_id,
+                                   index_name, symbol_idx);
+        }
+      else
+        xasprintf (&letter_id[i], "%s_%s_letter-%s", index_element_id,
+                                   index_name, letter);
+    }
+
+  html_new_document_context (self, builtin_command_name (cmd), 0, 0);
+
+  STRING_LIST *entry_classes;
+  STRING_LIST *section_classes;
+  entry_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (entry_classes, 0, sizeof (STRING_LIST));
+  section_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (section_classes, 0, sizeof (STRING_LIST));
+
+  xasprintf (&entry_class_seeentry, "%s-index-see-entry",
+                                    builtin_command_name (cmd));
+  xasprintf (&section_class_seeentry, "%s-index-see-entry-section",
+                                    builtin_command_name (cmd));
+  xasprintf (&cmd_index_entry_class, "%s-index-entry",
+                                   builtin_command_name (cmd));
+  xasprintf (&section_class_seealso, "%s-index-see-also",
+                                   builtin_command_name (cmd));
+  xasprintf (&cmd_index_section_class, "%s-index-section",
+                                   builtin_command_name (cmd));
+  xasprintf (&summary_letter_cmd, "summary-letter-%s",
+                                   builtin_command_name (cmd));
+
+  text_init (&entries_text);
+  text_init (&result_index_entries);
+
+  /* Next do the entries to determine the letters that are not empty */
+  for (i = 0; i < index_sorted->letter_number; i++)
+    {
+      LETTER_INDEX_ENTRIES *letter_entry = &index_sorted->letter_entries[i];
+      char *letter = letter_entry->letter;
+      size_t entry_nr = 0;
+    /* since we normalize, a different formatting will not trigger a new
+       formatting of the main entry or a subentry level.  This is the
+       same for Texinfo TeX */
+      size_t j;
+
+      char *prev_normalized_entry_levels[SUBENTRIES_MAX_LEVEL+1];
+      memset (prev_normalized_entry_levels, 0,
+              sizeof (char *) * (SUBENTRIES_MAX_LEVEL +1));
+      text_reset (&entries_text);
+
+      for (j = 0; j < letter_entry->entries_number; j++)
+        {
+          int status;
+          int level;
+          int in_code;
+          int *formatted_index_entry_nr;
+          char *multiple_pass_str;
+          size_t entry_index_nr;
+          INDEX *entry_index;
+          ELEMENT *seeentry;
+          ELEMENT *seealso;
+          char *new_normalized_entry_levels[SUBENTRIES_MAX_LEVEL +1];
+          ELEMENT *entry_trees[SUBENTRIES_MAX_LEVEL +1];
+          int last_entry_level;
+          char *entry;
+          char *convert_info;
+          ELEMENT *target_element;
+          const ELEMENT *associated_command = 0;
+          char *entry_href;
+          ELEMENT *entry_tree;
+          ELEMENT *subentry;
+          ELEMENT_LIST *other_subentries_tree = 0;
+          int subentry_level = 1;
+          ELEMENT *entry_content_element;
+          ELEMENT *entry_ref_tree = new_element (ET_NONE);
+          INDEX_ENTRY *index_entry_ref = letter_entry->entries[j];
+          ELEMENT *main_entry_element = index_entry_ref->entry_element;
+          ELEMENT *index_entry_info = lookup_extra_element (main_entry_element,
+                                                            "index_entry");
+          int entry_number
+             = lookup_extra_integer (index_entry_info->contents.list[1],
+                                     "integer", &status);
+          entry_nr++;
+
+          if (self->conf->NO_TOP_NODE_OUTPUT > 0)
+            {
+              const ELEMENT *element_node
+                = lookup_extra_element (main_entry_element, "element_node");
+              if (element_node)
+                {
+                  const char *normalized = lookup_extra_string (element_node,
+                                                                "normalized");
+                  if (normalized && !strcmp (normalized, "Top"))
+                    continue;
+                }
+            }
+
+          memset (new_normalized_entry_levels, 0,
+                  sizeof (char *) * (SUBENTRIES_MAX_LEVEL +1));
+
+          entry_content_element = index_content_element (main_entry_element, 0);
+          entry_index_nr
+             = index_number_index_by_name (&self->sorted_index_names,
+                                                   index_entry_ref->index_name);
+          entry_index = self->sorted_index_names.list[entry_index_nr-1].index;
+
+ /* to avoid double error messages, call convert_tree_new_formatting_context
+    below with a multiple_pass argument if an entry was already formatted once,
+    for example if there are multiple printindex. */
+          formatted_index_entry_nr
+            = &self->shared_conversion_state
+               .formatted_index_entries[entry_index_nr -1][entry_number -1];
+          (*formatted_index_entry_nr)++;
+
+          if (*formatted_index_entry_nr > 1)
+            xasprintf (&multiple_pass_str, "index-formatted-%d",
+                       *formatted_index_entry_nr);
+
+          in_code = entry_index->in_code;
+
+          add_to_contents_as_array (entry_ref_tree, entry_content_element);
+          if (in_code)
+            entry_ref_tree->type = ET__code;
+
+          /* index entry with @seeentry or @seealso */
+          seeentry = lookup_extra_element (main_entry_element, "seeentry");
+          seealso = lookup_extra_element (main_entry_element, "seealso");
+          if (seeentry || seealso)
+            {
+              NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+              ELEMENT *referred_tree;
+              ELEMENT *referred_entry;
+              char *entry;
+              char *reference = 0;
+
+              if (seeentry)
+                referred_entry = seeentry;
+              else
+                referred_entry = seealso;
+
+              if (in_code)
+                referred_tree = new_element (ET__code);
+              else
+                referred_tree = new_element (ET_NONE);
+
+              if (referred_entry->args.number > 0
+                  && referred_entry->args.list[0]->contents.number > 0)
+                {
+                  ELEMENT *referred_copy
+                     = copy_tree (referred_entry->args.list[0]);
+                  add_to_contents_as_array (referred_tree, referred_copy);
+                }
+
+              if (seeentry)
+                {
+                  char *convert_info;
+                  ELEMENT *result_tree;
+                  ELEMENT *entry_ref_tree_copy = copy_tree (entry_ref_tree);
+                  add_element_to_named_string_element_list (substrings,
+                                    "main_index_entry", entry_ref_tree_copy);
+                  add_element_to_named_string_element_list (substrings,
+                                             "seeentry", referred_tree);
+                  if (in_code)
+                    {
+       /* TRANSLATORS: redirect to another index entry */
+       /* TRANSLATORS: @: is discardable and is used to avoid a msgfmt error */
+                      result_tree = html_gdt_tree (
+       "@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}",
+                                      self->document, self, substrings, 0, 0);
+                    }
+                  else
+                    {
+        /* TRANSLATORS: redirect to another index entry */
+        /* TRANSLATORS: @: is discardable and used to avoid a msgfmt error */
+                      result_tree = html_gdt_tree (
+                    "{main_index_entry}, @emph{See@:} {seeentry}",
+                                      self->document, self, substrings, 0, 0);
+                    }
+                  xasprintf (&convert_info,
+                             "index %s l %s index entry %zu seeentry",
+                             index_name, letter, entry_nr -1);
+                  add_to_element_list (&self->tree_to_build, result_tree);
+                  if (*formatted_index_entry_nr > 1)
+                    {
+                      /* call with multiple_pass argument */
+                      entry = convert_tree_new_formatting_context (self,
+                             result_tree, convert_info, multiple_pass_str, 0, 0);
+                    }
+                  else
+                    {
+                      entry = html_convert_tree (self, result_tree,
+                                                 convert_info);
+                    }
+                  remove_element_from_list (&self->tree_to_build, result_tree);
+                  destroy_element_and_children (result_tree);
+                  free (convert_info);
+
+                  add_string (entry_class_seeentry, entry_classes);
+                  add_string (section_class_seeentry, section_classes);
+                }
+              else
+                {
+                  /* TRANSLATORS: refer to another index entry */
+                  ELEMENT *reference_tree;
+                  char *conv_str_entry;
+                  char *conv_str_reference;
+
+                  add_element_to_named_string_element_list (substrings,
+                                             "see_also_entry", referred_tree);
+                  reference_tree = html_gdt_tree (
+                                  "@emph{See also} {see_also_entry}",
+                                      self->document, self, substrings, 0, 0);
+
+                  xasprintf (&conv_str_entry,
+                             "index %s l %s index entry %zu (with seealso)",
+                             index_name, letter, entry_nr -1);
+                  xasprintf (&conv_str_reference,
+                             "index %s l %s index entry %zu seealso",
+                             index_name, letter, entry_nr -1);
+
+                  add_to_element_list (&self->tree_to_build, entry_ref_tree);
+                  add_to_element_list (&self->tree_to_build, reference_tree);
+                  if (*formatted_index_entry_nr > 1)
+                    {
+                      /* call with multiple_pass argument */
+                      entry = convert_tree_new_formatting_context (self,
+                                          entry_ref_tree, conv_str_entry,
+                                          multiple_pass_str, 0, 0);
+                      reference = convert_tree_new_formatting_context (self,
+                                          reference_tree, conv_str_reference,
+                                          multiple_pass_str, 0, 0);
+                    }
+                  else
+                    {
+                      entry = html_convert_tree (self, entry_ref_tree,
+                                                 conv_str_entry);
+                      reference = html_convert_tree (self, reference_tree,
+                                                    conv_str_reference);
+                    }
+                  remove_element_from_list (&self->tree_to_build,
+                                            reference_tree);
+                  remove_element_from_list (&self->tree_to_build,
+                                            entry_ref_tree);
+                  destroy_element_and_children (reference_tree);
+
+                  free (conv_str_entry);
+                  free (conv_str_reference);
+
+                  add_string (cmd_index_entry_class, entry_classes);
+                  add_string (section_class_seealso, section_classes);
+                }
+
+              destroy_named_string_element_list (substrings);
+
+              text_append_n (&entries_text, "<tr><td></td>", 13);
+              attribute_class = html_attribute_class (self, "td", entry_classes);
+              text_append (&entries_text, attribute_class);
+              clear_strings_list (entry_classes);
+              free (attribute_class);
+              text_append_n (&entries_text, ">", 1);
+
+              if (!seeentry && in_code)
+                text_append_n (&entries_text, "<code>", 6);
+              text_append (&entries_text, entry);
+              free (entry);
+              if (!seeentry)
+                {
+                  if (in_code)
+                    text_append_n (&entries_text, "</code>", 7);
+                  text_append (&entries_text, self->conf->INDEX_ENTRY_COLON);
+                }
+              text_append_n (&entries_text, "</td>", 5);
+
+              attribute_class
+                 = html_attribute_class (self, "td", section_classes);
+              text_append (&entries_text, attribute_class);
+              clear_strings_list (section_classes);
+              free (attribute_class);
+              text_append_n (&entries_text, ">", 1);
+              if (reference)
+                {
+                  text_append (&entries_text, reference);
+                  free (reference);
+                }
+              text_append_n (&entries_text, "</td></tr>\n", 11);
+              destroy_element (entry_ref_tree);
+              if (*formatted_index_entry_nr > 1)
+                free (multiple_pass_str);
+
+              clear_normalized_entry_levels (prev_normalized_entry_levels);
+
+              continue;
+            }
+
+          memset (entry_trees, 0, sizeof (ELEMENT *) * SUBENTRIES_MAX_LEVEL);
+
+     /* determine the trees and normalized main entry and subentries, to be
+        compared with the previous line normalized entries to determine
+        what is already formatted as part of the previous lines and
+        what levels should be added.  The last level is always formatted. */
+          new_normalized_entry_levels[0]
+            = normalized_upper_case (entry_ref_tree);
+          entry_trees[0] = entry_ref_tree;
+          subentry = index_entry_ref->entry_element;
+
+          while (subentry_level <= SUBENTRIES_MAX_LEVEL)
+            {
+              ELEMENT *new_subentry = lookup_extra_element (subentry,
+                                                            "subentry");
+              ELEMENT *subentry_tree;
+              if (!new_subentry)
+                break;
+
+              subentry = new_subentry;
+
+              if (in_code)
+                subentry_tree = new_element (ET__code);
+              else
+                subentry_tree = new_element (ET_NONE);
+
+              if (subentry->args.number > 0
+                  && subentry->args.list[0]->contents.number > 0)
+                add_to_contents_as_array (subentry_tree,
+                                          subentry->args.list[0]);
+
+              if (subentry_level >= SUBENTRIES_MAX_LEVEL)
+                {
+                  /* at the max, concatenate the remaining subentries */
+                  other_subentries_tree
+                    = comma_index_subentries_tree (subentry, 0);
+                  if (other_subentries_tree)
+                    insert_list_slice_into_contents (subentry_tree,
+                           subentry_tree->contents.number,
+                           other_subentries_tree, 0,
+                           other_subentries_tree->number);
+                }
+              else
+                {
+                  new_normalized_entry_levels[subentry_level]
+                    = normalized_upper_case (subentry_tree);
+
+                }
+              entry_trees[subentry_level] = subentry_tree;
+              subentry_level++;
+            }
+          /* level/index of the last entry */
+          last_entry_level = subentry_level - 1;
+
+    /* format the leading entries when there are subentries (all entries
+       except the last one), and when there is not such a subentry already
+       formatted on the previous lines.
+       Each on a line with increasing indentation, no hyperlink. */
+          if (last_entry_level > 0)
+            {
+              int with_new_formatted_entry = 0;
+              for (level = 0; level < last_entry_level; level++)
+                {
+                  char *convert_info;
+                  char *entry;
+                  if (!with_new_formatted_entry
+                      && prev_normalized_entry_levels[level]
+                      && !strcmp (prev_normalized_entry_levels[level],
+                                  new_normalized_entry_levels[level]))
+                    continue;
+
+                  with_new_formatted_entry = 1;
+                  xasprintf (&convert_info,
+                             "index %s l %s index entry %zu subentry %d",
+                             index_name, letter, entry_nr -1, level);
+                  if (level > 0)
+                    add_to_element_list (&self->tree_to_build,
+                                         entry_trees[level]);
+                  if (*formatted_index_entry_nr > 1)
+                    {
+                      /* call with multiple_pass argument */
+                      xasprintf (&multiple_pass_str, "index-formatted-%d",
+                                                    *formatted_index_entry_nr);
+                      entry = convert_tree_new_formatting_context (self,
+                                           entry_trees[level], convert_info,
+                                           multiple_pass_str, 0, 0);
+                    }
+                  else
+                    {
+                      entry = html_convert_tree (self, entry_trees[level],
+                                                 convert_info);
+                    }
+                  if (level > 0)
+                    remove_element_from_list (&self->tree_to_build,
+                                              entry_trees[level]);
+                  free (convert_info);
+
+                  add_string (cmd_index_entry_class, entry_classes);
+                  if (level > 0)
+                    {
+                      /* indent */
+                      char *index_entry_level;
+                      xasprintf (&index_entry_level, "index-entry-level-%d",
+                                                     level);
+                      add_string (index_entry_level, entry_classes);
+                      free (index_entry_level);
+                    }
+                  text_append_n (&entries_text, "<tr><td></td>", 13);
+                  attribute_class = html_attribute_class (self, "td",
+                                                          entry_classes);
+                  text_append (&entries_text, attribute_class);
+                  clear_strings_list (entry_classes);
+                  free (attribute_class);
+                  text_append_n (&entries_text, ">", 1);
+
+                  if (in_code)
+                    text_append_n (&entries_text, "<code>", 6);
+                  text_append (&entries_text, entry);
+                  free (entry);
+                  if (in_code)
+                    text_append_n (&entries_text, "</code>", 7);
+                  text_append_n (&entries_text, "</td>", 5);
+                  /* empty cell, no section for this line */
+                  text_append_n (&entries_text, "<td></td></tr>\n", 15);
+                }
+            }
+      /* last entry, always converted, associated to chapter/node and
+         with an hyperlink */
+          entry_tree = entry_trees[last_entry_level];
+          xasprintf (&convert_info, "index %s l %s index entry %zu",
+                     index_name, letter, entry_nr -1);
+
+          if (last_entry_level > 0)
+             add_to_element_list (&self->tree_to_build, entry_tree);
+          if (*formatted_index_entry_nr > 1)
+            {
+              /* call with multiple_pass argument */
+              entry = convert_tree_new_formatting_context (self,
+                                   entry_tree, convert_info,
+                                   multiple_pass_str, 0, 0);
+
+              free (multiple_pass_str);
+            }
+          else
+            {
+              entry = html_convert_tree (self, entry_tree,
+                                         convert_info);
+            }
+          if (last_entry_level > 0)
+            remove_element_from_list (&self->tree_to_build, entry_tree);
+          free (convert_info);
+
+          if (other_subentries_tree)
+            free_comma_index_subentries_tree (other_subentries_tree);
+          destroy_element (entry_ref_tree);
+
+          if (last_entry_level == 0
+              && (!entry || entry[strspn (entry, whitespace_chars)] == '\0'))
+            {
+              free (new_normalized_entry_levels[0]);
+              continue;
+            }
+
+          for (level = 0; level < SUBENTRIES_MAX_LEVEL; level++)
+            {
+              free (prev_normalized_entry_levels[level]);
+              prev_normalized_entry_levels[level]
+                = new_normalized_entry_levels[level];
+            }
+
+          if (index_entry_ref->entry_associated_element)
+            target_element = index_entry_ref->entry_associated_element;
+          else
+            target_element = main_entry_element;
+
+          entry_href = html_command_href (self, target_element, 0, 0, 0);
+
+          add_string (cmd_index_entry_class, entry_classes);
+          if (last_entry_level > 0)
+            {
+              char *index_entry_level;
+              xasprintf (&index_entry_level, "index-entry-level-%d",
+                                             last_entry_level);
+              add_string (index_entry_level, entry_classes);
+              free (index_entry_level);
+            }
+          text_append_n (&entries_text, "<tr><td></td>", 13);
+          attribute_class = html_attribute_class (self, "td",
+                                                  entry_classes);
+          text_append (&entries_text, attribute_class);
+          clear_strings_list (entry_classes);
+          free (attribute_class);
+          text_append_n (&entries_text, ">", 1);
+
+          text_printf (&entries_text, "<a href=\"%s\">", entry_href);
+          free (entry_href);
+          if (in_code)
+            text_append_n (&entries_text, "<code>", 6);
+          if (entry)
+            {
+              text_append (&entries_text, entry);
+              free (entry);
+            }
+          if (in_code)
+            text_append_n (&entries_text, "</code>", 7);
+          text_append_n (&entries_text, "</a>", 4);
+          text_append (&entries_text, self->conf->INDEX_ENTRY_COLON);
+          text_append_n (&entries_text, "</td>", 5);
+
+          if (self->conf->NODE_NAME_IN_INDEX > 0)
+            {
+              associated_command = lookup_extra_element (main_entry_element,
+                                                        "element_node");
+              if (!associated_command)
+                associated_command = html_command_node (self, target_element);
+
+              if (!associated_command && *formatted_index_entry_nr == 1)
+                {
+                  char *element_region
+                   = lookup_extra_string (main_entry_element, "element_region");
+        /* do not warn if the entry is in a special region, like titlepage */
+                  if (!element_region)
+                    {
+     /* NOTE _noticed_line_warn is not used as printindex should not
+        happen in multiple tree parsing that lead to ignore_notice being set,
+        but the error message is printed only for the first entry formatting. */
+                      message_list_command_warn (&self->error_messages,
+                              self->conf,
+                              main_entry_element,
+                "entry for index `%s' for @printindex %s outside of any node",
+                          entry_index->name, index_name);
+
+                    }
+                }
+            }
+
+          if (!associated_command)
+            {
+              associated_command = html_command_root_element_command (self,
+                                                              target_element);
+              if (!associated_command)
+                {
+                  associated_command
+                    = self->global_units_directions[D_Top]->unit_command;
+
+         /* NOTE the warning here catches the most relevant cases of
+            index entry that is not associated to the right command, which
+            are very few in the test suite.  There is also a warning in the
+            parser with a much broader scope with possible overlap, but the
+            overlap is not a problem.
+            NODE_NAME_IN_INDEX may be undef even with USE_NODES set if the
+            converter is called as convert() as in the test suite */
+
+                  if (self->conf->NODE_NAME_IN_INDEX == 0
+                      && *formatted_index_entry_nr == 1)
+                    {
+                      char *element_region
+                       = lookup_extra_string (main_entry_element,
+                                              "element_region");
+        /* do not warn if the entry is in a special region, like titlepage */
+                      if (!element_region)
+                        {
+      /* NOTE _noticed_line_warn is not used as printindex should not
+         happen in multiple tree parsing that lead to ignore_notice being set,
+         but the error message is printed only for the first entry formatting.
+         NOTE the index entry may be associated to a node in that case. */
+                      message_list_command_warn (&self->error_messages,
+                              self->conf,
+                              main_entry_element,
+             "entry for index `%s' for @printindex %s outside of any section",
+                          entry_index->name, index_name);
+                        }
+                    }
+                }
+            }
+
+          add_string (cmd_index_section_class, section_classes);
+          attribute_class
+             = html_attribute_class (self, "td", section_classes);
+          text_append (&entries_text, attribute_class);
+          free (attribute_class);
+          clear_strings_list (section_classes);
+          text_append_n (&entries_text, ">", 1);
+
+          if (associated_command)
+            {
+              char *associated_command_href
+                 = html_command_href (self, associated_command, 0, 0, 0);
+              char *associated_command_text
+                 = html_command_text (self, associated_command, 0);
+
+              if (associated_command_href)
+                {
+                  text_printf (&entries_text, "<a href=\"%s\">%s</a>",
+                          associated_command_href, associated_command_text);
+                }
+              else
+                {
+                  text_append (&entries_text, associated_command_text);
+                }
+
+              free (associated_command_text);
+              free (associated_command_href);
+            }
+          text_append_n (&entries_text, "</td></tr>\n", 11);
+        }
+      clear_normalized_entry_levels (prev_normalized_entry_levels);
+
+      if (entries_text.end > 0)
+        {
+          text_append_n (&result_index_entries, "<tr>", 4);
+          text_printf (&result_index_entries, "<th id=\"%s\">", letter_id[i]);
+          format_protect_text (self, letter, &result_index_entries);
+          text_append_n (&result_index_entries, "</th></tr>\n", 11);
+          text_append (&result_index_entries, entries_text.text);
+          text_append_n (&result_index_entries, "<tr><td colspan=\"3\">", 20);
+          text_append (&result_index_entries, self->conf->DEFAULT_RULE);
+          text_append_n (&result_index_entries, "</td></tr>\n", 11);
+          letter_has_entries[i] = 1;
+        }
+      else
+        letter_has_entries[i] = 0;
+    }
+
+  add_string (summary_letter_cmd, entry_classes);
+  attribute_class = html_attribute_class (self, "a", entry_classes);
+  for (i = 0; i < index_sorted->letter_number; i++)
+    {
+      if (letter_has_entries[i])
+        {
+          LETTER_INDEX_ENTRIES *letter_entry = &index_sorted->letter_entries[i];
+          char *letter = letter_entry->letter;
+
+          text_reset (&entries_text);
+
+          text_append (&entries_text, attribute_class);
+          text_printf (&entries_text, " href=\"#%s\"><b>", letter_id[i]);
+          format_protect_text (self, letter, &entries_text);
+          text_append_n (&entries_text, "</b></a>", 8);
+
+          if (letter_is_symbol[i])
+            {
+              non_alpha[non_alpha_nr] = strdup (entries_text.text);
+              non_alpha_nr++;
+            }
+          else
+            {
+              alpha[alpha_nr] = strdup (entries_text.text);
+              alpha_nr++;
+            }
+        }
+    }
+  free (attribute_class);
+
+  free (letter_is_symbol);
+  free (letter_has_entries);
+
+  for (i = 0; i < index_sorted->letter_number; i++)
+    free (letter_id[i]);
+  free (letter_id);
+
+  free (entry_class_seeentry);
+  free (section_class_seeentry);
+  free (cmd_index_entry_class);
+  free (section_class_seealso);
+  free (cmd_index_section_class);
+  free (summary_letter_cmd);
+
+  destroy_strings_list (section_classes);
+
+  if (non_alpha_nr + alpha_nr <= 0)
+    {
+      free (alpha);
+      free (non_alpha);
+      html_pop_document_context (self);
+      free (entries_text.text);
+      free (result_index_entries.text);
+      destroy_strings_list (entry_classes);
+      return;
+    }
+
+  clear_strings_list (entry_classes);
+
+  add_string (builtin_command_name (cmd), entry_classes);
+  xasprintf (&index_name_cmd_class, "%s-%s",
+             index_name, builtin_command_name (cmd));
+  add_string (index_name_cmd_class, entry_classes);
+  free (index_name_cmd_class);
+  attribute_class = html_attribute_class (self, "div", entry_classes);
+  clear_strings_list (entry_classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">\n", 2);
+
+  /* Format the summary letters */
+  if (non_alpha_nr + alpha_nr > 1)
+    {
+      if (non_alpha_nr > 0)
+        {
+          text_reset (&entries_text);
+          text_append (&entries_text, non_alpha[0]);
+          if (non_alpha_nr > 1)
+            {
+              for (i = 1; i < non_alpha_nr; i++)
+                {
+                  text_append_n (&entries_text, "\n ", 2);
+                  text_append_n (&entries_text,
+                        self->special_character[SC_non_breaking_space].string,
+                        self->special_character[SC_non_breaking_space].len);
+                  text_append_n (&entries_text, " \n", 2);
+                  text_append (&entries_text, non_alpha[i]);
+                }
+            }
+          text_append_n (&entries_text, "\n", 1);
+          non_alpha_text = strdup (entries_text.text);
+        }
+      if (alpha_nr > 0)
+        {
+          text_reset (&entries_text);
+          for (i = 0; i < alpha_nr; i++)
+            {
+              text_append (&entries_text, alpha[i]);
+              text_append_n (&entries_text, "\n ", 2);
+              text_append_n (&entries_text,
+                 self->special_character[SC_non_breaking_space].string,
+                 self->special_character[SC_non_breaking_space].len);
+              text_append_n (&entries_text, " \n", 2);
+            }
+          alpha_text = strdup (entries_text.text);
+        }
+
+      /* format the summary */
+      printindex_letters_head_foot_internal (self, index_name, cmd,
+                                             entry_classes, "header",
+                                         alpha_text, non_alpha_text, result);
+    }
+
+  if (non_alpha_nr > 0)
+    {
+      for (i = 0; i < non_alpha_nr; i++)
+        free (non_alpha[i]);
+    }
+  free (non_alpha);
+
+  if (alpha_nr > 0)
+    {
+      for (i = 0; i < alpha_nr; i++)
+        free (alpha[i]);
+    }
+  free (alpha);
+
+  /* now format the index entries */
+  xasprintf (&index_name_cmd_class, "%s-entries-%s",
+             index_name, builtin_command_name (cmd));
+  add_string (index_name_cmd_class, entry_classes);
+  free (index_name_cmd_class);
+  attribute_class = html_attribute_class (self, "table", entry_classes);
+  clear_strings_list (entry_classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, " border=\"0\">\n<tr><td></td>", 26);
+
+  xasprintf (&index_name_cmd_class, "entries-header-%s",
+             builtin_command_name (cmd));
+  add_string (index_name_cmd_class, entry_classes);
+  free (index_name_cmd_class);
+  attribute_class = html_attribute_class (self, "th", entry_classes);
+  clear_strings_list (entry_classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">", 1);
+  /* TRANSLATORS: index entries column header in index formatting */
+  translate_convert_to_html_internal ("Index Entry", self->document, self, 0,
+                                      0, 0, result, 0);
+  text_append_n (result, "</th>", 5);
+
+  xasprintf (&index_name_cmd_class, "sections-header-%s",
+             builtin_command_name (cmd));
+  add_string (index_name_cmd_class, entry_classes);
+  free (index_name_cmd_class);
+  attribute_class = html_attribute_class (self, "th", entry_classes);
+  clear_strings_list (entry_classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">", 1);
+  /* TRANSLATORS: section of index entry column header in index formatting */
+  translate_convert_to_html_internal ("Section", self->document, self, 0,
+                                      0, 0, result, 0);
+  text_append_n (result, "</th></tr>\n", 11);
+  text_append_n (result, "<tr><td colspan=\"3\">", 20);
+  text_append (result, self->conf->DEFAULT_RULE);
+  text_append_n (result, "</td></tr>\n", 11);
+  text_append (result, result_index_entries.text);
+  text_append_n (result, "</table>\n", 9);
+
+
+  html_pop_document_context (self);
+
+  if (non_alpha_nr + alpha_nr > 1)
+    {
+      printindex_letters_head_foot_internal (self, index_name, cmd,
+                                             entry_classes, "footer",
+                                         alpha_text, non_alpha_text, result);
+
+      if (non_alpha_nr > 0)
+        free (non_alpha_text);
+      if (alpha_nr > 0)
+        free (alpha_text);
+    }
+
+  text_append_n (result, "</div>\n", 7);
+
+  free (entries_text.text);
+  free (result_index_entries.text);
+
+  destroy_strings_list (entry_classes);
+}
+
 void
 contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
 {
@@ -12105,6 +13125,7 @@ static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
 
   {CM_insertcopying, &convert_insertcopying_command},
   {CM_listoffloats, &convert_listoffloats_command},
+  {CM_printindex, &convert_printindex_command},
 
   {CM_contents, &convert_contents_command},
   {CM_shortcontents, &convert_contents_command},

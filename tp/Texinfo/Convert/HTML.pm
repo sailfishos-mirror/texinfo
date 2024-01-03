@@ -6138,6 +6138,8 @@ sub _convert_printindex_command($$$$)
   my $command = shift;
   my $args = shift;
 
+  return '' if (in_string($self));
+
   my $index_name;
   if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
       and defined($command->{'extra'}->{'misc_args'}->[0])) {
@@ -6148,7 +6150,7 @@ sub _convert_printindex_command($$$$)
   my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
   if (!defined($index_entries_by_letter)
       or !$index_entries_by_letter->{$index_name}
-      or !@{$index_entries_by_letter->{$index_name}}) {
+      or !scalar(@{$index_entries_by_letter->{$index_name}})) {
     return '';
   }
 
@@ -6158,7 +6160,19 @@ sub _convert_printindex_command($$$$)
   #    print STDERR "   ".join('|', keys(%$index_entry))."||| $index_entry->{'key'}\n";
   #  }
   #}
-  return '' if (in_string($self));
+  my $index_element_id = $self->from_element_direction('This', 'target');
+  if (!defined($index_element_id)) {
+    my ($root_element, $root_command)
+        = $self->get_element_root_command_element($command);
+    if ($root_command) {
+      $index_element_id = $self->command_id($root_command);
+    }
+    if (not defined($index_element_id)) {
+      # to avoid duplicate names, use a prefix that cannot happen in anchors
+      my $target_prefix = 't_i';
+      $index_element_id = $target_prefix;
+    }
+  }
 
   my %letter_id;
   my %letter_is_symbol;
@@ -6166,19 +6180,6 @@ sub _convert_printindex_command($$$$)
   my $symbol_idx = 0;
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
-    my $index_element_id = $self->from_element_direction('This', 'target');
-    if (!defined($index_element_id)) {
-      my ($root_element, $root_command)
-          = $self->get_element_root_command_element($command);
-      if ($root_command) {
-        $index_element_id = $self->command_id($root_command);
-      }
-      if (not defined($index_element_id)) {
-        # to avoid duplicate names, use a prefix that cannot happen in anchors
-        my $target_prefix = 't_i';
-        $index_element_id = $target_prefix;
-      }
-    }
     my $is_symbol = $letter !~ /^\p{Alpha}/;
     $letter_is_symbol{$letter} = $is_symbol;
     my $identifier;
@@ -6203,7 +6204,7 @@ sub _convert_printindex_command($$$$)
     # since we normalize, a different formatting will not trigger a new
     # formatting of the main entry or a subentry level.  This is the
     # same for Texinfo TeX
-    my $normalized_entry_levels = [];
+    my @prev_normalized_entry_levels;
     foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
       $entry_nr++;
       my $main_entry_element = $index_entry_ref->{'entry_element'};
@@ -6243,52 +6244,51 @@ sub _convert_printindex_command($$$$)
             and ($main_entry_element->{'extra'}->{'seeentry'}
               or $main_entry_element->{'extra'}->{'seealso'})) {
         my $referred_entry;
-        my $seenentry = 1;
+        my $seeentry = 1;
         if ($main_entry_element->{'extra'}->{'seeentry'}) {
           $referred_entry = $main_entry_element->{'extra'}->{'seeentry'};
         } else {
           $referred_entry = $main_entry_element->{'extra'}->{'seealso'};
-          $seenentry = 0;
+          $seeentry = 0;
         }
-        my @referred_contents;
+        my $referred_tree = {};
+        $referred_tree->{'type'} = '_code' if ($in_code);
         if ($referred_entry->{'args'} and $referred_entry->{'args'}->[0]
             and $referred_entry->{'args'}->[0]->{'contents'}) {
-          @referred_contents
-             = @{$referred_entry->{'args'}->[0]->{'contents'}};
+          $referred_tree->{'contents'} = [$referred_entry->{'args'}->[0]];
         }
-        my $referred_tree = {'contents' => \@referred_contents};
-        $referred_tree->{'type'} = '_code' if ($in_code);
         my $entry;
         # for @seealso, to appear where chapter/node ususally appear
         my $reference = '';
         my $delimiter = '';
         my $entry_class;
         my $section_class;
-        if ($seenentry) {
+        if ($seeentry) {
           my $result_tree;
           if ($in_code) {
             $result_tree
           # TRANSLATORS: redirect to another index entry
           # TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
-        = $self->gdt('@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}',
+        = $self->gdt('@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}',
                                         {'main_index_entry' => $entry_ref_tree,
-                                         'seenentry' => $referred_tree});
+                                         'seeentry' => $referred_tree});
           } else {
             $result_tree
           # TRANSLATORS: redirect to another index entry
           # TRANSLATORS: @: is discardable and used to avoid a msgfmt error
-               = $self->gdt('{main_index_entry}, @emph{See@:} {seenentry}',
+               = $self->gdt('{main_index_entry}, @emph{See@:} {seeentry}',
                                         {'main_index_entry' => $entry_ref_tree,
-                                         'seenentry' => $referred_tree});
+                                         'seeentry' => $referred_tree});
           }
+          my $convert_info
+              = "index $index_name l $letter index entry $entry_nr seeentry";
           if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($result_tree,
-                 "index $index_name l $letter index entry $entry_nr seenentry",
-                 "index-formatted-$formatted_index_entry_nr")
+                                                                $convert_info,
+                                  "index-formatted-$formatted_index_entry_nr");
           } else {
-            $entry = $self->convert_tree($result_tree,
-                  "index $index_name l $letter index entry $entry_nr seenentry");
+            $entry = $self->convert_tree($result_tree, $convert_info);
           }
           $entry_class = "$cmdname-index-see-entry";
           $section_class = "$cmdname-index-see-entry-section";
@@ -6296,21 +6296,25 @@ sub _convert_printindex_command($$$$)
           # TRANSLATORS: refer to another index entry
           my $reference_tree = $self->gdt('@emph{See also} {see_also_entry}',
                                        {'see_also_entry' => $referred_tree});
+          my $conv_str_entry
+        = "index $index_name l $letter index entry $entry_nr (with seealso)";
+          my $conv_str_reference
+            = "index $index_name l $letter index entry $entry_nr seealso";
           if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_ref_tree,
-               "index $index_name l $letter index entry $entry_nr (with seealso)",
-               "index-formatted-$formatted_index_entry_nr");
+                                                                $conv_str_entry,
+                                   "index-formatted-$formatted_index_entry_nr");
             $reference
                = $self->convert_tree_new_formatting_context($reference_tree,
-                "index $index_name l $letter index entry $entry_nr seealso",
-                 "index-formatted-$formatted_index_entry_nr");
+                                                        $conv_str_reference,
+                                "index-formatted-$formatted_index_entry_nr");
           } else {
             $entry = $self->convert_tree($entry_ref_tree,
-             "index $index_name l $letter index entry $entry_nr (with seealso)");
+                                         $conv_str_entry);
             $reference
                = $self->convert_tree_new_formatting_context($reference_tree,
-                  "index $index_name l $letter index entry $entry_nr seealso");
+                                                          $conv_str_reference);
           }
           $entry = '<code>' .$entry .'</code>' if ($in_code);
           $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
@@ -6327,7 +6331,7 @@ sub _convert_printindex_command($$$$)
         $entries_text .= $reference;
         $entries_text .= "</td></tr>\n";
 
-        $normalized_entry_levels = [];
+        @prev_normalized_entry_levels = ();
         next;
       }
 
@@ -6347,13 +6351,12 @@ sub _convert_printindex_command($$$$)
       while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}
              and $subentry_level <= $subentries_max_level) {
         $subentry = $subentry->{'extra'}->{'subentry'};
-        my @subentry_contents;
+        my $subentry_tree = {'contents' => []};
+        $subentry_tree->{'type'} = '_code' if ($in_code);
         if ($subentry->{'args'} and $subentry->{'args'}->[0]
             and $subentry->{'args'}->[0]->{'contents'}) {
-          @subentry_contents = @{$subentry->{'args'}->[0]->{'contents'}};
+          push @{$subentry_tree->{'contents'}}, $subentry->{'args'}->[0];
         }
-        my $subentry_tree = {'contents' => \@subentry_contents};
-        $subentry_tree->{'type'} = '_code' if ($in_code);
         if ($subentry_level >= $subentries_max_level) {
           # at the max, concatenate the remaining subentries
           my $other_subentries_tree = $self->comma_index_subentries_tree($subentry);
@@ -6369,81 +6372,84 @@ sub _convert_printindex_command($$$$)
         $subentry_level ++;
       }
       #print STDERR join('|', @new_normalized_entry_levels)."\n";
-      # last entry, always converted, associated to chapter/node and
-      # with an hyperlinh
-      my $entry_tree = pop @entry_trees;
-      # indentation level of the last entry
-      my $entry_level = 0;
-
-      # format the leading entries when there are subentries.
+      # level/index of the last entry
+      my $last_entry_level = $subentry_level -1;
+      my $with_new_formatted_entry = 0;
+      # format the leading entries when there are subentries (all entries
+      # except the last one), and when there is not such a subentry already
+      # formatted on the previous lines.
       # Each on a line with increasing indentation, no hyperlink.
-      if (scalar(@entry_trees) > 0) {
-        # find the level not already formatted as part of the previous lines
-        my $starting_subentry_level = 0;
-        foreach my $subentry_tree (@entry_trees) {
-          if ((scalar(@$normalized_entry_levels) > $starting_subentry_level)
-               and $normalized_entry_levels->[$starting_subentry_level]
-                 eq $new_normalized_entry_levels[$starting_subentry_level]) {
-          } else {
-            last;
-          }
-          $starting_subentry_level ++;
+      for (my $level = 0; $level < $last_entry_level; $level++) {
+        # skip levels already formatted as part of the previous lines
+        if (!$with_new_formatted_entry
+            and scalar(@prev_normalized_entry_levels) > $level
+            and $prev_normalized_entry_levels[$level]
+                 eq $new_normalized_entry_levels[$level]) {
+          next;
         }
-        $entry_level = $starting_subentry_level;
-        foreach my $level ($starting_subentry_level .. scalar(@entry_trees)-1) {
-          my $entry;
-          if ($formatted_index_entry_nr > 1) {
-            # call with multiple_pass argument
-            $entry = $self->convert_tree_new_formatting_context($entry_trees[$level],
-                   "index $index_name l $letter index entry $entry_nr subentry $level",
-                   "index-formatted-$formatted_index_entry_nr")
-          } else {
-            $entry = $self->convert_tree($entry_trees[$level],
-                  "index $index_name l $letter index entry $entry_nr subentry $level");
-          }
-          $entry = '<code>' .$entry .'</code>' if ($in_code);
-          my @td_entry_classes = ("$cmdname-index-entry");
-          # indent
-          if ($level > 0) {
-            push @td_entry_classes, "index-entry-level-$level";
-          }
-          $entries_text .= '<tr><td></td>'
-           # FIXME same class used for leading element of the entry and
-           # last element of the entry.  Could be different.
-           .$self->html_attribute_class('td', \@td_entry_classes).'>'
-           . $entry . '</td>'
-           # empty cell, no section for this line
-            . "<td></td></tr>\n";
-
-          $entry_level = $level+1;
+        $with_new_formatted_entry = 1;
+        my $convert_info
+         = "index $index_name l $letter index entry $entry_nr subentry $level";
+        my $entry;
+        if ($formatted_index_entry_nr > 1) {
+          # call with multiple_pass argument
+          $entry
+           = $self->convert_tree_new_formatting_context($entry_trees[$level],
+                 $convert_info, "index-formatted-$formatted_index_entry_nr")
+        } else {
+          $entry = $self->convert_tree($entry_trees[$level],
+                                       $convert_info);
         }
+        $entry = '<code>' .$entry .'</code>' if ($in_code);
+        my @td_entry_classes = ("$cmdname-index-entry");
+        # indent
+        if ($level > 0) {
+          push @td_entry_classes, "index-entry-level-$level";
+        }
+        $entries_text .= '<tr><td></td>'
+         # FIXME same class used for leading element of the entry and
+         # last element of the entry.  Could be different.
+         .$self->html_attribute_class('td', \@td_entry_classes).'>'
+         . $entry . '</td>'
+         # empty cell, no section for this line
+          . "<td></td></tr>\n";
       }
+      # last entry, always converted, associated to chapter/node and
+      # with an hyperlink
+      my $entry_tree = $entry_trees[$last_entry_level];
 
       my $entry;
+      my $convert_info = "index $index_name l $letter index entry $entry_nr";
       if ($formatted_index_entry_nr > 1) {
         # call with multiple_pass argument
         $entry = $self->convert_tree_new_formatting_context($entry_tree,
-                       "index $index_name l $letter index entry $entry_nr",
-                   "index-formatted-$formatted_index_entry_nr")
+                                                            $convert_info,
+                             "index-formatted-$formatted_index_entry_nr");
       } else {
-        $entry = $self->convert_tree($entry_tree,
-                            "index $index_name l $letter index entry $entry_nr");
+        $entry = $self->convert_tree($entry_tree, $convert_info);
       }
 
-      next if ($entry !~ /\S/ and $entry_level == 0);
+      next if ($entry !~ /\S/ and $last_entry_level == 0);
 
-      $normalized_entry_levels = [@new_normalized_entry_levels];
+      @prev_normalized_entry_levels = @new_normalized_entry_levels;
+
       $entry = '<code>' .$entry .'</code>' if ($in_code);
-      my $target_element = $index_entry_ref->{'entry_element'};
-      $target_element = $index_entry_ref->{'entry_associated_element'}
-         if ($index_entry_ref->{'entry_associated_element'});
+      my $target_element;
+      if ($index_entry_ref->{'entry_associated_element'}) {
+        $target_element = $index_entry_ref->{'entry_associated_element'};
+      } else {
+        $target_element = $main_entry_element;
+      }
       my $entry_href = $self->command_href($target_element);
       my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
       my @td_entry_classes = ("$cmdname-index-entry");
       # subentry
-      if ($entry_level > 0) {
-        push @td_entry_classes, "index-entry-level-$entry_level";
+      if ($last_entry_level > 0) {
+        push @td_entry_classes, "index-entry-level-$last_entry_level";
       }
+      $entries_text .= '<tr><td></td>'
+        .$self->html_attribute_class('td', \@td_entry_classes).'>'
+         . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>';
 
       my $associated_command;
       if ($self->get_conf('NODE_NAME_IN_INDEX')) {
@@ -6499,21 +6505,20 @@ sub _convert_printindex_command($$$$)
           }
         }
       }
-      my ($associated_command_href, $associated_command_text);
-      if ($associated_command) {
-        $associated_command_href = $self->command_href($associated_command);
-        $associated_command_text = $self->command_text($associated_command);
-      }
 
-      $entries_text .= '<tr><td></td>'
-        .$self->html_attribute_class('td', \@td_entry_classes).'>'
-         . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>'
-        .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
-      if (defined($associated_command_href)) {
-        $entries_text
-         .= "<a href=\"$associated_command_href\">$associated_command_text</a>";
-      } elsif (defined($associated_command_text)) {
-        $entries_text .= $associated_command_text;
+      $entries_text .=
+         $self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
+
+      if ($associated_command) {
+        my $associated_command_href = $self->command_href($associated_command);
+        my $associated_command_text = $self->command_text($associated_command);
+
+        if (defined($associated_command_href)) {
+          $entries_text
+        .= "<a href=\"$associated_command_href\">$associated_command_text</a>";
+        } elsif (defined($associated_command_text)) {
+          $entries_text .= $associated_command_text;
+        }
       }
       $entries_text .= "</td></tr>\n";
     }
