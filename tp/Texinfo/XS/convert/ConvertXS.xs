@@ -79,10 +79,35 @@ set_conf (SV *converter_in, conf, SV *value)
       PREINIT:
          CONVERTER *self;
       CODE:
-         /* Warn? Calling code checks 'converter_descriptor' is set */
+         /* Calling code checks 'converter_descriptor' is set */
          self = get_sv_converter (converter_in, 0);
          if (self)
            set_conf (self, conf, value);
+
+void
+force_conf (SV *converter_in, conf, SV *value)
+         char *conf = (char *)SvPVbyte_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         /* Calling code checks 'converter_descriptor' is set */
+         self = get_sv_converter (converter_in, 0);
+         if (self)
+           force_conf (self, conf, value);
+
+SV *
+get_conf (SV *converter_in, conf)
+         char *conf = (char *)SvPVbyte_nolen($arg);
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in, 0);
+         if (self)
+           RETVAL = get_conf (self, conf);
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
 
 void
 converter_line_error (SV *converter_in, text, SV *error_location_info, ...)
@@ -1613,10 +1638,10 @@ html_prepare_conversion_units (SV *converter_in, ...)
          self = set_output_converter_sv (converter_in,
                                          "html_prepare_conversion_units");
 
-         if (self->conf->OUTPUT_CHARACTERS > 0
-             && self->conf->OUTPUT_ENCODING_NAME
+         if (self->conf->OUTPUT_CHARACTERS.integer > 0
+             && self->conf->OUTPUT_ENCODING_NAME.string
              /* not sure if strcasecmp is needed or not */
-             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME, "utf-8"))
+             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME.string, "utf-8"))
            self->use_unicode_text = 1;
 
          html_prepare_conversion_units (self,

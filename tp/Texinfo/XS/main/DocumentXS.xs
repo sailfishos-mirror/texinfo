@@ -165,7 +165,7 @@ set_document_options (SV *sv_options_in, SV *document_in)
                                              "set_document_options");
         if (document)
           {
-            OPTIONS *options = copy_sv_options (sv_options_in, 0);
+            OPTIONS *options = copy_sv_options (sv_options_in, 0, 0);
             register_document_options (document, options);
           }
 
@@ -201,7 +201,7 @@ gdt (SV *options_in, string, ...)
       CODE:
          if (SvOK(options_in))
            {
-             options = copy_sv_options (options_in, 0);
+             options = copy_sv_options (options_in, 0, 0);
            }
         if (items > 4 && SvOK(ST(4)))
            in_lang = (char *)SvPVutf8_nolen(ST(4));

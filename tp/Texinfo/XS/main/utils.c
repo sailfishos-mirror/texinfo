@@ -1075,17 +1075,16 @@ set_informative_command_value (OPTIONS *options, const ELEMENT *element)
 
   if (value)
     {
-      COMMAND_OPTION_REF *option_ref = get_command_option (options, cmd);
-      if (option_ref)
+      OPTION *option = get_command_option (options, cmd);
+      if (option && option->set <= 0)
         {
-          if (option_ref->type == GO_int)
-            *(option_ref->int_ref) = strtoul (value, NULL, 10);
+          if (option->type == GO_integer)
+            option->integer = strtoul (value, NULL, 10);
           else
             {
-              free (*(option_ref->char_ref));
-              *(option_ref->char_ref) = strdup (value);
+              free (option->string);
+              option->string = strdup (value);
             }
-          free (option_ref);
         }
     }
 }
@@ -1184,16 +1183,6 @@ set_global_document_command (GLOBAL_COMMANDS *global_commands, OPTIONS *options,
   if (element)
     set_informative_command_value (options, element);
   return element;
-}
-
-
-/* options and converters */
-OPTIONS *
-new_options (void)
-{
-  OPTIONS *options = (OPTIONS *) malloc (sizeof (OPTIONS));
-  initialize_options (options);
-  return options;
 }
 
 
@@ -1425,4 +1414,79 @@ html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
   free (direction_icons->list);
 }
 
+
+/* options and converters */
+OPTIONS *
+new_options (void)
+{
+  OPTIONS *options = (OPTIONS *) malloc (sizeof (OPTIONS));
+  memset (options, 0, sizeof (OPTIONS));
+  initialize_options (options);
+  return options;
+}
+
+void
+free_option (OPTION *option)
+{
+  switch (option->type)
+    {
+      case GO_char:
+      case GO_bytes:
+        free (option->string);
+        break;
+
+      case GO_bytes_string_list:
+      case GO_file_string_list:
+      case GO_char_string_list:
+        free_strings_list (option->strlist);
+        break;
+
+      case GO_buttons:
+        html_free_button_specification_list (option->buttons);
+        break;
+
+      case GO_icons:
+        html_free_direction_icons (option->icons);
+        break;
+
+      case GO_integer:
+      default:
+    }
+}
+
+void
+initialize_option (OPTION *option, enum global_option_type type)
+{
+  option->type = type;
+  switch (type)
+    {
+      case GO_integer:
+        option->integer = -1;
+        break;
+
+      case GO_bytes_string_list:
+      case GO_file_string_list:
+      case GO_char_string_list:
+        option->strlist = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+        memset (option->strlist, 0, sizeof (STRING_LIST));
+        break;
+
+      case GO_char:
+      case GO_bytes:
+        option->string = 0;
+        break;
+
+      case GO_buttons:
+        option->buttons = 0;
+        break;
+
+      case GO_icons:
+        option->icons = (DIRECTION_ICON_LIST *)
+                          malloc (sizeof (DIRECTION_ICON_LIST));
+        memset (option->icons, 0, sizeof (DIRECTION_ICON_LIST));
+        break;
+
+      default:
+    }
+}
 

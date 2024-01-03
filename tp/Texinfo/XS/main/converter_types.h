@@ -30,6 +30,13 @@
 /* for interdependency with options_types.h */
 struct OPTIONS;
 
+/* for string information passing to/from perl */
+enum sv_string_type {
+  svt_byte,
+  svt_dir,
+  svt_char,
+};
+
 enum formatting_reference_status {
    FRS_status_none,
    FRS_status_default_set,        /* default is set, no customization (or
@@ -189,6 +196,18 @@ enum htmlxref_split_type {
    htmlxref_split_type_node,
    htmlxref_split_type_section,
    htmlxref_split_type_chapter,
+};
+
+enum global_option_type {
+   GO_NONE,
+   GO_integer,
+   GO_char,
+   GO_bytes,
+   GO_icons,
+   GO_buttons,
+   GO_bytes_string_list,
+   GO_file_string_list,
+   GO_char_string_list,
 };
 
 typedef struct {
@@ -916,5 +935,17 @@ typedef struct DIRECTION_ICON_LIST {
     size_t number;
     char **list;
 } DIRECTION_ICON_LIST;
+
+typedef struct OPTION {
+    enum global_option_type type;
+    int set;
+    union {
+      int integer;
+      char *string;
+      STRING_LIST *strlist;
+      BUTTON_SPECIFICATION_LIST *buttons;
+      DIRECTION_ICON_LIST *icons;
+    };
+} OPTION;
 
 #endif

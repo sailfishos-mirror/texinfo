@@ -152,17 +152,17 @@ copy_options_for_convert_text (CONVERTER *self,
   TEXT_OPTIONS *options = new_text_options ();
   int text_indicator_option;
 
-  if ((self->conf->ENABLE_ENCODING > 0
-       && self->conf->OUTPUT_ENCODING_NAME)
+  if ((self->conf->ENABLE_ENCODING.integer > 0
+       && self->conf->OUTPUT_ENCODING_NAME.string)
       || (enable_encoding_if_not_ascii
-          && self->conf->OUTPUT_ENCODING_NAME
-          && strcmp (self->conf->OUTPUT_ENCODING_NAME, "us-ascii")))
+          && self->conf->OUTPUT_ENCODING_NAME.string
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "us-ascii")))
     {
-      options->encoding = self->conf->OUTPUT_ENCODING_NAME;
+      options->encoding = self->conf->OUTPUT_ENCODING_NAME.string;
     }
 
   #define tico_option_name(name) \
-  text_indicator_option = self->conf->name; \
+  text_indicator_option = self->conf->name.integer; \
   if (text_indicator_option > 0) { options->name = 1; } \
   else if (text_indicator_option >= 0) { options->name = 0; }
    TEXT_INDICATOR_CONVERTER_OPTIONS
@@ -171,7 +171,8 @@ copy_options_for_convert_text (CONVERTER *self,
   free (options->expanded_formats);
   options->expanded_formats = self->expanded_formats;
 
-  memcpy (&options->include_directories, &self->conf->INCLUDE_DIRECTORIES,
+  memcpy (&options->include_directories,
+          &self->conf->INCLUDE_DIRECTORIES.strlist,
           sizeof (STRING_LIST));
 
   options->other_converter_options = self->conf;

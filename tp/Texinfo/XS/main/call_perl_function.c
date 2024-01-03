@@ -141,8 +141,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, ELEMENT *element)
     croak("convert_to_latex_math should return 1 item\n");
 
   result_sv = POPs;
-  /* FIXME encoding */
-  result_ret = SvPV (result_sv, len);
+  result_ret = SvPVutf8 (result_sv, len);
   result = strdup (result_ret);
 
   PUTBACK;

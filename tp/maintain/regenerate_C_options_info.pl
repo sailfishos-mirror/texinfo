@@ -110,7 +110,7 @@ foreach my $category (sort(keys(%option_categories))) {
   print HEADER "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    print HEADER "    $type $option;\n";
+    print HEADER "    OPTION $option;\n";
   }
 }
 print HEADER "} OPTIONS;\n\n";
@@ -138,15 +138,7 @@ foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    if ($type eq 'STRING_LIST' or $type eq 'DIRECTION_ICON_LIST') {
-      print CODE "  memset (&options->$option, 0, sizeof ($type));\n";
-    } else {
-      my $init_value = 0;
-      if ($type eq 'int') {
-        $init_value = -1;
-      }
-      print CODE " options->$option = $init_value;\n";
-    }
+    print CODE " initialize_option (&options->$option, GO_$type);\n";
   }
 }
 print CODE "};\n\n";
@@ -156,28 +148,17 @@ foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    if ($type eq 'STRING_LIST') {
-      print CODE "  free_strings_list (&options->$option);\n";
-    } elsif ($type eq 'char *') {
-      print CODE " free (options->$option);\n";
-    } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
-      print CODE "  html_free_button_specification_list (options->$option);\n";
-    } elsif ($type eq 'DIRECTION_ICON_LIST') {
-      print CODE "  html_free_direction_icons (&options->$option);\n";
-    }
+    print CODE "  free_option (&options->$option);\n";
   }
 }
 print CODE "};\n\n";
 
 # associate commands to options
 print CODE "#include \"command_ids.h\"\n\n";
-print CODE 'COMMAND_OPTION_REF *
+print CODE 'OPTION *
 get_command_option (OPTIONS *options,
                     enum command_id cmd)
 {
-  int type = 0;
-  char **char_ref = 0;
-  int *int_ref = 0;
   switch (cmd)
     {
 ';
@@ -190,15 +171,10 @@ foreach my $command_name (@commands_order) {
   if ($commands_options{$command}) {
     my ($category, $value, $type) = @{$commands_options{$command}};
     print CODE "    case CM_${command}:
-    {\n";
-    my $str_type = 'char';
-    if ($type eq 'int') {
-      $str_type = 'int';
-    }
-    print CODE "      type = GO_${str_type};\n";
-    print CODE "      ${str_type}_ref = &options->${command};\n";
-    print CODE "      break;\n";
-    print CODE "    }\n";
+    {
+      return &options->${command};
+      break;
+    }\n";
   }
 }
 
@@ -206,16 +182,6 @@ print CODE "
     default:
       return 0;
     }
-
-  COMMAND_OPTION_REF *result
-    = (COMMAND_OPTION_REF *)malloc (sizeof (COMMAND_OPTION_REF));
-  result->type = type;
-  if (type == GO_int)
-    result->int_ref = int_ref;
-  else
-    result->char_ref = char_ref;
-
-  return result;
 };\n\n";
 
 # table of defaults for options corresponding to commands
@@ -231,19 +197,17 @@ foreach my $command_name (@commands_order) {
     #print STDERR "$command $category, $value, $type\n";
     my $char_value = 0;
     my $int_value = '-2';
-    my $GO_type = 'GO_char';
-    if ($type eq 'int') {
-      $GO_type = 'GO_int';
+    if ($type eq 'integer') {
       $int_value = -1;
     }
     if ($value ne 'undef') {
-      if ($type eq 'int') {
+      if ($type eq 'integer') {
         $int_value = $value;
       } else {
         $char_value = '"'.$value.'"';
       }
     }
-    print CODE "{$GO_type, $int_value, $char_value},   /* $command ($category) */\n";
+    print CODE "{GO_$type, $int_value, $char_value},   /* $command ($category) */\n";
   } else {
     print CODE "{GO_NONE, -2, 0},\n";
   }
@@ -282,10 +246,11 @@ print GET '#include <stdlib.h>'."\n\n";
 print GET '#include "options_types.h"'."\n";
 print GET '#include "converter_types.h"'."\n";
 print GET '#include "utils.h"'."\n";
-print GET '#include "get_perl_info.h"'."\n\n";
+print GET '#include "get_perl_info.h"'."\n";
+print GET '#include "build_perl_info.h"'."\n\n";
 
 print GET 'void
-get_sv_option (OPTIONS *options, const char *key, SV *value, CONVERTER *converter)
+get_sv_option (OPTIONS *options, const char *key, SV *value, int set, CONVERTER *converter)
 {
   dTHX;
 
@@ -305,45 +270,47 @@ foreach my $category (sort(keys(%option_categories))) {
   print GET "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    print GET "  else if (!strcmp (key, \"$option\"))\n";
-    if ($type eq 'char *') {
+    print GET "  else if (!strcmp (key, \"$option\"))
+    {
+      if (set > 0)
+        options->$option.set = set;
+      else if (set < 0 && options->$option.set > 0)
+        return;\n\n";
+    if ($type eq 'char' or $type eq 'bytes') {
       my $SV_function_type = 'utf8';
-      if ($non_decoded_customization_variables{$option}) {
+      if ($type eq 'bytes') {
         $SV_function_type = 'byte';
       }
-      print GET "    {
-      free (options->$option);
+      print GET "      free (options->$option.string);
       if (SvOK (value))
-        options->$option = strdup (SvPV${SV_function_type}_nolen (value));
+        options->$option.string = strdup (SvPV${SV_function_type}_nolen (value));
       else
-        options->$option = 0;
+        options->$option.string = 0;
     }\n";
-    } elsif ($type eq 'int') {
-      print GET "    {
-      if (SvOK (value))
-        options->$option = SvIV (value);
+    } elsif ($type eq 'integer') {
+      print GET "      if (SvOK (value))
+        options->$option.integer = SvIV (value);
       else
-        options->$option = -1;
+        options->$option.integer = -1;
     }\n";
-    } elsif ($type eq 'STRING_LIST') {
+    } elsif ($type =~ /_string_list$/) {
       my $dir_string_arg = 'svt_byte';
-      $dir_string_arg = 'svt_dir'
-        if ($option eq 'INCLUDE_DIRECTORIES');
-      print GET "    {\n";
-      print GET "      clear_strings_list (&options->$option);\n";
-      print GET "      add_svav_to_string_list (value, &options->$option, $dir_string_arg);\n";
-      print GET "    }\n";
-    } elsif ($type eq 'BUTTON_SPECIFICATION_LIST *') {
-      print GET "    {\n";
-      print GET "      html_free_button_specification_list (options->$option);\n";
-      print GET "      options->$option = "
-                        ."html_get_button_specification_list (converter, value);\n";
-      print GET "    }\n";
-    } elsif ($type eq 'DIRECTION_ICON_LIST') {
-      print GET "    {\n";
-      print GET "      html_free_direction_icons (&options->$option);\n";
-      print GET "      html_get_direction_icons_sv (converter, &options->$option, value);\n";
-      print GET "    }\n";
+      if ($type eq 'file_string_list') {
+        $dir_string_arg = 'svt_dir';
+      } elsif ($type eq 'file_string_char') {
+        $dir_string_arg = 'svt_char';
+      }
+      print GET "      clear_strings_list (options->$option.strlist);
+      add_svav_to_string_list (value, options->$option.strlist, $dir_string_arg);
+    }\n";
+    } elsif ($type eq 'buttons') {
+      print GET "      html_free_button_specification_list (options->$option.buttons);
+      options->$option.buttons = html_get_button_specification_list (converter, value);
+    }\n";
+    } elsif ($type eq 'icons') {
+      print GET "      html_free_direction_icons (options->$option.icons);
+      html_get_direction_icons_sv (converter, options->$option.icons, value);
+    }\n";
     } else {
       print GET "    {}\n";
     }
@@ -351,6 +318,67 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 
 print GET '}
+
+';
+
+print GET 'SV *
+build_sv_option (OPTIONS *options, const char *key, CONVERTER *converter)
+{
+  dTHX;
+
+  if (0) {return newSV (0);}
+';
+
+foreach my $category (sort(keys(%option_categories))) {
+  print GET "\n/* ${category} */\n\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    print GET "  else if (!strcmp (key, \"$option\"))\n";
+    if ($type eq 'char' or $type eq 'bytes') {
+      my $SV_function_type = 'utf8';
+      if ($type eq 'bytes') {
+        $SV_function_type = 'byte';
+      }
+      print GET "    {
+      if (!options->$option.string)
+        return newSV (0);
+      return newSVpv_${SV_function_type} (options->$option.string, 0);
+    }\n";
+    } elsif ($type eq 'integer') {
+      print GET "    {
+      if (options->$option.integer == -1)
+        return newSV (0);
+      return newSViv (options->$option.integer);
+    }\n";
+    } elsif ($type =~ /_string_list$/) {
+      my $dir_string_arg = 'svt_byte';
+      if ($type eq 'file_string_list') {
+        $dir_string_arg = 'svt_dir';
+      } elsif ($type eq 'file_string_char') {
+        $dir_string_arg = 'svt_char';
+      }
+      print GET "    {
+      return newRV_noinc ((SV *) build_string_list(options->$option.strlist, $dir_string_arg));
+    }\n";
+    } elsif ($type eq 'buttons') {
+      print GET "    {
+      if (!options->$option.buttons) return newSV (0);
+      return newRV_inc ((SV *) options->$option.buttons->av);
+    }\n";
+    } elsif ($type eq 'icons') {
+      print GET "    {
+      html_build_direction_icons (converter, options->$option.icons);
+    }\n";
+    } else {
+      print GET "    {return newSV (0);}\n";
+    }
+  }
+}
+
+print GET '
+  return newSV (0);
+}
+
 ';
 
 close(GET);

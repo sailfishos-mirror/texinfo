@@ -162,8 +162,8 @@ translate_string (OPTIONS *options, const char * string,
   static TEXT language_locales;
   int i;
 
-  if ((!lang) && options && options->documentlanguage)
-    lang = options->documentlanguage;
+  if ((!lang) && options && options->documentlanguage.string)
+    lang = options->documentlanguage.string;
   if (!lang)
     lang = "en";
 
@@ -512,7 +512,7 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
   /*
   debug ("IN TR PARSER '%s'", texinfo_line);
    */
-  if (options && options->DEBUG > 0)
+  if (options && options->DEBUG.integer > 0)
     fprintf (stderr, "XS|IN TR PARSER '%s'\n", texinfo_line);
 
   document = retrieve_document (document_descriptor);
@@ -540,7 +540,7 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
 /*
   {
     char *result_texi = convert_to_texinfo (document->tree);
-    if (options && options->DEBUG > 0)
+    if (options && options->DEBUG.integer > 0)
       fprintf (stderr, "XS|RESULT GDT %d: '%s'\n", document_descriptor,
                result_texi);
     free (result_texi);

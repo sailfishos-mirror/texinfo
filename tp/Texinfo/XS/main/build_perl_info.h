@@ -11,11 +11,16 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "options_types.h"
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 
+/* in options_get_perl.c */
+SV *build_sv_option (OPTIONS *options, const char *key, CONVERTER *converter);
+
 /* does not exist as perl macro */
 SV *newSVpv_utf8 (const char *str, STRLEN len);
+SV *newSVpv_byte (const char *str, STRLEN len);
 
 void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 
@@ -40,11 +45,16 @@ void rebuild_output_units_list (SV *output_units_sv,
                                 size_t output_units_descriptor);
 
 AV *build_integer_stack (INTEGER_STACK *integer_stack);
+AV *build_string_list (STRING_LIST *strings_list, enum sv_string_type);
 
 void pass_output_unit_files (SV *converter_sv,
                         FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
 void build_output_files_information (SV *converter_sv,
                    OUTPUT_FILES_INFORMATION *output_files_information);
+
+SV *html_build_direction_icons (CONVERTER *converter,
+                            DIRECTION_ICON_LIST *direction_icons);
+SV *get_conf (CONVERTER *converter, const char *conf);
 
 #endif

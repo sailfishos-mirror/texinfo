@@ -85,15 +85,19 @@ $XS_convert = 1 if ($XS_structuring
 our $module_loaded = 0;
 
 my %XS_overrides = (
+  # XS only called if there is an associated XS converter
   "Texinfo::Convert::Converter::_XS_converter_initialize",
    => "Texinfo::Convert::ConvertXS::converter_initialize",
   "Texinfo::Convert::Converter::_XS_set_conf"
    => "Texinfo::Convert::ConvertXS::set_conf",
-  "Texinfo::Convert::Converter::_XS_get_unclosed_stream"
-   => "Texinfo::Convert::ConvertXS::get_unclosed_stream",
+  "Texinfo::Convert::Converter::_XS_force_conf"
+   => "Texinfo::Convert::ConvertXS::force_conf",
+  "Texinfo::Convert::Converter::_XS_get_conf"
+   => "Texinfo::Convert::ConvertXS::get_conf",
+
+  # fully overriden for all the converters
   "Texinfo::Convert::Converter::get_converter_errors"
    => "Texinfo::Convert::ConvertXS::get_converter_errors",
-
   "Texinfo::Convert::Converter::converter_line_error"
    => "Texinfo::Convert::ConvertXS::converter_line_error",
   "Texinfo::Convert::Converter::converter_line_warn"
@@ -103,11 +107,14 @@ my %XS_overrides = (
   "Texinfo::Convert::Converter::converter_document_warn"
    => "Texinfo::Convert::ConvertXS::converter_document_warn",
 
+  # XS only
   "Texinfo::Convert::Converter::reset_converter"
    => "Texinfo::Convert::ConvertXS::reset_converter",
   "Texinfo::Convert::Converter::destroy"
    => "Texinfo::Convert::ConvertXS::destroy",
 );
+  "Texinfo::Convert::Converter::_XS_get_unclosed_stream"
+   => "Texinfo::Convert::ConvertXS::get_unclosed_stream",
 
 sub import {
   if (!$module_loaded) {
@@ -294,14 +301,11 @@ sub converter($;$)
     }
   }
 
-  Texinfo::Common::set_output_encodings($converter,
-                                        $converter->{'document_info'});
-
   # turn the array to a hash.
-  my $expanded_formats = $converter->get_conf('EXPANDED_FORMATS');
+  my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
   $converter->{'expanded_formats'} = {};
   if (defined($expanded_formats)) {
-    foreach my $expanded_format (@{$converter->get_conf('EXPANDED_FORMATS')}) {
+    foreach my $expanded_format (@$expanded_formats) {
       $converter->{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
@@ -313,7 +317,12 @@ sub converter($;$)
   $converter->{'error_warning_messages'} = [];
 
   # XS converter initialization
+  # get_conf should not be used before that point, such that the conf is
+  # initialized before it is called for the first time.
   _XS_converter_initialize($converter);
+
+  Texinfo::Common::set_output_encodings($converter,
+                                        $converter->{'document_info'});
 
   $converter->converter_initialize();
 
@@ -581,6 +590,13 @@ sub get_converter_errors($)
 # Implementation of the customization API that is used in many
 # Texinfo modules
 
+# Those functions are not overriden when XS is used as it is possible
+# that some converters do not use XS.
+
+sub _XS_get_conf($$)
+{
+}
+
 sub get_conf($$)
 {
   my $self = shift;
@@ -589,6 +605,11 @@ sub get_conf($$)
     confess("CBUG: unknown option $conf\n");
     #return undef;
   }
+
+  if ($self->{'converter_descriptor'} and $XS_convert) {
+    return _XS_get_conf($self, $conf);
+  }
+
   return $self->{'conf'}->{$conf};
 }
 
@@ -616,6 +637,10 @@ sub set_conf($$$)
   }
 }
 
+sub _XS_force_conf($$$)
+{
+}
+
 sub force_conf($$$)
 {
   my $self = shift;
@@ -626,7 +651,7 @@ sub force_conf($$$)
     return undef;
   }
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    _XS_set_conf($self, $conf, $value);
+    _XS_force_conf($self, $conf, $value);
   }
   $self->{'conf'}->{$conf} = $value;
   return 1;

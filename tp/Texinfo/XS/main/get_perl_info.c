@@ -242,7 +242,7 @@ void
 get_line_message (CONVERTER *self, enum error_type type, int continuation,
                   SV *error_location_info, char *message)
 {
-  int do_warn = (self->conf->DEBUG > 1);
+  int do_warn = (self->conf->DEBUG.integer > 1);
   SOURCE_INFO *source_info = get_source_info (error_location_info);
   if (source_info->file_name)
     {
@@ -268,34 +268,47 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
 }
 
 void
-get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter)
+get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter, SV *set_sv_in)
 {
   I32 hv_number;
   I32 i;
   HV *hv;
+  HV *set_hv = 0;
 
   dTHX;
 
   hv = (HV *)SvRV (sv);
+
+  if (set_sv_in)
+    set_hv = (HV *)SvRV (set_sv_in);
+
   hv_number = hv_iterinit (hv);
   for (i = 0; i < hv_number; i++)
     {
+      int set = 0;
       char *key;
       I32 retlen;
       SV *value = hv_iternextsv(hv, &key, &retlen);
       if (value && SvOK (value))
         {
-          get_sv_option (options, key, value, converter);
+          if (set_hv)
+            {
+              SV **value_set_sv = hv_fetch (set_hv, key, strlen (key), 0);
+              if (value_set_sv && SvOK (*value_set_sv)
+                  && SvIV (*value_set_sv))
+                set = 1;
+            }
+          get_sv_option (options, key, value, set, converter);
         }
     }
 }
 
 
 OPTIONS *
-copy_sv_options (SV *sv_in, CONVERTER *converter)
+copy_sv_options (SV *sv_in, CONVERTER *converter, SV *set_sv_in)
 {
   OPTIONS *options = new_options ();
-  get_sv_options (sv_in, options, converter);
+  get_sv_options (sv_in, options, converter, set_sv_in);
   return options;
 }
 
@@ -476,8 +489,15 @@ converter_initialize (SV *converter_sv)
 
   if (conf_sv && SvOK (*conf_sv))
     {
+      SV **set_sv;
+      SV *set_arg = 0;
+
+      FETCH(set);
+
+      if (set_sv && SvOK (*set_sv))
+        set_arg = *set_sv;
       converter->conf
-         = copy_sv_options (*conf_sv, converter);
+         = copy_sv_options (*conf_sv, converter, set_arg);
     }
 
   FETCH(converter_init_conf)
@@ -485,7 +505,7 @@ converter_initialize (SV *converter_sv)
   if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
     {
       converter->init_conf
-         = copy_sv_options (*converter_init_conf_sv, converter);
+         = copy_sv_options (*converter_init_conf_sv, converter, 0);
     }
 
 #undef FETCH
@@ -515,11 +535,19 @@ recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
 
   if (conf_sv && SvOK(*conf_sv))
     {
+      SV **set_sv;
+      SV *set_arg = 0;
+
       if (*conf)
         free_options (*conf);
       free (*conf);
 
-      *conf = copy_sv_options (*conf_sv, converter);
+      set_sv = hv_fetch (hv, "set", strlen ("set"), 0);
+
+      if (set_sv && SvOK (*set_sv))
+        set_arg = *set_sv;
+
+      *conf = copy_sv_options (*conf_sv, converter, set_arg);
     }
 }
 
@@ -777,11 +805,18 @@ void
 set_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
-    get_sv_option (converter->conf, conf, value, converter);
+    get_sv_option (converter->conf, conf, value, -1, converter);
    /* Too early to have options set
   else
     fprintf (stderr, "HHH no converter conf %s\n", conf);
     */
+}
+
+void
+force_conf (CONVERTER *converter, const char *conf, SV *value)
+{
+  if (converter->conf)
+    get_sv_option (converter->conf, conf, value, 0, converter);
 }
 
 /* output format specific */
@@ -833,7 +868,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (other_converter_options_sv)
     {
       text_options->other_converter_options
-         = copy_sv_options (*other_converter_options_sv, 0);
+         = copy_sv_options (*other_converter_options_sv, 0, 0);
     }
 
   self_converter_options_sv = hv_fetch (hv_in, "self_converter_options",
@@ -842,7 +877,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (self_converter_options_sv)
     {
       text_options->self_converter_options
-         = copy_sv_options (*self_converter_options_sv, 0);
+         = copy_sv_options (*self_converter_options_sv, 0, 0);
     }
 
   return text_options;
@@ -1048,7 +1083,7 @@ html_get_direction_icons_sv (CONVERTER *converter,
 
   icons_hv = (HV *)SvRV (icons_sv);
 
-  for (i = 0; converter->direction_unit_direction_name[i] ; i++)
+  for (i = 0; converter->direction_unit_direction_name[i]; i++)
     {
       const char *direction_name
         = converter->direction_unit_direction_name[i];

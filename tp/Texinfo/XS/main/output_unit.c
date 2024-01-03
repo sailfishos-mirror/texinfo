@@ -747,7 +747,7 @@ units_directions (OPTIONS *customization_information,
 
       /* Use node up for Up if there is no section up.
          Not done in the default case. */
-      if (customization_information->USE_UP_NODE_FOR_ELEMENT_UP > 0
+      if (customization_information->USE_UP_NODE_FOR_ELEMENT_UP.integer > 0
           && !directions[RUD_type_Up] && node
           && node_directions && node_directions->contents.list[D_up]
           && (!node_top || node != node_top))
@@ -758,7 +758,7 @@ units_directions (OPTIONS *customization_information,
             directions[RUD_type_Up] = up_node_unit_element;
         }
     }
-  if (customization_information->DEBUG > 0)
+  if (customization_information->DEBUG.integer > 0)
     {
       int i;
       for (i = 0; i < output_units->number; i++)

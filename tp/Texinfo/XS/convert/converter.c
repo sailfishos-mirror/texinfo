@@ -106,59 +106,58 @@ unregister_converter_descriptor (int converter_descriptor)
 }
 
 /* freed by caller */
-static COMMAND_OPTION_VALUE *
-new_option_value (int type, int int_value, char *char_value)
+static OPTION *
+new_option_value (enum global_option_type type, int int_value, char *char_value)
 {
-  COMMAND_OPTION_VALUE *result
-    = (COMMAND_OPTION_VALUE *) malloc (sizeof (COMMAND_OPTION_VALUE));
+  OPTION *result
+    = (OPTION *) malloc (sizeof (OPTION));
   result->type = type;
-  if (type == GO_int)
-    result->int_value = int_value;
+  if (type == GO_integer)
+    result->integer = int_value;
   else
-    result->char_value = char_value;
+    result->string = char_value;
   return result;
 }
 
 /* freed by caller */
-static COMMAND_OPTION_VALUE *
+static OPTION *
 command_init (enum command_id cmd, OPTIONS *init_conf)
 {
-  COMMAND_OPTION_REF *init_conf_ref;
+  OPTION *init_conf_ref;
   COMMAND_OPTION_DEFAULT *option_default;
-  COMMAND_OPTION_VALUE *option_value = 0;
+  OPTION *option_value = 0;
   if (init_conf)
     {
       init_conf_ref = get_command_option (init_conf, cmd);
       if (init_conf_ref)
         {
-          if (init_conf_ref->type == GO_int)
+          if (init_conf_ref->type == GO_integer)
             {
-              if (*(init_conf_ref->int_ref) >= 0)
+              if (init_conf_ref->integer >= 0)
                 {
                   option_value
-                    = new_option_value (GO_int, *(init_conf_ref->int_ref), 0);
-                  free (init_conf_ref);
+                    = new_option_value (GO_integer, init_conf_ref->integer, 0);
                   return option_value;
                 }
             }
           else
             {
-              if (*(init_conf_ref->char_ref))
+              if (init_conf_ref->type == GO_char
+                  || init_conf_ref->type == GO_bytes)
                 {
                   option_value
-                    = new_option_value (GO_char, -1, *(init_conf_ref->char_ref));
-                  free (init_conf_ref);
+                    = new_option_value (init_conf_ref->type, -1,
+                                        init_conf_ref->string);
                   return option_value;
                 }
             }
         }
-      free (init_conf_ref);
     }
   option_default = &command_option_default_table[cmd];
-  if (option_default->type == GO_int)
+  if (option_default->type == GO_integer)
     {
       if (option_default->value >= 0)
-        option_value = new_option_value (GO_int, option_default->value, 0);
+        option_value = new_option_value (GO_integer, option_default->value, 0);
     }
   else if (option_default->type == GO_char)
     {
@@ -179,20 +178,19 @@ set_global_document_commands (CONVERTER *converter,
       for (i = 0; cmd_list[i] > 0; i++)
         {
           enum command_id cmd = cmd_list[i];
-          COMMAND_OPTION_VALUE *option_value = command_init (cmd,
-                                                converter->init_conf);
+          OPTION *option_value = command_init (cmd,
+                                               converter->init_conf);
           if (option_value)
             {
-              COMMAND_OPTION_REF *option_ref
+              OPTION *option_ref
                = get_command_option (converter->conf, cmd);
-              if (option_value->type == GO_int)
-                *(option_ref->int_ref) = option_value->int_value;
+              if (option_value->type == GO_integer)
+                option_ref->integer = option_value->integer;
               else
                 {
-                  free (*(option_ref->char_ref));
-                  *(option_ref->char_ref) = strdup (option_value->char_value);
+                  free (option_ref->string);
+                  option_ref->string = strdup (option_value->string);
                 }
-              free (option_ref);
               free (option_value);
             }
         }
@@ -204,7 +202,7 @@ set_global_document_commands (CONVERTER *converter,
         {
           ELEMENT *element;
           enum command_id cmd = cmd_list[i];
-          if (converter->conf->DEBUG > 0)
+          if (converter->conf->DEBUG.integer > 0)
             {
               fprintf (stderr, "XS|SET_global(%s) %s\n",
                        command_location_names[location],
@@ -216,22 +214,21 @@ set_global_document_commands (CONVERTER *converter,
                                            cmd, location);
           if (!element)
             {
-              COMMAND_OPTION_VALUE *option_value = command_init (cmd,
-                                                      converter->init_conf);
+              OPTION *option_value = command_init (cmd,
+                                                   converter->init_conf);
               if (option_value)
                 {
-                  COMMAND_OPTION_REF *option_ref
+                  OPTION *option_ref
                     = get_command_option (converter->conf, cmd);
-                  if (option_value->type == GO_int)
-                    *(option_ref->int_ref) = option_value->int_value;
+                  if (option_value->type == GO_integer)
+                    option_ref->integer = option_value->integer;
                   else
                     {
-                      free (*(option_ref->char_ref));
-                      *(option_ref->char_ref)
-                        = strdup (option_value->char_value);
+                      free (option_ref->string);
+                      option_ref->string
+                        = strdup (option_value->string);
                     }
 
-                  free (option_ref);
                   free (option_value);
                 }
             }
@@ -242,12 +239,12 @@ set_global_document_commands (CONVERTER *converter,
 static void
 id_to_filename (CONVERTER *self, char **id_ref)
 {
-  if (self->conf->BASEFILENAME_LENGTH < 0)
+  if (self->conf->BASEFILENAME_LENGTH.integer < 0)
     return;
   char *id = *id_ref;
-  if (strlen (id) > self->conf->BASEFILENAME_LENGTH)
+  if (strlen (id) > self->conf->BASEFILENAME_LENGTH.integer)
     {
-      id[self->conf->BASEFILENAME_LENGTH] = '\0';
+      id[self->conf->BASEFILENAME_LENGTH.integer] = '\0';
     }
 }
 
@@ -260,16 +257,16 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   char *normalized_file_name;
   char *normalized_name
     = normalize_transliterate_texinfo_contents (command->args.list[0],
-                                                (self->conf->TEST > 0));
+                                                (self->conf->TEST.integer > 0));
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
 
   text_init (&filename);
   text_append (&filename, normalized_file_name);
-  if (self->conf->EXTENSION && strlen (self->conf->EXTENSION))
+  if (self->conf->EXTENSION.string && strlen (self->conf->EXTENSION.string))
     {
       text_append (&filename, ".");
-      text_append (&filename, self->conf->EXTENSION);
+      text_append (&filename, self->conf->EXTENSION.string);
     }
 
   free (normalized_file_name);
@@ -288,10 +285,10 @@ node_information_filename (CONVERTER *self, char *normalized,
 
   if (normalized)
     {
-      if (self->conf->TRANSLITERATE_FILE_NAMES > 0)
+      if (self->conf->TRANSLITERATE_FILE_NAMES.integer > 0)
         {
           filename = normalize_transliterate_texinfo_contents (label_element,
-                                                       (self->conf->TEST > 0));
+                                                       (self->conf->TEST.integer > 0));
         }
       else
         filename = strdup (normalized);
@@ -561,8 +558,8 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
   if (output_encoded_characters)
     {
       char *encoded = encoded_accents (self, arg_text, &accent_stack->stack,
-                                 self->conf->OUTPUT_ENCODING_NAME, format_accent,
-                                 set_case);
+                                 self->conf->OUTPUT_ENCODING_NAME.string,
+                                 format_accent, set_case);
       if (encoded)
         {
           free (arg_text);
@@ -638,19 +635,19 @@ top_node_filename (CONVERTER *self, char *document_name)
 {
   TEXT top_node_filename;
 
-  if (self->conf->TOP_FILE && strlen (self->conf->TOP_FILE))
+  if (self->conf->TOP_FILE.string && strlen (self->conf->TOP_FILE.string))
     {
-      return strdup (self->conf->TOP_FILE);
+      return strdup (self->conf->TOP_FILE.string);
     }
 
   if (document_name)
     {
       text_init (&top_node_filename);
       text_append (&top_node_filename, document_name);
-      if (self->conf->EXTENSION && strlen (self->conf->EXTENSION))
+      if (self->conf->EXTENSION.string && strlen (self->conf->EXTENSION.string))
         {
           text_append (&top_node_filename, ".");
-          text_append (&top_node_filename, self->conf->EXTENSION);
+          text_append (&top_node_filename, self->conf->EXTENSION.string);
         }
       return top_node_filename.text;
     }
@@ -722,14 +719,14 @@ static size_t
 register_normalize_case_filename (CONVERTER *self, char *filename)
 {
   size_t output_unit_file_idx;
-  if (self->conf->CASE_INSENSITIVE_FILENAMES > 0)
+  if (self->conf->CASE_INSENSITIVE_FILENAMES.integer > 0)
     {
       char *lc_filename = to_upper_or_lower_multibyte (filename, -1);
       int status;
       output_unit_file_idx = find_output_unit_file (self, lc_filename, &status);
       if (status)
         {
-          if (self->conf->DEBUG > 0)
+          if (self->conf->DEBUG.integer > 0)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
@@ -752,7 +749,7 @@ register_normalize_case_filename (CONVERTER *self, char *filename)
       output_unit_file_idx = find_output_unit_file (self, filename, &status);
       if (status)
         {
-          if (self->conf->DEBUG > 0)
+          if (self->conf->DEBUG.integer > 0)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
@@ -808,13 +805,13 @@ set_file_path (CONVERTER *self, char *filename, char *filepath,
     {
       if (!strcmp (output_unit_file->filepath, filepath_str))
         {
-          if (self->conf->DEBUG > 0)
+          if (self->conf->DEBUG.integer > 0)
             fprintf (stderr, "set_file_path: filepath set: %s\n",
                              filepath_str);
         }
       else
         {
-          if (self->conf->DEBUG > 0)
+          if (self->conf->DEBUG.integer > 0)
             fprintf (stderr, "set_file_path: filepath reset: %s, %s\n",
                              output_unit_file->filepath, filepath_str);
           free (output_unit_file->filepath);

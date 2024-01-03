@@ -36,7 +36,7 @@ while (<STDIN>) {
       my $value = $3;
       my $type = $4;
 
-      if ($type eq 'char *' and $value ne 'undef') {
+      if (($type eq 'char' or $type eq 'bytes') and $value ne 'undef') {
         $value = "'".$value."'";
       }
 

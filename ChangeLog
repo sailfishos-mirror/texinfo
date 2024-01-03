@@ -1,5 +1,48 @@
 2024-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_string_list)
+	(html_build_direction_icons): add.
+
+	* tp/Texinfo/XS/main/converter_types.h (enum sv_string_type):
+	move to converter_types.h.
+
+	* tp/Texinfo/XS/*/*.c, tp/Texinfo/XS/convert/converter.c
+	(new_option_value, command_init, set_global_document_commands),
+	tp/Texinfo/XS/main/converter_types.h (enum global_option_type)
+	(OPTION), tp/Texinfo/XS/main/utils.c (set_informative_command_value)
+	(new_options, free_option, initialize_option),
+	tp/Texinfo/XS/main/utils.h, tp/Texinfo/options_data.txt,
+	tp/maintain/regenerate_C_options_info.pl,
+	tp/maintain/regenerate_perl_options_info.pl: modify OPTIONS structure
+	to have an intermediate OPTION structure that is a union of the
+	possible types instead of the value being directly in OPTIONS.  rename
+	enum global_option_command_type as enum global_option_type and add all
+	the possible types of global options.  Use the types of
+	global_option_type in options_data.txt instead of C types.  Add
+	free_option and initialize_option to handle all the possible types.
+
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, _XS_force_conf)
+	(force_conf, _XS_get_conf, get_conf, converter),
+	tp/Texinfo/XS/convert/ConvertXS.xs (force_conf, get_conf),
+	tp/Texinfo/XS/main/build_perl_info.c (get_conf),
+	tp/Texinfo/XS/main/get_perl_info.c (get_sv_options, copy_sv_options)
+	(recopy_converter_conf_sv, set_conf, force_conf),
+	tp/Texinfo/XS/main/utils.c (set_informative_command_value),
+	tp/maintain/regenerate_C_options_info.pl: use XS to access
+	customization variables preferrentially to make sure that perl and XS
+	are synchronized.  Override get_conf, and use a specific override for
+	force_conf.  Reorganize converter function code to use get_conf only
+	when the XS converter has been initialized.  Generate build_sv_option
+	for get_conf.  Add set field in OPTION to avoid overriding the value
+	if not called as force_conf.  Set set field based on perl value in
+	converter.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_informative_command)
+	(commands_internal_conversion_table): implement
+	convert_informative_command.
+
+2024-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (convert, output): use get_conf instead
 	of accessing directly 'conf'.
 

@@ -67,15 +67,9 @@ typedef struct {
 
 extern DEF_ALIAS def_aliases[];
 
-enum global_option_command_type {
-   GO_NONE,
-   GO_int,
-   GO_char,
-};
-
 /* definitions for table of defaults for options corresponding to commands */
 typedef struct COMMAND_OPTION_DEFAULT {
-    enum global_option_command_type type;
+    enum global_option_type type;
     int value;
     char *string;
 } COMMAND_OPTION_DEFAULT;
@@ -84,7 +78,7 @@ extern COMMAND_OPTION_DEFAULT command_option_default_table[];
 
 /* return type of get_command_option */
 typedef struct COMMAND_OPTION_REF {
-    enum global_option_command_type type;
+    enum global_option_type type;
     union {
       int *int_ref;
       char **char_ref;
@@ -93,7 +87,7 @@ typedef struct COMMAND_OPTION_REF {
 
 /* similar to COMMAND_OPTION_REF but for values only */
 typedef struct COMMAND_OPTION_VALUE {
-    enum global_option_command_type type;
+    enum global_option_type type;
     union {
       int int_value;
       char *char_value;
@@ -218,7 +212,7 @@ void initialize_options (OPTIONS *options);
 void free_options (OPTIONS *options);
 
 OPTIONS *new_options (void);
-COMMAND_OPTION_REF *get_command_option (OPTIONS *options, enum command_id cmd);
+OPTION *get_command_option (OPTIONS *options, enum command_id cmd);
 
 void add_include_directory (char *filename, STRING_LIST *include_dirs_list);
 char *locate_include_file (char *filename, STRING_LIST *include_dirs_list);
@@ -256,5 +250,8 @@ ELEMENT *get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
 
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
 void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
+
+void free_option (OPTION *option);
+void initialize_option (OPTION *option, enum global_option_type type);
 
 #endif

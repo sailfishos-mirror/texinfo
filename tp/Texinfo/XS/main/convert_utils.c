@@ -66,7 +66,7 @@ expand_today (OPTIONS *options)
   ELEMENT *year_element;
   ELEMENT *result;
 
-  if (options->TEST > 0)
+  if (options->TEST.integer > 0)
     {
       result = new_element (ET_NONE);
       text_append (&result->text, "a sunny day");
@@ -272,9 +272,9 @@ encoded_input_file_name (OPTIONS *options,
   char *encoding = 0;
   int status;
 
-  if (options && options->INPUT_FILE_NAME_ENCODING)
-    encoding = options->INPUT_FILE_NAME_ENCODING;
-  else if (options && options->DOC_ENCODING_FOR_INPUT_FILE_NAME != 0
+  if (options && options->INPUT_FILE_NAME_ENCODING.string)
+    encoding = options->INPUT_FILE_NAME_ENCODING.string;
+  else if (options && options->DOC_ENCODING_FOR_INPUT_FILE_NAME.integer != 0
            || (!options))
     {
       if (input_file_encoding)
@@ -283,7 +283,7 @@ encoded_input_file_name (OPTIONS *options,
         encoding = global_information->input_encoding_name;
     }
   else if (options)
-    encoding = options->LOCALE_ENCODING;
+    encoding = options->LOCALE_ENCODING.string;
 
   result = encode_string (file_name, encoding, &status, source_info);
 
@@ -303,16 +303,16 @@ encoded_output_file_name (OPTIONS *options, GLOBAL_INFO *global_information,
   char *encoding = 0;
   int status;
 
-  if (options && options->OUTPUT_FILE_NAME_ENCODING)
-    encoding = options->OUTPUT_FILE_NAME_ENCODING;
-  else if (options && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME != 0
+  if (options && options->OUTPUT_FILE_NAME_ENCODING.string)
+    encoding = options->OUTPUT_FILE_NAME_ENCODING.string;
+  else if (options && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.integer != 0
            || (!options))
     {
       if (global_information && global_information->input_encoding_name)
         encoding = global_information->input_encoding_name;
     }
   else if (options)
-    encoding = options->LOCALE_ENCODING;
+    encoding = options->LOCALE_ENCODING.string;
 
   result = encode_string (file_name, encoding, &status, source_info);
 
@@ -346,7 +346,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                                        &current->source_info);
 
   if (options)
-    include_directories = &options->INCLUDE_DIRECTORIES;
+    include_directories = options->INCLUDE_DIRECTORIES.strlist;
 
   file = locate_include_file (file_name, include_directories);
 

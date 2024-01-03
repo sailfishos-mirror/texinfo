@@ -38,7 +38,7 @@
 #include "tree_types.h"
 #include "command_ids.h"
 #include "element_types.h"
-/* for GLOBAL_INFO ERROR_MESSAGE CONVERTER */
+/* for GLOBAL_INFO ERROR_MESSAGE CONVERTER sv_string_type */
 #include "converter_types.h"
 #include "tree.h"
 /* for output_conversions fatal output_unit_type_names */
@@ -1605,6 +1605,29 @@ build_integer_stack (INTEGER_STACK *integer_stack)
   return av;
 }
 
+AV *
+build_string_list (STRING_LIST *strings_list, enum sv_string_type type)
+{
+  AV *av;
+  int i;
+
+  dTHX;
+
+  av = newAV ();
+
+  for (i = 0; i < strings_list->number; i++)
+    {
+      char *value = strings_list->list[i];
+      if (!value)
+        av_push (av, newSV (0));
+      else if (type == svt_char)
+        av_push (av, newSVpv_utf8 (value, 0));
+      else
+        av_push (av, newSVpv_byte (value, 0));
+    }
+  return av;
+}
+
 SV *
 build_filenames (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
@@ -1864,4 +1887,44 @@ build_expanded_formats (EXPANDED_FORMAT *expanded_formats)
         }
     }
   return newRV_noinc ((SV *)expanded_hv);
+}
+
+SV *
+get_conf (CONVERTER *converter, const char *conf)
+{
+  dTHX;
+
+  if (converter->conf)
+    return build_sv_option (converter->conf, conf, converter);
+  return newSV (0);
+}
+
+SV *
+html_build_direction_icons (CONVERTER *converter,
+                            DIRECTION_ICON_LIST *direction_icons)
+{
+  HV *icons_hv;
+  int i;
+
+  dTHX;
+
+  if (!direction_icons)
+    return newSV (0);
+
+  if (!converter || !converter->direction_unit_direction_name)
+    return newSV (0);
+
+  icons_hv = newHV ();
+
+  for (i = 0; converter->direction_unit_direction_name[i]; i++)
+    {
+      if (direction_icons->list[i])
+        {
+          const char *direction_name
+            = converter->direction_unit_direction_name[i];
+          hv_store (icons_hv, direction_name, strlen (direction_name),
+                    newSVpv_utf8 (direction_name, 0), 0);
+        }
+    }
+  return newRV_noinc ((SV *)icons_hv);
 }
