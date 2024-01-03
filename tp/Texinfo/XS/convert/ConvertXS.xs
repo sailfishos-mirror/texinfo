@@ -1615,6 +1615,10 @@ html_merge_index_entries (SV *converter_in)
          if (self)
            html_merge_index_entries (self);
 
+void
+reset_output_init_conf (SV *sv_in, warn_string)
+         char *warn_string = (char *)SvPVutf8_nolen($arg);
+
 #  my ($output_units, $special_units, $associated_special_units)
 #    = $self->_prepare_conversion_units($root, $document_name);
 void
@@ -1635,8 +1639,8 @@ html_prepare_conversion_units (SV *converter_in, ...)
          if (items > 2 && SvOK(ST(2)))
            document_name = SvPVutf8_nolen (ST(2));
 
-         self = set_output_converter_sv (converter_in,
-                                         "html_prepare_conversion_units");
+         self = get_sv_converter (converter_in,
+                                  "html_prepare_conversion_units");
 
          if (self->conf->OUTPUT_CHARACTERS.integer > 0
              && self->conf->OUTPUT_ENCODING_NAME.string

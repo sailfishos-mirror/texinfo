@@ -33,10 +33,9 @@ void recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_conf (CONVERTER *converter, const char *conf, SV *value);
 
-CONVERTER *set_output_converter_sv (SV *sv_in, const char *warn_string);
 CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
-
 int converter_initialize (SV *converter_sv);
+void reset_output_init_conf (SV *sv_in, const char *warn_string);
 
 INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
                  (INDEX **index_names, SV *index_entries_sorted_by_letter);

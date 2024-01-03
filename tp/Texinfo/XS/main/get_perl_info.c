@@ -428,6 +428,8 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
 }
 
 /* Texinfo::Convert::Converter generic initialization for all the converters */
+/* Called early, in particuliar before any format specific code has been
+   called */
 int
 converter_initialize (SV *converter_sv)
 {
@@ -551,9 +553,9 @@ recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
     }
 }
 
-/* initialize an XS converter from a perl converter right before conversion */
-CONVERTER *
-set_output_converter_sv (SV *sv_in, const char *warn_string)
+/* reset output_init_conf.  Can be called after it has been modified */
+void
+reset_output_init_conf (SV *sv_in, const char *warn_string)
 {
   HV *hv_in;
   CONVERTER *converter = 0;
@@ -564,11 +566,8 @@ set_output_converter_sv (SV *sv_in, const char *warn_string)
 
   hv_in = (HV *)SvRV (sv_in);
 
-  recopy_converter_conf_sv (hv_in, converter, &converter->conf, "conf");
-
   recopy_converter_conf_sv (hv_in, converter, &converter->init_conf,
                             "output_init_conf");
-  return converter;
 }
 
 /* code in comments allow to sort the index names to have a fixed order

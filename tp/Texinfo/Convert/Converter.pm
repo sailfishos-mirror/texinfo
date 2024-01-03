@@ -317,9 +317,13 @@ sub converter($;$)
 
   $converter->{'error_warning_messages'} = [];
 
-  # XS converter initialization
-  # get_conf should not be used before that point, such that the conf is
+  # XS converter initialization.
+  # NOTE get_conf should not be used before that point, such that the conf is
   # initialized before it is called for the first time.
+  # NOTE format specific information is not available at this point, such that
+  # some options may not be obtained.  This is the case for HTML for instance.
+  # In particular the special units information need to be known before buttons
+  # information can be passed to C.
   _XS_converter_initialize($converter);
 
   Texinfo::Common::set_output_encodings($converter,

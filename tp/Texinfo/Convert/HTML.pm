@@ -118,6 +118,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
   "Texinfo::Convert::HTML::_finalize_output_state"
    => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
+  "Texinfo::Convert::HTML::_XS_reset_output_init_conf"
+   => "Texinfo::Convert::ConvertXS::reset_output_init_conf",
   "Texinfo::Convert::HTML::_prepare_simpletitle"
    => "Texinfo::Convert::ConvertXS::html_prepare_simpletitle",
   "Texinfo::Convert::HTML::_prepare_converted_output_info"
@@ -12290,6 +12292,8 @@ sub output($$)
   # this output file especially.  Set a corresponding initial
   # configuration.
   $self->{'output_init_conf'} = { %{$self->{'conf'}} };
+  # pass to XS.
+  _XS_reset_output_init_conf($self, 'reset_output_init_conf');
 
   # set BODYTEXT
   $self->set_global_document_commands('preamble', ['documentlanguage']);

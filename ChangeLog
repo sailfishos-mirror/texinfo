@@ -1,5 +1,21 @@
 2024-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): call recopy_converter_conf_sv in
+	html_converter_initialize_sv as soon as format specific information
+	has been gathered.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_XS_reset_output_init_conf, output),
+	tp/Texinfo/XS/convert/ConvertXS.xs (reset_output_init_conf)
+	(html_prepare_conversion_units), tp/Texinfo/XS/main/get_perl_info.c
+	(reset_output_init_conf): add a specific override,
+	reset_output_init_conf called after 'output_init_conf' is reset
+	instead of doing it in html_prepare_conversion_units.
+	Remove set_output_converter_sv, which did it previously.
+
+2024-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (copy_option, new_option_value)
 	(command_init, set_global_document_commands): simplify command_init
 	by simply copying the option.  Properly initialize all the fields in
