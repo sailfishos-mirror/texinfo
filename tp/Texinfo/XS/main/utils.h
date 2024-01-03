@@ -76,24 +76,6 @@ typedef struct COMMAND_OPTION_DEFAULT {
 
 extern COMMAND_OPTION_DEFAULT command_option_default_table[];
 
-/* return type of get_command_option */
-typedef struct COMMAND_OPTION_REF {
-    enum global_option_type type;
-    union {
-      int *int_ref;
-      char **char_ref;
-    };
-} COMMAND_OPTION_REF;
-
-/* similar to COMMAND_OPTION_REF but for values only */
-typedef struct COMMAND_OPTION_VALUE {
-    enum global_option_type type;
-    union {
-      int int_value;
-      char *char_value;
-    };
-} COMMAND_OPTION_VALUE;
-
 #define SMALL_BLOCK_COMMANDS_LIST \
     smbc_command_name(example)\
     smbc_command_name(display) \
