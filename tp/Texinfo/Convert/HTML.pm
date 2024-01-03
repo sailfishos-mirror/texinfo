@@ -11697,9 +11697,9 @@ sub convert($$)
   $self->_sort_index_entries();
 
   # cache, as it is checked for each text element
-  if ($self->{'conf'}->{'OUTPUT_CHARACTERS'}
-      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
-      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
+  if ($self->get_conf('OUTPUT_CHARACTERS')
+      and $self->get_conf('OUTPUT_ENCODING_NAME')
+      and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     $self->{'use_unicode_text'} = 1;
   }
 
@@ -12359,9 +12359,9 @@ sub output($$)
   $self->_sort_index_entries();
 
   # cache, as it is checked for each text element
-  if ($self->{'conf'}->{'OUTPUT_CHARACTERS'}
-      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
-      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
+  if ($self->get_conf('OUTPUT_CHARACTERS')
+      and $self->get_conf('OUTPUT_ENCODING_NAME')
+      and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     $self->{'use_unicode_text'} = 1;
   }
 

@@ -1,5 +1,13 @@
 2024-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (convert, output): use get_conf instead
+	of accessing directly 'conf'.
+
+	* tp/t/accents.t (test_enable_encoding): use set_conf instead of
+	accessing directly 'conf'.
+
+2024-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (Commands.pm, Options.pm): have generated files
 	depend on the script generating them.
 
