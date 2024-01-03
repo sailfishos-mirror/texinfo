@@ -1,5 +1,14 @@
 2024-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (copy_option, new_option_value)
+	(command_init, set_global_document_commands): simplify command_init
+	by simply copying the option.  Properly initialize all the fields in
+	new_option_value.  Add copy_option to copy an option in another and
+	use it in set_global_document_commands.  Only copy option if set field
+	is not on.
+
+2024-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.h: remove COMMAND_OPTION_REF and
 	COMMAND_OPTION_VALUE that are not used anymore.
 

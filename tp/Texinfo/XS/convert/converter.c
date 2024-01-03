@@ -105,12 +105,33 @@ unregister_converter_descriptor (int converter_descriptor)
     }
 }
 
+static void
+copy_option (OPTION *destination, OPTION *source)
+{
+  switch (source->type)
+   {
+     case GO_integer:
+       destination->integer = source->integer;
+       break;
+
+     case GO_char:
+     case GO_bytes:
+       free (destination->string);
+       destination->string = strdup (source->string);
+       break;
+
+     default:
+       fprintf (stderr, "BUG: copy_option type not handled: %d\n",
+                source->type);
+   }
+}
+
 /* freed by caller */
 static OPTION *
 new_option_value (enum global_option_type type, int int_value, char *char_value)
 {
-  OPTION *result
-    = (OPTION *) malloc (sizeof (OPTION));
+  OPTION *result = (OPTION *) malloc (sizeof (OPTION));
+  memset (result, 0, sizeof (OPTION));
   result->type = type;
   if (type == GO_integer)
     result->integer = int_value;
@@ -119,7 +140,8 @@ new_option_value (enum global_option_type type, int int_value, char *char_value)
   return result;
 }
 
-/* freed by caller */
+/* freed by caller.  Information in structure refers to other data, so
+   should not be freed */
 static OPTION *
 command_init (enum command_id cmd, OPTIONS *init_conf)
 {
@@ -131,26 +153,9 @@ command_init (enum command_id cmd, OPTIONS *init_conf)
       init_conf_ref = get_command_option (init_conf, cmd);
       if (init_conf_ref)
         {
-          if (init_conf_ref->type == GO_integer)
-            {
-              if (init_conf_ref->integer >= 0)
-                {
-                  option_value
-                    = new_option_value (GO_integer, init_conf_ref->integer, 0);
-                  return option_value;
-                }
-            }
-          else
-            {
-              if (init_conf_ref->type == GO_char
-                  || init_conf_ref->type == GO_bytes)
-                {
-                  option_value
-                    = new_option_value (init_conf_ref->type, -1,
-                                        init_conf_ref->string);
-                  return option_value;
-                }
-            }
+          option_value = (OPTION *) malloc (sizeof (OPTION));
+          memcpy (option_value, init_conf_ref, sizeof (OPTION));
+          return option_value;
         }
     }
   option_default = &command_option_default_table[cmd];
@@ -184,13 +189,8 @@ set_global_document_commands (CONVERTER *converter,
             {
               OPTION *option_ref
                = get_command_option (converter->conf, cmd);
-              if (option_value->type == GO_integer)
-                option_ref->integer = option_value->integer;
-              else
-                {
-                  free (option_ref->string);
-                  option_ref->string = strdup (option_value->string);
-                }
+              if (option_ref->set <= 0)
+                copy_option (option_ref, option_value);
               free (option_value);
             }
         }
@@ -220,15 +220,8 @@ set_global_document_commands (CONVERTER *converter,
                 {
                   OPTION *option_ref
                     = get_command_option (converter->conf, cmd);
-                  if (option_value->type == GO_integer)
-                    option_ref->integer = option_value->integer;
-                  else
-                    {
-                      free (option_ref->string);
-                      option_ref->string
-                        = strdup (option_value->string);
-                    }
-
+                  if (option_ref->set <= 0)
+                    copy_option (option_ref, option_value);
                   free (option_value);
                 }
             }
