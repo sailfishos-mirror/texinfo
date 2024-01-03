@@ -112,9 +112,10 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::reset_converter",
   "Texinfo::Convert::Converter::destroy"
    => "Texinfo::Convert::ConvertXS::destroy",
-);
+
   "Texinfo::Convert::Converter::_XS_get_unclosed_stream"
    => "Texinfo::Convert::ConvertXS::get_unclosed_stream",
+);
 
 sub import {
   if (!$module_loaded) {
