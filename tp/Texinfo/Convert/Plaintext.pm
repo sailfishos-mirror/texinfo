@@ -3704,10 +3704,6 @@ sub _convert($$)
 
     for my $content (@$contents) {
       my $text = _convert($self, $content);
-      if (defined($type) and ($type eq 'preformatted'
-             or $type eq 'rawpreformatted')) {
-        $self->{'empty_lines_count'} = 0 if ($text =~ /\S/);
-      }
       $result .= $text;
     }
     pop @{$self->{'current_contents'}};
@@ -3859,6 +3855,20 @@ sub _convert($$)
   } elsif ($preformatted) {
     $result .= _count_added($self, $preformatted->{'container'},
                Texinfo::Convert::Paragraph::end($preformatted->{'container'}));
+    if (defined($type) and ($type eq 'preformatted'
+           or $type eq 'rawpreformatted')) {
+      if ($element->{'contents'}
+          and $element->{'contents'}->[-1]) {
+        my $last_child = $element->{'contents'}->[-1];
+        if (!defined($last_child->{'type'})
+                       or $last_child->{'type'} ne 'empty_line') {
+          if (!defined($last_child->{'text'})
+                       or $last_child->{'text'} =~ /\S/) {
+            $self->{'empty_lines_count'} = 0;
+          }
+        }
+      }
+    }
     if ($result ne '') {
       $result = $self->ensure_end_of_line($result);
     }

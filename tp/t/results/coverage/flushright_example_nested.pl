@@ -283,7 +283,6 @@ $result_floats{'flushright_example_nested'} = {};
 
 $result_converted{'plaintext'}->{'flushright_example_nested'} = '                                                    in   --- flushright
 
-
      in   --- example
 
      flush then example

@@ -1,6 +1,15 @@
 2024-01-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <process contents>:
+	Remove zeroing of 'empty_lines_count' from here for 'preformatted'
+	and 'rawpreformatted' elements also.
+	<close preformatted>: Move it into a code block dealing with
+	other preformatted content.  Base the zeroing on inspection of
+	the document tree rather than conversion output.
+
+2024-01-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <process contents>:
 	Limit zeroing of 'empty_lines_count' to elements of type 'preformatted'
 	or 'rawpreformatted'.  Previously, this code was also used
 	for processing the contents of whole @menu blocks (as the local
