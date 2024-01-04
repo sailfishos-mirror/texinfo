@@ -240,7 +240,7 @@ sub converter($;$)
   my $class = shift;
   my $conf = shift;
 
-  my $converter = { 'set' => {} };
+  my $converter = { 'configured' => {} };
 
   bless $converter, $class;
 
@@ -257,7 +257,6 @@ sub converter($;$)
       $converter->{$key} = $defaults{$key};
     }
   }
-  #$converter->{'converter_pre_conf'} = \%defaults;
   if (defined($conf)) {
     if ($conf->{'document'}) {
       $converter->{'global_commands'}
@@ -287,9 +286,10 @@ sub converter($;$)
       } else {
         $converter->{$key} = $conf->{$key};
       }
-      # configuration set here, in general coming from command-line
-      # will not be reset by set_conf.
-      $converter->{'set'}->{$key} = 1;
+      # configuration set here, from the argument of the converter,
+      # in general coming from command-line or from init files will not
+      # be reset by set_conf.
+      $converter->{'configured'}->{$key} = 1;
     }
   }
   # set $converter->{'converter_init_conf'} to the customization
@@ -631,7 +631,7 @@ sub set_conf($$$)
     die "BUG: set_conf: unknown option $conf\n";
     return undef;
   }
-  if ($self->{'set'}->{$conf}) {
+  if ($self->{'configured'}->{$conf}) {
     return 0;
   } else {
     if ($self->{'converter_descriptor'} and $XS_convert) {

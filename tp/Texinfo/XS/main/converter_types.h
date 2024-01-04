@@ -938,7 +938,7 @@ typedef struct DIRECTION_ICON_LIST {
 
 typedef struct OPTION {
     enum global_option_type type;
-    int set;
+    int configured;
     union {
       int integer;
       char *string;

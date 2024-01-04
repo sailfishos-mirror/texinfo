@@ -250,7 +250,7 @@ print GET '#include "get_perl_info.h"'."\n";
 print GET '#include "build_perl_info.h"'."\n\n";
 
 print GET 'void
-get_sv_option (OPTIONS *options, const char *key, SV *value, int set, CONVERTER *converter)
+get_sv_option (OPTIONS *options, const char *key, SV *value, int configured, CONVERTER *converter)
 {
   dTHX;
 
@@ -272,9 +272,9 @@ foreach my $category (sort(keys(%option_categories))) {
     my ($option, $value, $type) = @$option_info;
     print GET "  else if (!strcmp (key, \"$option\"))
     {
-      if (set > 0)
-        options->$option.set = set;
-      else if (set < 0 && options->$option.set > 0)
+      if (configured > 0)
+        options->$option.configured = configured;
+      else if (configured < 0 && options->$option.configured > 0)
         return;\n\n";
     if ($type eq 'char' or $type eq 'bytes') {
       my $SV_function_type = 'utf8';

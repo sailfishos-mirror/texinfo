@@ -268,47 +268,49 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
 }
 
 void
-get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter, SV *set_sv_in)
+get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
+                SV *configured_sv_in)
 {
   I32 hv_number;
   I32 i;
   HV *hv;
-  HV *set_hv = 0;
+  HV *configured_hv = 0;
 
   dTHX;
 
   hv = (HV *)SvRV (sv);
 
-  if (set_sv_in)
-    set_hv = (HV *)SvRV (set_sv_in);
+  if (configured_sv_in)
+    configured_hv = (HV *)SvRV (configured_sv_in);
 
   hv_number = hv_iterinit (hv);
   for (i = 0; i < hv_number; i++)
     {
-      int set = 0;
+      int configured = 0;
       char *key;
       I32 retlen;
       SV *value = hv_iternextsv(hv, &key, &retlen);
       if (value && SvOK (value))
         {
-          if (set_hv)
+          if (configured_hv)
             {
-              SV **value_set_sv = hv_fetch (set_hv, key, strlen (key), 0);
-              if (value_set_sv && SvOK (*value_set_sv)
-                  && SvIV (*value_set_sv))
-                set = 1;
+              SV **value_configured_sv
+                  = hv_fetch (configured_hv, key, strlen (key), 0);
+              if (value_configured_sv && SvOK (*value_configured_sv)
+                  && SvIV (*value_configured_sv))
+                configured = 1;
             }
-          get_sv_option (options, key, value, set, converter);
+          get_sv_option (options, key, value, configured, converter);
         }
     }
 }
 
 
 OPTIONS *
-copy_sv_options (SV *sv_in, CONVERTER *converter, SV *set_sv_in)
+copy_sv_options (SV *sv_in, CONVERTER *converter, SV *configured_sv_in)
 {
   OPTIONS *options = new_options ();
-  get_sv_options (sv_in, options, converter, set_sv_in);
+  get_sv_options (sv_in, options, converter, configured_sv_in);
   return options;
 }
 
@@ -491,15 +493,15 @@ converter_initialize (SV *converter_sv)
 
   if (conf_sv && SvOK (*conf_sv))
     {
-      SV **set_sv;
-      SV *set_arg = 0;
+      SV **configured_sv;
+      SV *configured_arg = 0;
 
-      FETCH(set);
+      FETCH(configured);
 
-      if (set_sv && SvOK (*set_sv))
-        set_arg = *set_sv;
+      if (configured_sv && SvOK (*configured_sv))
+        configured_arg = *configured_sv;
       converter->conf
-         = copy_sv_options (*conf_sv, converter, set_arg);
+         = copy_sv_options (*conf_sv, converter, configured_arg);
     }
 
   FETCH(converter_init_conf)
@@ -537,19 +539,19 @@ recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
 
   if (conf_sv && SvOK(*conf_sv))
     {
-      SV **set_sv;
-      SV *set_arg = 0;
+      SV **configured_sv;
+      SV *configured_arg = 0;
 
       if (*conf)
         free_options (*conf);
       free (*conf);
 
-      set_sv = hv_fetch (hv, "set", strlen ("set"), 0);
+      configured_sv = hv_fetch (hv, "configured", strlen ("configured"), 0);
 
-      if (set_sv && SvOK (*set_sv))
-        set_arg = *set_sv;
+      if (configured_sv && SvOK (*configured_sv))
+        configured_arg = *configured_sv;
 
-      *conf = copy_sv_options (*conf_sv, converter, set_arg);
+      *conf = copy_sv_options (*conf_sv, converter, configured_arg);
     }
 }
 

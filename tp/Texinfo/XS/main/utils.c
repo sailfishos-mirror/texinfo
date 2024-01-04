@@ -1076,7 +1076,7 @@ set_informative_command_value (OPTIONS *options, const ELEMENT *element)
   if (value)
     {
       OPTION *option = get_command_option (options, cmd);
-      if (option && option->set <= 0)
+      if (option && option->configured <= 0)
         {
           if (option->type == GO_integer)
             option->integer = strtoul (value, NULL, 10);

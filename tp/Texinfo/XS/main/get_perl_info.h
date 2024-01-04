@@ -13,7 +13,7 @@
 
 /* in options_get_perl.c */
 void get_sv_option (OPTIONS *options, const char *key, SV *value,
-                    int set, CONVERTER *converter);
+                    int configured, CONVERTER *converter);
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
@@ -27,7 +27,8 @@ void add_svav_to_string_list (SV *sv, STRING_LIST *string_list,
 SOURCE_INFO *get_source_info (SV *source_info_sv);
 void get_line_message (CONVERTER *self, enum error_type type, int continuation,
                        SV *error_location_info, char *message);
-OPTIONS *copy_sv_options (SV *sv_in, CONVERTER *converter, SV *set_sv_in);
+OPTIONS *copy_sv_options (SV *sv_in, CONVERTER *converter,
+                          SV *configured_sv_in);
 void recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
                                OPTIONS **conf, const char *conf_key);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
