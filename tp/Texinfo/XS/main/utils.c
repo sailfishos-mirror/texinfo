@@ -1483,7 +1483,7 @@ free_option (OPTION *option)
       case GO_bytes_string_list:
       case GO_file_string_list:
       case GO_char_string_list:
-        free_strings_list (option->strlist);
+        destroy_strings_list (option->strlist);
         break;
 
       case GO_buttons:
@@ -1492,6 +1492,7 @@ free_option (OPTION *option)
 
       case GO_icons:
         html_free_direction_icons (option->icons);
+        free (option->icons);
         break;
 
       case GO_integer:
