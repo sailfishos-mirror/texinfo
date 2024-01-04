@@ -1067,15 +1067,17 @@ void
 set_informative_command_value (OPTIONS *options, const ELEMENT *element)
 {
   char *value = 0;
-  enum command_id cmd = element_builtin_cmd (element);
-  if (cmd == CM_summarycontents)
-    cmd = CM_shortcontents;
 
   value = informative_command_value (element);
 
   if (value)
     {
-      OPTION *option = get_command_option (options, cmd);
+      OPTION *option;
+      enum command_id cmd = element_builtin_cmd (element);
+      if (cmd == CM_summarycontents)
+        cmd = CM_shortcontents;
+
+      option = get_command_option (options, cmd);
       if (option && option->configured <= 0)
         {
           if (option->type == GO_integer)
@@ -1397,8 +1399,7 @@ html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
   free (buttons);
 }
 
-void
-html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
+void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons)
 {
   if (!direction_icons)
     return;
@@ -1409,8 +1410,18 @@ html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
       for (i = 0; i < direction_icons->number; i++)
         {
           free (direction_icons->list[i]);
+          direction_icons->list[i] = 0;
         }
     }
+}
+
+void
+html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
+{
+  if (!direction_icons)
+    return;
+
+  html_clear_direction_icons (direction_icons);
   free (direction_icons->list);
 }
 
@@ -1425,6 +1436,40 @@ new_options (void)
   return options;
 }
 
+void
+clear_option (OPTION *option)
+{
+  switch (option->type)
+    {
+      case GO_char:
+      case GO_bytes:
+        free (option->string);
+        option->string = 0;
+        break;
+
+      case GO_bytes_string_list:
+      case GO_file_string_list:
+      case GO_char_string_list:
+        clear_strings_list (option->strlist);
+        break;
+
+      case GO_buttons:
+        html_free_button_specification_list (option->buttons);
+        option->buttons = 0;
+        break;
+
+      case GO_icons:
+        html_clear_direction_icons (option->icons);
+        break;
+
+      case GO_integer:
+        option->integer = -1;
+
+      default:
+    }
+}
+
+/* option is not supposed to be accessed again */
 void
 free_option (OPTION *option)
 {
@@ -1489,4 +1534,3 @@ initialize_option (OPTION *option, enum global_option_type type)
       default:
     }
 }
-

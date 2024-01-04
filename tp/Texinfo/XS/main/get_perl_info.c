@@ -269,48 +269,60 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
 
 void
 get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
-                SV *configured_sv_in)
+                int force)
 {
   I32 hv_number;
   I32 i;
   HV *hv;
-  HV *configured_hv = 0;
 
   dTHX;
 
   hv = (HV *)SvRV (sv);
 
-  if (configured_sv_in)
-    configured_hv = (HV *)SvRV (configured_sv_in);
-
   hv_number = hv_iterinit (hv);
   for (i = 0; i < hv_number; i++)
     {
-      int configured = 0;
       char *key;
       I32 retlen;
       SV *value = hv_iternextsv(hv, &key, &retlen);
       if (value && SvOK (value))
         {
-          if (configured_hv)
-            {
-              SV **value_configured_sv
-                  = hv_fetch (configured_hv, key, strlen (key), 0);
-              if (value_configured_sv && SvOK (*value_configured_sv)
-                  && SvIV (*value_configured_sv))
-                configured = 1;
-            }
-          get_sv_option (options, key, value, configured, converter);
+          get_sv_option (options, key, value, force, converter);
+        }
+    }
+}
+
+void
+get_sv_configured_options (SV *configured_sv_in, OPTIONS *options)
+{
+  I32 hv_number;
+  I32 i;
+  HV *configured_hv;
+
+  dTHX;
+
+  configured_hv = (HV *)SvRV (configured_sv_in);
+
+  hv_number = hv_iterinit (configured_hv);
+  for (i = 0; i < hv_number; i++)
+    {
+      char *key;
+      I32 retlen;
+      SV *value = hv_iternextsv(configured_hv, &key, &retlen);
+      if (value && SvOK (value))
+        {
+          int configured = SvIV (value);
+          set_option_key_configured (options, key, configured);
         }
     }
 }
 
 
 OPTIONS *
-copy_sv_options (SV *sv_in, CONVERTER *converter, SV *configured_sv_in)
+init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force)
 {
   OPTIONS *options = new_options ();
-  get_sv_options (sv_in, options, converter, configured_sv_in);
+  get_sv_options (sv_in, options, converter, force);
   return options;
 }
 
@@ -429,6 +441,28 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
     }
 }
 
+void
+copy_converter_conf_sv (HV *hv, CONVERTER *converter,
+                        OPTIONS **conf, const char *conf_key, int force)
+{
+  SV **conf_sv;
+
+  dTHX;
+
+  conf_sv = hv_fetch (hv, conf_key, strlen (conf_key), 0);
+
+  if (conf_sv && SvOK(*conf_sv))
+    {
+      if (*conf)
+        clear_options (*conf);
+      else
+        *conf = new_options ();
+
+      get_sv_options (*conf_sv, *conf, converter, force);
+    }
+}
+
+/* reset output_init_conf.  Can be called after it has been modified */
 /* Texinfo::Convert::Converter generic initialization for all the converters */
 /* Called early, in particuliar before any format specific code has been
    called */
@@ -436,8 +470,7 @@ int
 converter_initialize (SV *converter_sv)
 {
   HV *hv_in;
-  SV **conf_sv;
-  SV **converter_init_conf_sv;
+  SV **configured_sv;
   SV **output_format_sv;
   DOCUMENT *document;
   int converter_descriptor = 0;
@@ -489,27 +522,21 @@ converter_initialize (SV *converter_sv)
   fprintf (stderr, "XS|CONVERTER Init: %d; doc %d; %s\n", converter_descriptor,
                    converter->document->descriptor, converter->output_format);
     */
-  FETCH(conf)
 
-  if (conf_sv && SvOK (*conf_sv))
+  converter->conf = new_options ();
+  /* force is not set, but at this point, the configured field should not
+     be set, so it would not have an effect anyway */
+  copy_converter_conf_sv (hv_in, converter, &converter->conf, "conf", 0);
+
+  converter->init_conf = new_options ();
+  copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
+                                              "converter_init_conf", 1);
+
+  FETCH(configured);
+
+  if (configured_sv && SvOK (*configured_sv))
     {
-      SV **configured_sv;
-      SV *configured_arg = 0;
-
-      FETCH(configured);
-
-      if (configured_sv && SvOK (*configured_sv))
-        configured_arg = *configured_sv;
-      converter->conf
-         = copy_sv_options (*conf_sv, converter, configured_arg);
-    }
-
-  FETCH(converter_init_conf)
-
-  if (converter_init_conf_sv && SvOK (*converter_init_conf_sv))
-    {
-      converter->init_conf
-         = copy_sv_options (*converter_init_conf_sv, converter, 0);
+      get_sv_configured_options (*configured_sv, converter->conf);
     }
 
 #undef FETCH
@@ -528,35 +555,6 @@ converter_initialize (SV *converter_sv)
 }
 
 void
-recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
-                          OPTIONS **conf, const char *conf_key)
-{
-  SV **conf_sv;
-
-  dTHX;
-
-  conf_sv = hv_fetch (hv, conf_key, strlen (conf_key), 0);
-
-  if (conf_sv && SvOK(*conf_sv))
-    {
-      SV **configured_sv;
-      SV *configured_arg = 0;
-
-      if (*conf)
-        free_options (*conf);
-      free (*conf);
-
-      configured_sv = hv_fetch (hv, "configured", strlen ("configured"), 0);
-
-      if (configured_sv && SvOK (*configured_sv))
-        configured_arg = *configured_sv;
-
-      *conf = copy_sv_options (*conf_sv, converter, configured_arg);
-    }
-}
-
-/* reset output_init_conf.  Can be called after it has been modified */
-void
 reset_output_init_conf (SV *sv_in, const char *warn_string)
 {
   HV *hv_in;
@@ -568,8 +566,8 @@ reset_output_init_conf (SV *sv_in, const char *warn_string)
 
   hv_in = (HV *)SvRV (sv_in);
 
-  recopy_converter_conf_sv (hv_in, converter, &converter->init_conf,
-                            "output_init_conf");
+  copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
+                          "output_init_conf", 1);
 }
 
 /* code in comments allow to sort the index names to have a fixed order
@@ -806,7 +804,7 @@ void
 set_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
-    get_sv_option (converter->conf, conf, value, -1, converter);
+    get_sv_option (converter->conf, conf, value, 0, converter);
    /* Too early to have options set
   else
     fprintf (stderr, "HHH no converter conf %s\n", conf);
@@ -817,7 +815,7 @@ void
 force_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
-    get_sv_option (converter->conf, conf, value, 0, converter);
+    get_sv_option (converter->conf, conf, value, 1, converter);
 }
 
 /* output format specific */
@@ -869,7 +867,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (other_converter_options_sv)
     {
       text_options->other_converter_options
-         = copy_sv_options (*other_converter_options_sv, 0, 0);
+         = init_copy_sv_options (*other_converter_options_sv, 0, 1);
     }
 
   self_converter_options_sv = hv_fetch (hv_in, "self_converter_options",
@@ -878,7 +876,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (self_converter_options_sv)
     {
       text_options->self_converter_options
-         = copy_sv_options (*self_converter_options_sv, 0, 0);
+         = init_copy_sv_options (*self_converter_options_sv, 0, 1);
     }
 
   return text_options;
@@ -1073,14 +1071,20 @@ html_get_direction_icons_sv (CONVERTER *converter,
   if (!SvOK (icons_sv))
     return;
 
-  if (!converter || !converter->direction_unit_direction_name)
+  if (!converter || !converter->direction_unit_direction_name
+       /* the following is for consistency, but is not possible */
+      || converter->special_unit_varieties.number
+          + NON_SPECIAL_DIRECTIONS_NR <= 0)
     return;
 
-  direction_icons->number = converter->special_unit_varieties.number
-                        + NON_SPECIAL_DIRECTIONS_NR;
-  direction_icons->list = (char **) malloc
+  if (direction_icons->number == 0)
+    {
+      /* consistent with direction_unit_direction_name size */
+      direction_icons->number = converter->special_unit_varieties.number
+                                 + NON_SPECIAL_DIRECTIONS_NR;
+      direction_icons->list = (char **) malloc
            (direction_icons->number * sizeof (char *));
-  memset (direction_icons->list, 0, direction_icons->number * sizeof (char *));
+    }
 
   icons_hv = (HV *)SvRV (icons_sv);
 
@@ -1095,6 +1099,8 @@ html_get_direction_icons_sv (CONVERTER *converter,
           direction_icons->list[i]
             = strdup (SvPVutf8_nolen (*direction_icon_sv));
         }
+      else
+        direction_icons->list[i] = 0;
     }
 }
 

@@ -1,5 +1,43 @@
 2024-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_XS_reset_output_init_conf): define for
+	Non XS.
+
+	* tp/Texinfo/XS/main/utils.c (set_informative_command_value):
+	rearrange code.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_converted_output_info): do not copy configuration from
+	perl, it should be already set in XS through the overrided functions.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (init_copy_sv_options)
+	(copy_converter_conf_sv): rename copy_sv_options as
+	init_copy_sv_options and recopy_converter_conf_sv as
+	copy_converter_conf_sv.  Update callers.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (copy_converter_conf_sv)
+	(html_get_direction_icons_sv), tp/Texinfo/XS/main/utils.c
+	(html_clear_direction_icons, clear_option),
+	tp/maintain/regenerate_C_options_info.pl (clear_options): add the
+	possibility to clear options without freeing them with clear_option
+	and clear_options.  Do that in copy_converter_conf_sv if the conf is
+	already set.  Allocate icons in html_get_direction_icons_sv only if
+	the number was 0.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_options)
+	(get_sv_configured_options, copy_converter_conf_sv, set_conf)
+	(force_conf), tp/maintain/regenerate_C_options_info.pl
+	(set_option_key_configured): separate setting configured field, with
+	get_sv_configured_options and set_option_key_configured, from setting
+	options values.  Add a force argument to functions to force setting
+	options by ignoring the option configured field if set.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (converter_initialize):
+	call directly new_options and call copy_converter_conf_sv to copy
+	options values.
+
+2024-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter, set_conf),
 	tp/Texinfo/XS/convert/converter.c (set_global_document_commands),
 	tp/Texinfo/XS/main/converter_types.h (OPTION),

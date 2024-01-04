@@ -191,6 +191,7 @@ void wipe_index_names (INDEX **index_names);
 
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);
+void clear_options (OPTIONS *options);
 void free_options (OPTIONS *options);
 
 OPTIONS *new_options (void);
@@ -231,9 +232,11 @@ ELEMENT *get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
                                       enum command_id cmd);
 
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
+void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 
-void free_option (OPTION *option);
 void initialize_option (OPTION *option, enum global_option_type type);
+void clear_option (OPTION *option);
+void free_option (OPTION *option);
 
 #endif

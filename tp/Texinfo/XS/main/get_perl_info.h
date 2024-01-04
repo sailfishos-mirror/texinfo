@@ -13,7 +13,11 @@
 
 /* in options_get_perl.c */
 void get_sv_option (OPTIONS *options, const char *key, SV *value,
-                    int configured, CONVERTER *converter);
+                    int force, CONVERTER *converter);
+/* in options_init_free.c */
+void set_option_key_configured (OPTIONS *options, const char *key,
+                                int configured);
+
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
@@ -27,10 +31,10 @@ void add_svav_to_string_list (SV *sv, STRING_LIST *string_list,
 SOURCE_INFO *get_source_info (SV *source_info_sv);
 void get_line_message (CONVERTER *self, enum error_type type, int continuation,
                        SV *error_location_info, char *message);
-OPTIONS *copy_sv_options (SV *sv_in, CONVERTER *converter,
-                          SV *configured_sv_in);
-void recopy_converter_conf_sv (HV *hv, CONVERTER *converter,
-                               OPTIONS **conf, const char *conf_key);
+OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force);
+void get_sv_configured_options (SV *configured_sv_in, OPTIONS *options);
+void copy_converter_conf_sv (HV *hv, CONVERTER *converter,
+                             OPTIONS **conf, const char *conf_key, int force);
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_conf (CONVERTER *converter, const char *conf, SV *value);
 

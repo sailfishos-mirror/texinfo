@@ -153,6 +153,36 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 print CODE "};\n\n";
 
+print CODE "void\nclear_options (OPTIONS *options)\n{\n";
+foreach my $category (sort(keys(%option_categories))) {
+  print CODE "\n/* ${category} */\n\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    print CODE "  clear_option (&options->$option);\n";
+  }
+}
+print CODE "};\n\n";
+
+# set configured based on the name
+print CODE 'void
+set_option_key_configured (OPTIONS *options, const char *key, int configured)
+{
+  if (0) {}
+';
+foreach my $category (sort(keys(%option_categories))) {
+  print CODE "\n/* ${category} */\n\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    print CODE "  else if (!strcmp (key, \"$option\"))
+    {
+      if (configured > 0)
+        options->$option.configured = configured;
+    }\n";
+  }
+}
+
+print CODE "}\n\n";
+
 # associate commands to options
 print CODE "#include \"command_ids.h\"\n\n";
 print CODE 'OPTION *
@@ -250,21 +280,12 @@ print GET '#include "get_perl_info.h"'."\n";
 print GET '#include "build_perl_info.h"'."\n\n";
 
 print GET 'void
-get_sv_option (OPTIONS *options, const char *key, SV *value, int configured, CONVERTER *converter)
+get_sv_option (OPTIONS *options, const char *key, SV *value, int force, CONVERTER *converter)
 {
   dTHX;
 
   if (0) {}
 ';
-
-#my %non_decoded_customization_variables
-#   = %Texinfo::Common::non_decoded_customization_variables;
-
-# duplicated from Texinfo::Common to avoid depending on Texinfo::Common
-my %non_decoded_customization_variables;
-foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
-  $non_decoded_customization_variables{$variable_name} = 1;
-}
 
 foreach my $category (sort(keys(%option_categories))) {
   print GET "\n/* ${category} */\n\n";
@@ -272,9 +293,7 @@ foreach my $category (sort(keys(%option_categories))) {
     my ($option, $value, $type) = @$option_info;
     print GET "  else if (!strcmp (key, \"$option\"))
     {
-      if (configured > 0)
-        options->$option.configured = configured;
-      else if (configured < 0 && options->$option.configured > 0)
+      if (force <= 0 && options->$option.configured > 0)
         return;\n\n";
     if ($type eq 'char' or $type eq 'bytes') {
       my $SV_function_type = 'utf8';

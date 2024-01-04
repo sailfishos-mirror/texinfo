@@ -1814,8 +1814,6 @@ html_prepare_converted_output_info (SV *converter_in)
            {
              HV *converter_hv = (HV *) SvRV (converter_in);
 
-             recopy_converter_conf_sv (converter_hv, self, &self->conf, "conf");
-
              html_prepare_converted_output_info (self);
              if (self->added_title_tree)
                build_texinfo_tree (self->title_tree, 1);

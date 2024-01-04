@@ -12205,6 +12205,10 @@ sub _html_convert_output($$$$$$$$)
   return $text_output;
 }
 
+sub _XS_reset_output_init_conf($$)
+{
+}
+
 # Main function for outputting a manual in HTML.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
 # module), and $DOCUMENT is the parsed document from the parser and structuring

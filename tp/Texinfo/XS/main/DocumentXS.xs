@@ -165,7 +165,7 @@ set_document_options (SV *sv_options_in, SV *document_in)
                                              "set_document_options");
         if (document)
           {
-            OPTIONS *options = copy_sv_options (sv_options_in, 0, 0);
+            OPTIONS *options = init_copy_sv_options (sv_options_in, 0, 0);
             register_document_options (document, options);
           }
 
@@ -179,7 +179,7 @@ set_document_options (SV *sv_options_in, SV *document_in)
 # do not exist in XS/C data.
 
 # TODO not sure that the options_in argument is good to be
-# copy_sv_options argument, may need to retrieve a converter
+# init_copy_sv_options argument, may need to retrieve a converter
 # first or Parser configuration.  Does not matter much as
 # the approach does not work because replaced_substrings
 # perl element tree cannot be retrieved in C stored documents.
@@ -201,7 +201,7 @@ gdt (SV *options_in, string, ...)
       CODE:
          if (SvOK(options_in))
            {
-             options = copy_sv_options (options_in, 0, 0);
+             options = init_copy_sv_options (options_in, 0, 0);
            }
         if (items > 4 && SvOK(ST(4)))
            in_lang = (char *)SvPVutf8_nolen(ST(4));

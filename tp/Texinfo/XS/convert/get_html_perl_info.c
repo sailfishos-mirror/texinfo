@@ -1076,8 +1076,10 @@ html_converter_initialize_sv (SV *converter_sv,
 
   /* at that point, the format specific informations, in particular the number
      of special elements is available, such that all the options can be
-     passed to C */
-  recopy_converter_conf_sv (converter_hv, converter, &converter->conf, "conf");
+     passed to C.  It is important to set the force argument to 1 to get
+     all the configuration, even if the configured field is set */
+  copy_converter_conf_sv (converter_hv, converter,
+                          &converter->conf, "conf", 1);
 }
 
 void
