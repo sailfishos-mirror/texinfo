@@ -1,9 +1,8 @@
 2024-01-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <process contents>:
-	Limit zeroing of 'empty_lines_count' to elements of type
-	'preformatted' or 'rawpreformatted', which typically only contain
-	content for a single line.  Previously, this code was also used
+	Limit zeroing of 'empty_lines_count' to elements of type 'preformatted'
+	or 'rawpreformatted'.  Previously, this code was also used
 	for processing the contents of whole @menu blocks (as the local
 	variable '$preformatted' was set) but the two cases are quite
 	different and not well handled by the same code.
