@@ -12960,6 +12960,36 @@ convert_preformatted_type (CONVERTER *self, const enum element_type type,
     text_append_n (result, "</dd>", 5);
 }
 
+void
+convert_balanced_braces_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  if (content)
+    text_append (result, content);
+}
+
+void
+convert_index_entry_command_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  char *index_id;
+
+  if (html_in_string (self) || html_in_multi_expanded (self))
+    return;
+
+  index_id = html_command_id (self, element);
+
+  if (index_id && strlen (index_id))
+    {
+      format_separate_anchor (self, index_id, "index-entry-id", result);
+      if (!html_in_preformatted_context (self))
+        text_append_n (result, "\n", 1);
+    }
+}
+
+
 #define static_class(name, class) \
 static char * name ##_array[] = {#class}; \
 static const STRING_LIST name ##_classes = {name ##_array, 1, 1};
@@ -13372,7 +13402,9 @@ convert_row_type (CONVERTER *self, const enum element_type type,
 
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
+  {ET_balanced_braces, &convert_balanced_braces_type},
   {ET_def_line, &convert_def_line_type},
+  {ET_index_entry_command, &convert_index_entry_command_type},
   {ET_paragraph, &convert_paragraph_type},
   {ET_preformatted, &convert_preformatted_type},
   {ET_row, &convert_row_type},
