@@ -555,19 +555,21 @@ converter_initialize (SV *converter_sv)
 }
 
 void
-reset_output_init_conf (SV *sv_in, const char *warn_string)
+reset_output_init_conf (SV *sv_in)
 {
-  HV *hv_in;
-  CONVERTER *converter = 0;
+  CONVERTER *converter;
 
   dTHX;
 
-  converter = get_sv_converter (sv_in, warn_string);
+  converter = get_sv_converter (sv_in, "reset_output_init_conf");
 
-  hv_in = (HV *)SvRV (sv_in);
+  if (converter)
+    {
+      HV *hv_in = (HV *)SvRV (sv_in);
 
-  copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
-                          "output_init_conf", 1);
+      copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
+                             "output_init_conf", 1);
+    }
 }
 
 /* code in comments allow to sort the index names to have a fixed order

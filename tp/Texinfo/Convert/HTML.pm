@@ -276,7 +276,7 @@ my %XS_conversion_overrides = (
   # => "Texinfo::Convert::ConvertXS::html_convert_tree",
 );
 
-# XS function does initialization independent of customization
+# XS initialization independent of customization
 sub _XS_format_init()
 {
 }
@@ -12205,7 +12205,7 @@ sub _html_convert_output($$$$$$$$)
   return $text_output;
 }
 
-sub _XS_reset_output_init_conf($$)
+sub _XS_reset_output_init_conf($)
 {
 }
 
@@ -12297,7 +12297,7 @@ sub output($$)
   # configuration.
   $self->{'output_init_conf'} = { %{$self->{'conf'}} };
   # pass to XS.
-  _XS_reset_output_init_conf($self, 'reset_output_init_conf');
+  _XS_reset_output_init_conf($self);
 
   # set BODYTEXT
   $self->set_global_document_commands('preamble', ['documentlanguage']);

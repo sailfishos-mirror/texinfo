@@ -40,7 +40,7 @@ void force_conf (CONVERTER *converter, const char *conf, SV *value);
 
 CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
 int converter_initialize (SV *converter_sv);
-void reset_output_init_conf (SV *sv_in, const char *warn_string);
+void reset_output_init_conf (SV *sv_in);
 
 INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
                  (INDEX **index_names, SV *index_entries_sorted_by_letter);

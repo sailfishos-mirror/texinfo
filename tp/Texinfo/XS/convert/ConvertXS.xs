@@ -1616,8 +1616,7 @@ html_merge_index_entries (SV *converter_in)
            html_merge_index_entries (self);
 
 void
-reset_output_init_conf (SV *sv_in, warn_string)
-         char *warn_string = (char *)SvPVutf8_nolen($arg);
+reset_output_init_conf (SV *sv_in)
 
 #  my ($output_units, $special_units, $associated_special_units)
 #    = $self->_prepare_conversion_units($root, $document_name);
