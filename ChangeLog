@@ -1,3 +1,17 @@
+2024-01-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <process contents>:
+	Limit zeroing of 'empty_lines_count' to elements of type
+	'preformatted' or 'rawpreformatted', which typically only contain
+	content for a single line.  Previously, this code was also used
+	for processing the contents of whole @menu blocks (as the local
+	variable '$preformatted' was set) but the two cases are quite
+	different and not well handled by the same code.
+	(_convert) <menu_entry>:
+	Unconditionally zero $self->{'empty_lines_count'} when processing
+	the 'menu_entry' element itself, which is contained within the
+	@menu block.
+
 2024-01-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (convert_definfoenclose_type)

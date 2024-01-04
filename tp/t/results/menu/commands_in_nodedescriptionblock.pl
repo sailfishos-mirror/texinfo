@@ -1342,7 +1342,6 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
                tfloat 1.1: Cap1
 
 
-
 * Menu:
 
 * in nodedescriptionblock:               node2.                (line 34)

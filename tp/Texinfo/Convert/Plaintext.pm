@@ -3468,6 +3468,7 @@ sub _convert($$)
     } elsif ($type eq 'menu_entry') {
       my $entry_name_seen = 0;
       my $menu_entry_node;
+      $self->{'empty_lines_count'} = 0;
       foreach my $content (@{$element->{'contents'}}) {
         if ($content->{'type'} eq 'menu_entry_leading_text') {
           if (defined($content->{'text'})) {
@@ -3703,8 +3704,10 @@ sub _convert($$)
 
     for my $content (@$contents) {
       my $text = _convert($self, $content);
-      $self->{'empty_lines_count'} = 0
-        if ($preformatted and $text =~ /\S/);
+      if (defined($type) and ($type eq 'preformatted'
+             or $type eq 'rawpreformatted')) {
+        $self->{'empty_lines_count'} = 0 if ($text =~ /\S/);
+      }
       $result .= $text;
     }
     pop @{$self->{'current_contents'}};
