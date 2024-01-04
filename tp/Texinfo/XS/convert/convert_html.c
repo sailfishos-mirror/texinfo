@@ -10966,6 +10966,27 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+static char *
+trim_trailing_content (const char *content)
+{
+  char *trimmed_content = strdup (content);
+  size_t str_len = strlen (trimmed_content);
+  if (str_len > 0)
+    {
+      char *q = trimmed_content + str_len - 1;
+      while (q > trimmed_content)
+        {
+          if (!strchr (whitespace_chars, *q))
+            {
+              break;
+            }
+          q--;
+        }
+      *(q +1) = '\0';
+    }
+  return trimmed_content;
+}
+
 void
 convert_tab_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
@@ -10983,23 +11004,8 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
   if (content)
     {
       const char *p = content;
-      size_t str_len;
       p += strspn (p, whitespace_chars);
-      trimmed_content = strdup (p);
-      str_len = strlen (trimmed_content);
-      if (str_len > 0)
-        {
-          char *q = trimmed_content + str_len - 1;
-          while (q > trimmed_content)
-            {
-              if (!strchr (whitespace_chars, *q))
-                {
-                  break;
-                }
-              q--;
-            }
-          *(q +1) = '\0';
-        }
+      trimmed_content = trim_trailing_content (p);
     }
   else
     trimmed_content = strdup ("");
@@ -12720,9 +12726,26 @@ convert_paragraph_type (CONVERTER *self, const enum element_type type,
                        const ELEMENT *element, const char *content,
                        TEXT *result)
 {
+  TEXT content_text;
   enum command_id align_cmd;
   char *associated_content
    = html_get_associated_formatted_inline_content (self, element, 0);
+
+  text_init (&content_text);
+
+  if (associated_content)
+    {
+      text_append (&content_text, associated_content);
+      free (associated_content);
+    }
+  if (content)
+    text_append (&content_text, content);
+
+  if (content_text.end <= 0)
+    {
+      free (content_text.text);
+      return;
+    }
 
   if (html_paragraph_number (self) == 1)
     {
@@ -12737,10 +12760,8 @@ convert_paragraph_type (CONVERTER *self, const enum element_type type,
              there are no paragraphs, but preformatted */
               || in_format_cmd == CM_menu)
             {
-              if (associated_content)
-                text_append (result, associated_content);
-              if (content)
-                text_append (result, content);
+              text_append (result, content_text.text);
+              free (content_text.text);
               return;
             }
         }
@@ -12748,18 +12769,16 @@ convert_paragraph_type (CONVERTER *self, const enum element_type type,
 
   if (html_in_string (self))
     {
-      if (associated_content)
-        text_append (result, associated_content);
-      if (content)
-        text_append (result, content);
+      text_append (result, content_text.text);
+      free (content_text.text);
       return;
     }
 
-  if ((!content || content[strspn (content, whitespace_chars)] == '\0')
-      && (!associated_content
-          || associated_content[strspn
-                     (associated_content, whitespace_chars)] == '\0'))
-    return;
+  if (content_text.text[strspn (content_text.text, whitespace_chars)] == '\0')
+    {
+      free (content_text.text);
+      return;
+    }
 
   align_cmd = html_in_align (self);
 
@@ -12783,12 +12802,162 @@ convert_paragraph_type (CONVERTER *self, const enum element_type type,
   else
     text_append_n (result, "<p>", 3);
 
-  if (associated_content)
-    text_append (result, associated_content);
-  if (content)
-    text_append (result, content);
+  text_append (result, content_text.text);
+  free (content_text.text);
 
   text_append_n (result, "</p>", 4);
+}
+
+static char *
+preformatted_class (CONVERTER *self)
+{
+  COMMAND_OR_TYPE *cur_pre_class = 0;
+  COMMAND_OR_TYPE_STACK *pre_classes
+        = html_preformatted_classes_stack (self);
+  size_t i;
+  for (i = 0; i < pre_classes->top; i++)
+    {
+      COMMAND_OR_TYPE *cmd_or_type = &pre_classes->stack[i];
+      if (!(cur_pre_class
+            && (cur_pre_class->variety == CTV_type_command
+                && builtin_command_data[cur_pre_class->cmd].flags
+                                   & CF_preformatted_code)
+            && (!((cmd_or_type->variety == CTV_type_command
+                   && builtin_command_data[cmd_or_type->cmd].flags
+                                     & CF_preformatted_code)
+                  || cmd_or_type->cmd == CM_menu))))
+         cur_pre_class = cmd_or_type;
+    }
+  if (cur_pre_class)
+    {
+      char *pre_class = 0;
+      if (cur_pre_class->variety == CTV_type_command)
+        {
+          xasprintf (&pre_class, "%s-preformatted",
+                     builtin_command_name (cur_pre_class->cmd));
+        }
+      else if (cur_pre_class->variety == CTV_type_type)
+
+        {
+          xasprintf (&pre_class, "%s-preformatted",
+                     self->pre_class_types[cur_pre_class->type]);
+        }
+      if (pre_class)
+        return pre_class;
+    }
+  /* shold not happen */
+  return 0;
+}
+
+void
+convert_preformatted_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  TEXT content_text;
+  char *trimmed_content;
+  enum command_id in_format_cmd;
+  char *pre_class = 0;
+  int in_def = 0;
+  char *attribute_class;
+  STRING_LIST *classes;
+
+  char *associated_content
+   = html_get_associated_formatted_inline_content (self, element, 0);
+
+  text_init (&content_text);
+
+  if (associated_content)
+    {
+      text_append (&content_text, associated_content);
+      free (associated_content);
+    }
+  if (content)
+    text_append (&content_text, content);
+
+  if (content_text.end <= 0)
+    {
+      free (content_text.text);
+      return;
+    }
+
+  in_format_cmd = html_top_block_command (self);
+  if (in_format_cmd == CM_multitable)
+    {
+      const char *p = content_text.text;
+      p += strspn (p, whitespace_chars);
+      trimmed_content = trim_trailing_content (p);
+      free (content_text.text);
+    }
+  else
+    trimmed_content = content_text.text;
+
+  if (html_in_string (self))
+    {
+      text_append (result, trimmed_content);
+      free (trimmed_content);
+      return;
+    }
+
+  /* menu_entry_description is always in a preformatted container
+     in the tree, as the whole menu is meant to be an
+     environment where spaces and newlines are preserved. */
+  if (element->parent && element->parent->type == ET_menu_entry_description)
+    {
+      if (!html_inside_preformatted (self))
+        {
+ /* If not in preformatted block command,
+    we don't preserve spaces and newlines in menu_entry_description,
+    instead the whole menu_entry is in a table, so no <pre> in that situation
+  */
+          text_append (result, trimmed_content);
+          free (trimmed_content);
+          return;
+        }
+      else
+        {
+     /* if directly in description, we want to avoid the linebreak that
+        comes with pre being a block level element, so set a special class */
+          pre_class = strdup ("menu-entry-description-preformatted");
+        }
+    }
+
+  if (!pre_class)
+    pre_class = preformatted_class (self);
+
+  /* this may happen with lines without textual content
+     between a def* and def*x. */
+  if (element->parent
+      && (builtin_command_data[element->parent->cmd].flags & CF_def
+          || element->parent->cmd == CM_defblock))
+    {
+      in_def = 1;
+      text_append_n (result, "<dd>", 4);
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  if (pre_class)
+    {
+      add_string (pre_class, classes);
+      free (pre_class);
+    }
+  attribute_class = html_attribute_class (self, "pre", classes);
+  text_append (result, attribute_class);
+  text_append_n (result, ">", 1);
+  free (attribute_class);
+  destroy_strings_list (classes);
+
+  /* a newline immediately after a <pre> is ignored. */
+  if (trimmed_content[0] == '\n')
+    text_append_n (result, "\n", 1);
+  text_append (result, trimmed_content);
+  free (trimmed_content);
+
+  text_append_n (result, "</pre>", 6);
+
+  if (in_def)
+    text_append_n (result, "</dd>", 5);
 }
 
 #define static_class(name, class) \
@@ -13205,6 +13374,7 @@ convert_row_type (CONVERTER *self, const enum element_type type,
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_def_line, &convert_def_line_type},
   {ET_paragraph, &convert_paragraph_type},
+  {ET_preformatted, &convert_preformatted_type},
   {ET_row, &convert_row_type},
   {ET_table_term, &convert_table_term_type},
   {ET_text, &convert_text},

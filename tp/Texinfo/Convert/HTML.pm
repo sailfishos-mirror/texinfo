@@ -6828,7 +6828,7 @@ $default_types_open{'paragraph'} = \&_open_inline_container_type;
 $default_types_open{'preformatted'} = \&_open_inline_container_type;
 
 
-sub _preformatted_class()
+sub _preformatted_class($)
 {
   my $self = shift;
   my $pre_class;
@@ -6857,13 +6857,16 @@ sub _convert_preformatted_type($$$$)
 
   return '' if ($content eq '');
 
-  my $pre_class = $self->_preformatted_class();
-
   if (top_block_command($self) eq 'multitable') {
     $content =~ s/^\s*//;
     $content =~ s/\s*$//;
   }
 
+  if (in_string($self)) {
+    return $content;
+  }
+
+  my $pre_class;
   # menu_entry_description is always in a preformatted container
   # in the tree, as the whole menu is meant to be an
   # environment where spaces and newlines are preserved.
@@ -6881,10 +6884,9 @@ sub _convert_preformatted_type($$$$)
     }
   }
 
-  if (in_string($self)) {
-    return $content;
-  }
   $content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
+
+  $pre_class = _preformatted_class($self) if (!defined($pre_class));
   my $result = $self->html_attribute_class('pre', [$pre_class]).'>'
                                                    . $content . '</pre>';
 
@@ -7286,7 +7288,7 @@ sub _convert_menu_entry_type($$$)
     }
 
     if (not $in_string) {
-      my $pre_class = $self->_preformatted_class();
+      my $pre_class = _preformatted_class($self);
       $result_name_node = $self->html_attribute_class('pre', [$pre_class]).'>'
                                                . $result_name_node . '</pre>';
     }

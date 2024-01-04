@@ -1,5 +1,22 @@
 2024-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_preformatted_class): fix prototype.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_preformatted_type): rearrange
+	code.
+
+	* tp/Texinfo/XS/convert/convert_html.c (trim_trailing_content): add
+	from convert_tab_command.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_paragraph_type):
+	change code to use a TEXT and free memory in all the situations.
+
+	* tp/Texinfo/XS/convert/convert_html.c (preformatted_class)
+	(convert_preformatted_type, types_internal_conversion_table):
+	add preformatted_class, implement convert_preformatted_type.
+
+2024-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_paragraph_type),
 	(types_internal_conversion_table): implement convert_paragraph_type.
 
