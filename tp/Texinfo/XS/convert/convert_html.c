@@ -12715,6 +12715,82 @@ static TYPE_INTERNAL_OPEN types_internal_open_table[] = {
   {0, 0},
 };
 
+void
+convert_paragraph_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  enum command_id align_cmd;
+  char *associated_content
+   = html_get_associated_formatted_inline_content (self, element, 0);
+
+  if (html_paragraph_number (self) == 1)
+    {
+      enum command_id in_format_cmd = html_top_block_command (self);
+      if (in_format_cmd)
+        {
+          /* no first paragraph in those environment to avoid extra spacing */
+          if (in_format_cmd == CM_itemize
+              || in_format_cmd == CM_enumerate
+              || in_format_cmd == CM_multitable
+          /* this should only happen if in @nodedescriptionblock, otherwise
+             there are no paragraphs, but preformatted */
+              || in_format_cmd == CM_menu)
+            {
+              if (associated_content)
+                text_append (result, associated_content);
+              if (content)
+                text_append (result, content);
+              return;
+            }
+        }
+    }
+
+  if (html_in_string (self))
+    {
+      if (associated_content)
+        text_append (result, associated_content);
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+  if ((!content || content[strspn (content, whitespace_chars)] == '\0')
+      && (!associated_content
+          || associated_content[strspn
+                     (associated_content, whitespace_chars)] == '\0'))
+    return;
+
+  align_cmd = html_in_align (self);
+
+  if (align_cmd)
+    {
+      char *attribute_class;
+      char *class;
+      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+      memset (classes, 0, sizeof (STRING_LIST));
+
+      xasprintf (&class, "%s-paragraph", builtin_command_name (align_cmd));
+      add_string (class, classes);
+      free (class);
+
+      attribute_class = html_attribute_class (self, "p", classes);
+      text_append (result, attribute_class);
+      text_append_n (result, ">", 1);
+      free (attribute_class);
+      destroy_strings_list (classes);
+    }
+  else
+    text_append_n (result, "<p>", 3);
+
+  if (associated_content)
+    text_append (result, associated_content);
+  if (content)
+    text_append (result, content);
+
+  text_append_n (result, "</p>", 4);
+}
+
 #define static_class(name, class) \
 static char * name ##_array[] = {#class}; \
 static const STRING_LIST name ##_classes = {name ##_array, 1, 1};
@@ -13127,10 +13203,11 @@ convert_row_type (CONVERTER *self, const enum element_type type,
 
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
+  {ET_def_line, &convert_def_line_type},
+  {ET_paragraph, &convert_paragraph_type},
+  {ET_row, &convert_row_type},
   {ET_table_term, &convert_table_term_type},
   {ET_text, &convert_text},
-  {ET_row, &convert_row_type},
-  {ET_def_line, &convert_def_line_type},
   {0, 0},
 };
 
