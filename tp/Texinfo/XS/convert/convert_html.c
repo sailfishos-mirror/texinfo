@@ -12989,6 +12989,90 @@ convert_index_entry_command_type (CONVERTER *self, const enum element_type type,
     }
 }
 
+void
+convert_definfoenclose_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  /* FIXME add a span to mark the original command as a class? */
+  char *begin = lookup_extra_string (element, "begin");
+  char *end = lookup_extra_string (element, "end");
+
+  if (begin)
+    format_protect_text (self, begin, result);
+  if (content)
+    text_append (result, content);
+  if (end)
+    format_protect_text (self, end, result);
+}
+
+void
+convert_row_type (CONVERTER *self, const enum element_type type,
+                  const ELEMENT *element, const char *content,
+                  TEXT *result)
+{
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+    }
+
+  if (!content || content[strspn (content, whitespace_chars)] == '\0')
+    return;
+  else
+    {
+      text_append_n (result, "<tr>", 4);
+      text_append (result, content);
+      text_append_n (result, "</tr>", 5);
+
+      if (element->contents.number > 0
+          && element->contents.list[0]->cmd != CM_headitem)
+      /* if headitem, end of line added in _convert_multitable_head_type */
+        text_append (result, "\n");
+    }
+}
+
+void
+convert_multitable_head_type (CONVERTER *self, const enum element_type type,
+                  const ELEMENT *element, const char *content,
+                  TEXT *result)
+{
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+    }
+
+  if (!content || content[strspn (content, whitespace_chars)] == '\0')
+    return;
+  else
+    {
+      text_append_n (result, "<thead>", 7);
+      text_append (result, content);
+      text_append_n (result, "</thead>\n", 9);
+    }
+}
+
+void
+convert_multitable_body_type (CONVERTER *self, const enum element_type type,
+                  const ELEMENT *element, const char *content,
+                  TEXT *result)
+{
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+    }
+
+  if (!content || content[strspn (content, whitespace_chars)] == '\0')
+    return;
+  else
+    {
+      text_append_n (result, "<tbody>", 7);
+      text_append (result, content);
+      text_append_n (result, "</tbody>\n", 9);
+    }
+}
 
 #define static_class(name, class) \
 static char * name ##_array[] = {#class}; \
@@ -13374,37 +13458,14 @@ convert_table_term_type (CONVERTER *self, const enum element_type type,
     }
 }
 
-void
-convert_row_type (CONVERTER *self, const enum element_type type,
-                  const ELEMENT *element, const char *content,
-                  TEXT *result)
-{
-  if (html_in_string (self))
-    {
-      if (content)
-        text_append (result, content);
-    }
-
-  if (!content || content[strspn (content, whitespace_chars)] == '\0')
-    return;
-  else
-    {
-      text_append (result, "<tr>");
-      text_append (result, content);
-      text_append (result, "</tr>");
-
-      if (element->contents.number > 0
-          && element->contents.list[0]->cmd != CM_headitem)
-      /* if headitem, end of line added in _convert_multitable_head_type */
-        text_append (result, "\n");
-    }
-}
-
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_balanced_braces, &convert_balanced_braces_type},
   {ET_def_line, &convert_def_line_type},
+  {ET_definfoenclose_command, &convert_definfoenclose_type},
   {ET_index_entry_command, &convert_index_entry_command_type},
+  {ET_multitable_body, &convert_multitable_body_type},
+  {ET_multitable_head, &convert_multitable_head_type},
   {ET_paragraph, &convert_paragraph_type},
   {ET_preformatted, &convert_preformatted_type},
   {ET_row, &convert_row_type},

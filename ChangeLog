@@ -1,5 +1,13 @@
 2024-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (convert_definfoenclose_type)
+	(convert_multitable_head_type, convert_multitable_body_type)
+	(types_internal_conversion_table): implement
+	convert_definfoenclose_type, convert_multitable_head_type and
+	convert_multitable_body_type.  Move code around.
+
+2024-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_balanced_braces_type)
 	(convert_index_entry_command_type, types_internal_conversion_table):
 	implement convert_balanced_braces_type and
