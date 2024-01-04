@@ -7677,414 +7677,6 @@ format_footnotes_segment (CONVERTER *self, TEXT *result)
     }
 }
 
-#define static_class(name, class) \
-static char * name ##_array[] = {#class}; \
-static const STRING_LIST name ##_classes = {name ##_array, 1, 1};
-
-static_class(def_type, def-type)
-static_class(def_name, def-name)
-static_class(def_code_arguments, def-code-arguments)
-static_class(def_var_arguments, def-var-arguments)
-static_class(call_def, call-def)
-static_class(category_def, category-def)
-
-void
-convert_def_line_type (CONVERTER *self, const enum element_type type,
-                       const ELEMENT *element, const char *content,
-                       TEXT *result)
-{
-  char *index_id;
-  PARSED_DEF *parsed_def;
-  STRING_LIST *classes;
-  char *attribute_class;
-  char *alias_class = 0;
-  enum command_id original_def_cmd;
-  enum command_id def_cmd;
-  enum command_id original_cmd = 0;
-  enum command_id base_cmd = 0;
-  TEXT def_call;
-  char *anchor;
-
-  if (html_in_string (self))
-    {
-      /* should probably never happen */
-      char *text;
-      TEXT_OPTIONS *text_conv_options
-         = copy_options_for_convert_text (self, 0);
-      text = convert_to_text (element, text_conv_options);
-      free (text_conv_options);
-      format_protect_text (self, text, result);
-    }
-
-  index_id = html_command_id (self, element);
-
-  parsed_def = definition_arguments_content (element);
-
-  if (element->cmd)
-    original_def_cmd = element->cmd;
-  else
-    original_def_cmd = element->parent->cmd;
-
-  if (builtin_command_data[original_def_cmd].flags & CF_def_alias)
-    {
-      int i;
-      for (i = 0; def_aliases[i].alias ; i++)
-        {
-          if (def_aliases[i].alias == original_def_cmd)
-            {
-              original_cmd = def_aliases[i].command;
-              break;
-            }
-        }
-
-      xasprintf (&alias_class, "%s-alias-%s",
-                    builtin_command_name(original_def_cmd),
-                    builtin_command_name(original_cmd));
-    }
-  else
-    original_cmd = original_def_cmd;
-
-  /* parent is defblock, we do not put it in class */
-  if (element->cmd == CM_defline || element->cmd == CM_deftypeline)
-    def_cmd = element->cmd;
-  else
-  /* the parent is the def both for def* def_line and def*x */
-    def_cmd = element->parent->cmd;
-
-  if (builtin_command_data[def_cmd].flags & CF_def_alias)
-    {
-      int i;
-      for (i = 0; def_aliases[i].alias ; i++)
-        {
-          if (def_aliases[i].alias == def_cmd)
-            {
-              base_cmd = def_aliases[i].command;
-              break;
-            }
-        }
-    }
-  else
-    base_cmd = def_cmd;
-
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
-
-  add_string (builtin_command_name(original_cmd), classes);
-  if (alias_class)
-    {
-      add_string (alias_class, classes);
-      free (alias_class);
-    }
-  if (base_cmd != original_cmd)
-    {
-      char *class;
-      xasprintf (&class, "def-cmd-%s", builtin_command_name(base_cmd));
-      add_string (class, classes);
-      free (class);
-    }
-
-  text_init (&def_call);
-  text_append (&def_call, "");
-  if (parsed_def->type)
-    {
-      char *type_text;
-      size_t type_text_len;
-      ELEMENT *root_code = new_element (ET__code);
-
-      add_to_contents_as_array (root_code, parsed_def->type);
-
-      add_to_element_list (&self->tree_to_build, root_code);
-
-      type_text = html_convert_tree (self, root_code, 0);
-
-      remove_element_from_list (&self->tree_to_build, root_code);
-
-      destroy_element (root_code);
-      type_text_len = strlen (type_text);
-
-      if (type_text_len > 0)
-        {
-          char *attribute_class = html_attribute_class (self, "code",
-                                                        &def_type_classes);
-          text_append (&def_call, attribute_class);
-          free (attribute_class);
-          text_append_n (&def_call, ">", 1);
-          text_append_n (&def_call, type_text, type_text_len);
-          text_append_n (&def_call, "</code>", 7);
-        }
-      if ((base_cmd == CM_deftypefn || base_cmd == CM_deftypeop)
-          && !strcmp (self->conf->deftypefnnewline.string, "on"))
-        {
-          text_append_n (&def_call, self->line_break_element.string,
-                                    self->line_break_element.len);
-          text_append_n (&def_call, " ", 1);
-        }
-      else if (type_text_len > 0)
-        text_append_n (&def_call, " ", 1);
-      free (type_text);
-    }
-
-  if (parsed_def->name)
-    {
-      char *attribute_class = html_attribute_class (self, "strong",
-                                                    &def_name_classes);
-      ELEMENT *root_code = new_element (ET__code);
-
-      add_to_contents_as_array (root_code, parsed_def->name);
-
-      add_to_element_list (&self->tree_to_build, root_code);
-
-      text_append (&def_call, attribute_class);
-      free (attribute_class);
-      text_append_n (&def_call, ">", 1);
-
-      convert_to_html_internal (self, root_code, &def_call, 0);
-
-      remove_element_from_list (&self->tree_to_build, root_code);
-      destroy_element (root_code);
-
-      text_append_n (&def_call, "</strong>", 9);
-    }
-
-  if (parsed_def->args)
-    {
-      char *args_formatted;
-   /* arguments not only metasyntactic variables
-      (deftypefn, deftypevr, deftypeop, deftypecv) */
-      /* Texinfo::Common::def_no_var_arg_commands{$base_command_name} */
-      if (strlen (builtin_command_name(base_cmd)) >= 7
-          && !memcmp (builtin_command_name(base_cmd), "deftype", 7))
-        {
-          ELEMENT *root_code = new_element (ET__code);
-
-          add_to_contents_as_array (root_code, parsed_def->args);
-
-          add_to_element_list (&self->tree_to_build, root_code);
-
-          args_formatted = html_convert_tree (self, root_code, 0);
-
-          remove_element_from_list (&self->tree_to_build, root_code);
-          destroy_element (root_code);
-
-          if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
-            {
-              char *attribute_class = html_attribute_class (self, "code",
-                                              &def_code_arguments_classes);
-              int status;
-              int omit_def_name_space = lookup_extra_integer (element,
-                                              "omit_def_name_space", &status);
-              if (omit_def_name_space <= 0)
-                text_append_n (&def_call, " ", 1);
-              text_append (&def_call, attribute_class);
-              free (attribute_class);
-              text_append_n (&def_call, ">", 1);
-              text_append (&def_call, args_formatted);
-              text_append_n (&def_call, "</code>", 7);
-            }
-        }
-      else
-        {
-          html_set_code_context (self, 0);
-          args_formatted = html_convert_tree (self, parsed_def->args, 0);
-          html_pop_code_context (self);
-          if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
-            {
-              char *attribute_class = html_attribute_class (self, "var",
-                                              &def_var_arguments_classes);
-              int status;
-              int omit_def_name_space = lookup_extra_integer (element,
-                                              "omit_def_name_space", &status);
-              if (omit_def_name_space <= 0)
-                text_append_n (&def_call, " ", 1);
-              text_append (&def_call, attribute_class);
-              free (attribute_class);
-              text_append_n (&def_call, ">", 1);
-              text_append (&def_call, args_formatted);
-              text_append_n (&def_call, "</var>", 6);
-            }
-        }
-      free (args_formatted);
-    }
-
-  if (self->conf->DEF_TABLE.integer > 0)
-    {
-      ELEMENT *category_tree
-         = definition_category_tree (self->conf, element);
-
-      attribute_class = html_attribute_class (self, "tr", classes);
-      destroy_strings_list (classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
-      if (index_id && strlen (index_id) && !html_in_multi_expanded (self))
-        text_printf (result, " id=\"%s\"", index_id);
-      text_append_n (result, ">", 1);
-
-      attribute_class = html_attribute_class (self, "td",
-                                               &call_def_classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
-      text_append_n (result, ">", 1);
-      text_append_n (result, def_call.text, def_call.end);
-      free (def_call.text);
-      text_append_n (result, "</td>", 5);
-
-      attribute_class = html_attribute_class (self, "td",
-                                              &category_def_classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
-      text_append_n (result, ">[", 2);
-
-      if (category_tree)
-        {
-          add_to_element_list (&self->tree_to_build, category_tree);
-          convert_to_html_internal (self, category_tree, result, 0);
-          remove_element_from_list (&self->tree_to_build, category_tree);
-          destroy_element_and_children (category_tree);
-        }
-      text_append_n (result, "]</td></tr>\n", 12);
-      return;
-    }
-
-  attribute_class = html_attribute_class (self, "dt", classes);
-  destroy_strings_list (classes);
-  text_append (result, attribute_class);
-  free (attribute_class);
-  if (index_id && strlen (index_id) && !html_in_multi_expanded (self))
-    text_printf (result, " id=\"%s\"", index_id);
-  text_append_n (result, ">", 1);
-
-  if (parsed_def->category)
-    {
-      ELEMENT *category_tree = 0;
-      NAMED_STRING_ELEMENT_LIST *substrings
-                                   = new_named_string_element_list ();
-      ELEMENT *category_copy = copy_tree (parsed_def->category);
-
-      add_element_to_named_string_element_list (substrings,
-                                            "category", category_copy);
-      if (parsed_def->class)
-        {
-          ELEMENT *class_copy = copy_tree (parsed_def->class);
-          add_element_to_named_string_element_list (substrings,
-                                            "class", class_copy);
-
-          if (base_cmd == CM_deftypeop && parsed_def->type
-              && !strcmp (self->conf->deftypefnnewline.string, "on"))
-            {
-               category_tree
-                  = html_gdt_tree ("{category} on @code{{class}}:@* ",
-                                   self->document, self, substrings, 0, 0);
-            }
-          else if (base_cmd == CM_defop || base_cmd == CM_deftypeop)
-            {
-               category_tree
-                  = html_gdt_tree ("{category} on @code{{class}}: ",
-                                   self->document, self, substrings, 0, 0);
-            }
-          else if (base_cmd == CM_defcv || base_cmd == CM_deftypecv)
-            {
-               category_tree
-                  = html_gdt_tree ("{category} of @code{{class}}: ",
-                                   self->document, self, substrings, 0, 0);
-            }
-        }
-      else
-        {
-          if ((base_cmd == CM_deftypefn || base_cmd == CM_deftypeop)
-              && parsed_def->type
-              && !strcmp (self->conf->deftypefnnewline.string, "on"))
-            {
-              category_tree
-                  = html_gdt_tree ("{category}:@* ",
-                                   self->document, self, substrings, 0, 0);
-            }
-          else
-            {
-              category_tree
-                  = html_gdt_tree ("{category}: ",
-                                   self->document, self, substrings, 0, 0);
-            }
-        }
-      destroy_named_string_element_list (substrings);
-
-      if (category_tree)
-        {
-          char *attribute_open = html_attribute_class (self, "span",
-                                             &category_def_classes);
-          size_t open_len = strlen (attribute_open);
-          if (open_len)
-            {
-              text_append_n (result, attribute_open, open_len);
-              text_append_n (result, ">", 1);
-            }
-          free (attribute_open);
-          add_to_element_list (&self->tree_to_build, category_tree);
-          convert_to_html_internal (self, category_tree, result, 0);
-          remove_element_from_list (&self->tree_to_build, category_tree);
-          destroy_element_and_children (category_tree);
-          if (open_len)
-            text_append_n (result, "</span>", 7);
-        }
-    }
-
-  destroy_parsed_def (parsed_def);
-
-  anchor = get_copiable_anchor (self, index_id);
-
-  if (anchor)
-    text_append_n (result, "<span>", 6);
-
-  text_append_n (result, def_call.text, def_call.end);
-  free (def_call.text);
-  if (anchor)
-    {
-      text_append (result, anchor);
-      text_append_n (result, "</span>", 7);
-    }
-
-  text_append_n (result, "</dt>\n", 6);
-
-  free (anchor);
-}
-
-void
-convert_table_term_type (CONVERTER *self, const enum element_type type,
-                        const ELEMENT *element, const char *content,
-                        TEXT *result)
-{
-  if (content)
-    {
-      text_append (result, "<dt>");
-      text_append (result, content);
-    }
-}
-
-void
-convert_row_type (CONVERTER *self, const enum element_type type,
-                  const ELEMENT *element, const char *content,
-                  TEXT *result)
-{
-  if (html_in_string (self))
-    {
-      if (content)
-        text_append (result, content);
-    }
-
-  if (!content || content[strspn (content, whitespace_chars)] == '\0')
-    return;
-  else
-    {
-      text_append (result, "<tr>");
-      text_append (result, content);
-      text_append (result, "</tr>");
-
-      if (element->contents.number > 0
-          && element->contents.list[0]->cmd != CM_headitem)
-      /* if headitem, end of line added in _convert_multitable_head_type */
-        text_append (result, "\n");
-    }
-}
-
 static void
 text_element_conversion (CONVERTER *self,
                          const HTML_COMMAND_CONVERSION *specification,
@@ -12920,148 +12512,6 @@ convert_informative_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
-contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
-{
-  if (self->document->sections_list
-      && self->document->sections_list->number > 0
-      && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string, "after_title"))
-    {
-      enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
-      int i;
-      for (i = 0; i < 2; i++)
-        {
-          int contents_set = 0;
-          enum command_id cmd = contents_cmds[i];
-          OPTION *contents_option_ref = get_command_option (self->conf, cmd);
-          if (contents_option_ref->integer > 0)
-            contents_set = 1;
-          if (contents_set)
-            {
-              char *contents_text
-                = contents_inline_element (self, cmd, 0);
-              if (contents_text)
-                {
-                  text_append (result, contents_text);
-                  text_append (result, self->conf->DEFAULT_RULE.string);
-                  text_append_n (result, "\n", 1);
-                  free (contents_text);
-                }
-            }
-        }
-    }
-}
-
-static void
-format_simpletitle (CONVERTER *self, TEXT *result)
-{
-  char *title_text;
-  char *context_str;
-  STRING_LIST *classes;
-  enum command_id cmd = self->simpletitle_cmd;
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
-  add_string (builtin_command_name (cmd), classes);
-  xasprintf (&context_str, "%s simpletitle",
-             builtin_command_name (cmd));
-  title_text
-    = convert_tree_new_formatting_context (self,
-        self->simpletitle_tree, context_str, 0, 0, 0);
-  free (context_str);
-  format_heading_text (self, cmd, classes, title_text,
-                                    0, 0, 0, 0, result);
-  destroy_strings_list (classes);
-  free (title_text);
-}
-
-/* Convert @titlepage.  Falls back to simpletitle. */
-char *
-html_default_format_titlepage (CONVERTER *self)
-{
-  int titlepage_text = 0;
-  TEXT result;
-  text_init (&result);
-  text_append (&result, "");
-  if (self->document->global_commands->titlepage)
-    {
-      ELEMENT *tmp = new_element (ET_NONE);
-      tmp->contents = self->document->global_commands->titlepage->contents;
-      convert_to_html_internal (self, tmp, &result, "convert titlepage");
-      tmp->contents.list = 0;
-      destroy_element (tmp);
-      titlepage_text = 1;
-    }
-  else if (self->simpletitle_tree)
-    {
-      format_simpletitle (self, &result);
-      titlepage_text = 1;
-    }
-  if (titlepage_text)
-    {
-      text_append (&result, self->conf->DEFAULT_RULE.string);
-      text_append_n (&result, "\n", 1);
-    }
-  contents_shortcontents_in_title (self, &result);
-  return result.text;
-}
-
-char *
-format_titlepage (CONVERTER *self)
-{
-  FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_titlepage];
-  if (formatting_reference->status == FRS_status_default_set)
-    {
-      return html_default_format_titlepage (self);
-    }
-  else
-    {
-      return call_formatting_function_format_titlepage (self,
-                                               formatting_reference);
-    }
-}
-
-char *
-html_default_format_title_titlepage (CONVERTER *self)
-{
-  if (self->conf->SHOW_TITLE.integer > 0)
-    {
-      if (self->conf->USE_TITLEPAGE_FOR_TITLE.integer)
-        {
-          return format_titlepage (self);
-        }
-      else
-        {
-          TEXT result;
-          text_init (&result);
-          text_append (&result, "");
-
-          if (self->simpletitle_tree)
-            format_simpletitle (self, &result);
-
-          contents_shortcontents_in_title (self, &result);
-          return result.text;
-        }
-    }
-  return strdup ("");
-}
-
-char *
-format_title_titlepage (CONVERTER *self)
-{
-  FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_title_titlepage];
-  if (formatting_reference->status == FRS_status_default_set)
-    {
-      return html_default_format_title_titlepage (self);
-    }
-  else
-    {
-      return call_formatting_function_format_title_titlepage (self,
-                                                      formatting_reference);
-    }
-}
-
-void
 convert_contents_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -13258,19 +12708,429 @@ static COMMAND_INTERNAL_OPEN commands_internal_open_table[] = {
   {0, 0},
 };
 
+/* associate type to the C function implementing the opening */
+static TYPE_INTERNAL_OPEN types_internal_open_table[] = {
+  {ET_paragraph, &open_inline_container_type},
+  {ET_preformatted, &open_inline_container_type},
+  {0, 0},
+};
+
+#define static_class(name, class) \
+static char * name ##_array[] = {#class}; \
+static const STRING_LIST name ##_classes = {name ##_array, 1, 1};
+
+static_class(def_type, def-type)
+static_class(def_name, def-name)
+static_class(def_code_arguments, def-code-arguments)
+static_class(def_var_arguments, def-var-arguments)
+static_class(call_def, call-def)
+static_class(category_def, category-def)
+
+#undef static_class
+
+void
+convert_def_line_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  char *index_id;
+  PARSED_DEF *parsed_def;
+  STRING_LIST *classes;
+  char *attribute_class;
+  char *alias_class = 0;
+  enum command_id original_def_cmd;
+  enum command_id def_cmd;
+  enum command_id original_cmd = 0;
+  enum command_id base_cmd = 0;
+  TEXT def_call;
+  char *anchor;
+
+  if (html_in_string (self))
+    {
+      /* should probably never happen */
+      char *text;
+      TEXT_OPTIONS *text_conv_options
+         = copy_options_for_convert_text (self, 0);
+      text = convert_to_text (element, text_conv_options);
+      free (text_conv_options);
+      format_protect_text (self, text, result);
+    }
+
+  index_id = html_command_id (self, element);
+
+  parsed_def = definition_arguments_content (element);
+
+  if (element->cmd)
+    original_def_cmd = element->cmd;
+  else
+    original_def_cmd = element->parent->cmd;
+
+  if (builtin_command_data[original_def_cmd].flags & CF_def_alias)
+    {
+      int i;
+      for (i = 0; def_aliases[i].alias ; i++)
+        {
+          if (def_aliases[i].alias == original_def_cmd)
+            {
+              original_cmd = def_aliases[i].command;
+              break;
+            }
+        }
+
+      xasprintf (&alias_class, "%s-alias-%s",
+                    builtin_command_name(original_def_cmd),
+                    builtin_command_name(original_cmd));
+    }
+  else
+    original_cmd = original_def_cmd;
+
+  /* parent is defblock, we do not put it in class */
+  if (element->cmd == CM_defline || element->cmd == CM_deftypeline)
+    def_cmd = element->cmd;
+  else
+  /* the parent is the def both for def* def_line and def*x */
+    def_cmd = element->parent->cmd;
+
+  if (builtin_command_data[def_cmd].flags & CF_def_alias)
+    {
+      int i;
+      for (i = 0; def_aliases[i].alias ; i++)
+        {
+          if (def_aliases[i].alias == def_cmd)
+            {
+              base_cmd = def_aliases[i].command;
+              break;
+            }
+        }
+    }
+  else
+    base_cmd = def_cmd;
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+
+  add_string (builtin_command_name(original_cmd), classes);
+  if (alias_class)
+    {
+      add_string (alias_class, classes);
+      free (alias_class);
+    }
+  if (base_cmd != original_cmd)
+    {
+      char *class;
+      xasprintf (&class, "def-cmd-%s", builtin_command_name(base_cmd));
+      add_string (class, classes);
+      free (class);
+    }
+
+  text_init (&def_call);
+  text_append (&def_call, "");
+  if (parsed_def->type)
+    {
+      char *type_text;
+      size_t type_text_len;
+      ELEMENT *root_code = new_element (ET__code);
+
+      add_to_contents_as_array (root_code, parsed_def->type);
+
+      add_to_element_list (&self->tree_to_build, root_code);
+
+      type_text = html_convert_tree (self, root_code, 0);
+
+      remove_element_from_list (&self->tree_to_build, root_code);
+
+      destroy_element (root_code);
+      type_text_len = strlen (type_text);
+
+      if (type_text_len > 0)
+        {
+          char *attribute_class = html_attribute_class (self, "code",
+                                                        &def_type_classes);
+          text_append (&def_call, attribute_class);
+          free (attribute_class);
+          text_append_n (&def_call, ">", 1);
+          text_append_n (&def_call, type_text, type_text_len);
+          text_append_n (&def_call, "</code>", 7);
+        }
+      if ((base_cmd == CM_deftypefn || base_cmd == CM_deftypeop)
+          && !strcmp (self->conf->deftypefnnewline.string, "on"))
+        {
+          text_append_n (&def_call, self->line_break_element.string,
+                                    self->line_break_element.len);
+          text_append_n (&def_call, " ", 1);
+        }
+      else if (type_text_len > 0)
+        text_append_n (&def_call, " ", 1);
+      free (type_text);
+    }
+
+  if (parsed_def->name)
+    {
+      char *attribute_class = html_attribute_class (self, "strong",
+                                                    &def_name_classes);
+      ELEMENT *root_code = new_element (ET__code);
+
+      add_to_contents_as_array (root_code, parsed_def->name);
+
+      add_to_element_list (&self->tree_to_build, root_code);
+
+      text_append (&def_call, attribute_class);
+      free (attribute_class);
+      text_append_n (&def_call, ">", 1);
+
+      convert_to_html_internal (self, root_code, &def_call, 0);
+
+      remove_element_from_list (&self->tree_to_build, root_code);
+      destroy_element (root_code);
+
+      text_append_n (&def_call, "</strong>", 9);
+    }
+
+  if (parsed_def->args)
+    {
+      char *args_formatted;
+   /* arguments not only metasyntactic variables
+      (deftypefn, deftypevr, deftypeop, deftypecv) */
+      /* Texinfo::Common::def_no_var_arg_commands{$base_command_name} */
+      if (strlen (builtin_command_name(base_cmd)) >= 7
+          && !memcmp (builtin_command_name(base_cmd), "deftype", 7))
+        {
+          ELEMENT *root_code = new_element (ET__code);
+
+          add_to_contents_as_array (root_code, parsed_def->args);
+
+          add_to_element_list (&self->tree_to_build, root_code);
+
+          args_formatted = html_convert_tree (self, root_code, 0);
+
+          remove_element_from_list (&self->tree_to_build, root_code);
+          destroy_element (root_code);
+
+          if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
+            {
+              char *attribute_class = html_attribute_class (self, "code",
+                                              &def_code_arguments_classes);
+              int status;
+              int omit_def_name_space = lookup_extra_integer (element,
+                                              "omit_def_name_space", &status);
+              if (omit_def_name_space <= 0)
+                text_append_n (&def_call, " ", 1);
+              text_append (&def_call, attribute_class);
+              free (attribute_class);
+              text_append_n (&def_call, ">", 1);
+              text_append (&def_call, args_formatted);
+              text_append_n (&def_call, "</code>", 7);
+            }
+        }
+      else
+        {
+          html_set_code_context (self, 0);
+          args_formatted = html_convert_tree (self, parsed_def->args, 0);
+          html_pop_code_context (self);
+          if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
+            {
+              char *attribute_class = html_attribute_class (self, "var",
+                                              &def_var_arguments_classes);
+              int status;
+              int omit_def_name_space = lookup_extra_integer (element,
+                                              "omit_def_name_space", &status);
+              if (omit_def_name_space <= 0)
+                text_append_n (&def_call, " ", 1);
+              text_append (&def_call, attribute_class);
+              free (attribute_class);
+              text_append_n (&def_call, ">", 1);
+              text_append (&def_call, args_formatted);
+              text_append_n (&def_call, "</var>", 6);
+            }
+        }
+      free (args_formatted);
+    }
+
+  if (self->conf->DEF_TABLE.integer > 0)
+    {
+      ELEMENT *category_tree
+         = definition_category_tree (self->conf, element);
+
+      attribute_class = html_attribute_class (self, "tr", classes);
+      destroy_strings_list (classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      if (index_id && strlen (index_id) && !html_in_multi_expanded (self))
+        text_printf (result, " id=\"%s\"", index_id);
+      text_append_n (result, ">", 1);
+
+      attribute_class = html_attribute_class (self, "td",
+                                               &call_def_classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">", 1);
+      text_append_n (result, def_call.text, def_call.end);
+      free (def_call.text);
+      text_append_n (result, "</td>", 5);
+
+      attribute_class = html_attribute_class (self, "td",
+                                              &category_def_classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">[", 2);
+
+      if (category_tree)
+        {
+          add_to_element_list (&self->tree_to_build, category_tree);
+          convert_to_html_internal (self, category_tree, result, 0);
+          remove_element_from_list (&self->tree_to_build, category_tree);
+          destroy_element_and_children (category_tree);
+        }
+      text_append_n (result, "]</td></tr>\n", 12);
+      return;
+    }
+
+  attribute_class = html_attribute_class (self, "dt", classes);
+  destroy_strings_list (classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  if (index_id && strlen (index_id) && !html_in_multi_expanded (self))
+    text_printf (result, " id=\"%s\"", index_id);
+  text_append_n (result, ">", 1);
+
+  if (parsed_def->category)
+    {
+      ELEMENT *category_tree = 0;
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                   = new_named_string_element_list ();
+      ELEMENT *category_copy = copy_tree (parsed_def->category);
+
+      add_element_to_named_string_element_list (substrings,
+                                            "category", category_copy);
+      if (parsed_def->class)
+        {
+          ELEMENT *class_copy = copy_tree (parsed_def->class);
+          add_element_to_named_string_element_list (substrings,
+                                            "class", class_copy);
+
+          if (base_cmd == CM_deftypeop && parsed_def->type
+              && !strcmp (self->conf->deftypefnnewline.string, "on"))
+            {
+               category_tree
+                  = html_gdt_tree ("{category} on @code{{class}}:@* ",
+                                   self->document, self, substrings, 0, 0);
+            }
+          else if (base_cmd == CM_defop || base_cmd == CM_deftypeop)
+            {
+               category_tree
+                  = html_gdt_tree ("{category} on @code{{class}}: ",
+                                   self->document, self, substrings, 0, 0);
+            }
+          else if (base_cmd == CM_defcv || base_cmd == CM_deftypecv)
+            {
+               category_tree
+                  = html_gdt_tree ("{category} of @code{{class}}: ",
+                                   self->document, self, substrings, 0, 0);
+            }
+        }
+      else
+        {
+          if ((base_cmd == CM_deftypefn || base_cmd == CM_deftypeop)
+              && parsed_def->type
+              && !strcmp (self->conf->deftypefnnewline.string, "on"))
+            {
+              category_tree
+                  = html_gdt_tree ("{category}:@* ",
+                                   self->document, self, substrings, 0, 0);
+            }
+          else
+            {
+              category_tree
+                  = html_gdt_tree ("{category}: ",
+                                   self->document, self, substrings, 0, 0);
+            }
+        }
+      destroy_named_string_element_list (substrings);
+
+      if (category_tree)
+        {
+          char *attribute_open = html_attribute_class (self, "span",
+                                             &category_def_classes);
+          size_t open_len = strlen (attribute_open);
+          if (open_len)
+            {
+              text_append_n (result, attribute_open, open_len);
+              text_append_n (result, ">", 1);
+            }
+          free (attribute_open);
+          add_to_element_list (&self->tree_to_build, category_tree);
+          convert_to_html_internal (self, category_tree, result, 0);
+          remove_element_from_list (&self->tree_to_build, category_tree);
+          destroy_element_and_children (category_tree);
+          if (open_len)
+            text_append_n (result, "</span>", 7);
+        }
+    }
+
+  destroy_parsed_def (parsed_def);
+
+  anchor = get_copiable_anchor (self, index_id);
+
+  if (anchor)
+    text_append_n (result, "<span>", 6);
+
+  text_append_n (result, def_call.text, def_call.end);
+  free (def_call.text);
+  if (anchor)
+    {
+      text_append (result, anchor);
+      text_append_n (result, "</span>", 7);
+    }
+
+  text_append_n (result, "</dt>\n", 6);
+
+  free (anchor);
+}
+
+void
+convert_table_term_type (CONVERTER *self, const enum element_type type,
+                        const ELEMENT *element, const char *content,
+                        TEXT *result)
+{
+  if (content)
+    {
+      text_append (result, "<dt>");
+      text_append (result, content);
+    }
+}
+
+void
+convert_row_type (CONVERTER *self, const enum element_type type,
+                  const ELEMENT *element, const char *content,
+                  TEXT *result)
+{
+  if (html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+    }
+
+  if (!content || content[strspn (content, whitespace_chars)] == '\0')
+    return;
+  else
+    {
+      text_append (result, "<tr>");
+      text_append (result, content);
+      text_append (result, "</tr>");
+
+      if (element->contents.number > 0
+          && element->contents.list[0]->cmd != CM_headitem)
+      /* if headitem, end of line added in _convert_multitable_head_type */
+        text_append (result, "\n");
+    }
+}
+
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_table_term, &convert_table_term_type},
   {ET_text, &convert_text},
   {ET_row, &convert_row_type},
   {ET_def_line, &convert_def_line_type},
-  {0, 0},
-};
-
-/* associate type to the C function implementing the opening */
-static TYPE_INTERNAL_OPEN types_internal_open_table[] = {
-  {ET_paragraph, &open_inline_container_type},
-  {ET_preformatted, &open_inline_container_type},
   {0, 0},
 };
 
@@ -13452,6 +13312,148 @@ static OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] 
   {OU_unit, &convert_unit_type},
   {0, 0},
 };
+
+void
+contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
+{
+  if (self->document->sections_list
+      && self->document->sections_list->number > 0
+      && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string, "after_title"))
+    {
+      enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
+      int i;
+      for (i = 0; i < 2; i++)
+        {
+          int contents_set = 0;
+          enum command_id cmd = contents_cmds[i];
+          OPTION *contents_option_ref = get_command_option (self->conf, cmd);
+          if (contents_option_ref->integer > 0)
+            contents_set = 1;
+          if (contents_set)
+            {
+              char *contents_text
+                = contents_inline_element (self, cmd, 0);
+              if (contents_text)
+                {
+                  text_append (result, contents_text);
+                  text_append (result, self->conf->DEFAULT_RULE.string);
+                  text_append_n (result, "\n", 1);
+                  free (contents_text);
+                }
+            }
+        }
+    }
+}
+
+static void
+format_simpletitle (CONVERTER *self, TEXT *result)
+{
+  char *title_text;
+  char *context_str;
+  STRING_LIST *classes;
+  enum command_id cmd = self->simpletitle_cmd;
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+  add_string (builtin_command_name (cmd), classes);
+  xasprintf (&context_str, "%s simpletitle",
+             builtin_command_name (cmd));
+  title_text
+    = convert_tree_new_formatting_context (self,
+        self->simpletitle_tree, context_str, 0, 0, 0);
+  free (context_str);
+  format_heading_text (self, cmd, classes, title_text,
+                                    0, 0, 0, 0, result);
+  destroy_strings_list (classes);
+  free (title_text);
+}
+
+/* Convert @titlepage.  Falls back to simpletitle. */
+char *
+html_default_format_titlepage (CONVERTER *self)
+{
+  int titlepage_text = 0;
+  TEXT result;
+  text_init (&result);
+  text_append (&result, "");
+  if (self->document->global_commands->titlepage)
+    {
+      ELEMENT *tmp = new_element (ET_NONE);
+      tmp->contents = self->document->global_commands->titlepage->contents;
+      convert_to_html_internal (self, tmp, &result, "convert titlepage");
+      tmp->contents.list = 0;
+      destroy_element (tmp);
+      titlepage_text = 1;
+    }
+  else if (self->simpletitle_tree)
+    {
+      format_simpletitle (self, &result);
+      titlepage_text = 1;
+    }
+  if (titlepage_text)
+    {
+      text_append (&result, self->conf->DEFAULT_RULE.string);
+      text_append_n (&result, "\n", 1);
+    }
+  contents_shortcontents_in_title (self, &result);
+  return result.text;
+}
+
+char *
+format_titlepage (CONVERTER *self)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_titlepage];
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_titlepage (self);
+    }
+  else
+    {
+      return call_formatting_function_format_titlepage (self,
+                                               formatting_reference);
+    }
+}
+
+char *
+html_default_format_title_titlepage (CONVERTER *self)
+{
+  if (self->conf->SHOW_TITLE.integer > 0)
+    {
+      if (self->conf->USE_TITLEPAGE_FOR_TITLE.integer)
+        {
+          return format_titlepage (self);
+        }
+      else
+        {
+          TEXT result;
+          text_init (&result);
+          text_append (&result, "");
+
+          if (self->simpletitle_tree)
+            format_simpletitle (self, &result);
+
+          contents_shortcontents_in_title (self, &result);
+          return result.text;
+        }
+    }
+  return strdup ("");
+}
+
+char *
+format_title_titlepage (CONVERTER *self)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_title_titlepage];
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_title_titlepage (self);
+    }
+  else
+    {
+      return call_formatting_function_format_title_titlepage (self,
+                                                      formatting_reference);
+    }
+}
 
 void
 default_format_special_body_contents (CONVERTER *self,

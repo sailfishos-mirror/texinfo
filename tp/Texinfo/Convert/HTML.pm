@@ -2112,6 +2112,7 @@ sub _XS_set_shared_conversion_state($$$;@)
                                $state_name, @args);
 }
 
+# XS is only used for default conversion states.
 sub set_shared_conversion_state($$$;@)
 {
   my $self = shift;
@@ -7702,82 +7703,6 @@ $default_types_conversion{'table_definition'}
 $default_types_conversion{'inter_item'}
                                   = \&_convert_table_definition_type;
 
-sub _contents_shortcontents_in_title($)
-{
-  my $self = shift;
-
-  my $result = '';
-
-  my $sections_list = $self->get_info('sections_list');
-  if ($sections_list
-      and scalar(@{$sections_list}) > 1
-      and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-    foreach my $cmdname ('shortcontents', 'contents') {
-      if ($self->get_conf($cmdname)) {
-        my $contents_text = $self->_contents_inline_element($cmdname, undef);
-        if ($contents_text ne '') {
-          $result .= $contents_text . $self->get_conf('DEFAULT_RULE')."\n";
-        }
-      }
-    }
-  }
-  return $result;
-}
-
-# Convert @titlepage.  Falls back to simpletitle.
-sub _default_format_titlepage($)
-{
-  my $self = shift;
-
-  my $titlepage_text;
-  my $global_commands = $self->get_info('global_commands');
-  if ($global_commands->{'titlepage'}) {
-    $titlepage_text = $self->convert_tree({'contents'
-               => $global_commands->{'titlepage'}->{'contents'}},
-                                          'convert titlepage');
-  } else {
-    my $simpletitle_tree = $self->get_info('simpletitle_tree');
-    if ($simpletitle_tree) {
-      my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
-      my $title_text = $self->convert_tree_new_formatting_context(
-        $simpletitle_tree, "$simpletitle_command_name simpletitle");
-      $titlepage_text = &{$self->formatting_function('format_heading_text')}($self,
-                                  $simpletitle_command_name,
-                          [$simpletitle_command_name], $title_text, 0);
-    }
-  }
-  my $result = '';
-  $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
-    if (defined($titlepage_text));
-  $result .= $self->_contents_shortcontents_in_title();
-  return $result;
-}
-
-sub _default_format_title_titlepage($)
-{
-  my $self = shift;
-
-  if ($self->get_conf('SHOW_TITLE')) {
-    if ($self->get_conf('USE_TITLEPAGE_FOR_TITLE')) {
-      return &{$self->formatting_function('format_titlepage')}($self);
-    } else {
-      my $result = '';
-      my $simpletitle_tree = $self->get_info('simpletitle_tree');
-      if ($simpletitle_tree) {
-        my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
-        my $title_text = $self->convert_tree_new_formatting_context(
-         $simpletitle_tree, "$simpletitle_command_name simpletitle");
-        $result .= &{$self->formatting_function('format_heading_text')}($self,
-                       $simpletitle_command_name,
-                       [$simpletitle_command_name], $title_text, 0);
-      }
-      $result .= $self->_contents_shortcontents_in_title();
-      return $result;
-    }
-  }
-  return '';
-}
-
 # Function for converting special output units
 sub _convert_special_unit_type($$$$)
 {
@@ -7895,6 +7820,82 @@ sub _convert_unit_type($$$$)
 }
 
 $default_output_units_conversion{'unit'} = \&_convert_unit_type;
+
+sub _contents_shortcontents_in_title($)
+{
+  my $self = shift;
+
+  my $result = '';
+
+  my $sections_list = $self->get_info('sections_list');
+  if ($sections_list
+      and scalar(@{$sections_list}) > 1
+      and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
+    foreach my $cmdname ('shortcontents', 'contents') {
+      if ($self->get_conf($cmdname)) {
+        my $contents_text = $self->_contents_inline_element($cmdname, undef);
+        if ($contents_text ne '') {
+          $result .= $contents_text . $self->get_conf('DEFAULT_RULE')."\n";
+        }
+      }
+    }
+  }
+  return $result;
+}
+
+# Convert @titlepage.  Falls back to simpletitle.
+sub _default_format_titlepage($)
+{
+  my $self = shift;
+
+  my $titlepage_text;
+  my $global_commands = $self->get_info('global_commands');
+  if ($global_commands->{'titlepage'}) {
+    $titlepage_text = $self->convert_tree({'contents'
+               => $global_commands->{'titlepage'}->{'contents'}},
+                                          'convert titlepage');
+  } else {
+    my $simpletitle_tree = $self->get_info('simpletitle_tree');
+    if ($simpletitle_tree) {
+      my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
+      my $title_text = $self->convert_tree_new_formatting_context(
+        $simpletitle_tree, "$simpletitle_command_name simpletitle");
+      $titlepage_text = &{$self->formatting_function('format_heading_text')}($self,
+                                  $simpletitle_command_name,
+                          [$simpletitle_command_name], $title_text, 0);
+    }
+  }
+  my $result = '';
+  $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
+    if (defined($titlepage_text));
+  $result .= $self->_contents_shortcontents_in_title();
+  return $result;
+}
+
+sub _default_format_title_titlepage($)
+{
+  my $self = shift;
+
+  if ($self->get_conf('SHOW_TITLE')) {
+    if ($self->get_conf('USE_TITLEPAGE_FOR_TITLE')) {
+      return &{$self->formatting_function('format_titlepage')}($self);
+    } else {
+      my $result = '';
+      my $simpletitle_tree = $self->get_info('simpletitle_tree');
+      if ($simpletitle_tree) {
+        my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
+        my $title_text = $self->convert_tree_new_formatting_context(
+         $simpletitle_tree, "$simpletitle_command_name simpletitle");
+        $result .= &{$self->formatting_function('format_heading_text')}($self,
+                       $simpletitle_command_name,
+                       [$simpletitle_command_name], $title_text, 0);
+      }
+      $result .= $self->_contents_shortcontents_in_title();
+      return $result;
+    }
+  }
+  return '';
+}
 
 # for output units, both normal and special
 sub _default_format_element_footer($$$$;$)
