@@ -11326,8 +11326,8 @@ EOT
           = $self->direction_string($direction, 'button', 'string');
       # FIXME strip FirstInFile from $button to get active icon file?
       $about .=
-        (($self->get_conf('ICONS') &&
-           $self->get_conf('ACTIVE_ICONS')->{$direction}) ?
+        (($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')
+          and $self->get_conf('ACTIVE_ICONS')->{$direction}) ?
             &{$self->formatting_function('format_button_icon_img')}($self,
              $button_name_string, $self->get_conf('ACTIVE_ICONS')->{$direction})
         : ' [' . $self->direction_string($direction, 'text') . '] ');

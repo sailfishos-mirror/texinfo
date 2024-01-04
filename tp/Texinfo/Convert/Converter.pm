@@ -612,7 +612,8 @@ sub get_conf($$)
   }
 
   if ($self->{'converter_descriptor'} and $XS_convert) {
-    return _XS_get_conf($self, $conf);
+    my $result = _XS_get_conf($self, $conf);
+    return $result;
   }
 
   return $self->{'conf'}->{$conf};

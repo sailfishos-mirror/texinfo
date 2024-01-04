@@ -1,5 +1,16 @@
 2024-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (html_build_direction_icons):
+	return the icon as value.
+
+	* tp/maintain/regenerate_C_options_info.pl (build_sv_option): return
+	icons.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about):
+	check if get_conf('ACTIVE_ICONS') is defined before using it.
+
+2024-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_XS_reset_output_init_conf),
 	tp/Texinfo/XS/convert/ConvertXS.xs (reset_output_init_conf),
 	tp/Texinfo/XS/main/get_perl_info.c (reset_output_init_conf): remove

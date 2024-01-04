@@ -7032,8 +7032,10 @@ html_default_format_button (CONVERTER *self,
                   && self->conf->ACTIVE_ICONS.icons->list[button->direction]
                   && strlen (self->conf->ACTIVE_ICONS.icons
                                                 ->list[button->direction]))
-                active_icon = self->conf->ACTIVE_ICONS.icons
+                {
+                  active_icon = self->conf->ACTIVE_ICONS.icons
                                                   ->list[button->direction];
+                }
 
               text_init (&active_text);
               if (!active_icon)

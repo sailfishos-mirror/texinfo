@@ -1923,7 +1923,7 @@ html_build_direction_icons (CONVERTER *converter,
           const char *direction_name
             = converter->direction_unit_direction_name[i];
           hv_store (icons_hv, direction_name, strlen (direction_name),
-                    newSVpv_utf8 (direction_name, 0), 0);
+                    newSVpv_utf8 (direction_icons->list[i], 0), 0);
         }
     }
   return newRV_noinc ((SV *)icons_hv);

@@ -386,7 +386,7 @@ foreach my $category (sort(keys(%option_categories))) {
     }\n";
     } elsif ($type eq 'icons') {
       print GET "    {
-      html_build_direction_icons (converter, options->$option.icons);
+      return html_build_direction_icons (converter, options->$option.icons);
     }\n";
     } else {
       print GET "    {return newSV (0);}\n";
