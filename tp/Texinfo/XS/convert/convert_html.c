@@ -13547,6 +13547,93 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
   free (href);
 }
 
+static char *menu_comment_array[] = {"menu-comment"};
+static const STRING_LIST menu_comment_classes = {menu_comment_array, 1, 1};
+
+void
+convert_menu_comment_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  char *attribute_class;
+
+  if (html_inside_preformatted (self) || html_in_string (self))
+    {
+      if (content)
+        text_append (result, content);
+      return;
+    }
+
+  text_append_n (result, "<tr>", 4);
+  attribute_class = html_attribute_class (self, "th",
+                                &menu_comment_classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, " colspan=\"3\">", 13);
+
+  if (content)
+    text_append (result, content);
+
+  text_append_n (result, "</th></tr>", 10);
+}
+
+void
+convert_before_item_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  enum command_id in_format_cmd;
+
+  if (!content || content[strspn (content, whitespace_chars)] == '\0')
+    return;
+
+  if (html_in_string (self))
+    {
+      text_append (result, content);
+      return;
+    }
+
+  in_format_cmd = html_top_block_command (self);
+
+  if (in_format_cmd == CM_itemize || in_format_cmd == CM_enumerate)
+    {
+      text_append_n (result, "<li>", 4);
+      text_append (result, content);
+      text_append_n (result, "</li>", 5);
+    }
+  else if (in_format_cmd == CM_table || in_format_cmd == CM_vtable
+           || in_format_cmd == CM_ftable)
+    {
+      text_append_n (result, "<dd>", 4);
+      text_append (result, content);
+      text_append_n (result, "</dd>\n", 6);
+    }
+  else if (in_format_cmd == CM_multitable)
+    {
+      char *trimmed_content;
+      const char *p = content;
+      p += strspn (p, whitespace_chars);
+      trimmed_content = trim_trailing_content (p);
+
+      text_append_n (result, "<tr><td>", 8);
+      text_append (result, trimmed_content);
+      free (trimmed_content);
+      text_append_n (result, "</td></tr>\n", 11);
+    }
+}
+
+void
+convert_table_term_type (CONVERTER *self, const enum element_type type,
+                        const ELEMENT *element, const char *content,
+                        TEXT *result)
+{
+  if (content)
+    {
+      text_append (result, "<dt>");
+      text_append (result, content);
+    }
+}
+
 #define static_class(name, class) \
 static char * name ##_array[] = {#class}; \
 static const STRING_LIST name ##_classes = {name ##_array, 1, 1};
@@ -13919,24 +14006,14 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
   free (anchor);
 }
 
-void
-convert_table_term_type (CONVERTER *self, const enum element_type type,
-                        const ELEMENT *element, const char *content,
-                        TEXT *result)
-{
-  if (content)
-    {
-      text_append (result, "<dt>");
-      text_append (result, content);
-    }
-}
-
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_balanced_braces, &convert_balanced_braces_type},
+  {ET_before_item, convert_before_item_type},
   {ET_def_line, &convert_def_line_type},
   {ET_definfoenclose_command, &convert_definfoenclose_type},
   {ET_index_entry_command, &convert_index_entry_command_type},
+  {ET_menu_comment, &convert_menu_comment_type},
   {ET_menu_entry, convert_menu_entry_type},
   {ET_multitable_body, &convert_multitable_body_type},
   {ET_multitable_head, &convert_multitable_head_type},
