@@ -4289,13 +4289,18 @@ sub _default_format_button($$;$)
     }
   } elsif ($button eq ' ') {
     # handle space button
-    if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')
-        and defined($self->get_conf('ACTIVE_ICONS')->{$button})
-        and $self->get_conf('ACTIVE_ICONS')->{$button} ne '') {
+    my $direction_icon;
+    if ($self->get_conf('ICONS')) {
+      my $active_icons = $self->get_conf('ACTIVE_ICONS');
+      if ($active_icons) {
+        $direction_icon = $active_icons->{$button};
+      }
+    }
+    if (defined($direction_icon) and $direction_icon ne '') {
       my $button_name_string = $self->direction_string($button,
                                                        'button', 'string');
       $active = &{$self->formatting_function('format_button_icon_img')}($self,
-                   $button_name_string, $self->get_conf('ACTIVE_ICONS')->{' '});
+                                         $button_name_string, $direction_icon);
     } else {
       $active = $self->direction_string($button, 'text');
     }
@@ -4322,43 +4327,45 @@ sub _default_format_button($$;$)
           $btitle .= " rel=\"$button_rel\"";
         }
       }
-      my $use_icon;
-      if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')) {
+      my $active_icon;
+      if ($self->get_conf('ICONS')) {
+        my $active_icons = $self->get_conf('ACTIVE_ICONS');
+        if ($active_icons) {
         # FIXME strip FirstInFile from $button to get $active_icon?
-        my $active_icon = $self->get_conf('ACTIVE_ICONS')->{$button};
-        my $button_name_string = $self->direction_string($button,
-                                                         'button', 'string');
-        if (defined($active_icon) and $active_icon ne '') {
-          # use icon
-          $active = "<a href=\"$href\"${btitle}>".
-             &{$self->formatting_function('format_button_icon_img')}($self,
-                      $button_name_string, $active_icon,
-                      $self->from_element_direction($button, 'string')) ."</a>";
-          $use_icon = 1;
+          $active_icon = $active_icons->{$button};
         }
       }
-      if (!$use_icon) {
+      if (defined($active_icon) and $active_icon ne '') {
+        my $button_name_string = $self->direction_string($button,
+                                                         'button', 'string');
+        $active = "<a href=\"$href\"${btitle}>".
+           &{$self->formatting_function('format_button_icon_img')}($self,
+                    $button_name_string, $active_icon,
+                    $self->from_element_direction($button, 'string')) ."</a>";
+      } else {
         # use text
         $active = '[' . "<a href=\"$href\"${btitle}>".
           $self->direction_string($button, 'text')."</a>" . ']';
       }
     } else {
       # button is passive
-      my $use_icon;
-      if ($self->get_conf('ICONS') and $self->get_conf('PASSIVE_ICONS')) {
+      my $passive_icon;
+      if ($self->get_conf('ICONS')) {
+        my $passive_icons = $self->get_conf('PASSIVE_ICONS');
+        if ($passive_icons) {
         # FIXME strip FirstInFile from $button to get $passive_icon?
-        my $passive_icon = $self->get_conf('PASSIVE_ICONS')->{$button};
-        my $button_name_string = $self->direction_string($button,
-                                                         'button', 'string');
-        if ($passive_icon and $passive_icon ne '') {
-          $passive = &{$self->formatting_function('format_button_icon_img')}(
-                      $self, $button_name_string, $passive_icon,
-                      $self->from_element_direction($button, 'string'));
-          $use_icon = 1;
+          $passive_icon = $passive_icons->{$button};
         }
       }
-      if (!$use_icon) {
-        $passive =  '[' . $self->direction_string($button, 'text') . ']';
+      if (defined($passive_icon) and $passive_icon ne '') {
+        # FIXME strip FirstInFile from $button to get $passive_icon?
+        my $button_name_string = $self->direction_string($button,
+                                                         'button', 'string');
+        $passive = &{$self->formatting_function('format_button_icon_img')}(
+                    $self, $button_name_string, $passive_icon,
+                    $self->from_element_direction($button, 'string'));
+      } else {
+        $passive = '[' . $self->direction_string($button, 'text') . ']';
       }
     }
     $need_delimiter = 0;
@@ -11286,9 +11293,7 @@ sub _default_format_special_body_about($$$)
     $about .= '  '.&{$self->formatting_function('format_program_string')}($self) ."\n";
     $about .= "</p>\n";
   }
-  $about .= <<EOT;
-<p>
-EOT
+  $about .= "<p>\n";
   $about .= $self->convert_tree(
     $self->gdt('  The buttons in the navigation panels have the following meaning:'))
             . "\n";
@@ -11306,6 +11311,11 @@ EOT
    # TRANSLATORS: section reached column header in the navigation help
    '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n"
  . "  </tr>\n";
+
+  my $active_icons;
+  if ($self->get_conf('ICONS')) {
+    $active_icons = $self->get_conf('ACTIVE_ICONS');
+  }
 
   foreach my $button_spec (@{$self->get_conf('SECTION_BUTTONS')}) {
     next if ($button_spec eq ' ' or ref($button_spec) eq 'CODE'
@@ -11326,10 +11336,9 @@ EOT
           = $self->direction_string($direction, 'button', 'string');
       # FIXME strip FirstInFile from $button to get active icon file?
       $about .=
-        (($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')
-          and $self->get_conf('ACTIVE_ICONS')->{$direction}) ?
+        (($active_icons and $active_icons->{$direction}) ?
             &{$self->formatting_function('format_button_icon_img')}($self,
-             $button_name_string, $self->get_conf('ACTIVE_ICONS')->{$direction})
+                         $button_name_string, $active_icons->{$direction})
         : ' [' . $self->direction_string($direction, 'text') . '] ');
     }
     $about .= "</td>\n";
