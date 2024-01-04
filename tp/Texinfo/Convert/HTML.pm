@@ -7332,7 +7332,8 @@ sub _convert_menu_entry_type($$$)
       if ($menu_entry_node->{'extra'}
           and $menu_entry_node->{'extra'}->{'manual_content'}) {
         $name = $self->command_text($menu_entry_node);
-      } elsif ($menu_entry_node->{'extra'}) {
+      } elsif ($menu_entry_node->{'extra'}
+               and $menu_entry_node->{'extra'}->{'node_content'}) {
         $name = $self->convert_tree({'type' => '_code',
                  'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]},
                                     'menu_arg name');
