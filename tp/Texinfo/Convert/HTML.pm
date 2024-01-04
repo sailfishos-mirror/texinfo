@@ -7172,7 +7172,9 @@ sub _convert_menu_entry_type($$$)
   my $rel = '';
   my $section;
 
+  my $node_description;
   my $formatted_nodedescription_nr;
+
   # external node
   my $external_node;
   if ($menu_entry_node->{'extra'}
@@ -7214,13 +7216,7 @@ sub _convert_menu_entry_type($$$)
                                                  ->{'contents'}->[0]->{'text'})
                              and $menu_description->{'contents'}->[0]
                                   ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
-          my $node_description = $node->{'extra'}->{'node_description'};
-          if ($node->{'extra'}->{'node_description'}->{'cmdname'}
-                eq 'nodedescription') {
-            $menu_description = $node_description->{'args'}->[0];
-          } else {
-            $menu_description = {'contents' => $node_description->{'contents'}};
-          }
+          $node_description = $node->{'extra'}->{'node_description'};
           # update the number of time the node description was formatted
           $formatted_nodedescription_nr
             = $self->get_shared_conversion_state('nodedescription',
@@ -7272,7 +7268,7 @@ sub _convert_menu_entry_type($$$)
       # 'contents' is ignored.
       my $name = $self->convert_tree(
          {'type' => '_code',
-          'contents' => $menu_entry_node->{'contents'}},
+          'contents' => [$menu_entry_node]},
                        "menu_arg menu_entry_node preformatted");
       if (defined($href) and !$in_string) {
         $result_name_node .= "<a href=\"$href\"$rel$accesskey>$name</a>";
@@ -7294,22 +7290,26 @@ sub _convert_menu_entry_type($$$)
     }
 
     my $description = '';
-    if ($menu_description) {
-      if ($formatted_nodedescription_nr) {
-        my $multiple_formatted;
-        if ($formatted_nodedescription_nr > 1) {
-          $multiple_formatted
-            = 'preformatted-node-description-'.$formatted_nodedescription_nr;
-        }
-        $description .= $self->convert_tree_new_formatting_context(
-                                  $menu_description,
-                                  'menu_arg node description preformatted',
-                                  $multiple_formatted, undef,
-                                  'menu');
+    if ($formatted_nodedescription_nr) {
+      my $description_element;
+      if ($node_description->{'cmdname'} eq 'nodedescription') {
+        $description_element = $node_description->{'args'}->[0];
       } else {
-        $description .= $self->convert_tree($menu_description,
-                                          'menu_arg description preformatted');
+        $description_element = {'contents' => $node_description->{'contents'}};
       }
+      my $multiple_formatted;
+      if ($formatted_nodedescription_nr > 1) {
+        $multiple_formatted
+          = 'preformatted-node-description-'.$formatted_nodedescription_nr;
+      }
+      $description .= $self->convert_tree_new_formatting_context(
+                                $description_element,
+                                'menu_arg node description preformatted',
+                                $multiple_formatted, undef,
+                                'menu');
+    } elsif ($menu_description) {
+      $description .= $self->convert_tree($menu_description,
+                                          'menu_arg description preformatted');
     }
 
     return $result_name_node . $description;
@@ -7317,11 +7317,11 @@ sub _convert_menu_entry_type($$$)
 
   my $name;
   my $name_no_number;
-  if ($section) {
+  if ($section and defined($href)) {
     $name = $self->command_text($section);
-    $name_no_number = $self->command_text($section, 'text_nonumber');
-    if (defined($href) and $name ne '') {
+    if ($name ne '') {
       $name = "<a href=\"$href\"$rel$accesskey>$name</a>";
+      $name_no_number = $self->command_text($section, 'text_nonumber');
     }
   }
   if (!defined($name) or $name eq '') {
@@ -7348,24 +7348,30 @@ sub _convert_menu_entry_type($$$)
     $name = "$MENU_SYMBOL ".$name;
   }
   my $description = '';
-  if ($menu_description) {
-    if ($formatted_nodedescription_nr) {
-      my $multiple_formatted;
-      if ($formatted_nodedescription_nr > 1) {
-        $multiple_formatted
-          = 'node-description-'.$formatted_nodedescription_nr;
-      }
-      $description = $self->convert_tree_new_formatting_context(
-                              $menu_description, 'menu_arg node description',
-                              $multiple_formatted, undef, 'menu');
+  if ($formatted_nodedescription_nr) {
+    my $description_element;
+    if ($node_description->{'cmdname'} eq 'nodedescription') {
+      $description_element = $node_description->{'args'}->[0];
     } else {
-      $description = $self->convert_tree($menu_description,
+      $description_element = {'contents' => $node_description->{'contents'}};
+    }
+    my $multiple_formatted;
+    if ($formatted_nodedescription_nr > 1) {
+      $multiple_formatted
+        = 'node-description-'.$formatted_nodedescription_nr;
+    }
+    $description = $self->convert_tree_new_formatting_context(
+                            $description_element, 'menu_arg node description',
+                            $multiple_formatted, undef, 'menu');
+  } elsif ($menu_description) {
+    $description = $self->convert_tree($menu_description,
                                          'menu_arg description');
-    }
-    if ($self->get_conf('AVOID_MENU_REDUNDANCY')) {
-      $description = '' if (_simplify_text_for_comparison($name_no_number)
-                           eq _simplify_text_for_comparison($description));
-    }
+  }
+  if ($description ne ''
+      and $self->get_conf('AVOID_MENU_REDUNDANCY')
+      and _simplify_text_for_comparison($name_no_number)
+            eq _simplify_text_for_comparison($description)) {
+    $description = '';
   }
   my $non_breaking_space = $self->get_info('non_breaking_space');
   return '<tr>'

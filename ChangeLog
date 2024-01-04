@@ -22,6 +22,19 @@
 
 2024-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_menu_entry_type): do not
+	replace the menu_description with the nodedescription derived
+	elements.  Avoid using contents and not element.  Rearrange code.
+
+	* tp/Texinfo/XS/convert/convert_html.c (menu_entry_a)
+	(simplify_text_for_comparison, convert_menu_entry_type)
+	(types_internal_conversion_table): implement convert_menu_entry_type.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_translate_names):
+	reindent.
+
+2024-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_definfoenclose_type)
 	(convert_multitable_head_type, convert_multitable_body_type)
 	(types_internal_conversion_table): implement

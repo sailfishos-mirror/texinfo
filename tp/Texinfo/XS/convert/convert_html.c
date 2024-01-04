@@ -13074,6 +13074,479 @@ convert_multitable_body_type (CONVERTER *self, const enum element_type type,
     }
 }
 
+static char *menu_entry_destination_array[] = {"menu-entry-destination"};
+static const STRING_LIST menu_entry_destination_classes
+  = {menu_entry_destination_array, 1, 1};
+static char *menu_entry_description_array[] = {"menu-entry-description"};
+static const STRING_LIST menu_entry_description_classes
+  = {menu_entry_description_array, 1, 1};
+
+static void
+menu_entry_a (CONVERTER *self, char *href, int isindex,
+              int html_menu_entry_index, TEXT *result)
+{
+  text_printf (result, "<a href=\"%s\"", href);
+  if (isindex)
+    text_append_n (result, " rel=\"index\"", 12);
+  if (self->conf->USE_ACCESSKEY.integer > 0 && html_menu_entry_index < 10)
+    text_printf (result, " accesskey=\"%d\"", html_menu_entry_index);
+  text_append_n (result, ">", 1);
+}
+
+static char *
+simplify_text_for_comparison (const char *text)
+{
+  TEXT result;
+  text_init (&result);
+  text_append (&result, "");
+
+  const char *p = text;
+
+  while (*p)
+    {
+      int w_len = word_bytes_len_multibyte (p);
+      if (w_len)
+        {
+          text_append_n (&result, p, w_len);
+          p += w_len;
+        }
+      else if (*p)
+        {
+          /* skip a character */
+          int char_len = 1;
+          while ((p[char_len] & 0xC0) == 0x80)
+            char_len++;
+          p += char_len;
+        }
+    }
+
+  return result.text;
+}
+
+void
+convert_menu_entry_type (CONVERTER *self, const enum element_type type,
+                  const ELEMENT *element, const char *content,
+                  TEXT *result)
+{
+  ELEMENT *name_entry = 0;
+  ELEMENT *menu_description = 0;
+  ELEMENT *menu_entry_node = 0;
+  ELEMENT *menu_entry_leading_text = 0;
+  ELEMENT *menu_entry_separators[2];
+  ELEMENT *manual_content;
+  ELEMENT *node_description = 0;
+  ELEMENT *section = 0;
+  size_t i;
+  int entry_separators_nr = 0;
+  int entry_separators_idx = 0;
+  char *href = 0;
+  int isindex = 0;
+  int formatted_nodedescription_nr = 0;
+  int in_string = html_in_string (self);
+  int html_menu_entry_index;
+
+  memset (menu_entry_separators, 0, 2 * sizeof (ELEMENT *));
+
+  for (i = 0; i < element->contents.number; i++)
+    {
+      ELEMENT *arg = element->contents.list[i];
+      if (arg->type == ET_menu_entry_leading_text)
+        menu_entry_leading_text = arg;
+      else if (arg->type == ET_menu_entry_name)
+        name_entry = arg;
+      else if (arg->type == ET_menu_entry_description)
+        menu_description = arg;
+      else if (arg->type == ET_menu_entry_separator)
+        {
+          menu_entry_separators[entry_separators_nr] = arg;
+          entry_separators_nr++;
+        }
+      else if (arg->type == ET_menu_entry_node)
+        menu_entry_node = arg;
+    }
+
+  manual_content = lookup_extra_element (menu_entry_node, "manual_content");
+
+  if (manual_content)
+    href = html_command_href (self, menu_entry_node, 0, element, 0);
+  else
+    {
+  /* may not be defined in case of menu entry node consisting only of spaces */
+      char *normalized = lookup_extra_string (menu_entry_node, "normalized");
+      if (normalized)
+        {
+          ELEMENT *node
+           = find_identifier_target (self->document->identifiers_target,
+                                     normalized);
+          if (node)
+            {
+              int status;
+              node_description
+                 = lookup_extra_element (node, "node_description");
+
+   /* if !NODE_NAME_IN_MENU, we pick the associated section, except if
+      the node is the element command */
+              if (self->conf->NODE_NAME_IN_MENU.integer <= 0)
+                {
+                  ELEMENT *associated_section = lookup_extra_element (node,
+                                                       "associated_section");
+                  if (associated_section)
+                    {
+                      const ELEMENT *associated_command
+                       = html_command_root_element_command (self, node);
+                      if (associated_command != node)
+                        {
+                          section = associated_section;
+                          href = html_command_href (self, section,
+                                                    0, element, 0);
+                        }
+                    }
+                }
+              if (!href)
+                href = html_command_href (self, node, 0, element, 0);
+
+          /* will mark the target as an index with rel index.  See
+  http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions
+           */
+              isindex = lookup_extra_integer (node, "isindex", &status);
+
+              if (node_description
+                  /* not menu_description probably cannot happen */
+                  && (!menu_description
+                         /* empty description */
+           || (menu_description->contents.number <= 0
+               || (menu_description->contents.number == 1
+                   && (menu_description->contents.list[0]->contents.number <= 0
+                       || (menu_description->contents.list[0]->contents.number == 1
+                           && menu_description->contents.list[0]->contents.list[0]->text.space > 0
+   && menu_description->contents.list[0]->contents.list[0]->text.text[
+       strspn (menu_description->contents.list[0]->contents.list[0]->text.text,
+             whitespace_chars)] == '\0'))))))
+                {
+        /* update the number of time the node description was formatted */
+                  HTML_TARGET *target_info
+                     = find_element_target (self->html_targets, node);
+                  target_info->formatted_nodedescription_nr++;
+                  formatted_nodedescription_nr
+                    = target_info->formatted_nodedescription_nr;
+                }
+            }
+        }
+    }
+  self->shared_conversion_state.html_menu_entry_index++;
+  html_menu_entry_index = self->shared_conversion_state.html_menu_entry_index;
+
+  if (html_inside_preformatted (self) || in_string)
+    {
+      const char *leading_text = menu_entry_leading_text->text.text;
+      char *menu_symbol;
+      if (!in_string)
+        {
+          char *pre_class = preformatted_class (self);
+          char *attribute_class;
+          STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+          memset (classes, 0, sizeof (STRING_LIST));
+          if (pre_class)
+            {
+              add_string (pre_class, classes);
+              free (pre_class);
+            }
+          attribute_class = html_attribute_class (self, "pre", classes);
+          text_append (result, attribute_class);
+          text_append_n (result, ">", 1);
+          free (attribute_class);
+          destroy_strings_list (classes);
+        }
+
+      /* add leading text, replacing "*" by MENU_SYMBOL */
+      menu_symbol = strchr (leading_text, '*');
+      if (menu_symbol - leading_text > 0)
+        {
+          text_append_n (result, leading_text, menu_symbol - leading_text);
+          leading_text = menu_symbol;
+        }
+      text_append (result, self->conf->MENU_SYMBOL.string);
+      /* past "*" */
+      leading_text++;
+      text_append (result, leading_text);
+
+      if (name_entry)
+        {
+          convert_to_html_internal (self, name_entry, result,
+                                  "menu_arg menu_entry_name preformatted");
+          convert_to_html_internal (self,
+                     menu_entry_separators[entry_separators_idx],
+                     result, "menu_arg name separator preformatted");
+          entry_separators_idx++;
+        }
+
+      if (menu_entry_node)
+        {
+          ELEMENT *root_code = new_element (ET__code);
+          if (!in_string && href)
+            {
+              menu_entry_a (self, href, isindex, html_menu_entry_index,
+                            result);
+            }
+
+          add_to_contents_as_array (root_code, menu_entry_node);
+
+          add_to_element_list (&self->tree_to_build, root_code);
+
+          convert_to_html_internal (self, root_code, result,
+                               "menu_arg menu_entry_node preformatted");
+
+          remove_element_from_list (&self->tree_to_build, root_code);
+
+          destroy_element (root_code);
+
+          if (!in_string && href)
+            text_append_n (result, "</a>", 4);
+        }
+
+      if (entry_separators_idx < entry_separators_nr)
+        {
+          convert_to_html_internal (self,
+                     menu_entry_separators[entry_separators_idx],
+                     result, "menu_arg node separator preformatted");
+          entry_separators_idx++;
+        }
+
+      if (!in_string)
+        text_append_n (result, "</pre>", 6);
+
+      if (formatted_nodedescription_nr > 0)
+        {
+          char *multiple_formatted = 0;
+          char *description;
+          ELEMENT *description_element;
+          if (formatted_nodedescription_nr > 1)
+            {
+              xasprintf (&multiple_formatted,
+                         "preformatted-node-description-%d",
+                         formatted_nodedescription_nr);
+            }
+
+          if (node_description->cmd == CM_nodedescription)
+            description_element = node_description->args.list[0];
+          else
+            {
+              description_element = new_element (ET_NONE);
+              description_element->contents = node_description->contents;
+              add_to_element_list (&self->tree_to_build, description_element);
+            }
+
+          description
+            = convert_tree_new_formatting_context (self, description_element,
+                 "menu_arg node description preformatted", multiple_formatted,
+                 0, CM_menu);
+
+          if (description)
+            {
+              text_append (result, description);
+              free (description);
+            }
+
+          if (formatted_nodedescription_nr > 1)
+            free (multiple_formatted);
+          if (node_description->cmd != CM_nodedescription)
+            {
+              remove_element_from_list (&self->tree_to_build,
+                                        description_element);
+              description_element->contents.list = 0;
+              destroy_element (description_element);
+            }
+        }
+      else if (menu_description)
+        {
+          convert_to_html_internal (self, menu_description, result,
+                                    "menu_arg description preformatted");
+        }
+    }
+  else
+    {
+      char *attribute_class;
+      char *description = 0;
+      char *name_no_number = 0;
+      text_append_n (result, "<tr>", 4);
+      attribute_class = html_attribute_class (self, "td",
+                             &menu_entry_destination_classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">", 1);
+
+      if (section && href)
+        {
+          char *name = html_command_text (self, section, 0);
+          if (name && strlen (name))
+            {
+              name_no_number = html_command_text (self, section,
+                                                  HTT_text_nonumber);
+              menu_entry_a (self, href, isindex, html_menu_entry_index,
+                            result);
+              text_append (result, name);
+              text_append_n (result, "</a>", 4);
+            }
+          free (name);
+        }
+      if (!name_no_number)
+        {
+          char *name = 0;
+          if (name_entry)
+            {
+              name = html_convert_tree (self, name_entry,
+                                        "convert menu_entry_name");
+              if (name)
+                {
+                  if (!strlen (name))
+                    {
+                      free (name);
+                      name = 0;
+                    }
+                }
+            }
+          if (!name)
+            {
+              ELEMENT *manual_content = lookup_extra_element (menu_entry_node,
+                                                            "manual_content");
+              ELEMENT *node_content = lookup_extra_element (menu_entry_node,
+                                                             "node_content");
+              if (manual_content)
+                {
+                  name = html_command_text (self, menu_entry_node, 0);
+                }
+              else if (node_content)
+                {
+                  ELEMENT *root_code = new_element (ET__code);
+
+                  add_to_contents_as_array (root_code, node_content);
+
+                  add_to_element_list (&self->tree_to_build, root_code);
+
+                  name = html_convert_tree (self, root_code,
+                                            "menu_arg name");
+
+                  remove_element_from_list (&self->tree_to_build, root_code);
+
+                  destroy_element (root_code);
+                }
+            }
+
+          text_append (result, self->conf->MENU_SYMBOL.string);
+          text_append_n (result, " ", 1);
+
+          if (href)
+            {
+              menu_entry_a (self, href, isindex, html_menu_entry_index,
+                            result);
+            }
+
+          if (name)
+            {
+              int n = strspn (name, whitespace_chars);
+              if (n)
+                {
+                  name_no_number = strdup (name + n);
+                  free (name);
+                }
+              else
+                name_no_number = name;
+
+              text_append (result, name_no_number);
+            }
+
+          if (href)
+            text_append_n (result, "</a>", 4);
+        }
+
+      text_append (result, self->conf->MENU_ENTRY_COLON.string);
+      text_append_n (result, "</td><td>", 9);
+      text_append_n (result,
+                self->special_character[SC_non_breaking_space].string,
+                self->special_character[SC_non_breaking_space].len);
+      text_append_n (result,
+                self->special_character[SC_non_breaking_space].string,
+                self->special_character[SC_non_breaking_space].len);
+      text_append_n (result, "</td>", 5);
+
+      attribute_class = html_attribute_class (self, "td",
+                             &menu_entry_description_classes);
+      text_append (result, attribute_class);
+      free (attribute_class);
+      text_append_n (result, ">", 1);
+
+      if (formatted_nodedescription_nr > 0)
+        {
+          char *multiple_formatted = 0;
+          ELEMENT *description_element;
+          if (formatted_nodedescription_nr > 1)
+            {
+              xasprintf (&multiple_formatted,
+                         "node-description-%d",
+                         formatted_nodedescription_nr);
+            }
+
+          if (node_description->cmd == CM_nodedescription)
+            description_element = node_description->args.list[0];
+          else
+            {
+              description_element = new_element (ET_NONE);
+              description_element->contents = node_description->contents;
+              add_to_element_list (&self->tree_to_build, description_element);
+            }
+
+          description
+            = convert_tree_new_formatting_context (self, description_element,
+                 "menu_arg node description", multiple_formatted,
+                 0, CM_menu);
+
+          if (formatted_nodedescription_nr > 1)
+            free (multiple_formatted);
+          if (node_description->cmd != CM_nodedescription)
+            {
+              remove_element_from_list (&self->tree_to_build,
+                                        description_element);
+              description_element->contents.list = 0;
+              destroy_element (description_element);
+            }
+        }
+      else if (menu_description)
+        {
+          description = html_convert_tree (self, menu_description,
+                                           "menu_arg description");
+        }
+
+      if (description)
+        {
+          if (strlen (description)
+              && self->conf->AVOID_MENU_REDUNDANCY.integer > 0)
+            {
+              char *simplified_name_no_number
+               = simplify_text_for_comparison (name_no_number);
+              char *simplified_description
+               = simplify_text_for_comparison (description);
+              if (!strcmp (simplified_name_no_number, simplified_description))
+                {
+                  free (description);
+                  description = 0;
+                }
+              free (simplified_name_no_number);
+              free (simplified_description);
+            }
+          if (description)
+            {
+              text_append (result, description);
+              free (description);
+            }
+        }
+
+      free (name_no_number);
+      text_append_n (result, "</td></tr>\n", 11);
+    }
+
+  free (href);
+}
+
 #define static_class(name, class) \
 static char * name ##_array[] = {#class}; \
 static const STRING_LIST name ##_classes = {name ##_array, 1, 1};
@@ -13464,6 +13937,7 @@ static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_def_line, &convert_def_line_type},
   {ET_definfoenclose_command, &convert_definfoenclose_type},
   {ET_index_entry_command, &convert_index_entry_command_type},
+  {ET_menu_entry, convert_menu_entry_type},
   {ET_multitable_body, &convert_multitable_body_type},
   {ET_multitable_head, &convert_multitable_head_type},
   {ET_paragraph, &convert_paragraph_type},
@@ -15512,25 +15986,25 @@ html_translate_names (CONVERTER *self)
           const OUTPUT_UNIT *special_unit
            = self->global_units_directions[special_unit_direction_index];
           if (special_unit)
-             {
-               ELEMENT *command = special_unit->unit_command;
-               if (command)
-                 {
-                   HTML_TARGET *target_info
-                     = find_element_target (self->html_targets, command);
-                   if (target_info)
-                     {
+            {
+              ELEMENT *command = special_unit->unit_command;
+              if (command)
+                {
+                  HTML_TARGET *target_info
+                    = find_element_target (self->html_targets, command);
+                  if (target_info)
+                    {
        /* the tree is a reference to special_unit_info_tree, so it should
           not be freed, but need to be reset to trigger the creation of the
           special_unit_info_tree tree when needed */
-                       clear_tree_added_elements (self, &target_info->tree);
-                       free (target_info->command_text[HTT_string]);
-                       target_info->command_text[HTT_string] = 0;
-                       free (target_info->command_text[HTT_text]);
-                       target_info->command_text[HTT_text] = 0;
-                     }
-                 }
-             }
+                      clear_tree_added_elements (self, &target_info->tree);
+                      free (target_info->command_text[HTT_string]);
+                      target_info->command_text[HTT_string] = 0;
+                      free (target_info->command_text[HTT_text]);
+                      target_info->command_text[HTT_text] = 0;
+                    }
+                }
+            }
         }
     }
 
