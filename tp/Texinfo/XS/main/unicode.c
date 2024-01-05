@@ -91,7 +91,7 @@ unicode_accent (const char *text, const ELEMENT *e)
   if (e->cmd == CM_dotless)
     {
       if (!e->parent || !e->parent->parent || !e->parent->parent->cmd
-          || !unicode_diacritics[e->parent->parent->cmd].text)
+          || !unicode_diacritics[element_builtin_cmd (e->parent->parent)].text)
         {
           if (!strcmp (text, "i"))
             /* dotless i in UTF-8 */

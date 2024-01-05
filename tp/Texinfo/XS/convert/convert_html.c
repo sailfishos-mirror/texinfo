@@ -4568,8 +4568,8 @@ prepare_index_entries_targets (CONVERTER *self)
         /* construct element to convert to a normalized identifier to use as
            hrefs target */
                   normalize_index_element = new_element (ET_NONE);
-                  add_to_element_contents (normalize_index_element,
-                                           entry_reference_content_element);
+                  add_to_contents_as_array (normalize_index_element,
+                                            entry_reference_content_element);
 
                   subentries_tree
                    = comma_index_subentries_tree (main_entry_element, " ");
@@ -8664,6 +8664,7 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
       if (str_len != 1 || !isascii_alnum (*text))
         {
           int w_len = word_bytes_len_multibyte (text);
+          /* not only alphanumeric characters, do not change case */
           if (w_len != str_len)
             set_case = 0;
         }
@@ -8677,12 +8678,14 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
   /* do not return a dotless i or j as such if it is further composed
      with an accented letter, return the letter as is */
   if (element->cmd == CM_dotless
+  /* corresponds to perl exists unicode_accented_letters{accent}->{text} */
       && (!strcmp (text_set, "i") || !strcmp (text_set, "j")))
     {
       if (element->parent && element->parent->parent
           && element->parent->parent->cmd)
         {
-          enum command_id p_cmd = element->parent->parent->cmd;
+          enum command_id p_cmd
+            = element_builtin_cmd (element->parent->parent);
           if (builtin_command_data[p_cmd].flags & CF_accent
               && p_cmd != CM_tieaccent)
             {
@@ -10861,7 +10864,7 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
- if (element->parent && element->parent->cmd == CM_itemize)
+ if (element->parent && element_builtin_cmd (element->parent) == CM_itemize)
     {
       if (content
           && content[strspn (content, whitespace_chars)] != '\0')
@@ -10869,7 +10872,8 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
           text_printf (result, "<li>%s</li>", content);
         }
     }
-  else if (element->parent && element->parent->cmd == CM_enumerate)
+  else if (element->parent
+           && element_builtin_cmd (element->parent) == CM_enumerate)
     {
       if (content
           && content[strspn (content, whitespace_chars)] != '\0')
@@ -10949,6 +10953,7 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
             {
               text_append (result, anchor);
               text_append_n (result, "</span>", 7);
+              free (anchor);
             }
 
           text_append_n (result, "</dt>\n", 6);
@@ -10999,6 +11004,7 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
   ELEMENT *row;
   ELEMENT *multitable;
   ELEMENT *columnfractions;
+  enum command_id first_row_cmd;
   const char *html_element = "td";
 
   if (content)
@@ -11018,7 +11024,8 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
     }
 
   row = element->parent;
-  if (row->contents.list[0]->cmd == CM_headitem)
+  first_row_cmd = element_builtin_cmd (row->contents.list[0]);
+  if (first_row_cmd == CM_headitem)
     html_element = "th";
 
   text_append_n (result, "<", 1);
@@ -11665,6 +11672,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
       if (!index_element_id)
     /* to avoid duplicate names, use a prefix that cannot happen in anchors */
         index_element_id = "t_i";
+      free (root_unit);
     }
 
   letter_id = (char **) malloc (index_sorted->letter_number * sizeof (char *));
@@ -12927,12 +12935,14 @@ convert_preformatted_type (CONVERTER *self, const enum element_type type,
 
   /* this may happen with lines without textual content
      between a def* and def*x. */
-  if (element->parent
-      && (builtin_command_data[element->parent->cmd].flags & CF_def
-          || element->parent->cmd == CM_defblock))
+  if (element->parent)
     {
-      in_def = 1;
-      text_append_n (result, "<dd>", 4);
+      enum command_id p_cmd = element_builtin_cmd (element->parent);
+      if (builtin_command_data[p_cmd].flags & CF_def || p_cmd == CM_defblock)
+        {
+          in_def = 1;
+          text_append_n (result, "<dd>", 4);
+        }
     }
 
   classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
@@ -13025,10 +13035,14 @@ convert_row_type (CONVERTER *self, const enum element_type type,
       text_append (result, content);
       text_append_n (result, "</tr>", 5);
 
-      if (element->contents.number > 0
-          && element->contents.list[0]->cmd != CM_headitem)
+      if (element->contents.number > 0)
+        {
+          enum command_id first_cmd
+            = element_builtin_cmd (element->contents.list[0]);
+          if (first_cmd != CM_headitem)
       /* if headitem, end of line added in _convert_multitable_head_type */
-        text_append (result, "\n");
+            text_append (result, "\n");
+        }
     }
 }
 
@@ -16494,8 +16508,11 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     {
       TEXT debug_str;
       char *contexts_str = debug_print_html_contexts (self);
+      char *explanation_str = explanation;
+      if (!explanation)
+        explanation_str = "NO EXPLANATION";
       text_init (&debug_str);
-      text_printf (&debug_str, "XS|ELEMENT(%s) %s, ->", explanation,
+      text_printf (&debug_str, "XS|ELEMENT(%s) %s, ->", explanation_str,
                                                         contexts_str);
       free (contexts_str);
       if (command_name)
@@ -16982,8 +16999,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         {
           const ELEMENT *content = element->contents.list[content_idx];
           char *explanation;
-          xasprintf (&explanation, "%s c[%d]", command_type.text,
-                     content_idx);
+          xasprintf (&explanation, " C[%d]", content_idx);
           convert_to_html_internal (self, content, &content_formatted,
                                     explanation);
           free (explanation);
