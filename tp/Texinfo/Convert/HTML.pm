@@ -7974,7 +7974,10 @@ sub _default_format_element_footer($$$$;$)
           $content = '' if (!defined($content));
           # FIXME it seems that NO-BREAK SPACE and NEXT LINE (NEL) may
           # not be in \h and \v in some case, but not sure which case it is
-          my @cnt = split(/\P{Word}*[\h\v]+\P{Word}*/, $content);
+          # It is supposed to be explained but it is not very clear
+          # https://perldoc.perl.org/perlrecharclass#Whitespace
+          # TODO starting in Perl v5.18 [\h\v] could be replaced by \s
+          my @cnt = split(/[\h\v]+/, $content);
           if (scalar(@cnt) < $self->get_conf('WORDS_IN_PAGE')) {
             $no_footer_word_count = 1;
           }
