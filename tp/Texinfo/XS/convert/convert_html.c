@@ -11958,7 +11958,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           ELEMENT_LIST *other_subentries_tree = 0;
           int subentry_level = 1;
           ELEMENT *entry_content_element;
-          ELEMENT *entry_ref_tree = new_element (ET_NONE);
+          ELEMENT *entry_ref_tree;
           INDEX_ENTRY *index_entry_ref = letter_entry->entries[j];
           ELEMENT *main_entry_element = index_entry_ref->entry_element;
           ELEMENT *index_entry_info = lookup_extra_element (main_entry_element,
@@ -11980,6 +11980,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     continue;
                 }
             }
+
+          entry_ref_tree = new_element (ET_NONE);
 
           memset (new_normalized_entry_levels, 0,
                   sizeof (char *) * (SUBENTRIES_MAX_LEVEL +1));
@@ -12245,7 +12247,6 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 {
                   char *convert_info;
                   char *entry;
-
 
                   if (!with_new_formatted_entry
                       && prev_normalized_entry_levels[level]
