@@ -10536,6 +10536,8 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
                   free (prepended_text);
                   prepended_text = 0;
                 }
+              else
+                free (cancelled_prepended);
             }
         }
       if (prepended_text && strlen (prepended_text))
@@ -10592,8 +10594,10 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
 {
   ELEMENT_LIST *authors;
 
-  html_cancel_pending_formatted_inline_content (self,
+  char *cancelled = html_cancel_pending_formatted_inline_content (self,
                                             builtin_command_name (cmd));
+  if (cancelled)
+    free (cancelled);
 
   if (!html_in_string (self))
     {
@@ -12241,11 +12245,17 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 {
                   char *convert_info;
                   char *entry;
+
+
                   if (!with_new_formatted_entry
                       && prev_normalized_entry_levels[level]
                       && !strcmp (prev_normalized_entry_levels[level],
                                   new_normalized_entry_levels[level]))
-                    continue;
+                    {
+                      if (level > 0)
+                        destroy_element (entry_trees[level]);
+                      continue;
+                    }
 
                   with_new_formatted_entry = 1;
                   xasprintf (&convert_info,
@@ -12269,8 +12279,11 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                                                  convert_info);
                     }
                   if (level > 0)
-                    remove_element_from_list (&self->tree_to_build,
-                                              entry_trees[level]);
+                    {
+                      remove_element_from_list (&self->tree_to_build,
+                                                entry_trees[level]);
+                      destroy_element (entry_trees[level]);
+                    }
                   free (convert_info);
 
                   add_string (cmd_index_entry_class, entry_classes);
@@ -12325,7 +12338,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                                          convert_info);
             }
           if (last_entry_level > 0)
-            remove_element_from_list (&self->tree_to_build, entry_tree);
+            {
+              remove_element_from_list (&self->tree_to_build, entry_tree);
+              destroy_element (entry_tree);
+            }
           free (convert_info);
 
           if (other_subentries_tree)
