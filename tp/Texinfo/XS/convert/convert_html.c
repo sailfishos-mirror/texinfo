@@ -6116,33 +6116,205 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+static char *foot_body_heading_array[] = {"footnote-body-heading"};
+static const STRING_LIST foot_body_heading_classes
+   = {foot_body_heading_array, 1, 1};
+
 void
-format_element_footer (CONVERTER *self,
-                              const enum output_unit_type unit_type,
-                              const OUTPUT_UNIT *output_unit,
-                              const char *content, ELEMENT *element,
-                              TEXT *result)
+html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
+{
+  size_t i;
+  HTML_PENDING_FOOTNOTE_STACK *pending_footnotes
+   = html_get_pending_footnotes (self);
+
+  if (pending_footnotes->top > 0)
+    {
+      for (i = 0; i < pending_footnotes->top; i++)
+        {
+          const HTML_PENDING_FOOTNOTE *pending_footnote_info
+           = pending_footnotes->stack[i];
+          const ELEMENT *command = pending_footnote_info->command;
+          const char *footid = pending_footnote_info->footid;
+          int number_in_doc = pending_footnote_info->number_in_doc;
+          size_t footnote_text_len;
+          char *footnote_text;
+          char *context_str;
+          char *footnote_text_with_eol;
+          char *attribute_class;
+          char *footnote_mark;
+          char *footnote_location_href
+           = html_footnote_location_href (self, command, 0,
+                                     pending_footnote_info->docid,
+                    pending_footnote_info->footnote_location_filename);
+   /*
+      NOTE the @-commands in @footnote that are formatted differently depending
+      on in_multi_expanded($self) cannot know that the original context
+      of the @footnote in the main document was $multi_expanded_region.
+      We do not want to set multi_expanded in customizable code.  However, it
+      could be possible to set a shared_conversion_state based on $multi_expanded_region
+      and have all the conversion functions calling in_multi_expanded($self)
+      also check the shared_conversion_state.  The special situations
+      with those @-commands in @footnote in multi expanded
+      region do not justify this additional code and complexity.  The consequences
+      should only be redundant anchors HTML elements.
+    */
+          xasprintf (&context_str, "%s %d %s", element_command_name (command),
+                                   number_in_doc, footid);
+          footnote_text
+            = convert_tree_new_formatting_context (self, command->args.list[0],
+                                                         context_str, 0, 0, 0);
+          free (context_str);
+
+          footnote_text_len = strlen (footnote_text);
+          if (footnote_text_len <= 0
+              || footnote_text[footnote_text_len -1] != '\n')
+            {
+              xasprintf (&footnote_text_with_eol, "%s\n", footnote_text);
+              free (footnote_text);
+            }
+          else
+            footnote_text_with_eol = footnote_text;
+
+          if (self->conf->NUMBER_FOOTNOTES.integer > 0)
+            xasprintf (&footnote_mark, "%d", number_in_doc);
+          else
+            footnote_mark
+              = strdup (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL.string);
+
+          attribute_class = html_attribute_class (self, "h5",
+                            &foot_body_heading_classes);
+          text_append (result, attribute_class);
+          free (attribute_class);
+
+          text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
+                       footid, footnote_location_href, footnote_mark);
+
+          free (footnote_mark);
+          free (footnote_location_href);
+
+          text_append (result, footnote_text_with_eol);
+          free (footnote_text_with_eol);
+        }
+    }
+  destroy_pending_footnotes (pending_footnotes);
+}
+
+void
+format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
   FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_element_footer];
-
-/*
+   = &self->current_formatting_references[FR_format_footnotes_sequence];
   if (formatting_reference->status == FRS_status_default_set)
     {
-      html_default_format_element_footer (self, unit_type, output_unit,
-                                          content, element, result);
+      html_default_format_footnotes_sequence (self, result);
     }
   else
-*/
-   {
-     char *formatted_footer
-       = call_formatting_function_format_element_footer (self,
-                                         formatting_reference,
-                                         unit_type,
-                                         output_unit, content, element);
-     text_append (result, formatted_footer);
-     free (formatted_footer);
-   }
+    {
+      char *footnotes_sequence
+        = call_formatting_function_format_footnotes_sequence (self,
+                                                formatting_reference);
+      text_append (result, footnotes_sequence);
+      free (footnotes_sequence);
+    }
+}
+
+void
+default_format_footnotes_segment (CONVERTER *self, TEXT *result)
+{
+  char *class_base;
+  char *attribute_class;
+  char *class;
+  STRING_LIST *classes;
+  ELEMENT *footnote_heading_tree;
+  char *footnote_heading;
+  int level;
+  TEXT foot_lines;
+
+  text_init (&foot_lines);
+  format_footnotes_sequence (self, &foot_lines);
+
+  if (foot_lines.end <= 0)
+    {
+      free (foot_lines.text);
+      return;
+    }
+
+  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (classes, 0, sizeof (STRING_LIST));
+
+  class_base = special_unit_info (self, SUI_type_class,
+                                  "footnotes");
+  xasprintf (&class, "%s-segment", class_base);
+
+  add_string (class, classes);
+  free (class);
+  attribute_class = html_attribute_class (self, "div", classes);
+  clear_strings_list (classes);
+
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  text_append_n (result, ">\n", 2);
+
+  if (self->conf->DEFAULT_RULE.string
+      && strlen (self->conf->DEFAULT_RULE.string))
+    {
+      text_append (result, self->conf->DEFAULT_RULE.string);
+      text_append_n (result, "\n", 1);
+    }
+
+  footnote_heading_tree = special_unit_info_tree (self,
+                              SUIT_type_heading, "footnotes");
+  if (footnote_heading_tree)
+    {
+      footnote_heading = html_convert_tree (self, footnote_heading_tree,
+                                    "convert footnotes special heading");
+    }
+  else
+    {
+      footnote_heading = "";
+    }
+
+  level = self->conf->FOOTNOTE_END_HEADER_LEVEL.integer;
+
+  xasprintf (&class, "%s-heading", class_base);
+
+  add_string (class, classes);
+  free (class);
+
+  format_heading_text (self, 0, classes, footnote_heading, level, 0, 0, 0,
+                       result);
+  destroy_strings_list (classes);
+  text_append_n (result, "\n", 1);
+
+  if (footnote_heading_tree)
+    free (footnote_heading);
+
+  text_append (result, foot_lines.text);
+  free (foot_lines.text);
+  text_append (result, "</div>\n");
+}
+
+void
+format_footnotes_segment (CONVERTER *self, TEXT *result)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_footnotes_segment];
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      default_format_footnotes_segment (self, result);
+    }
+  else
+    {
+      char *footnotes_segment
+        = call_formatting_function_format_footnotes_segment (self,
+                                             formatting_reference);
+      if (footnotes_segment)
+        {
+          text_append (result, footnotes_segment);
+          free (footnotes_segment);
+        }
+    }
 }
 
 void
@@ -7476,205 +7648,214 @@ format_element_header (CONVERTER *self,
     }
 }
 
-static char *foot_body_heading_array[] = {"footnote-body-heading"};
-static const STRING_LIST foot_body_heading_classes
-   = {foot_body_heading_array, 1, 1};
+static int
+word_number_more_than_level (const char *text, int level)
+{
+  const char *p = text;
+  int count = 0;
+
+  while (*p)
+    {
+      int n = strspn (p, whitespace_chars);
+      if (n)
+        {
+          count++;
+          if (count > level)
+            return 1;
+          p += n;
+        }
+      if (*p)
+        {
+          /* skip a character */
+          int char_len = 1;
+          while ((p[char_len] & 0xC0) == 0x80)
+            char_len++;
+          p += char_len;
+        }
+    }
+  return 0;
+}
 
 void
-html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
+html_default_format_element_footer (CONVERTER *self,
+                              const enum output_unit_type unit_type,
+                              const OUTPUT_UNIT *output_unit,
+                              const char *content, const ELEMENT *element,
+                              TEXT *result)
 {
-  size_t i;
-  HTML_PENDING_FOOTNOTE_STACK *pending_footnotes
-   = html_get_pending_footnotes (self);
+  int is_top = unit_is_top_output_unit (self, output_unit);
+  int next_is_top = 0;
+  int next_is_special = 0;
+  int end_page = 0;
+  const BUTTON_SPECIFICATION_LIST *buttons = 0;
 
-  if (pending_footnotes->top > 0)
+  if (output_unit->tree_unit_directions[D_next]
+          && unit_is_top_output_unit (self,
+                               output_unit->tree_unit_directions[D_next]))
+    next_is_top = 1;
+
+  if (output_unit->tree_unit_directions[D_next]
+      && output_unit->tree_unit_directions[D_next]->unit_type
+                                               == OU_special_unit)
+    next_is_special = 1;
+
+  if (!output_unit->tree_unit_directions[D_next])
+    end_page = 1;
+  else if (output_unit->unit_filename
+           && strcmp (output_unit->unit_filename,
+              output_unit->tree_unit_directions[D_next]->unit_filename))
     {
-      for (i = 0; i < pending_footnotes->top; i++)
-        {
-          const HTML_PENDING_FOOTNOTE *pending_footnote_info
-           = pending_footnotes->stack[i];
-          const ELEMENT *command = pending_footnote_info->command;
-          const char *footid = pending_footnote_info->footid;
-          int number_in_doc = pending_footnote_info->number_in_doc;
-          size_t footnote_text_len;
-          char *footnote_text;
-          char *context_str;
-          char *footnote_text_with_eol;
-          char *attribute_class;
-          char *footnote_mark;
-          char *footnote_location_href
-           = html_footnote_location_href (self, command, 0,
-                                     pending_footnote_info->docid,
-                    pending_footnote_info->footnote_location_filename);
-   /*
-      NOTE the @-commands in @footnote that are formatted differently depending
-      on in_multi_expanded($self) cannot know that the original context
-      of the @footnote in the main document was $multi_expanded_region.
-      We do not want to set multi_expanded in customizable code.  However, it
-      could be possible to set a shared_conversion_state based on $multi_expanded_region
-      and have all the conversion functions calling in_multi_expanded($self)
-      also check the shared_conversion_state.  The special situations
-      with those @-commands in @footnote in multi expanded
-      region do not justify this additional code and complexity.  The consequences
-      should only be redundant anchors HTML elements.
-    */
-          xasprintf (&context_str, "%s %d %s", element_command_name (command),
-                                   number_in_doc, footid);
-          footnote_text
-            = convert_tree_new_formatting_context (self, command->args.list[0],
-                                                         context_str, 0, 0, 0);
-          free (context_str);
+      size_t file_index;
+      size_t count_in_file;
 
-          footnote_text_len = strlen (footnote_text);
-          if (footnote_text_len <= 0
-              || footnote_text[footnote_text_len -1] != '\n')
+      if (unit_type == OU_special_unit)
+        file_index = self->special_unit_file_indices[output_unit->index];
+      else
+        file_index = self->output_unit_file_indices[output_unit->index];
+      count_in_file
+        = count_elements_in_file_number (self, CEFT_remaining, file_index +1);
+
+      if (count_in_file == 1)
+        end_page = 1;
+    }
+
+  if ((end_page || next_is_top || next_is_special || is_top)
+      && self->conf->VERTICAL_HEAD_NAVIGATION.integer > 0
+      && (strcmp (self->conf->SPLIT.string, "node")
+          || self->conf->HEADERS.integer > 0 || unit_type == OU_special_unit
+          || is_top))
+    {
+      text_append_n (result, "</td>\n</tr>\n</table>\n", 21);
+    }
+
+  if (end_page)
+    {
+      STRING_LIST *closed_strings;
+      closed_strings = html_close_registered_sections_level (self, 0);
+
+      if (closed_strings->number)
+        {
+          int i;
+          for (i = 0; i < closed_strings->number; i++)
             {
-              xasprintf (&footnote_text_with_eol, "%s\n", footnote_text);
-              free (footnote_text);
+              text_append (result, closed_strings->list[i]);
+              free (closed_strings->list[i]);
             }
-          else
-            footnote_text_with_eol = footnote_text;
-
-          if (self->conf->NUMBER_FOOTNOTES.integer > 0)
-            xasprintf (&footnote_mark, "%d", number_in_doc);
-          else
-            footnote_mark
-              = strdup (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL.string);
-
-          attribute_class = html_attribute_class (self, "h5",
-                            &foot_body_heading_classes);
-          text_append (result, attribute_class);
-          free (attribute_class);
-
-          text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
-                       footid, footnote_location_href, footnote_mark);
-
-          free (footnote_mark);
-          free (footnote_location_href);
-
-          text_append (result, footnote_text_with_eol);
-          free (footnote_text_with_eol);
         }
-    }
-  destroy_pending_footnotes (pending_footnotes);
-}
+      free (closed_strings->list);
+      free (closed_strings);
 
-void
-format_footnotes_sequence (CONVERTER *self, TEXT *result)
-{
-  FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_footnotes_sequence];
-  if (formatting_reference->status == FRS_status_default_set)
-    {
-      html_default_format_footnotes_sequence (self, result);
-    }
-  else
-    {
-      char *footnotes_sequence
-        = call_formatting_function_format_footnotes_sequence (self,
-                                                formatting_reference);
-      text_append (result, footnotes_sequence);
-      free (footnotes_sequence);
-    }
-}
-
-void
-default_format_footnotes_segment (CONVERTER *self, TEXT *result)
-{
-  char *class_base;
-  char *attribute_class;
-  char *class;
-  STRING_LIST *classes;
-  ELEMENT *footnote_heading_tree;
-  char *footnote_heading;
-  int level;
-  TEXT foot_lines;
-
-  text_init (&foot_lines);
-  format_footnotes_sequence (self, &foot_lines);
-
-  if (foot_lines.end <= 0)
-    {
-      free (foot_lines.text);
-      return;
-    }
-
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
-
-  class_base = special_unit_info (self, SUI_type_class,
-                                  "footnotes");
-  xasprintf (&class, "%s-segment", class_base);
-
-  add_string (class, classes);
-  free (class);
-  attribute_class = html_attribute_class (self, "div", classes);
-  clear_strings_list (classes);
-
-  text_append (result, attribute_class);
-  free (attribute_class);
-
-  text_append_n (result, ">\n", 2);
-
-  if (self->conf->DEFAULT_RULE.string
-      && strlen (self->conf->DEFAULT_RULE.string))
-    {
-      text_append (result, self->conf->DEFAULT_RULE.string);
-      text_append_n (result, "\n", 1);
-    }
-
-  footnote_heading_tree = special_unit_info_tree (self,
-                              SUIT_type_heading, "footnotes");
-  if (footnote_heading_tree)
-    {
-      footnote_heading = html_convert_tree (self, footnote_heading_tree,
-                                    "convert footnotes special heading");
-    }
-  else
-    {
-      footnote_heading = "";
-    }
-
-  level = self->conf->FOOTNOTE_END_HEADER_LEVEL.integer;
-
-  xasprintf (&class, "%s-heading", class_base);
-
-  add_string (class, classes);
-  free (class);
-
-  format_heading_text (self, 0, classes, footnote_heading, level, 0, 0, 0,
-                       result);
-  destroy_strings_list (classes);
-  text_append_n (result, "\n", 1);
-
-  if (footnote_heading_tree)
-    free (footnote_heading);
-
-  text_append (result, foot_lines.text);
-  free (foot_lines.text);
-  text_append (result, "</div>\n");
-}
-
-void
-format_footnotes_segment (CONVERTER *self, TEXT *result)
-{
-  FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_footnotes_segment];
-  if (formatting_reference->status == FRS_status_default_set)
-    {
-      default_format_footnotes_segment (self, result);
-    }
-  else
-    {
-      char *footnotes_segment
-        = call_formatting_function_format_footnotes_segment (self,
-                                             formatting_reference);
-      if (footnotes_segment)
+      /* setup buttons for navigation footer */
+      if ((is_top || unit_type == OU_special_unit)
+           && ((self->conf->SPLIT.string
+                && strcmp (self->conf->SPLIT.string, ""))
+               || self->conf->MONOLITHIC.integer <= 0)
+           && (self->conf->HEADERS.integer > 0
+               || (self->conf->SPLIT.string
+                   && strcmp (self->conf->SPLIT.string, "")
+                   && strcmp (self->conf->SPLIT.string, "node"))))
+         {
+           if (is_top)
+             buttons = self->conf->TOP_BUTTONS.buttons;
+           else
+             buttons = self->conf->MISC_BUTTONS.buttons;
+         }
+      else if (self->conf->SPLIT.string
+                && !strcmp (self->conf->SPLIT.string, "section"))
+        buttons = self->conf->SECTION_FOOTER_BUTTONS.buttons;
+      else if (self->conf->SPLIT.string
+                && !strcmp (self->conf->SPLIT.string, "chapter"))
+        buttons = self->conf->CHAPTER_FOOTER_BUTTONS.buttons;
+      else if (self->conf->SPLIT.string
+                && !strcmp (self->conf->SPLIT.string, "node"))
         {
-          text_append (result, footnotes_segment);
-          free (footnotes_segment);
+          if (self->conf->HEADERS.integer > 0)
+            {
+              if (self->conf->WORDS_IN_PAGE.integer > 0)
+                {
+                  if (content
+                      && word_number_more_than_level (content,
+                                        self->conf->WORDS_IN_PAGE.integer))
+                    {
+                      buttons = self->conf->NODE_FOOTER_BUTTONS.buttons;
+                    }
+                }
+              else
+                buttons = self->conf->NODE_FOOTER_BUTTONS.buttons;
+            }
         }
     }
+
+  if ((!output_unit->tree_unit_directions[D_next]
+       || (output_unit->unit_filename
+           && strcmp (output_unit->unit_filename,
+              output_unit->tree_unit_directions[D_next]->unit_filename)))
+      && !strcmp (self->conf->footnotestyle.string, "end"))
+    {
+      format_footnotes_segment (self, result);
+    }
+
+  if (buttons || !end_page || self->conf->PROGRAM_NAME_IN_FOOTER.integer > 0)
+    {
+      char *rule = 0;
+
+      if (!end_page && (is_top || next_is_top || (next_is_special
+                                       && unit_type != OU_special_unit)))
+        {
+          rule = self->conf->BIG_RULE.string;
+        }
+      else if (!buttons || is_top || unit_type == OU_special_unit
+               || (end_page && self->conf->SPLIT.string
+                   && (!strcmp (self->conf->SPLIT.string, "section")
+                       || !strcmp (self->conf->SPLIT.string, "chapter")))
+               || (self->conf->SPLIT.string
+                   && !strcmp (self->conf->SPLIT.string, "node")
+                   && self->conf->HEADERS.integer > 0))
+        {
+          rule = self->conf->DEFAULT_RULE.string;
+        }
+      if (rule && strlen (rule))
+        {
+          text_append (result, rule);
+          text_append_n (result, "\n", 1);
+        }
+    }
+
+  if (buttons)
+    {
+      const char *cmdname = 0;
+      if (element)
+        cmdname = element_command_name (element);
+
+      format_navigation_panel (self, buttons, cmdname, element, 0, result);
+    }
+}
+
+void
+format_element_footer (CONVERTER *self,
+                              const enum output_unit_type unit_type,
+                              const OUTPUT_UNIT *output_unit,
+                              const char *content, const ELEMENT *element,
+                              TEXT *result)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_element_footer];
+
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      html_default_format_element_footer (self, unit_type, output_unit,
+                                          content, element, result);
+    }
+  else
+   {
+     char *formatted_footer
+       = call_formatting_function_format_element_footer (self,
+                                         formatting_reference,
+                                         unit_type,
+                                         output_unit, content, element);
+     text_append (result, formatted_footer);
+     free (formatted_footer);
+   }
 }
 
 static void

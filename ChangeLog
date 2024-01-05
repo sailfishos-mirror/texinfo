@@ -1,5 +1,20 @@
 2024-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_element_footer):
+	rearrange code for rules.  Make a condition clearer.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_element_footer): make element
+	argument const.
+
+	* tp/Texinfo/XS/convert/convert_html.c: move functions round.
+
+	* tp/Texinfo/XS/convert/convert_html.c (word_number_more_than_level)
+	(html_default_format_element_footer, format_element_footer): implement
+	html_default_format_element_footer.
+
+2024-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(prepare_index_entries_targets): do not reset the parent of the index
 	element.

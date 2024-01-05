@@ -7945,7 +7945,6 @@ sub _default_format_element_footer($$$$;$)
 </table>"."\n";
   }
 
-  my $rule = '';
   my $buttons;
 
   if ($end_page) {
@@ -7954,7 +7953,7 @@ sub _default_format_element_footer($$$$;$)
 
     # setup buttons for navigation footer
     if (($is_top or $is_special)
-        and ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC'))
+        and ($self->get_conf('SPLIT') ne '' or !$self->get_conf('MONOLITHIC'))
         and (($self->get_conf('HEADERS')
               or ($self->get_conf('SPLIT')
                   and $self->get_conf('SPLIT') ne 'node')))) {
@@ -7998,21 +7997,21 @@ sub _default_format_element_footer($$$$;$)
     $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
   }
 
-  if (!$buttons or $is_top or $is_special
-     or ($end_page and ($self->get_conf('SPLIT') eq 'chapter'
-                       or $self->get_conf('SPLIT') eq 'section'))
-     or ($self->get_conf('SPLIT') eq 'node' and $self->get_conf('HEADERS'))) {
-    $rule = $self->get_conf('DEFAULT_RULE');
-  }
-
-  if (!$end_page and ($is_top or $next_is_top or ($next_is_special
-                                                  and !$is_special))) {
-    $rule = $self->get_conf('BIG_RULE');
-  }
-
   if ($buttons or !$end_page or $self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
-    $result .= "$rule\n" if ($rule);
+    my $rule;
+    if (!$end_page and ($is_top or $next_is_top or ($next_is_special
+                                                    and !$is_special))) {
+      $rule = $self->get_conf('BIG_RULE');
+    } elsif (!$buttons or $is_top or $is_special
+             or ($end_page and ($self->get_conf('SPLIT') eq 'chapter'
+                                 or $self->get_conf('SPLIT') eq 'section'))
+             or ($self->get_conf('SPLIT') eq 'node'
+                 and $self->get_conf('HEADERS'))) {
+      $rule = $self->get_conf('DEFAULT_RULE');
+    }
+    $result .= "$rule\n" if (defined($rule) and $rule ne '');
   }
+
   if ($buttons) {
     my $cmdname;
     $cmdname = $command->{'cmdname'} if ($command and $command->{'cmdname'});

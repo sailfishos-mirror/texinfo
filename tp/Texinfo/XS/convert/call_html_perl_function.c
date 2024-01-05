@@ -1835,7 +1835,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
                               const enum output_unit_type unit_type,
                               const OUTPUT_UNIT *output_unit,
-                              const char *content, ELEMENT *command)
+                              const char *content, const ELEMENT *command)
 {
   int count;
   char *result = 0;
