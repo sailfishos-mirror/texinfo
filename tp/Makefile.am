@@ -173,6 +173,7 @@ test_files = \
  t/include/section_file_no_node.texi \
  t/include/section_file_no_node_include.texi \
  t/init/command_translation_modified.init \
+ t/init/css_in_node_redirection_page.pm \
  t/init/cvs.init \
  t/init/icons.init \
  t/init/ignore_and_comments_output.init \

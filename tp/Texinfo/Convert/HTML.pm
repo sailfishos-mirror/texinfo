@@ -274,6 +274,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_convert_output",
   #"Texinfo::Convert::HTML::_XS_html_convert_tree"
   # => "Texinfo::Convert::ConvertXS::html_convert_tree",
+  "Texinfo::Convert::HTML::_prepare_node_redirection_page"
+   => "Texinfo::Convert::ConvertXS::html_prepare_node_redirection_page",
 );
 
 # XS initialization independent of customization
@@ -359,9 +361,11 @@ sub _collect_css_element_class($$)
   my $self = shift;
   my $element_class = shift;
 
-  #if (not defined($self->{'current_filename'})) {
-  #  cluck "CFND";
+  #if (not $self->{'document_global_context'}
+  #    and not defined($self->{'current_filename'})) {
+  #  cluck "BUG: $element_class: CSS no current file";
   #}
+
   if (defined($self->{'css_element_class_styles'}->{$element_class})) {
     if ($self->{'document_global_context'}) {
       $self->{'document_global_context_css'}->{$element_class} = 1;
@@ -11175,22 +11179,25 @@ $after_body_open";
   return $result;
 }
 
-sub _default_format_node_redirection_page($$)
+sub _default_format_node_redirection_page($$;$)
 {
   my $self = shift;
   my $command = shift;
-
-  my ($title, $description, $encoding, $date, $css_lines,
-          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
-          $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator) = $self->_file_header_information($command);
+  my $filename = shift;
 
   my $name = $self->command_text($command);
-  my $href = $self->command_href($command);
+  my $href = $self->command_href($command, $filename);
   my $direction = "<a href=\"$href\">$name</a>";
   my $string = $self->convert_tree(
     $self->gdt('The node you are looking for is at {href}.',
       { 'href' => {'type' => '_converted', 'text' => $direction }}));
+
+  my ($title, $description, $encoding, $date, $css_lines,
+          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
+          $after_body_open, $extra_head, $program_and_version, $program_homepage,
+          $program, $generator) = $self->_file_header_information($command,
+                                                                  $filename);
+
   my $result = "$doctype
 <html${root_html_element_attributes}>
 <!-- Created by $program_and_version, $program_homepage -->
@@ -12230,6 +12237,23 @@ sub _XS_reset_output_init_conf($)
 {
 }
 
+# as a function for XS override
+sub _prepare_node_redirection_page($$$)
+{
+  my $self = shift;
+  my $target_element = shift;
+  my $redirection_filename = shift;
+
+  $self->{'current_filename'} = $redirection_filename;
+
+  my $redirection_page
+   = &{$self->formatting_function('format_node_redirection_page')}($self,
+                                    $target_element, $redirection_filename);
+  $self->{'current_filename'} = undef;
+
+  return $redirection_page;
+}
+
 # Main function for outputting a manual in HTML.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
 # module), and $DOCUMENT is the parsed document from the parser and structuring
@@ -12605,9 +12629,11 @@ sub output($$)
              'file_info_element' => $target_element,
              'file_info_path' => undef,
              'file_info_label_element' => $label_element};
+
         my $redirection_page
-          = &{$self->formatting_function('format_node_redirection_page')}($self,
-                                                               $target_element);
+          = _prepare_node_redirection_page ($self, $target_element,
+                                           $redirection_filename);
+
         my $out_filename;
         if ($destination_directory ne '') {
           $out_filename = File::Spec->catfile($destination_directory,

@@ -1,5 +1,43 @@
 2024-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_node_redirection_page):
+	convert the body before the header in case there is CSS to be
+	collected.  Add filename argument.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_node_redirection_page): add.
+
+	* tp/Texinfo/XS/convert/convert_html.c (add_new_css_page)
+	(collect_css_element_class, html_get_css_elements_classes)
+	(html_set_pages_files, setup_output_simple_page)
+	(html_reset_converter), tp/Texinfo/XS/main/converter_types.h
+	(PAGES_CSS_LIST): add the possibility to add more files to
+	self->page_css in addition to output files.  Use page_name for those
+	file names, otherwise it is 0 for output units found with their
+	number/index.  Only use the latest added file, under the assumption
+	that each file not associated to output units are processed
+	sequentially.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_prepare_node_redirection_page, output),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_node_redirection_page),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_node_redirection_page, format_node_redirection_page):
+	setup a function to be overriden and an override wrapping setting the
+	current file and calling format_node_redirection_page.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_node_redirection_page,
+	format_node_redirection_page): implement in C.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/html_tests.t
+	(css_in_node_redirection_page),
+	tp/t/init/css_in_node_redirection_page.pm: test CSS in node
+	redirection file.
+
+2024-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command):
 	create entry_ref_tree only after making sure that the entry is
 	formatted.

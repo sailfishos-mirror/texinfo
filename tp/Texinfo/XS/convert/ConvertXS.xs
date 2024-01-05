@@ -924,7 +924,7 @@ SV *
 html_command_filename (SV *converter_in, SV *element_sv)
      PREINIT:
          CONVERTER *self;
-         char *filename = 0;
+         const char *filename = 0;
          ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
@@ -1988,3 +1988,30 @@ html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *spe
            RETVAL = newSV (0);
     OUTPUT:
         RETVAL
+
+SV *
+html_prepare_node_redirection_page (SV *converter_in, SV *element_sv, redirection_filename)
+         char *redirection_filename = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         CONVERTER *self;
+         char *redirection_page = 0;
+         ELEMENT *element;
+     CODE:
+         element = element_converter_from_sv (converter_in, element_sv,
+                              "html_prepare_node_redirection_page", &self);
+         if (element)
+           redirection_page
+                 = html_prepare_node_redirection_page (self, element,
+                                                       redirection_filename);
+
+         if (redirection_page)
+           {
+             RETVAL = newSVpv_utf8 (redirection_page, 0);
+             free (redirection_page);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+

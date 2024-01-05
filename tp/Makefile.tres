@@ -33,6 +33,7 @@ test_tap_files_generated_list = \
   t/accents.t \
   t/automatic_menus.t \
   t/automatic_nodes.t \
+  t/convert_to_text.t \
   t/converters_tests.t \
   t/do_master_menu.t \
   t/docbook_tests.t \
@@ -569,6 +570,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/contents_in_middle_section_inline/res_html \
   t/results/html_tests/contents_in_middle_section_separate_element.pl \
   t/results/html_tests/contents_in_middle_section_separate_element/res_html \
+  t/results/html_tests/css_in_node_redirection_page.pl \
+  t/results/html_tests/css_in_node_redirection_page/res_html \
   t/results/html_tests/deftypefnnewline_for_copying_after.pl \
   t/results/html_tests/deftypefnnewline_for_copying_before.pl \
   t/results/html_tests/documentdescription.pl \

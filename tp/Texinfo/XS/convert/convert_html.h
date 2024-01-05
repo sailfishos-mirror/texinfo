@@ -183,7 +183,8 @@ void html_translate_names (CONVERTER *self);
 void html_prepare_simpletitle (CONVERTER *self);
 void html_prepare_converted_output_info (CONVERTER *self);
 void html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
-                                   char *output_file, char *output_filename);
+                                   const char *output_file,
+                                   const char *output_filename);
 
 char *html_convert_convert (CONVERTER *self, const ELEMENT *root,
                             int output_units_descriptor,
@@ -196,6 +197,10 @@ char *html_convert_output (CONVERTER *self, const ELEMENT *root,
                            int special_units_descriptor,
                            char *output_file, char *destination_directory,
                            char *output_filename, char *document_name);
+
+char *html_prepare_node_redirection_page (CONVERTER *self,
+                                          const ELEMENT *element,
+                                          const char *filename);
 
 void html_check_transfer_state_finalization (CONVERTER *self);
 void html_free_converter (CONVERTER *self);

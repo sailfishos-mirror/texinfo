@@ -125,6 +125,9 @@ char *call_formatting_function_format_element_footer (CONVERTER *self,
                               const enum output_unit_type unit_type,
                               const OUTPUT_UNIT *output_unit,
                               const char *content, const ELEMENT *command);
+char *call_formatting_function_format_node_redirection_page (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                              const ELEMENT *command, const char *filename);
 
 void call_types_conversion (CONVERTER *self, const enum element_type type,
                        const FORMATTING_REFERENCE *formatting_reference,

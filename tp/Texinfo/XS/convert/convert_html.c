@@ -901,6 +901,7 @@ find_page_name_number
 {
   PAGE_NAME_NUMBER *result = 0;
   static PAGE_NAME_NUMBER searched_page_name;
+
   searched_page_name.page_name = page_name;
   if (page_name_number->number == 0)
     {
@@ -4207,6 +4208,23 @@ find_css_selector_style
 }
 
 static void
+add_new_css_page (PAGES_CSS_LIST *css_pages, const char *page_name)
+{
+  CSS_LIST *page_css_list;
+  if (css_pages->space <= css_pages->number)
+    {
+      css_pages->list = realloc (css_pages->list,
+          (css_pages->space += 10) * sizeof (CSS_LIST));
+    }
+
+  page_css_list = &css_pages->list[css_pages->number];
+  memset (page_css_list, 0, sizeof (CSS_LIST));
+  page_css_list->page_name = strdup (page_name);
+
+  css_pages->number++;
+}
+
+static void
 collect_css_element_class (CONVERTER *self, const char *selector)
 {
   CSS_SELECTOR_STYLE *selector_style
@@ -4223,6 +4241,36 @@ collect_css_element_class (CONVERTER *self, const char *selector)
       else
         {
           css_files_index = self->current_filename.file_number;
+          /* files not associated to output units.  Only try the
+             last one, as the files should be processed sequentially */
+          if (css_files_index == 0)
+            {
+              if (self->current_filename.filename)
+                {
+                  if (self->page_css.number > 1)
+                    {
+                      CSS_LIST *last_css_page
+                       = &self->page_css.list[self->page_css.number -1];
+                      if (last_css_page->page_name
+                          && !strcmp (self->current_filename.filename,
+                                   last_css_page->page_name))
+                        {
+                          css_files_index = self->page_css.number -1;
+                        }
+                    }
+                  if (css_files_index == 0)
+                    {
+                      add_new_css_page (&self->page_css,
+                                        self->current_filename.filename);
+                      css_files_index = self->page_css.number -1;
+                    }
+                }
+            }
+          if (css_files_index == 0)
+            {
+              fprintf (stderr, "BUG: %s: CSS no current file\n", selector);
+              return;
+            }
         }
       page_css_list = &self->page_css.list[css_files_index];
       for (i = 0; i < page_css_list->number; i++)
@@ -4270,17 +4318,43 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
       page_number = find_page_name_number (&self->page_name_number,
                                            filename);
       if (!page_number)
-        fatal ("Could not find page number of file name");
-
-      css_list = &self->page_css.list[page_number];
-      if (css_list->number)
         {
-          /* +1 for 'span:hover a.copiable-link' */
-          size_t space = css_list->number + global_context_css_list->number +1;
-          selectors = (const char **) malloc (sizeof (char *) * space);
-          memcpy (selectors, css_list->list,
-                  css_list->number * sizeof (char *));
-          selector_nr = css_list->number;
+          if (self->page_css.number > 1)
+            {
+              CSS_LIST *last_css_page
+               = &self->page_css.list[self->page_css.number -1];
+              if (last_css_page->page_name
+                  && !strcmp (filename, last_css_page->page_name))
+                {
+                  page_number = self->page_css.number -1;
+                }
+             }
+          if (!page_number)
+            {
+             /* this happens legitimately in case of an output file not
+                associated to an output unit and not having registered
+                any CSS selector */
+              char *msg;
+              xasprintf (&msg, "%s: get CSS could not find page number",
+                         filename);
+              if (self->conf->DEBUG.integer > 0)
+                fprintf (stderr, "XS|css: %s\n", msg);
+              free (msg);
+            }
+        }
+      if (page_number)
+        {
+          css_list = &self->page_css.list[page_number];
+          if (css_list->number)
+            {
+              /* +1 for 'span:hover a.copiable-link' */
+              size_t space
+               = css_list->number + global_context_css_list->number +1;
+              selectors = (const char **) malloc (sizeof (char *) * space);
+              memcpy (selectors, css_list->list,
+                      css_list->number * sizeof (char *));
+              selector_nr = css_list->number;
+            }
         }
     }
 
@@ -5474,8 +5548,9 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   /* 0 is for document_global_context_css, the remaining indices
      for the output unit files */
   self->page_css.number = self->output_unit_files.number +1;
+  self->page_css.space = self->page_css.number;
   self->page_css.list = (CSS_LIST *)
-       malloc (self->page_css.number * sizeof (CSS_LIST));
+       malloc (self->page_css.space * sizeof (CSS_LIST));
   memset (self->page_css.list, 0,
           self->page_css.number * sizeof (CSS_LIST));
 
@@ -5495,8 +5570,9 @@ setup_output_simple_page (CONVERTER *self, const char *output_filename)
 {
   PAGE_NAME_NUMBER *page_name_number;
   self->page_css.number = 1+1;
+  self->page_css.space = self->page_css.number;
   self->page_css.list = (CSS_LIST *)
-       malloc (self->page_css.number * sizeof (CSS_LIST));
+       malloc (self->page_css.space * sizeof (CSS_LIST));
   memset (self->page_css.list, 0,
           self->page_css.number * sizeof (CSS_LIST));
 
@@ -6570,7 +6646,7 @@ static char *root_html_element_attributes_string (CONVERTER *self)
    redirection file headers.  $COMMAND is the tree element for
    a @node that is being output in the file. */
 static BEGIN_FILE_INFORMATION *
-file_header_information (CONVERTER *self, ELEMENT *command,
+file_header_information (CONVERTER *self, const ELEMENT *command,
                          const char *filename)
 {
   BEGIN_FILE_INFORMATION *begin_info = (BEGIN_FILE_INFORMATION *)
@@ -7856,6 +7932,133 @@ format_element_footer (CONVERTER *self,
      text_append (result, formatted_footer);
      free (formatted_footer);
    }
+}
+
+char *
+html_default_format_node_redirection_page (CONVERTER *self,
+                                           const ELEMENT *element,
+                                           const char *filename)
+{
+  TEXT result;
+  TEXT body;
+  BEGIN_FILE_INFORMATION *begin_info;
+  char *href = html_command_href (self, element, filename, 0, 0);
+  char *name = html_command_text (self, element, 0);
+  ELEMENT *direction_element = new_element (ET__converted);
+  NAMED_STRING_ELEMENT_LIST *substrings = new_named_string_element_list ();
+
+  text_printf (&direction_element->text, "<a href=\"%s\">%s</a>", href, name);
+  free (name);
+
+  add_element_to_named_string_element_list (substrings,
+                                            "href", direction_element);
+
+  /* do it before in case there is CSS */
+
+  text_init (&body);
+  translate_convert_to_html_internal (
+          "The node you are looking for is at {href}.", self->document,
+           self, substrings, 0, 0, &body, 0);
+
+  begin_info = file_header_information (self, element, filename);
+
+  text_init (&result);
+
+  text_append (&result, self->conf->DOCTYPE.string);
+  text_append_n (&result, "\n", 1);
+  text_printf (&result, "<html%s>\n", begin_info->root_html_element_attributes);
+  text_printf (&result, "<!-- Created by %s, %s -->\n"
+       "<!-- This file redirects to the location of a node or anchor -->\n"
+       "<head>\n",
+                        self->conf->PACKAGE_AND_VERSION_OPTION.string,
+                        self->conf->PACKAGE_URL_OPTION.string);
+  if (begin_info->encoding)
+    text_append (&result, begin_info->encoding);
+  text_append_n (&result, "\n", 1);
+  if (self->copying_comment)
+    text_append (&result, self->copying_comment);
+  text_printf (&result, "<title>%s</title>\n\n", begin_info->title);
+  if (begin_info->description)
+    text_append (&result, begin_info->description);
+  text_append_n (&result, "\n", 1);
+  text_printf (&result, "<meta name=\"keywords\" content=\"%s\"",
+               begin_info->title);
+  close_html_lone_element (self, &result);
+  text_append_n (&result, "\n", 1);
+  text_append (&result, "<meta name=\"resource-type\" content=\"document\"");
+  close_html_lone_element (self, &result);
+  text_append_n (&result, "\n", 1);
+  text_append (&result, "<meta name=\"distribution\" content=\"global\"");
+  close_html_lone_element (self, &result);
+  text_append_n (&result, "\n", 1);
+  if (begin_info->generator)
+    text_append (&result, begin_info->generator);
+  if (self->date_in_header)
+    text_append (&result, self->date_in_header);
+  text_append (&result, begin_info->css_lines);
+  text_append_n (&result, "\n", 1);
+  text_printf (&result, "<meta http-equiv=\"Refresh\" content=\"0; url=%s\"",
+               href);
+  close_html_lone_element (self, &result);
+  text_append_n (&result, "\n", 1);
+  text_append (&result,
+    "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"");
+  close_html_lone_element (self, &result);
+  text_append_n (&result, "\n", 1);
+
+  if (begin_info->extra_head)
+    text_append (&result, begin_info->extra_head);
+  text_append_n (&result, "\n</head>\n\n", 10);
+  text_printf (&result, "<body %s>\n", begin_info->bodytext);
+  if (self->conf->AFTER_BODY_OPEN.string)
+    text_append (&result, self->conf->AFTER_BODY_OPEN.string);
+
+  text_append_n (&result, "\n<p>", 4);
+  text_append (&result, body.text);
+  free (body.text);
+  text_append_n (&result, "</p>\n</body>\n", 13);
+
+  destroy_named_string_element_list (substrings);
+  free (href);
+
+  return result.text;
+}
+
+char *format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
+                                   const char *filename)
+{
+  FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_node_redirection_page];
+
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      return html_default_format_node_redirection_page (self, element,
+                                                             filename);
+    }
+  else
+   {
+     return call_formatting_function_format_node_redirection_page (self,
+                                                  formatting_reference,
+                                                   element, filename);
+   }
+}
+
+char *
+html_prepare_node_redirection_page (CONVERTER *self, const ELEMENT *element,
+                                    const char *filename)
+{
+  char *result;
+
+  self->current_filename.filename = filename;
+  self->current_filename.file_number = 0;
+  self->modified_state |= HMSF_current_filename;
+
+  result = format_node_redirection_page (self, element, filename);
+
+  self->current_filename.filename = 0;
+  self->modified_state |= HMSF_current_filename;
+
+  return result;
 }
 
 static void
@@ -15877,6 +16080,7 @@ html_reset_converter (CONVERTER *self)
       for (j = 0; j < page_css_list->number; j++)
         free (page_css_list->list[j]);
       free (page_css_list->list);
+      free (page_css_list->page_name);
     }
   free (self->page_css.list);
 
@@ -17533,7 +17737,8 @@ convert_output_output_unit_internal (CONVERTER *self,
 
 void
 html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
-                              char *output_file, char *output_filename)
+                              const char *output_file,
+                              const char *output_filename)
 {
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);

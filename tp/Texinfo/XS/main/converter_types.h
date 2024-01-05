@@ -266,7 +266,7 @@ typedef struct ELEMENT_REFERENCE_STACK {
 
 typedef struct FILE_NUMBER_NAME {
     size_t file_number;
-    char *filename;
+    const char *filename;
 } FILE_NUMBER_NAME;
 
 typedef struct VARIETY_DIRECTION_INDEX {
@@ -387,6 +387,7 @@ typedef struct PAGE_NAME_NUMBER_LIST {
 } PAGE_NAME_NUMBER_LIST;
 
 typedef struct CSS_LIST {
+  /* 0 if associated to output units and found by number */
     char *page_name;
     size_t number;
     size_t space;
@@ -395,6 +396,7 @@ typedef struct CSS_LIST {
 
 typedef struct PAGES_CSS_LIST {
     size_t number;
+    size_t space;
     CSS_LIST *list; /* index 0 is for document_global_context_css
                        others for the output files */
 } PAGES_CSS_LIST;

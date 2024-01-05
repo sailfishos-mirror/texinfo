@@ -1685,7 +1685,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
   PUSHs(sv_2mortal (command_sv));
-  PUSHs(sv_2mortal (newSVpv (filename, 0)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -1896,6 +1896,65 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   return result;
 }
 
+char *
+call_formatting_function_format_node_redirection_page (CONVERTER *self,
+                         const FORMATTING_REFERENCE *formatting_reference,
+                              const ELEMENT *command, const char *filename)
+{
+  int count;
+  char *result = 0;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  formatting_reference_sv = formatting_reference->sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  build_tree_to_build (&self->tree_to_build);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newRV_inc (command->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("format_node_redirection_page should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = strdup (result_ret);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
 
 
 
