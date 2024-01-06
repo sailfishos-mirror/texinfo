@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-01-06 17:50+0100\n"
+"POT-Creation-Date: 2024-01-06 18:10+0100\n"
 "PO-Revision-Date: 2014-11-07 08:03+0000\n"
 "Last-Translator: Yasuaki Taniguchi <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -2415,7 +2415,8 @@ msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視�
 #: tp/Texinfo/Convert/HTML.pm:12675 tp/Texinfo/Convert/IXIN.pm:343
 #: tp/Texinfo/Convert/Info.pm:337 tp/Texinfo/Convert/LaTeX.pm:1080
 #: tp/Texinfo/Convert/Text.pm:976 tp/Texinfo/Convert/TexinfoMarkup.pm:313
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:17991
+#, fuzzy, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "%s: --css-file %s を開くことができません"
 
@@ -2427,6 +2428,7 @@ msgstr "%s: --css-file %s を開くことができません"
 #: tp/Texinfo/Convert/Info.pm:311 tp/Texinfo/Convert/LaTeX.pm:1149
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:340 tp/Texinfo/ParserNonXS.pm:2483
 #: tp/Texinfo/XS/parsetexi/input.c:399
+#: tp/Texinfo/XS/convert/convert_html.c:18051
 #, fuzzy, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "%(service)s on %(device)s"
@@ -2473,22 +2475,23 @@ msgid "no argument specified for @U"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:3761 tp/ext/epub3.pm:273
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:9140
+#, fuzzy, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image ファイル `%s' (HTML 用) が読めません: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:4973
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:4973 tp/Texinfo/XS/convert/convert_html.c:10029
+#, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6499
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/HTML.pm:6499 tp/Texinfo/XS/convert/convert_html.c:12809
+#, fuzzy, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "`%s' 見出し項目があらゆるノードの外側にあります"
 
-#: tp/Texinfo/Convert/HTML.pm:6530
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/HTML.pm:6530 tp/Texinfo/XS/convert/convert_html.c:12849
+#, fuzzy, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "`%s' 見出し項目があらゆるノードの外側にあります"
 
@@ -2557,23 +2560,25 @@ msgstr "%s: --css-file %s を開くことができません"
 msgid "error on closing CSS file %s: %s"
 msgstr "ファイルクローズエラー"
 
-#: tp/Texinfo/Convert/HTML.pm:9502
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:9502 tp/Texinfo/XS/convert/convert_html.c:2123
+#, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9826
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:9826 tp/Texinfo/XS/convert/convert_html.c:5525
+#, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:10607 tp/Texinfo/Convert/HTML.pm:10613
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:3171
+#: tp/Texinfo/XS/convert/convert_html.c:3182
+#, fuzzy, c-format, perl-format
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "`%s' に対する項目が見つかりません\n"
 
-#: tp/Texinfo/Convert/HTML.pm:11064
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/HTML.pm:11064 tp/Texinfo/XS/convert/convert_html.c:6969
+#, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "`@%2$s' ブロックの内側では `@%1$s' は意味がありません"
@@ -2610,7 +2615,7 @@ msgstr "%(service)s on %(device)s"
 msgid "error on closing empty %s: %s"
 msgstr "%(service)s on %(device)s"
 
-#: tp/Texinfo/Convert/HTML.pm:12093
+#: tp/Texinfo/Convert/HTML.pm:12093 tp/Texinfo/XS/convert/convert_html.c:15442
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
@@ -2774,18 +2779,19 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr "ノード `%s' にメニューがありません。"
 
-#: tp/Texinfo/Convert/Utils.pm:295
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/Utils.pm:295 tp/Texinfo/XS/main/convert_utils.c:371
+#, fuzzy, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "  @FILE                   オプションを FILE から読み込む\n"
 
-#: tp/Texinfo/Convert/Utils.pm:318
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/Utils.pm:318 tp/Texinfo/XS/main/convert_utils.c:418
+#, fuzzy, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
 #: tp/Texinfo/Convert/Utils.pm:325 tp/Texinfo/ParserNonXS.pm:3596
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/main/convert_utils.c:430
+#, fuzzy, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: `%s' が見つかりません"
 
@@ -2796,6 +2802,7 @@ msgstr "%s: --css-file %s を開くことができません"
 
 #: tp/Texinfo/ParserNonXS.pm:1172 tp/Texinfo/Structuring.pm:693
 #: tp/Texinfo/XS/parsetexi/parser.c:422
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:841
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr ""
@@ -3562,80 +3569,96 @@ msgid "warning: %s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:208
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:137
+#, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:253
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:206
+#, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:258
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:213
+#, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:369
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:381
+#, fuzzy, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr "ホスト名にアドレスが割り当てられていません"
 
 #: tp/Texinfo/Structuring.pm:405
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:409
+#, fuzzy, c-format, perl-format
 msgid "@%s not empty"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
 #: tp/Texinfo/Structuring.pm:436 tp/Texinfo/Structuring.pm:1194
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:431
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1552
+#, fuzzy, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr ""
 "%s は存在しないノード `%s' を参照しています (正しくないセクション付けをしてい"
 "るかもしれません?)"
 
 #: tp/Texinfo/Structuring.pm:444
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:444
+#, fuzzy, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "名前の取得に失敗しました: %s"
 
 #: tp/Texinfo/Structuring.pm:624
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:782
+#, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:875
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1084
+#, c-format, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:895
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1120
+#, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:962
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1215
+#, c-format, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1001
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1283
+#, fuzzy, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "ノード `%s' には 上位項目があるのに、`%s' へのメニューアイテムを欠いています"
 
 #: tp/Texinfo/Structuring.pm:1132
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1455
+#, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:1143
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1475
+#, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s は存在しない `%s' を参照しています"
 
 #: tp/Texinfo/Structuring.pm:1206
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1571
+#, fuzzy, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "名前の取得に失敗しました: %s"
 
@@ -3650,7 +3673,8 @@ msgid "empty index sub entry %d key in @%s"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
 #: tp/Texinfo/Transformations.pm:851
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1337
+#, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr ""
 
@@ -4534,6 +4558,31 @@ msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 #| msgid "%c%s is obsolete; %s"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s は廃止予定 (または廃止済み) です; %s"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16230
+#, c-format
+msgid "%zu registered opened sections not closed"
+msgstr ""
+
+#: tp/Texinfo/XS/convert/convert_html.c:16239
+#, fuzzy, c-format
+msgid "%zu registered inline contents: %s"
+msgstr "認識できないエミュレーション名 `%s' です"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16256
+#, fuzzy, c-format
+msgid "left inline content associated to %s: '%s'"
+msgstr "ホスト名にアドレスが割り当てられていません"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16263
+#, c-format
+msgid "left inline content of %p: '%s'"
+msgstr ""
+
+#: tp/Texinfo/XS/convert/convert_html.c:16268
+#, fuzzy, c-format
+msgid "left inline content associated: '%s'"
+msgstr "ホスト名にアドレスが割り当てられていません"
 
 #~ msgid ""
 #~ "Email bug reports to bug-texinfo@gnu.org,\n"

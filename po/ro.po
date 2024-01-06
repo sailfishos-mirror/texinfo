@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-01-06 17:50+0100\n"
+"POT-Creation-Date: 2024-01-06 18:10+0100\n"
 "PO-Revision-Date: 2023-09-19 20:23+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -2446,7 +2446,8 @@ msgstr "%s: tip necunoscut de informații despre elementul special %s\n"
 #: tp/Texinfo/Convert/HTML.pm:12675 tp/Texinfo/Convert/IXIN.pm:343
 #: tp/Texinfo/Convert/Info.pm:337 tp/Texinfo/Convert/LaTeX.pm:1080
 #: tp/Texinfo/Convert/Text.pm:976 tp/Texinfo/Convert/TexinfoMarkup.pm:313
-#, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:17991
+#, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "nu s-a putut deschide %s pentru scriere: %s"
 
@@ -2458,6 +2459,7 @@ msgstr "nu s-a putut deschide %s pentru scriere: %s"
 #: tp/Texinfo/Convert/Info.pm:311 tp/Texinfo/Convert/LaTeX.pm:1149
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:340 tp/Texinfo/ParserNonXS.pm:2483
 #: tp/Texinfo/XS/parsetexi/input.c:399
+#: tp/Texinfo/XS/convert/convert_html.c:18051
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "eroare la închiderea %s: %s"
@@ -2504,23 +2506,24 @@ msgid "no argument specified for @U"
 msgstr "niciun argument specificat pentru @U"
 
 #: tp/Texinfo/Convert/HTML.pm:3761 tp/ext/epub3.pm:273
-#, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:9140
+#, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "fișierul @image „%s” (pentru HTML) nu a fost găsit, utilizând „%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:4973
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:4973 tp/Texinfo/XS/convert/convert_html.c:10029
+#, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "formatul brut %s nu este convertit"
 
-#: tp/Texinfo/Convert/HTML.pm:6499
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:6499 tp/Texinfo/XS/convert/convert_html.c:12809
+#, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr ""
 "intrarea pentru indexul „%s” pentru @printindex %s în afara oricărui nod"
 
-#: tp/Texinfo/Convert/HTML.pm:6530
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:6530 tp/Texinfo/XS/convert/convert_html.c:12849
+#, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr ""
 "intrarea pentru indexul „%s” pentru @printindex %s în afara oricărei secțiuni"
@@ -2588,24 +2591,26 @@ msgstr "nu s-a putut deschide „--include-file” %s: %s"
 msgid "error on closing CSS file %s: %s"
 msgstr "eroare la închiderea fișierului CSS %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9502
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:9502 tp/Texinfo/XS/convert/convert_html.c:2123
+#, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 "numele fișierului de nod definit de utilizator, nu este definit pentru „%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:9826
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:9826 tp/Texinfo/XS/convert/convert_html.c:5525
+#, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "se restabilește ruta fișierului %s de la %s la %s"
 
 #: tp/Texinfo/Convert/HTML.pm:10607 tp/Texinfo/Convert/HTML.pm:10613
-#, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:3171
+#: tp/Texinfo/XS/convert/convert_html.c:3182
+#, c-format, perl-format
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "nu a fost găsită nicio intrare htmlxref.cnf pentru „%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:11064
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:11064 tp/Texinfo/XS/convert/convert_html.c:6969
+#, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s nu are sens pentru ieșirea nedivizată"
 
@@ -2643,7 +2648,7 @@ msgstr "eroare la crearea unui %s gol: %s"
 msgid "error on closing empty %s: %s"
 msgstr "eroare la închiderea unui %s gol: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12093
+#: tp/Texinfo/Convert/HTML.pm:12093 tp/Texinfo/XS/convert/convert_html.c:15442
 msgid "must specify a title with a title command or @top"
 msgstr "trebuie să specificați un titlu cu o comandă de titlu sau @top"
 
@@ -2803,18 +2808,19 @@ msgstr "numele nodului de intrare din meniu nu trebuie să conțină „:”"
 msgid "menu entry name should not contain `:'"
 msgstr "numele intrării din meniu nu trebuie să conțină „:”"
 
-#: tp/Texinfo/Convert/Utils.pm:295
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:295 tp/Texinfo/XS/main/convert_utils.c:371
+#, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "nu s-a putut citi %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:318
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:318 tp/Texinfo/XS/main/convert_utils.c:418
+#, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "eroare la închiderea fișierului @verbatiminclude %s: %s"
 
 #: tp/Texinfo/Convert/Utils.pm:325 tp/Texinfo/ParserNonXS.pm:3596
-#, perl-format
+#: tp/Texinfo/XS/main/convert_utils.c:430
+#, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: nu s-a putut găsi %s"
 
@@ -2825,6 +2831,7 @@ msgstr "nu s-a putut deschide %s: %s"
 
 #: tp/Texinfo/ParserNonXS.pm:1172 tp/Texinfo/Structuring.pm:693
 #: tp/Texinfo/XS/parsetexi/parser.c:422
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:841
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr "@%s multiple"
@@ -3573,81 +3580,97 @@ msgid "warning: %s"
 msgstr "avertisment: %s"
 
 #: tp/Texinfo/Structuring.pm:208
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:137
+#, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr "se ridică nivelul de secțiune al lui @%s, care este prea scăzut"
 
 #: tp/Texinfo/Structuring.pm:253
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:206
+#, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr "nicio comandă la nivel de capitol înainte de @%s"
 
 #: tp/Texinfo/Structuring.pm:258
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:213
+#, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 "se coboară nivelul de secțiune al lui @%s care apare după un element inferior"
 
 #: tp/Texinfo/Structuring.pm:369
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:381
+#, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr "nicio comandă de secționare asociată cu @%s"
 
 #: tp/Texinfo/Structuring.pm:405
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:409
+#, c-format, perl-format
 msgid "@%s not empty"
 msgstr "@%s nu este gol"
 
 #: tp/Texinfo/Structuring.pm:436 tp/Texinfo/Structuring.pm:1194
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:431
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1552
+#, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "@%s referință la nodul inexistent „%s”"
 
 #: tp/Texinfo/Structuring.pm:444
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:444
+#, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "numele nodului „%s” de la intrarea @%s, este diferit de numele %s „%s”"
 
 #: tp/Texinfo/Structuring.pm:624
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:782
+#, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr "nodul „%s” nu are referință"
 
 #: tp/Texinfo/Structuring.pm:875
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1084
+#, c-format, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr "nodul %s pentru „%s” este „%s” în secțiune, dar nu în meniu"
 
 #: tp/Texinfo/Structuring.pm:895
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1120
+#, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "nodul „%s” este %s pentru „%s” în meniu, dar nu în secțiune"
 
 #: tp/Texinfo/Structuring.pm:962
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1215
+#, c-format, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr ""
 "în nodul %s indicatorul pentru „%s” este „%s”, dar %s este „%s” în meniu"
 
 #: tp/Texinfo/Structuring.pm:1001
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1283
+#, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "nodul „%s” nu are un element de meniu pentru „%s” în ciuda faptului că este "
 "ținta „Up” a acestui element"
 
 #: tp/Texinfo/Structuring.pm:1132
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1455
+#, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr "indicatorul %s „%s” (pentru nodul „%s”) este diferit de numele %s „%s”"
 
 #: tp/Texinfo/Structuring.pm:1143
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1475
+#, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s face referire la un inexistent „%s”"
 
 #: tp/Texinfo/Structuring.pm:1206
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1571
+#, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "@%s pentru „%s”, diferit de numele %s „%s”"
 
@@ -3662,7 +3685,8 @@ msgid "empty index sub entry %d key in @%s"
 msgstr "sub-intrare de index goală %d cheie în @%s"
 
 #: tp/Texinfo/Transformations.pm:851
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1337
+#, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "nu s-a putut proteja caracterul diez „#” în @%s"
 
@@ -4641,6 +4665,34 @@ msgstr "argument formal @%s greșit sau gol: "
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s este învechit; %s"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16230
+#, c-format
+msgid "%zu registered opened sections not closed"
+msgstr ""
+
+#: tp/Texinfo/XS/convert/convert_html.c:16239
+#, fuzzy, c-format
+#| msgid "reserved index name %s"
+msgid "%zu registered inline contents: %s"
+msgstr "nume de index rezervat %s"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16256
+#, fuzzy, c-format
+#| msgid "no sectioning command associated with @%s"
+msgid "left inline content associated to %s: '%s'"
+msgstr "nicio comandă de secționare asociată cu @%s"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16263
+#, c-format
+msgid "left inline content of %p: '%s'"
+msgstr ""
+
+#: tp/Texinfo/XS/convert/convert_html.c:16268
+#, fuzzy, c-format
+#| msgid "no sectioning command associated with @%s"
+msgid "left inline content associated: '%s'"
+msgstr "nicio comandă de secționare asociată cu @%s"
 
 #~ msgid ""
 #~ "Email bug reports to bug-texinfo@gnu.org,\n"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-01-06 17:50+0100\n"
+"POT-Creation-Date: 2024-01-06 18:10+0100\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -2275,7 +2275,8 @@ msgstr "không hiểu sự biến đổi cây %s"
 #: tp/Texinfo/Convert/HTML.pm:12675 tp/Texinfo/Convert/IXIN.pm:343
 #: tp/Texinfo/Convert/Info.pm:337 tp/Texinfo/Convert/LaTeX.pm:1080
 #: tp/Texinfo/Convert/Text.pm:976 tp/Texinfo/Convert/TexinfoMarkup.pm:313
-#, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:17991
+#, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "không thể mở “%s” để ghi: %s"
 
@@ -2287,6 +2288,7 @@ msgstr "không thể mở “%s” để ghi: %s"
 #: tp/Texinfo/Convert/Info.pm:311 tp/Texinfo/Convert/LaTeX.pm:1149
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:340 tp/Texinfo/ParserNonXS.pm:2483
 #: tp/Texinfo/XS/parsetexi/input.c:399
+#: tp/Texinfo/XS/convert/convert_html.c:18051
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
@@ -2333,23 +2335,24 @@ msgid "no argument specified for @U"
 msgstr "chưa chỉ định đối số cho @U"
 
 #: tp/Texinfo/Convert/HTML.pm:3761 tp/ext/epub3.pm:273
-#, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:9140
+#, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "Tập tin @image “%s” (cho HTML) không đọc được, dùng “%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:4973
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:4973 tp/Texinfo/XS/convert/convert_html.c:10029
+#, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "định dạng thô %s không được chuyển đổi"
 
-#: tp/Texinfo/Convert/HTML.pm:6499
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/HTML.pm:6499 tp/Texinfo/XS/convert/convert_html.c:12809
+#, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tp/Texinfo/Convert/HTML.pm:6530
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/HTML.pm:6530 tp/Texinfo/XS/convert/convert_html.c:12849
+#, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
@@ -2417,23 +2420,25 @@ msgstr "không thể mở --include-file %s: %s"
 msgid "error on closing CSS file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin CSS %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9502
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:9502 tp/Texinfo/XS/convert/convert_html.c:2123
+#, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9826
-#, perl-format
+#: tp/Texinfo/Convert/HTML.pm:9826 tp/Texinfo/XS/convert/convert_html.c:5525
+#, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:10607 tp/Texinfo/Convert/HTML.pm:10613
-#, perl-format
+#: tp/Texinfo/XS/convert/convert_html.c:3171
+#: tp/Texinfo/XS/convert/convert_html.c:3182
+#, c-format, perl-format
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "không tìm thấy mục htmlxref.cnf dành cho “%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:11064
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/HTML.pm:11064 tp/Texinfo/XS/convert/convert_html.c:6969
+#, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "@%s không có nghĩa bên trong khối “@%s”"
@@ -2474,7 +2479,7 @@ msgstr "gặp lỗi khi đóng %s: %s"
 msgid "error on closing empty %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12093
+#: tp/Texinfo/Convert/HTML.pm:12093 tp/Texinfo/XS/convert/convert_html.c:15442
 msgid "must specify a title with a title command or @top"
 msgstr "phải chỉ định một tiêu đề cùng với lệnh title hay @top"
 
@@ -2638,18 +2643,19 @@ msgstr "tên nút mục trình đơn không được chứa dấu hai chấm “
 msgid "menu entry name should not contain `:'"
 msgstr "tên mục trình đơn không được chứa dấu hai chấm “:”"
 
-#: tp/Texinfo/Convert/Utils.pm:295
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:295 tp/Texinfo/XS/main/convert_utils.c:371
+#, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "không thể đọc %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:318
-#, perl-format
+#: tp/Texinfo/Convert/Utils.pm:318 tp/Texinfo/XS/main/convert_utils.c:418
+#, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin @verbatiminclude %s: %s"
 
 #: tp/Texinfo/Convert/Utils.pm:325 tp/Texinfo/ParserNonXS.pm:3596
-#, perl-format
+#: tp/Texinfo/XS/main/convert_utils.c:430
+#, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: không tìm thấy %s"
 
@@ -2660,6 +2666,7 @@ msgstr "không thể mở %s: %s"
 
 #: tp/Texinfo/ParserNonXS.pm:1172 tp/Texinfo/Structuring.pm:693
 #: tp/Texinfo/XS/parsetexi/parser.c:422
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:841
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr "nhiều @%s"
@@ -3478,82 +3485,98 @@ msgid "warning: %s"
 msgstr "Cảnh báo: %s\n"
 
 #: tp/Texinfo/Structuring.pm:208
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:137
+#, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr "nâng mức chương của @%s là quá thấp"
 
 #: tp/Texinfo/Structuring.pm:253
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:206
+#, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr "không có lệnh chapter-level trước @%s"
 
 #: tp/Texinfo/Structuring.pm:258
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:213
+#, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr "đang hạ thấp mức chương của @%s xuất hiện sau một phần tử ở thấp hơn"
 
 #: tp/Texinfo/Structuring.pm:369
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:381
+#, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
 
 #: tp/Texinfo/Structuring.pm:405
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:409
+#, c-format, perl-format
 msgid "@%s not empty"
 msgstr "@%s không trống rỗng"
 
 #: tp/Texinfo/Structuring.pm:436 tp/Texinfo/Structuring.pm:1194
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:431
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1552
+#, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "@%s tham chiếu đến nút chưa tồn tại “%s”"
 
 #: tp/Texinfo/Structuring.pm:444
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:444
+#, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "@%s tên nút mục trình đơn “%s” khác biệt với %s tên “%s”"
 
 #: tp/Texinfo/Structuring.pm:624
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:782
+#, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr ""
 
 #: tp/Texinfo/Structuring.pm:875
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1084
+#, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr ""
 "nút “%s” là %s dành cho “%s” trong phần chương nhưng không có trong trình đơn"
 
 #: tp/Texinfo/Structuring.pm:895
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1120
+#, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "nút “%s” là %s cho “%s” trong trình đơn nhưng mà không ở trong chương"
 
 #: tp/Texinfo/Structuring.pm:962
-#, fuzzy, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1215
+#, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr ""
 "nút “%s” là %s dành cho “%s” trong phần chương nhưng không có trong trình đơn"
 
 #: tp/Texinfo/Structuring.pm:1001
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1283
+#, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "nút “%s” không có mục trình đơn cho “%s”, không kể nút này là đích Lên của nó"
 
 #: tp/Texinfo/Structuring.pm:1132
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1455
+#, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr "con trỏ %s “%s” (cho nút “%s”) khác với %s tên “%s”"
 
 #: tp/Texinfo/Structuring.pm:1143
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1475
+#, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s tham chiếu đến nơi mà chưa có “%s”"
 
 #: tp/Texinfo/Structuring.pm:1206
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/structuring.c:1571
+#, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "@%s thành “%s”, khác với %s tên “%s”"
 
@@ -3569,7 +3592,8 @@ msgid "empty index sub entry %d key in @%s"
 msgstr "khóa chỉ mục trống rỗng trong @%s"
 
 #: tp/Texinfo/Transformations.pm:851
-#, perl-format
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1337
+#, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "không thể bảo vệ ký tự băm trong @%s"
 
@@ -4532,6 +4556,34 @@ msgstr "đối số có dạng thức sai hoặc trống rỗng @%s: %s"
 #| msgid "%c%s is obsolete; %s"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s quá cũ; %s"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16230
+#, c-format
+msgid "%zu registered opened sections not closed"
+msgstr ""
+
+#: tp/Texinfo/XS/convert/convert_html.c:16239
+#, fuzzy, c-format
+#| msgid "reserved index name %s"
+msgid "%zu registered inline contents: %s"
+msgstr "đã đảo ngược tên chỉ mục %s"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16256
+#, fuzzy, c-format
+#| msgid "no sectioning command associated with @%s"
+msgid "left inline content associated to %s: '%s'"
+msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
+
+#: tp/Texinfo/XS/convert/convert_html.c:16263
+#, c-format
+msgid "left inline content of %p: '%s'"
+msgstr ""
+
+#: tp/Texinfo/XS/convert/convert_html.c:16268
+#, fuzzy, c-format
+#| msgid "no sectioning command associated with @%s"
+msgid "left inline content associated: '%s'"
+msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
 
 #~ msgid ""
 #~ "Email bug reports to bug-texinfo@gnu.org,\n"

@@ -1,5 +1,16 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* po/Makevars (XGETTEXT_OPTIONS): fix index of
+	message_list_command_warn and message_list_command_error, add
+	message_list_document_*, noticed_line_warn and
+	message_list_line_error_ext.
+
+	* po/POTFILES.in: add tp/Texinfo/XS/convert/convert_html.c.
+
+	update po files.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	update po files
 
 2024-01-06  Patrice Dumas  <pertusus@free.fr>

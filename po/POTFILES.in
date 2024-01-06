@@ -75,3 +75,4 @@ tp/Texinfo/XS/parsetexi/separator.c
 tp/Texinfo/XS/structuring_transfo/structuring.c
 tp/Texinfo/XS/structuring_transfo/transformations.c
 tp/Texinfo/XS/main/convert_utils.c
+tp/Texinfo/XS/convert/convert_html.c

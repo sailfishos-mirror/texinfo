@@ -10026,9 +10026,6 @@ convert_raw_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  /* TODO the message is not marked as a translatable message.  Not
-     such an issue since the perl message is, but it could be problematic
-     if the perl code is removed. */
   noticed_line_warn (self, element, "raw format %s is not converted",
                      element_command_name (element));
                 //builtin_command_name (cmd));
@@ -15437,10 +15434,9 @@ html_prepare_converted_output_info (CONVERTER *self)
 
       self->added_title_tree = 1;
 
+      /* setup a source info with file only */
       memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
       cmd_source_info.file_name = self->document->global_info->input_file_name;
-      /* TODO the message is not registered for gettext.  In perl source,
-         it is registered */
       message_list_line_error_ext(&self->error_messages, self->conf,
                                   MSG_warning, 0, &cmd_source_info,
                       "must specify a title with a title command or @top");
