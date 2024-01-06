@@ -219,6 +219,73 @@ $result_trees{'enumerate_argument'} = {
           'source_info' => {
             'line_nr' => 7
           }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => '0'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'enumerate',
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'enumerate'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'line_nr' => 11
+              }
+            }
+          ],
+          'extra' => {
+            'enumerate_specification' => '0'
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'line_nr' => 10
+          }
         }
       ],
       'type' => 'before_node_section'
@@ -235,10 +302,14 @@ $result_texis{'enumerate_argument'} = '@enumerate 1
 
 @enumerate z @c comment
 @end enumerate
+
+@enumerate 0
+@end enumerate
 ';
 
 
 $result_texts{'enumerate_argument'} = '
+
 
 ';
 
@@ -254,6 +325,7 @@ $result_converted{'plaintext'}->{'enumerate_argument'} = '';
 
 $result_converted{'html_text'}->{'enumerate_argument'} = '
 
+
 ';
 
 
@@ -264,6 +336,9 @@ $result_converted{'xml'}->{'enumerate_argument'} = '<enumerate first="1" spaces=
 </enumerate>
 
 <enumerate first="z" spaces=" " endspaces=" "><enumeratefirst>z </enumeratefirst><!-- c comment -->
+</enumerate>
+
+<enumerate spaces=" " endspaces=" "><enumeratefirst>0</enumeratefirst>
 </enumerate>
 ';
 

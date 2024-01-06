@@ -1,5 +1,10 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/18itemize.t (enumerate_argument, enumerate_argument_item):
+	add test of @enumerate 0.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS): fix index of
 	message_list_command_warn and message_list_command_error, add
 	message_list_document_*, noticed_line_warn and

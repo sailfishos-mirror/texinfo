@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-add test of 
-@enumerate 0
-
 add test of init css_add_info 
   $converter->css_set_selector_style('h1.titlefont', 'text-align:center');
 and css_set_selector_style for a selector already set
