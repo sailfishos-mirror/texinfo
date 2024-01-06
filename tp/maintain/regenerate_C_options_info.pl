@@ -316,7 +316,7 @@ foreach my $category (sort(keys(%option_categories))) {
       my $dir_string_arg = 'svt_byte';
       if ($type eq 'file_string_list') {
         $dir_string_arg = 'svt_dir';
-      } elsif ($type eq 'file_string_char') {
+      } elsif ($type eq 'char_string_list') {
         $dir_string_arg = 'svt_char';
       }
       print GET "      clear_strings_list (options->$option.strlist);
@@ -373,7 +373,7 @@ foreach my $category (sort(keys(%option_categories))) {
       my $dir_string_arg = 'svt_byte';
       if ($type eq 'file_string_list') {
         $dir_string_arg = 'svt_dir';
-      } elsif ($type eq 'file_string_char') {
+      } elsif ($type eq 'char_string_list') {
         $dir_string_arg = 'svt_char';
       }
       print GET "    {

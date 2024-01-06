@@ -2545,6 +2545,7 @@ format_comment (CONVERTER *self, const char *text)
 
 static const char *reserved_unreserved_percent = "-_.!~*'()$&+,/:;=?@[]#%";
 
+/* NOTE the input string should be UTF-8 encoded */
 static char *
 url_protect_url_text (CONVERTER *self, const char *input_string)
 {
@@ -6727,30 +6728,38 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
   css_import_lines = html_css_get_info (self, CI_css_info_imports);
   css_rule_lines = html_css_get_info (self, CI_css_info_rules);
 
-  if (css_import_lines->number <= 0 && css_element_classes->number <= 0
+  if (css_import_lines->number <= 0
+      && (!css_element_classes || css_element_classes->number <= 0)
       && css_rule_lines->number <= 0
       && (!css_refs || css_refs->number <= 0))
     return;
 
   text_append (result, "<style type=\"text/css\">\n<!--\n");
-  for (i = 0; i < css_import_lines->number; i++)
+
+  if (css_import_lines->number > 0)
     {
-      text_append (result, css_import_lines->list[i]);
+      for (i = 0; i < css_import_lines->number; i++)
+        text_append (result, css_import_lines->list[i]);
       text_append_n (result, "\n", 1);
     }
 
-  for (i = 0; i < css_element_classes->number; i++)
+  if (css_element_classes && css_element_classes->number > 0)
     {
-      const char *selector = css_element_classes->list[i];
-      CSS_SELECTOR_STYLE *selector_style
-       = find_css_selector_style (&self->css_element_class_styles, selector);
-      if (selector_style->style)
-        text_printf (result, "%s {%s}\n", selector, selector_style->style);
+      for (i = 0; i < css_element_classes->number; i++)
+        {
+          const char *selector = css_element_classes->list[i];
+          CSS_SELECTOR_STYLE *selector_style
+           = find_css_selector_style (&self->css_element_class_styles,
+                                      selector);
+          if (selector_style->style)
+            text_printf (result, "%s {%s}\n", selector, selector_style->style);
+        }
     }
 
-  for (i = 0; i < css_rule_lines->number; i++)
+  if (css_rule_lines->number > 0)
     {
-      text_append (result, css_rule_lines->list[i]);
+      for (i = 0; i < css_rule_lines->number; i++)
+        text_append (result, css_rule_lines->list[i]);
       text_append_n (result, "\n", 1);
     }
 
@@ -6778,13 +6787,12 @@ format_css_lines (CONVERTER *self, const char *filename, TEXT *result)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_css_lines];
-  /*
+
   if (formatting_reference->status == FRS_status_default_set)
     {
       html_default_format_css_lines (self, filename, result);
     }
   else
-   */
     {
       char *css_lines
         = call_formatting_function_format_css_lines (self,

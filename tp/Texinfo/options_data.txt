@@ -337,7 +337,7 @@ PASSIVE_ICONS                      converter_other undef   icons
 # --css-include
 CSS_FILES            array_cmdline  undef   bytes_string_list
 # --css-ref
-CSS_REFS             array_cmdline  undef   bytes_string_list
+CSS_REFS             array_cmdline  undef   char_string_list
 # --if*
 EXPANDED_FORMATS     array_cmdline  undef   bytes_string_list
 # -I

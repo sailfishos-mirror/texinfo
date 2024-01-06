@@ -1,5 +1,20 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/options_data.txt (CSS_REFS): set type to char_string_list
+	as it is decoded in the main program.
+
+	* tp/maintain/regenerate_C_options_info.pl: fix the name of
+	char_string_list.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_css_lines): fix output and css_element_classes can
+	be 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c (format_css_lines): use
+	html_default_format_css_lines.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	XS interface for getting/setting CSS information
 
 	* tp/Texinfo/Convert/HTML.pm (_prepare_css): use css_add_info
