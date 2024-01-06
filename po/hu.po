@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.x\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-12-27 10:01+0000\n"
+"POT-Creation-Date: 2024-01-06 17:50+0100\n"
 "PO-Revision-Date: 2006-02-18 16:00+0100\n"
 "Last-Translator: Máté LABÁDI <labadimate@freemail.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -459,7 +459,7 @@ msgid "Try --help for more information.\n"
 msgstr "A --help több információt ad.\n"
 
 #: info/info.c:872 install-info/install-info.c:2261
-#: Pod-Simple-Texinfo/pod2texi.pl:177 tp/texi2any.pl:923
+#: Pod-Simple-Texinfo/pod2texi.pl:177 tp/texi2any.pl:924
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -568,7 +568,7 @@ msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
 #: info/info.c:1162 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:154
+#: Pod-Simple-Texinfo/pod2texi.pl:154 tp/texi2any.pl:911
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -2297,7 +2297,7 @@ msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 msgid "%s: missing file argument\n"
 msgstr "%s: hiányzó fájl argumentum.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:226 tp/texi2any.pl:1393
+#: Pod-Simple-Texinfo/pod2texi.pl:226 tp/texi2any.pl:1394
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "További információért próbálja meg a „%s --help“-t.\n"
@@ -2367,7 +2367,7 @@ msgstr "%s nem egy ISO 639 szabvány szerinti nyelvkód"
 msgid "%s is not a valid region code"
 msgstr "%s nem egy ISO 639 szabvány szerinti nyelvkód"
 
-#: tp/Texinfo/Config.pm:121 tp/texi2any.pl:420
+#: tp/Texinfo/Config.pm:121 tp/texi2any.pl:421
 #, fuzzy, perl-format
 #| msgid "%s: warning: "
 msgctxt "program name: warning: warning_message"
@@ -2437,23 +2437,23 @@ msgstr "ismeretlen művelet: „%s“."
 msgid "%s: unknown special element information type %s\n"
 msgstr ""
 
-#: tp/Texinfo/DebugTree.pm:78 tp/Texinfo/Convert/Converter.pm:423
-#: tp/Texinfo/Convert/Converter.pm:474 tp/Texinfo/Convert/DocBook.pm:357
-#: tp/Texinfo/Convert/HTML.pm:11465 tp/Texinfo/Convert/HTML.pm:12139
-#: tp/Texinfo/Convert/HTML.pm:12562 tp/Texinfo/Convert/IXIN.pm:343
-#: tp/Texinfo/Convert/Info.pm:328 tp/Texinfo/Convert/LaTeX.pm:1080
+#: tp/Texinfo/DebugTree.pm:78 tp/Texinfo/Convert/Converter.pm:436
+#: tp/Texinfo/Convert/Converter.pm:487 tp/Texinfo/Convert/DocBook.pm:357
+#: tp/Texinfo/Convert/HTML.pm:11550 tp/Texinfo/Convert/HTML.pm:12227
+#: tp/Texinfo/Convert/HTML.pm:12675 tp/Texinfo/Convert/IXIN.pm:343
+#: tp/Texinfo/Convert/Info.pm:337 tp/Texinfo/Convert/LaTeX.pm:1080
 #: tp/Texinfo/Convert/Text.pm:976 tp/Texinfo/Convert/TexinfoMarkup.pm:313
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open %s for writing: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/DebugTree.pm:90 tp/Texinfo/Convert/Converter.pm:451
-#: tp/Texinfo/Convert/Converter.pm:492 tp/Texinfo/Convert/DocBook.pm:522
-#: tp/Texinfo/Convert/HTML.pm:11460 tp/Texinfo/Convert/HTML.pm:12159
+#: tp/Texinfo/DebugTree.pm:90 tp/Texinfo/Convert/Converter.pm:464
+#: tp/Texinfo/Convert/Converter.pm:505 tp/Texinfo/Convert/DocBook.pm:522
+#: tp/Texinfo/Convert/HTML.pm:11545 tp/Texinfo/Convert/HTML.pm:12247
 #: tp/Texinfo/Convert/IXIN.pm:986 tp/Texinfo/Convert/Info.pm:180
 #: tp/Texinfo/Convert/Info.pm:207 tp/Texinfo/Convert/Info.pm:236
-#: tp/Texinfo/Convert/Info.pm:302 tp/Texinfo/Convert/LaTeX.pm:1149
+#: tp/Texinfo/Convert/Info.pm:311 tp/Texinfo/Convert/LaTeX.pm:1149
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:340 tp/Texinfo/ParserNonXS.pm:2483
 #: tp/Texinfo/XS/parsetexi/input.c:399
 #, fuzzy, c-format, perl-format
@@ -2473,66 +2473,66 @@ msgstr "a(z) „%s“ makró már korábban definiált lett"
 msgid "here is the previous definition as @%s"
 msgstr "„%s“ korábbi definíciója"
 
-#: tp/Texinfo/Convert/Converter.pm:355
+#: tp/Texinfo/Convert/Converter.pm:368
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1164 tp/Texinfo/Convert/Text.pm:940
+#: tp/Texinfo/Convert/Converter.pm:1194 tp/Texinfo/Convert/Text.pm:940
 #: tp/Texinfo/Convert/Text.pm:959
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1338
+#: tp/Texinfo/Convert/Converter.pm:1368
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/Converter.pm:1347
+#: tp/Texinfo/Convert/Converter.pm:1377
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"
 
-#: tp/Texinfo/Convert/DocBook.pm:1303
+#: tp/Texinfo/Convert/DocBook.pm:1305
 #, fuzzy, perl-format
 #| msgid "@image file `%s' unreadable: %s"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"
 
-#: tp/Texinfo/Convert/DocBook.pm:1438 tp/Texinfo/ParserNonXS.pm:6322
+#: tp/Texinfo/Convert/DocBook.pm:1440 tp/Texinfo/ParserNonXS.pm:6322
 #: tp/Texinfo/XS/parsetexi/separator.c:482
 #, fuzzy
 #| msgid "No node name specified for `%c%s' command"
 msgid "no argument specified for @U"
 msgstr "A(z) „%c%s“ parancshoz nem lett oldalnév rendelve"
 
-#: tp/Texinfo/Convert/HTML.pm:3757 tp/ext/epub3.pm:270
+#: tp/Texinfo/Convert/HTML.pm:3761 tp/ext/epub3.pm:273
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image a(z) „%s“ fájl (HTML) nem olvasható: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:4904
+#: tp/Texinfo/Convert/HTML.pm:4973
 #, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6407
+#: tp/Texinfo/Convert/HTML.pm:6499
 #, fuzzy, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "A(z) „%s“ tárgymutató bejegyzése az oldalakon kívülre esik"
 
-#: tp/Texinfo/Convert/HTML.pm:6438
+#: tp/Texinfo/Convert/HTML.pm:6530
 #, fuzzy, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "A(z) „%s“ tárgymutató bejegyzése az oldalakon kívülre esik"
 
-#: tp/Texinfo/Convert/HTML.pm:8230
+#: tp/Texinfo/Convert/HTML.pm:8288
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open html refs config file %s: %s"
@@ -2540,183 +2540,183 @@ msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
 # action=művelet ? LM
 # általában az - sas
-#: tp/Texinfo/Convert/HTML.pm:8258
+#: tp/Texinfo/Convert/HTML.pm:8316
 #, fuzzy
 #| msgid "missing action name"
 msgid "missing type"
 msgstr "hiányzó műveletnév"
 
-#: tp/Texinfo/Convert/HTML.pm:8262
+#: tp/Texinfo/Convert/HTML.pm:8320
 #, fuzzy, perl-format
 #| msgid "%s: unrecognized option `--%s'\n"
 msgid "unrecognized type: %s"
 msgstr "%s: ismeretlen opció „--%s“\n"
 
-#: tp/Texinfo/Convert/HTML.pm:8284
+#: tp/Texinfo/Convert/HTML.pm:8342
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing html refs config file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/HTML.pm:8308
+#: tp/Texinfo/Convert/HTML.pm:8366
 #, perl-format
 msgid "could not find html refs config file %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8830
+#: tp/Texinfo/Convert/HTML.pm:8888
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
 # action=művelet ? LM
 # általában az - sas
-#: tp/Texinfo/Convert/HTML.pm:8846
+#: tp/Texinfo/Convert/HTML.pm:8904
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "ismeretlen művelet: „%s“."
 
-#: tp/Texinfo/Convert/HTML.pm:9175
+#: tp/Texinfo/Convert/HTML.pm:9233
 msgid "string not closed in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9177
+#: tp/Texinfo/Convert/HTML.pm:9235
 #, fuzzy
 #| msgid "%s:%d: --css-file ended in comment"
 msgid "--css-include ended in comment"
 msgstr "%s:%d: --css-file kommenttel végződik"
 
-#: tp/Texinfo/Convert/HTML.pm:9179
+#: tp/Texinfo/Convert/HTML.pm:9237
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9210
+#: tp/Texinfo/Convert/HTML.pm:9268
 #, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9220
+#: tp/Texinfo/Convert/HTML.pm:9278
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open --include-file %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9239
+#: tp/Texinfo/Convert/HTML.pm:9297
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/HTML.pm:9440
+#: tp/Texinfo/Convert/HTML.pm:9502
 #, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9748
+#: tp/Texinfo/Convert/HTML.pm:9826
 #, fuzzy, perl-format
 #| msgid "Making %s file `%s' from `%s'.\n"
 msgid "resetting %s file path %s to %s"
 msgstr "%s fájl („%s“) készítése „%s“-ból.\n"
 
-#: tp/Texinfo/Convert/HTML.pm:10527 tp/Texinfo/Convert/HTML.pm:10533
+#: tp/Texinfo/Convert/HTML.pm:10607 tp/Texinfo/Convert/HTML.pm:10613
 #, fuzzy, perl-format
 #| msgid "no index entries found for `%s'\n"
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "Nincs tárgymutató ehhez: %s\n"
 
-#: tp/Texinfo/Convert/HTML.pm:10984
+#: tp/Texinfo/Convert/HTML.pm:11064
 #, fuzzy, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "@%s -nek nincs jelentése a(z) „@%s“ blokkon belül"
 
-#: tp/Texinfo/Convert/HTML.pm:11438
+#: tp/Texinfo/Convert/HTML.pm:11523
 #, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:11851
+#: tp/Texinfo/Convert/HTML.pm:11939
 #, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:11903
+#: tp/Texinfo/Convert/HTML.pm:11991
 #, perl-format
 msgid "%s already exists but is not a directory"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:11924
+#: tp/Texinfo/Convert/HTML.pm:12012
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on copying %s into %s"
 msgstr "hiba „%s“ írásakor."
 
-#: tp/Texinfo/Convert/HTML.pm:11933
+#: tp/Texinfo/Convert/HTML.pm:12021
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on creating empty %s: %s"
 msgstr "hiba „%s“ írásakor."
 
-#: tp/Texinfo/Convert/HTML.pm:11938
+#: tp/Texinfo/Convert/HTML.pm:12026
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing empty %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/HTML.pm:12005
+#: tp/Texinfo/Convert/HTML.pm:12093
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12465
+#: tp/Texinfo/Convert/HTML.pm:12576
 #, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12482
+#: tp/Texinfo/Convert/HTML.pm:12593
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12485
+#: tp/Texinfo/Convert/HTML.pm:12596
 msgid "conflict with Top file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12488
+#: tp/Texinfo/Convert/HTML.pm:12599
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12491
+#: tp/Texinfo/Convert/HTML.pm:12602
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12494
+#: tp/Texinfo/Convert/HTML.pm:12605
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12500
+#: tp/Texinfo/Convert/HTML.pm:12611
 #, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12511
+#: tp/Texinfo/Convert/HTML.pm:12622
 #, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12521
+#: tp/Texinfo/Convert/HTML.pm:12632
 #, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12533
+#: tp/Texinfo/Convert/HTML.pm:12644
 #, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12570
+#: tp/Texinfo/Convert/HTML.pm:12683
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing redirection node file %s: %s"
@@ -2744,18 +2744,18 @@ msgstr ""
 msgid "@%s output more than once: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:431
+#: tp/Texinfo/Convert/Info.pm:440
 #, fuzzy, perl-format
 #| msgid "(outside of any node)"
 msgid "@%s outside of any node"
 msgstr "(az oldalakon kívül)"
 
-#: tp/Texinfo/Convert/Info.pm:479
+#: tp/Texinfo/Convert/Info.pm:488
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:517
+#: tp/Texinfo/Convert/Info.pm:526
 #, perl-format
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
@@ -2789,47 +2789,47 @@ msgstr "A(z) „%s“ tárgymutató bejegyzése az oldalakon kívülre esik"
 msgid "node name with index entries should not contain `%s'"
 msgstr "Nincs %stárgymutató-bejegyzés, ami „%s!H-t tartalmazná."
 
-#: tp/Texinfo/Convert/Plaintext.pm:1656
+#: tp/Texinfo/Convert/Plaintext.pm:1653
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2070
+#: tp/Texinfo/Convert/Plaintext.pm:2073
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2236
+#: tp/Texinfo/Convert/Plaintext.pm:2239
 #, perl-format
 msgid "@%s cross-reference name should not contain `:'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2295
+#: tp/Texinfo/Convert/Plaintext.pm:2298
 #, fuzzy, perl-format
 #| msgid "No %sindex entries containing `%s'."
 msgid "@%s node name should not contain `%s'"
 msgstr "Nincs %stárgymutató-bejegyzés, ami „%s!H-t tartalmazná."
 
-#: tp/Texinfo/Convert/Plaintext.pm:2361
+#: tp/Texinfo/Convert/Plaintext.pm:2364
 #, perl-format
 msgid "`.' or `,' must follow @xref, not %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2365
+#: tp/Texinfo/Convert/Plaintext.pm:2368
 msgid "`.' or `,' must follow @xref"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:3494
+#: tp/Texinfo/Convert/Plaintext.pm:3503
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:3505
+#: tp/Texinfo/Convert/Plaintext.pm:3514
 msgid "menu entry node name should not contain `:'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:3528
+#: tp/Texinfo/Convert/Plaintext.pm:3542
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
@@ -3788,84 +3788,84 @@ msgstr "%s: A CSS fájl nem nyitható meg: %s"
 msgid "chm.pm: error on closing %s: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:292
+#: tp/ext/epub3.pm:295
 #, fuzzy, perl-format
 #| msgid "@image file `%s' unreadable: %s"
 msgid "@image file `%s' can not be copied"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"
 
-#: tp/ext/epub3.pm:304
+#: tp/ext/epub3.pm:307
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create images directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:324
+#: tp/ext/epub3.pm:327
 #, perl-format
 msgid "could not copy `%s' to `%s': %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:404
+#: tp/ext/epub3.pm:406
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error removing directory: %s: %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:409
+#: tp/ext/epub3.pm:411
 #, perl-format
 msgid "error removing directory: %s: unlinking %s: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:451
+#: tp/ext/epub3.pm:453
 msgid "Archive::Zip is required for EPUB file output"
 msgstr ""
 
-#: tp/ext/epub3.pm:546
+#: tp/ext/epub3.pm:548
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error creating directory: %s: %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:551
+#: tp/ext/epub3.pm:553
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:575
+#: tp/ext/epub3.pm:577
 msgid "epub: no filename output"
 msgstr ""
 
-#: tp/ext/epub3.pm:586
+#: tp/ext/epub3.pm:588
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create meta informations directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:600 tp/ext/epub3.pm:636 tp/ext/epub3.pm:666
-#: tp/ext/epub3.pm:777
+#: tp/ext/epub3.pm:602 tp/ext/epub3.pm:638 tp/ext/epub3.pm:668
+#: tp/ext/epub3.pm:779
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/ext/epub3.pm:620 tp/ext/epub3.pm:648 tp/ext/epub3.pm:747
-#: tp/ext/epub3.pm:926
+#: tp/ext/epub3.pm:622 tp/ext/epub3.pm:650 tp/ext/epub3.pm:749
+#: tp/ext/epub3.pm:928
 #, perl-format
 msgid "epub3.pm: error on closing %s: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:878
+#: tp/ext/epub3.pm:880
 #, perl-format
 msgid "epub3.pm: readdir %s error: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:946 tp/ext/epub3.pm:955 tp/ext/epub3.pm:968
+#: tp/ext/epub3.pm:948 tp/ext/epub3.pm:957 tp/ext/epub3.pm:970
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr ""
 
-#: tp/ext/epub3.pm:977
+#: tp/ext/epub3.pm:979
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "epub3.pm: error writing archive %s"
@@ -4111,19 +4111,19 @@ msgstr ""
 msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
 msgstr ""
 
-#: tp/texi2any.pl:446
+#: tp/texi2any.pl:447
 #, fuzzy, perl-format
 #| msgid "Could not create output file `%s'."
 msgid "could not read init file %s"
 msgstr "A kimeneti fájl („%s“) nem hozható létre."
 
-#: tp/texi2any.pl:464
+#: tp/texi2any.pl:465
 #, fuzzy, perl-format
 #| msgid "Could not create output file `%s'."
 msgid "could not read extension file %s"
 msgstr "A kimeneti fájl („%s“) nem hozható létre."
 
-#: tp/texi2any.pl:709
+#: tp/texi2any.pl:710
 #, fuzzy, perl-format
 #| msgid "%s: Ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'.\n"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
@@ -4131,12 +4131,12 @@ msgstr ""
 "%s: Figyelmen kívül hagyom a fel nem ismert TEXINFO_OUTPUT_FORMAT értéket "
 "(„%s“).\n"
 
-#: tp/texi2any.pl:754
+#: tp/texi2any.pl:755
 #, perl-format
 msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgstr "Használat: %s [OPCIÓK] ... TEXINFO-FÁJL...\n"
 
-#: tp/texi2any.pl:757
+#: tp/texi2any.pl:758
 msgid ""
 "Translate Texinfo source documentation to various other formats, by default\n"
 "Info files suitable for reading online with Emacs or standalone GNU Info.\n"
@@ -4145,7 +4145,7 @@ msgid ""
 "the behavior is identical, and does not depend on the installed name.\n"
 msgstr ""
 
-#: tp/texi2any.pl:765
+#: tp/texi2any.pl:766
 #, perl-format
 msgid ""
 "General options:\n"
@@ -4164,51 +4164,51 @@ msgid ""
 "      --version               display version information and exit.\n"
 msgstr ""
 
-#: tp/texi2any.pl:781
+#: tp/texi2any.pl:782
 msgid "Output format selection (default is to produce Info):"
 msgstr ""
 
-#: tp/texi2any.pl:782
+#: tp/texi2any.pl:783
 msgid "      --docbook               output Docbook XML."
 msgstr ""
 
-#: tp/texi2any.pl:783
+#: tp/texi2any.pl:784
 msgid "      --html                  output HTML."
 msgstr ""
 
-#: tp/texi2any.pl:784
+#: tp/texi2any.pl:785
 msgid "      --epub3                 output EPUB 3."
 msgstr ""
 
-#: tp/texi2any.pl:785
+#: tp/texi2any.pl:786
 msgid "      --latex                 output LaTeX."
 msgstr ""
 
-#: tp/texi2any.pl:786
+#: tp/texi2any.pl:787
 msgid "      --plaintext             output plain text rather than Info."
 msgstr ""
 
-#: tp/texi2any.pl:787
+#: tp/texi2any.pl:788
 msgid "      --xml                   output Texinfo XML."
 msgstr ""
 
-#: tp/texi2any.pl:788
+#: tp/texi2any.pl:789
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE."
 msgstr ""
 
-#: tp/texi2any.pl:792
+#: tp/texi2any.pl:793
 msgid "General output options:"
 msgstr ""
 
-#: tp/texi2any.pl:794
+#: tp/texi2any.pl:795
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
 
-#: tp/texi2any.pl:797
+#: tp/texi2any.pl:798
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4220,19 +4220,19 @@ msgid ""
 "                                standard output by default."
 msgstr ""
 
-#: tp/texi2any.pl:803
+#: tp/texi2any.pl:804
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
 
-#: tp/texi2any.pl:806
+#: tp/texi2any.pl:807
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 
-#: tp/texi2any.pl:809
+#: tp/texi2any.pl:810
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4244,7 +4244,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tp/texi2any.pl:817
+#: tp/texi2any.pl:818
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4252,21 +4252,21 @@ msgid ""
 "                                encoding."
 msgstr ""
 
-#: tp/texi2any.pl:821
+#: tp/texi2any.pl:822
 msgid "      --enable-encoding       override --disable-encoding (default)."
 msgstr ""
 
-#: tp/texi2any.pl:823
+#: tp/texi2any.pl:824
 msgid "Options for Info and plain text:"
 msgstr ""
 
-#: tp/texi2any.pl:825
+#: tp/texi2any.pl:826
 #, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:827
+#: tp/texi2any.pl:828
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
 "                                `separate' to put them in their own node;\n"
@@ -4275,7 +4275,7 @@ msgid ""
 "                                which they are defined (this is the default)."
 msgstr ""
 
-#: tp/texi2any.pl:832
+#: tp/texi2any.pl:833
 #, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4284,13 +4284,13 @@ msgid ""
 "                                `asis', preserve existing indentation."
 msgstr ""
 
-#: tp/texi2any.pl:836
+#: tp/texi2any.pl:837
 #, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:844
+#: tp/texi2any.pl:845
 msgid ""
 "Options for HTML:\n"
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
@@ -4304,106 +4304,106 @@ msgid ""
 "                                anchors; default is set only if split.\n"
 msgstr ""
 
-#: tp/texi2any.pl:856
+#: tp/texi2any.pl:857
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
 msgstr ""
 
-#: tp/texi2any.pl:859
+#: tp/texi2any.pl:860
 msgid "Input file options:"
 msgstr ""
 
-#: tp/texi2any.pl:860
+#: tp/texi2any.pl:861
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr ""
 
-#: tp/texi2any.pl:861
+#: tp/texi2any.pl:862
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
 
-#: tp/texi2any.pl:862
+#: tp/texi2any.pl:863
 msgid " -I DIR                       append DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:863
+#: tp/texi2any.pl:864
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:864
+#: tp/texi2any.pl:865
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
 
-#: tp/texi2any.pl:866
+#: tp/texi2any.pl:867
 msgid "Conditional processing in input:"
 msgstr ""
 
-#: tp/texi2any.pl:867
+#: tp/texi2any.pl:868
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
 msgstr ""
 
-#: tp/texi2any.pl:869
+#: tp/texi2any.pl:870
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
 
-#: tp/texi2any.pl:870
+#: tp/texi2any.pl:871
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr ""
 
-#: tp/texi2any.pl:871
+#: tp/texi2any.pl:872
 msgid "  --iflatex         process @iflatex and @latex."
 msgstr ""
 
-#: tp/texi2any.pl:872
+#: tp/texi2any.pl:873
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
 
-#: tp/texi2any.pl:873
+#: tp/texi2any.pl:874
 msgid "  --iftex           process @iftex and @tex."
 msgstr ""
 
-#: tp/texi2any.pl:874
+#: tp/texi2any.pl:875
 msgid "  --ifxml           process @ifxml and @xml."
 msgstr ""
 
-#: tp/texi2any.pl:875
+#: tp/texi2any.pl:876
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgstr ""
 
-#: tp/texi2any.pl:876
+#: tp/texi2any.pl:877
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
 msgstr ""
 
-#: tp/texi2any.pl:877
+#: tp/texi2any.pl:878
 msgid "  --no-ifinfo       do not process @ifinfo text."
 msgstr ""
 
-#: tp/texi2any.pl:878
+#: tp/texi2any.pl:879
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
 msgstr ""
 
-#: tp/texi2any.pl:879
+#: tp/texi2any.pl:880
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgstr ""
 
-#: tp/texi2any.pl:880
+#: tp/texi2any.pl:881
 msgid "  --no-iftex        do not process @iftex and @tex text."
 msgstr ""
 
-#: tp/texi2any.pl:881
+#: tp/texi2any.pl:882
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
 msgstr ""
 
-#: tp/texi2any.pl:883
+#: tp/texi2any.pl:884
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
 msgstr ""
 
-#: tp/texi2any.pl:887
+#: tp/texi2any.pl:888
 msgid ""
 "  The defaults for the @if... conditionals depend on the output format:\n"
 "  if generating Docbook, --ifdocbook is on and the others are off;\n"
@@ -4414,7 +4414,7 @@ msgid ""
 "  if generating XML, --ifxml is on and the others are off."
 msgstr ""
 
-#: tp/texi2any.pl:898
+#: tp/texi2any.pl:899
 msgid ""
 "Examples:\n"
 "  makeinfo foo.texi                      write Info to foo's @setfilename\n"
@@ -4431,97 +4431,79 @@ msgid ""
 "  makeinfo --no-split foo.texi           write one Info file however big\n"
 msgstr ""
 
-#: tp/texi2any.pl:910
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "Email bug reports to bug-texinfo@gnu.org,\n"
-#| "general questions and discussion to help-texinfo@gnu.org.\n"
-#| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-msgid ""
-"Email bug reports to bug-texinfo@gnu.org,\n"
-"general questions and discussion to help-texinfo@gnu.org.\n"
-"Texinfo home page: http://www.gnu.org/software/texinfo/"
-msgstr ""
-"\n"
-"Hibajegyek a bug-texinfo@gnu.org,\n"
-"általános kérdések és ötletek a help-texinfo@gnu.org\n"
-"címre küldhetők.\n"
-"Texinfo honlap: http://www.gnu.org/software/texinfo/"
-
-#: tp/texi2any.pl:950
+#: tp/texi2any.pl:951
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr ""
 "%s: a --footnote-style argumentumának „separate“-nek vagy  „end“-nek kell "
 "lennie, „%s“ helyett.\n"
 
-#: tp/texi2any.pl:957
+#: tp/texi2any.pl:958
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr ""
 
-#: tp/texi2any.pl:1050
+#: tp/texi2any.pl:1051
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
 "%s: a --paragraph-indent argumentumának numerikusnak,  „none“-nak vagy  "
 "„asis“-nek kell lennie, „%s“ helyett.\n"
 
-#: tp/texi2any.pl:1187
+#: tp/texi2any.pl:1188
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 
-#: tp/texi2any.pl:1191
+#: tp/texi2any.pl:1192
 msgid "--Xopt option without printed output"
 msgstr ""
 
 # action=művelet ? LM
 # általában az - sas
-#: tp/texi2any.pl:1277
+#: tp/texi2any.pl:1278
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown tree transformation %s"
 msgstr "ismeretlen művelet: „%s“."
 
-#: tp/texi2any.pl:1297
+#: tp/texi2any.pl:1298
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr ""
 
-#: tp/texi2any.pl:1300
+#: tp/texi2any.pl:1301
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr ""
 
-#: tp/texi2any.pl:1316
+#: tp/texi2any.pl:1317
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error loading %s: %s"
 msgstr "hiba „%s“ írásakor."
 
-#: tp/texi2any.pl:1392
+#: tp/texi2any.pl:1393
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: hiányzó fájl argumentum.\n"
 
-#: tp/texi2any.pl:1419
+#: tp/texi2any.pl:1420
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr ""
 
-#: tp/texi2any.pl:1486
+#: tp/texi2any.pl:1487
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
 
-#: tp/texi2any.pl:1540
+#: tp/texi2any.pl:1541
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/texi2any.pl:1545
+#: tp/texi2any.pl:1546
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open %s for writing: %s\n"
@@ -4631,6 +4613,23 @@ msgstr ""
 #| msgid "%c%s is obsolete"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s elavult"
+
+#, fuzzy
+#~| msgid ""
+#~| "\n"
+#~| "Email bug reports to bug-texinfo@gnu.org,\n"
+#~| "general questions and discussion to help-texinfo@gnu.org.\n"
+#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
+#~ msgid ""
+#~ "Email bug reports to bug-texinfo@gnu.org,\n"
+#~ "general questions and discussion to help-texinfo@gnu.org.\n"
+#~ "Texinfo home page: http://www.gnu.org/software/texinfo/"
+#~ msgstr ""
+#~ "\n"
+#~ "Hibajegyek a bug-texinfo@gnu.org,\n"
+#~ "általános kérdések és ötletek a help-texinfo@gnu.org\n"
+#~ "címre küldhetők.\n"
+#~ "Texinfo honlap: http://www.gnu.org/software/texinfo/"
 
 #, fuzzy, perl-format
 #~| msgid "error closing output file `%s'"
