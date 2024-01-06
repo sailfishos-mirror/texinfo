@@ -59,8 +59,8 @@ BEGIN
     Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
 
     # To find Pod::Simple::Texinfo
-    if (defined($ENV{'top_builddir'})) {
-      unshift @INC, File::Spec->catdir($ENV{'top_builddir'},
+    if (defined($ENV{'top_srcdir'})) {
+      unshift @INC, File::Spec->catdir($ENV{'top_srcdir'},
                                        'Pod-Simple-Texinfo', 'lib');
     } else {
       unshift @INC, File::Spec->catdir($command_directory, 'lib');

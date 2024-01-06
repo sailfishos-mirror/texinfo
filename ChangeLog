@@ -1,5 +1,17 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/Makefile.am (AM_TESTS_ENVIRONMENT): set for out
+	of source builds.
+
+	* Pod-Simple-Texinfo/pod2texi.pl (BEGIN): Pod-Simple-Texinfo is
+	not in builddir, but in srcdir.
+
+	* Pod-Simple-Texinfo/prove.sh,
+	Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (BEGIN): use a similar setup
+	as for other scripts to find the perl modules.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	Fix memory leaks found with valgrind
 
 	* tp/Texinfo/XS/convert/convert_html.c

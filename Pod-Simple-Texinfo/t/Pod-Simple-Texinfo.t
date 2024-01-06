@@ -6,7 +6,31 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test::More;
-BEGIN { plan tests => 21 };
+use File::Spec;
+
+BEGIN {
+  plan tests => 21;
+
+  my $updir = File::Spec->updir();
+  # To find Texinfo::ModulePath
+  if (defined($ENV{'top_builddir'})) {
+    unshift @INC, File::Spec->catdir($ENV{'top_builddir'}, 'tp');
+  } else {
+    unshift @INC, File::Spec->catdir($updir, 'tp');
+  }
+
+  require Texinfo::ModulePath;
+  # NOTE updirs argument is correct but not used, as top_srcdir is set
+  Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 2);
+
+  # To find Pod::Simple::Texinfo
+  if (defined($ENV{'top_srcdir'})) {
+    unshift @INC, File::Spec->catdir($ENV{'top_srcdir'},
+                                     'Pod-Simple-Texinfo', 'lib');
+  } else {
+    unshift @INC, File::Spec->catdir('lib');
+  }
+};
 use Pod::Simple::Texinfo;
 ok(1); # If we made it this far, we're ok.
 
