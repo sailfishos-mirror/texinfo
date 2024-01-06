@@ -578,7 +578,7 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
   node_tree = protect_colon_in_tree (node_tree);
   /* in menu entry with label */
   node_tree = protect_node_after_label_in_tree (node_tree);
-  node_tree = reference_to_arg_in_tree (node_tree);
+  node_tree = reference_to_arg_in_tree (node_tree, document);
 
   if (node_tree->contents.number <= 0)
     {
@@ -838,6 +838,7 @@ reference_to_arg_internal (const char *type,
   if (e->cmd
       && builtin_command_data[e->cmd].flags & CF_ref)
     {
+      DOCUMENT *document = (DOCUMENT *) argument;
       int index = 0;
       int *arguments_order = ref_5_args_order;
       /* container for the new elements to insert, will be destroyed
@@ -877,6 +878,11 @@ reference_to_arg_internal (const char *type,
             }
           index++;
         }
+      if (document && document->internal_references
+          && document->internal_references->number > 0)
+        {
+          remove_element_from_list (document->internal_references, e);
+        }
       destroy_element_and_children (e);
       if (new->contents.number == 0)
         text_append (&new->text, "");
@@ -887,9 +893,9 @@ reference_to_arg_internal (const char *type,
 }
 
 ELEMENT *
-reference_to_arg_in_tree (ELEMENT *tree)
+reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document)
 {
-  return modify_tree (tree, &reference_to_arg_internal, 0);
+  return modify_tree (tree, &reference_to_arg_internal, document);
 }
 
 void

@@ -136,7 +136,7 @@ reference_to_arg_in_tree (SV *tree_in)
                           _new_node, for example */
         document = get_sv_tree_document (tree_in, 0);
         if (document)
-          reference_to_arg_in_tree (document->tree);
+          reference_to_arg_in_tree (document->tree, document);
 
 void
 associate_internal_references (SV *document_in, ...)

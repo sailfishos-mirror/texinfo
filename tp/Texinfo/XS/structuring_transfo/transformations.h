@@ -10,7 +10,7 @@ ELEMENT_LIST *fill_gaps_in_sectioning (ELEMENT *root,
 void relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
                                     INDEX **indices_information);
 void move_index_entries_after_items_in_tree (ELEMENT *tree);
-ELEMENT *reference_to_arg_in_tree (ELEMENT *tree);
+ELEMENT *reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document);
 ELEMENT *protect_comma_in_tree (ELEMENT *tree);
 ELEMENT *protect_node_after_label_in_tree (ELEMENT *tree);
 void complete_tree_nodes_menus (ELEMENT *root, int use_sections);

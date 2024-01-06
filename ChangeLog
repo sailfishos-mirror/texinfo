@@ -1,5 +1,13 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reference_to_arg_internal, reference_to_arg_in_tree): add document as
+	argument to reference_to_arg_in_tree and reference_to_arg_internal.
+	Update callers.  Remove destroyed element from
+	document->internal_references.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/Makefile.am (AM_TESTS_ENVIRONMENT): set for out
 	of source builds.
 
