@@ -6680,6 +6680,41 @@ foreach my $contents_comand (@contents_commands) {
   $default_commands_conversion{$contents_comand} = \&_convert_contents_command;
 }
 
+sub _convert_def_command($$$$$) {
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+  my $args = shift;
+  my $content = shift;
+
+  $content = '' if (!defined($content));
+
+  return $content if (in_string($self));
+
+  my @classes;
+  my $command_name;
+  if ($Texinfo::Common::def_aliases{$cmdname}) {
+    $command_name = $Texinfo::Common::def_aliases{$cmdname};
+    push @classes, "first-$cmdname-alias-first-$command_name";
+  } else {
+    $command_name = $cmdname;
+  }
+  unshift @classes, "first-$command_name";
+
+  if (!$self->get_conf('DEF_TABLE')) {
+    return $self->html_attribute_class('dl', \@classes).">\n"
+                                        . $content ."</dl>\n";
+  } else {
+    return $self->html_attribute_class('table', \@classes)." width=\"100%\">\n"
+                                                     . $content . "</table>\n";
+  }
+}
+
+foreach my $command (keys(%def_commands), 'defblock') {
+  $default_commands_conversion{$command} = \&_convert_def_command;
+}
+
+
 # associate same formatting function for @small* command
 # as for the associated @-command
 foreach my $small_command (keys(%small_block_associated_command)) {
@@ -7667,40 +7702,6 @@ sub _convert_def_item_type($$$$)
 
 $default_types_conversion{'def_item'} = \&_convert_def_item_type;
 $default_types_conversion{'inter_def_item'} = \&_convert_def_item_type;
-
-sub _convert_def_command($$$$$) {
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
-
-  $content = '' if (!defined($content));
-
-  return $content if (in_string($self));
-
-  my @classes;
-  my $command_name;
-  if ($Texinfo::Common::def_aliases{$cmdname}) {
-    $command_name = $Texinfo::Common::def_aliases{$cmdname};
-    push @classes, "first-$cmdname-alias-first-$command_name";
-  } else {
-    $command_name = $cmdname;
-  }
-  unshift @classes, "first-$command_name";
-
-  if (!$self->get_conf('DEF_TABLE')) {
-    return $self->html_attribute_class('dl', \@classes).">\n"
-                                        . $content ."</dl>\n";
-  } else {
-    return $self->html_attribute_class('table', \@classes)." width=\"100%\">\n"
-                                                     . $content . "</table>\n";
-  }
-}
-
-foreach my $command (keys(%def_commands), 'defblock') {
-  $default_commands_conversion{$command} = \&_convert_def_command;
-}
 
 sub _convert_table_definition_type($$$$)
 {

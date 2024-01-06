@@ -1,5 +1,15 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_command): move code to be
+	with other commands conversion.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_def_item_type)
+	(convert_table_definition_type, types_internal_conversion_table):
+	implement convert_def_item_type and convert_table_definition_type in
+	C.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/options_data.txt (CSS_REFS): set type to char_string_list
 	as it is decoded in the main program.
 

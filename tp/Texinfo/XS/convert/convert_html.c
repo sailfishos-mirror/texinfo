@@ -14594,13 +14594,64 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
   free (anchor);
 }
 
+void
+convert_def_item_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  if (!content)
+    return;
+
+  if (html_in_string (self))
+    text_append (result, content);
+
+  if (content[strspn (content, whitespace_chars)] == '\0')
+    return;
+
+  if (self->conf->DEF_TABLE.integer <= 0)
+    {
+      text_append_n (result, "<dd>", 4);
+      text_append (result, content);
+      text_append_n (result, "</dd>", 5);
+    }
+  else
+    {
+      text_append_n (result, "<tr><td colspan=\"2\">", 20);
+      text_append (result, content);
+      text_append_n (result, "</td></tr>", 10);
+    }
+}
+
+void
+convert_table_definition_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  if (!content)
+    return;
+
+  if (html_in_string (self))
+    text_append (result, content);
+
+  if (content[strspn (content, whitespace_chars)] == '\0')
+    return;
+
+  text_append_n (result, "<dd>", 4);
+  text_append (result, content);
+  text_append_n (result, "</dd>\n", 6);
+}
+
 /* associate type to the C function implementing the conversion */
 static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_balanced_braces, &convert_balanced_braces_type},
   {ET_before_item, convert_before_item_type},
+  {ET_def_item, &convert_def_item_type},
+  {ET_inter_def_item, &convert_def_item_type},
   {ET_def_line, &convert_def_line_type},
   {ET_definfoenclose_command, &convert_definfoenclose_type},
   {ET_index_entry_command, &convert_index_entry_command_type},
+  {ET_table_definition, &convert_table_definition_type},
+  {ET_inter_item, &convert_table_definition_type},
   {ET_menu_comment, &convert_menu_comment_type},
   {ET_menu_entry, convert_menu_entry_type},
   {ET_multitable_body, &convert_multitable_body_type},
