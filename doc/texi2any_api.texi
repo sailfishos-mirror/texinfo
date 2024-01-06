@@ -707,12 +707,12 @@ rules selectors are, classically, @code{@var{element}.@var{class}} strings with
 @var{element} an HTML element and @var{class} an attribute class associated to
 that element.
 
-The function used are @code{css_get_info} and @code{css_selector_style}
+The function used are @code{css_get_info} and @code{css_get_selector_style}
 to get information and @code{css_add_info} and @code{css_set_selector_style}
 to modify:
 
 @defun @var{$converter}->css_get_info ($specification)
-@defunx @var{$converter}->css_selector_style ($selector)
+@defunx @var{$converter}->css_get_selector_style ($selector)
 @defunx @var{$converter}->css_add_info ($specification, $css_info)
 @defunx @var{$converter}->css_set_selector_style ($selector, $css_style)
 
@@ -726,7 +726,7 @@ class attributes selectors, and can be used to get the list of selectors.
 With @code{css_get_info}, array references corresponding to @var{$specification}
 are returned.
 
-@code{css_selector_style} returns the CSS style corresponding to the HTML
+@code{css_get_selector_style} returns the CSS style corresponding to the HTML
 element and class attribute selector @var{$selector}, or @code{undef} if not
 found.
 
@@ -743,7 +743,7 @@ Some examples of use:
 @example
 my @@all_included_rules = $converter->css_get_info('rules');
 my $all_default_selector_styles = $converter->css_get_info('styles');
-my $titlefont_header_style = $converter->css_selector_style('h1.titlefont');
+my $titlefont_header_style = $converter->css_get_selector_style('h1.titlefont');
 
 $converter->css_set_selector_style('h1.titlefont', 'text-align:center');
 $converter->css_add_info('imports', "\@@import \"special.css\";\n");

@@ -142,7 +142,7 @@ void html_css_add_info (CONVERTER *self, enum css_info_type type,
 STRING_LIST *html_css_get_info (CONVERTER *self, enum css_info_type type);
 void html_css_set_selector_style (CONVERTER* self, const char *css_info,
                                   const char *css_style);
-const char *html_css_selector_style (CONVERTER* self, const char *css_info);
+const char *html_css_get_selector_style (CONVERTER* self, const char *css_info);
 
 void html_register_footnote (CONVERTER *self, const ELEMENT *command,
      const char *footid, const char *docid, const int number_in_doc,

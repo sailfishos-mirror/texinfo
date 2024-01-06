@@ -4260,7 +4260,7 @@ html_css_set_selector_style (CONVERTER* self, const char *css_info,
 }
 
 const char *
-html_css_selector_style (CONVERTER* self, const char *css_info)
+html_css_get_selector_style (CONVERTER* self, const char *css_info)
 {
   CSS_SELECTOR_STYLE *selector_style
    = find_css_selector_style (&self->css_element_class_styles, css_info);

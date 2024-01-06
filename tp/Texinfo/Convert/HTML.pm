@@ -237,8 +237,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_css_set_selector_style",
   "Texinfo::Convert::HTML::css_get_info"
    => "Texinfo::Convert::ConvertXS::html_css_get_info",
-  "Texinfo::Convert::HTML::css_selector_style",
-   => "Texinfo::Convert::ConvertXS::html_css_selector_style",
+  "Texinfo::Convert::HTML::css_get_selector_style",
+   => "Texinfo::Convert::ConvertXS::html_css_get_selector_style",
   "Texinfo::Convert::HTML::register_footnote",
    => "Texinfo::Convert::ConvertXS::html_register_footnote",
   "Texinfo::Convert::HTML::get_pending_footnotes",
@@ -604,7 +604,7 @@ sub css_get_info($$) {
   }
 }
 
-sub css_selector_style($$)
+sub css_get_selector_style($$)
 {
   my $self = shift;
   my $css_info = shift;
@@ -5651,7 +5651,7 @@ sub _convert_itemize_command($$$$$)
   }
 
   if (defined($mark_class_name)
-      and defined($self->css_selector_style('ul.mark-'.$mark_class_name))) {
+      and defined($self->css_get_selector_style('ul.mark-'.$mark_class_name))) {
     return $self->html_attribute_class('ul', [$cmdname,
                                               'mark-'.$mark_class_name])
         .">\n" . $content. "</ul>\n";
@@ -9122,7 +9122,7 @@ sub _default_format_css_lines($;$)
   $css_text .= join('', @$css_import_lines) . "\n"
     if (@$css_import_lines);
   foreach my $element_class (@$css_element_classes) {
-    my $css_style = $self->css_selector_style($element_class);
+    my $css_style = $self->css_get_selector_style($element_class);
     $css_text .= "$element_class {$css_style}\n"
       if defined($css_style);
   }

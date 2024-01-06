@@ -56,10 +56,10 @@ sub my_function_set_some_css {
   my $converter = shift;
   my $all_included_rules = $converter->css_get_info('rules');
   my $all_default_selectors = $converter->css_get_info('styles');
-  my $titlefont_style = $converter->css_selector_style('h1.titlefont');
+  my $titlefont_style = $converter->css_get_selector_style('h1.titlefont');
   $titlefont_style = 'undefined' if (!defined($titlefont_style));
   $shown_styles = $titlefont_style.' '.
-            $converter->css_selector_style('h1.shorttitlepage');
+            $converter->css_get_selector_style('h1.shorttitlepage');
   $converter->css_set_selector_style('h1.titlefont', 'text-align:center');
 
   my $footnotestyle_before_setting = $converter->get_conf('footnotestyle');

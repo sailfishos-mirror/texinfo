@@ -1379,17 +1379,17 @@ html_css_get_info (SV *converter_in, char *spec)
          RETVAL
 
 SV *
-html_css_selector_style (SV *converter_in, css_info)
+html_css_get_selector_style (SV *converter_in, css_info)
          char *css_info = (char *)SvPVutf8_nolen($arg);
     PREINIT:
          CONVERTER *self;
          const char *css_style = 0;
     CODE:
          self = get_sv_converter (converter_in,
-                                  "html_css_selector_style");
+                                  "html_css_get_selector_style");
          if (self)
            {
-             css_style = html_css_selector_style (self, css_info);
+             css_style = html_css_get_selector_style (self, css_info);
            }
          if (css_style)
            RETVAL = newSVpv_utf8 (css_style, 0);
