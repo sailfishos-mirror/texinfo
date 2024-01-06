@@ -14,6 +14,12 @@ enum count_elements_in_filename_type {
   CEFT_current,
 };
 
+enum css_info_type {
+   CI_css_info_element_classes,
+   CI_css_info_imports,
+   CI_css_info_rules,
+};
+
 extern char *html_conversion_context_type_names[];
 extern char *html_global_unit_direction_names[];
 
@@ -22,6 +28,8 @@ extern char *html_formatting_reference_names[];
 extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
+
+extern const char *css_info_type_names[];
 
 extern const char *direction_string_type_names[];
 extern const char *direction_string_context_names[];
@@ -129,6 +137,12 @@ char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);
 STRING_LIST *html_get_css_elements_classes (CONVERTER *self,
                                             const char *filename);
+void html_css_add_info (CONVERTER *self, enum css_info_type type,
+                        const char *css_info);
+STRING_LIST *html_css_get_info (CONVERTER *self, enum css_info_type type);
+void html_css_set_selector_style (CONVERTER* self, const char *css_info,
+                                  const char *css_style);
+const char *html_css_selector_style (CONVERTER* self, const char *css_info);
 
 void html_register_footnote (CONVERTER *self, const ELEMENT *command,
      const char *footid, const char *docid, const int number_in_doc,

@@ -166,6 +166,11 @@ const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1] =
   "mono", "node", "section", "chapter"
 };
 
+const char *css_info_type_names[] =
+{
+  "element_classes", "imports", "rules"
+};
+
 enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1][htmlxref_split_type_chapter + 1] = {
  { htmlxref_split_type_mono, htmlxref_split_type_chapter, htmlxref_split_type_section, htmlxref_split_type_node },
  { htmlxref_split_type_node, htmlxref_split_type_section, htmlxref_split_type_chapter, htmlxref_split_type_mono },
@@ -4189,6 +4194,14 @@ compare_selector_style (const void *a, const void *b)
   return strcmp (css_a->selector, css_b->selector);
 }
 
+static void
+sort_css_element_class_styles (CONVERTER* self)
+{
+  qsort (self->css_element_class_styles.list,
+         self->css_element_class_styles.number,
+         sizeof (CSS_SELECTOR_STYLE), compare_selector_style);
+}
+
 CSS_SELECTOR_STYLE *
 find_css_selector_style
      (const CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
@@ -4205,6 +4218,56 @@ find_css_selector_style
                 compare_selector_style);
 
   return result;
+}
+
+void
+html_css_set_selector_style (CONVERTER* self, const char *css_info,
+                             const char *css_style)
+{
+  CSS_SELECTOR_STYLE *selector_style
+   = find_css_selector_style (&self->css_element_class_styles, css_info);
+
+  if (selector_style)
+    {
+      free (selector_style->style);
+      selector_style->style = 0;
+      if (css_style)
+        selector_style->style = strdup (css_style);
+    }
+  else
+    {
+      CSS_SELECTOR_STYLE_LIST *elt_class_styles
+        = &self->css_element_class_styles;
+      if (elt_class_styles->space <= elt_class_styles->number)
+        {
+          elt_class_styles->list = realloc (elt_class_styles->list,
+             (elt_class_styles->space += 10) * sizeof (CSS_SELECTOR_STYLE));
+        }
+
+      selector_style
+        = &elt_class_styles->list[elt_class_styles->number];
+      selector_style->selector = strdup (css_info);
+      if (css_style)
+        selector_style->style = strdup (css_style);
+      else
+        selector_style->style = 0;
+
+      elt_class_styles->number++;
+
+      sort_css_element_class_styles (self);
+    }
+}
+
+const char *
+html_css_selector_style (CONVERTER* self, const char *css_info)
+{
+  CSS_SELECTOR_STYLE *selector_style
+   = find_css_selector_style (&self->css_element_class_styles, css_info);
+
+  if (selector_style)
+    return selector_style->style;
+
+  return 0;
 }
 
 static void
@@ -4415,6 +4478,44 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
   free (selectors);
 
   return result;
+}
+
+void
+html_css_add_info (CONVERTER *self, enum css_info_type type,
+                   const char *css_info)
+{
+  if (type == CI_css_info_rules)
+    add_string (css_info, &self->css_rule_lines);
+  else if (type == CI_css_info_imports)
+    add_string (css_info, &self->css_import_lines);
+}
+
+STRING_LIST *
+html_css_get_info (CONVERTER *self, enum css_info_type type)
+{
+  if (type == CI_css_info_rules)
+    return &self->css_rule_lines;
+  else if (type == CI_css_info_imports)
+    return &self->css_import_lines;
+  else
+    {
+      size_t i;
+      if (self->css_element_class_styles.number > 0)
+        {
+          if (self->css_element_class_list.number == 0)
+            {
+              for (i = 0; i < self->css_element_class_styles.number; i++)
+                {
+                  CSS_SELECTOR_STYLE *selector_style
+                    = &self->css_element_class_styles.list[i];
+                  if (selector_style->selector)
+                    add_string (selector_style->selector,
+                                &self->css_element_class_list);
+                }
+            }
+        }
+      return &self->css_element_class_list;
+    }
 }
 
 void
@@ -6606,6 +6707,70 @@ convert_string_tree_new_formatting_context (CONVERTER *self,
   remove_element_from_list (&self->tree_to_build, tree_root_string);
   destroy_element (tree_root_string);
   return result;
+}
+
+void
+html_default_format_css_lines (CONVERTER *self, const char *filename,
+                               TEXT *result)
+{
+  STRING_LIST *css_refs;
+  STRING_LIST *css_element_classes;
+  STRING_LIST *css_import_lines;
+  STRING_LIST *css_rule_lines;
+  size_t i;
+
+  if (self->conf->NO_CSS.integer > 0)
+    return;
+
+  css_refs = self->conf->CSS_REFS.strlist;
+  css_element_classes = html_get_css_elements_classes (self, filename);
+  css_import_lines = html_css_get_info (self, CI_css_info_imports);
+  css_rule_lines = html_css_get_info (self, CI_css_info_rules);
+
+  if (css_import_lines->number <= 0 && css_element_classes->number <= 0
+      && css_rule_lines->number <= 0
+      && (!css_refs || css_refs->number <= 0))
+    return;
+
+  text_append (result, "<style type=\"text/css\">\n<!--\n");
+  for (i = 0; i < css_import_lines->number; i++)
+    {
+      text_append (result, css_import_lines->list[i]);
+      text_append_n (result, "\n", 1);
+    }
+
+  for (i = 0; i < css_element_classes->number; i++)
+    {
+      const char *selector = css_element_classes->list[i];
+      CSS_SELECTOR_STYLE *selector_style
+       = find_css_selector_style (&self->css_element_class_styles, selector);
+      if (selector_style->style)
+        text_printf (result, "%s {%s}\n", selector, selector_style->style);
+    }
+
+  for (i = 0; i < css_rule_lines->number; i++)
+    {
+      text_append (result, css_rule_lines->list[i]);
+      text_append_n (result, "\n", 1);
+    }
+
+  text_append (result, "-->\n</style>\n");
+
+  if (css_refs)
+    {
+      for (i = 0; i < css_refs->number; i++)
+        {
+          char *protected_ref = url_protect_url_text (self,
+                                                css_refs->list[i]);
+          text_printf (result,
+               "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\"",
+                       protected_ref);
+          free (protected_ref);
+
+          close_html_lone_element (self, result);
+          text_append_n (result, "\n", 1);
+        }
+    }
 }
 
 void
@@ -15556,6 +15721,7 @@ html_converter_initialize (CONVERTER *self)
   qsort (self->htmlxref.list, self->htmlxref.number,
          sizeof (HTMLXREF_MANUAL), compare_htmlxref_manual);
 
+  sort_css_element_class_styles (self);
 
   /* remaining of the file is for the replacement of call to external
      functions by internal functions in C.  Uncomment the next line
@@ -15778,9 +15944,6 @@ html_converter_initialize (CONVERTER *self)
 void
 html_converter_prepare_output (CONVERTER* self)
 {
-  qsort (self->css_element_class_styles.list,
-         self->css_element_class_styles.number,
-         sizeof (CSS_SELECTOR_STYLE), compare_selector_style);
 }
 
 void

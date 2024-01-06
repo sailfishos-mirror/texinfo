@@ -1326,6 +1326,79 @@ html_get_css_elements_classes (SV *converter_in, ...)
          RETVAL
 
 void
+html_css_add_info (SV *converter_in, char *spec, css_info)
+         char *css_info = (char *)SvPVutf8_nolen($arg);
+    PREINIT:
+         CONVERTER *self;
+    CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_css_add_info");
+         if (self)
+           {
+             enum css_info_type type = html_get_css_info_spec (spec);
+             html_css_add_info (self, type, css_info);
+           }
+
+void
+html_css_set_selector_style (SV *converter_in, css_info, SV *css_style_sv)
+         char *css_info = (char *)SvPVutf8_nolen($arg);
+    PREINIT:
+         CONVERTER *self;
+    CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_css_set_selector_style");
+         if (self)
+           {
+             char *css_style = 0;
+             if (SvOK (css_style_sv))
+               css_style = (char *)SvPVutf8_nolen (css_style_sv);
+
+             html_css_set_selector_style (self, css_info, css_style);
+           }
+
+SV *
+html_css_get_info (SV *converter_in, char *spec)
+    PREINIT:
+         CONVERTER *self;
+         AV *result_av = 0;
+    CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_css_add_info");
+         if (self)
+           {
+             STRING_LIST *result;
+             enum css_info_type type = html_get_css_info_spec (spec);
+             result = html_css_get_info (self, type);
+             if (result)
+               result_av = build_string_list (result, svt_char);
+            }
+         if (!result_av)
+           result_av = newAV ();
+         RETVAL = newRV_noinc ((SV *) result_av);
+    OUTPUT:
+         RETVAL
+
+SV *
+html_css_selector_style (SV *converter_in, css_info)
+         char *css_info = (char *)SvPVutf8_nolen($arg);
+    PREINIT:
+         CONVERTER *self;
+         const char *css_style = 0;
+    CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_css_selector_style");
+         if (self)
+           {
+             css_style = html_css_selector_style (self, css_info);
+           }
+         if (css_style)
+           RETVAL = newSVpv_utf8 (css_style, 0);
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+void
 html_register_footnote (SV *converter_in, SV *command, footid, docid, int number_in_doc, footnote_location_filename, ...)
          char *footid = (char *)SvPVutf8_nolen($arg);
          char *docid = (char *)SvPVutf8_nolen($arg);

@@ -13,6 +13,14 @@ Before next release
 add test of 
 @enumerate 0
 
+add test of init css_add_info 
+  $converter->css_set_selector_style('h1.titlefont', 'text-align:center');
+and css_set_selector_style for a selector already set
+
+Do a test that shows that accessing directly css_element_class_styles
+in perl in _collect_css_element_class and html_attribute_class is problematic
+with some perl/C mixing case.
+
 it is not documented that .info or .inf at the end of the @ref file name argument of the source cross reference command is ignored when doing the HTML cross ref.
 in HTML Cross-reference Link Basics:
 Any directory part in the file name argument of the source cross reference command is ignored. Thus, @xref{,,,../foo} and @xref{,,,foo} both use ‘foo’ as the manual name. This is because any such attempted hardwiring of the directory is very unlikely to be useful for all the output formats that use the manual name. 

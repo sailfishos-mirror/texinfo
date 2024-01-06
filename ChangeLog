@@ -1,3 +1,32 @@
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
+	XS interface for getting/setting CSS information
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_css): use css_add_info
+	instead of accessing directly css_rule_lines and css_import_lines.
+
+	* tp/Texinfo/XS/convert/convert_html.c (sort_css_element_class_styles)
+	(html_css_set_selector_style, html_css_selector_style)
+	(html_css_add_info, html_css_get_info),
+	tp/Texinfo/XS/convert/convert_html.h (enum css_info_type),
+	tp/Texinfo/XS/main/converter_types.h (CSS_SELECTOR_STYLE_LIST)
+	(CONVERTER): add functions and data fields to implement the css
+	information getting/setting interface.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_initialize_output_state), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_css_add_info, html_css_set_selector_style, html_css_get_info)
+	(html_css_selector_style), tp/Texinfo/XS/convert/convert_html.c
+	(css_info_type_names, html_converter_initialize)
+	(html_converter_prepare_output),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv, html_converter_prepare_output_sv)
+	(html_get_css_info_spec): add an XS interface for css information
+	setting/getting.  Get css_element_class_styles earlier from perl.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_css_lines): implement.  Not used.
+
 2024-01-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_node_redirection_page):

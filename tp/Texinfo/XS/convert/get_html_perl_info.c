@@ -164,6 +164,7 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **pre_class_types_sv;
   SV **directions_strings_sv;
   SV **translated_direction_strings_sv;
+  SV **css_element_class_styles_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
   HV *commands_conversion_hv;
@@ -1072,26 +1073,6 @@ html_converter_initialize_sv (SV *converter_sv,
             }
         }
     }
-  html_converter_initialize (converter);
-
-  /* at that point, the format specific informations, in particular the number
-     of special elements is available, such that all the options can be
-     passed to C.  It is important to set the force argument to 1 to get
-     all the configuration, even if the configured field is set */
-  copy_converter_conf_sv (converter_hv, converter,
-                          &converter->conf, "conf", 1);
-}
-
-void
-html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
-{
-  HV *converter_hv;
-  SV **css_element_class_styles_sv;
-  SV **jslicenses_sv;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
 
   FETCH(css_element_class_styles)
 
@@ -1105,6 +1086,7 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
 
       hv_number = hv_iterinit (css_element_class_styles_hv);
 
+      converter->css_element_class_styles.space = hv_number;
       converter->css_element_class_styles.list = (CSS_SELECTOR_STYLE *)
         malloc (hv_number * sizeof (CSS_SELECTOR_STYLE));
       converter->css_element_class_styles.number = hv_number;
@@ -1123,6 +1105,26 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
           selector_style->style = strdup (style);
         }
     }
+
+  html_converter_initialize (converter);
+
+  /* at that point, the format specific informations, in particular the number
+     of special elements is available, such that all the options can be
+     passed to C.  It is important to set the force argument to 1 to get
+     all the configuration, even if the configured field is set */
+  copy_converter_conf_sv (converter_hv, converter,
+                          &converter->conf, "conf", 1);
+}
+
+void
+html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
+{
+  HV *converter_hv;
+  SV **jslicenses_sv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
 
   FETCH(jslicenses)
 
@@ -1711,4 +1713,20 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
   else if (!strcmp (state_name, "in_skipped_node_top"))
     return newSViv(converter->shared_conversion_state.in_skipped_node_top);
   return newSV (0);
+}
+
+enum css_info_type
+html_get_css_info_spec (const char *spec)
+{
+  int i;
+  enum css_info_type type = CI_css_info_element_classes;
+  for (i = 0; i < CI_css_info_rules +1; i++)
+    {
+      if (!strcmp (css_info_type_names[i], spec))
+        {
+          type = i;
+          break;
+        }
+    }
+  return type;
 }

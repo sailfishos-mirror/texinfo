@@ -231,6 +231,14 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_attribute_class",
   "Texinfo::Convert::HTML::html_get_css_elements_classes"
    => "Texinfo::Convert::ConvertXS::html_get_css_elements_classes",
+  "Texinfo::Convert::HTML::css_add_info"
+   => "Texinfo::Convert::ConvertXS::html_css_add_info",
+  "Texinfo::Convert::HTML::css_set_selector_style"
+   => "Texinfo::Convert::ConvertXS::html_css_set_selector_style",
+  "Texinfo::Convert::HTML::css_get_info"
+   => "Texinfo::Convert::ConvertXS::html_css_get_info",
+  "Texinfo::Convert::HTML::css_selector_style",
+   => "Texinfo::Convert::ConvertXS::html_css_selector_style",
   "Texinfo::Convert::HTML::register_footnote",
    => "Texinfo::Convert::ConvertXS::html_register_footnote",
   "Texinfo::Convert::HTML::get_pending_footnotes",
@@ -555,7 +563,6 @@ sub css_add_info($$$)
   my $self = shift;
   my $spec = shift;
   my $css_info = shift;
-  my $css_style = shift;
 
   if ($spec eq 'rules') {
     push @{$self->{'css_rule_lines'}}, $css_info;
@@ -576,7 +583,7 @@ sub css_set_selector_style($$$)
 sub css_get_info($$) {
   my $self = shift;
   my $spec = shift;
-  my $css_info = shift;
+
   my @empty_array;
 
   if ($spec eq 'rules') {
@@ -9108,7 +9115,7 @@ sub _default_format_css_lines($;$)
   foreach my $element_class (@$css_element_classes) {
     my $css_style = $self->css_selector_style($element_class);
     $css_text .= "$element_class {$css_style}\n"
-      if defined($css_style );
+      if defined($css_style);
   }
   $css_text .= join('', @$css_rule_lines) . "\n"
     if (@$css_rule_lines);
@@ -9299,8 +9306,12 @@ sub _prepare_css($)
       }
     }
   }
-  $self->{'css_import_lines'} = \@css_import_lines;
-  $self->{'css_rule_lines'} = \@css_rule_lines;
+  foreach my $line (@css_import_lines) {
+    $self->css_add_info('imports', $line);
+  }
+  foreach my $line (@css_rule_lines) {
+    $self->css_add_info('rules', $line);
+  }
 }
 
 # Get the name of a file containing a label, as well as the identifier within
@@ -11588,6 +11599,9 @@ sub _initialize_output_state($$)
   # other
   $self->{'pending_footnotes'} = [];
   $self->{'pending_closes'} = [];
+
+  $self->{'css_rule_lines'} = [];
+  $self->{'css_import_lines'} = [];
 
   # to avoid infinite recursions when a section refers to itself, possibly
   # indirectly

@@ -506,6 +506,7 @@ typedef struct CSS_SELECTOR_STYLE {
 
 typedef struct CSS_SELECTOR_STYLE_LIST {
     size_t number;
+    size_t space;
     CSS_SELECTOR_STYLE *list;
 } CSS_SELECTOR_STYLE_LIST;
 
@@ -728,6 +729,10 @@ typedef struct CONVERTER {
     STRING_WITH_LEN special_character[SC_non_breaking_space+1];
     STRING_WITH_LEN line_break_element;
     CSS_SELECTOR_STYLE_LIST css_element_class_styles;
+    STRING_LIST css_rule_lines;
+    STRING_LIST css_import_lines;
+    /* filled based on css_element_class_styles when needed */
+    STRING_LIST css_element_class_list;
     FORMATTING_REFERENCE
        formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE
