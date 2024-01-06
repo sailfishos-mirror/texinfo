@@ -1,5 +1,17 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (preformatted_cmd_list)
+	(html_format_init, html_converter_initialize): use a COMMAND_STACK for
+	preformatted_cmd, rename as preformatted_cmd_list and let the
+	functions allocate memory.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_def_command)
+	(commands_internal_conversion_table, def_cmd_list, html_format_init)
+	(html_converter_initialize): put def commands command_id in
+	def_cmd_list, implement convert_def_command and use it.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_command): move code to be
 	with other commands conversion.
 
