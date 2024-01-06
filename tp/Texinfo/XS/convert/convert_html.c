@@ -15857,11 +15857,19 @@ html_converter_initialize (CONVERTER *self)
 
   sort_css_element_class_styles (self);
 
+  /* set to customization such that it is not replaced by C functions */
+  if (self->conf->XS_EXTERNAL_FORMATTING.integer > 0)
+    {
+      for (i = 0; i < FR_format_translate_message+1; i++)
+        if (self->formatting_references[i].status == FRS_status_default_set)
+          self->formatting_references[i].status = FRS_status_customization_set;
+    }
+
   /* remaining of the file is for the replacement of call to external
-     functions by internal functions in C.  Uncomment the next line
-     to prevent internal functions being used
-  return;
+     functions by internal functions in C.
    */
+  if (self->conf->XS_EXTERNAL_CONVERSION.integer > 0)
+    return;
 
   for (i = 0; types_internal_conversion_table[i].type_conversion; i++)
     {

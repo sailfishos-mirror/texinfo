@@ -1402,6 +1402,15 @@ my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
                        and (not defined($ENV{TEXINFO_XS_STRUCTURE})
                             or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
 
+if (defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
+    and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
+  set_from_cmdline('XS_EXTERNAL_CONVERSION', 1);
+}
+if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
+    and $ENV{TEXINFO_XS_EXTERNAL_FORMATTING}) {
+  set_from_cmdline('XS_EXTERNAL_FORMATTING', 1);
+}
+
 my $file_number = -1;
 my @opened_files = ();
 my %main_unclosed_files;

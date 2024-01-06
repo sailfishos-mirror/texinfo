@@ -10,9 +10,7 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Do a test that shows that accessing directly css_element_class_styles
-in perl in _collect_css_element_class and html_attribute_class is problematic
-with some perl/C mixing case.
+Keep/document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 it is not documented that .info or .inf at the end of the @ref file name argument of the source cross reference command is ignored when doing the HTML cross ref.
 in HTML Cross-reference Link Basics:
