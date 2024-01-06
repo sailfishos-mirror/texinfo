@@ -870,6 +870,16 @@ undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
         {'OUTPUT_CHARACTERS' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 );
 
+my $css_init_file_texinfo = '@node Top
+@top top
+
+@sansserif{SSSSSSSSSSs ssss}.
+
+@code{@r{in r in code}}
+
+@titlefont{in a new heading}
+';
+
 # test that the node name that goes in the redirection file is reproducible.
 my @file_tests = (
 ['redirection_same_labels',
@@ -1281,6 +1291,10 @@ $info_js_dir_test, {}, {'INFO_JS_DIR' => 'js'}],
 @sansserif{SANS}.
 @anchor{spot}
 ', {'init_files' => ['css_in_node_redirection_page.pm']}],
+['base_for_css_info_in_init_test',
+$css_init_file_texinfo,],
+['text_css_info_in_init',
+$css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
 );
 
 

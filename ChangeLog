@@ -1,5 +1,13 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/t/init/test_css_info_functions.pm,
+	tp/Makefile.tres, tp/t/html_tests.t (base_for_css_info_in_init_test)
+	(text_css_info_in_init): add text_css_info_in_init, a test of
+	css_add_info and css_set_selector_style use, and a test without the
+	init file used, base_for_css_info_in_init_test, for comparison.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Simple Customization of CSS),
 	tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
 	(css_get_selector_style), tp/Texinfo/XS/convert/ConvertXS.xs

@@ -1,6 +1,3 @@
-
-use utf8;
-
 package Texinfo::Config;
 
 use strict;
