@@ -1,5 +1,22 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	Fix memory leaks found with valgrind
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_css_lines): destroy css_element_classes.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command):
+	do not reset multiple_pass_str.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_node_redirection_page, convert_style_command)
+	(convert_def_line_type): free/destroy variables.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter): free css
+	info data.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_button): avoid 2 if for
 	the most common case of ICONS not being set, instead recopy code.
 

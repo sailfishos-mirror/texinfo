@@ -40,9 +40,6 @@ index[$index_name][number] = { 'index_name'           => $index_name,
  INDEX_ENTRY *index_entry;
    index_entry = idx->index_entries[j];
                   main_entry_element = index_entry->entry_element;
-extra normalized
-root_commands : find through associated output unit or linear search in root
-global commands: add an index
 
 
 Bugs

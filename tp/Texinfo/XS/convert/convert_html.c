@@ -6732,7 +6732,11 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
       && (!css_element_classes || css_element_classes->number <= 0)
       && css_rule_lines->number <= 0
       && (!css_refs || css_refs->number <= 0))
-    return;
+    {
+      if (css_element_classes)
+        destroy_strings_list (css_element_classes);
+      return;
+    }
 
   text_append (result, "<style type=\"text/css\">\n<!--\n");
 
@@ -6743,17 +6747,22 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
       text_append_n (result, "\n", 1);
     }
 
-  if (css_element_classes && css_element_classes->number > 0)
+  if (css_element_classes)
     {
-      for (i = 0; i < css_element_classes->number; i++)
+      if (css_element_classes->number > 0)
         {
-          const char *selector = css_element_classes->list[i];
-          CSS_SELECTOR_STYLE *selector_style
-           = find_css_selector_style (&self->css_element_class_styles,
-                                      selector);
-          if (selector_style->style)
-            text_printf (result, "%s {%s}\n", selector, selector_style->style);
+          for (i = 0; i < css_element_classes->number; i++)
+            {
+              const char *selector = css_element_classes->list[i];
+              CSS_SELECTOR_STYLE *selector_style
+               = find_css_selector_style (&self->css_element_class_styles,
+                                          selector);
+              if (selector_style->style)
+                text_printf (result, "%s {%s}\n", selector,
+                                                  selector_style->style);
+            }
         }
+      destroy_strings_list (css_element_classes);
     }
 
   if (css_rule_lines->number > 0)
@@ -8194,6 +8203,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
   destroy_named_string_element_list (substrings);
   free (href);
 
+  destroy_begin_file_information (begin_info);
+
   return result.text;
 }
 
@@ -8461,8 +8472,10 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
         {
           text_append (result, open);
           text_append_n (result, ">", 1);
-          free (open);
         }
+
+      if (open)
+        free (open);
 
       text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
 
@@ -12644,8 +12657,6 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   if (*formatted_index_entry_nr > 1)
                     {
                       /* call with multiple_pass argument */
-                      xasprintf (&multiple_pass_str, "index-formatted-%d",
-                                                    *formatted_index_entry_nr);
                       entry = convert_tree_new_formatting_context (self,
                                            entry_trees[level], convert_info,
                                            multiple_pass_str, 0, 0);
@@ -14560,6 +14571,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
           destroy_element_and_children (category_tree);
         }
       text_append_n (result, "]</td></tr>\n", 12);
+
+      destroy_parsed_def (parsed_def);
       return;
     }
 
@@ -16503,6 +16516,10 @@ html_free_converter (CONVERTER *self)
       free (selector_style->style);
     }
   free (self->css_element_class_styles.list);
+
+  free_strings_list (&self->css_element_class_list);
+  free_strings_list (&self->css_rule_lines);
+  free_strings_list (&self->css_import_lines);
 
   for (i = 0; i < self->no_arg_formatted_cmd.number; i++)
     {
