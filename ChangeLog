@@ -1,5 +1,10 @@
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_button): avoid 2 if for
+	the most common case of ICONS not being set, instead recopy code.
+
+2024-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (preformatted_cmd_list)
 	(html_format_init, html_converter_initialize): use a COMMAND_STACK for
 	preformatted_cmd, rename as preformatted_cmd_list and let the

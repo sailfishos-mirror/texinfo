@@ -4301,18 +4301,20 @@ sub _default_format_button($$;$)
     }
   } elsif ($button eq ' ') {
     # handle space button
-    my $direction_icon;
     if ($self->get_conf('ICONS')) {
+      my $direction_icon;
       my $active_icons = $self->get_conf('ACTIVE_ICONS');
       if ($active_icons) {
         $direction_icon = $active_icons->{$button};
       }
-    }
-    if (defined($direction_icon) and $direction_icon ne '') {
-      my $button_name_string = $self->direction_string($button,
-                                                       'button', 'string');
-      $active = &{$self->formatting_function('format_button_icon_img')}($self,
-                                         $button_name_string, $direction_icon);
+      if (defined($direction_icon) and $direction_icon ne '') {
+        my $button_name_string = $self->direction_string($button,
+                                                        'button', 'string');
+        $active = &{$self->formatting_function('format_button_icon_img')}($self,
+                                           $button_name_string, $direction_icon);
+      } else {
+        $active = $self->direction_string($button, 'text');
+      }
     } else {
       $active = $self->direction_string($button, 'text');
     }
@@ -4339,21 +4341,25 @@ sub _default_format_button($$;$)
           $btitle .= " rel=\"$button_rel\"";
         }
       }
-      my $active_icon;
       if ($self->get_conf('ICONS')) {
+        my $active_icon;
         my $active_icons = $self->get_conf('ACTIVE_ICONS');
         if ($active_icons) {
         # FIXME strip FirstInFile from $button to get $active_icon?
           $active_icon = $active_icons->{$button};
         }
-      }
-      if (defined($active_icon) and $active_icon ne '') {
-        my $button_name_string = $self->direction_string($button,
-                                                         'button', 'string');
-        $active = "<a href=\"$href\"${btitle}>".
-           &{$self->formatting_function('format_button_icon_img')}($self,
-                    $button_name_string, $active_icon,
-                    $self->from_element_direction($button, 'string')) ."</a>";
+        if (defined($active_icon) and $active_icon ne '') {
+          my $button_name_string = $self->direction_string($button,
+                                                           'button', 'string');
+          $active = "<a href=\"$href\"${btitle}>".
+             &{$self->formatting_function('format_button_icon_img')}($self,
+                      $button_name_string, $active_icon,
+                      $self->from_element_direction($button, 'string')) ."</a>";
+        } else {
+          # use text
+          $active = '[' . "<a href=\"$href\"${btitle}>".
+            $self->direction_string($button, 'text')."</a>" . ']';
+        }
       } else {
         # use text
         $active = '[' . "<a href=\"$href\"${btitle}>".
@@ -4361,21 +4367,23 @@ sub _default_format_button($$;$)
       }
     } else {
       # button is passive
-      my $passive_icon;
       if ($self->get_conf('ICONS')) {
+        my $passive_icon;
         my $passive_icons = $self->get_conf('PASSIVE_ICONS');
         if ($passive_icons) {
         # FIXME strip FirstInFile from $button to get $passive_icon?
           $passive_icon = $passive_icons->{$button};
         }
-      }
-      if (defined($passive_icon) and $passive_icon ne '') {
-        # FIXME strip FirstInFile from $button to get $passive_icon?
-        my $button_name_string = $self->direction_string($button,
+        if (defined($passive_icon) and $passive_icon ne '') {
+          # FIXME strip FirstInFile from $button to get $passive_icon?
+          my $button_name_string = $self->direction_string($button,
                                                          'button', 'string');
-        $passive = &{$self->formatting_function('format_button_icon_img')}(
-                    $self, $button_name_string, $passive_icon,
-                    $self->from_element_direction($button, 'string'));
+          $passive = &{$self->formatting_function('format_button_icon_img')}(
+                      $self, $button_name_string, $passive_icon,
+                      $self->from_element_direction($button, 'string'));
+        } else {
+          $passive = '[' . $self->direction_string($button, 'text') . ']';
+        }
       } else {
         $passive = '[' . $self->direction_string($button, 'text') . ']';
       }
