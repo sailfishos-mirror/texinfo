@@ -2887,7 +2887,7 @@ sub _set_non_ignored_space_in_index_before_command($)
 {
   my $content = shift;
   my $pending_spaces_element = 0;
-  foreach my $element (@{$contents->{'contents'}}) {
+  foreach my $element (@{$content->{'contents'}}) {
     if ($element->{'type'}
         and $element->{'type'} eq 'internal_spaces_before_brace_in_index') {
       # set to "spaces_at_end" in case there are only spaces after
