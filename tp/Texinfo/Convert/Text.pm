@@ -422,7 +422,7 @@ sub copy_options_for_convert_text($;$)
   return %options;
 }
 
-# Will never be called, used for the overrride.
+# Will never be called, used for the override.
 sub _convert_tree_with_XS($$)
 {
 }

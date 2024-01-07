@@ -838,8 +838,8 @@ html_get_target (SV *converter_in, SV *element_sv)
              int output_units_descriptor
                = get_output_units_descriptor_converter_sv (converter_in);
              ELEMENT *element;
-             element = find_element_from_sv (self, element_sv,
-                                             output_units_descriptor);
+             element = html_find_element_from_sv (self, element_sv,
+                                                  output_units_descriptor);
              if (element)
                {
                  HTML_TARGET *target_info = html_get_target (self, element);

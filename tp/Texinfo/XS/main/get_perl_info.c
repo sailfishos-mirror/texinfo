@@ -44,6 +44,7 @@ FIXME add an initialization of translations?
 #include "utils.h"
 #include "builtin_commands.h"
 #include "errors.h"
+#include "targets.h"
 #include "document.h"
 #include "output_unit.h"
 #include "convert_to_text.h"
@@ -1099,3 +1100,281 @@ html_get_direction_icons_sv (CONVERTER *converter,
     }
 }
 
+INDEX_ENTRY *
+find_sorted_index_names_index_entry_extra_index_entry_sv (
+                                       SORTED_INDEX_NAMES *sorted_index_names,
+                                       SV *extra_index_entry_sv)
+{
+  AV *extra_index_entry_av;
+  SV **index_name_sv;
+  char *index_name = 0;
+
+  dTHX;
+
+
+  extra_index_entry_av = (AV *) SvRV (extra_index_entry_sv);
+
+  index_name_sv = av_fetch (extra_index_entry_av, 0, 0);
+  if (index_name_sv)
+    {
+      index_name = SvPVutf8_nolen (*index_name_sv);
+    }
+
+  if (index_name)
+    {
+      SV **number_sv = av_fetch (extra_index_entry_av, 1, 0);
+      if (number_sv)
+        {
+          int entry_number = SvIV (*number_sv);
+          if (entry_number)
+            {
+              size_t index_nr
+                = index_number_index_by_name (sorted_index_names,
+                                              index_name);
+              return &sorted_index_names->list[index_nr -1].index
+                 ->index_entries[entry_number -1];
+            }
+        }
+    }
+  return 0;
+}
+
+INDEX_ENTRY *
+find_document_index_entry_extra_index_entry_sv (DOCUMENT *document,
+                                               SV *extra_index_entry_sv)
+{
+  AV *extra_index_entry_av;
+  SV **index_name_sv;
+  INDEX *idx = 0;
+
+  dTHX;
+
+  if (!document->index_names)
+    return 0;
+
+  extra_index_entry_av = (AV *) SvRV (extra_index_entry_sv);
+
+  index_name_sv = av_fetch (extra_index_entry_av, 0, 0);
+  if (index_name_sv)
+    {
+      char *index_name = SvPVutf8_nolen (*index_name_sv);
+      idx = indices_info_index_by_name (document->index_names,
+                                        index_name);
+    }
+
+  if (idx)
+    {
+      SV **number_sv = av_fetch (extra_index_entry_av, 1, 0);
+      if (number_sv)
+        {
+          int entry_number = SvIV (*number_sv);
+          if (entry_number)
+            return &idx->index_entries[entry_number -1];
+        }
+    }
+  return 0;
+}
+
+/* if there is a converter with sorted index names, use the
+   sorted index names, otherwise use the index information from
+   a document */
+ELEMENT *
+find_element_extra_index_entry_sv (DOCUMENT *document,
+                                   CONVERTER *converter,
+                                   SV *extra_index_entry_sv)
+{
+  INDEX_ENTRY *index_entry;
+  if (!converter || !converter->document->index_names)
+    {
+      if (document)
+        index_entry
+          = find_document_index_entry_extra_index_entry_sv (document,
+                                                 extra_index_entry_sv);
+      else
+        return 0;
+    }
+  else
+   index_entry = find_sorted_index_names_index_entry_extra_index_entry_sv (
+                    &converter->sorted_index_names, extra_index_entry_sv);
+
+  if (index_entry)
+    {
+      if (index_entry->entry_associated_element)
+        return index_entry->entry_associated_element;
+      else if (index_entry->entry_element)
+        return index_entry->entry_element;
+    }
+  return 0;
+}
+
+#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
+/* find C tree root element corresponding to perl tree element element_hv */
+ELEMENT *find_root_command (DOCUMENT *document, HV *element_hv,
+                            int output_units_descriptor)
+{
+  SV **associated_unit_sv;
+  ELEMENT *root;
+  size_t i;
+
+  dTHX;
+
+  if (output_units_descriptor)
+    {
+      FETCH(associated_unit)
+
+      if (associated_unit_sv)
+        {
+          /* find the associated output unit and then find the element
+             in unit contents */
+          HV *associated_unit_hv = (HV *) SvRV (*associated_unit_sv);
+          SV **unit_index_sv = hv_fetch (associated_unit_hv, "unit_index",
+                                         strlen ("unit_index"), 0);
+
+          if (unit_index_sv)
+            {
+              int unit_index = SvIV (*unit_index_sv);
+              const OUTPUT_UNIT_LIST *output_units
+               = retrieve_output_units (output_units_descriptor);
+
+              if (output_units && unit_index < output_units->number)
+                {
+                  OUTPUT_UNIT *output_unit = output_units->list[unit_index];
+                  size_t i;
+                  for (i = 0; i < output_unit->unit_contents.number; i++)
+                    {
+                      ELEMENT *content = output_unit->unit_contents.list[i];
+                      if (content->hv == element_hv)
+                        return content;
+                    }
+                }
+            }
+        }
+    }
+
+  /* if there are no output units go through the root element children */
+  root = document->tree;
+  for (i = 0; i < root->contents.number; i++)
+    {
+      ELEMENT *content = root->contents.list[i];
+      if (content->hv == element_hv)
+        return content;
+    }
+  return 0;
+}
+
+/* TODO nodedescription using the extra element_node and the
+ * node extra node_description? */
+
+/* find C Texinfo tree element based on element_sv perl tree element.
+   Both DOCUMENT_IN and CONVERTER are optional, but if there is no
+   document coming from one or the other, elements will not be found.
+   If a DOCUMENT_IN argument is given, the corresponding document is
+   used.  If there is no DOCUMENT_IN and there is a CONVERTER argument,
+   the CONVERTER document is used.
+   OUTPUT_UNIT_DESCRIPTOR is optional, it should allow to find sectioning
+   commands faster.
+   Only for global commands, commands with indices, and sectioning root
+   commands */
+ELEMENT *
+find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
+                      SV *element_sv, int output_units_descriptor)
+{
+  enum command_id cmd = 0;
+  HV *element_hv;
+  SV **cmdname_sv;
+  SV **extra_sv;
+  DOCUMENT *document = document_in;
+
+  dTHX;
+
+  element_hv = (HV *) SvRV (element_sv);
+
+  FETCH(cmdname)
+
+  if (!document && converter && converter->document)
+    document = converter->document;
+
+  if (cmdname_sv && (output_units_descriptor || document))
+    {
+      char *cmdname = SvPVutf8_nolen (*cmdname_sv);
+      cmd = lookup_builtin_command (cmdname);
+
+      if (builtin_command_data[cmd].flags & CF_root
+          && cmd != CM_node)
+        {
+          ELEMENT *element = find_root_command (document,
+                                                element_hv,
+                                                output_units_descriptor);
+          if (element)
+            return element;
+        }
+    }
+
+  FETCH(extra)
+
+#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen(#key), 0);
+  if (extra_sv)
+    {
+      HV *extra_hv = (HV *) SvRV (*extra_sv);
+      SV **index_entry_sv;
+      SV **associated_index_entry_sv;
+
+      if (document)
+        {
+          SV **global_command_number_sv;
+          EXTRA(global_command_number)
+          if (global_command_number_sv)
+            {
+              int global_command_number = SvIV (*global_command_number_sv);
+              ELEMENT_LIST *global_cmd_list
+                = get_cmd_global_multi_command (
+                              document->global_commands, cmd);
+
+              if (global_command_number > 0
+                  && global_command_number - 1 < global_cmd_list->number)
+                return global_cmd_list->list[global_command_number - 1];
+            }
+        }
+
+      if (document && document->identifiers_target)
+        {
+          SV **normalized_sv;
+          EXTRA(normalized)
+          if (normalized_sv)
+            {
+              char *normalized = SvPVutf8_nolen (*normalized_sv);
+              ELEMENT *element_found
+                = find_identifier_target
+                      (document->identifiers_target, normalized);
+         /* check the element found in case of multiple defined identifier */
+              if (element_found && element_hv == element_found->hv)
+                return element_found;
+            }
+        }
+
+
+      EXTRA(associated_index_entry)
+      if (associated_index_entry_sv)
+        {
+          ELEMENT *index_element = find_element_extra_index_entry_sv (document,
+                                               converter,
+                                               *associated_index_entry_sv);
+          /* there should be no ambiguity, but we check nevertheless */
+          if (index_element && index_element->hv == element_hv)
+            return (index_element);
+        }
+
+      EXTRA(index_entry)
+      if (index_entry_sv)
+        {
+          ELEMENT *index_element = find_element_extra_index_entry_sv (document,
+                                                          converter,
+                                                          *index_entry_sv);
+          /* it is important to check if the index entry was reassociated */
+          if (index_element && index_element->hv == element_hv)
+            return (index_element);
+        }
+    }
+  return 0;
+}
+#undef FETCH
