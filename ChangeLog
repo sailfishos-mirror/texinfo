@@ -1,5 +1,16 @@
 2024-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (index_entry_sort_string)
+	(_index_entry_sort_string_key): have index_entry_sort_string return
+	only the sort_string, not the sort_key used from the collator.  Add
+	_index_entry_sort_string_key that returns both the sort_string and the
+	sort_key, meant to be used internally only.  Update callers.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_index_entry): rename $sortas as
+	$sort_string.
+
+2024-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/get_perl_info.c
 	(copy_sv_options_for_convert_text): use a FETCH macro to simplify
 	code.

@@ -2279,7 +2279,33 @@ sub setup_index_entry_keys_formatting($)
 }
 
 # can be used for subentries
-sub index_entry_sort_string($$$$;$)
+sub index_entry_sort_string($$$$)
+{
+  my $main_entry = shift;
+  my $entry_tree_element = shift;
+  my $sortas = shift;
+  my $options = shift;
+
+  my $sort_string;
+  if (defined($sortas)) {
+    $sort_string = $sortas;
+  } else {
+    $sort_string = Texinfo::Convert::Text::convert_to_text(
+                              $entry_tree_element, $options);
+    # FIXME do that for sortas too?
+    if (defined($main_entry->{'entry_element'}
+                       ->{'extra'}->{'index_ignore_chars'})) {
+      my $ignore_chars = quotemeta($main_entry->{'entry_element'}
+                                  ->{'extra'}->{'index_ignore_chars'});
+      if ($ignore_chars ne '') {
+        $sort_string =~ s/[$ignore_chars]//g;
+      }
+    }
+  }
+  return $sort_string;
+}
+
+sub _index_entry_sort_string_key($$$$;$)
 {
   my $main_entry = shift;
   my $entry_tree_element = shift;
@@ -2287,34 +2313,21 @@ sub index_entry_sort_string($$$$;$)
   my $options = shift;
   my $collator = shift;
 
-  my $entry_key;
-  if (defined($sortas)) {
-    $entry_key = $sortas;
-  } else {
-    $entry_key = Texinfo::Convert::Text::convert_to_text(
-                          $entry_tree_element, $options);
-    # FIXME do that for sortas too?
-    if (defined($main_entry->{'entry_element'}
-                       ->{'extra'}->{'index_ignore_chars'})) {
-      my $ignore_chars = quotemeta($main_entry->{'entry_element'}
-                                  ->{'extra'}->{'index_ignore_chars'});
-      if ($ignore_chars ne '') {
-        $entry_key =~ s/[$ignore_chars]//g;
-      }
-    }
-  }
+  my $sort_string = index_entry_sort_string ($main_entry, $entry_tree_element,
+                                             $sortas, $options);
+
   # This avoids varying results depending on whether the string is
-  # represented internally in UTF-8.  See "the Unicode bug" in the
+  # represented internally in UTF-8.  See 'the "Unicode bug"' in the
   # "perlunicode" man page.
-  utf8::upgrade($entry_key);
-  my $sort_entry_key;
+  utf8::upgrade($sort_string);
+  my $sort_key;
   if ($collator) {
-    $sort_entry_key = $collator->getSortKey(uc($entry_key));
+    $sort_key = $collator->getSortKey(uc($sort_string));
   } else {
-    $sort_entry_key = uc($entry_key);
+    $sort_key = uc($sort_string);
   }
 
-  return ($entry_key, $sort_entry_key);
+  return ($sort_string, $sort_key);
 }
 
 # This is a stub for the Unicode::Collate module.  Although this module is
@@ -2451,7 +2464,7 @@ sub setup_sortable_index_entries($$$$$;$)
       $main_entry_sortas = $main_entry_element->{'extra'}->{'sortas'}
          if ($main_entry_element->{'extra'});
       my ($entry_key, $sort_entry_key)
-        = index_entry_sort_string($index_entry,
+        = _index_entry_sort_string_key($index_entry,
                    Texinfo::Common::index_content_element($main_entry_element),
                                   $main_entry_sortas,
                                   $convert_to_text_options, $entries_collator);
@@ -2481,7 +2494,7 @@ sub setup_sortable_index_entries($$$$$;$)
         $subentry_nr ++;
         $subentry = $subentry->{'extra'}->{'subentry'};
         my ($subentry_key, $sort_subentry_key)
-              = index_entry_sort_string($index_entry,
+              = _index_entry_sort_string_key($index_entry,
                         {'contents' => $subentry->{'args'}->[0]->{'contents'}},
                         $subentry->{'extra'}->{'sortas'},
                         $convert_to_text_options,

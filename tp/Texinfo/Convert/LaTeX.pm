@@ -2463,15 +2463,15 @@ sub _index_entry($$)
       }
       # always setup a string to sort with as we may use commands
       my $convert_to_text_options = {%$options, 'code' => $in_code};
-      my ($sortas, $sort_string)
+      my $sort_string
            = Texinfo::Structuring::index_entry_sort_string($entry,
                                           $subentry, $subentry_sortas,
                                           $convert_to_text_options);
       my $result = '';
-      if (defined($sortas)) {
+      if (defined($sort_string)) {
         # | in sort key breaks with hyperref
-        $sortas =~ s/\|//g;
-        $result = _protect_text($self, $sortas);
+        $sort_string =~ s/\|//g;
+        $result = _protect_text($self, $sort_string);
         $result =~ s/\\[{}]//g; # cannot have unmatched braces in index entry
         $result = _protect_index_text($result).'@';
       }
