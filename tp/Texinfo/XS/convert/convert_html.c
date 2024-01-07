@@ -12728,7 +12728,6 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               if (last_entry_level > 0)
                 {
                   remove_element_from_list (&self->tree_to_build, entry_tree);
-                  destroy_element (entry_tree);
                 }
               free (convert_info);
 
@@ -12896,9 +12895,13 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 }
             }
 
-          destroy_element (entry_ref_tree);
+          if (last_entry_level > 0)
+            destroy_element (entry_tree);
+
           if (other_subentries_tree)
             free_comma_index_subentries_tree (other_subentries_tree);
+
+          destroy_element (entry_ref_tree);
 
           if (*formatted_index_entry_nr > 1)
             free (multiple_pass_str);

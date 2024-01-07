@@ -8819,7 +8819,8 @@ If an index entry @-command, such as C<@cindex>, or a C<@subentry> contains
 a C<@sortas> command, I<sortas> holds the C<@sortas> command content
 formatted as plain text.
 
-I<subentry> links to the next level C<@subentry> element.
+I<subentry> links to the next level C<@subentry> element.  I<subentry_parent>
+liskes to the previous level element.
 
 Index entry @-command (but not C<@subentry>) can also have I<seentry>
 and I<seealso> keys that link to the corresponding @-commands elements.
