@@ -824,65 +824,58 @@ force_conf (CONVERTER *converter, const char *conf, SV *value)
 
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
 /* TODO more to do */
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
 {
   HV *hv_in;
-  SV **test_option_sv;
-  SV **include_directories_sv;
-  SV **other_converter_options_sv;
-  SV **self_converter_options_sv;
+  SV **TEST_sv;
+  SV **INCLUDE_DIRECTORIES_sv;
+  SV **converter_sv;
   SV **enabled_encoding_sv;
-  SV **sort_string_option_sv;
+  SV **sort_string_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
 
   dTHX;
 
   hv_in = (HV *)SvRV (sv_in);
 
-  test_option_sv = hv_fetch (hv_in, "TEST", strlen ("TEST"), 0);
-  if (test_option_sv)
-    text_options->TEST = SvIV (*test_option_sv);
+  FETCH(TEST)
+  if (TEST_sv)
+    text_options->TEST = SvIV (*TEST_sv);
 
-  sort_string_option_sv = hv_fetch (hv_in, "sort_string",
-                                    strlen ("sort_string"), 0);
-  if (sort_string_option_sv)
-    text_options->sort_string = SvIV (*sort_string_option_sv);
+  FETCH(sort_string)
+  if (sort_string_sv)
+    text_options->sort_string = SvIV (*sort_string_sv);
 
-  enabled_encoding_sv = hv_fetch (hv_in, "enabled_encoding",
-                                  strlen ("enabled_encoding"), 0);
+  FETCH(enabled_encoding)
   if (enabled_encoding_sv)
     text_options->encoding = strdup (SvPVutf8_nolen (*enabled_encoding_sv));
 
-  include_directories_sv = hv_fetch (hv_in, "INCLUDE_DIRECTORIES",
-                                     strlen ("INCLUDE_DIRECTORIES"), 0);
+  FETCH(INCLUDE_DIRECTORIES)
 
-  if (include_directories_sv)
-    add_svav_to_string_list (*include_directories_sv,
+  if (INCLUDE_DIRECTORIES_sv)
+    add_svav_to_string_list (*INCLUDE_DIRECTORIES_sv,
                              &text_options->include_directories, svt_dir);
 
   get_expanded_formats (hv_in, &text_options->expanded_formats);
 
-  other_converter_options_sv = hv_fetch (hv_in, "other_converter_options",
-                                         strlen ("other_converter_options"), 0);
-
-  if (other_converter_options_sv)
+  FETCH(converter)
+  if (converter_sv)
     {
-      text_options->other_converter_options
-         = init_copy_sv_options (*other_converter_options_sv, 0, 1);
+      HV *converter_hv = (HV *) SvRV (*converter_sv);
+      SV **conf_sv = hv_fetch (converter_hv, "conf", strlen ("conf"), 0);
+      if (conf_sv)
+        text_options->other_converter_options
+          = init_copy_sv_options (*conf_sv, 0, 1);
     }
 
-  self_converter_options_sv = hv_fetch (hv_in, "self_converter_options",
-                                         strlen ("self_converter_options"), 0);
-
-  if (self_converter_options_sv)
-    {
-      text_options->self_converter_options
-         = init_copy_sv_options (*self_converter_options_sv, 0, 1);
-    }
+  text_options->self_converter_options
+     = init_copy_sv_options (sv_in, 0, 1);
 
   return text_options;
 }
+#undef FETCH
 
 int
 html_get_direction_index (CONVERTER *converter, const char *direction)

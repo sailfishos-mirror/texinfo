@@ -422,37 +422,8 @@ sub copy_options_for_convert_text($;$)
   return %options;
 }
 
-# select converter options passed.
-sub select_text_options($)
-{
-  my $options = shift;
-  my $selected_options = {};
-
-  foreach my $option (@text_indicator_converter_options,
-                      'INCLUDE_DIRECTORIES',
-                      'expanded_formats',
-                      # non-converter indicator options
-       'enabled_encoding', 'sc', 'code', 'sort_string') {
-    if (defined($options->{$option})) {
-      $selected_options->{$option} = $options->{$option};
-    }
-  }
-
-  # called through convert_to_text with a converter in text options
-  if ($options->{'converter'}
-      and $options->{'converter'}->{'conf'}) {
-    $selected_options->{'other_converter_options'}
-       = $options->{'converter'}->{'conf'};
-  }
-
-  $selected_options->{'self_converter_options'} = $options;
-
-  return $selected_options;
-}
-
-# This is used if the document is available for XS, but XS is not
-# used (most likely $TEXINFO_XS_CONVERT is 0).
-sub _convert_tree_with_XS($$;$)
+# Will never be called, used for the overrride.
+sub _convert_tree_with_XS($$)
 {
 }
 
@@ -482,15 +453,7 @@ sub convert_to_text($;$)
 
   # Interface with XS converter.
   if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
-    my $selected_options = select_text_options($options);
-    my $XS_result = _convert_tree_with_XS($selected_options, $root, $options);
-    if (defined ($XS_result)) {
-      return $XS_result;
-    } else {
-      my $result = _convert($root, $options);
-      print STDERR "NO XS Text: $root->{'tree_document_descriptor'}\n";
-      cluck();
-    }
+    return _convert_tree_with_XS($options, $root);
   }
 
   return _convert($root, $options);
@@ -990,14 +953,7 @@ sub output($$)
   my $result;
   # Interface with XS converter.
   if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
-    my $selected_options = select_text_options($self);
-    my $XS_result = _convert_tree_with_XS($selected_options, $root, $self);
-    if (defined ($XS_result)) {
-      $result = $XS_result;
-    } else {
-      print STDERR "NO XS Text: $root->{'tree_document_descriptor'}\n";
-      cluck();
-    }
+    $result = _convert_tree_with_XS($self, $root);
   } else {
     $result = _convert($root, $self);
   }

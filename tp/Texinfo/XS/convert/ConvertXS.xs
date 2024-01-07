@@ -303,16 +303,15 @@ plain_texinfo_convert_tree (SV *tree_in)
     OUTPUT:
         RETVAL
 
-# unused argument is used in the overriden function if XS is not used
 SV *
-text_convert_tree (SV *text_options_in, SV *tree_in, unused=0)
+text_convert_tree (SV *options_in, SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
         TEXT_OPTIONS *text_options = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
-        text_options = copy_sv_options_for_convert_text (text_options_in);
+        /* The caller checks that there is a descriptor */
+        document = get_sv_tree_document (tree_in, "text_convert_tree");
+        text_options = copy_sv_options_for_convert_text (options_in);
         if (document)
           {
             /* text_options is destroyed in text_convert */

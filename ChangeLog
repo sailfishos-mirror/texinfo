@@ -1,3 +1,15 @@
+2024-01-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(copy_sv_options_for_convert_text): use a FETCH macro to simplify
+	code.
+
+	* tp/Texinfo/Convert/Text.pm (convert_to_text, output),
+	tp/Texinfo/XS/convert/ConvertXS.xs (text_convert_tree),
+	tp/Texinfo/XS/main/get_perl_info.c (copy_sv_options_for_convert_text):
+	pass text options directly to XS.  Remove select_text_options.  Remove
+	code that cannot be reached.
+
 2024-01-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize),
