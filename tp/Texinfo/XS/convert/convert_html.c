@@ -12733,8 +12733,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               free (convert_info);
 
               if (last_entry_level == 0
-                  && (!entry || entry[strspn (entry, whitespace_chars)] == '\0'))
+                  && (!entry
+                      || entry[strspn (entry, whitespace_chars)] == '\0'))
                 {
+                  free (entry);
                   free (new_normalized_entry_levels[0]);
                   new_normalized_entry_levels[0] = 0;
                 }
@@ -12883,8 +12885,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   text_append_n (&entries_text, "</td></tr>\n", 11);
                 }
             }
-         if (new_normalized_entry_levels[0] != 0)
-           {
+
+          if (new_normalized_entry_levels[0] != 0)
+            {
               for (level = 0; level < SUBENTRIES_MAX_LEVEL; level++)
                 {
                   free (prev_normalized_entry_levels[level]);
