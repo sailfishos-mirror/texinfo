@@ -806,6 +806,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
                     fatal ("No subentry parent level or level 0");
                 }
               add_extra_integer (command_e, "level", level);
+              add_extra_element (command_e, "subentry_parent", parent);
               if (level > 2)
                 {
                   line_error

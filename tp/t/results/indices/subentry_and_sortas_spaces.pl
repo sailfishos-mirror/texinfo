@@ -202,7 +202,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'sortas' => 'C---S1'
+                'sortas' => 'C---S1',
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -282,7 +283,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'sortas' => 'B---S1'
+                'sortas' => 'B---S1',
+                'subentry_parent' => {}
               },
               'source_info' => {
                 'line_nr' => 8
@@ -374,7 +376,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                   'cmdname' => 'subentry',
                   'extra' => {
                     'level' => 2,
-                    'sortas' => 'D'
+                    'sortas' => 'D',
+                    'subentry_parent' => {}
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -384,7 +387,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                   'source_info' => {
                     'line_nr' => 9
                   }
-                }
+                },
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -465,7 +469,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                   ],
                   'cmdname' => 'subentry',
                   'extra' => {
-                    'level' => 2
+                    'level' => 2,
+                    'subentry_parent' => {}
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -475,7 +480,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                   'source_info' => {
                     'line_nr' => 10
                   }
-                }
+                },
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -554,13 +560,19 @@ $result_trees{'subentry_and_sortas_spaces'} = {
   'type' => 'document_root'
 };
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
+$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[1];
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[2] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
+$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[3];
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[4] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'};
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
+$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'};
+$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5];
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'};
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[7] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
+$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
+$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8];
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
 $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[10] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry'};
 

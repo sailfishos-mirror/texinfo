@@ -125,7 +125,8 @@ $result_trees{'seealso_duplicate'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1
+                'level' => 1,
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -185,6 +186,38 @@ $result_trees{'seealso_duplicate'} = {
               'cp',
               2
             ],
+            'seealso' => {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'POSIX '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'awk'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'command',
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'seealso',
+              'source_info' => {
+                'line_nr' => 5
+              }
+            },
             'subentry' => {
               'args' => [
                 {
@@ -196,38 +229,7 @@ $result_trees{'seealso_duplicate'} = {
                       'text' => ' ',
                       'type' => 'spaces_at_end'
                     },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'POSIX '
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'awk'
-                                    }
-                                  ],
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'command',
-                              'source_info' => {
-                                'line_nr' => 5
-                              }
-                            }
-                          ],
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'seealso',
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
+                    {}
                   ],
                   'info' => {
                     'spaces_after_argument' => {
@@ -241,7 +243,8 @@ $result_trees{'seealso_duplicate'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'seealso' => {}
+                'seealso' => {},
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -261,6 +264,141 @@ $result_trees{'seealso_duplicate'} = {
           },
           'source_info' => {
             'line_nr' => 5
+          },
+          'type' => 'index_entry_command'
+        },
+        {},
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'b
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'c
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'awk'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'command',
+                  'source_info' => {
+                    'line_nr' => 11
+                  }
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'element_node' => {},
+            'index_entry' => [
+              'cp',
+              3
+            ],
+            'seeentry' => {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Another entry'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'seeentry',
+              'source_info' => {
+                'line_nr' => 11
+              }
+            },
+            'subentry' => {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'POSIX and'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces_at_end'
+                    },
+                    {}
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'subentry',
+              'extra' => {
+                'level' => 1,
+                'seeentry' => {},
+                'subentry_parent' => {}
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'line_nr' => 11
+              }
+            }
+          },
+          'info' => {
+            'command_name' => 'cindex',
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'line_nr' => 11
           },
           'type' => 'index_entry_command'
         },
@@ -299,7 +437,7 @@ $result_trees{'seealso_duplicate'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 7
+            'line_nr' => 13
           }
         }
       ],
@@ -321,10 +459,18 @@ $result_trees{'seealso_duplicate'} = {
   'type' => 'document_root'
 };
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'seealso'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'seealso'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'seeentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'extra'}{'seeentry'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'seeentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'};
 
 $result_texis{'seealso_duplicate'} = '@node Top
 @node chap
@@ -332,11 +478,22 @@ $result_texis{'seealso_duplicate'} = '@node Top
 @cindex @command{awk} @subentry POSIX and
 @cindex @command{awk} @subentry POSIX and @seealso{POSIX @command{awk}}
 
+b
+
+c
+
+@cindex @command{awk} @subentry POSIX and @seeentry{Another entry}
+
 @printindex cp
 ';
 
 
 $result_texts{'seealso_duplicate'} = '
+
+b
+
+c
+
 
 ';
 
@@ -386,6 +543,7 @@ $result_floats{'seealso_duplicate'} = {};
 $result_indices_sort_strings{'seealso_duplicate'} = {
   'cp' => [
     'awk, POSIX and',
+    'awk, POSIX and',
     'awk, POSIX and'
   ]
 };
@@ -400,11 +558,14 @@ File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 File: ,  Node: chap,  Prev: Top
 
+b
+
+   c
+
  [index ]
 * Menu:
 
 * awk, POSIX and:                        chap.                  (line 3)
-* awk, POSIX and <1>:                    chap.                  (line 3)
 
 
 
@@ -421,10 +582,13 @@ End:
 ';
 
 
-$result_converted{'plaintext'}->{'seealso_duplicate'} = '* Menu:
+$result_converted{'plaintext'}->{'seealso_duplicate'} = 'b
+
+   c
+
+* Menu:
 
 * awk, POSIX and:                        chap.                  (line 0)
-* awk, POSIX and <1>:                    chap.                  (line 0)
 
 ';
 
@@ -442,7 +606,11 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<a class="node-id" id="
 <h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-awk-POSIX-and"></a>
-<a class="index-entry-id" id="index-awk-POSIX-and-1"></a>
+
+<p>b
+</p>
+<p>c
+</p>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
@@ -451,7 +619,8 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<a class="node-id" id="
 <tr><th id="chap_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry"><code class="command">awk</code></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and-1">POSIX and</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><code class="command">awk</code></td><td class="printindex-index-see-also"><em class="emph">See also</em> POSIX <code class="command">awk</code></td></tr>
+<tr><td></td><td class="printindex-index-see-entry"><code class="command">awk</code>, <em class="emph">See</em> Another entry</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
@@ -463,6 +632,12 @@ $result_converted{'xml'}->{'seealso_duplicate'} = '<node name="Top" spaces=" "><
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1"><command>awk</command></indexterm></cindex> <subentry spaces=" ">POSIX and</subentry>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2"><command>awk</command></indexterm></cindex> <subentry spaces=" ">POSIX and <seealso>POSIX <command>awk</command></seealso></subentry>
+
+<para>b
+</para>
+<para>c
+</para>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3"><command>awk</command></indexterm></cindex> <subentry spaces=" ">POSIX and <seeentry>Another entry</seeentry></subentry>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
 ';
@@ -522,6 +697,12 @@ $result_converted{'latex'}->{'seealso_duplicate'} = '\\documentclass{book}
 
 \\index[cp]{awk@\\texttt{awk}!POSIX and@POSIX and}%
 \\index[cp]{awk@\\texttt{awk}!POSIX and@POSIX and|seealso{POSIX \\texttt{awk}}}%
+
+b
+
+c
+
+\\index[cp]{awk@\\texttt{awk}!POSIX and@POSIX and|see{Another entry}}%
 
 \\printindex[cp]
 \\end{document}

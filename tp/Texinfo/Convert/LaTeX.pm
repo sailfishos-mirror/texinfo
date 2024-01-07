@@ -2473,17 +2473,14 @@ sub _index_entry($$)
       push @result, $result;
     }
     my $seeresult = '';
-   SEEENTRY:
-    foreach my $subindex_command (@subindex_commands) {
-      foreach my $seecommand (('seeentry', 'seealso')) {
-        if ($subindex_command->{'extra'}->{$seecommand}
-            and $subindex_command->{'extra'}->{$seecommand}->{'args'}->[0]) {
-          my $seeconverted = _convert($self,
-                   $subindex_command->{'extra'}->{$seecommand}->{'args'}->[0]);
-          $seeresult = '|'.$LaTeX_see_index_commands_text{$seecommand}.'{'
-                     .$seeconverted.'}';
-          last SEEENTRY;
-        }
+    foreach my $seecommand (('seeentry', 'seealso')) {
+      if ($element->{'extra'}->{$seecommand}
+          and $element->{'extra'}->{$seecommand}->{'args'}->[0]) {
+        my $seeconverted = _convert($self,
+                 $element->{'extra'}->{$seecommand}->{'args'}->[0]);
+        $seeresult = '|'.$LaTeX_see_index_commands_text{$seecommand}.'{'
+                   .$seeconverted.'}';
+         last;
       }
     }
     _pop_context($self);

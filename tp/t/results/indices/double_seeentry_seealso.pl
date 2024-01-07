@@ -406,6 +406,22 @@ $result_trees{'double_seeentry_seealso'} = {
               4
             ],
             'seealso' => {},
+            'seeentry' => {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'subhhh'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'seeentry',
+              'source_info' => {
+                'line_nr' => 10
+              }
+            },
             'subentry' => {
               'args' => [
                 {
@@ -417,22 +433,7 @@ $result_trees{'double_seeentry_seealso'} = {
                       'text' => ' ',
                       'type' => 'spaces_at_end'
                     },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'subhhh'
-                            }
-                          ],
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'seeentry',
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    }
+                    {}
                   ],
                   'info' => {
                     'spaces_after_argument' => {
@@ -446,7 +447,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'seeentry' => {}
+                'seeentry' => {},
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -532,7 +534,9 @@ $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'seeentry'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'double_seeentry_seealso'}{'contents'}[3];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'seealso'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'seeentry'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'seeentry'};
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'seeentry'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'seeentry'};
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5] = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'};
 
 $result_texis{'double_seeentry_seealso'} = '@node top
@@ -688,7 +692,7 @@ $result_converted{'docbook'}->{'double_seeentry_seealso'} = '<chapter label="1" 
 <indexterm role="cp"><primary>aaa</primary><see>ccc</see></indexterm>
 <indexterm role="cp"><primary>ddd</primary><seealso>eee</seealso></indexterm>
 <indexterm role="cp"><primary>ggg</primary><see>hhh</see><seealso>iii</seealso></indexterm>
-<indexterm role="cp"><primary></primary><secondary>subggg</secondary><seealso>fff</seealso></indexterm>
+<indexterm role="cp"><primary></primary><secondary>subggg</secondary><see>subhhh</see><seealso>fff</seealso></indexterm>
 <index role="cp"></index>
 </chapter>
 ';
@@ -792,7 +796,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="node-index_cp_symbol-1"></th></tr>
-<tr><td></td><td class="printindex-index-entry"></td><td class="printindex-index-see-also"><em class="emph">See also</em> fff</td></tr>
+<tr><td></td><td class="printindex-index-see-entry">, <em class="emph">See</em> subhhh</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="node-index_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-see-entry">aaa, <em class="emph">See</em> ccc</td><td class="printindex-index-see-entry-section"></td></tr>
@@ -904,7 +908,7 @@ $result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
 \\index[cp]{aaa@aaa|see{ccc}}%
 \\index[cp]{ddd@ddd|seealso{eee}}%
 \\index[cp]{ggg@ggg|see{hhh}}%
-\\index[cp]{@!subggg@subggg|seealso{fff}}%
+\\index[cp]{@!subggg@subggg|see{subhhh}}%
 
 \\printindex[cp]
 \\end{document}

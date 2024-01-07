@@ -175,7 +175,8 @@ $result_trees{'subentries_and_comments'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1
+                'level' => 1,
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -250,7 +251,8 @@ $result_trees{'subentries_and_comments'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1
+                'level' => 1,
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -328,8 +330,10 @@ $result_trees{'subentries_and_comments'} = {
   'type' => 'document_root'
 };
 $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'subentries_and_comments'}{'contents'}[3];
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1];
 $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[2] = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'subentries_and_comments'}{'contents'}[3];
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3];
 $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[4] = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'};
 
 $result_texis{'subentries_and_comments'} = '@node Top

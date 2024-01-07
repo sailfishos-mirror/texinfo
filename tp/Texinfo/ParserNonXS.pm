@@ -5630,7 +5630,8 @@ sub _handle_line_command($$$$$$)
         if ($parent->{'cmdname'} eq 'subentry') {
           $subentry_level = $parent->{'extra'}->{'level'} + 1;
         }
-        $command_e->{'extra'} = {'level' => $subentry_level};
+        $command_e->{'extra'} = {'level' => $subentry_level,
+                                 'subentry_parent' => $parent};
         if ($subentry_level > 2) {
           $self->_line_error(__(
       "no more than two levels of index subentry are allowed"),
@@ -6356,20 +6357,31 @@ sub _handle_close_brace($$$)
     } elsif ($in_index_commands{$current->{'parent'}->{'cmdname'}}) {
       my $command = $current->{'parent'}->{'cmdname'};
 
-      my $index_element = $current->{'parent'}->{'parent'}->{'parent'};
-      if ($index_element
-          and _is_index_element($self, $index_element)) {
+      my $subindex_element = $current->{'parent'}->{'parent'}->{'parent'};
+      if ($subindex_element
+          and _is_index_element($self, $subindex_element)) {
         if ($command eq 'sortas') {
           my ($arg, $superfluous_arg) = _text_contents_to_plain_text($current);
           if (defined($arg)) {
-            $index_element->{'extra'} = {}
-              if (!defined($index_element->{'extra'}));
-            $index_element->{'extra'}->{$command} = $arg;
+            $subindex_element->{'extra'} = {}
+              if (!defined($subindex_element->{'extra'}));
+            $subindex_element->{'extra'}->{$command} = $arg;
           }
         } else {
+          my $index_element = $subindex_element;
+          while ($index_element->{'cmdname'} eq 'subentry'
+                 and $index_element->{'extra'}
+                 and $index_element->{'extra'}->{'subentry_parent'}) {
+            $index_element = $index_element->{'extra'}->{'subentry_parent'};
+          }
           $index_element->{'extra'} = {}
             if (!defined($index_element->{'extra'}));
           $index_element->{'extra'}->{$command} = $current->{'parent'};
+          if ($index_element ne $subindex_element) {
+            $subindex_element->{'extra'} = {}
+              if (!defined($subindex_element->{'extra'}));
+            $subindex_element->{'extra'}->{$command} = $current->{'parent'};
+          }
         }
       }
     }

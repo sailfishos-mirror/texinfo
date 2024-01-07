@@ -530,6 +530,85 @@ $result_trees{'indices_disable_encoding'} = {
               7
             ],
             'index_ignore_chars' => '\\',
+            'seealso' => {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'a!"'
+                            },
+                            {
+                              'cmdname' => '@'
+                            },
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'type' => 'brace_command_context'
+                        }
+                      ],
+                      'cmdname' => 'math',
+                      'source_info' => {
+                        'line_nr' => 17
+                      }
+                    },
+                    {
+                      'text' => ' "!'
+                    },
+                    {
+                      'cmdname' => '@'
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'following_arg'
+                        }
+                      ],
+                      'cmdname' => '"',
+                      'source_info' => {
+                        'line_nr' => 17
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'o'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => '"',
+                      'source_info' => {
+                        'line_nr' => 17
+                      }
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'seealso',
+              'source_info' => {
+                'line_nr' => 17
+              }
+            },
             'subentry' => {
               'args' => [
                 {
@@ -633,85 +712,7 @@ $result_trees{'indices_disable_encoding'} = {
                       'text' => ' ',
                       'type' => 'spaces_at_end'
                     },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'a!"'
-                                    },
-                                    {
-                                      'cmdname' => '@'
-                                    },
-                                    {
-                                      'text' => 'b'
-                                    }
-                                  ],
-                                  'type' => 'brace_command_context'
-                                }
-                              ],
-                              'cmdname' => 'math',
-                              'source_info' => {
-                                'line_nr' => 17
-                              }
-                            },
-                            {
-                              'text' => ' "!'
-                            },
-                            {
-                              'cmdname' => '@'
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'a'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'cmdname' => '"',
-                              'source_info' => {
-                                'line_nr' => 17
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'o'
-                                    }
-                                  ],
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => '"',
-                              'source_info' => {
-                                'line_nr' => 17
-                              }
-                            }
-                          ],
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'seealso',
-                      'source_info' => {
-                        'line_nr' => 17
-                      }
-                    }
+                    {}
                   ],
                   'info' => {
                     'spaces_after_argument' => {
@@ -726,7 +727,8 @@ $result_trees{'indices_disable_encoding'} = {
               'extra' => {
                 'level' => 1,
                 'seealso' => {},
-                'sortas' => 'a!"@b'
+                'sortas' => 'a!"@b',
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -1102,7 +1104,9 @@ $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'extra'}
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'seealso'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'seealso'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];

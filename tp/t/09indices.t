@@ -782,6 +782,12 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @cindex @command{awk} @subentry POSIX and
 @cindex @command{awk} @subentry POSIX and @seealso{POSIX @command{awk}}
 
+b
+
+c
+
+@cindex @command{awk} @subentry POSIX and @seeentry{Another entry}
+
 @printindex cp
 '],
 ['same_only_seealso_seeentry',

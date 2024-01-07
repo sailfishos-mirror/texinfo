@@ -1,5 +1,23 @@
 2024-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_line_command),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command): add
+	'subentry_parent' for @subentry to be able to easily find the
+	containing subentry or index entry.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_close_brace),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): associate the
+	@seeentry and @seealso to the main index entry command in addition to
+	a @subentry.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_index_entry): update to the change in
+	tree.
+
+	* tp/t/09indices.t (seealso_duplicate): also add a duplicate entry
+	with @seeentry.
+
+2024-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (index_entry_element_sort_string)
 	(_index_entry_element_sort_string_key, setup_sortable_index_entries):
 	replace index_entry_sort_string by index_entry_element_sort_string,

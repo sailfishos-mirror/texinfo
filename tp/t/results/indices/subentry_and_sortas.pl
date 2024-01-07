@@ -211,7 +211,8 @@ $result_trees{'subentry_and_sortas'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'sortas' => 'B---S1'
+                'sortas' => 'B---S1',
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -324,7 +325,8 @@ $result_trees{'subentry_and_sortas'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'sortas' => 'X---S1'
+                'sortas' => 'X---S1',
+                'subentry_parent' => {}
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -434,8 +436,10 @@ $result_trees{'subentry_and_sortas'} = {
   'type' => 'document_root'
 };
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
+$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[2] = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
+$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[5] = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'};
 
 $result_texis{'subentry_and_sortas'} = '@node Top
