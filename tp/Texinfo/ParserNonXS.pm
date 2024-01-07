@@ -6373,11 +6373,13 @@ sub _handle_close_brace($$$)
           $index_element->{'extra'} = {}
             if (!defined($index_element->{'extra'}));
           $index_element->{'extra'}->{$command} = $current->{'parent'};
-          if ($index_element ne $subindex_element) {
-            $subindex_element->{'extra'} = {}
-              if (!defined($subindex_element->{'extra'}));
-            $subindex_element->{'extra'}->{$command} = $current->{'parent'};
-          }
+          # Following should be uncommented association to the subentry is
+          # wanted
+          #if ($index_element ne $subindex_element) {
+          #  $subindex_element->{'extra'} = {}
+          #    if (!defined($subindex_element->{'extra'}));
+          #  $subindex_element->{'extra'}->{$command} = $current->{'parent'};
+          #}
         }
       }
     }

@@ -726,7 +726,6 @@ $result_trees{'indices_disable_encoding'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'seealso' => {},
                 'sortas' => 'a!"@b',
                 'subentry_parent' => {}
               },
@@ -1105,7 +1104,6 @@ $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'extra'}
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'seealso'};
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'seealso'};
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];

@@ -555,13 +555,16 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                       else
                         index_elt = subentry_parent;
                     }
-                  add_extra_element (subindex_elt,
+                  add_extra_element (index_elt,
                                      command_name(current->parent->cmd),
                                      current->parent);
+        /* Following should be uncommented association to the subentry is
+           wanted
                   if (index_elt != subindex_elt)
-                    add_extra_element (index_elt,
+                    add_extra_element (subindex_elt,
                                        command_name(current->parent->cmd),
                                        current->parent);
+         */
                 }
             }
         }

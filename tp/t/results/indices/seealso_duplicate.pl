@@ -243,7 +243,6 @@ $result_trees{'seealso_duplicate'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'seealso' => {},
                 'subentry_parent' => {}
               },
               'info' => {
@@ -378,7 +377,6 @@ $result_trees{'seealso_duplicate'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'seeentry' => {},
                 'subentry_parent' => {}
               },
               'info' => {
@@ -463,12 +461,10 @@ $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'suben
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'seealso'};
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'seealso'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'seeentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'extra'}{'seeentry'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'seeentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'};
 

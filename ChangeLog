@@ -1,5 +1,11 @@
 2024-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_close_brace),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): asociate
+	seealso and seeentry to the main index entry only, not to @subentry.
+
+2024-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm
 	(_set_non_ignored_space_in_index_before_command): fix a variable name.
 
