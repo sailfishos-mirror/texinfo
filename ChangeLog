@@ -1,5 +1,18 @@
 2024-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (index_entry_element_sort_string)
+	(_index_entry_element_sort_string_key, setup_sortable_index_entries):
+	replace index_entry_sort_string by index_entry_element_sort_string,
+	using the element associated to the index entry or @subentry as
+	argument, and determining the sortas and content in the function.
+	Update callers.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_index_entry): simplify code by using
+	only an array of index entry element commands, for the main entry and
+	the @subentry.  Rename variables.
+
+2024-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_find_element_from_sv), tp/Texinfo/XS/main/get_perl_info.c
 	(find_sorted_index_names_index_entry_extra_index_entry_sv)

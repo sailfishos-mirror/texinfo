@@ -2431,42 +2431,32 @@ sub _index_entry($$)
     }
     my $options
       = Texinfo::Structuring::setup_index_entry_keys_formatting($self);
-    my $current_entry = $element;
-    my $current_sortas;
-    my $subentry_commands = [$element];
-    if (exists($element->{'extra'}->{'sortas'})) {
-      $current_sortas = $element->{'extra'}->{'sortas'};
-    }
-    my $subentries = [[Texinfo::Common::index_content_element($element, 1),
-                         $current_sortas]];
-    while ($current_entry->{'extra'}
-      and $current_entry->{'extra'}->{'subentry'}) {
-      $current_entry = $current_entry->{'extra'}->{'subentry'};
-      my $current_sortas;
-      if (exists($current_entry->{'extra'}->{'sortas'})) {
-        $current_sortas = $current_entry->{'extra'}->{'sortas'};
-      }
-      push @$subentries, [$current_entry->{'args'}->[0], $current_sortas];
-      push @$subentry_commands, $current_entry;
+    my @subindex_commands = ($element);
+    my $current_element = $element;
+    while ($current_element->{'extra'}
+      and $current_element->{'extra'}->{'subentry'}) {
+      $current_element = $current_element->{'extra'}->{'subentry'};
+      push @subindex_commands, $current_element;
     }
     _push_new_context($self, 'index_entry');
     $self->{'formatting_context'}->[-1]->{'index'} = 1;
     my @result;
-    foreach my $subentry_entry_and_sortas (@$subentries) {
-      my ($subentry, $subentry_sortas) = @$subentry_entry_and_sortas;
+    foreach my $subindex_command (@subindex_commands) {
+      my $content
+         = Texinfo::Common::index_content_element($subindex_command, 1);
       if ($in_code) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       }
-      my $index_entry = _convert($self, $subentry);
+      my $index_entry = _convert($self, $content);
       if ($in_code) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       # always setup a string to sort with as we may use commands
       my $convert_to_text_options = {%$options, 'code' => $in_code};
       my $sort_string
-           = Texinfo::Structuring::index_entry_sort_string($entry,
-                                          $subentry, $subentry_sortas,
-                                          $convert_to_text_options);
+           = Texinfo::Structuring::index_entry_element_sort_string($entry,
+                                          $subindex_command,
+                                          $convert_to_text_options, 1);
       my $result = '';
       if (defined($sort_string)) {
         # | in sort key breaks with hyperref
@@ -2484,12 +2474,12 @@ sub _index_entry($$)
     }
     my $seeresult = '';
    SEEENTRY:
-    foreach my $subentry_command (@$subentry_commands) {
+    foreach my $subindex_command (@subindex_commands) {
       foreach my $seecommand (('seeentry', 'seealso')) {
-        if ($subentry_command->{'extra'}->{$seecommand}
-            and $subentry_command->{'extra'}->{$seecommand}->{'args'}->[0]) {
+        if ($subindex_command->{'extra'}->{$seecommand}
+            and $subindex_command->{'extra'}->{$seecommand}->{'args'}->[0]) {
           my $seeconverted = _convert($self,
-                   $subentry_command->{'extra'}->{$seecommand}->{'args'}->[0]);
+                   $subindex_command->{'extra'}->{$seecommand}->{'args'}->[0]);
           $seeresult = '|'.$LaTeX_see_index_commands_text{$seecommand}.'{'
                      .$seeconverted.'}';
           last SEEENTRY;
