@@ -1,5 +1,19 @@
 2024-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line): call
+	_set_non_ignored_space_in_index_before_command in any case, enven is
+	there is no extra information on @-commands letting
+	space_in_index_before_command to be more independent of the extra
+	information and where it is stored.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_set_non_ignored_space_in_index_before_command): pass an argument to
+	_set_non_ignored_space_in_index_before_command and change variable
+	names.
+
+2024-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_line_command),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command): add
 	'subentry_parent' for @subentry to be able to easily find the

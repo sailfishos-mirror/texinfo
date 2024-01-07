@@ -1574,10 +1574,8 @@ end_line_misc_line (ELEMENT *current)
           if ((command_flags(current) & CF_index_entry_command
                 || current->cmd == CM_subentry))
             {
-              if (lookup_extra_string (current, "sortas")
-                   || lookup_extra_element (current, "seealso")
-                   || lookup_extra_element (current, "seeentry"))
-                set_non_ignored_space_in_index_before_command(current->args.list[0]);
+              set_non_ignored_space_in_index_before_command(
+                                                     current->args.list[0]);
             }
         }
     }

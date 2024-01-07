@@ -2885,21 +2885,21 @@ sub _expand_macro_body($$$$) {
 # @seeentry{} back to regular spaces if there is content after the @-command
 sub _set_non_ignored_space_in_index_before_command($)
 {
-  my $contents = shift;
+  my $content = shift;
   my $pending_spaces_element = 0;
-  foreach my $content (@$contents) {
-    if ($content->{'type'}
-        and $content->{'type'} eq 'internal_spaces_before_brace_in_index') {
+  foreach my $element (@{$contents->{'contents'}}) {
+    if ($element->{'type'}
+        and $element->{'type'} eq 'internal_spaces_before_brace_in_index') {
       # set to "spaces_at_end" in case there are only spaces after
-      $content->{'type'} = 'spaces_at_end';
-      $pending_spaces_element = $content;
+      $element->{'type'} = 'spaces_at_end';
+      $pending_spaces_element = $element;
     } elsif ($pending_spaces_element
-             and not (($content->{'cmdname'}
-                       and $in_index_commands{$content->{'cmdname'}}
-                       and defined($brace_commands{$content->{'cmdname'}}))
-                      or ($content->{'type'}
-                   and $content->{'type'} eq 'spaces_after_close_brace'))
-             and (! _check_empty_expansion([$content]))) {
+             and not (($element->{'cmdname'}
+                       and $in_index_commands{$element->{'cmdname'}}
+                       and defined($brace_commands{$element->{'cmdname'}}))
+                      or ($element->{'type'}
+                   and $element->{'type'} eq 'spaces_after_close_brace'))
+             and (! _check_empty_expansion([$element]))) {
       delete $pending_spaces_element->{'type'};
       $pending_spaces_element = 0;
     }
@@ -3747,12 +3747,8 @@ sub _end_line_misc_line($$$)
       # text type with its final type depending on whether there is
       # text after the brace command.
       if (_is_index_element($self, $current)) {
-        if (defined($current->{'extra'}->{'sortas'})
-            or defined($current->{'extra'}->{'seealso'})
-            or defined($current->{'extra'}->{'seeentry'})) {
-          _set_non_ignored_space_in_index_before_command(
-                         $current->{'args'}->[0]->{'contents'});
-        }
+        _set_non_ignored_space_in_index_before_command(
+                                          $current->{'args'}->[0]);
       }
     }
   }
