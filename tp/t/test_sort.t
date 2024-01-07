@@ -49,6 +49,8 @@ my $index_entries = Texinfo::Structuring::merge_indices($indices_information);
 my $document_information = $document->global_information();
 my $main_configuration = Texinfo::MainConfig::new({'ENABLE_ENCODING' => 1});
 Texinfo::Common::set_output_encodings($main_configuration, $document_information);
+$main_configuration->{'document_descriptor'}
+  = $document->document_descriptor();
 my ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices_by_index($registrar, $main_configuration,
                                           $index_entries, $indices_information);
@@ -124,6 +126,8 @@ $tree = $document->tree();
 $registrar = $parser->registered_errors();
 $indices_information = $document->indices_information();
 $index_entries = Texinfo::Structuring::merge_indices($indices_information);
+$main_configuration->{'document_descriptor'}
+  = $document->document_descriptor();
 ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices_by_index($registrar, $main_configuration,
                                           $index_entries, $indices_information);

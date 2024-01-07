@@ -1,5 +1,57 @@
 2024-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting):
+	remove ascii_punctuation obsolete option set.
+
+	* tp/Texinfo/Structuring.pm (index_entry_element_sort_string)
+	(_index_entry_element_sort_string_key)
+	(setup_sortable_index_entries), tp/t/test_sort.t, tp/t/test_utils.pl:
+	add an argument with document information for XS for
+	index_entry_element_sort_string and
+	_index_entry_element_sort_string_key to retrieve the document
+	descriptor in XS.  Use setup_sortable_index_entries
+	$customization_information as a source of that information.  If it is
+	a converter based on Texinfo::Convert::Converter, the information is
+	there, if not, it needs to be added explcitely.  Add the information
+	explicitely setting 'document_descriptor' to
+	document->document_descriptor() in test_sort.t and test_utils.pl.
+
+	* tp/Texinfo/XS/convert/indices_in_conversion.c
+	(index_entry_element_sort_string): implement in C.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (find_index_entry_sv): add based
+	on get_sv_index_entries_sorted_by_letter code.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(copy_sv_options_for_convert_text): get 'code' from perl.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (find_index_entry_subentry)
+	(subentry_hv_parent, find_subentry_index_command_sv)
+	(find_element_from_sv): find subentry C element based on perl element,
+	by finding the 'subentry parent' index entry C element going down
+	subentry levels, and then find the C subentry element going up
+	subentry levels.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(find_element_extra_index_entry_sv)
+	(find_index_entry_associated_hv, find_element_from_sv): have
+	find_element_extra_index_entry_sv return an index entry, such that the
+	caller can find the element based on entry_associated_element or
+	entry_element.  Add find_index_entry_associated_hv to go through both
+	entry_associated_element and entry_element to find the C element
+	associated to a perl element.  Use that code in find_element_from_sv.
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(index_entry_element_sort_string): XS interface for
+	index_entry_element_sort_string.  Not used as it is slower than the
+	perl...
+
+	* tp/Texinfo/XS/main/get_perl_info.c (debug_print_element_hv)
+	(debug_print_element_sv): add debug functions that print information
+	on perl tree elements.
+
+2024-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command):
 	always free entry_tree, found with valgrind.
 

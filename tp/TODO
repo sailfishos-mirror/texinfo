@@ -20,18 +20,6 @@ Document that Texinfo::Document::rebuild_document or
 Texinfo::Document::rebuild_tree should be called after tree modifications
 if the parser is XS but converters are perl.
 
-Find perl index element in C:
-$element->{'extra'}->{'index_entry'} = [$index_name, $number];
-in C:
-index[$index_name][number] = { 'index_name'           => $index_name,
-                      'entry_element'        => $element,
-                      'entry_number'         => $number,
-                    };
-(find index j based on index_name, could be a bsearch or a lin search)
- INDEX_ENTRY *index_entry;
-   index_entry = idx->index_entries[j];
-                  main_entry_element = index_entry->entry_element;
-
 
 Bugs
 ====

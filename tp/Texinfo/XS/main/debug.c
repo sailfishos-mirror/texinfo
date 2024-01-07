@@ -99,7 +99,8 @@ print_element_debug (const ELEMENT *e, int print_parent)
   return result;
 }
 
-char *print_associate_info_debug (const ASSOCIATED_INFO *info)
+char *
+print_associate_info_debug (const ASSOCIATED_INFO *info)
 {
   TEXT text;
   char *result;

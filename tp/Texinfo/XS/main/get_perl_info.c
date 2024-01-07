@@ -41,6 +41,9 @@ FIXME add an initialization of translations?
 #include "options_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "text.h"
+#include "extra.h"
+#include "debug.h"
 #include "utils.h"
 #include "builtin_commands.h"
 #include "errors.h"
@@ -50,6 +53,63 @@ FIXME add an initialization of translations?
 #include "convert_to_text.h"
 #include "converter.h"
 #include "get_perl_info.h"
+
+#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
+
+static void
+debug_print_element_hv (HV *element_hv)
+{
+  SV **cmdname_sv;
+  SV **type_sv;
+  SV **text_sv;
+  TEXT msg;
+
+  dTHX;
+
+  text_init (&msg);
+  text_append (&msg, "");
+
+  FETCH(cmdname)
+  if (cmdname_sv)
+    {
+      text_printf (&msg, "@%s", SvPVutf8_nolen (*cmdname_sv));
+    }
+  FETCH(type)
+  if (type_sv)
+    {
+      text_printf (&msg, "(%s)", SvPVutf8_nolen (*type_sv));
+    }
+  FETCH(text)
+  if (text_sv)
+    {
+      int allocated = 0;
+      char *text = SvPVutf8_nolen (*text_sv);
+      char *protected_text = debug_protect_eol (text,
+                                              &allocated);
+      text_printf (&msg, "[T: %s]", protected_text);
+      if (allocated)
+        free (protected_text);
+    }
+  fprintf (stderr, "ELT_sv: %s\n", msg.text);
+  free (msg.text);
+}
+
+void
+debug_print_element_sv (SV *element_sv)
+{
+  dTHX;
+
+  if (SvOK (element_sv))
+    {
+      HV *element_hv = (HV *) SvRV (element_sv);
+      debug_print_element_hv (element_hv);
+    }
+  else
+    {
+      fprintf(stderr, "debug_print_element_sv: NUL\n");
+    }
+}
+#undef FETCH
 
 DOCUMENT *
 get_document_or_warn (SV *sv_in, char *key, char *warn_string)
@@ -336,7 +396,7 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
 
   expanded_formats_sv = hv_fetch (hv, "expanded_formats",
                                   strlen ("expanded_formats"), 0);
-  if (expanded_formats_sv)
+  if (expanded_formats_sv && SvOK (*expanded_formats_sv))
     {
       I32 i;
       I32 formats_nr;
@@ -573,6 +633,54 @@ reset_output_init_conf (SV *sv_in)
     }
 }
 
+INDEX_ENTRY *
+find_index_entry_sv (SV *index_entry_sv, INDEX **index_names,
+                     const char *warn_string, char **entry_index_name,
+                     int *entry_number)
+{
+  HV *index_entry_hv;
+  SV **index_name_sv;
+  SV **entry_number_sv;
+  int entry_idx_in_index;
+  INDEX *idx;
+
+  dTHX;
+
+  index_entry_hv = (HV *) SvRV (index_entry_sv);
+  index_name_sv = hv_fetch (index_entry_hv, "index_name",
+                            strlen ("index_name"), 0);
+  entry_number_sv = hv_fetch (index_entry_hv, "entry_number",
+                              strlen ("entry_number"), 0);
+
+  *entry_index_name = 0;
+  *entry_number = 0;
+
+  if (!index_name_sv || !entry_number_sv)
+    {
+      char *msg;
+      const char *warn_str = warn_string;
+      if (!warn_str)
+        warn_str = "find_index_entry_sv";
+      xasprintf (&msg, "%s: no entry info\n", warn_str);
+      fatal (msg);
+    }
+  *entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
+  *entry_number = SvIV (*entry_number_sv);
+  entry_idx_in_index = *entry_number - 1;
+
+  idx = indices_info_index_by_name (index_names,
+                                    *entry_index_name);
+
+  if (idx)
+    {
+      if (entry_idx_in_index < idx->entries_number)
+        return &idx->index_entries[entry_idx_in_index];
+    }
+
+  return 0;
+}
+
+
 /* code in comments allow to sort the index names to have a fixed order
    in the data structure.  Not clear that it is useful or not, not enabled
    for now */
@@ -736,15 +844,10 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
               for (k = 0; k < entries_nr; k++)
                 {
                   SV** index_entry_sv = av_fetch (entries_av, k, 0);
-                  HV *index_entry_hv;
-                  SV** index_name_sv;
-                  SV** entry_number_sv;
-                  INDEX *idx;
                   char *entry_index_name;
                   int entry_number;
-                  int entry_idx_in_index;
-
-                  letter_entries->entries[k] = 0;
+                  char *warn_string;
+                  INDEX_ENTRY *index_entry = 0;
 
                   if (!index_entry_sv)
                     {
@@ -754,32 +857,16 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                              idx_name, i, letter_entries->letter, k);
                       fatal (msg);
                     }
-                  index_entry_hv = (HV *) SvRV (*index_entry_sv);
-                  index_name_sv = hv_fetch (index_entry_hv, "index_name",
-                                            strlen ("index_name"), 0);
-                  entry_number_sv = hv_fetch (index_entry_hv, "entry_number",
-                                              strlen ("entry_number"), 0);
-                  if (!index_name_sv || !entry_number_sv)
-                    {
-                      char *msg;
-                      xasprintf (&msg,
-  "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry info\n",
-                             idx_name, i, letter_entries->letter, k);
-                      fatal (msg);
-                    }
-                  entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
-                  entry_number = SvIV (*entry_number_sv);
-                  entry_idx_in_index = entry_number - 1;
+                  xasprintf (&warn_string,
+                         "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d",
+                         idx_name, i, letter_entries->letter, k);
+                  index_entry = find_index_entry_sv (*index_entry_sv, index_names,
+                                                     warn_string, &entry_index_name,
+                                                     &entry_number);
+                  free (warn_string);
 
-                  idx = indices_info_index_by_name (index_names,
-                                                    entry_index_name);
+                  letter_entries->entries[k] = index_entry;
 
-                  if (idx)
-                    {
-                      if (entry_idx_in_index < idx->entries_number)
-                        letter_entries->entries[k]
-                          = &idx->index_entries[entry_idx_in_index];
-                    }
                   if (!letter_entries->entries[k])
                     {
                       char *msg;
@@ -824,12 +911,13 @@ force_conf (CONVERTER *converter, const char *conf, SV *value)
 /* output format specific */
 
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
-/* TODO more to do */
+/* TODO more to do? */
 #define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
 {
   HV *hv_in;
+  SV **code_sv;
   SV **TEST_sv;
   SV **INCLUDE_DIRECTORIES_sv;
   SV **converter_sv;
@@ -853,8 +941,11 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (enabled_encoding_sv)
     text_options->encoding = strdup (SvPVutf8_nolen (*enabled_encoding_sv));
 
-  FETCH(INCLUDE_DIRECTORIES)
+  FETCH(code)
+  if (code_sv)
+    text_options->code_state = SvIV (*code_sv);
 
+  FETCH(INCLUDE_DIRECTORIES)
   if (INCLUDE_DIRECTORIES_sv)
     add_svav_to_string_list (*INCLUDE_DIRECTORIES_sv,
                              &text_options->include_directories, svt_dir);
@@ -1145,6 +1236,7 @@ find_document_index_entry_extra_index_entry_sv (DOCUMENT *document,
 {
   AV *extra_index_entry_av;
   SV **index_name_sv;
+  char *index_name = 0;
   INDEX *idx = 0;
 
   dTHX;
@@ -1157,7 +1249,7 @@ find_document_index_entry_extra_index_entry_sv (DOCUMENT *document,
   index_name_sv = av_fetch (extra_index_entry_av, 0, 0);
   if (index_name_sv)
     {
-      char *index_name = SvPVutf8_nolen (*index_name_sv);
+      index_name = SvPVutf8_nolen (*index_name_sv);
       idx = indices_info_index_by_name (document->index_names,
                                         index_name);
     }
@@ -1178,7 +1270,7 @@ find_document_index_entry_extra_index_entry_sv (DOCUMENT *document,
 /* if there is a converter with sorted index names, use the
    sorted index names, otherwise use the index information from
    a document */
-ELEMENT *
+static INDEX_ENTRY *
 find_element_extra_index_entry_sv (DOCUMENT *document,
                                    CONVERTER *converter,
                                    SV *extra_index_entry_sv)
@@ -1197,14 +1289,7 @@ find_element_extra_index_entry_sv (DOCUMENT *document,
    index_entry = find_sorted_index_names_index_entry_extra_index_entry_sv (
                     &converter->sorted_index_names, extra_index_entry_sv);
 
-  if (index_entry)
-    {
-      if (index_entry->entry_associated_element)
-        return index_entry->entry_associated_element;
-      else if (index_entry->entry_element)
-        return index_entry->entry_element;
-    }
-  return 0;
+  return index_entry;
 }
 
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
@@ -1262,6 +1347,111 @@ ELEMENT *find_root_command (DOCUMENT *document, HV *element_hv,
   return 0;
 }
 
+/* find the subentry matching ELEMENT_HV */
+static ELEMENT *
+find_index_entry_subentry (ELEMENT *index_element, HV *element_hv)
+{
+  ELEMENT *current_element = index_element;
+
+  while (1)
+    {
+      ELEMENT *subentry = lookup_extra_element (current_element,
+                                                "subentry");
+      if (subentry)
+        {
+          if (subentry->hv == element_hv)
+            return subentry;
+          current_element = subentry;
+        }
+      else
+        return 0;
+    }
+}
+
+#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen(#key), 0);
+
+/* returns the subentry direct parent based on "subentry_parent" */
+static SV *
+subentry_hv_parent (HV *element_hv)
+{
+  SV **extra_sv;
+
+  dTHX;
+
+  FETCH(extra)
+
+  if (extra_sv)
+    {
+      SV **subentry_parent_sv;
+      HV *extra_hv = (HV *) SvRV (*extra_sv);
+
+      EXTRA(subentry_parent)
+      if (subentry_parent_sv)
+        {
+          return *subentry_parent_sv;
+        }
+    }
+  return 0;
+}
+
+/* Find the index entry parent of a subentry going through
+   "subentry_parent" until finding the index element hash */
+ELEMENT *
+find_subentry_index_command_sv (DOCUMENT *document, HV *element_hv)
+{
+  HV *current_parent = element_hv;
+  SV *current_sv = 0;
+
+  dTHX;
+
+  while (1)
+    {
+      SV *subentry_parent_sv = subentry_hv_parent (current_parent);
+      if (subentry_parent_sv)
+        {
+          current_parent = (HV *) SvRV (subentry_parent_sv);
+          current_sv = subentry_parent_sv;
+        }
+      else
+        {
+          if (!current_sv)
+            return 0;
+          return find_element_from_sv (0, document, current_sv, 0);
+        }
+    }
+}
+
+/* find the INDEX_ENTRY associated element matching ELEMENT_HV.
+
+   If the index entry was reassociated, the tree element the
+   index entry is reassociated to is not index_entry->entry_element
+   but index_entry->entry_associated_element.  The original
+   tree element that was associated is index_entry->entry_element.
+   Depending on the situation one or the other may be looked for
+   and the code tries both.
+
+   The reassociated tree element, for example, would be used
+   when doing a link to the tree from the index entry.  But it may
+   also be the original tree element that is used, for example
+   to get the index entry tree element content, for instance
+   when going through the elements associated to indices to setup
+   index entries sort strings.
+ */
+ELEMENT *find_index_entry_associated_hv (INDEX_ENTRY *index_entry,
+                                         HV *element_hv)
+{
+  if (index_entry->entry_associated_element
+      && index_entry->entry_associated_element->hv == element_hv)
+    return index_entry->entry_associated_element;
+
+  if (index_entry->entry_element
+  /* if the index entry was reassociated it is important to check */
+      && index_entry->entry_element->hv == element_hv)
+    return index_entry->entry_element;
+
+  return 0;
+}
+
 /* TODO nodedescription using the extra element_node and the
  * node extra node_description? */
 
@@ -1289,10 +1479,10 @@ find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
 
   element_hv = (HV *) SvRV (element_sv);
 
-  FETCH(cmdname)
-
   if (!document && converter && converter->document)
     document = converter->document;
+
+  FETCH(cmdname)
 
   if (cmdname_sv && (output_units_descriptor || document))
     {
@@ -1308,11 +1498,22 @@ find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
           if (element)
             return element;
         }
+      else if (cmd == CM_subentry)
+        {
+          ELEMENT *index_element = find_subentry_index_command_sv (document,
+                                                                   element_hv);
+          if (index_element)
+            {
+              ELEMENT *element = find_index_entry_subentry (index_element,
+                                                            element_hv);
+              if (element)
+                return element;
+            }
+        }
     }
 
   FETCH(extra)
 
-#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen(#key), 0);
   if (extra_sv)
     {
       HV *extra_hv = (HV *) SvRV (*extra_sv);
@@ -1352,27 +1553,36 @@ find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
             }
         }
 
-
       EXTRA(associated_index_entry)
       if (associated_index_entry_sv)
         {
-          ELEMENT *index_element = find_element_extra_index_entry_sv (document,
-                                               converter,
-                                               *associated_index_entry_sv);
-          /* there should be no ambiguity, but we check nevertheless */
-          if (index_element && index_element->hv == element_hv)
-            return (index_element);
+          INDEX_ENTRY *index_entry
+               = find_element_extra_index_entry_sv (document,
+                                                    converter,
+                                              *associated_index_entry_sv);
+          if (index_entry)
+            {
+              ELEMENT *index_element
+                = find_index_entry_associated_hv (index_entry, element_hv);
+              if (index_element)
+                return (index_element);
+            }
         }
 
       EXTRA(index_entry)
       if (index_entry_sv)
         {
-          ELEMENT *index_element = find_element_extra_index_entry_sv (document,
+          INDEX_ENTRY *index_entry
+                     = find_element_extra_index_entry_sv (document,
                                                           converter,
                                                           *index_entry_sv);
-          /* it is important to check if the index entry was reassociated */
-          if (index_element && index_element->hv == element_hv)
-            return (index_element);
+          if (index_entry)
+            {
+              ELEMENT *index_element
+                = find_index_entry_associated_hv (index_entry, element_hv);
+              if (index_element)
+                return (index_element);
+            }
         }
     }
   return 0;

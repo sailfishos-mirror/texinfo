@@ -114,8 +114,11 @@ our %XS_overrides = (
   "Texinfo::Structuring::_XS_unsplit"
     => "Texinfo::StructTransfXS::unsplit",
 
-#  "Texinfo::Structuring::index_entry_element_sort_string"
-#    => "Texinfo::StructTransfXS::index_entry_element_sort_string",
+  # TODO the XS override is slower than the perl function.
+  # One possible reason could be that the text options are read
+  # from perl for each entry instead of once for each index.
+  #"Texinfo::Structuring::index_entry_element_sort_string"
+  #  => "Texinfo::StructTransfXS::index_entry_element_sort_string",
 
   # Not useful for HTML as functions, as the calling functions are
   # already overriden
@@ -2270,7 +2273,7 @@ sub setup_index_entry_keys_formatting($)
 {
   my $customization_info = shift;
 
-  my $options = {'ascii_punctuation' => 1,
+  my $options = {
      Texinfo::Convert::Text::copy_options_for_convert_text(
                                   $customization_info)};
   if (not $customization_info->get_conf('ENABLE_ENCODING')
@@ -2281,9 +2284,11 @@ sub setup_index_entry_keys_formatting($)
   return $options;
 }
 
-# can be used for subentries
-sub index_entry_element_sort_string($$$;$)
+# can be used for subentries.
+# $DOCUMENT_INFO is used in XS to retrieve the document.
+sub index_entry_element_sort_string($$$$;$)
 {
+  my $document_info = shift;
   my $main_entry = shift;
   my $index_entry_element = shift;
   my $options = shift;
@@ -2312,16 +2317,17 @@ sub index_entry_element_sort_string($$$;$)
   return $sort_string;
 }
 
-sub _index_entry_element_sort_string_key($$$$;$)
+sub _index_entry_element_sort_string_key($$$$$;$)
 {
+  my $document_info = shift;
   my $main_entry = shift;
   my $index_entry_element = shift;
   my $options = shift;
   my $collator = shift;
   my $prefer_reference_element = shift;
 
-  my $sort_string = index_entry_element_sort_string ($main_entry,
-                                             $index_entry_element,
+  my $sort_string = index_entry_element_sort_string ($document_info,
+                               $main_entry, $index_entry_element,
                                $options, $prefer_reference_element);
 
   # This avoids varying results depending on whether the string is
@@ -2397,6 +2403,12 @@ sub _converter_or_registrar_line_warn($$$$)
   }
 }
 
+# There is no neeed for document information in Perl, however, in XS
+# it is needed to retrieve the Tree elements in the C structures.
+# $CUSTOMIZATION_INFORMATION is used as the source of document
+# information.  It should already be set if it is a converter based
+# on Texinfo::Convert::Converter, but otherwise it should be set by
+# the caller, setting 'document_descriptor' to document->document_descriptor().
 sub setup_sortable_index_entries($$$$$;$)
 {
   my $registrar = shift;
@@ -2469,8 +2481,8 @@ sub setup_sortable_index_entries($$$$$;$)
       my $convert_to_text_options = {%$options,
         'code' => $indices_information->{$entry_index_name}->{'in_code'}};
       my ($entry_key, $sort_entry_key)
-        = _index_entry_element_sort_string_key($index_entry,
-                                               $main_entry_element,
+        = _index_entry_element_sort_string_key($customization_information,
+                                   $index_entry, $main_entry_element,
                                   $convert_to_text_options, $entries_collator);
       my @entry_keys;
       my @sort_entry_keys;
@@ -2498,8 +2510,8 @@ sub setup_sortable_index_entries($$$$$;$)
         $subentry_nr ++;
         $subentry = $subentry->{'extra'}->{'subentry'};
         my ($subentry_key, $sort_subentry_key)
-              = _index_entry_element_sort_string_key($index_entry,
-                                $subentry, $convert_to_text_options,
+              = _index_entry_element_sort_string_key($customization_information,
+                             $index_entry, $subentry, $convert_to_text_options,
                                 $entries_collator);
         if ($subentry_key !~ /\S/) {
           my $entry_cmdname = $main_entry_element->{'cmdname'};
@@ -2879,10 +2891,14 @@ I<$node> is a node tree element.  Find the node I<$node> children based
 on the sectioning structure.  For the node associated with C<@top>
 sectioning command, the sections associated with parts are considered.
 
-=item $sort_string = index_entry_element_sort_string($main_entry, $index_entry_element, $options, $prefer_reference_element)
+=item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element)
 X<C<index_entry_element_sort_string>>
 
 Return a string suitable as a sort string, for index entries.
+I<$document_info> is used by C code to retrieve the document data,
+using the C<document_descriptor> key.  I<$document_info> can be a
+converter based on L<Texinfo::Convert::Converter>, otherwise
+C<document_descriptor> need, in general, to be set up explicitely.
 The tree element index entry processed is I<$index_entry_element>,
 and can be a C<@subentry>.  I<$main_entry> is the main index entry
 that can be used to gather information.  The I<$options> are options

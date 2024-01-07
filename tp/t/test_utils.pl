@@ -1177,6 +1177,8 @@ sub test($$)
   my ($sorted_index_entries, $index_entries_sort_strings);
   my $indices_sorted_sort_strings;
   if ($merged_index_entries) {
+    $main_configuration->{'document_descriptor'}
+      = $document->document_descriptor();
     ($sorted_index_entries, $index_entries_sort_strings)
       = Texinfo::Structuring::sort_indices_by_index($registrar,
                                    $main_configuration,

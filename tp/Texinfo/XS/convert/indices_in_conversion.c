@@ -26,6 +26,7 @@
 #include "utils.h"
 #include "extra.h"
 #include "unicode.h"
+#include "convert_to_text.h"
 #include "indices_in_conversion.h"
 
 /* corresponding perl code in Texinfo::Structuring */
@@ -160,3 +161,57 @@ index_content_element (const ELEMENT *element, int prefer_reference_element)
    }
 }
 
+char *
+index_entry_element_sort_string (INDEX_ENTRY *main_entry,
+                                 ELEMENT *index_entry_element,
+                                 TEXT_OPTIONS *options,
+                                 int prefer_reference_element)
+{
+  char *sort_string;
+  char *index_ignore_chars;
+  ELEMENT *entry_tree_element;
+
+  if (!index_entry_element)
+    {
+      fatal ("index_entry_element_sort_string: NUL element");
+    }
+
+  char *sortas = lookup_extra_string (index_entry_element, "sortas");
+  if (sortas)
+    return strdup (sortas);
+
+  entry_tree_element = index_content_element (index_entry_element,
+                                          prefer_reference_element);
+
+  sort_string = convert_to_text (entry_tree_element, options);
+
+  index_ignore_chars = lookup_extra_string (main_entry->entry_element,
+                                            "index_ignore_chars");
+  if (index_ignore_chars)
+    {
+      TEXT sort_string_text;
+      char *p = sort_string;
+      text_init (&sort_string_text);
+
+      while (*p)
+        {
+          int n = strspn (p, index_ignore_chars);
+          if (n)
+            {
+              p += n;
+            }
+          if (*p)
+            {
+              /* store a character */
+              int char_len = 1;
+              while ((p[char_len] & 0xC0) == 0x80)
+                char_len++;
+              text_append_n (&sort_string_text, p, char_len);
+              p += char_len;
+            }
+        }
+      free (sort_string);
+      sort_string = sort_string_text.text;
+    }
+  return sort_string;
+}

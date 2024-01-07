@@ -40,6 +40,7 @@
 #include "transformations.h"
 #include "structuring.h"
 #include "output_unit.h"
+#include "indices_in_conversion.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
@@ -437,4 +438,37 @@ split_pages (SV *output_units_in, char *split)
         if (output_units)
           split_pages (output_units, split);
 
+SV *
+index_entry_element_sort_string (SV *document_in, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0)
+    PREINIT:
+        DOCUMENT *document;
+        char *sort_string = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                   "index_entry_element_sort_string");
+        if (document)
+          {
+            char *entry_index_name;
+            int entry_number;
+            int prefer_reference_element = 0;
+            ELEMENT *element = find_element_from_sv (0, document,
+                                                    element_sv, 0);
+            INDEX_ENTRY *main_entry = find_index_entry_sv (main_entry_sv,
+                                          document->index_names, 0,
+                                          &entry_index_name, &entry_number);
+            TEXT_OPTIONS *options
+              = copy_sv_options_for_convert_text (options_sv);
+            if (prefer_reference_element_sv && SvOK (prefer_reference_element_sv))
+              prefer_reference_element = SvIV (prefer_reference_element_sv);
+            sort_string = index_entry_element_sort_string (main_entry,
+                                 element, options, prefer_reference_element);
+            destroy_text_options (options);
+          }
+
+       if (!sort_string)
+         RETVAL = newSV (0);
+       else
+         RETVAL = newSVpv_utf8 (sort_string, 0);
+    OUTPUT:
+         RETVAL
 

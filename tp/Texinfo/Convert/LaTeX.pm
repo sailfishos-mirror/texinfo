@@ -2454,7 +2454,8 @@ sub _index_entry($$)
       # always setup a string to sort with as we may use commands
       my $convert_to_text_options = {%$options, 'code' => $in_code};
       my $sort_string
-           = Texinfo::Structuring::index_entry_element_sort_string($entry,
+           = Texinfo::Structuring::index_entry_element_sort_string(
+                                          $self, $entry,
                                           $subindex_command,
                                           $convert_to_text_options, 1);
       my $result = '';
