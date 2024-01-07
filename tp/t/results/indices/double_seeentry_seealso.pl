@@ -794,7 +794,8 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="node-index_cp_symbol-1"></th></tr>
-<tr><td></td><td class="printindex-index-see-entry">, <em class="emph">See</em> subhhh</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td></td><td class="printindex-index-entry"></td><td></td></tr>
+<tr><td></td><td class="printindex-index-see-entry index-entry-level-1">subggg, <em class="emph">See</em> subhhh</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="node-index_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-see-entry">aaa, <em class="emph">See</em> ccc</td><td class="printindex-index-see-entry-section"></td></tr>

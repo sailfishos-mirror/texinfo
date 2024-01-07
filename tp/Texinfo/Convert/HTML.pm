@@ -6268,101 +6268,6 @@ sub _convert_printindex_command($$$$)
       my $entry_ref_tree = {'contents' => [$entry_content_element]};
       $entry_ref_tree->{'type'} = '_code' if ($in_code);
 
-      # index entry with @seeentry or @seealso
-      if ($main_entry_element->{'extra'}
-            and ($main_entry_element->{'extra'}->{'seeentry'}
-              or $main_entry_element->{'extra'}->{'seealso'})) {
-        my $referred_entry;
-        my $seeentry = 1;
-        if ($main_entry_element->{'extra'}->{'seeentry'}) {
-          $referred_entry = $main_entry_element->{'extra'}->{'seeentry'};
-        } else {
-          $referred_entry = $main_entry_element->{'extra'}->{'seealso'};
-          $seeentry = 0;
-        }
-        my $referred_tree = {};
-        $referred_tree->{'type'} = '_code' if ($in_code);
-        if ($referred_entry->{'args'} and $referred_entry->{'args'}->[0]
-            and $referred_entry->{'args'}->[0]->{'contents'}) {
-          $referred_tree->{'contents'} = [$referred_entry->{'args'}->[0]];
-        }
-        my $entry;
-        # for @seealso, to appear where chapter/node ususally appear
-        my $reference = '';
-        my $delimiter = '';
-        my $entry_class;
-        my $section_class;
-        if ($seeentry) {
-          my $result_tree;
-          if ($in_code) {
-            $result_tree
-          # TRANSLATORS: redirect to another index entry
-          # TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
-        = $self->gdt('@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}',
-                                        {'main_index_entry' => $entry_ref_tree,
-                                         'seeentry' => $referred_tree});
-          } else {
-            $result_tree
-          # TRANSLATORS: redirect to another index entry
-          # TRANSLATORS: @: is discardable and used to avoid a msgfmt error
-               = $self->gdt('{main_index_entry}, @emph{See@:} {seeentry}',
-                                        {'main_index_entry' => $entry_ref_tree,
-                                         'seeentry' => $referred_tree});
-          }
-          my $convert_info
-              = "index $index_name l $letter index entry $entry_nr seeentry";
-          if ($formatted_index_entry_nr > 1) {
-            # call with multiple_pass argument
-            $entry = $self->convert_tree_new_formatting_context($result_tree,
-                                                                $convert_info,
-                                  "index-formatted-$formatted_index_entry_nr");
-          } else {
-            $entry = $self->convert_tree($result_tree, $convert_info);
-          }
-          $entry_class = "$cmdname-index-see-entry";
-          $section_class = "$cmdname-index-see-entry-section";
-        } else {
-          # TRANSLATORS: refer to another index entry
-          my $reference_tree = $self->gdt('@emph{See also} {see_also_entry}',
-                                       {'see_also_entry' => $referred_tree});
-          my $conv_str_entry
-        = "index $index_name l $letter index entry $entry_nr (with seealso)";
-          my $conv_str_reference
-            = "index $index_name l $letter index entry $entry_nr seealso";
-          if ($formatted_index_entry_nr > 1) {
-            # call with multiple_pass argument
-            $entry = $self->convert_tree_new_formatting_context($entry_ref_tree,
-                                                                $conv_str_entry,
-                                   "index-formatted-$formatted_index_entry_nr");
-            $reference
-               = $self->convert_tree_new_formatting_context($reference_tree,
-                                                        $conv_str_reference,
-                                "index-formatted-$formatted_index_entry_nr");
-          } else {
-            $entry = $self->convert_tree($entry_ref_tree,
-                                         $conv_str_entry);
-            $reference
-               = $self->convert_tree_new_formatting_context($reference_tree,
-                                                          $conv_str_reference);
-          }
-          $entry = '<code>' .$entry .'</code>' if ($in_code);
-          $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
-          # TODO add the information that the entry is associated with see also?
-          $entry_class = "$cmdname-index-entry";
-          $section_class = "$cmdname-index-see-also";
-        }
-
-        $entries_text .= '<tr><td></td>'
-         .$self->html_attribute_class('td', [$entry_class]).'>'
-         . $entry .
-          $delimiter . '</td>'
-        .$self->html_attribute_class('td', [$section_class]).'>';
-        $entries_text .= $reference;
-        $entries_text .= "</td></tr>\n";
-
-        @prev_normalized_entry_levels = ();
-        next;
-      }
 
       # determine the trees and normalized main entry and subentries, to be
       # compared with the previous line normalized entries to determine
@@ -6444,112 +6349,214 @@ sub _convert_printindex_command($$$$)
           . "<td></td></tr>\n";
       }
       # last entry, always converted, associated to chapter/node and
-      # with an hyperlink
+      # with an hyperlink or to seeentry/seealso
       my $entry_tree = $entry_trees[$last_entry_level];
 
-      my $entry;
-      my $convert_info = "index $index_name l $letter index entry $entry_nr";
-      if ($formatted_index_entry_nr > 1) {
-        # call with multiple_pass argument
-        $entry = $self->convert_tree_new_formatting_context($entry_tree,
+      # index entry with @seeentry or @seealso
+      if ($main_entry_element->{'extra'}
+            and ($main_entry_element->{'extra'}->{'seeentry'}
+              or $main_entry_element->{'extra'}->{'seealso'})) {
+        my $referred_entry;
+        my $seeentry = 1;
+        if ($main_entry_element->{'extra'}->{'seeentry'}) {
+          $referred_entry = $main_entry_element->{'extra'}->{'seeentry'};
+        } else {
+          $referred_entry = $main_entry_element->{'extra'}->{'seealso'};
+          $seeentry = 0;
+        }
+        my $referred_tree = {};
+        $referred_tree->{'type'} = '_code' if ($in_code);
+        if ($referred_entry->{'args'} and $referred_entry->{'args'}->[0]
+            and $referred_entry->{'args'}->[0]->{'contents'}) {
+          $referred_tree->{'contents'} = [$referred_entry->{'args'}->[0]];
+        }
+        my $entry;
+        # for @seealso, to appear where chapter/node ususally appear
+        my $reference = '';
+        my $delimiter = '';
+        my $entry_class;
+        my $section_class;
+        if ($seeentry) {
+          my $result_tree;
+          if ($in_code) {
+            $result_tree
+          # TRANSLATORS: redirect to another index entry
+          # TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
+        = $self->gdt('@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}',
+                                        {'main_index_entry' => $entry_tree,
+                                         'seeentry' => $referred_tree});
+          } else {
+            $result_tree
+          # TRANSLATORS: redirect to another index entry
+          # TRANSLATORS: @: is discardable and used to avoid a msgfmt error
+               = $self->gdt('{main_index_entry}, @emph{See@:} {seeentry}',
+                                        {'main_index_entry' => $entry_tree,
+                                         'seeentry' => $referred_tree});
+          }
+          my $convert_info
+              = "index $index_name l $letter index entry $entry_nr seeentry";
+          if ($formatted_index_entry_nr > 1) {
+            # call with multiple_pass argument
+            $entry = $self->convert_tree_new_formatting_context($result_tree,
+                                                                $convert_info,
+                                  "index-formatted-$formatted_index_entry_nr");
+          } else {
+            $entry = $self->convert_tree($result_tree, $convert_info);
+          }
+          $entry_class = "$cmdname-index-see-entry";
+          $section_class = "$cmdname-index-see-entry-section";
+        } else {
+          # TRANSLATORS: refer to another index entry
+          my $reference_tree = $self->gdt('@emph{See also} {see_also_entry}',
+                                       {'see_also_entry' => $referred_tree});
+          my $conv_str_entry
+        = "index $index_name l $letter index entry $entry_nr (with seealso)";
+          my $conv_str_reference
+            = "index $index_name l $letter index entry $entry_nr seealso";
+          if ($formatted_index_entry_nr > 1) {
+            # call with multiple_pass argument
+            $entry = $self->convert_tree_new_formatting_context($entry_tree,
+                                                                $conv_str_entry,
+                                   "index-formatted-$formatted_index_entry_nr");
+            $reference
+               = $self->convert_tree_new_formatting_context($reference_tree,
+                                                        $conv_str_reference,
+                                "index-formatted-$formatted_index_entry_nr");
+          } else {
+            $entry = $self->convert_tree($entry_tree,
+                                         $conv_str_entry);
+            $reference
+               = $self->convert_tree_new_formatting_context($reference_tree,
+                                                          $conv_str_reference);
+          }
+          $entry = '<code>' .$entry .'</code>' if ($in_code);
+          $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
+          # TODO add the information that the entry is associated with see also?
+          $entry_class = "$cmdname-index-entry";
+          $section_class = "$cmdname-index-see-also";
+        }
+
+        my @td_entry_classes = ($entry_class);
+        if ($last_entry_level > 0) {
+          push @td_entry_classes, "index-entry-level-$last_entry_level";
+        }
+        $entries_text .= '<tr><td></td>'
+         .$self->html_attribute_class('td', \@td_entry_classes).'>'
+         . $entry .
+          $delimiter . '</td>'
+        .$self->html_attribute_class('td', [$section_class]).'>';
+        $entries_text .= $reference;
+        $entries_text .= "</td></tr>\n";
+
+        @prev_normalized_entry_levels = @new_normalized_entry_levels;
+      } else {
+        my $entry;
+        my $convert_info = "index $index_name l $letter index entry $entry_nr";
+        if ($formatted_index_entry_nr > 1) {
+          # call with multiple_pass argument
+          $entry = $self->convert_tree_new_formatting_context($entry_tree,
                                                             $convert_info,
-                             "index-formatted-$formatted_index_entry_nr");
-      } else {
-        $entry = $self->convert_tree($entry_tree, $convert_info);
-      }
-
-      next if ($entry !~ /\S/ and $last_entry_level == 0);
-
-      @prev_normalized_entry_levels = @new_normalized_entry_levels;
-
-      $entry = '<code>' .$entry .'</code>' if ($in_code);
-      my $target_element;
-      if ($index_entry_ref->{'entry_associated_element'}) {
-        $target_element = $index_entry_ref->{'entry_associated_element'};
-      } else {
-        $target_element = $main_entry_element;
-      }
-      my $entry_href = $self->command_href($target_element);
-      my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
-      my @td_entry_classes = ("$cmdname-index-entry");
-      # subentry
-      if ($last_entry_level > 0) {
-        push @td_entry_classes, "index-entry-level-$last_entry_level";
-      }
-      $entries_text .= '<tr><td></td>'
-        .$self->html_attribute_class('td', \@td_entry_classes).'>'
-         . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>';
-
-      my $associated_command;
-      if ($self->get_conf('NODE_NAME_IN_INDEX')) {
-        $associated_command = $main_entry_element->{'extra'}->{'element_node'};
-        if (!defined($associated_command)) {
-          $associated_command
-            = $self->command_node($target_element);
+                               "index-formatted-$formatted_index_entry_nr");
+        } else {
+          $entry = $self->convert_tree($entry_tree, $convert_info);
         }
-        if (!defined($associated_command)
-            # do not warn if the entry is in a special region, like titlepage
-            and not $main_entry_element->{'extra'}->{'element_region'}
-            and $formatted_index_entry_nr == 1) {
-          # NOTE _noticed_line_warn is not used as printindex should not
-          # happen in multiple tree parsing that lead to ignore_notice being set,
-          # but the error message is printed only for the first entry formatting.
-          $self->converter_line_warn(
-                           sprintf(
-           __("entry for index `%s' for \@printindex %s outside of any node"),
-                                   $index_entry_ref->{'index_name'},
-                                   $index_name),
-                           $main_entry_element->{'source_info'});
+
+        next if ($entry !~ /\S/ and $last_entry_level == 0);
+
+        @prev_normalized_entry_levels = @new_normalized_entry_levels;
+
+        $entry = '<code>' .$entry .'</code>' if ($in_code);
+        my $target_element;
+        if ($index_entry_ref->{'entry_associated_element'}) {
+          $target_element = $index_entry_ref->{'entry_associated_element'};
+        } else {
+          $target_element = $main_entry_element;
         }
-      }
-      if (!$associated_command) {
-        $associated_command
-          = $self->command_root_element_command($target_element);
-        if (!$associated_command) {
-          # Use Top if not associated command found
-          $associated_command
-            = $self->global_direction_unit('Top')->{'unit_command'};
-          # NOTE the warning here catches the most relevant cases of
-          # index entry that is not associated to the right command, which
-          # are very few in the test suite.  There is also a warning in the
-          # parser with a much broader scope with possible overlap, but the
-          # overlap is not a problem.
-          # NODE_NAME_IN_INDEX may be undef even with USE_NODES set if the
-          # converter is called as convert() as in the test suite
-          if (defined($self->get_conf('NODE_NAME_IN_INDEX'))
-              and not $self->get_conf('NODE_NAME_IN_INDEX')
+        my $entry_href = $self->command_href($target_element);
+        my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
+        my @td_entry_classes = ("$cmdname-index-entry");
+        # subentry
+        if ($last_entry_level > 0) {
+          push @td_entry_classes, "index-entry-level-$last_entry_level";
+        }
+        $entries_text .= '<tr><td></td>'
+          .$self->html_attribute_class('td', \@td_entry_classes).'>'
+           . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>';
+
+        my $associated_command;
+        if ($self->get_conf('NODE_NAME_IN_INDEX')) {
+          $associated_command = $main_entry_element->{'extra'}->{'element_node'};
+          if (!defined($associated_command)) {
+            $associated_command
+              = $self->command_node($target_element);
+          }
+          if (!defined($associated_command)
               # do not warn if the entry is in a special region, like titlepage
               and not $main_entry_element->{'extra'}->{'element_region'}
               and $formatted_index_entry_nr == 1) {
-            # NOTE _noticed_line_warn is not used as printindex should not
-            # happen in multiple tree parsing that lead to ignore_notice being set,
-            # but the error message is printed only for the first entry formatting.
-            # NOTE the index entry may be associated to a node in that case.
+         # NOTE _noticed_line_warn is not used as printindex should not
+         # happen in multiple tree parsing that lead to ignore_notice being set,
+         # but the error message is printed only for the first entry formatting.
             $self->converter_line_warn(
                              sprintf(
-        __("entry for index `%s' for \@printindex %s outside of any section"),
+           __("entry for index `%s' for \@printindex %s outside of any node"),
                                      $index_entry_ref->{'index_name'},
                                      $index_name),
                              $main_entry_element->{'source_info'});
           }
         }
-      }
-
-      $entries_text .=
-         $self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
-
-      if ($associated_command) {
-        my $associated_command_href = $self->command_href($associated_command);
-        my $associated_command_text = $self->command_text($associated_command);
-
-        if (defined($associated_command_href)) {
-          $entries_text
-        .= "<a href=\"$associated_command_href\">$associated_command_text</a>";
-        } elsif (defined($associated_command_text)) {
-          $entries_text .= $associated_command_text;
+        if (!$associated_command) {
+          $associated_command
+            = $self->command_root_element_command($target_element);
+          if (!$associated_command) {
+            # Use Top if not associated command found
+            $associated_command
+              = $self->global_direction_unit('Top')->{'unit_command'};
+            # NOTE the warning here catches the most relevant cases of
+            # index entry that is not associated to the right command, which
+            # are very few in the test suite.  There is also a warning in the
+            # parser with a much broader scope with possible overlap, but the
+            # overlap is not a problem.
+            # NODE_NAME_IN_INDEX may be undef even with USE_NODES set if the
+            # converter is called as convert() as in the test suite
+            if (defined($self->get_conf('NODE_NAME_IN_INDEX'))
+                and not $self->get_conf('NODE_NAME_IN_INDEX')
+              # do not warn if the entry is in a special region, like titlepage
+                and not $main_entry_element->{'extra'}->{'element_region'}
+                and $formatted_index_entry_nr == 1) {
+          # NOTE _noticed_line_warn is not used as printindex should not
+          # happen in multiple tree parsing that lead to ignore_notice being set,
+          # but the error message is printed only for the first entry formatting.
+          # NOTE the index entry may be associated to a node in that case.
+              $self->converter_line_warn(
+                               sprintf(
+        __("entry for index `%s' for \@printindex %s outside of any section"),
+                                       $index_entry_ref->{'index_name'},
+                                       $index_name),
+                               $main_entry_element->{'source_info'});
+            }
+          }
         }
+
+        $entries_text .=
+          $self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
+
+        if ($associated_command) {
+          my $associated_command_href
+            = $self->command_href($associated_command);
+          my $associated_command_text
+            = $self->command_text($associated_command);
+
+          if (defined($associated_command_href)) {
+            $entries_text
+              .= "<a href=\"$associated_command_href\">"
+                  ."$associated_command_text</a>";
+          } elsif (defined($associated_command_text)) {
+            $entries_text .= $associated_command_text;
+          }
+        }
+        $entries_text .= "</td></tr>\n";
       }
-      $entries_text .= "</td></tr>\n";
     }
     # a letter and associated indice entries
     if ($entries_text ne '') {
