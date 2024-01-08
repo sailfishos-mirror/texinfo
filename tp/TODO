@@ -106,21 +106,6 @@ the context command stack.
  @end defun
 
 
-For HTML conversion it is possible that the conversion and caching of
-element text (in general for directions href) is done at different
-moments with conversion in perl only and conversion with a mix of perl
-code and C code.  Indeed, if an element text is formatted in C and
-will be needed later on in perl it will be formatted later on in perl
-in that setup compared to the pure perl case.  In general the moment
-of first conversion of element text does not matter much, but it does
-in specific cases, for instance with recursive definitions of sectioning
-commands (with a @ref in sectioning command).  This is tested in test
-30sectioning.t double_recursive_self_section_reference.
-With @ref converted in perl and other parts of the conversions
-in C, an href for a direction differs for this test.  If @ref is also
-converted in C, this issue is invisible.
-
-
 Modules included in tp/maintain/lib/ need to be updated from time to
 time.
 
