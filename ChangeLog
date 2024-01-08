@@ -1,3 +1,32 @@
+2024-01-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(index_entry_element_sort_string): free sort_string.
+
+	* tp/Texinfo/Convert/Text.pm (text_accents, brace_no_arg_command)
+	(_convert): use 'set_case' for case, that can be positive for upper
+	casing and negative for lower casing instead of 'sc', as in XS.
+
+	* tp/Texinfo/Structuring.pm (setup_sortable_index_entries): rename
+	$options as $convert_text_options and set code directly and pass
+	$convert_text_options directly instead of copying.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_prepare_indices, _index_entry): set
+	index_formatting_text_options state once for all in _prepare_indices
+	instead of for each index entry.  Set code directly in the state and
+	pass the state insetad of copying it in _index_entry.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (destroy_text_options),
+	tp/Texinfo/XS/main/get_perl_info.c (copy_sv_options_for_convert_text):
+	if an XS converter is associated to the text optins, set it in
+	TEXT_OPTIONS and directly use its conf for other_converter_options. Do
+	not destroy other_converter_options if converter is set. 
+	Set self_converter_options only if other_converter_options is not set.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (text_accents_options)
+	(text_options): use static text_accents_options in text_options
+	instead of allocating and freeing.
+
 2024-01-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting):

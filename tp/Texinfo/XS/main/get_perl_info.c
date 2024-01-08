@@ -911,7 +911,7 @@ force_conf (CONVERTER *converter, const char *conf, SV *value)
 /* output format specific */
 
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
-/* TODO more to do? */
+/* TODO more to do? set_case? */
 #define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
@@ -955,15 +955,27 @@ copy_sv_options_for_convert_text (SV *sv_in)
   FETCH(converter)
   if (converter_sv)
     {
-      HV *converter_hv = (HV *) SvRV (*converter_sv);
-      SV **conf_sv = hv_fetch (converter_hv, "conf", strlen ("conf"), 0);
-      if (conf_sv)
-        text_options->other_converter_options
-          = init_copy_sv_options (*conf_sv, 0, 1);
+      CONVERTER *converter = get_sv_converter (*converter_sv, 0);
+      if (converter)
+        {
+          text_options->other_converter_options
+            = converter->conf;
+          text_options->converter = converter;
+        }
+      else
+        {
+          HV *converter_hv = (HV *) SvRV (*converter_sv);
+          SV **conf_sv = hv_fetch (converter_hv, "conf", strlen ("conf"), 0);
+          if (conf_sv)
+            text_options->other_converter_options
+              = init_copy_sv_options (*conf_sv, 0, 1);
+        }
     }
-
-  text_options->self_converter_options
-     = init_copy_sv_options (sv_in, 0, 1);
+  else
+    {
+      text_options->self_converter_options
+       = init_copy_sv_options (sv_in, 0, 1);
+    }
 
   return text_options;
 }

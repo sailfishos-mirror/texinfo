@@ -269,10 +269,9 @@ sub text_accents($;$$)
 
   my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
-
   my $options = {};
   $options->{'enabled_encoding'} = $encoding if (defined($encoding));
-  $options->{'sc'} = $set_case if (defined($set_case));
+  $options->{'set_case'} = $set_case if (defined($set_case));
   my $text = convert_to_text($contents_element, $options);
 
   my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
@@ -321,13 +320,14 @@ sub brace_no_arg_command($;$)
     }
   }
   if ($options and $Texinfo::Commands::letter_no_arg_commands{$command}) {
-    if ($options->{'sc'}) {
-      $result = uc($result);
-    # NOTE does not seems to be set anywhere.  Not a big deal to keep it,
-    # but if it become used, it should be checked whether code elsewhere
-    # should be changed to look for lc too.  XS should be ok.
-    } elsif ($options->{'lc'}) {
-      $result = lc($result);
+    if ($options->{'set_case'}) {
+      if ($options->{'set_case'} > 0) {
+        $result = uc($result);
+      # NOTE does not seems to be decreased/set to negative anywhere, but
+      # should work ok if it is.
+      } else {
+        $result = lc($result);
+      }
     }
   }
   return $result;
@@ -531,8 +531,12 @@ sub _convert($;$)
       if ((! defined($element->{'type'})
            or $element->{'type'} ne 'raw')
           and !$options->{'_raw_state'}) {
-        if ($options->{'sc'}) {
-          $result = uc($result);
+        if ($options->{'set_case'}) {
+          if ($options->{'set_case'} > 0) {
+            $result = uc($result);
+          } else {
+            $result = lc($result);
+          }
         }
         if (!$options->{'_code_state'}) {
           $result =~ s/``/"/g;
@@ -569,7 +573,7 @@ sub _convert($;$)
     # commands with braces
     } elsif ($accent_commands{$element->{'cmdname'}}) {
       my $result = text_accents($element, $options->{'enabled_encoding'},
-                                $options->{'sc'});
+                                $options->{'set_case'});
       return $result;
     } elsif ($element->{'cmdname'} eq 'image') {
       $options->{'_code_state'}++;
@@ -638,7 +642,7 @@ sub _convert($;$)
                                                   $element->{'cmdname'}})))) {
       my $result;
       my $in_code;
-      $options->{'sc'}++ if ($element->{'cmdname'} eq 'sc');
+      $options->{'set_case'}++ if ($element->{'cmdname'} eq 'sc');
       if ($Texinfo::Commands::brace_code_commands{$element->{'cmdname'}}
                or $Texinfo::Commands::math_commands{$element->{'cmdname'}}) {
         $in_code = 1;
@@ -646,7 +650,7 @@ sub _convert($;$)
       $options->{'_code_state'}++ if ($in_code);
       $result = _convert($element->{'args'}->[0], $options);
       $options->{'_code_state'}-- if ($in_code);
-      $options->{'sc'}-- if ($element->{'cmdname'} eq 'sc');
+      $options->{'set_case'}-- if ($element->{'cmdname'} eq 'sc');
       return $result;
     # block commands
     } elsif ($element->{'cmdname'} eq 'quotation'

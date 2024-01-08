@@ -8,7 +8,7 @@
 #include "converter_types.h"
 
 typedef struct TEXT_OPTIONS {
-    int set_case; /* sc and lc */
+    int set_case;
     char *encoding; /* enabled_encoding */
     int code_state; /* code */
     int raw_state;
@@ -19,6 +19,8 @@ typedef struct TEXT_OPTIONS {
     EXPANDED_FORMAT *expanded_formats;
     STRING_LIST include_directories;
     CONVERTER *converter;
+    /* other_converter_options is used if set.  If not set and in some cases
+       self_converter_options, if set, is used. */
     OPTIONS *other_converter_options; /* corresponds to converter passed
                                          to convert_to_text text options.
       same than converter if set, but can be set directly from perl */

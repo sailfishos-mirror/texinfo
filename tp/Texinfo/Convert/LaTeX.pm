@@ -940,6 +940,8 @@ sub _prepare_indices($)
 
   my $index_names = $self->{'indices_information'};
   if ($index_names) {
+    $self->{'index_formatting_text_options'}
+      = Texinfo::Structuring::setup_index_entry_keys_formatting($self);
     my $merged_index_entries
         = Texinfo::Structuring::merge_indices($index_names);
     # select non empty indices
@@ -2429,8 +2431,6 @@ sub _index_entry($$)
     if ($index_info->{'in_code'}) {
       $in_code = 1;
     }
-    my $options
-      = Texinfo::Structuring::setup_index_entry_keys_formatting($self);
     my @subindex_commands = ($element);
     my $current_element = $element;
     while ($current_element->{'extra'}
@@ -2452,12 +2452,12 @@ sub _index_entry($$)
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       # always setup a string to sort with as we may use commands
-      my $convert_to_text_options = {%$options, 'code' => $in_code};
+      $self->{'index_formatting_text_options'}->{'code'} = $in_code;
       my $sort_string
            = Texinfo::Structuring::index_entry_element_sort_string(
                                           $self, $entry,
                                           $subindex_command,
-                                          $convert_to_text_options, 1);
+                            $self->{'index_formatting_text_options'}, 1);
       my $result = '';
       if (defined($sort_string)) {
         # | in sort key breaks with hyperref

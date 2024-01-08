@@ -126,7 +126,8 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   free (text_options->encoding);
   free (text_options->expanded_formats);
   free_strings_list (&text_options->include_directories);
-  if (text_options->other_converter_options)
+  if (text_options->other_converter_options
+      && !text_options->converter)
     {
       free_options (text_options->other_converter_options);
       free (text_options->other_converter_options);
@@ -144,7 +145,7 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   tico_option_name(ASCII_GLYPH) \
   tico_option_name(TEST)
 
-/* note that nothing is copied */
+/* note that nothing is allocated, except for the TEXT_OPTIONS themselves */
 TEXT_OPTIONS *
 copy_options_for_convert_text (CONVERTER *self,
                                int enable_encoding_if_not_ascii)
@@ -181,6 +182,8 @@ copy_options_for_convert_text (CONVERTER *self,
   return options;
 }
 
+static TEXT_OPTIONS text_accents_options;
+
 /* format an accent command and nested accents within as Text. */
 char *
 text_accents (const ELEMENT *accent, char *encoding, int set_case)
@@ -188,10 +191,9 @@ text_accents (const ELEMENT *accent, char *encoding, int set_case)
   ACCENTS_STACK *accent_stack = find_innermost_accent_contents (accent);
   char *arg_text;
   char *result;
-  TEXT_OPTIONS *text_options = new_text_options ();
+  TEXT_OPTIONS *text_options = &text_accents_options;
 
-  if (encoding)
-    text_options->encoding = strdup (encoding);
+  text_options->encoding = encoding;
   text_options->set_case = set_case;
 
   if (accent_stack->argument)
@@ -206,7 +208,6 @@ text_accents (const ELEMENT *accent, char *encoding, int set_case)
     result = ascii_accents_internal (arg_text, &accent_stack->stack, set_case);
   free (arg_text);
   destroy_accent_stack (accent_stack);
-  destroy_text_options (text_options);
   return result;
 }
 

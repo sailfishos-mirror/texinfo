@@ -468,7 +468,10 @@ index_entry_element_sort_string (SV *document_in, SV *main_entry_sv, SV *element
        if (!sort_string)
          RETVAL = newSV (0);
        else
-         RETVAL = newSVpv_utf8 (sort_string, 0);
+         {
+           RETVAL = newSVpv_utf8 (sort_string, 0);
+           free (sort_string);
+         }
     OUTPUT:
          RETVAL
 

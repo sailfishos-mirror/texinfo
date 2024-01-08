@@ -657,6 +657,7 @@ tidy -qe *.html
 profiling: package on debian:
 libdevel-nytprof-perl
 In doc:
+perl -d:NYTProf ../tp/texi2any.pl texinfo.texi --html
 perl -d:NYTProf ../tp/texi2any.pl texinfo.texi
 nytprofhtml
 # firefox nytprof/index.html
