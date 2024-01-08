@@ -563,17 +563,24 @@ sub format_image($$)
   if (defined($element->{'args'}->[0])
       and $element->{'args'}->[0]->{'contents'}
       and @{$element->{'args'}->[0]->{'contents'}}) {
+    Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-      {'contents' => $element->{'args'}->[0]->{'contents'}},
-      {'code' => 1,
-       Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                                         $element->{'args'}->[0],
+                                   $self->{'convert_text_options'});
+    Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+
     if (defined($element->{'args'}->[4])
         and $element->{'args'}->[4]->{'contents'}
         and @{$element->{'args'}->[4]->{'contents'}}) {
+      Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
       my $extension = Texinfo::Convert::Text::convert_to_text(
-        {'contents' => $element->{'args'}->[4]->{'contents'}},
-        {'code' => 1,
-         Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                                         $element->{'args'}->[4],
+                                   $self->{'convert_text_options'});
+      Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
       unshift @extensions, ".$extension";
       unshift @extensions, "$extension";
     }
@@ -598,8 +605,8 @@ sub format_image($$)
         and $element->{'args'}->[3]->{'contents'}
         and @{$element->{'args'}->[3]->{'contents'}}) {
      $alt = Texinfo::Convert::Text::convert_to_text(
-       {'contents' => $element->{'args'}->[3]->{'contents'}},
-       {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                                    $element->{'args'}->[3],
+                                  $self->{'convert_text_options'});
     }
 
     my $result;

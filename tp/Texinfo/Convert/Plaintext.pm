@@ -528,9 +528,6 @@ sub converter_initialize($)
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
 
-  $self->{'convert_text_options'}
-      = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
-
   return $self;
 }
 
@@ -1664,9 +1661,13 @@ sub format_image($$)
   if (defined($element->{'args'}->[0])
       and $element->{'args'}->[0]->{'contents'}
       and @{$element->{'args'}->[0]->{'contents'}}) {
+    Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-       $element->{'args'}->[0],
-     {'code' => 1, %{$self->{'convert_text_options'}}});
+                      $element->{'args'}->[0],
+                     $self->{'convert_text_options'});
+    Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
     my ($text, $width) = $self->txt_image_text($element, $basefile);
     # remove last end of line
     chomp($text) if (defined($text));

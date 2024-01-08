@@ -1264,10 +1264,18 @@ sub _convert($$;$)
         if (defined($element->{'args'}->[0])
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
+          Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+          Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
           my $basefile = Texinfo::Convert::Text::convert_to_text(
-           {'contents' => $element->{'args'}->[0]->{'contents'}},
-           {'code' => 1,
-            Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                                        $element->{'args'}->[0],
+                                    $self->{'convert_text_options'});
+          Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+          Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
+
           my $is_inline = Texinfo::Common::element_is_inline($element);
           if ($is_inline) {
             $result .= "<inlinemediaobject>";
@@ -1326,12 +1334,18 @@ sub _convert($$;$)
           if (defined($element->{'args'}->[0])
               and $element->{'args'}->[0]->{'contents'}
               and @{$element->{'args'}->[0]->{'contents'}}) {
-            $email = $element->{'args'}->[0]->{'contents'};
+            $email = $element->{'args'}->[0];
+            Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
             $email_text
               = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
-                 {'contents' => $email},
-                 {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)}));
+                            $email, $self->{'convert_text_options'}));
+            Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
           }
           if ($name and $email) {
             return "<ulink url=\"mailto:$email_text\">"
@@ -1347,16 +1361,22 @@ sub _convert($$;$)
 
       } elsif ($element->{'cmdname'} eq 'uref' or $element->{'cmdname'} eq 'url') {
         if ($element->{'args'}) {
-          my ($url_text, $url_content);
+          my ($url_text, $url_arg);
           if (defined($element->{'args'}->[0])
               and $element->{'args'}->[0]->{'contents'}
               and @{$element->{'args'}->[0]->{'contents'}}) {
-            $url_content = $element->{'args'}->[0]->{'contents'};
+            $url_arg = $element->{'args'}->[0];
+            Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
             $url_text = $self->_protect_text(
-              Texinfo::Convert::Text::convert_to_text(
-                {'contents' => $url_content},
-                {'code' => 1,
-                 Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)}));
+              Texinfo::Convert::Text::convert_to_text($url_arg,
+                                       $self->{'convert_text_options'}));
+            Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
           } else {
             $url_text = '';
           }
@@ -1365,16 +1385,14 @@ sub _convert($$;$)
               and defined($element->{'args'}->[1])
               and $element->{'args'}->[1]->{'contents'}
               and @{$element->{'args'}->[1]->{'contents'}}) {
-            $replacement = $self->_convert({'contents' 
-                      => $element->{'args'}->[1]->{'contents'}});
+            $replacement = $self->_convert($element->{'args'}->[1]);
           }
           if (!defined($replacement) or $replacement eq '') {
             if (scalar(@{$element->{'args'}}) == 3
                 and defined($element->{'args'}->[2])
                 and $element->{'args'}->[2]->{'contents'}
                 and @{$element->{'args'}->[2]->{'contents'}}) {
-              $replacement = $self->_convert({'contents' 
-                      => $element->{'args'}->[2]->{'contents'}});
+              $replacement = $self->_convert($element->{'args'}->[2]);
             }
           }
           if (!defined($replacement) or $replacement eq '') {
@@ -1391,8 +1409,7 @@ sub _convert($$;$)
             and defined($element->{'args'}->[0])
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
-          my $arg = $self->_convert({'contents' 
-                      => $element->{'args'}->[0]->{'contents'}});
+          my $arg = $self->_convert($element->{'args'}->[0]);
           if ($arg ne '') {
             my $format_element;
             if ($element->{'cmdname'} eq 'abbr') {
@@ -1543,10 +1560,14 @@ sub _convert($$;$)
               if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
                 my $prototype_text = '';
                 if ($content->{'contents'}) {
+                  Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
+                                  $self, $self->{'convert_text_options'});
                   $prototype_text
                     = Texinfo::Convert::Text::convert_to_text(
                                  {'contents' => $content->{'contents'}},
-        {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                                     $self->{'convert_text_options'});
+                  Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
                 }
                 push @fractions,
                   Texinfo::Convert::Unicode::string_width($prototype_text);
@@ -1585,8 +1606,8 @@ sub _convert($$;$)
             and @{$element->{'args'}->[0]->{'contents'}}) {
           my $quotation_arg_text
             = Texinfo::Convert::Text::convert_to_text(
-               $element->{'args'}->[0],
-               {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                          $element->{'args'}->[0],
+                            $self->{'convert_text_options'});
           if ($docbook_special_quotations{lc($quotation_arg_text)}) {
             $format_element = lc($quotation_arg_text);
           } else {

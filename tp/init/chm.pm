@@ -191,18 +191,14 @@ sub chm_noop($$)
   return '';
 }
 
-sub _chm_convert_tree_to_text($$;$)
+sub _chm_convert_tree_to_text($$)
 {
   my $converter = shift;
   my $tree = shift;
-  my $options = shift;
-
-  $options = {} if (!defined($options));
 
   return &{$converter->formatting_function('format_protect_text')}($converter,
     Texinfo::Convert::Text::convert_to_text($tree,
-   {Texinfo::Convert::Text::copy_options_for_convert_text($converter),
-     %$options}));
+                                 $converter->{'convert_text_options'}));
 }
 
 sub chm_init($)
@@ -263,9 +259,16 @@ sub chm_init($)
         my $in_code = 0;
         $in_code = 1
           if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
+        if ($in_code) {
+          Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+        }
         my $entry = _chm_convert_tree_to_text($self,
-                         {'contents' => [$entry_content_element]},
-                         {'code' => $in_code});
+                                              $entry_content_element);
+        if ($in_code) {
+          Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+        }
         print $hhk_fh "<LI> <OBJECT type=\"text/sitemap\">\n"
                       ."<param name=\"Name\" value=\"$entry\">\n"
                       ."<param name=\"Local\" value=\"$origin_href\">\n"

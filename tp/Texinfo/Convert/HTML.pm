@@ -7515,7 +7515,7 @@ sub _convert_def_line_type($$$$)
     # should probably never happen
     return &{$self->formatting_function('format_protect_text')}($self,
      Texinfo::Convert::Text::convert_to_text(
-      $element, {Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
+      $element, $self->{'convert_text_options'}));
   }
 
   my $index_label = '';
@@ -10571,10 +10571,11 @@ sub _external_node_href($$$)
   # used if $target_split
   my $directory = '';
   if ($external_node->{'extra'}->{'manual_content'}) {
+    Texinfo::Convert::Text::set_options_code($self->{'convert_text_options'});
     my $manual_name = Texinfo::Convert::Text::convert_to_text(
-       $external_node->{'extra'}->{'manual_content'},
-       { 'code' => 1,
-         Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                            $external_node->{'extra'}->{'manual_content'},
+                            $self->{'convert_text_options'});
+    Texinfo::Convert::Text::reset_options_code($self->{'convert_text_options'});
     if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $target eq '') {
       my $top_node_up = $self->get_conf('TOP_NODE_UP');
       if (defined($top_node_up) and "($manual_name)" eq $top_node_up) {
@@ -11866,7 +11867,7 @@ sub output_internal_links($)
         my $tree = $self->command_tree($command);
         if ($tree) {
           $text = Texinfo::Convert::Text::convert_to_text($tree,
-             {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                                    $self->{'convert_text_options'});
         }
       }
       if (defined($href) or defined($text)) {
@@ -11879,14 +11880,10 @@ sub output_internal_links($)
   }
   my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
   if ($index_entries_by_letter) {
-    my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
     foreach my $index_name (sort(keys (%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
           my $main_entry_element = $index_entry->{'entry_element'};
-          my $in_code
-            = $self->{'indices_information'}->{$index_entry->{'index_name'}}
-                                                                 ->{'in_code'};
           # does not refer to the document
           next if ($main_entry_element->{'extra'}
                    and ($main_entry_element->{'extra'}->{'seeentry'}
@@ -11894,8 +11891,13 @@ sub output_internal_links($)
           my $href;
           $href = $self->command_href($main_entry_element, '');
           # Obtain term by converting to text
-          my $converter_options = {%options};
-          $converter_options->{'code'} = $in_code;
+          my $in_code
+            = $self->{'indices_information'}->{$index_entry->{'index_name'}}
+                                                                 ->{'in_code'};
+          if ($in_code) {
+            Texinfo::Convert::Text::set_options_code(
+                                          $self->{'convert_text_options'});
+          }
           my $entry_reference_content_element
             = Texinfo::Common::index_content_element($main_entry_element);
           my @contents = ($entry_reference_content_element);
@@ -11905,7 +11907,12 @@ sub output_internal_links($)
             push @contents, @{$subentries_tree->{'contents'}};
           }
           my $index_term = Texinfo::Convert::Text::convert_to_text(
-                               {'contents' => \@contents}, $converter_options);
+                                             {'contents' => \@contents},
+                                            $self->{'convert_text_options'});
+          if ($in_code) {
+            Texinfo::Convert::Text::reset_options_code(
+                                          $self->{'convert_text_options'});
+          }
           if (defined($index_term) and $index_term =~ /\S/) {
             $out_string .= $href if (defined($href));
             $out_string .= "\t$index_name\t";
@@ -12107,7 +12114,7 @@ sub _prepare_converted_output_info($)
   if ($self->{'global_commands'}->{'copying'}) {
     my $copying_comment = Texinfo::Convert::Text::convert_to_text(
      {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}},
-     {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+     $self->{'convert_text_options'});
     if ($copying_comment ne '') {
       $self->{'copying_comment'}
        = &{$self->formatting_function('format_comment')}($self, $copying_comment);
@@ -13070,25 +13077,41 @@ sub _convert($$;$)
                 _pop_code_context($self);
                 $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacetext') {
+                Texinfo::Convert::Text::set_options_code(
+                                              $self->{'convert_text_options'});
                 $arg_formatted->{$arg_type}
                   = Texinfo::Convert::Text::convert_to_text($arg,
-                         {'code' => 1,
-                 Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                                              $self->{'convert_text_options'});
+                Texinfo::Convert::Text::reset_options_code(
+                                              $self->{'convert_text_options'});
               } elsif ($arg_type eq 'filenametext') {
+
+                Texinfo::Convert::Text::set_options_code(
+                                              $self->{'convert_text_options'});
                 # Always use encoded characters for file names
+                Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                              $self->{'convert_text_options'});
                 $arg_formatted->{$arg_type}
                   = Texinfo::Convert::Text::convert_to_text($arg,
-                         {'code' => 1,
-               Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                                              $self->{'convert_text_options'});
+                Texinfo::Convert::Text::reset_options_code(
+                                              $self->{'convert_text_options'});
+                Texinfo::Convert::Text::reset_options_encoding(
+                                              $self->{'convert_text_options'});
               } elsif ($arg_type eq 'url') {
+                Texinfo::Convert::Text::set_options_code(
+                                              $self->{'convert_text_options'});
                 # set the encoding to UTF-8 to always have a string that is suitable
                 # for percent encoding.
-                my $text_conversion_options = {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
-                $text_conversion_options->{'enabled_encoding'} = 'utf-8';
+                Texinfo::Convert::Text::set_options_encoding(
+                                  $self->{'convert_text_options'}, 'utf-8');
                 $arg_formatted->{$arg_type}
                    = Texinfo::Convert::Text::convert_to_text($arg,
-                                                   $text_conversion_options);
+                                              $self->{'convert_text_options'});
+                Texinfo::Convert::Text::reset_options_code(
+                                              $self->{'convert_text_options'});
+                Texinfo::Convert::Text::reset_options_encoding(
+                                              $self->{'convert_text_options'});
               } elsif ($arg_type eq 'raw') {
                 _set_raw_context($self);
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);

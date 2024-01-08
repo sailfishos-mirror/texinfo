@@ -331,6 +331,10 @@ sub converter($;$)
 
   $converter->converter_initialize();
 
+  $converter->{'convert_text_options'}
+      = {Texinfo::Convert::Text::copy_options_for_convert_text($converter)};
+
+
   return $converter;
 }
 

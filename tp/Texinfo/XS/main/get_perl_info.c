@@ -917,7 +917,7 @@ TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
 {
   HV *hv_in;
-  SV **code_sv;
+  SV **_code_state_sv;
   SV **TEST_sv;
   SV **INCLUDE_DIRECTORIES_sv;
   SV **converter_sv;
@@ -941,9 +941,9 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (enabled_encoding_sv)
     text_options->encoding = strdup (SvPVutf8_nolen (*enabled_encoding_sv));
 
-  FETCH(code)
-  if (code_sv)
-    text_options->code_state = SvIV (*code_sv);
+  FETCH(_code_state)
+  if (_code_state_sv)
+    text_options->code_state = SvIV (*_code_state_sv);
 
   FETCH(INCLUDE_DIRECTORIES)
   if (INCLUDE_DIRECTORIES_sv)

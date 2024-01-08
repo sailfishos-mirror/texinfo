@@ -2478,8 +2478,10 @@ sub setup_sortable_index_entries($$$$$;$)
     foreach my $index_entry (@{$index_entries->{$index_name}}) {
       my $entry_index_name = $index_entry->{'index_name'};
       my $main_entry_element = $index_entry->{'entry_element'};
-      $convert_text_options->{'code'}
-        = $indices_information->{$entry_index_name}->{'in_code'};
+      my $in_code = $indices_information->{$entry_index_name}->{'in_code'};
+      if ($in_code) {
+        Texinfo::Convert::Text::set_options_code($convert_text_options);
+      }
       my ($entry_key, $sort_entry_key)
         = _index_entry_element_sort_string_key($customization_information,
                                    $index_entry, $main_entry_element,
@@ -2550,6 +2552,9 @@ sub setup_sortable_index_entries($$$$$;$)
           push @{$sortable_index_entries}, $sortable_entry;
           last;
         }
+      }
+      if ($in_code) {
+        Texinfo::Convert::Text::reset_options_code($convert_text_options);
       }
       $index_entries_sort_strings->{$index_entry} = join(', ', @entry_keys);
     }

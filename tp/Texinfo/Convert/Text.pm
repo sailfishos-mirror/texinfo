@@ -422,6 +422,58 @@ sub copy_options_for_convert_text($;$)
   return %options;
 }
 
+sub set_options_code($)
+{
+  my $options = shift;
+  $options->{'_code_state'}++;
+}
+
+sub reset_options_code($)
+{
+  my $options = shift;
+  $options->{'_code_state'}--;
+}
+
+sub set_options_encoding_if_not_ascii($$)
+{
+  my $self = shift;
+  my $options = shift;
+  my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
+  if (defined($output_encoding_name)
+      and $output_encoding_name ne 'us-ascii') {
+    if (defined($options->{'_saved_enabled_encoding'})) {
+       print STDERR "BUG: if_not_ascii _saved_enabled_encoding set: "
+                            .$options->{'_saved_enabled_encoding'}." / ".
+                     $output_encoding_name ."\n";
+      #cluck();
+    }
+    $options->{'_saved_enabled_encoding'} = $options->{'enabled_encoding'};
+    $options->{'enabled_encoding'} = $output_encoding_name;
+  }
+}
+
+sub set_options_encoding($$)
+{
+  my $options = shift;
+  my $encoding = shift;
+  if (defined($options->{'_saved_enabled_encoding'})) {
+     print STDERR "BUG: _saved_enabled_encoding set: "
+                          .$options->{'_saved_enabled_encoding'}."\n";
+  }
+  $options->{'_saved_enabled_encoding'} = $options->{'enabled_encoding'};
+  $options->{'enabled_encoding'} = $encoding;
+}
+
+sub reset_options_encoding($)
+{
+  my $options = shift;
+  if (defined($options->{'_saved_enabled_encoding'})) {
+    $options->{'enabled_encoding'} = $options->{'_saved_enabled_encoding'};
+    delete $options->{'_saved_enabled_encoding'};
+  }
+}
+
+
 # Will never be called, used for the override.
 sub _convert_tree_with_XS($$)
 {
@@ -446,9 +498,6 @@ sub convert_to_text($;$)
       confess("convert_to_text options not a ref\n");
     }
     bless $options;
-    if ($options->{'code'}) {
-      $options->{'_code_state'} = 1;
-    }
   }
 
   # Interface with XS converter.

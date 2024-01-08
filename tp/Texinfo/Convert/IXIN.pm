@@ -892,20 +892,34 @@ sub output_ixin($$)
       if (defined($command->{'args'}->[0])
           and $command->{'args'}->[0]->{'contents'}
           and @{$command->{'args'}->[0]->{'contents'}}) {
+        Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+        Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
         $basefile = Texinfo::Convert::Text::convert_to_text(
-          {'contents' => $command->{'args'}->[0]->{'contents'}},
-          {'code' => 1,
-           Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                                          $command->{'args'}->[0],
+                                    $self->{'convert_text_options'});
+        Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+        Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
       } else {
         next;
       }
       if (defined($command->{'args'}->[4])
           and $command->{'args'}->[4]->{'contents'}
           and @{$command->{'args'}->[4]->{'contents'}}) {
+        Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+        Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
         $extension = Texinfo::Convert::Text::convert_to_text(
-          {'contents' => $command->{'args'}->[4]->{'contents'}},
-          {'code' => 1,
-           Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                                        $command->{'args'}->[4],
+                                    $self->{'convert_text_options'});
+        Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+        Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
         $extension =~ s/^\.//;
         @extension = ($extension);
       }

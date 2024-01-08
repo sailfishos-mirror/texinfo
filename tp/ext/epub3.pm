@@ -214,18 +214,19 @@ my %epub_js_extensions_mimetypes = (
   '.css', 'text/css',
 );
 
-sub _epub_convert_tree_to_text($$;$)
+sub _epub_convert_tree_to_text($$)
 {
   my $converter = shift;
   my $tree = shift;
-  my $options = shift;
 
-  $options = {} if (!defined($options));
-
-  return &{$converter->formatting_function('format_protect_text')}($converter,
-    Texinfo::Convert::Text::convert_to_text($tree,
-   {Texinfo::Convert::Text::copy_options_for_convert_text($converter, 1),
-     %$options}));
+  Texinfo::Convert::Text::set_options_encoding_if_not_ascii($converter,
+                                  $converter->{'convert_text_options'});
+  my $result = &{$converter->formatting_function('format_protect_text')}(
+         $converter, Texinfo::Convert::Text::convert_to_text($tree,
+                                           $converter->{'convert_text_options'}));
+  Texinfo::Convert::Text::reset_options_encoding(
+                                 $converter->{'convert_text_options'});
+  return $result;
 }
 
 sub epub_noop($$)
@@ -459,7 +460,7 @@ sub epub_setup($)
       $self->set_conf('EPUB_KEEP_CONTAINER_FOLDER', 1);
     }
   }
-  
+
   $epub_info_js_dir_name = undef;
   if ($self->get_conf('INFO_JS_DIR')) {
     # re-set INFO_JS_DIR up to have the javascript and
@@ -482,7 +483,7 @@ sub epub_setup($)
   # determine main epub directory and directory for xhtml files,
   # reset OUTFILE and SUBDIR to match with the epub directory
   # for XHTML output
-  
+
   if (defined($self->get_conf('OUTFILE'))) {
     $epub_outfile = $self->get_conf('OUTFILE');
     # if not undef, will be used as directory name in
@@ -799,7 +800,7 @@ EOT
         if ($element->{'extra'}->{'titlepage'}
              and $element->{'args'}->[0]->{'contents'}) {
           my $author_str = _epub_convert_tree_to_text($self,
-               {'contents' => $element->{'args'}->[0]->{'contents'}});
+                                      $element->{'args'}->[0]);
           if ($author_str =~ /\S/) {
             push @authors, $author_str;
           }

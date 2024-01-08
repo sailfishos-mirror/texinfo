@@ -1,5 +1,35 @@
 2024-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (converter),
+	tp/Texinfo/Convert/LaTeX.pm (converter_initialize),
+	tp/Texinfo/Convert/Plaintext.pm (converter_initialize): set
+	'convert_text_options' conversion to text options state with
+	copy_options_for_convert_text, to be used in converters instead of
+	calling copy_options_for_convert_text each time conversion to text
+	options are needed.  Remove the equivalent code from specific
+	converters.
+
+	* tp/Texinfo/Convert/Text.pm (set_options_code, reset_options_code)
+	(set_options_encoding_if_not_ascii, set_options_encoding)
+	(reset_options_encoding, convert_to_text),
+	tp/Texinfo/XS/main/get_perl_info.c (copy_sv_options_for_convert_text):
+	add functions to modify the conversion to text options without redoing
+	the whole options hash.  Do not use 'code' in text options to set
+	code, only set_options_code().
+
+	* tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/TextContent.pm, tp/Texinfo/Structuring.pm,
+	tp/ext/epub3.pm, tp/ext/highlight_syntax.pm, tp/init/chm.pm: do not
+	use copy_options_for_convert_text in converters, instead use converter
+	'convert_text_options' and modify it and reset it with the
+	set_options_* and reset_options_* new functions of
+	Texinfo/Convert/Text.pm.
+
+2024-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/accents.t: initialize converter with
 	_initialize_XS_NonXS_output_state.
 

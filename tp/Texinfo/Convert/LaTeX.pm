@@ -843,12 +843,6 @@ sub converter_initialize($)
   }
 
   %{$self->{'quotes_map'}} = %quotes_map;
-  # for file names
-  $self->{'convert_encoded_text_options'}
-      = {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
-  # for other conversions to text
-  $self->{'convert_text_options'}
-      = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
 
   # this condition means that there is no way to turn off
   # @U expansion to utf-8 characters even though this
@@ -2452,7 +2446,10 @@ sub _index_entry($$)
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       # always setup a string to sort with as we may use commands
-      $self->{'index_formatting_text_options'}->{'code'} = $in_code;
+      if ($in_code) {
+        Texinfo::Convert::Text::set_options_code(
+          $self->{'index_formatting_text_options'});
+      }
       my $sort_string
            = Texinfo::Structuring::index_entry_element_sort_string(
                                           $self, $entry,
@@ -2467,6 +2464,8 @@ sub _index_entry($$)
         $result = _protect_index_text($result).'@';
       }
       if ($in_code) {
+        Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'index_formatting_text_options'});
         $result .= "\\texttt{" . _protect_index_text($index_entry) . "}";
       } else {
         $result .= _protect_index_text($index_entry);
@@ -2962,9 +2961,17 @@ sub _convert($$)
           and @{$element->{'args'}->[0]->{'contents'}}) {
         # distinguish text basefile used to find the file and
         # converted basefile with special characters escaped
+        Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+        Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
         my $basefile = Texinfo::Convert::Text::convert_to_text(
-         {'contents' => $element->{'args'}->[0]->{'contents'}},
-         {'code' => 1, %{$self->{'convert_encoded_text_options'}}});
+                                        $element->{'args'}->[0],
+                                    $self->{'convert_text_options'});
+        Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
+        Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
 
         # warn if no file is found, even though the basefile is used
         # in any case.
@@ -3050,7 +3057,7 @@ sub _convert($$)
       if ($element->{'args'}) {
         my $name;
         my $converted_name;
-        my $email;
+        my $email_arg;
         my $email_text;
         if (scalar (@{$element->{'args'}}) == 2
             and defined($element->{'args'}->[1])
@@ -3062,15 +3069,19 @@ sub _convert($$)
         if (defined($element->{'args'}->[0])
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
-          $email = $element->{'args'}->[0]->{'contents'};
+          $email_arg = $element->{'args'}->[0];
+          Texinfo::Convert::Text::set_options_code(
+                          $self->{'convert_text_options'});
           $email_text
             = $self->_protect_url(Texinfo::Convert::Text::convert_to_text(
-                {'contents' => $email},
-                {'code' => 1, %{$self->{'convert_text_options'}}}));
+                                                    $email_arg,
+                                       $self->{'convert_text_options'}));
+          Texinfo::Convert::Text::reset_options_code(
+                                         $self->{'convert_text_options'});
         }
-        if ($name and $email) {
+        if ($name and $email_arg) {
           $result .= "\\href{mailto:$email_text}{$converted_name}";
-        } elsif ($email) {
+        } elsif ($email_arg) {
           $result .= "\\href{mailto:$email_text}{\\nolinkurl{$email_text}}";
         } elsif ($name) {
           $result .= $converted_name;
@@ -3088,17 +3099,19 @@ sub _convert($$)
         } elsif ($element->{'args'}->[0]
                  and $element->{'args'}->[0]->{'contents'}
                  and @{$element->{'args'}->[0]->{'contents'}}) {
-          my $url_content = $element->{'args'}->[0]->{'contents'};
+          my $url_content = $element->{'args'}->[0];
+          Texinfo::Convert::Text::set_options_code(
+                                   $self->{'convert_text_options'});
           my $url_text = $self->_protect_url(
-            Texinfo::Convert::Text::convert_to_text(
-               {'contents' => $url_content},
-               {'code' => 1, %{$self->{'convert_text_options'}}}));
+            Texinfo::Convert::Text::convert_to_text($url_content,
+                                 $self->{'convert_text_options'}));
+          Texinfo::Convert::Text::reset_options_code(
+                                   $self->{'convert_text_options'});
           if (scalar(@{$element->{'args'}}) == 2
               and defined($element->{'args'}->[1])
               and $element->{'args'}->[1]->{'contents'}
               and @{$element->{'args'}->[1]->{'contents'}}) {
-            my $description = _convert($self, {'contents',
-                                   $element->{'args'}->[1]->{'contents'}});
+            my $description = _convert($self, $element->{'args'}->[1]);
             my $text = $self->gdt_string('{text} ({url})',
                 {'text' => $description, 'url' => "\\nolinkurl{$url_text}"});
             $result .= "\\href{$url_text}{$text}";

@@ -257,8 +257,12 @@ sub _convert_element($$)
       and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
     pop @{$tree->{'contents'}};
   }
-  my $text = Texinfo::Convert::Text::convert_to_text($tree, {'code' => 1,
-              Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+  Texinfo::Convert::Text::set_options_code(
+                           $self->{'convert_text_options'});
+  my $text = Texinfo::Convert::Text::convert_to_text($tree,
+                                $self->{'convert_text_options'});
+  Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
   # make sure that the text ends with a newline
   chomp ($text);
   $text .= "\n";

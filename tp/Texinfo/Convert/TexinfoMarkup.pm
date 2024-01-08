@@ -1208,18 +1208,33 @@ sub _convert($$;$)
           if (defined($element->{'args'}->[$manual_arg_index])
               and $element->{'args'}->[$manual_arg_index]->{'contents'}
               and @{$element->{'args'}->[$manual_arg_index]->{'contents'}}) {
-            $manual = Texinfo::Convert::Text::convert_to_text({'contents'
-                     => $element->{'args'}->[$manual_arg_index]->{'contents'}},
-             {'code' => 1,
-               Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+
+            Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
+            $manual = Texinfo::Convert::Text::convert_to_text(
+                                    $element->{'args'}->[$manual_arg_index],
+                                   $self->{'convert_text_options'});
+            Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
           }
           if (!defined($manual) and $node_arg
               and $node_arg->{'extra'}
               and $node_arg->{'extra'}->{'manual_content'}) {
+            Texinfo::Convert::Text::set_options_code(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                  $self->{'convert_text_options'});
             $manual = Texinfo::Convert::Text::convert_to_text(
                          $node_arg->{'extra'}->{'manual_content'},
-               {'code' => 1,
-                Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                                   $self->{'convert_text_options'});
+            Texinfo::Convert::Text::reset_options_encoding(
+                                 $self->{'convert_text_options'});
+            Texinfo::Convert::Text::reset_options_code(
+                                 $self->{'convert_text_options'});
           }
           if (defined($manual)) {
             my $manual_base = $manual;
