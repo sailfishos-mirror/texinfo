@@ -108,7 +108,7 @@ sub test_enable_encoding ($)
   }
   my $html_converter = Texinfo::Convert::HTML->converter($options);
   # NOTE we use a converter outside of output/convert
-  $html_converter->_initialize_output_state('_test_accents');
+  $html_converter->_initialize_XS_NonXS_output_state('_test_accents');
   my $result_xml = Texinfo::Convert::Converter::xml_accents($html_converter,
                                                             $accent_tree);
   $html_converter->set_conf('USE_NUMERIC_ENTITY', 1);
