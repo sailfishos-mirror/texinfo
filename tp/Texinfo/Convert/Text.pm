@@ -390,19 +390,14 @@ my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST'
 # $SELF is typically a converter object.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
 # based on the converter information.
-# if $ENABLE_ENCODING_IF_NOT_ASCII is set, enabled_encoding is set
-# unless the encoding is ascii, even if ENABLE_ENCODING is not set.
 # This is relevant for file names, for instance.
 sub copy_options_for_convert_text($;$)
 {
   my $self = shift;
-  my $enable_encoding_if_not_ascii = shift;
+  my $options_in = shift;
   my %options;
-  if (($self->get_conf('ENABLE_ENCODING')
-       and $self->get_conf('OUTPUT_ENCODING_NAME'))
-      or ($enable_encoding_if_not_ascii
-          and $self->get_conf('OUTPUT_ENCODING_NAME')
-          and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'us-ascii')) {
+  if ($self->get_conf('ENABLE_ENCODING')
+       and $self->get_conf('OUTPUT_ENCODING_NAME')) {
     $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   }
 
@@ -419,7 +414,13 @@ sub copy_options_for_convert_text($;$)
   $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
 
   $options{'converter'} = $self;
-  return %options;
+
+  if ($options_in) {
+    foreach my $option (keys(%$options_in)) {
+      $options{$option} = $options_in->{$option};
+    }
+  }
+  return \%options;
 }
 
 sub set_options_code($)
@@ -434,6 +435,8 @@ sub reset_options_code($)
   $options->{'_code_state'}--;
 }
 
+# set enabled_encoding unless the encoding is ascii, even if
+# ENABLE_ENCODING is not set.
 sub set_options_encoding_if_not_ascii($$)
 {
   my $self = shift;
@@ -458,7 +461,8 @@ sub set_options_encoding($$)
   my $encoding = shift;
   if (defined($options->{'_saved_enabled_encoding'})) {
      print STDERR "BUG: _saved_enabled_encoding set: "
-                          .$options->{'_saved_enabled_encoding'}."\n";
+                          .$options->{'_saved_enabled_encoding'}." / ".
+                            $encoding."\n";
   }
   $options->{'_saved_enabled_encoding'} = $options->{'enabled_encoding'};
   $options->{'enabled_encoding'} = $encoding;
@@ -995,13 +999,13 @@ sub output($$)
     }
   }
   # mostly relevant for 'enabled_encoding', other options should be the same.
-  my %options = copy_options_for_convert_text($self);
+  my $options = copy_options_for_convert_text($self);
   # remove $self Text converter without translation nor error reporting.
-  delete $options{'converter'};
+  delete $options->{'converter'};
   # Some functions call $self->get_conf(), so the options need to be a blessed
   # reference, merge specific Text options with $self (possibly
   # overwriting/ignoring but values should be the same).
-  %$self = (%$self, %options);
+  %$self = (%$self, %$options);
 
   my $result;
   # Interface with XS converter.

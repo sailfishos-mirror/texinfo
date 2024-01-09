@@ -92,7 +92,7 @@ $converter->set_global_document_commands('preamble_or_first',
 #print STDERR "DOCUMENTLANGUAGE ".$converter->get_conf('documentlanguage')."\n";
 
 my $text_options
- = {Texinfo::Convert::Text::copy_options_for_convert_text($converter)};
+ = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
 
 my $result_text
  = Texinfo::Convert::Text::convert_to_text($document->tree(), $text_options);

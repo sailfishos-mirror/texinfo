@@ -2272,15 +2272,17 @@ sub setup_index_entry_keys_formatting($)
 {
   my $customization_info = shift;
 
-  my $options = {
-     Texinfo::Convert::Text::copy_options_for_convert_text(
-                                  $customization_info)};
+  my $additional_options = {};
+
   if (not $customization_info->get_conf('ENABLE_ENCODING')
       or lc($customization_info->get_conf('OUTPUT_ENCODING_NAME')) ne 'utf-8') {
-    $options->{'sort_string'} = 1;
+    $additional_options->{'sort_string'} = 1;
   }
 
-  return $options;
+  my $text_options
+    = Texinfo::Convert::Text::copy_options_for_convert_text($customization_info,
+                                                           $additional_options);
+  return $text_options;
 }
 
 # can be used for subentries.
