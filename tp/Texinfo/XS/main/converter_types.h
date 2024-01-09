@@ -30,6 +30,9 @@
 /* for interdependency with options_types.h */
 struct OPTIONS;
 
+/* for interdependency with convert_to_text.h */
+struct TEXT_OPTIONS;
+
 /* for string information passing to/from perl */
 enum sv_string_type {
   svt_byte,
@@ -707,6 +710,8 @@ typedef struct CONVERTER {
     MERGED_INDEX *index_entries;
     INDEX_SORTED_BY_LETTER *index_entries_by_letter;
     int document_units_descriptor;
+
+    struct TEXT_OPTIONS *convert_text_options;
 
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;

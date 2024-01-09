@@ -851,6 +851,22 @@ merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings)
   strings_list->number += merged_strings->number;
 }
 
+void
+copy_strings (STRING_LIST *dest_list, STRING_LIST *source_list)
+{
+  int i;
+  if (dest_list->number + source_list->number > dest_list->space)
+    {
+      dest_list->space = dest_list->number + source_list->number +5;
+      dest_list->list = realloc (dest_list->list,
+                                  sizeof (char *) * dest_list->space);
+    }
+  for (i = 0; i < source_list->number; i++)
+    {
+      add_string (source_list->list[i], dest_list);
+    }
+}
+
 /* return the index +1, to return 0 if not found */
 size_t
 find_string (STRING_LIST *strings_list, const char *target)
@@ -933,6 +949,34 @@ destroy_strings_list (STRING_LIST *strings)
 {
   free_strings_list (strings);
   free (strings);
+}
+
+
+
+void
+set_conf_string (OPTION *option, const char *value)
+{
+  if (option->type != GO_char && option->type != GO_bytes)
+    fatal ("set_conf_string bad option type\n");
+
+  if (option->configured > 0)
+    return;
+
+  free (option->string);
+  option->string = strdup (value);
+}
+
+/* In perl, OUTPUT_PERL_ENCODING is set too.  Note that if the perl
+   version is called later on, the OUTPUT_PERL_ENCODING value will be re-set */
+void
+set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
+{
+  if (customization_information
+      && document && document->global_info
+      && document->global_info->input_encoding_name) {
+    set_conf_string (&customization_information->OUTPUT_ENCODING_NAME,
+                      document->global_info->input_encoding_name);
+  }
 }
 
 
@@ -1078,15 +1122,15 @@ set_informative_command_value (OPTIONS *options, const ELEMENT *element)
         cmd = CM_shortcontents;
 
       option = get_command_option (options, cmd);
-      if (option && option->configured <= 0)
+      if (option)
         {
           if (option->type == GO_integer)
-            option->integer = strtoul (value, NULL, 10);
-          else
             {
-              free (option->string);
-              option->string = strdup (value);
+              if (option->configured <= 0)
+                option->integer = strtoul (value, NULL, 10);
             }
+          else
+            set_conf_string (option, value);
         }
     }
 }

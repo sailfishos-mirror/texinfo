@@ -3083,12 +3083,11 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
       enum htmlxref_split_type split_found = htmlxref_split_type_none;
       int manual_len;
       HTMLXREF_MANUAL *htmlxref_manual;
-      TEXT_OPTIONS *text_conv_options = copy_options_for_convert_text (self, 0);
-      text_conv_options->code_state = 1;
 
-      manual_name = convert_to_text (manual_content, text_conv_options);
-
-      free (text_conv_options);
+      self->convert_text_options->code_state++;
+      manual_name = convert_to_text (manual_content,
+                                     self->convert_text_options);
+      self->convert_text_options->code_state--;
 
       if (self->conf->IGNORE_REF_TO_TOP_NODE_UP.integer > 0 && !strlen (target))
         {
@@ -14358,10 +14357,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
     {
       /* should probably never happen */
       char *text;
-      TEXT_OPTIONS *text_conv_options
-         = copy_options_for_convert_text (self, 0);
-      text = convert_to_text (element, text_conv_options);
-      free (text_conv_options);
+      text = convert_to_text (element, self->convert_text_options);
       format_protect_text (self, text, result);
     }
 
@@ -15473,16 +15469,13 @@ html_prepare_converted_output_info (CONVERTER *self)
     {
       char *copying_comment;
       ELEMENT *tmp = new_element (ET_NONE);
-      TEXT_OPTIONS *text_conv_options
-         = copy_options_for_convert_text (self, 0);
 
       tmp->contents = self->document->global_commands->copying->contents;
 
-      copying_comment = convert_to_text (tmp, text_conv_options);
+      copying_comment = convert_to_text (tmp, self->convert_text_options);
 
       tmp->contents.list = 0;
       destroy_element (tmp);
-      free (text_conv_options);
 
       if (copying_comment && strlen (copying_comment) > 0)
         {
@@ -17566,13 +17559,11 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                       if (arg_flags & F_AFT_monospacetext)
                         {
                           char *text;
-                          TEXT_OPTIONS *text_conv_options
-                            = copy_options_for_convert_text (self, 0);
-                          text_conv_options->code_state = 1;
 
-                          text = convert_to_text (arg, text_conv_options);
-
-                          free (text_conv_options);
+                          self->convert_text_options->code_state++;
+                          text = convert_to_text (arg,
+                                                  self->convert_text_options);
+                          self->convert_text_options->code_state--;
 
                           arg_formatted->formatted[AFT_type_monospacetext]
                             = text;
@@ -17580,30 +17571,31 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                       if (arg_flags & F_AFT_filenametext)
                         {
                           char *text;
+                          self->convert_text_options->code_state++;
                           /* Always use encoded characters for file names */
-                          TEXT_OPTIONS *text_conv_options
-                            = copy_options_for_convert_text (self, 1);
-                          text_conv_options->code_state = 1;
-
-                          text = convert_to_text (arg, text_conv_options);
-
-                          free (text_conv_options);
+                          text_set_options_encoding_if_not_ascii (self,
+                                              self->convert_text_options);
+                          text = convert_to_text (arg,
+                                                 self->convert_text_options);
+                          text_reset_options_encoding
+                                                (self->convert_text_options);
+                          self->convert_text_options->code_state--;
 
                           arg_formatted->formatted[AFT_type_filenametext] = text;
                         }
                       if (arg_flags & F_AFT_url)
                         {
                           char *text;
+                          self->convert_text_options->code_state++;
            /* set the encoding to UTF-8 to always have a string that is suitable
               for percent encoding. */
-                          TEXT_OPTIONS *text_conv_options
-                            = copy_options_for_convert_text (self, 1);
-                          text_conv_options->code_state = 1;
-                          text_conv_options->encoding = "utf-8";
-
-                          text = convert_to_text (arg, text_conv_options);
-
-                          free (text_conv_options);
+                          text_set_options_encoding (
+                               self->convert_text_options, "utf-8");
+                          text = convert_to_text (arg,
+                                                 self->convert_text_options);
+                          text_reset_options_encoding
+                                                (self->convert_text_options);
+                          self->convert_text_options->code_state--;
 
                           arg_formatted->formatted[AFT_type_url] = text;
                         }

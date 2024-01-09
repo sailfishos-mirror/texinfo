@@ -1,5 +1,41 @@
 2024-01-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (copy_strings, set_conf_string)
+	(set_informative_command_value): add copy_strings and set_conf_string
+	functions.  Use set_conf_string in set_informative_command_value.
+
+	* tp/Texinfo/XS/main/convert_to_text.c
+	(copy_options_for_convert_text): allocate text options fields that can
+	be reset if converter options are reset.
+
+	* tp/Texinfo/XS/main/convert_to_text.c
+	(copy_options_for_convert_text, text_set_options_encoding)
+	(text_set_options_encoding_if_not_ascii, text_reset_options_encoding):
+	remove copy_options_for_convert_text enable_encoding_if_not_ascii
+	argument.  Add text_set_options_encoding,
+	text_set_options_encoding_if_not_ascii and text_reset_options_encoding
+	to modify text options encoding field.
+
+	* tp/Texinfo/XS/convert/convert_html.c (external_node_href)
+	(convert_def_line_type, html_prepare_converted_output_info)
+	(convert_to_html_internal), tp/Texinfo/XS/convert/converter.c
+	(free_generic_converter), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER), tp/Texinfo/XS/main/get_perl_info.c
+	(converter_initialize): add convert_text_options field to the
+	CONVERTER, set it in converter_initialize and free it in
+	free_generic_converter.  Use those text options in HTML formatting and
+	use the new text_*set_options* functions to set and reset the text
+	options, instead of settng up new text options each time one is used.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (converter_initialize),
+	tp/Texinfo/XS/main/utils.c (set_output_encoding): implement
+	set_output_encoding without setting the perl specific variable.  Set
+	output encoding early enough to have it available for
+	copy_options_for_convert_text call, as the corresponding perl function
+	is called just ater.
+
+2024-01-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (copy_options_for_convert_text): replace
 	the $enable_encoding_if_not_ascii argument by additional options
 	argument.  Change return to be a reference on an hash, not an hash.

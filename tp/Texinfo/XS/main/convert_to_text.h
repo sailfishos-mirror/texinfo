@@ -10,6 +10,7 @@
 typedef struct TEXT_OPTIONS {
     int set_case;
     char *encoding; /* enabled_encoding */
+    char *_saved_enabled_encoding; /* used to keep the main encoding */
     int code_state; /* code */
     int raw_state;
     int sort_string;
@@ -32,7 +33,10 @@ typedef struct TEXT_OPTIONS {
 char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);
 TEXT_OPTIONS *new_text_options (void);
 void destroy_text_options (TEXT_OPTIONS *text_options);
-TEXT_OPTIONS *copy_options_for_convert_text (CONVERTER *self,
-                                      int enable_encoding_if_not_ascii);
+TEXT_OPTIONS *copy_options_for_convert_text (CONVERTER *self);
 
+void text_set_options_encoding_if_not_ascii (CONVERTER *self,
+                                        TEXT_OPTIONS *text_options);
+void text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding);
+void text_reset_options_encoding (TEXT_OPTIONS *text_options);
 #endif

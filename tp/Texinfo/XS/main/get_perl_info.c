@@ -523,7 +523,6 @@ copy_converter_conf_sv (HV *hv, CONVERTER *converter,
     }
 }
 
-/* reset output_init_conf.  Can be called after it has been modified */
 /* Texinfo::Convert::Converter generic initialization for all the converters */
 /* Called early, in particuliar before any format specific code has been
    called */
@@ -605,6 +604,11 @@ converter_initialize (SV *converter_sv)
 
   get_expanded_formats (hv_in, &converter->expanded_formats);
 
+  set_output_encoding (converter->conf, converter->document);
+
+  converter->convert_text_options
+    = copy_options_for_convert_text (converter);
+
   converter->hv = hv_in;
 
   /* store converter_descriptor in perl converter */
@@ -615,6 +619,7 @@ converter_initialize (SV *converter_sv)
   return converter_descriptor;
 }
 
+/* reset output_init_conf.  Can be called after it has been modified */
 void
 reset_output_init_conf (SV *sv_in)
 {

@@ -145,21 +145,18 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   tico_option_name(ASCII_GLYPH) \
   tico_option_name(TEST)
 
-/* note that nothing is allocated, except for the TEXT_OPTIONS themselves */
+/* the string and strlist options need to be copied, in case they are
+   deallocated if options are reset */
 TEXT_OPTIONS *
-copy_options_for_convert_text (CONVERTER *self,
-                               int enable_encoding_if_not_ascii)
+copy_options_for_convert_text (CONVERTER *self)
 {
   TEXT_OPTIONS *options = new_text_options ();
   int text_indicator_option;
 
-  if ((self->conf->ENABLE_ENCODING.integer > 0
+  if (self->conf->ENABLE_ENCODING.integer > 0
        && self->conf->OUTPUT_ENCODING_NAME.string)
-      || (enable_encoding_if_not_ascii
-          && self->conf->OUTPUT_ENCODING_NAME.string
-          && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "us-ascii")))
     {
-      options->encoding = self->conf->OUTPUT_ENCODING_NAME.string;
+      options->encoding = strdup (self->conf->OUTPUT_ENCODING_NAME.string);
     }
 
   #define tico_option_name(name) \
@@ -169,17 +166,59 @@ copy_options_for_convert_text (CONVERTER *self,
    TEXT_INDICATOR_CONVERTER_OPTIONS
   #undef tico_option_name
 
-  free (options->expanded_formats);
-  options->expanded_formats = self->expanded_formats;
+  memcpy (options->expanded_formats, self->expanded_formats,
+          expanded_formats_number () * sizeof (EXPANDED_FORMAT));
 
-  memcpy (&options->include_directories,
-          &self->conf->INCLUDE_DIRECTORIES.strlist,
-          sizeof (STRING_LIST));
+  copy_strings (&options->include_directories,
+                self->conf->INCLUDE_DIRECTORIES.strlist);
 
   options->other_converter_options = self->conf;
   options->converter = self;
 
   return options;
+}
+
+void
+text_set_options_encoding_if_not_ascii (CONVERTER *self,
+                                        TEXT_OPTIONS *text_options)
+{
+  if (self->conf->OUTPUT_ENCODING_NAME.string
+      && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "us-ascii"))
+    {
+      if (text_options->_saved_enabled_encoding)
+        {
+          fprintf (stderr,
+            "BUG: if_not_ascii _saved_enabled_encoding set: %s / %s\n",
+               text_options->_saved_enabled_encoding,
+               self->conf->OUTPUT_ENCODING_NAME.string);
+          text_options->_saved_enabled_encoding = 0;
+        }
+
+      text_options->_saved_enabled_encoding = text_options->encoding;
+      text_options->encoding = self->conf->OUTPUT_ENCODING_NAME.string;
+    }
+}
+
+/* the caller should ensure that encoding will remain allocated until
+   the next call to text_reset_options_encoding */
+void
+text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding)
+{
+  if (text_options->_saved_enabled_encoding)
+    {
+      fprintf (stderr, "BUG: _saved_enabled_encoding set: %s / %s\n",
+               text_options->_saved_enabled_encoding, encoding);
+      text_options->_saved_enabled_encoding = 0;
+    }
+  text_options->_saved_enabled_encoding = text_options->encoding;
+  text_options->encoding = encoding;
+}
+
+void
+text_reset_options_encoding (TEXT_OPTIONS *text_options)
+{
+  text_options->encoding = text_options->_saved_enabled_encoding;
+  text_options->_saved_enabled_encoding = 0;
 }
 
 static TEXT_OPTIONS text_accents_options;
@@ -217,7 +256,7 @@ brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
 {
   char *result = 0;
   enum command_id cmd = e->cmd;
-  char *encoding = 0;
+  const char *encoding = 0;
 
   if (options->encoding)
     encoding = options->encoding;

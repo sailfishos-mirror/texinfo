@@ -77,7 +77,7 @@ typedef struct DIACRITIC_UNICODE {
 extern DIACRITIC_UNICODE unicode_diacritics[];
 extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
 
-int unicode_point_decoded_in_encoding (char *encoding, char *codepoint);
+int unicode_point_decoded_in_encoding (const char *encoding, char *codepoint);
 
 char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);
@@ -88,6 +88,6 @@ char *encoded_accents (CONVERTER *self, const char *text,
   char *(*format_accent)(CONVERTER *self, const char *text,
                          const ELEMENT *element, int set_case),
   int set_case);
-char *unicode_brace_no_arg_command (enum command_id cmd, char *encoding);
+char *unicode_brace_no_arg_command (enum command_id cmd, const char *encoding);
 
 #endif

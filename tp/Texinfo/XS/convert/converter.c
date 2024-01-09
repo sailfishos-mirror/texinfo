@@ -32,6 +32,7 @@
 #include "utils.h"
 #include "errors.h"
 #include "builtin_commands.h"
+#include "convert_to_text.h"
 #include "node_name_normalization.h"
 #include "convert_utils.h"
 #include "translations.h"
@@ -867,6 +868,8 @@ free_generic_converter (CONVERTER *self)
 
   free_output_files_information (&self->output_files_information);
   free_output_unit_files (&self->output_unit_files);
+
+  destroy_text_options (self->convert_text_options);
 
   wipe_error_message_list (&self->error_messages);
 }
