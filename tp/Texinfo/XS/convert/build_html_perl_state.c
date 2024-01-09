@@ -363,8 +363,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
 
 }
 
-/* there is no need to return anything. */
-SV *
+void
 build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 {
   HV *hv;
@@ -377,7 +376,7 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
   dTHX;
 
   if (!converter->hv)
-    return newSV (0);
+    return;
 
   hv = converter->hv;
 
@@ -462,8 +461,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   if (flags & HMSF_translations)
     build_html_translated_names (hv, converter);
-
-  return newRV_noinc ((SV *) hv);
 }
 
 SV *

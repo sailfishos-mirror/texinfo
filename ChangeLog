@@ -1,3 +1,9 @@
+2024-01-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state): do not return anything.  This probably
+	fixes a wrong refcount too.
+
 2024-01-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (converter),
