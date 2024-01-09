@@ -1,5 +1,12 @@
 2024-01-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (copy_options_for_convert_text): replace
+	the $enable_encoding_if_not_ascii argument by additional options
+	argument.  Change return to be a reference on an hash, not an hash.
+	Update callers.
+
+2024-01-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_state.c
 	(build_html_formatting_state): do not return anything.  This probably
 	fixes a wrong refcount too.
