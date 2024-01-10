@@ -276,7 +276,7 @@ Files}, and @ref{Creating and Installing Info Files}.
 @cindex Plain text output, overview
 @item Plain text
 (Generated via @command{texi2any --plaintext}.)  This is almost the
-same as Info output with the navigational control characters are
+same as Info output with the navigational control characters
 omitted.
 
 @cindex HTML output, overview
