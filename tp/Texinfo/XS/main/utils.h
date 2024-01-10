@@ -166,7 +166,8 @@ void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 char *normalize_encoding_name (const char *text, int *possible_encoding);
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (const ELEMENT *e);
-INDEX *indices_info_index_by_name (INDEX **indices_information, char *name);
+INDEX *indices_info_index_by_name (INDEX **indices_information,
+                                   const char *name);
 INDEX *ultimate_index (INDEX *index);
 size_t index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
                                    const char *name);
@@ -215,9 +216,11 @@ char *encode_string (char *input_string, char *encoding, int *status,
 
 EXPANDED_FORMAT *new_expanded_formats (void);
 void clear_expanded_formats (EXPANDED_FORMAT *formats);
-void add_expanded_format (EXPANDED_FORMAT *formats, char *format);
+void add_expanded_format (EXPANDED_FORMAT *formats, const char *format);
 int format_expanded_p (EXPANDED_FORMAT *formats, const char *format);
 int expanded_formats_number (void);
+void set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
+                                        const OPTIONS *options);
 
 char *enumerate_item_representation (char *specification, int number);
 

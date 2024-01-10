@@ -51,6 +51,7 @@ my $main_configuration = Texinfo::MainConfig::new({'ENABLE_ENCODING' => 1});
 Texinfo::Common::set_output_encodings($main_configuration, $document_information);
 $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
+$main_configuration->register_XS_document_main_configuration($document);
 my ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices_by_index($registrar, $main_configuration,
                                           $index_entries, $indices_information);
@@ -62,7 +63,7 @@ foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
 
 use utf8;
 
-# e is before E because they are equal and e appears before E in the document 
+# e is before E because they are equal and e appears before E in the document
 my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
@@ -81,7 +82,7 @@ my @letter_entries_ref = (
    {'E' => [ 'e', 'E', 'ẽ' ]},
    {'Ł' => [ 'ł' ]},
 );
- 
+
 my @letter_entries;
 foreach my $letter (@{$sorted_index_entries_by_letter->{'cp'}}) {
   my $letter_entry = {};

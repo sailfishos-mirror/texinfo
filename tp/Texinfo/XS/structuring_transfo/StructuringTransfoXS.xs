@@ -438,31 +438,98 @@ split_pages (SV *output_units_in, char *split)
         if (output_units)
           split_pages (output_units, split);
 
+# This function triggers setting the information needed for calls
+# to index_entry_element_sort_string in C, either in a document
+# or in a converter, depending whether index sorting is done with a converter
+# or without.
+# A returned hash reference is needed as some information is set in the
+# hash in perl afterwards, but this information is not used as the hash
+# is not used by any function not overriden, so there is no need to
+# return information corresponding to the text options for perl.  An empty
+# hash reference is therefore returned.
 SV *
-index_entry_element_sort_string (SV *document_in, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0)
+setup_index_entry_keys_formatting (SV *customization_info_sv)
     PREINIT:
+        CONVERTER *self;
+        HV *hv;
+     CODE:
+        self = get_sv_converter (customization_info_sv, 0);
+        if (self)
+          {
+            TEXT_OPTIONS *text_options
+              = setup_converter_index_entry_keys_formatting (self);
+            self->convert_index_text_options = text_options;
+          }
+        else
+          {
+            DOCUMENT *document;
+            document = get_sv_document_document (customization_info_sv,
+                         "setup_index_entry_keys_formatting");
+            if (document && document->options)
+              {
+                TEXT_OPTIONS *text_options
+                 = setup_index_entry_keys_formatting (document->options);
+                register_document_convert_index_text_options (document,
+                                                           text_options);
+              }
+          }
+        hv = newHV ();
+        RETVAL = newRV_noinc ((SV *) hv);
+    OUTPUT:
+         RETVAL
+
+SV *
+index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0)
+    PREINIT:
+        CONVERTER *self;
         DOCUMENT *document;
         char *sort_string = 0;
+        TEXT_OPTIONS *convert_index_text_options = 0;
      CODE:
-        document = get_sv_document_document (document_in,
-                   "index_entry_element_sort_string");
+        self = get_sv_converter (customization_info_sv, 0);
+        if (self)
+          {
+            document = self->document;
+            convert_index_text_options = self->convert_index_text_options;
+          }
+        else
+          {
+            document = get_sv_document_document (customization_info_sv,
+                     "index_entry_element_sort_string");
+            if (document)
+              convert_index_text_options
+                = document->convert_index_text_options;
+          }
         if (document)
           {
-            char *entry_index_name;
+            const INDEX *entry_idx = 0;
             int entry_number;
             int prefer_reference_element = 0;
+            int in_code;
+            int allocated_text_options = 0;
             ELEMENT *element = find_element_from_sv (0, document,
                                                     element_sv, 0);
             INDEX_ENTRY *main_entry = find_index_entry_sv (main_entry_sv,
                                           document->index_names, 0,
-                                          &entry_index_name, &entry_number);
-            TEXT_OPTIONS *options
-              = copy_sv_options_for_convert_text (options_sv);
+                                          &entry_idx, &entry_number);
+            in_code = entry_idx->in_code;
+
+            /* should not be possible */
+            if (!convert_index_text_options)
+              {
+                allocated_text_options = 1;
+                convert_index_text_options
+                  = copy_sv_options_for_convert_text (options_sv);
+              }
+
             if (prefer_reference_element_sv && SvOK (prefer_reference_element_sv))
               prefer_reference_element = SvIV (prefer_reference_element_sv);
+
             sort_string = index_entry_element_sort_string (main_entry,
-                                 element, options, prefer_reference_element);
-            destroy_text_options (options);
+                          element, convert_index_text_options, in_code,
+                          prefer_reference_element);
+            if (allocated_text_options)
+              destroy_text_options (convert_index_text_options);
           }
 
        if (!sort_string)

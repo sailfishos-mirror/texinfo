@@ -19,6 +19,10 @@ Any directory part in the file name argument of the source cross reference comma
 Document that Texinfo::Document::rebuild_document or
 Texinfo::Document::rebuild_tree should be called after tree modifications
 if the parser is XS but converters are perl.
+Also if conversion with XS, and there is a MainConfig, the configuration
+should be registered in the document if it is needed in structuring and
+indices sorting.
+$main_configuration->register_XS_document_main_configuration($document);
 
 
 Bugs

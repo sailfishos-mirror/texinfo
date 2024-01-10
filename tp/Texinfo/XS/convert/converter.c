@@ -866,6 +866,9 @@ free_generic_converter (CONVERTER *self)
     free_options (self->conf);
   free (self->conf);
 
+  if (self->convert_index_text_options)
+    destroy_text_options (self->convert_index_text_options);
+
   free_output_files_information (&self->output_files_information);
   free_output_unit_files (&self->output_unit_files);
 

@@ -386,7 +386,7 @@ my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST'
     # for error registering,
     'DEBUG');
 
-# TODO not documented, used in many converters
+# TODO not documented
 # $SELF is typically a converter object.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
 # based on the converter information.
@@ -442,8 +442,7 @@ sub set_options_encoding_if_not_ascii($$)
   my $self = shift;
   my $options = shift;
   my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
-  if (defined($output_encoding_name)
-      and $output_encoding_name ne 'us-ascii') {
+  if (defined($output_encoding_name) and $output_encoding_name ne 'us-ascii') {
     if (defined($options->{'_saved_enabled_encoding'})) {
        print STDERR "BUG: if_not_ascii _saved_enabled_encoding set: "
                             .$options->{'_saved_enabled_encoding'}." / ".

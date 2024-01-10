@@ -518,7 +518,7 @@ clear_expanded_formats (EXPANDED_FORMAT *formats)
 }
 
 void
-add_expanded_format (EXPANDED_FORMAT *formats, char *format)
+add_expanded_format (EXPANDED_FORMAT *formats, const char *format)
 {
   int i;
   for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
@@ -563,6 +563,22 @@ expanded_formats_number (void)
   return sizeof (expanded_formats)/sizeof (*expanded_formats);
 }
 
+void
+set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
+                                   const OPTIONS *options)
+{
+  if (options->EXPANDED_FORMATS.strlist
+      && (options->EXPANDED_FORMATS.strlist->number))
+    {
+      size_t i;
+      for (i = 0; i < options->EXPANDED_FORMATS.strlist->number; i++)
+        {
+          add_expanded_format (formats,
+                               options->EXPANDED_FORMATS.strlist->list[i]);
+        }
+    }
+}
+
 
 /* Return the parent if in an item_line command, @*table */
 ELEMENT *
@@ -594,9 +610,10 @@ get_label_element (const ELEMENT *e)
 /* index related code used both in parsing and conversion */
 /* NAME is the name of an index, e.g. "cp" */
 INDEX *
-indices_info_index_by_name (INDEX **indices_information, char *name)
+indices_info_index_by_name (INDEX **indices_information, const char *name)
 {
-  INDEX **i, *idx;
+  INDEX **i;
+  INDEX *idx;
 
   for (i = indices_information; (idx = *i); i++)
     if (!strcmp (idx->name, name))

@@ -30,6 +30,7 @@
 #include "debug.h"
 /* for delete_global_info and wipe_index */
 #include "utils.h"
+#include "convert_to_text.h"
 #include "document.h"
 
 /* note that each time the document list is reallocated, pointers
@@ -133,6 +134,13 @@ register_document_options (DOCUMENT *document, OPTIONS *options)
 }
 
 void
+register_document_convert_index_text_options (DOCUMENT *document,
+                                              TEXT_OPTIONS *text_options)
+{
+  document->convert_index_text_options = text_options;
+}
+
+void
 destroy_document_information_except_tree (DOCUMENT *document)
 {
   if (document->tree)
@@ -161,6 +169,10 @@ destroy_document_information_except_tree (DOCUMENT *document)
         {
           free_options (document->options);
           free (document->options);
+        }
+      if (document->convert_index_text_options)
+        {
+          destroy_text_options (document->convert_index_text_options);
         }
     }
 }

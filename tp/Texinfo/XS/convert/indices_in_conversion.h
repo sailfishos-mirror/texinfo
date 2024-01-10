@@ -16,6 +16,6 @@ ELEMENT *index_content_element (const ELEMENT *element,
 
 char *index_entry_element_sort_string (INDEX_ENTRY *main_entry,
                                  ELEMENT *index_entry_element,
-                                 TEXT_OPTIONS *options,
+                                 TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element);
 #endif

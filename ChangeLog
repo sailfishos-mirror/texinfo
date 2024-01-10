@@ -1,3 +1,52 @@
+2024-01-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (setup_sortable_index_entries): remove the
+	$silent argument, not used.
+
+	* tp/Texinfo/XS/main/utils.c (set_expanded_formats_from_options): add
+	to be able to set expanded formats based on EXPANDED_FORMATS
+	customization option, without a converter information.
+
+	* tp/Texinfo/XS/convert/indices_in_conversion.c
+	(index_entry_element_sort_string), tp/Texinfo/XS/main/get_perl_info.c
+	(find_index_entry_sv, get_sv_index_entries_sorted_by_letter),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(index_entry_element_sort_string): return as reference the INDEX in
+	find_index_entry_sv.  Pass in_code argument to
+	index_entry_element_sort_string and use it to modify the text options
+	directly in the function.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (copy_options_for_convert_text)
+	(copy_converter_options_for_convert_text, destroy_text_options), 
+	tp/Texinfo/XS/main/convert_to_text.h (TEXT_OPTIONS),
+	tp/Texinfo/XS/main/get_perl_info.c (converter_initialize): use OPTIONS in
+	copy_options_for_convert_text argument, and add another variant with a
+	converter in argument, copy_converter_options_for_convert_text.
+
+	* tp/Texinfo/XS/main/document.c
+	(register_document_convert_index_text_options)
+	(destroy_document_information_except_tree),
+	tp/Texinfo/XS/convert/converter.c (free_generic_converter),
+	tp/Texinfo/XS/main/document_types.h (DOCUMENT),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): add
+	convert_index_text_options to register text options used for index
+	sorting keys conversion.
+
+	* tp/Texinfo/Structuring.pm (%XS_overrides),
+	tp/Texinfo/XS/main/convert_to_text.c
+	(set_additional_index_entry_keys_options)
+	(setup_index_entry_keys_formatting)
+	(setup_converter_index_entry_keys_formatting),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(setup_index_entry_keys_formatting, index_entry_element_sort_string):
+	add an override for setup_index_entry_keys_formatting that triggers
+	initializing TEXT_OPTIONS for a converter or a document to be used for
+	index sorting in index_entry_element_sort_string.
+
+	* tp/t/test_sort.t: call register_XS_document_main_configuration to
+	have the customization available in document for the
+	setup_index_entry_keys_formatting override.
+
 2024-01-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (copy_strings, set_conf_string)

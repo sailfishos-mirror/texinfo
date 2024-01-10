@@ -114,10 +114,10 @@ our %XS_overrides = (
   "Texinfo::Structuring::_XS_unsplit"
     => "Texinfo::StructTransfXS::unsplit",
 
-  # TODO the text options are read
-  # from perl for each entry instead of once for each index.
   "Texinfo::Structuring::index_entry_element_sort_string"
     => "Texinfo::StructTransfXS::index_entry_element_sort_string",
+  "Texinfo::Structuring::setup_index_entry_keys_formatting",
+    => "Texinfo::StructTransfXS::setup_index_entry_keys_formatting",
 
   # Not useful for HTML as functions, as the calling functions are
   # already overriden
@@ -2410,14 +2410,19 @@ sub _converter_or_registrar_line_warn($$$$)
 # information.  It should already be set if it is a converter based
 # on Texinfo::Convert::Converter, but otherwise it should be set by
 # the caller, setting 'document_descriptor' to document->document_descriptor().
-sub setup_sortable_index_entries($$$$$;$)
+# If $PRESET_KEYS is set, the entries sort keys are set with a collator help
+# and the default sort function can be directly used.  If unset, no collator
+# is passed to the functions setting the sort key, but a collator is used for
+# sorting.  In practice $PRESET_KEYS is always set, as the default
+# $default_preset_keys, which set to 1 is always used in calling functions
+# to determine the value of $PRESET_KEYS.
+sub setup_sortable_index_entries($$$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $index_entries = shift;
   my $indices_information = shift;
   my $preset_keys = shift;
-  my $silent = shift;
 
   # The 'Non-Ignorable' for variable collation elements means that they are
   # treated as normal characters.   This allows to have spaces and punctuation
@@ -2495,13 +2500,11 @@ sub setup_sortable_index_entries($$$$$;$)
         $entry_cmdname
           = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
-        if (!$silent) {
-          _converter_or_registrar_line_warn($registrar,
+        _converter_or_registrar_line_warn($registrar,
                                    $customization_information,
                        sprintf(__("empty index key in \@%s"),
                                   $entry_cmdname),
                                $main_entry_element->{'source_info'});
-        }
         push @entry_keys, '';
         push @sort_entry_keys, '';
       } else {
@@ -2522,13 +2525,11 @@ sub setup_sortable_index_entries($$$$$;$)
           $entry_cmdname
             = $main_entry_element->{'extra'}->{'original_def_cmdname'}
               if (!defined($entry_cmdname));
-          if (!$silent) {
-            _converter_or_registrar_line_warn($registrar,
+          _converter_or_registrar_line_warn($registrar,
                                 $customization_information,
                          sprintf(__("empty index sub entry %d key in \@%s"),
                                     $subentry_nr, $entry_cmdname),
                                   $main_entry_element->{'source_info'});
-          }
           push @entry_keys, '';
           push @sort_entry_keys, '';
         } else {

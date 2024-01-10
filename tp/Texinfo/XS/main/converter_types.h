@@ -712,6 +712,7 @@ typedef struct CONVERTER {
     int document_units_descriptor;
 
     struct TEXT_OPTIONS *convert_text_options;
+    struct TEXT_OPTIONS *convert_index_text_options;
 
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;

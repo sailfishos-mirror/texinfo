@@ -607,7 +607,7 @@ converter_initialize (SV *converter_sv)
   set_output_encoding (converter->conf, converter->document);
 
   converter->convert_text_options
-    = copy_options_for_convert_text (converter);
+    = copy_converter_options_for_convert_text (converter);
 
   converter->hv = hv_in;
 
@@ -639,15 +639,16 @@ reset_output_init_conf (SV *sv_in)
 }
 
 INDEX_ENTRY *
-find_index_entry_sv (SV *index_entry_sv, INDEX **index_names,
-                     const char *warn_string, char **entry_index_name,
+find_index_entry_sv (const SV *index_entry_sv, INDEX **index_names,
+                     const char *warn_string, const INDEX **entry_idx,
                      int *entry_number)
 {
   HV *index_entry_hv;
   SV **index_name_sv;
   SV **entry_number_sv;
   int entry_idx_in_index;
-  INDEX *idx;
+  char *entry_index_name = 0;
+  const INDEX *idx;
 
   dTHX;
 
@@ -656,9 +657,6 @@ find_index_entry_sv (SV *index_entry_sv, INDEX **index_names,
                             strlen ("index_name"), 0);
   entry_number_sv = hv_fetch (index_entry_hv, "entry_number",
                               strlen ("entry_number"), 0);
-
-  *entry_index_name = 0;
-  *entry_number = 0;
 
   if (!index_name_sv || !entry_number_sv)
     {
@@ -669,13 +667,13 @@ find_index_entry_sv (SV *index_entry_sv, INDEX **index_names,
       xasprintf (&msg, "%s: no entry info\n", warn_str);
       fatal (msg);
     }
-  *entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
+  entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
   *entry_number = SvIV (*entry_number_sv);
   entry_idx_in_index = *entry_number - 1;
 
   idx = indices_info_index_by_name (index_names,
-                                    *entry_index_name);
-
+                                    entry_index_name);
+  *entry_idx = idx;
   if (idx)
     {
       if (entry_idx_in_index < idx->entries_number)
@@ -849,7 +847,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
               for (k = 0; k < entries_nr; k++)
                 {
                   SV** index_entry_sv = av_fetch (entries_av, k, 0);
-                  char *entry_index_name;
+                  const INDEX *entry_idx = 0;
                   int entry_number;
                   char *warn_string;
                   INDEX_ENTRY *index_entry = 0;
@@ -866,7 +864,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                          "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d",
                          idx_name, i, letter_entries->letter, k);
                   index_entry = find_index_entry_sv (*index_entry_sv, index_names,
-                                                     warn_string, &entry_index_name,
+                                                     warn_string, &entry_idx,
                                                      &entry_number);
                   free (warn_string);
 
@@ -875,6 +873,9 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                   if (!letter_entries->entries[k])
                     {
                       char *msg;
+                      char *entry_index_name = 0;
+                      if (entry_idx)
+                        entry_index_name = entry_idx->name;
                       xasprintf (&msg,
           "BUG: index %s letter %s position %d: %s entry %d not found\n",
                                  idx_name, letter_string, k,
@@ -1254,7 +1255,7 @@ find_document_index_entry_extra_index_entry_sv (DOCUMENT *document,
   AV *extra_index_entry_av;
   SV **index_name_sv;
   char *index_name = 0;
-  INDEX *idx = 0;
+  const INDEX *idx = 0;
 
   dTHX;
 

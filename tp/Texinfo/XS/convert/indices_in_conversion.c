@@ -164,7 +164,7 @@ index_content_element (const ELEMENT *element, int prefer_reference_element)
 char *
 index_entry_element_sort_string (INDEX_ENTRY *main_entry,
                                  ELEMENT *index_entry_element,
-                                 TEXT_OPTIONS *options,
+                                 TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element)
 {
   char *sort_string;
@@ -183,7 +183,11 @@ index_entry_element_sort_string (INDEX_ENTRY *main_entry,
   entry_tree_element = index_content_element (index_entry_element,
                                           prefer_reference_element);
 
+  if (in_code)
+    options->code_state++;
   sort_string = convert_to_text (entry_tree_element, options);
+  if (in_code)
+    options->code_state--;
 
   index_ignore_chars = lookup_extra_string (main_entry->entry_element,
                                             "index_ignore_chars");

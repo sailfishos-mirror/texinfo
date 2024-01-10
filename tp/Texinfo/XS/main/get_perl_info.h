@@ -42,8 +42,8 @@ CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
 int converter_initialize (SV *converter_sv);
 void reset_output_init_conf (SV *sv_in);
 
-INDEX_ENTRY *find_index_entry_sv (SV *index_entry_sv, INDEX **index_names,
-                     const char *warn_string, char **entry_index_name,
+INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv, INDEX **index_names,
+                     const char *warn_string, const INDEX **entry_idx,
                      int *entry_number);
 
 INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter

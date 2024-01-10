@@ -124,7 +124,7 @@ add_index_internal (char *name, int in_code)
 
 /* Add a user defined index with the name NAME */
 void
-add_index (char *name, int in_code)
+add_index (const char *name, int in_code)
 {
   INDEX *idx = indices_info_index_by_name (index_names, name);
   char *cmdname;

@@ -127,7 +127,8 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   free (text_options->expanded_formats);
   free_strings_list (&text_options->include_directories);
   if (text_options->other_converter_options
-      && !text_options->converter)
+      && !text_options->converter
+      && !text_options->other_options)
     {
       free_options (text_options->other_converter_options);
       free (text_options->other_converter_options);
@@ -148,34 +149,73 @@ destroy_text_options (TEXT_OPTIONS *text_options)
 /* the string and strlist options need to be copied, in case they are
    deallocated if options are reset */
 TEXT_OPTIONS *
-copy_options_for_convert_text (CONVERTER *self)
+copy_options_for_convert_text (OPTIONS *options)
 {
-  TEXT_OPTIONS *options = new_text_options ();
+  TEXT_OPTIONS *text_options = new_text_options ();
   int text_indicator_option;
 
-  if (self->conf->ENABLE_ENCODING.integer > 0
-       && self->conf->OUTPUT_ENCODING_NAME.string)
+  if (options->ENABLE_ENCODING.integer > 0
+       && options->OUTPUT_ENCODING_NAME.string)
     {
-      options->encoding = strdup (self->conf->OUTPUT_ENCODING_NAME.string);
+      text_options->encoding = strdup (options->OUTPUT_ENCODING_NAME.string);
     }
 
   #define tico_option_name(name) \
-  text_indicator_option = self->conf->name.integer; \
-  if (text_indicator_option > 0) { options->name = 1; } \
-  else if (text_indicator_option >= 0) { options->name = 0; }
+  text_indicator_option = options->name.integer; \
+  if (text_indicator_option > 0) { text_options->name = 1; } \
+  else if (text_indicator_option >= 0) { text_options->name = 0; }
    TEXT_INDICATOR_CONVERTER_OPTIONS
   #undef tico_option_name
 
-  memcpy (options->expanded_formats, self->expanded_formats,
-          expanded_formats_number () * sizeof (EXPANDED_FORMAT));
+  set_expanded_formats_from_options (text_options->expanded_formats, options);
 
-  copy_strings (&options->include_directories,
-                self->conf->INCLUDE_DIRECTORIES.strlist);
+  copy_strings (&text_options->include_directories,
+                options->INCLUDE_DIRECTORIES.strlist);
 
-  options->other_converter_options = self->conf;
-  options->converter = self;
+  text_options->other_converter_options = options;
 
-  return options;
+  return text_options;
+}
+
+TEXT_OPTIONS *
+copy_converter_options_for_convert_text (CONVERTER *self)
+{
+  TEXT_OPTIONS *text_options = copy_options_for_convert_text (self->conf);
+  text_options->converter = self;
+  return text_options;
+}
+
+/* In Structuring.pm */
+static void
+set_additional_index_entry_keys_options (OPTIONS *options,
+                                         TEXT_OPTIONS *text_options)
+{
+  if (options->ENABLE_ENCODING.integer <= 0
+      || !(options->OUTPUT_ENCODING_NAME.string
+           && !strcasecmp (options->OUTPUT_ENCODING_NAME.string, "utf-8")))
+    {
+      text_options->sort_string = 1;
+    }
+}
+
+/* there are two variants, to setup the text options used for index
+   index entries formatting as text in case this is done with a
+   converter or without. */
+TEXT_OPTIONS *
+setup_index_entry_keys_formatting (OPTIONS *options)
+{
+  TEXT_OPTIONS *text_options = copy_options_for_convert_text (options);
+  text_options->other_options = 1;
+  set_additional_index_entry_keys_options (options, text_options);
+  return text_options;
+}
+
+TEXT_OPTIONS *
+setup_converter_index_entry_keys_formatting (CONVERTER *self)
+{
+  TEXT_OPTIONS *text_options = copy_converter_options_for_convert_text (self);
+  set_additional_index_entry_keys_options (self->conf, text_options);
+  return text_options;
 }
 
 void
