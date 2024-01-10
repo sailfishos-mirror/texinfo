@@ -4419,12 +4419,12 @@ target appears within; if not given, the reference is to the current
 manual.
 
 @code{@@link} has similar output to @code{@@ref}, except that it does
-produce any extra text around the link label in Info or printed output
+not produce any extra text around the link label in Info or printed output
 that would mark it as a cross-reference.
 
 Be careful about using @code{@@link} to produce links that are
 necessary for a user to move around a manual, as these links will do
-nothing in these output formats.  @code{@@link} is best used to add
+nothing in some output formats.  @code{@@link} is best used to add
 convenience links that are nonetheless not essential for a reader
 to understand the text of the manual.  For example, you might use
 @code{@@link} in a code sample to reference documentation of a symbol
