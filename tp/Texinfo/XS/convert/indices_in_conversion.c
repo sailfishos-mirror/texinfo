@@ -196,6 +196,9 @@ index_entry_element_sort_string (INDEX_ENTRY *main_entry,
       TEXT sort_string_text;
       char *p = sort_string;
       text_init (&sort_string_text);
+      /* to be consistent with convert_to_text, which returned variable is
+         never NUL */
+      text_append (&sort_string_text, "");
 
       while (*p)
         {
