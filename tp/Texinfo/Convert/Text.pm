@@ -208,6 +208,100 @@ foreach my $type ('ignorable_spaces_after_command',
 }
 
 
+my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST');
+
+# TODO not documented.  Document?
+# $SELF is an object implementing get_conf, in general a converter.
+# Setup options as used by Texinfo::Convert::Text::convert_to_text
+# based on the converter information.
+# This is relevant for file names, for instance.
+# $OPTIONS_IN can be used to pass additional options.
+sub copy_options_for_convert_text($;$)
+{
+  my $self = shift;
+  my $options_in = shift;
+  my %options;
+  if ($self->get_conf('ENABLE_ENCODING')
+       and $self->get_conf('OUTPUT_ENCODING_NAME')) {
+    $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
+  }
+
+  foreach my $option (@text_indicator_converter_options) {
+    my $conf = $self->get_conf($option);
+    if ($conf) {
+      $options{$option} = 1;
+    } elsif (defined($conf)) {
+      $options{$option} = 0;
+    }
+  }
+  $options{'expanded_formats'} = $self->{'expanded_formats'};
+  # for locate_include_file
+  $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
+
+  $options{'converter'} = $self;
+
+  if ($options_in) {
+    foreach my $option (keys(%$options_in)) {
+      $options{$option} = $options_in->{$option};
+    }
+  }
+  return \%options;
+}
+
+sub set_options_code($)
+{
+  my $options = shift;
+  $options->{'_code_state'}++;
+}
+
+sub reset_options_code($)
+{
+  my $options = shift;
+  $options->{'_code_state'}--;
+}
+
+# set enabled_encoding unless the encoding is ascii, even if
+# ENABLE_ENCODING is not set.
+sub set_options_encoding_if_not_ascii($$)
+{
+  my $self = shift;
+  my $options = shift;
+  my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
+  if (defined($output_encoding_name) and $output_encoding_name ne 'us-ascii') {
+    if (defined($options->{'_saved_enabled_encoding'})) {
+       print STDERR "BUG: if_not_ascii _saved_enabled_encoding set: "
+                            .$options->{'_saved_enabled_encoding'}." / ".
+                     $output_encoding_name ."\n";
+      #cluck();
+    }
+    $options->{'_saved_enabled_encoding'} = $options->{'enabled_encoding'};
+    $options->{'enabled_encoding'} = $output_encoding_name;
+  }
+}
+
+sub set_options_encoding($$)
+{
+  my $options = shift;
+  my $encoding = shift;
+  if (defined($options->{'_saved_enabled_encoding'})) {
+     print STDERR "BUG: _saved_enabled_encoding set: "
+                          .$options->{'_saved_enabled_encoding'}." / ".
+                            $encoding."\n";
+  }
+  $options->{'_saved_enabled_encoding'} = $options->{'enabled_encoding'};
+  $options->{'enabled_encoding'} = $encoding;
+}
+
+sub reset_options_encoding($)
+{
+  my $options = shift;
+  if (defined($options->{'_saved_enabled_encoding'})) {
+    $options->{'enabled_encoding'} = $options->{'_saved_enabled_encoding'};
+    delete $options->{'_saved_enabled_encoding'};
+  }
+}
+
+
 sub _ascii_accent($$)
 {
   my $text = shift;
@@ -282,7 +376,7 @@ sub text_accents($;$$)
   }
 }
 
-# TODO docuent?  Used in other converters.
+# TODO document?  Used in other converters.
 sub brace_no_arg_command($;$)
 {
   my $element = shift;
@@ -380,132 +474,10 @@ sub _text_heading($$$;$$)
   return $result;
 }
 
-my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST');
-
-# TODO not documented.  Document?
-# $SELF is an object implementing get_conf, in general a converter.
-# Setup options as used by Texinfo::Convert::Text::convert_to_text
-# based on the converter information.
-# This is relevant for file names, for instance.
-# $OPTIONS_IN can be used to pass additional options.
-sub copy_options_for_convert_text($;$)
-{
-  my $self = shift;
-  my $options_in = shift;
-  my %options;
-  if ($self->get_conf('ENABLE_ENCODING')
-       and $self->get_conf('OUTPUT_ENCODING_NAME')) {
-    $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
-  }
-
-  foreach my $option (@text_indicator_converter_options) {
-    my $conf = $self->get_conf($option);
-    if ($conf) {
-      $options{$option} = 1;
-    } elsif (defined($conf)) {
-      $options{$option} = 0;
-    }
-  }
-  $options{'expanded_formats'} = $self->{'expanded_formats'};
-  # for locate_include_file
-  $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
-
-  $options{'converter'} = $self;
-
-  if ($options_in) {
-    foreach my $option (keys(%$options_in)) {
-      $options{$option} = $options_in->{$option};
-    }
-  }
-  return \%options;
-}
-
-sub set_options_code($)
-{
-  my $options = shift;
-  $options->{'_code_state'}++;
-}
-
-sub reset_options_code($)
-{
-  my $options = shift;
-  $options->{'_code_state'}--;
-}
-
-# set enabled_encoding unless the encoding is ascii, even if
-# ENABLE_ENCODING is not set.
-sub set_options_encoding_if_not_ascii($$)
-{
-  my $self = shift;
-  my $options = shift;
-  my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
-  if (defined($output_encoding_name) and $output_encoding_name ne 'us-ascii') {
-    if (defined($options->{'_saved_enabled_encoding'})) {
-       print STDERR "BUG: if_not_ascii _saved_enabled_encoding set: "
-                            .$options->{'_saved_enabled_encoding'}." / ".
-                     $output_encoding_name ."\n";
-      #cluck();
-    }
-    $options->{'_saved_enabled_encoding'} = $options->{'enabled_encoding'};
-    $options->{'enabled_encoding'} = $output_encoding_name;
-  }
-}
-
-sub set_options_encoding($$)
-{
-  my $options = shift;
-  my $encoding = shift;
-  if (defined($options->{'_saved_enabled_encoding'})) {
-     print STDERR "BUG: _saved_enabled_encoding set: "
-                          .$options->{'_saved_enabled_encoding'}." / ".
-                            $encoding."\n";
-  }
-  $options->{'_saved_enabled_encoding'} = $options->{'enabled_encoding'};
-  $options->{'enabled_encoding'} = $encoding;
-}
-
-sub reset_options_encoding($)
-{
-  my $options = shift;
-  if (defined($options->{'_saved_enabled_encoding'})) {
-    $options->{'enabled_encoding'} = $options->{'_saved_enabled_encoding'};
-    delete $options->{'_saved_enabled_encoding'};
-  }
-}
-
 
 # Will never be called, used for the override.
 sub _convert_tree_with_XS($$)
 {
-}
-
-sub convert_to_text($;$)
-{
-  my $root = shift;
-  my $options = shift;
-
-  if (ref($root) ne 'HASH') {
-    confess "root not a hash";
-  }
-
-  #print STDERR "CONVERT\n";
-  # this is needed for locate_include_file which uses
-  # $configurations_information->get_conf() and thus requires a blessed
-  # reference.
-  $options = {} if (!defined($options));
-  if (defined($options)) {
-    if (!ref($options)) {
-      confess("convert_to_text options not a ref\n");
-    }
-    bless $options;
-  }
-
-  # Interface with XS converter.
-  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
-    return _convert_tree_with_XS($options, $root);
-  }
-
-  return _convert($root, $options);
 }
 
 sub _convert($;$);
@@ -838,6 +810,35 @@ sub _convert($;$)
   return $result;
 }
 
+# the main entry point
+sub convert_to_text($;$)
+{
+  my $root = shift;
+  my $options = shift;
+
+  if (ref($root) ne 'HASH') {
+    confess "root not a hash";
+  }
+
+  #print STDERR "CONVERT\n";
+  # this is needed for locate_include_file which uses
+  # $configurations_information->get_conf() and thus requires a blessed
+  # reference.
+  $options = {} if (!defined($options));
+  if (defined($options)) {
+    if (!ref($options)) {
+      confess("convert_to_text options not a ref\n");
+    }
+    bless $options;
+  }
+
+  # Interface with XS converter.
+  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
+    return _convert_tree_with_XS($options, $root);
+  }
+
+  return _convert($root, $options);
+}
 
 
 # Implement the converters API, but as simply as possible
@@ -890,10 +891,10 @@ sub convert_tree($$)
   return _convert($element, $options);
 }
 
-# TODO set options with $self if defined?
 # This function is not called in anywhere in Texinfo code, it is implemented
 # to be in line with Texinfo::Convert::Converter documentation on functions
 # defined for a converter.
+# TODO set options with $self if defined?
 sub convert($$)
 {
   my $self = shift;

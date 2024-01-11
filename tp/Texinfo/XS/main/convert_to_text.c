@@ -44,6 +44,166 @@
 #include "cmd_text.c"
 
 
+TEXT_OPTIONS *
+new_text_options (void)
+{
+  TEXT_OPTIONS *options = malloc (sizeof (TEXT_OPTIONS));
+  memset (options, 0, sizeof (TEXT_OPTIONS));
+  options->expanded_formats = new_expanded_formats ();
+  options->NUMBER_SECTIONS = -1;
+  memset (&options->include_directories, 0, sizeof (STRING_LIST));
+  return options;
+}
+
+void
+destroy_text_options (TEXT_OPTIONS *text_options)
+{
+  free (text_options->encoding);
+  free (text_options->expanded_formats);
+  free_strings_list (&text_options->include_directories);
+  /* if the customization options come from a converter or are another
+     structure options, in practice a document, options should not be
+     freed here, but by their respective structures */
+  if (text_options->other_converter_options
+      && !text_options->converter
+      && !text_options->other_options)
+    {
+      free_options (text_options->other_converter_options);
+      free (text_options->other_converter_options);
+    }
+  if (text_options->self_converter_options)
+    {
+      free_options (text_options->self_converter_options);
+      free (text_options->self_converter_options);
+    }
+  free (text_options);
+}
+
+#define TEXT_INDICATOR_CONVERTER_OPTIONS \
+  tico_option_name(NUMBER_SECTIONS) \
+  tico_option_name(ASCII_GLYPH) \
+  tico_option_name(TEST)
+
+/* the string and strlist options need to be copied, in case they are
+   deallocated if options are reset */
+TEXT_OPTIONS *
+copy_options_for_convert_text (OPTIONS *options)
+{
+  TEXT_OPTIONS *text_options = new_text_options ();
+  int text_indicator_option;
+
+  if (options->ENABLE_ENCODING.integer > 0
+       && options->OUTPUT_ENCODING_NAME.string)
+    {
+      text_options->encoding = strdup (options->OUTPUT_ENCODING_NAME.string);
+    }
+
+  #define tico_option_name(name) \
+  text_indicator_option = options->name.integer; \
+  if (text_indicator_option > 0) { text_options->name = 1; } \
+  else if (text_indicator_option >= 0) { text_options->name = 0; }
+   TEXT_INDICATOR_CONVERTER_OPTIONS
+  #undef tico_option_name
+
+  set_expanded_formats_from_options (text_options->expanded_formats, options);
+
+  copy_strings (&text_options->include_directories,
+                options->INCLUDE_DIRECTORIES.strlist);
+
+  /* not a copy , but a reference to the options */
+  text_options->other_converter_options = options;
+
+  return text_options;
+}
+
+TEXT_OPTIONS *
+copy_converter_options_for_convert_text (CONVERTER *self)
+{
+  TEXT_OPTIONS *text_options = copy_options_for_convert_text (self->conf);
+  text_options->converter = self;
+  return text_options;
+}
+
+/* In Structuring.pm */
+static void
+set_additional_index_entry_keys_options (OPTIONS *options,
+                                         TEXT_OPTIONS *text_options)
+{
+  if (options->ENABLE_ENCODING.integer <= 0
+      || !(options->OUTPUT_ENCODING_NAME.string
+           && !strcasecmp (options->OUTPUT_ENCODING_NAME.string, "utf-8")))
+    {
+      text_options->sort_string = 1;
+    }
+}
+
+/* there are two variants, to setup the text options used for index
+   index entries formatting as text in case this is done with a
+   converter or without. */
+TEXT_OPTIONS *
+setup_index_entry_keys_formatting (OPTIONS *options)
+{
+  TEXT_OPTIONS *text_options = copy_options_for_convert_text (options);
+  text_options->other_options = 1;
+  set_additional_index_entry_keys_options (options, text_options);
+  return text_options;
+}
+
+TEXT_OPTIONS *
+setup_converter_index_entry_keys_formatting (CONVERTER *self)
+{
+  TEXT_OPTIONS *text_options = copy_converter_options_for_convert_text (self);
+  set_additional_index_entry_keys_options (self->conf, text_options);
+  return text_options;
+}
+
+
+/* following functions to be used to modify TEXT_OPTIONS encoding */
+
+void
+text_set_options_encoding_if_not_ascii (CONVERTER *self,
+                                        TEXT_OPTIONS *text_options)
+{
+  if (self->conf->OUTPUT_ENCODING_NAME.string
+      && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "us-ascii"))
+    {
+      if (text_options->_saved_enabled_encoding)
+        {
+          fprintf (stderr,
+            "BUG: if_not_ascii _saved_enabled_encoding set: %s / %s\n",
+               text_options->_saved_enabled_encoding,
+               self->conf->OUTPUT_ENCODING_NAME.string);
+          text_options->_saved_enabled_encoding = 0;
+        }
+
+      text_options->_saved_enabled_encoding = text_options->encoding;
+      text_options->encoding = self->conf->OUTPUT_ENCODING_NAME.string;
+    }
+}
+
+/* the caller should ensure that encoding will remain allocated until
+   the next call to text_reset_options_encoding */
+void
+text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding)
+{
+  if (text_options->_saved_enabled_encoding)
+    {
+      fprintf (stderr, "BUG: _saved_enabled_encoding set: %s / %s\n",
+               text_options->_saved_enabled_encoding, encoding);
+      text_options->_saved_enabled_encoding = 0;
+    }
+  text_options->_saved_enabled_encoding = text_options->encoding;
+  text_options->encoding = encoding;
+}
+
+void
+text_reset_options_encoding (TEXT_OPTIONS *text_options)
+{
+  text_options->encoding = text_options->_saved_enabled_encoding;
+  text_options->_saved_enabled_encoding = 0;
+}
+
+
 /* the CONVERTER argument is not used, it is there solely to match the
    calling prototype in accent formatting commands */
 char *
@@ -109,158 +269,8 @@ ascii_accents_internal (const char *text, const ELEMENT_STACK *stack,
   return result;
 }
 
-TEXT_OPTIONS *
-new_text_options (void)
-{
-  TEXT_OPTIONS *options = malloc (sizeof (TEXT_OPTIONS));
-  memset (options, 0, sizeof (TEXT_OPTIONS));
-  options->expanded_formats = new_expanded_formats ();
-  options->NUMBER_SECTIONS = -1;
-  memset (&options->include_directories, 0, sizeof (STRING_LIST));
-  return options;
-}
-
-void
-destroy_text_options (TEXT_OPTIONS *text_options)
-{
-  free (text_options->encoding);
-  free (text_options->expanded_formats);
-  free_strings_list (&text_options->include_directories);
-  if (text_options->other_converter_options
-      && !text_options->converter
-      && !text_options->other_options)
-    {
-      free_options (text_options->other_converter_options);
-      free (text_options->other_converter_options);
-    }
-  if (text_options->self_converter_options)
-    {
-      free_options (text_options->self_converter_options);
-      free (text_options->self_converter_options);
-    }
-  free (text_options);
-}
-
-#define TEXT_INDICATOR_CONVERTER_OPTIONS \
-  tico_option_name(NUMBER_SECTIONS) \
-  tico_option_name(ASCII_GLYPH) \
-  tico_option_name(TEST)
-
-/* the string and strlist options need to be copied, in case they are
-   deallocated if options are reset */
-TEXT_OPTIONS *
-copy_options_for_convert_text (OPTIONS *options)
-{
-  TEXT_OPTIONS *text_options = new_text_options ();
-  int text_indicator_option;
-
-  if (options->ENABLE_ENCODING.integer > 0
-       && options->OUTPUT_ENCODING_NAME.string)
-    {
-      text_options->encoding = strdup (options->OUTPUT_ENCODING_NAME.string);
-    }
-
-  #define tico_option_name(name) \
-  text_indicator_option = options->name.integer; \
-  if (text_indicator_option > 0) { text_options->name = 1; } \
-  else if (text_indicator_option >= 0) { text_options->name = 0; }
-   TEXT_INDICATOR_CONVERTER_OPTIONS
-  #undef tico_option_name
-
-  set_expanded_formats_from_options (text_options->expanded_formats, options);
-
-  copy_strings (&text_options->include_directories,
-                options->INCLUDE_DIRECTORIES.strlist);
-
-  text_options->other_converter_options = options;
-
-  return text_options;
-}
-
-TEXT_OPTIONS *
-copy_converter_options_for_convert_text (CONVERTER *self)
-{
-  TEXT_OPTIONS *text_options = copy_options_for_convert_text (self->conf);
-  text_options->converter = self;
-  return text_options;
-}
-
-/* In Structuring.pm */
-static void
-set_additional_index_entry_keys_options (OPTIONS *options,
-                                         TEXT_OPTIONS *text_options)
-{
-  if (options->ENABLE_ENCODING.integer <= 0
-      || !(options->OUTPUT_ENCODING_NAME.string
-           && !strcasecmp (options->OUTPUT_ENCODING_NAME.string, "utf-8")))
-    {
-      text_options->sort_string = 1;
-    }
-}
-
-/* there are two variants, to setup the text options used for index
-   index entries formatting as text in case this is done with a
-   converter or without. */
-TEXT_OPTIONS *
-setup_index_entry_keys_formatting (OPTIONS *options)
-{
-  TEXT_OPTIONS *text_options = copy_options_for_convert_text (options);
-  text_options->other_options = 1;
-  set_additional_index_entry_keys_options (options, text_options);
-  return text_options;
-}
-
-TEXT_OPTIONS *
-setup_converter_index_entry_keys_formatting (CONVERTER *self)
-{
-  TEXT_OPTIONS *text_options = copy_converter_options_for_convert_text (self);
-  set_additional_index_entry_keys_options (self->conf, text_options);
-  return text_options;
-}
-
-void
-text_set_options_encoding_if_not_ascii (CONVERTER *self,
-                                        TEXT_OPTIONS *text_options)
-{
-  if (self->conf->OUTPUT_ENCODING_NAME.string
-      && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "us-ascii"))
-    {
-      if (text_options->_saved_enabled_encoding)
-        {
-          fprintf (stderr,
-            "BUG: if_not_ascii _saved_enabled_encoding set: %s / %s\n",
-               text_options->_saved_enabled_encoding,
-               self->conf->OUTPUT_ENCODING_NAME.string);
-          text_options->_saved_enabled_encoding = 0;
-        }
-
-      text_options->_saved_enabled_encoding = text_options->encoding;
-      text_options->encoding = self->conf->OUTPUT_ENCODING_NAME.string;
-    }
-}
-
-/* the caller should ensure that encoding will remain allocated until
-   the next call to text_reset_options_encoding */
-void
-text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding)
-{
-  if (text_options->_saved_enabled_encoding)
-    {
-      fprintf (stderr, "BUG: _saved_enabled_encoding set: %s / %s\n",
-               text_options->_saved_enabled_encoding, encoding);
-      text_options->_saved_enabled_encoding = 0;
-    }
-  text_options->_saved_enabled_encoding = text_options->encoding;
-  text_options->encoding = encoding;
-}
-
-void
-text_reset_options_encoding (TEXT_OPTIONS *text_options)
-{
-  text_options->encoding = text_options->_saved_enabled_encoding;
-  text_options->_saved_enabled_encoding = 0;
-}
-
+/* local restricted set of TEXT_OPTIONS relevant for accent formatting
+   set from function arguments */
 static TEXT_OPTIONS text_accents_options;
 
 /* format an accent command and nested accents within as Text. */
@@ -292,7 +302,7 @@ text_accents (const ELEMENT *accent, char *encoding, int set_case)
 
 /* result to be freed by caller */
 char *
-brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
+text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
 {
   char *result = 0;
   enum command_id cmd = e->cmd;
@@ -356,7 +366,7 @@ static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 
 /* Return the text of an underlined heading, possibly indented. */
 /* return to be freed by caller */
-char *
+static char *
 text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
               int numbered, int indent_length)
 {
@@ -423,7 +433,7 @@ text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
 
 #define ADD(x) text_append (result, x)
 
-void
+static void
 convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                           TEXT *result);
 
@@ -644,7 +654,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       else if (text_brace_no_arg_commands[data_cmd])
         {
           char *brace_no_args_text
-            = brace_no_arg_command (element, text_options);
+            = text_brace_no_arg_command (element, text_options);
           ADD(brace_no_args_text);
           free (brace_no_args_text);
           return;

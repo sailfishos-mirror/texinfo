@@ -1,5 +1,15 @@
 2024-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm: move functions around.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (text_brace_no_arg_command):
+	rename brace_no_arg_command as text_brace_no_arg_command.
+
+	* tp/Texinfo/XS/main/convert_to_text.c: move code around, make
+	functions static or declare them in .h.
+
+2024-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/indices_in_conversion.c
 	(index_entry_element_sort_string): always initialize returned text to
 	the empty string.
