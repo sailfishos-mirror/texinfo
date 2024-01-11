@@ -206,7 +206,7 @@ text_reset_options_encoding (TEXT_OPTIONS *text_options)
 
 /* the CONVERTER argument is not used, it is there solely to match the
    calling prototype in accent formatting commands */
-char *
+static char *
 ascii_accent (CONVERTER *self, const char *text,
               const ELEMENT *command, int set_case)
 {
@@ -245,7 +245,7 @@ ascii_accent (CONVERTER *self, const char *text,
   return accent_text.text;
 }
 
-char *
+static char *
 ascii_accents_internal (const char *text, const ELEMENT_STACK *stack,
                         int set_case)
 {
