@@ -3933,8 +3933,10 @@ sub _css_string_accent($$$;$)
       }
     }
   }
-  # should never happen, there are diacritics for every accent command
-  return Texinfo::Convert::Text::ascii_accent($text, $command);
+
+  # There are diacritics for every accent command except for dotless.
+  # We should only get there with dotless if the argument is not recognized.
+  return $text;
 }
 
 sub _css_string_convert_accent_command($$$$)

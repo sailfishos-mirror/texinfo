@@ -1354,6 +1354,8 @@ sub unicode_accent($$)
       }
     }
   }
+  # There are diacritics for every accent command except for dotless and
+  # dotless is handled especially, so we should never end up here.
   return undef;
 }
 

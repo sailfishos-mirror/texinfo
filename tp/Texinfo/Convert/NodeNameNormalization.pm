@@ -41,7 +41,7 @@ use Texinfo::Commands;
 use Texinfo::Common;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
-# reuse some conversion hashes and ascii_accent function
+# reuse conversion hashes
 use Texinfo::Convert::Text;
 
 require Exporter;
@@ -289,10 +289,9 @@ sub _convert($)
         = Texinfo::Convert::Unicode::unicode_accent($accent_text,
                                                     $element);
       if (!defined($accented_char)) {
-        # In this case, the node normalization do not follow the specification,
-        # but we cannot do better
-        $accented_char = Texinfo::Convert::Text::ascii_accent($accent_text,
-                                                              $element);
+        # If this case was possible, the node normalization would not follow the
+        # specification, but it is not possible, see unicode_accent.
+        $accented_char = $accent_text;
       }
       return $accented_char;
     } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {

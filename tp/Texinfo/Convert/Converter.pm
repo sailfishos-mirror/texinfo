@@ -1905,14 +1905,9 @@ sub xml_accent($$$;$$$)
     }
   }
 
-  # REMARK this code should never be run as there are diacritics for every
-  # accent command.
-  #
-  # TODO it is not possible to call xml_protect_text since what is in $text
-  # may already be xml.  But this means that each time ascii_accent changes
-  # it should be changed here too ii ascii_accent returns invalid xml.
-  return $text . '&lt;' if ($accent eq 'v');
-  return Texinfo::Convert::Text::ascii_accent($text, $command);
+  # There are diacritics for every accent command except for dotless.
+  # We should only get there with dotless if the argument is not recognized.
+  return $text;
 }
 
 sub _xml_numeric_entities_accent($$$;$)
