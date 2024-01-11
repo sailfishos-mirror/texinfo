@@ -92,7 +92,12 @@ my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
                        and (not defined($ENV{TEXINFO_XS_STRUCTURE})
                             or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
 
-our %XS_overrides = (
+my $XS_convert = 0;
+$XS_convert = 1 if ($XS_structuring
+                    and defined $ENV{TEXINFO_XS_CONVERT}
+                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+
+my %XS_overrides = (
   "Texinfo::Structuring::associate_internal_references"
     => "Texinfo::StructTransfXS::associate_internal_references",
   "Texinfo::Structuring::sectioning_structure"
@@ -113,6 +118,10 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::rebuild_output_units",
   "Texinfo::Structuring::_XS_unsplit"
     => "Texinfo::StructTransfXS::unsplit",
+);
+
+# used in conversion only, and should only be loaded with XS converters
+my %XS_convert_overrides = (
 
   "Texinfo::Structuring::index_entry_element_sort_string"
     => "Texinfo::StructTransfXS::index_entry_element_sort_string",
@@ -136,6 +145,11 @@ sub import {
     if ($XS_structuring) {
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
+      }
+    }
+    if ($XS_convert) {
+      for my $sub (keys %XS_convert_overrides) {
+        Texinfo::XSLoader::override ($sub, $XS_convert_overrides{$sub});
       }
     }
     $module_loaded = 1;

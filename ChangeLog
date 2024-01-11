@@ -1,3 +1,9 @@
+2024-01-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (%XS_overrides, %XS_convert_overrides)
+	($XS_convert, import): override index_entry_element_sort_string and
+	setup_index_entry_keys_formatting only if XS is used for conversion.
+
 2024-01-10  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi b/doc/texinfo.texi (@code{@@link}): add a missing
