@@ -157,9 +157,10 @@ foreach my $command_name (@commands_order) {
     my $numeric_codepoint = hex($unicode_diacritics{$command_name});
     my $result = chr($numeric_codepoint);
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print UNIC "{\"$protected\", \"$numeric_codepoint\"},  /* $command */\n";
+    print UNIC "{\"$protected\", \"$numeric_codepoint\","
+              ." \"$unicode_diacritics{$command_name}\"},  /* $command */\n";
   } else {
-    print UNIC "{0, 0},\n";
+    print UNIC "{0, 0, 0},\n";
   }
 }
 print UNIC "};\n\n";

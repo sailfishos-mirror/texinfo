@@ -20,7 +20,8 @@ typedef struct COMMAND_UNICODE {
 
 typedef struct DIACRITIC_UNICODE {
     char *text; /* UTF-8 encoded */
-    char *codepoint;
+    char *codepoint; /* numeric */
+    char *hex_codepoint; /* hexadecimal */
 } DIACRITIC_UNICODE;
 
 /* can be inlined in text parsing codes */

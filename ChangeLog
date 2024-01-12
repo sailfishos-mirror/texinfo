@@ -1,3 +1,19 @@
+2024-01-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/unicode.h (DIACRITIC_UNICODE),
+	tp/maintain/setup_converters_code_tables.pl (unicode_diacritics): add
+	hexadecimal representation of diacritics to the unicode_diacritics
+	table.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(set_case_if_only_word_characters)
+	(html_accent_entities_html_accent_internal)
+	(after_escaped_characters, css_string_accent)
+	(css_string_convert_accent_command, html_converter_initialize):
+	implement css_string_convert_accent_command in C.  Create
+	set_case_if_only_word_characters based on
+	html_accent_entities_html_accent_internal tu use common code.
+
 2024-01-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/convert_to_text.c: make two functions static.

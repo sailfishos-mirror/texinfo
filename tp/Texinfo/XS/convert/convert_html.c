@@ -9220,10 +9220,8 @@ convert_math_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
 }
 
-char *
-html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case,
-                         int use_numeric_entities)
+static char *
+set_case_if_only_word_characters (const char *text, int set_case)
 {
   char *text_set;
 
@@ -9243,6 +9241,16 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
     text_set = to_upper_or_lower_multibyte (text, set_case);
   else
     text_set = strdup (text);
+
+  return text_set;
+}
+
+char *
+html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
+                         const ELEMENT *element, int set_case,
+                         int use_numeric_entities)
+{
+  char *text_set = set_case_if_only_word_characters (text, set_case);
 
   /* do not return a dotless i or j as such if it is further composed
      with an accented letter, return the letter as is */
@@ -9322,6 +9330,7 @@ convert_accent_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
+  char *accent_text;
   char *(*format_accents)(CONVERTER *self, const char *text,
                          const ELEMENT *element, int set_case);
 
@@ -9332,13 +9341,232 @@ convert_accent_command (CONVERTER *self, const enum command_id cmd,
   else
     format_accents = &html_accent_entities_html_accent;
 
-  char *accent_text = convert_accents (self, element, &html_convert_tree,
+  accent_text = convert_accents (self, element, &html_convert_tree,
                           format_accents, output_encoded_characters,
                           html_in_upper_case (self));
 
   text_append (result, accent_text);
   free (accent_text);
 }
+
+/* same as matching the regex /^\\[a-zA-Z0-9]+ /
+ */
+static char *
+after_escaped_characters (char *text)
+{
+  char *p = text;
+  if (*p != '\\')
+    return 0;
+
+  p++;
+
+  if (!isascii_alnum (*p))
+    return 0;
+
+  while (isascii_alnum (*p))
+    p++;
+
+  if (*p == ' ')
+    return p+1;
+
+  return 0;
+}
+
+char *
+css_string_accent (CONVERTER *self, const char *text,
+                         const ELEMENT *element, int set_case)
+{
+  char *text_set = set_case_if_only_word_characters (text, set_case);
+
+  if (element->cmd == CM_dotless)
+    {
+      /* corresponds in perl, and for dotless, to
+ Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text} */
+      if (!strcmp (text_set, "i"))
+        {
+          free (text_set);
+          return strdup ("\\" "0131" " ");
+        }
+      else if (!strcmp (text_set, "j"))
+        {
+          free (text_set);
+          return strdup ("\\" "0237" " ");
+        }
+    }
+
+  if (unicode_diacritics[element->cmd].text)
+    {
+      char *accent_and_diacritic;
+      char *normalized_accent_text;
+      static TEXT accented_text;
+      if (element->cmd == CM_tieaccent)
+        {
+          /* tieaccent diacritic is naturally and correctly composed
+             between two characters */
+          /* we consider that letters are either characters or
+             escaped characters as they appear in CSS strings */
+          /* p non NUL corresponds to escaped characters */
+          char *p = after_escaped_characters (text_set);
+          char *next_text = 0;
+          ucs4_t first_char;
+          const uint8_t *next = 0;
+          uint8_t *encoded_u8 = 0;
+
+          if (!p)
+            {
+              /* check if a character matches */
+              encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
+                                                  iconveh_question_mark);
+              next = u8_next (&first_char, encoded_u8);
+              if (next && (uc_is_general_category (first_char, UC_CATEGORY_L)
+                          /* ASCII digits */
+                          || (first_char >= 0x0030 && first_char <= 0x0039)))
+                {
+                  next_text = u8_strconv_to_encoding (next, "UTF-8",
+                                                      iconveh_question_mark);
+                }
+            }
+          else
+            {
+              next_text = p;
+            }
+
+          if (next_text)
+            {
+              ucs4_t second_char;
+              const char *q = after_escaped_characters (next_text);
+
+              if (!q)
+                {
+                  const uint8_t *remaining;
+                  if (!next)
+                    {
+                      encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
+                                                  iconveh_question_mark);
+                      next = encoded_u8;
+                    }
+                  remaining = u8_next (&second_char, next);
+                  if (remaining
+                      && (uc_is_general_category (second_char, UC_CATEGORY_L)
+                            /* ASCII digits */
+                          || (second_char >= 0x0030 && second_char <= 0x0039)))
+                    {
+                      /* next_text remains as the text to add after
+                         the diacritic */
+                    }
+                  else
+                    next_text = 0;
+                }
+
+              if (next_text)
+                {
+                  /* add the first character or escaped text */
+                  text_init (&accented_text);
+                  if (!p)
+                    {
+                      char *first_char_text;
+                      uint8_t *first_char_u8 = malloc (7 * sizeof(uint8_t));
+                      int first_char_len
+                        = u8_uctomb (first_char_u8, first_char, 6);
+                      if (first_char_len < 0)
+                        fatal ("u8_uctomb returns negative value");
+                      first_char_u8[first_char_len] = 0;
+                      first_char_text = u8_strconv_to_encoding (first_char_u8,
+                                              "UTF-8", iconveh_question_mark);
+                      free (first_char_u8);
+                      text_append (&accented_text, first_char_text);
+                      free (first_char_text);
+                    }
+                  else
+                    text_append_n (&accented_text, p, p - text_set);
+
+                  /* add the tie accent */
+                  text_printf (&accented_text, "\\%s ",
+                               unicode_diacritics[element->cmd].hex_codepoint);
+                  /* add the remaining, second character or escaped text
+                     and everything else after (which is in general invalid
+                     but we do not care) */
+                  text_append (&accented_text, next_text);
+                  if (!p)
+                    free (next_text);
+                }
+            }
+          free (encoded_u8);
+          if (next_text)
+            return accented_text.text;
+        }
+
+      /* case of text and diacritic (including fallback for invalid tie
+         accent) */
+      text_init (&accented_text);
+      /* check if the normalization leads to merging text and diacritic,
+         if yes use the merged character, if not output text and diacitic
+         to be set up for composition */
+      xasprintf (&accent_and_diacritic, "%s%s",
+                 text, unicode_diacritics[element->cmd].text);
+      normalized_accent_text = normalize_NFC (accent_and_diacritic);
+      free (accent_and_diacritic);
+      /* check if the normalization led to merging text and diacritic
+         as one character.  If not, the leading text remains, this
+         is what the comparison checks */
+      if (!strncmp (normalized_accent_text, text, strlen (text)))
+        {
+          /* no normalization as one character, output text and diacritic
+             such that they could be composed */
+          text_append (&accented_text, text);
+          text_printf (&accented_text, "\\%s ",
+                   unicode_diacritics[element->cmd].hex_codepoint);
+        }
+      else
+        {
+          /* determine the hexadecimal unicode point of the normalized
+             character to output in the format expected in CSS strings */
+          char *next_text;
+          uint8_t *encoded_u8 = u8_strconv_from_encoding (
+                                 normalized_accent_text, "UTF-8",
+                                               iconveh_question_mark);
+          ucs4_t first_char;
+          const uint8_t *next = u8_next (&first_char, encoded_u8);
+          text_printf (&accented_text, "\\%04lX ", first_char);
+          next_text = u8_strconv_to_encoding (next, "UTF-8",
+                                              iconveh_question_mark);
+          free (encoded_u8);
+          text_append (&accented_text, next_text);
+          free (next_text);
+        }
+      free (normalized_accent_text);
+      free (text_set);
+      return accented_text.text;
+    }
+
+ /* There are diacritics for every accent command except for dotless.
+    We should only get there with dotless if the argument is not recognized.
+  */
+  return text_set;
+}
+
+void
+css_string_convert_accent_command (CONVERTER *self, const enum command_id cmd,
+                    const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  char *accent_text;
+  char *(*format_accents)(CONVERTER *self, const char *text,
+                         const ELEMENT *element, int set_case);
+
+  int output_encoded_characters = (self->conf->OUTPUT_CHARACTERS.integer > 0);
+
+  format_accents = &css_string_accent;
+
+  accent_text = convert_accents (self, element, &html_convert_tree,
+                          format_accents, output_encoded_characters,
+                          html_in_upper_case (self));
+
+  text_append (result, accent_text);
+  free (accent_text);
+}
+
 
 void
 convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
@@ -15969,7 +16197,7 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
-  /* accents commands implemented in C, but not css strings accents */
+  /* accents commands implemented in C */
   if (self->accent_cmd.number)
     {
       for (i = 0; i < self->accent_cmd.number; i++)
@@ -15977,6 +16205,8 @@ html_converter_initialize (CONVERTER *self)
           enum command_id cmd = self->accent_cmd.list[i];
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self->command_conversion_function[cmd];
+          COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
+               = &self->css_string_command_conversion_function[cmd];
           if (command_conversion->status == FRS_status_default_set)
             {
               command_conversion->formatting_reference = 0;
@@ -15984,6 +16214,10 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->command_conversion
                 = &convert_accent_command;
             }
+          css_string_command_conversion->formatting_reference = 0;
+          css_string_command_conversion->status = FRS_status_internal;
+          css_string_command_conversion->command_conversion
+            = &css_string_convert_accent_command;
         }
     }
 
