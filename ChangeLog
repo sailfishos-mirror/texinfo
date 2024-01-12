@@ -1,5 +1,11 @@
 2024-01-12  Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS: add the converters in C and use of TEXINFO_XS_CONVERT
+	environment variable to NEWS, now that the HTML C conversion code is
+	complete.
+
+2024-01-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/unicode.h (DIACRITIC_UNICODE),
 	tp/maintain/setup_converters_code_tables.pl (unicode_diacritics): add
 	hexadecimal representation of diacritics to the unicode_diacritics

@@ -22,6 +22,10 @@ See the manual for detailed information.
    PACKAGE_VERSION customization option is now PACKAGE_VERSION_OPTION.
  . some unused translation files have been removed for the
    "texinfo_document" domain
+ . HTML, Texinfo and raw text output:
+   An implementation of the conversion in C has been included.  Set the
+    `TEXINFO_XS_CONVERT' environment variable to 1 to use.
+
 * info
  . check for init file under ~/.config/texinfo/infokey before checking
   ~/.infokey, in accordance with the XDG Base Directory Specification
