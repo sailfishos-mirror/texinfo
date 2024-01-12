@@ -218,6 +218,7 @@ CMD_VARIETY command_special_unit_variety[] = {
 typedef struct HTML_COMMAND_STRUCT {
     unsigned long flags;
     enum command_id pre_class_cmd;
+    enum command_id upper_case_cmd;
 } HTML_COMMAND_STRUCT;
 
 static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
@@ -8305,26 +8306,9 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
     }
 
   if (html_in_upper_case (self)
-      && (builtin_command_data[formatted_cmd].other_flags & CF_letter_no_arg))
+      && html_commands_data[formatted_cmd].upper_case_cmd)
     {
-      const char *command = builtin_command_name (formatted_cmd);
-      char *upper_case_command = strdup (command);
-      char *p;
-      enum command_id upper_case_cmd;
-      for (p = upper_case_command; *p; p++)
-        {
-          *p = toupper (*p);
-        }
-      /* TODO the mapping could be done once for all */
-      upper_case_cmd = lookup_builtin_command (upper_case_command);
-      if (upper_case_cmd)
-        {
-          HTML_COMMAND_CONVERSION *conv_context
-            = self->html_command_conversion[upper_case_cmd];
-          if (conv_context[context].text || conv_context[context].element)
-            formatted_cmd = upper_case_cmd;
-        }
-      free (upper_case_command);
+      formatted_cmd = html_commands_data[formatted_cmd].upper_case_cmd;
     }
 
   specification
@@ -8356,26 +8340,9 @@ css_string_convert_no_arg_command (CONVERTER *self,
     }
 
   if (html_in_upper_case (self)
-      && (builtin_command_data[formatted_cmd].other_flags & CF_letter_no_arg))
+      && html_commands_data[formatted_cmd].upper_case_cmd)
     {
-      const char *command = builtin_command_name (formatted_cmd);
-      char *upper_case_command = strdup (command);
-      char *p;
-      enum command_id upper_case_cmd;
-      for (p = upper_case_command; *p; p++)
-        {
-          *p = toupper (*p);
-        }
-      /* TODO the mapping could be done once for all */
-      upper_case_cmd = lookup_builtin_command (upper_case_command);
-      free (upper_case_command);
-      if (upper_case_cmd)
-        {
-          HTML_COMMAND_CONVERSION *conv_context
-            = self->html_command_conversion[upper_case_cmd];
-          if (conv_context[HCC_type_css_string].text)
-            formatted_cmd = upper_case_cmd;
-        }
+      formatted_cmd = html_commands_data[formatted_cmd].upper_case_cmd;
     }
 
   text_append (result,
@@ -15768,7 +15735,7 @@ void
 html_format_init (void)
 {
   int i;
-  int nr_default_commands
+  int nr_default_commands_args
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
 
@@ -15776,7 +15743,7 @@ html_format_init (void)
     CM_example, CM_display, CM_lisp, 0
   };
 
-  for (i = 0; i < nr_default_commands; i++)
+  for (i = 0; i < nr_default_commands_args; i++)
     {
       /* we file the status for specified commands, to distinguish them
          but it is not actually used in the code, as we default to
@@ -15804,6 +15771,13 @@ html_format_init (void)
       html_commands_data[small_cmd].flags |= HF_small_block_command;
       if (html_commands_data[cmd].flags & HF_indented_preformatted)
         html_commands_data[small_cmd].flags |= HF_indented_preformatted;
+    }
+
+  for (i = 0; no_brace_command_accent_upper_case[i][0]; i++)
+    {
+      enum command_id cmd = no_brace_command_accent_upper_case[i][0];
+      enum command_id upper_case_cmd = no_brace_command_accent_upper_case[i][1];
+      html_commands_data[cmd].upper_case_cmd = upper_case_cmd;
     }
 
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)

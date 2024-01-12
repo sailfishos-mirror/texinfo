@@ -40,6 +40,19 @@
 #include "unicode.h"
 #include "converter.h"
 
+/* associate lower case no brace accent command to the upper case
+   corresponding commands */
+enum command_id no_brace_command_accent_upper_case[][2] = {
+  {CM_aa, CM_AA},
+  {CM_ae, CM_AE},
+  {CM_dh, CM_DH},
+  {CM_l, CM_L},
+  {CM_o, CM_O},
+  {CM_oe, CM_OE},
+  {CM_th, CM_TH},
+  {0, 0},
+};
+
 static CONVERTER **converter_list;
 static size_t converter_number;
 static size_t converter_space;

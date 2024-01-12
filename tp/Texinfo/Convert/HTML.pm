@@ -3223,7 +3223,7 @@ sub _convert_no_arg_command($$$)
     }
   }
   if (in_upper_case($self) and $letter_no_arg_commands{$cmdname}
-      and $self->{'no_arg_commands_formatting'}->{uc($cmdname)}) {
+      and $letter_no_arg_commands{uc($cmdname)}) {
     $cmdname = uc($cmdname);
   }
 

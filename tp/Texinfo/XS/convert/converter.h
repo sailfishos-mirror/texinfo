@@ -73,6 +73,7 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     ELEMENT *prepended;
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 
+extern enum command_id no_brace_command_accent_upper_case[][2];
 
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter(void);
