@@ -651,7 +651,6 @@ html_gdt_string (const char *string, CONVERTER *self,
                  NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                  const char *translation_context, const char *in_lang)
 {
-  /* FIXME */
   char *translated_string = html_translate_string (self, string,
                                       translation_context, in_lang);
 
@@ -1612,7 +1611,6 @@ static enum command_id HTML_align_cmd[] = {
    CM_raggedright, CM_flushleft, CM_flushright, CM_center, 0
 };
 
-/* TODO free? It should be freed at exit? */
 void
 register_format_context_command (enum command_id cmd)
 {
@@ -5192,12 +5190,9 @@ static char *
 add_to_unit_file_name_paths (char **unit_file_name_paths,
                              char *filename, OUTPUT_UNIT *output_unit)
 {
-  /* FIXME simplify */
-  char **new_output_unit_file_name
-                  = &unit_file_name_paths[output_unit->index];
-  *new_output_unit_file_name = strdup (filename);
+  unit_file_name_paths[output_unit->index] = strdup (filename);
 
-  return *new_output_unit_file_name;
+  return unit_file_name_paths[output_unit->index];
 }
 
 static FILE_SOURCE_INFO_LIST *
@@ -5497,15 +5492,14 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
       size_t output_unit_file_idx = 0;
       FILE_NAME_PATH_COUNTER *output_unit_file;
       OUTPUT_UNIT *output_unit = output_units->list[i];
-      char *output_unit_file_name = unit_file_name_paths[i];
-      char *filename = strdup (output_unit_file_name);
+      char *filename = unit_file_name_paths[i];
       FILE_SOURCE_INFO *file_source_info
-        = find_file_source_info (files_source_info, output_unit_file_name);
+        = find_file_source_info (files_source_info, filename);
       char *filepath = file_source_info->path;
 
       FILE_NAME_PATH *file_name_path
         = call_file_id_setting_unit_file_name (self, output_unit,
-                                         output_unit_file_name, filepath);
+                                               filename, filepath);
       if (file_name_path)
         {
           if (file_name_path->filename)
@@ -5548,7 +5542,6 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                  output_unit_texi (output_unit),
                  output_unit->unit_filename, output_unit_file->counter);
       free (filename);
-      free (output_unit_file_name);
     }
 
   free (unit_file_name_paths);
@@ -18384,9 +18377,8 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
       close_html_lone_element (self, &text);
       text_append_n (&text, "\n", 1);
       self->date_in_header = strdup (text.text);
+      text_reset (&text);
     }
-
-  text_reset (&text);
 
   text_append (&result, "");
 
@@ -18462,7 +18454,8 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
       int i;
       ENCODING_CONVERSION *conversion = 0;
 
-      if (self->conf->OUTPUT_ENCODING_NAME.string)
+      if (self->conf->OUTPUT_ENCODING_NAME.string
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "utf-8"))
         {
           conversion
              = get_encoding_conversion (self->conf->OUTPUT_ENCODING_NAME.string,

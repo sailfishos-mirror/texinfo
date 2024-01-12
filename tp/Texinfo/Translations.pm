@@ -147,7 +147,7 @@ sub _switch_messages_locale
 #    general not set, except if set from the command line.
 #    When called from the parser, however, it should only be for @def* object
 #    oriented def* index name translation and $LANG is likely to be set from the
-#    tree is there was a @documentlanguage.
+#    tree if there was a @documentlanguage.
 #  * If called from a converter, documentlanguage will in general be set from
 #    the document when it is encountered.  Before the first @documentlanguage,
 #    it depends on the converter.  Some do not set @documentlanguage before it

@@ -8,6 +8,7 @@ BEGIN { plan tests => 7; };
 
 use Texinfo::Convert::Text;
 use Texinfo::Parser;
+use Texinfo::Document;
 use Texinfo::Structuring;
 use Test::Deep;
 # package Texinfo::MainConfig is in Texinfo::Config

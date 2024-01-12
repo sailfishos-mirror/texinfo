@@ -43,7 +43,7 @@ normalize_NFC (const char *text)
   size_t lengthp;
 
   char *result = 0;
-  /* FIXME error checking? */
+  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
   uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
   /* +1 to have the terminating NUL included in the string */
@@ -62,7 +62,7 @@ normalize_NFKD (const char *text)
   size_t lengthp;
 
   char *result = 0;
-  /* FIXME error checking? */
+  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
   uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
   /* +1 to have the terminating NUL included in the string */

@@ -458,6 +458,9 @@ setup_index_entry_keys_formatting (SV *customization_info_sv)
           {
             TEXT_OPTIONS *text_options
               = setup_converter_index_entry_keys_formatting (self);
+            /* this can happen if indices are sorted more than once */
+            if (self->convert_index_text_options)
+              destroy_text_options (self->convert_index_text_options);
             self->convert_index_text_options = text_options;
           }
         else

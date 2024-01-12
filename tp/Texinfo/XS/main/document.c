@@ -137,6 +137,9 @@ void
 register_document_convert_index_text_options (DOCUMENT *document,
                                               TEXT_OPTIONS *text_options)
 {
+  /* this can happen if indices are sorted more than once for a document */
+  if (document->convert_index_text_options)
+    destroy_text_options (document->convert_index_text_options);
   document->convert_index_text_options = text_options;
 }
 
@@ -171,9 +174,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
           free (document->options);
         }
       if (document->convert_index_text_options)
-        {
-          destroy_text_options (document->convert_index_text_options);
-        }
+        destroy_text_options (document->convert_index_text_options);
     }
 }
 
