@@ -37,7 +37,6 @@
 #include "converter_types.h"
 #include "builtin_commands.h"
 #include "errors.h"
-#include "convert_text.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
 #include "indices_in_conversion.h"
@@ -306,21 +305,25 @@ SV *
 text_convert_tree (SV *options_in, SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
-        TEXT_OPTIONS *text_options = 0;
     CODE:
         /* The caller checks that there is a descriptor */
         document = get_sv_tree_document (tree_in, "text_convert_tree");
-        text_options = copy_sv_options_for_convert_text (options_in);
         if (document)
           {
-            /* text_options is destroyed in text_convert */
-            char *result = text_convert (document, text_options);
+            char *result;
+            TEXT_OPTIONS *text_options
+               = copy_sv_options_for_convert_text (options_in);
+
+            text_options->document_descriptor = document->descriptor;
+
+            result = convert_to_text (document->tree, text_options);
+
+            destroy_text_options (text_options);
             RETVAL = newSVpv_utf8 (result, 0);
             free (result);
           }
         else
           {
-            destroy_text_options (text_options);
             RETVAL = newSV(0);
           }
     OUTPUT:

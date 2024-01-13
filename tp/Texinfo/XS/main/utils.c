@@ -288,10 +288,10 @@ word_bytes_len_multibyte (const char *text)
 /* conversion to or from utf-8 should always be set before other
    conversion */
 ENCODING_CONVERSION *
-get_encoding_conversion (char *encoding,
+get_encoding_conversion (const char *encoding,
                          ENCODING_CONVERSION_LIST *encodings_list)
 {
-  char *conversion_encoding = encoding;
+  const char *conversion_encoding = encoding;
   int encoding_index = -1;
 
   /* should correspond to
@@ -458,7 +458,7 @@ encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info)
 }
 
 char *
-decode_string (char *input_string, char *encoding, int *status,
+decode_string (char *input_string, const char *encoding, int *status,
                const SOURCE_INFO *source_info)
 {
   char *result;
@@ -480,7 +480,7 @@ decode_string (char *input_string, char *encoding, int *status,
 }
 
 char *
-encode_string (char *input_string, char *encoding, int *status,
+encode_string (char *input_string, const char *encoding, int *status,
                const SOURCE_INFO *source_info)
 {
   char *result;

@@ -269,7 +269,7 @@ encoded_input_file_name (OPTIONS *options,
                          const SOURCE_INFO *source_info)
 {
   char *result;
-  char *encoding = 0;
+  const char *encoding = 0;
   int status;
 
   if (options && options->INPUT_FILE_NAME_ENCODING.string)

@@ -379,8 +379,6 @@ ConvertXS_la_SOURCES = \
                        convert/call_html_perl_function.c \
                        convert/get_html_perl_info.c \
                        convert/get_html_perl_info.h \
-                       convert/convert_text.h \
-                       convert/convert_text.c \
                        convert/converter.h \
                        convert/converter.c \
                        convert/convert_html.h \
