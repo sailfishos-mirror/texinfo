@@ -1,5 +1,11 @@
 2024-01-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c: use strndup instead
+	of strdup and text_append_n instead of text_append using the len
+	set by SvPV* functions.
+
+2024-01-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c
 	(call_file_id_setting*): use newSVpv_utf8 to pass strings if they
 	could be encoded, and convert returned strings to UTF-8.

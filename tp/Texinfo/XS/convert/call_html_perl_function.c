@@ -108,12 +108,12 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
             {
               STRLEN len;
               filename = SvPVutf8 (filename_sv, len);
-              result->filename = strdup (filename);
+              result->filename = strndup (filename, len);
             }
 
           target_ret_sv = POPs;
           target_ret = SvPVutf8 (target_ret_sv, len);
-          result->target = strdup (target_ret);
+          result->target = strndup (target_ret, len);
 
           PUTBACK;
 
@@ -189,7 +189,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
 
           target_ret_sv = POPs;
           target_ret = SvPVutf8 (target_ret_sv, len);
-          result = strdup (target_ret);
+          result = strndup (target_ret, len);
 
           PUTBACK;
 
@@ -264,7 +264,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
               char *node_filename_ret;
               STRLEN len;
               node_filename_ret = SvPVutf8 (node_filename_ret_sv, len);
-              result = strdup (node_filename_ret);
+              result = strndup (node_filename_ret, len);
             }
           else
             result = 0;
@@ -346,17 +346,18 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
 
           filename_ret_sv = POPs;
           filename_ret = SvPVutf8 (filename_ret_sv, len);
-          result->filename = strdup (filename_ret);
+          result->filename = strndup (filename_ret, len);
           target_shortcontents_ret_sv = POPs;
           target_shortcontents_ret = SvPVutf8 (target_shortcontents_ret_sv,
                                                len);
-          result->target_shortcontents = strdup (target_shortcontents_ret);
+          result->target_shortcontents = strndup (target_shortcontents_ret,
+                                                   len);
           target_contents_ret_sv = POPs;
           target_contents_ret = SvPVutf8 (target_contents_ret_sv, len);
-          result->target_contents = strdup (target_contents_ret);
+          result->target_contents = strndup (target_contents_ret, len);
           target_ret_sv = POPs;
           target_ret = SvPVutf8 (target_ret_sv, len);
-          result->target = strdup (target_ret);
+          result->target = strndup (target_ret, len);
 
           PUTBACK;
 
@@ -429,7 +430,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
             {
               STRLEN len;
               char *filepath_ret = SvPVutf8 (filepath_ret_sv, len);
-              result->filepath = strdup (filepath_ret);
+              result->filepath = strndup (filepath_ret, len);
             }
 
           filename_ret_sv = POPs;
@@ -437,7 +438,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
             {
               STRLEN len;
               char *filename_ret = SvPVutf8 (filename_ret_sv, len);
-              result->filename = strdup (filename_ret);
+              result->filename = strndup (filename_ret, len);
             }
 
           PUTBACK;
@@ -512,7 +513,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
             {
               STRLEN len;
               char *filename_ret = SvPVutf8 (filename_sv, len);
-              result->filename = strdup (filename_ret);
+              result->filename = strndup (filename_ret, len);
             }
           else
             result->filename = strdup ("");
@@ -522,7 +523,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
             {
               STRLEN len;
               char *directory_ret = SvPVutf8 (directory_sv, len);
-              result->directory = strdup (directory_ret);
+              result->directory = strndup (directory_ret, len);
             }
           else
             result->directory = strdup ("");
@@ -532,7 +533,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
             {
               STRLEN len;
               char *target_ret = SvPVutf8 (target_sv, len);
-              result->target = strdup (target_ret);
+              result->target = strndup (target_ret, len);
             }
           else
             result->target = strdup ("");
@@ -606,7 +607,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
             {
               STRLEN len;
               char *file_ret = SvPVutf8 (file_sv, len);
-              result->filename = strdup (file_ret);
+              result->filename = strndup (file_ret, len);
             }
 
           target_sv = POPs;
@@ -614,7 +615,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
             {
               STRLEN len;
               char *target_ret = SvPVutf8 (target_sv, len);
-              result->target = strdup (target_ret);
+              result->target = strndup (target_ret, len);
             }
 
           PUTBACK;
@@ -678,7 +679,7 @@ call_formatting_function_format_comment (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -733,7 +734,7 @@ call_formatting_function_format_program_string (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -788,7 +789,7 @@ call_formatting_function_format_titlepage (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -843,7 +844,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -900,7 +901,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -955,7 +956,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1010,7 +1011,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1067,7 +1068,7 @@ call_formatting_function_format_css_lines (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1131,7 +1132,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1196,7 +1197,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1258,7 +1259,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   if (SvOK (result_sv))
     {
       result_ret = SvPVutf8 (result_sv, len);
-      result = strdup (result_ret);
+      result = strndup (result_ret, len);
     }
 
   PUTBACK;
@@ -1314,7 +1315,6 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (button_name, 0)));
-  /* FIXME could also be a byte string */
   PUSHs(sv_2mortal (newSVpv_utf8 (icon, 0)));
   PUSHs(sv_2mortal (name_sv));
   PUTBACK;
@@ -1329,7 +1329,7 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1477,7 +1477,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1540,7 +1540,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1631,7 +1631,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1699,7 +1699,7 @@ call_formatting_function_format_contents (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1759,7 +1759,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1821,7 +1821,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1887,7 +1887,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1947,7 +1947,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strdup (result_ret);
+  result = strndup (result_ret, len);
 
   PUTBACK;
 
@@ -2024,7 +2024,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  text_append (result, result_ret);
+  text_append_n (result, result_ret, len);
 
   PUTBACK;
 
@@ -2083,7 +2083,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  text_append (result, result_ret);
+  text_append_n (result, result_ret, len);
 
   PUTBACK;
 
@@ -2156,7 +2156,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  text_append (result, result_ret);
+  text_append_n (result, result_ret, len);
 
   PUTBACK;
 
@@ -2219,7 +2219,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  text_append (result, result_ret);
+  text_append_n (result, result_ret, len);
 
   PUTBACK;
 
@@ -2285,7 +2285,7 @@ call_output_units_conversion (CONVERTER *self,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  text_append (result, result_ret);
+  text_append_n (result, result_ret, len);
 
   PUTBACK;
 
@@ -2349,7 +2349,7 @@ call_special_unit_body_formatting (CONVERTER *self,
      It could be possible to add a wrapper in perl that encode to UTF-8,
      but probably not worth it */
   result_ret = SvPVutf8 (result_sv, len);
-  text_append (result, result_ret);
+  text_append_n (result, result_ret, len);
 
   PUTBACK;
 
@@ -2415,7 +2415,7 @@ call_button_simple_function (CONVERTER *self,
     {
       STRLEN len;
       char *active_ret = SvPVutf8 (active_sv, len);
-      result->active = strdup (active_ret);
+      result->active = strndup (active_ret, len);
     }
 
   PUTBACK;
@@ -2487,7 +2487,7 @@ call_button_direction_function (CONVERTER *self,
     {
       STRLEN len;
       char *active_ret = SvPVutf8 (active_sv, len);
-      result->active = strdup (active_ret);
+      result->active = strndup (active_ret, len);
     }
 
   PUTBACK;
