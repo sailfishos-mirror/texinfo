@@ -31,6 +31,7 @@
 #undef context
 
 #include "text.h"
+#include "option_types.h"
 #include "converter_types.h"
 #include "utils.h"
 /* for add_associated_info_integer */

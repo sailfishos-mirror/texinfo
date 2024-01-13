@@ -30,6 +30,7 @@
 #include "tree_types.h"
 #include "element_types.h"
 #include "converter_types.h"
+#include "option_types.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "command_stack.h"

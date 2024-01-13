@@ -31,8 +31,10 @@
 #include <unictype.h>
 
 #include "global_commands_types.h"
-#include "options_types.h"
 #include "tree_types.h"
+#include "option_types.h"
+#include "options_types.h"
+#include "converter_types.h"
 #include "command_ids.h"
 #include "text.h"
 /* also for xvasprintf */

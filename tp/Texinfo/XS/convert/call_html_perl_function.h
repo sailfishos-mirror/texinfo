@@ -3,6 +3,7 @@
 #define CALL_HTML_PERL_FUNCTION_H
 
 #include "tree_types.h"
+#include "option_types.h"
 #include "converter_types.h"
 /* for TARGET_FILENAME */
 #include "utils.h"

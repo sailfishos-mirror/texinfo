@@ -99,10 +99,9 @@ open (HEADER, '>', $header_file)
       or die "Open $header_file: $!\n";
 print HEADER "/* Automatically generated from $0 */\n\n";
 
-print HEADER "#ifndef OPTIONS_TYPE_H\n#define OPTIONS_TYPE_H\n\n";
+print HEADER "#ifndef OPTIONS_TYPES_H\n#define OPTIONS_TYPES_H\n\n";
 
-print HEADER "#include \"tree_types.h\"\n";
-print HEADER "#include \"converter_types.h\"\n\n";
+print HEADER "#include \"main/option_types.h\"\n\n";
 
 print HEADER "typedef struct OPTIONS {\n";
 

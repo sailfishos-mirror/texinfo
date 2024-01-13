@@ -31,6 +31,7 @@
 #undef context
 
 #include "tree_types.h"
+#include "option_types.h"
 #include "converter_types.h"
 
 /* to be called when a tree element is destroyed, to remove the reference

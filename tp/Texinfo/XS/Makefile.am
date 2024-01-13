@@ -145,6 +145,7 @@ libtexinfo_la_SOURCES= \
 		      main/targets.c \
 		      main/targets.h \
 		      main/options_init_free.c \
+		      main/option_types.h \
 		      main/options_types.h \
 		      main/global_commands_types.h \
 		      main/utils.c \
