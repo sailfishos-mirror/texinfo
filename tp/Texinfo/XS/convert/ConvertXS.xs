@@ -37,7 +37,6 @@
 #include "converter_types.h"
 #include "builtin_commands.h"
 #include "errors.h"
-#include "convert_plain_texinfo.h"
 #include "convert_text.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
@@ -294,7 +293,7 @@ plain_texinfo_convert_tree (SV *tree_in)
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           {
-            char *result = plain_texinfo_convert (document);
+            char *result = convert_to_texinfo (document->tree);
             RETVAL = newSVpv_utf8 (result, 0);
             free (result);
           }

@@ -1,5 +1,12 @@
 2024-01-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (ConvertXS_la_SOURCES),
+	tp/Texinfo/XS/convert/ConvertXS.xs (plain_texinfo_convert_tree):
+	remove convert/convert_plain_texinfo.c, call convert_to_texinfo
+	directly.
+
+2024-01-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c: use strndup instead
 	of strdup and text_append_n instead of text_append using the len
 	set by SvPV* functions.
