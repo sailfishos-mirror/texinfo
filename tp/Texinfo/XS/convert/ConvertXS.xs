@@ -288,8 +288,8 @@ plain_texinfo_convert_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        /* caller checks that there is a descriptor */
+        document = get_sv_tree_document (tree_in, "plain_texinfo_convert_tree");
         if (document)
           {
             char *result = convert_to_texinfo (document->tree);

@@ -97,6 +97,27 @@ for my $a (@ignored_types) {
   $ignored_types{$a} = 1;
 }
 
+# This is used if the document is available for XS, but XS is not
+# used (most likely $TEXINFO_XS_CONVERT is 0).
+sub _convert_tree_with_XS($)
+{
+  my $root = shift;
+
+  return _convert_to_texinfo($root);
+}
+
+sub _convert_to_texinfo($);
+# expand a tree to the corresponding texinfo.
+sub convert_to_texinfo($)
+{
+  my $element = shift;
+
+  if (defined($element->{'tree_document_descriptor'})) {
+    return _convert_tree_with_XS($element);
+  }
+  return _convert_to_texinfo($element);
+}
+
 # TODO document?
 sub link_element_to_texi($)
 {
@@ -182,28 +203,6 @@ sub root_heading_command_to_texinfo($)
 # Following subroutines deal with transforming a texinfo tree into texinfo
 # text.  Should give the text that was used parsed, except for a few cases.
 
-# This is used if the document is available for XS, but XS is not
-# used (most likely $TEXINFO_XS_CONVERT is 0).
-sub _convert_tree_with_XS($)
-{
-  my $root = shift;
-
-  return _convert_to_texinfo($root);
-}
-
-# expand a tree to the corresponding texinfo.
-sub convert_to_texinfo($);
-sub convert_to_texinfo($)
-{
-  my $element = shift;
-
-  if (defined($element->{'tree_document_descriptor'})) {
-    return _convert_tree_with_XS($element);
-  }
-  return _convert_to_texinfo($element);
-}
-
-sub _convert_to_texinfo($);
 sub _convert_to_texinfo($)
 {
   my $element = shift;
