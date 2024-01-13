@@ -279,6 +279,8 @@ typedef struct {
     size_t label_number;
     char *identifier;
     ELEMENT *element;
+ /* for label that is a duplicate, points to the element used in links */
+    const ELEMENT *reference;
 } LABEL;
 
 typedef struct {

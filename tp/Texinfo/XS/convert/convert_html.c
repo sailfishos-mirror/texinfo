@@ -2078,7 +2078,9 @@ set_root_commands_targets_node_files (CONVERTER *self)
 
       if (self->conf->EXTENSION.string)
         extension = self->conf->EXTENSION.string;
-      LABEL_LIST *label_targets = self->document->identifiers_target;
+      /* use labels_list and not identifiers_target to process in the
+         document order */
+      LABEL_LIST *label_targets = self->document->labels_list;
       int i;
       for (i = 0; i < label_targets->number; i++)
         {
@@ -2086,9 +2088,15 @@ set_root_commands_targets_node_files (CONVERTER *self)
           char *target;
           char *node_filename;
           char *user_node_filename;
+          const ELEMENT *label_element;
+          const ELEMENT *target_element;
           LABEL *label = &label_targets->list[i];
-          const ELEMENT *target_element = label->element;
-          const ELEMENT *label_element = get_label_element (target_element);
+
+          if (!label->identifier || label->reference)
+            continue;
+
+          target_element = label->element;
+          label_element = get_label_element (target_element);
 
           TARGET_FILENAME *target_filename =
            normalized_label_id_file (self, label->identifier, label_element);
@@ -3808,7 +3816,6 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
           else if (command->args.number <= 0
                    || command->args.list[0]->contents.number <= 0)
             { /* no argument, nothing to do */
-              /* TODO check if possible */
               tree->status = tree_added_status_no_tree;
             }
           else
@@ -4917,12 +4924,50 @@ set_heading_commands_targets (CONVERTER *self)
     }
 }
 
-/* It may not be efficient to sort and find back with bsearch
-   if there is a small number of elements.  However, some target
-   elements should already be ordered when they are accessed in
-   their order of appearance in the document.
-   TODO check in which case it is not true and use another data
-   source if possible  */
+/* For debug/check/optimization
+   used to check to what extent the targets are already ordered.
+   Return the number of elements ordered ok with respect to the
+   previous element
+ */
+size_t
+check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
+{
+  size_t i;
+  size_t result = 0;
+  if (element_targets->number <= 1)
+    return result;
+  for (i = 1; i < element_targets->number; i++)
+    {
+      if (compare_element_target (&element_targets->list[i-1],
+                                  &element_targets->list[i]) > 0)
+        {
+          fprintf (stderr, "no %s %zu %ld %p %s %zu %ld %p %s\n",
+           builtin_command_name (cmd), i-1,
+           (uintptr_t)element_targets->list[i-1].element,
+           element_targets->list[i-1].element, element_targets->list[i-1].target,
+           i, (uintptr_t)element_targets->list[i].element,
+           element_targets->list[i].element, element_targets->list[i].target);
+        }
+      else
+        result++;
+    }
+  return result;
+}
+
+/* It may not be efficient to sort and find back with bsearch if there is
+   a small number of elements.  However, some target elements are more
+   likely to already be ordered when they are accessed in their order of
+   appearance in the document.  There is no guarantee, as it is only in the
+   same array that adresses are guaranteed to be increasing.  A check done
+   in 2024 with gcc, using check_targets_order, and also looking at the
+   address of newly allocated elements shows that elements are
+   not that much allocated in order.  However, overall, the addresses are
+   more in order when elements are accessed in the document order.
+   For indices, it is not really possible to get them in document order,
+   within an index they are in document order, but not across indices.
+   The other data are in document order, for nodes and similar because
+   the labels list is used instead of identifiers_target on purpose.
+ */
 void
 sort_cmd_targets (CONVERTER *self)
 {
@@ -4934,6 +4979,11 @@ sort_cmd_targets (CONVERTER *self)
       if (self->html_targets[cmd].number > 0)
         {
           HTML_TARGET_LIST *element_targets = &self->html_targets[cmd];
+           /* to check the order
+          size_t ordered_items = check_targets_order (cmd, element_targets);
+          fprintf (stderr, "ORDER %s %zu / %zu\n", builtin_command_name (cmd),
+                   ordered_items, element_targets->number -1);
+            */
           qsort (element_targets->list,
                  element_targets->number,
                  sizeof (HTML_TARGET), compare_element_target);
@@ -7906,7 +7956,7 @@ word_number_more_than_level (const char *text, int level)
   int count = 0;
 
   while (*p)
-    {
+    {/* FIXME in perl unicode spaces are also matched */
       int n = strspn (p, whitespace_chars);
       if (n)
         {
@@ -8525,7 +8575,7 @@ convert_email_command (CONVERTER *self, const enum command_id cmd,
       text = mail_string;
     }
 
-  /* FIXME match unicode spaces in perl */
+  /* FIXME in perl unicode spaces are also matched */
   if (!mail || mail[strspn (mail, whitespace_chars)] == '\0')
     {
       if (text)

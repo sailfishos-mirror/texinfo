@@ -14,7 +14,8 @@ void command_warn (const ELEMENT *e, const char *format, ...);
 void wipe_errors (void);
 void forget_errors (void);
 void line_error_ext (enum error_type type, int continuation,
-                     SOURCE_INFO *cmd_source_info, const char *format, ...);
+                     const SOURCE_INFO *cmd_source_info,
+                     const char *format, ...);
 void bug_message (char *format, ...);
 
 extern ERROR_MESSAGE_LIST error_messages_list;

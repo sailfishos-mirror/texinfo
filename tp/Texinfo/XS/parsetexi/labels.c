@@ -61,6 +61,7 @@ register_label (ELEMENT *target_element, char *normalized)
   labels_list[labels_number].element = target_element;
   labels_list[labels_number].label_number = labels_number;
   labels_list[labels_number].identifier = normalized;
+  labels_list[labels_number].reference = 0;
   labels_number++;
 }
 

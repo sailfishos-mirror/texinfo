@@ -132,6 +132,8 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
           while (j < targets_number - 1 && targets[j+1].identifier
                  && !strcmp (targets[i].identifier, targets[j+1].identifier))
             {
+              list_of_labels[targets[j+1].label_number].reference
+                                   = targets[i].element;
               j++;
             }
           if (j > i)

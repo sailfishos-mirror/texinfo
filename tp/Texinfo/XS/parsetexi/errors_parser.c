@@ -51,7 +51,7 @@ line_error_internal (enum error_type type, int continuation,
 
 void
 line_error_ext (enum error_type type, int continuation,
-                SOURCE_INFO *cmd_source_info,
+                const SOURCE_INFO *cmd_source_info,
                 const char *format, ...)
 {
   va_list v;

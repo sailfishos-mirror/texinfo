@@ -235,7 +235,7 @@ void
 message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
                              OPTIONS *conf,
                              enum error_type type, int continuation,
-                     SOURCE_INFO *cmd_source_info, const char *format, ...)
+              const SOURCE_INFO *cmd_source_info, const char *format, ...)
 {
   va_list v;
 
