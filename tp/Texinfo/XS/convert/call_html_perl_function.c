@@ -41,6 +41,10 @@
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
+/* NOTE newSVpv_utf8 is used for file names because extensions may be supplied
+   by the user, the base file name may be ASCII, the extension may not.  Also,
+   in some cases, file name could be TOP_NODE_FILE_TARGET. */
+
 TARGET_FILENAME *
 call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
                          const OUTPUT_UNIT *special_unit, const char *target,
@@ -88,9 +92,8 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
 
           PUSHs(sv_2mortal (newRV_inc (self->hv)));
           PUSHs(sv_2mortal (newRV_inc (special_unit->hv)));
-          /* FIXME encoding */
-          PUSHs(sv_2mortal (newSVpv (target, 0)));
-          PUSHs(sv_2mortal (newSVpv (default_filename, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (target, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (default_filename, 0)));
           PUTBACK;
 
           count = call_sv (*special_unit_target_file_name_sv, G_ARRAY);
@@ -104,12 +107,12 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
           if (SvOK (filename_sv))
             {
               STRLEN len;
-              filename = SvPV (filename_sv, len);
+              filename = SvPVutf8 (filename_sv, len);
               result->filename = strdup (filename);
             }
 
           target_ret_sv = POPs;
-          target_ret = SvPV (target_ret_sv, len);
+          target_ret = SvPVutf8 (target_ret_sv, len);
           result->target = strdup (target_ret);
 
           PUTBACK;
@@ -185,7 +188,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
             croak("label_target_name should return 1 item\n");
 
           target_ret_sv = POPs;
-          target_ret = SvPV (target_ret_sv, len);
+          target_ret = SvPVutf8 (target_ret_sv, len);
           result = strdup (target_ret);
 
           PUTBACK;
@@ -244,7 +247,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
 
           PUSHs(sv_2mortal (newRV_inc (self->hv)));
           PUSHs(sv_2mortal (newRV_inc (target_element->hv)));
-          PUSHs(sv_2mortal (newSVpv (node_filename, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (node_filename, 0)));
           PUTBACK;
 
           count = call_sv (*node_file_name_sv, G_ARRAY);
@@ -260,7 +263,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
             {
               char *node_filename_ret;
               STRLEN len;
-              node_filename_ret = SvPV (node_filename_ret_sv, len);
+              node_filename_ret = SvPVutf8 (node_filename_ret_sv, len);
               result = strdup (node_filename_ret);
             }
           else
@@ -331,7 +334,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv (target, 0)));
           PUSHs(sv_2mortal (newSVpv (target_contents, 0)));
           PUSHs(sv_2mortal (newSVpv (target_shortcontents, 0)));
-          PUSHs(sv_2mortal (newSVpv (filename, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
           PUTBACK;
 
           count = call_sv (*sectioning_command_target_name_sv, G_ARRAY);
@@ -342,17 +345,17 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
             croak("sectioning_command_target_name should return 4 items\n");
 
           filename_ret_sv = POPs;
-          filename_ret = SvPV (filename_ret_sv, len);
+          filename_ret = SvPVutf8 (filename_ret_sv, len);
           result->filename = strdup (filename_ret);
           target_shortcontents_ret_sv = POPs;
-          target_shortcontents_ret = SvPV (target_shortcontents_ret_sv,
-                                           len);
+          target_shortcontents_ret = SvPVutf8 (target_shortcontents_ret_sv,
+                                               len);
           result->target_shortcontents = strdup (target_shortcontents_ret);
           target_contents_ret_sv = POPs;
-          target_contents_ret = SvPV (target_contents_ret_sv, len);
+          target_contents_ret = SvPVutf8 (target_contents_ret_sv, len);
           result->target_contents = strdup (target_contents_ret);
           target_ret_sv = POPs;
-          target_ret = SvPV (target_ret_sv, len);
+          target_ret = SvPVutf8 (target_ret_sv, len);
           result->target = strdup (target_ret);
 
           PUTBACK;
@@ -410,8 +413,8 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
 
           PUSHs(sv_2mortal (newRV_inc (self->hv)));
           PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
-          PUSHs(sv_2mortal (newSVpv (filename, 0)));
-          PUSHs(sv_2mortal (newSVpv (filepath, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (filepath, 0)));
           PUTBACK;
 
           count = call_sv (*unit_file_name_sv, G_ARRAY);
@@ -425,7 +428,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
           if (SvOK (filepath_ret_sv))
             {
               STRLEN len;
-              char *filepath_ret = SvPV (filepath_ret_sv, len);
+              char *filepath_ret = SvPVutf8 (filepath_ret_sv, len);
               result->filepath = strdup (filepath_ret);
             }
 
@@ -433,7 +436,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
           if (SvOK (filename_ret_sv))
             {
               STRLEN len;
-              char *filename_ret = SvPV (filename_ret_sv, len);
+              char *filename_ret = SvPVutf8 (filename_ret_sv, len);
               result->filename = strdup (filename_ret);
             }
 
@@ -492,10 +495,9 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
           PUSHs(sv_2mortal (newRV_inc (self->hv)));
           PUSHs(sv_2mortal (newSVpv (normalized, 0)));
           PUSHs(sv_2mortal (newRV_inc (element->hv)));
-          /* FIXME encoding */
           PUSHs(sv_2mortal (newSVpv (target, 0)));
-          PUSHs(sv_2mortal (newSVpv (directory, 0)));
-          PUSHs(sv_2mortal (newSVpv (file_name, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (directory, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (file_name, 0)));
           PUTBACK;
 
           count = call_sv (*external_target_split_name_sv, G_ARRAY);
@@ -509,7 +511,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
           if (SvOK (filename_sv))
             {
               STRLEN len;
-              char *filename_ret = SvPV (filename_sv, len);
+              char *filename_ret = SvPVutf8 (filename_sv, len);
               result->filename = strdup (filename_ret);
             }
           else
@@ -519,7 +521,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
           if (SvOK (directory_sv))
             {
               STRLEN len;
-              char *directory_ret = SvPV (directory_sv, len);
+              char *directory_ret = SvPVutf8 (directory_sv, len);
               result->directory = strdup (directory_ret);
             }
           else
@@ -529,7 +531,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
           if (SvOK (target_sv))
             {
               STRLEN len;
-              char *target_ret = SvPV (target_sv, len);
+              char *target_ret = SvPVutf8 (target_sv, len);
               result->target = strdup (target_ret);
             }
           else
@@ -588,9 +590,8 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
           PUSHs(sv_2mortal (newRV_inc (self->hv)));
           PUSHs(sv_2mortal (newSVpv (normalized, 0)));
           PUSHs(sv_2mortal (newRV_inc (element->hv)));
-          /* FIXME encoding */
           PUSHs(sv_2mortal (newSVpv (target, 0)));
-          PUSHs(sv_2mortal (newSVpv (file, 0)));
+          PUSHs(sv_2mortal (newSVpv_utf8 (file, 0)));
           PUTBACK;
 
           count = call_sv (*external_target_non_split_name_sv, G_ARRAY);
@@ -604,7 +605,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
           if (SvOK (file_sv))
             {
               STRLEN len;
-              char *file_ret = SvPV (file_sv, len);
+              char *file_ret = SvPVutf8 (file_sv, len);
               result->filename = strdup (file_ret);
             }
 
@@ -612,7 +613,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
           if (SvOK (target_sv))
             {
               STRLEN len;
-              char *target_ret = SvPV (target_sv, len);
+              char *target_ret = SvPVutf8 (target_sv, len);
               result->target = strdup (target_ret);
             }
 
