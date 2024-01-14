@@ -1,3 +1,14 @@
+2024-01-14  Patrice Dumas  <pertusus@free.fr>
+
+	contrib/mass_test for tests on manuals found on GNU website
+
+	* contrib/mass_test/get_manuals.sh,
+	contrib/mass_test/extract_manuals.sh: scripts to download and
+	extract manuals found on the GNU website in software/*/manual/*.texi*.
+
+	* contrib/mass_test/setup_reference_perlVSC.sh,
+	contrib/mass_test/check_perlVSC.sh: check C against perl HTML output.
+
 2024-01-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/t/21multitable.t (fullwidth_in_prototype): New test.
