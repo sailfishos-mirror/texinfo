@@ -291,18 +291,24 @@ sub _new_node($$;$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  # If there is a tree_document_descriptor (normally could only happen
-  # in tests on especially built trees), and changes are only done to
-  # underlying XS tree, the changes by Texinfo::Common::protect_* will
-  # be done on the underlying XS tree, but the perl tree will not change,
-  # although it is the perl tree that is used to construct the node.
-  # Also protect_first_parenthesis has no XS override, only
-  # protect_first_parenthesis_in_targets.
-  # FIXME we could also rebuild the tree, after adding an override
-  # for protect_first_parenthesis?
-  my $descriptor = $node_tree->{'tree_document_descriptor'};
-  if ($descriptor) {
-    delete $node_tree->{'tree_document_descriptor'};
+  if ($XS_structuring) {
+    # If there were XS overrides for all the transformations, they would
+    # necessarily fail, so treat as a bug even though it does not matter
+    # with missing overrides, as seen just below.
+    if (!$node_tree->{'tree_document_descriptor'}) {
+      print STDERR "BUG: new_node: with XS, no tree_document_descriptor\n";
+    }
+
+    # If changes are only done to underlying XS tree, the changes by
+    # Texinfo::Common::protect_* will be done on the underlying XS tree,
+    # but the perl tree will not change, although it is the perl tree
+    # that is used to construct the node.
+    # Also protect_first_parenthesis has no XS override, only
+    # protect_first_parenthesis_in_targets.
+    # FIXME we could also rebuild the tree, after adding an override
+    # for protect_first_parenthesis?
+    print STDERR "FATAL (BUG): _new_node: XS not supported\n";
+    exit (1);
   }
 
   # We protect for all the contexts, as the node name should be

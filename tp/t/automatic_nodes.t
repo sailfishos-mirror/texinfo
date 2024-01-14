@@ -17,13 +17,15 @@ use Data::Dumper;
 
 ok(1);
 
-my $with_XS = ((not defined($ENV{TEXINFO_XS})
-                or $ENV{TEXINFO_XS} ne 'omit')
-               and (!defined $ENV{TEXINFO_XS_PARSER}
-                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
+my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
+                        or $ENV{TEXINFO_XS} ne 'omit')
+                       and (not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
 
-# FIXME tests in test_new_node do not test the transformations XS codes,
-# see comment in the beginning of _new_node.
+# _new_node cannot be called with XS used for structuring.
+# See comment in the beginning of _new_node.
 sub test_new_node($$$$)
 {
   my $in = shift;
@@ -62,7 +64,7 @@ sub test_new_node($$$$)
 }
 SKIP:
 {
-  skip "test perl not XS", 7 * 3 if ($with_XS);
+  skip "test perl not XS", 7 * 3 if ($XS_structuring);
 
 test_new_node ('a node', 'a-node', '@node a node
 ', 'simple');
@@ -96,7 +98,7 @@ my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 
 SKIP:
 {
-  skip "test perl not XS", 1 if ($with_XS);
+  skip "test perl not XS", 1 if ($XS_structuring);
 
 my $new_node = Texinfo::Transformations::_new_node($line_tree, $document);
 is ('@node a node 1
