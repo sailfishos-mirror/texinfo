@@ -260,6 +260,7 @@ sub reset_options_code($)
   $options->{'_code_state'}--;
 }
 
+# $SELF is an object implementing get_conf, in general a converter.
 # set enabled_encoding unless the encoding is ascii, even if
 # ENABLE_ENCODING is not set.
 sub set_options_encoding_if_not_ascii($$)
@@ -376,6 +377,8 @@ sub text_accents($;$$)
   }
 }
 
+sub _convert($$);
+
 # TODO document?  Used in other converters.
 sub brace_no_arg_command($;$)
 {
@@ -402,7 +405,7 @@ sub brace_no_arg_command($;$)
      = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
                                                         $command);
     if ($tree) {
-      $result = _convert($tree, $options);
+      $result = _convert($options, $tree);
     }
   }
   if (!defined($result)) {
@@ -480,12 +483,10 @@ sub _convert_tree_with_XS($$)
 {
 }
 
-sub _convert($;$);
-
-sub _convert($;$)
+sub _convert($$)
 {
-  my $element = shift;
   my $options = shift;
+  my $element = shift;
 
   #print STDERR "E: c: ".(defined($options->{'_code_state'})
   #                         ? $options->{'_code_state'} : 'UNDEF')
@@ -546,7 +547,7 @@ sub _convert($;$)
       } else {
         $tree = $options->{'converter'}->gdt($element->{'text'});
       }
-      $result = _convert($tree, $options);
+      $result = _convert($options, $tree);
     } else {
       $result = $element->{'text'};
       if ((! defined($element->{'type'})
@@ -578,9 +579,9 @@ sub _convert($;$)
           and $sort_brace_no_arg_commands{$element->{'cmdname'}}) {
         return $sort_brace_no_arg_commands{$element->{'cmdname'}};
       } elsif ($options->{'converter'}) {
-        return _convert(Texinfo::Convert::Utils::expand_today(
-                                         $options->{'converter'}),
-                        $options);
+        return _convert($options,
+                        Texinfo::Convert::Utils::expand_today(
+                                         $options->{'converter'}));
       } elsif ($options->{'TEST'}) {
         return 'a sunny day';
       } else {
@@ -598,28 +599,28 @@ sub _convert($;$)
       return $result;
     } elsif ($element->{'cmdname'} eq 'image') {
       $options->{'_code_state'}++;
-      my $text = _convert($element->{'args'}->[0], $options);
+      my $text = _convert($options, $element->{'args'}->[0]);
       $options->{'_code_state'}--;
       return $text;
     } elsif ($element->{'cmdname'} eq 'email') {
       my $text;
-      $text = _convert($element->{'args'}->[1], $options)
+      $text = _convert($options, $element->{'args'}->[1])
          if (defined($element->{'args'}->[1]));
       return $text if (defined($text) and ($text ne ''));
       $options->{'_code_state'}++;
-      my $mail = _convert($element->{'args'}->[0], $options);
+      my $mail = _convert($options, $element->{'args'}->[0]);
       $options->{'_code_state'}--;
       return $mail;
     } elsif ($element->{'cmdname'} eq 'uref' or $element->{'cmdname'} eq 'url') {
       my $replacement;
-      $replacement = _convert($element->{'args'}->[2], $options)
+      $replacement = _convert($options, $element->{'args'}->[2])
         if (defined($element->{'args'}->[2]));
       return $replacement if (defined($replacement) and $replacement ne '');
       my $text;
-      $text = _convert($element->{'args'}->[1], $options)
+      $text = _convert($options, $element->{'args'}->[1])
         if (defined($element->{'args'}->[1]));
       $options->{'_code_state'}++;
-      my $url = _convert($element->{'args'}->[0], $options);
+      my $url = _convert($options, $element->{'args'}->[0]);
       $options->{'_code_state'}--;
       if (defined($text) and $text ne '') {
         return "$url ($text)";
@@ -628,11 +629,11 @@ sub _convert($;$)
       }
     } elsif ($Texinfo::Commands::explained_commands{$element->{'cmdname'}}
              and $element->{'args'} and $element->{'args'}->[1]) {
-      my $explanation = _convert($element->{'args'}->[1], $options);
+      my $explanation = _convert($options, $element->{'args'}->[1]);
       if ($explanation ne '') {
-        return _convert($element->{'args'}->[0], $options) ." ($explanation)";
+        return _convert($options, $element->{'args'}->[0]) ." ($explanation)";
       } else {
-        return _convert($element->{'args'}->[0], $options);
+        return _convert($options, $element->{'args'}->[0]);
       }
     } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
              and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
@@ -649,7 +650,7 @@ sub _convert($;$)
       }
       my $result = '';
       if (scalar(@{$element->{'args'}}) > $arg_index) {
-        $result = _convert($element->{'args'}->[$arg_index], $options);
+        $result = _convert($options, $element->{'args'}->[$arg_index]);
       }
       if ($element->{'cmdname'} eq 'inlineraw') {
         $options->{'_raw_state'}--;
@@ -669,7 +670,7 @@ sub _convert($;$)
         $in_code = 1;
       }
       $options->{'_code_state'}++ if ($in_code);
-      $result = _convert($element->{'args'}->[0], $options);
+      $result = _convert($options, $element->{'args'}->[0]);
       $options->{'_code_state'}-- if ($in_code);
       $options->{'set_case'}-- if ($element->{'cmdname'} eq 'sc');
       return $result;
@@ -680,7 +681,7 @@ sub _convert($;$)
              or $element->{'cmdname'} eq 'cartouche') {
       if ($element->{'args'}) {
         foreach my $arg (@{$element->{'args'}}) {
-          my $converted_arg = _convert($arg, $options);
+          my $converted_arg = _convert($options, $arg);
           if ($converted_arg =~ /\S/) {
             $result .= $converted_arg.", ";
           }
@@ -695,7 +696,7 @@ sub _convert($;$)
         if ($element->{'cmdname'} eq 'page') {
           $result = '';
         } else {
-          $result = _convert($element->{'args'}->[0], $options);
+          $result = _convert($options, $element->{'args'}->[0]);
         }
         if ($Texinfo::Commands::sectioning_heading_commands{
                                                     $element->{'cmdname'}}) {
@@ -730,7 +731,7 @@ sub _convert($;$)
             = Texinfo::Convert::Utils::expand_verbatiminclude($options, $element);
         }
         if (defined($verbatim_include_verbatim)) {
-          $result .= _convert($verbatim_include_verbatim, $options);
+          $result .= _convert($options, $verbatim_include_verbatim);
         }
       }
     } elsif ($element->{'cmdname'} eq 'item'
@@ -751,22 +752,22 @@ sub _convert($;$)
       = Texinfo::Convert::Utils::definition_category_tree(
                                             $options->{'converter'}, $element);
     if (defined($parsed_definition_category)) {
-      my @contents = ($parsed_definition_category, {'text' => ': '});
+      my $converted_element = {'contents' => 
+                        [$parsed_definition_category, {'text' => ': '}]};
+      my $contents = $converted_element->{'contents'};
       if ($type_element) {
-        push @contents, ($type_element,
-                         {'text' => ' '});
+        push @$contents, ($type_element, {'text' => ' '});
       }
       if ($name_element) {
-        push @contents, $name_element;
+        push @$contents, $name_element;
       }
 
       if ($arguments) {
-        push @contents, {'text' => ' '};
-        push @contents, $arguments;
+        push @$contents, ({'text' => ' '}, $arguments);
       }
-      push @contents, {'text' => "\n"};
+      push @$contents, {'text' => "\n"};
       $options->{'_code_state'}++;
-      $result = _convert({'contents' => \@contents}, $options);
+      $result = _convert($options, $converted_element);
       $options->{'_code_state'}--;
     }
   }
@@ -794,7 +795,7 @@ sub _convert($;$)
     $options->{'_code_state'}++ if ($in_code);
     $options->{'_raw_state'}++ if ($in_raw);
     foreach my $content (@{$element->{'contents'}}) {
-      $result .= _convert($content, $options);
+      $result .= _convert($options, $content);
     }
     $options->{'_raw_state'}-- if ($in_raw);
     $options->{'_code_state'}-- if ($in_code);
@@ -837,7 +838,7 @@ sub convert_to_text($;$)
     return _convert_tree_with_XS($options, $root);
   }
 
-  return _convert($root, $options);
+  return _convert($options, $root);
 }
 
 
@@ -888,7 +889,7 @@ sub convert_tree($$)
 
   my $options = {};
 
-  return _convert($element, $options);
+  return _convert($options, $element);
 }
 
 # This function is not called in anywhere in Texinfo code, it is implemented
@@ -904,7 +905,7 @@ sub convert($$)
 
   my $options = {};
 
-  return _convert($root, $options);
+  return _convert($options, $root);
 }
 
 # determine outfile and output to that file
@@ -1015,7 +1016,7 @@ sub output($$)
   if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
     $result = _convert_tree_with_XS($self, $root);
   } else {
-    $result = _convert($root, $self);
+    $result = _convert($self, $root);
   }
 
   if ($fh) {

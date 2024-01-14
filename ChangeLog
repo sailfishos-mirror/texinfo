@@ -1,3 +1,8 @@
+2024-01-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Text.pm (_convert): switch arguments and make
+	options argument non optional.
+
 2024-01-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
