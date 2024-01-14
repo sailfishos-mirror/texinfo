@@ -283,7 +283,7 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
                            &e->source_info, format, v);
 }
 
-/* FIXME continuation? */
+/* TODO a continuation argument may need to be added. */
 void
 message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
                              OPTIONS *conf,

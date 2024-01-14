@@ -1,5 +1,18 @@
 2024-01-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (item_line_parent): use
+	element_builtin_cmd.
+
+	* tp/Texinfo/XS/main/utils.c (informative_command_value): if there is
+	only one rawline argument, returns it.  Return a newly allocated
+	text only if there is more than one argument.  In that case, the
+	returned text won't be freed, but this is not an issue as it could
+	only happen with @set, which is ignored.
+
+	Add, modify, change status of TODO/FIXME.
+
+2024-01-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs: add warn
 	strings fior all the functions that are fully overriden, and modify
 	comments for the other functions.

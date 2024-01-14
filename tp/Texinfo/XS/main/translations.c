@@ -490,9 +490,10 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
    */
   parser_set_accept_internalvalue (1);
 
-  /* FIXME implement setting configuration.  This may not be needed when
-     called from a parser without reset_parser being called, but would be
-     when called from a converter */
+  /* TODO implement setting configuration.  This may not be needed when
+     called from a parser without reset_parser being called, but could be
+     when called from a converter.  As long as only DEBUG is passed
+     this is not really problematic. */
   /*
   # general customization relevant for parser
   if ($customization_information) {

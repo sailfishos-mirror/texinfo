@@ -1162,7 +1162,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
               ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
               replace_element_in_list (
                  &document->global_commands->detailmenu, removed, master_menu);
-              /* FIXME are the new entries added to internal refs?
+              /* TODO are the new entries added to internal refs?
                  Note that if they are not, it is possible that this has
                  no impact as the associated entry in menu may be
                  in internal refs, and maybe it is enough.
@@ -1274,7 +1274,8 @@ protect_node_after_label_in_tree (ELEMENT *tree)
   return modify_tree (tree, &protect_node_after_label, 0);
 }
 
-/* $customization_information in argument in perl */
+/* NOTE in perl there is a customization_information, but here we use the
+   document for error registration and customization */
 ELEMENT_LIST *
 protect_hashchar_at_line_beginning_internal (const char *type,
                                              ELEMENT *current,
@@ -1449,7 +1450,8 @@ protect_hashchar_at_line_beginning_internal (const char *type,
   return 0;
 }
 
-/* FIXME $customization_information in perl */
+/* NOTE in perl there is a customization_information, but here we use the
+   document for error registration and customization */
 ELEMENT *
 protect_hashchar_at_line_beginning (DOCUMENT *document)
 {

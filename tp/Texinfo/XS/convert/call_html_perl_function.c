@@ -42,6 +42,9 @@
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
+ /* TODO the NOTE in build_perl_info.c about not using malloc/free should
+    be relevant for this file */
+
 /* NOTE newSVpv_utf8 is used for file names because extensions may be supplied
    by the user, the base file name may be ASCII, the extension may not.  Also,
    in some cases, file name could be TOP_NODE_FILE_TARGET. */

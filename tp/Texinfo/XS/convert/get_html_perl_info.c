@@ -52,6 +52,9 @@ FIXME add an initialization of translations?
 #include "build_perl_info.h"
 #include "get_html_perl_info.h"
 
+ /* TODO the NOTE in build_perl_info.c about not using malloc/free should
+    be relevant for this file */
+
 /* Following is HTML specific */
 static SV **
 register_formatting_reference_default (char *type_string,

@@ -54,6 +54,9 @@ FIXME add an initialization of translations?
 #include "converter.h"
 #include "get_perl_info.h"
 
+ /* TODO the NOTE in build_perl_info.c about not using malloc/free should
+    be relevant for this file */
+
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
 
 static void

@@ -299,6 +299,9 @@ foreach my $category (sort(keys(%option_categories))) {
       if ($type eq 'bytes') {
         $SV_function_type = 'byte';
       }
+      # TODO the generated file includes perl headers.  The NOTE in
+      # build_perl_info.c about not using malloc/free should be relevant for
+      # the generated file.
       print GET "      free (options->$option.string);
       if (SvOK (value))
         options->$option.string = strdup (SvPV${SV_function_type}_nolen (value));

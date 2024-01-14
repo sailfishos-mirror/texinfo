@@ -193,7 +193,7 @@ isascii_upper (int c)
 size_t
 count_multibyte (const char *text)
 {
-  /* FIXME error checking? */
+  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
   uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
   size_t result = u8_mbsnlen (u8_text, u8_strlen (u8_text));
@@ -209,7 +209,7 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   char *result;
   size_t lengthp;
   uint8_t *u8_result;
-  /* FIXME error checking? */
+  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
   uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
                                                iconveh_question_mark);
   if (lower_or_upper > 0)
@@ -235,10 +235,10 @@ width_multibyte (const char *text)
   const char *p = strrchr (text, '\n');
   if (!p)
     p = text;
-  /* FIXME error checking? */
+  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
   uint8_t *u8_text = u8_strconv_from_encoding (p, "UTF-8",
                                                  iconveh_question_mark);
-  /* FIXME the libunistring documentation described encoding as
+  /* NOTE the libunistring documentation described encoding as
      The encoding argument identifies the encoding (e.g. "ISO-8859-2"
      for Polish).  Looking at the code, it seems that it is only
      used to determine if it is a CJK encoding in a list of upper-case
@@ -586,12 +586,15 @@ set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
 ELEMENT *
 item_line_parent (ELEMENT *current)
 {
+  enum command_id cmd;
+
   if (current->type == ET_before_item && current->parent)
     current = current->parent;
 
-  /* FIXME could it be possible that current is a user defined command? */
-  /* if (command_data(current->cmd).data == BLOCK_item_line) */
-  if (builtin_command_data[current->cmd].data == BLOCK_item_line)
+  /* this code handles current being a user defined command even tough
+     it is not clear that it may happen */
+  cmd = element_builtin_cmd (current);
+  if (builtin_command_data[cmd].data == BLOCK_item_line)
     return current;
 
   return 0;
@@ -1087,27 +1090,37 @@ informative_command_value (const ELEMENT *element)
     {
       if (builtin_command_data[cmd].args_number <= 0)
         return "1";
-      /* FIXME is it possible to have args.number > 1? */
+      /* NOTE only @set, which should be ignored, can have args.number > 1.
+         We handle this case with TEXT text, but do not free memory
+         as should be, as this case should never happen. 
+       */
       else if (element->args.number > 0)
         {
           TEXT text;
           int i;
-          int text_seen = 0;
-          text_init (&text);
+          char *text_seen = 0;
           for (i = 0; i < element->args.number; i++)
             {
               ELEMENT *arg = element->args.list[i];
               if (arg->text.end)
                 {
                   if (!text_seen)
-                    text_seen = 1;
+                    text_seen = arg->text.text;
                   else
-                    text_append (&text, " ");
-                  text_append (&text, arg->text.text);
+                    {
+                      text_init (&text);
+                      text_append (&text, text_seen);
+                      text_append (&text, " ");
+                      text_append (&text, arg->text.text);
+                    }
                 }
             }
-          /* FIXME to be freed */
-          return text.text;
+          if (text.end)
+            /* NOTE would need to be freed, but this case cannot happen,
+               so we leave it like that, see the comment above. */
+            return text.text;
+          else
+            return text_seen;
         }
     }
   text_arg = lookup_extra_string (element, "text_arg");
