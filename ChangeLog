@@ -1,5 +1,10 @@
 2024-01-14  Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/mass_test/check_perlVSC.sh: do only the manual given in
+	argument if an argument is given.
+
+2024-01-14  Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/mass_test/*.sh: add copyright notices.
 
 	* contrib/mass_test/extract_manuals.sh: call sed portably.

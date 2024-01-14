@@ -19,8 +19,15 @@
 dir=compare_C_HTML
 mkdir -p $dir
 
-rm -rf result_check_perlVSC
-mkdir result_check_perlVSC
+one_test=no
+if test -n "$1"; then
+  one_test=yes
+  the_test=$1
+else
+  rm -rf result_check_perlVSC
+fi
+
+mkdir -p result_check_perlVSC
 
 TEXINFO_XS_CONVERT=1
 export TEXINFO_XS_CONVERT
@@ -33,9 +40,14 @@ for manual_dir in manuals/*/ ; do
   for file in $manual_dir/*.texi* ; do
     if grep -q -s '^ *@node \+[tT][Oo][Pp] *\(,.*\)\?$' $file; then
       one_manual_found=yes
-      echo "doing $file"
       bfile_ext=`basename $file`
       bfile=`echo $bfile_ext | sed 's/\.texi.*$//'`
+      # if we're only doing one test, skip it unless this is the one.
+      if test $one_test = 'yes' && test "z$bfile" != "z$the_test" ; then
+        continue
+      fi
+
+      echo "doing $file"
       rm -rf $dir/$bfile/
       mkdir $dir/$bfile/
       err_file=$dir/$bfile/${bfile}-html_nodes.err
@@ -46,10 +58,8 @@ for manual_dir in manuals/*/ ; do
       
       diff_file=result_check_perlVSC/${manual_name}-${bfile}.diff
       diff -u -r perl_HTML_refs/$bfile/ $dir/$bfile/ > $diff_file
-      if test -s $diff_file ; then
-        :
-      else
-        rm -f $diff_file
+      if test -s $diff_file ; then :
+      else rm -f $diff_file
       fi
     fi
   done
