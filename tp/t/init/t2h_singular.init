@@ -65,7 +65,6 @@ sub singular_format_footer($$$$)
   my $output_unit = shift;
   my $content = shift;
 
-
   my $end_page = (!$output_unit->{'tree_unit_directions'}->{'next'}
    or (defined($output_unit->{'unit_filename'})
        and $output_unit->{'unit_filename'}

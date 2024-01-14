@@ -133,9 +133,7 @@ reference_to_arg_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-          /* FIXME warn?  Document not found happens with direct calls of
-                          _new_node, for example */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, "reference_to_arg_in_tree");
         if (document)
           reference_to_arg_in_tree (document->tree, document);
 
@@ -145,8 +143,8 @@ associate_internal_references (SV *document_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in,
+                                     "associate_internal_references");
         if (document)
           associate_internal_references (document);
 
@@ -160,8 +158,7 @@ sectioning_structure (SV *tree_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, "sectioning_structure");
         if (document)
           {
             ELEMENT_LIST *sections_list = sectioning_structure (document);
@@ -174,8 +171,8 @@ warn_non_empty_parts (SV *document_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in,
+                                             "warn_non_empty_parts");
         if (document)
           warn_non_empty_parts (document);
 
@@ -185,8 +182,8 @@ set_menus_node_directions (SV *document_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in,
+                                             "set_menus_node_directions");
         if (document)
           set_menus_node_directions (document);
 
@@ -196,8 +193,8 @@ complete_node_tree_with_menus (SV *document_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in,
+                                      "complete_node_tree_with_menus");
         if (document)
           complete_node_tree_with_menus (document);
 
@@ -207,8 +204,8 @@ check_nodes_are_referenced (SV *document_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in,
+                                         "check_nodes_are_referenced");
         if (document)
           check_nodes_are_referenced (document);
 
@@ -217,8 +214,7 @@ number_floats (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in, "number_floats");
         if (document)
           number_floats (document);
 
@@ -269,7 +265,6 @@ regenerate_master_menu (SV *document_in, SV *customization_information, SV *use_
           regenerate_master_menu (document, use_sections);
 
 # The perl function returns the list of added nodes.
-# FIXME the added nodes return value is used in pod2texi
 void
 insert_nodes_for_sectioning_commands (SV *document_in, ...)
    PROTOTYPE: $;$$
@@ -309,8 +304,7 @@ protect_colon_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, "protect_colon_in_tree");
         /* there is no need to replace the root of the tree */
         if (document)
           protect_colon_in_tree (document->tree);
@@ -320,8 +314,7 @@ protect_comma_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, "protect_comma_in_tree");
         /* there is no need to replace the root of the tree */
         if (document)
           protect_comma_in_tree (document->tree);
@@ -331,8 +324,8 @@ protect_node_after_label_in_tree (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in,
+                              "protect_node_after_label_in_tree");
         /* there is no need to replace the root of the tree */
         if (document)
           protect_node_after_label_in_tree (document->tree);
@@ -343,8 +336,8 @@ protect_hashchar_at_line_beginning (SV *tree_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in,
+                                         "protect_hashchar_at_line_beginning");
         /* there is no need to replace the root of the tree */
         if (document)
           protect_hashchar_at_line_beginning (document);
@@ -354,8 +347,8 @@ protect_first_parenthesis_in_targets (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in,
+                              "protect_first_parenthesis_in_targets");
         if (document)
           protect_first_parenthesis_in_targets (document->tree);
 
@@ -364,8 +357,7 @@ split_by_node (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, "split_by_node");
         if (document)
           {
             int output_units_descriptor = split_by_node (document->tree);
@@ -381,8 +373,7 @@ split_by_section (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, "split_by_section");
         if (document)
           {
             int output_units_descriptor = split_by_section (document->tree);
@@ -398,7 +389,7 @@ unsplit (SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* FIXME warning/error if not found? */
+        /* this is called even if there is no XS tree, so no error */
         document = get_sv_tree_document (tree_in, 0);
         if (document)
           RETVAL = unsplit (document->tree);
@@ -407,24 +398,22 @@ unsplit (SV *tree_in)
     OUTPUT:
         RETVAL
 
-# return the input if XS information are missing or not found
+# return the input if XS information is missing
 SV *
 rebuild_output_units (SV *output_units_in)
     PREINIT:
         int output_units_descriptor = 0;
      CODE:
-        /* FIXME warning/error if not found? */
+      /* This is called in Texinfo::Convert::Converter::output on
+         converters that may or may not have XS information, so no warning */
         output_units_descriptor
            = get_sv_output_units_descriptor (output_units_in, 0);
         if (output_units_descriptor)
           RETVAL = build_output_units_list (output_units_descriptor);
         else
-         /* FIXME adding SvREFCNT_inc was done by trial and error
+         /* NOTE adding SvREFCNT_inc was done by trial and error
             as without one gets "Useless assignment to a temporary" */
           RETVAL = SvREFCNT_inc(output_units_in);
-          /*
-          RETVAL = newSV(0);
-           */
     OUTPUT:
         RETVAL
 
@@ -433,8 +422,7 @@ split_pages (SV *output_units_in, char *split)
     PREINIT:
         OUTPUT_UNIT_LIST *output_units = 0;
      CODE:
-        /* FIXME warning/error if not found? */
-        output_units = get_sv_output_units (output_units_in, 0);
+        output_units = get_sv_output_units (output_units_in, "split_pages");
         if (output_units)
           split_pages (output_units, split);
 

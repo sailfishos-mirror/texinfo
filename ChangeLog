@@ -1,5 +1,11 @@
 2024-01-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs: add warn
+	strings fior all the functions that are fully overriden, and modify
+	comments for the other functions.
+
+2024-01-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (_new_node): if $XS_structuring, abort
 	as the output cannot be correct.
 
