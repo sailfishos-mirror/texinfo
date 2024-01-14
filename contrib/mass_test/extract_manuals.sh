@@ -1,4 +1,14 @@
 #! /bin/sh
+# Copy and extract Texinfo manuals
+#
+# Copyright 2024 Free Software Foundation, Inc.
+#
+# This file is free software; as a special exception the author gives
+# unlimited permission to copy and/or distribute it, with or without
+# modifications, as long as this notice is preserved.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 
 set -e
 
@@ -30,18 +40,20 @@ for dir in www.gnu.org/software/*/manual/ ; do
   fi
 done
 
-# there culd be many other fix of manuals, but it is of doubtful
-# use and too time consuming to set up, instead it is better to
-# call texi2any with force.
+# A fix for a manual to avoid errors. It was not generalized as too many
+# manuals have errors. Instead texi2any is called such as to continue
+# even if there are errors.
 echo '@macro FIXME {arg}
 \\arg\\
 @end macro
 ' > manuals/anubis/rendition.texi
 
-# files with does EOL found with
+# files with CRLF EOL found with
 # file manuals/*/*.texi | grep CRLF
 
-# remove dos end of lines.  Note that -i is not standard options of sed
+# remove CR in end of lines.
 for file in manuals/orgadoc/*.texi manuals/remotecontrol/version.texi; do
-  sed -i -e 's/\r$//' $file
+  sed 's/\r$//' $file > $file.$$
+  rm -f $file
+  mv $file.$$ $file
 done
