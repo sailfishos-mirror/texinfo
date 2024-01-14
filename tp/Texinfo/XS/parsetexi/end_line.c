@@ -1378,6 +1378,15 @@ end_line_misc_line (ELEMENT *current)
                           "iso-8859-15", "iso-8859-15",
                           "koi8-r",      "koi8-r",
                           "koi8-u",      "koi8-u",
+             /* For some reason Encode mime_name() for GB2312, a simplified
+                chinese character set encoded as EUC-CN is EUC-CN, while in the
+                IANA character sets assignments, there is no EUC-CN and
+                the Preferred MIME Name of GB2312 is GB2312, see:
+      https://www.iana.org/assignments/character-sets/character-sets.xhtml
+                   Set it the same as Perl here, even though it looks wrong,
+                   just to have the same output.
+                    */
+                          "gb2312",      "euc-cn",
                     };
                     for (i = 0; i < sizeof map / sizeof *map; i++)
                       {
