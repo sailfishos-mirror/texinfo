@@ -12465,6 +12465,8 @@ sub output($$)
   # setup untranslated strings
   $self->_translate_names();
 
+  # The XS code override rebuilds output units, so there is no need to call
+  # rebuild_output_units.
   my $files_source_info
     = $self->_prepare_units_directions_files($output_units, $special_units,
                 $associated_special_units,

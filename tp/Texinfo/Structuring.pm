@@ -1760,7 +1760,7 @@ sub split_pages($$)
   my $output_units = shift;
   my $split = shift;
 
-  return undef if (!$output_units or !@$output_units);
+  return undef if (!$output_units or !scalar(@$output_units));
 
   my $split_level;
   if (!$split) {

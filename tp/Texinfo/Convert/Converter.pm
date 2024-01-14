@@ -446,7 +446,7 @@ sub output($$)
         if ($self->get_conf('DEBUG'));
     }
 
-    if ($output_units and @$output_units) {
+    if ($output_units and scalar(@$output_units)) {
       foreach my $output_unit (@$output_units) {
         my $output_unit_text = $self->convert_output_unit($output_unit);
         $output .= $self->write_or_return($output_unit_text, $fh);
