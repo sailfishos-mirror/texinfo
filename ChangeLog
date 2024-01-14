@@ -1,5 +1,11 @@
 2024-01-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/21multitable.t (fullwidth_in_prototype): New test.
+	* tp/t/21multitable.t: add "use utf8;" declaration in order to
+	use UTF-8 in test case.
+
+2024-01-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (add_text_to_count):
 	Remove function, replacing all calls with calls to _stream_output
 	or _stream_output_encoded.

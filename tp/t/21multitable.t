@@ -2,6 +2,8 @@
 
 use strict;
 
+use utf8;
+
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
@@ -14,6 +16,31 @@ my @test_cases = (
 @end multitable
 '],
 
+['fullwidth_in_prototype',
+'@multitable {éééé éééé éééé éééé} {xxxx xxxx xxxx xxxx} {人人 人人 人人 人人}
+@item
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+@tab
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+@tab
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+aaa aà aaa aa aaa aa
+@end multitable
+'],
 ['paragraph_in_cells',
 '@multitable {AAA}  {BBB}
 @item truc @tab bidule
