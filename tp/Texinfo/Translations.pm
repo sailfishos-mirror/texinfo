@@ -329,7 +329,7 @@ sub gdt_string($$;$$$)
   # $customization_information->translate_string) because
   # $customization_information may not provide the method if it does not
   # inherit from Texinfo::Translations, as is the case for Texinfo::Parser.
-  # (Same is done in gdt_string_columns.)
+  # (Same is done in gdt_string_encoded.)
   my $translate_string_method
      = $customization_information->can('translate_string');
   $translate_string_method = \&translate_string if (!$translate_string_method);
@@ -341,13 +341,10 @@ sub gdt_string($$;$$$)
                              $replaced_substrings);
 }
 
-# Like gdt_string, but additionally return the width of the result in
-# screen columns, not counting the width of substituted strings.
-#
-# TODO: In the future, this function may return an encoded string, and
-# take encoded arguments.  The plan is to save the width in columns before
-# encoding the string.
-sub gdt_string_columns($$;$$$)
+# Like gdt_string, but return an encoded string, and additionally return
+# the width of the result in screen columns, not counting the width of
+# substituted strings.
+sub gdt_string_encoded($$;$$$)
 {
   my ($customization_information, $string, $replaced_substrings,
       $translation_context, $lang) = @_;
@@ -361,20 +358,27 @@ sub gdt_string_columns($$;$$$)
                                        $string, $translation_context, $lang);
 
   my ($result, $result_counted) = ($translated_string, $translated_string);
+  my $encoded;
+  if ($customization_information->{'encoding_object'}) {
+    $encoded = $customization_information->{'encoding_object'}
+                 ->encode($result);
+  } else {
+    $encoded = $result; # shouldn't happen
+  }
 
   my $re;
   if (defined($replaced_substrings) and ref($replaced_substrings)) {
     $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
 
     # Replace placeholders
-    $result =~
+    $encoded =~
       s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
 
     # Strip out placeholders
     $result_counted =~ s/\{($re)\}//g;
   }
 
-  return ($result, Texinfo::Convert::Unicode::string_width($result_counted));
+  return ($encoded, Texinfo::Convert::Unicode::string_width($result_counted));
 }
 
 sub replace_substrings($$;$)

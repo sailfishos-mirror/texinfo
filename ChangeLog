@@ -1,3 +1,78 @@
+2024-01-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Encode output and count bytes in Plaintext.pm
+
+	* tp/Texinfo/Convert/Plaintext.pm (_stream_output, _stream_result)
+	(_stream_output_encoded, _stream_byte_count, _stream_encode):
+	New functions.	Convert results of conversion to output
+	encoding as the conversion is done, accumulating the result.
+	This simplifies keeping track of byte offsets in files (for nodes
+	and anchors in the tag table), and potentially has performance
+	benefits as output text does not need to be converted an extra
+	time for the sole purpose of counting bytes.  It is potentially
+	more reliable as byte offsets will be correct automatically
+	rather than having to be kept up-to-date separately from the
+	conversion result.
+
+	(converter_initialize): Initialise result string in count context.
+	(_count_added, _count_bytes): Remove.
+	(add_text_to_count): Make this a simple wrapper around _stream_output
+	with comment to remove in future.
+	(update_count_context): Remove function.  Callers updated.
+	(add_location, _update_locations_counts): Call _stream_byte_count
+	to get byte count, rather than accessing count context hash
+	directly.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert_output_unit): Update.
+	Clear current result string before converting.
+	(_convert_tree): Update.  Use a new count context to capture
+	conversion result.
+	(_convert_line_new_context): Return encoded text.  Return display
+	width as well as end line count of result.  Callers updated.
+	(_string_width_encoded): New.
+	(_convert) <multitable row>,
+	(process_printindex, _text_heading): Use _string_width_encoded
+	to get display width of already-encoded text.
+	(convert_new_context): New.
+	(_convert) <menu_entry_node, menu_entry_name>:
+	Use convert_new_context to capture result of conversion.
+
+	* tp/Texinfo/Convert/Plaintext.pm (ensure_end_of_line): Do not
+	take a string argument; instead, check the output stream for an
+	end of line.
+	(_align_lines): Take a text argument that is already encoded.
+	(_align_environment): Do not update byte count, as it is done in
+	calling code.
+	(node_name): Encode the returned node name.  Return column
+	width of result, rather than byte count.  Callers updated.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert, convert_line)
+	(_add_newline_if_needed, process_footnotes, format_contents)
+	(_menu, process_printindex, format_node, _anchor)
+	(ensure_end_of_line, _text_heading),
+	* tp/Texinfo/Convert/Info.pm (format_node): Do not return any
+	return value.  Call _stream_output or _stream_output_encoded
+	with text to be added to the result of the conversion.
+
+	* tp/Texinfo/Convert/Info.pm (output): Update to use new
+	_stream_output interface.
+	(_info_header): Return an encoded string and do not change
+	the current count context.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_decode): New function.
+	* tp/Texinfo/Convert/Info.pm (format_node): Use _decode for
+	printing an error message using an already encoded node name.
+
+	* tp/Texinfo/Translations.pm (gdt_string_columns, gdt_string_encoded):
+	Rename to gdt_string_encoded, and encode the returned string.
+
+	* tp/Texinfo/Common.pm (output_files_disable_encoding):
+	Add function to disable encoding of output, as the output from
+	the converter is already encoded.
+	(output_files_open_out): Obey this setting.
+	* tp/Texinfo/Convert/Plaintext.pm (converter_initialize):
+	Call output_files_disable_encoding.
+
 2024-01-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (item_line_parent): use

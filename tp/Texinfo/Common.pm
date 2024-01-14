@@ -550,17 +550,25 @@ sub locate_init_file($$$)
   return undef;
 }
 
-
+
 # API to open, set encoding and register files.
 # In general $SELF is stored as $converter->{'output_files'}
 # and should be accessed through $converter->output_files_information();
 
-# TODO next three functions not documented anywhere, probably relevant to document
-# both in POD and in HTML Customization API.
+# TODO next four functions not documented anywhere, probably relevant to
+# document both in POD and in HTML Customization API.
 sub output_files_initialize
 {
   return {'unclosed_files' => {}, 'opened_files' => []};
 }
+
+sub output_files_disable_output_encoding($$)
+{
+  my ($self, $no_output_encoding) = @_;
+
+  $self->{'output_encoding_disabled'} = $no_output_encoding;
+}
+
 #
 # All the opened files are registered, except for stdout,
 # and the closing of files should be registered too with
@@ -587,7 +595,9 @@ sub output_files_open_out($$$;$$)
   #}
 
   my $encoding;
-  if (defined($output_encoding)) {
+  if ($self->{'output_encoding_disabled'}) {
+   # leave $encoding undefined
+  } elsif (defined($output_encoding)) {
     $encoding = $output_encoding;
   } elsif (defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))) {
     $encoding = $customization_information->get_conf('OUTPUT_PERL_ENCODING');
@@ -667,7 +677,7 @@ sub output_files_unclosed_files($)
 }
 # end of output_files API
 
-
+
 # functions used in main program, Parser and/or Texinfo::Structuring.
 # Not supposed to be called in user-defined code.
 
