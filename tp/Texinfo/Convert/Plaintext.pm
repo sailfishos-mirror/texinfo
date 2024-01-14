@@ -872,14 +872,6 @@ sub convert_new_context($$;$)
   return $result;
 }
 
-# TODO: remove this function
-sub add_text_to_count($$)
-{
-  my ($self, $text) = @_;
-
-  _stream_output($self, undef, $text);
-}
-
 sub _add_lines_count($$)
 {
   my ($self, $lines_count) = @_;
@@ -1046,7 +1038,7 @@ sub _add_newline_if_needed($) {
   my $self = shift;
   if (defined($self->{'empty_lines_count'})
        and $self->{'empty_lines_count'} == 0) {
-    add_text_to_count($self, "\n");
+    _stream_output_encoded($self, "\n");
     _add_lines_count($self, 1);
     $self->{'empty_lines_count'} = 1;
   }
@@ -1108,7 +1100,7 @@ sub process_footnotes($;$)
         # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
         or !$label_element) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
-      add_text_to_count($self, $footnotes_header);
+      _stream_output_encoded($self, $footnotes_header);
       _add_lines_count($self, 2);
       $self->{'empty_lines_count'} = 1;
     } else {
@@ -1159,7 +1151,7 @@ sub process_footnotes($;$)
                . "($formatted_footnote_number) ";
       $self->{'text_element_context'}->[-1]->{'counter'} +=
          Texinfo::Convert::Unicode::string_width($footnote_text);
-      add_text_to_count($self, $footnote_text);
+      _stream_output($self, undef, $footnote_text);
       $self->{'empty_lines_count'} = 0;
 
       $self->_convert($footnote->{'root'}->{'args'}->[0]);
@@ -1419,7 +1411,7 @@ sub _menu($$)
   my ($self, $menu_command) = @_;
 
   if ($menu_command->{'cmdname'} eq 'menu') {
-    add_text_to_count($self, "* Menu:\n\n");
+    _stream_output_encoded($self, "* Menu:\n\n");
     _add_lines_count($self, 2);
     if ($self->{'current_node'}) {
       $self->{'seenmenus'}->{$self->{'current_node'}} = 1;
@@ -1558,12 +1550,12 @@ sub process_printindex($$;$)
   _add_newline_if_needed($self);
   if ($in_info) {
     my $info_printindex_magic = "\x{00}\x{08}[index\x{00}\x{08}]\n";
-    add_text_to_count($self, $info_printindex_magic);
+    _stream_output_encoded($self, $info_printindex_magic);
     _add_lines_count($self, 1);
   }
   my $heading = "* Menu:\n\n";
 
-  add_text_to_count($self, $heading);
+  _stream_output_encoded($self, $heading);
   _add_lines_count($self, 2);
 
   # this is used to count entries that are the same
@@ -1639,7 +1631,7 @@ sub process_printindex($$;$)
 
     if ($line_width < $index_length_to_node) {
       my $spaces = ' ' x ($index_length_to_node - $line_width);
-      add_text_to_count($self, $spaces);
+      _stream_output_encoded($self, $spaces);
       $line_width += length($spaces);
     }
     my $node = $entry_nodes{$entry};
@@ -1694,7 +1686,7 @@ sub process_printindex($$;$)
       _stream_output_encoded($self, $node_name);
       $line_width += $width;
     }
-    add_text_to_count($self, '.');
+    _stream_output_encoded($self, '.');
     $line_width++;
 
     my $line_nr = $line_nrs{$entry};
@@ -1713,11 +1705,11 @@ sub process_printindex($$;$)
            . "$line_part\n";
     }
     _add_lines_count($self, 1);
-    add_text_to_count($self, $line_part);
+    _stream_output($self, undef, $line_part);
   }
   pop @{$self->{'formatters'}};
 
-  add_text_to_count($self, "\n");
+  _stream_output_encoded($self, "\n");
   _add_lines_count($self, 1);
 }
 
@@ -1757,7 +1749,7 @@ sub ensure_end_of_line($)
   return if !defined($result) or $result eq '';
 
   if (substr($result, -1) ne "\n") {
-    add_text_to_count($self, "\n");
+    _stream_output_encoded($self, "\n");
     _add_lines_count($self, 1);
     $self->{'text_element_context'}->[-1]->{'counter'} = 0;
   }
@@ -1944,7 +1936,7 @@ sub _convert($$)
         or $self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
       if ($element->{'text'} =~ /\f/) {
         my $result = _get_form_feeds($element->{'text'});
-        add_text_to_count($self, $result);
+        _stream_output($self, undef, $result);
       }
       _stream_output($self, $formatter->{'container'},
                 add_text($formatter->{'container'}, "\n"));
@@ -1963,7 +1955,7 @@ sub _convert($$)
       # relevant to keep form feeds in other ignorable spaces.
       $result = _get_form_feeds($element->{'text'});
     }
-    add_text_to_count($self, $result);
+    _stream_output($self, undef, $result);
     return;
   }
 
@@ -2014,7 +2006,7 @@ sub _convert($$)
         return;
       # the following is only possible if paragraphindent is set to asis
       } elsif ($type and $type eq 'spaces_before_paragraph') {
-        add_text_to_count($self, $element->{'text'});
+        _stream_output($self, undef, $element->{'text'});
         return;
       # ignore text outside of any format, but warn if ignored text not empty
       } elsif ($element->{'text'} =~ /\S/) {
@@ -2541,7 +2533,7 @@ sub _convert($$)
         add_next($formatter->{'container'},'');
         my ($image, $lines_count) = $self->format_image($element);
         _add_lines_count($self, $lines_count);
-        add_text_to_count($self, $image);
+        _stream_output($self, undef, $image);
         if ($image ne '') {
           $self->{'empty_lines_count'} = 0;
         }

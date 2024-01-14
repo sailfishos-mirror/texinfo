@@ -1,3 +1,9 @@
+2024-01-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (add_text_to_count):
+	Remove function, replacing all calls with calls to _stream_output
+	or _stream_output_encoded.
+
 2024-01-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Encode output and count bytes in Plaintext.pm

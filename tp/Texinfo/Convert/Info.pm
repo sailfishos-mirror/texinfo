@@ -467,7 +467,7 @@ sub format_node($$)
   #return '' if ($node_text eq '');
 
   if (!$self->{'empty_lines_count'}) {
-    $self->add_text_to_count("\n");
+    $self->_stream_output_encoded("\n");
     # if in the first node, complete the 'text_before_first_node' too.
     if (!$self->{'first_node_done'}) {
       $self->{'text_before_first_node'} .= "\n";
