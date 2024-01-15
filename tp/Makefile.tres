@@ -551,6 +551,16 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/check_htmlxref_menu/res_html \
   t/results/html_tests/check_htmlxref_no_use_nodes.pl \
   t/results/html_tests/check_htmlxref_no_use_nodes/res_html \
+  t/results/html_tests/command_in_node_redirection.pl \
+  t/results/html_tests/command_in_node_redirection/res_html \
+  t/results/html_tests/command_in_node_redirection_multiple.pl \
+  t/results/html_tests/command_in_node_redirection_multiple/res_html \
+  t/results/html_tests/command_in_node_redirection_other_command.pl \
+  t/results/html_tests/command_in_node_redirection_other_command/res_html \
+  t/results/html_tests/command_in_node_redirection_same_command.pl \
+  t/results/html_tests/command_in_node_redirection_same_command/res_html \
+  t/results/html_tests/command_in_node_redirection_two_commands.pl \
+  t/results/html_tests/command_in_node_redirection_two_commands/res_html \
   t/results/html_tests/commands_in_abbr.pl \
   t/results/html_tests/commands_in_alt.pl \
   t/results/html_tests/commands_in_email.pl \
@@ -1566,6 +1576,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/multitable/empty_headitem.pl \
   t/results/multitable/empty_item_tab.pl \
   t/results/multitable/empty_multitable_with_cells.pl \
+  t/results/multitable/fullwidth_in_prototype.pl \
   t/results/multitable/inter_item_commands_in_multitable.pl \
   t/results/multitable/multitable_begin_with_tab.pl \
   t/results/multitable/multitable_bracketed_no_inter_space_prototype.pl \

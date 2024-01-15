@@ -1025,6 +1025,44 @@ Need 2 elements for separate footnotes.
 @top top
 
 ', {}, {'TOP_FILE' => 'my-node.html', 'USE_NODES', 0}],
+['command_in_node_redirection',
+'@node Top
+@top t @r{in r}
+
+@anchor{yyyy}
+'],
+['command_in_node_redirection_other_command',
+'@node Top
+@top t @r{in r}
+
+@anchor{@sansserif{gg}}
+'],
+['command_in_node_redirection_same_command',
+'@node Top
+@top t @r{in r}
+
+@anchor{@r{ancher}}
+'],
+['command_in_node_redirection_two_commands',
+'@node Top
+@top t @r{in r}
+
+@anchor{@sansserif{ll} @r{jj}}
+'],
+# this tests more what happens for the subsequent redirections,
+# in particular shows that what is in anchor is in global CSS context.
+['command_in_node_redirection_multiple',
+'@node Top
+@top t @r{in r}
+
+@anchor{yyyy}
+
+@anchor{@sansserif{gg}}
+
+@anchor{@r{ancher}}
+
+@anchor{@sansserif{ll} @r{jj}}
+',],
 # NOTE the result is incorrect, the first footnote text is at the
 # end of the file but the link is towards the separate file.
 # The manual states that the footnotestyle should be in the preamble,

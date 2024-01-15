@@ -4384,7 +4384,6 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
 
   if (filename)
     {
-      CSS_LIST *css_list;
       page_number = find_page_name_number (&self->page_name_number,
                                            filename);
       if (!page_number)
@@ -4403,7 +4402,9 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
             {
              /* this happens legitimately in case of an output file not
                 associated to an output unit and not having registered
-                any CSS selector */
+                any CSS selector.  Also the formatting of the node or
+                similar command is in general done in global context
+                so no file is added */
               char *msg;
               xasprintf (&msg, "%s: get CSS could not find page number",
                          filename);
@@ -4414,6 +4415,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
         }
       if (page_number)
         {
+          CSS_LIST *css_list;
           css_list = &self->page_css.list[page_number];
           if (css_list->number)
             {
@@ -4435,6 +4437,8 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
           /* +1 for 'span:hover a.copiable-link' */
           size_t space = global_context_css_list->number +1;
           selectors = (const char **) malloc (sizeof (char *) * space);
+          memcpy (selectors, global_context_css_list->list,
+                  global_context_css_list->number * sizeof (char *));
           selector_nr = global_context_css_list->number;
         }
       else
@@ -4465,6 +4469,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
             }
         }
     }
+
   for (j = 0; j < selector_nr; j++)
     {
       if (!strcmp ("a.copiable-link", selectors[j]))

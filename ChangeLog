@@ -1,3 +1,13 @@
+2024-01-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_get_css_elements_classes): set the values based on global
+	selectors when there are only global selectors.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (command_in_node_redirection*):
+	add test of commands in node redirection @-commands and in documment
+	@top, to test CSS rules output.
+
 2024-01-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): map gb2312

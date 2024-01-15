@@ -1383,8 +1383,9 @@ end_line_misc_line (ELEMENT *current)
                 IANA character sets assignments, there is no EUC-CN and
                 the Preferred MIME Name of GB2312 is GB2312, see:
       https://www.iana.org/assignments/character-sets/character-sets.xhtml
-                   Set it the same as Perl here, even though it looks wrong,
-                   just to have the same output.
+
+                Set it the same as Perl here, even though it looks wrong,
+                just to have the same output.
                     */
                           "gb2312",      "euc-cn",
                     };
