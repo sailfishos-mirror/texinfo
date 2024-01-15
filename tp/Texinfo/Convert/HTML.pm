@@ -73,6 +73,7 @@ use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Structuring;
+use Texinfo::Indices;
 use Texinfo::Convert::Converter;
 
 # used to convert Texinfo to LaTeX math in @math and @displaymath
@@ -10389,11 +10390,11 @@ sub _sort_index_entries($)
   if ($indices_information) {
 
     my $merged_index_entries
-        = Texinfo::Structuring::merge_indices($indices_information);
+        = Texinfo::Indices::merge_indices($indices_information);
     my $index_entries_sort_strings;
 
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-            = Texinfo::Structuring::sort_indices_by_letter(undef, $self,
+            = Texinfo::Indices::sort_indices_by_letter(undef, $self,
                                                $merged_index_entries,
                                                $indices_information);
     $self->{'index_entries'} = $merged_index_entries;

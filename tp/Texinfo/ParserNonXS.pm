@@ -3929,7 +3929,7 @@ sub _end_line_def_line($$$)
     }
     if (defined($index_entry)) {
       if ($class_element) {
-        # Delay getting the text until Texinfo::Structuring::sort_index_keys
+        # Delay getting the text until Texinfo::Indices
         # in order to avoid using gdt.
         # We need to store the language as well in case there are multiple
         # languages in the document.

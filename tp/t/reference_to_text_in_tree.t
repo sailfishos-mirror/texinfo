@@ -10,7 +10,6 @@ BEGIN { plan tests => 3; }
 use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
-use Texinfo::Structuring;
 use Texinfo::Transformations;
 
 ok(1);

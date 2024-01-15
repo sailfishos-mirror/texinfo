@@ -124,7 +124,7 @@ copy_converter_options_for_convert_text (CONVERTER *self)
   return text_options;
 }
 
-/* In Structuring.pm */
+/* In Indices.pm */
 static void
 set_additional_index_entry_keys_options (OPTIONS *options,
                                          TEXT_OPTIONS *text_options)

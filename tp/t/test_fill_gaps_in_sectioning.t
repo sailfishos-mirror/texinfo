@@ -11,7 +11,6 @@ use Texinfo::Transformations;
 use Texinfo::Parser qw(parse_texi_text);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
-use Texinfo::Structuring;
 
 ok(1, "modules loading");
 

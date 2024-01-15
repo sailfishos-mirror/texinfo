@@ -42,7 +42,7 @@ use Texinfo::Common;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
-use Texinfo::Structuring;
+use Texinfo::Indices;
 
 texinfo_set_format_from_init_file('html');
 
@@ -240,7 +240,7 @@ sub chm_init($)
   print $hhk_fh "</OBJECT>\n";
 
   my ($index_entries, $index_entries_sort_strings)
-       = Texinfo::Structuring::sort_indices_by_index(undef, $self,
+       = Texinfo::Indices::sort_indices_by_index(undef, $self,
                              $self->get_info('index_entries'),
                              $self->get_info('indices_information'));
   if ($index_entries) {

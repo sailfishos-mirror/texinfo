@@ -796,8 +796,8 @@ sub warn_unknown_language($) {
   return @messages;
 }
 
-# next functions are for code used in Structuring in addition to Parser.
-# also possibly used in Texinfo::Transformations.
+# next functions are for code used in Structuring or Indices in addition
+# to Parser.  Also possibly used in Texinfo::Transformations.
 
 sub _find_end_brace($$)
 {

@@ -182,6 +182,7 @@ use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Convert::Text;
+use Texinfo::Indices;
 use Texinfo::Convert::Converter;
 
 use vars qw($VERSION @ISA);
@@ -935,9 +936,9 @@ sub _prepare_indices($)
   my $index_names = $self->{'indices_information'};
   if ($index_names) {
     $self->{'index_formatting_text_options'}
-      = Texinfo::Structuring::setup_index_entry_keys_formatting($self);
+      = Texinfo::Indices::setup_index_entry_keys_formatting($self);
     my $merged_index_entries
-        = Texinfo::Structuring::merge_indices($index_names);
+        = Texinfo::Indices::merge_indices($index_names);
     # select non empty indices
     if ($merged_index_entries) {
       $self->{'index_entries'} = {};
@@ -2451,7 +2452,7 @@ sub _index_entry($$)
           $self->{'index_formatting_text_options'});
       }
       my $sort_string
-           = Texinfo::Structuring::index_entry_element_sort_string(
+           = Texinfo::Indices::index_entry_element_sort_string(
                                           $self, $entry,
                                           $subindex_command,
                             $self->{'index_formatting_text_options'}, 1);

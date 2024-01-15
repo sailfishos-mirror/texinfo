@@ -12,7 +12,6 @@ use Texinfo::Common qw(protect_comma_in_tree protect_colon_in_tree
       protect_node_after_label_in_tree);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
-use Texinfo::Structuring;
 
 ok(1);
 

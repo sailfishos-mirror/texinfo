@@ -10,7 +10,6 @@ BEGIN { plan tests => 6; }
 use Texinfo::Parser qw(parse_texi_piece);
 use Texinfo::Common qw(move_index_entries_after_items_in_tree);
 use Texinfo::Document;
-use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
 use Texinfo::DebugTree;
 

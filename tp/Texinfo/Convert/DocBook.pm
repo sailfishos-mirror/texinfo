@@ -31,6 +31,8 @@ use Texinfo::Common;
 # for debugging
 use Texinfo::Convert::Texinfo;
 
+use Texinfo::Structuring;
+
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;

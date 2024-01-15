@@ -67,8 +67,9 @@ use Texinfo::Report;
 use Texinfo::Parser;
 use Texinfo::Convert::Text;
 use Texinfo::Document;
-use Texinfo::Structuring;
 use Texinfo::Convert::PlainTexinfo;
+use Texinfo::Structuring;
+use Texinfo::Indices;
 use Texinfo::Translations;
 use Texinfo::Convert::Plaintext;
 use Texinfo::Convert::Info;
@@ -1165,7 +1166,7 @@ sub test($$)
   my $indices_information = $document->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries
-     = Texinfo::Structuring::merge_indices($indices_information);
+     = Texinfo::Indices::merge_indices($indices_information);
 
   # only print indices information if it differs from the default
   # indices
@@ -1180,7 +1181,7 @@ sub test($$)
     $main_configuration->{'document_descriptor'}
       = $document->document_descriptor();
     ($sorted_index_entries, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices_by_index($registrar,
+      = Texinfo::Indices::sort_indices_by_index($registrar,
                                    $main_configuration,
                                    $merged_index_entries,
                                    $indices_information);

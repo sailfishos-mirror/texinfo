@@ -1,5 +1,11 @@
 2024-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Indices.pm, tp/Texinfo/Structuring.pm, tp/Makefile.am
+	(dist_modules_DATA): move code related to indices to a new file,
+	Indices.pm out of Structuring.pm.
+
+2024-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_set_heading_commands_targets),
 	tp/Texinfo/XS/convert/convert_html.c (heading_commands_list): sort in
 	perl and setup heading_commands_list order such as to have the same

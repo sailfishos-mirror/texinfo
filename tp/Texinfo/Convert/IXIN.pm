@@ -75,6 +75,10 @@ use Carp qw(cluck);
 use Texinfo::Commands;
 use Texinfo::Options;
 use Texinfo::Common;
+
+use Texinfo::Structuring;
+use Texinfo::Indices;
+
 use Texinfo::Convert::TexinfoSXML;
 
 use vars qw($VERSION @ISA);
@@ -680,9 +684,9 @@ sub output_ixin($$)
   my $indices_information = $self->{'indices_information'};
   if ($indices_information) {
     my $merged_index_entries
-        = Texinfo::Structuring::merge_indices($indices_information);
+        = Texinfo::Indices::merge_indices($indices_information);
     my ($entries, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices_by_index(undef, $self,
+      = Texinfo::Indices::sort_indices_by_index(undef, $self,
                                            $merged_index_entries,
                                            $indices_information);
     # first do the dts_text as the counts are needed for the dts index

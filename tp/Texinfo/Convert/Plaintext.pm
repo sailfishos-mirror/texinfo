@@ -38,6 +38,8 @@ use Encode;
 
 use Texinfo::Commands;
 use Texinfo::Common;
+use Texinfo::Structuring;
+use Texinfo::Indices;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
@@ -1478,10 +1480,10 @@ sub process_printindex($$;$)
   if (!defined($self->{'index_entries'}) and $indices_information) {
 
     my $merged_index_entries
-      = Texinfo::Structuring::merge_indices($indices_information);
+      = Texinfo::Indices::merge_indices($indices_information);
     my $index_entries_sort_strings;
     ($self->{'index_entries'}, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices_by_index(undef, $self,
+      = Texinfo::Indices::sort_indices_by_index(undef, $self,
                                            $merged_index_entries,
                                            $indices_information);
   }

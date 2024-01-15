@@ -37,6 +37,7 @@ use strict;
 
 use Texinfo::Commands;
 use Texinfo::Common;
+use Texinfo::Structuring;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Unicode;
 # for debugging and adding the original line for some commands

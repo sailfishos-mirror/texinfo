@@ -11,7 +11,6 @@ use Texinfo::Parser;
 use Texinfo::Transformations;
 use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
-use Texinfo::Structuring;
 
 use Data::Dumper;
 

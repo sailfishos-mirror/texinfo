@@ -29,7 +29,7 @@
 #include "convert_to_text.h"
 #include "indices_in_conversion.h"
 
-/* corresponding perl code in Texinfo::Structuring */
+/* corresponding perl code in Texinfo::Indices */
 
 MERGED_INDEX *
 merge_indices (INDEX **index_names)
