@@ -311,8 +311,12 @@ text_convert_tree (SV *options_in, SV *tree_in)
         if (document)
           {
             char *result;
-            TEXT_OPTIONS *text_options
-               = copy_sv_options_for_convert_text (options_in);
+            TEXT_OPTIONS *text_options;
+
+            if (SvOK (options_in))
+              text_options = copy_sv_options_for_convert_text (options_in);
+            else
+              text_options = new_text_options ();
 
             text_options->document_descriptor = document->descriptor;
 

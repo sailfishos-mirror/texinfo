@@ -1,3 +1,16 @@
+2024-01-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (text_convert_tree): handle an
+	undefined options_in.
+
+	* tp/Texinfo/Convert/Text.pm (_initialize_options_encoding)
+	(copy_options_for_convert_text, converter): do not use
+	copy_options_for_convert_text in converter to setup text options, as
+	the options are very similar to converter options, even if they are of
+	a different nature.  Add _initialize_options_encoding to setup
+	enable_encoding both for converter and in
+	copy_options_for_convert_text.
+
 2024-01-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Info.pm (output): Rename a variable

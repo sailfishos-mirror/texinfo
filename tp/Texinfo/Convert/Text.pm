@@ -210,6 +210,17 @@ foreach my $type ('ignorable_spaces_after_command',
 
 my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST');
 
+sub _initialize_options_encoding($$)
+{
+  my $self = shift;
+  my $options = shift;
+
+  if ($self->get_conf('ENABLE_ENCODING')
+       and defined($self->get_conf('OUTPUT_ENCODING_NAME'))) {
+    $options->{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
+  }
+}
+
 # TODO not documented.  Document?
 # $SELF is an object implementing get_conf, in general a converter.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
@@ -221,10 +232,8 @@ sub copy_options_for_convert_text($;$)
   my $self = shift;
   my $options_in = shift;
   my %options;
-  if ($self->get_conf('ENABLE_ENCODING')
-       and $self->get_conf('OUTPUT_ENCODING_NAME')) {
-    $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
-  }
+
+  _initialize_options_encoding($self, \%options);
 
   foreach my $option (@text_indicator_converter_options) {
     my $conf = $self->get_conf($option);
@@ -234,7 +243,13 @@ sub copy_options_for_convert_text($;$)
       $options{$option} = 0;
     }
   }
-  $options{'expanded_formats'} = $self->{'expanded_formats'};
+  my $expanded_formats = $self->get_conf('EXPANDED_FORMATS');
+  if ($expanded_formats) {
+    $options{'expanded_formats'} = {};
+    foreach my $expanded_format(@$expanded_formats) {
+      $options{'expanded_formats'}->{$expanded_format} = 1;
+    }
+  }
   # for locate_include_file
   $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
 
@@ -822,16 +837,15 @@ sub convert_to_text($;$)
   }
 
   #print STDERR "CONVERT\n";
+  if (!defined($options)) {
+    $options = {};
+  } elsif (!ref($options)) {
+    confess("convert_to_text options not a ref\n");
+  }
   # this is needed for locate_include_file which uses
   # $configurations_information->get_conf() and thus requires a blessed
   # reference.
-  $options = {} if (!defined($options));
-  if (defined($options)) {
-    if (!ref($options)) {
-      confess("convert_to_text options not a ref\n");
-    }
-    bless $options;
-  }
+  bless $options, "Texinfo::Convert::Text";
 
   # Interface with XS converter.
   if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
@@ -857,7 +871,6 @@ sub converter($;$)
     #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
   }
 
-  my $expanded_formats = $converter->{'EXPANDED_FORMATS'};
   if ($converter->{'document'}) {
     $converter->{'document_info'}
        = $converter->{'document'}->global_information();
@@ -865,6 +878,8 @@ sub converter($;$)
        = $converter->{'document'}->global_commands_information();
     delete $converter->{'document'};
   }
+
+  my $expanded_formats = $converter->{'EXPANDED_FORMATS'};
   if ($expanded_formats) {
     $converter->{'expanded_formats'} = {};
     foreach my $expanded_format(@$expanded_formats) {
@@ -876,12 +891,25 @@ sub converter($;$)
                                         $converter->{'document_info'})
     if ($converter->{'document_info'});
 
+  # Text options and converter are of different nature.
+  # It could have been possible to set up the options by calling
+  # copy_options_for_convert_text on $self.
+  # However, since the option keys are very similar between the converter
+  # and text options and expanded_formats is already set in the converter,
+  # we use the converter object as text options and we call
+  # _initialize_options_encoding for the only option that is set up
+  # based on other customization options.
+  # Also, we need a blessed reference as get_conf can be called on the options,
+  # using the converter brings that too.
+  _initialize_options_encoding($converter, $converter);
+
   return $converter;
 }
 
 # This function is not called in anywhere in Texinfo code, it is implemented
 # to be in line with Texinfo::Convert::Converter documentation on functions
 # defined for a converter.
+# TODO set options with $self if defined?
 sub convert_tree($$)
 {
   my $self = shift;
@@ -1002,14 +1030,8 @@ sub output($$)
       return undef;
     }
   }
-  # mostly relevant for 'enabled_encoding', other options should be the same.
-  my $options = copy_options_for_convert_text($self);
-  # remove $self Text converter without translation nor error reporting.
-  delete $options->{'converter'};
-  # Some functions call $self->get_conf(), so the options need to be a blessed
-  # reference, merge specific Text options with $self (possibly
-  # overwriting/ignoring but values should be the same).
-  %$self = (%$self, %$options);
+
+  # We use $self as text options, see the comment in converter.
 
   my $result;
   # Interface with XS converter.

@@ -1108,7 +1108,7 @@ sub output($$)
       }
     }
   }
-  # nothing after Top node the end, mark that Top node is ignored
+  # nothing after Top node at the end, mark that Top node is ignored
   # in a container that can be used to mark that content should not
   # be ignored anymore.
   if ($in_top_node) {
