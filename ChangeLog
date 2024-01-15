@@ -1,5 +1,17 @@
 2024-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_set_heading_commands_targets),
+	tp/Texinfo/XS/convert/convert_html.c (heading_commands_list): sort in
+	perl and setup heading_commands_list order such as to have the same
+	order in perl and XS and obtain the same disambiguation of targets.
+
+	* tp/Texinfo/Convert/Converter.pm (converter),
+	tp/Texinfo/Convert/HTML.pm (_set_root_commands_targets_node_files):
+	use 'labels_list' instead of 'identifiers_target' for efficiency and
+	to be more like XS code.
+
+2024-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_get_css_elements_classes): set the values based on global
 	selectors when there are only global selectors.

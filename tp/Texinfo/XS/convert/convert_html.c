@@ -4903,9 +4903,10 @@ prepare_footnotes_targets (CONVERTER *self)
     }
 }
 
+/* keep the command names sorted alphabetically to match order in perl */
 static enum command_id heading_commands_list[] = {
-  CM_chapheading, CM_heading, CM_subheading, CM_subsubheading,
-  CM_majorheading, 0,
+  CM_chapheading, CM_heading, CM_majorheading, CM_subheading, CM_subsubheading,
+  0,
 };
 
 void

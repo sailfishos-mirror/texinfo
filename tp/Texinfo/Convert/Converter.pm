@@ -276,6 +276,7 @@ sub converter($;$)
       # From and for XS
       $converter->{'document_descriptor'}
         = $conf->{'document'}->document_descriptor();
+      $converter->{'document'} = $conf->{'document'};
       delete $conf->{'document'};
     }
     foreach my $key (keys(%$conf)) {

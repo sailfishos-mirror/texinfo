@@ -9490,8 +9490,9 @@ sub _set_root_commands_targets_node_files($)
                 if (defined($self->get_conf('EXTENSION'))
                     and $self->get_conf('EXTENSION') ne '');
 
-    foreach my $label (sort(keys(%{$self->{'identifiers_target'}}))) {
-      my $target_element = $self->{'identifiers_target'}->{$label};
+    foreach my $target_element (@{$self->{'document'}->{'labels_list'}}) {
+      next if (not $target_element->{'extra'}
+               or not $target_element->{'extra'}->{'is_target'});
       my $label_element = Texinfo::Common::get_label_element($target_element);
       my ($node_filename, $target)
         = $self->_normalized_label_id_file($target_element->{'extra'}->{'normalized'},
@@ -9539,7 +9540,7 @@ sub _set_heading_commands_targets($)
   my $self = shift;
 
   if ($self->{'global_commands'}) {
-    foreach my $cmdname (keys(%sectioning_heading_commands)) {
+    foreach my $cmdname (sort(keys(%sectioning_heading_commands))) {
       if (!$root_commands{$cmdname}
           and $self->{'global_commands'}->{$cmdname}) {
         foreach my $command (@{$self->{'global_commands'}->{$cmdname}}) {
