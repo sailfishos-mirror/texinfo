@@ -1,3 +1,11 @@
+2024-01-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Info.pm (output): Rename a variable
+	to be less confusing.  Explain in comment that setting
+	'text_before_first_node' was a side-effect of calling
+	convert_output_unit, and explain the purpose of saving it.  Reorder
+	code slightly for clarity.  No functional changes intended.
+
 2024-01-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Indices.pm, tp/Texinfo/Structuring.pm, tp/Makefile.am

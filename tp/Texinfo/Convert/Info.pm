@@ -143,23 +143,26 @@ sub output($$)
              {'file_name' => $self->{'document_info'}->{'input_file_name'}});
     }
     $out_file_nr = 1;
-    my $first_node = 0;
+    my $first_node_seen = 0;
     $self->{'count_context'}->[-1]->{'bytes'} += $header_bytes;
     # FIXME use a simple foreach
     my @nodes_root_elements = @$tree_units;
     while (@nodes_root_elements) {
       my $node_root_element = shift @nodes_root_elements;
       my $node_text = $self->convert_output_unit($node_root_element);
-      if (!$first_node) {
-        $first_node = 1;
+      if (!$first_node_seen) {
+        # We are outputting the first node.
+        $first_node_seen = 1;
+        $node_text = $header . $node_text;
+
+        # When the first node was converted in convert_output_unit above, the
+        # text before the first node (type 'before_node_section') was saved in
+        # 'text_before_first_node'.  Save this text for subsequent use in
+        # case of split Info output.
         if (defined($self->{'text_before_first_node'})) {
           $complete_header .= $self->{'text_before_first_node'};
           $complete_header_bytes += length($self->{'text_before_first_node'});
         }
-        # for the first node, header is prepended, not complete_header
-        # as 'text_before_first_node' is already part of the node
-        # text
-        $node_text = $header . $node_text;
       }
       if ($fh) {
         print $fh $node_text;
