@@ -661,14 +661,13 @@ with C<sort_indices_by_index> or C<sort_indices_by_letter>.
 
 No method is exported in the default case.
 
-Most methods takes a L<Texinfo::Report> C<$registrar> as argument for
-error reporting.  Most also require Texinfo customization variables
+Some methods takes a L<Texinfo::Report> C<$registrar> as argument for
+error reporting.  Some also require Texinfo customization variables
 information, which means an object implementing the C<get_conf> method, in
 practice the main program configuration or a converter
 (L<Texinfo::Convert::Converter/Getting and setting customization
-variables>).  Other common input arguments such as target elements associated
-to identifiers or refs are obtained from a parsed document, see
-L<Texinfo::Document>.
+variables>).  Other common input arguments such as indices information
+are obtained from a parsed document, see L<Texinfo::Document>.
 
 =over
 
