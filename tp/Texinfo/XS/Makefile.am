@@ -351,18 +351,38 @@ nodist_StructuringTransfoXS_la_SOURCES = \
 CLEANFILES += \
                     structuring_transfo/StructuringTransfoXS.c
 StructuringTransfoXS_la_SOURCES = \
-                    convert/indices_in_conversion.h \
-                    convert/indices_in_conversion.c \
                     structuring_transfo/transformations.c \
                     structuring_transfo/transformations.h
 
 EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
 
 # locate include files under out-of-source builds.
-StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 StructuringTransfoXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
 StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+########################## IndicesXS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += IndicesXS.la
+endif
+
+nodist_IndicesXS_la_SOURCES = \
+                    convert/IndicesXS.c
+CLEANFILES += \
+                    convert/IndicesXS.c
+IndicesXS_la_SOURCES = \
+                    convert/indices_in_conversion.h \
+                    convert/indices_in_conversion.c
+
+EXTRA_DIST += convert/IndicesXS.xs
+
+# locate include files under out-of-source builds.
+IndicesXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+IndicesXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+IndicesXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
+IndicesXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ########################## ConvertXS
 

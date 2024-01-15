@@ -73,6 +73,7 @@ dist_modules_DATA = \
  Texinfo/DocumentXS.pm \
  Texinfo/Documentlanguages.pm \
  Texinfo/Indices.pm \
+ Texinfo/IndicesXS.pm \
  Texinfo/MiscXS.pm \
  Texinfo/Options.pm \
  Texinfo/Parser.pm \

@@ -38,7 +38,7 @@ use Carp qw(cluck confess);
 
 use Unicode::Normalize;
 
-use Texinfo::StructTransfXS;
+use Texinfo::IndicesXS;
 
 use Texinfo::XSLoader;
 
@@ -77,9 +77,9 @@ $XS_convert = 1 if ($XS_structuring
 my %XS_convert_overrides = (
 
   "Texinfo::Indices::index_entry_element_sort_string"
-    => "Texinfo::StructTransfXS::index_entry_element_sort_string",
+    => "Texinfo::IndicesXS::index_entry_element_sort_string",
   "Texinfo::Indices::setup_index_entry_keys_formatting",
-    => "Texinfo::StructTransfXS::setup_index_entry_keys_formatting",
+    => "Texinfo::IndicesXS::setup_index_entry_keys_formatting",
 
 );
 

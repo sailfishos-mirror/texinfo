@@ -8,6 +8,16 @@
 
 2024-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (dist_modules_DATA), tp/Texinfo/Indices.pm,
+	tp/Texinfo/IndicesXS.pm, tp/Texinfo/XS/Makefile.am
+	(StructuringTransfoXS_la_SOURCES, StructuringTransfoXS_la_CPPFLAGS),
+	(xs_LTLIBRARIES, IndicesXS_la_*), tp/Texinfo/XS/convert/IndicesXS.xs,
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs: move code
+	related to indices to a new XS file convert/IndicesXS.xs out of
+	StructuringTransfoXS.xs.
+
+2024-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Indices.pm, tp/Texinfo/Structuring.pm, tp/Makefile.am
 	(dist_modules_DATA): move code related to indices to a new file,
 	Indices.pm out of Structuring.pm.
