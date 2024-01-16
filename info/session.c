@@ -2513,6 +2513,7 @@ DECLARE_INFO_COMMAND (info_visit_menu,
 {
   register int i;
   REFERENCE *entry, **menu;
+  NODE *copy;
 
   menu = window->node->references;
 
@@ -2528,8 +2529,10 @@ DECLARE_INFO_COMMAND (info_visit_menu,
 
       if (entry->type != REFERENCE_MENU_ITEM) continue;
 
+      copy = xmalloc (sizeof (NODE));
+      *copy = *window->node; /* Field-by-field copy of structure. */
       new = window_make_window ();
-      info_set_node_of_window (new, window->node);
+      info_set_node_of_window (new, copy);
       window_tile_windows (TILE_INTERNALS);
 
       if (!new)

@@ -1,3 +1,15 @@
+2024-01-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Prevent M-x visit-menu segfault
+
+	* info/session.c (info_visit_menu): Copy the node structure from the
+	current window before calling info_follow_reference, similarly to
+	code in info_split_window.  This prevents a shared node in the
+	window history, leading to possible memory problems.
+
+	Segmentation fault following 'M-x visit-menu' and 'M-x delete-window'
+	reported by Bugsy Abatantuono <bugsyabatantuono@proton.me>.
+
 2024-01-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs (text_convert_tree): handle an
