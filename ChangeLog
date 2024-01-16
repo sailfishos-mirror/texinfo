@@ -1,3 +1,8 @@
+2024-01-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory):
+	make $output_format non-optional.  Update callers.
+
 2024-01-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Prevent M-x visit-menu segfault

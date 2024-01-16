@@ -54,7 +54,7 @@ sub output($$)
   my $root = $document->tree();
 
   my ($output_file, $destination_directory)
-    = $self->determine_files_and_directory();
+    = $self->determine_files_and_directory($self->{'output_format'});
 
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);

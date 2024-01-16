@@ -12429,8 +12429,8 @@ sub output($$)
   # this sets OUTFILE, to be used if not split, but also 'output_filename'
   # that is useful when split, 'destination_directory' that is mainly useful
   # when split and 'document_name' that is generally useful.
-  my ($output_file, $destination_directory, $output_filename,
-              $document_name) = $self->determine_files_and_directory();
+  my ($output_file, $destination_directory, $output_filename, $document_name)
+        = $self->determine_files_and_directory($self->{'output_format'});
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);
   my $succeeded

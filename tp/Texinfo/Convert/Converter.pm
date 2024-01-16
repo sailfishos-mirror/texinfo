@@ -380,7 +380,8 @@ sub output($$)
   }
 
   my ($output_file, $destination_directory, $output_filename,
-                  $document_name) = $self->determine_files_and_directory();
+       $document_name)
+      = $self->determine_files_and_directory($self->{'output_format'});
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);
   my $succeeded
@@ -695,14 +696,10 @@ sub write_or_return($$$)
 
 my $STDIN_DOCU_NAME = 'stdin';
 
-sub determine_files_and_directory($;$)
+sub determine_files_and_directory($$)
 {
   my $self = shift;
   my $output_format = shift;
-
-  if (not defined($output_format)) {
-    $output_format = $self->{'output_format'};
-  }
 
   # determine input file base name
   my $input_basefile;
@@ -2284,8 +2281,7 @@ X<C<determine_files_and_directory>>
 Determine output file and directory, as well as names related to files.  The
 result depends on the presence of C<@setfilename>, on the Texinfo input file
 name, and on customization options such as C<OUTPUT>, C<SUBDIR> or C<SPLIT>,
-as described in the Texinfo manual.  I<$output_format> is optional.  If it is
-not set the current output format, if defined, is used instead.  If not an
+as described in the Texinfo manual.  If I<$output_format> is defined and not an
 empty string, C<_$output_format> is prepended to the default directory name.
 
 I<$output_file> is mainly relevant when not split and should be used as the
