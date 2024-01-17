@@ -1,5 +1,11 @@
 2024-01-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Reporting Bugs): Change reference to "Change Log"
+	node in "standards" manual to "Change Logs" as the latter is the
+	name that is used in that manual.
+
+2024-01-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix info 'invalid' key mapping segfault
 
 	* info/infodoc.c (dump_map_to_text_buffer): Check for "invalid"

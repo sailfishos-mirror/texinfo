@@ -250,7 +250,7 @@ the Emacs developers: see @ref{Bugs,,, emacs, The GNU Emacs Manual}.
 @cindex Patches, contributing
 Patches are welcome; if possible, please make them with @samp{@w{diff -c}},
 @samp{@w{diff -u}} (@pxref{,,, diffutils, Comparing and Merging Files}),
-or @samp{git diff} and include @file{ChangeLog} entries (@pxref{Change Log,,,
+or @samp{git diff} and include @file{ChangeLog} entries (@pxref{Change Logs,,,
 standards, GNU Coding Standards}), and follow the existing coding style.
 
 
