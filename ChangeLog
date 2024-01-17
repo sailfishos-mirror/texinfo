@@ -27,6 +27,31 @@
 
 2024-01-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files): use
+	$Texinfo::ModulePath::top_srcdir to setup search directory with TEST
+	to avoid using the document information before calling output or
+	convert.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize): use
+	converter_descriptor and not document_descriptor to verify if the
+	converter will be found in XS.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize)
+	(html_initialize_output_state): move code needing information in
+	document to html_initialize_output_state.
+
+	* tp/Texinfo/XS/convert/converter.c (free_generic_converter),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/main/get_perl_info.c (get_line_message): add
+	small_strings in converter to store small strings from
+	get_line_message.
+
+	* tp/Texinfo/Convert/Converter.pm (set_document, converter): call
+	set_document after converter_initialize.  Set convert_text_options in
+	set_document.
+
+2024-01-17  Patrice Dumas  <pertusus@free.fr>
+
 	Add initialization and finalization of conversion, separate document
 	from converter
 

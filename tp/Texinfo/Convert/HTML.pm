@@ -8384,12 +8384,9 @@ sub _load_htmlxref_files {
       # directories if TEST is set.
       @htmlxref_dirs = File::Spec->catdir($curdir, '.texinfo');
 
-      if (defined($self->{'document_info'})
-          and defined($self->{'document_info'}->{'input_directory'})) {
-        my $input_directory = $self->{'document_info'}->{'input_directory'};
-        if ($input_directory ne '.' and $input_directory ne '') {
-          unshift @htmlxref_dirs, $input_directory;
-        }
+      if ($Texinfo::ModulePath::texinfo_uninstalled) {
+        unshift @htmlxref_dirs, File::Spec->catdir(
+          $Texinfo::ModulePath::top_srcdir, 'tp', 't', 'input_files');
       }
     } elsif ($self->{'language_config_dirs'}
              and @{$self->{'language_config_dirs'}}) {
@@ -8795,7 +8792,7 @@ sub converter_initialize($)
   }
 
   # XS parser initialization
-  if ($self->{'document_descriptor'} and $XS_convert) {
+  if ($self->{'converter_descriptor'} and $XS_convert) {
     # reformat special_unit_info information passed to XS to simplify
     # XS code
     if ($self->{'special_unit_info'}) {

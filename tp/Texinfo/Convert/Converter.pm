@@ -282,11 +282,9 @@ sub set_document($$)
   }
   Texinfo::Common::set_output_encodings($converter,
                                         $converter->{'document_info'});
-  # TODO should be done here, but need to split converter_initialize
-  # in document specifc and not document specific
-  #$converter->{'convert_text_options'}
-  # = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
 
+  $converter->{'convert_text_options'}
+   = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
 }
 
 # this function is designed so as to be used in specific Converters
@@ -363,13 +361,11 @@ sub converter($;$)
   # information can be passed to C.
   _XS_converter_initialize($converter);
 
+  $converter->converter_initialize();
+
   if ($document) {
     set_document($converter, $document);
   }
-
-  $converter->converter_initialize();
-  $converter->{'convert_text_options'}
-   = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
 
   return $converter;
 }

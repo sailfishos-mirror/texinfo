@@ -15987,43 +15987,7 @@ html_converter_initialize (CONVERTER *self)
 {
   int i;
   int nr_special_units;
-  char *output_encoding;
-  char *line_break_element;
   /* initialization needing some information from perl */
-
-  output_encoding = self->conf->OUTPUT_ENCODING_NAME.string;
-
-  for (i = 0; i < SC_non_breaking_space+1; i++)
-    {
-      char *unicode_point = special_characters_formatting[i][2];
-      char *entity = special_characters_formatting[i][0];
-      char *encoded_string = special_characters_formatting[i][1];
-      char *numeric_entity = special_characters_formatting[i][3];
-      char *special_character_string;
-
-      if (self->conf->OUTPUT_CHARACTERS.integer > 0
-          && unicode_point_decoded_in_encoding (output_encoding,
-                                                unicode_point))
-        special_character_string = encoded_string;
-      else if (self->conf->USE_NUMERIC_ENTITY.integer > 0)
-        special_character_string = numeric_entity;
-      else
-        special_character_string = entity;
-
-      self->special_character[i].string = special_character_string;
-      self->special_character[i].len = strlen (special_character_string);
-    }
-
-  if (self->conf->USE_XML_SYNTAX.integer > 0)
-    {
-      /* here in perl something for rules but we already get that from perl */
-      line_break_element = "<br/>";
-    }
-  else
-    line_break_element = "<br>";
-
-  self->line_break_element.string = line_break_element;
-  self->line_break_element.len = strlen(line_break_element);
 
   nr_special_units = self->special_unit_varieties.number;
 
@@ -16122,8 +16086,6 @@ html_converter_initialize (CONVERTER *self)
 
   qsort (self->htmlxref.list, self->htmlxref.number,
          sizeof (HTMLXREF_MANUAL), compare_htmlxref_manual);
-
-  sort_css_element_class_styles (self);
 
   /* set to customization such that it is not replaced by C functions */
   if (self->conf->XS_EXTERNAL_FORMATTING.integer > 0)
@@ -16432,10 +16394,50 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
 void
 html_initialize_output_state (CONVERTER *self, char *context)
 {
+  int i;
+  char *output_encoding;
+  char *line_break_element;
+
   if (!self->document && self->conf->DEBUG.integer > 0)
     {
       fprintf (stderr, "REMARK: html_initialize_output_state: no document");
     }
+
+  output_encoding = self->conf->OUTPUT_ENCODING_NAME.string;
+
+  for (i = 0; i < SC_non_breaking_space+1; i++)
+    {
+      char *unicode_point = special_characters_formatting[i][2];
+      char *entity = special_characters_formatting[i][0];
+      char *encoded_string = special_characters_formatting[i][1];
+      char *numeric_entity = special_characters_formatting[i][3];
+      char *special_character_string;
+
+      if (self->conf->OUTPUT_CHARACTERS.integer > 0
+          && unicode_point_decoded_in_encoding (output_encoding,
+                                                unicode_point))
+        special_character_string = encoded_string;
+      else if (self->conf->USE_NUMERIC_ENTITY.integer > 0)
+        special_character_string = numeric_entity;
+      else
+        special_character_string = entity;
+
+      self->special_character[i].string = special_character_string;
+      self->special_character[i].len = strlen (special_character_string);
+    }
+
+  if (self->conf->USE_XML_SYNTAX.integer > 0)
+    {
+      /* here in perl something for rules but we already get that from perl */
+      line_break_element = "<br/>";
+    }
+  else
+    line_break_element = "<br>";
+
+  self->line_break_element.string = line_break_element;
+  self->line_break_element.len = strlen(line_break_element);
+
+  sort_css_element_class_styles (self);
 
   /* set the htmlxref type split of the document */
   self->document_htmlxref_split_type = htmlxref_split_type_mono;

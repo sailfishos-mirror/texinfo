@@ -311,7 +311,7 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
   if (source_info->file_name)
     {
       char *saved_string = add_string (source_info->file_name,
-                                       self->document->small_strings);
+                                       &self->small_strings);
       free (source_info->file_name);
       source_info->file_name = saved_string;
     }
@@ -319,7 +319,7 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
   if (source_info->macro)
     {
       char *saved_string = add_string (source_info->macro,
-                                       self->document->small_strings);
+                                       &self->small_strings);
       free (source_info->macro);
       source_info->macro = saved_string;
     }

@@ -687,6 +687,8 @@ typedef struct CONVERTER {
     TRANSLATED_COMMAND *translated_commands;
 
     ERROR_MESSAGE_LIST error_messages;
+    /* for error messages registered in the converter */
+    STRING_LIST small_strings;
 
     DOCUMENT *document;
     MERGED_INDEX *index_entries;

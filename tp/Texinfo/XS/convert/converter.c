@@ -890,6 +890,8 @@ free_generic_converter (CONVERTER *self)
   destroy_text_options (self->convert_text_options);
 
   wipe_error_message_list (&self->error_messages);
+
+  free_strings_list (&self->small_strings);
 }
 
 
