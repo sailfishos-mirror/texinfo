@@ -284,8 +284,6 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  $self->{'document_context'} = [];
-  $self->_new_document_context();
   $self->{'context_block_commands'} = {%default_context_block_commands};
   foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
                         keys(%Texinfo::Commands::block_commands)) {
@@ -294,22 +292,41 @@ sub converter_initialize($)
   }
 }
 
+sub conversion_initialization($;$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  $self->{'document_context'} = [];
+  $self->_new_document_context();
+  $self->{'lang_stack'} = [];
+  $self->{'in_skipped_node_top'} = 0;
+  %sectioning_commands_done = ();
+}
+
+sub conversion_finalization($)
+{
+  my $self = shift;
+
+  pop @{$self->{'document_context'}};
+}
+
 sub convert($$)
 {
   my $self = shift;
   my $document = shift;
 
+  $self->conversion_initialization($document);
+
   my $root = $document->tree();
 
-  if (! defined($self->{'lang_stack'})) {
-    $self->{'lang_stack'} = [''];
-  }
-  # could even set to 0 if defined?
-  $self->{'in_skipped_node_top'} = 0
-    if (! defined($self->{'in_skipped_node_top'}));
+  push @{$self->{'lang_stack'}}, '';
 
-  %sectioning_commands_done = ();
-  return $self->convert_tree($root);
+  my $result = $self->convert_tree($root);
+
+  $self->conversion_finalization();
+
+  return $result;
 }
 
 sub convert_tree($$)
@@ -317,8 +334,8 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
-  if (! defined($self->{'lang_stack'})) {
-    $self->{'lang_stack'} = [''];
+  if (scalar(@{$self->{'lang_stack'}}) == 0) {
+    push @{$self->{'lang_stack'}}, '';
   }
   return $self->_convert($root);
 }
@@ -332,6 +349,8 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
+  $self->conversion_initialization($document);
+
   my $root = $document->tree();
 
   my ($output_file, $destination_directory, $output_filename)
@@ -342,7 +361,10 @@ sub output($$)
   my $succeeded
     = $self->create_destination_directory($encoded_destination_directory,
                                           $destination_directory);
-  return undef unless $succeeded;
+  unless ($succeeded) {
+    $self->conversion_finalization();
+    return undef;
+  }
 
   my $fh;
   my $encoded_output_file;
@@ -358,6 +380,7 @@ sub output($$)
       $self->converter_document_error(
            sprintf(__("could not open %s for writing: %s"),
                                     $output_file, $error_message));
+      $self->conversion_finalization();
       return undef;
     }
   }
@@ -375,8 +398,6 @@ sub output($$)
     $id = '';
   }
 
-  $self->{'lang_stack'} = [];
-  $self->{'in_skipped_node_top'} = 0;
   my $lang = $DEFAULT_LANG;
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   if (defined($self->get_conf('documentlanguage'))) {
@@ -511,7 +532,6 @@ sub output($$)
     $header .= "<bookinfo>$document_info</bookinfo>\n";
   }
 
-  %sectioning_commands_done = ();
   my $result = '';
   $result .= $self->write_or_return($header, $fh);
   $result .= $self->write_or_return($self->convert_tree($root), $fh);
@@ -525,6 +545,7 @@ sub output($$)
                                     $output_file, $!));
     }
   }
+  $self->conversion_finalization();
   return $result;
 }
 

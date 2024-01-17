@@ -94,6 +94,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::force_conf",
   "Texinfo::Convert::Converter::_XS_get_conf"
    => "Texinfo::Convert::ConvertXS::get_conf",
+  "Texinfo::Convert::Converter::_XS_set_document"
+   => "Texinfo::Convert::ConvertXS::converter_set_document",
 
   # fully overriden for all the converters
   "Texinfo::Convert::Converter::get_converter_errors"
@@ -223,7 +225,18 @@ sub converter_initialize($)
 {
 }
 
-# generic XS converter initialization
+sub conversion_initialization($;$)
+{
+  #my $converter = shift;
+  #my $document = shift;
+}
+
+sub conversion_finalization($)
+{
+  #my $converter = shift;
+}
+
+# initialize generic XS converter
 sub _XS_converter_initialize($)
 {
 }
@@ -232,6 +245,48 @@ sub output_internal_links($)
 {
   my $self = shift;
   return undef;
+}
+
+sub _XS_set_document($$)
+{
+}
+
+sub set_document($$)
+{
+  my $converter = shift;
+  my $document = shift;
+
+  if ($converter->{'converter_descriptor'} and $XS_convert) {
+    _XS_set_document($converter, $document);
+  }
+
+  $converter->{'document'} = $document;
+  if (defined($document)) {
+    $converter->{'global_commands'}
+     = $document->global_commands_information();
+    $converter->{'document_info'} = $document->global_information();
+    my $floats = $document->floats_information();
+    my $identifier_target = $document->labels_information();
+    my $sections_list = $document->sections_list();
+
+    $converter->{'floats'} = $floats if ($floats);
+    $converter->{'identifiers_target'} = $identifier_target
+                                           if ($identifier_target);
+    $converter->{'sections_list'} = $sections_list if ($sections_list);
+    $converter->{'indices_information'}
+           = $document->indices_information();
+    $converter->{'document_values'} = $document->{'values'};
+    # From and for XS
+    $converter->{'document_descriptor'}
+      = $document->document_descriptor();
+  }
+  Texinfo::Common::set_output_encodings($converter,
+                                        $converter->{'document_info'});
+  # TODO should be done here, but need to split converter_initialize
+  # in document specifc and not document specific
+  #$converter->{'convert_text_options'}
+  # = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
+
 }
 
 # this function is designed so as to be used in specific Converters
@@ -243,6 +298,9 @@ sub converter($;$)
   my $converter = { 'configured' => {} };
 
   bless $converter, $class;
+
+  # TODO set using set_document only
+  my $document;
 
   my %defaults = $converter->converter_defaults($conf);
   foreach my $key (keys(%all_converters_defaults)) {
@@ -259,24 +317,7 @@ sub converter($;$)
   }
   if (defined($conf)) {
     if ($conf->{'document'}) {
-      $converter->{'global_commands'}
-         = $conf->{'document'}->global_commands_information();
-      $converter->{'document_info'} = $conf->{'document'}->global_information();
-      my $floats = $conf->{'document'}->floats_information();
-      my $identifier_target = $conf->{'document'}->labels_information();
-      my $sections_list = $conf->{'document'}->sections_list();
-
-      $converter->{'floats'} = $floats if ($floats);
-      $converter->{'identifiers_target'} = $identifier_target
-                                             if ($identifier_target);
-      $converter->{'sections_list'} = $sections_list if ($sections_list);
-      $converter->{'indices_information'}
-             = $conf->{'document'}->indices_information();
-      $converter->{'values'} = $conf->{'document'}->{'values'};
-      # From and for XS
-      $converter->{'document_descriptor'}
-        = $conf->{'document'}->document_descriptor();
-      $converter->{'document'} = $conf->{'document'};
+      $document = $conf->{'document'};
       delete $conf->{'document'};
     }
     foreach my $key (keys(%$conf)) {
@@ -297,11 +338,6 @@ sub converter($;$)
   # options obtained after setting the defaults and applying
   # the customization passed as argument.
   $converter->{'converter_init_conf'} = { %{$converter->{'conf'}} };
-  foreach my $key (keys (%defaults)) {
-    if (defined($converter->{$key})) {
-      $converter->{'converter_init_conf'}->{$key} = $converter->{$key};
-    }
-  }
 
   # turn the array to a hash.
   my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
@@ -327,14 +363,13 @@ sub converter($;$)
   # information can be passed to C.
   _XS_converter_initialize($converter);
 
-  Texinfo::Common::set_output_encodings($converter,
-                                        $converter->{'document_info'});
+  if ($document) {
+    set_document($converter, $document);
+  }
 
   $converter->converter_initialize();
-
   $converter->{'convert_text_options'}
-      = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
-
+   = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
 
   return $converter;
 }
@@ -359,6 +394,8 @@ sub output($$)
 {
   my $self = shift;
   my $document = shift;
+
+  $self->conversion_initialization($document);
 
   my $root = $document->tree();
 
@@ -387,7 +424,10 @@ sub output($$)
   my $succeeded
     = $self->create_destination_directory($encoded_destination_directory,
                                           $destination_directory);
-  return undef unless $succeeded;
+  unless ($succeeded) {
+    $self->conversion_finalization();
+    return undef;
+  }
 
   if ($self->get_conf('USE_NODES')) {
     $output_units = Texinfo::Structuring::split_by_node($root);
@@ -441,6 +481,7 @@ sub output($$)
         $self->converter_document_error(
                  sprintf(__("could not open %s for writing: %s"),
                                       $outfile_name, $error_message));
+        $self->conversion_finalization();
         return undef;
       }
     } else {
@@ -471,7 +512,10 @@ sub output($$)
                                       $outfile_name, $!));
       }
     }
-    return $output if ($output_file eq '');
+    if ($output_file eq '') {
+      $self->conversion_finalization();
+      return $output;
+    }
   } else {
     # output with pages
     print STDERR "DO Elements with filenames\n"
@@ -492,6 +536,7 @@ sub output($$)
           $self->converter_document_error(
                 sprintf(__("could not open %s for writing: %s"),
                        $out_filepath, $error_message));
+          $self->conversion_finalization();
           return undef;
         }
         $files_filehandle{$output_unit_filename} = $file_fh;
@@ -510,12 +555,14 @@ sub output($$)
             $self->converter_document_error(
                      sprintf(__("error on closing %s: %s"),
                                   $out_filepath, $!));
+            $self->conversion_finalization();
             return undef;
           }
         }
       }
     }
   }
+  $self->conversion_finalization();
   return undef;
 }
 

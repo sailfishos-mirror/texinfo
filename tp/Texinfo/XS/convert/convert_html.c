@@ -16432,6 +16432,11 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
 void
 html_initialize_output_state (CONVERTER *self, char *context)
 {
+  if (!self->document && self->conf->DEBUG.integer > 0)
+    {
+      fprintf (stderr, "REMARK: html_initialize_output_state: no document");
+    }
+
   /* set the htmlxref type split of the document */
   self->document_htmlxref_split_type = htmlxref_split_type_mono;
 
@@ -16461,7 +16466,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
 
   html_new_document_context (self, context, 0, 0);
 
-  if (self->document->index_names)
+  if (self->document && self->document->index_names)
     {
       INDEX **i, *idx;
       size_t j;
@@ -16491,7 +16496,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
 }
 
 void
-html_finalize_output_state (CONVERTER *self)
+html_conversion_finalization (CONVERTER *self)
 {
   int i;
   for (i = 0; i < self->html_files_information.number; i++)

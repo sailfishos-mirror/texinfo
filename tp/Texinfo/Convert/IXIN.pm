@@ -321,7 +321,11 @@ my @node_directions = ('Next', 'Prev', 'Up');
 sub output_ixin($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
+
+  $self->conversion_initialization($document);
+
+  my $root = $document->tree();
 
   my ($output_file, $destination_directory, $output_filename)
     = $self->determine_files_and_directory($self->{'output_format'});
@@ -331,7 +335,10 @@ sub output_ixin($$)
   my $succeeded
     = $self->create_destination_directory($encoded_destination_directory,
                                           $destination_directory);
-  return undef unless $succeeded;
+  unless ($succeeded) {
+    $self->conversion_finalization();
+    return undef;
+  }
 
   my $fh;
   my $encoded_output_file;
@@ -347,6 +354,7 @@ sub output_ixin($$)
       $self->converter_document_error(
                 sprintf(__("could not open %s for writing: %s"),
                                     $output_file, $error_message));
+      $self->conversion_finalization();
       return undef;
     }
   }
@@ -441,10 +449,9 @@ sub output_ixin($$)
     my $setting_command = $setting_commands{$setting_command_name};
     $setting_command_name = 'shortcontents'
         if ($setting_command_name eq 'summarycontents');
-    # FIXME should use get_conf instead?
-    my $value = Texinfo::Common::_informative_command_value($setting_command);
+    my $value = Texinfo::Common::informative_command_value($setting_command);
     #print STDERR "$setting_command_name $value\n";
-    # do not register settings if sete at the default value.
+    # do not register settings if set at the default value.
     if (defined($value)
         and !(defined($setting_commands_defaults{$setting_command_name})
               and $setting_commands_defaults{$setting_command_name} eq $value)) {
@@ -1006,6 +1013,7 @@ sub output_ixin($$)
                                     $output_file, $!));
     }
   }
+  $self->conversion_finalization();
   return $output;
 }
 

@@ -1,3 +1,60 @@
+2024-01-17  Patrice Dumas  <pertusus@free.fr>
+
+	Add initialization and finalization of conversion, separate document
+	from converter
+
+	* tp/Texinfo/Convert/Converter.pm (conversion_initialization)
+	(conversion_finalization, output), tp/Texinfo/Convert/DocBook.pm
+	(converter_initialize, conversion_initialization, convert)
+	(conversion_initialization, output), tp/Texinfo/Convert/HTML.pm
+	(%XS_conversion_overrides, _XS_html_converter_initialize)
+	(converter_initialize, conversion_initialization)
+	(conversion_finalization, convert, output), tp/Texinfo/Convert/IXIN.pm
+	(output_ixin), tp/Texinfo/Convert/Info.pm (output),
+	tp/Texinfo/Convert/LaTeX.pm (conversion_initialization, output)
+	(convert, convert_to_latex_math), tp/Texinfo/Convert/Plaintext.pm
+	(conversion_initialization, converter_initialize, convert_output_unit)
+	(convert), tp/Texinfo/Convert/TexinfoMarkup.pm (converter_initialize)
+	(conversion_initialization, output, convert),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv)
+	(html_initialize_output_state, html_conversion_finalization),
+	tp/Texinfo/XS/convert/convert_html.c (html_initialize_output_state),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv, html_conversion_initialization_sv),
+	tp/t/accents.t: use systematically conversion_initialization and
+	conversion_finalization at the beginning and end of output and convert
+	to initialize and finalize the conversion of one document.  Keep in
+	converter_initialize only the code that do not depend on a document.
+	In HTML.pm rename existing functions,
+	_initialize_XS_NonXS_output_state as conversion_initialization and
+	_finalize_output_state as conversion_finalization, and move code from
+	converter_initialize.  In Plaintext.pm, this replaces
+	_initialize_converter_state.
+
+	* tp/Texinfo/Convert/Converter.pm (set_document),
+	tp/Texinfo/Convert/HTML.pm (get_value): rename 'value' key in
+	converter as 'document_values'.
+
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, set_document)
+	(_XS_set_document, converter), tp/Texinfo/XS/convert/ConvertXS.xs
+	(converter_set_document), tp/Texinfo/XS/main/get_perl_info.c
+	(converter_set_document, converter_initialize): move setting the
+	document of a converter to a separate function, for now called from
+	converter.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_initialize_output_state),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(find_element_extra_index_entry_sv): handle NUL document.
+
+	* tp/Texinfo/Convert/Plaintext.pm (pop_top_formatter)
+	(process_footnotes, conversion_finalization): add a function to pop
+	the top formatter and use it in conversion_finalization.
+
+	* tp/Texinfo/Convert/DocBook.pm (convert_tree): minor change in code.
+
+	* tp/Texinfo/Convert/IXINSXML.pm (converter_initialize): pass
+	document, not tree.
+
 2024-01-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory):

@@ -74,7 +74,8 @@ sub converter_defaults($$)
 # but it could theoretically be needed for a flexible conversion
 # (since the IXIN project is inactive, the corresponding code is not updated
 # actively either, so it is unlikely to change, though).
-sub converter_initialize($) { my $self = shift;
+sub converter_initialize($) {
+  my $self = shift;
 
   $self->{'converted_format'} = $defaults{'converted_format'};
 
@@ -89,9 +90,7 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  my $root = $document->tree();
-
-  return $self->output_ixin($root);
+  return $self->output_ixin($document);
 }
 
 1;

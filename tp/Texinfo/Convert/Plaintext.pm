@@ -404,14 +404,28 @@ sub push_top_formatter($$)
   $self->{'formatters'}->[-1]->{'_top_formatter'} = 1;
 }
 
+sub pop_top_formatter($)
+{
+  my $self = shift;
+
+  my $old_context = pop @{$self->{'context'}};
+  pop @{$self->{'formatters'}};
+  pop @{$self->{'format_context'}};
+  pop @{$self->{'text_element_context'}};
+  pop @{$self->{'document_context'}};
+
+  return $old_context;
+}
+
 sub converter_defaults($$)
 {
   return %defaults;
 }
 
-sub converter_initialize($)
+sub conversion_initialization($;$)
 {
   my $self = shift;
+  my $document = shift;
 
   $self->{'context'} = [];
   $self->{'format_context'} = [];
@@ -421,39 +435,23 @@ sub converter_initialize($)
                                      'result' => ''
   };
 
-  %{$self->{'ignored_types'}} = %ignored_types;
-  %{$self->{'ignorable_space_types'}} = %ignorable_space_types;
-  %{$self->{'ignored_commands'}} = %ignored_commands;
+  # setting to 1 ensures that nothing is done, as there is
+  # something done (a newline added) if equal to 0.
+  $self->{'empty_lines_count'} = 1;
+  $self->{'seenmenus'} = {};
+  $self->{'index_entries_line_location'} = {};
+
   # this is dynamic because raw formats may either be full commands if
   # isolated, or simple text if in a paragraph
   %{$self->{'format_context_commands'}} = %default_format_context_commands;
   %{$self->{'preformatted_context_commands'}}
      = %default_preformatted_context_commands;
+
   $self->{'footnote_index'} = 0;
   $self->{'pending_footnotes'} = [];
   $self->{'index_entry_node_colon'} = {};
   $self->{'index_entries_no_node'} = {};
   $self->{'seen_node_descriptions'} = {};
-
-  foreach my $format (keys(%format_raw_commands)) {
-    $self->{'ignored_commands'}->{$format} = 1
-       unless ($self->{'expanded_formats'}->{$format});
-  }
-
-  if ($self->get_conf('ASCII_PUNCTUATION')) {
-    $self->set_conf('ASCII_DASHES_AND_QUOTES', 1);
-    $self->set_conf('ASCII_GLYPH', 1);
-    $self->set_conf('OPEN_QUOTE_SYMBOL', '\'');
-    $self->set_conf('CLOSE_QUOTE_SYMBOL', '\'');
-    $self->set_conf('OPEN_DOUBLE_QUOTE_SYMBOL', '"');
-    $self->set_conf('CLOSE_DOUBLE_QUOTE_SYMBOL', '"');
-  }
-  if ($self->get_conf('ASCII_DASHES_AND_QUOTES')) {
-    # cache to avoid calling get_conf
-    $self->{'ascii_dashes_and_quotes'} = 1;
-  } else {
-    $self->{'ascii_dashes_and_quotes'} = 0;
-  }
 
   %{$self->{'style_map'}} = %style_map;
 
@@ -500,6 +498,46 @@ sub converter_initialize($)
     }
   }
 
+  # some caching to avoid calling get_conf
+  if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
+    $self->{'output_perl_encoding'} = $self->get_conf('OUTPUT_PERL_ENCODING');
+  } else {
+    $self->{'output_perl_encoding'} = '';
+  }
+  $self->{'enable_encoding'} = $self->get_conf('ENABLE_ENCODING');
+  $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
+  $self->{'debug'} = $self->get_conf('DEBUG');
+
+  $self->push_top_formatter('_Root_context');
+}
+
+sub converter_initialize($)
+{
+  my $self = shift;
+
+  %{$self->{'ignored_types'}} = %ignored_types;
+  %{$self->{'ignorable_space_types'}} = %ignorable_space_types;
+  %{$self->{'ignored_commands'}} = %ignored_commands;
+
+  foreach my $format (keys(%format_raw_commands)) {
+    $self->{'ignored_commands'}->{$format} = 1
+       unless ($self->{'expanded_formats'}->{$format});
+  }
+
+  if ($self->get_conf('ASCII_PUNCTUATION')) {
+    $self->set_conf('ASCII_DASHES_AND_QUOTES', 1);
+    $self->set_conf('ASCII_GLYPH', 1);
+    $self->set_conf('OPEN_QUOTE_SYMBOL', '\'');
+    $self->set_conf('CLOSE_QUOTE_SYMBOL', '\'');
+    $self->set_conf('OPEN_DOUBLE_QUOTE_SYMBOL', '"');
+    $self->set_conf('CLOSE_DOUBLE_QUOTE_SYMBOL', '"');
+  }
+  if ($self->get_conf('ASCII_DASHES_AND_QUOTES')) {
+    # cache to avoid calling get_conf
+    $self->{'ascii_dashes_and_quotes'} = 1;
+  } else {
+    $self->{'ascii_dashes_and_quotes'} = 0;
+  }
   if ($self->get_conf('FILLCOLUMN')) {
     $self->{'fillcolumn'} = $self->get_conf('FILLCOLUMN');
     # else it's already set via the defaults
@@ -524,19 +562,14 @@ sub converter_initialize($)
     $self->{'info_special_chars_warning'} = '';
   }
 
-  # This needs to be here to take into account $self->{'fillcolumn'}.
-  $self->push_top_formatter('_Root_context');
-  # some caching to avoid calling get_conf
-  if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
-    $self->{'output_perl_encoding'} = $self->get_conf('OUTPUT_PERL_ENCODING');
-  } else {
-    $self->{'output_perl_encoding'} = '';
-  }
-  $self->{'enable_encoding'} = $self->get_conf('ENABLE_ENCODING');
-  $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
-  $self->{'debug'} = $self->get_conf('DEBUG');
-
   return $self;
+}
+
+sub conversion_finalization($)
+{
+  my $self = shift;
+
+  $self->pop_top_formatter();
 }
 
 sub count_context_bug_message($$$)
@@ -558,29 +591,12 @@ sub count_context_bug_message($$$)
   }
 }
 
-sub _initialize_converter_state($)
-{
-  my $self = shift;
-
-  if (!defined($self->{'empty_lines_count'})) {
-    # setting to 1 ensures that nothing is done, as there is
-    # something done (a newline added) if equal to 0.
-    $self->{'empty_lines_count'} = 1;
-  }
-  $self->{'seenmenus'} = {}
-    if (!$self->{'seenmenus'});
-  $self->{'index_entries_line_location'} = {}
-    if (!$self->{'index_entries_line_location'});
-}
-
 # the initialization of module specific state is not done in output()
 # as output() is the generic Converter::Convert function, so it needs
 # to be done here by calling _initialize_converter_state.
 sub convert_output_unit($$)
 {
   my ($self, $output_unit) = @_;
-
-  _initialize_converter_state($self);
 
   $self->{'count_context'}->[-1]->{'result'} = '';
 
@@ -600,14 +616,13 @@ sub convert($$)
 {
   my ($self, $document) = @_;
 
+  $self->conversion_initialization($document);
+
   my $root = $document->tree();
 
   my $result = '';
 
   my $output_units = Texinfo::Structuring::split_by_node($root);
-  $self->{'seenmenus'} = {};
-  $self->{'empty_lines_count'} = 1;
-  $self->{'index_entries_line_location'} = {};
   if (!defined($output_units)) {
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                        'locations' => [],
@@ -626,6 +641,8 @@ sub convert($$)
       $result .= $node_text;
     }
   }
+
+  $self->conversion_finalization();
 
   return $result;
 }
@@ -1159,12 +1176,8 @@ sub process_footnotes($;$)
       $self->_convert($footnote->{'root'}->{'args'}->[0]);
       _add_newline_if_needed($self);
 
-      my $old_context = pop @{$self->{'context'}};
+      my $old_context = $self->pop_top_formatter();
       die if ($old_context ne 'footnote');
-      pop @{$self->{'formatters'}};
-      pop @{$self->{'format_context'}};
-      pop @{$self->{'text_element_context'}};
-      pop @{$self->{'document_context'}};
     }
   }
   $self->{'footnote_index'} = 0;
@@ -1932,6 +1945,9 @@ sub _convert($$)
   # especially
   if ($type and ($type eq 'empty_line'
                  or $type eq 'after_menu_description_line')) {
+    #if (!$self->{'text_element_context'}) {
+    #  cluck;
+    #}
     delete $self->{'text_element_context'}->[-1]->{'counter'};
     $self->{'empty_lines_count'}++;
     if ($self->{'empty_lines_count'} <= 1

@@ -526,6 +526,33 @@ copy_converter_conf_sv (HV *hv, CONVERTER *converter,
     }
 }
 
+void
+converter_set_document (SV *converter_in, SV *document_in)
+{
+  CONVERTER *converter;
+  DOCUMENT *document;
+
+  dTHX;
+
+  converter = get_sv_converter (converter_in, "converter_set_document");
+  document = get_sv_document_document (document_in, 0);
+
+   /*
+  if (document)
+    {
+      fprintf (stderr, "XS|CONVERTER %d: Document %d\n",
+           converter->converter_descriptor, document->descriptor);
+    }
+    */
+
+  converter->document = document;
+
+  set_output_encoding (converter->conf, converter->document);
+
+  converter->convert_text_options
+    = copy_converter_options_for_convert_text (converter);
+}
+
 /* Texinfo::Convert::Converter generic initialization for all the converters */
 /* Called early, in particuliar before any format specific code has been
    called */
@@ -535,7 +562,6 @@ converter_initialize (SV *converter_sv)
   HV *hv_in;
   SV **configured_sv;
   SV **output_format_sv;
-  DOCUMENT *document;
   int converter_descriptor = 0;
   CONVERTER *converter;
 
@@ -545,32 +571,6 @@ converter_initialize (SV *converter_sv)
   converter = retrieve_converter (converter_descriptor);
 
   hv_in = (HV *)SvRV (converter_sv);
-
-  document = get_sv_document_document (converter_sv, 0);
-  if (!document)
-    {
-      /* happens in tests for PlainTexinfo for example */
-      unregister_converter_descriptor (converter_descriptor);
-      return 0;
-      /*
-      I32 hv_number;
-      I32 i;
-      hv_number = hv_iterinit (hv_in);
-      fprintf (stderr, "REMARK: no document for SV %p HV %p\n", converter_sv,
-                       hv_in);
-      for (i = 0; i < hv_number; i++)
-        {
-          char *key;
-          I32 retlen;
-          SV *value = hv_iternextsv(hv_in, &key, &retlen);
-          if (value && SvOK (value))
-            {
-              fprintf (stderr, "  %s: %p\n", key, value);
-            }
-        }
-       */
-    }
-  converter->document = document;
 
 #define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
   FETCH(output_format)
@@ -606,11 +606,6 @@ converter_initialize (SV *converter_sv)
   set_translated_commands (converter, hv_in);
 
   get_expanded_formats (hv_in, &converter->expanded_formats);
-
-  set_output_encoding (converter->conf, converter->document);
-
-  converter->convert_text_options
-    = copy_converter_options_for_convert_text (converter);
 
   converter->hv = hv_in;
 
@@ -1297,7 +1292,7 @@ find_element_extra_index_entry_sv (DOCUMENT *document,
                                    SV *extra_index_entry_sv)
 {
   INDEX_ENTRY *index_entry;
-  if (!converter || !converter->document->index_names)
+  if (!converter || !converter->document || !converter->document->index_names)
     {
       if (document)
         index_entry

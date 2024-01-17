@@ -70,6 +70,9 @@ init (...)
 void
 converter_initialize (SV *converter_in)
 
+void
+converter_set_document (SV *converter_in, SV *document_in)
+
 
 void
 set_conf (SV *converter_in, conf, SV *value)
@@ -339,7 +342,7 @@ void
 html_format_init ()
 
 void
-html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body)
+html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_no_arg_commands_formatting, SV *default_special_unit_body)
 
 void
 html_initialize_output_state (SV *converter_in, char *context)
@@ -348,17 +351,20 @@ html_initialize_output_state (SV *converter_in, char *context)
       CODE:
          self = get_sv_converter (converter_in, "html_initialize_output_state");
          if (self)
-           html_initialize_output_state (self, context);
+           {
+             html_conversion_initialization_sv (converter_in, self);
+             html_initialize_output_state (self, context);
+           }
 
 void
-html_finalize_output_state (SV *converter_in)
+html_conversion_finalization (SV *converter_in)
       PREINIT:
          CONVERTER *self;
       CODE:
-         self = get_sv_converter (converter_in, "html_finalize_output_state");
+         self = get_sv_converter (converter_in, "html_conversion_finalization");
          if (self)
            {
-             html_finalize_output_state (self);
+             html_conversion_finalization (self);
 
              if (self->modified_state)
                {

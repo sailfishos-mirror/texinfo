@@ -117,8 +117,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
   "Texinfo::Convert::HTML::_initialize_output_state"
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
-  "Texinfo::Convert::HTML::_finalize_output_state"
-   => "Texinfo::Convert::ConvertXS::html_finalize_output_state",
+  "Texinfo::Convert::HTML::conversion_finalization"
+   => "Texinfo::Convert::ConvertXS::html_conversion_finalization",
   "Texinfo::Convert::HTML::_XS_reset_output_init_conf"
    => "Texinfo::Convert::ConvertXS::reset_output_init_conf",
   "Texinfo::Convert::HTML::_prepare_simpletitle"
@@ -1957,9 +1957,9 @@ sub get_value($$)
 {
   my $self = shift;
   my $value = shift;
-  if (defined($self->{'values'})
-      and exists ($self->{'values'}->{$value})) {
-    return $self->{'values'}->{$value};
+  if (defined($self->{'document_values'})
+      and exists ($self->{'document_values'}->{$value})) {
+    return $self->{'document_values'}->{$value};
   } else {
     return undef;
   }
@@ -8532,7 +8532,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$)
 {
 }
 
@@ -8542,146 +8542,7 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  %{$self->{'css_element_class_styles'}} = %css_element_class_styles;
-
   _load_htmlxref_files($self);
-
-  # duplicate such as not to modify the defaults
-  my $conf_default_no_arg_commands_formatting_normal
-    = Storable::dclone($default_no_arg_commands_formatting{'normal'});
-
-  my %special_characters_set;
-
-  my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
-
-  foreach my $special_character (keys(%special_characters)) {
-    my ($default_entity, $unicode_point) = @{$special_characters{$special_character}};
-    if ($self->get_conf('OUTPUT_CHARACTERS')
-        and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
-                                         $output_encoding, $unicode_point)) {
-      $special_characters_set{$special_character}
-                                    = charnames::vianame("U+$unicode_point");
-    } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
-      $special_characters_set{$special_character} = '&#'.hex($unicode_point).';';
-    } else {
-      $special_characters_set{$special_character} = $default_entity;
-    }
-  }
-
-  if (defined($special_characters_set{'non_breaking_space'})) {
-    my $non_breaking_space = $special_characters_set{'non_breaking_space'};
-    $self->_set_non_breaking_space($non_breaking_space);
-    foreach my $space_command (' ', "\t", "\n") {
-      $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
-        = $self->{'non_breaking_space'};
-    }
-    $conf_default_no_arg_commands_formatting_normal->{'tie'}->{'text'}
-      = $self->substitute_html_non_breaking_space(
-           $default_no_arg_commands_formatting{'normal'}->{'tie'}->{'text'});
-  } else {
-    $self->_set_non_breaking_space($xml_named_entity_nbsp);
-  }
-  $self->{'paragraph_symbol'} = $special_characters_set{'paragraph_symbol'};
-
-  if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
-    $self->set_conf('OPEN_QUOTE_SYMBOL', $special_characters_set{'left_quote'});
-  }
-  if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
-    $self->set_conf('CLOSE_QUOTE_SYMBOL', $special_characters_set{'right_quote'});
-  }
-  if (not defined($self->get_conf('MENU_SYMBOL'))) {
-    $self->set_conf('MENU_SYMBOL', $special_characters_set{'bullet'});
-  }
-
-  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
-      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
-       = $Texinfo::Convert::Unicode::unicode_entities{$command};
-    }
-  }
-
-  if ($self->get_conf('USE_XML_SYNTAX')) {
-    foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
-      my $variable_value = $self->get_conf($customization_variable);
-      if (defined($variable_value)) {
-        my $closed_lone_element = _xhtml_re_close_lone_element($variable_value);
-        if ($closed_lone_element ne $variable_value) {
-          $self->force_conf($customization_variable, $closed_lone_element);
-        }
-      }
-    }
-    $self->{'line_break_element'} = '<br/>';
-  } else {
-    $self->{'line_break_element'} = '<br>';
-  }
-  $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
-    = $self->{'line_break_element'};
-
-  # three types of direction strings:
-  # * strings not translated, already converted
-  # * strings translated
-  #   - strings already converted
-  #   - strings not already converted
-  $self->{'directions_strings'} = {};
-
-  my $customized_direction_strings
-      = Texinfo::Config::GNUT_get_direction_string_info();
-  foreach my $string_type (keys(%default_converted_directions_strings)) {
-    $self->{'directions_strings'}->{$string_type} = {};
-    foreach my $direction
-            (keys(%{$default_converted_directions_strings{$string_type}})) {
-      $self->{'directions_strings'}->{$string_type}->{$direction} = {};
-      my $string_contexts;
-      if ($customized_direction_strings->{$string_type}
-          and $customized_direction_strings->{$string_type}->{$direction}) {
-        if (defined($customized_direction_strings->{$string_type}
-                                              ->{$direction}->{'converted'})) {
-          $string_contexts
-            = $customized_direction_strings->{$string_type}
-                                          ->{$direction}->{'converted'};
-        }
-      } else {
-        my $string
-          = $default_converted_directions_strings{$string_type}->{$direction};
-        $string_contexts
-          = {'normal' => $string};
-      }
-      $string_contexts->{'string'} = $string_contexts->{'normal'}
-        if (not defined($string_contexts->{'string'}));
-      foreach my $context (keys(%$string_contexts)) {
-        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
-          = $self->substitute_html_non_breaking_space(
-                                                  $string_contexts->{$context});
-      }
-    }
-  }
-  $self->{'translated_direction_strings'} = {};
-  foreach my $string_type (keys(%default_translated_directions_strings)) {
-    $self->{'translated_direction_strings'}->{$string_type} = {};
-    foreach my $direction
-           (keys(%{$default_translated_directions_strings{$string_type}})) {
-      if ($customized_direction_strings->{$string_type}
-            and $customized_direction_strings->{$string_type}->{$direction}) {
-        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
-          = $customized_direction_strings->{$string_type}->{$direction};
-      } else {
-        if ($default_translated_directions_strings{$string_type}->{$direction}
-                                                              ->{'converted'}) {
-          $self->{'translated_direction_strings'}->{$string_type}
-                  ->{$direction} = {'converted' => {}};
-          foreach my $context ('normal', 'string') {
-            $self->{'translated_direction_strings'}->{$string_type}
-                     ->{$direction}->{'converted'}->{$context}
-               = $default_translated_directions_strings{$string_type}
-                                                 ->{$direction}->{'converted'};
-          }
-        } else {
-          $self->{'translated_direction_strings'}->{$string_type}->{$direction}
-            = $default_translated_directions_strings{$string_type}->{$direction};
-        }
-      }
-    }
-  }
 
   $self->{'output_units_conversion'} = {};
   my $customized_output_units_conversion
@@ -8785,63 +8646,6 @@ sub converter_initialize($)
     } elsif (exists($default_commands_open{$command})) {
       $self->{'commands_open'}->{$command}
            = $default_commands_open{$command};
-    }
-  }
-
-  $self->{'no_arg_commands_formatting'} = {};
-  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-    $self->{'no_arg_commands_formatting'}->{$command} = {};
-    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
-      my $no_arg_command_customized_formatting
-        = Texinfo::Config::GNUT_get_no_arg_command_formatting($command, $context);
-      if (defined($no_arg_command_customized_formatting)) {
-        $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-           = $no_arg_command_customized_formatting;
-      } else {
-        my $context_default_default_no_arg_commands_formatting
-          = $default_no_arg_commands_formatting{$context};
-        if ($context eq 'normal') {
-          $context_default_default_no_arg_commands_formatting
-           = $conf_default_no_arg_commands_formatting_normal;
-        }
-        if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
-          if ($self->get_conf('OUTPUT_CHARACTERS')
-              and Texinfo::Convert::Unicode::brace_no_arg_command(
-                             $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
-            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-              = { 'text' => Texinfo::Convert::Unicode::brace_no_arg_command(
-                           $command, $self->get_conf('OUTPUT_ENCODING_NAME'))};
-            # reset CSS for itemize command arguments
-            if ($context eq 'css_string'
-                and exists($brace_commands{$command})
-                and $command ne 'bullet' and $command ne 'w'
-                and not $special_list_mark_css_string_no_arg_command{$command}) {
-              my $css_string
-                = $self->{'no_arg_commands_formatting'}
-                                    ->{$command}->{$context}->{'text'};
-              $css_string = '"'.$css_string.'"';
-              $self->{'css_element_class_styles'}->{"ul.mark-$command"}
-                = "list-style-type: $css_string";
-            }
-          } else {
-            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-              = $context_default_default_no_arg_commands_formatting->{$command};
-          }
-        } else {
-          $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-            = {'unset' => 1};
-        }
-      }
-    }
-  }
-
-  # set sane defaults in case there is none and the default formatting
-  # function is used
-  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-    if ($self->{'commands_conversion'}->{$command}
-        and $self->{'commands_conversion'}->{$command}
-            eq $default_commands_conversion{$command}) {
-      $self->_complete_no_arg_commands_formatting($command);
     }
   }
 
@@ -9033,6 +8837,7 @@ sub converter_initialize($)
                              \%default_types_conversion,
                              \%default_css_string_types_conversion,
                              \%default_output_units_conversion,
+                             $default_no_arg_commands_formatting{'normal'},
                              \%defaults_format_special_unit_body_contents);
     delete $self->{'sorted_special_unit_varieties'};
     delete $self->{'simplified_special_unit_info'};
@@ -11636,14 +11441,212 @@ sub _initialize_output_state($$)
 
 # This function initializes states that are initialized both in XS and
 # in perl.
-sub _initialize_XS_NonXS_output_state($$)
+sub conversion_initialization($;$)
 {
   my $self = shift;
-  my $context = shift;
+  my $document = shift;
+
+  # duplicate such as not to modify the defaults
+  my $conf_default_no_arg_commands_formatting_normal
+    = Storable::dclone($default_no_arg_commands_formatting{'normal'});
+
+  my %special_characters_set;
+
+  my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+
+  foreach my $special_character (keys(%special_characters)) {
+    my ($default_entity, $unicode_point) = @{$special_characters{$special_character}};
+    if ($self->get_conf('OUTPUT_CHARACTERS')
+        and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
+                                         $output_encoding, $unicode_point)) {
+      $special_characters_set{$special_character}
+                                    = charnames::vianame("U+$unicode_point");
+    } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
+      $special_characters_set{$special_character} = '&#'.hex($unicode_point).';';
+    } else {
+      $special_characters_set{$special_character} = $default_entity;
+    }
+  }
+
+  if (defined($special_characters_set{'non_breaking_space'})) {
+    my $non_breaking_space = $special_characters_set{'non_breaking_space'};
+    $self->_set_non_breaking_space($non_breaking_space);
+    foreach my $space_command (' ', "\t", "\n") {
+      $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
+        = $self->{'non_breaking_space'};
+    }
+    $conf_default_no_arg_commands_formatting_normal->{'tie'}->{'text'}
+      = $self->substitute_html_non_breaking_space(
+           $default_no_arg_commands_formatting{'normal'}->{'tie'}->{'text'});
+  } else {
+    $self->_set_non_breaking_space($xml_named_entity_nbsp);
+  }
+  $self->{'paragraph_symbol'} = $special_characters_set{'paragraph_symbol'};
+
+  if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
+    $self->set_conf('OPEN_QUOTE_SYMBOL', $special_characters_set{'left_quote'});
+  }
+  if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
+    $self->set_conf('CLOSE_QUOTE_SYMBOL', $special_characters_set{'right_quote'});
+  }
+  if (not defined($self->get_conf('MENU_SYMBOL'))) {
+    $self->set_conf('MENU_SYMBOL', $special_characters_set{'bullet'});
+  }
+
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
+      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
+       = $Texinfo::Convert::Unicode::unicode_entities{$command};
+    }
+  }
+
+  if ($self->get_conf('USE_XML_SYNTAX')) {
+    foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
+      my $variable_value = $self->get_conf($customization_variable);
+      if (defined($variable_value)) {
+        my $closed_lone_element = _xhtml_re_close_lone_element($variable_value);
+        if ($closed_lone_element ne $variable_value) {
+          $self->force_conf($customization_variable, $closed_lone_element);
+        }
+      }
+    }
+    $self->{'line_break_element'} = '<br/>';
+  } else {
+    $self->{'line_break_element'} = '<br>';
+  }
+  $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
+    = $self->{'line_break_element'};
+
+  %{$self->{'css_element_class_styles'}} = %css_element_class_styles;
+
+  $self->{'no_arg_commands_formatting'} = {};
+  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+    $self->{'no_arg_commands_formatting'}->{$command} = {};
+    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
+      my $no_arg_command_customized_formatting
+        = Texinfo::Config::GNUT_get_no_arg_command_formatting($command, $context);
+      if (defined($no_arg_command_customized_formatting)) {
+        $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+           = $no_arg_command_customized_formatting;
+      } else {
+        my $context_default_default_no_arg_commands_formatting
+          = $default_no_arg_commands_formatting{$context};
+        if ($context eq 'normal') {
+          $context_default_default_no_arg_commands_formatting
+           = $conf_default_no_arg_commands_formatting_normal;
+        }
+        if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
+          if ($self->get_conf('OUTPUT_CHARACTERS')
+              and Texinfo::Convert::Unicode::brace_no_arg_command(
+                             $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
+            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+              = { 'text' => Texinfo::Convert::Unicode::brace_no_arg_command(
+                           $command, $self->get_conf('OUTPUT_ENCODING_NAME'))};
+            # reset CSS for itemize command arguments
+            if ($context eq 'css_string'
+                and exists($brace_commands{$command})
+                and $command ne 'bullet' and $command ne 'w'
+                and not $special_list_mark_css_string_no_arg_command{$command}) {
+              my $css_string
+                = $self->{'no_arg_commands_formatting'}
+                                    ->{$command}->{$context}->{'text'};
+              $css_string = '"'.$css_string.'"';
+              $self->{'css_element_class_styles'}->{"ul.mark-$command"}
+                = "list-style-type: $css_string";
+            }
+          } else {
+            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+              = $context_default_default_no_arg_commands_formatting->{$command};
+          }
+        } else {
+          $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+            = {'unset' => 1};
+        }
+      }
+    }
+  }
+
+  # set sane defaults in case there is none and the default formatting
+  # function is used
+  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+    if ($self->{'commands_conversion'}->{$command}
+        and $self->{'commands_conversion'}->{$command}
+            eq $default_commands_conversion{$command}) {
+      $self->_complete_no_arg_commands_formatting($command);
+    }
+  }
+
+  # three types of direction strings:
+  # * strings not translated, already converted
+  # * strings translated
+  #   - strings already converted
+  #   - strings not already converted
+  $self->{'directions_strings'} = {};
+
+  # here because substitute_html_non_breaking_space is used
+  my $customized_direction_strings
+      = Texinfo::Config::GNUT_get_direction_string_info();
+  foreach my $string_type (keys(%default_converted_directions_strings)) {
+    $self->{'directions_strings'}->{$string_type} = {};
+    foreach my $direction
+            (keys(%{$default_converted_directions_strings{$string_type}})) {
+      $self->{'directions_strings'}->{$string_type}->{$direction} = {};
+      my $string_contexts;
+      if ($customized_direction_strings->{$string_type}
+          and $customized_direction_strings->{$string_type}->{$direction}) {
+        if (defined($customized_direction_strings->{$string_type}
+                                              ->{$direction}->{'converted'})) {
+          $string_contexts
+            = $customized_direction_strings->{$string_type}
+                                          ->{$direction}->{'converted'};
+        }
+      } else {
+        my $string
+          = $default_converted_directions_strings{$string_type}->{$direction};
+        $string_contexts
+          = {'normal' => $string};
+      }
+      $string_contexts->{'string'} = $string_contexts->{'normal'}
+        if (not defined($string_contexts->{'string'}));
+      foreach my $context (keys(%$string_contexts)) {
+        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
+          = $self->substitute_html_non_breaking_space(
+                                                  $string_contexts->{$context});
+      }
+    }
+  }
+
+  $self->{'translated_direction_strings'} = {};
+  foreach my $string_type (keys(%default_translated_directions_strings)) {
+    $self->{'translated_direction_strings'}->{$string_type} = {};
+    foreach my $direction
+           (keys(%{$default_translated_directions_strings{$string_type}})) {
+      if ($customized_direction_strings->{$string_type}
+            and $customized_direction_strings->{$string_type}->{$direction}) {
+        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+          = $customized_direction_strings->{$string_type}->{$direction};
+      } else {
+        if ($default_translated_directions_strings{$string_type}->{$direction}
+                                                              ->{'converted'}) {
+          $self->{'translated_direction_strings'}->{$string_type}
+                  ->{$direction} = {'converted' => {}};
+          foreach my $context ('normal', 'string') {
+            $self->{'translated_direction_strings'}->{$string_type}
+                     ->{$direction}->{'converted'}->{$context}
+               = $default_translated_directions_strings{$string_type}
+                                                 ->{$direction}->{'converted'};
+          }
+        } else {
+          $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+            = $default_translated_directions_strings{$string_type}->{$direction};
+        }
+      }
+    }
+  }
 
   $self->{'shared_conversion_state'} = {};
 
-  $self->_initialize_output_state($context);
+  $self->_initialize_output_state('_convert');
 
   $self->{'multiple_pass'} = [];
 
@@ -11660,7 +11663,7 @@ sub _initialize_XS_NonXS_output_state($$)
   $self->{'global_units_directions'} = {};
 }
 
-sub _finalize_output_state($)
+sub conversion_finalization($)
 {
   my $self = shift;
   $self->_pop_document_context();
@@ -11743,10 +11746,10 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
+  $self->conversion_initialization($document);
+
   my $converter_info;
   my $root = $document->tree();
-
-  $self->_initialize_XS_NonXS_output_state('_convert');
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
@@ -11798,7 +11801,7 @@ sub convert($$)
   my $result = $self->_html_convert_convert($root, $output_units,
                                             $special_units);
 
-  $self->_finalize_output_state();
+  $self->conversion_finalization();
   return $result;
 }
 
@@ -12303,13 +12306,13 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
+  $self->conversion_initialization($document);
+
   my $root = $document->tree();
 
   # set here early even though actual values are only set later on.  It is
   # therefore set in converter_info early too (using the reference).
   $self->{'current_filename'} = undef;
-
-  $self->_initialize_XS_NonXS_output_state('_output');
 
   # no splitting when writing to the null device or to stdout or returning
   # a string
@@ -12374,7 +12377,7 @@ sub output($$)
   my $setup_status = $self->run_stage_handlers($root, 'setup');
   unless ($setup_status < $handler_fatal_error_level
           and $setup_status > -$handler_fatal_error_level) {
-    $self->_finalize_output_state();
+    $self->conversion_finalization();
     return undef;
   }
 
@@ -12437,7 +12440,7 @@ sub output($$)
     = $self->create_destination_directory($encoded_destination_directory,
                                           $destination_directory);
   unless ($succeeded) {
-    $self->_finalize_output_state();
+    $self->conversion_finalization();
     return undef;
   }
 
@@ -12482,7 +12485,7 @@ sub output($$)
   my $structure_status = $self->run_stage_handlers($root, 'structure');
   unless ($structure_status < $handler_fatal_error_level
           and $structure_status > -$handler_fatal_error_level) {
-    $self->_finalize_output_state();
+    $self->conversion_finalization();
     return undef;
   }
 
@@ -12507,7 +12510,7 @@ sub output($$)
   my $init_status = $self->run_stage_handlers($root, 'init');
   unless ($init_status < $handler_fatal_error_level
           and $init_status > -$handler_fatal_error_level) {
-    $self->_finalize_output_state();
+    $self->conversion_finalization();
     return undef;
   }
 
@@ -12532,7 +12535,7 @@ sub output($$)
   $self->get_output_files_XS_unclosed_streams();
 
   if (!defined($text_output)) {
-    $self->_finalize_output_state();
+    $self->conversion_finalization();
     return undef;
   }
 
@@ -12543,7 +12546,7 @@ sub output($$)
       # only if formatting is called as convert, which only happens in tests.
       $self->_do_js_files($destination_directory);
     }
-    $self->_finalize_output_state();
+    $self->conversion_finalization();
     return $text_output;
   }
 
@@ -12552,7 +12555,7 @@ sub output($$)
   my $finish_status = $self->run_stage_handlers($root, 'finish');
   unless ($finish_status < $handler_fatal_error_level
           and $finish_status > -$handler_fatal_error_level) {
-    $self->_finalize_output_state();
+    $self->conversion_finalization();
     return undef;
   }
 
@@ -12702,14 +12705,14 @@ sub output($$)
             $self->converter_document_error(sprintf(__(
                              "error on closing redirection node file %s: %s"),
                                     $out_filename, $!));
-            $self->_finalize_output_state();
+            $self->conversion_finalization();
             return undef;
           }
         }
       }
     }
   }
-  $self->_finalize_output_state();
+  $self->conversion_finalization();
   return undef;
 }
 

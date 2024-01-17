@@ -271,7 +271,6 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  $self->{'document_context'} = [{'monospace' => [0]}];
   $self->{'context_block_commands'} = {%default_context_block_commands};
   foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
                         keys(%Texinfo::Commands::block_commands)) {
@@ -280,11 +279,20 @@ sub converter_initialize($)
   }
 }
 
+sub conversion_initialization($;$)
+{
+  my $self = shift;
+
+  $self->{'document_context'} = [{'monospace' => [0]}];
+}
+
 # Main output function for the Texinfo language markup output files.
 sub output($$)
 {
   my $self = shift;
   my $document = shift;
+
+  $self->conversion_initialization();
 
   my $root = $document->tree();
 
@@ -297,7 +305,6 @@ sub output($$)
     = $self->create_destination_directory($encoded_destination_directory,
                                           $destination_directory);
   return undef unless $succeeded;
-
 
   my $fh;
   my $encoded_output_file;
@@ -434,6 +441,8 @@ sub convert($$)
 {
   my $self = shift;
   my $document = shift;
+
+  $self->conversion_initialization();
 
   my $root = $document->tree();
 

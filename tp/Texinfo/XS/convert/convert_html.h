@@ -41,7 +41,7 @@ void html_format_init (void);
 void html_converter_initialize (CONVERTER *self);
 
 void html_initialize_output_state (CONVERTER *self, char *context);
-void html_finalize_output_state (CONVERTER *self);
+void html_conversion_finalization (CONVERTER *self);
 
 void html_converter_prepare_output (CONVERTER* self);
 

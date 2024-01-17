@@ -67,6 +67,8 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
+  $self->conversion_initialization($document);
+
   my $root = $document->tree();
 
   my $result;
@@ -79,7 +81,10 @@ sub output($$)
   my ($succeeded, $created_directory)
     = $self->create_destination_directory($encoded_destination_directory,
                                           $destination_directory);
-  return undef unless $succeeded;
+  unless ($succeeded) {
+    $self->conversion_finalization();
+    return undef;
+  }
 
   # for format_node
   $self->{'output_filename'} = $output_filename;
@@ -107,6 +112,7 @@ sub output($$)
     }
     $fh = _open_info_file($self, $output_file);
     if (!$fh) {
+      $self->conversion_finalization();
       return undef;
     }
   }
@@ -184,6 +190,7 @@ sub output($$)
             $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
                                   $output_file, $close_error));
+            $self->conversion_finalization();
             return undef;
           }
           if ($self->get_conf('VERBOSE')) {
@@ -194,6 +201,7 @@ sub output($$)
             $self->converter_document_error(
                   sprintf(__("rename %s failed: %s"),
                                          $output_file, $!));
+            $self->conversion_finalization();
             return undef;
           }
           # remove the main file from opened files since it was renamed
@@ -212,6 +220,7 @@ sub output($$)
                   sprintf(__("error on closing %s: %s"),
                                   $output_file.'-'.$out_file_nr,
                                   $close_error));
+            $self->conversion_finalization();
             return undef;
           }
         }
@@ -222,6 +231,7 @@ sub output($$)
         }
         $fh = _open_info_file($self, $output_file.'-'.$out_file_nr);
         if (!$fh) {
+          $self->conversion_finalization();
           return undef;
         }
         print $fh $complete_header;
@@ -239,6 +249,7 @@ sub output($$)
       $self->converter_document_error(
                sprintf(__("error on closing %s: %s"),
                             $output_file.'-'.$out_file_nr, $!));
+      $self->conversion_finalization();
       return undef;
     }
     if ($self->get_conf('VERBOSE')) {
@@ -246,6 +257,7 @@ sub output($$)
     }
     $fh = _open_info_file($self, $output_file);
     if (!$fh) {
+      $self->conversion_finalization();
       return undef;
     }
     $tag_text = $complete_header;
@@ -319,6 +331,7 @@ sub output($$)
   } else {
     $result .= $tag_text;
   }
+  $self->conversion_finalization();
   return $result;
 }
 

@@ -89,6 +89,7 @@ setup_index_entry_keys_formatting (SV *customization_info_sv)
     OUTPUT:
          RETVAL
 
+# should only return undef if no document is found
 SV *
 index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0)
     PREINIT:

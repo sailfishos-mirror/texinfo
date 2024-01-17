@@ -722,7 +722,7 @@ foreach my $typewriter_command (@typewriter_commands) {
 my @quoted_commands = ('samp', 'indicateurl');
 
 my %quotes_map;
-# Quotes are reset in converter_initialize and unicode quotes are used
+# Quotes are reset in conversion_initialization and unicode quotes are used
 # if @documentencoding utf-8 is used.
 foreach my $quoted_command (@quoted_commands) {
   $quotes_map{$quoted_command} = ["`", "'"];
@@ -842,6 +842,13 @@ sub converter_initialize($)
     $self->{'ignored_commands'}->{$format} = 1
        unless ($self->{'expanded_formats'}->{$format});
   }
+  return $self;
+}
+
+sub conversion_initialization($;$)
+{
+  my $self = shift;
+  my $document = shift;
 
   %{$self->{'quotes_map'}} = %quotes_map;
 
@@ -880,8 +887,6 @@ sub converter_initialize($)
   $self->{'output_characters'} = $self->get_conf('OUTPUT_CHARACTERS');
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
-
-  return $self;
 }
 
 my %LaTeX_floats = (
@@ -954,7 +959,6 @@ sub _prepare_indices($)
     }
   }
 }
-
 
 sub _prepare_conversion($;$)
 {
@@ -1049,6 +1053,8 @@ sub output($$)
 {
   my $self = shift;
   my $document = shift;
+
+  $self->conversion_initialization($document);
 
   my $root = $document->tree();
 
@@ -1157,6 +1163,8 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
+  $self->conversion_initialization($document);
+
   my $root = $document->tree();
 
   $self->_prepare_conversion($root);
@@ -1226,6 +1234,8 @@ sub convert_to_latex_math($$;$$)
   if (not defined($self)) {
     $self = Texinfo::Convert::LaTeX->converter($options);
   }
+
+  $self->conversion_initialization();
 
   _push_new_context($self, 'convert_to_math');
 

@@ -137,6 +137,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_types_conversion,
                               SV *default_css_string_types_conversion,
                               SV *default_output_units_conversion,
+                              SV *default_no_arg_commands_formatting,
                               SV *default_special_unit_body)
 {
   int i;
@@ -153,7 +154,6 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **htmlxref_sv;
   SV **formatting_function_sv;
   SV **sorted_special_unit_varieties_sv;
-  SV **no_arg_commands_formatting_sv;
   SV **accent_entities_sv;
   SV **style_commands_formatting_sv;
   SV **types_open_sv;
@@ -164,21 +164,13 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **code_types_sv;
   SV **upper_case_commands_sv;
   SV **pre_class_types_sv;
-  SV **directions_strings_sv;
-  SV **translated_direction_strings_sv;
-  SV **css_element_class_styles_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
   HV *commands_conversion_hv;
   HV *types_open_hv;
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
-  HV *directions_strings_hv;
-  HV *translated_direction_strings_hv;
   CONVERTER *converter;
-  int nr_string_directions;
-  int nr_dir_str_contexts = TDS_context_string +1;
-  enum direction_string_type DS_type;
   int nr_accent_cmd = 0;
 
   dTHX;
@@ -442,6 +434,41 @@ html_converter_initialize_sv (SV *converter_sv,
         output_units_conversion_hv);
     }
 
+  /* gather no_arg_formatted_cmd commands.  The formatting is gathered later
+     as it depends on the document encoding */
+  if (SvOK (default_no_arg_commands_formatting))
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *default_no_arg_commands_formatting_hv
+        = (HV*) SvRV (default_no_arg_commands_formatting);
+
+      hv_number = hv_iterinit (default_no_arg_commands_formatting_hv);
+      converter->no_arg_formatted_cmd.list = (enum command_id *)
+        malloc (hv_number * sizeof (enum command_id));
+      converter->no_arg_formatted_cmd.number = 0;
+
+      for (i = 0; i < hv_number; i++)
+        {
+          I32 retlen;
+          HE *convert_he = hv_iternext (default_no_arg_commands_formatting_hv);
+          char *cmdname = hv_iterkey (convert_he, &retlen);
+          enum command_id cmd = lookup_builtin_command (cmdname);
+
+          if (!cmd)
+            fprintf (stderr, "ERROR: %s: no arg command not found\n", cmdname);
+          else
+            {
+              converter->no_arg_formatted_cmd.list[
+                           converter->no_arg_formatted_cmd.number] = cmd;
+              converter->no_arg_formatted_cmd.number++;
+            }
+        }
+      qsort (converter->no_arg_formatted_cmd.list, hv_number,
+             sizeof (enum command_id), compare_ints);
+    }
+
   FETCH(sorted_special_unit_varieties)
 
   if (sorted_special_unit_varieties_sv)
@@ -643,127 +670,6 @@ html_converter_initialize_sv (SV *converter_sv,
        }
    }
 
-  FETCH(no_arg_commands_formatting)
-
-  if (no_arg_commands_formatting_sv)
-    {
-      int max_context = HCC_type_css_string;
-      I32 hv_number;
-      I32 i;
-
-      HV *no_arg_commands_formatting_hv
-        = (HV *)SvRV (*no_arg_commands_formatting_sv);
-
-      hv_number = hv_iterinit (no_arg_commands_formatting_hv);
-
-      converter->no_arg_formatted_cmd.list = (enum command_id *)
-        malloc (hv_number * sizeof (enum command_id));
-      converter->no_arg_formatted_cmd.number = 0;
-
-      for (i = 0; i < hv_number; i++)
-        {
-          char *cmdname;
-          I32 retlen;
-          SV *context_sv = hv_iternextsv (no_arg_commands_formatting_hv,
-                                          &cmdname, &retlen);
-          if (SvOK (context_sv))
-            {
-              HV *context_hv = (HV *)SvRV (context_sv);
-              enum command_id cmd = lookup_builtin_command (cmdname);
-
-              if (!cmd)
-                fprintf (stderr, "ERROR: %s: no no arg command\n", cmdname);
-              else
-                {
-                  I32 context_nr;
-                  I32 j;
-
-                  converter->no_arg_formatted_cmd.list[
-                               converter->no_arg_formatted_cmd.number] = cmd;
-                  converter->no_arg_formatted_cmd.number++;
-
-                  context_nr = hv_iterinit (context_hv);
-                  for (j = 0; j < context_nr; j++)
-                    {
-                      char *context_name;
-                      I32 retlen;
-                      enum conversion_context k;
-                      int context_idx = -1;
-                      SV *format_spec_sv = hv_iternextsv (context_hv,
-                                                 &context_name, &retlen);
-                      for (k = 0; k < max_context +1; k++)
-                        {
-                          if (!strcmp (context_name,
-                                html_conversion_context_type_names[k]))
-                            {
-                              context_idx = k;
-                              break;
-                            }
-                        }
-                      if (context_idx < 0)
-                        {
-                          fprintf (stderr,
-                              "ERROR: %s: %s: unknown no arg context\n",
-                                         cmdname, context_name);
-                          break;
-                        }
-                      if (SvOK (format_spec_sv))
-                        {
-                          I32 spec_number;
-                          I32 s;
-                          HTML_COMMAND_CONVERSION *format_spec;
-
-                          HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
-
-                          format_spec
-                            = &converter
-                               ->html_command_conversion[cmd][context_idx];
-
-                          spec_number = hv_iterinit (format_spec_hv);
-                          for (s = 0; s < spec_number; s++)
-                            {
-                              char *key;
-                              I32 retlen;
-                              SV *spec_sv = hv_iternextsv (format_spec_hv,
-                                                           &key, &retlen);
-                              if (!strcmp (key, "element"))
-                                {
-                                  char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->element = strdup (tmp_spec);
-                                }
-                              else if (!strcmp (key, "unset"))
-                                format_spec->unset = SvIV (spec_sv);
-                              else if (!strcmp (key, "text"))
-                                {
-                                  char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->text = strdup (tmp_spec);
-                                }
-                              else if (!strcmp (key, "translated_converted"))
-                                {
-                                  char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->translated_converted
-                                    = strdup (tmp_spec);
-                                }
-                              else if (!strcmp (key, "translated_to_convert"))
-                                {
-                                  char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->translated_to_convert
-                                    = strdup (tmp_spec);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-      qsort (converter->no_arg_formatted_cmd.list, hv_number,
-             sizeof (enum command_id), compare_ints);
-    }
-
   FETCH(accent_entities)
 
   if (accent_entities_sv)
@@ -907,6 +813,145 @@ html_converter_initialize_sv (SV *converter_sv,
                             /*
                           fprintf (stderr, "HHH %d %d %s %d %d %s %d %s\n", i, cmd, cmdname, j, context_idx, context_name, format_spec->quote, format_spec->element);
                              */
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+  html_converter_initialize (converter);
+
+  /* at that point, the format specific informations, in particular the number
+     of special elements is available, such that all the options can be
+     passed to C.  It is important to set the force argument to 1 to get
+     all the configuration, even if the configured field is set */
+  copy_converter_conf_sv (converter_hv, converter,
+                          &converter->conf, "conf", 1);
+}
+
+void
+html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
+{
+  HV *converter_hv;
+  SV **no_arg_commands_formatting_sv;
+  SV **directions_strings_sv;
+  SV **translated_direction_strings_sv;
+  SV **css_element_class_styles_sv;
+  HV *translated_direction_strings_hv;
+  HV *directions_strings_hv;
+  enum direction_string_type DS_type;
+  int nr_string_directions;
+  int nr_dir_str_contexts = TDS_context_string +1;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  FETCH(no_arg_commands_formatting)
+
+  if (no_arg_commands_formatting_sv)
+    {
+      int max_context = HCC_type_css_string;
+      I32 hv_number;
+      I32 i;
+
+      HV *no_arg_commands_formatting_hv
+        = (HV *)SvRV (*no_arg_commands_formatting_sv);
+
+      hv_number = hv_iterinit (no_arg_commands_formatting_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          char *cmdname;
+          I32 retlen;
+          SV *context_sv = hv_iternextsv (no_arg_commands_formatting_hv,
+                                          &cmdname, &retlen);
+          if (SvOK (context_sv))
+            {
+              HV *context_hv = (HV *)SvRV (context_sv);
+              enum command_id cmd = lookup_builtin_command (cmdname);
+
+              if (!cmd)
+                fprintf (stderr, "ERROR: %s: no no arg command\n", cmdname);
+              else
+                {
+                  I32 context_nr;
+                  I32 j;
+
+                  context_nr = hv_iterinit (context_hv);
+                  for (j = 0; j < context_nr; j++)
+                    {
+                      char *context_name;
+                      I32 retlen;
+                      enum conversion_context k;
+                      int context_idx = -1;
+                      SV *format_spec_sv = hv_iternextsv (context_hv,
+                                                 &context_name, &retlen);
+                      for (k = 0; k < max_context +1; k++)
+                        {
+                          if (!strcmp (context_name,
+                                html_conversion_context_type_names[k]))
+                            {
+                              context_idx = k;
+                              break;
+                            }
+                        }
+                      if (context_idx < 0)
+                        {
+                          fprintf (stderr,
+                              "ERROR: %s: %s: unknown no arg context\n",
+                                         cmdname, context_name);
+                          break;
+                        }
+                      if (SvOK (format_spec_sv))
+                        {
+                          I32 spec_number;
+                          I32 s;
+                          HTML_COMMAND_CONVERSION *format_spec;
+
+                          HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
+
+                          format_spec
+                            = &converter
+                               ->html_command_conversion[cmd][context_idx];
+
+                          spec_number = hv_iterinit (format_spec_hv);
+                          for (s = 0; s < spec_number; s++)
+                            {
+                              char *key;
+                              I32 retlen;
+                              SV *spec_sv = hv_iternextsv (format_spec_hv,
+                                                           &key, &retlen);
+                              if (!strcmp (key, "element"))
+                                {
+                                  char *tmp_spec
+                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                  format_spec->element = strdup (tmp_spec);
+                                }
+                              else if (!strcmp (key, "unset"))
+                                format_spec->unset = SvIV (spec_sv);
+                              else if (!strcmp (key, "text"))
+                                {
+                                  char *tmp_spec
+                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                  format_spec->text = strdup (tmp_spec);
+                                }
+                              else if (!strcmp (key, "translated_converted"))
+                                {
+                                  char *tmp_spec
+                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                  format_spec->translated_converted
+                                    = strdup (tmp_spec);
+                                }
+                              else if (!strcmp (key, "translated_to_convert"))
+                                {
+                                  char *tmp_spec
+                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                  format_spec->translated_to_convert
+                                    = strdup (tmp_spec);
+                                }
+                            }
                         }
                     }
                 }
@@ -1107,15 +1152,6 @@ html_converter_initialize_sv (SV *converter_sv,
           selector_style->style = strdup (style);
         }
     }
-
-  html_converter_initialize (converter);
-
-  /* at that point, the format specific informations, in particular the number
-     of special elements is available, such that all the options can be
-     passed to C.  It is important to set the force argument to 1 to get
-     all the configuration, even if the configured field is set */
-  copy_converter_conf_sv (converter_hv, converter,
-                          &converter->conf, "conf", 1);
 }
 
 void
