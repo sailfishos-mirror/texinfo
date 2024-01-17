@@ -1,3 +1,15 @@
+2024-01-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix info 'invalid' key mapping segfault
+
+	* info/infodoc.c (dump_map_to_text_buffer): Check for "invalid"
+	entry in key map by checking if a function pointer is null.  This
+	prevents a crash in 'function_documentation' from dereferencing
+	a null pointer if an "invalid" entry was provided in the infokey
+	file.
+
+	Report from Bugsy Abatantuono <bugsyabatantuono@proton.me>.
+
 2024-01-17  Patrice Dumas  <pertusus@free.fr>
 
 	Add initialization and finalization of conversion, separate document

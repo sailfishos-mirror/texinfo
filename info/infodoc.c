@@ -111,8 +111,8 @@ dump_map_to_text_buffer (struct text_buffer *tb, int *prefix,
           char *doc, *name;
 
           /* Hide some key mappings. */
-          if (map[i].value.function
-              && (map[i].value.function->func == info_do_lowercase_version))
+          if (!map[i].value.function->func /* "invalid" mapping */
+              || map[i].value.function->func == info_do_lowercase_version)
             continue;
 
           doc = function_documentation (map[i].value.function);
