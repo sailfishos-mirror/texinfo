@@ -1,5 +1,14 @@
 2024-01-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Find menu with hide-note-references=On
+
+	* info/session.c (info_find_menu): If "*Menu:" marker not
+	found, try to move cursor to the first menu entry in the node.
+
+	Report from Bugsy Abatantuono <bugsyabatantuono@proton.me>.
+
+2024-01-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Reporting Bugs): Change reference to "Change Log"
 	node in "standards" manual to "Change Logs" as the latter is the
 	name that is used in that manual.
