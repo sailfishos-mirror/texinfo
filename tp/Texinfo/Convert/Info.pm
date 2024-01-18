@@ -155,8 +155,12 @@ sub output($$)
       $result = $output;
     }
   } else {
-    unless ($self->{'identifiers_target'}
-            and $self->{'identifiers_target'}->{'Top'}) {
+    my $identifiers_target;
+    if ($self->{'document'}) {
+      $identifiers_target = $self->{'document'}->labels_information();
+    }
+    unless ($identifiers_target
+            and $identifiers_target->{'Top'}) {
       my $input_file_name;
       if ($self->{'document'}) {
         my $document_info = $self->{'document'}->global_information();

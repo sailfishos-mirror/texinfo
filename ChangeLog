@@ -35,6 +35,18 @@
 
 2024-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_document)
+	(_set_output_units_files), tp/Texinfo/Convert/HTML.pm (label_command)
+	(_get_top_unit, _convert_heading_command)
+	(_set_root_commands_targets_node_files, _html_set_pages_files)
+	(_prepare_units_directions_files, output), tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/Info.pm (output), tp/Texinfo/Convert/LaTeX.pm
+	(_convert), tp/Texinfo/Convert/Plaintext.pm (_convert): do not set
+	'identifiers_target', instead use document labels_information to get
+	document labels information identifiers_target.
+
+2024-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_document),
 	tp/Texinfo/Convert/HTML.pm (_convert_heading_command)
 	(_convert_contents_command, _contents_shortcontents_in_title)
@@ -43,7 +55,7 @@
 	tp/Texinfo/Convert/LaTeX.pm (_begin_document, _convert),
 	tp/Texinfo/Convert/Plaintext.pm (_convert), tp/ext/epub3.pm,
 	tp/init/book.pm (book_convert_heading_command), tp/init/chm.pm
-	(chm_init): do not set 'sections_list', nstead use document
+	(chm_init): do not set 'sections_list', instead use document
 	sections_list to get document sections list.
 
 2024-01-18  Patrice Dumas  <pertusus@free.fr>

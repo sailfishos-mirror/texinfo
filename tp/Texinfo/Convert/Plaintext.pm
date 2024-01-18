@@ -2300,15 +2300,19 @@ sub _convert($$)
           # correspond to the node lines numbers, and not the @ref.
           my $label_element;
           my $target_element;
+
+          my $identifiers_target;
+          if ($self->{'document'}) {
+            $identifiers_target = $self->{'document'}->labels_information();
+          }
+
           if ($node_arg and $node_arg->{'extra'}
               and !$node_arg->{'extra'}->{'manual_content'}
               and defined($node_arg->{'extra'}->{'normalized'})
-              and $self->{'identifiers_target'}
-              and $self->{'identifiers_target'}->{
-                                    $node_arg->{'extra'}->{'normalized'}}) {
+              and $identifiers_target
+              and $identifiers_target->{$node_arg->{'extra'}->{'normalized'}}) {
             $target_element
-              = $self->{'identifiers_target'}->{
-                                       $node_arg->{'extra'}->{'normalized'}};
+              = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
             $label_element
               = Texinfo::Common::get_label_element($target_element);
             if (defined($label_element) and !$label_element->{'contents'}) {
@@ -3709,13 +3713,18 @@ sub _convert($$)
                                                  ->{'contents'}->[0]->{'text'})
                                    and $content->{'contents'}->[0]
                                   ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
+          my $identifiers_target;
+          if ($self->{'document'}) {
+            $identifiers_target = $self->{'document'}->labels_information();
+          }
+
           if ($menu_entry_node and $menu_entry_node->{'extra'}
               and defined($menu_entry_node->{'extra'}->{'normalized'})
-              and $self->{'identifiers_target'}
+              and $identifiers_target
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}
-              and $self->{'identifiers_target'}
+              and $identifiers_target
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
-              and $self->{'identifiers_target'}
+              and $identifiers_target
                 ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'}) {
             my $description_align_column;
@@ -3729,7 +3738,7 @@ sub _convert($$)
             }
             my $description_indent_length = $description_align_column - 1;
 
-            my $description_element = $self->{'identifiers_target'}
+            my $description_element = $identifiers_target
                  ->{$menu_entry_node->{'extra'}->{'normalized'}}->{'extra'}
                                                        ->{'node_description'};
             if (! exists($self->{'seen_node_descriptions'}
@@ -4085,12 +4094,16 @@ sub _convert($$)
       if ($node and $node->{'args'} and scalar(@{$node->{'args'}}) > 1) {
         $automatic_directions = 0;
       }
-      if ($node and $automatic_directions
-            and !$self->{'seenmenus'}->{$node}) {
+      if ($node and $automatic_directions and !$self->{'seenmenus'}->{$node}) {
+        my $identifiers_target;
+        if ($self->{'document'}) {
+          $identifiers_target = $self->{'document'}->labels_information();
+        }
+
         $self->{'seenmenus'}->{$node} = 1;
         my $menu_node
          = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                     $self->{'identifiers_target'}, $node);
+                                              $identifiers_target, $node);
         if ($menu_node) {
           $self->_convert($menu_node);
         }

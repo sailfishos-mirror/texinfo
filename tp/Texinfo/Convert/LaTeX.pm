@@ -3223,17 +3223,21 @@ sub _convert($$)
           $filename = _convert($self, $file_element);
           pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         }
+
+        my $identifiers_target;
+        if ($self->{'document'}) {
+          $identifiers_target = $self->{'document'}->labels_information();
+        }
+
         if ($cmdname ne 'inforef' and $book eq '' and $filename eq ''
             and $node_arg and $node_arg->{'extra'}
             and defined($node_arg->{'extra'}->{'normalized'})
             and !$node_arg->{'extra'}->{'manual_content'}
-            and $self->{'identifiers_target'}
-            and $self->{'identifiers_target'}
-                   ->{$node_arg->{'extra'}->{'normalized'}}) {
+            and $identifiers_target
+            and $identifiers_target->{$node_arg->{'extra'}->{'normalized'}}) {
           # internal reference
           my $reference
-           = $self->{'identifiers_target'}
-                   ->{$node_arg->{'extra'}->{'normalized'}};
+           = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
           my $label_element = Texinfo::Common::get_label_element($reference);
           my $reference_node_content = $label_element->{'contents'};
 

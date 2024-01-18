@@ -266,10 +266,6 @@ sub set_document($$)
 
   $converter->{'document'} = $document;
   if (defined($document)) {
-    my $identifier_target = $document->labels_information();
-
-    $converter->{'identifiers_target'} = $identifier_target
-                                           if ($identifier_target);
     $converter->{'indices_information'}
            = $document->indices_information();
   }
@@ -1126,8 +1122,14 @@ sub _set_output_units_files($$$$$$)
     }
   } else {
     my $node_top;
-    $node_top = $self->{'identifiers_target'}->{'Top'}
-                            if ($self->{'identifiers_target'});
+
+    my $identifiers_target;
+    if ($self->{'document'}) {
+      $identifiers_target = $self->{'document'}->labels_information();
+    }
+
+    $node_top = $identifiers_target->{'Top'}
+                            if ($identifiers_target);
 
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
@@ -1157,7 +1159,7 @@ sub _set_output_units_files($$$$$$)
             my $node_filename;
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
-                or !defined($self->{'identifiers_target'}->{
+                or !defined($identifiers_target->{
                                $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
             } else {

@@ -383,10 +383,12 @@ sub output_ixin($$)
   my $document_info;
   my $floats;
   my $sections_list;
+  my $identifiers_target;
   if ($self->->{'document'}) {
     $document_info = $self->{'document'}->global_information();
     $floats = $self->{'document'}->floats_information();
     $sections_list = $self->{'document'}->sections_list();
+    $identifiers_target = $self->{'document'}->labels_information();
   }
 
   if ($document_info and $document_info->{'dircategory_direntry'}) {
@@ -671,9 +673,9 @@ sub output_ixin($$)
   my $non_node_labels_text = '';
   my $labels_nr = 0;
   my %floats_associated_node_id;
-  if ($self->{'identifiers_target'}) {
-    foreach my $label (sort(keys(%{$self->{'identifiers_target'}}))) {
-      my $command = $self->{'identifiers_target'}->{$label};
+  if ($identifiers_target) {
+    foreach my $label (sort(keys(%{$identifiers_target}))) {
+      my $command = $identifiers_target->{$label};
       next if ($command->{'cmdname'} eq 'node');
       $labels_nr++;
       my $associated_node_id = $self->_associated_node_id($command,

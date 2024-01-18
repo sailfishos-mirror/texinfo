@@ -1468,8 +1468,13 @@ sub label_command($$)
   if (!defined($label)) {
     cluck;
   }
-  if ($self->{'identifiers_target'}) {
-    return $self->{'identifiers_target'}->{$label};
+  my $identifiers_target;
+  if ($self->{'document'}) {
+    $identifiers_target = $self->{'document'}->labels_information();
+
+    if ($identifiers_target) {
+      return $identifiers_target->{$label};
+    }
   }
   return undef;
 }
@@ -1858,9 +1863,14 @@ sub _get_top_unit($;$)
   my $self = shift;
   my $output_units = shift;
 
+  my $identifiers_target;
+  if ($self->{'document'}) {
+    $identifiers_target = $self->{'document'}->labels_information();
+  }
+
   my $node_top;
-  $node_top = $self->{'identifiers_target'}->{'Top'}
-                                    if ($self->{'identifiers_target'});
+  $node_top = $identifiers_target->{'Top'}
+                      if ($identifiers_target);
   my $section_top;
 
   my $global_commands;
@@ -2296,7 +2306,7 @@ foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document', 'document_name',
    'documentdescription_string', 'expanded_formats',
    'index_entries', 'index_entries_by_letter', 'indices_information',
-   'jslicenses', 'identifiers_target',
+   'jslicenses',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
@@ -4754,9 +4764,14 @@ sub _convert_heading_command($$$$$)
         if ($node->{'extra'}
             and not $node->{'extra'}->{'menus'}
             and $automatic_directions) {
+          my $document = $self->get_info('document');
+          my $identifiers_target;
+          if ($document) {
+            $identifiers_target = $document->labels_information();
+          }
           my $menu_node
             = Texinfo::Structuring::new_complete_menu_master_menu($self,
-                                    $self->get_info('identifiers_target'), $node);
+                                                 $identifiers_target, $node);
           if ($menu_node) {
             $mini_toc_or_auto_menu = $self->convert_tree($menu_node);
           }
@@ -9320,11 +9335,13 @@ sub _set_root_commands_targets_node_files($)
   my $self = shift;
 
   my $sections_list;
+  my $identifiers_target;
   if ($self->{'document'}) {
     $sections_list = $self->{'document'}->sections_list();
+    $identifiers_target = $self->{'document'}->labels_information();
   }
 
-  if ($self->{'identifiers_target'}) {
+  if ($identifiers_target) {
     my $extension = '';
     $extension = '.'.$self->get_conf('EXTENSION')
                 if (defined($self->get_conf('EXTENSION'))
@@ -9512,10 +9529,15 @@ sub _html_set_pages_files($$$$$$$$$)
          'file_info_name' => 'non_split',
          'file_info_path' => $output_file};
   } else {
+    my $identifiers_target;
+    if ($self->{'document'}) {
+      $identifiers_target = $self->{'document'}->labels_information();
+    }
+
     # first determine the top node file name.
     my $node_top;
-    $node_top = $self->{'identifiers_target'}->{'Top'}
-                               if ($self->{'identifiers_target'});
+    $node_top = $identifiers_target->{'Top'}
+                               if ($identifiers_target);
 
     my $top_node_filename = $self->top_node_filename($document_name);
     my $node_top_output_unit;
@@ -9550,7 +9572,7 @@ sub _html_set_pages_files($$$$$$$$$)
               and $root_command->{'cmdname'} eq 'node') {
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
-                or !defined($self->{'identifiers_target'}->{
+                or !defined($identifiers_target->{
                             $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
@@ -9842,6 +9864,11 @@ sub _prepare_units_directions_files($$$$$$$$)
   my $output_filename = shift;
   my $document_name = shift;
 
+  my $identifiers_target;
+  if ($self->{'document'}) {
+    $identifiers_target = $self->{'document'}->labels_information();
+  }
+
   $self->_prepare_output_units_global_targets($output_units, $special_units,
                                               $associated_special_units);
 
@@ -9858,8 +9885,8 @@ sub _prepare_units_directions_files($$$$$$$$)
   }
 
   # do output units directions.
-  Texinfo::Structuring::units_directions($self,
-                                $self->{'identifiers_target'}, $output_units);
+  Texinfo::Structuring::units_directions($self, $identifiers_target,
+                                         $output_units);
 
   _prepare_special_units_directions($self, $special_units);
 
@@ -12404,6 +12431,11 @@ sub output($$)
 
   $self->conversion_initialization($document);
 
+  my $identifiers_target;
+  if ($document) {
+    $identifiers_target = $document->labels_information();
+  }
+
   my $root = $document->tree();
 
   # set here early even though actual values are only set later on.  It is
@@ -12662,10 +12694,10 @@ sub output($$)
   # do node redirection pages
   $self->{'current_filename'} = undef;
   if ($self->get_conf('NODE_FILES')
-      and $self->{'identifiers_target'} and $output_file ne '') {
+      and $identifiers_target and $output_file ne '') {
     my %redirection_filenames;
-    foreach my $label (sort(keys (%{$self->{'identifiers_target'}}))) {
-      my $target_element = $self->{'identifiers_target'}->{$label};
+    foreach my $label (sort(keys (%{$identifiers_target}))) {
+      my $target_element = $identifiers_target->{$label};
       my $label_element = Texinfo::Common::get_label_element($target_element);
       # filename may not be defined in case of an @anchor or similar in
       # @titlepage, and @titlepage is not used.
