@@ -210,11 +210,15 @@ sub book_convert_heading_command($$$$$)
                                         $self, $cmdname, $element, $output_unit);
   }
 
+  my $sections_list;
+  if ($self->{'document'}) {
+    $sections_list = $self->{'document'}->sections_list();
+  }
+
   my $tables_of_contents = '';
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
-      and $cmdname eq 'top'
-      and $self->{'sections_list'}
-      and scalar(@{$self->{'sections_list'}}) > 1) {
+      and $cmdname eq 'top' and $sections_list
+      and scalar(@{$sections_list}) > 1) {
     foreach my $content_command_name ('shortcontents', 'contents') {
       if ($self->get_conf($content_command_name)) {
         my $contents_text

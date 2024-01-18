@@ -266,13 +266,10 @@ sub set_document($$)
 
   $converter->{'document'} = $document;
   if (defined($document)) {
-    my $floats = $document->floats_information();
     my $identifier_target = $document->labels_information();
-    my $sections_list = $document->sections_list();
 
     $converter->{'identifiers_target'} = $identifier_target
                                            if ($identifier_target);
-    $converter->{'sections_list'} = $sections_list if ($sections_list);
     $converter->{'indices_information'}
            = $document->indices_information();
   }

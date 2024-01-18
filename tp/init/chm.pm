@@ -314,8 +314,13 @@ sub chm_init($)
   }
   print $hhc_fh "</OBJECT>\n";
 
-  if ($self->{'sections_list'}) {
-    my $section_root = $self->{'sections_list'}->[0]
+  my $sections_list;
+  if ($self->{'document'}) {
+    $sections_list = $self->{'document'}->sections_list();
+  }
+
+  if ($sections_list) {
+    my $section_root = $sections_list->[0]
                                          ->{'extra'}->{'sectioning_root'};
     my $upper_level = $section_root->{'extra'}->{'section_childs'}->[0]
                                                ->{'extra'}->{'section_level'};
@@ -326,7 +331,7 @@ sub chm_init($)
     $upper_level = 1 if ($upper_level <= 0);
     my $root_level = $upper_level - 1;
     my $level = $root_level;
-    foreach my $section (@{$self->{'sections_list'}}) {
+    foreach my $section (@{$sections_list}) {
       next if ($section->{'cmdname'} eq 'part');
       my $section_level = $section->{'extra'}->{'section_level'};
       $section_level = 1 if ($section_level == 0);

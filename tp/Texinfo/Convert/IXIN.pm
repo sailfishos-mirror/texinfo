@@ -382,9 +382,11 @@ sub output_ixin($$)
 
   my $document_info;
   my $floats;
+  my $sections_list;
   if ($self->->{'document'}) {
     $document_info = $self->{'document'}->global_information();
     $floats = $self->{'document'}->floats_information();
+    $sections_list = $self->{'document'}->sections_list();
   }
 
   if ($document_info and $document_info->{'dircategory_direntry'}) {
@@ -606,8 +608,8 @@ sub output_ixin($$)
   # do sectioning tree
   my $sectioning_tree = '';
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
-  if ($self->{'sections_list'}) {
-    my $section_root = $self->{'sections_list'}->[0]
+  if ($sections_list) {
+    my $section_root = $sections_list->[0]
                                    ->{'extra'}->{'sectioning_root'};
     foreach my $top_section (@{$section_root->{'extra'}->{'section_childs'}}) {
       my $section = $top_section;

@@ -3304,16 +3304,26 @@ sub _convert($$)
       }
       return;
     } elsif ($command eq 'contents') {
-      if ($self->{'sections_list'}) {
-        my $sectioning_root = $self->{'sections_list'}->[0]
+      my $sections_list;
+      if ($self->{'document'}) {
+        $sections_list = $self->{'document'}->sections_list();
+      }
+
+      if ($sections_list) {
+        my $sectioning_root = $sections_list->[0]
                                 ->{'extra'}->{'sectioning_root'};
         $self->format_contents($sectioning_root, 'contents');
       }
       return;
     } elsif ($command eq 'shortcontents'
                or $command eq 'summarycontents') {
-      if ($self->{'sections_list'}) {
-        my $sectioning_root = $self->{'sections_list'}->[0]
+      my $sections_list;
+      if ($self->{'document'}) {
+        $sections_list = $self->{'document'}->sections_list();
+      }
+
+      if ($sections_list) {
+        my $sectioning_root = $sections_list->[0]
                                 ->{'extra'}->{'sectioning_root'};
         $self->format_contents($sectioning_root, 'shortcontents');
       }

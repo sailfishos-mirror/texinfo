@@ -1857,14 +1857,20 @@ sub _begin_document($)
   }
 
   if ($global_commands and $global_commands->{'contents'}
-      and $self->{'sections_list'}
       and not (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
                and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline')) {
-    if ($global_commands->{'titlepage'}
-        or $global_commands->{'shorttitlepage'}) {
-      $result .= _set_headings($self, 'pagenum');
+    my $sections_list;
+    if ($self->{'document'}) {
+      $sections_list = $self->{'document'}->sections_list();
     }
-    $result .= "\\tableofcontents\\newpage\n";
+
+    if ($sections_list) {
+      if ($global_commands->{'titlepage'}
+          or $global_commands->{'shorttitlepage'}) {
+        $result .= _set_headings($self, 'pagenum');
+      }
+      $result .= "\\tableofcontents\\newpage\n";
+    }
   }
 
   if ($global_commands
@@ -4033,15 +4039,25 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'contents') {
+      my $sections_list;
+      if ($self->{'document'}) {
+        $sections_list = $self->{'document'}->sections_list();
+      }
+
       if (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
           and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
-          and $self->{'sections_list'}
+          and $sections_list
           and not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
         $result .= "\\tableofcontents\\newpage\n";
       }
       return $result;
     } elsif ($cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
-      if ($self->{'sections_list'}) {
+      my $sections_list;
+      if ($self->{'document'}) {
+        $sections_list = $self->{'document'}->sections_list();
+      }
+
+      if ($sections_list) {
         # TODO see notes at the beginning
         $result .= '';
       }

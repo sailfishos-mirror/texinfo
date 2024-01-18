@@ -2290,8 +2290,7 @@ sub get_file_information($$;$)
 
 # information from converter available 'read-only', in general set up before
 # really starting the formatting (except for current_filename).
-# 'sections_list' are set up in the generic
-# converter
+# 'document' is set up in the generic converter
 my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document', 'document_name',
@@ -2299,7 +2298,6 @@ foreach my $converter_info ('copying_comment', 'current_filename',
    'index_entries', 'index_entries_by_letter', 'indices_information',
    'jslicenses', 'identifiers_target',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
-   'sections_list',
    'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
   $available_converter_info{$converter_info} = 1;
@@ -4715,7 +4713,12 @@ sub _convert_heading_command($$$$$)
     $element_header = &{$self->formatting_function('format_element_header')}(
                                         $self, $cmdname, $element, $output_unit);
   }
-  my $sections_list = $self->get_info('sections_list');
+
+  my $document = $self->get_info('document');
+  my $sections_list;
+  if ($document) {
+    $sections_list = $document->sections_list();
+  }
 
   my $tables_of_contents = '';
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
@@ -6696,7 +6699,12 @@ sub _convert_contents_command($$$)
 
   Texinfo::Common::set_informative_command_value($self, $command);
 
-  my $sections_list = $self->get_info('sections_list');
+  my $document = $self->get_info('document');
+  my $sections_list;
+  if ($document) {
+    $sections_list = $document->sections_list();
+  }
+
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
       and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')
       and $self->get_conf($cmdname)
@@ -7879,7 +7887,12 @@ sub _contents_shortcontents_in_title($)
 
   my $result = '';
 
-  my $sections_list = $self->get_info('sections_list');
+  my $document = $self->get_info('document');
+  my $sections_list;
+  if ($document) {
+    $sections_list = $document->sections_list();
+  }
+
   if ($sections_list
       and scalar(@{$sections_list}) > 1
       and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
@@ -9306,6 +9319,11 @@ sub _set_root_commands_targets_node_files($)
 {
   my $self = shift;
 
+  my $sections_list;
+  if ($self->{'document'}) {
+    $sections_list = $self->{'document'}->sections_list();
+  }
+
   if ($self->{'identifiers_target'}) {
     my $extension = '';
     $extension = '.'.$self->get_conf('EXTENSION')
@@ -9350,8 +9368,8 @@ sub _set_root_commands_targets_node_files($)
     }
   }
 
-  if ($self->{'sections_list'}) {
-    foreach my $root_element (@{$self->{'sections_list'}}) {
+  if ($sections_list) {
+    foreach my $root_element (@{$sections_list}) {
       $self->_new_sectioning_command_target($root_element);
     }
   }
@@ -9894,16 +9912,17 @@ sub _prepare_special_units($$)
   my $output_units = shift;
 
   my $global_commands;
+  my $sections_list;
   if ($self->{'document'}) {
     $global_commands = $self->{'document'}->global_commands_information();
+    $sections_list = $self->{'document'}->sections_list();
   }
 
   # for separate special output units
   my %do_special;
   # for associated special output units
   my $associated_special_units = [];
-  if ($self->{'sections_list'}
-      and scalar(@{$self->{'sections_list'}}) > 1) {
+  if ($sections_list and scalar(@{$sections_list}) > 1) {
     foreach my $cmdname ('shortcontents', 'contents') {
       my $special_unit_variety
           = $contents_command_special_unit_variety{$cmdname};
@@ -10600,7 +10619,11 @@ sub _default_format_contents($$;$$)
 
   $filename = $self->get_info('current_filename') if (!defined($filename));
 
-  my $sections_list = $self->get_info('sections_list');
+  my $document = $self->get_info('document');
+  my $sections_list;
+  if ($document) {
+    $sections_list = $document->sections_list();
+  }
   return ''
    if (!$sections_list or !scalar(@$sections_list));
 
