@@ -384,11 +384,13 @@ sub output_ixin($$)
   my $floats;
   my $sections_list;
   my $identifiers_target;
+  my $indices_information;
   if ($self->->{'document'}) {
     $document_info = $self->{'document'}->global_information();
     $floats = $self->{'document'}->floats_information();
     $sections_list = $self->{'document'}->sections_list();
     $identifiers_target = $self->{'document'}->labels_information();
+    $indices_information = $self->{'document'}->indices_information();
   }
 
   if ($document_info and $document_info->{'dircategory_direntry'}) {
@@ -704,7 +706,6 @@ sub output_ixin($$)
 
   my %dts_information;
 
-  my $indices_information = $self->{'indices_information'};
   if ($indices_information) {
     my $merged_index_entries
         = Texinfo::Indices::merge_indices($indices_information);

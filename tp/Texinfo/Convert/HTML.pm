@@ -2305,8 +2305,7 @@ my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document', 'document_name',
    'documentdescription_string', 'expanded_formats',
-   'index_entries', 'index_entries_by_letter', 'indices_information',
-   'jslicenses',
+   'index_entries', 'index_entries_by_letter', 'jslicenses',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
@@ -6217,6 +6216,12 @@ sub _convert_printindex_command($$$$)
     return '';
   }
 
+  my $document = $self->get_info('document');
+  my $indices_information;
+  if ($document) {
+    $indices_information = $document->indices_information();
+  }
+
   #foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
   #  print STDERR "IIIIIII $letter_entry->{'letter'}\n";
   #  foreach my $index_entry (@{$letter_entry->{'entries'}}) {
@@ -6296,7 +6301,6 @@ sub _convert_printindex_command($$$$)
           = Texinfo::Common::index_content_element($main_entry_element);
 
       my $in_code = 0;
-      my $indices_information = $self->get_info('indices_information');
       $in_code = 1
        if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
       my $entry_ref_tree = {'contents' => [$entry_content_element]};
@@ -10268,7 +10272,11 @@ sub _sort_index_entries($)
 {
   my $self = shift;
 
-  my $indices_information = $self->{'indices_information'};
+  my $indices_information;
+  if ($self->{'document'}) {
+    $indices_information = $self->{'document'}->indices_information();
+  }
+
   if ($indices_information) {
 
     my $merged_index_entries
@@ -10294,7 +10302,11 @@ sub _prepare_index_entries_targets($)
 {
   my $self = shift;
 
-  my $indices_information = $self->{'indices_information'};
+  my $indices_information;
+  if ($self->{'document'}) {
+    $indices_information = $self->{'document'}->indices_information();
+  }
+
   if ($indices_information) {
     my $no_unidecode;
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
@@ -11988,6 +12000,11 @@ sub output_internal_links($)
   }
   my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
   if ($index_entries_by_letter) {
+    my $indices_information;
+    if ($self->{'document'}) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
     foreach my $index_name (sort(keys (%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
@@ -12000,8 +12017,7 @@ sub output_internal_links($)
           $href = $self->command_href($main_entry_element, '');
           # Obtain term by converting to text
           my $in_code
-            = $self->{'indices_information'}->{$index_entry->{'index_name'}}
-                                                                 ->{'in_code'};
+            = $indices_information->{$index_entry->{'index_name'}}->{'in_code'};
           if ($in_code) {
             Texinfo::Convert::Text::set_options_code(
                                           $self->{'convert_text_options'});

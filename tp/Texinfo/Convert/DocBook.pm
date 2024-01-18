@@ -616,9 +616,15 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+
+    my $indices_information;
+    if ($self->{'document'}) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
     my ($index_entry, $index_info)
      = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
-                                           $self->{'indices_information'});
+                                           $indices_information);
     # FIXME DocBook 5 role->type
     my $result = "<indexterm role=\"$index_entry->{'index_name'}\">";
 

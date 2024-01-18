@@ -35,6 +35,19 @@
 
 2024-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_document),
+	tp/Texinfo/Convert/DocBook.pm (_index_entry),
+	tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	(_sort_index_entries, _prepare_index_entries_targets)
+	(output_internal_links), tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/LaTeX.pm (_prepare_indices, _index_entry),
+	tp/Texinfo/Convert/Plaintext.pm (process_printindex),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_index_entry, _convert),
+	tp/init/chm.pm): do not set 'indices_information', instead use
+	document indices_information to get indices information.
+
+2024-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_document)
 	(_set_output_units_files), tp/Texinfo/Convert/HTML.pm (label_command)
 	(_get_top_unit, _convert_heading_command)

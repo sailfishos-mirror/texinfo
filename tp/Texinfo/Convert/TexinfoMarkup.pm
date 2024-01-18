@@ -385,9 +385,14 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+    my $indices_information;
+    if ($self->{'document'}) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
     my ($index_entry, $index_info)
      = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
-                                           $self->{'indices_information'});
+                                           $indices_information);
     my $attribute = [['index', $index_entry->{'index_name'}]];
     push @$attribute, ['number', $index_entry->{'entry_number'}]
         if (defined($index_entry->{'entry_number'}));
@@ -772,9 +777,14 @@ sub _convert($$;$)
         # out of block commands @item, @itemx in enumerate or multitable...
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command'
              and $element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+      my $indices_information;
+      if ($self->{'document'}) {
+        $indices_information = $self->{'document'}->indices_information();
+      }
+
       my ($index_entry, $index_info)
         = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
-                                              $self->{'indices_information'});
+                                              $indices_information);
       my $format_element;
       my $attribute = [];
       if (exists $line_commands{$element->{'cmdname'}}) {

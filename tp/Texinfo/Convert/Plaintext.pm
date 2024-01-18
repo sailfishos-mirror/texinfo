@@ -1492,8 +1492,12 @@ sub process_printindex($$;$)
     return '';
   }
 
+  my $indices_information;
+  if ($self->{'document'}) {
+    $indices_information = $self->{'document'}->indices_information();
+  }
+
   # this is not redone for each index, only once
-  my $indices_information = $self->{'indices_information'};
   if (!defined($self->{'index_entries'}) and $indices_information) {
 
     my $merged_index_entries
@@ -1597,7 +1601,7 @@ sub process_printindex($$;$)
     my $entry_tree = {'contents' => [$entry_content_element]};
     my $subentries_tree
        = $self->comma_index_subentries_tree($main_entry_element);
-    if ($self->{'indices_information'}->{$entry_index_name}->{'in_code'}) {
+    if ($indices_information->{$entry_index_name}->{'in_code'}) {
       $entry_tree->{'type'} = '_code';
       $subentries_tree->{'type'} = '_code'
         if (defined($subentries_tree));

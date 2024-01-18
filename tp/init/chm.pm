@@ -239,10 +239,18 @@ sub chm_init($)
   }
   print $hhk_fh "</OBJECT>\n";
 
+  my $document = $self->get_info('document');
+  my $indices_information;
+  my $sections_list;
+  if ($document) {
+    $indices_information = $document->indices_information();
+    $sections_list = $document->sections_list();
+  }
+
   my ($index_entries, $index_entries_sort_strings)
        = Texinfo::Indices::sort_indices_by_index(undef, $self,
                              $self->get_info('index_entries'),
-                             $self->get_info('indices_information'));
+                             $indices_information);
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
@@ -255,7 +263,6 @@ sub chm_init($)
         my $origin_href = $self->command_href($main_entry_element, '');
         my $entry_content_element
               = Texinfo::Common::index_content_element($main_entry_element);
-        my $indices_information = $self->get_info('indices_information');
         my $in_code = 0;
         $in_code = 1
           if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
@@ -313,11 +320,6 @@ sub chm_init($)
     print $hhc_fh "<param name=\"$property\" value=\"$hhc_global_property{$property}\">\n";
   }
   print $hhc_fh "</OBJECT>\n";
-
-  my $sections_list;
-  if ($self->{'document'}) {
-    $sections_list = $self->{'document'}->sections_list();
-  }
 
   if ($sections_list) {
     my $section_root = $sections_list->[0]

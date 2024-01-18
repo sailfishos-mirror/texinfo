@@ -948,12 +948,16 @@ sub _prepare_indices($)
 {
   my $self = shift;
 
-  my $index_names = $self->{'indices_information'};
-  if ($index_names) {
+  my $indices_information;
+  if ($self->{'document'}) {
+    $indices_information = $self->{'document'}->indices_information();
+  }
+
+  if ($indices_information) {
     $self->{'index_formatting_text_options'}
       = Texinfo::Indices::setup_index_entry_keys_formatting($self);
     my $merged_index_entries
-        = Texinfo::Indices::merge_indices($index_names);
+        = Texinfo::Indices::merge_indices($indices_information);
     # select non empty indices
     if ($merged_index_entries) {
       $self->{'index_entries'} = {};
@@ -2456,9 +2460,14 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+    my $indices_information;
+    if ($self->{'document'}) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
     my ($entry, $index_info)
      = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
-                                           $self->{'indices_information'});
+                                           $indices_information);
     my $entry_index_name = $entry->{'index_name'};
     my $index_name = $entry_index_name;
     if ($index_info->{'merged_in'}) {

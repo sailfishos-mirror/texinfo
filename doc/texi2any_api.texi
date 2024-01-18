@@ -1765,6 +1765,34 @@ Destination directory for the output files.  It is common to use that string in 
 or file paths with functions requiring binary strings.  In that case the
 character string needs to be encoded.  @xref{Encoding File Path Strings}.
 
+@item document
+The @code{Texinfo::Document} parsed Texinfo document being converted.
+Some information is available from the document using function accessors:
+
+@table @code
+@item floats_information
+Information on floats.
+@xref{Texinfo::Document $float_types = floats_information($document),,
+Texinfo::Document::floats_information,texi2any_internals}.
+
+@item global_commands_information
+Global commands information.
+@xref{Texinfo::Document $commands = global_commands_information($document),,
+Texinfo::Document::global_commands_information,texi2any_internals}.
+
+@item global_information
+Diverse information.
+@xref{Texinfo@asis{::}Document $info = global_information($document),,
+Texinfo@asis{::}Document@asis{::}global_information,texi2any_internals}.
+
+@item indices_information
+Information about defined indices, merged indices and index entries.
+@xref{Texinfo@asis{::}Document $indices_information = $document->indices_information(),,Texinfo@asis{::}Document@asis{::}indices_information,texi2any_internals}.
+
+@item sections_list
+List of the sectioning commands in the document.
+@end table
+
 @item document_name
 Base name of the document.  It is common to use that string in in directory or
 file paths with functions requiring binary strings.  In that case the character
@@ -1782,26 +1810,12 @@ hash reference with format names as key and a true value as value if
 the format is expanded, according to command-line and init file
 information.
 
-@item floats
-Information on floats. Gathered from the Texinfo parsing result.
-@xref{Texinfo::Document $float_types = floats_information($document),,
-Texinfo::Document::floats_information,texi2any_internals}.
-
-@item global_commands
-Global commands information.  Gathered from the Texinfo parsing result.
-@xref{Texinfo::Document $commands = global_commands_information($document),,
-Texinfo::Document::global_commands_information,texi2any_internals}.
-
 @item index_entries
 Information on indices taking into account merged indices.
 @xref{Texinfo::Structuring $merged_entries = merge_indices($index_names),,Texinfo::Structuring::merge_indices, texi2any_internals}.
 
 @item index_entries_by_letter
 Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorted@comma{} $index_entries_sort_strings) = sort_indices($registrar@comma{} $configuration_information@comma{} $merged_index_entries@comma{} $sort_by_letter),,Texinfo::Structuring::sort_indices,texi2any_internals}.
-
-@item indices_information
-Information about defined indices, merged indices and index entries.
-@xref{Texinfo@asis{::}Document $indices_information = $document->indices_information(),,Texinfo@asis{::}Document@asis{::}indices_information,texi2any_internals}.
 
 @item jslicenses
 An hash reference with  categories of javascript used in the document
@@ -1813,12 +1827,6 @@ information on each of the file licences, with content
 @item license URL
 @item file name or source of file
 @end enumerate
-
-@item labels
-Association of identifiers to label elements. Gathered from the Texinfo
-parsing result.
-@xref{Texinfo::Parser $labels_information@comma{} $targets_list@comma{} $nodes_list = labels_information($parser),,
-Texinfo::Parser::labels_information,texi2any_internals}.
 
 @item line_break_element
 HTML line break element, based on @samp{<br>}, also taking into account
@@ -1850,9 +1858,6 @@ all the title-related commands, including @code{@@top} and
 (@pxref{Init File Expansion Contexts}).  @code{simpletitle_tree} is
 a Texinfo tree corresponding to the simpletitle, and @code{simpletitle_command_name}
 is the @@-command name used for the simpletitle, without the leading @@.
-
-@item sections_list
-List of the sectioning commands in the document.
 
 @item title_titlepage
 The formatted title, possibly based on @code{@@titlepage}, or on

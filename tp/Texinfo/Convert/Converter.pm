@@ -265,10 +265,7 @@ sub set_document($$)
   }
 
   $converter->{'document'} = $document;
-  if (defined($document)) {
-    $converter->{'indices_information'}
-           = $document->indices_information();
-  }
+
   Texinfo::Common::set_output_encodings($converter, $document);
 
   $converter->{'convert_text_options'}
@@ -2122,7 +2119,7 @@ are described in the Texinfo manual.
 Those customization options, when appropriate, override the document content.
 B<TODO what about the other options (all are used in converters>
 B<TODO document this associated information
-('indices_information' ..., most available
+(..., most available
 in HTML converter, either through $converter-E<gt>get_info('document') or label_command())>
 
 The C<converter> function returns a converter object (a blessed hash
