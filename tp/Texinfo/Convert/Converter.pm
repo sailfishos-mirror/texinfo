@@ -270,16 +270,11 @@ sub set_document($$)
     my $identifier_target = $document->labels_information();
     my $sections_list = $document->sections_list();
 
-    $converter->{'floats'} = $floats if ($floats);
     $converter->{'identifiers_target'} = $identifier_target
                                            if ($identifier_target);
     $converter->{'sections_list'} = $sections_list if ($sections_list);
     $converter->{'indices_information'}
            = $document->indices_information();
-    $converter->{'document_values'} = $document->{'values'};
-    # From and for XS
-    $converter->{'document_descriptor'}
-      = $document->document_descriptor();
   }
   Texinfo::Common::set_output_encodings($converter, $document);
 
@@ -2128,7 +2123,7 @@ are described in the Texinfo manual.
 Those customization options, when appropriate, override the document content.
 B<TODO what about the other options (all are used in converters>
 B<TODO document this associated information
-('indices_information', 'floats'..., most available
+('indices_information' ..., most available
 in HTML converter, either through $converter-E<gt>get_info('document') or label_command())>
 
 The C<converter> function returns a converter object (a blessed hash

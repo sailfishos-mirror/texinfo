@@ -1962,9 +1962,9 @@ sub get_value($$)
 {
   my $self = shift;
   my $value = shift;
-  if (defined($self->{'document_values'})
-      and exists ($self->{'document_values'}->{$value})) {
-    return $self->{'document_values'}->{$value};
+  if ($self->{'document'} and $self->{'document'}->{'values'}
+      and exists($self->{'document'}->{'values'}->{$value})) {
+    return $self->{'document'}->{'values'}->{$value};
   } else {
     return undef;
   }
@@ -2290,13 +2290,13 @@ sub get_file_information($$;$)
 
 # information from converter available 'read-only', in general set up before
 # really starting the formatting (except for current_filename).
-# 'floats', 'sections_list' are set up in the generic
+# 'sections_list' are set up in the generic
 # converter
 my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document', 'document_name',
    'documentdescription_string', 'expanded_formats',
-   'floats', 'index_entries', 'index_entries_by_letter', 'indices_information',
+   'index_entries', 'index_entries_by_letter', 'indices_information',
    'jslicenses', 'identifiers_target',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'sections_list',
@@ -5383,7 +5383,11 @@ sub _convert_listoffloats_command($$$$)
   # should probably never happen
   return '' if (in_string($self));
 
-  my $floats = $self->get_info('floats');
+  my $floats;
+  my $document = $self->get_info('document');
+  if ($document) {
+    $floats = $document->floats_information();
+  }
   my $listoffloats_name = $command->{'extra'}->{'float_type'};
   if ($floats and $floats->{$listoffloats_name}
       and scalar(@{$floats->{$listoffloats_name}})) {

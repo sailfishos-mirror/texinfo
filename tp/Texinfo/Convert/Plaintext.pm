@@ -3183,16 +3183,20 @@ sub _convert($$)
     } elsif ($command eq 'listoffloats') {
       my $float_type = $element->{'extra'}->{'float_type'};
       my $lines_count = 0;
-      if ($self->{'floats'}
-          and $self->{'floats'}->{$float_type}
-          and scalar(@{$self->{'floats'}->{$float_type}})) {
+      my $floats;
+      if ($self->{'document'}) {
+        $floats = $self->{'document'}->floats_information();
+      }
+      if ($floats
+          and $floats->{$float_type}
+          and scalar(@{$floats->{$float_type}})) {
         if (!$self->{'empty_lines_count'}) {
           _stream_output($self, undef, "\n");
           $lines_count++;
         }
         _stream_output($self, undef, "* Menu:\n\n");
         $lines_count += 2;
-        foreach my $float (@{$self->{'floats'}->{$float_type}}) {
+        foreach my $float (@{$floats->{$float_type}}) {
           next if !$float->{'args'} or !$float->{'args'}->[1]
                    or !$float->{'args'}->[1]->{'contents'}
                    or !@{$float->{'args'}->[1]->{'contents'}};

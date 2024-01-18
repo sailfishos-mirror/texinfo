@@ -35,6 +35,20 @@
 
 2024-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_document),
+	tp/Texinfo/Convert/HTML.pm (get_value): do not set
+	'document_descriptor' nor 'document_values'.
+
+	* tp/Texinfo/Convert/Converter.pm (set_document),
+	tp/Texinfo/Convert/HTML.pm (_convert_listoffloats_command),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/LaTeX.pm
+	(_prepare_floats, _latex_header, _convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert): do not set 'floats',
+	instead use document floats_information to get document floats
+	information.
+
+2024-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (set_output_encodings): use document in input
 	argument.  Update callers.
 

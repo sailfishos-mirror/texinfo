@@ -381,8 +381,10 @@ sub output_ixin($$)
   # FIXME title: use simpletitle or fulltitle
 
   my $document_info;
+  my $floats;
   if ($self->->{'document'}) {
     $document_info = $self->{'document'}->global_information();
+    $floats = $self->{'document'}->floats_information();
   }
 
   if ($document_info and $document_info->{'dircategory_direntry'}) {
@@ -790,8 +792,8 @@ sub output_ixin($$)
   my %floats_information;
 
   # collect all float types corresponding to float commands
-  if ($self->{'floats'}) {
-    foreach my $float_type (keys(%{$self->{'floats'}})) {
+  if ($floats) {
+    foreach my $float_type (keys(%{$floats})) {
       $floats_information{$float_type} = {};
     }
   }
@@ -815,10 +817,10 @@ sub output_ixin($$)
   my $floats_index = '';
   foreach my $type (sort(keys(%floats_information))) {
     my $float_text_len = 0;
-    if ($self->{'floats'}->{$type}) {
+    if ($floats->{$type}) {
       my $float_nr = 0;
       my $float_text = '';
-      foreach my $float (@{$self->{'floats'}->{$type}}) {
+      foreach my $float (@{$floats->{$type}}) {
         $float_nr++;
         my $associated_node_id;
         # associated node already found when collecting labels
@@ -863,7 +865,7 @@ sub output_ixin($$)
       # determine type expandable string from first float if it was not
       # already determined from listoffloats
       if (!defined($floats_information{$type}->{'type'})) {
-        my $float_element = $self->{'floats'}->{$type}->[0];
+        my $float_element = $floats->{$type}->[0];
         if ($float_element->{'extra'}->{'float_type'} ne '') {
           $floats_information{$type}->{'type'}
             = $self->convert_tree($float_element->{'args'}->[0]);

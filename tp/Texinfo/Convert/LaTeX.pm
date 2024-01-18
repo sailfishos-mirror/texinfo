@@ -902,13 +902,19 @@ my %LaTeX_floats = (
 sub _prepare_floats($)
 {
   my $self = shift;
-  if ($self->{'floats'}) {
+
+  my $floats;
+  if ($self->{'document'}) {
+    $floats = $self->{'document'}->floats_information();
+  }
+
+  if ($floats) {
     $self->{'normalized_float_latex'} = {};
     $self->{'latex_floats'} = {};
-    foreach my $normalized_float_type (sort(keys(%{$self->{'floats'}}))) {
+    foreach my $normalized_float_type (sort(keys(%{$floats}))) {
       my $latex_variable_float_name;
-      if (scalar(@{$self->{'floats'}->{$normalized_float_type}})) {
-        my $float = $self->{'floats'}->{$normalized_float_type}->[0];
+      if (scalar(@{$floats->{$normalized_float_type}})) {
+        my $float = $floats->{$normalized_float_type}->[0];
         $latex_variable_float_name
           = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
            {'contents' => $float->{'args'}->[0]->{'contents'}});
@@ -1343,7 +1349,12 @@ sub _latex_header() {
   }
   $header_code .= "\n";
 
-  if ($self->{'floats'}) {
+  my $floats;
+  if ($self->{'document'}) {
+    $floats = $self->{'document'}->floats_information();
+  }
+
+  if ($floats) {
     foreach my $normalized_float_type
                            (sort(keys(%{$self->{'normalized_float_latex'}}))) {
       my $latex_float_name
@@ -1352,7 +1363,7 @@ sub _latex_header() {
         my $float_type = '';
         if ($normalized_float_type ne '') {
           _push_new_context($self, 'float_type '.$normalized_float_type);
-          my $float = $self->{'floats'}->{$normalized_float_type}->[0];
+          my $float = $floats->{$normalized_float_type}->[0];
           my $float_type = _convert($self, $float->{'args'}->[0]);
           _pop_context($self);
         }
@@ -1632,7 +1643,7 @@ roundcorner=10pt}
     if ($self->{'packages'}->{'geometry'}) {
       $usepackage_end .= "\\usepackage{geometry}\n";
     }
-    if ($self->{'floats'}) {
+    if ($floats) {
       $usepackage_end .= "\\usepackage{float}\n";
     }
     if ($self->{'packages'}->{'babel'}) {
@@ -3901,9 +3912,14 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'listoffloats') {
       my $normalized_float_type = $element->{'extra'}->{'float_type'};
-      if ($self->{'floats'}
-          and $self->{'floats'}->{$normalized_float_type}
-          and @{$self->{'floats'}->{$normalized_float_type}}) {
+      my $floats;
+      if ($self->{'document'}) {
+        $floats = $self->{'document'}->floats_information();
+      }
+
+      if ($floats
+          and $floats->{$normalized_float_type}
+          and @{$floats->{$normalized_float_type}}) {
         if (not exists($self->{'normalized_float_latex'}
                                                  ->{$normalized_float_type})) {
           cluck("\@listoffloats $normalized_float_type: not found\n");
