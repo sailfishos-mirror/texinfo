@@ -532,7 +532,6 @@ sub convert_to_plaintext($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::Plaintext->converter({'DEBUG' => $self->{'DEBUG'},
-                                             'document' => $document,
                                              'converted_format' => 'plaintext',
                                              %$converter_options });
   my $result;
@@ -580,7 +579,6 @@ sub convert_to_info($$$$$;$)
 
   my $converter =
      Texinfo::Convert::Info->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'document' => $document,
                                          'converted_format' => 'info',
                                           %$converter_options });
   my $result = $converter->output($document);
@@ -614,7 +612,6 @@ sub convert_to_html($$$$$$;$)
         and !defined($converter_options->{'SPLIT'}));
   my $converter =
      Texinfo::Convert::HTML->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'document' => $document,
                                          'converted_format' => 'html',
                                           %$converter_options });
   my $result;
@@ -650,7 +647,6 @@ sub convert_to_xml($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::TexinfoXML->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'document' => $document,
                                          'converted_format' => 'texinfoxml',
                                           %$converter_options });
 
@@ -688,7 +684,6 @@ sub convert_to_docbook($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::DocBook->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'document' => $document,
                                          'converted_format' => 'docbook',
                                           %$converter_options });
   my $result;
@@ -745,7 +740,6 @@ sub convert_to_latex($$$$$$;$)
 
   my $converter =
      Texinfo::Convert::LaTeX->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'document' => $document,
                                          'converted_format' => 'latex',
                                           %$converter_options });
   my $result;

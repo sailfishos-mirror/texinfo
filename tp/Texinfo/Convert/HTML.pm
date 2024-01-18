@@ -11443,6 +11443,10 @@ sub conversion_initialization($;$)
   my $self = shift;
   my $document = shift;
 
+  if ($document) {
+    $self->set_document($document);
+  }
+
   # duplicate such as not to modify the defaults
   my $conf_default_no_arg_commands_formatting_normal
     = Storable::dclone($default_no_arg_commands_formatting{'normal'});

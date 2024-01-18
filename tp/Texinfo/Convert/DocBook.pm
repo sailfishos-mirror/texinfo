@@ -297,6 +297,10 @@ sub conversion_initialization($;$)
   my $self = shift;
   my $document = shift;
 
+  if ($document) {
+    $self->set_document($document);
+  }
+
   $self->{'document_context'} = [];
   $self->_new_document_context();
   $self->{'lang_stack'} = [];

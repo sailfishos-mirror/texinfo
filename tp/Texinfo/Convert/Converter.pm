@@ -227,8 +227,12 @@ sub converter_initialize($)
 
 sub conversion_initialization($;$)
 {
-  #my $converter = shift;
-  #my $document = shift;
+  my $converter = shift;
+  my $document = shift;
+
+  if ($document) {
+    $converter->set_document($document);
+  }
 }
 
 sub conversion_finalization($)
@@ -297,9 +301,6 @@ sub converter($;$)
 
   bless $converter, $class;
 
-  # TODO set using set_document only
-  my $document;
-
   my %defaults = $converter->converter_defaults($conf);
   foreach my $key (keys(%all_converters_defaults)) {
     $defaults{$key} = $all_converters_defaults{$key}
@@ -314,10 +315,6 @@ sub converter($;$)
     }
   }
   if (defined($conf)) {
-    if ($conf->{'document'}) {
-      $document = $conf->{'document'};
-      delete $conf->{'document'};
-    }
     foreach my $key (keys(%$conf)) {
       if (Texinfo::Common::valid_customization_option($key)) {
         $converter->{'conf'}->{$key} = $conf->{$key};
@@ -362,10 +359,6 @@ sub converter($;$)
   _XS_converter_initialize($converter);
 
   $converter->converter_initialize();
-
-  if ($document) {
-    set_document($converter, $document);
-  }
 
   return $converter;
 }
@@ -739,6 +732,8 @@ sub write_or_return($$$)
 
 my $STDIN_DOCU_NAME = 'stdin';
 
+# this requires a document, and is, in general, used in output(), therefore
+# a document need to be associated to the converter, not only a tree.
 sub determine_files_and_directory($$)
 {
   my $self = shift;
@@ -1641,6 +1636,8 @@ sub sort_element_counts($$;$$)
   my $use_sections = shift;
   my $count_words = shift;
 
+  $converter->conversion_initialization($document);
+
   my $tree = $document->tree();
 
   my $output_units;
@@ -1667,9 +1664,10 @@ sub sort_element_counts($$;$$)
     if ($output_unit->{'unit_command'}) {
       my $command = $output_unit->{'unit_command'};
       if ($command->{'args'}->[0]->{'contents'}) {
+        # convert contents to avoid outputting end of lines
         $name = "\@$command->{'cmdname'} "
           .Texinfo::Convert::Texinfo::convert_to_texinfo(
-                       {'contents' => $command->{'args'}->[0]->{'contents'}});
+               {'contents' => $command->{'args'}->[0]->{'contents'}});
       }
     }
     $name = 'UNNAMED output unit' if (!defined($name));
@@ -1680,6 +1678,7 @@ sub sort_element_counts($$;$$)
       $max_count = $count;
     }
   }
+  $converter->conversion_finalization();
 
   my @sorted_name_counts_array = sort {$a->[0] <=> $b->[0]} @name_counts_array;
   @sorted_name_counts_array = reverse(@sorted_name_counts_array);

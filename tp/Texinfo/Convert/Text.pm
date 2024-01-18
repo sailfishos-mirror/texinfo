@@ -871,14 +871,6 @@ sub converter($;$)
     #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
   }
 
-  if ($converter->{'document'}) {
-    $converter->{'document_info'}
-       = $converter->{'document'}->global_information();
-    $converter->{'global_commands'}
-       = $converter->{'document'}->global_commands_information();
-    delete $converter->{'document'};
-  }
-
   my $expanded_formats = $converter->{'EXPANDED_FORMATS'};
   if ($expanded_formats) {
     $converter->{'expanded_formats'} = {};
@@ -886,22 +878,6 @@ sub converter($;$)
       $converter->{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
-
-  Texinfo::Common::set_output_encodings($converter,
-                                        $converter->{'document_info'})
-    if ($converter->{'document_info'});
-
-  # Text options and converter are of different nature.
-  # It could have been possible to set up the options by calling
-  # copy_options_for_convert_text on $self.
-  # However, since the option keys are very similar between the converter
-  # and text options and expanded_formats is already set in the converter,
-  # we use the converter object as text options and we call
-  # _initialize_options_encoding for the only option that is set up
-  # based on other customization options.
-  # Also, we need a blessed reference as get_conf can be called on the options,
-  # using the converter brings that too.
-  _initialize_options_encoding($converter, $converter);
 
   return $converter;
 }
@@ -943,12 +919,34 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
+  my $document_info;
+  my $global_commands;
+  if ($document) {
+    $document_info = $document->global_information();
+    $global_commands = $document->global_commands_information();
+  }
+
+  Texinfo::Common::set_output_encodings($self, $document_info)
+    if ($document_info);
+
+  # Text options and converter are of different nature.
+  # It could have been possible to set up the options by calling
+  # copy_options_for_convert_text on $self.
+  # However, since the option keys are very similar between the converter
+  # and text options and expanded_formats is already set in the converter,
+  # we use the converter object as text options and we call
+  # _initialize_options_encoding for the only option that is set up
+  # based on other customization options.
+  # Also, we need a blessed reference as get_conf can be called on the options,
+  # using the converter brings that too.
+  _initialize_options_encoding($self, $self);
+
   my $root = $document->tree();
 
   #print STDERR "OUTPUT\n";
   my $input_basename;
-  if (defined($self->{'document_info'}->{'input_file_name'})) {
-    my $input_file_name = $self->{'document_info'}->{'input_file_name'};
+  if ($document_info and defined($document_info->{'input_file_name'})) {
+    my $input_file_name = $document_info->{'input_file_name'};
     my $encoding = $self->{'COMMAND_LINE_ENCODING'};
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_name);
@@ -964,12 +962,12 @@ sub output($$)
 
   my $setfilename;
   $setfilename
-   = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'}
-    if ($self->{'global_commands'}
-        and $self->{'global_commands'}->{'setfilename'}
-        and $self->{'global_commands'}->{'setfilename'}->{'extra'}
-        and defined($self->{'global_commands'}->{'setfilename'}
-                                                   ->{'extra'}->{'text_arg'}));
+   = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'}
+    if ($global_commands
+        and $global_commands->{'setfilename'}
+        and $global_commands->{'setfilename'}->{'extra'}
+        and defined($global_commands->{'setfilename'}
+                                              ->{'extra'}->{'text_arg'}));
   my $outfile;
   if (!defined($self->{'OUTFILE'})) {
     if (defined($setfilename)) {

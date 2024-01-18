@@ -427,6 +427,10 @@ sub conversion_initialization($;$)
   my $self = shift;
   my $document = shift;
 
+  if ($document) {
+    $self->set_document($document);
+  }
+
   $self->{'context'} = [];
   $self->{'format_context'} = [];
   $self->{'empty_lines_count'} = undef;

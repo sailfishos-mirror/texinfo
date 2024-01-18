@@ -850,6 +850,10 @@ sub conversion_initialization($;$)
   my $self = shift;
   my $document = shift;
 
+  if ($document) {
+    $self->set_document($document);
+  }
+
   %{$self->{'quotes_map'}} = %quotes_map;
 
   # this condition means that there is no way to turn off

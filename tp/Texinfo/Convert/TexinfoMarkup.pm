@@ -282,6 +282,11 @@ sub converter_initialize($)
 sub conversion_initialization($;$)
 {
   my $self = shift;
+  my $document = shift;
+
+  if ($document) {
+    $self->set_document($document);
+  }
 
   $self->{'document_context'} = [{'monospace' => [0]}];
 }
@@ -292,7 +297,7 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  $self->conversion_initialization();
+  $self->conversion_initialization($document);
 
   my $root = $document->tree();
 
@@ -442,7 +447,7 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
-  $self->conversion_initialization();
+  $self->conversion_initialization($document);
 
   my $root = $document->tree();
 

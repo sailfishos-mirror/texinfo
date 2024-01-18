@@ -85,7 +85,8 @@ $tree = Texinfo::Document::rebuild_tree($tree);
 
 # a converter only used for translation in text conversion, not
 # to convert anything.
-my $converter = Texinfo::Convert::HTML->converter({'document' => $document});
+my $converter = Texinfo::Convert::HTML->converter();
+$converter->set_document($document);
 # note that parse_texi_piece is used, so there is no preamble
 $converter->set_global_document_commands('preamble_or_first',
                                          ['documentlanguage']);

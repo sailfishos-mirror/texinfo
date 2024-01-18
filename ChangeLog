@@ -1,3 +1,28 @@
+2024-01-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (sort_element_counts): call
+	conversion_initialization and conversion_finalization.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (output, convert): give document
+	argument to conversion_initialization.
+
+	* tp/Texinfo/Convert/Converter.pm (conversion_initialization)
+	(converter), tp/Texinfo/Convert/DocBook.pm
+	(conversion_initialization), tp/Texinfo/Convert/HTML.pm
+	(conversion_initialization), tp/Texinfo/Convert/LaTeX.pm
+	(conversion_initialization), tp/Texinfo/Convert/Plaintext.pm
+	(conversion_initialization), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(conversion_initialization), tp/t/test_utils.pl (convert_to_*),
+	tp/texi2any.pl: call set_document in conversion_initialization, do not
+	pass a document to converter initialization.
+
+	* tp/Texinfo/Convert/Text.pm (converter, output): get document in
+	output.  Do not st global_information and global_commands_information
+	in converter state, they are only used in output().
+
+	* tp/t/convert_to_text.t: call set_document to set converter
+	document.
+
 2024-01-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Find menu with hide-note-references=On
