@@ -1,5 +1,15 @@
 2024-01-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Use foreach loop for Info output
+
+	* tp/Texinfo/Convert/Info.pm (output): Move block of code
+	dealing with split output from the end to the beginning of
+	a loop, but do not execute it the first time around by checking
+	a variable.  This allows changing the loop to a simple foreach
+	loop rather than popping from an array each time round.
+
+2024-01-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Change handling of blank lines between Info nodes
 
 	* tp/Texinfo/Convert/Info.pm (format_node): Do not check

@@ -152,43 +152,19 @@ sub output($$)
     $out_file_nr = 1;
     my $first_node_seen = 0;
     $self->{'count_context'}->[-1]->{'bytes'} += $header_bytes;
-    # FIXME use a simple foreach
-    my @nodes_root_elements = @$tree_units;
-    while (@nodes_root_elements) {
-      my $node_root_element = shift @nodes_root_elements;
-      my $node_text = $self->convert_output_unit($node_root_element);
-      if ($node_text !~ /\n\n$/) {
-        $node_text .= "\n";
-        $self->{'count_context'}->[-1]->{'bytes'}++;
-      }
-      if (!$first_node_seen) {
-        # We are outputting the first node.
-        $first_node_seen = 1;
-        $node_text = $header . $node_text;
-
-        # When the first node was converted in convert_output_unit above, the
-        # text before the first node (type 'before_node_section') was saved in
-        # 'text_before_first_node'.  Save this text for subsequent use in
-        # case of split Info output.
-        if (defined($self->{'text_before_first_node'})) {
-          $complete_header .= $self->{'text_before_first_node'};
-          $complete_header_bytes += length($self->{'text_before_first_node'});
-        }
-      }
-      if ($fh) {
-        print $fh $node_text;
-      } else {
-        $result .= $node_text;
-      }
-      if (defined($self->get_conf('SPLIT_SIZE'))
+    foreach my $node_root_element (@$tree_units) {
+      if ($first_node_seen
+          and defined($self->get_conf('SPLIT_SIZE'))
           and $self->{'count_context'}->[-1]->{'bytes'} >
                   $out_file_nr * $self->get_conf('SPLIT_SIZE')
-          and @nodes_root_elements and $fh) {
+          and $fh) {
+        # Split the output into an additional output file.
         my $close_error;
         if (!close ($fh)) {
           $close_error = $!;
         }
         if ($out_file_nr == 1) {
+          # Switch to split output.
           $self->_register_closed_info_file($output_file);
           if (defined($close_error)) {
             $self->converter_document_error(
@@ -243,6 +219,31 @@ sub output($$)
         push @indirect_files, [$output_filename.'-'.$out_file_nr,
                                $self->{'count_context'}->[-1]->{'bytes'}];
         #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
+      }
+
+      my $node_text = $self->convert_output_unit($node_root_element);
+      if ($node_text !~ /\n\n$/) {
+        $node_text .= "\n";
+        $self->{'count_context'}->[-1]->{'bytes'}++;
+      }
+      if (!$first_node_seen) {
+        # We are outputting the first node.
+        $first_node_seen = 1;
+        $node_text = $header . $node_text;
+
+        # When the first node was converted in convert_output_unit above, the
+        # text before the first node (type 'before_node_section') was saved in
+        # 'text_before_first_node'.  Save this text for subsequent use in
+        # case of split Info output.
+        if (defined($self->{'text_before_first_node'})) {
+          $complete_header .= $self->{'text_before_first_node'};
+          $complete_header_bytes += length($self->{'text_before_first_node'});
+        }
+      }
+      if ($fh) {
+        print $fh $node_text;
+      } else {
+        $result .= $node_text;
       }
     }
   }
