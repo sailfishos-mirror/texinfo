@@ -926,8 +926,7 @@ sub output($$)
     $global_commands = $document->global_commands_information();
   }
 
-  Texinfo::Common::set_output_encodings($self, $document_info)
-    if ($document_info);
+  Texinfo::Common::set_output_encodings($self, $document);
 
   # Text options and converter are of different nature.
   # It could have been possible to set up the options by calling

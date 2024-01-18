@@ -12161,13 +12161,27 @@ sub _prepare_converted_output_info($)
     $self->{'title_string'} = $self->convert_tree_new_formatting_context(
           {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
           'title_string');
+
+    my $input_file_name;
+    if ($self->{'document'}) {
+      my $document_info = $self->{'document'}->global_information();
+      if ($document_info) {
+        $input_file_name = $document_info->{'input_file_name'};
+      }
+    }
+
     # TODO it is not clear that a filename without line number is ok
     # for line_warn.  Not clear what is the right way to do.  There is
     # no file level warn, as in general document_warn is used for messages
     # for other files than the main file name.
-    $self->converter_line_warn(__(
+    if (defined($input_file_name)) {
+      $self->converter_line_warn(__(
                          "must specify a title with a title command or \@top"),
-               {'file_name' => $self->{'document_info'}->{'input_file_name'}});
+                           {'file_name' => $input_file_name});
+    } else {
+      $self->converter_document_warn(__(
+                         "must specify a title with a title command or \@top"));
+    }
   } else {
     $self->{'title_string'} = $html_title_string;
   }

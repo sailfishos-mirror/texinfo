@@ -121,8 +121,19 @@ sub output($$)
   my @indirect_files;
   if (!defined($tree_units) or not defined($tree_units->[0])
       or not defined($tree_units->[0]->{'unit_command'})) {
-    $self->converter_line_warn(__("document without nodes"),
-             {'file_name' => $self->{'document_info'}->{'input_file_name'}});
+    my $input_file_name;
+    if ($self->{'document'}) {
+      my $document_info = $self->{'document'}->global_information();
+      if ($document_info) {
+        $input_file_name = $document_info->{'input_file_name'};
+      }
+    }
+    if (defined($input_file_name)) {
+      $self->converter_line_warn(__("document without nodes"),
+             {'file_name' => $input_file_name});
+    } else {
+      $self->converter_document_warn(__("document without nodes"));
+    }
     my $old_context = $self->{'count_context'}->[-1];
     my $new_context =
       {'lines' => $old_context->{'lines'}, 'bytes' => $old_context->{'bytes'},
@@ -146,8 +157,19 @@ sub output($$)
   } else {
     unless ($self->{'identifiers_target'}
             and $self->{'identifiers_target'}->{'Top'}) {
-      $self->converter_line_warn(__("document without Top node"),
-             {'file_name' => $self->{'document_info'}->{'input_file_name'}});
+      my $input_file_name;
+      if ($self->{'document'}) {
+        my $document_info = $self->{'document'}->global_information();
+        if ($document_info) {
+          $input_file_name = $document_info->{'input_file_name'};
+        }
+      }
+      if (defined($input_file_name)) {
+        $self->converter_line_warn(__("document without Top node"),
+             {'file_name' => $input_file_name});
+      } else {
+        $self->converter_document_warn(__("document without Top node"));
+      }
     }
     $out_file_nr = 1;
     my $first_node_seen = 0;
@@ -405,8 +427,10 @@ sub _info_header($$$)
   $self->_stream_output($paragraph, $result);
 
   my $global_commands;
+  my $document_info;
   if ($self->{'document'}) {
     $global_commands = $self->{'document'}->global_commands_information();
+    $document_info = $self->{'document'}->global_information();
   }
   # format @copying using the last value of the preamble.
   my @informative_global_commands = $self->get_informative_global_commands();
@@ -422,10 +446,10 @@ sub _info_header($$$)
   }
   $self->set_global_document_commands('before', \@informative_global_commands);
 
-  if ($self->{'document_info'}->{'dircategory_direntry'}) {
+  if ($document_info->{'dircategory_direntry'}) {
     my $dir_section = '';
     $self->{'ignored_commands'}->{'direntry'} = 0;
-    foreach my $command (@{$self->{'document_info'}->{'dircategory_direntry'}}) {
+    foreach my $command (@{$document_info->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if ($command->{'args'} and @{$command->{'args'}}
             and defined($command->{'args'}->[0]->{'contents'})) {

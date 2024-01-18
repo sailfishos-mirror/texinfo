@@ -35,6 +35,19 @@
 
 2024-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (set_output_encodings): use document in input
+	argument.  Update callers.
+
+	* tp/Texinfo/Convert/Converter.pm (set_document)
+	(determine_files_and_directory), tp/Texinfo/Convert/HTML.pm
+	(_prepare_converted_output_info), tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/Info.pm (output, _info_header),
+	tp/Texinfo/Convert/Utils.pm (encoded_output_file_name)
+	(encoded_input_file_name): do not set 'document_info', instead use
+	document global_information to get document information.
+
+2024-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (find_parent_root_command),
 	tp/Texinfo/Convert/Converter.pm (set_document)
 	(determine_files_and_directory, set_global_document_commands),

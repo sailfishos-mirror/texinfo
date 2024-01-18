@@ -1353,8 +1353,12 @@ sub lookup_index_entry($$)
 sub set_output_encodings($$)
 {
   my $customization_information = shift;
-  my $document_information = shift;
+  my $document = shift;
 
+  my $document_information;
+  if ($document) {
+    $document_information = $document->global_information();
+  }
   $customization_information->set_conf('OUTPUT_ENCODING_NAME',
                $document_information->{'input_encoding_name'})
      if ($document_information
@@ -3018,7 +3022,7 @@ a command that sets some information, such as C<@documentlanguage>,
 C<@contents> or C<@footnotestyle> for example.  Return true if the command
 argument was found and the customization variable was set.
 
-=item set_output_encodings($customization_information, $document_information)
+=item set_output_encodings($customization_information, $document)
 X<C<set_output_encodings>>
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file

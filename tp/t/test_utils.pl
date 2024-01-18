@@ -1061,7 +1061,7 @@ sub test($$)
   my $document_information = $document->global_information();
 
   Texinfo::Common::set_output_encodings($main_configuration,
-                                        $document_information);
+                                        $document);
 
   my $global_commands = $document->global_commands_information();
   if ($document_information->{'novalidate'}) {

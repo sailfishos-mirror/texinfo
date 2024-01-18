@@ -266,7 +266,6 @@ sub set_document($$)
 
   $converter->{'document'} = $document;
   if (defined($document)) {
-    $converter->{'document_info'} = $document->global_information();
     my $floats = $document->floats_information();
     my $identifier_target = $document->labels_information();
     my $sections_list = $document->sections_list();
@@ -282,8 +281,7 @@ sub set_document($$)
     $converter->{'document_descriptor'}
       = $document->document_descriptor();
   }
-  Texinfo::Common::set_output_encodings($converter,
-                                        $converter->{'document_info'});
+  Texinfo::Common::set_output_encodings($converter, $document);
 
   $converter->{'convert_text_options'}
    = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
@@ -739,12 +737,18 @@ sub determine_files_and_directory($$)
 
   # determine input file base name
   my $input_basefile;
-  if (defined($self->{'document_info'}->{'input_file_name'})) {
+  my $document_info;
+
+  if ($self->{'document'}) {
+    $document_info = $self->{'document'}->global_information();
+  }
+
+  if ($document_info and defined($document_info->{'input_file_name'})) {
     # 'input_file_name' is not decoded, as it is derived from input
     # file which is not decoded either.  We want to return only
     # decoded character strings such that they can easily be mixed
     # with other character strings, so we decode here.
-    my $input_file_name = $self->{'document_info'}->{'input_file_name'};
+    my $input_file_name = $document_info->{'input_file_name'};
     my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_name, sub { '?' });
@@ -2117,23 +2121,18 @@ C<Texinfo::Convert::Converter>.
 
 =item $converter = MyConverter->converter($options)
 
-The I<$options> hash reference holds options for the converter.  In
-this option hash reference a L<document|Texinfo::Document>
-may be associated with the I<document> key.  The other options
-are Texinfo customization options and a few other options that can
+The I<$options> hash reference holds options for the converter.
+These options are Texinfo customization options and a few other options that can
 be passed to the converter. Most of the customization options
 are described in the Texinfo manual.
 Those customization options, when appropriate, override the document content.
 B<TODO what about the other options (all are used in converters>
-B<TODO change?
-The document should not be available directly anymore after getting the
-associated information.> B<TODO document this associated information
-('document_info', 'indices_information', 'floats'..., most available
-in HTML converter, either through $converter-E<gt>get_info() or label_command())>
+B<TODO document this associated information
+('indices_information', 'floats'..., most available
+in HTML converter, either through $converter-E<gt>get_info('document') or label_command())>
 
 The C<converter> function returns a converter object (a blessed hash
-reference) after checking the options and performing some initializations,
-especially when a document is given among the options.
+reference) after checking the options and performing some initializations.
 
 =back
 

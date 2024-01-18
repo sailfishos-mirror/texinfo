@@ -174,7 +174,7 @@ sub definition_category_tree($$)
          'parent' => $arg_class_code};
     $arg_class_code->{'args'} = [$brace_arg];
   }
-  
+
   my $def_command = $current->{'extra'}->{'def_command'};
   if ($def_command eq 'defop'
       or $def_command eq 'deftypeop'
@@ -466,9 +466,15 @@ sub encoded_output_file_name($$)
   if ($output_file_name_encoding) {
     $encoding = $output_file_name_encoding;
   } elsif ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
-    $encoding = $self->{'document_info'}->{'input_perl_encoding'}
-      if ($self->{'document_info'}
-        and defined($self->{'document_info'}->{'input_perl_encoding'}));
+    my $document_info;
+
+    if ($self->{'document'}) {
+      $document_info = $self->{'document'}->global_information();
+    }
+
+    $encoding = $document_info->{'input_perl_encoding'}
+      if ($document_info
+          and defined($document_info->{'input_perl_encoding'}));
   } else {
     $encoding = $self->get_conf('LOCALE_ENCODING');
   }
@@ -503,9 +509,15 @@ sub encoded_input_file_name($$;$)
     if (defined($input_file_encoding)) {
       $encoding = $input_file_encoding;
     } else {
-      $encoding = $self->{'document_info'}->{'input_perl_encoding'}
-        if ($self->{'document_info'}
-          and defined($self->{'document_info'}->{'input_perl_encoding'}));
+      my $document_info;
+
+      if ($self->{'document'}) {
+        $document_info = $self->{'document'}->global_information();
+      }
+
+      $encoding = $document_info->{'input_perl_encoding'}
+        if ($document_info
+          and defined($document_info->{'input_perl_encoding'}));
     }
   } else {
     $encoding = $self->get_conf('LOCALE_ENCODING');
@@ -542,7 +554,7 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
 =head1 SYNOPSIS
 
   use Texinfo::Convert::Utils;
-  
+
   my $today_tree = Texinfo::Convert::Utils::expand_today($converter);
   my $verbatiminclude_tree
      = Texinfo::Convert::Utils::expand_verbatiminclude($converter,
