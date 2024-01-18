@@ -584,7 +584,6 @@ File: ,  Node: second,  Prev: chap first,  Up: Top
 
 * lone entry:                            chap first.            (line 4)
 
-
 
 Tag Table:
 Node: Top27

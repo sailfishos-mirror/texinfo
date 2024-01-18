@@ -459,7 +459,6 @@ File: ,  Node: chap-Footnotes,  Up: chap
 
    (*) Footnote 2.
 
-
 
 Tag Table:
 Node: Top27

@@ -675,7 +675,6 @@ top
 
 * chapter node::
 
-
 
 Tag Table:
 Node: section node64

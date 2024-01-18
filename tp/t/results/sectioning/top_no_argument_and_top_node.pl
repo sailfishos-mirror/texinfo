@@ -125,7 +125,6 @@ $result_converted{'info'}->{'top_no_argument_and_top_node'} = 'This is , produce
 
 File: ,  Node: Top,  Up: (dir)
 
-
 
 Tag Table:
 Node: Top27

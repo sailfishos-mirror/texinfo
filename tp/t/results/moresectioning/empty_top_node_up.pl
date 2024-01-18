@@ -323,7 +323,6 @@ empty top node up
 
 File: ,  Node: chap,  Prev: Top,  Up: Top
 
-
 
 Tag Table:
 Node: Top27

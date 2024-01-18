@@ -297,7 +297,6 @@ $result_converted{'docbook'}->{'setfilename'} = '
 
 $result_converted{'info'}->{'setfilename'} = 'This is file_comment, produced from .
 
-
 
 Tag Table:
 

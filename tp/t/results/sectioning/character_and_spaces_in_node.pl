@@ -526,7 +526,6 @@ File: ,  Node: /;<=>?[\\]^_`|~,  Next: local node,  Prev: !_"#$%&\'()*+-.,  Up: 
 
 File: ,  Node: local node,  Prev: /;<=>?[\\]^_`|~,  Up: chap nodes
 
-
 
 Tag Table:
 Node: Top27

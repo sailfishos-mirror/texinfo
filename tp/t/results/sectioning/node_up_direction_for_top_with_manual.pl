@@ -127,7 +127,6 @@ $result_converted{'info'}->{'node_up_direction_for_top_with_manual'} = 'This is 
 
 File: ,  Node: Top,  Up: (dir)Top
 
-
 
 Tag Table:
 Node: Top27

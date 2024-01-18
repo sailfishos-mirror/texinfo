@@ -436,7 +436,6 @@ File: ,  Node: chap,  Prev: Top
 * Source file format:                    chap.                  (line 3)
 * --version, for install-info:           chap.                  (line 3)
 
-
 
 Tag Table:
 Node: Top27

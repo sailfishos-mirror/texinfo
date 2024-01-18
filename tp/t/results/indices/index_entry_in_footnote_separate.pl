@@ -652,7 +652,6 @@ File: ,  Node: First,  Prev: chap,  Up: Top
 * counting entry:                        chap-Footnotes.        (line 8)
 * index entry in footnote:               chap-Footnotes.        (line 3)
 
-
 
 Tag Table:
 Node: Top27

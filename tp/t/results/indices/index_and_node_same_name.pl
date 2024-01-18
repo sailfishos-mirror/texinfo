@@ -424,7 +424,6 @@ in index node node, with the same name than index entry.
 
 * node:                                  Top.                   (line 7)
 
-
 
 Tag Table:
 Node: Top27

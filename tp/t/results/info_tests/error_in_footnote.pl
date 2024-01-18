@@ -453,7 +453,6 @@ Text 1: Caption.  TeX.  In caption *note caption*.  Now footnote(1)
 
    (1) LaTeX.  and strong *Note footnote*.
 
-
 
 Tag Table:
 Node: Top27

@@ -407,7 +407,6 @@ Copying(1).
 
    (2) In footnote.
 
-
 
 Tag Table:
 Node: Top97

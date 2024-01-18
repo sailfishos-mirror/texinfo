@@ -960,7 +960,6 @@ File: ,  Node: chapter,  Next: a node after part,  Up: Top
 1 chapter
 *********
 
-
 
 Tag Table:
 Node: Top27

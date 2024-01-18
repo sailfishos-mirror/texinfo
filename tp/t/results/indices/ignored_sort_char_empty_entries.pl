@@ -477,7 +477,6 @@ File: ,  Node: chap,  Prev: Top
 * --:                                    chap.                  (line 3)
 * A:                                     chap.                  (line 3)
 
-
 
 Tag Table:
 Node: Top27

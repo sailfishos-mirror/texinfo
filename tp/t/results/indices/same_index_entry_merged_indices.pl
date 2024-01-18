@@ -695,7 +695,6 @@ Text.
 * mmm-mode:                              chap.                 (line  8)
 * mmm-mode <1>:                          chap.                 (line 11)
 
-
 
 Tag Table:
 Node: Top27

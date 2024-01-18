@@ -78,7 +78,6 @@ $result_converted{'info'}->{'no_node_but_top'} = 'This is , produced from .
 top
 ***
 
-
 
 Tag Table:
 

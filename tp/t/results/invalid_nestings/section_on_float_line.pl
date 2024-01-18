@@ -155,6 +155,7 @@ $result_floats{'section_on_float_line'} = {
 
 
 $result_converted{'plaintext'}->{'section_on_float_line'} = 't 1
+
 1 first
 =======
 

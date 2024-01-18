@@ -1643,7 +1643,6 @@ definedx truc after
 * cindex entry:                          Chapter index.         (line 8)
 * index truc:                            Chapter index.         (line 8)
 
-
 
 Tag Table:
 Node: Top27

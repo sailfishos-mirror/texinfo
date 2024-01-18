@@ -132,7 +132,6 @@ $result_converted{'latex'}->{'documentencoding_utf8'} = '\\documentclass{book}
 
 $result_converted{'info'}->{'documentencoding_utf8'} = 'This is , produced from .
 
-
 
 Tag Table:
 

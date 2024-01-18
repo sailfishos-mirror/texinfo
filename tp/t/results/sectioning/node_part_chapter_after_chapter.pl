@@ -1109,7 +1109,6 @@ File: ,  Node: part chapter node,  Prev: chapter node,  Up: Top
 2 chapter with part node
 ************************
 
-
 
 Tag Table:
 Node: Top27

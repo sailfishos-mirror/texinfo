@@ -386,7 +386,6 @@ File: ,  Node: chapter erreur→,  Prev: Top,  Up: Top
 1 Chapter
 *********
 
-
 
 Tag Table:
 Node: Top27

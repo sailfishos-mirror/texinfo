@@ -549,7 +549,6 @@ File: ,  Node: section node,  Prev: Top,  Up: Top
 
 section.
 
-
 
 Tag Table:
 Node: Top27

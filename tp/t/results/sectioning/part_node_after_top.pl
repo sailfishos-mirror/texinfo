@@ -598,7 +598,6 @@ top
 
 File: ,  Node: chap part node after top,  Prev: Top,  Up: Top
 
-
 
 Tag Table:
 Node: Top27

@@ -714,7 +714,6 @@ File: ,  Node: node sec1,  Up: node chap1
 1.1 section1
 ============
 
-
 
 Tag Table:
 Node: Top27

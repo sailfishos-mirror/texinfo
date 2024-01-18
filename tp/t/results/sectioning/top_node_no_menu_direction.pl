@@ -380,7 +380,6 @@ File: ,  Node: Top,  Next: chap node,  Up: (dir)
 
 File: ,  Node: chap node,  Prev: Top,  Up: Top
 
-
 
 Tag Table:
 Node: Top27

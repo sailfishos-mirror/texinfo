@@ -745,7 +745,6 @@ File: ,  Node: chapter index,  Prev: Top,  Up: Top
 * aaa, bbb, ccc:                         chapter index.         (line 6)
 * aaa, bbb, ccc <1>:                     chapter index.         (line 6)
 
-
 
 Tag Table:
 Node: Top27

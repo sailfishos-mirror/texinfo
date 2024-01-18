@@ -822,7 +822,6 @@ File: ,  Node: node1,  Prev: Top,  Up: Top
 
 * index entry before anything:           (outside of any node). (line 0)
 
-
 
 Tag Table:
 Ref: anchor178

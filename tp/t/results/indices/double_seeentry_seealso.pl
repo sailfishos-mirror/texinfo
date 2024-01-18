@@ -714,7 +714,6 @@ File: ,  Node: node index,  Prev: Top,  Up: Top
 1 Chapter Index
 ***************
 
-
 
 Tag Table:
 Node: Top27

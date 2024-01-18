@@ -108,7 +108,8 @@ $result_floats{'empty_label_with_space'} = {
 
 
 
-$result_converted{'plaintext'}->{'empty_label_with_space'} = 'Type';
+$result_converted{'plaintext'}->{'empty_label_with_space'} = 'Type
+';
 
 
 $result_converted{'html'}->{'empty_label_with_space'} = '<!DOCTYPE html>

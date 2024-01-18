@@ -524,7 +524,6 @@ File: ,  Node: c3,  Prev: c2,  Up: Top
 3 c3
 ****
 
-
 
 Tag Table:
 Node: Top27

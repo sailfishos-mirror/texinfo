@@ -222,7 +222,6 @@ File: ,  Node: Top-Footnotes,  Up: Top
 
    (2) F2
 
-
 
 Tag Table:
 Node: Top27

@@ -464,7 +464,6 @@ after anchor
                                                              Now anchor
                                                            after anchor
                                     Second anchor in text after anchor.
-
 
 Tag Table:
 Ref: anchor in flushleft99

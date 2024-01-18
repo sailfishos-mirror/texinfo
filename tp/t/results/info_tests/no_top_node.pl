@@ -80,7 +80,6 @@ $result_converted{'info'}->{'no_top_node'} = 'This is , produced from .
 
 File: ,  Node: node Top not Top node
 
-
 
 Tag Table:
 Node: node Top not Top node27

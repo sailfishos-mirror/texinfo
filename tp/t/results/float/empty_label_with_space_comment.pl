@@ -117,7 +117,8 @@ $result_floats{'empty_label_with_space_comment'} = {
 
 
 
-$result_converted{'plaintext'}->{'empty_label_with_space_comment'} = 'Type';
+$result_converted{'plaintext'}->{'empty_label_with_space_comment'} = 'Type
+';
 
 
 $result_converted{'html'}->{'empty_label_with_space_comment'} = '<!DOCTYPE html>

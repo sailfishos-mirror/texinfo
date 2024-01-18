@@ -63,7 +63,6 @@ $result_floats{'empty_copying_not_ended'} = {};
 
 $result_converted{'info'}->{'empty_copying_not_ended'} = 'This is , produced from .
 
-
 
 Tag Table:
 

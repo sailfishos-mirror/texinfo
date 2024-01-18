@@ -958,7 +958,6 @@ MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
 
    (1) infootnote
 
-
 
 Tag Table:
 Node: Top27

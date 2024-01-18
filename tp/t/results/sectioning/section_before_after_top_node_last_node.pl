@@ -357,7 +357,6 @@ in chapter
 
 File: ,  Node: node after,  Prev: Top
 
-
 
 Tag Table:
 Node: Top86

@@ -145,7 +145,6 @@ $result_converted{'info'}->{'known_encoding'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
-
 
 Tag Table:
 Node: Top27

@@ -1648,7 +1648,6 @@ File: ,  Node: node between part and chapter,  Up: Top
 4 chapter after part node
 *************************
 
-
 
 Tag Table:
 Node: Top43

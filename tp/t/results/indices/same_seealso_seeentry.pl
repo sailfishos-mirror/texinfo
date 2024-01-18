@@ -771,7 +771,6 @@ File: ,  Node: node,  Prev: Top,  Up: Top
 
 * entry:                                 node.                  (line 6)
 
-
 
 Tag Table:
 Node: Top27

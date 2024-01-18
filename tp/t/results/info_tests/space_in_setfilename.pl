@@ -155,7 +155,6 @@ $result_converted{'info'}->{'space_in_setfilename'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
-
 
 Tag Table:
 Node: Top27

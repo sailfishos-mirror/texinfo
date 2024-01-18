@@ -1180,7 +1180,6 @@ BBB  [image src="figure.txt" text="  1  A  B
  [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ] JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-
 
 Tag Table:
 

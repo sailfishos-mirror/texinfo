@@ -145,7 +145,6 @@ File: ,  Node: one node
 1 The subsection
 ----------------
 
-
 
 Tag Table:
 Node: one node27

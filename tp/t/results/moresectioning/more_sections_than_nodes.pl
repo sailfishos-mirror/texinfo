@@ -1582,7 +1582,6 @@ File: ,  Node: n c3 s1 s2,  Prev: n c3,  Up: Top
 Appendix A appendix
 *******************
 
-
 
 Tag Table:
 Node: Top27

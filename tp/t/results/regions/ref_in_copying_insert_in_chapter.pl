@@ -656,7 +656,6 @@ File: ,  Node: GFDL,  Up: Intro
 1.1 GFDL
 ========
 
-
 
 Tag Table:
 Node: Top41

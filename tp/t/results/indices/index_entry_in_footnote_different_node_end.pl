@@ -616,7 +616,6 @@ File: ,  Node: First,  Prev: chap,  Up: Top
 * counting entry:                        chap.                 (line 12)
 * index entry in footnote:               chap.                 (line  7)
 
-
 
 Tag Table:
 Node: Top27

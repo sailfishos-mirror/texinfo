@@ -770,7 +770,6 @@ second node
 
 File: ,  Node: third node,  Prev: chap node,  Up: Top
 
-
 
 Tag Table:
 Node: Top27

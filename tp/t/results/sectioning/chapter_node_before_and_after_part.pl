@@ -507,7 +507,6 @@ File: ,  Node: after,  Prev: Top,  Up: Top
 2 chapter 2
 ***********
 
-
 
 Tag Table:
 Node: Top27

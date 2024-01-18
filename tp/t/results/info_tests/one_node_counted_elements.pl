@@ -528,7 +528,6 @@ Top node
 * before nodes:                          (outside of any node). (line 0)
 * Top node:                              one node.              (line 3)
 
-
 
 Tag Table:
 Node: one node36

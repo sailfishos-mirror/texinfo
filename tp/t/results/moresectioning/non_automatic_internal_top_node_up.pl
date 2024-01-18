@@ -800,7 +800,6 @@ internal top node up
 
 File: ,  Node: chap,  Prev: Top
 
-
 
 Tag Table:
 Node: Top27

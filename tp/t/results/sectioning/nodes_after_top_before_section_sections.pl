@@ -657,7 +657,6 @@ File: ,  Node: third node,  Prev: chap node,  Up: Top
 1 subsection
 ------------
 
-
 
 Tag Table:
 Node: Top27

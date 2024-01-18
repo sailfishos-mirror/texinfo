@@ -1419,7 +1419,6 @@ Text of chapter
 
 In chapter 2
 
-
 
 Tag Table:
 

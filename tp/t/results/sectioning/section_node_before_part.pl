@@ -215,7 +215,6 @@ File: ,  Node: Top,  Up: (dir)
 1 section
 =========
 
-
 
 Tag Table:
 Node: Top27

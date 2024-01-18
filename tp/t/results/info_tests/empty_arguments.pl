@@ -105,7 +105,6 @@ $result_floats{'empty_arguments'} = {};
 $result_converted{'info'}->{'empty_arguments'} = 'This is , produced from .
 
 ** a
-
 
 Tag Table:
 

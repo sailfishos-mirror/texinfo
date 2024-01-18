@@ -324,7 +324,6 @@ Text   1
 
 * Text   1: label  .                     
 
-
 
 Tag Table:
 Node: Top27

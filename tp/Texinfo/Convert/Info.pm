@@ -157,6 +157,10 @@ sub output($$)
     while (@nodes_root_elements) {
       my $node_root_element = shift @nodes_root_elements;
       my $node_text = $self->convert_output_unit($node_root_element);
+      if ($node_text !~ /\n\n$/) {
+        $node_text .= "\n";
+        $self->{'count_context'}->[-1]->{'bytes'}++;
+      }
       if (!$first_node_seen) {
         # We are outputting the first node.
         $first_node_seen = 1;
@@ -261,13 +265,13 @@ sub output($$)
       return undef;
     }
     $tag_text = $complete_header;
-    $tag_text .= "\x{1F}\nIndirect:";
+    $tag_text .= "\x{1F}\nIndirect:\n";
     foreach my $indirect (@indirect_files) {
-      $tag_text .= "\n$indirect->[0]: $indirect->[1]";
+      $tag_text .= "$indirect->[0]: $indirect->[1]\n";
     }
   }
 
-  $tag_text .= "\n\x{1F}\nTag Table:\n";
+  $tag_text .= "\x{1F}\nTag Table:\n";
   if ($out_file_nr > 1) {
     $tag_text .=  "(Indirect)\n";
   }
@@ -482,17 +486,6 @@ sub format_node($$)
   my ($node_text, undef) = $self->node_name($node);
   # check not needed most probably because of the test of 'normalized'.
   #return '' if ($node_text eq '');
-
-  if (!$self->{'empty_lines_count'}) {
-    $self->_stream_output_encoded("\n");
-    # if in the first node, complete the 'text_before_first_node' too.
-    if (!$self->{'first_node_done'}) {
-      $self->{'text_before_first_node'} .= "\n";
-    }
-  }
-  if (!$self->{'first_node_done'}) {
-    $self->{'first_node_done'} = 1;
-  }
 
   my $output_filename;
   if (defined($self->{'output_filename'})) {

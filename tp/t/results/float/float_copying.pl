@@ -1220,7 +1220,6 @@ Copyright notice 1: The Public Domain notice(2)
 
    see *note Copying and floats::.
 
-
 
 Tag Table:
 Node: Top276

@@ -137,7 +137,6 @@ $result_converted{'info'}->{'encoding_us_ascii'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
-
 
 Tag Table:
 Node: Top27

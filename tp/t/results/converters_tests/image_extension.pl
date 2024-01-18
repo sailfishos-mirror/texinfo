@@ -137,7 +137,6 @@ $result_converted_errors{'latex_text'}->{'image_extension'} = [
 $result_converted{'info'}->{'image_extension'} = 'This is , produced from .
 
 [f---ile]
-
 
 Tag Table:
 

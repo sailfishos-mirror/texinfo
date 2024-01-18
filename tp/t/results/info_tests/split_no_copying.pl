@@ -515,7 +515,6 @@ File: split_no_copying.info,  Node: Ch1,  Prev: Top,  Up: Top
 
 First chapter.
 
-
 
 Tag Table:
 Node: Top64

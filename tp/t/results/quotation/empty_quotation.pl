@@ -295,7 +295,8 @@ $result_floats{'empty_quotation'} = {};
 $result_converted{'plaintext'}->{'empty_quotation'} = '     Empty: 
      : 
 
-     : ';
+     : 
+';
 
 
 $result_converted{'html_text'}->{'empty_quotation'} = '<blockquote class="quotation">

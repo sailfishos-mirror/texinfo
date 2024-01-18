@@ -626,7 +626,6 @@ File: ,  Node: chapter index,  Prev: Top,  Up: Top
 1 Index
 *******
 
-
 
 Tag Table:
 Node: Top27

@@ -1340,7 +1340,6 @@ File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 *************************************************************************************************************************************************************************************************************
 
-
 
 Tag Table:
 Node: Top64

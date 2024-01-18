@@ -490,7 +490,6 @@ File: ,  Node: chapter one,  Prev: Top,  Up: Top
 * aa, bb:                                chapter one.           (line 6)
 * ab, cc:                                chapter one.           (line 6)
 
-
 
 Tag Table:
 Node: Top27

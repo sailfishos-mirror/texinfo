@@ -429,7 +429,6 @@ File: ,  Node: chap,  Prev: Top
 * cindex entry:                          chap.                  (line 3)
 * findex entry:                          chap.                  (line 3)
 
-
 
 Tag Table:
 Node: Top27

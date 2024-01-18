@@ -780,7 +780,6 @@ File: ,  Node: chapter-Footnotes,  Up: chapter
 
    para2
 
-
 
 Tag Table:
 Node: Top27

@@ -649,7 +649,6 @@ File: ,  Node: nchapter2,  Prev: nchapter1,  Up: Top
 2 chap2
 *******
 
-
 
 Tag Table:
 Node: Top27

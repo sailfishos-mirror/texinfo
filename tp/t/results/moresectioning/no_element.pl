@@ -685,7 +685,6 @@ In float
 
    Ref to main text anchor *note An anchor::
 
-
 
 Tag Table:
 Ref: An anchor0

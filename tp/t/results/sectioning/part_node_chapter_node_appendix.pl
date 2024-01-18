@@ -1054,7 +1054,6 @@ File: ,  Node: appendix node,  Prev: chapter node,  Up: Top
 Appendix A Appendix
 *******************
 
-
 
 Tag Table:
 Node: Top27

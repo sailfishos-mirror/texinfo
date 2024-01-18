@@ -506,7 +506,6 @@ File: ,  Node: chap other node,  Prev: Top,  Up: Top
 * aaa <1>:                               Top.                   (line 5)
 * aaa <2>:                               chap other node.       (line 3)
 
-
 
 Tag Table:
 Node: Top27

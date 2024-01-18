@@ -12724,7 +12724,6 @@ Variables
 * enable:                                chap.                 (line 21)
 * fill-column:                           chap.                 (line  6)
 
-
 
 Tag Table:
 Node: Top27

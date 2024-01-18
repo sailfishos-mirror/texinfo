@@ -3966,6 +3966,7 @@ sub _convert($$)
         = $self->{'empty_lines_count'};
       _stream_output_encoded($self, $result);
     } elsif ($type eq 'before_node_section') {
+      ensure_end_of_line($self);
       $self->{'text_before_first_node'} = _stream_result($self);
     }
   }

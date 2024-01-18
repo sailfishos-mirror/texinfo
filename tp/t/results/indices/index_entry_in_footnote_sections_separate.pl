@@ -447,7 +447,6 @@ Appendix A index
 
 * index entry in footnote:               Top-Footnotes.         (line 5)
 
-
 
 Tag Table:
 Node: Top27

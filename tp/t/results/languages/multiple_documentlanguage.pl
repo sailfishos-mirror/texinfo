@@ -1202,7 +1202,6 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 * BBB de fr:                             chap.                 (line  6)
 * BBB od hr:                             chap.                 (line 12)
 
-
 
 Tag Table:
 Node: Top82

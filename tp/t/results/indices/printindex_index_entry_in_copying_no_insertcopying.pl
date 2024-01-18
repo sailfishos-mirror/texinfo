@@ -1003,7 +1003,6 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 Chapter
 *********
 
-
 
 Tag Table:
 Node: Top109

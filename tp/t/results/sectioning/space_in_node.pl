@@ -532,7 +532,6 @@ File: ,  Node: Test title,  Next: Last with spaces,  Prev: Chap first here,  Up:
 
 File: ,  Node: Last with spaces,  Prev: Test title,  Up: Top
 
-
 
 Tag Table:
 Node: Top27

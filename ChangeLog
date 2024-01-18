@@ -1,5 +1,25 @@
 2024-01-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Change handling of blank lines between Info nodes
+
+	* tp/Texinfo/Convert/Info.pm (format_node): Do not check
+	'empty_lines_count' or add a newline at the beginning of the node
+	if it is zero.  This makes the conversion of the node more independent
+	of other nodes and sections of the Info file.
+	(output): Each time after calling 'convert_output_unit', add
+	an extra newline to the output if the result did not end in
+	an empty line.	This compensates for not adding a line at the
+	beginning in format_node.  Do not output an extra newline before
+	the tag table, just after the last node.
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): Ensure that
+	the 'before_node_section' ends in a newline by calling
+	ensure_end_of_line, as it is no longer altered in format_node.
+
+	This is aimed towards eliminating 'empty_lines_count' counting with
+	simplicity and performance benefits.
+
+2024-01-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (debug_print_tree): Also print 'unit_contents'
 	keys to allow printing an "output unit".
 

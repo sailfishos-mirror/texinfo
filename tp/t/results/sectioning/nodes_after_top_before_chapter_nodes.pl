@@ -911,7 +911,6 @@ File: ,  Node: third node,  Prev: second node,  Up: Top
 1 chapter
 *********
 
-
 
 Tag Table:
 Node: Top27

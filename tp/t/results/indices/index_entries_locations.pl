@@ -477,7 +477,6 @@ Initial paragraph.
 * entry in paragraph:                    chap.                 (line  5)
 * lone entry:                            chap.                 (line 11)
 
-
 
 Tag Table:
 Node: Top27

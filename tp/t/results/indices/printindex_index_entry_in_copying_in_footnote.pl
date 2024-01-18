@@ -690,7 +690,6 @@ Copying(1).
 
    (1) In footnote
 
-
 
 Tag Table:
 Node: Top96

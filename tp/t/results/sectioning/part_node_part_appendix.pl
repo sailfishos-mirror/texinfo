@@ -951,7 +951,6 @@ File: ,  Node: chapter node,  Prev: Top,  Up: Top
 Appendix A Appendix
 *******************
 
-
 
 Tag Table:
 Node: Top27

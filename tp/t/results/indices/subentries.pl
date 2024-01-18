@@ -1119,7 +1119,6 @@ File: ,  Node: chapter index,  Prev: Top,  Up: Top
 * f---ddd, f---eee, ffff:                chapter index.         (line 6)
 * f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter index.       (line 6)
 
-
 
 Tag Table:
 Node: Top27

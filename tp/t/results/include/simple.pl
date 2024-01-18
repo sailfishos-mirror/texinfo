@@ -90,7 +90,6 @@ $result_floats{'simple'} = {};
 $result_converted{'info'}->{'simple'} = 'This is , produced from .
 
 In included file.
-
 
 Tag Table:
 

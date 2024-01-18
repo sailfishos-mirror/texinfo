@@ -702,7 +702,6 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chapter
 *********
 
-
 
 Tag Table:
 Node: Top27

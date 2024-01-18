@@ -529,7 +529,6 @@ comma:: after ref.  ‘*note (m)in ref followed by end command::’.
 followed by comma. after ref.  ‘*note name: (m)in ref followed by end
 command.’.  *note name: (m)in ref ending with a dot.. after ref.
 
-
 
 Tag Table:
 Node: Top27

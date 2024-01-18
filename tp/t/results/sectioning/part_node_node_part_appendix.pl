@@ -1130,7 +1130,6 @@ File: ,  Node: appendix part,  Prev: chapter node,  Up: Top
 Appendix A Appendix
 *******************
 
-
 
 Tag Table:
 Node: Top27

@@ -1074,7 +1074,6 @@ xftable xitem
 * xf:                                    chapter.              (line  7)
 * xftable xitem:                         chapter.              (line 11)
 
-
 
 Tag Table:
 Node: Top109

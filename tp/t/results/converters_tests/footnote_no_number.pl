@@ -459,7 +459,6 @@ Para(*).
 
    (*) Footnote 2.
 
-
 
 Tag Table:
 Node: Top27

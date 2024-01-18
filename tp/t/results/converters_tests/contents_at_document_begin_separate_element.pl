@@ -640,7 +640,6 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 
 The chapter
 
-
 
 Tag Table:
 Node: Top58

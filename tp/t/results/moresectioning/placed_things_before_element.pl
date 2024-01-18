@@ -775,7 +775,6 @@ Ref to anchor *note An anchor::
 
    Ref to main text anchor *note An anchor::
 
-
 
 Tag Table:
 Ref: An anchor0

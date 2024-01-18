@@ -374,7 +374,6 @@ Copying.
 
    *Note Copying information::.
 
-
 
 Tag Table:
 Node: Top37

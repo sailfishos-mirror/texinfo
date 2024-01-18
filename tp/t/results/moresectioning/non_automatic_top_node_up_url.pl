@@ -763,7 +763,6 @@ internal top node up
 
 File: ,  Node: chap,  Prev: Top,  Up: (dir)
 
-
 
 Tag Table:
 Node: Top27

@@ -1485,7 +1485,6 @@ Ref to anchor *note An anchor::
 
    Ref to footnote anchor *note Anchor in footnote::
 
-
 
 Tag Table:
 Node: Top87

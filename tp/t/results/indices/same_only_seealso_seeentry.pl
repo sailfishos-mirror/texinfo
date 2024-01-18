@@ -720,7 +720,6 @@ File: ,  Node: node,  Prev: Top,  Up: Top
 1 chap
 ******
 
-
 
 Tag Table:
 Node: Top27

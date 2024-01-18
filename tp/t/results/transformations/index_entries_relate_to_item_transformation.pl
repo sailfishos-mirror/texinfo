@@ -807,7 +807,6 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 * B:                                     chap.                  (line 6)
 * C:                                     chap.                  (line 6)
 
-
 
 Tag Table:
 Node: Top60

@@ -125,7 +125,6 @@ $result_converted{'info'}->{'top_no_argument_and_node'} = 'This is , produced fr
 
 File: ,  Node: start
 
-
 
 Tag Table:
 Node: start27

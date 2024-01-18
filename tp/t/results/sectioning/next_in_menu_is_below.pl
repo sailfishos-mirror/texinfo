@@ -940,7 +940,6 @@ File: ,  Node: subsection,  Prev: section,  Up: section
 1.1.1 subsection
 ----------------
 
-
 
 Tag Table:
 Node: Top27

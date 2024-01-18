@@ -55,7 +55,6 @@ $result_floats{'only_documentencoding'} = {};
 
 $result_converted{'info'}->{'only_documentencoding'} = 'This is , produced from .
 
-
 
 Tag Table:
 
