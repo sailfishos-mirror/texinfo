@@ -1,3 +1,8 @@
+2024-01-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Common.pm (debug_print_tree): Also print 'unit_contents'
+	keys to allow printing an "output unit".
+
 2024-01-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (sort_element_counts): call
