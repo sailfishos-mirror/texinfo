@@ -266,8 +266,6 @@ sub set_document($$)
 
   $converter->{'document'} = $document;
   if (defined($document)) {
-    $converter->{'global_commands'}
-     = $document->global_commands_information();
     $converter->{'document_info'} = $document->global_information();
     my $floats = $document->floats_information();
     my $identifier_target = $document->labels_information();
@@ -768,15 +766,20 @@ sub determine_files_and_directory($$)
     $input_basename =~ s/\.te?x(i|info)?$//;
   }
 
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
   my $setfilename;
   if (defined($self->get_conf('setfilename'))) {
     $setfilename = $self->get_conf('setfilename');
-  } elsif ($self->{'global_commands'}
-           and $self->{'global_commands'}->{'setfilename'}
-           and $self->{'global_commands'}->{'setfilename'}->{'extra'}
-           and defined($self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'})) {
+  } elsif ($global_commands
+           and $global_commands->{'setfilename'}
+           and $global_commands->{'setfilename'}->{'extra'}
+           and defined($global_commands->{'setfilename'}->{'extra'}->{'text_arg'})) {
     $setfilename
-      = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'};
+      = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'};
   }
 
   my $input_basename_for_outfile = $input_basename;
@@ -1302,12 +1305,20 @@ sub set_global_document_commands($$$)
       # a customization value that is expected to be set early is set in $init_conf.
     }
   } else {
+    my $global_commands;
+    if ($self->{'document'}) {
+      $global_commands = $self->{'document'}->global_commands_information();
+    }
     foreach my $global_command (@{$selected_commands}) {
       if ($self->get_conf('DEBUG')) {
         print STDERR "SET_global($commands_location) $global_command\n";
       }
-      my $element = Texinfo::Common::set_global_document_command($self,
-               $self->{'global_commands'}, $global_command, $commands_location);
+
+      my $element;
+      if ($global_commands) {
+        $element = Texinfo::Common::set_global_document_command($self,
+                  $global_commands, $global_command, $commands_location);
+      }
       if (not defined($element)) {
         # commands not appearing in the document, this should set the
         # same value, the converter initialization value

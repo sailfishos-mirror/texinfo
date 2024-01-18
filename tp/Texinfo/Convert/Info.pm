@@ -404,14 +404,18 @@ sub _info_header($$$)
   $self->{'empty_lines_count'} = 1;
   $self->_stream_output($paragraph, $result);
 
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
   # format @copying using the last value of the preamble.
   my @informative_global_commands = $self->get_informative_global_commands();
   $self->set_global_document_commands('preamble', \@informative_global_commands);
-  if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
+  if ($global_commands and $global_commands->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
     my $copying = $self->convert_tree({'contents' =>
-          $self->{'global_commands'}->{'copying'}->{'contents'}});
+          $global_commands->{'copying'}->{'contents'}});
     $self->_stream_output_encoded($copying);
     $self->process_footnotes();
     delete $self->{'in_copying_header'};

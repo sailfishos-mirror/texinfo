@@ -1862,8 +1862,13 @@ sub _get_top_unit($;$)
   $node_top = $self->{'identifiers_target'}->{'Top'}
                                     if ($self->{'identifiers_target'});
   my $section_top;
-  $section_top = $self->{'global_commands'}->{'top'}
-                                       if ($self->{'global_commands'});
+
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+  $section_top = $global_commands->{'top'}
+                                       if ($global_commands);
   if ($section_top) {
     return $section_top->{'associated_unit'};
   } elsif ($node_top) {
@@ -2285,14 +2290,13 @@ sub get_file_information($$;$)
 
 # information from converter available 'read-only', in general set up before
 # really starting the formatting (except for current_filename).
-# 'floats', 'global_commands', 'sections_list' are set up in the generic
+# 'floats', 'sections_list' are set up in the generic
 # converter
 my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
-   'destination_directory', 'document_name', 'documentdescription_string',
-   'expanded_formats',
-   'floats', 'global_commands',
-   'index_entries', 'index_entries_by_letter', 'indices_information',
+   'destination_directory', 'document', 'document_name',
+   'documentdescription_string', 'expanded_formats',
+   'floats', 'index_entries', 'index_entries_by_letter', 'indices_information',
    'jslicenses', 'identifiers_target',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'sections_list',
@@ -5353,7 +5357,12 @@ sub _convert_insertcopying_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  my $global_commands = $self->get_info('global_commands');
+  my $global_commands;
+  my $document = $self->get_info('document');
+  if ($document) {
+    $global_commands = $document->global_commands_information();
+  }
+
   if ($global_commands and $global_commands->{'copying'}) {
     return $self->convert_tree({'contents'
                => $global_commands->{'copying'}->{'contents'}},
@@ -7888,8 +7897,14 @@ sub _default_format_titlepage($)
   my $self = shift;
 
   my $titlepage_text;
-  my $global_commands = $self->get_info('global_commands');
-  if ($global_commands->{'titlepage'}) {
+  my $global_commands;
+
+  my $document = $self->get_info('document');
+  if ($document) {
+    $global_commands = $document->global_commands_information();
+  }
+
+  if ($global_commands and $global_commands->{'titlepage'}) {
     $titlepage_text = $self->convert_tree({'contents'
                => $global_commands->{'titlepage'}->{'contents'}},
                                           'convert titlepage');
@@ -9342,11 +9357,15 @@ sub _set_heading_commands_targets($)
 {
   my $self = shift;
 
-  if ($self->{'global_commands'}) {
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+  if ($global_commands) {
     foreach my $cmdname (sort(keys(%sectioning_heading_commands))) {
       if (!$root_commands{$cmdname}
-          and $self->{'global_commands'}->{$cmdname}) {
-        foreach my $command (@{$self->{'global_commands'}->{$cmdname}}) {
+          and $global_commands->{$cmdname}) {
+        foreach my $command (@{$global_commands->{$cmdname}}) {
           $self->_new_sectioning_command_target($command);
         }
       }
@@ -9384,17 +9403,19 @@ sub _html_get_tree_root_element($$;$)
         #print STDERR "CMD ROOT $current->{'cmdname'}\n" if ($debug);
       } elsif ($block_commands{$current->{'cmdname'}}
                and $block_commands{$current->{'cmdname'}} eq 'region') {
-        if ($current->{'cmdname'} eq 'copying'
-            and $self->{'global_commands'}
-            and $self->{'global_commands'}->{'insertcopying'}) {
-          foreach my $insertcopying (@{$self->{'global_commands'}
+        if ($current->{'cmdname'} eq 'copying' and $self->{'document'}) {
+          my $global_commands
+              = $self->{'document'}->global_commands_information();
+          if ($global_commands and $global_commands->{'insertcopying'}) {
+            foreach my $insertcopying (@{$global_commands
                                                         ->{'insertcopying'}}) {
-            #print STDERR "INSERTCOPYING\n" if ($debug);
-            my ($output_unit, $root_command)
-              = $self->_html_get_tree_root_element($insertcopying,
-                                                   $find_container);
-            return ($output_unit, $root_command)
-              if (defined($output_unit) or defined($root_command));
+              #print STDERR "INSERTCOPYING\n" if ($debug);
+              my ($output_unit, $root_command)
+                = $self->_html_get_tree_root_element($insertcopying,
+                                                     $find_container);
+              return ($output_unit, $root_command)
+                if (defined($output_unit) or defined($root_command));
+            }
           }
         } elsif ($current->{'cmdname'} eq 'titlepage'
                  and $self->get_conf('USE_TITLEPAGE_FOR_TITLE')
@@ -9868,6 +9889,11 @@ sub _prepare_special_units($$)
   my $self = shift;
   my $output_units = shift;
 
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
   # for separate special output units
   my %do_special;
   # for associated special output units
@@ -9890,17 +9916,16 @@ sub _prepare_special_units($$)
               next;
             }
           } elsif ($contents_location eq 'after_top') {
-            if ($self->{'global_commands'} and $self->{'global_commands'}->{'top'}) {
-              my $section_top = $self->{'global_commands'}->{'top'};
+            if ($global_commands and $global_commands->{'top'}) {
+              my $section_top = $global_commands->{'top'};
               if ($section_top->{'associated_unit'}) {
                 $associated_output_unit = $section_top->{'associated_unit'};
               }
             }
             next unless ($associated_output_unit);
           } elsif ($contents_location eq 'inline') {
-            if ($self->{'global_commands'}
-                and $self->{'global_commands'}->{$cmdname}) {
-              foreach my $command(@{$self->{'global_commands'}->{$cmdname}}) {
+            if ($global_commands and $global_commands->{$cmdname}) {
+              foreach my $command(@{$global_commands->{$cmdname}}) {
                 my $root_command;
                 ($associated_output_unit, $root_command)
                   = $self->_html_get_tree_root_element($command);
@@ -9923,7 +9948,7 @@ sub _prepare_special_units($$)
     }
   }
 
-  if ($self->{'global_commands'}->{'footnote'}
+  if ($global_commands and $global_commands->{'footnote'}
       and $self->get_conf('footnotestyle') eq 'separate'
       and $output_units and scalar(@$output_units) > 1) {
     $do_special{'footnotes'} = 1;
@@ -10120,14 +10145,19 @@ sub _prepare_output_units_global_targets($$$$)
   $self->{'global_units_directions'}->{'Top'}
     = _get_top_unit($self, $output_units);
 
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
   # It is always the first printindex, even if it is not output (for example
   # it is in @copying and @titlepage, which are certainly wrong constructs).
-  if ($self->{'global_commands'} and $self->{'global_commands'}->{'printindex'}) {
+  if ($global_commands and $global_commands->{'printindex'}) {
     # Here document_unit can only be a document unit, or maybe undef if there
     # are no document unit at all
     my ($document_unit, $root_command)
      = $self->_html_get_tree_root_element(
-                               $self->{'global_commands'}->{'printindex'}->[0]);
+                               $global_commands->{'printindex'}->[0]);
     if (defined($document_unit)) {
       if ($root_command and $root_command->{'cmdname'} eq 'node'
           and $root_command->{'extra'}->{'associated_section'}) {
@@ -10268,9 +10298,14 @@ sub _prepare_footnotes_targets($)
   my $footid_base = 'FOOT';
   my $docid_base = 'DOCF';
 
-  if ($self->{'global_commands'}->{'footnote'}) {
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
+  if ($global_commands and $global_commands->{'footnote'}) {
     my $footnote_nr = 0;
-    foreach my $footnote (@{$self->{'global_commands'}->{'footnote'}}) {
+    foreach my $footnote (@{$global_commands->{'footnote'}}) {
       $footnote_nr++;
       my $nr = $footnote_nr;
       # anchor for the footnote text
@@ -11369,7 +11404,13 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
 sub _has_contents_or_shortcontents($)
 {
   my $self = shift;
-  my $global_commands = $self->get_info('global_commands');
+  my $global_commands;
+
+  my $document = $self->get_info('document');
+  if ($document) {
+    $global_commands = $document->global_commands_information();
+  }
+
   foreach my $cmdname ('contents', 'shortcontents') {
     if ($global_commands and $global_commands->{$cmdname}) {
       return 1;
@@ -11729,15 +11770,20 @@ sub _html_convert_convert($$$$)
 sub _prepare_simpletitle($)
 {
   my $self = shift;
-  foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
-    if ($self->{'global_commands'}->{$simpletitle_command}) {
-      my $command = $self->{'global_commands'}->{$simpletitle_command};
-      next if (!$command->{'args'} or !$command->{'args'}->[0]
-                or !$command->{'args'}->[0]->{'contents'}
-                or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-      $self->{'simpletitle_tree'} = $command->{'args'}->[0];
-      $self->{'simpletitle_command_name'} = $simpletitle_command;
-      last;
+  if ($self->{'document'}) {
+    my $global_commands = $self->{'document'}->global_commands_information();
+    if ($global_commands) {
+      foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
+        if ($global_commands->{$simpletitle_command}) {
+          my $command = $global_commands->{$simpletitle_command};
+          next if (!$command->{'args'} or !$command->{'args'}->[0]
+                    or !$command->{'args'}->[0]->{'contents'}
+                    or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
+          $self->{'simpletitle_tree'} = $command->{'args'}->[0];
+          $self->{'simpletitle_command_name'} = $simpletitle_command;
+          last;
+        }
+      }
     }
   }
 }
@@ -12068,27 +12114,35 @@ sub _prepare_converted_output_info($)
 
   $self->_prepare_simpletitle();
 
-  my $fulltitle_tree;
-  foreach my $fulltitle_command('settitle', 'title', 'shorttitlepage', 'top') {
-    if ($self->{'global_commands'}->{$fulltitle_command}) {
-      my $command = $self->{'global_commands'}->{$fulltitle_command};
-      next if (!$command->{'args'} or !$command->{'args'}->[0]
-               or !$command->{'args'}->[0]->{'contents'}
-               or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-      print STDERR "Using $fulltitle_command as title\n"
-        if ($self->get_conf('DEBUG'));
-      $fulltitle_tree = $command->{'args'}->[0];
-      last;
-    }
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
   }
-  if (!$fulltitle_tree and $self->{'global_commands'}->{'titlefont'}
-      and $self->{'global_commands'}->{'titlefont'}->[0]->{'args'}
-      and defined($self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0])
-      and $self->{'global_commands'}->{'titlefont'}->[0]
+
+  my $fulltitle_tree;
+  if ($global_commands) {
+    foreach my $fulltitle_command ('settitle', 'title',
+                                   'shorttitlepage', 'top') {
+      if ($global_commands->{$fulltitle_command}) {
+        my $command = $global_commands->{$fulltitle_command};
+        next if (!$command->{'args'} or !$command->{'args'}->[0]
+                 or !$command->{'args'}->[0]->{'contents'}
+                 or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
+        print STDERR "Using $fulltitle_command as title\n"
+          if ($self->get_conf('DEBUG'));
+        $fulltitle_tree = $command->{'args'}->[0];
+        last;
+      }
+    }
+    if (!$fulltitle_tree and $global_commands->{'titlefont'}
+        and $global_commands->{'titlefont'}->[0]->{'args'}
+        and defined($global_commands->{'titlefont'}->[0]->{'args'}->[0])
+        and $global_commands->{'titlefont'}->[0]
                                                 ->{'args'}->[0]->{'contents'}
-      and @{$self->{'global_commands'}->{'titlefont'}->[0]
+        and @{$global_commands->{'titlefont'}->[0]
                                                 ->{'args'}->[0]->{'contents'}}) {
-    $fulltitle_tree = $self->{'global_commands'}->{'titlefont'}->[0];
+      $fulltitle_tree = $global_commands->{'titlefont'}->[0];
+    }
   }
 
   my $html_title_string;
@@ -12119,9 +12173,9 @@ sub _prepare_converted_output_info($)
   }
 
   # copying comment
-  if ($self->{'global_commands'}->{'copying'}) {
+  if ($global_commands and $global_commands->{'copying'}) {
     my $copying_comment = Texinfo::Convert::Text::convert_to_text(
-     {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}},
+     {'contents' => $global_commands->{'copying'}->{'contents'}},
      $self->{'convert_text_options'});
     if ($copying_comment ne '') {
       $self->{'copying_comment'}
@@ -12133,12 +12187,12 @@ sub _prepare_converted_output_info($)
   if (defined($self->get_conf('documentdescription'))) {
     $self->{'documentdescription_string'}
       = $self->get_conf('documentdescription');
-  } elsif ($self->{'global_commands'}->{'documentdescription'}) {
+  } elsif ($global_commands and $global_commands->{'documentdescription'}) {
     $self->{'documentdescription_string'}
       = $self->convert_tree_new_formatting_context(
        {'type' => '_string',
         'contents' =>
-            $self->{'global_commands'}->{'documentdescription'}->{'contents'}},
+            $global_commands->{'documentdescription'}->{'contents'}},
        'documentdescription');
     chomp($self->{'documentdescription_string'});
   }

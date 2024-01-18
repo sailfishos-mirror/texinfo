@@ -1282,29 +1282,29 @@ sub get_global_document_command($$$)
 
   my $element;
   if ($global_commands_information
-      and defined($global_commands_information->{$global_command})
-      and ref($global_commands_information->{$global_command}) eq 'ARRAY') {
-    if ($command_location eq 'last') {
-      $element = $global_commands_information->{$global_command}->[-1];
-    } else {
-      if ($command_location eq 'preamble_or_first'
-          and not _in_preamble($global_commands_information->{$global_command}->[0])) {
-        $element =
-          $global_commands_information->{$global_command}->[0];
+      and $global_commands_information->{$global_command}) {
+    if (ref($global_commands_information->{$global_command}) eq 'ARRAY') {
+      if ($command_location eq 'last') {
+        $element = $global_commands_information->{$global_command}->[-1];
       } else {
-        foreach my $command_element (@{$global_commands_information->{$global_command}}) {
-          if (_in_preamble($command_element)) {
-            $element = $command_element;
-          } else {
-            last;
+        if ($command_location eq 'preamble_or_first'
+            and not _in_preamble($global_commands_information->{$global_command}->[0])) {
+          $element =
+            $global_commands_information->{$global_command}->[0];
+        } else {
+          foreach my $command_element (@{$global_commands_information->{$global_command}}) {
+            if (_in_preamble($command_element)) {
+              $element = $command_element;
+            } else {
+              last;
+            }
           }
         }
       }
+    } else {
+      # unique command, first, preamble and last are the same
+      $element = $global_commands_information->{$global_command};
     }
-  } elsif ($global_commands_information
-           and defined($global_commands_information->{$global_command})) {
-    # unique command, first, preamble and last are the same
-    $element = $global_commands_information->{$global_command};
   }
   return $element;
 }
@@ -1670,13 +1670,14 @@ sub find_parent_root_command($$)
         return $current;
       } elsif ($Texinfo::Commands::block_commands{$current->{'cmdname'}}
                and $Texinfo::Commands::block_commands{$current->{'cmdname'}} eq 'region') {
-        if ($current->{'cmdname'} eq 'copying' and $self
-            and $self->{'global_commands'}
-            and $self->{'global_commands'}->{'insertcopying'}) {
-          foreach my $insertcopying(@{$self->{'global_commands'}->{'insertcopying'}}) {
-            my $root_command
-              = find_parent_root_command($self, $insertcopying);
-            return $root_command if (defined($root_command));
+        if ($current->{'cmdname'} eq 'copying' and $self and $self->{'document'}) {
+          my $global_commands = $self->{'document'}->global_commands_information();
+          if ($global_commands and $global_commands->{'insertcopying'}) {
+            foreach my $insertcopying(@{$global_commands->{'insertcopying'}}) {
+              my $root_command
+                = find_parent_root_command($self, $insertcopying);
+              return $root_command if (defined($root_command));
+            }
           }
         } else {
           return undef;

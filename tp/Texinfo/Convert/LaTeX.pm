@@ -986,12 +986,17 @@ sub _prepare_conversion($;$)
   delete($self->{'custom_heading'});
   delete($self->{'index_entries'});
 
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
   if (defined($root)) {
     $self->_associate_other_nodes_to_sections($root);
   }
 
-  if ($self->{'global_commands'}->{'settitle'}) {
-    my $settitle_root = $self->{'global_commands'}->{'settitle'};
+  if ($global_commands and $global_commands->{'settitle'}) {
+    my $settitle_root = $global_commands->{'settitle'};
     if ($settitle_root->{'args'}->[0]
         and $settitle_root->{'args'}->[0]->{'contents'}) {
       $self->{'settitle_tree'} =
@@ -1796,14 +1801,20 @@ sub _begin_document($)
   my $result = '';
   $result .= '\begin{document}
 ';
-  if (exists($self->{'global_commands'}->{'titlepage'})
-      or exists($self->{'global_commands'}->{'shorttitlepage'})) {
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
+  if ($global_commands
+      and ($global_commands->{'titlepage'}
+           or $global_commands->{'shorttitlepage'})) {
     $result .= "\n";
     $result .= $front_main_matter_definitions{$documentclass}->{'front'}."\n";
     $result .= _set_headings($self, 'off');
 
-    if (exists($self->{'global_commands'}->{'titlepage'})) {
-      my $element = $self->{'global_commands'}->{'titlepage'};
+    if ($global_commands->{'titlepage'}) {
+      my $element = $global_commands->{'titlepage'};
       # Start a group such that the changes are forgotten when front cover
       # is done.
       # Define glues dimensions that are used in front cover formatting.
@@ -1823,7 +1834,7 @@ sub _begin_document($)
       $result .= _finish_front_cover_page($self);
       $result .= "\\end{titlepage}\n";
     } else {
-      my $element = $self->{'global_commands'}->{'shorttitlepage'};
+      my $element = $global_commands->{'shorttitlepage'};
       my $title_text = _title_font($self, $element);
       $result .= "\\begin{titlepage}\n";
       $result .= "{\\raggedright $title_text}\n";
@@ -1834,19 +1845,20 @@ sub _begin_document($)
     }
   }
 
-  if (exists($self->{'global_commands'}->{'contents'})
+  if ($global_commands and $global_commands->{'contents'}
       and $self->{'sections_list'}
       and not (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
                and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline')) {
-    if (exists($self->{'global_commands'}->{'titlepage'})
-        or exists($self->{'global_commands'}->{'shorttitlepage'})) {
+    if ($global_commands->{'titlepage'}
+        or $global_commands->{'shorttitlepage'}) {
       $result .= _set_headings($self, 'pagenum');
     }
     $result .= "\\tableofcontents\\newpage\n";
   }
 
-  if (exists($self->{'global_commands'}->{'titlepage'})
-      or exists($self->{'global_commands'}->{'shorttitlepage'})) {
+  if ($global_commands
+      and ($global_commands->{'titlepage'}
+           or $global_commands->{'shorttitlepage'})) {
     $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
     $result .= _set_headings($self, $self->get_conf('headings'));
   }
@@ -3866,10 +3878,14 @@ sub _convert($$)
         if ($expansion);
       return $result;
     } elsif ($cmdname eq 'insertcopying') {
-      if ($self->{'global_commands'}
-          and $self->{'global_commands'}->{'copying'}) {
+      my $global_commands;
+      if ($self->{'document'}) {
+        $global_commands = $self->{'document'}->global_commands_information();
+      }
+
+      if ($global_commands and $global_commands->{'copying'}) {
         unshift @{$self->{'current_contents'}->[-1]},
-           {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}};
+           {'contents' => $global_commands->{'copying'}->{'contents'}};
       }
       return $result;
     } elsif ($cmdname eq 'printindex') {

@@ -418,8 +418,12 @@ sub output($$)
 '. "<book${id} lang=\"$lang\">\n";
 
   my $legalnotice;
-  if ($self->{'global_commands'}->{'copying'}) {
-    my $copying_element = $self->{'global_commands'}->{'copying'};
+  my $global_commands;
+  if ($self->{'document'}) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+  if ($global_commands and $global_commands->{'copying'}) {
+    my $copying_element = $global_commands->{'copying'};
     my $copying_result
      = $self->convert_tree({'contents' => $copying_element->{'contents'}});
     if ($copying_result ne '') {
@@ -428,13 +432,15 @@ sub output($$)
   }
 
   my $fulltitle_command;
-  foreach my $title_cmdname ('title', 'shorttitlepage', 'titlefont') {
-    if ($self->{'global_commands'}->{$title_cmdname}) {
-      my $command = $self->{'global_commands'}->{$title_cmdname};
-      next if (!$command->{'args'} or !$command->{'args'}->[0]
-               or !$command->{'args'}->[0]->{'contents'});
-      $fulltitle_command = $command;
-      last;
+  if ($global_commands) {
+    foreach my $title_cmdname ('title', 'shorttitlepage', 'titlefont') {
+      if ($global_commands->{$title_cmdname}) {
+        my $command = $global_commands->{$title_cmdname};
+        next if (!$command->{'args'} or !$command->{'args'}->[0]
+                 or !$command->{'args'}->[0]->{'contents'});
+        $fulltitle_command = $command;
+        last;
+      }
     }
   }
 
@@ -442,9 +448,9 @@ sub output($$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  if ($self->{'global_commands'}->{'titlepage'}) {
+  if ($global_commands and $global_commands->{'titlepage'}) {
     my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
-            $self->{'global_commands'}->{'titlepage'}, ['author', 'subtitle']);
+            $global_commands->{'titlepage'}, ['author', 'subtitle']);
 
     my @authors_elements;
     my $subtitle_text = '';
@@ -482,8 +488,8 @@ sub output($$)
   }
 
   my $settitle_command;
-  if ($self->{'global_commands'}->{'settitle'}) {
-    my $command = $self->{'global_commands'}->{'settitle'};
+  if ($global_commands and $global_commands->{'settitle'}) {
+    my $command = $global_commands->{'settitle'};
     $settitle_command = $command
       unless (!$command->{'args'} or !$command->{'args'}->[0]
               or !$command->{'args'}->[0]->{'contents'});
@@ -494,10 +500,11 @@ sub output($$)
     $titleabbrev_command = $settitle_command;
   } elsif ($settitle_command) {
     $fulltitle_command = $settitle_command;
-  } elsif (defined($legalnotice) and $self->{'global_commands'}->{'top'}) {
+  } elsif (defined($legalnotice) and $global_commands
+           and $global_commands->{'top'}) {
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
-    my $command = $self->{'global_commands'}->{'top'};
+    my $command = $global_commands->{'top'};
     $fulltitle_command = $command
       unless (!$command->{'args'} or !$command->{'args'}->[0]
               or !$command->{'args'}->[0]->{'contents'});
@@ -1000,13 +1007,16 @@ sub _convert($$;$)
         $result .= "\n";
         return $result;
       } elsif ($element->{'cmdname'} eq 'insertcopying') {
-        if ($self->{'global_commands'}
-           and $self->{'global_commands'}->{'copying'}) {
-         return $self->_convert({'contents'
-            => $self->{'global_commands'}->{'copying'}->{'contents'}});
-        } else {
-          return '';
+        if ($self->{'document'}) {
+          my $global_commands
+            = $self->{'document'}->global_commands_information();
+          if ($global_commands and $global_commands->{'copying'}) {
+            return $self->_convert({'contents'
+              => $global_commands->{'copying'}->{'contents'}});
+          }
         }
+
+        return '';
       } elsif ($element->{'cmdname'} eq 'verbatiminclude') {
         my $verbatim_include_verbatim
           = Texinfo::Convert::Utils::expand_verbatiminclude($self, $element);

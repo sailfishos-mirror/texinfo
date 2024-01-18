@@ -3010,16 +3010,21 @@ sub _convert($$)
           and @{$element->{'args'}->[0]->{'contents'}}
           and $command ne 'part') {
         $heading_element = $element->{'args'}->[0];
-      } elsif ($command eq 'top'
-          and $self->{'global_commands'}->{'settitle'}
-          and $self->{'global_commands'}->{'settitle'}->{'args'}
-          and @{$self->{'global_commands'}->{'settitle'}->{'args'}}
-          and $self->{'global_commands'}->{'settitle'}
+      } elsif ($command eq 'top') {
+        my $global_commands;
+        if ($self->{'document'}) {
+          $global_commands = $self->{'document'}->global_commands_information();
+        }
+        if ($global_commands and $global_commands->{'settitle'}
+            and $global_commands->{'settitle'}->{'args'}
+            and scalar(@{$global_commands->{'settitle'}->{'args'}})
+            and $global_commands->{'settitle'}
                                                  ->{'args'}->[0]->{'contents'}
-          and scalar(@{$self->{'global_commands'}->{'settitle'}
+            and scalar(@{$global_commands->{'settitle'}
                                               ->{'args'}->[0]->{'contents'}})) {
-        $heading_element =
-           $self->{'global_commands'}->{'settitle'}->{'args'}->[0];
+          $heading_element
+            = $global_commands->{'settitle'}->{'args'}->[0];
+        }
       }
 
       if ($heading_element) {
@@ -3162,10 +3167,13 @@ sub _convert($$)
       _convert($self, $expansion) if (defined($expansion));
       return;
     } elsif ($command eq 'insertcopying') {
-      if ($self->{'global_commands'}
-          and $self->{'global_commands'}->{'copying'}) {
+      my $global_commands;
+      if ($self->{'document'}) {
+        $global_commands = $self->{'document'}->global_commands_information();
+      }
+      if ($global_commands and $global_commands->{'copying'}) {
         my $inserted =
-         {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}};
+         {'contents' => $global_commands->{'copying'}->{'contents'}};
         _convert($self, $inserted);
       }
       return;
