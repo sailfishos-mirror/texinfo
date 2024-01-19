@@ -2004,23 +2004,53 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   }
   sub converter_initialize($) {
     my $self = shift;
+    ...
+  }
+
+  sub conversion_initialization($;$) {
+    my $self = shift;
+    my $document = shift;
+
+    if ($document) {
+      $self->set_document($document);
+    }
+
     $self->{'document_context'} = [{}];
+    ...
+  }
+
+  sub conversion_finalization($) {
+    my $self = shift;
   }
 
   sub convert($$) {
+    my $self = shift;
+    my $document = shift;
+
+    $self->conversion_initialization($document);
+
+    ...
+    $self->conversion_finalization();
     ...
   }
   sub convert_tree($$) {
     ...
   }
+
   sub output($$) {
+    my $self = shift;
+    my $document = shift;
+
+    $self->conversion_initialization($document);
+
+    ...
+    $self->conversion_finalization();
     ...
   }
 
   # end of Texinfo::Convert::MyConverter
 
-  my $converter = Texinfo::Convert::MyConverter->converter(
-                                               {'document' => $document});
+  my $converter = Texinfo::Convert::MyConverter->converter();
   $converter->output($texinfo_parsed_document);
 
 =head1 NOTES
@@ -2046,7 +2076,7 @@ The following methods can be defined too:
 X<C<convert_tree>>
 
 The C<convert_tree> method is mandatory and should convert portions of Texinfo
-tree. Takes a Texinfo tree in argument.
+tree. Takes a converter and Texinfo tree in arguments.
 
 =item C<output>
 X<C<output>>
@@ -2056,7 +2086,8 @@ to a file with headers and so on.  Although not called from other
 modules, this method should in general be implemented by converters.
 C<Texinfo::Convert::Converter> implements a generic C<output> suitable
 for simple output formats.  C<output> is called from C<texi2any>.
-C<output> takes a Texinfo parsed document C<Texinfo::Document> in argument.
+C<output> takes a converter and Texinfo parsed document C<Texinfo::Document>
+in arguments.
 
 =item C<convert>
 X<C<convert>>
@@ -2064,8 +2095,8 @@ X<C<convert>>
 Optional entry point for the conversion of a Texinfo parsed document without
 the headers done when outputting to a file and can also be used to output
 simple documents.  It could be called from the C<Texinfo::Convert::Converter>
-C<output> implementation.  C<convert> takes a Texinfo parsed document
-C<Texinfo::Document> in argument.
+C<output> implementation.  C<convert> takes a converter and a Texinfo parsed
+document C<Texinfo::Document> in arguments.
 
 =item C<convert_output_unit>
 X<C<convert_output_unit>>
@@ -2099,7 +2130,7 @@ described in L<Texinfo::Parser>.
 
 =head1 METHODS
 
-=head2 Initialization
+=head2 Converter Initialization
 
 X<C<converter>>
 X<C<Texinfo::Convert::Converter> initialization>
@@ -2115,12 +2146,10 @@ C<Texinfo::Convert::Converter>.
 The I<$options> hash reference holds options for the converter.
 These options are Texinfo customization options and a few other options that can
 be passed to the converter. Most of the customization options
-are described in the Texinfo manual.
+are described in the Texinfo manual or in the customization API manual.
 Those customization options, when appropriate, override the document content.
-B<TODO what about the other options (all are used in converters>
-B<TODO document this associated information
-(..., most available
-in HTML converter, either through $converter-E<gt>get_info('document') or label_command())>
+B<TODO what about the other options (all are used in converters). Describe
+in converter_defaults?>
 
 The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations.
@@ -2145,6 +2174,65 @@ This method is called at the end of the C<Texinfo::Convert::Converter>
 converter initialization.
 
 =back
+
+=head2 Conversion
+
+For conversion with C<output> and C<convert> a document to convert should be
+associated to the converter, in general the document passed in argument of
+C<output> or C<convert>.  The C<set_document> function associates a
+C<Texinfo::Document> to a converter.  This function is used in the default
+implementations.
+
+=over
+
+=item $converter->set_document($document)
+X<C<set_document>>
+
+Associate I<$document> to I<$converter>.  Also set the encoding related customization
+options based on I<$converter> customization information and information on
+document encoding, and setup converter hash C<convert_text_options> value that
+can be used to call L<Texinfo::Convert::Text::convert_to_text|Texinfo::Convert::Text/$result = convert_to_text($tree, $text_options)>
+
+=back
+
+In default implementations a function is called at the beginning of C<output> and
+C<convert>, C<conversion_initialization> and another function,
+C<conversion_finalization>, is called at the end of C<output> and C<convert>.
+In turn, C<set_document> is called in the default C<conversion_initialization>
+implementation.  A subclass converter redefining C<conversion_initialization>
+should in general call C<set_document> in the redefined function too to
+associate the converted document to the converter.
+
+=over
+
+=item $converter->conversion_initialization($document)
+
+=item $converter->conversion_finalization()
+X<C<conversion_initialization>>X<C<conversion_finalization>>
+
+C<conversion_initialization> is called at the beginning of the default
+C<output> and C<convert> functions, and C<conversion_finalization>
+is called at the end of the default C<output> and C<convert> functions.
+These functions should be redefined to run code just before a document
+conversion and right after the end of the document conversion.
+
+In the default case, C<conversion_initialization> calls
+L<< set_document|/$converter->set_document($document) >> to associate the C<Texinfo::Document>
+document passed in argument to the converter.
+
+=back
+
+Calling C<conversion_initialization> and, if needed, C<conversion_finalization>
+in redefined C<output> and C<convert> methods is not mandated, but it is
+recommended to have similar converter codes.  In subclassed converters that do
+not need to define C<conversion_initialization>, calling the default
+C<Texinfo::Convert::Converter> C<conversion_initialization> implementation is
+also recommended to avoid having to explictely call C<set_document>.
+If C<conversion_initialization> is defined in a converter subclass it is
+recommended to call C<set_document> at the very beginning of the function to
+have the document associated to the converter.
+
+
 
 =head2 Getting and setting customization variables
 

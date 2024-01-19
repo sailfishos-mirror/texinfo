@@ -1138,7 +1138,7 @@ text options associated to the C<convert_text_options> key.
 
 The main function is C<convert_to_text>.  The text conversion options
 can be modified with the C<set_*> functions before calling C<convert_to_text>,
-and reset aterwards with the corresponding C<reset_*> functions.
+and reset afterwards with the corresponding C<reset_*> functions.
 
 =head1 METHODS
 
