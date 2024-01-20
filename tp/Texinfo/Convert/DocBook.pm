@@ -348,46 +348,11 @@ sub convert_tree($$)
 # is used in the lang attribute, but if there is no @documentlanguag,
 # the lang_stack will start with an empty string, not with $DEFAULT_LANG.
 my $DEFAULT_LANG = 'en';
-sub output($$)
+sub _output_beginning($;$$)
 {
   my $self = shift;
-  my $document = shift;
-
-  $self->conversion_initialization($document);
-
-  my $root = $document->tree();
-
-  my ($output_file, $destination_directory, $output_filename)
-    = $self->determine_files_and_directory($self->{'output_format'});
-
-  my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_output_file_name($destination_directory);
-  my $succeeded
-    = $self->create_destination_directory($encoded_destination_directory,
-                                          $destination_directory);
-  unless ($succeeded) {
-    $self->conversion_finalization();
-    return undef;
-  }
-
-  my $fh;
-  my $encoded_output_file;
-  if (! $output_file eq '') {
-    my $path_encoding;
-    ($encoded_output_file, $path_encoding)
-      = $self->encoded_output_file_name($output_file);
-    my $error_message;
-    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
-                              $self->output_files_information(), $self,
-                              $encoded_output_file);
-    if (!$fh) {
-      $self->converter_document_error(
-           sprintf(__("could not open %s for writing: %s"),
-                                    $output_file, $error_message));
-      $self->conversion_finalization();
-      return undef;
-    }
-  }
+  my $output_file = shift;
+  my $output_filename = shift;
 
   my $encoding = '';
   if ($self->get_conf('OUTPUT_ENCODING_NAME')
@@ -410,7 +375,7 @@ sub output($$)
   } else {
     push @{$self->{'lang_stack'}}, '';
   }
-  my $header =  "<?xml version=\"1.0\"${encoding}?>".'
+  my $result =  "<?xml version=\"1.0\"${encoding}?>".'
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
@@ -536,17 +501,74 @@ sub output($$)
 
   # we duplicate title info, as it is explicitly said in the DocBook manual
   # that it can be duplicated if exactly the same
-  $header .= $title_info;
+  $result .= $title_info;
 
   if ($document_info ne '') {
     # FIXME DocBook 5 bookinfo->info
-    $header .= "<bookinfo>$document_info</bookinfo>\n";
+    $result .= "<bookinfo>$document_info</bookinfo>\n";
   }
 
+  return $result;
+}
+
+sub _output_end($)
+{
+  my $self = shift;
+  return "</book>\n";
+}
+
+sub output($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  $self->conversion_initialization($document);
+
+  my $root = $document->tree();
+
+  my ($output_file, $destination_directory, $output_filename)
+    = $self->determine_files_and_directory($self->{'output_format'});
+
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_output_file_name($destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
+  unless ($succeeded) {
+    $self->conversion_finalization();
+    return undef;
+  }
+
+  my $fh;
+  my $encoded_output_file;
+  if (! $output_file eq '') {
+    my $path_encoding;
+    ($encoded_output_file, $path_encoding)
+      = $self->encoded_output_file_name($output_file);
+    my $error_message;
+    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+                              $self->output_files_information(), $self,
+                              $encoded_output_file);
+    if (!$fh) {
+      $self->converter_document_error(
+           sprintf(__("could not open %s for writing: %s"),
+                                    $output_file, $error_message));
+      $self->conversion_finalization();
+      return undef;
+    }
+  }
+
+  my $output_beginning
+    = $self->_output_beginning($output_file, $output_filename);
+
   my $result = '';
-  $result .= $self->write_or_return($header, $fh);
+  $result .= $self->write_or_return($output_beginning, $fh);
   $result .= $self->write_or_return($self->convert_tree($root), $fh);
-  $result .= $self->write_or_return("</book>\n", $fh);
+
+  my $output_end = $self->_output_end();
+
+  $result .= $self->write_or_return($output_end, $fh);
+
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);

@@ -291,6 +291,32 @@ sub conversion_initialization($;$)
   $self->{'document_context'} = [{'monospace' => [0]}];
 }
 
+sub _output_beginning($;$$)
+{
+  my $self = shift;
+  my $output_file = shift;
+  my $output_filename = shift;
+
+
+  my $result = $self->txi_markup_header();
+  $result .= $self->txi_markup_open_element('texinfo')."\n";
+  if ($output_file ne '') {
+    my $filename_element = $self->txi_markup_open_element('filename',
+                                                  [['file', $output_filename]])
+             .$self->txi_markup_close_element('filename')."\n";
+    $result .= $filename_element;
+  }
+  return $result;
+}
+
+sub _output_end($)
+{
+  my $self = shift;
+
+  # FIXME add txi_markup_footer() to format a footer for the file?
+  return $self->txi_markup_close_element('texinfo')."\n";
+}
+
 # Main output function for the Texinfo language markup output files.
 sub output($$)
 {
@@ -329,22 +355,17 @@ sub output($$)
     }
   }
 
+  my $output_beginning
+    = $self->_output_beginning($output_file, $output_filename);
+
   my $result = '';
-  $result .= $self->write_or_return($self->txi_markup_header(), $fh);
-  $result
-    .= $self->write_or_return($self->txi_markup_open_element('texinfo')."\n",
-                              $fh);
-  if ($output_file ne '') {
-    my $filename_element = $self->txi_markup_open_element('filename',
-                                                  [['file', $output_filename]])
-             .$self->txi_markup_close_element('filename')."\n";
-    $result .= $self->write_or_return($filename_element, $fh);
-  }
+  $result .= $self->write_or_return($output_beginning, $fh);
   $result .= $self->write_or_return($self->convert_tree($root), $fh);
-  $result
-    .= $self->write_or_return($self->txi_markup_close_element('texinfo')."\n",
-                              $fh);
-  # FIXME add txi_markup_footer() to format a footer for the file?
+
+  my $output_end = $self->_output_end();
+
+  $result .= $self->write_or_return($output_end, $fh);
+
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);

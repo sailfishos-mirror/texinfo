@@ -1768,7 +1768,7 @@ sub _latex_begin_output($)
 
   #my $header = "\n";
   my $header = "";
-  # Special treatment for setchapternewpage, we want to avid
+  # Special treatment for setchapternewpage, we want to avoid
   # a useless headings set just below
   $header .= "% set default for \@setchapternewpage\n";
   my $heading_set;

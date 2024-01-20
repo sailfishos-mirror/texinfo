@@ -13,6 +13,14 @@
 
 2024-01-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_output_beginning, output)
+	(_output_end), tp/Texinfo/Convert/TexinfoMarkup.pm (_output_beginning)
+	(output, _output_end): add _output_beginning to prepare output
+	appearing before tree conversion, and _output_end for output after
+	tree conversion.
+
+2024-01-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): do not ignore especially
 	sectionning commands with in_skipped_node_top, let the output be
 	generated and discarded as for the remaining of the output.
