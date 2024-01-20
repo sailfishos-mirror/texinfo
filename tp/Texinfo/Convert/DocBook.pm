@@ -928,62 +928,57 @@ sub _convert($$;$)
             }
           }
           foreach my $opened_element (@opened_elements) {
-            if (not (defined($self->{'in_skipped_node_top'})
-                     and $self->{'in_skipped_node_top'} == 1)) {
-              if ($section_element and $opened_element eq $section_element) {
-                $sectioning_commands_done{$section_element} = 1;
+            if ($section_element and $opened_element eq $section_element) {
+              $sectioning_commands_done{$section_element} = 1;
+            }
+            my $section_attribute = '';
+            # FIXME it is not clear that a label should be set for
+            # @appendix* or @chapter/@*section as the formatter should be
+            # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
+            # having a label (empty) is important.
+            my $label = '';
+            if (defined($opened_element->{'extra'}->{'section_number'})
+              and ($self->get_conf('NUMBER_SECTIONS')
+                   or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+              # Looking at docbook2html output, Appendix is appended in the
+              # section title, so only the letter is used.
+              $label = $opened_element->{'extra'}->{'section_number'};
+            }
+            my $docbook_sectioning_element
+               = $self->_docbook_section_element($opened_element);
+            if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
+              $section_attribute .= " label=\"$label\"";
+            }
+            if ($opened_element->{'extra'}
+                and $opened_element->{'extra'}->{'associated_node'}
+                and $opened_element->{'extra'}->{'associated_node'}->{'extra'}
+                and defined($opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})) {
+              $section_attribute
+               .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
+            }
+            my $language = '';
+            if (defined($self->get_conf('documentlanguage'))) {
+              $language = $self->get_conf('documentlanguage');
+              if ($self->{'lang_stack'}->[-1] ne $language) {
+                $section_attribute .= ' lang="'.$language.'"';
               }
-              my $section_attribute = '';
-              # FIXME it is not clear that a label should be set for
-              # @appendix* or @chapter/@*section as the formatter should be
-              # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
-              # having a label (empty) is important.
-              my $label = '';
-              if (defined($opened_element->{'extra'}->{'section_number'})
-                and ($self->get_conf('NUMBER_SECTIONS')
-                     or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-                # Looking at docbook2html output, Appendix is appended in the
-                # section title, so only the letter is used.
-                $label = $opened_element->{'extra'}->{'section_number'};
-              }
-              my $docbook_sectioning_element
-                 = $self->_docbook_section_element($opened_element);
-              if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
-                $section_attribute .= " label=\"$label\"";
-              }
-              if ($opened_element->{'extra'}
-                  and $opened_element->{'extra'}->{'associated_node'}
-                  and $opened_element->{'extra'}->{'associated_node'}->{'extra'}
-                  and defined($opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})) {
-                $section_attribute
-                 .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
-              }
-              my $language = '';
-              if (defined($self->get_conf('documentlanguage'))) {
-                $language = $self->get_conf('documentlanguage');
-                if ($self->{'lang_stack'}->[-1] ne $language) {
-                  $section_attribute .= ' lang="'.$language.'"';
-                }
-              }
-              push @{$self->{'lang_stack'}}, $language;
-              $result .= "<$docbook_sectioning_element${section_attribute}>\n";
-              if ($opened_element->{'args'} and $opened_element->{'args'}->[0]) {
-                my ($arg, $end_line) = $self->_convert_argument_and_end_line($opened_element);
-                $result .= "<title>$arg</title>$end_line";
-                chomp ($result);
-                $result .= "\n";
-              }
-              # if associated with a sectioning element, the part is opened before the
-              # sectioning element, such that the part content appears after the sectioning
-              # command opening, no need for partintro.
-              if ($docbook_sectioning_element eq 'part'
-                  and not ($opened_element->{'extra'}
-                           and $opened_element->{'extra'}->{'part_associated_section'})
-                  and !Texinfo::Common::is_content_empty($opened_element)) {
-                $result .= "<partintro>\n";
-              }
-            } else {
-              push @{$self->{'lang_stack'}}, $self->{'lang_stack'}->[-1];
+            }
+            push @{$self->{'lang_stack'}}, $language;
+            $result .= "<$docbook_sectioning_element${section_attribute}>\n";
+            if ($opened_element->{'args'} and $opened_element->{'args'}->[0]) {
+              my ($arg, $end_line) = $self->_convert_argument_and_end_line($opened_element);
+              $result .= "<title>$arg</title>$end_line";
+              chomp ($result);
+              $result .= "\n";
+            }
+            # if associated with a sectioning element, the part is opened before the
+            # sectioning element, such that the part content appears after the sectioning
+            # command opening, no need for partintro.
+            if ($docbook_sectioning_element eq 'part'
+                and not ($opened_element->{'extra'}
+                         and $opened_element->{'extra'}->{'part_associated_section'})
+                and !Texinfo::Common::is_content_empty($opened_element)) {
+              $result .= "<partintro>\n";
             }
           }
         }

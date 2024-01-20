@@ -800,9 +800,6 @@ Top node
 
 @part part
 '],
-# FIXME in DocBook the nesting is incorrect, part is opened before chapter
-# and is closed first too.  This is not an important bug, however, as
-# this construct is not normal, and @top has no equivalent in DocBook.
 ['top_node_part_top',
 '@node Top
 
@@ -1268,6 +1265,9 @@ in chap
 
 @chapter chapter
 '],
+# FIXME in DocBook the nesting is incorrect, part is opened before chapter
+# and is closed first too.  This is not an important bug, however, as
+# this construct is not normal, and @top has no equivalent in DocBook.
 ['top_part_chapter',
 '@top top
 

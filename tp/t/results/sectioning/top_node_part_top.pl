@@ -374,11 +374,7 @@ $result_converted{'xml'}->{'top_node_part_top'} = '<node name="Top" spaces=" "><
 ';
 
 
-$result_converted{'docbook'}->{'top_node_part_top'} = '<part label="">
-<title>part</title>
-<chapter label="" id="Top">
-<title>top</title>
-
+$result_converted{'docbook'}->{'top_node_part_top'} = '
 </part>
 </chapter>
 ';
