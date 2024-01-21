@@ -10486,7 +10486,6 @@ sub _external_node_href($$$)
       }
     }
     my $manual_base = $manual_name;
-    $manual_base =~ s/\.info?$//;
     $manual_base =~ s/^.*\///;
     my $split_found;
     my $htmlxref_href;

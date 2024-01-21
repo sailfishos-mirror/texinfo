@@ -1,5 +1,16 @@
 2024-01-21  Patrice Dumas  <pertusus@free.fr>
 
+	Do not remove .inf or .info from manual name for HTML cross references
+
+	* NEWS, tp/Texinfo/Convert/HTML.pm (_external_node_href),
+	tp/Texinfo/XS/convert/convert_html.c (external_node_href): do not
+	remove a .inf or .info at the end of manual name argument for
+	cross-references to external nodes.  This is not done for other
+	formats, does not comply with the HTML cross references specification
+	and is probably a remnant of times long gone.
+
+2024-01-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (output_tree)
 	(conversion_output_begin, conversion_output_end),
 	tp/Texinfo/Convert/DocBook.pm (conversion_output_begin)

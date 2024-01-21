@@ -981,8 +981,8 @@ Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
-<p><a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">c</a>
-<a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">c</a>
+<p><a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.info.html#a">c</a>
+<a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.info.html#a">c</a>
 </p>
 
 <ul class="mini-toc">
@@ -991,7 +991,7 @@ Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next
 <hr>
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
-Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a> &nbsp; </p>
+Next: <a href="no_existing_no_manual.info.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
@@ -1003,7 +1003,7 @@ Next: <a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_ex
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
-<p>See <a data-manual="some_name_inf.inf" href="some_name_inf.html#aa">(some_name_inf.inf)aa</a>.
+<p>See <a data-manual="some_name_inf.inf" href="some_name_inf.inf.html#aa">(some_name_inf.inf)aa</a>.
 </p></div>
 </div>
 

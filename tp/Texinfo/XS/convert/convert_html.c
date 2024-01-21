@@ -3085,11 +3085,8 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
       char *manual_name;
       char *manual_base = 0;
       char *p;
-      char *q = 0;
       char *htmlxref_href = 0;
-      char saved;
       enum htmlxref_split_type split_found = htmlxref_split_type_none;
-      int manual_len;
       HTMLXREF_MANUAL *htmlxref_manual;
 
       self->convert_text_options->code_state++;
@@ -3120,21 +3117,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
         p = manual_name;
       else
         p++;
-      manual_len = strlen (manual_name);
-      if (manual_len >= 5
-          && !memcmp (manual_name +manual_len - 5, ".info", 5))
-        q = manual_name +manual_len - 5;
-      else if (manual_len >= 4
-               && !memcmp (manual_name +manual_len - 4, ".inf", 4))
-        q = manual_name +manual_len - 4;
-      if (q)
-        {
-          saved = *q;
-          *q = '\0';
-        }
       manual_base = strdup (p);
-      if (q)
-        *q = saved;
 
       htmlxref_manual = find_htmlxref_manual (&self->htmlxref, manual_base);
 

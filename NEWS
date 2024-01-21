@@ -25,6 +25,9 @@ See the manual for detailed information.
  . HTML, Texinfo and raw text output:
    An implementation of the conversion in C has been included.  Set the
     `TEXINFO_XS_CONVERT' environment variable to 1 to use.
+ . HTML:
+   . Do not remove .inf or .info at the end of manual name for
+     cross-references to external nodes anymore.
 
 * info
  . check for init file under ~/.config/texinfo/infokey before checking
