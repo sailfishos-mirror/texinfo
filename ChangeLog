@@ -9,6 +9,14 @@
 
 2024-01-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm (_new_node): call confess if _new_node
+	is called with XS.
+
+	* tp/t/accents.t: do not set document_descriptor as an option for th
+	econverter.
+
+2024-01-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults):
 	remove document_descriptor, which should not be passed from perl, but
 	added in XS only.

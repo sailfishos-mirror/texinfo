@@ -28,7 +28,7 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 
 use Texinfo::StructTransfXS;
 
@@ -307,8 +307,7 @@ sub _new_node($$;$$)
     # protect_first_parenthesis_in_targets.
     # FIXME we could also rebuild the tree, after adding an override
     # for protect_first_parenthesis?
-    print STDERR "FATAL (BUG): _new_node: XS not supported\n";
-    exit (1);
+    confess("BUG: _new_node: XS not supported");
   }
 
   # We protect for all the contexts, as the node name should be

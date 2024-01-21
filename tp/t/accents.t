@@ -103,9 +103,6 @@ sub test_enable_encoding ($)
                                 \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   my $options = {};
-  if ($root->{'tree_document_descriptor'}) {
-    $options->{'document_descriptor'} = $root->{'tree_document_descriptor'};
-  }
   my $html_converter = Texinfo::Convert::HTML->converter($options);
   # NOTE we use a converter outside of output/convert
   $html_converter->conversion_initialization();

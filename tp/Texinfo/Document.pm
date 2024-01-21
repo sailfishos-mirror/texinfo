@@ -251,7 +251,7 @@ sub _add_element_to_identifiers_target($$;$$)
 # This should be considered an internal function of the parser.
 # It is here to reuse code.
 # Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
-sub set_labels_identifiers_target ($$$)
+sub set_labels_identifiers_target($$$)
 {
   my $self = shift;
   my $registrar = shift;
@@ -304,7 +304,7 @@ sub register_label_element($$;$$)
 }
 
 # do nothing, only the XS override does something.
-sub remove_document ($)
+sub remove_document($)
 {
   my $document = shift;
 }
