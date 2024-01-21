@@ -33,6 +33,7 @@ domain(1).
 Top
 1 Chapter
 Appendix A Copying and indices
+
    ---------- Footnotes ----------
 
    (1) The public domain is something you should allready know

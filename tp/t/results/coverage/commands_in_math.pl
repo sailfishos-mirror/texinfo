@@ -1799,7 +1799,6 @@ $result_floats{'commands_in_math'} = {};
 $result_converted{'plaintext'}->{'commands_in_math'} = '*``simple-double--three---four----\'\'* aa
 ``simple-double--three---four----\'\'
 
-
 ü Ü ñ â é ō ì é ı ȷ Ḕ
 ł Ḉ Ḉ ç a̋ ȧ å a͡
 ă a̲ ạ ǎ ą a^{h}_{l}

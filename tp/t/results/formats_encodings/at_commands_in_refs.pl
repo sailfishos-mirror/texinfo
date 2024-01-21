@@ -15653,7 +15653,6 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 18 the someone <someone@somewher> <no_explain@there>
 ****************************************************
 
-
 19 [f--ile1] Image description""\\.
 **********************************
 
@@ -16861,7 +16860,6 @@ File: ,  Node: the someone <someone@somewher> <no_explain@there>,  Next: [f--ile
 
 File: ,  Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Next:  @ {} . ,  Prev: the someone <someone@somewher> <no_explain@there>,  Up: Top
 
-
 19 [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
 *******************************************************************************
 
@@ -16990,14 +16988,14 @@ Node: AAA (fff) AAA BBB2656
 Node: CCC (rrr) CCC DDD2796
 Node: the someone <someone@somewher> <no_explain@there>2969
 Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3269
-Node:  @ {} . 3619
-Node: cite asis in @w b in r SC *str* t VAR dfn i3822
-Node: env code option samp command file C-x <ESC>4066
-Node: 8.27in4328
-Node: sansserif slanted4462
-Node: indicateurl4586
-Node: _{g}H 3^{rd}4708
-Node: <http://somewhere_aaa> text (url) ls4847
+Node:  @ {} . 3618
+Node: cite asis in @w b in r SC *str* t VAR dfn i3821
+Node: env code option samp command file C-x <ESC>4065
+Node: 8.27in4327
+Node: sansserif slanted4461
+Node: indicateurl4585
+Node: _{g}H 3^{rd}4707
+Node: <http://somewhere_aaa> text (url) ls4846
 
 End Tag Table
 

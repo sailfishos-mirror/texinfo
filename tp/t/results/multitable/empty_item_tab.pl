@@ -695,8 +695,7 @@ $result_converted{'plaintext'}->{'empty_item_tab'} = 'text
 only item
 
 item text
-item new line                        
-                                     
+item new line
 not empty                            tab not empty
 ';
 

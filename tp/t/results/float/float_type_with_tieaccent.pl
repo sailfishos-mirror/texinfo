@@ -312,6 +312,7 @@ $result_floats{'float_type_with_tieaccent'} = {
 $result_converted{'plaintext'}->{'float_type_with_tieaccent'} = 'inside
 
 A 1͡a 第͡H ê͡ 1
+
 * Menu:
 
 * A 1͡a 第͡H ê͡ 1: label.                   

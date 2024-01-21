@@ -302,6 +302,7 @@ $result_floats{'comment_space_comand_in_float'} = {
 $result_converted{'plaintext'}->{'comment_space_comand_in_float'} = 'Float
 
 Text   1
+
 * Menu:
 
 * Text   1: label  .                     
@@ -320,6 +321,7 @@ File: ,  Node: chap,  Prev: Top
 Float
 
 Text   1
+
 * Menu:
 
 * Text   1: label  .                     

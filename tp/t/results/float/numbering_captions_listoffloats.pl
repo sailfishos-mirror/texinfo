@@ -6095,6 +6095,7 @@ No type but caption and shortcaption.
 No type but label and no caption nor shortcaption.
 
 2
+
 No label, no type, no caption no shortcaption.
 
 No label, no type, but caption and shortcaption.

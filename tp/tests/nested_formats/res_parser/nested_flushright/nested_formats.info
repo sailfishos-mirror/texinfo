@@ -1055,32 +1055,22 @@ f-lushleft
              in macro, a format_command containing some other commands.
         •                                                                i--tem 1
         •                                                                i--tem 2
-
        1.                                                             e--numerate
-
                         mu--ltitable headitem                                        another tab
      -----------------------------------------------------------------------------------------------
                             mu--ltitable item                                     multitable tab
                           mu--ltitable item 2                                   multitable tab 2
                        lone mu--ltitable item
-
           e--xample  some
              text
-
           s--mallexample
-
       -- c--ategory: d--effn_name a--rguments...
                                                                 d--effn
-
      a
                                                                  l--ine
-
                                                             c--artouche
-
      f--lushleft
-
                                                            f--lushright
-
                             ce-ntered line
 
      example  some
@@ -1152,32 +1142,22 @@ f-lushleft
              in macro, a format_command containing some other commands.
         •                                                                i--tem 1
         •                                                                i--tem 2
-
        1.                                                             e--numerate
-
                         mu--ltitable headitem                                        another tab
      -----------------------------------------------------------------------------------------------
                             mu--ltitable item                                     multitable tab
                           mu--ltitable item 2                                   multitable tab 2
                        lone mu--ltitable item
-
           e--xample  some
              text
-
           s--mallexample
-
       -- c--ategory: d--effn_name a--rguments...
                                                                 d--effn
-
      a
                                                                  l--ine
-
                                                             c--artouche
-
      f--lushleft
-
                                                            f--lushright
-
                             ce-ntered line
 
 
@@ -1186,12 +1166,9 @@ f-lushleft
                                                                in macro
 
                                                       in format_command
-
                                                               Something
-
                                                               Something
                                                                in group
-
                                                              Something2
                                                                   After
 
@@ -1202,75 +1179,51 @@ f-lushleft
 
 
                                                                in group
-
                                                          A quot---ation
 
      subheading
      ----------
 
      in verbatim
-
         •                                                                i--tem 1
         •                                                                i--tem 2
-
        1.                                                             e--numerate
-
                         mu--ltitable headitem                                        another tab
      -----------------------------------------------------------------------------------------------
                             mu--ltitable item                                     multitable tab
                           mu--ltitable item 2                                   multitable tab 2
                        lone mu--ltitable item
-
           e--xample  some
              text
-
           s--mallexample
-
       -- c--ategory: d--effn_name a--rguments...
                                                                 d--effn
-
      a
                                                                  l--ine
-
                                                             c--artouche
-
      f--lushleft
-
                                                            f--lushright
-
                             ce-ntered line
-
              in macro, a format_command containing some other commands.
         •                                                                i--tem 1
         •                                                                i--tem 2
-
        1.                                                             e--numerate
-
                         mu--ltitable headitem                                        another tab
      -----------------------------------------------------------------------------------------------
                             mu--ltitable item                                     multitable tab
                           mu--ltitable item 2                                   multitable tab 2
                        lone mu--ltitable item
-
           e--xample  some
              text
-
           s--mallexample
-
       -- c--ategory: d--effn_name a--rguments...
                                                                 d--effn
-
      a
                                                                  l--ine
-
                                                             c--artouche
-
      f--lushleft
-
                                                            f--lushright
-
                             ce-ntered line
-
 
      s--mallexample
 

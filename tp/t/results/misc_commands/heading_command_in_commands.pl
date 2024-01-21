@@ -294,7 +294,6 @@ $result_floats{'heading_command_in_commands'} = {};
 
 $result_converted{'plaintext'}->{'heading_command_in_commands'} = '‘ ’
 
-
 ';
 
 

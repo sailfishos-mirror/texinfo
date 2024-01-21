@@ -284,8 +284,7 @@ $result_floats{'braces_in_tex'} = {};
 
 
 
-$result_converted{'plaintext'}->{'braces_in_tex'} = '
-';
+$result_converted{'plaintext'}->{'braces_in_tex'} = '';
 
 
 $result_converted{'xml'}->{'braces_in_tex'} = '

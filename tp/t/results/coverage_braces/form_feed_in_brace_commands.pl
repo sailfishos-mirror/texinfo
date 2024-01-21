@@ -219,6 +219,7 @@ $result_converted{'plaintext'}->{'form_feed_in_brace_commands'} = '‘ aa’
 
    (1) f1
 
+
    (2) gg
 
    jj

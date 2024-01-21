@@ -172,6 +172,7 @@ $result_floats{'multiple_spaces_in_float_type'} = {
 $result_converted{'plaintext'}->{'multiple_spaces_in_float_type'} = 'inside
 
 Type of Float 1
+
 * Menu:
 
 * Type of Float 1: myfloat.              

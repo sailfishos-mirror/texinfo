@@ -293,7 +293,6 @@ $result_converted{'plaintext'}->{'nested_formats'} = '
      in -- format/example
 
 
-
      in -- example/format
 
 ';

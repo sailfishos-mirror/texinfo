@@ -1251,8 +1251,8 @@ _table itemx_
                                                                   Text.
 
                              col1                                 col2
-                             text    
-                                                             text col2
+                             text                            text col2
+
                     in multitable
 
 in float

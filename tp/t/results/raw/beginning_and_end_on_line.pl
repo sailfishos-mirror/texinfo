@@ -269,8 +269,7 @@ $result_floats{'beginning_and_end_on_line'} = {};
 
 
 
-$result_converted{'plaintext'}->{'beginning_and_end_on_line'} = '
-';
+$result_converted{'plaintext'}->{'beginning_and_end_on_line'} = '';
 
 
 $result_converted{'xml'}->{'beginning_and_end_on_line'} = '

@@ -2180,6 +2180,7 @@ $result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example *note node:
   2.11 (*note (file name)::) pxref file name only, spaces
   2.12 *Note (filename)Top::, xref Top filename only, no spaces
   2.13 *Note (filename)::. xref filename only, no spaces
+
 for example *note node:: (*note node::) (*note (file)Top::)
 ***********************************************************
 

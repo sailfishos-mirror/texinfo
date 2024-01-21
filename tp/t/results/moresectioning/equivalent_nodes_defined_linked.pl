@@ -629,6 +629,7 @@ File: ,  Node: chap,  Up: Top
 A figure
 
 Figure 1
+
 * Menu:
 
 * Figure 1: ‘chap’.                      

@@ -117,7 +117,6 @@ $result_floats{'empty_line_in_example_end'} = {};
 
 $result_converted{'plaintext'}->{'empty_line_in_example_end'} = '     in example
 
-
    After line
 ';
 

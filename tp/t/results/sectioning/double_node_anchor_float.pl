@@ -671,7 +671,9 @@ File: ,  Node: node1
 
 
 Text 1
+
 Text 2
+
 Text 3
 
 
@@ -679,7 +681,7 @@ Text 3
 Tag Table:
 Node: node127
 Ref: anchor151
-Ref: float166
+Ref: float168
 
 End Tag Table
 

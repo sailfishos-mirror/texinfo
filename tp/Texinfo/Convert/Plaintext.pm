@@ -1057,14 +1057,29 @@ sub _update_locations_counts($$)
   }
 }
 
+# Called at the beginning of a line.  Add a blank line if the output does
+# not already end in one.
 sub _add_newline_if_needed($) {
   my $self = shift;
-  if (defined($self->{'empty_lines_count'})
-       and $self->{'empty_lines_count'} == 0) {
-    _stream_output_encoded($self, "\n");
-    _add_lines_count($self, 1);
-    $self->{'empty_lines_count'} = 1;
+
+  if (defined($self->{'count_context'}->[-1]->{'pending_text'})
+        and $self->{'count_context'}->[-1]->{'pending_text'} =~ /(..)\z/s) {
+    # NB \z matches end of string, whereas $ can match *before* a newline
+    # at the end of a string.
+    if ($1 ne "\n\n") {
+      _stream_output_encoded($self, "\n");
+      _add_lines_count($self, 1);
+      $self->{'empty_lines_count'} = 1;
+    }
+  } else {
+    my $result = _stream_result($self);
+    if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
+      _stream_output_encoded($self, "\n");
+      _add_lines_count($self, 1);
+      $self->{'empty_lines_count'} = 1;
+    }
   }
+
   return;
 }
 
@@ -1966,7 +1981,24 @@ sub _convert($$)
                 add_text($formatter->{'container'}, "\n"));
       $self->{'empty_lines_count'}++;
     } else {
-      $self->_add_newline_if_needed();
+      # inlined below for efficiency
+      #$self->_add_newline_if_needed();
+
+      if (defined($self->{'count_context'}->[-1]->{'pending_text'})
+        and $self->{'count_context'}->[-1]->{'pending_text'} =~ /(..\z)/s) {
+        if ($1 ne "\n\n") {
+          _stream_output_encoded($self, "\n");
+          _add_lines_count($self, 1);
+          $self->{'empty_lines_count'} = 1;
+        }
+      } else {
+        my $result = _stream_result($self);
+        if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
+          _stream_output_encoded($self, "\n");
+          _add_lines_count($self, 1);
+          $self->{'empty_lines_count'} = 1;
+        }
+      }
     }
     return;
   }

@@ -503,6 +503,7 @@ $result_floats{'empty_listoffloats_with_floats'}{''}[3]{'extra'}{'caption'}{'ext
 $result_converted{'plaintext'}->{'empty_listoffloats_with_floats'} = 'Label no caption.
 
 1
+
 Label and caption.
 
 2: caption with label

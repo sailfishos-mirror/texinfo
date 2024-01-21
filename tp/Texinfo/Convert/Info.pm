@@ -475,6 +475,7 @@ sub _info_header($$$)
     $self->{'ignored_commands'}->{'direntry'} = 1;
     $self->_stream_output_encoded($dir_section);
   }
+  $self->_add_newline_if_needed();
   $result = $self->_stream_result();
   pop @{$self->{'count_context'}};
   return $result;

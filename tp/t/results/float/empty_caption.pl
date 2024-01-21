@@ -433,9 +433,11 @@ $result_floats{'empty_caption'}{'a'}[0]{'extra'}{'caption'}{'extra'}{'float'} = 
 $result_converted{'plaintext'}->{'empty_caption'} = 'In float A, B
 
 a 1: 
+
 In float , C
 
 1: 
+
 In float
 
 ';

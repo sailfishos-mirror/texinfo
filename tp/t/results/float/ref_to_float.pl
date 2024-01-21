@@ -321,6 +321,7 @@ $result_floats{'ref_to_float'} = {
 $result_converted{'plaintext'}->{'ref_to_float'} = 'Float
 
 Text 1
+
 In foat 2.
 
 1

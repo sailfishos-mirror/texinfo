@@ -697,6 +697,7 @@ $result_floats{'section_below_unnumbered'} = {};
 $result_converted{'plaintext'}->{'section_below_unnumbered'} = 'Top
 Unn
   Sec
+
 Top
 ***
 
