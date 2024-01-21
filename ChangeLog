@@ -1,5 +1,11 @@
 2024-01-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults):
+	remove document_descriptor, which should not be passed from perl, but
+	added in XS only.
+
+2024-01-21  Patrice Dumas  <pertusus@free.fr>
+
 	Do not remove .inf or .info from manual name for HTML cross references
 
 	* NEWS, tp/Texinfo/Convert/HTML.pm (_external_node_href),
