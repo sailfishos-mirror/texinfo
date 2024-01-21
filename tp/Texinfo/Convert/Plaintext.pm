@@ -1953,19 +1953,20 @@ sub _convert($$)
   # especially
   if ($type and ($type eq 'empty_line'
                  or $type eq 'after_menu_description_line')) {
-    #if (!$self->{'text_element_context'}) {
-    #  cluck;
-    #}
     delete $self->{'text_element_context'}->[-1]->{'counter'};
-    $self->{'empty_lines_count'}++;
-    if ($self->{'empty_lines_count'} <= 1
+    if ($self->{'empty_lines_count'} == 0
         or $self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
       if ($element->{'text'} =~ /\f/) {
         my $result = _get_form_feeds($element->{'text'});
         _stream_output($self, undef, $result);
       }
+    }
+    if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
       _stream_output($self, $formatter->{'container'},
                 add_text($formatter->{'container'}, "\n"));
+      $self->{'empty_lines_count'}++;
+    } else {
+      $self->_add_newline_if_needed();
     }
     return;
   }

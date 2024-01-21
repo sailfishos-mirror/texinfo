@@ -104,7 +104,8 @@ $result_floats{'empty_line_in_email'} = {};
 
 
 
-$result_converted{'plaintext'}->{'empty_line_in_email'} = '< >
+$result_converted{'plaintext'}->{'empty_line_in_email'} = '
+<>
    mail,
 
    text
