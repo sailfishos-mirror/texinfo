@@ -1,5 +1,11 @@
 2024-01-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <float>:
+	Call _add_newline_if_needed instead of checking
+	$self->{'empty_lines_count'} and outputing a newline directly.
+
+2024-01-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <empty_line>:
 	Try to separate form feed handling from code that actually adds
 	an empty line to the output.  Call _add_newline_if_needed to

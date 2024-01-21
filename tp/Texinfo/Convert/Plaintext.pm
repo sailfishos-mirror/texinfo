@@ -3199,10 +3199,7 @@ sub _convert($$)
       if ($floats
           and $floats->{$float_type}
           and scalar(@{$floats->{$float_type}})) {
-        if (!$self->{'empty_lines_count'}) {
-          _stream_output($self, undef, "\n");
-          $lines_count++;
-        }
+        $self->_add_newline_if_needed();
         _stream_output($self, undef, "* Menu:\n\n");
         $lines_count += 2;
         foreach my $float (@{$floats->{$float_type}}) {
