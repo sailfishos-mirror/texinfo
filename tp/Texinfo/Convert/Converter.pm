@@ -536,6 +536,87 @@ sub output($$)
   return undef;
 }
 
+sub conversion_output_begin($;$$)
+{
+  my $self = shift;
+  my $output_file = shift;
+  my $output_filename = shift;
+
+  return '';
+}
+
+sub conversion_output_end($)
+{
+  my $self = shift;
+
+  return '';
+}
+
+sub output_tree($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  $self->conversion_initialization($document);
+
+  my $root = $document->tree();
+
+  my ($output_file, $destination_directory, $output_filename)
+    = $self->determine_files_and_directory($self->{'output_format'});
+
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_output_file_name($destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
+  unless ($succeeded) {
+    $self->conversion_finalization();
+    return undef;
+  }
+
+  my $fh;
+  my $encoded_output_file;
+  if (! $output_file eq '') {
+    my $path_encoding;
+    ($encoded_output_file, $path_encoding)
+      = $self->encoded_output_file_name($output_file);
+    my $error_message;
+    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+                              $self->output_files_information(), $self,
+                              $encoded_output_file);
+    if (!$fh) {
+      $self->converter_document_error(
+           sprintf(__("could not open %s for writing: %s"),
+                                    $output_file, $error_message));
+      $self->conversion_finalization();
+      return undef;
+    }
+  }
+
+  my $output_beginning
+    = $self->conversion_output_begin($output_file, $output_filename);
+
+  my $result = '';
+  $result .= $self->write_or_return($output_beginning, $fh);
+  $result .= $self->write_or_return($self->convert_tree($root), $fh);
+
+  my $output_end = $self->conversion_output_end();
+
+  $result .= $self->write_or_return($output_end, $fh);
+
+  if ($fh and $output_file ne '-') {
+    Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $encoded_output_file);
+    if (!close ($fh)) {
+      $self->converter_document_error(
+            sprintf(__("error on closing %s: %s"),
+                                    $output_file, $!));
+    }
+  }
+  $self->conversion_finalization();
+  return $result;
+}
+
 # Nothing to do in perl.  XS function resets converter
 sub reset_converter($)
 {
@@ -2023,6 +2104,10 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
     my $self = shift;
   }
 
+  sub convert_tree($$) {
+    ...
+  }
+
   sub convert($$) {
     my $self = shift;
     my $document = shift;
@@ -2031,10 +2116,6 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
 
     ...
     $self->conversion_finalization();
-    ...
-  }
-  sub convert_tree($$) {
-    ...
   }
 
   sub output($$) {
@@ -2079,15 +2160,30 @@ The C<convert_tree> method is mandatory and should convert portions of Texinfo
 tree. Takes a converter and Texinfo tree in arguments.
 
 =item C<output>
-X<C<output>>
+X<C<output>>X<C<output_tree>>
 
 The C<output> method is used by converters as entry point for conversion
 to a file with headers and so on.  Although not called from other
 modules, this method should in general be implemented by converters.
+C<output> is called from C<texi2any>.  C<output> takes a converter and a
+Texinfo parsed document C<Texinfo::Document> in arguments.
+
 C<Texinfo::Convert::Converter> implements a generic C<output> suitable
-for simple output formats.  C<output> is called from C<texi2any>.
-C<output> takes a converter and Texinfo parsed document C<Texinfo::Document>
-in arguments.
+for simple output formats based on output units conversion.
+
+C<Texinfo::Convert::Converter> also implements a generic C<output_tree>
+function suitable for conversion of the Texinfo tree, with the conversion
+result output into a file or returned from the function. C<output_tree>
+takes a converter and a Texinfo parsed document C<Texinfo::Document> in
+arguments. In a converter that uses C<output_tree>, C<output> is in
+general defined as:
+
+  sub output($$) {
+    my $self = shift;
+    my $document = shift;
+
+    return $self->output_tree($document);
+  }
 
 =item C<convert>
 X<C<convert>>
@@ -2105,16 +2201,29 @@ Used as entry point for the conversion
 of output units by converters, for example by the
 C<Texinfo::Convert::Converter> C<output> implementation.
 C<convert_output_unit> takes an output unit as argument.  The implementation of
-C<convert_output_unit> of C<Texinfo::Convert::Converter> should be suitable for
-most cases.  Output units are typically returned by L<Texinfo::Structuring
+C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
+many cases.  Output units are typically returned by L<Texinfo::Structuring
 split_by_section|Texinfo::Structuring/$output_units = split_by_section($tree)>
 or L<Texinfo::Structuring split_by_node|Texinfo::Structuring/$output_units =
-split_by_node($tree)>.  Output units are not generated for all the formats, the
-Texinfo tree can also be converted directly.
+split_by_node($tree)>.
+
+Output units are not relevant for all the formats, the Texinfo tree can also be
+converted directly, in general by using C<output_tree>.
 
 =back
 
-Existing backends may be used as examples that implement those
+To help with the conversion, the C<set_document> function associates a
+C<Texinfo::Document> to a converter.  Other methods are called in default
+implementations to be redefined to call code at specific moments of the
+conversion. C<conversion_initialization>, for instance, is called at the
+beginning of C<output>, C<output_tree> and C<convert>.
+C<conversion_finalization> is called at the end of C<output_tree>, C<output>
+and C<convert>.  C<output_tree> also calls the C<conversion_output_begin>
+method before the Texinfo tree conversion to obtain the beginning of the
+output. C<output_tree> calls the C<conversion_output_begin> method after the
+Texinfo tree conversion to obtain the end of the output.
+
+Existing backends may be used as examples that implement and use those
 methods.  C<Texinfo::Convert::Texinfo> together with
 C<Texinfo::Convert::PlainTexinfo>, as well as
 C<Texinfo::Convert::TextContent> are trivial examples.
@@ -2190,17 +2299,13 @@ X<C<set_document>>
 Associate I<$document> to I<$converter>.  Also set the encoding related customization
 options based on I<$converter> customization information and information on
 document encoding, and setup converter hash C<convert_text_options> value that
-can be used to call L<Texinfo::Convert::Text::convert_to_text|Texinfo::Convert::Text/$result = convert_to_text($tree, $text_options)>
+can be used to call L<Texinfo::Convert::Text::convert_to_text|Texinfo::Convert::Text/$result = convert_to_text($tree, $text_options)>.
 
 =back
 
-In default implementations a function is called at the beginning of C<output> and
-C<convert>, C<conversion_initialization> and another function,
-C<conversion_finalization>, is called at the end of C<output> and C<convert>.
-In turn, C<set_document> is called in the default C<conversion_initialization>
-implementation.  A subclass converter redefining C<conversion_initialization>
-should in general call C<set_document> in the redefined function too to
-associate the converted document to the converter.
+The C<conversion_initialization>, C<conversion_finalization>,
+C<conversion_output_begin> and C<conversion_output_end> can be redefined to
+call code at diverse moments:
 
 =over
 
@@ -2209,15 +2314,36 @@ associate the converted document to the converter.
 =item $converter->conversion_finalization()
 X<C<conversion_initialization>>X<C<conversion_finalization>>
 
-C<conversion_initialization> is called at the beginning of the default
-C<output> and C<convert> functions, and C<conversion_finalization>
-is called at the end of the default C<output> and C<convert> functions.
-These functions should be redefined to run code just before a document
-conversion and right after the end of the document conversion.
+C<conversion_initialization> is called at the beginning of C<output_tree> and
+of the default implementations of the C<output> and C<convert> functions.
+C<conversion_finalization> is called at the end of C<output_tree> and of
+the default C<output> and C<convert> methods implementations.
+These functions should be redefined to have code run before a document
+conversion and after the document conversion.
 
 In the default case, C<conversion_initialization> calls
 L<< set_document|/$converter->set_document($document) >> to associate the C<Texinfo::Document>
-document passed in argument to the converter.
+document passed in argument to the converter.  A subclass converter redefining
+C<conversion_initialization> should in general call C<set_document> in the
+redefined function too to associate the converted document to the converter.
+
+=item $beginning = $converter->conversion_output_begin($output_file, $output_filename)
+
+=item $end = $converter->conversion_output_end()
+X<C<conversion_output_begin>>X<C<conversion_output_end>>
+
+C<conversion_output_begin> returned string I<$beginning> is output
+by the C<output_tree> calling method before the Texinfo tree conversion.
+The I<$output_file> argument is the output file path.
+If I<$output_file> is an empty string, it means that text will be returned by
+the converter instead of being written to an output file.
+I<$output_filename> is, in general, the file name portion of I<$output_file>
+(without directory) but can also be set based on C<@setfilename>.
+
+C<conversion_output_end> returned string I<$end> is output
+by the C<output_tree> calling method after the Texinfo tree conversion.
+
+The default methods implementations return an empty string.
 
 =back
 
@@ -2230,7 +2356,6 @@ also recommended to avoid having to explictely call C<set_document>.
 If C<conversion_initialization> is defined in a converter subclass it is
 recommended to call C<set_document> at the very beginning of the function to
 have the document associated to the converter.
-
 
 
 =head2 Getting and setting customization variables

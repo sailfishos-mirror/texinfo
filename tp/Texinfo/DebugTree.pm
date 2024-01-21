@@ -51,48 +51,7 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  my $root = $document->tree();
-
-  my ($output_file, $destination_directory)
-    = $self->determine_files_and_directory($self->{'output_format'});
-
-  my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_output_file_name($destination_directory);
-  my $succeeded
-    = $self->create_destination_directory($encoded_destination_directory,
-                                          $destination_directory);
-  return undef unless $succeeded;
-
-  my $fh;
-  my $encoded_output_file;
-  if (! $output_file eq '') {
-    my $path_encoding;
-    ($encoded_output_file, $path_encoding)
-      = $self->encoded_output_file_name($output_file);
-    my $error_message;
-    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
-                             $self->output_files_information(), $self,
-                                     $encoded_output_file);
-    if (!$fh) {
-      $self->converter_document_error(
-           sprintf(__("could not open %s for writing: %s"),
-                                    $output_file, $error_message));
-      return undef;
-    }
-  }
-  my $result = $self->write_or_return(_print_tree($root), $fh);
-  # NOTE that we close STDOUT too here
-  if ($fh) {
-    Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $encoded_output_file);
-    if (!close ($fh)) {
-      $self->converter_document_error(
-               sprintf(__("error on closing %s: %s"),
-                                    $output_file, $!));
-      return undef;
-    }
-  }
-  return $result;
+  return $self->output_tree($document);
 }
 
 sub convert($$)

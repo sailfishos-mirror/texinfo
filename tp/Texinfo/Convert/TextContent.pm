@@ -82,6 +82,14 @@ sub converter_initialize($)
   }
 }
 
+sub output($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  return $self->output_tree($document);
+}
+
 sub convert_tree($$)
 {
   my $self = shift;

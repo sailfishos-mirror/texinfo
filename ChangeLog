@@ -1,3 +1,22 @@
+2024-01-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (output_tree)
+	(conversion_output_begin, conversion_output_end),
+	tp/Texinfo/Convert/DocBook.pm (conversion_output_begin)
+	(conversion_output_end, output), tp/Texinfo/Convert/PlainTexinfo.pm
+	(output), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(conversion_output_begin, conversion_output_end, output),
+	tp/Texinfo/Convert/TextContent.pm (output), tp/Texinfo/DebugTree.pm
+	(output): add output_tree in Converter.pm, a generic method to convert
+	a Texinfo tree to a file, to be called from output.  output_tree calls
+	conversion_output_begin and conversion_output_end.  Call output_tree
+	in output in converters that convert a whole tree.  Rename
+	_output_beginning as conversion_output_begin and _output_end as
+	conversion_output_end in TexinfoMarkup.pm and DocBook.pm.
+	Update Converter.pm POD documentation.
+
+	* tp/Texinfo/Convert/PlainTexinfo.pm (convert): call convert_tree.
+
 2024-01-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <float>:

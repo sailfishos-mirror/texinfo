@@ -96,13 +96,13 @@ sub convert_tree($$)
   return convert_to_texinfo($root);
 }
 
-#sub output($$)
-#{
-#  my $self = shift;
-#  my $document = shift;
-#
-#  return Texinfo::Convert::Converter::output($self, $document);
-#}
+sub output($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  return $self->output_tree($document);
+}
 
 sub convert($$)
 {
@@ -111,11 +111,7 @@ sub convert($$)
 
   my $root = $document->tree();
 
-  if ($XS_convert and defined($document->document_descriptor())) {
-    return _convert_tree_with_XS($root);
-  }
-
-  return convert_to_texinfo($root);
+  return $self->convert_tree($root);
 }
 
 1;

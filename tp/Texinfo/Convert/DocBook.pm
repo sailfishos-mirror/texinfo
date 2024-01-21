@@ -348,7 +348,7 @@ sub convert_tree($$)
 # is used in the lang attribute, but if there is no @documentlanguag,
 # the lang_stack will start with an empty string, not with $DEFAULT_LANG.
 my $DEFAULT_LANG = 'en';
-sub _output_beginning($;$$)
+sub conversion_output_begin($;$$)
 {
   my $self = shift;
   my $output_file = shift;
@@ -511,7 +511,7 @@ sub _output_beginning($;$$)
   return $result;
 }
 
-sub _output_end($)
+sub conversion_output_end($)
 {
   my $self = shift;
   return "</book>\n";
@@ -522,64 +522,7 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  $self->conversion_initialization($document);
-
-  my $root = $document->tree();
-
-  my ($output_file, $destination_directory, $output_filename)
-    = $self->determine_files_and_directory($self->{'output_format'});
-
-  my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_output_file_name($destination_directory);
-  my $succeeded
-    = $self->create_destination_directory($encoded_destination_directory,
-                                          $destination_directory);
-  unless ($succeeded) {
-    $self->conversion_finalization();
-    return undef;
-  }
-
-  my $fh;
-  my $encoded_output_file;
-  if (! $output_file eq '') {
-    my $path_encoding;
-    ($encoded_output_file, $path_encoding)
-      = $self->encoded_output_file_name($output_file);
-    my $error_message;
-    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
-                              $self->output_files_information(), $self,
-                              $encoded_output_file);
-    if (!$fh) {
-      $self->converter_document_error(
-           sprintf(__("could not open %s for writing: %s"),
-                                    $output_file, $error_message));
-      $self->conversion_finalization();
-      return undef;
-    }
-  }
-
-  my $output_beginning
-    = $self->_output_beginning($output_file, $output_filename);
-
-  my $result = '';
-  $result .= $self->write_or_return($output_beginning, $fh);
-  $result .= $self->write_or_return($self->convert_tree($root), $fh);
-
-  my $output_end = $self->_output_end();
-
-  $result .= $self->write_or_return($output_end, $fh);
-
-  if ($fh and $output_file ne '-') {
-    Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $encoded_output_file);
-    if (!close ($fh)) {
-      $self->converter_document_error(
-            sprintf(__("error on closing %s: %s"),
-                                    $output_file, $!));
-    }
-  }
-  $self->conversion_finalization();
-  return $result;
+  return $self->output_tree($document);
 }
 
 my %docbook_sections = (
