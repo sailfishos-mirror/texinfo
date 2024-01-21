@@ -123,6 +123,10 @@ Css: div.author{white-space: nowrap;}
 Css: div.abstract p {margin-left:5%; margin-right:5%;}
 Css: div.abstract {width:100%;}
 Css: .abstracttitle{text-align:center;margin-bottom:1em;}
+Css: .subsectionToc, .likesubsectionToc {margin-left:1em;}
+Css: .subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+Css: .paragraphToc, .likeparagraphToc {margin-left:3em;}
+Css: .subparagraphToc, .likesubparagraphToc {margin-left:4em;}
 --- needs --- tex_tex4ht_latex.idv[2] ==> tex_tex4ht_latex0x.png ---
 --- characters ---
 Font("cmr","10","10","100")
