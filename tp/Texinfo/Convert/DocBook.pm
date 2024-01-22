@@ -362,6 +362,7 @@ sub conversion_output_begin($;$$)
 
   my $id;
   if ($output_file ne '') {
+    # FIXME DocBook 5 id -> xml:id
     $id = " id=\"".$self->xml_protect_text($output_filename)."\"";
   } else {
     $id = '';
@@ -443,6 +444,15 @@ sub conversion_output_begin($;$$)
       $authors_info .= "<authorgroup>\n";
       foreach my $element (@authors_elements) {
         my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        # FIXME DocBook 5 no more collabname, merged with other elements in
+        # orgname, which is much more specific than collabname, it is for an
+        # organisation and therefore not suitable here.
+        # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
+        # person/personname is not suitable either, because in Texinfo @author
+        # may correspond to more than one author, and also because we do not
+        # have the information in Texinfo needed for <person>, which requires
+        # a split of the name in honorific, firstname, surname...
+        # https://tdg.docbook.org/tdg/5.0/personname
         my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
         chomp ($result);
         $result .= "\n";
@@ -668,6 +678,7 @@ sub _output_anchor($)
   my $element = shift;
 
   if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
+    # FIXME DocBook 5 id -> xml:id
     return "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>";
   } else {
     return '';
@@ -918,6 +929,7 @@ sub _convert($$;$)
                 and $opened_element->{'extra'}->{'associated_node'}
                 and $opened_element->{'extra'}->{'associated_node'}->{'extra'}
                 and defined($opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})) {
+              # FIXME DocBook 5 id -> xml:id
               $section_attribute
                .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
             }
@@ -1351,6 +1363,10 @@ sub _convert($$;$)
                                  $self->{'convert_text_options'});
           }
           if ($name and $email) {
+            # FIXME DocBook 5 ulink -> link
+            # There is no possibility to do something similar in DocBook 5.
+            # The best is probably either to forget about the name, or
+            # follow <email> by the name in parentheses
             return "<ulink url=\"mailto:$email_text\">"
               .$self->_convert({'contents' => $name}).'</ulink>';
           } elsif ($email) {
@@ -1403,6 +1419,8 @@ sub _convert($$;$)
           }
           return "<ulink url=\"$url_text\">$replacement</ulink>";
           # FIXME DocBook 5
+          # need to add in the preamble
+          #    xmlns:xlink="http://www.w3.org/1999/xlink"
           # return "<link xlink:href=\"$url_text\">$replacement</link>";
         }
 
