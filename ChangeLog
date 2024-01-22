@@ -1,3 +1,9 @@
+2024-01-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <empty_line>:
+	Unconditionally call _get_form_feeds to propagate form feeds in
+	the input to the output regardsless of 'empty_lines_count'.
+
 2024-01-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Transformations.pm (_new_node): call confess if _new_node
