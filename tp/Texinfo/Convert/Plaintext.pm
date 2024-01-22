@@ -433,7 +433,6 @@ sub conversion_initialization($;$)
 
   $self->{'context'} = [];
   $self->{'format_context'} = [];
-  $self->{'empty_lines_count'} = undef;
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                      'locations' => [],
                                      'result' => ''
@@ -441,7 +440,6 @@ sub conversion_initialization($;$)
 
   # setting to 1 ensures that nothing is done, as there is
   # something done (a newline added) if equal to 0.
-  $self->{'empty_lines_count'} = 1;
   $self->{'seenmenus'} = {};
   $self->{'index_entries_line_location'} = {};
 
@@ -1069,14 +1067,12 @@ sub _add_newline_if_needed($) {
     if ($1 ne "\n\n") {
       _stream_output_encoded($self, "\n");
       _add_lines_count($self, 1);
-      $self->{'empty_lines_count'} = 1;
     }
   } else {
     my $result = _stream_result($self);
     if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
       _stream_output_encoded($self, "\n");
       _add_lines_count($self, 1);
-      $self->{'empty_lines_count'} = 1;
     }
   }
 
@@ -1140,7 +1136,6 @@ sub process_footnotes($;$)
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
       _stream_output_encoded($self, $footnotes_header);
       _add_lines_count($self, 2);
-      $self->{'empty_lines_count'} = 1;
     } else {
       my $footnotes_node_arg
             = {'contents' => [$label_element, {'text' => '-Footnotes'}]};
@@ -1190,7 +1185,6 @@ sub process_footnotes($;$)
       $self->{'text_element_context'}->[-1]->{'counter'} +=
          Texinfo::Convert::Unicode::string_width($footnote_text);
       _stream_output($self, undef, $footnote_text);
-      $self->{'empty_lines_count'} = 0;
 
       $self->_convert($footnote->{'root'}->{'args'}->[0]);
       _add_newline_if_needed($self);
@@ -1976,7 +1970,6 @@ sub _convert($$)
     if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
       _stream_output($self, $formatter->{'container'},
                 add_text($formatter->{'container'}, "\n"));
-      $self->{'empty_lines_count'}++;
     } else {
       # inlined below for efficiency
       #$self->_add_newline_if_needed();
@@ -1986,14 +1979,12 @@ sub _convert($$)
         if ($1 ne "\n\n") {
           _stream_output_encoded($self, "\n");
           _add_lines_count($self, 1);
-          $self->{'empty_lines_count'} = 1;
         }
       } else {
         my $result = _stream_result($self);
         if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
           _stream_output_encoded($self, "\n");
           _add_lines_count($self, 1);
-          $self->{'empty_lines_count'} = 1;
         }
       }
     }
@@ -2594,9 +2585,6 @@ sub _convert($$)
         my ($image, $lines_count) = $self->format_image($element);
         _add_lines_count($self, $lines_count);
         _stream_output($self, undef, $image);
-        if ($image ne '') {
-          $self->{'empty_lines_count'} = 0;
-        }
         return;
       } elsif ($command eq 'today') {
         my $today = $self->Texinfo::Convert::Utils::expand_today();
@@ -2831,7 +2819,6 @@ sub _convert($$)
                             $self->get_conf('NUMBER_SECTIONS'),
           ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);
         $result =~ s/\n$//; # final newline has its own tree element
-        $self->{'empty_lines_count'} = 0 unless ($result eq '');
         _stream_output_encoded($self, $result);
         _add_lines_count($self, 1);
         return;
@@ -2980,7 +2967,6 @@ sub _convert($$)
           $self->{'count_context'}->[-1]->{'lines'} += $extra_lines;
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $width;
-          $self->{'empty_lines_count'} = 0 unless ($converted eq '');
         }
       } elsif ($menu_commands{$command}) {
         $self->_menu($element);
@@ -3009,8 +2995,6 @@ sub _convert($$)
           }
         }
         $self->{'format_context'}->[-1]->{'columns_size'} = $columnsize;
-        $self->{'format_context'}->[-1]->{'row_empty_lines_count'}
-          = $self->{'empty_lines_count'};
         $self->{'document_context'}->[-1]->{'in_multitable'}++;
       } elsif ($command eq 'float') {
         _add_newline_if_needed($self);
@@ -3031,7 +3015,6 @@ sub _convert($$)
           my $previous_paragraph_count
               = $self->{'format_context'}->[-1]->{'paragraph_count'};
           $self->convert_line($prepended);
-          $self->{'empty_lines_count'} = 0; # unless ($result eq '');
           $self->{'format_context'}->[-1]->{'paragraph_count'}
               = $previous_paragraph_count;
         }
@@ -3074,7 +3057,6 @@ sub _convert($$)
                            ($self->{'format_context'}->[-1]->{'indent_level'})
                                            * $indent_length);
         _add_newline_if_needed($self);
-        $self->{'empty_lines_count'} = 0 unless ($heading_underlined eq '');
         _stream_output_encoded($self, $heading_underlined);
         if ($heading_underlined ne '') {
           _add_lines_count($self, 2);
@@ -3098,7 +3080,6 @@ sub _convert($$)
                  ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                    * $indent_length});
         $self->ensure_end_of_line();
-        $self->{'empty_lines_count'} = 0;
       }
     } elsif ($command eq 'item' and $element->{'parent'}->{'cmdname'}
              and $block_commands{$element->{'parent'}->{'cmdname'}}
@@ -3127,7 +3108,6 @@ sub _convert($$)
       $self->{'text_element_context'}->[-1]->{'counter'} +=
          Texinfo::Convert::Paragraph::counter($line->{'container'});
       pop @{$self->{'formatters'}};
-      $self->{'empty_lines_count'} = 0; # unless ($result eq '');
     # open a multitable cell
     } elsif ($command eq 'headitem' or $command eq 'item'
              or $command eq 'tab') {
@@ -3139,8 +3119,6 @@ sub _convert($$)
       #die if (!defined($cell_width));
       # happens with bogus multitables
       $cell_width = 2 if (!defined ($cell_width));
-      $self->{'empty_lines_count'}
-         = $self->{'format_context'}->[-1]->{'row_empty_lines_count'};
 
       push @{$self->{'format_context'}},
            { 'cmdname' => $command,
@@ -3168,7 +3146,6 @@ sub _convert($$)
         $result = $self->_align_environment ($result,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'center');
         _stream_output_encoded($self, $result);
-        $self->{'empty_lines_count'} = 0;
       } else {
         # it has to be done here, as it is done in _align_environment above
         pop @{$self->{'count_context'}};
@@ -3197,7 +3174,6 @@ sub _convert($$)
         }
       }
       $self->ensure_end_of_line();
-      $self->{'empty_lines_count'} = 0;
       return;
     } elsif ($command eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude(
@@ -3316,7 +3292,6 @@ sub _convert($$)
         }
         _stream_output($self, undef, "\n");
         $lines_count++;
-        $self->{'empty_lines_count'} = 1;
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       _add_lines_count($self, $lines_count);
@@ -3334,7 +3309,6 @@ sub _convert($$)
           _stream_output($self, $formatter->{'container'},
                 end_line($formatter->{'container'}));
         }
-        $self->{'empty_lines_count'} += $sp_nr;
         delete $self->{'text_element_context'}->[-1]->{'counter'};
       }
       return;
@@ -3391,7 +3365,6 @@ sub _convert($$)
   my $paragraph;
   if ($type) {
     if ($type eq 'paragraph') {
-      $self->{'empty_lines_count'} = 0;
       my $conf = {};
       # indent. Not first paragraph.
       if ($self->{'format_context'}->[-1]->{'cmdname'} eq '_top_format'
@@ -3654,12 +3627,10 @@ sub _convert($$)
 
         pop @{$self->{'formatters'}};
         delete $self->{'text_element_context'}->[-1]->{'counter'};
-        $self->{'empty_lines_count'} = 0;
       }
     } elsif ($type eq 'menu_entry') {
       my $entry_name_seen = 0;
       my $menu_entry_node;
-      $self->{'empty_lines_count'} = 0;
       foreach my $content (@{$element->{'contents'}}) {
         if ($content->{'type'} eq 'menu_entry_leading_text') {
           if (defined($content->{'text'})) {
@@ -4009,23 +3980,13 @@ sub _convert($$)
         my $line = (' ' x $indent_len) . ('-' x $cell_beginning) . "\n";
         $bytes_count += length($line);
         $result .= $line;
-        $self->{'empty_lines_count'} = 0;
         $max_lines++;
-      # there may be empty lines, in that case $line is undef, $max_lines == 0
-      } elsif ($max_lines) {
-        if ($line eq "\n") {
-          $self->{'empty_lines_count'} = 1;
-        } else {
-          $self->{'empty_lines_count'} = 0;
-        }
       }
       $self->_update_locations_counts(\@row_locations);
       push @{$self->{'count_context'}->[-1]->{'locations'}}, @row_locations;
       $self->{'count_context'}->[-1]->{'lines'} += $max_lines;
       $self->{'format_context'}->[-1]->{'row'} = [];
       $self->{'format_context'}->[-1]->{'row_counts'} = [];
-      $self->{'format_context'}->[-1]->{'row_empty_lines_count'}
-        = $self->{'empty_lines_count'};
       _stream_output_encoded($self, $result);
     } elsif ($type eq 'before_node_section') {
       ensure_end_of_line($self);
@@ -4047,20 +4008,6 @@ sub _convert($$)
   } elsif ($preformatted) {
     _stream_output($self, $preformatted->{'container'},
                Texinfo::Convert::Paragraph::end($preformatted->{'container'}));
-    if (defined($type) and ($type eq 'preformatted'
-           or $type eq 'rawpreformatted')) {
-      if ($element->{'contents'}
-          and $element->{'contents'}->[-1]) {
-        my $last_child = $element->{'contents'}->[-1];
-        if (!defined($last_child->{'type'})
-                       or $last_child->{'type'} ne 'empty_line') {
-          if (!defined($last_child->{'text'})
-                       or $last_child->{'text'} =~ /\S/) {
-            $self->{'empty_lines_count'} = 0;
-          }
-        }
-      }
-    }
     $self->ensure_end_of_line();
 
     if ($self->{'context'}->[-1] eq 'flushright') {
@@ -4094,7 +4041,6 @@ sub _convert($$)
           _stream_output_encoded($self, $float_number);
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $columns;
-          $self->{'empty_lines_count'} = 0;
         }
         if ($caption) {
           $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
@@ -4148,9 +4094,6 @@ sub _convert($$)
       die "Not a preformatted context: $old_context"
         if (!$self->{'preformatted_context_commands'}->{$old_context}
             and $old_context ne 'float');
-      if ($old_context ne 'float' and !$menu_commands{$old_context}) {
-        $self->{'empty_lines_count'} = 0;
-      }
       delete ($self->{'preformatted_context_commands'}->{$command})
        unless ($default_preformatted_context_commands{$command});
     } elsif ($flush_commands{$command}) {

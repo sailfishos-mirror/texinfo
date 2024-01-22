@@ -1,5 +1,14 @@
 2024-01-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Eliminate empty lines counting
+
+	* tp/Texinfo/Convert/Plaintext.pm (conversion_initialization)
+	(_add_newline_if_needed, process_footnotes, _convert),
+	* tp/Texinfo/Convert/Info.pm (_info_header, format_node):
+	Eliminate all updating of $self->{'empty_lines_count'}.
+
+2024-01-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <empty_line>:
 	Unconditionally call _get_form_feeds to propagate form feeds in
 	the input to the output regardsless of 'empty_lines_count'.

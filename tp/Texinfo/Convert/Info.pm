@@ -427,7 +427,6 @@ sub _info_header($$$)
   $result .= add_text($paragraph, '.');
   $result .= Texinfo::Convert::Paragraph::end($paragraph);
   $result .= "\n";
-  $self->{'empty_lines_count'} = 1;
   $self->_stream_output($paragraph, $result);
 
   my $global_commands;
@@ -463,13 +462,11 @@ sub _info_header($$$)
           $dir_section .= $dircategory;
           $dir_section .= "\n";
         }
-        $self->{'empty_lines_count'} = 0;
       } elsif ($command->{'cmdname'} eq 'direntry') {
         $dir_section .= "START-INFO-DIR-ENTRY\n";
         my $direntry = $self->convert_tree($command);
         $dir_section .= $direntry;
         $dir_section .= "END-INFO-DIR-ENTRY\n\n";
-        $self->{'empty_lines_count'} = 1;
       }
     }
     $self->{'ignored_commands'}->{'direntry'} = 1;
@@ -591,7 +588,6 @@ sub format_node($$)
   }
   $self->_stream_output(undef, "\n\n");
   $self->{'count_context'}->[-1]->{'lines'} = 3;
-  $self->{'empty_lines_count'} = 1;
 
   return;
 }
