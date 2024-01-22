@@ -1,5 +1,13 @@
 2024-01-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm:
+	When outputting a single newline, call _stream_output instead
+	of _stream_output_encoded.  This reduces calls to _stream_byte_count
+	to encode the output and allows output to be encoded in fewer,
+	bigger chunks.
+
+2024-01-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Eliminate empty lines counting
 
 	* tp/Texinfo/Convert/Plaintext.pm (conversion_initialization)

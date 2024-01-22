@@ -1065,13 +1065,13 @@ sub _add_newline_if_needed($) {
     # NB \z matches end of string, whereas $ can match *before* a newline
     # at the end of a string.
     if ($1 ne "\n\n") {
-      _stream_output_encoded($self, "\n");
+      _stream_output($self, undef, "\n");
       _add_lines_count($self, 1);
     }
   } else {
     my $result = _stream_result($self);
     if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
-      _stream_output_encoded($self, "\n");
+      _stream_output($self, undef, "\n");
       _add_lines_count($self, 1);
     }
   }
@@ -1741,7 +1741,7 @@ sub process_printindex($$;$)
   }
   pop @{$self->{'formatters'}};
 
-  _stream_output_encoded($self, "\n");
+  _stream_output($self, undef, "\n");
   _add_lines_count($self, 1);
 }
 
@@ -1781,7 +1781,7 @@ sub ensure_end_of_line($)
   return if !defined($result) or $result eq '';
 
   if (substr($result, -1) ne "\n") {
-    _stream_output_encoded($self, "\n");
+    _stream_output($self, undef, "\n");
     _add_lines_count($self, 1);
     $self->{'text_element_context'}->[-1]->{'counter'} = 0;
   }
@@ -1977,13 +1977,13 @@ sub _convert($$)
       if (defined($self->{'count_context'}->[-1]->{'pending_text'})
         and $self->{'count_context'}->[-1]->{'pending_text'} =~ /(..\z)/s) {
         if ($1 ne "\n\n") {
-          _stream_output_encoded($self, "\n");
+          _stream_output($self, undef, "\n");
           _add_lines_count($self, 1);
         }
       } else {
         my $result = _stream_result($self);
         if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
-          _stream_output_encoded($self, "\n");
+          _stream_output($self, undef, "\n");
           _add_lines_count($self, 1);
         }
       }
