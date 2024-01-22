@@ -1134,7 +1134,7 @@ sub process_footnotes($;$)
         # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
         or !$label_element) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
-      _stream_output_encoded($self, $footnotes_header);
+      _stream_output($self, undef, $footnotes_header);
       _add_lines_count($self, 2);
     } else {
       my $footnotes_node_arg
@@ -1398,7 +1398,7 @@ sub format_contents($$$)
         = 2 * ($section->{'extra'}->{'section_level'} - ($root_level+1));
 
       if ($repeat_count > 0) {
-        _stream_output_encoded($self, ' ' x $repeat_count);
+        _stream_output($self, undef, ' ' x $repeat_count);
       }
       my ($text, undef) = $self->convert_line_new_context(
             {'contents' => [$section_title_tree],
@@ -1439,7 +1439,7 @@ sub _menu($$)
   my ($self, $menu_command) = @_;
 
   if ($menu_command->{'cmdname'} eq 'menu') {
-    _stream_output_encoded($self, "* Menu:\n\n");
+    _stream_output($self, undef, "* Menu:\n\n");
     _add_lines_count($self, 2);
     if ($self->{'current_node'}) {
       $self->{'seenmenus'}->{$self->{'current_node'}} = 1;
@@ -1582,12 +1582,12 @@ sub process_printindex($$;$)
   _add_newline_if_needed($self);
   if ($in_info) {
     my $info_printindex_magic = "\x{00}\x{08}[index\x{00}\x{08}]\n";
-    _stream_output_encoded($self, $info_printindex_magic);
+    _stream_output($self, undef, $info_printindex_magic);
     _add_lines_count($self, 1);
   }
   my $heading = "* Menu:\n\n";
 
-  _stream_output_encoded($self, $heading);
+  _stream_output($self, undef, $heading);
   _add_lines_count($self, 2);
 
   # this is used to count entries that are the same
@@ -1663,7 +1663,7 @@ sub process_printindex($$;$)
 
     if ($line_width < $index_length_to_node) {
       my $spaces = ' ' x ($index_length_to_node - $line_width);
-      _stream_output_encoded($self, $spaces);
+      _stream_output($self, undef, $spaces);
       $line_width += length($spaces);
     }
     my $node = $entry_nodes{$entry};
@@ -1718,7 +1718,7 @@ sub process_printindex($$;$)
       _stream_output_encoded($self, $node_name);
       $line_width += $width;
     }
-    _stream_output_encoded($self, '.');
+    _stream_output($self, undef, '.');
     $line_width++;
 
     my $line_nr = $line_nrs{$entry};

@@ -1,5 +1,11 @@
 2024-01-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (process_footnotes)
+	(format_contents, _menu, process_printindex): Change some uses
+	of _stream_output_encoded to _stream_output.
+
+2024-01-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm:
 	When outputting a single newline, call _stream_output instead
 	of _stream_output_encoded.  This reduces calls to _stream_byte_count
