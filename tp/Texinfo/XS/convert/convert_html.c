@@ -1449,7 +1449,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
      = associated_special_units_descriptor;
 
   if (self->document->sections_list
-      && self->document->sections_list->number > 0)
+      && self->document->sections_list->number > 1)
     {
       enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
       int i;

@@ -841,6 +841,20 @@ my $file_name_case_insensitive_conflict_node = '@node Top
 ';
 
 my @test_cases_file_text = (
+# already tested in 30sectioning.t, but we want tests with all the possible
+# entry points
+['contents_with_only_top_node',
+'
+@node Top
+
+@contents
+',],
+['top_node_top_contents',
+'@contents
+
+@node Top
+@top Texinfo modules documentation
+',],
 ['test_accents_sc_default',
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'}],
 ['test_accents_sc_enable_encoding',
@@ -1372,6 +1386,11 @@ foreach my $test (@file_tests) {
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 foreach my $test (@test_cases_file_text) {
+  if (defined($test->[1])) {
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+    $test->[2]->{'full_document'} = 1
+       unless (exists($test->[2]->{'full_document'}));
+  }
   push @{$test->[2]->{'test_formats'}}, ('html_text', 'file_html');
 }
 

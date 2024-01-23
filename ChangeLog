@@ -1,5 +1,15 @@
 2024-01-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/html_tests.t (contents_with_only_top_node)
+	(top_node_top_contents): tests of html_text and file_html for
+	@contents with @node only or @node and @top only.
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_special_units): do
+	contents/shortcontents directions only if there is more than one
+	section.
+
+2024-01-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/html_tests.t (end_of_line_in_uref): add test
 	of end of line in uref.
 
