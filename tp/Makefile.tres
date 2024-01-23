@@ -619,8 +619,14 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/double_contents_separate_element_nodes/res_html \
   t/results/html_tests/double_contents_separate_element_section.pl \
   t/results/html_tests/double_contents_separate_element_section/res_html \
+  t/results/html_tests/empty_chapter_in_html_title.pl \
+  t/results/html_tests/empty_chapter_in_html_title/res_html \
+  t/results/html_tests/empty_chapter_in_html_title_no_node_no_use_nodes.pl \
+  t/results/html_tests/empty_chapter_in_html_title_no_node_no_use_nodes/res_html \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename.pl \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename_no_element.pl \
+  t/results/html_tests/empty_node_in_html_title_no_sec_name.pl \
+  t/results/html_tests/empty_node_in_html_title_no_sec_name/res_html \
   t/results/html_tests/empty_titlefont.pl \
   t/results/html_tests/file_name_case_insensitive_conflict_node.pl \
   t/results/html_tests/file_name_case_insensitive_conflict_node/res_html \

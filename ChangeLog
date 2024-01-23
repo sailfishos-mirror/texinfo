@@ -1,5 +1,12 @@
 2024-01-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/html_tests.t
+	(empty_node_in_html_title_no_sec_name, empty_chapter_in_html_title)
+	(empty_chapter_in_html_title_no_node_no_use_nodes): tests with empty
+	node/chapter in html <title> formatting.
+
+2024-01-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_mini_toc),
 	tp/Texinfo/XS/convert/convert_html.c (mini_toc_internal): handle empty
 	sectioning command in mini toc.

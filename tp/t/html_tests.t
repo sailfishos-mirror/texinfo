@@ -880,8 +880,29 @@ my $css_init_file_texinfo = '@node Top
 @titlefont{in a new heading}
 ';
 
-# test that the node name that goes in the redirection file is reproducible.
 my @file_tests = (
+['empty_node_in_html_title_no_sec_name',
+'@node Top
+@top top
+
+@node
+@chapter chap
+', {}, {'SECTION_NAME_IN_TITLE' => 0, 'SPLIT' => 'chapter'}],
+['empty_chapter_in_html_title',
+'@node Top
+@top top
+
+@node chap
+@chapter
+', {}, {'SPLIT' => 'chapter'}],
+# the chapter file is named '.html', which is ok, but no file may be better
+['empty_chapter_in_html_title_no_node_no_use_nodes',
+'@node Top
+@top top
+
+@chapter
+', {}, {'SPLIT' => 'chapter', 'USE_NODES' => 0}],
+# test that the node name that goes in the redirection file is reproducible.
 ['redirection_same_labels',
 '@node Top
 @top the top

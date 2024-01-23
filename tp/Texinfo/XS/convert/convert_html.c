@@ -6904,6 +6904,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           if (!command_tree)
             {
+    /* this should not happen, as the command_string should be empty already */
               TREE_ADDED_ELEMENTS *element_tree
                   = html_command_tree (self, command, 0);
               command_tree = element_tree->tree;

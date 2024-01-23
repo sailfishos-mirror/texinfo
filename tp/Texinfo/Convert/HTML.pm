@@ -10908,6 +10908,7 @@ sub _file_header_information($$;$)
           and $command->{'extra'}->{'associated_section'}->{'args'}->[0]) {
         $element_tree = $command->{'extra'}->{'associated_section'}->{'args'}->[0];
       } else {
+        # this should not happen, as the command_string should be empty already
         $element_tree = $self->command_tree($command);
       }
       # TRANSLATORS: sectioning element title for the page header
