@@ -427,7 +427,7 @@ sub _info_header($$$)
   $result .= add_text($paragraph, '.');
   $result .= Texinfo::Convert::Paragraph::end($paragraph);
   $result .= "\n";
-  $self->_stream_output($paragraph, $result);
+  $self->_stream_output($result, $paragraph);
 
   my $global_commands;
   my $document_info;
@@ -456,13 +456,12 @@ sub _info_header($$$)
             and defined($command->{'args'}->[0]->{'contents'})) {
           my ($converted, undef) = $self->convert_line_new_context(
              {'contents' => $command->{'args'}->[0]->{'contents'}}, undef, 1);
-          $self->_stream_output(undef,
-                                "INFO-DIR-SECTION " . $converted . "\n");
+          $self->_stream_output("INFO-DIR-SECTION " . $converted . "\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {
-        $self->_stream_output(undef, "START-INFO-DIR-ENTRY\n");
+        $self->_stream_output("START-INFO-DIR-ENTRY\n");
         $self->_convert($command);
-        $self->_stream_output(undef, "END-INFO-DIR-ENTRY\n\n");
+        $self->_stream_output("END-INFO-DIR-ENTRY\n\n");
       }
     }
     $self->{'ignored_commands'}->{'direntry'} = 1;
@@ -523,7 +522,7 @@ sub format_node($$)
 
   $self->add_location($node);
   my $node_begin = "\x{1F}\nFile: $output_filename,  Node: ";
-  $self->_stream_output(undef, $node_begin);
+  $self->_stream_output($node_begin);
 
   my $pre_quote = '';
   my $post_quote = '';
@@ -544,7 +543,7 @@ sub format_node($$)
         and $node->{'extra'}->{'node_directions'}->{lc($direction)}) {
       my $node_direction
           = $node->{'extra'}->{'node_directions'}->{lc($direction)};
-      $self->_stream_output(undef, ",  $direction: ");
+      $self->_stream_output(",  $direction: ");
       if ($node_direction->{'extra'}->{'manual_content'}) {
         $self->convert_line({'type' => '_code',
                           'contents' => [{'text' => '('},
@@ -577,11 +576,10 @@ sub format_node($$)
     } elsif ($direction eq 'Up'
              and $node->{'extra'}->{'normalized'} eq 'Top') {
       # add an up direction for Top node
-      $self->_stream_output(undef,
-                   ",  $direction: ".$self->get_conf('TOP_NODE_UP'));
+      $self->_stream_output(",  $direction: ".$self->get_conf('TOP_NODE_UP'));
     }
   }
-  $self->_stream_output(undef, "\n\n");
+  $self->_stream_output("\n\n");
   $self->{'count_context'}->[-1]->{'lines'} = 3;
 
   return;

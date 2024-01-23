@@ -1,5 +1,11 @@
 2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_stream_output): Interchange
+	second and third parameters, to simplify calling when the
+	formatter argument is undef.  All callers updated.
+
+2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert, format_contents):
 	Call convert_line_new_context with encoding disabled in more
 	places and pass the result to _stream_output rather than
