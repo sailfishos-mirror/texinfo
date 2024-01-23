@@ -2596,7 +2596,7 @@ url_protect_url_text (CONVERTER *self, const char *input_string)
             /* the reason for forcing (unsigned char) is that the %x modifier
                expects an unsigned int parameter and a char will usually be
                promoted to an int when passed to a varargs function */
-                  text_printf (&text, "%%%2x", (unsigned char)*p);
+                  text_printf (&text, "%%%02x", (unsigned char)*p);
                   p += 1;
                 }
             }
@@ -2655,7 +2655,7 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
             /* the reason for forcing (unsigned char) is that the %x modifier
                expects an unsigned int parameter and a char will usually be
                promoted to an int when passed to a varargs function */
-                  text_printf (&text, "%%%2x", (unsigned char)*p);
+                  text_printf (&text, "%%%02x", (unsigned char)*p);
                   p += 1;
                 }
             }

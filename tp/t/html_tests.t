@@ -725,6 +725,9 @@ In top.
 '
 @titlefont{}
 '],
+['end_of_line_in_uref',
+'See the @uref{https://gcc.gnu.org/codingconventions.html#Spelling
+Spelling, terminology and markup} section.'],
 ['spaces_in_line_break_in_verb_w',
 '@w{aaa  bb
 ccc}

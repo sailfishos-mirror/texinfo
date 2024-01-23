@@ -8923,6 +8923,9 @@ sub convert_tree($$;$)
 # a format_* function?
 # protect an url, in which characters with specific meaning in url are considered
 # to have their specific meaning
+# TODO turn end of lines to spaces?  Currently, an end of line is percent
+# protected, it is most likely not what the author intended.  Tested in
+# html_tests.t end_of_line_in_uref
 sub url_protect_url_text($$)
 {
   my $self = shift;

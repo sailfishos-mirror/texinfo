@@ -628,6 +628,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/empty_node_in_html_title_no_sec_name.pl \
   t/results/html_tests/empty_node_in_html_title_no_sec_name/res_html \
   t/results/html_tests/empty_titlefont.pl \
+  t/results/html_tests/end_of_line_in_uref.pl \
   t/results/html_tests/file_name_case_insensitive_conflict_node.pl \
   t/results/html_tests/file_name_case_insensitive_conflict_node/res_html \
   t/results/html_tests/file_name_case_insensitive_conflict_node_no_redirections.pl \
