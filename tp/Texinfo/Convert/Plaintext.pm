@@ -1005,10 +1005,17 @@ sub _stream_byte_count($)
 
   if (defined($count_context->{'pending_text'})
         and $count_context->{'pending_text'} ne '') {
-    my $new_encoded = _stream_encode($self, $count_context->{'pending_text'});
-    $count_context->{'pending_text'} = '';
-    $count_context->{'result'} .= $new_encoded;
-    $count_context->{'bytes'} += length($new_encoded);
+    if (!$count_context->{'encoding_disabled'}) {
+      my $new_encoded
+        = _stream_encode($self, $count_context->{'pending_text'});
+      $count_context->{'pending_text'} = '';
+      $count_context->{'result'} .= $new_encoded;
+      $count_context->{'bytes'} += length($new_encoded);
+    } else {
+      $count_context->{'result'} .= $count_context->{'pending_text'};
+      $count_context->{'pending_text'} = '';
+      $count_context->{'bytes'} = -1;
+    }
   }
   return $count_context->{'bytes'};
 }
@@ -1623,6 +1630,7 @@ sub process_printindex($$;$)
 
     # Convert entry text in a new context in order to capture result.
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+    $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
     $self->_convert($entry_tree);
     $self->_convert($subentries_tree)
       if (defined($subentries_tree));
@@ -1657,10 +1665,9 @@ sub process_printindex($$;$)
       $entry_nr = ' <'.$entry_counts{$entry_text}.'>';
     }
     my $entry_line = "* $entry_text${entry_nr}: ";
-    _stream_output_encoded($self, $entry_line);
+    _stream_output($self, undef, $entry_line);
 
-    my $line_width = _string_width_encoded($self, $entry_line);
-
+    my $line_width = Texinfo::Convert::Unicode::string_width($entry_line);
     if ($line_width < $index_length_to_node) {
       my $spaces = ' ' x ($index_length_to_node - $line_width);
       _stream_output($self, undef, $spaces);

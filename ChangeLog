@@ -1,3 +1,13 @@
+2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_stream_byte_count):
+	Recognize an 'encoding_disabled' flag on the count context, and
+	if set, do not encode the output.
+	(process_printindex): Set this flag when converting an index
+	entry and output the result with _stream_output rather than
+	_stream_output_encoded, and to get the display width call
+	string_width rather than string_width_encoded.
+
 2024-01-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/html_tests.t (contents_with_only_top_node)
