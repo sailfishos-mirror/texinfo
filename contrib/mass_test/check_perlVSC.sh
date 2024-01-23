@@ -1,6 +1,6 @@
 #! /bin/sh
-# Setup HTML output using XS converter and compare with output
-# obtained with the Perl converter.
+# Compare output obtained using XS converter and output obtained with
+# the Perl converter.
 #
 # Copyright 2024 Free Software Foundation, Inc.
 #
