@@ -441,36 +441,31 @@ sub _info_header($$$)
   if ($global_commands and $global_commands->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
-    my $copying = $self->convert_tree({'contents' =>
+    $self->_convert({'contents' =>
           $global_commands->{'copying'}->{'contents'}});
-    $self->_stream_output_encoded($copying);
     $self->process_footnotes();
     delete $self->{'in_copying_header'};
   }
   $self->set_global_document_commands('before', \@informative_global_commands);
 
   if ($document_info->{'dircategory_direntry'}) {
-    my $dir_section = '';
     $self->{'ignored_commands'}->{'direntry'} = 0;
     foreach my $command (@{$document_info->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if ($command->{'args'} and @{$command->{'args'}}
             and defined($command->{'args'}->[0]->{'contents'})) {
           my ($converted, undef) = $self->convert_line_new_context(
-             {'contents' => $command->{'args'}->[0]->{'contents'}});
-          my $dircategory = "INFO-DIR-SECTION " . $converted;
-          $dir_section .= $dircategory;
-          $dir_section .= "\n";
+             {'contents' => $command->{'args'}->[0]->{'contents'}}, undef, 1);
+          $self->_stream_output(undef,
+                                "INFO-DIR-SECTION " . $converted . "\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {
-        $dir_section .= "START-INFO-DIR-ENTRY\n";
-        my $direntry = $self->convert_tree($command);
-        $dir_section .= $direntry;
-        $dir_section .= "END-INFO-DIR-ENTRY\n\n";
+        $self->_stream_output(undef, "START-INFO-DIR-ENTRY\n");
+        $self->_convert($command);
+        $self->_stream_output(undef, "END-INFO-DIR-ENTRY\n\n");
       }
     }
     $self->{'ignored_commands'}->{'direntry'} = 1;
-    $self->_stream_output_encoded($dir_section);
   }
   $self->_add_newline_if_needed();
   $result = $self->_stream_result();

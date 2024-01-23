@@ -845,11 +845,15 @@ sub convert_line($$;$)
 
 # convert with a line formatter in a new count context, not changing
 # the current context.  return the result of the conversion.
-sub convert_line_new_context($$;$)
+sub convert_line_new_context($$;$$)
 {
-  my ($self, $converted, $conf) = @_;
+  my ($self, $converted, $conf, $encoding_disabled) = @_;
 
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+  if ($encoding_disabled) {
+    # TODO: Update all callers and make this the only option.
+    $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
+  }
   my $formatter = $self->new_formatter('line', $conf);
   push @{$self->{'formatters'}}, $formatter;
   $self->_convert($converted);
