@@ -1413,10 +1413,10 @@ sub format_contents($$$)
       }
       my ($text, undef) = $self->convert_line_new_context(
             {'contents' => [$section_title_tree],
-             'type' => 'frenchspacing'});
+             'type' => 'frenchspacing'}, undef, 1);
       chomp ($text);
       $text .= "\n";
-      _stream_output_encoded($self, $text);
+      _stream_output($self, undef, $text);
       $lines_count++;
       if ($section->{'extra'}->{'section_childs'}
           and ($contents
@@ -2470,8 +2470,6 @@ sub _convert($$)
               and scalar(@{$label_element->{'contents'}}) == 1
               and defined($label_element->{'contents'}->[0]->{'text'})) {
             $node_line_name = $label_element->{'contents'}->[0]->{'text'};
-            # NB $node_line_name here is unencoded string, but we only use it
-            # currently for checking for special characters, not for output.
           } else {
             $self->{'silent'} = 0 if (!defined($self->{'silent'}));
             $self->{'silent'}++;
@@ -2480,7 +2478,7 @@ sub _convert($$)
                                           {'type' => '_code',
                                            'contents' => [$label_element]},
                                           {'suppress_styles' => 1,
-                                            'no_added_eol' => 1});
+                                            'no_added_eol' => 1}, undef, 1);
             $self->{'silent'}--;
           }
 
@@ -2973,8 +2971,8 @@ sub _convert($$)
           $prepended->{'type'} = 'frenchspacing';
           #_convert($self, $prepended);
           my ($converted, $width, $extra_lines)
-            = $self->convert_line_new_context($prepended);
-          _stream_output_encoded($self, $converted);
+            = $self->convert_line_new_context($prepended, undef, 1);
+          _stream_output($self, undef, $converted);
           $self->{'count_context'}->[-1]->{'lines'} += $extra_lines;
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $width;
@@ -4048,8 +4046,8 @@ sub _convert($$)
         if ($prepended) {
           $prepended->{'type'} = 'frenchspacing';
           my ($float_number, $columns)
-            = $self->convert_line_new_context ($prepended);
-          _stream_output_encoded($self, $float_number);
+            = $self->convert_line_new_context ($prepended, undef, 1);
+          _stream_output($self, undef, $float_number);
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $columns;
         }

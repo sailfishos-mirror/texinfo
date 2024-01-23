@@ -1,5 +1,12 @@
 2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert, format_contents):
+	Call convert_line_new_context with encoding disabled in more
+	places and pass the result to _stream_output rather than
+	_stream_output_encoded.
+
+2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (convert_line_new_context):
 	Take a new parameter, $encoding_disabled, and set the
 	'encoding_disabled' flag if set.
