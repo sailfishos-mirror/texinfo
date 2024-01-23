@@ -10624,6 +10624,8 @@ sub _mini_toc
       # converts in the current page context.
       #my $text = $self->command_text($section, 'text_nonumber');
       my $tree = $self->command_tree($section, 1);
+      # happens with empty sectioning command
+      next if (!$tree);
       my $text = $self->convert_tree($tree, "mini_toc \@$section->{'cmdname'}");
 
       $entry_index++;

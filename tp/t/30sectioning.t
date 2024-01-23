@@ -136,6 +136,11 @@ my @tests_converted = (
 ['one_subsection',
 '@subsection The subsection
 '],
+['empty_section_in_chapter',
+'@chapter chap
+
+@section
+'],
 ['section_below_unnumbered',
 '
 @contents

@@ -3762,6 +3762,9 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
   return href.text;
 }
 
+/* the returned TREE_ADDED_ELEMENTS may not be NUL but have a NUL tree
+   field, for instance in the case of an empty sectioning element
+ */
 TREE_ADDED_ELEMENTS *
 html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                             int no_number)
@@ -9783,6 +9786,10 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
           char *accesskey;
           char *text;
           char *href = html_command_href (self, section, 0, 0, 0);
+
+          /* happens with empty sectioning command */
+          if (!command_tree->tree)
+            continue;
 
           xasprintf (&explanation, "mini_toc @%s",
                      element_command_name (section));

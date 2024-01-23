@@ -1,5 +1,14 @@
 2024-01-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_mini_toc),
+	tp/Texinfo/XS/convert/convert_html.c (mini_toc_internal): handle empty
+	sectioning command in mini toc.
+
+	* tp/Makefile.tres, tp/t/30sectioning.t (empty_section_in_chapter):
+	test empty @section in @chapter conversion.
+
+2024-01-22  Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/mass_test/generate_perlVSC.sh: show command line when doing
 	only one test.
 
