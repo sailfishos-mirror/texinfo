@@ -1883,29 +1883,24 @@ sub _text_heading($$$;$$)
 
   my ($heading, undef) = $self->convert_line_new_context (
                               {'type' => 'frenchspacing',
-                               'contents' => [$heading_element]});
-  my $heading_width = _string_width_encoded($self, $heading);
-  # TODO could use the returned width from convert_line_new_context instead
+                               'contents' => [$heading_element]}, undef, 1);
 
-  my ($text, $number_width, $gdt_width);
+  my $text;
   if (defined($number)) {
-    $number_width = length($number);
     if ($current->{'cmdname'} eq 'appendix'
         and $current->{'extra'}->{'section_level'} == 1) {
-      ($text, $gdt_width) = $self->gdt_string_encoded(
+      $text = $self->gdt_string(
                  'Appendix {number} {section_title}',
                  {'number' => $number, 'section_title' => $heading});
     } else {
-      ($text, $gdt_width) = $self->gdt_string_encoded(
+      $text = $self->gdt_string(
                  '{number} {section_title}',
                  {'number' => $number, 'section_title' => $heading});
     }
   } else {
     $text = $heading;
-    $number_width = 0;
-    $gdt_width = 0;
   }
-  my $columns = $heading_width + $number_width + $gdt_width;
+  my $columns = Texinfo::Convert::Unicode::string_width($text);
 
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
@@ -2846,7 +2841,7 @@ sub _convert($$)
                             $self->get_conf('NUMBER_SECTIONS'),
           ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);
         $result =~ s/\n$//; # final newline has its own tree element
-        _stream_output_encoded($self, $result);
+        _stream_output($self, $result);
         _add_lines_count($self, 1);
         return;
       } elsif ($command eq 'U') {
@@ -3095,7 +3090,7 @@ sub _convert($$)
                            ($self->{'format_context'}->[-1]->{'indent_level'})
                                            * $indent_length);
         _add_newline_if_needed($self);
-        _stream_output_encoded($self, $heading_underlined);
+        _stream_output($self, $heading_underlined);
         if ($heading_underlined ne '') {
           _add_lines_count($self, 2);
           _add_newline_if_needed($self);

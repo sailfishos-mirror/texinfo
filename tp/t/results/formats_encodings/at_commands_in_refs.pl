@@ -15603,7 +15603,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
 2     !
 . . ? @
-*********
+*******
 
 3 @ { } \\ #
 ***********
@@ -16759,7 +16759,7 @@ File: ,  Node:     ! . . ? @,  Next: @ { } \\ #,  Prev: { },  Up: Top
 
 2     !
 . . ? @
-*********
+*******
 
 
 File: ,  Node: @ { } \\ #,  Next: LaTeX TeX • , © ... ...,  Prev:     ! . . ? @,  Up: Top
@@ -16971,31 +16971,31 @@ Tag Table:
 Node: Top27
 Node: { }785
 Node:     ! . . ? @864
-Node: @ { } \\ #963
-Node: LaTeX TeX • , © ... ...1082
-Node: ≡ error→ € ¡ ↦ −1232
-Node: ≥ ≤ →1364
-Node: ª º ⋆ £ ⊣ ¿ ®1462
-Node: ⇒ ° a b a sunny day å1581
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1738
-Node: ä ẽ î â à é ç ē e̊ e̋ ę1917
-Node: ė ĕ e̲ ẹ ě ȷ e͡e2083
-Node: ı Ḕ Ḉ2213
-Node: “ ” ‘ ’ „ ‚2311
-Node: « » « » ‹ ›2416
-Node: `` \'\' --- -- ` \'2532
-Node: AAA (fff) AAA BBB2656
-Node: CCC (rrr) CCC DDD2796
-Node: the someone <someone@somewher> <no_explain@there>2969
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3269
-Node:  @ {} . 3618
-Node: cite asis in @w b in r SC *str* t VAR dfn i3821
-Node: env code option samp command file C-x <ESC>4065
-Node: 8.27in4327
-Node: sansserif slanted4461
-Node: indicateurl4585
-Node: _{g}H 3^{rd}4707
-Node: <http://somewhere_aaa> text (url) ls4846
+Node: @ { } \\ #961
+Node: LaTeX TeX • , © ... ...1080
+Node: ≡ error→ € ¡ ↦ −1230
+Node: ≥ ≤ →1362
+Node: ª º ⋆ £ ⊣ ¿ ®1460
+Node: ⇒ ° a b a sunny day å1579
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1736
+Node: ä ẽ î â à é ç ē e̊ e̋ ę1915
+Node: ė ĕ e̲ ẹ ě ȷ e͡e2081
+Node: ı Ḕ Ḉ2211
+Node: “ ” ‘ ’ „ ‚2309
+Node: « » « » ‹ ›2414
+Node: `` \'\' --- -- ` \'2530
+Node: AAA (fff) AAA BBB2654
+Node: CCC (rrr) CCC DDD2794
+Node: the someone <someone@somewher> <no_explain@there>2967
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3267
+Node:  @ {} . 3616
+Node: cite asis in @w b in r SC *str* t VAR dfn i3819
+Node: env code option samp command file C-x <ESC>4063
+Node: 8.27in4325
+Node: sansserif slanted4459
+Node: indicateurl4583
+Node: _{g}H 3^{rd}4705
+Node: <http://somewhere_aaa> text (url) ls4844
 
 End Tag Table
 

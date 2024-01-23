@@ -1,5 +1,14 @@
 2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_text_heading): Return
+	an unencoding string to be output with _stream_output
+	rather than _stream_output_encoded.  Callers updated.  Call
+	convert_line_new_context with encoding disabled.  Call gdt_string
+	rather than gdt_string_encoded and get display width of result
+	with string_width.
+
+2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_stream_output): Interchange
 	second and third parameters, to simplify calling when the
 	formatter argument is undef.  All callers updated.
