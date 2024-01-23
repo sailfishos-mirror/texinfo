@@ -5909,8 +5909,8 @@ sub _convert_tab_command($$$$$)
   my $cf = $multitable->{'extra'}->{'columnfractions'};
   if ($cf) {
     if (exists($cf->{'extra'}->{'misc_args'}->[$cell_nr-1])) {
-      my $percent = sprintf('%d',
-                             100*$cf->{'extra'}->{'misc_args'}->[$cell_nr-1]);
+      my $percent = sprintf('%.0f',
+                            100. * $cf->{'extra'}->{'misc_args'}->[$cell_nr-1]);
       $fractions = " width=\"$percent%\"";
     }
   }

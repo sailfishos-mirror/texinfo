@@ -10,6 +10,14 @@
 
 2024-01-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_tab_command): round using
+	%.0f to be more accurate than with %d.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (fractions_rounding): add a test
+	that shows an incorrect percent rounding with %d with perl.
+
+2024-01-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/html_tests.t (contents_with_only_top_node)
 	(top_node_top_contents): tests of html_text and file_html for
 	@contents with @node only or @node and @top only.
