@@ -703,6 +703,15 @@ In top.
 '
 @titlefont{}
 '],
+['end_of_line_in_uref',
+'See the @uref{https://gcc.gnu.org/codingconventions.html#Spelling
+Spelling, terminology and markup} section.'],
+['fractions_rounding',
+'@multitable @columnfractions .19 .30 .29 .22
+@item In contents            @tab In contents                  @tab In contents           @tab Not in contents
+@item @code{@@chapter}       @tab @code{@@unnumbered}          @tab @code{@@appendix} @tab @code{@@chapheading}
+@end multitable
+'],
 ['spaces_in_line_break_in_verb_w',
 '@w{aaa  bb
 ccc}

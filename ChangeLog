@@ -1,3 +1,11 @@
+2024-01-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_tab_command): round using
+	%.0f to be more accurate than with %d.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (fractions_rounding): add a test
+	that shows an incorrect percent rounding with %d with perl.
+
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
 
 	Remove parent of @include or @setfilename source mark elements
