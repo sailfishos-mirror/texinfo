@@ -1,5 +1,5 @@
 #! /bin/sh
-# Setup reference HTML output using the perl converter
+# Setup HTML output using C in conversion
 #
 # Copyright 2024 Free Software Foundation, Inc.
 #
@@ -14,7 +14,7 @@
 
 set -e
 
-TEXINFO_XS_CONVERT=0
+TEXINFO_XS_CONVERT=1
 export TEXINFO_XS_CONVERT
 
-./generate_perlVSC.sh perl_HTML_refs $1
+./generate_perlVSC.sh compare_C_HTML $1

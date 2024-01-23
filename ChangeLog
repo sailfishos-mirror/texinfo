@@ -1,5 +1,10 @@
 2024-01-21  Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/mass_test/*.sh: add more manuals, separate script to
+	output HTML, separate generating HTML and checking the differences.
+
+2024-01-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm: comments covering, hopefully, all
 	the things to change for DocBook 5, following Jean-Christophe Helary
 	mail on bug-texinfo.

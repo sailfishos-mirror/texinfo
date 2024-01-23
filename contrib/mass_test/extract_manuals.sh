@@ -12,22 +12,107 @@
 
 set -e
 
+rm -rf normalized
+mkdir -p normalized
+
+# disambiguate manuals
+for dir in download/www.gnu.org/software/plotutils/manual/*/; do
+  dir_name=`basename $dir`
+  mkdir -p normalized/plotutils_${dir_name}
+  for file in download/www.gnu.org/software/plotutils/manual/$dir_name/*.texi.tar.gz ; do
+    cp -p $file normalized/plotutils_${dir_name}/
+  done
+done
+
 mkdir -p manuals
 
-for manual in www.gnu.org/software/*/manual/*.texi.tar.gz; do
+extract_manual() {
+  manual=$1
+  mdir=$2
   bfile=`basename $manual .texi.tar.gz`
-  echo "$bfile"
-  rm -rf manuals/$bfile
-  mkdir manuals/$bfile
-  cp -p $manual manuals/$bfile/
+  mdir_bfile="$mdir/$bfile"
+  echo "$mdir_bfile"
+  rm -rf manuals/$mdir_bfile
+  mkdir -p manuals/$mdir_bfile
+  cp -p $manual manuals/$mdir/$bfile/
   (
-    cd manuals/$bfile/
+    cd manuals/$mdir/$bfile/
     tar xzf ${bfile}.texi.tar.gz
     rm -f ${bfile}.texi.tar.gz
   )
+}
+
+for manual in download/www.gnu.org/software/*/manual/*.texi.tar.gz download/www.gnu.org/software/*/manual/*/*.texi.tar.gz ; do
+  mdir=`echo $manual | sed 's;download/www.gnu.org/software/\([^/]\+\)/.*;\1;'`
+  extract_manual $manual $mdir
 done
 
-for dir in www.gnu.org/software/*/manual/ ; do
+mv manuals/rottlog//rottlog/tmp/rottlog-*/doc/*.texi manuals/rottlog//rottlog
+rm -rf manuals/rottlog//rottlog/tmp/
+
+rm -rf manuals/plotutils
+# all the manuals are in each of the texinfo sub-manuals
+rm -rf manuals/texinfo/info-stnd manuals/texinfo/texi2any_*
+# already in auctex
+rm -rf manuals/auctex/preview-latex
+
+for manual in download/www.gnu.org/software/emacs/manual/texi/*.texi.tar.gz download/www.gnu.org/software/guile-gnome/docs/*/*.texi.tar.gz ; do
+  mdir=`echo $manual | sed 's;download/www.gnu.org/software/\([^/]\+\)/.*;\1;'`
+  extract_manual $manual $mdir
+  bfile=`basename $manual .texi.tar.gz`
+  mv manuals/$mdir/$bfile/*-*/* manuals/$mdir/$bfile/
+  rmdir manuals/$mdir/$bfile/*-*/
+done
+
+for manual in download/www.gnu.org/prep/*/*.texi.tar.gz ; do
+  mdir=`echo $manual | sed 's;download/www.gnu.org/prep/\([^/]\+\)/.*;\1;'`
+  extract_manual $manual $mdir
+done
+
+for dir in normalized/*/; do
+  dir_name=`basename $dir`
+  for manual in $dir/*.texi.tar.gz ; do
+    extract_manual $manual $dir_name
+  done
+done
+
+rm -rf tmp manuals/gcc
+mkdir tmp
+(
+cd tmp
+tar xzf ../download/gcc.gnu.org/onlinedocs/gcc-*/docs-sources.tar.gz
+# special case
+mv gcc/gcc/jit/docs/_build/texinfo/libgccjit.texi gcc/gcc/jit/
+find gcc -name *.texi | while read manual ; do
+  dirname=`dirname $manual`
+  bfile=`basename $dirname`
+  echo "gcc/$bfile $manual"
+  mkdir -p ../manuals/gcc/$bfile/
+  cp -p $manual ../manuals/gcc/$bfile/
+done
+)
+rm -rf tmp
+
+mkdir -p manuals/glibc/libc/
+echo glibc/libc
+cp -p download/sourceware.org/glibc/manual/texi/libc-texi.tar.gz manuals/glibc/libc/
+(
+  cd manuals/glibc/libc/
+  tar xzf *-texi.tar.gz
+  rm -f *-texi.tar.gz
+)
+
+rm -rf manuals/groff/groff/
+mkdir -p manuals/groff/groff/
+echo groff/groff
+cp -p download/www.gnu.org/software/groff/manual/groff.texi.gz manuals/groff/groff
+(
+  cd manuals/groff/groff
+  gunzip groff.texi.gz
+)
+
+
+for dir in download/www.gnu.org/software/*/manual/ ; do
   one_manual_found=no
   for file in $dir/*.texi.tar.gz; do
     if test -e "$file" ; then
@@ -36,7 +121,15 @@ for dir in www.gnu.org/software/*/manual/ ; do
     fi
   done
   if test $one_manual_found = 'no' ; then
-    echo "REMARK: $dir: no manual" 1>&2
+    for file in $dir/*/*.texi.tar.gz; do
+      if test -e "$file" ; then
+        one_manual_found=yes
+        break
+      fi
+    done
+    if test $one_manual_found = 'no' ; then
+      echo "REMARK: $dir: no manual" 1>&2
+    fi
   fi
 done
 
@@ -46,13 +139,13 @@ done
 echo '@macro FIXME {arg}
 \\arg\\
 @end macro
-' > manuals/anubis/rendition.texi
+' > manuals/anubis/anubis/rendition.texi
 
 # files with CRLF EOL found with
-# file manuals/*/*.texi | grep CRLF
+# file manuals/*/*/*.texi | grep CRLF
 
 # remove CR in end of lines.
-for file in manuals/orgadoc/*.texi manuals/remotecontrol/version.texi; do
+for file in manuals/orgadoc/*/*.texi manuals/remotecontrol/*/version.texi; do
   sed 's/\r$//' $file > $file.$$
   rm -f $file
   mv $file.$$ $file
