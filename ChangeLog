@@ -1,5 +1,10 @@
 2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Translations.pm (gdt_string_encoded): Remove now
+	unused function.
+
+2024-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_text_heading): Return
 	an unencoding string to be output with _stream_output
 	rather than _stream_output_encoded.  Callers updated.  Call
