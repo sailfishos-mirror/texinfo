@@ -53,7 +53,9 @@ for manual_proj_dir in manuals/*/ ; do
         mkdir $out_dir
         err_file=${out_dir}/${bfile}-html_nodes.err
         # the -I directory is for gcc, could add more
-        #echo "../../tp/texi2any.pl -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --html -o ${out_dir}/html_nodes/ $file 2>$err_file"
+        if test $one_test = 'yes' ; then
+          echo "../../tp/texi2any.pl -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --html -o ${out_dir}/html_nodes/ $file"
+        fi
         ../../tp/texi2any.pl -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --html -o ${out_dir}/html_nodes/ $file 2>$err_file
         if test -s $err_file ; then :
         else rm -f $err_file
