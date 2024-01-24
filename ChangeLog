@@ -1,5 +1,11 @@
 2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Info.pm (format_node): Pass return value of
+	node_name to Texinfo::Convert::Plaintext::_decode if interpolating
+	into an error message.
+
+2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (convert_line_new_context):
 	Unconditionally disable encoding in the nested count context
 	and remove a parameter.  All callers updated.

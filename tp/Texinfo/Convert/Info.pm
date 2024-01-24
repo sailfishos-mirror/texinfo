@@ -563,7 +563,7 @@ sub format_node($$)
               and $node_direction->{'extra'}->{'manual_content'}) {
             $self->plaintext_line_warn($self, sprintf(__(
                  "\@node %s name should not contain `,': %s"),
-                                           $direction, $node_text),
+                                     $direction, $self->_decode($node_text)),
                              $node->{'source_info'});
           }
           if ($self->{'info_special_chars_quote'}) {
