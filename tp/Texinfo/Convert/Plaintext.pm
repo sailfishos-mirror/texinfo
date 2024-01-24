@@ -1701,7 +1701,6 @@ sub process_printindex($$;$)
         if ($self->{'info_special_chars_quote'}) {
           my $pre_quote = "\x{7f}";
           my $post_quote = $pre_quote;
-          $self->{'count_context'}->[-1]->{'bytes'} += 2;
           $node_name = $pre_quote . $node_name . $post_quote;
         }
       }
