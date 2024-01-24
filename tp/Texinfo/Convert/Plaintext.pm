@@ -2433,7 +2433,7 @@ sub _convert($$)
             _convert($self, $file);
           }
 
-          my $node_line_name;
+          my $node_name;
 
           # Get the node name to be output.
           # Due to the paragraph formatter holding pending text, converting
@@ -2446,12 +2446,12 @@ sub _convert($$)
           if ($label_element and $label_element->{'contents'}
               and scalar(@{$label_element->{'contents'}}) == 1
               and defined($label_element->{'contents'}->[0]->{'text'})) {
-            $node_line_name = $label_element->{'contents'}->[0]->{'text'};
+            $node_name = $label_element->{'contents'}->[0]->{'text'};
           } else {
             $self->{'silent'} = 0 if (!defined($self->{'silent'}));
             $self->{'silent'}++;
 
-            ($node_line_name, undef) = $self->convert_line_new_context(
+            ($node_name, undef) = $self->convert_line_new_context(
                                           {'type' => '_code',
                                            'contents' => [$label_element]},
                                           {'suppress_styles' => 1,
@@ -2467,7 +2467,7 @@ sub _convert($$)
           }
 
           my $quoting_required = 0;
-          if ($node_line_name =~ /([$check_chars])/m) {
+          if ($node_name =~ /([$check_chars])/m) {
             if ($self->{'info_special_chars_warning'}) {
               $self->plaintext_line_warn($self, sprintf(__(
                  "\@%s node name should not contain `%s'"), $command, $1),
