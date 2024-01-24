@@ -633,11 +633,12 @@ deftp
 Solaris 11
 ==========
 
-cpan Data::Compare
-
 # recent Test::Deep requires perl 5.12
 cpan> o conf urllist push http://backpan.perl.org/
 cpan RJBS/Test-Deep-1.127.tar.gz
+
+Also possible to install Texinfo dependencies with CSW, like
+pkgutil -y -i CSWhelp2man CSWpm-data-compare CSWpm-test-deep
 
 
 Misc notes
