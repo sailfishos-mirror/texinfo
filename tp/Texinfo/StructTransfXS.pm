@@ -31,7 +31,7 @@ BEGIN {
   if ($XS_structuring) {
     Texinfo::XSLoader::init (
       "Texinfo::StructTransfXS",
-      "Texinfo::StructTransfXS",
+      undef,
       "StructuringTransfoXS",
       undef,
       0,

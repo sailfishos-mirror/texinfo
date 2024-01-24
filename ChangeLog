@@ -44,6 +44,13 @@
 
 2024-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/DocumentXS.pm (BEGIN), tp/Texinfo/IndicesXS.pm (BEGIN),
+	tp/Texinfo/StructTransfXS.pm (BEGIN): set the Texinfo::XSLoader::init
+	fallback_module module argument to undef when there is no actual
+	fallback module.
+
+2024-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac (AM_INIT_AUTOMAKE): decrease required automake version
 	to 1.16.1, which requires @setfilename in Texinfo manuals, but it also
 	the version still found for some platforms.

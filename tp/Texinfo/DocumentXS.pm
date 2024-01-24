@@ -30,7 +30,7 @@ BEGIN {
 
   my $package = Texinfo::XSLoader::init (
       "Texinfo::DocumentXS",
-      "Texinfo::DocumentXS",
+      undef,
       "DocumentXS",
       undef,
       0,
