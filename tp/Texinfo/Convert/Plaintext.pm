@@ -1662,13 +1662,13 @@ sub process_printindex($$;$)
       # cache the transformation to text and byte counting, as
       # it is likely that there is more than one such entry
        if (!$self->{'outside_of_any_node_text'}) {
-          my $node_text = $self->gdt('(outside of any node)');
-          my ($node_text_encoded, $width)
-            = $self->convert_line_new_context($node_text);
-          $self->{'outside_of_any_node_text'} = $node_text_encoded;
+          my $tree = $self->gdt('(outside of any node)');
+          my ($node_text, $width)
+            = $self->convert_line_new_context($tree, undef, 1);
+          $self->{'outside_of_any_node_text'} = $node_text;
           $self->{'outside_of_any_node_text_width'} = $width;
        }
-      _stream_output_encoded($self, $self->{'outside_of_any_node_text'});
+      _stream_output($self, $self->{'outside_of_any_node_text'});
       $line_width += $self->{'outside_of_any_node_text_width'};
 
       # FIXME when outside of sectioning commands this message was already
