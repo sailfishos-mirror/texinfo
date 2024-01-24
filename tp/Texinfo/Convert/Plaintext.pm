@@ -874,33 +874,6 @@ sub convert_line_new_context($$;$$)
   return ($result, $count, $end_line_count);
 }
 
-# Convert in a new count context, without adding a new paragraph formatter.
-# Used to capture part of the result of a conversion.  Returned string can
-# be passed to _stream_output_encoded.
-sub convert_new_context($$;$)
-{
-  my ($self, $converted, $conf) = @_;
-
-  my $result;
-
-  my $formatter = $self->{'formatters'}->[-1];
-
-  die if !defined($formatter);
-
-  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-  $self->_convert($converted);
-  _stream_output($self,
-                Texinfo::Convert::Paragraph::add_pending_word
-                  ($formatter->{'container'}, 1),
-                $formatter->{'container'});
-  $result = _stream_result($self);
-  pop @{$self->{'count_context'}};
-
-  die if (!scalar(@{$self->{'count_context'}}));
-
-  return $result;
-}
-
 sub _add_lines_count($$)
 {
   my ($self, $lines_count) = @_;
@@ -3691,11 +3664,20 @@ sub _convert($$)
           $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
 
+          push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                             'encoding_disabled' => 1};
+          $self->_convert({'type' => '_code',
+                          'contents' => $content->{'contents'}});
           # note that $content->{'contents'} may be undefined in rare cases,
           # such as in 30sectioning.t in_menu_only_special_ascii_spaces_node
           # test
-          my ($node_text) = convert_new_context($self,
-            {'type' => '_code', 'contents' => $content->{'contents'}});
+
+          _stream_output($self,
+                        Texinfo::Convert::Paragraph::add_pending_word
+                          ($formatter->{'container'}, 1),
+                        $formatter->{'container'});
+          my $node_text = _stream_result($self);
+          pop @{$self->{'count_context'}};
 
           delete $self->{'formatters'}->[-1]->{'suppress_styles'};
           delete $self->{'formatters'}->[-1]->{'no_added_eol'};
@@ -3723,7 +3705,7 @@ sub _convert($$)
               }
             }
           }
-          _stream_output_encoded($self, $pre_quote.$node_text.$post_quote);
+          _stream_output($self, $pre_quote.$node_text.$post_quote);
         } elsif ($content->{'type'} eq 'menu_entry_name') {
           # Flush output so not to include in name text
           _stream_output($self,
@@ -3732,7 +3714,17 @@ sub _convert($$)
 
           my ($pre_quote, $post_quote);
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
-          my ($entry_name, undef) = convert_new_context($self, $content);
+
+          push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                             'encoding_disabled' => 1};
+          $self->_convert($content);
+          _stream_output($self,
+                        Texinfo::Convert::Paragraph::add_pending_word
+                          ($formatter->{'container'}, 1),
+                        $formatter->{'container'});
+          my $entry_name = _stream_result($self);
+          pop @{$self->{'count_context'}};
+
           delete $self->{'formatters'}->[-1]->{'no_added_eol'};
           my $formatter = $self->{'formatters'}->[-1];
           $entry_name_seen = 1;
@@ -3747,7 +3739,7 @@ sub _convert($$)
               $pre_quote = $post_quote = "\x{7f}";
             }
           }
-          _stream_output_encoded($self, $pre_quote.$entry_name.$post_quote);
+          _stream_output($self, $pre_quote.$entry_name.$post_quote);
         # empty description
         } elsif ($content->{'type'} eq 'menu_entry_description'
                  and (not $content->{'contents'}
