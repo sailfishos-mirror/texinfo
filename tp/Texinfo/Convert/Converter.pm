@@ -712,7 +712,9 @@ sub get_conf($$)
     #return undef;
   }
 
-  if ($self->{'converter_descriptor'} and $XS_convert) {
+  # Check that the package was loaded as we should only use perl if not.
+  if ($self->{'converter_descriptor'} and $XS_convert
+      and $Texinfo::Convert::ConvertXS::XS_package) {
     my $result = _XS_get_conf($self, $conf);
     return $result;
   }

@@ -44,6 +44,28 @@
 
 2024-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XSLoader.pm (init): if fallback module is not set, return
+	undef instead of calling die.  For many XS modules there is no perl
+	module fallback, instead, if the perl methods are used instead of the
+	XS methods the output should be fine.  For the other cases, the return
+	value of init should be checked.
+
+	* tp/Texinfo/Convert/ConvertXS.pm ($XS_package, BEGIN),
+	tp/Texinfo/Convert/Converter.pm (get_conf),
+	tp/Texinfo/Convert/PlainTexinfo.pm (convert_tree),
+	tp/Texinfo/Convert/Text.pm (convert_to_text, output),
+	tp/Texinfo/StructTransfXS.pm ($XS_package, BEGIN),
+	tp/Texinfo/Transformations.pm (_new_node): set $XS_package with
+	Texinfo::XSLoader::init return value for ConvertXS and StructTransfXS,
+	and check the value in codes that need to know if the module was
+	loaded, for instance if th eperl functions that are not overriden
+	should not be called.
+
+	* tp/Texinfo/Document.pm (%XS_overrides): remove
+	remove_document_descriptor override, it is not defined in perl.
+
+2024-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/ConvertXS.pm (BEGIN),
 	tp/Texinfo/Convert/Paragraph.pm (BEGIN), tp/Texinfo/DocumentXS.pm
 	(BEGIN), tp/Texinfo/IndicesXS.pm (BEGIN), tp/Texinfo/MiscXS.pm

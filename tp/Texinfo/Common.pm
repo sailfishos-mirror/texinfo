@@ -2507,9 +2507,10 @@ sub get_label_element($)
   return undef;
 }
 
-# non-XS does nothing and should not even be called as the caller verifies
-# that there is a document descriptor; XS version registers options in XS
-# document.  It would have been more logical for this function to be in
+# non-XS does nothing and should not be called in most cases as the
+# caller verifies that there is a document descriptor; XS version
+# registers options in XS document.
+# NOTE It would have been more logical for this function to be in
 # Texinfo::Config, but we do not want to load any XS in Texinfo::Config.
 sub set_document_options($$)
 {

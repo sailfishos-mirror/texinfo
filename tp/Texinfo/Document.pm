@@ -50,8 +50,6 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::remove_document",
   "Texinfo::Document::clear_document_errors"
     => "Texinfo::DocumentXS::clear_document_errors",
-  "Texinfo::Document::remove_document_descriptor"
-    => "Texinfo::DocumentXS::remove_document_descriptor",
   "Texinfo::Document::_XS_set_document_global_info",
     => "Texinfo::DocumentXS::set_document_global_info",
 );

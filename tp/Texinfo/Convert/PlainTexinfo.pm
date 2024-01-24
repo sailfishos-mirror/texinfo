@@ -89,7 +89,8 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
-  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
+  if ($XS_convert and defined($root->{'tree_document_descriptor'})
+      and $Texinfo::Convert::ConvertXS::XS_package) {
     return _convert_tree_with_XS($root);
   }
 

@@ -848,7 +848,8 @@ sub convert_to_text($;$)
   bless $options, "Texinfo::Convert::Text";
 
   # Interface with XS converter.
-  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
+  if ($XS_convert and defined($root->{'tree_document_descriptor'})
+      and $Texinfo::Convert::ConvertXS::XS_package) {
     return _convert_tree_with_XS($options, $root);
   }
 
@@ -1032,7 +1033,8 @@ sub output($$)
 
   my $result;
   # Interface with XS converter.
-  if ($XS_convert and defined($root->{'tree_document_descriptor'})) {
+  if ($XS_convert and defined($root->{'tree_document_descriptor'})
+      and $Texinfo::Convert::ConvertXS::XS_package) {
     $result = _convert_tree_with_XS($self, $root);
   } else {
     $result = _convert($self, $root);

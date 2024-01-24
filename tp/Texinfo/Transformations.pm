@@ -291,7 +291,7 @@ sub _new_node($$;$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  if ($XS_structuring) {
+  if ($XS_structuring and $Texinfo::StructTransfXS::XS_package) {
     # If there were XS overrides for all the transformations, they would
     # necessarily fail, so treat as a bug even though it does not matter
     # with missing overrides, as seen just below.

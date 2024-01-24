@@ -26,6 +26,8 @@ our $VERSION = '7.1dev';
 
 use Texinfo::XSLoader;
 
+our $XS_package;
+
 BEGIN {
   # XS parser and not explicitely unset
   my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
@@ -41,7 +43,7 @@ BEGIN {
                       and $ENV{TEXINFO_XS_CONVERT} eq '1');
 
   if ($XS_convert) {
-    Texinfo::XSLoader::init (
+    $XS_package = Texinfo::XSLoader::init (
       "Texinfo::Convert::ConvertXS",
       undef,
       "ConvertXS",

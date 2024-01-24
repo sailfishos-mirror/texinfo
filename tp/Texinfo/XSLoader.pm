@@ -233,10 +233,17 @@ sub init {
       warn "falling back to pure Perl module $fallback_module\n";
     }
   }
+  # if there is no fallback and the perl methods that have not been overriden
+  # should not be called, the return value should be made available such
+  # that code that could have called the corresponding perl methods can
+  # chenck if the return value is not set.
   if (!defined $fallback_module) {
-    warn "no fallback module for $module\n";
-    die "set/unset the TEXINFO_XS, TEXINFO_XS_PARSER and TEXINFO_XS_CONVERT "
-       ."environment variables to use the pure Perl modules\n";
+    if ($TEXINFO_XS eq 'warn' or $TEXINFO_XS eq 'debug') {
+      warn "no fallback module for $module\n";
+    }
+    return undef;
+    #die "set/unset the TEXINFO_XS, TEXINFO_XS_PARSER and TEXINFO_XS_CONVERT "
+    #   ."environment variables to use the pure Perl modules\n";
   }
 
   # Fall back to using the Perl code.
