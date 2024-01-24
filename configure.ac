@@ -15,7 +15,7 @@ AC_INIT([GNU Texinfo], [7.1dev], [bug-texinfo@gnu.org])
 dnl Must come before AM_INIT_AUTOMAKE.
 AC_CONFIG_AUX_DIR([build-aux])
 dnl tar-ustar because we have long filenames for some test files.
-AM_INIT_AUTOMAKE([1.16.2
+AM_INIT_AUTOMAKE([1.16.1
                  info-in-builddir parallel-tests tar-ustar])
 
 # Where to generate output; srcdir location.
