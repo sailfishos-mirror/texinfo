@@ -1,5 +1,11 @@
 2024-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* info/Makefile.am (AUTOMAKE_OPTIONS): remove no-dist-built-sources,
+	it does not seems to be useful.  If it is readded, the automake
+	required version should be increased.
+
+2024-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi: add @setfilename to simplify using old
 	automake versions.
 

@@ -11,10 +11,12 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 # no-dist-built-sources is actually in 1.16.4 upward
-# use no-dist-built-sources such that funs.h is not distributed even
+# could use no-dist-built-sources such that funs.h is not distributed even
 # if in BUILT_SOURCES
-# FIXME it does not seem to work as adverised in tests?
-AUTOMAKE_OPTIONS = 1.16 no-dist-built-sources
+#no-dist-built-sources
+# However, in tests with automake 1.16.5 funs.h does not seems to be
+# distributed even without no-dist-built-sources
+AUTOMAKE_OPTIONS = 1.16
 
 # Use `ginfo' for building to avoid confusion with the standard `info'
 # target.  Removes the `g' in the install rule before applying any
