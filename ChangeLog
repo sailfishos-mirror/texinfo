@@ -44,6 +44,15 @@
 
 2024-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/ConvertXS.pm (BEGIN),
+	tp/Texinfo/Convert/Paragraph.pm (BEGIN), tp/Texinfo/DocumentXS.pm
+	(BEGIN), tp/Texinfo/IndicesXS.pm (BEGIN), tp/Texinfo/MiscXS.pm
+	(BEGIN), tp/Texinfo/Parser.pm (BEGIN), tp/Texinfo/StructTransfXS.pm
+	(BEGIN): leave out Texinfo::XSLoader::init warning and fatal message
+	arguments when they are undef.
+
+2024-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/DocumentXS.pm (BEGIN), tp/Texinfo/IndicesXS.pm (BEGIN),
 	tp/Texinfo/StructTransfXS.pm (BEGIN): set the Texinfo::XSLoader::init
 	fallback_module module argument to undef when there is no actual

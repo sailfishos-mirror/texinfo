@@ -25,9 +25,6 @@ our $VERSION = '7.1dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  our $warning_message = undef;
-  our $fatal_message = undef;
-
   my $xs_package = "Texinfo::Parser";
   if (defined $ENV{TEXINFO_XS_PARSER}
       and $ENV{TEXINFO_XS_PARSER} eq '0') {
@@ -40,8 +37,6 @@ BEGIN {
       "Parsetexi",
       "Texinfo::XS::parsetexi::Parsetexi",
       0,
-      $warning_message,
-      $fatal_message
   );
 }
 

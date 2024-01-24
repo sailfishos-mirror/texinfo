@@ -43,8 +43,6 @@ BEGIN {
       "IndicesXS",
       undef,
       0,
-      undef,
-      undef,
     );
   }
 }

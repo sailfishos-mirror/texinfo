@@ -33,8 +33,6 @@ BEGIN {
     "MiscXS",
     undef,
     0,
-    undef,
-    undef,
   );
 }
 

@@ -25,17 +25,12 @@ our $VERSION = '7.1dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  our $warning_message = undef;
-  our $fatal_message = undef;
-
   my $package = Texinfo::XSLoader::init (
       "Texinfo::DocumentXS",
       undef,
       "DocumentXS",
       undef,
       0,
-      $warning_message,
-      $fatal_message
   );
 }
 

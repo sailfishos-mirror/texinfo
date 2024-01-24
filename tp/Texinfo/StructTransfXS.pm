@@ -35,8 +35,6 @@ BEGIN {
       "StructuringTransfoXS",
       undef,
       0,
-      undef,
-      undef,
     );
   }
 }

@@ -49,9 +49,6 @@ sub import {
 }
 
 BEGIN {
-  our $warning_message = undef;
-  our $fatal_message = undef;
-
   # Save reference to subroutine before we do anything.
   my $import_fn = \&import;
 
@@ -61,8 +58,6 @@ BEGIN {
     "XSParagraph",
     undef,
     0,
-    $warning_message,
-    $fatal_message
   );
 
   no strict 'refs';
