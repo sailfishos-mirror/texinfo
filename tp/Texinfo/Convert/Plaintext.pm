@@ -1045,16 +1045,21 @@ sub _update_locations_counts($$)
 sub _add_newline_if_needed($) {
   my $self = shift;
 
+  # The "bytes" pragma makes length and substr quicker for Perl strings that
+  # may possibly contain UTF-8 sequences.  Since we are only checking for
+  # ASCII newline at the end of the string, this does not change the result.
+  use bytes;
+
   if (defined($self->{'count_context'}->[-1]->{'pending_text'})
-        and $self->{'count_context'}->[-1]->{'pending_text'} =~ /(..)\z/s) {
-    # NB \z matches end of string, whereas $ can match *before* a newline
-    # at the end of a string.
-    if ($1 ne "\n\n") {
-      _stream_output($self, "\n");
-      _add_lines_count($self, 1);
-    }
+    and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
+    and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
+          ne "\n\n") {
+    _stream_output($self, "\n");
+    _add_lines_count($self, 1);
   } else {
     my $result = _stream_result($self);
+    # NB \z matches end of string, whereas $ can match *before* a newline
+    # at the end of a string.
     if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
       _stream_output($self, "\n");
       _add_lines_count($self, 1);
@@ -1955,12 +1960,13 @@ sub _convert($$)
       # inlined below for efficiency
       #$self->_add_newline_if_needed();
 
+      use bytes;
       if (defined($self->{'count_context'}->[-1]->{'pending_text'})
-        and $self->{'count_context'}->[-1]->{'pending_text'} =~ /(..\z)/s) {
-        if ($1 ne "\n\n") {
-          _stream_output($self, "\n");
-          _add_lines_count($self, 1);
-        }
+        and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
+        and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
+              ne "\n\n") {
+        _stream_output($self, "\n");
+        _add_lines_count($self, 1);
       } else {
         my $result = _stream_result($self);
         if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {

@@ -1,5 +1,10 @@
 2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (add_newline_if_needed):
+	Implement checking end of a string for newline using "use bytes".
+
+2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): Rename a variable.
 
 2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
