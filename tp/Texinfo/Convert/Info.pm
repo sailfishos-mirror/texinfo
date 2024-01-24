@@ -455,7 +455,7 @@ sub _info_header($$$)
         if ($command->{'args'} and @{$command->{'args'}}
             and defined($command->{'args'}->[0]->{'contents'})) {
           my ($converted, undef) = $self->convert_line_new_context(
-             {'contents' => $command->{'args'}->[0]->{'contents'}}, undef, 1);
+             {'contents' => $command->{'args'}->[0]->{'contents'}});
           $self->_stream_output("INFO-DIR-SECTION " . $converted . "\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {

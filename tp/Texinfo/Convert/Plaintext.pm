@@ -846,15 +846,12 @@ sub convert_line($$;$)
 
 # convert with a line formatter in a new count context, not changing
 # the current context.  return the result of the conversion.
-sub convert_line_new_context($$;$$)
+sub convert_line_new_context($$;$)
 {
-  my ($self, $converted, $conf, $encoding_disabled) = @_;
+  my ($self, $converted, $conf) = @_;
 
-  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-  if ($encoding_disabled) {
-    # TODO: Update all callers and make this the only option.
-    $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
-  }
+  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                     'encoding_disabled' => 1};
   my $formatter = $self->new_formatter('line', $conf);
   push @{$self->{'formatters'}}, $formatter;
   $self->_convert($converted);
@@ -1390,8 +1387,7 @@ sub format_contents($$$)
         _stream_output($self, ' ' x $repeat_count);
       }
       my ($text, undef) = $self->convert_line_new_context(
-            {'contents' => [$section_title_tree],
-             'type' => 'frenchspacing'}, undef, 1);
+            {'contents' => [$section_title_tree], 'type' => 'frenchspacing'});
       chomp ($text);
       $text .= "\n";
       _stream_output($self, $text);
@@ -1467,6 +1463,7 @@ sub node_name($$)
     my ($result, $width) = $self->convert_line_new_context($node_text,
                                     {'suppress_styles' => 1,
                                      'no_added_eol' => 1,});
+    $result = $self->_stream_encode($result);
     $self->{'node_names_text'}->{$node}
       = {'text' => _normalize_top_node($result),
          'width' => $width };
@@ -1664,7 +1661,7 @@ sub process_printindex($$;$)
        if (!$self->{'outside_of_any_node_text'}) {
           my $tree = $self->gdt('(outside of any node)');
           my ($node_text, $width)
-            = $self->convert_line_new_context($tree, undef, 1);
+            = $self->convert_line_new_context($tree);
           $self->{'outside_of_any_node_text'} = $node_text;
           $self->{'outside_of_any_node_text_width'} = $width;
        }
@@ -1855,7 +1852,7 @@ sub _text_heading($$$;$$)
 
   my ($heading, undef) = $self->convert_line_new_context (
                               {'type' => 'frenchspacing',
-                               'contents' => [$heading_element]}, undef, 1);
+                               'contents' => [$heading_element]});
 
   my $text;
   if (defined($number)) {
@@ -2458,7 +2455,7 @@ sub _convert($$)
                                           {'type' => '_code',
                                            'contents' => [$label_element]},
                                           {'suppress_styles' => 1,
-                                            'no_added_eol' => 1}, undef, 1);
+                                            'no_added_eol' => 1});
             $self->{'silent'}--;
           }
 
@@ -2967,7 +2964,7 @@ sub _convert($$)
           $prepended->{'type'} = 'frenchspacing';
           #_convert($self, $prepended);
           my ($converted, $width, $extra_lines)
-            = $self->convert_line_new_context($prepended, undef, 1);
+            = $self->convert_line_new_context($prepended);
           _stream_output($self, $converted);
           $self->{'count_context'}->[-1]->{'lines'} += $extra_lines;
 
@@ -2991,8 +2988,8 @@ sub _convert($$)
               my $column_size = 0;
               if ($content->{'contents'}) {
                 my ($formatted_prototype, $width)
-                    = $self->convert_line_new_context($content,
-                                                      {'indent_length' => 0});
+                    = $self->convert_line_new_context
+                        ($content, {'indent_length' => 0});
                 $column_size = $width;
               }
               push @$columnsize, 2+$column_size;
@@ -4077,7 +4074,7 @@ sub _convert($$)
         if ($prepended) {
           $prepended->{'type'} = 'frenchspacing';
           my ($float_number, $columns)
-            = $self->convert_line_new_context ($prepended, undef, 1);
+            = $self->convert_line_new_context($prepended);
           _stream_output($self, $float_number);
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $columns;

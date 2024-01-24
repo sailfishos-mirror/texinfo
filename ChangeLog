@@ -1,5 +1,14 @@
 2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (convert_line_new_context):
+	Unconditionally disable encoding in the nested count context
+	and remove a parameter.  All callers updated.
+	(node_name): Call _stream_encode on the result of
+	convert_line_new_context in order still to work with an encoded
+	node name.
+
+2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (process_printindex)
 	<node name quoting>: Do not increment
 	$self->{'count_context'}->[-1]->{'bytes'} as this is taken care
