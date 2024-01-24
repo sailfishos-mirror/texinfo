@@ -1,5 +1,9 @@
 \input texinfo.tex    @c -*-texinfo-*-
 
+@c this is needed by old automake versions < 1.6.2, that are still used
+@c in some platforms in 2024
+@setfilename texi2any_api.info
+
 @include version-texi2any_api.texi
 
 @settitle GNU Texinfo @command{texi2any} Output Customization
