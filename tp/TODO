@@ -630,6 +630,16 @@ defvr (defvar, defopt), deftypevr (deftypevar)
 deftp
 
 
+Solaris 11
+==========
+
+cpan Data::Compare
+
+# recent Test::Deep requires perl 5.12
+cpan> o conf urllist push http://backpan.perl.org/
+cpan RJBS/Test-Deep-1.127.tar.gz
+
+
 Misc notes
 ==========
 

@@ -17,7 +17,7 @@ EXTRA_DIST = $(refcard_files)
 
 doc = txirefcard
 
-all: $(doc).pdf $(doc)-a4.pdf
+pdf-local: $(doc).pdf $(doc)-a4.pdf
 
 # trying to get it work with pdftex isn't worth the trouble.
 $(doc).pdf: $(srcdir)/$(doc).tex
