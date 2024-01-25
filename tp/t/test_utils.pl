@@ -230,7 +230,7 @@ sub protect_perl_string($)
 
 # not that subdirectories are not compared, so subdirectories generated
 # by INFO_JS_DIR, if different, will not trigger an error in test, but
-# will lead to different directories and files for diffs..
+# will lead to different directories and files in diffs.
 sub compare_dirs_files($$;$)
 {
   my $dir1 = shift;
@@ -467,18 +467,27 @@ foreach my $avoided_key(@avoided_keys_elements) {
 sub filter_elements_keys {[grep {!$avoided_keys_elements{$_}}
    ( sort keys %{$_[0]} )] }
 
-sub set_converter_option_defaults($$$)
+sub set_converter_option_defaults($$;$)
 {
   my $converter_options = shift;
-  my $main_configuration = shift;
   my $format = shift;
+  my $debug = shift;
+
   $converter_options = {} if (!defined($converter_options));
+
   if (!defined($converter_options->{'EXPANDED_FORMATS'})) {
     $converter_options->{'EXPANDED_FORMATS'} = [$format];
   }
   if (!defined($converter_options->{'output_format'})) {
     $converter_options->{'output_format'} = $format;
   }
+  if (!defined($converter_options->{'converted_format'})) {
+    $converter_options->{'converted_format'} = $format;
+  }
+  if (!defined($converter_options->{'DEBUG'})) {
+    $converter_options->{'DEBUG'} = $debug;
+  }
+
   return $converter_options;
 }
 
@@ -499,17 +508,18 @@ sub close_files($)
   }
 }
 
-sub convert_to_plaintext($$$$$$;$)
+sub convert_to_plaintext($$$$$)
 {
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $main_configuration = shift;
   my $converter_options = shift;
+
   $converter_options
-    = set_converter_option_defaults($converter_options,
-                                    $main_configuration, $format);
+    = set_converter_option_defaults($converter_options, 'plaintext',
+                                    $self->{'DEBUG'});
+
   if (!defined($converter_options->{'OUTFILE'})
       and defined($converter_options->{'SUBDIR'})) {
     # need to set OUTFILE in any case otherwise the default of -
@@ -522,18 +532,16 @@ sub convert_to_plaintext($$$$$$;$)
     }
   }
 
-  # If not outputing to a file, do not do any encoding.  Return value from
-  # 'output' is an unencoded character string.  This will be encoded to
+  # If not outputing to a file, do not encode.  Return value from
+  # 'output' is a character string.  It will be encoded to
   # UTF-8 in the results file.
   if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq '') {
     $converter_options->{'OUTPUT_PERL_ENCODING'} = '';
   }
 
-  my $converter =
-     Texinfo::Convert::Plaintext->converter({'DEBUG' => $self->{'DEBUG'},
-                                             'converted_format' => 'plaintext',
-                                             %$converter_options });
+  my $converter = Texinfo::Convert::Plaintext->converter($converter_options);
+
   my $result;
   if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq '') {
@@ -554,21 +562,20 @@ sub convert_to_plaintext($$$$$$;$)
   return ($errors, $result, $converter);
 }
 
-sub convert_to_info($$$$$;$)
+sub convert_to_info($$$$$)
 {
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $main_configuration = shift;
   my $converter_options = shift;
-  # FIXME plaintext too?
-  $converter_options
-    = set_converter_option_defaults($converter_options,
-                                    $main_configuration, $format);
 
-  # If not outputing to a file, do not do any encoding.  Return value from
-  # 'output' is an unencoded character string.  This will be encoded to
+  $converter_options
+    = set_converter_option_defaults($converter_options, 'info',
+                                    $self->{'DEBUG'});
+
+  # If not outputing to a file, do not encode.  Return value from
+  # 'output' is a character string.  This will be encoded to
   # UTF-8 in the results file.  This may make byte offsets in the tag table
   # incorrect, so if those needed to be tested, an separate output file
   # would have to be used instead.
@@ -577,10 +584,7 @@ sub convert_to_info($$$$$;$)
     $converter_options->{'OUTPUT_PERL_ENCODING'} = '';
   }
 
-  my $converter =
-     Texinfo::Convert::Info->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'converted_format' => 'info',
-                                          %$converter_options });
+  my $converter = Texinfo::Convert::Info->converter($converter_options);
   my $result = $converter->output($document);
   close_files($converter);
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
@@ -595,25 +599,24 @@ sub convert_to_info($$$$$;$)
   return ($errors, $result, $converter);
 }
 
-sub convert_to_html($$$$$$;$)
+sub convert_to_html($$$$$)
 {
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $main_configuration = shift;
   my $converter_options = shift;
+
   $converter_options
-    = set_converter_option_defaults($converter_options,
-                                    $main_configuration, 'html');
+    = set_converter_option_defaults($converter_options, 'html',
+                                    $self->{'DEBUG'});
 
   $converter_options->{'SPLIT'} = ''
     if ($format eq 'html_text'
         and !defined($converter_options->{'SPLIT'}));
-  my $converter =
-     Texinfo::Convert::HTML->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'converted_format' => 'html',
-                                          %$converter_options });
+
+  my $converter = Texinfo::Convert::HTML->converter($converter_options);
+
   my $result;
   if ($format eq 'html_text') {
     $result = $converter->convert($document);
@@ -633,22 +636,19 @@ sub convert_to_html($$$$$$;$)
   return ($errors, $result, $converter);
 }
 
-sub convert_to_xml($$$$$$;$)
+sub convert_to_xml($$$$$)
 {
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options
-    = set_converter_option_defaults($converter_options,
-                                    $main_configuration, 'xml');
 
-  my $converter =
-     Texinfo::Convert::TexinfoXML->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'converted_format' => 'texinfoxml',
-                                          %$converter_options });
+  $converter_options
+    = set_converter_option_defaults($converter_options, 'xml',
+                                    $self->{'DEBUG'});
+
+  my $converter = Texinfo::Convert::TexinfoXML->converter($converter_options);
 
   my $result;
   if (defined($converter_options->{'OUTFILE'})
@@ -670,22 +670,20 @@ sub convert_to_xml($$$$$$;$)
   return ($errors, $result, $converter);
 }
 
-sub convert_to_docbook($$$$$$;$)
+sub convert_to_docbook($$$$$)
 {
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options
-    = set_converter_option_defaults($converter_options,
-                                    $main_configuration, 'docbook');
 
-  my $converter =
-     Texinfo::Convert::DocBook->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'converted_format' => 'docbook',
-                                          %$converter_options });
+  $converter_options
+    = set_converter_option_defaults($converter_options, 'docbook',
+                                    $self->{'DEBUG'});
+
+  my $converter = Texinfo::Convert::DocBook->converter($converter_options);
+
   my $result;
   my $tree = $document->tree();
   my $document_for_conversion;
@@ -726,22 +724,20 @@ sub convert_to_docbook($$$$$$;$)
   return ($errors, $result, $converter);
 }
 
-sub convert_to_latex($$$$$$;$)
+sub convert_to_latex($$$$$)
 {
   my $self = shift;
   my $test_name = shift;
   my $format = shift;
   my $document = shift;
-  my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options
-    = set_converter_option_defaults($converter_options,
-                                    $main_configuration, 'latex');
 
-  my $converter =
-     Texinfo::Convert::LaTeX->converter ({'DEBUG' => $self->{'DEBUG'},
-                                         'converted_format' => 'latex',
-                                          %$converter_options });
+  $converter_options
+    = set_converter_option_defaults($converter_options, 'latex',
+                                    $self->{'DEBUG'});
+
+  my $converter = Texinfo::Convert::LaTeX->converter($converter_options);
+
   my $result;
   if ($format eq 'latex_text') {
     $result = $converter->convert($document);
@@ -822,7 +818,6 @@ sub test($$)
   my $test_case = shift;
 
   my $parser_options = {};
-  my $converter_options = undef;
   my ($test_name, $test_text);
 
   my $tests_count = 0;
@@ -830,9 +825,24 @@ sub test($$)
   $test_name = shift @$test_case;
   die if (!defined($test_name));
   $test_text = shift @$test_case;
-  $parser_options = shift @$test_case if (@$test_case);
-  $converter_options = shift @$test_case if (@$test_case);
-  $converter_options = {} if (! defined($converter_options));
+  $parser_options = shift @$test_case if (scalar(@$test_case));
+  my $converter_options;
+  if (scalar(@$test_case)) {
+    $converter_options = shift @$test_case;
+  } else {
+    $converter_options = {};
+  }
+
+  if (!defined($converter_options->{'XS_EXTERNAL_CONVERSION'})
+      and defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
+      and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
+    $converter_options->{'XS_EXTERNAL_CONVERSION'} = 1;
+  }
+  if (!defined($converter_options->{'XS_EXTERNAL_FORMATTING'})
+      and defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
+      and $ENV{TEXINFO_XS_EXTERNAL_FORMATTING}) {
+    $converter_options->{'XS_EXTERNAL_FORMATTING'} = 1;
+  }
 
   if (!$self->{'generate'}) {
     mkdir "t/results/$self->{'name'}" if (! -d "t/results/$self->{'name'}");
@@ -850,7 +860,7 @@ sub test($$)
     # where you need @tex expanded in the t/*.t files.
   }
   my $initial_parser_options;
-  # keep parser options to be able to pass to preamble formatting
+  # keep initial parser options to be able to pass to preamble formatting
   if ($arg_output) {
     $initial_parser_options = dclone($parser_options);
   }
@@ -876,9 +886,10 @@ sub test($$)
   # as it is applied after the output formats.  Splitting should not interfere
   # with conversion anyway.  Output formats using information added by
   # splitting split themselves and reassociate all the root commands.
-  # Splitting means associating root commands to a unit element in the structure
-  # hash.  Converters that do not split can ignore this structure hash key and
-  # therefore should not be affected either.
+  # Splitting means setting up output units and associating every root
+  # command to an output unit through 'associated_unit'.  Converters that
+  # do not split ignore output units and the association of root commands
+  # with output units and therefore should not be affected either.
 
   my $test_split = '';
   if ($parser_options->{'test_split'}) {
@@ -1204,16 +1215,6 @@ sub test($$)
   my %converted;
   my %converted_errors;
 
-  $converter_options = {} if (!defined($converter_options));
-  if (defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
-      and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
-    $converter_options->{'XS_EXTERNAL_CONVERSION'} = 1;
-  }
-  if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
-      and $ENV{TEXINFO_XS_EXTERNAL_FORMATTING}) {
-    $converter_options->{'XS_EXTERNAL_FORMATTING'} = 1;
-  }
-
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
       my $format_converter_options = {%$converter_options};
@@ -1252,8 +1253,7 @@ sub test($$)
       my $converter;
       ($converted_errors{$format}, $converted{$format}, $converter)
            = &{$formats{$format}}($self, $test_name, $format_type,
-                                  $document, $main_configuration,
-                                  $format_converter_options);
+                                  $document, $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
       if ($format =~ /^file_/ and defined ($converted{$format})) {
@@ -1300,9 +1300,9 @@ sub test($$)
           if (!open (OUTFILE, ">$outfile")) {
             warn "ERROR: open $outfile: $!\n";
           } else {
-            # Texinfo::Convert::Converter::converter() calls
-            # Texinfo::Common::set_output_encodings, so OUTPUT_PERL_ENCODING
-            # should be set if possible in all the formats converters.
+            # output() or convert() called in convert_to_* calls set_document,
+            # which calls Texinfo::Common::set_output_encodings, so
+            # OUTPUT_PERL_ENCODING should be set in all the formats converters.
             my $output_file_encoding
                       = $converter->get_conf('OUTPUT_PERL_ENCODING');
             if (defined($output_file_encoding)

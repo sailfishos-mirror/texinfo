@@ -1,5 +1,14 @@
 2024-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (set_converter_option_defaults, convert_to_*)
+	(test): remove unused $main_configuration argument. Add a $debug
+	argument to set_converter_option_defaults $debug argument and set
+	converted_format and DEBUG options in set_converter_option_defaults.
+
+	* tp/t/test_utils.pl (test): move code around, small changes.
+
+2024-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm: update POD documentation.
 
 2024-01-25  Patrice Dumas  <pertusus@free.fr>
