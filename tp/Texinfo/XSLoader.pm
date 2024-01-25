@@ -4,12 +4,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -69,18 +69,18 @@ sub _find_file($) {
   }
   return undef;
 }
- 
-# Load either from XS implementation in $MODULE along with Perl file 
+
+# Load either from XS implementation in $MODULE along with Perl file
 # $PERL_EXTRA_FILE, or non-XS implementation $FALLBACK_MODULE.
 # $MODULE_NAME is the name of a Libtool file used for
 # loading the XS subroutines.
-# $INTERFACE_VERSION is a module interface number, to be changed when the XS 
+# $INTERFACE_VERSION is a module interface number, to be changed when the XS
 # interface changes.
 # The package loaded is returned or undef if there is no fallback and the
 # XS package was not loaded.
 # TODO remove $warning_message and $fatal_message?
 sub init {
- my ($module,
+  my ($module,
      $fallback_module,
      $module_name,
      $perl_extra_file,
@@ -88,83 +88,83 @@ sub init {
      $warning_message,
      $fatal_message
    ) = @_;
- 
- # Possible values for TEXINFO_XS environment variable:
- #
- # TEXINFO_XS=omit         # don't try loading xs at all
- # TEXINFO_XS=default      # try xs, libtool, silent fallback
- # TEXINFO_XS=warn         # try xs, libtool warn on failure
- # TEXINFO_XS=required     # abort if not loadable, no fallback
- # TEXINFO_XS=debug        # voluminuous debugging
- #
- # Other values are treated at the moment as 'default'.
- 
- $TEXINFO_XS = $ENV{'TEXINFO_XS'};
- if (!defined($TEXINFO_XS)) {
-   $TEXINFO_XS = '';
- }
- 
- if ($TEXINFO_XS eq 'omit') {
-   # Don't try to use the XS module
-   goto FALLBACK;
- }
- 
- if ($disable_XS) {
-   _fatal "use of XS modules was disabled when Texinfo was built";
-   goto FALLBACK;
- }
 
- if ($warning_message) {
-   _debug $warning_message;
- }
+  # Possible values for TEXINFO_XS environment variable:
+  #
+  # TEXINFO_XS=omit         # don't try loading xs at all
+  # TEXINFO_XS=default      # try xs, libtool, silent fallback
+  # TEXINFO_XS=warn         # try xs, libtool warn on failure
+  # TEXINFO_XS=required     # abort if not loadable, no fallback
+  # TEXINFO_XS=debug        # voluminuous debugging
+  #
+  # Other values are treated at the moment as 'default'.
 
- if ($fatal_message) {
-   _fatal $fatal_message;
-   goto FALLBACK;
- }
+  $TEXINFO_XS = $ENV{'TEXINFO_XS'};
+  if (!defined($TEXINFO_XS)) {
+    $TEXINFO_XS = '';
+  }
 
- if (!$module) {
-   goto FALLBACK;
- }
- 
- my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
- if (!$libtool_archive) {
-   _fatal "$module_name: couldn't find Libtool archive file";
-   goto FALLBACK;
- }
- 
- my $dlname = undef;
- my $dlpath = undef;
- 
- my $fh;
- open $fh, $libtool_archive;
- if (!$fh) {
-   _fatal "$module_name: couldn't open Libtool archive file";
-   goto FALLBACK;
- }
- 
- # Look for the line in XS*.la giving the name of the loadable object.
- while (my $line = <$fh>) {
-   if ($line =~ /^\s*dlname\s*=\s*'([^']+)'\s$/) {
-     $dlname = $1;
-     last;
-   }
- }
- if (!$dlname) {
-   _fatal "$module_name: couldn't find name of shared object";
-   goto FALLBACK;
- }
- 
- # The *.so file is under .libs in the source directory.
- push @DynaLoader::dl_library_path, $libtool_dir;
- push @DynaLoader::dl_library_path, "$libtool_dir/.libs";
- 
- $dlpath = DynaLoader::dl_findfile($dlname);
- if (!$dlpath) {
-   _fatal "$module_name: couldn't find $dlname";
-   goto FALLBACK;
- }
- 
+  if ($TEXINFO_XS eq 'omit') {
+    # Don't try to use the XS module
+    goto FALLBACK;
+  }
+
+  if ($disable_XS) {
+    _fatal "use of XS modules was disabled when Texinfo was built";
+    goto FALLBACK;
+  }
+
+  if ($warning_message) {
+    _debug $warning_message;
+  }
+
+  if ($fatal_message) {
+    _fatal $fatal_message;
+    goto FALLBACK;
+  }
+
+  if (!$module) {
+    goto FALLBACK;
+  }
+
+  my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
+  if (!$libtool_archive) {
+    _fatal "$module_name: couldn't find Libtool archive file";
+    goto FALLBACK;
+  }
+
+  my $dlname = undef;
+  my $dlpath = undef;
+
+  my $fh;
+  open $fh, $libtool_archive;
+  if (!$fh) {
+    _fatal "$module_name: couldn't open Libtool archive file";
+    goto FALLBACK;
+  }
+
+  # Look for the line in XS*.la giving the name of the loadable object.
+  while (my $line = <$fh>) {
+    if ($line =~ /^\s*dlname\s*=\s*'([^']+)'\s$/) {
+      $dlname = $1;
+      last;
+    }
+  }
+  if (!$dlname) {
+    _fatal "$module_name: couldn't find name of shared object";
+    goto FALLBACK;
+  }
+
+  # The *.so file is under .libs in the source directory.
+  push @DynaLoader::dl_library_path, $libtool_dir;
+  push @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+
+  $dlpath = DynaLoader::dl_findfile($dlname);
+  if (!$dlpath) {
+    _fatal "$module_name: couldn't find $dlname";
+    goto FALLBACK;
+  }
+
   #my $flags = dl_load_flags $module; # This is 0 in DynaLoader
   my $flags = 0;
   my $libref = DynaLoader::dl_load_file($dlpath, $flags);
@@ -189,30 +189,30 @@ sub init {
   _debug "trying to call $bootname...";
   my $boot_fn = DynaLoader::dl_install_xsub("${module}::bootstrap",
                                                   $symref, $dlname);
-  
+
   if (!$boot_fn) {
     _fatal "$module_name: couldn't bootstrap";
     goto FALLBACK;
   }
   _debug "  ...succeeded";
-  
+
   push @DynaLoader::dl_shared_objects, $dlpath; # record files loaded
-  
+
   # This is the module bootstrap function, which causes all the other
   # functions (XSUB's) provided by the module to become available to
   # be called from Perl code.
   &$boot_fn($module, $interface_version);
-  
+
   # This makes it easier to refer to packages and symbols by name.
   no strict 'refs';
-  
+
   if (defined &{"${module}::init"}
       and !&{"${module}::init"} ($Texinfo::ModulePath::texinfo_uninstalled,
                                  $Texinfo::ModulePath::builddir)) {
     _fatal "$module_name: error initializing";
     goto FALLBACK;
   }
-  
+
   if ($perl_extra_file) {
     eval "require $perl_extra_file";
     if ($@) {
@@ -220,9 +220,9 @@ sub init {
       die "Error loading $perl_extra_file\n";
     }
   }
-  
+
   return $module;
-  
+
  FALLBACK:
   if ($TEXINFO_XS eq 'required') {
     die "set the TEXINFO_XS environment variable to 'omit' to use the "
