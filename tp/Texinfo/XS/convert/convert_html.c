@@ -7944,29 +7944,37 @@ format_element_header (CONVERTER *self,
 }
 
 static int
-word_number_more_than_level (const char *text, int level)
+word_number_more_than_level (const char *text, int level, int *count)
 {
   const char *p = text;
-  int count = 0;
+
+  p += strspn (p, whitespace_chars);
+
+  if (*p)
+    *count = 1;
 
   while (*p)
     {/* FIXME in perl unicode spaces are also matched */
       int n = strspn (p, whitespace_chars);
       if (n)
         {
-          count++;
-          if (count > level)
-            return 1;
           p += n;
+          /* if not followed by anything, ie at the end of the string,
+             do not count the space */
+          if (*p)
+            {
+              (*count)++;
+              if (*count >= level)
+                return 1;
+            }
+          else
+            return 0;
         }
-      if (*p)
-        {
-          /* skip a character */
-          int char_len = 1;
-          while ((p[char_len] & 0xC0) == 0x80)
-            char_len++;
-          p += char_len;
-        }
+      /* skip a character */
+      int char_len = 1;
+      while ((p[char_len] & 0xC0) == 0x80)
+        char_len++;
+      p += char_len;
     }
   return 0;
 }
@@ -8068,9 +8076,10 @@ html_default_format_element_footer (CONVERTER *self,
             {
               if (self->conf->WORDS_IN_PAGE.integer > 0)
                 {
-                  if (content
-                      && word_number_more_than_level (content,
-                                        self->conf->WORDS_IN_PAGE.integer))
+                  int count;
+                  int more_than_level = word_number_more_than_level (content,
+                                    self->conf->WORDS_IN_PAGE.integer, &count);
+                  if (content && more_than_level)
                     {
                       buttons = self->conf->NODE_FOOTER_BUTTONS.buttons;
                     }

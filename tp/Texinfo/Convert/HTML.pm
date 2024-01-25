@@ -8052,12 +8052,22 @@ sub _default_format_element_footer($$$$;$)
         my $no_footer_word_count;
         if ($self->get_conf('WORDS_IN_PAGE')) {
           $content = '' if (!defined($content));
+          # NOTE it would have been better to skip a leading space, but
+          # it cannot happen as the content should start with an HTML element.
+          # splitting at [\h\v] may have been relevant, but then the result
+          # would be different from XS code result and could give different
+          # results in perl in some cases.
           # FIXME it seems that NO-BREAK SPACE and NEXT LINE (NEL) may
           # not be in \h and \v in some case, but not sure which case it is
           # It is supposed to be explained but it is not very clear
           # https://perldoc.perl.org/perlrecharclass#Whitespace
-          # TODO starting in Perl v5.18 [\h\v] could be replaced by \s
-          my @cnt = split(/[\h\v]+/, $content);
+          # [\h\v]+ does not match on solaris 11 with perl 5.10.1, not sure
+          # why.
+          #my @cnt = split(/[\h\v]+/, $content);
+          # Use an explicit list to match the same in all versions of perl.
+          # TODO starting in Perl v5.14 could be replaced by \s\cK (with /a)
+          # TODO starting in Perl v5.18 could be replaced by \s (with /a)
+          my @cnt = split(/[\t\n\f\r \cK]+/, $content);
           if (scalar(@cnt) < $self->get_conf('WORDS_IN_PAGE')) {
             $no_footer_word_count = 1;
           }

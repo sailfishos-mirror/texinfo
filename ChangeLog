@@ -1,3 +1,16 @@
+2024-01-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_element_footer): use
+	an explicit list of characters to be considered as spaces to cope with
+	all the perl versions.
+
+	* tp/Texinfo/XS/convert/convert_html.c (word_number_more_than_level)
+	(html_default_format_element_footer): return the count by reference
+	in word_number_more_than_level.
+
+	* tp/Texinfo/XS/convert/convert_html.c (word_number_more_than_level):
+	count words, not spaces.
+
 2024-01-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (add_newline_if_needed):
