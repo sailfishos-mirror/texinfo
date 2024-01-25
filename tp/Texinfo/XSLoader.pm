@@ -75,7 +75,10 @@ sub _find_file($) {
 # $MODULE_NAME is the name of a Libtool file used for
 # loading the XS subroutines.
 # $INTERFACE_VERSION is a module interface number, to be changed when the XS 
-# interface changes.  
+# interface changes.
+# The package loaded is returned or undef if there is no fallback and the
+# XS package was not loaded.
+# TODO remove $warning_message and $fatal_message?
 sub init {
  my ($module,
      $fallback_module,
@@ -126,11 +129,7 @@ sub init {
  
  my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
  if (!$libtool_archive) {
-   if ($TEXINFO_XS eq 'libtool') {
-     _fatal "$module_name: couldn't find Libtool archive file";
-     goto FALLBACK;
-   }
-   _debug "$module_name: couldn't find Libtool archive file";
+   _fatal "$module_name: couldn't find Libtool archive file";
    goto FALLBACK;
  }
  
@@ -233,10 +232,8 @@ sub init {
       warn "falling back to pure Perl module $fallback_module\n";
     }
   }
-  # if there is no fallback and the perl methods that have not been overriden
-  # should not be called, the return value should be made available such
-  # that code that could have called the corresponding perl methods can
-  # chenck if the return value is not set.
+  # if there is no fallback, it may be relevant to have access to the
+  # return value in perl code, to check if the package was loaded.
   if (!defined $fallback_module) {
     if ($TEXINFO_XS eq 'warn' or $TEXINFO_XS eq 'debug') {
       warn "no fallback module for $module\n";
