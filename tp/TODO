@@ -10,19 +10,10 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Keep/document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
-
-Document that Texinfo::Document::rebuild_document or
-Texinfo::Document::rebuild_tree should be called after tree modifications
-if the parser is XS but converters are perl.
-Also if conversion with XS, and there is a MainConfig, the configuration
-should be registered in the document if it is needed in structuring and
-indices sorting.
-$main_configuration->register_XS_document_main_configuration($document);
-
 
 Bugs
 ====
+
 
 HTML API
 ========
@@ -58,6 +49,17 @@ Other
 
 For converter writers,
 'output_init_conf' and 'converter_init_conf'.
+
+It may be relevant to document that if conversion is done with XS, and
+there is a MainConfig, the configuration should be registered in the
+document if it is needed in structuring and indices sorting.
+$main_configuration->register_XS_document_main_configuration($document);
+However, there is, somewhat on purpose, no documentation at all for
+MainConfig given that it is considered as some internal implementation
+detail, not to be used in external code.  So probably would need first to
+docuent MainConfig.
+
+Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 
 Delayed bugs
@@ -637,8 +639,12 @@ Solaris 11
 cpan> o conf urllist push http://backpan.perl.org/
 cpan RJBS/Test-Deep-1.127.tar.gz
 
-Also possible to install Texinfo dependencies with CSW, like
+Also possible to install Texinfo dependencies with openCSW, like
 pkgutil -y -i CSWhelp2man CSWpm-data-compare CSWpm-test-deep
+
+The system perl may not be suitable to build XS modules, and the
+system gawk may be too old, openCSW may be needed.  For example: 
+./configure PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk
 
 
 Misc notes

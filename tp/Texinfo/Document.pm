@@ -125,7 +125,6 @@ sub _XS_set_document_global_info($$$)
 {
 }
 
-# TODO document
 sub set_document_global_info($$$)
 {
   my $document = shift;
@@ -307,7 +306,7 @@ sub remove_document($)
   my $document = shift;
 }
 
-# this method does nothing, but the XS override rebuilds the perl
+# this method does nothing, but the XS override rebuilds the Perl
 # document based on XS data.
 sub rebuild_document($;$)
 {
@@ -317,7 +316,7 @@ sub rebuild_document($;$)
   return $document;
 }
 
-# this method does nothing, but the XS override rebuilds the perl
+# this method does nothing, but the XS override rebuilds the Perl
 # tree based on XS data.
 sub rebuild_tree($;$)
 {
@@ -371,6 +370,8 @@ tree and associated information.  In general a document is obtained from
 a Texinfo parser call, there is no need to setup the document.
 
 =head1 METHODS
+
+=head2 Getting document information
 
 The main purpose of Texinfo::Document methods is to retrieve information
 on a Texinfo document.
@@ -572,6 +573,8 @@ If C<name> is not set, it is set to the index name.
 
 =back
 
+=head2 Registering document and information in document
+
 The setup of a document is described next, it should only be used in
 parsers codes.
 
@@ -585,8 +588,7 @@ information returned by the other methods.
 
 =back
 
-Further information can be registered in the document.  Those
-methods should be called during the processing of document structure.
+Further information can be registered in the document.
 
 =over
 
@@ -594,13 +596,100 @@ methods should be called during the processing of document structure.
 X<C<register_document_nodes_list>>
 
 Register the I<$nodes_list> array reference as I<$document> nodes
-list.
+list.  This method should be called after the processing of document
+structure.
 
 =item register_document_sections_list ($document, $sections_list)
 X<C<register_document_sections_list>>
 
 Register the I<$sections_list> array reference as I<$document> sections
-list.
+list.  This method should be called after the processing of document
+structure.
+
+=item set_document_global_info($document, $key, $value)
+X<C<set_document_global_info>>
+
+Add I<$value> I<$key> information to I<$document>.  This method should not be
+generally useful, as document global information is already set by the
+Texinfo parser.  The information set should be available through
+the next calls to L<global_information|/$info = global_information($document)>.
+The method should in general be called before the calls to
+C<global_information>.
+
+=back
+
+=head2 Methods for Perl and C code interactions
+
+The parsing of Texinfo code, structuring and transformations of the tree
+called through Texinfo Perl modules may be done by pure Perl modules or
+by C code called through XS interfaces.  In general, it makes no difference
+whether pure Perl or C code is used. In some cases, however, specific functions
+need to be called to pass information from C to Perl or perform actions related
+to C data.
+
+The methods can always be called on pure Perl modules even if they do nothing.
+Therefore it is, in general, better to call them assuming that modules
+setting up C data were called, even when it is not the case.
+
+First, C<document_descriptor> can be called to get the document identifier
+document used by C code to retrieve the document data in C.  In general
+this identifier is directly and transparently taken from the document, but may
+need to be set on other objects in rare cases.
+
+=over
+
+=item $document_descriptor = $document->document_descriptor()
+X<C<document_descriptor>>
+
+Returns the document descriptor if the document is available as C data,
+0 or C<undef> if not.
+
+=back
+
+When the document and tree are accessed in Perl but are modified by
+C code, for instance called through L<Texinfo::Common>,
+L<Texinfo::Structuring> or L<Texinfo::Transformations> methods, the
+Perl structures need to be rebuilt from the C data with C<rebuild_document>
+or C<rebuild_tree>:
+
+=over
+
+=item $rebuilt_document = rebuild_document($document, $no_store)
+
+=item $rebuilt_document = rebuild_tree($tree, $no_store)
+X<C<rebuild_document>> X<C<rebuild_tree>>
+
+Return a I<$rebuilt_document>, rebuilt from C data if needed.  If there
+is no need to rebuild the document, the document is returned as is.  The
+document rebuilt is based on the Texinfo parsed I<$document> if
+C<rebuild_document> is called, or on the Texinfo parsed document associated
+to the Texinfo tree I<$tree> if C<rebuild_tree> is called.
+
+If the optional I<$no_store> argument is set, remove the C data.
+
+=back
+
+Some methods allow to release the memory or remove error messages held
+by C data associated to a Texinfo parsed document:
+
+=over
+
+=item clear_document_errors($document)
+X<C<clear_document_errors>>
+
+Remove the document errors and warnings held in C data.
+
+The method can be called on pure Perl modules but does nothing as the errors
+and warnings are already in a L<Texinfo::Report> object and not associated to a
+document.
+
+B<the document errors may be in C<< $document->{'errors'} >>, but this is not
+documented anywhere.>
+
+=item remove_document($document)
+X<C<remove_document>>
+
+Remove the C data corresponding to I<$document>.
 
 =back
 

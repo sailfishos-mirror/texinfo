@@ -1,5 +1,9 @@
 2024-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm: update POD documentation.
+
+2024-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree),
 	tp/t/test_utils.pl (test), tp/texi2any.pl: do not get a return value
 	from Texinfo::Transformations::insert_nodes_for_sectioning_commands.
