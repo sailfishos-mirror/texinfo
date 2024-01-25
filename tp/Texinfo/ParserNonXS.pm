@@ -116,7 +116,6 @@ sub import {
     parse_texi_line
     parse_texi_piece
     parse_texi_text
-
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -7989,7 +7988,7 @@ The following method is used to construct a new C<Texinfo::Parser> object:
 
 =over
 
-=item $parser = Texinfo::Parser::parser($options);
+=item $parser = Texinfo::Parser::parser($options)
 X<C<Texinfo::Parser::parser>>
 X<Parser initialization>
 

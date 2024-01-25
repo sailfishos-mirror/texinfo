@@ -370,11 +370,6 @@ This module is used to represent parsed Texinfo documents, with the Texinfo
 tree and associated information.  In general a document is obtained from
 a Texinfo parser call, there is no need to setup the document.
 
-If the document comes from the XS parser, other XS module can retrieve data
-structures associated to the document object, by using information carried
-by the object.  This is not relevant for perl code and is not documented
-here.
-
 =head1 METHODS
 
 The main purpose of Texinfo::Document methods is to retrieve information
@@ -485,14 +480,13 @@ Internal references, nodes and section lists may also be available.
 =item $internal_references_array = internal_references_information($document)
 X<C<internal_references_information>>
 
-The function returns an aray reference of cross-reference commands referring to
-the same document with @-commands that refer to node, anchors
-or floats.
+The function returns an array reference of cross-reference commands referring
+to the same document with @-commands that refer to node, anchors or floats.
 
 =item $nodes_list = nodes_list($document)
 
-Returns an array reference containing the document nodes.  In general set to the
-nodes list returned by L<Texinfo::Structuring nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document, $registrar, $customization_information)>,
+Returns an array reference containing the document nodes.  In general set to
+the nodes list returned by L<Texinfo::Structuring nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document, $registrar, $customization_information)>,
 by a call to L<register_document_nodes_list|/register_document_nodes_list ($document, $nodes_list)>.
 
 =item $sections_list = sections_list($document)

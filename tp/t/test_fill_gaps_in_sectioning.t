@@ -26,8 +26,7 @@ sub test_correction($$$;$)
   my $tree = $document->tree();
 
   if (! defined($test_correct_level)) {
-    my $added_sections
-       = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
+    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   } else {
     # If set to 0, undef to mimic not giving the argument
     $test_correct_level = undef if (!$test_correct_level);
@@ -48,7 +47,6 @@ sub test_correction($$$;$)
   #local $Data::Dumper::Maxdepth = 2;
   local $Data::Dumper::Indent = 1;
   #print STDERR Data::Dumper->Dump([$tree]);
-  #print STDERR Data::Dumper->Dump([$added_sections]);
   }
 
   my $texi_result

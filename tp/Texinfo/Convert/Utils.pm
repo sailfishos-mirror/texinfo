@@ -635,7 +635,7 @@ determine the encoding.  The I<$converter> argument is not optional
 and is used both to access to customization variables and to access to parser
 information.
 
-The <$input_file_encoding> argument is optional.  If set, it is used for
+The I<$input_file_encoding> argument is optional.  If set, it is used for
 the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 

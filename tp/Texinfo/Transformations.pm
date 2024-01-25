@@ -978,15 +978,13 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
 
-=item $added_sections = fill_gaps_in_sectioning($tree, $commands_heading_content)
+=item fill_gaps_in_sectioning($tree, $commands_heading_tree)
 X<C<fill_gaps_in_sectioning>>
 
 This function adds empty C<@unnumbered> and similar commands in a tree
 to fill gaps in sectioning.  This may be used, for example, when converting
 from a format that can handle gaps in sectioning.  I<$tree> is the tree
-root, which is modified by adding the new sectioning commands. An array
-reference is returned, containing the added sectioning commands, or
-undef if there was no sectioning command at all in the tree root.
+root, which is modified by adding the new sectioning commands.
 
 In the default case, the added sectioning commands headings are empty.  It is
 possible to use instead the I<$commands_heading_tree> Texinfo tree element.
@@ -995,7 +993,7 @@ If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
 
-=item $added_nodes = insert_nodes_for_sectioning_commands($document, $registrar, $customization_information)
+=item insert_nodes_for_sectioning_commands($document, $registrar, $customization_information)
 X<C<insert_nodes_for_sectioning_commands>>
 
 Insert nodes for sectioning commands without node in C<$document>
@@ -1003,8 +1001,6 @@ tree.  If both I<$registrar> and I<$customization_information> are
 defined they are used for error reporting, though there should not
 be any errors as the node names are adapted such as not to clash with
 existing label targets.
-
-An array reference is returned containing the added nodes.
 
 =item menu_to_simple_menu($menu)
 
@@ -1044,6 +1040,9 @@ the arguments.  This transformation can be used, for example, to remove
 reference @-command from constructed node names trees, as node names cannot
 contain reference @-command while there could be some in the tree used in input
 for the node name tree.
+
+A I<$modified_tree> is not systematically returned, if the I<$tree> in argument
+is not replaced, undef may also be returned.
 
 =item regenerate_master_menu($customization_information, $identifier_target)
 X<C<regenerate_master_menu>>

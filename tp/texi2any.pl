@@ -1490,12 +1490,7 @@ while(@input_files) {
 
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    my $added_sections
-      = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
-    if (!defined($added_sections)) {
-      document_warn(__(
-       "fill_gaps_in_sectioning transformation return no result. No section?"));
-    }
+    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   }
 
   my $identifier_target = $document->labels_information();
@@ -1584,8 +1579,7 @@ while(@input_files) {
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
-    my $added_nodes
-     = Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
+    Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                $registrar, $main_configuration);
   }
 

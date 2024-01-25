@@ -1051,11 +1051,7 @@ sub test($$)
   }
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    my $added_sections
-      = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
-    if (!defined($added_sections)) {
-      warn "$test_name: fill_gaps_in_sectioning transformation return no result. No section?\n";
-    }
+    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   }
 
   my $document_information = $document->global_information();
@@ -1081,8 +1077,7 @@ sub test($$)
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
-    my $added_nodes
-     = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
+    Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                              $document, $registrar, $main_configuration);
   }
 

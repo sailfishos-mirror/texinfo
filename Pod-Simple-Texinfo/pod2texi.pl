@@ -302,8 +302,7 @@ sub _parsed_manual_tree($$$$$)
     Texinfo::Transformations::fill_gaps_in_sectioning($tree,
                                                       $commands_heading_content);
     if ($section_nodes) {
-      my $added_nodes
-        = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
+      Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                                            $document, $registrar, $texi_parser);
       $document = Texinfo::Document::rebuild_document($document);
     }

@@ -2907,7 +2907,7 @@ Return true if the I<$tree> has content that could be formatted.
 I<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
 
-=item $file = locate_include_file($customization_information, file_path)
+=item $file = locate_include_file($customization_information, $file_path)
 X<C<locate_include_file>>
 
 Locate I<$file_path>.  If I<$file_path> is an absolute path or has C<.>

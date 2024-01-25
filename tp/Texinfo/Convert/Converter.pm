@@ -2564,7 +2564,7 @@ used to encode the name.  The C<encoded_input_file_name> and
 C<encoded_output_file_name> functions use different customization variables to
 determine the encoding.
 
-The <$input_file_encoding> argument is optional.  If set, it is used for
+The I<$input_file_encoding> argument is optional.  If set, it is used for
 the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 

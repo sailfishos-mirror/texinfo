@@ -285,16 +285,15 @@ methods allow registering errors and warnings.
 
 =item my $registrar = Texinfo::Report::new()
 
-=item $converter->Texinfo::Report::new()
+=item $object->Texinfo::Report::new()
 X<C<Texinfo::Report::new>>
 
 If called without argument, a C<Texinfo::Report> object is initialized and
 returned.  This is how the module is used in the Texinfo Parsers, as
 a separate object.
 
-If called on a C<$converter>, the C<$converter> is initialized itself
-such as to be able to call C<Texinfo::Report> methods.  It is how it is
-used in the Converters.
+If called on an object C<$object>, the C<$object> is initialized itself
+such as to be able to call C<Texinfo::Report> methods.
 
 =item ($error_warnings_list, $error_count) = errors($registrar)
 X<C<errors>>

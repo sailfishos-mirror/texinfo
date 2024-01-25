@@ -638,13 +638,16 @@ X<C<gdt>> X<C<gdt_string>>
 The I<$string> is a string to be translated.  With C<gdt>
 the function returns a Texinfo tree, as the string is interpreted
 as Texinfo code after translation.  With C<gdt_string> a string
-is returned.  I<$replaced_substrings> is an optional hash reference specifying
+is returned.
+
+I<$replaced_substrings> is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
-I<$replaced_substrings> hash reference identifies what is to be substituted,
-and the value is, for C<gdt>, some string, texinfo tree or array content
-that is substituted in the resulting texinfo tree. The substitutions may only
-be strings with C<gdt_string>. In the string to be translated word in brace
-matching keys of I<$replaced_substrings> are replaced.
+I<$replaced_substrings> hash reference identifies what is to be substituted.
+In the string to be translated word in brace matching keys of
+I<$replaced_substrings> are replaced.
+For C<gdt>, the value is a Texinfo tree that is substituted in the
+resulting texinfo tree. For C<gdt_string>, the value is a string that
+is replaced in the resulting string.
 
 The I<$object> is typically a converter, but can be any object that implements
 C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
