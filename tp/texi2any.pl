@@ -101,7 +101,7 @@ BEGIN
       $lib_dir = File::Spec->catdir($command_directory, $updir,
                                           'share', $package);
       $modules_pkgdatadir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $package);
+                                               'share', $package);
       $xsdir = File::Spec->catdir($command_directory, $updir,
                                           'lib', $package);
     }
@@ -919,7 +919,8 @@ my $Xopt_arg_nr = 0;
 my $result_options = Getopt::Long::GetOptions (
  'help|h' => sub { print _encode_message(makeinfo_help()); exit 0; },
  'version|V' => sub {
-    print _encode_message("$program_name (GNU texinfo) $configured_version\n\n");
+    print _encode_message(
+                    "$program_name (GNU texinfo) $configured_version\n\n");
     print _encode_message(sprintf __(
 "Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -986,17 +987,17 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2023");
                             set_from_cmdline('novalidate',$_[1]);
                           },
  'no-warn' => sub { set_from_cmdline('NO_WARN', $_[1]); },
- 'verbose|v!' => sub {set_from_cmdline('VERBOSE', $_[1]);
-                     push @texi2dvi_args, '--verbose'; },
+ 'verbose|v!' => sub { set_from_cmdline('VERBOSE', $_[1]);
+                       push @texi2dvi_args, '--verbose'; },
  'document-language=s' => sub {
-                      my $documentlanguage = _decode_input($_[1]);
-                      set_from_cmdline('documentlanguage', $documentlanguage);
-                      my @messages
-                       = Texinfo::Common::warn_unknown_language($documentlanguage);
-                      foreach my $message (@messages) {
-                        document_warn($message);
-                      }
-                    },
+               my $documentlanguage = _decode_input($_[1]);
+               set_from_cmdline('documentlanguage', $documentlanguage);
+               my @messages
+                = Texinfo::Common::warn_unknown_language($documentlanguage);
+               foreach my $message (@messages) {
+                 document_warn($message);
+               }
+             },
  'D=s' => sub {
     my $var = $_[1];
     my @field = split (/\s+/, $var, 2);
@@ -1048,7 +1049,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2023");
       set_from_cmdline('paragraphindent', $value);
     } else {
       die _encode_message(sprintf(
-     __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"),
+   __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"),
                   $real_command_name, $value));
     }
  },
@@ -1243,6 +1244,9 @@ sub handle_errors($$$)
   return $error_count;
 }
 
+# Avoid loading these modules until down here to speed up the case
+# when they are not needed.
+
 require Texinfo::Parser;
 require Texinfo::Translations;
 require Texinfo::Document;
@@ -1251,9 +1255,6 @@ require Texinfo::Structuring;
 Texinfo::Structuring->import();
 require Texinfo::Transformations;
 Texinfo::Transformations->import();
-
-# Avoid loading these modules until down here to speed up the case
-# when they are not needed.
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::builddir,
@@ -1684,7 +1685,6 @@ while(@input_files) {
                             %$file_cmdline_options,
                           };
 
-
   # NOTE nothing set in $main_configuration is passed directly, which is
   # clean, the Converters already have that information in $converter_options,
   # can determine it themselves or use their defaults.
@@ -1756,7 +1756,8 @@ while(@input_files) {
         $error_internal_links_file = 1;
       }
       Texinfo::Common::output_files_register_closed(
-           $internal_links_files_information, $encoded_internal_links_file_name);
+                                     $internal_links_files_information,
+                                     $encoded_internal_links_file_name);
     } else {
       warn(sprintf(__("%s: could not open %s for writing: %s\n"),
                       $real_command_name, $internal_links_file_name,
@@ -1795,12 +1796,14 @@ while(@input_files) {
     # hand, the information of the format could be useful.  Not very
     # important as long as this information is not used.
     $sort_element_converter_options->{'converted_format'} = $converted_format;
-    $sort_element_converter_options->{'language_config_dirs'} = \@language_config_dirs;
+    $sort_element_converter_options->{'language_config_dirs'}
+       = \@language_config_dirs;
     unshift @{$sort_element_converter_options->{'INCLUDE_DIRECTORIES'}},
             @prepended_include_directories;
 
     my $converter_element_count
-      = Texinfo::Convert::TextContent->converter($sort_element_converter_options);
+      = Texinfo::Convert::TextContent->converter(
+                                         $sort_element_converter_options);
 
     # here could be $format or $converted_format.  Since $converted_format
     # is used above for ->{'nodes_tree'}, use it here again.
@@ -1816,11 +1819,12 @@ while(@input_files) {
     my ($encoded_sort_element_count_file_name, $path_encoding)
        = $converter_element_count->encoded_output_file_name(
                                              $sort_element_count_file_name);
-    my $sort_elem_files_information = Texinfo::Common::output_files_initialize();
+    my $sort_elem_files_information
+          = Texinfo::Common::output_files_initialize();
     my ($sort_element_count_fh, $error_message)
                 = Texinfo::Common::output_files_open_out(
-                        $sort_elem_files_information, $converter_element_count,
-                                          $encoded_sort_element_count_file_name);
+                       $sort_elem_files_information, $converter_element_count,
+                                        $encoded_sort_element_count_file_name);
     my $error_sort_element_count_file;
     if (defined ($sort_element_count_fh)) {
       print $sort_element_count_fh $sort_element_count_text;
@@ -1830,8 +1834,9 @@ while(@input_files) {
                       $real_command_name, $sort_element_count_file_name, $!));
         $error_sort_element_count_file = 1;
       }
-      Texinfo::Common::output_files_register_closed($sort_elem_files_information,
-                                           $encoded_sort_element_count_file_name);
+      Texinfo::Common::output_files_register_closed(
+                                        $sort_elem_files_information,
+                                        $encoded_sort_element_count_file_name);
     } else {
       warn(sprintf(__("%s: could not open %s for writing: %s\n"),
                     $real_command_name, $sort_element_count_file_name, $!));
@@ -1867,8 +1872,8 @@ foreach my $unclosed_file (keys(%main_unclosed_files)) {
 
 if ($call_texi2dvi) {
   if (get_conf('DEBUG') or get_conf('VERBOSE')) {
-    print STDERR "EXEC ".join('|', (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV))
-       ."\n";
+    print STDERR "EXEC "
+           .join('|', (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV))."\n";
   }
   exec { get_conf('TEXI2DVI') } (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV);
 }
