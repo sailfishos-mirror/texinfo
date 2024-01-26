@@ -339,6 +339,12 @@ my $main_program_set_options = {
     'LOCALE_ENCODING' => $locale_encoding
 };
 
+# set configure information as constants
+foreach my $configured_variable (keys(%$configured_information)) {
+  Texinfo::Common::set_constant($configured_variable,
+                       $configured_information->{$configured_variable});
+}
+
 # here set configure information with _OPTION prepended, to mark that
 # these are customization variables that may be modified in init files
 # or on the command line.
@@ -1497,15 +1503,6 @@ while(@input_files) {
   if (!defined($tree) or $format eq 'parse') {
     handle_errors($registrar, $error_count, \@opened_files);
     next;
-  }
-
-  # set as global information, not as customization variables,
-  # customization variables have _OPTION prepended
-  # FIXME does not need to be associated to a document, could be
-  # a common constant
-  foreach my $configured_variable (keys(%$configured_information)) {
-    $document->set_document_global_info($configured_variable,
-                       $configured_information->{$configured_variable});
   }
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {

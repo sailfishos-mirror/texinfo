@@ -223,6 +223,35 @@ instead it is passed to functions defined in init files that are registered as
 functions to be called from the converter. @xref{User Defined Functions}.
 
 
+@node Getting Constants
+@section Getting Constants
+
+@cindex Constants
+
+Some constants are set independently of the output format.  They are available
+through @code{Texinfo::Common::get_constant}:
+
+@deftypefun {@var{$value} =} Texinfo::Common::get_constant (@var{$name})
+Retrieve constant @var{$name} value.
+@end deftypefun
+
+Available constants:
+
+@vtable @code
+@item PACKAGE
+@itemx PACKAGE_AND_VERSION
+@itemx PACKAGE_NAME
+@itemx PACKAGE_VERSION
+@itemx PACKAGE_URL
+
+Texinfo package name and versions. Values set by configure.
+
+Similar customization variables exist with @samp{_OPTION} prepended
+to their name and the same value set in the default case from the
+main program, with values that can be modified.
+@end vtable
+
+
 @node Managing Customization Variables
 @section Managing Customization Variables
 

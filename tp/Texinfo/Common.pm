@@ -293,6 +293,25 @@ foreach my $output_format_command ('info', 'plaintext',
 }
 
 
+# constants.  Set by the main program.
+my %constants;
+
+sub set_constant($$)
+{
+  my $key = shift;
+  my $value = shift;
+
+  $constants{$key} = $value;
+}
+
+sub get_constant($)
+{
+  my $key = shift;
+
+  return $constants{$key};
+}
+
+
 # Tree transformations
 
 my %valid_tree_transformations;
@@ -2726,6 +2745,8 @@ Texinfo::Common - Texinfo modules common data and miscellaneous methods
     = Texinfo::Common::collect_commands_in_tree($document_root,
                                              \@commands_to_collect);
 
+  my $package_version = Texinfo::Common::get_constant('PACKAGE_AND_VERSION');
+
 =head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
@@ -2742,8 +2763,31 @@ methods.
 Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
-TODO: undocumented
-%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map
+Constants are available by calling C<get_constant>:
+
+=over
+
+=item $value = get_constant($name)
+
+The following constants are available:
+
+=over
+
+=item PACKAGE
+
+=item PACKAGE_AND_VERSION
+
+=item PACKAGE_NAME
+
+=item PACKAGE_VERSION
+
+=item PACKAGE_URL
+
+Texinfo package name and versions.  Values set by configure.
+
+=back
+
+=back
 
 =over
 
@@ -2755,6 +2799,9 @@ practice corresponds to C<format_raw> C<%block_commands> plus C<info>
 and C<plaintext>.
 
 =back
+
+TODO: undocumented
+%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map
 
 =head1 @-COMMAND INFORMATION
 

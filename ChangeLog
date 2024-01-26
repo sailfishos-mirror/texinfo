@@ -1,5 +1,15 @@
 2024-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Getting Constants), tp/Texinfo/Common.pm
+	(set_constant, get_constant): add setting/getting constants.
+
+	* tp/texi2any.pl: set PACKAGE* as constants.
+
+	* tp/t/init/redefine_need.init (my_need_formatting): use constants by
+	get_constant.
+
+2024-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/extra.c (add_associated_info_string_dup): add.
 
 	* tp/Texinfo/XS/main/DocumentXS.xs (set_document_global_info),
