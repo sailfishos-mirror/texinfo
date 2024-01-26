@@ -1,5 +1,14 @@
 2024-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/options_data.txt, tp/texi2any.pl: add customization
+	variable SHOW_INCLUDE_FILE_PATHS with which included file paths are
+	output.
+
+	* tp/texi2any.pl: remove document even when there is no conversion, but
+	parse, structure, dump or similar.
+
+2024-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	Gather include file paths in document global information
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),

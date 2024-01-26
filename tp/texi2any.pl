@@ -1502,7 +1502,19 @@ while(@input_files) {
   my $registrar = $parser->registered_errors();
   if (!defined($tree) or $format eq 'parse') {
     handle_errors($registrar, $error_count, \@opened_files);
-    next;
+    goto NEXT;
+  }
+
+  my $document_information = $document->global_information();
+  if (get_conf('SHOW_INCLUDE_FILE_PATHS')) {
+    handle_errors($registrar, $error_count, \@opened_files);
+    my $included_file_paths = $document_information->{'included_files'};
+    if (defined($included_file_paths)) {
+      foreach my $included_file (@$included_file_paths) {
+        print STDOUT "$included_file\n";
+      }
+    }
+    goto NEXT;
   }
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
@@ -1516,7 +1528,6 @@ while(@input_files) {
   # needing access to the configuration information.
   my $main_configuration = Texinfo::MainConfig::new();
 
-  my $document_information = $document->global_information();
   # encoding is needed for output files
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $document);
@@ -1581,7 +1592,7 @@ while(@input_files) {
   }
   if (get_conf('DUMP_TEXI') or $formats_table{$format}->{'texi2dvi_format'}) {
     handle_errors($registrar, $error_count, \@opened_files);
-    next;
+    goto NEXT;
   }
 
   if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
@@ -1673,7 +1684,7 @@ while(@input_files) {
   $error_count = handle_errors($registrar, $error_count, \@opened_files);
 
   if ($format eq 'structure') {
-    next;
+    goto NEXT;
   }
   # a shallow copy is not sufficient for arrays and hashes to make
   # sure that the $cmdline_options are not modified if $file_cmdline_options
@@ -1867,8 +1878,9 @@ while(@input_files) {
     }
   }
 
-  Texinfo::Document::remove_document($document);
   $converter->destroy();
+ NEXT:
+  Texinfo::Document::remove_document($document);
 }
 
 foreach my $unclosed_file (keys(%main_unclosed_files)) {
