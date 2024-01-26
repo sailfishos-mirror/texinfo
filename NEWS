@@ -20,6 +20,10 @@ See the manual for detailed information.
  . remove FRAMES and FRAMESET_DOCTYPE customization options.
  . rename PACKAGE* customization variables to PACKAGE*_OPTION.  For example
    PACKAGE_VERSION customization option is now PACKAGE_VERSION_OPTION.
+   The PACKAGE* values can now be acceded in Perl using the names without
+   _OPTION prepended, through a new interface where it is certain that
+   the values have not been changed.
+ . set CHECK_NORMAL_MENU_STRUCTURE in the default case.
  . some unused translation files have been removed for the
    "texinfo_document" domain
  . HTML, Texinfo and raw text output:

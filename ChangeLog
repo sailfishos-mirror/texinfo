@@ -1,5 +1,12 @@
 2024-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/options_data.txt: set CHECK_NORMAL_MENU_STRUCTURE to 1
+	in the default case.
+
+	* NEWS: update.
+
+2024-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/options_data.txt, tp/texi2any.pl: add customization
 	variable SHOW_INCLUDE_FILE_PATHS with which included file paths are
 	output.
