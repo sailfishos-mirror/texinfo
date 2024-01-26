@@ -1296,6 +1296,7 @@ end_line_misc_line (ELEMENT *current)
                       include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
                       set_input_source_mark (include_source_mark);
+                      add_string (fullpath, &global_info.included_files);
                     }
                   free (fullpath);
                 }

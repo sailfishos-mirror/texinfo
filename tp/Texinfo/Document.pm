@@ -405,6 +405,11 @@ The I<$info> returned is a hash reference.  The possible keys are
 An array of successive C<@dircategory> and C<@direntry> as they appear
 in the document.
 
+=item included_files
+
+An array of included file paths as they appear in the document.  Binary
+strings.
+
 =item input_encoding_name
 
 =item input_perl_encoding

@@ -2599,6 +2599,9 @@ store_document (ELEMENT *root)
   memset (&parser_float_list, 0, sizeof (FLOAT_RECORD_LIST));
 
   forget_internal_xrefs ();
+
+  memset (&global_info.included_files, 0, sizeof (STRING_LIST));
+
   forget_small_strings ();
   forget_errors ();
 

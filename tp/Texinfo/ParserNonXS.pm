@@ -3583,6 +3583,7 @@ sub _end_line_misc_line($$$)
             $include_source_mark = {'sourcemark_type' => $command,
                                     'status' => 'start'};
             $self->{'input'}->[0]->{'input_source_mark'} = $include_source_mark;
+            push @{$self->{'global_info'}->{'included_files'}}, $included_file_path;
           } else {
             my $decoded_file_path
                 = Encode::decode($file_name_encoding, $included_file_path);

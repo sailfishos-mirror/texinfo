@@ -1009,6 +1009,7 @@ delete_global_info (GLOBAL_INFO *global_info_ref)
   GLOBAL_INFO global_info = *global_info_ref;
 
   free (global_info.dircategory_direntry.list);
+  free_strings_list (&global_info.included_files);
 
   free (global_info.input_encoding_name);
   free (global_info.input_file_name);

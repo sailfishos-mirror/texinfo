@@ -888,6 +888,30 @@ build_index_data (INDEX **index_names_in)
 }
 
 
+AV *
+build_string_list (STRING_LIST *strings_list, enum sv_string_type type)
+{
+  AV *av;
+  int i;
+
+  dTHX;
+
+  av = newAV ();
+
+  for (i = 0; i < strings_list->number; i++)
+    {
+      char *value = strings_list->list[i];
+      if (!value)
+        av_push (av, newSV (0));
+      else if (type == svt_char)
+        av_push (av, newSVpv_utf8 (value, 0));
+      else
+        av_push (av, newSVpv_byte (value, 0));
+    }
+  return av;
+}
+
+
 /* Return object to be used as 'info', retrievable with the
    'global_information' function. */
 HV *
@@ -916,6 +940,15 @@ build_global_info (GLOBAL_INFO *global_info_ref,
     hv_store (hv, "input_perl_encoding", strlen ("input_perl_encoding"),
               newSVpv (global_info.input_perl_encoding, 0), 0);
 
+  if (global_info.included_files.number)
+    {
+      AV *av = build_string_list (&global_info.included_files, svt_byte);
+      hv_store (hv, "included_files", strlen ("included_files"),
+                newRV_noinc ((SV *) av), 0);
+    }
+
+  build_additional_info (hv, &global_info.other_info, 0, &nr_info);
+
   /* duplicate information with global_commands to avoid needing to use
      global_commands and build tree elements in other codes, for
      information useful for structuring and transformation codes */
@@ -931,8 +964,6 @@ build_global_info (GLOBAL_INFO *global_info_ref,
       hv_store (hv, "documentlanguage", strlen ("documentlanguage"),
                 newSVpv (language, 0), 0);
     }
-
-  build_additional_info (hv, &global_info.other_info, 0, &nr_info);
 
   return hv;
 }
@@ -1616,29 +1647,6 @@ build_integer_stack (INTEGER_STACK *integer_stack)
     {
       int value = integer_stack->stack[i];
       av_push (av, newSViv (value));
-    }
-  return av;
-}
-
-AV *
-build_string_list (STRING_LIST *strings_list, enum sv_string_type type)
-{
-  AV *av;
-  int i;
-
-  dTHX;
-
-  av = newAV ();
-
-  for (i = 0; i < strings_list->number; i++)
-    {
-      char *value = strings_list->list[i];
-      if (!value)
-        av_push (av, newSV (0));
-      else if (type == svt_char)
-        av_push (av, newSVpv_utf8 (value, 0));
-      else
-        av_push (av, newSVpv_byte (value, 0));
     }
   return av;
 }

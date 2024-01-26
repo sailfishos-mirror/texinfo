@@ -57,6 +57,7 @@ typedef struct GLOBAL_INFO {
     ELEMENT_LIST dircategory_direntry; /* an array of elements */
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
+    STRING_LIST included_files;
 
     /* remaining, in general passed to/from perl but not used in C */
     ASSOCIATED_INFO other_info;
