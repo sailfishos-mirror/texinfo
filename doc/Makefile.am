@@ -100,7 +100,14 @@ dist-info:
 gnulib = $(abs_top_srcdir)/../gnulib
 gendocs = $(gnulib)/build-aux/gendocs.sh
 gendocs_templates = $(gnulib)/doc
-gendocs_envvars = GENDOCS_TEMPLATE_DIR=$(gendocs_templates)
+gendocs_envvars = GENDOCS_TEMPLATE_DIR=$(gendocs_templates) \
+        MAKEINFO=../$(builddir)/../tp/texi2any \
+                       TEXINFO_DEV_SOURCE=1 \
+                       top_srcdir="../$(top_srcdir)" \
+                       top_builddir="../$(top_builddir)" \
+        TEXI2DVI=../$(srcdir)/../util/texi2dvi \
+        TEXINDEX=../$(srcdir)/../texindex/texindex
+
 #
 gendocs_email = bug-texinfo@gnu.org
 gendocs_dir_url = /manual/
@@ -148,6 +155,7 @@ wwwdoc-build:
 	rm -rf $(doctemp) && mkdir $(doctemp)
 	cd $(doctemp) \
 	&& $(MKDIR_P) Pod/Simple \
+	&& ln -s ../texinfo.tex . \
 	&& ln -s ../*.texi . \
 	&& ln -s ../tp_api/*.texi . \
 	&& ln -s ../tp_api/api_includes . \
