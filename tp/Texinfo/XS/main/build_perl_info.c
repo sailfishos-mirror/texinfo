@@ -238,21 +238,16 @@ newSVpv_byte (const char *str, STRLEN len)
 }
 
 static void
-store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key,
-                       int avoid_recursion)
+build_additional_info (HV *extra, ASSOCIATED_INFO *a, int avoid_recursion,
+                       int *nr_info)
 {
   dTHX;
 
+  *nr_info = 0; /* number of info type stored */
+
   if (a->info_number > 0)
     {
-      HV *extra;
       int i;
-      int nr_info = 0; /* number of info type stored */
-
-
-      /* Use sv_2mortal so that reference count is decremented if
-         the hash is not saved. */
-      extra = (HV *) sv_2mortal((SV *)newHV ());
 
       for (i = 0; i < a->info_number; i++)
         {
@@ -263,7 +258,7 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key,
 
           if (k->type == extra_deleted)
             continue;
-          nr_info++;
+          (*nr_info)++;
 
           switch (k->type)
             {
@@ -376,11 +371,28 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO* a, char *key,
             }
         }
 #undef STORE
-
-      if (nr_info > 0)
-        hv_store (e->hv, key, strlen (key),
-                  newRV_inc((SV *)extra), 0);
     }
+}
+
+static void
+store_additional_info (const ELEMENT *e, ASSOCIATED_INFO *a, char *key,
+                       int avoid_recursion)
+{
+  int nr_info;
+  HV *additional_info_hv;
+
+  dTHX;
+
+  /* Use sv_2mortal so that reference count is decremented if
+         the hash is not saved. */
+  additional_info_hv = (HV *) sv_2mortal((SV *)newHV ());
+
+
+  build_additional_info (additional_info_hv, a, avoid_recursion, &nr_info);
+
+  if (nr_info > 0)
+    hv_store (e->hv, key, strlen (key),
+              newRV_inc((SV *)additional_info_hv), 0);
 }
 
 static void
@@ -886,6 +898,7 @@ build_global_info (GLOBAL_INFO *global_info_ref,
   GLOBAL_INFO global_info = *global_info_ref;
   GLOBAL_COMMANDS global_commands = *global_commands_ref;
   ELEMENT *document_language;
+  int nr_info;
 
   dTHX;
 
@@ -918,6 +931,8 @@ build_global_info (GLOBAL_INFO *global_info_ref,
       hv_store (hv, "documentlanguage", strlen ("documentlanguage"),
                 newSVpv (language, 0), 0);
     }
+
+  build_additional_info (hv, &global_info.other_info, 0, &nr_info);
 
   return hv;
 }

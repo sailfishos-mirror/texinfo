@@ -10,6 +10,16 @@ sub my_need_formatting($$$)
   my $cmdname = shift;
   my $command = shift;
 
+  my $package_version = '';
+
+  my $document = $converter->get_info('document');
+  if ($document) {
+    my $document_info = $document->global_information();
+    if ($document_info and defined($document_info->{'PACKAGE_AND_VERSION'})) {
+      $package_version = $document_info->{'PACKAGE_AND_VERSION'};
+    }
+  }
+
   if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
       and @{$command->{'extra'}->{'misc_args'}}) {
     $converter->converter_line_warn(
@@ -26,5 +36,5 @@ sub my_need_formatting($$$)
     $arg_text = '';
   }
   return (&{$converter->formatting_function('format_comment')}($converter,
-                                                      "$cmdname: $arg_text"));
+                                   "$cmdname: $arg_text ($package_version)"));
 }

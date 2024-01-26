@@ -322,19 +322,30 @@ if (!defined($locale_encoding) and $^O eq 'MSWin32') {
 $texinfo_dtd_version = $configured_version
   if (!defined($texinfo_dtd_version));
 
+my $configured_information = {
+    'PACKAGE_VERSION' => $configured_version,
+    'PACKAGE' => $configured_package,
+    'PACKAGE_NAME' => $configured_name,
+    'PACKAGE_AND_VERSION' => $configured_name_version,
+    'PACKAGE_URL' => $configured_url,
+};
+
 # options set in the main program.
 my $main_program_set_options = {
-    'PACKAGE_VERSION_OPTION' => $configured_version,
-    'PACKAGE_OPTION' => $configured_package,
-    'PACKAGE_NAME_OPTION' => $configured_name,
-    'PACKAGE_AND_VERSION_OPTION' => $configured_name_version,
-    'PACKAGE_URL_OPTION' => $configured_url,
     'PROGRAM' => $real_command_name,
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'COMMAND_LINE_ENCODING' => $locale_encoding,
     'MESSAGE_ENCODING' => $locale_encoding,
     'LOCALE_ENCODING' => $locale_encoding
 };
+
+# here set configure information with _OPTION prepended, to mark that
+# these are customization variables that may be modified in init files
+# or on the command line.
+foreach my $configured_variable (keys(%$configured_information)) {
+  $main_program_set_options->{$configured_variable . '_OPTION'}
+    = $configured_information->{$configured_variable};
+}
 
 # In Windows, a character in file name is encoded according to the current
 # codepage, and converted to/from UTF-16 in the filesystem.  If a file name is
@@ -1488,6 +1499,14 @@ while(@input_files) {
     next;
   }
 
+  # set as global information, not as customization variables,
+  # customization variables have _OPTION prepended
+  # FIXME does not need to be associated to a document, could be
+  # a common constant
+  foreach my $configured_variable (keys(%$configured_information)) {
+    $document->set_document_global_info($configured_variable,
+                       $configured_information->{$configured_variable});
+  }
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);

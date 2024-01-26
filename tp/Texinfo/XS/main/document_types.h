@@ -58,6 +58,9 @@ typedef struct GLOBAL_INFO {
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
 
+    /* remaining, in general passed to/from perl but not used in C */
+    ASSOCIATED_INFO other_info;
+
     /* perl specific */
     char *input_perl_encoding;
 } GLOBAL_INFO;

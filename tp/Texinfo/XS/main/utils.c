@@ -1014,6 +1014,8 @@ delete_global_info (GLOBAL_INFO *global_info_ref)
   free (global_info.input_file_name);
   free (global_info.input_directory);
 
+  destroy_associated_info (&global_info.other_info);
+
   /* perl specific information */
   free (global_info.input_perl_encoding);
 }

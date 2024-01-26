@@ -34,6 +34,8 @@ void add_info_string_dup (ELEMENT *e, const char *key, const char *value);
 void add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_associated_info_integer (ASSOCIATED_INFO *a,
                                   const char *key, int value);
+void add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
+                                     const char *value);
 KEY_PAIR *lookup_extra (const ELEMENT *e, const char *key);
 KEY_PAIR *lookup_info (const ELEMENT *e, const char *key);
 ELEMENT *lookup_extra_element (const ELEMENT *e, const char *key);

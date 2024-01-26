@@ -1,3 +1,22 @@
+2024-01-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/extra.c (add_associated_info_string_dup): add.
+
+	* tp/Texinfo/XS/main/DocumentXS.xs (set_document_global_info),
+	tp/Texinfo/XS/main/build_perl_info.c (store_additional_info)
+	(build_additional_info, build_global_info),
+	tp/Texinfo/XS/main/document_types.h (GLOBAL_INFO),
+	tp/Texinfo/XS/main/utils.c (delete_global_info): split
+	build_additional_info out of store_additional_info, to build
+	additional info on a passed hash.  Pass other set document global info
+	in a associated_info.
+
+	* tp/texi2any.pl: set configured_information PACKAGE* variables and
+	pass them as set_document_global_info.
+
+	* tp/t/init/redefine_need.init (my_need_formatting): test getting
+	PACKAGE_AND_VERSION.
+
 2024-01-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/test_utils.pl (set_converter_option_defaults, convert_to_*)
