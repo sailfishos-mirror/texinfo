@@ -1,3 +1,9 @@
+2024-01-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/init/redefine_need.init (my_need_formatting): get PACKAGE
+	instead of PACKAGE_AND_VERSION to have a string independent of the
+	Texinfo package version.
+
 2024-01-26  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/Makefile.am (gendocs_envvars, wwwdoc-build): link texinfo.tex

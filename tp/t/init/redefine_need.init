@@ -11,7 +11,7 @@ sub my_need_formatting($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  my $package_version = Texinfo::Common::get_constant('PACKAGE_AND_VERSION');
+  my $package_version = Texinfo::Common::get_constant('PACKAGE');
   $package_version = '' if (!defined($package_version));
 
   if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
