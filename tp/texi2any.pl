@@ -791,8 +791,7 @@ the behavior is identical, and does not depend on the installed name.\n")
 .__("      --init-file=FILE        load FILE to modify the default behavior.")."\n"
 .__("  -c, --set-customization-variable VAR=VAL  set customization variable VAR
                                 to value VAL.")."\n"
-.__("      --trace-includes        instead of generating an output format
-                                show included files.")."\n"
+.__("      --trace-includes        print names of included files.")."\n"
 .__("  -v, --verbose               explain what is being done.")."\n"
 .__("      --version               display version information and exit.")."\n"
 ."\n";

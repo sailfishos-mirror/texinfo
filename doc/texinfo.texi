@@ -15154,9 +15154,11 @@ files.)
 @item --trace-includes
 @opindex --trace-includes
 @vindex TRACE_INCLUDES
-Instead of generating an output format, show directly and indirectly
-included file paths, taking into account @option{-I}.  An include file
-is shown only if found.  Each included file is output on a line.
+Print the name of each included file to standard output, including any
+indrectly included files.  An include file is printed only if it was
+actually found.  When this option is given, @command{texi2any} does not
+output in any output format.  (The purpose of this option is to make it
+easier to collect the sources of a Texinfo manual.)
 
 @item --transliterate-file-names
 @opindex --transliterate-file-names
