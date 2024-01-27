@@ -778,23 +778,21 @@ Info files suitable for reading online with Emacs or standalone GNU Info.
 This program is commonly installed as both `makeinfo' and `texi2any';
 the behavior is identical, and does not depend on the installed name.\n")
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= sprintf(__("General options:
-      --document-language=STR locale to use in translating Texinfo keywords
-                                for the output document (default C).
-      --error-limit=NUM       quit after NUM errors (default %d).
-      --force                 preserve output even if errors.
-      --help                  display this help and exit.
-      --no-validate           suppress node cross-reference validation.
-      --no-warn               suppress warnings (but not errors).
-      --conf-dir=DIR          search also for initialization files in DIR.
-      --init-file=FILE        load FILE to modify the default behavior.
-  -c, --set-customization-variable VAR=VAL  set customization variable VAR 
-                                to value VAL.
-  -v, --verbose               explain what is being done.
-      --version               display version information and exit.\n"),
-    get_conf('ERROR_LIMIT'))
+  $makeinfo_help .= __("General options:")."\n"
+.__("      --document-language=STR locale to use in translating Texinfo keywords
+                                for the output document (default C).")."\n"
+.sprintf(__("      --error-limit=NUM       quit after NUM errors (default %d)."),
+         get_conf('ERROR_LIMIT'))."\n"
+.__("      --force                 preserve output even if errors.")."\n"
+.__("      --help                  display this help and exit.")."\n"
+.__("      --no-validate           suppress node cross-reference validation.")."\n"
+.__("      --no-warn               suppress warnings (but not errors).")."\n"
+.__("      --conf-dir=DIR          search also for initialization files in DIR.")."\n"
+.__("      --init-file=FILE        load FILE to modify the default behavior.")."\n"
+.__("  -c, --set-customization-variable VAR=VAL  set customization variable VAR
+                                to value VAL.")."\n"
+.__("  -v, --verbose               explain what is being done.")."\n"
+.__("      --version               display version information and exit.")."\n"
 ."\n";
   $makeinfo_help .= __("Output format selection (default is to produce Info):")."\n"
 .__("      --docbook               output Docbook XML.")."\n"

@@ -1,5 +1,10 @@
 2024-01-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: avoid \n in translated strings, split each option in
+	a translatable string.  Report from Benno Schulenberg.
+
+2024-01-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/init/redefine_need.init (my_need_formatting): get PACKAGE
 	instead of PACKAGE_AND_VERSION to have a string independent of the
 	Texinfo package version.
