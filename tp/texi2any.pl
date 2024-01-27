@@ -791,6 +791,8 @@ the behavior is identical, and does not depend on the installed name.\n")
 .__("      --init-file=FILE        load FILE to modify the default behavior.")."\n"
 .__("  -c, --set-customization-variable VAR=VAL  set customization variable VAR
                                 to value VAL.")."\n"
+.__("      --trace-includes        instead of generating an output format
+                                show included files.")."\n"
 .__("  -v, --verbose               explain what is being done.")."\n"
 .__("      --version               display version information and exit.")."\n"
 ."\n";
@@ -1073,6 +1075,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2023");
                      },
  'disable-encoding' => sub {set_from_cmdline('ENABLE_ENCODING', 0);
                      },
+ 'trace-includes' => sub {set_from_cmdline('TRACE_INCLUDES', 1);},
  'internal-links=s' => sub {set_from_cmdline('INTERNAL_LINKS', $_[1]);},
  'force|F' => sub {set_from_cmdline('FORCE', $_[1]);},
  'commands-in-node-names' => sub { ;},
@@ -1504,7 +1507,7 @@ while(@input_files) {
   }
 
   my $document_information = $document->global_information();
-  if (get_conf('SHOW_INCLUDE_FILE_PATHS')) {
+  if (get_conf('TRACE_INCLUDES')) {
     handle_errors($registrar, $error_count, \@opened_files);
     my $included_file_paths = $document_information->{'included_files'};
     if (defined($included_file_paths)) {

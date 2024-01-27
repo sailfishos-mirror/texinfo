@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Ask on mailing list what the interface to include paths list should
-be.  Depending on the issue, document SHOW_INCLUDE_FILE_PATHS.
-
 
 Bugs
 ====

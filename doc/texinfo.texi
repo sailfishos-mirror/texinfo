@@ -15151,6 +15151,13 @@ Keep Info files to at most @var{num} characters if possible; default
 is 300,000.  (However, a single node will never be split across Info
 files.)
 
+@item --trace-includes
+@opindex --trace-includes
+@vindex TRACE_INCLUDES
+Instead of generating an output format, show directly and indirectly
+included file paths, taking into account @option{-I}.  An include file
+is shown only if found.  Each included file is output on a line.
+
 @item --transliterate-file-names
 @opindex --transliterate-file-names
 @vindex TRANSLITERATE_FILE_NAMES
@@ -15451,6 +15458,8 @@ meaning of the options.
 @option{--split}             @tab @code{SPLIT}
 @item
 @option{--split-size}        @tab @code{SPLIT_SIZE}
+@item
+@option{--trace-includes}    @tab @code{TRACE_INCLUDES}
 @item
 @option{--transliterate-file-names} @tab @code{TRANSLITERATE_FILE_NAMES}
 @item
