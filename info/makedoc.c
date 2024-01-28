@@ -54,7 +54,7 @@ static char *doc_header_1[] = {
   "#include \"window.h\"",
   "#include \"funs.h\"",
   "",
-  "FUNCTION_DOC function_doc_array[] = {",
+  "InfoCommand function_doc_array[] = {",
   "",
   NULL
 };
