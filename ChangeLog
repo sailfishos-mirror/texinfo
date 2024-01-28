@@ -1,5 +1,10 @@
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Info.pm (format_node):
+	Remove commented-out line of code.
+
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Unicode.pm (string_width):
 	Do not reset the counter to zero at a newline, as this only
 	occurs for malformed input and it is not worth the complication.

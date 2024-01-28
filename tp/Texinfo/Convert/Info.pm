@@ -509,8 +509,6 @@ sub format_node($$)
                 or not $node->{'extra'}->{'is_target'});
 
   my ($node_text, undef) = $self->node_name($node);
-  # check not needed most probably because of the test of 'normalized'.
-  #return '' if ($node_text eq '');
 
   my $output_filename;
   if (defined($self->{'output_filename'})) {
