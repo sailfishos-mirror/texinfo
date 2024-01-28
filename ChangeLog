@@ -1,5 +1,9 @@
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info.h (Function, CFunction): Remove unused typedefs.
+
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: update for PACKAGE_* name change
 
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>

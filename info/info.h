@@ -23,10 +23,8 @@
 /* System dependencies.  */
 #include "system.h"
 
-/* Some of our other include files use these.  */
-typedef int Function ();
+/* Some of our other include files use this.  */
 typedef void VFunction ();
-typedef char *CFunction ();
 
 #include "string.h"
 #include "mbiter.h"
