@@ -11,8 +11,10 @@ sub my_need_formatting($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  my $package_version = Texinfo::Common::get_constant('PACKAGE');
-  $package_version = '' if (!defined($package_version));
+  my $package = Texinfo::Common::get_constant('PACKAGE');
+  $package = '' if (!defined($package));
+  my $package_config = Texinfo::Common::get_constant('PACKAGE_CONFIG');
+  $package_config = '' if (!defined($package_config));
 
   if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
       and @{$command->{'extra'}->{'misc_args'}}) {
@@ -30,5 +32,5 @@ sub my_need_formatting($$$)
     $arg_text = '';
   }
   return (&{$converter->formatting_function('format_comment')}($converter,
-                                   "$cmdname: $arg_text ($package_version)"));
+                         "$cmdname: $arg_text ($package|$package_config)"));
 }

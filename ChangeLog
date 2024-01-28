@@ -1,3 +1,11 @@
+2024-01-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl: set also PACKAGE*_CONFIG to have the same symbols
+	defined as in C.
+
+	* tp/t/init/redefine_need.init (my_need_formatting): also test
+	PACKAGE_CONFIG.
+
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Info.pm (format_node):

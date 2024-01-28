@@ -343,6 +343,9 @@ my $main_program_set_options = {
 foreach my $configured_variable (keys(%$configured_information)) {
   Texinfo::Common::set_constant($configured_variable,
                        $configured_information->{$configured_variable});
+  # set also with _CONFIG prepended, as in C code.
+  Texinfo::Common::set_constant($configured_variable.'_CONFIG',
+                       $configured_information->{$configured_variable});
 }
 
 foreach my $configured_variable (keys(%$configured_information)) {
