@@ -392,7 +392,8 @@ sub setup_sortable_index_entries($$$$$)
   my $collator;
   eval { require Unicode::Collate; Unicode::Collate->import; };
   my $unicode_collate_loading_error = $@;
-  if ($unicode_collate_loading_error eq '') {
+  if ($unicode_collate_loading_error eq ''
+        and $customization_information->get_conf('USE_UNICODE_COLLATION')) {
     $collator = Unicode::Collate->new(%collate_options);
   } else {
     $collator = Texinfo::CollateStub->new();

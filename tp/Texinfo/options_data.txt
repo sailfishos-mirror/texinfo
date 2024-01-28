@@ -185,6 +185,7 @@ TEXTCONTENT_COMMENT                converter_customization undef   integer
 # be good to update from time to time to avoid test results that are not
 # valid against their reported DTD.
 TEXINFO_DTD_VERSION                converter_customization 7.1     char
+USE_UNICODE_COLLATION              converter_customization 1       integer
 
 # Some are for all converters, EXTENSION for instance, some for
 # some converters, for example CLOSE_QUOTE_SYMBOL and many

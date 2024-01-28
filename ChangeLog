@@ -1,3 +1,12 @@
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	USE_UNICODE_COLLATION
+
+	* tp/Texinfo/options_data.txt: Add USE_UNICODE_COLLATION, 1 by default.
+	* tp/Texinfo/Indices.pm (setup_sortable_index_entries): If
+	USE_UNICODE_COLLATION is false, use the Texinfo::CollateStub
+	module instead of Unicode::Collate.
+
 2024-01-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl: set also PACKAGE*_CONFIG to have the same symbols
