@@ -345,11 +345,8 @@ foreach my $configured_variable (keys(%$configured_information)) {
                        $configured_information->{$configured_variable});
 }
 
-# here set configure information with _OPTION prepended, to mark that
-# these are customization variables that may be modified in init files
-# or on the command line.
 foreach my $configured_variable (keys(%$configured_information)) {
-  $main_program_set_options->{$configured_variable . '_OPTION'}
+  $main_program_set_options->{$configured_variable}
     = $configured_information->{$configured_variable};
 }
 
@@ -1147,11 +1144,11 @@ if ($cmdline_options->{'HIGHLIGHT_SYNTAX'}) {
 
 # For tests, set some strings to values not changing with releases
 my %test_conf = (
-    'PACKAGE_VERSION_OPTION' => '',
-    'PACKAGE_OPTION' => 'texinfo',
-    'PACKAGE_NAME_OPTION' => 'texinfo',
-    'PACKAGE_AND_VERSION_OPTION' => 'texinfo',
-    'PACKAGE_URL_OPTION' => 'http://www.gnu.org/software/texinfo/',
+    'PACKAGE_VERSION' => '',
+    'PACKAGE' => 'texinfo',
+    'PACKAGE_NAME' => 'texinfo',
+    'PACKAGE_AND_VERSION' => 'texinfo',
+    'PACKAGE_URL' => 'http://www.gnu.org/software/texinfo/',
 # maybe don't set this?
     'PROGRAM' => 'texi2any',
 );

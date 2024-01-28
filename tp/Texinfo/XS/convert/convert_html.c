@@ -6536,14 +6536,14 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
 {
   ELEMENT *tree;
   if (self->conf->PROGRAM.string && strlen (self->conf->PROGRAM.string)
-      && self->conf->PACKAGE_URL_OPTION.string)
+      && self->conf->PACKAGE_URL.string)
     {
       ELEMENT *program_homepage = new_element (ET_NONE);
       ELEMENT *program = new_element (ET_NONE);
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
 
-      text_append (&program_homepage->text, self->conf->PACKAGE_URL_OPTION.string);
+      text_append (&program_homepage->text, self->conf->PACKAGE_URL.string);
       text_append (&program->text, self->conf->PROGRAM.string);
 
       add_element_to_named_string_element_list (substrings,
@@ -7152,8 +7152,8 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   text_append_n (&result, "\n", 1);
   text_printf (&result, "<html%s>\n", begin_info->root_html_element_attributes);
   text_printf (&result, "<!-- Created by %s, %s -->\n<head>\n",
-                        self->conf->PACKAGE_AND_VERSION_OPTION.string,
-                        self->conf->PACKAGE_URL_OPTION.string);
+                        self->conf->PACKAGE_AND_VERSION.string,
+                        self->conf->PACKAGE_URL.string);
   if (begin_info->encoding)
     text_append (&result, begin_info->encoding);
   text_append_n (&result, "\n", 1);
@@ -8198,8 +8198,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
   text_printf (&result, "<!-- Created by %s, %s -->\n"
        "<!-- This file redirects to the location of a node or anchor -->\n"
        "<head>\n",
-                        self->conf->PACKAGE_AND_VERSION_OPTION.string,
-                        self->conf->PACKAGE_URL_OPTION.string);
+                        self->conf->PACKAGE_AND_VERSION.string,
+                        self->conf->PACKAGE_URL.string);
   if (begin_info->encoding)
     text_append (&result, begin_info->encoding);
   text_append_n (&result, "\n", 1);

@@ -113,8 +113,8 @@ sub singular_format_end_file($$$)
 {
   my $self = shift;
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
-  my $program_homepage = $self->get_conf('PACKAGE_URL_OPTION');
-  my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION_OPTION');
+  my $program_homepage = $self->get_conf('PACKAGE_URL');
+  my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION');
   my $version = $self->get_value('VERSION');
   my $version_date = $self->get_value('VERSION_DATE');
   $version = 'NO VERSION' if (!defined($version));
@@ -261,8 +261,8 @@ sub singular_format_special_body_about($$$)
   my $version_date = $self->get_value('VERSION_DATE');
   $version = 'NO VERSION' if (!defined($version));
   $version_date = 'NO VERSION DATE' if (!defined($version_date));
-  my $program_homepage = $self->get_conf('PACKAGE_URL_OPTION');
-  my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION_OPTION');
+  my $program_homepage = $self->get_conf('PACKAGE_URL');
+  my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION');
   my $result = '';
   $result .= <<EOT;
 <p>

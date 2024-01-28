@@ -175,5 +175,16 @@ esac
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 
+# Output these with the _CONFIG suffix as we use the originals as names
+# of customization variables.
+AC_DEFINE_UNQUOTED([PACKAGE_CONFIG], ["$PACKAGE"],
+                   [autoconf PACKAGE value])
+AC_DEFINE_UNQUOTED([PACKAGE_NAME_CONFIG], ["$PACKAGE_NAME"],
+                   [autoconf PACKAGE_NAME value])
+AC_DEFINE_UNQUOTED([PACKAGE_URL_CONFIG], ["$PACKAGE_URL"],
+                   [autoconf PACKAGE_URL value])
+AC_DEFINE_UNQUOTED([PACKAGE_VERSION_CONFIG], ["$PACKAGE_VERSION"],
+                   [autoconf PACKAGE_VERSION value])
+
 AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
 AC_OUTPUT

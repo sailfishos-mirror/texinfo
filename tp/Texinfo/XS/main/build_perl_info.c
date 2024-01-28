@@ -82,9 +82,9 @@ init (int texinfo_uninstalled, char *builddir)
 
   /* Note: this uses the installed translations even when running an
      uninstalled program. */
-  bindtextdomain (PACKAGE, LOCALEDIR);
+  bindtextdomain (PACKAGE_CONFIG, LOCALEDIR);
 
-  textdomain (PACKAGE);
+  textdomain (PACKAGE_CONFIG);
 #else
 
 #endif

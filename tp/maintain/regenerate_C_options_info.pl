@@ -103,6 +103,15 @@ print HEADER "#ifndef OPTIONS_TYPES_H\n#define OPTIONS_TYPES_H\n\n";
 
 print HEADER "#include \"main/option_types.h\"\n\n";
 
+print HEADER "/* Undefine values set from autoconf as we use these as\n";
+print HEADER "   customization variable names.  The original values are\n";
+print HEADER "   available with a _CONFIG suffix, e.g. PACKAGE_CONFIG for\n";
+print HEADER "   PACKAGE. */\n";
+print HEADER "#undef PACKAGE\n";
+print HEADER "#undef PACKAGE_NAME\n";
+print HEADER "#undef PACKAGE_URL\n";
+print HEADER "#undef PACKAGE_VERSION\n\n";
+
 print HEADER "typedef struct OPTIONS {\n";
 
 foreach my $category (sort(keys(%option_categories))) {

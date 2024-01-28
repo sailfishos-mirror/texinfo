@@ -1,3 +1,27 @@
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/options_data.txt: Remove _OPTION suffixes from
+	PACKAGE_* variables in order to maintain backwards compatability,
+	especially for customization files (e.g. for ffmpeg).
+	Report from Arsen Arsenović <arsen@gentoo.org>.
+
+	* tp/texi2any.pl: Set the variables from the "configured information"
+	without adding a suffix.
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/Info.pm, tp/Texinfo/XS/convert/convert_html.c,
+	tp/t/init/t2h_singular.init, tp/t/layout.t: Consequent changes.
+
+	* tp/maintain/regenerate_C_options_info.pl: #undef the PACKAGE_*
+	symbols to avoid a clash with symbols defined by autoconf.
+	Analysis by Patrice.
+
+	* tp/Texinfo/XS/configure.ac: Propagate PACKAGE, PACKAGE_NAME,
+	PACKAGE_URL and PACKAGE_VERSION using AC_DEFINE_UNQUOTED, with
+	a _CONFIG suffix, in order to make these symbols still accessible
+	in the XS sources.  Suggestion from Patrice.
+	* tp/Texinfo/XS/main/build_perl_info.c (init): Refer to PACKAGE_CONFIG
+	rather than PACKAGE.
+
 2024-01-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Invoking texi2any),
