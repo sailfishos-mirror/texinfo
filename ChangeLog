@@ -1,3 +1,11 @@
+2024-01-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl, tp/t/init/redefine_need.init (my_need_formatting),
+	doc/texi2any_api.texi (Getting Build Constants), tp/Texinfo/Common.pm
+	b/tp/Texinfo/Common.pm (%build_constants, set_build_constant)
+	(get_build_constant): rename get_constant as get_build_constant and
+	set_constant as set_build_constant (Gavin).
+
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	USE_UNICODE_COLLATION
@@ -6,14 +14,6 @@
 	* tp/Texinfo/Indices.pm (setup_sortable_index_entries): If
 	USE_UNICODE_COLLATION is false, use the Texinfo::CollateStub
 	module instead of Unicode::Collate.
-
-2024-01-28  Patrice Dumas  <pertusus@free.fr>
-
-	* tp/texi2any.pl, tp/t/init/redefine_need.init (my_need_formatting),
-	doc/texi2any_api.texi (Getting Build Constants), tp/Texinfo/Common.pm
-	b/tp/Texinfo/Common.pm (%build_constants, set_build_constant)
-	(get_build_constant): rename get_constant as get_build_constant and
-	set_constant as set_build_constant (Gavin).
 
 2024-01-28  Patrice Dumas  <pertusus@free.fr>
 
