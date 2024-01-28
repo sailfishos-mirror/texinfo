@@ -1,5 +1,12 @@
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/infodoc.c (describe_key): Fix handling of keys with
+	"invalid" mappings.
+
+	Report from Bugsy Abatantuono <bugsyabatantuono@proton.me>.
+
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/doc.h (FUNCTION_DOC, InfoCommand): Use "InfoCommand" as
 	the sole name for this type.
 
