@@ -1,5 +1,9 @@
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: update for PACKAGE_* name change
+
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/options_data.txt: Remove _OPTION suffixes from
 	PACKAGE_* variables in order to maintain backwards compatability,
 	especially for customization files (e.g. for ffmpeg).
