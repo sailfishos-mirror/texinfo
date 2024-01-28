@@ -1069,6 +1069,24 @@ sub _add_newline_if_needed($) {
   return;
 }
 
+# Ensure the output ends in a newline character.
+sub _ensure_end_of_line($)
+{
+  my $self = shift;
+
+  my $result = _stream_result($self);
+
+  return if !defined($result) or $result eq '';
+
+  if (substr($result, -1) ne "\n") {
+    _stream_output($self, "\n");
+    _add_lines_count($self, 1);
+    $self->{'text_element_context'}->[-1]->{'counter'} = 0;
+  }
+  return;
+}
+
+
 sub _open_code($)
 {
   my $formatter = shift;
@@ -1762,22 +1780,6 @@ sub _anchor($$)
 }
 
 my $listoffloat_entry_length = 41;
-
-sub ensure_end_of_line($)
-{
-  my $self = shift;
-
-  my $result = _stream_result($self);
-
-  return if !defined($result) or $result eq '';
-
-  if (substr($result, -1) ne "\n") {
-    _stream_output($self, "\n");
-    _add_lines_count($self, 1);
-    $self->{'text_element_context'}->[-1]->{'counter'} = 0;
-  }
-  return;
-}
 
 sub image_formatted_text($$$$)
 {
@@ -3087,7 +3089,7 @@ sub _convert($$)
              {'indent_length' =>
                  ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                    * $indent_length});
-        $self->ensure_end_of_line();
+        _ensure_end_of_line($self);
       }
     } elsif ($command eq 'item' and $element->{'parent'}->{'cmdname'}
              and $block_commands{$element->{'parent'}->{'cmdname'}}
@@ -3149,7 +3151,7 @@ sub _convert($$)
               'contents' => [$element->{'args'}->[0]]},
              {'indent_length' => 0});
       }
-      $self->ensure_end_of_line();
+      _ensure_end_of_line($self);
       my $result = _stream_result($self);
       if ($result ne '') {
 
@@ -3184,7 +3186,7 @@ sub _convert($$)
                    * $indent_length});
         }
       }
-      $self->ensure_end_of_line();
+      _ensure_end_of_line($self);
       return;
     } elsif ($command eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude(
@@ -3881,7 +3883,7 @@ sub _convert($$)
                        add_pending_word($formatter->{'container'}),
                        $formatter->{'container'});
         end_line($formatter->{'container'});
-        $self->ensure_end_of_line();
+        _ensure_end_of_line($self);
       }
 
       return;
@@ -4030,7 +4032,7 @@ sub _convert($$)
       $self->{'format_context'}->[-1]->{'row_counts'} = [];
       _stream_output_encoded($self, $result);
     } elsif ($type eq 'before_node_section') {
-      ensure_end_of_line($self);
+      _ensure_end_of_line($self);
       $self->{'text_before_first_node'} = _stream_result($self);
     }
   }
@@ -4051,7 +4053,7 @@ sub _convert($$)
     _stream_output($self,
                Texinfo::Convert::Paragraph::end($preformatted->{'container'}),
                $preformatted->{'container'});
-    $self->ensure_end_of_line();
+    _ensure_end_of_line($self);
 
     if ($self->{'context'}->[-1] eq 'flushright') {
       my $result = _stream_result($self);

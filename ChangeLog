@@ -1,5 +1,14 @@
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm
+	(ensure_end_of_line, _ensure_end_of_line):
+	Move function in file to be right after _add_newline_if_needed,
+	as the implementation is similar.  Rename with leading underscore
+	to mark as "internal", and do not call with method call syntax
+	throughout.  No functional change intended.
+
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/infodoc.c (describe_key): Fix handling of keys with
 	"invalid" mappings.
 
