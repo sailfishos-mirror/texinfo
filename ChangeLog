@@ -13,7 +13,7 @@
 	doc/texi2any_api.texi (Getting Build Constants), tp/Texinfo/Common.pm
 	b/tp/Texinfo/Common.pm (%build_constants, set_build_constant)
 	(get_build_constant): rename get_constant as get_build_constant and
-	set_constant as set_buikd_constant (Gavin).
+	set_constant as set_build_constant (Gavin).
 
 2024-01-28  Patrice Dumas  <pertusus@free.fr>
 
