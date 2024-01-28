@@ -11,9 +11,9 @@ sub my_need_formatting($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  my $package = Texinfo::Common::get_constant('PACKAGE');
+  my $package = Texinfo::Common::get_build_constant('PACKAGE');
   $package = '' if (!defined($package));
-  my $package_config = Texinfo::Common::get_constant('PACKAGE_CONFIG');
+  my $package_config = Texinfo::Common::get_build_constant('PACKAGE_CONFIG');
   $package_config = '' if (!defined($package_config));
 
   if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}

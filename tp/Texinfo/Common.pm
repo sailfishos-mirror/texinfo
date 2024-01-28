@@ -294,21 +294,21 @@ foreach my $output_format_command ('info', 'plaintext',
 
 
 # constants.  Set by the main program.
-my %constants;
+my %build_constants;
 
-sub set_constant($$)
+sub set_build_constant($$)
 {
   my $key = shift;
   my $value = shift;
 
-  $constants{$key} = $value;
+  $build_constants{$key} = $value;
 }
 
-sub get_constant($)
+sub get_build_constant($)
 {
   my $key = shift;
 
-  return $constants{$key};
+  return $build_constants{$key};
 }
 
 
@@ -2745,7 +2745,8 @@ Texinfo::Common - Texinfo modules common data and miscellaneous methods
     = Texinfo::Common::collect_commands_in_tree($document_root,
                                              \@commands_to_collect);
 
-  my $package_version = Texinfo::Common::get_constant('PACKAGE_AND_VERSION');
+  my $package_version
+    = Texinfo::Common::get_build_constant('PACKAGE_AND_VERSION');
 
 =head1 NOTES
 
@@ -2763,27 +2764,43 @@ methods.
 Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
-Constants are available by calling C<get_constant>:
+Values defined for a Texinfo build independently of any document or
+output format are available by calling C<get_build_constant>:
 
 =over
 
-=item $value = get_constant($name)
+=item $value = get_build_constant($name)
 
-The following constants are available:
+The following build constants are available:
 
 =over
 
 =item PACKAGE
 
+=item PACKAGE_CONFIG
+
 =item PACKAGE_AND_VERSION
+
+=item PACKAGE_AND_VERSION_CONFIG
 
 =item PACKAGE_NAME
 
+=item PACKAGE_NAME_CONFIG
+
 =item PACKAGE_VERSION
+
+=item PACKAGE_VERSION_CONFIG
 
 =item PACKAGE_URL
 
-Texinfo package name and versions.  Values set by configure.
+=item PACKAGE_URL_CONFIG
+
+Texinfo package name and versions.  Values of build constants without
+C<_CONFIG> appended are set by configure.  For each variable set by
+configure there is another one with C<_CONFIG> appended
+to the name set to the same value, to match the name of the macros set in
+C.  So, for example C<PACKAGE_VERSION_CONFIG> value is the same as
+C<PACKAGE_VERSION>, set to the C<PACKAGE_VERSION> value set by configure.
 
 =back
 

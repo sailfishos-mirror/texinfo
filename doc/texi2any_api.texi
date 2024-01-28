@@ -223,32 +223,42 @@ instead it is passed to functions defined in init files that are registered as
 functions to be called from the converter. @xref{User Defined Functions}.
 
 
-@node Getting Constants
-@section Getting Constants
+@node Getting Build Constants
+@section Getting Build Constants
 
 @cindex Constants
 
-Some constants are set independently of the output format.  They are available
-through @code{Texinfo::Common::get_constant}:
+Some constants are set independently of the output format for a Texinfo build.
+They are available through @code{Texinfo::Common::get_build_constant}:
 
-@deftypefun {@var{$value} =} Texinfo::Common::get_constant (@var{$name})
-Retrieve constant @var{$name} value.
+@deftypefun {@var{$value} =} Texinfo::Common::get_build_constant (@var{$name})
+Retrieve build constant @var{$name} value.
 @end deftypefun
 
-Available constants:
+Defined build constants:
 
 @vtable @code
 @item PACKAGE
+@itemx PACKAGE_CONFIG
 @itemx PACKAGE_AND_VERSION
+@itemx PACKAGE_AND_VERSION_CONFIG
 @itemx PACKAGE_NAME
+@itemx PACKAGE_NAME_CONFIG
 @itemx PACKAGE_VERSION
+@itemx PACKAGE_VERSION_CONFIG
 @itemx PACKAGE_URL
+@itemx PACKAGE_URL_CONFIG
 
-Texinfo package name and versions. Values set by configure.
+Texinfo package name and versions.  Values of build constants without
+@samp{_CONFIG} appended are set by configure.  Similar customization variables
+exist with the same value set in the default case from the main program, with
+values that can be modified.
 
-Similar customization variables exist with @samp{_OPTION} prepended
-to their name and the same value set in the default case from the
-main program, with values that can be modified.
+The values of the build constants with @samp{_CONFIG} appended are duplicate of
+the values of the build constants without @samp{_CONFIG}@footnote{They are
+set to correspond to macro set in the C code.  In the C code there are no
+macros with the names without @samp{_CONFIG} appended as they would clash with
+the names of the customization options.}.
 @end vtable
 
 
