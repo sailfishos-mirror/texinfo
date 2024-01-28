@@ -227,16 +227,12 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   return result;
 }
 
-/* end of line resets the count, same as in perl */
 int
 width_multibyte (const char *text)
 {
   int result;
-  const char *p = strrchr (text, '\n');
-  if (!p)
-    p = text;
   /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
-  uint8_t *u8_text = u8_strconv_from_encoding (p, "UTF-8",
+  uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
                                                  iconveh_question_mark);
   /* NOTE the libunistring documentation described encoding as
      The encoding argument identifies the encoding (e.g. "ISO-8859-2"

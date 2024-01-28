@@ -1,5 +1,13 @@
 2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Unicode.pm (string_width):
+	Do not reset the counter to zero at a newline, as this only
+	occurs for malformed input and it is not worth the complication.
+	* tp/Texinfo/XS/main/utils.c (width_multibyte): Make the same
+	change.  Reverses change on 2023-12-31.
+
+2024-01-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm
 	(ensure_end_of_line, _ensure_end_of_line):
 	Move function in file to be right after _add_newline_if_needed,
