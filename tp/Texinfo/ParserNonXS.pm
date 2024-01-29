@@ -3600,6 +3600,15 @@ sub _end_line_misc_line($$$)
         $current->{'extra'}->{'input_encoding_name'}
                         = $self->{'input_encoding_name'}
           if (defined($self->{'input_encoding_name'}));
+        # gather included file for 'included_files'.  No errors, they
+        # should be output by converters
+        my ($file_path, $file_name_encoding) = _encode_file_name($self, $text);
+        my $included_file_path
+             = Texinfo::Common::locate_include_file($self, $file_path);
+        if (-r $included_file_path) {
+          push @{$self->{'global_info'}->{'included_files'}},
+                                                  $included_file_path;
+        }
       } elsif ($command eq 'documentencoding') {
         # lower case, trim non-ascii characters and keep only alphanumeric
         # characters, - and _.  iconv also seems to trim non alphanumeric

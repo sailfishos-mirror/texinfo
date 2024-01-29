@@ -1,5 +1,19 @@
 2024-01-29  Patrice Dumas  <pertusus@free.fr>
 
+	Add @verbatiminclude files to --trace-includes output
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): add
+	@verbatiminclude file to included_files if found and readable.  No
+	errors if not found or not readable.
+
+	* tp/tests/Makefile.onetst, tp/tests/coverage/list-of-tests
+	(formatting_trace_includes): add a test of --trace-includes.
+
+	* doc/texinfo.texi: fix a typo.
+
+2024-01-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Indices.pm (setup_sortable_index_entries): use
 	Unicode::Collate if possible if USE_UNICODE_COLLATION is undef.
 

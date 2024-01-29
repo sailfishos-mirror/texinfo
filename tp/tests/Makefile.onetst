@@ -80,6 +80,7 @@ type_base_one_test_files_generated_list =  \
     test_scripts/coverage_formatting_epub.sh \
     test_scripts/coverage_formatting_textcontent.sh \
     test_scripts/coverage_formatting_rawtext.sh \
+    test_scripts/coverage_formatting_trace_includes.sh \
     test_scripts/coverage_formatting_html32.sh \
     test_scripts/coverage_formatting_xhtml.sh \
     test_scripts/coverage_formatting_chm.sh \

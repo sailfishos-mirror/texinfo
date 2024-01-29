@@ -19,6 +19,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <unistd.h>
 
 #include "parser.h"
 #include "tree_types.h"
@@ -1303,9 +1304,17 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->cmd == CM_verbatiminclude)
             {
+              char *fullpath, *sys_filename;
+
               if (global_info.input_encoding_name)
                 add_extra_string_dup (current, "input_encoding_name",
                                       global_info.input_encoding_name);
+              /* gather included file for 'included_files'.  No errors, they
+                 should be output by converters */
+              sys_filename = encode_file_name (text);
+              fullpath = parser_locate_include_file (sys_filename);
+              if (fullpath && access (fullpath, R_OK) == 0)
+                add_string (fullpath, &global_info.included_files);
             }
           else if (current->cmd == CM_documentencoding)
             {
