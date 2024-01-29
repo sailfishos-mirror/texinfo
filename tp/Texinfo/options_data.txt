@@ -141,6 +141,8 @@ FORCE           program_cmdline undef  integer
 NO_WARN         program_cmdline undef  integer
 # --silent.  Not used.  For completeness
 SILENT          program_cmdline undef  char
+# --trace-includes
+TRACE_INCLUDES  program_cmdline 0      integer
 
 # following also set in converters
 # --headers.  Modified by the format.
@@ -159,7 +161,6 @@ SHOW_BUILTIN_CSS_RULES       program_customization 0         integer
 SORT_ELEMENT_COUNT           program_customization undef     char
 SORT_ELEMENT_COUNT_WORDS     program_customization undef     integer
 TEXI2DVI                     program_customization texi2dvi  char
-TRACE_INCLUDES               program_customization 0         integer
 TREE_TRANSFORMATIONS         program_customization undef     char
 
 

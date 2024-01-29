@@ -388,16 +388,20 @@ sub setup_sortable_index_entries($$$$$)
   #                   'UCA_Version' => 9,
   #                   'table' => 'allkeys-3.1.1.txt');
 
-  # Fall back to stub if Unicode::Collate not available.
+  my $use_unicode_collation
+    = $customization_information->get_conf('USE_UNICODE_COLLATION');
+
   my $collator;
-  eval { require Unicode::Collate; Unicode::Collate->import; };
-  my $unicode_collate_loading_error = $@;
-  if ($unicode_collate_loading_error eq ''
-        and $customization_information->get_conf('USE_UNICODE_COLLATION')) {
-    $collator = Unicode::Collate->new(%collate_options);
-  } else {
-    $collator = Texinfo::CollateStub->new();
+  if (!(defined($use_unicode_collation)
+        and !$use_unicode_collation)) {
+    eval { require Unicode::Collate; Unicode::Collate->import; };
+    my $unicode_collate_loading_error = $@;
+    if ($unicode_collate_loading_error eq '') {
+      $collator = Unicode::Collate->new(%collate_options);
+    }
   }
+  # Fall back to stub if Unicode::Collate not wanted or not available.
+  $collator = Texinfo::CollateStub->new() if (!defined($collator));
 
   my $entries_collator;
   $entries_collator = $collator if $preset_keys;
