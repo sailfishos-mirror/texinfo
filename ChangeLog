@@ -1,3 +1,8 @@
+2024-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Other Customization Variables),
+	* NEWS: Document USE_UNICODE_COLLATION.
+
 2024-01-29  Patrice Dumas  <pertusus@free.fr>
 
 	Add @verbatiminclude files to --trace-includes output

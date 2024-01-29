@@ -16,6 +16,8 @@ See the manual for detailed information.
 * texi2any
  . info output: output Info-documentlanguage in Local Variables section
    of output file if @documentlanguage is given
+ . new variable USE_UNICODE_COLLATION to allow turning off the slower
+   use of Unicode collation when sorting indices
  . remove SIMPLE_MENU customization option and tree transformation.
  . remove FRAMES and FRAMESET_DOCTYPE customization options.
  . set CHECK_NORMAL_MENU_STRUCTURE in the default case.

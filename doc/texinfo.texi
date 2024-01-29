@@ -16536,6 +16536,26 @@ Default is on for Info, off for other output.  If set, use exactly
 what @code{@@setfilename} gives for the output file name, including
 the extension.  You should not need to explicitly set this variable.
 
+@pindex Unicode::Collate
+@item USE_UNICODE_COLLATION
+By default, @command{texi2any} sorts document indices according to
+the @dfn{Unicode Collation Algorithm} (defined in
+@uref{http://www.unicode.org/reports/tr10/, Unicode Technical Standard #10}),
+which performs a @dfn{multi-level} ordering of strings containing Unicode
+code points.  (To do this, the program uses the @code{Unicode::Collate}
+module, a standard part of Perl installations.)  However, the use of
+this algorithm incurs noticeably longer run times when processing manuals
+with large indices.
+
+Set this variable to @samp{0} to use a simpler, faster sorting algorithm
+which only uses Perl's built-in string comparison.
+
+You may find this useful for speeding up @command{texi2any} if you don't
+have many non-ASCII characters in index entry text, or if you don't care
+about having the indices sorted correctly, especially when working on
+the draft of a manual.
+
+
 @pindex Text::Unidecode
 @item USE_UNIDECODE
 If set to false, do not use the @code{Text::Unidecode} Perl module to
