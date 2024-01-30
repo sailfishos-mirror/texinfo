@@ -32,8 +32,7 @@ mkdir -p $dir
 
 for manual_proj_dir in manuals/*/ ; do
   proj_dir=`basename $manual_proj_dir`
-  rm -rf $dir/$proj_dir
-  mkdir $dir/$proj_dir
+  test $one_test != 'yes' && rm -rf $dir/$proj_dir
   for manual_dir in $manual_proj_dir/*/ ; do
     one_manual_found=no
     for file in $manual_dir/*.texi* ; do
@@ -47,6 +46,7 @@ for manual_proj_dir in manuals/*/ ; do
         fi
 
         echo "doing $file"
+        mkdir -p $dir/$proj_dir
 
         out_dir=$dir/$proj_dir/$bfile
         rm -rf $out_dir

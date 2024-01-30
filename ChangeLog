@@ -1,5 +1,13 @@
 2024-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/mass_test/generate_perlVSC.sh: do not remove the directories
+	if only one test is done.
+
+	* contrib/mass_test/check_perlVSC.sh: add the possibility to check the
+	diff for one test only.
+
+2024-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	Index sorting in C
 
 	* tp/Texinfo/Indices.pm (setup_sortable_index_entries): rename

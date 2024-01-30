@@ -18,7 +18,16 @@
 
 dir=result_check_perlVSC
 
-rm -rf result_check_perlVSC
+one_test=no
+if test -n "$1"; then
+  one_test=yes
+  the_test=$1
+fi
+
+if test $one_test != 'yes' ; then
+  rm -rf result_check_perlVSC
+fi
+
 mkdir -p result_check_perlVSC
 
 #set -x
@@ -33,6 +42,10 @@ for manual_proj_dir in manuals/*/ ; do
         one_manual_found=yes
         bfile_ext=`basename $file`
         bfile=`echo $bfile_ext | sed 's/\.texi.*$//'`
+
+        if test $one_test = 'yes' && test "z$bfile" != "z$the_test" ; then
+          continue
+        fi
 
         diff_file=result_check_perlVSC/${proj_dir}-${manual_name}-${bfile}.diff
         diff -u -r perl_HTML_refs/$proj_dir/$bfile/ compare_C_HTML/$proj_dir/$bfile/ > $diff_file
