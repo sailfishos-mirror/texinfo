@@ -1,6 +1,6 @@
 /* A GNU-like <stdlib.h>.
 
-   Copyright (C) 1995, 2001-2004, 2006-2023 Free Software Foundation, Inc.
+   Copyright (C) 1995, 2001-2004, 2006-2024 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -1112,7 +1112,9 @@ _GL_CXXALIAS_SYS (qsort_r, void, (void *base, size_t nmemb, size_t size,
                                   _gl_qsort_r_compar_fn compare,
                                   void *arg));
 # endif
+# if __GLIBC__ >= 2
 _GL_CXXALIASWARN (qsort_r);
+# endif
 #elif defined GNULIB_POSIXCHECK
 # undef qsort_r
 # if HAVE_RAW_DECL_QSORT_R
@@ -1122,11 +1124,26 @@ _GL_WARN_ON_USE (qsort_r, "qsort_r is not portable - "
 #endif
 
 
-#if @GNULIB_RANDOM_R@
-# if !@HAVE_RANDOM_R@
-#  ifndef RAND_MAX
-#   define RAND_MAX 2147483647
+#if @GNULIB_RAND@ || (@GNULIB_RANDOM_R@ && !@HAVE_RANDOM_R@)
+# ifndef RAND_MAX
+#  define RAND_MAX 2147483647
+# endif
+#endif
+
+
+#if @GNULIB_RAND@
+# if @REPLACE_RAND@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#   undef rand
+#   define rand rpl_rand
 #  endif
+_GL_FUNCDECL_RPL (rand, int, (void));
+_GL_CXXALIAS_RPL (rand, int, (void));
+# else
+_GL_CXXALIAS_SYS (rand, int, (void));
+# endif
+# if __GLIBC__ >= 2
+_GL_CXXALIASWARN (rand);
 # endif
 #endif
 

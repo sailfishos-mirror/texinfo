@@ -1,5 +1,12 @@
 2024-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	Add gnulib module for XS
+
+	* tp/Texinfo/XS:
+	Run "gnulib-tool --add-import unictype/category-Mn"
+
+2024-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/mass_test/generate_perlVSC.sh: do not remove the directories
 	if only one test is done.
 
