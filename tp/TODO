@@ -65,12 +65,19 @@ Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 Delayed bugs
 ============
 
-For unicode sorting in C for index sorting, strcoll_l or even better strxfrm_l
-could be used, it sorts according to a locale specified in argument.  However,
-it does not seems to be that portable, there is no associated gnulib
-module, and the _l variants seem to be in glibc but are are not in the glibc
-documentation.  According to Eli, if the locale's codeset is UTF-8, glibc
-uses the full Unicode CLDR, which is what we want.
+Sorting indices in C with strxfrm_l using the "en_US.utf-8" locale with
+LC_COLLATE_MASK is quite consistent with perl for number and letters, but
+leads to a different output than with Perl for non alphanumeric characters,
+which is probably somewhat incidental.  There are also differences that seem to
+be related to spaces with a result that looks better in Perl.  It could be the
+effect of 'variable' => 'Non-Ignorable' in Perl, as it allows to have spaces
+and punctuation marks sort before letters.
+
+Transliteration/protection with iconv in C leads to a result different of Perl
+for some characters.  It seems that the iconv result depends on the locale, and
+there are quite a bit of ? output, probably when there is no obvious
+transliteration.  In those cases, the Unidecode traansliterations are not
+necessarily very good, either.
 
 
 hyphenation: should only appear in toplevel.
