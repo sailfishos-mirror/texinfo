@@ -4680,6 +4680,20 @@ html_merge_index_entries (CONVERTER *self)
     }
 }
 
+void
+html_sort_index_entries (CONVERTER *self)
+{
+  html_merge_index_entries (self);
+
+  if (self->document->index_names)
+    {
+      self->index_entries_by_letter
+        = sort_indices_by_letter (&self->error_messages, self->conf,
+                                  self->index_entries,
+                                  self->document->index_names);
+    }
+}
+
 int
 compare_index_name (const void *a, const void *b)
 {

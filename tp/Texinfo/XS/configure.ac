@@ -175,6 +175,8 @@ esac
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 
+AC_CHECK_FUNCS(newlocale strxfrm_l)
+
 # Output these with the _CONFIG suffix as we use the originals as names
 # of customization variables.
 AC_DEFINE_UNQUOTED([PACKAGE_CONFIG], ["$PACKAGE"],

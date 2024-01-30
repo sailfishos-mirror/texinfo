@@ -171,7 +171,7 @@ sub _collator_sort_index_entries($$$)
   my $collator = shift;
 
   my $key_index = 0;
-  # the keys array corresponds to th emain entry and subentries
+  # the keys array corresponds to the main entry and subentries
   foreach my $key1_str (@{$key1->{'keys'}}) {
     my $res = _collator_sort_key($key1_str,
                                     $key2->{'keys'}->[$key_index],
@@ -422,13 +422,14 @@ sub setup_sortable_index_entries($$$$$)
       if ($in_code) {
         Texinfo::Convert::Text::set_options_code($convert_text_options);
       }
-      my ($entry_key, $sort_entry_key)
+      my ($entry_sort_string, $entry_sort_key)
         = _index_entry_element_sort_string_key($customization_information,
                                    $index_entry, $main_entry_element,
                                    $convert_text_options, $entries_collator);
-      my @entry_keys;
-      my @sort_entry_keys;
-      if ($entry_key !~ /\S/) {
+      my $non_empty_index_subentries = 0;
+      my @entry_sort_strings;
+      my @entry_sort_keys;
+      if ($entry_sort_string !~ /\S/) {
         my $entry_cmdname = $main_entry_element->{'cmdname'};
         $entry_cmdname
           = $main_entry_element->{'extra'}->{'original_def_cmdname'}
@@ -438,22 +439,23 @@ sub setup_sortable_index_entries($$$$$)
                        sprintf(__("empty index key in \@%s"),
                                   $entry_cmdname),
                                $main_entry_element->{'source_info'});
-        push @entry_keys, '';
-        push @sort_entry_keys, '';
+        push @entry_sort_strings, '';
+        push @entry_sort_keys, '';
       } else {
-        push @entry_keys, $entry_key;
-        push @sort_entry_keys, $sort_entry_key;
+        push @entry_sort_strings, $entry_sort_string;
+        push @entry_sort_keys, $entry_sort_key;
+        $non_empty_index_subentries++;
       }
       my $subentry_nr = 0;
       my $subentry = $main_entry_element;
       while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}) {
         $subentry_nr ++;
         $subentry = $subentry->{'extra'}->{'subentry'};
-        my ($subentry_key, $sort_subentry_key)
+        my ($subentry_sort_string, $sort_subentry_key)
               = _index_entry_element_sort_string_key($customization_information,
                              $index_entry, $subentry, $convert_text_options,
                                 $entries_collator);
-        if ($subentry_key !~ /\S/) {
+        if ($subentry_sort_string !~ /\S/) {
           my $entry_cmdname = $main_entry_element->{'cmdname'};
           $entry_cmdname
             = $main_entry_element->{'extra'}->{'original_def_cmdname'}
@@ -463,36 +465,35 @@ sub setup_sortable_index_entries($$$$$)
                          sprintf(__("empty index sub entry %d key in \@%s"),
                                     $subentry_nr, $entry_cmdname),
                                   $main_entry_element->{'source_info'});
-          push @entry_keys, '';
-          push @sort_entry_keys, '';
+          push @entry_sort_strings, '';
+          push @entry_sort_keys, '';
         } else {
-          push @entry_keys, $subentry_key;
-          push @sort_entry_keys, $sort_subentry_key;
+          push @entry_sort_strings, $subentry_sort_string;
+          push @entry_sort_keys, $sort_subentry_key;
+          $non_empty_index_subentries++;
         }
       }
-      foreach my $sub_entry_key (@sort_entry_keys) {
-        if ($sub_entry_key ne '') {
-          my @keys_and_alpha;
-          for (my $i = 0; $i < scalar (@entry_keys); $i++) {
-            my $alpha = 0;
-            if ($entry_keys[$i] =~ /^[[:alpha:]]/) {
-              $alpha = 1;
-            }
-            push @keys_and_alpha, [$sort_entry_keys[$i], $alpha];
+      if ($non_empty_index_subentries > 0) {
+        my @keys_and_alpha;
+        for (my $i = 0; $i < scalar (@entry_sort_strings); $i++) {
+          my $alpha = 0;
+          if ($entry_sort_strings[$i] =~ /^[[:alpha:]]/) {
+            $alpha = 1;
           }
-          my $sortable_entry = {'entry' => $index_entry,
-                                'keys' => \@keys_and_alpha,
-                                'entry_keys' => \@entry_keys,
-                                'number' => $index_entry->{'entry_number'},
-                                'index_name' => $entry_index_name};
-          push @{$sortable_index_entries}, $sortable_entry;
-          last;
+          push @keys_and_alpha, [$entry_sort_keys[$i], $alpha];
         }
+        my $sortable_entry = {'entry' => $index_entry,
+                              'keys' => \@keys_and_alpha,
+                              'entry_keys' => \@entry_sort_strings,
+                              'number' => $index_entry->{'entry_number'},
+                              'index_name' => $entry_index_name};
+        push @{$sortable_index_entries}, $sortable_entry;
       }
       if ($in_code) {
         Texinfo::Convert::Text::reset_options_code($convert_text_options);
       }
-      $index_entries_sort_strings->{$index_entry} = join(', ', @entry_keys);
+      $index_entries_sort_strings->{$index_entry}
+         = join(', ', @entry_sort_strings);
     }
     $index_sortable_index_entries->{$index_name} = $sortable_index_entries;
   }

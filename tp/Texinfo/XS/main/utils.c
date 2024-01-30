@@ -262,6 +262,10 @@ word_bytes_len_multibyte (const char *text)
         {
           break;
         }
+      /* Nd: Number, decimal digit
+         M: Mark
+         Pc: Punctuation, connector
+       */
       /* (\p{Alnum} = \p{Alphabetic} + \p{Nd}) + \pM + \p{Pc}
                                               + \p{Join_Control} */
       if (uc_is_general_category (next_char, UC_CATEGORY_M)

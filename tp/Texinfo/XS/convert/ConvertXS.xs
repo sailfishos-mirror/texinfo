@@ -1700,6 +1700,16 @@ html_merge_index_entries (SV *converter_in)
            html_merge_index_entries (self);
 
 void
+html_sort_index_entries (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_sort_index_entries");
+         if (self)
+           html_sort_index_entries (self);
+
+void
 reset_output_init_conf (SV *sv_in)
 
 #  my ($output_units, $special_units, $associated_special_units)

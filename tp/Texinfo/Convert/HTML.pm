@@ -267,6 +267,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
   "Texinfo::Convert::HTML::_XS_html_merge_index_entries"
    => "Texinfo::Convert::ConvertXS::html_merge_index_entries",
+  "Texinfo::Convert::HTML::_XS_only_sort_index_entries"
+   => "Texinfo::Convert::ConvertXS::html_sort_index_entries",
   "Texinfo::Convert::HTML::_prepare_conversion_units"
    => "Texinfo::Convert::ConvertXS::html_prepare_conversion_units",
   "Texinfo::Convert::HTML::_prepare_units_directions_files"
@@ -10281,7 +10283,7 @@ sub _XS_html_merge_index_entries($)
 {
 }
 
-sub _sort_index_entries($)
+sub _NonXS_sort_index_entries($)
 {
   my $self = shift;
 
@@ -10308,6 +10310,24 @@ sub _sort_index_entries($)
                                  $self->{'index_entries_by_letter'});
       _XS_html_merge_index_entries($self);
     }
+  }
+}
+
+sub _XS_only_sort_index_entries($)
+{
+  my $self = shift;
+  _NonXS_sort_index_entries($self);
+}
+
+sub _sort_index_entries($)
+{
+  my $self = shift;
+
+  # Sorting in Perl to have a reproducible output for tests
+  if ($self->get_conf('TEST')) {
+    _NonXS_sort_index_entries($self);
+  } else {
+    _XS_only_sort_index_entries($self);
   }
 }
 

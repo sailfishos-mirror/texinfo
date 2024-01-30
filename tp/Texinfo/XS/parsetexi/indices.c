@@ -264,9 +264,9 @@ enter_index_entry (enum command_id index_type_cmd,
   memset (entry, 0, sizeof (INDEX_ENTRY));
 
   entry->index_name = idx->name;
-  /* not needed, the position in the index is directly used
+  /* not needed in the parser, the position in the index is directly used.
+     Used for sorting */
   entry->number = idx->entries_number;
-  */
   entry->entry_element = element;
 
   /* Create ignored_chars string. */

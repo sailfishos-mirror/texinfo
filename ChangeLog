@@ -1,3 +1,34 @@
+2024-01-30  Patrice Dumas  <pertusus@free.fr>
+
+	Index sorting in C
+
+	* tp/Texinfo/Indices.pm (setup_sortable_index_entries): rename
+	variables.  Simplify code that determine that there is one non empty
+	entry/subentry.
+
+	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry),
+	tp/Texinfo/XS/main/tree_types.h (INDEX_ENTRY): add index
+	entry number in index entry structure.
+
+	* tp/Texinfo/XS/convert/indices_in_conversion.c (set_sort_key)
+	(INDEX_SORT_STRING_KEY, index_entry_element_sort_string_key)
+	(setup_sortable_index_entries, LETTER_SORTABLE_ENTRIES)
+	(INDEX_LETTERS_SORTABLE_ENTRIES, compare_index_letter)
+	(compare_sortable_subentry_keys, compare_sortable_index_entry)
+	(sort_indices_by_letter),
+	tp/Texinfo/XS/convert/indices_in_conversion.h
+	(SORTABLE_INDEX_SUBENTRY, SORTABLE_INDEX_ENTRY)
+	(INDEX_SORTABLE_ENTRIES, INDICES_SORTABLE_ENTRIES): implement
+	index sorting by letter in C.
+	* tp/Texinfo/XS/configure.ac: check for newlocale and strxfrm_l.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_NonXS_sort_index_entries, _XS_only_sort_index_entries)
+	(_sort_index_entries), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_sort_index_entries), tp/Texinfo/XS/convert/convert_html.c
+	(html_sort_index_entries): XS interface for index sorting in HTML,
+	if TEST is not set.
+
 2024-01-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Other Customization Variables),

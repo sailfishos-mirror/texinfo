@@ -237,8 +237,10 @@ typedef struct IGNORED_CHARS {
     int atsign;
 } IGNORED_CHARS;
 
-typedef struct {
+typedef struct INDEX_ENTRY {
     char *index_name; /* kept with the entry as the indices may be merged */
+    int number; /* position in the original index.  May be different in
+                   merged index */
     ELEMENT *entry_element;
     ELEMENT *entry_associated_element; /* set if the entry is reassociated to
                                           another element */
