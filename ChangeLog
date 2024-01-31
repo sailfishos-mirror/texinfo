@@ -1,5 +1,11 @@
 2024-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (locate_include_file): change code used to
+	concatenate directories and file to get the same result as with XS/C
+	in tests.
+
+2024-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (locate_include_file): simplify code.
 
 2024-01-31  Patrice Dumas  <pertusus@free.fr>

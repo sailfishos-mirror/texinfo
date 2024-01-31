@@ -1206,9 +1206,14 @@ sub locate_include_file($$)
       my ($include_volume, $include_dir_path, $include_filename)
          = File::Spec->splitpath($include_dir, 1);
 
+      # catpath/catdir remove leading . and remove empty directories
+      # within paths.  To be more like XS/C output, we do it more simply
+      #my $possible_file = File::Spec->catpath($include_volume,
+      #  File::Spec->catdir(File::Spec->splitdir($include_dir_path),
+      #                     @directories), $filename);
+      my $filepath = $directories . $filename;
       my $possible_file = File::Spec->catpath($include_volume,
-        File::Spec->catdir(File::Spec->splitdir($include_dir_path),
-                           @directories), $filename);
+                      $include_dir_path, $filepath);
       if (-e $possible_file and -r $possible_file) {
         return $possible_file;
       }
