@@ -154,3 +154,33 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
     OUTPUT:
          RETVAL
 
+SV *
+get_converter_indices_sorted_by_letter (SV *converter_sv, SV *indices_information)
+     PREINIT:
+        CONVERTER *self;
+     CODE:
+        self = get_sv_converter (converter_sv, "get_indices_sorted_by_letter");
+        if (self)
+          {
+            RETVAL
+             = build_sorted_indices_by_letter (self->index_entries_by_letter,
+                                               indices_information);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+
+#void
+#sort_indices_by_letter (SV *registrar, SV *customization_information, SV *index_entries, SV *indices_information, ...)
+#     PROTOTYPE: $$$$;$
+#     PREINIT:
+#         SV *sorted_index_entries_sv;
+#      PPCODE:
+#         sorted_index_entries_sv = build_sorted_indices_by_letter (
+#
+#         EXTEND(SP, 2);
+#         PUSHs(sv_2mortal(sorted_index_entries_sv));
+#         PUSHs(sv_2mortal(result_sv));
+

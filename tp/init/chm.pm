@@ -247,10 +247,18 @@ sub chm_init($)
     $sections_list = $document->sections_list();
   }
 
-  my ($index_entries, $index_entries_sort_strings)
+  my $index_entries;
+  if ($indices_information) {
+    my $merged_index_entries
+        = Texinfo::Indices::merge_indices($indices_information);
+
+    my $index_entries_sort_strings;
+    ($index_entries, $index_entries_sort_strings)
        = Texinfo::Indices::sort_indices_by_index(undef, $self,
-                             $self->get_info('index_entries'),
+                             $merged_index_entries,
                              $indices_information);
+  }
+
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {

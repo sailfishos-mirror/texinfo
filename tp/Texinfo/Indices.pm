@@ -80,6 +80,8 @@ my %XS_convert_overrides = (
     => "Texinfo::IndicesXS::index_entry_element_sort_string",
   "Texinfo::Indices::setup_index_entry_keys_formatting",
     => "Texinfo::IndicesXS::setup_index_entry_keys_formatting",
+  "Texinfo::Indices::get_converter_indices_sorted_by_letter"
+    => "Texinfo::IndicesXS::get_converter_indices_sorted_by_letter",
 
 );
 
@@ -596,6 +598,15 @@ sub sort_indices_by_letter($$$$;$)
     }
   }
   return ($sorted_index_entries, $index_entries_sort_strings);
+}
+
+# Perl version should not be called, only used for the XS override.
+sub get_converter_indices_sorted_by_letter($$)
+{
+  my $converter = shift;
+  my $indices_information = shift;
+
+  return undef;
 }
 
 sub merge_indices($)

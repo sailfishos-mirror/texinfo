@@ -65,6 +65,10 @@ Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 Delayed bugs
 ============
 
+Texinfo::Indices::merge_indices($indices_information); result should
+probably be stored in a document and actually be done on demand once for
+all the converters and cached.  Probably with an XS override.
+
 Sorting indices in C with strxfrm_l using the "en_US.utf-8" locale with
 LC_COLLATE_MASK is quite consistent with perl for number and letters, but
 leads to a different output than with Perl for non alphanumeric characters,

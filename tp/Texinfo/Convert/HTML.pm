@@ -2307,7 +2307,7 @@ my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document', 'document_name',
    'documentdescription_string', 'expanded_formats',
-   'index_entries', 'index_entries_by_letter', 'jslicenses',
+   'index_entries_by_letter', 'jslicenses',
    'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
@@ -2330,7 +2330,23 @@ sub get_info($$)
     }
   #} else {
   #  cluck();
+  } elsif ($converter_info eq 'index_entries_by_letter'
+           and $self->{'document'} and $self->{'converter_descriptor'}
+           and $XS_convert) {
+    my $indices_information;
+    if ($self->{'document'}) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
+    if ($indices_information) {
+      $self->{'index_entries_by_letter'}
+       = Texinfo::Indices::get_converter_indices_sorted_by_letter($self,
+                                                       $indices_information);
+
+      return $self->{'index_entries_by_letter'};
+    }
   }
+  return undef;
 }
 
 # This function should be used in formatting functions when some
@@ -10302,7 +10318,6 @@ sub _NonXS_sort_index_entries($)
             = Texinfo::Indices::sort_indices_by_letter(undef, $self,
                                                $merged_index_entries,
                                                $indices_information);
-    $self->{'index_entries'} = $merged_index_entries;
 
     # pass sorted index entries to XS for a reproducible sorting.
     if ($self->{'converter_descriptor'} and $XS_convert) {

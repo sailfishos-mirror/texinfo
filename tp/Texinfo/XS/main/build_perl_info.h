@@ -53,8 +53,12 @@ void pass_output_unit_files (SV *converter_sv,
 void build_output_files_information (SV *converter_sv,
                    OUTPUT_FILES_INFORMATION *output_files_information);
 
+SV *build_sorted_indices_by_letter (
+                      INDEX_SORTED_BY_LETTER *index_entries_by_letter,
+                      SV *indices_information);
+
 SV *html_build_direction_icons (CONVERTER *converter,
                             DIRECTION_ICON_LIST *direction_icons);
-SV *get_conf (CONVERTER *converter, const char *conf);
+SV *get_conf (CONVERTER *converter, const char *option_name);
 
 #endif

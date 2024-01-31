@@ -1532,6 +1532,16 @@ build_output_units_list (size_t output_units_descriptor)
   return newRV_noinc ((SV *) av_output_units);
 }
 
+SV *
+get_conf (CONVERTER *converter, const char *option_name)
+{
+  dTHX;
+
+  if (converter->conf)
+    return build_sv_option (converter->conf, option_name, converter);
+  return newSV (0);
+}
+
 /* add C messages to a Texinfo::Report object, like
    Texinfo::Report::add_formatted_message does.
    TODO it could replace the calls to add_formatted_message
@@ -1913,13 +1923,111 @@ build_expanded_formats (EXPANDED_FORMAT *expanded_formats)
 }
 
 SV *
-get_conf (CONVERTER *converter, const char *conf)
+build_sorted_indices_by_letter (
+                      INDEX_SORTED_BY_LETTER *index_entries_by_letter,
+                      SV *indices_information)
 {
+  HV *indices_hv;
+  HV *indices_information_hv;
+  INDEX_SORTED_BY_LETTER *idx;
+
   dTHX;
 
-  if (converter->conf)
-    return build_sv_option (converter->conf, conf, converter);
-  return newSV (0);
+  if (!index_entries_by_letter)
+    return newSV (0);
+
+  indices_information_hv = (HV *) SvRV (indices_information);
+
+  indices_hv = newHV ();
+
+  for (idx = index_entries_by_letter; idx->name; idx++)
+    {
+      AV *sorted_letters_av;
+      size_t i;
+
+      if (idx->letter_number <= 0)
+        continue;
+
+      sorted_letters_av = newAV ();
+
+      hv_store (indices_hv, idx->name, strlen (idx->name),
+                newRV_noinc ((SV *)sorted_letters_av), 0);
+
+      for (i = 0; i < idx->letter_number; i++)
+        {
+          size_t j;
+          HV *letter_hv = newHV ();
+          AV *entries_av = newAV ();
+          LETTER_INDEX_ENTRIES *letter = &idx->letter_entries[i];
+
+          hv_store (letter_hv, "letter", strlen ("letter"),
+                    newSVpv_utf8 (letter->letter, 0), 0);
+
+          hv_store (letter_hv, "entries", strlen ("entries"),
+                    newRV_noinc ((SV *)entries_av), 0);
+
+          av_push (sorted_letters_av, newRV_noinc ((SV *)letter_hv));
+
+          for (j = 0; j < letter->entries_number; j++)
+            {
+              INDEX_ENTRY *entry = letter->entries[j];
+              char *index_name = entry->index_name;
+              int entry_number = entry->number;
+              SV **index_info_sv;
+              SV *index_entry_sv = 0;
+
+              index_info_sv = hv_fetch (indices_information_hv, index_name,
+                                        strlen (index_name), 0);
+              if (!index_info_sv)
+                {
+                  fprintf (stderr,
+                       "BUG: build_sorted_indices_by_letter: "
+                       "%s: %s: entry %zu index %s not found\n",
+                           idx->name, letter->letter, j, index_name);
+                }
+              else
+                {
+                  HV *index_info_hv = (HV *) SvRV (*index_info_sv);
+                  SV **index_info_index_entries_sv = hv_fetch (index_info_hv,
+                         "index_entries", strlen ("index_entries"), 0);
+
+                  if (!index_info_index_entries_sv)
+                    {
+                      fprintf (stderr,
+                       "BUG: build_sorted_indices_by_letter: "
+                 "%s: %s: entry %zu index %s 'index_entries' not found\n",
+                         idx->name, letter->letter, j, index_name);
+                    }
+                  else
+                    {
+                      AV *index_info_entries_av
+                          = (AV *) SvRV (*index_info_index_entries_sv);
+
+                      SV **index_entry_info_sv = av_fetch (index_info_entries_av,
+                                                         entry_number -1, 0);
+
+                      if (!index_entry_info_sv)
+                        {
+                          fprintf (stderr,
+                             "BUG: build_sorted_indices_by_letter: "
+                             "%s: %s: entry %zu: %d in %s not found\n",
+                                idx->name, letter->letter, j,
+                                entry_number, index_name);
+                        }
+                      else
+                        index_entry_sv = *index_entry_info_sv;
+                    }
+                }
+
+              if (index_entry_sv)
+                {
+                  SvREFCNT_inc (index_entry_sv);
+                  av_push (entries_av, index_entry_sv);
+                }
+            }
+        }
+    }
+  return newRV_noinc ((SV *)indices_hv);
 }
 
 SV *
