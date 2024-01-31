@@ -371,11 +371,11 @@ xs_LTLIBRARIES += IndicesXS.la
 endif
 
 nodist_IndicesXS_la_SOURCES = \
-                    convert/IndicesXS.c
+                    main/IndicesXS.c
 CLEANFILES += \
-                    convert/IndicesXS.c
+                    main/IndicesXS.c
 
-EXTRA_DIST += convert/IndicesXS.xs
+EXTRA_DIST += main/IndicesXS.xs
 
 # locate include files under out-of-source builds.
 IndicesXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)

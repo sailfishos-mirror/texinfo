@@ -1,5 +1,10 @@
 2024-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (nodist_IndicesXS_la_SOURCES),
+	tp/Texinfo/XS/main/IndicesXS.xs: move IndicesXS.xs to main/.
+
+2024-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
 	(IndicesXS_la_SOURCES, ConvertXS_la_SOURCES),
 	tp/Texinfo/XS/main/manipulate_indices.c: move indices_in_conversion.c
