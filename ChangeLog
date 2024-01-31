@@ -1,5 +1,10 @@
 2024-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line): check if
+	verbatiminclude path is defined.
+
+2024-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (nodist_IndicesXS_la_SOURCES),
 	tp/Texinfo/XS/main/IndicesXS.xs: move IndicesXS.xs to main/.
 
