@@ -1188,10 +1188,10 @@ sub locate_include_file($$)
     }
   }
 
-  my $found_file;
   if ($ignore_include_directories) {
-    $found_file = $input_file_path
-         if (-e $input_file_path and -r $input_file_path);
+    if (-e $input_file_path and -r $input_file_path) {
+      return $input_file_path;
+    }
   } else {
     my @include_directories;
     if ($customization_information
@@ -1209,12 +1209,12 @@ sub locate_include_file($$)
       my $possible_file = File::Spec->catpath($include_volume,
         File::Spec->catdir(File::Spec->splitdir($include_dir_path),
                            @directories), $filename);
-      $found_file = $possible_file
-           if (-e $possible_file and -r $possible_file);
-      last if (defined($found_file));
+      if (-e $possible_file and -r $possible_file) {
+        return $possible_file;
+      }
     }
   }
-  return $found_file;
+  return undef;
 }
 
 # TODO document?
