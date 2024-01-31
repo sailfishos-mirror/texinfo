@@ -42,7 +42,7 @@
 #include "output_unit.h"
 #include "converter.h"
 #include "node_name_normalization.h"
-#include "indices_in_conversion.h"
+#include "manipulate_indices.h"
 #include "convert_to_texinfo.h"
 #include "translations.h"
 #include "convert_utils.h"
@@ -4670,26 +4670,15 @@ get_copiable_anchor (CONVERTER *self, const char *id)
 }
 
 void
-html_merge_index_entries (CONVERTER *self)
-{
-  if (self->document->index_names)
-    {
-      INDEX **index_names = self->document->index_names;
-      MERGED_INDEX *merged_index_entries = merge_indices (index_names);
-      self->index_entries = merged_index_entries;
-    }
-}
-
-void
 html_sort_index_entries (CONVERTER *self)
 {
-  html_merge_index_entries (self);
+  MERGED_INDICES *merged_indices = merge_indices (self->document->index_names);
 
   if (self->document->index_names)
     {
       self->index_entries_by_letter
         = sort_indices_by_letter (&self->error_messages, self->conf,
-                                  self->index_entries,
+                                  merged_indices,
                                   self->document->index_names);
     }
 }
@@ -16649,11 +16638,6 @@ html_reset_converter (CONVERTER *self)
       self->added_title_tree = 0;
     }
 
-  if (self->index_entries)
-    {
-      destroy_merged_indices (self->index_entries);
-      self->index_entries = 0;
-    }
   if (self->index_entries_by_letter)
     {
       destroy_indices_sorted_by_letter (self->index_entries_by_letter);

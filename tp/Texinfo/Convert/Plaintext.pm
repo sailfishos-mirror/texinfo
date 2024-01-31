@@ -1519,7 +1519,7 @@ sub process_printindex($$;$)
   if (!defined($self->{'index_entries'}) and $indices_information) {
 
     my $merged_index_entries
-      = Texinfo::Indices::merge_indices($indices_information);
+      = $self->{'document'}->merged_indices();
     my $index_entries_sort_strings;
     ($self->{'index_entries'}, $index_entries_sort_strings)
       = Texinfo::Indices::sort_indices_by_index(undef, $self,

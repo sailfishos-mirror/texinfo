@@ -250,7 +250,7 @@ sub chm_init($)
   my $index_entries;
   if ($indices_information) {
     my $merged_index_entries
-        = Texinfo::Indices::merge_indices($indices_information);
+        = $self->{'document'}->merged_indices();
 
     my $index_entries_sort_strings;
     ($index_entries, $index_entries_sort_strings)

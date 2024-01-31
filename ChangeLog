@@ -1,5 +1,36 @@
 2024-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
+	(IndicesXS_la_SOURCES, ConvertXS_la_SOURCES),
+	tp/Texinfo/XS/main/manipulate_indices.c: move indices_in_conversion.c
+	to main/ and rename as manipulate_indices.c.
+
+	* tp/Texinfo/Convert/HTML.pm (_NonXS_sort_index_entries),
+	tp/Texinfo/Convert/IXIN.pm (output_ixin), tp/Texinfo/Convert/LaTeX.pm
+	(_prepare_indices), tp/Texinfo/Convert/Plaintext.pm
+	(process_printindex), tp/Texinfo/Document.pm (merged_indices),
+	tp/init/chm.pm, tp/t/test_sort.t, tp/t/test_utils.pl: add
+	merged_indices in Texinfo::Document to store and get merged indices in
+	document.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_sort_index_entries),
+	tp/Texinfo/XS/main/converter_types.h, tp/Texinfo/XS/main/document.c
+	(merged_indices, destroy_document_information_except_tree),
+	tp/Texinfo/XS/main/document_types.h (MERGED_INDEX, MERGED_INDICES)
+	(DOCUMENT), tp/Texinfo/XS/main/manipulate_indices.c (merge_indices)
+	(destroy_merged_indices, setup_sortable_index_entries)
+	(sort_indices_by_letter): add merged_indices in document to store and
+	get merged indices in document.  Remove index_entries from CONVERTER.
+	Move MERGED_INDEX to document_types.h, add MERGED_INDICES struct for a
+	list of merged indices.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_NonXS_sort_index_entries), tp/Texinfo/XS/convert/ConvertXS.xs,
+	tp/Texinfo/XS/convert/convert_html.c: remove
+	_XS_html_merge_index_entries and html_merge_index_entries.
+
+2024-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Conversion General Information),
 	tp/Texinfo/Convert/HTML.pm (%available_converter_info)
 	(_NonXS_sort_index_entries), tp/init/chm.pm (chm_init): remove

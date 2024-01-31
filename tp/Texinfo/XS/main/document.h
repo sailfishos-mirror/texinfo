@@ -35,6 +35,8 @@ void register_document_options (DOCUMENT *document, OPTIONS *options);
 void register_document_convert_index_text_options (DOCUMENT *document,
                                          struct TEXT_OPTIONS *text_options);
 
+const MERGED_INDICES *merged_indices (DOCUMENT *document);
+
 void remove_document_descriptor (int document_descriptor);
 TREE_AND_STRINGS *unregister_document_descriptor_tree (int document_descriptor);
 void clear_document_errors (int document_descriptor);

@@ -31,6 +31,7 @@
 /* for delete_global_info and wipe_index */
 #include "utils.h"
 #include "convert_to_text.h"
+#include "manipulate_indices.h"
 #include "document.h"
 
 /* note that each time the document list is reallocated, pointers
@@ -133,6 +134,19 @@ register_document_options (DOCUMENT *document, OPTIONS *options)
   document->options = options;
 }
 
+const MERGED_INDICES *
+merged_indices (DOCUMENT *document)
+{
+  if (document->index_names)
+    {
+      if (!document->merged_indices)
+        {
+          document->merged_indices = merge_indices (document->index_names);
+        }
+    }
+  return document->merged_indices;
+}
+
 void
 register_document_convert_index_text_options (DOCUMENT *document,
                                               TEXT_OPTIONS *text_options)
@@ -175,6 +189,8 @@ destroy_document_information_except_tree (DOCUMENT *document)
         }
       if (document->convert_index_text_options)
         destroy_text_options (document->convert_index_text_options);
+      if (document->merged_indices)
+        destroy_merged_indices (document->merged_indices);
     }
 }
 

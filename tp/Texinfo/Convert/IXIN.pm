@@ -708,7 +708,7 @@ sub output_ixin($$)
 
   if ($indices_information) {
     my $merged_index_entries
-        = Texinfo::Indices::merge_indices($indices_information);
+        = $self->{'document'}->merged_indices();
     my ($entries, $index_entries_sort_strings)
       = Texinfo::Indices::sort_indices_by_index(undef, $self,
                                            $merged_index_entries,

@@ -23,6 +23,7 @@
 #include "unistr.h"
 
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 #include "utils.h"
 #include "extra.h"
@@ -31,18 +32,25 @@
 #include "unicode.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
-#include "indices_in_conversion.h"
+#include "manipulate_indices.h"
 
 /* corresponding perl code in Texinfo::Indices */
 
-MERGED_INDEX *
+MERGED_INDICES *
 merge_indices (INDEX **index_names)
 {
   size_t merged_indices_space = 4;
   size_t merged_indices_number = 0;
   INDEX **i, *idx;
-  MERGED_INDEX *merged_indices
+
+  if (!index_names)
+    return 0;
+
+  MERGED_INDEX *merged_indices_list
     = (MERGED_INDEX *) malloc (sizeof (MERGED_INDEX) * merged_indices_space);
+
+  MERGED_INDICES *merged_indices
+    = (MERGED_INDICES *) malloc (sizeof (MERGED_INDICES));
 
   for (i = index_names; (idx = *i); i++)
     {
@@ -62,9 +70,9 @@ merge_indices (INDEX **index_names)
 
           for (j = 0; j < merged_indices_number; j++)
             {
-              if (!strcmp (merged_indices[j].name, in_idx_name))
+              if (!strcmp (merged_indices_list[j].name, in_idx_name))
                 {
-                  merged_idx = &merged_indices[j];
+                  merged_idx = &merged_indices_list[j];
                   break;
                 }
             }
@@ -74,11 +82,11 @@ merge_indices (INDEX **index_names)
               if (merged_indices_number == merged_indices_space)
                 {
                   merged_indices_space += 5;
-                  merged_indices
-                   = realloc (merged_indices, merged_indices_space
+                  merged_indices_list
+                   = realloc (merged_indices_list, merged_indices_space
                                                 * sizeof (MERGED_INDEX));
                 }
-              merged_idx = &merged_indices[merged_indices_number];
+              merged_idx = &merged_indices_list[merged_indices_number];
               merged_idx->name = in_idx_name;
               merged_idx->entries_number = ultimate_idx->entries_number;
               merged_idx->index_entries
@@ -101,21 +109,27 @@ merge_indices (INDEX **index_names)
         }
     }
   /* set to the final size, including a trailing MERGED_INDEX filled with 0 */
-  merged_indices = realloc (merged_indices,
+  merged_indices_list = realloc (merged_indices_list,
                             (merged_indices_number +1) * sizeof (MERGED_INDEX));
-  memset (&merged_indices[merged_indices_number], 0, sizeof (MERGED_INDEX));
+  memset (&merged_indices_list[merged_indices_number], 0,
+          sizeof (MERGED_INDEX));
+
+  merged_indices->indices = merged_indices_list;
+  merged_indices->number = merged_indices_number;
+
   return merged_indices;
 }
 
 void
-destroy_merged_indices (MERGED_INDEX *merged_indices)
+destroy_merged_indices (MERGED_INDICES *merged_indices)
 {
-  MERGED_INDEX *index;
+  size_t i;
 
-  for (index = merged_indices; index->name; index++)
+  for (i = 0; i < merged_indices->number; i++)
     {
-      free (index->index_entries);
+      free (merged_indices->indices[i].index_entries);
     }
+  free (merged_indices->indices);
   free (merged_indices);
 }
 
@@ -274,10 +288,9 @@ index_entry_element_sort_string_key (INDEX_ENTRY *main_entry,
 
 INDICES_SORTABLE_ENTRIES *
 setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
-                      OPTIONS *options, MERGED_INDEX *index_entries,
+                      OPTIONS *options, MERGED_INDICES *merged_indices,
                       INDEX **indices_information, locale_t *collation_locale)
 {
-  size_t indices_nr;
   size_t i;
   TEXT_OPTIONS *convert_text_options
     = setup_index_entry_keys_formatting (options);
@@ -292,24 +305,21 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
   #endif
   #endif
 
-  for (indices_nr = 0; index_entries[indices_nr].name; indices_nr++)
-    {}
-
-  if (indices_nr == 0)
+  if (merged_indices->number <= 0)
     return 0;
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
     = (INDICES_SORTABLE_ENTRIES *) malloc (sizeof (INDICES_SORTABLE_ENTRIES));
 
-  indices_sortable_entries->number = indices_nr;
+  indices_sortable_entries->number = merged_indices->number;
   indices_sortable_entries->indices = (INDEX_SORTABLE_ENTRIES *)
-    malloc (indices_nr * sizeof (INDEX_SORTABLE_ENTRIES));
+    malloc (merged_indices->number * sizeof (INDEX_SORTABLE_ENTRIES));
   memset (indices_sortable_entries->indices, 0,
-          indices_nr * sizeof (INDEX_SORTABLE_ENTRIES));
+          merged_indices->number * sizeof (INDEX_SORTABLE_ENTRIES));
 
-  for (i = 0; i < indices_nr; i++)
+  for (i = 0; i < merged_indices->number; i++)
     {
-      MERGED_INDEX *index = &index_entries[i];
+      MERGED_INDEX *index = &merged_indices->indices[i];
       INDEX_SORTABLE_ENTRIES *sortable_index_entries
         = &indices_sortable_entries->indices[i];
       if (index->entries_number > 0)
@@ -551,7 +561,7 @@ compare_sortable_index_entry (const void *a, const void *b)
 
 INDEX_SORTED_BY_LETTER *
 sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, MERGED_INDEX *index_entries,
+                        OPTIONS *options, MERGED_INDICES *merged_indices,
                               INDEX **indices_information)
 {
   size_t i;
@@ -560,7 +570,7 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
   static INDEX_LETTERS_SORTABLE_ENTRIES index_letters_sortable_entries;
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
-    = setup_sortable_index_entries (error_messages, options, index_entries,
+    = setup_sortable_index_entries (error_messages, options, merged_indices,
                                     indices_information, &collation_locale);
 
   if (!indices_sortable_entries || indices_sortable_entries->number <= 0)

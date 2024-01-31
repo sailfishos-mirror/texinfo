@@ -1165,8 +1165,7 @@ sub test($$)
 
   my $indices_information = $document->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
-  my $merged_index_entries
-     = Texinfo::Indices::merge_indices($indices_information);
+  my $merged_index_entries = $document->merged_indices();
 
   # only print indices information if it differs from the default
   # indices

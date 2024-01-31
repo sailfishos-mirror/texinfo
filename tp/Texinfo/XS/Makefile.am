@@ -157,6 +157,8 @@ libtexinfo_la_SOURCES= \
 		      main/translations.h \
 		      main/document.c \
 		      main/document.h \
+		      main/manipulate_indices.h \
+		      main/manipulate_indices.c \
 		      main/output_unit.c \
 		      main/output_unit.h \
 		      parsetexi/api.c \
@@ -372,14 +374,11 @@ nodist_IndicesXS_la_SOURCES = \
                     convert/IndicesXS.c
 CLEANFILES += \
                     convert/IndicesXS.c
-IndicesXS_la_SOURCES = \
-                    convert/indices_in_conversion.h \
-                    convert/indices_in_conversion.c
 
 EXTRA_DIST += convert/IndicesXS.xs
 
 # locate include files under out-of-source builds.
-IndicesXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+IndicesXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 IndicesXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 IndicesXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
 IndicesXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -403,9 +402,7 @@ ConvertXS_la_SOURCES = \
                        convert/converter.h \
                        convert/converter.c \
                        convert/convert_html.h \
-                       convert/convert_html.c \
-                       convert/indices_in_conversion.h \
-                       convert/indices_in_conversion.c
+                       convert/convert_html.c
 
 EXTRA_DIST += convert/ConvertXS.xs
 

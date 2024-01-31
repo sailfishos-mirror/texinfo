@@ -957,7 +957,7 @@ sub _prepare_indices($)
     $self->{'index_formatting_text_options'}
       = Texinfo::Indices::setup_index_entry_keys_formatting($self);
     my $merged_index_entries
-        = Texinfo::Indices::merge_indices($indices_information);
+        = $self->{'document'}->merged_indices();
     # select non empty indices
     if ($merged_index_entries) {
       $self->{'index_entries'} = {};

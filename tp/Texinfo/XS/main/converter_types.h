@@ -317,12 +317,6 @@ typedef struct HTML_SHARED_CONVERSION_STATE {
     /* formatted_nodedescriptions */
 } HTML_SHARED_CONVERSION_STATE;
 
-typedef struct MERGED_INDEX {
-    char *name;
-    INDEX_ENTRY *index_entries;
-    size_t entries_number;
-} MERGED_INDEX;
-
 typedef struct LETTER_INDEX_ENTRIES {
     char *letter;
     INDEX_ENTRY **entries;
@@ -691,7 +685,6 @@ typedef struct CONVERTER {
     STRING_LIST small_strings;
 
     DOCUMENT *document;
-    MERGED_INDEX *index_entries;
     INDEX_SORTED_BY_LETTER *index_entries_by_letter;
     int document_units_descriptor;
 

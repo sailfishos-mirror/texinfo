@@ -1,8 +1,9 @@
-/* indices_in_conversion.h - definitions for indices_in_conversion.c */
-#ifndef INDICES_IN_CONVERSION_H
-#define INDICES_IN_CONVERSION_H
+/* manipulate_indices.h - definitions for manipulate_indices.c */
+#ifndef MANIPULATE_INDICES_H
+#define MANIPULATE_INDICES_H
 
 #include "tree_types.h"
+#include "document_types.h"
 #include "convert_to_text.h"
 
 typedef struct SORTABLE_INDEX_SUBENTRY {
@@ -31,8 +32,8 @@ typedef struct INDICES_SORTABLE_ENTRIES {
     INDEX_SORTABLE_ENTRIES *indices;
 } INDICES_SORTABLE_ENTRIES;
 
-MERGED_INDEX *merge_indices (INDEX **index_names);
-void destroy_merged_indices (MERGED_INDEX *merged_indices);
+MERGED_INDICES *merge_indices (INDEX **index_names);
+void destroy_merged_indices (MERGED_INDICES *merged_indices);
 
 void destroy_indices_sorted_by_letter (
          INDEX_SORTED_BY_LETTER *indices_entries_by_letter);
@@ -47,6 +48,6 @@ char *index_entry_element_sort_string (INDEX_ENTRY *main_entry,
 
 INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
                         ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, MERGED_INDEX *index_entries,
+                        OPTIONS *options, MERGED_INDICES *merged_indices,
                               INDEX **indices_information);
 #endif

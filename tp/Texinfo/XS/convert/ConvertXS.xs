@@ -39,7 +39,7 @@
 #include "errors.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
-#include "indices_in_conversion.h"
+#include "manipulate_indices.h"
 #include "command_stack.h"
 #include "document.h"
 #include "get_perl_info.h"
@@ -1688,16 +1688,6 @@ html_check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_in
            }
     OUTPUT:
          RETVAL
-
-void
-html_merge_index_entries (SV *converter_in)
-      PREINIT:
-         CONVERTER *self;
-     CODE:
-         self = get_sv_converter (converter_in,
-                                  "html_merge_index_entries");
-         if (self)
-           html_merge_index_entries (self);
 
 void
 html_sort_index_entries (SV *converter_in)

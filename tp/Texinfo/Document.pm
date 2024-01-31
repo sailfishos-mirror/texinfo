@@ -191,6 +191,19 @@ sub sections_list($)
   return $self->{'sections_list'};
 }
 
+sub merged_indices($)
+{
+  my $self = shift;
+
+  if ($self->{'indices'}) {
+    if (!$self->{'merged_indices'}) {
+      $self->{'merged_indices'}
+        = Texinfo::Indices::merge_indices($self->{'indices'});
+    }
+  }
+  return $self->{'merged_indices'};
+}
+
 # only set if the Texinfo::Document object has been set up by XS code.
 sub document_descriptor($)
 {

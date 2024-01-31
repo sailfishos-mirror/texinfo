@@ -66,10 +66,22 @@ typedef struct GLOBAL_INFO {
     char *input_perl_encoding;
 } GLOBAL_INFO;
 
+typedef struct MERGED_INDEX {
+    char *name;
+    INDEX_ENTRY *index_entries;
+    size_t entries_number;
+} MERGED_INDEX;
+
+typedef struct MERGED_INDICES {
+    size_t number;
+    MERGED_INDEX *indices;
+} MERGED_INDICES;
+
 typedef struct DOCUMENT {
     int descriptor;
     ELEMENT *tree;
     INDEX **index_names;
+    MERGED_INDICES *merged_indices;
     FLOAT_RECORD_LIST *floats;
     LISTOFFLOATS_TYPE_LIST *listoffloats;
     ELEMENT_LIST *internal_references;
