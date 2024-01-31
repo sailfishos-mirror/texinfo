@@ -135,7 +135,7 @@ register_document_options (DOCUMENT *document, OPTIONS *options)
 }
 
 const MERGED_INDICES *
-merged_indices (DOCUMENT *document)
+document_merged_indices (DOCUMENT *document)
 {
   if (document->index_names)
     {

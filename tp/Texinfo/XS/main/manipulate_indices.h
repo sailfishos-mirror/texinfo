@@ -41,13 +41,13 @@ void destroy_indices_sorted_by_letter (
 ELEMENT *index_content_element (const ELEMENT *element,
                                 int prefer_reference_element);
 
-char *index_entry_element_sort_string (INDEX_ENTRY *main_entry,
-                                 ELEMENT *index_entry_element,
+char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
+                                 const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element);
 
 INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
                         ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, MERGED_INDICES *merged_indices,
-                              INDEX **indices_information);
+                        OPTIONS *options, const MERGED_INDICES *merged_indices,
+                        INDEX **indices_information);
 #endif

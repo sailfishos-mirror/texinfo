@@ -4672,7 +4672,8 @@ get_copiable_anchor (CONVERTER *self, const char *id)
 void
 html_sort_index_entries (CONVERTER *self)
 {
-  MERGED_INDICES *merged_indices = merge_indices (self->document->index_names);
+  const MERGED_INDICES *merged_indices
+    = document_merged_indices (self->document);
 
   if (self->document->index_names)
     {
