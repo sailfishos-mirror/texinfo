@@ -9,4 +9,6 @@ char *call_nodenamenormalization_unicode_to_transliterate (char *text);
 
 char *call_latex_convert_to_latex_math (CONVERTER *self, ELEMENT *element);
 
+INDEX_SORTED_BY_LETTER *get_call_index_entries_sorted_by_letter
+                                                   (CONVERTER *self);
 #endif

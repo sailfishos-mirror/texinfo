@@ -4669,25 +4669,6 @@ get_copiable_anchor (CONVERTER *self, const char *id)
   return 0;
 }
 
-INDEX_SORTED_BY_LETTER *
-html_get_info_index_entries_by_letter (CONVERTER *self)
-{
-  if (self->index_entries_by_letter)
-    return self->index_entries_by_letter;
-
-  if (self->document->index_names)
-    {
-      /* get Perl sorting for reproducible tests */
-      if (self->conf->TEST.integer > 0)
-        self->index_entries_by_letter
-         = get_call_index_entries_sorted_by_letter (self);
-      else /* sets self->index_entries_by_letter */
-        converter_sort_indices_by_letter (self);
-    }
-
-  return self->index_entries_by_letter;
-}
-
 int
 compare_index_name (const void *a, const void *b)
 {
@@ -12459,7 +12440,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   char *alpha_text = 0;
   char *non_alpha_text = 0;
   INDEX_SORTED_BY_LETTER *index_entries_by_letter
-    = html_get_info_index_entries_by_letter (self);
+    = get_converter_indices_sorted_by_letter (self);
 
   if (!index_entries_by_letter)
     return;

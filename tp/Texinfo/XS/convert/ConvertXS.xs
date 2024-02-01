@@ -180,6 +180,26 @@ converter_document_warn (SV *converter_in, text, ...)
                       self->conf, MSG_document_warning, continuation, strdup (text));
            }
 
+SV *
+get_converter_indices_sorted_by_letter (SV *converter_sv, SV *indices_information)
+     PREINIT:
+        CONVERTER *self;
+     CODE:
+        self = get_sv_converter (converter_sv,
+                                 "get_converter_indices_sorted_by_letter");
+        if (self)
+          {
+            INDEX_SORTED_BY_LETTER *index_entries_by_letter
+              = converter_sort_indices_by_letter (self);
+            RETVAL
+             = build_sorted_indices_by_letter (index_entries_by_letter,
+                                               indices_information);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 # pass the stream of an unclosed file path.
 # tried with OutputStream instead of FILE, but it did not work, there
 # was an error with a missing type.

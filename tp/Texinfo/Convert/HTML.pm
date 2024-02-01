@@ -2325,33 +2325,9 @@ sub get_info($$)
   #} else {
   #  cluck();
   } elsif ($converter_info eq 'index_entries_by_letter') {
-    my $indices_information;
-    if ($self->{'document'}) {
-      $indices_information = $self->{'document'}->indices_information();
-    }
-
-    if ($indices_information) {
-      if (!$self->get_conf('TEST') and $self->{'converter_descriptor'}
-          and $XS_convert) {
-        # get from XS
-        $self->{'index_entries_by_letter'}
-          = Texinfo::Indices::get_converter_indices_sorted_by_letter($self,
-                                                       $indices_information);
-      } else {
-        my $merged_index_entries
-          = $self->{'document'}->merged_indices();
-        my $index_entries_sort_strings;
-
-        ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-            = Texinfo::Indices::sort_indices_by_letter(undef, $self,
-                                             $merged_index_entries,
-                                             $indices_information);
-
-      }
-      $self->{'converter_info'}->{'index_entries_by_letter'}
-        = $self->{'index_entries_by_letter'};
-      return $self->{'index_entries_by_letter'};
-    }
+    $self->{'converter_info'}->{'index_entries_by_letter'}
+      = $self->get_converter_indices_sorted_by_letter();
+    return $self->{'converter_info'}->{'index_entries_by_letter'};
   }
   return undef;
 }

@@ -1,3 +1,34 @@
+2024-02-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c,
+	tp/Texinfo/XS/main/call_perl_function.c
+	(get_call_index_entries_sorted_by_letter): move
+	get_call_index_entries_sorted_by_letter to call_perl_function.c.
+
+	* tp/Texinfo/XS/convert/converter.c
+	(converter_sort_indices_by_letter),
+	tp/Texinfo/XS/main/manipulate_indices.c: move
+	converter_sort_indices_by_letter to converter.c.
+
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides)
+	(_XS_get_converter_indices_sorted_by_letter)
+	(get_converter_indices_sorted_by_letter),
+	tp/Texinfo/Convert/HTML.pm (get_info),
+	tp/Texinfo/Indices.pm (%XS_convert_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_converter_indices_sorted_by_letter),
+	tp/Texinfo/XS/main/IndicesXS.xs,
+	tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/converter.c
+	(get_converter_indices_sorted_by_letter): add
+	get_converter_indices_sorted_by_letter based on get_info in HTML.pm
+	and associated _XS_get_converter_indices_sorted_by_letter based on
+	get_converter_indices_sorted_by_letter in Texinfo::Indices.
+	Remove Texinfo::Indices::get_converter_indices_sorted_by_letter.
+	Move get_converter_indices_sorted_by_letter to ConvertXS.xs.
+	Rename html_get_info_index_entries_by_letter as
+	get_converter_indices_sorted_by_letter and move to converter.c.
+
 2024-01-31  Patrice Dumas  <pertusus@free.fr>
 
 	Sort index entries on demand in HTML

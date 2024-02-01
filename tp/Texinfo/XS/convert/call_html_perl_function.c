@@ -40,8 +40,6 @@
 #include "build_perl_info.h"
 #include "debug.h"
 #include "build_html_perl_state.h"
-/* for get_sv_index_entries_sorted_by_letter */
-#include "get_perl_info.h"
 #include "call_html_perl_function.h"
 
  /* TODO the NOTE in build_perl_info.c about not using malloc/free should
@@ -2504,53 +2502,4 @@ call_button_direction_function (CONVERTER *self,
   return result;
 }
 
-
-INDEX_SORTED_BY_LETTER *
-get_call_index_entries_sorted_by_letter (CONVERTER *self)
-{
-  int count;
-  INDEX_SORTED_BY_LETTER *result = 0;
-  SV *index_entries_sorted_by_letter_sv;
-
-  dTHX;
-
-  if (!self->hv)
-    return 0;
-
-  dSP;
-
-  ENTER;
-  SAVETMPS;
-
-  PUSHMARK(SP);
-  EXTEND(SP, 1);
-
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
-  PUSHs(sv_2mortal (newSVpv ("index_entries_by_letter", 0)));
-
-  PUTBACK;
-
-  count = call_pv ("Texinfo::Convert::HTML::get_info",
-                   G_SCALAR);
-
-  SPAGAIN;
-
-  if (count != 1)
-    croak("get_index_entries_sorted_by_letter should return 1 item\n");
-
-  index_entries_sorted_by_letter_sv = POPs;
-  if (SvOK (index_entries_sorted_by_letter_sv))
-    {
-      result
-        = get_sv_index_entries_sorted_by_letter (self->document->index_names,
-                                          index_entries_sorted_by_letter_sv);
-    }
-
-  PUTBACK;
-
-  FREETMPS;
-  LEAVE;
-
-  return result;
-}
 

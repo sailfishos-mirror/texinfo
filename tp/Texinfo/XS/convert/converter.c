@@ -40,6 +40,9 @@
 #include "translations.h"
 #include "manipulate_tree.h"
 #include "unicode.h"
+#include "manipulate_indices.h"
+#include "document.h"
+#include "call_perl_function.h"
 #include "converter.h"
 
 /* associate lower case no brace accent command to the upper case
@@ -636,6 +639,41 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
         destroy_element (content);
     }
   destroy_list (element_list);
+}
+
+INDEX_SORTED_BY_LETTER *
+converter_sort_indices_by_letter (CONVERTER *self)
+{
+  if (self->index_entries_by_letter)
+    return self->index_entries_by_letter;
+
+  const MERGED_INDICES *merged_indices
+    = document_merged_indices (self->document);
+
+  self->index_entries_by_letter
+    = sort_indices_by_letter (&self->error_messages, self->conf,
+                              merged_indices,
+                              self->document->index_names);
+  return self->index_entries_by_letter;
+}
+
+INDEX_SORTED_BY_LETTER *
+get_converter_indices_sorted_by_letter (CONVERTER *self)
+{
+  if (self->index_entries_by_letter)
+    return self->index_entries_by_letter;
+
+  if (self->document->index_names)
+    {
+      /* get Perl sorting for reproducible tests */
+      if (self->conf->TEST.integer > 0)
+        self->index_entries_by_letter
+         = get_call_index_entries_sorted_by_letter (self);
+      else /* sets self->index_entries_by_letter */
+        converter_sort_indices_by_letter (self);
+    }
+
+  return self->index_entries_by_letter;
 }
 
 /* to be freed by caller */

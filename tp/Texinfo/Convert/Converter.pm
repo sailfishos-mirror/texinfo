@@ -96,6 +96,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::get_conf",
   "Texinfo::Convert::Converter::_XS_set_document"
    => "Texinfo::Convert::ConvertXS::converter_set_document",
+  "Texinfo::Convert::Converter::_XS_get_converter_indices_sorted_by_letter"
+   => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_letter",
 
   # fully overriden for all the converters
   "Texinfo::Convert::Converter::get_converter_errors"
@@ -1698,6 +1700,50 @@ sub comma_index_subentries_tree {
     return {'contents' => \@contents};
   }
   return undef;
+}
+
+# Perl version should not be called, only used for the XS override.
+sub _XS_get_converter_indices_sorted_by_letter($$)
+{
+  my $converter = shift;
+  my $indices_information = shift;
+
+  return undef;
+}
+
+# TODO document
+sub get_converter_indices_sorted_by_letter($)
+{
+  my $self = shift;
+
+  if ($self->{'index_entries_by_letter'}) {
+    return $self->{'index_entries_by_letter'};
+  }
+
+  my $indices_information;
+  if ($self->{'document'}) {
+    $indices_information = $self->{'document'}->indices_information();
+  }
+
+  if ($indices_information) {
+    if (!$self->get_conf('TEST') and $self->{'converter_descriptor'}
+        and $XS_convert) {
+      # get from XS
+      $self->{'index_entries_by_letter'}
+        = _XS_get_converter_indices_sorted_by_letter($self,
+                                                     $indices_information);
+    } else {
+      my $merged_index_entries
+        = $self->{'document'}->merged_indices();
+
+      my $index_entries_sort_strings;
+      ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
+          = Texinfo::Indices::sort_indices_by_letter(undef, $self,
+                                           $merged_index_entries,
+                                           $indices_information);
+    }
+  }
+  return $self->{'index_entries_by_letter'};
 }
 
 sub _count_converted_text($$)
