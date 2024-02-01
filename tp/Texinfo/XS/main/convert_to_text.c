@@ -324,8 +324,9 @@ text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
         }
     }
 
-  if (!(options->ASCII_GLYPH)
-      || !(unicode_character_brace_no_arg_commands[cmd].is_extra > 0))
+  if (encoding
+      && (!(options->ASCII_GLYPH)
+          || !(unicode_character_brace_no_arg_commands[cmd].is_extra > 0)))
     {
       char *brace_no_arg_unicode = unicode_brace_no_arg_command (cmd, encoding);
       if (brace_no_arg_unicode)

@@ -57,7 +57,7 @@ $main_configuration->register_XS_document_main_configuration($document);
 However, there is, somewhat on purpose, no documentation at all for
 MainConfig given that it is considered as some internal implementation
 detail, not to be used in external code.  So probably would need first to
-docuent MainConfig.
+document MainConfig.
 
 Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 

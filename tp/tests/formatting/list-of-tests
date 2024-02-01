@@ -27,6 +27,10 @@ no_content_do_contents_inline no_content.texi --html --no-split -c 'BIG_RULE <hr
 indices_in_begin_tables_lists indices_in_begin_tables_lists.texi --html --no-split -c 'USE_NODES 0'
 indices_in_begin_tables_lists_latex indices_in_begin_tables_lists.texi --latex
 
+# Same file also tested in t/converters_tests.t.  Here we test customization
+# of raw text output, as this output is not customized in t/*.t tests.
+formatting_customizations_input_raw_text ../../t/input_files/formatting_customizations_input.texi -c TEXINFO_OUTPUT_FORMAT=rawtext -c NUMBER_SECTIONS=0 -c ASCII_GLYPH=1 --enable-encoding
+
 # tests of the tree using the same input file are also in t/transformations.t
 # but it is interesting to have automatic tree transformations tested here too.
 index_entries_relate_to_item index_entries_relate_to_item.texi --html --no-split

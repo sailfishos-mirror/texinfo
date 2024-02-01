@@ -1150,6 +1150,14 @@ defop n
 
 @var{'.$string_for_upper_case.'}',
 {'EXPANDED_FORMATS' => ['docbook', 'html', 'xml', 'plaintext']}],
+# reference to be able to compare the customizations effects
+['reference_for_formatting_customizations',
+undef, {'test_file' => 'formatting_customizations_input.texi'},],
+# the customization variables tested have effect in raw text output,
+# other could be tested too.
+['test_formatting_customizations',
+undef, {'test_file' => 'formatting_customizations_input.texi'},
+       {'NUMBER_SECTIONS' => 0, 'ASCII_GLYPH' => 1}],
 # the big rule is set to be different from the normal rule to check the type
 # of rule output
 ['contents_at_document_begin',

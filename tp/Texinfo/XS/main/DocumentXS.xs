@@ -45,11 +45,11 @@ MODULE = Texinfo::DocumentXS		PACKAGE = Texinfo::DocumentXS
 PROTOTYPES: ENABLE
 
 void
-translations_configure (localesdir, strings_textdomain="texinfo_document")
+configure_output_strings_translations (localesdir, strings_textdomain="texinfo_document")
        char *localesdir = (char *)SvPVbyte_nolen($arg);
        char *strings_textdomain;
       CODE:
-       translations_configure (localesdir, strings_textdomain);
+       configure_output_strings_translations (localesdir, strings_textdomain);
 
 SV *
 rebuild_document (SV *document_in, ...)

@@ -448,6 +448,10 @@ int unicode_point_decoded_in_encoding (const char *encoding, char *codepoint)
         }
       free (normalized_encoding);
     }
+  else
+    /* if encoding is undef, consider that it is the default, utf-8 */
+    return -1;
+
   return 0;
 }
 

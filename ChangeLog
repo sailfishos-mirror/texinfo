@@ -1,5 +1,39 @@
 2024-02-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files),
+	t/input_files/formatting_customizations_input.texi, tp/Makefile.tres,
+	tp/t/converters_tests.t (reference_for_formatting_customizations)
+	(test_formatting_customizations), tp/tests/Makefile.onetst,
+	tp/tests/formatting/list-of-tests: add tests of customizations on
+	formatting.  Setup a separate test in tests/formatting/list-of-tests
+	to be able to test rawtext too, as in t/*.t raw text does not take
+	into account customization.
+
+	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command),
+	tp/Texinfo/Convert/Unicode.pm (unicode_point_decoded_in_encoding),
+	tp/Texinfo/XS/main/convert_to_text.c (text_brace_no_arg_command),
+	tp/Texinfo/XS/main/unicode.c (unicode_point_decoded_in_encoding):
+	consider that encoding is the default, UTF-8 in
+	unicode_point_decoded_in_encoding if undef.  Check that encoding is
+	defined in text brace_no_arg_command and do not call unicode
+	brace_no_arg_command if not.
+
+	* tp/Texinfo/Translations.pm (import),
+	tp/Texinfo/XS/main/DocumentXS.xs
+	(configure_output_strings_translations),
+	tp/Texinfo/XS/main/translations.c
+	(configure_output_strings_translations): rename
+	translations_configure as configure_output_strings_translations.
+
+	* tp/Texinfo/XS/main/translations.c
+	(configure_output_strings_translations): add error message if
+	bindtextdomain failed.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_translate_names): add
+	document to html_gdt_tree call.
+
+2024-02-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c,
 	tp/Texinfo/XS/main/call_perl_function.c
 	(get_call_index_entries_sorted_by_letter): move

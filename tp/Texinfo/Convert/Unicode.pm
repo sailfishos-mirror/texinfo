@@ -1586,13 +1586,13 @@ sub unicode_point_decoded_in_encoding($$) {
     # to lower case to match the encoding names used here.  In the code
     # encoding names are lower cased early.
     $encoding = lc($encoding);
+  }
 
-    return 1 if ($encoding eq 'utf-8'
+  return 1 if ((!defined($encoding) or $encoding eq 'utf-8')
                     or ($unicode_to_eight_bit{$encoding}
                         and ($unicode_to_eight_bit{$encoding}->{$unicode_point}
                              # excludes 127 \x{7F} DEL
                              or hex($unicode_point) < 127)));
-  }
   return 0;
 }
 

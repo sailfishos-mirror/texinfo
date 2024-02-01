@@ -30,14 +30,6 @@
 
 #undef context
 
-/*
-FIXME add an initialization of translations?
-
-#ifdef ENABLE_NLS
-#include <libintl.h>
-#endif
-*/
-
 #include "command_ids.h"
 #include "converter_types.h"
 #include "utils.h"

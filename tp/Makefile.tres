@@ -241,6 +241,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/raw_block_commands_expand_tex.pl \
   t/results/converters_tests/ref_error_formatting.pl \
   t/results/converters_tests/ref_in_sectioning.pl \
+  t/results/converters_tests/reference_for_formatting_customizations.pl \
   t/results/converters_tests/references_to_top_no_top_output.pl \
   t/results/converters_tests/references_to_top_no_top_output/res_html \
   t/results/converters_tests/references_to_top_no_top_output/res_latex \
@@ -270,6 +271,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/table_in_display_in_example.pl \
   t/results/converters_tests/table_in_example_in_display.pl \
   t/results/converters_tests/test_deftypefnnewline.pl \
+  t/results/converters_tests/test_formatting_customizations.pl \
   t/results/converters_tests/test_sp.pl \
   t/results/converters_tests/things_before_setfilename.pl \
   t/results/converters_tests/things_before_setfilename_no_element.pl \

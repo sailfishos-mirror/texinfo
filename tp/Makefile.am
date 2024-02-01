@@ -231,6 +231,7 @@ test_files = \
  t/input_files/encoding_index_utf8.texi \
  t/input_files/end_of_lines_protected_non_ascii.texi \
  t/input_files/float_copying.texi \
+ t/input_files/formatting_customizations_input.texi \
  t/input_files/glossary.texi \
  t/input_files/in_menu_only_special_spaces_node.texi \
  t/input_files/in_menu_only_special_ascii_spaces_node.texi \

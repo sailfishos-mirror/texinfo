@@ -208,7 +208,8 @@ foreach my $type ('ignorable_spaces_after_command',
 }
 
 
-my @text_indicator_converter_options = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST');
+my @text_indicator_converter_options
+      = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST');
 
 sub _initialize_options_encoding($$)
 {
@@ -410,8 +411,9 @@ sub brace_no_arg_command($;$)
       and defined($text_brace_no_arg_commands{
                                   $element->{'extra'}->{'clickstyle'}}));
   my $result;
-  if (!($options and $options->{'ASCII_GLYPH'})
-        or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
+  if (defined($encoding) and
+      (!($options and $options->{'ASCII_GLYPH'})
+       or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command}))) {
     $result
        = Texinfo::Convert::Unicode::brace_no_arg_command($command, $encoding);
   }

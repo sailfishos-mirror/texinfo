@@ -44,9 +44,6 @@
 
 /*
 my $DEFAULT_ENCODING = 'utf-8';
-my $DEFAULT_PERL_ENCODING = 'utf-8';
-
-my $messages_textdomain = 'texinfo';
 */
 
 static char *working_locale = 0;
@@ -55,16 +52,21 @@ static char *locale_command = 0;
 static char *strings_textdomain = "texinfo_document";
 
 void
-translations_configure (char *localesdir, char *strings_textdomain_in)
+configure_output_strings_translations (char *localesdir,
+                                       char *strings_textdomain_in)
 {
   char *textdomain_directory;
   if (strings_textdomain_in)
     strings_textdomain = strings_textdomain_in;
 
   #ifdef ENABLE_NLS
-  /* FIXME error out if failure?
-     if failure bindtextdomain sets errno to ENOMEM and returns NULL */
   textdomain_directory = bindtextdomain (strings_textdomain, localesdir);
+
+  if (!textdomain_directory)
+    {
+      fprintf (stderr, "bindtextdomain: error setting %s to `%s': %s\n",
+               strings_textdomain, localesdir, strerror(errno));
+    }
   #endif
 }
 

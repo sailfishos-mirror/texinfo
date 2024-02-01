@@ -6909,7 +6909,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
           /* TRANSLATORS: sectioning element title for the page header */
           title_tree
             = html_gdt_tree ("{element_text} ({title})",
-                                   self->document, self, substrings, 0, 0);
+                             self->document, self, substrings, 0, 0);
 
           destroy_named_string_element_list (substrings);
 
@@ -17137,10 +17137,11 @@ html_translate_names (CONVERTER *self)
                 {
                   ELEMENT *translated_tree = 0;
                   if (format_spec->translated_to_convert)
-                    {/* FIXME use document associated to converter? */
+                    {/* it is very unlikely to have small strings to add,
+                        but in case there are is should be ok */
                       translated_tree =
                         html_gdt_tree (format_spec->translated_to_convert,
-                                   0, self, 0, 0, 0);
+                                       self->document, self, 0, 0, 0);
                     }
                   else
                     translated_tree = translated_command_tree (self, cmd);

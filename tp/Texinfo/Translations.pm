@@ -1,4 +1,4 @@
-# Translations.pm: translate strings.
+# Translations.pm: translate strings in output.
 #
 # Copyright 2010-2023 Free Software Foundation, Inc.
 # 
@@ -16,6 +16,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
+
+# This code is used for output documents strings translations, not for
+# error messages translations.
 
 package Texinfo::Translations;
 
@@ -53,7 +56,7 @@ sub import {
   if (!$module_loaded) {
     Texinfo::XSLoader::override(
       "Texinfo::Translations::_XS_configure",
-      "Texinfo::DocumentXS::translations_configure");
+      "Texinfo::DocumentXS::configure_output_strings_translations");
     # Example of how gdt could be overriden.  Not used because
     # the approach is flawed as there won't be any substitution if the trees in
     # $replaced_substrings are not registered in C data, as is the case in

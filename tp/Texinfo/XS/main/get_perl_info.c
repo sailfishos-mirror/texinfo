@@ -1039,7 +1039,10 @@ html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
             malloc (sizeof (BUTTON_SPECIFICATION_LIST));
 
   buttons_av = (AV *)SvRV (buttons_sv);
-  /* TODO increase ref count of result->av? */
+  /* In contrast with other cases, we do not add a reference to the array
+     associated to result->av to make sure that the av is not destroyed
+     while still needed, as we assume that the Perl converter will hold
+     a reference longer than we need the av for */
   result->av = buttons_av;
 
   buttons_nr = av_top_index (buttons_av) +1;
