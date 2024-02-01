@@ -209,7 +209,7 @@ foreach my $type ('ignorable_spaces_after_command',
 
 
 my @text_indicator_converter_options
-      = ('NUMBER_SECTIONS', 'ASCII_GLYPH', 'TEST');
+      = ('ASCII_GLYPH', 'NUMBER_SECTIONS', 'TEST');
 
 sub _initialize_options_encoding($$)
 {

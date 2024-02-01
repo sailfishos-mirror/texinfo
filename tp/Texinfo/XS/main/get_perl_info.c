@@ -30,14 +30,6 @@
 
 #undef context
 
-/*
-FIXME add an initialization of translations?
-
-#ifdef ENABLE_NLS
-#include <libintl.h>
-#endif
-*/
-
 #include "options_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -915,23 +907,36 @@ force_conf (CONVERTER *converter, const char *conf, SV *value)
 /* output format specific */
 
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
-/* TODO more to do? set_case? */
+/* _raw_state is not fetched, as it is not documented as an option,
+   and there is no way to set it through text options either, it can only
+   be set as a state during conversion */
 #define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
 {
   HV *hv_in;
   SV **_code_state_sv;
+  SV **ASCII_GLYPH_sv;
+  SV **NUMBER_SECTIONS_sv;
   SV **TEST_sv;
   SV **INCLUDE_DIRECTORIES_sv;
   SV **converter_sv;
   SV **enabled_encoding_sv;
   SV **sort_string_sv;
+  SV **set_case_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
 
   dTHX;
 
   hv_in = (HV *)SvRV (sv_in);
+
+  FETCH(ASCII_GLYPH)
+  if (ASCII_GLYPH_sv)
+    text_options->ASCII_GLYPH = SvIV (*ASCII_GLYPH_sv);
+
+  FETCH(NUMBER_SECTIONS)
+  if (NUMBER_SECTIONS_sv)
+    text_options->NUMBER_SECTIONS = SvIV (*NUMBER_SECTIONS_sv);
 
   FETCH(TEST)
   if (TEST_sv)
@@ -944,6 +949,10 @@ copy_sv_options_for_convert_text (SV *sv_in)
   FETCH(enabled_encoding)
   if (enabled_encoding_sv)
     text_options->encoding = strdup (SvPVutf8_nolen (*enabled_encoding_sv));
+
+  FETCH(set_case)
+  if (set_case_sv)
+    text_options->set_case = SvIV (*set_case_sv);
 
   FETCH(_code_state)
   if (_code_state_sv)

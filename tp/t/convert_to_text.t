@@ -1,11 +1,12 @@
 use strict;
+use utf8;
 
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 2; }
+BEGIN { plan tests => 5; }
 
 use Texinfo::Parser;
 use Texinfo::Document;
@@ -110,5 +111,42 @@ A top
 Annexe A Conclusion
 *******************
 ', 'test add_heading_number translations with a converter');
+
+#print STDERR "RRR '$result_text'\n";
+
+
+
+# Text setting the set_case options for Text conversion.  It is documented
+# that it may be used as an option to convert_to_text in the POD, but there
+# is no way to test it except when called from code.
+
+$document = $parser->parse_texi_piece ('
+Some text. @^o. @aa{}.  @AA{}.  @copyright{}.
+');
+
+$result_text
+ = Texinfo::Convert::Text::convert_to_text($document->tree(),
+                                           {'set_case' => 1});
+is ($result_text, '
+SOME TEXT. O^. AA.  AA.  (C).
+', 'set_case > 0, no encoding');
+
+
+$result_text
+ = Texinfo::Convert::Text::convert_to_text($document->tree(),
+                                           {'set_case' => -1});
+is ($result_text, '
+some text. o^. aa.  aa.  (C).
+', 'set_case < 0, no encoding');
+
+$result_text
+ = Texinfo::Convert::Text::convert_to_text($document->tree(),
+                     {'set_case' => -1, 'enabled_encoding' => 'utf-8'});
+# since all the characters can be encoded in latin1, perl internal encoding
+# of those characters may be latin1, and a simple print may show result
+# encoded in latin1.
+is ($result_text, '
+some text. ô. å.  å.  ©.
+', 'set_case < 0, utf-8 encoding');
 
 #print STDERR "RRR '$result_text'\n";
