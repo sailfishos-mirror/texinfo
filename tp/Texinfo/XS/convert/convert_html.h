@@ -168,8 +168,7 @@ size_t html_check_htmlxref_already_warned (CONVERTER *self,
                                            const char *manual_name,
                                            const SOURCE_INFO *source_info);
 
-void html_merge_index_entries (CONVERTER *self);
-void html_sort_index_entries (CONVERTER *self);
+INDEX_SORTED_BY_LETTER *html_get_info_index_entries_by_letter (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self,
                                     int *output_units_descriptor_ref,

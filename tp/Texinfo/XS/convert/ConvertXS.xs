@@ -180,20 +180,6 @@ converter_document_warn (SV *converter_in, text, ...)
                       self->conf, MSG_document_warning, continuation, strdup (text));
            }
 
-void
-get_index_entries_sorted_by_letter (SV *converter_in, SV *index_entries_sorted_by_letter)
-      PREINIT:
-         CONVERTER *self;
-         INDEX_SORTED_BY_LETTER *index_entries_by_letter;
-      CODE:
-         self = get_sv_converter (converter_in,
-                                  "get_index_entries_sorted_by_letter");
-         index_entries_by_letter
-            = get_sv_index_entries_sorted_by_letter
-                                          (self->document->index_names,
-                                           index_entries_sorted_by_letter);
-         self->index_entries_by_letter = index_entries_by_letter;
-
 # pass the stream of an unclosed file path.
 # tried with OutputStream instead of FILE, but it did not work, there
 # was an error with a missing type.
@@ -1688,16 +1674,6 @@ html_check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_in
            }
     OUTPUT:
          RETVAL
-
-void
-html_sort_index_entries (SV *converter_in)
-      PREINIT:
-         CONVERTER *self;
-     CODE:
-         self = get_sv_converter (converter_in,
-                                  "html_sort_index_entries");
-         if (self)
-           html_sort_index_entries (self);
 
 void
 reset_output_init_conf (SV *sv_in)

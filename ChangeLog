@@ -1,5 +1,35 @@
 2024-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	Sort index entries on demand in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (get_info, convert, output): sort indices
+	when get_info is called for 'index_entries_by_letter'.
+
+	* tp/Texinfo/XS/main/IndicesXS.xs
+	(get_converter_indices_sorted_by_letter),
+	tp/Texinfo/XS/main/manipulate_indices.c
+	(converter_sort_indices_by_letter): add
+	converter_sort_indices_by_letter to sort index entries by letter with
+	a converter.  Call it in get_converter_indices_sorted_by_letter.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(get_call_index_entries_sorted_by_letter),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_get_info_index_entries_by_letter, convert_printindex_command):
+	add get_call_index_entries_sorted_by_letter to get sorted indices from
+	HTML by calling Texinfo::Convert::HTML::get_info and
+	get_sv_index_entries_sorted_by_letter.  Add
+	html_get_info_index_entries_by_letter and call it when sorted indices
+	are needed.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs: remove
+	_XS_get_index_entries_sorted_by_letter, _NonXS_sort_index_entries,
+	_XS_only_sort_index_entries, _sort_index_entries,
+	get_index_entries_sorted_by_letter, html_sort_index_entries.
+
+2024-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c (document_merged_indices): rename
 	merged_indices as document_merged_indices.
 

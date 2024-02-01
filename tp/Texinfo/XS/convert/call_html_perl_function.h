@@ -159,4 +159,7 @@ FORMATTED_BUTTON_INFO *call_button_simple_function (CONVERTER *self,
 FORMATTED_BUTTON_INFO *call_button_direction_function (CONVERTER *self,
                              void *formatting_reference_sv,
                              int direction, const ELEMENT *element);
+
+INDEX_SORTED_BY_LETTER *get_call_index_entries_sorted_by_letter
+                                                   (CONVERTER *self);
 #endif

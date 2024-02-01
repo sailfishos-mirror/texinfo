@@ -50,4 +50,5 @@ INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
                         ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, const MERGED_INDICES *merged_indices,
                         INDEX **indices_information);
+INDEX_SORTED_BY_LETTER *converter_sort_indices_by_letter (CONVERTER *self);
 #endif

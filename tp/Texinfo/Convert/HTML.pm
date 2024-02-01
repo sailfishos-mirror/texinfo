@@ -263,10 +263,6 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_check_htmlxref_already_warned"
    => "Texinfo::Convert::ConvertXS::html_check_htmlxref_already_warned",
 
-  "Texinfo::Convert::HTML::_XS_get_index_entries_sorted_by_letter"
-   => "Texinfo::Convert::ConvertXS::get_index_entries_sorted_by_letter",
-  "Texinfo::Convert::HTML::_XS_only_sort_index_entries"
-   => "Texinfo::Convert::ConvertXS::html_sort_index_entries",
   "Texinfo::Convert::HTML::_prepare_conversion_units"
    => "Texinfo::Convert::ConvertXS::html_prepare_conversion_units",
   "Texinfo::Convert::HTML::_prepare_units_directions_files"
@@ -2328,19 +2324,32 @@ sub get_info($$)
     }
   #} else {
   #  cluck();
-  } elsif ($converter_info eq 'index_entries_by_letter'
-           and $self->{'document'} and $self->{'converter_descriptor'}
-           and $XS_convert) {
+  } elsif ($converter_info eq 'index_entries_by_letter') {
     my $indices_information;
     if ($self->{'document'}) {
       $indices_information = $self->{'document'}->indices_information();
     }
 
     if ($indices_information) {
-      $self->{'index_entries_by_letter'}
-       = Texinfo::Indices::get_converter_indices_sorted_by_letter($self,
+      if (!$self->get_conf('TEST') and $self->{'converter_descriptor'}
+          and $XS_convert) {
+        # get from XS
+        $self->{'index_entries_by_letter'}
+          = Texinfo::Indices::get_converter_indices_sorted_by_letter($self,
                                                        $indices_information);
+      } else {
+        my $merged_index_entries
+          = $self->{'document'}->merged_indices();
+        my $index_entries_sort_strings;
 
+        ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
+            = Texinfo::Indices::sort_indices_by_letter(undef, $self,
+                                             $merged_index_entries,
+                                             $indices_information);
+
+      }
+      $self->{'converter_info'}->{'index_entries_by_letter'}
+        = $self->{'index_entries_by_letter'};
       return $self->{'index_entries_by_letter'};
     }
   }
@@ -10289,56 +10298,6 @@ sub _prepare_output_units_global_targets($$$$)
   }
 }
 
-sub _XS_get_index_entries_sorted_by_letter($$)
-{
-}
-
-sub _NonXS_sort_index_entries($)
-{
-  my $self = shift;
-
-  my $indices_information;
-  if ($self->{'document'}) {
-    $indices_information = $self->{'document'}->indices_information();
-  }
-
-  if ($indices_information) {
-
-    my $merged_index_entries
-        = $self->{'document'}->merged_indices();
-    my $index_entries_sort_strings;
-
-    ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-            = Texinfo::Indices::sort_indices_by_letter(undef, $self,
-                                               $merged_index_entries,
-                                               $indices_information);
-
-    # pass sorted index entries to XS for a reproducible sorting.
-    if ($self->{'converter_descriptor'} and $XS_convert) {
-      _XS_get_index_entries_sorted_by_letter($self,
-                                 $self->{'index_entries_by_letter'});
-    }
-  }
-}
-
-sub _XS_only_sort_index_entries($)
-{
-  my $self = shift;
-  _NonXS_sort_index_entries($self);
-}
-
-sub _sort_index_entries($)
-{
-  my $self = shift;
-
-  # Sorting in Perl to have a reproducible output for tests
-  if ($self->get_conf('TEST')) {
-    _NonXS_sort_index_entries($self);
-  } else {
-    _XS_only_sort_index_entries($self);
-  }
-}
-
 sub _prepare_index_entries_targets($)
 {
   my $self = shift;
@@ -11918,8 +11877,6 @@ sub convert($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  $self->_sort_index_entries();
-
   # cache, as it is checked for each text element
   if ($self->get_conf('OUTPUT_CHARACTERS')
       and $self->get_conf('OUTPUT_ENCODING_NAME')
@@ -12639,8 +12596,6 @@ sub output($$)
   # in translate_names
   # Some information is not available yet.
   $self->_reset_info();
-
-  $self->_sort_index_entries();
 
   # cache, as it is checked for each text element
   if ($self->get_conf('OUTPUT_CHARACTERS')

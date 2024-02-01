@@ -4669,19 +4669,23 @@ get_copiable_anchor (CONVERTER *self, const char *id)
   return 0;
 }
 
-void
-html_sort_index_entries (CONVERTER *self)
+INDEX_SORTED_BY_LETTER *
+html_get_info_index_entries_by_letter (CONVERTER *self)
 {
-  const MERGED_INDICES *merged_indices
-    = document_merged_indices (self->document);
+  if (self->index_entries_by_letter)
+    return self->index_entries_by_letter;
 
   if (self->document->index_names)
     {
-      self->index_entries_by_letter
-        = sort_indices_by_letter (&self->error_messages, self->conf,
-                                  merged_indices,
-                                  self->document->index_names);
+      /* get Perl sorting for reproducible tests */
+      if (self->conf->TEST.integer > 0)
+        self->index_entries_by_letter
+         = get_call_index_entries_sorted_by_letter (self);
+      else /* sets self->index_entries_by_letter */
+        converter_sort_indices_by_letter (self);
     }
+
+  return self->index_entries_by_letter;
 }
 
 int
@@ -12454,8 +12458,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   char *index_name_cmd_class;
   char *alpha_text = 0;
   char *non_alpha_text = 0;
+  INDEX_SORTED_BY_LETTER *index_entries_by_letter
+    = html_get_info_index_entries_by_letter (self);
 
-  if (!self->index_entries_by_letter)
+  if (!index_entries_by_letter)
     return;
 
   if (html_in_string (self))
@@ -12467,7 +12473,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   else
     return;
 
-  for (idx = self->index_entries_by_letter; idx->name; idx++)
+  for (idx = index_entries_by_letter; idx->name; idx++)
     {
       if (!strcmp (idx->name, index_name))
         {

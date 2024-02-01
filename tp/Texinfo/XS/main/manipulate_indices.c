@@ -29,6 +29,7 @@
 #include "extra.h"
 #include "errors.h"
 #include "debug.h"
+#include "document.h"
 #include "unicode.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
@@ -802,4 +803,20 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
                      (index_nr+1) * sizeof (INDEX_SORTED_BY_LETTER));
 
   return sorted_index_entries;
+}
+
+INDEX_SORTED_BY_LETTER *
+converter_sort_indices_by_letter (CONVERTER *self)
+{
+  if (self->index_entries_by_letter)
+    return self->index_entries_by_letter;
+
+  const MERGED_INDICES *merged_indices
+    = document_merged_indices (self->document);
+
+  self->index_entries_by_letter
+    = sort_indices_by_letter (&self->error_messages, self->conf,
+                              merged_indices,
+                              self->document->index_names);
+  return self->index_entries_by_letter;
 }
