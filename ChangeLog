@@ -1,6 +1,13 @@
 2024-02-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/document.c
+	(unregister_document_merge_with_document): merge
+	unregister_document_descriptor_tree in
+	unregister_document_merge_with_document.  Remove TREE_AND_STRINGS.
+
+2024-02-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/document.c
 	(unregister_document_merge_with_document),
 	tp/Texinfo/XS/main/translations.c (gdt_tree): add based on gdt_tree
 	code.

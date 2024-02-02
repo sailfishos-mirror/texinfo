@@ -49,7 +49,7 @@
 #include "convert_to_text.h"
 #include "call_perl_function.h"
 #include "call_html_perl_function.h"
-/* for TREE_AND_STRINGS */
+/* for unregister_document_merge_with_document */
 #include "document.h"
 /* for OTXI_UNICODE_TEXT_CASES */
 #include "unicode.h"

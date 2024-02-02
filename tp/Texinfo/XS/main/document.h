@@ -9,11 +9,6 @@
 #include "tree_types.h"
 #include "document_types.h"
 
-typedef struct TREE_AND_STRINGS {
-    ELEMENT *tree;
-    STRING_LIST *small_strings;
-} TREE_AND_STRINGS;
-
 struct TEXT_OPTIONS;
 
 
@@ -38,7 +33,6 @@ void register_document_convert_index_text_options (DOCUMENT *document,
 const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
 
 void remove_document_descriptor (int document_descriptor);
-TREE_AND_STRINGS *unregister_document_descriptor_tree (int document_descriptor);
 ELEMENT *unregister_document_merge_with_document (int document_descriptor,
                                                   DOCUMENT *document);
 void clear_document_errors (int document_descriptor);
