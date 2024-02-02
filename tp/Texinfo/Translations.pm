@@ -237,7 +237,7 @@ sub gdt($$;$$$)
   # allows to redefine translate_string, as done in the HTML converter.  Cannot
   # directly call translate_string on $customization_information, as it may not
   # provide the method if it does not inherit from Texinfo::Translations, as is
-  # the case for Texinfo::Parser.
+  # the case for most $customization_information objects.
   my $translate_string_method
      = $customization_information->can('translate_string');
   $translate_string_method = \&translate_string if (!$translate_string_method);
@@ -397,8 +397,8 @@ sub pgdt($$$;$$)
 {
   my ($customization_information, $translation_context, $string,
       $lang, $replaced_substrings) = @_;
-  return $customization_information->gdt($string, $lang, $replaced_substrings,
-                                         $translation_context);
+  return gdt($customization_information, $string, $lang,
+             $replaced_substrings, $translation_context);
 }
 
 if (0) {

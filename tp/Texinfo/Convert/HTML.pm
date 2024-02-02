@@ -86,7 +86,7 @@ use Texinfo::Convert::LaTeX;
 
 require Exporter;
 use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+@ISA = qw(Texinfo::Convert::Converter Texinfo::Translations);
 
 $VERSION = '7.1dev';
 

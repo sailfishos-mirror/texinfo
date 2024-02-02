@@ -1,5 +1,14 @@
 2024-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Translations.pm (pgdt): call gdt directly.
+
+	* tp/Texinfo/Convert/Converter.pm (@ISA), tp/Texinfo/Convert/HTML.pm
+	(@ISA): do not inherit Texinfo::Translations in Converter.pm.  Inherit
+	Texinfo::Translations in HTML.pm, only to be able to redefine
+	translate_string.
+
+2024-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Translations Output and Customization),
 	(Internationalization of Strings Function), po_document/Makevars
 	(XGETTEXT_OPTIONS), tp/Texinfo/Convert/Converter.pm (cdt, cdt_string)

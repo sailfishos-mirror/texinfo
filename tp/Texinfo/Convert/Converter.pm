@@ -56,7 +56,7 @@ use Texinfo::Translations;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Translations);
+@ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
 xml_protect_text
@@ -2614,9 +2614,9 @@ entity, or C<undef> is there is no such entity.
 The module provides methods that may be useful for converter.
 Most methods take a I<$converter> as argument to get some
 information and use methods for error reporting, see L</Registering error and
-warning messages>.  Also to translate strings, see L<Texinfo::Translations>.
-For useful methods that need a converter optionally and can be used in
-converters that do not inherit from C<Texinfo::Convert::Converter>, see
+warning messages>.  Also to translate strings, see L</Translations in output
+documents>.  For useful methods that need a converter optionally and can be
+used in converters that do not inherit from C<Texinfo::Convert::Converter>, see
 L<Texinfo::Convert::Utils>.
 
 =over
