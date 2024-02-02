@@ -86,7 +86,7 @@ use Texinfo::Convert::LaTeX;
 
 require Exporter;
 use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter Texinfo::Translations);
+@ISA = qw(Texinfo::Convert::Converter);
 
 $VERSION = '7.1dev';
 
@@ -2842,7 +2842,7 @@ sub _translate_names($)
 # redefined functions
 #
 # Texinfo::Translations::translate_string redefined to call user defined function.
-sub translate_string($$;$$)
+sub html_translate_string($$;$$)
 {
   my ($self, $string, $lang, $translation_context) = @_;
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
@@ -2857,7 +2857,32 @@ sub translate_string($$;$$)
     }
   }
 
-  return $self->SUPER::translate_string($string, $lang, $translation_context);
+  return Texinfo::Translations::translate_string($self, $string, $lang,
+                                                 $translation_context);
+}
+
+# redefine generic Converter functions to pass a customized translate_string
+# function
+sub cdt($$;$$)
+{
+  my ($self, $string, $replaced_substrings, $translation_context) = @_;
+
+  return Texinfo::Translations::gdt($self, $string,
+                                    $self->get_conf('documentlanguage'),
+                                    $replaced_substrings,
+                                    $translation_context,
+                                    \&html_translate_string);
+}
+
+sub cdt_string($$;$$)
+{
+  my ($self, $string, $replaced_substrings, $translation_context) = @_;
+
+  return Texinfo::Translations::gdt_string($self, $string,
+                                    $self->get_conf('documentlanguage'),
+                                    $replaced_substrings,
+                                    $translation_context,
+                                    \&html_translate_string);
 }
 
 sub converter_defaults($$)

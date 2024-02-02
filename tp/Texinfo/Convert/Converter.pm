@@ -650,9 +650,7 @@ sub pcdt($$;$$)
 {
   my ($self, $translation_context, $string, $replaced_substrings) = @_;
 
-  return Texinfo::Translations::pgdt($self, $translation_context, $string,
-                                     $self->get_conf('documentlanguage'),
-                                     $replaced_substrings);
+  return $self->cdt($string, $replaced_substrings, $translation_context);
 }
 
 sub converter_line_error($$$;$)

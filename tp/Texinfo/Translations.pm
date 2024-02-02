@@ -150,12 +150,11 @@ sub _switch_messages_locale
 sub translate_string($$;$$)
 {
   my ($customization_information, $string, $lang, $translation_context) = @_;
-  if (ref($customization_information) eq 'Texinfo::Document') {
-    cluck;
-  }
+
   if (defined($lang) and $lang eq '') {
     cluck ("BUG: defined but empty documentlanguage: $customization_information: '$string'\n");
   }
+
   $lang = $DEFAULT_LANGUAGE if (!defined($lang));
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
@@ -229,18 +228,15 @@ sub translate_string($$;$$)
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree
-sub gdt($$;$$$)
+sub gdt($$;$$$$)
 {
   my ($customization_information, $string, $lang, $replaced_substrings,
-      $translation_context) = @_;
+      $translation_context, $translate_string_method) = @_;
 
-  # allows to redefine translate_string, as done in the HTML converter.  Cannot
-  # directly call translate_string on $customization_information, as it may not
-  # provide the method if it does not inherit from Texinfo::Translations, as is
-  # the case for most $customization_information objects.
-  my $translate_string_method
-     = $customization_information->can('translate_string');
-  $translate_string_method = \&translate_string if (!$translate_string_method);
+  if (!$translate_string_method) {
+    $translate_string_method = \&translate_string;
+  }
+
   my $translated_string = &$translate_string_method($customization_information,
                                        $string, $lang, $translation_context);
 
@@ -255,20 +251,14 @@ sub gdt($$;$$$)
 # Get document translation - handle translations of in-document strings.
 # In general for already converted strings that do not need to go through
 # a Texinfo tree.
-sub gdt_string($$;$$$)
+sub gdt_string($$;$$$$)
 {
   my ($customization_information, $string, $lang, $replaced_substrings,
-      $translation_context) = @_;
+      $translation_context, $translate_string_method) = @_;
 
-  # Following code allows to redefine translate_string, as done in the HTML
-  # converter.  We check with can() explicitely instead of letting inheritance
-  # rules determine which method to call (which would be achieved with
-  # $customization_information->translate_string) because
-  # $customization_information may not provide the method if it does not
-  # inherit from Texinfo::Translations, as is the case for Texinfo::Parser.
-  my $translate_string_method
-     = $customization_information->can('translate_string');
-  $translate_string_method = \&translate_string if (!$translate_string_method);
+  if (!$translate_string_method) {
+    $translate_string_method = \&translate_string;
+  }
 
   my $translated_string = &$translate_string_method($customization_information,
                                        $string, $lang, $translation_context);
@@ -555,9 +545,9 @@ but returns a simple string, for already converted strings.
 
 =over
 
-=item $tree = $object->gdt($string, $lang, $replaced_substrings, $translation_context)
+=item $tree = $object->gdt($string, $lang, $replaced_substrings, $translation_context, $translate_string_method)
 
-=item $string = $object->gdt_string($string, $lang, $replaced_substrings, $translation_context)
+=item $string = $object->gdt_string($string, $lang, $replaced_substrings, $translation_context, $translate_string_method)
 
 X<C<gdt>> X<C<gdt_string>>
 
@@ -584,6 +574,10 @@ I<$object> is used to get some customization information.
 The I<$translation_context> is optional.  If not C<undef> this is a translation
 context string for I<$string>.  It is the first argument of C<pgettext>
 in the C API of Gettext.
+
+The I<$translate_string_method> is optional.  If not undef it should be a
+reference on a function that is called instead of C<translate_string>.  It
+allows to customize string translation.
 
 For example, in the following call, the string
 C<See {reference} in @cite{{book}}> is translated, then

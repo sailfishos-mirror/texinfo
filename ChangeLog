@@ -1,5 +1,19 @@
 2024-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (pcdt): call cdt.
+
+	* tp/Texinfo/Translations.pm (gdt, gdt_string): add a
+	$translate_string_method to allow customization of translate_string
+	instead of using can on the $customization_information argument.
+
+	* tp/Texinfo/Convert/HTML.pm (@ISA, html_translate_string)
+	(cdt, cdt_string): do not inherit Texinfo::Translations.
+	Rename translate_string as html_translate_string.  Redefine cdt and
+	cdt_string to pass html_translate_string to gdt and gdt_string
+	to customize translate_string.
+
+2024-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_utils.c (cdt_tree): add to replace
 	gdt_tree when only converter is used.  Update caller of gdt_tree.
 
