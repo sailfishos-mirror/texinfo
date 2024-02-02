@@ -553,16 +553,16 @@ sub _convert($$)
       # at the place of the tree, but the converter may want to use
       # another documentlanguage, for instance the documentlanguage at
       # the end of the preamble, so we let the converter set it.
-      #my $tree = $options->{'converter'}->gdt($element->{'text'}, undef,
+      #my $tree = Texinfo::Translations::gdt(undef, $element->{'text'},
       #                  undef, $element->{'extra'}->{'documentlanguage'});
       my $tree;
       if ($element->{'extra'}
           and $element->{'extra'}->{'translation_context'}) {
-        $tree = $options->{'converter'}->pgdt(
+        $tree = $options->{'converter'}->pcdt(
                             $element->{'extra'}->{'translation_context'},
                             $element->{'text'});
       } else {
-        $tree = $options->{'converter'}->gdt($element->{'text'});
+        $tree = $options->{'converter'}->cdt($element->{'text'});
       }
       $result = _convert($options, $tree);
     } else {

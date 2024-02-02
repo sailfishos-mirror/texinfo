@@ -77,7 +77,7 @@ my %brace_commands = %Texinfo::Commands::brace_commands;
 
 my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
 
-# documentlanguage is used through gdt().
+# documentlanguage is used through cdt().
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
 'frenchspacing', 'footnotestyle', 'documentlanguage', 'deftypefnnewline');
 
@@ -1390,12 +1390,12 @@ sub format_contents($$$)
                or !defined($self->get_conf('NUMBER_SECTIONS')))) {
         if ($section->{'cmdname'} eq 'appendix'
             and $section->{'extra'}->{'section_level'} == 1) {
-          $section_title_tree = $self->gdt('Appendix {number} {section_title}',
+          $section_title_tree = $self->cdt('Appendix {number} {section_title}',
                {'number' => {'text'
                                => $section->{'extra'}->{'section_number'}},
                 'section_title' => $section->{'args'}->[0]});
         } else {
-          $section_title_tree = $self->gdt('{number} {section_title}',
+          $section_title_tree = $self->cdt('{number} {section_title}',
                {'number' => {'text'
                                => $section->{'extra'}->{'section_number'}},
                 'section_title' => $section->{'args'}->[0]});
@@ -1682,7 +1682,7 @@ sub process_printindex($$;$)
       # cache the transformation to text and byte counting, as
       # it is likely that there is more than one such entry
        if (!$self->{'outside_of_any_node_text'}) {
-          my $tree = $self->gdt('(outside of any node)');
+          my $tree = $self->cdt('(outside of any node)');
           my ($node_text, $width)
             = $self->convert_line_new_context($tree);
           $self->{'outside_of_any_node_text'} = $node_text;
@@ -1865,11 +1865,11 @@ sub _text_heading($$$;$$)
   if (defined($number)) {
     if ($current->{'cmdname'} eq 'appendix'
         and $current->{'extra'}->{'section_level'} == 1) {
-      $text = $self->gdt_string(
+      $text = $self->cdt_string(
                  'Appendix {number} {section_title}',
                  {'number' => $number, 'section_title' => $heading});
     } else {
-      $text = $self->gdt_string(
+      $text = $self->cdt_string(
                  '{number} {section_title}',
                  {'number' => $number, 'section_title' => $heading});
     }
@@ -2062,10 +2062,10 @@ sub _convert($$)
       my $tree;
       if ($element->{'extra'}
           and $element->{'extra'}->{'translation_context'}) {
-        $tree = $self->pgdt($element->{'extra'}->{'translation_context'},
+        $tree = $self->pcdt($element->{'extra'}->{'translation_context'},
                             $element->{'text'});
       } else {
-        $tree = $self->gdt($element->{'text'});
+        $tree = $self->cdt($element->{'text'});
       }
       _convert($self, $tree);
       return;
@@ -2651,10 +2651,10 @@ sub _convert($$)
           }
           my $email_tree;
           if ($name and $email) {
-            $email_tree = $self->gdt('{name} @url{{email}}',
+            $email_tree = $self->cdt('{name} @url{{email}}',
                              {'name' => $name, 'email' => $email});
           } elsif ($email) {
-            $email_tree = $self->gdt('@url{{email}}',
+            $email_tree = $self->cdt('@url{{email}}',
                              {'email' => $email});
           } elsif ($name) {
             $email_tree = $name;
@@ -2685,11 +2685,11 @@ sub _convert($$)
                and defined($element->{'args'}->[1])
                and $element->{'args'}->[1]->{'contents'}
                and @{$element->{'args'}->[1]->{'contents'}}) {
-              $inserted = $self->gdt('{text} ({url})',
+              $inserted = $self->cdt('{text} ({url})',
                    {'text' => $element->{'args'}->[1],
                     'url' => $url });
             } else {
-              $inserted = $self->gdt('@t{<{url}>}', {'url' => $url});
+              $inserted = $self->cdt('@t{<{url}>}', {'url' => $url});
             }
           } elsif (scalar(@{$element->{'args'}}) == 2
                    and defined($element->{'args'}->[1])
@@ -2760,7 +2760,7 @@ sub _convert($$)
               and defined($element->{'args'}->[-1])
               and $element->{'args'}->[-1]->{'contents'}
               and @{$element->{'args'}->[-1]->{'contents'}}) {
-            my $inserted = $self->gdt('{abbr_or_acronym} ({explanation})',
+            my $inserted = $self->cdt('{abbr_or_acronym} ({explanation})',
                    {'abbr_or_acronym' => $argument,
                     'explanation' => $element->{'args'}->[-1]});
             _convert($self, $inserted);
@@ -2854,7 +2854,7 @@ sub _convert($$)
         }
         return;
       } elsif ($command eq 'value') {
-        my $expansion = $self->gdt('@{No value for `{value}\'@}',
+        my $expansion = $self->cdt('@{No value for `{value}\'@}',
                                    {'value' => $element->{'args'}->[0]});
         my $piece;
         if ($formatter->{'_top_formatter'}) {
@@ -2967,7 +2967,7 @@ sub _convert($$)
         if ($element->{'args'} and $element->{'args'}->[0]
             and $element->{'args'}->[0]->{'contents'}
             and scalar(@{$element->{'args'}->[0]->{'contents'}})) {
-          my $prepended = $self->gdt('@b{{quotation_arg}:} ',
+          my $prepended = $self->cdt('@b{{quotation_arg}:} ',
              {'quotation_arg' => $element->{'args'}->[0]});
           $prepended->{'type'} = 'frenchspacing';
           #_convert($self, $prepended);
@@ -3018,7 +3018,7 @@ sub _convert($$)
             and @{$element->{'args'}->[0]->{'contents'}}) {
           # FIXME reset the paragraph count in cartouche and use a
           # specific format_context?
-          my $prepended = $self->gdt('@center @b{{cartouche_arg}}',
+          my $prepended = $self->cdt('@center @b{{cartouche_arg}}',
              {'cartouche_arg' => $element->{'args'}->[0]});
           $prepended->{'type'} = 'frenchspacing';
           # Do not consider the title to be like a paragraph
@@ -3448,14 +3448,14 @@ sub _convert($$)
              'name' => $name,
              'arguments' => $arguments};
             if ($omit_def_space) {
-              $tree = $self->gdt('@tie{}-- {category}: {name}{arguments}',
+              $tree = $self->cdt('@tie{}-- {category}: {name}{arguments}',
                                  $strings);
             } else {
-              $tree = $self->gdt('@tie{}-- {category}: {name} {arguments}',
+              $tree = $self->cdt('@tie{}-- {category}: {name} {arguments}',
                                  $strings);
             }
           } else {
-            $tree = $self->gdt('@tie{}-- {category}: {name}', {
+            $tree = $self->cdt('@tie{}-- {category}: {name}', {
                  'category' => $category,
                  'name' => $name});
           }
@@ -3472,21 +3472,21 @@ sub _convert($$)
                 and $command eq 'deftypefn') {
               if ($omit_def_space) {
                 $tree
-                  = $self->gdt('@tie{}-- {category}:@*{type}@*{name}{arguments}',
+                  = $self->cdt('@tie{}-- {category}:@*{type}@*{name}{arguments}',
                                $strings);
               } else {
                 $tree
-                  = $self->gdt('@tie{}-- {category}:@*{type}@*{name} {arguments}',
+                  = $self->cdt('@tie{}-- {category}:@*{type}@*{name} {arguments}',
                                $strings);
               }
             } else {
               if ($omit_def_space) {
                 $tree
-                  = $self->gdt('@tie{}-- {category}: {type} {name}{arguments}',
+                  = $self->cdt('@tie{}-- {category}: {type} {name}{arguments}',
                                $strings);
               } else {
                 $tree
-                  = $self->gdt('@tie{}-- {category}: {type} {name} {arguments}',
+                  = $self->cdt('@tie{}-- {category}: {type} {name} {arguments}',
                                $strings);
               }
             }
@@ -3497,10 +3497,10 @@ sub _convert($$)
              'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on'
                 and $command eq 'deftypefn') {
-              $tree = $self->gdt('@tie{}-- {category}:@*{type}@*{name}',
+              $tree = $self->cdt('@tie{}-- {category}:@*{type}@*{name}',
                                  $strings);
             } else {
-              $tree = $self->gdt('@tie{}-- {category}: {type} {name}',
+              $tree = $self->cdt('@tie{}-- {category}: {type} {name}',
                                  $strings);
             }
           }
@@ -3515,15 +3515,15 @@ sub _convert($$)
              'arguments' => $arguments};
             if ($omit_def_space) {
               $tree
-               = $self->gdt('@tie{}-- {category} of {class}: {name}{arguments}',
+               = $self->cdt('@tie{}-- {category} of {class}: {name}{arguments}',
                             $strings);
             } else {
               $tree
-               = $self->gdt('@tie{}-- {category} of {class}: {name} {arguments}',
+               = $self->cdt('@tie{}-- {category} of {class}: {name} {arguments}',
                             $strings);
             }
           } else {
-            $tree = $self->gdt('@tie{}-- {category} of {class}: {name}', {
+            $tree = $self->cdt('@tie{}-- {category} of {class}: {name}', {
              'category' => $category,
              'class' => $class,
              'name' => $name});
@@ -3539,15 +3539,15 @@ sub _convert($$)
              'arguments' => $arguments};
             if ($omit_def_space) {
               $tree
-                = $self->gdt('@tie{}-- {category} on {class}: {name}{arguments}',
+                = $self->cdt('@tie{}-- {category} on {class}: {name}{arguments}',
                              $strings);
             } else {
               $tree
-                = $self->gdt('@tie{}-- {category} on {class}: {name} {arguments}',
+                = $self->cdt('@tie{}-- {category} on {class}: {name} {arguments}',
                              $strings);
             }
           } else {
-            $tree = $self->gdt('@tie{}-- {category} on {class}: {name}', {
+            $tree = $self->cdt('@tie{}-- {category} on {class}: {name}', {
              'category' => $category,
              'class' => $class,
              'name' => $name});
@@ -3563,21 +3563,21 @@ sub _convert($$)
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               if ($omit_def_space) {
                 $tree
-                  = $self->gdt('@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
+                  = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
                                $strings);
               } else {
                 $tree
-                  = $self->gdt('@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}',
+                  = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}',
                                $strings);
               }
             } else {
               if ($omit_def_space) {
                 $tree
-                  = $self->gdt('@tie{}-- {category} on {class}: {type} {name}{arguments}',
+                  = $self->cdt('@tie{}-- {category} on {class}: {type} {name}{arguments}',
                                $strings);
               } else {
                 $tree
-                  = $self->gdt('@tie{}-- {category} on {class}: {type} {name} {arguments}',
+                  = $self->cdt('@tie{}-- {category} on {class}: {type} {name} {arguments}',
                                $strings);
               }
             }
@@ -3589,11 +3589,11 @@ sub _convert($$)
              'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt('@tie{}-- {category} on {class}:@*{type}@*{name}',
+                = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}',
                              $strings);
             } else {
               $tree
-                = $self->gdt('@tie{}-- {category} on {class}: {type} {name}',
+                = $self->cdt('@tie{}-- {category} on {class}: {type} {name}',
                              $strings);
             }
           }
@@ -3607,11 +3607,11 @@ sub _convert($$)
              'arguments' => $arguments};
             if ($omit_def_space) {
               $tree
-                = $self->gdt('@tie{}-- {category} of {class}: {type} {name}{arguments}',
+                = $self->cdt('@tie{}-- {category} of {class}: {type} {name}{arguments}',
                              $strings);
             } else {
               $tree
-                = $self->gdt('@tie{}-- {category} of {class}: {type} {name} {arguments}',
+                = $self->cdt('@tie{}-- {category} of {class}: {type} {name} {arguments}',
                              $strings);
             }
           } else {
@@ -3621,7 +3621,7 @@ sub _convert($$)
              'class' => $class,
              'name' => $name};
             $tree
-              = $self->gdt('@tie{}-- {category} of {class}: {type} {name}',
+              = $self->cdt('@tie{}-- {category} of {class}: {type} {name}',
                              $strings);
           }
         }
@@ -4101,7 +4101,7 @@ sub _convert($$)
             and $author->{'args'}->[0]->{'contents'}) {
           _convert($self,
             # TRANSLATORS: quotation author
-            $self->gdt("\@center --- \@emph{{author}}",
+            $self->cdt("\@center --- \@emph{{author}}",
                {'author' => $author->{'args'}->[0]}));
         }
       }

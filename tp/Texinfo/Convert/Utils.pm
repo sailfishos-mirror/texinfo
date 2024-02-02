@@ -183,7 +183,7 @@ sub definition_category_tree($$)
     if ($self) {
       # TRANSLATORS: association of a method or operation name with a class
       # in descriptions of object-oriented programming methods or operations.
-      return $self->gdt('{category} on @code{{class}}',
+      return $self->cdt('{category} on @code{{class}}',
                                          {'category' => $arg_category,
                                           'class' => $arg_class});
     } else {
@@ -201,7 +201,7 @@ sub definition_category_tree($$)
       # TRANSLATORS: association of a variable or instance variable with
       # a class in descriptions of object-oriented programming variables
       # or instance variable.
-      return $self->gdt('{category} of @code{{class}}', { 'category' => $arg_category,
+      return $self->cdt('{category} of @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });
     } else {
       my $result = {};
@@ -357,10 +357,10 @@ sub add_heading_number($$$;$)
     if (defined($number)) {
       if ($current->{'cmdname'} eq 'appendix'
           and $current->{'extra'}->{'section_level'} == 1) {
-        $result = $self->gdt_string('Appendix {number} {section_title}',
+        $result = $self->cdt_string('Appendix {number} {section_title}',
                    {'number' => $number, 'section_title' => $text});
       } else {
-        $result = $self->gdt_string('{number} {section_title}',
+        $result = $self->cdt_string('{number} {section_title}',
                    {'number' => $number, 'section_title' => $text});
       }
     } else {
@@ -538,7 +538,7 @@ sub translated_command_tree($$)
   my $cmdname = shift;
   if ($self->{'translated_commands'}
       and $self->{'translated_commands'}->{$cmdname}) {
-    return $self->gdt($self->{'translated_commands'}->{$cmdname});
+    return $self->cdt($self->{'translated_commands'}->{$cmdname});
   }
   return undef;
 }

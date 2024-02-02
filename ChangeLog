@@ -1,5 +1,17 @@
 2024-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Translations Output and Customization),
+	(Internationalization of Strings Function), po_document/Makevars
+	(XGETTEXT_OPTIONS), tp/Texinfo/Convert/Converter.pm (cdt, cdt_string)
+	(pcdt), tp/Texinfo/Convert/*.pm, tp/Texinfo/Translations.pm
+	(translate_string, gdt, gdt_string, pgdt): do not set language in
+	gdt, gdt_string, pgdt, instead get it as argument.  Change the
+	arguments order to have $lang appear earlier.  Add wrappers for
+	converters, called cdt, cdt_string and pcdt that set the language with
+	get_conf('documentlanguage').  Update callers.
+
+2024-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	No encoding, no us-ascii added to locale for document translations
 
 	* NEWS, doc/texinfo.texi (Internationalization of Document Strings),

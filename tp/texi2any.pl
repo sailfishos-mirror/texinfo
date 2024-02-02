@@ -1529,7 +1529,7 @@ while(@input_files) {
   my $main_configuration = Texinfo::MainConfig::new();
 
   # encoding is needed for output files
-  # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
+  # documentlanguage is needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $document);
   if (not defined($main_configuration->get_conf('documentlanguage'))
       and defined ($document_information->{'documentlanguage'})) {

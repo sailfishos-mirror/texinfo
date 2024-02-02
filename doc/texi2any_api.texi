@@ -3284,7 +3284,7 @@ Customization}) and for specific elements headings such as footnotes,
 contents or about (@pxref{Special Units Information Customization}).
 Translated strings can also be inserted in the output in user-defined
 customization functions, by using specific functions for internationalization
-of strings, @code{gdt}, @code{gdt_string} or @code{pgdt}.
+of strings, @code{cdt}, @code{cdt_string} or @code{cgdt}.
 
 It is possible to customize the translated strings, in order to
 change the translations of the strings translated in the default case.
@@ -3298,30 +3298,30 @@ information on the default case.
 @section Internationalization of Strings Function
 
 @vindex texinfo_document @r{Gettext domain}
-The subroutines @code{gdt}, @code{gdt_string} or @code{pgdt}, are used for
+The subroutines @code{cdt}, @code{cdt_string} or @code{cgdt}, are used for
 translated strings:
 
-@deftypefun {@var{$translated_tree} =} @var{$converter}->gdt (@var{$string}, @var{\%variables_hash}, @var{$translation_context})
-@deftypefunx {@var{$translated_string} =} @var{$converter}->gdt_string (@var{$string}, @var{\%variables_hash}, @var{$translation_context})
-@deftypefunx {@var{$translated_tree} =} @var{$converter}->pgdt (@var{$translation_context}, @var{$string}, @var{\%variables_hash})
+@deftypefun {@var{$translated_tree} =} @var{$converter}->cdt (@var{$string}, @var{\%variables_hash}, @var{$translation_context})
+@deftypefunx {@var{$translated_string} =} @var{$converter}->cdt_string (@var{$string}, @var{\%variables_hash}, @var{$translation_context})
+@deftypefunx {@var{$translated_tree} =} @var{$converter}->pcdt (@var{$translation_context}, @var{$string}, @var{\%variables_hash})
 @var{$string} is the string to be translated, @var{\%variables_hash}
 is a hash reference holding the variable parts of the translated
 string.   @var{$translation_context} is an optional translation context
 that limits the search of the translated string to that context
 (@pxref{Contexts,,,gettext,GNU gettext tools}).
 
-The result returned is a perl Texinfo tree for @code{gdt} and @code{pgdt}
-and a string for @code{gdt_string}.  With @code{gdt_string} the substitutions
+The result returned is a perl Texinfo tree for @code{cdt} and @code{pcdt}
+and a string for @code{cdt_string}.  With @code{cdt_string} the substitutions
 may only be strings.
 
-If called as @code{pgdt}, @var{$translation_context} is not optional
+If called as @code{pcdt}, @var{$translation_context} is not optional
 and is the first argument.
 @end deftypefun
 
-With @code{gdt} and @code{pgdt}, when the string is expanded as Texinfo, and
+With @code{cdt} and @code{pcdt}, when the string is expanded as Texinfo, and
 converted to a Texinfo tree in perl, the arguments are substituted; for
 example, @samp{@{arg_name@}} is replaced by the corresponding actual argument,
-which should be a Texinfo tree element.  With @code{gdt_string}, the string
+which should be a Texinfo tree element.  With @code{cdt_string}, the string
 should already be converted, the arguments are substituted as strings; for
 example @samp{@{arg_name@}} is replaced by the corresponding actual argument,
 which should be a string.
@@ -3335,7 +3335,7 @@ substituted after the expansion, which means that they should already be
 Texinfo tree elements.
 
 @example
-  $converter->gdt('Generated @@emph@{@@today@{@}@} using '
+  $converter->cdt('Generated @@emph@{@@today@{@}@} using '
    .'@@uref@{@{homepage@}, @@emph@{@{program@}@}@}.',
       @{ 'homepage' => @{ 'text' => $converter->get_conf('PACKAGE_URL') @},
         'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@}));
@@ -3343,7 +3343,7 @@ Texinfo tree elements.
 
 An example of combining conversion with translation:
 @example
-$converter->convert_tree($converter->gdt(
+$converter->convert_tree($converter->cdt(
        '@{explained_string@} (@{explanation@})',
        @{'explained_string' => @{'type' => '_converted',
                                'text' => $result@},
@@ -3353,13 +3353,14 @@ $converter->convert_tree($converter->gdt(
 @end example
 
 In the default case, the functions from the @code{Texinfo::Translations}
-module are used for translated strings.  It is possible to use user-defined
-functions instead as seen next.  @xref{Texinfo::Translations,,,texi2any_internals} for more
-on @code{Texinfo::Translations}.
+module are used for translated strings through converter functions.  It is
+possible to use user-defined functions instead as seen next.
+@xref{Texinfo::Translations,,,texi2any_internals} for more on
+@code{Texinfo::Translations}.
 
-In @command{texi2any} code, @code{gdt} and @code{gdt_string} are also used to
+In @command{texi2any} code, @code{cdt} and @code{cdt_string} are also used to
 mark translated strings for tools extracting translatable strings to produce
-template files.  @code{pgdt} is used to mark translated string with a
+template files.  @code{pcdt} is used to mark translated string with a
 translation context associated.
 
 

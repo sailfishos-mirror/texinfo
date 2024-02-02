@@ -677,7 +677,7 @@ EOT
       return 1;
     }
     my $table_of_content_str = _epub_convert_tree_to_text($self,
-                                             $self->gdt('Table of contents'));
+                                             $self->cdt('Table of contents'));
     my $nav_file_title = $title.' - '.$table_of_content_str;
     print $nav_fh <<EOT;
 <?xml version="1.0" encoding="utf-8"?>

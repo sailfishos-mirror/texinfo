@@ -1465,7 +1465,8 @@ sub new_master_menu($$$;$)
     my $first_preformatted = $master_menu->{'contents'}->[0]->{'contents'}->[0];
     my $master_menu_title
            = Texinfo::Translations::gdt($customization_information,
-                                        ' --- The Detailed Node Listing ---');
+                                        ' --- The Detailed Node Listing ---',
+                    $customization_information->get_conf('documentlanguage'));
     my @master_menu_title_contents;
     foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
       $content->{'parent'} = $first_preformatted;
@@ -1593,8 +1594,8 @@ sub _print_down_menus($$;$)
 
 if (0) {
   # it is needed to mark the translation as gdt is called like
-  # Texinfo::Translations::gdt($customization_information, ' --- The Detailed Node Listing ---')
-  # and not like gdt(' --- The Detailed Node Listing ---')
+  # gdt($customization_information, ' --- The Detailed Node Listing ---', ...)
+  # and not like gdt(' --- The Detailed Node Listing ---', ...)
   gdt(' --- The Detailed Node Listing ---');
 }
 

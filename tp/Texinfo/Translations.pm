@@ -74,9 +74,6 @@ sub import {
 
 my $DEFAULT_LANGUAGE = 'en';
 
-my $DEFAULT_ENCODING = 'utf-8';
-#my $DEFAULT_PERL_ENCODING = 'utf-8';
-
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
 
@@ -141,32 +138,21 @@ sub _switch_messages_locale
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree
-# $LANG set the language if set, otherwise the documentlanguage configuration
-# variable is used; if still undef, the $DEFAULT_LANGUAGE variable is used.
-# NOTE whether documentlanguage is set as a configuration variable depends a
-# lot on the caller.
-#  * If called from a Parser, or from the main program, documentlanguage is in
-#    general not set, except if set from the command line.
-#    When called from the parser, however, it should only be for @def* object
-#    oriented def* index name translation and $LANG is likely to be set from the
-#    tree if there was a @documentlanguage.
-#  * If called from a converter, documentlanguage will in general be set from
-#    the document when it is encountered.  Before the first @documentlanguage,
-#    it depends on the converter.  Some do not set @documentlanguage before it
-#    is encountered.  Some set some default based on @documentlanguage if in
-#    the preamble, some set some default language (in general en) in any
-#    case.
+# $LANG set the language if set.  If undef, the $DEFAULT_LANGUAGE variable
+# is used.
+# NOTE If called from a converter, $LANG will in general be set from the
+# document documentlanguage when it is encountered.  Before the first
+# @documentlanguage, it depends on the converter.  Some do not set
+# @documentlanguage before it is encountered.  Some set some default
+# based on @documentlanguage if in the preamble, some set some default
+# language (in general en) in any case.
+# TODO redefined in HTML. Document?
 sub translate_string($$;$$)
 {
-  my ($customization_information, $string, $translation_context, $lang) = @_;
+  my ($customization_information, $string, $lang, $translation_context) = @_;
   if (ref($customization_information) eq 'Texinfo::Document') {
     cluck;
   }
-  # In addition to being settable from the command line,
-  # the language needs to be dynamic in case there is an untranslated string
-  # from another language that needs to be translated.
-  $lang = $customization_information->get_conf('documentlanguage')
-    if ($customization_information and !defined($lang));
   if (defined($lang) and $lang eq '') {
     cluck ("BUG: defined but empty documentlanguage: $customization_information: '$string'\n");
   }
@@ -245,8 +231,8 @@ sub translate_string($$;$$)
 # Return a parsed Texinfo tree
 sub gdt($$;$$$)
 {
-  my ($customization_information, $string, $replaced_substrings,
-      $translation_context, $lang) = @_;
+  my ($customization_information, $string, $lang, $replaced_substrings,
+      $translation_context) = @_;
 
   # allows to redefine translate_string, as done in the HTML converter.  Cannot
   # directly call translate_string on $customization_information, as it may not
@@ -256,7 +242,7 @@ sub gdt($$;$$$)
      = $customization_information->can('translate_string');
   $translate_string_method = \&translate_string if (!$translate_string_method);
   my $translated_string = &$translate_string_method($customization_information,
-                                       $string, $translation_context, $lang);
+                                       $string, $lang, $translation_context);
 
   my $result_tree = replace_convert_substrings($customization_information,
                                     $translated_string,
@@ -271,8 +257,8 @@ sub gdt($$;$$$)
 # a Texinfo tree.
 sub gdt_string($$;$$$)
 {
-  my ($customization_information, $string, $replaced_substrings,
-      $translation_context, $lang) = @_;
+  my ($customization_information, $string, $lang, $replaced_substrings,
+      $translation_context) = @_;
 
   # Following code allows to redefine translate_string, as done in the HTML
   # converter.  We check with can() explicitely instead of letting inheritance
@@ -285,7 +271,7 @@ sub gdt_string($$;$$$)
   $translate_string_method = \&translate_string if (!$translate_string_method);
 
   my $translated_string = &$translate_string_method($customization_information,
-                                       $string, $translation_context, $lang);
+                                       $string, $lang, $translation_context);
 
   return replace_substrings ($customization_information, $translated_string,
                              $replaced_substrings);
@@ -410,9 +396,9 @@ sub _substitute($$) {
 sub pgdt($$$;$$)
 {
   my ($customization_information, $translation_context, $string,
-      $replaced_substrings, $lang) = @_;
-  return $customization_information->gdt($string, $replaced_substrings,
-                                         $translation_context, $lang);
+      $lang, $replaced_substrings) = @_;
+  return $customization_information->gdt($string, $lang, $replaced_substrings,
+                                         $translation_context);
 }
 
 if (0) {
@@ -477,8 +463,8 @@ sub complete_indices($$)
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
             $index_entry = gdt($customization_information, '{name} on {class}',
-                               {'name' => $name_copy, 'class' => $class_copy},
-                                undef, $entry_language);
+                               $entry_language,
+                               {'name' => $name_copy, 'class' => $class_copy});
             $text_element = {'text' => ' on ',
                              'parent' => $index_entry_normalized};
           } elsif ($def_command eq 'defcv'
@@ -486,8 +472,8 @@ sub complete_indices($$)
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
             $index_entry = gdt($customization_information, '{name} of {class}',
-                               {'name' => $name_copy, 'class' => $class_copy},
-                               undef, $entry_language);
+                               $entry_language,
+                               {'name' => $name_copy, 'class' => $class_copy});
             $text_element = {'text' => ' of ',
                              'parent' => $index_entry_normalized};
           }
@@ -525,6 +511,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
   Texinfo::Translations::configure('LocaleData');
 
   my $tree_translated = $converter->gdt('See {reference} in @cite{{book}}',
+                         $converter->get_conf('documentlanguage'),
                        {'reference' => $tree_reference,
                         'book'  => {'text' => $book_name}});
 
@@ -566,17 +553,11 @@ The C<gdt> and C<pgdt> methods are used to translate strings to be output in
 converted documents, and return a Texinfo tree.  The C<gdt_string> is similar
 but returns a simple string, for already converted strings.
 
-The C<replace_convert_substrings> method is called by C<gdt> to substitute
-replaced substrings in a translated string and convert to a Texinfo tree.
-It may be especially useful when overriding or reimplementing C<gdt>.  The
-C<replace_substrings> method is called by C<gdt_string> to substitute
-replaced substrings in a translated string.
-
 =over
 
-=item $tree = $object->gdt($string, $replaced_substrings, $translation_context, $lang)
+=item $tree = $object->gdt($string, $lang, $replaced_substrings, $translation_context)
 
-=item $string = $object->gdt_string($string, $replaced_substrings, $translation_context, $lang)
+=item $string = $object->gdt_string($string, $lang, $replaced_substrings, $translation_context)
 
 X<C<gdt>> X<C<gdt_string>>
 
@@ -584,6 +565,8 @@ The I<$string> is a string to be translated.  With C<gdt>
 the function returns a Texinfo tree, as the string is interpreted
 as Texinfo code after translation.  With C<gdt_string> a string
 is returned.
+
+I<$lang> is the language used for the translation.
 
 I<$replaced_substrings> is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
@@ -596,13 +579,11 @@ is replaced in the resulting string.
 
 The I<$object> is typically a converter, but can be any object that implements
 C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
-I<$object> is used to determine the encoding, the documentlanguage and get some
-customization information.
+I<$object> is used to get some customization information.
 
 The I<$translation_context> is optional.  If not C<undef> this is a translation
 context string for I<$string>.  It is the first argument of C<pgettext>
-in the C API of Gettext.  I<$lang> is optional. If set, it overrides the
-documentlanguage.
+in the C API of Gettext.
 
 For example, in the following call, the string
 C<See {reference} in @cite{{book}}> is translated, then
@@ -611,19 +592,31 @@ I<$tree_reference> in the resulting tree, and I<{book}>
 replaced by the associated texinfo tree text element:
 
   $tree = $converter->gdt('See {reference} in @cite{{book}}',
+                       $converter->get_conf('documentlanguage'),
                        {'reference' => $tree_reference,
                         'book'  => {'text' => $book_name}});
 
 C<gdt> uses a gettext-like infrastructure to retrieve the
 translated strings, using the I<texinfo_document> domain.
 
-=item $tree = $object->pgdt($translation_context, $string, $replaced_substrings, $lang)
+=item $tree = $object->pgdt($translation_context, $string, $lang, $replaced_substrings)
 X<C<pgdt>>
 
 Same to C<gdt> except that the I<$translation_context> is not optional.
 Calls C<gdt>.  This function is useful to mark strings with a
 translation context for translation.  This function is similar to pgettext
 in the Gettext C API.
+
+=back
+
+=begin comment
+
+The C<replace_convert_substrings> method is called by C<gdt> to substitute
+replaced substrings in a translated string and convert to a Texinfo tree.
+The C<replace_substrings> method is called by C<gdt_string> to substitute
+replaced substrings in a translated string.
+
+=over
 
 =item $tree = $object->replace_convert_substrings($translated_string, $replaced_substrings)
 
@@ -646,6 +639,8 @@ translated string.  It is called from C<gdt_string> after the retrieval of the
 translated string.
 
 =back
+
+=end comment
 
 =head1 SEE ALSO
 

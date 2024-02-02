@@ -1143,49 +1143,49 @@ sub _convert($$;$)
             if ($section_name) {
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
-                  $self->gdt('section ``{section_name}\'\' in @cite{{book}}',
+                  $self->cdt('section ``{section_name}\'\' in @cite{{book}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'book' => $book_element }));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->gdt('See section ``{section_name}\'\' in @cite{{book}}',
+                  $self->cdt('See section ``{section_name}\'\' in @cite{{book}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'book' => $book_element }));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->gdt('see section ``{section_name}\'\' in @cite{{book}}',
+                  $self->cdt('see section ``{section_name}\'\' in @cite{{book}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'book' => $book_element }));
               }
             } elsif ($node_name) {
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
-                  $self->gdt('``{node_name}\'\' in @cite{{book}}',
+                  $self->cdt('``{node_name}\'\' in @cite{{book}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'book' => $book_element }));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->gdt('See ``{node_name}\'\' in @cite{{book}}',
+                  $self->cdt('See ``{node_name}\'\' in @cite{{book}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'book' => $book_element }));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->gdt('see ``{node_name}\'\' in @cite{{book}}',
+                  $self->cdt('see ``{node_name}\'\' in @cite{{book}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'book' => $book_element }));
               }
             } else {
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
-                  $self->gdt('@cite{{book}}',
+                  $self->cdt('@cite{{book}}',
                     {'book' => $book_element }));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->gdt('See @cite{{book}}',
+                  $self->cdt('See @cite{{book}}',
                     {'book' => $book_element }));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->gdt('see @cite{{book}}',
+                  $self->cdt('see @cite{{book}}',
                     {'book' => $book_element }));
               }
             }
@@ -1193,49 +1193,49 @@ sub _convert($$;$)
             if ($section_name) {
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
-                  $self->gdt('section ``{section_name}\'\' in @file{{manual}}',
+                  $self->cdt('section ``{section_name}\'\' in @file{{manual}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'manual' => $manual_file_element }));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->gdt('See section ``{section_name}\'\' in @file{{manual}}',
+                  $self->cdt('See section ``{section_name}\'\' in @file{{manual}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'manual' => $manual_file_element }));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->gdt('see section ``{section_name}\'\' in @file{{manual}}',
+                  $self->cdt('see section ``{section_name}\'\' in @file{{manual}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'manual' => $manual_file_element }));
               }
             } elsif ($node_name) {
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
-                  $self->gdt('``{node_name}\'\' in @file{{manual}}',
+                  $self->cdt('``{node_name}\'\' in @file{{manual}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'manual' => $manual_file_element }));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->gdt('See ``{node_name}\'\' in @file{{manual}}',
+                  $self->cdt('See ``{node_name}\'\' in @file{{manual}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'manual' => $manual_file_element }));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->gdt('see ``{node_name}\'\' in @file{{manual}}',
+                  $self->cdt('see ``{node_name}\'\' in @file{{manual}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'manual' => $manual_file_element }));
               }
             } else {
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
-                  $self->gdt('@file{{manual}}',
+                  $self->cdt('@file{{manual}}',
                     {'manual' => $manual_file_element }));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->gdt('See @file{{manual}}',
+                  $self->cdt('See @file{{manual}}',
                     {'manual' => $manual_file_element }));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->gdt('see @file{{manual}}',
+                  $self->cdt('see @file{{manual}}',
                     {'manual' => $manual_file_element }));
               }
             }
@@ -1255,17 +1255,17 @@ sub _convert($$;$)
             if ($element->{'cmdname'} eq 'ref'
                   or $element->{'cmdname'} eq 'link') {
               $result = $self->_convert(
-                      $self->gdt('{title_ref}', {'title_ref' =>
+                      $self->cdt('{title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             } elsif ($element->{'cmdname'} eq 'xref') {
               $result = $self->_convert(
-                      $self->gdt('See {title_ref}', {'title_ref' =>
+                      $self->cdt('See {title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             } elsif ($element->{'cmdname'} eq 'pxref') {
               $result = $self->_convert(
-                      $self->gdt('see {title_ref}', {'title_ref' =>
+                      $self->cdt('see {title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             }
@@ -1447,7 +1447,7 @@ sub _convert($$;$)
            and $element->{'args'}->[-1]->{'contents'}
            and @{$element->{'args'}->[-1]->{'contents'}}) {
           if (defined($argument)) {
-            my $tree = $self->gdt('{abbr_or_acronym} ({explanation})',
+            my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
                            {'abbr_or_acronym' => {'type' => '_converted',
                                                   'text' => $argument},
                             'explanation' =>
@@ -1633,7 +1633,7 @@ sub _convert($$;$)
             $format_element = lc($quotation_arg_text);
           } else {
             $self->{'pending_prepend'}
-              = $self->_convert($self->gdt('@b{{quotation_arg}:} ',
+              = $self->_convert($self->cdt('@b{{quotation_arg}:} ',
                             {'quotation_arg' =>
                                   $element->{'args'}->[0]}));
           }

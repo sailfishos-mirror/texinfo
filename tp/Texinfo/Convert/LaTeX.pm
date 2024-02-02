@@ -2715,10 +2715,10 @@ sub _convert($$)
       my $tree;
       if ($element->{'extra'}
           and $element->{'extra'}->{'translation_context'}) {
-        $tree = $self->pgdt($element->{'extra'}->{'translation_context'},
+        $tree = $self->pcdt($element->{'extra'}->{'translation_context'},
                             $element->{'text'});
       } else {
-        $tree = $self->gdt($element->{'text'});
+        $tree = $self->cdt($element->{'text'});
       }
       my $converted = _convert($self, $tree);
       return $converted;
@@ -3166,7 +3166,7 @@ sub _convert($$)
               and $element->{'args'}->[1]->{'contents'}
               and @{$element->{'args'}->[1]->{'contents'}}) {
             my $description = _convert($self, $element->{'args'}->[1]);
-            my $text = $self->gdt_string('{text} ({url})',
+            my $text = $self->cdt_string('{text} ({url})',
                 {'text' => $description, 'url' => "\\nolinkurl{$url_text}"});
             $result .= "\\href{$url_text}{$text}";
             return $result;
@@ -3494,7 +3494,7 @@ sub _convert($$)
             and $element->{'args'}->[-1]->{'contents'}
             and @{$element->{'args'}->[-1]->{'contents'}}) {
           my $prepended
-           = $self->gdt('{abbr_or_acronym} ({explanation})',
+           = $self->cdt('{abbr_or_acronym} ({explanation})',
                         {'abbr_or_acronym' => $argument,
                          'explanation'
                                    => $element->{'args'}->[-1]});
@@ -3646,7 +3646,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'value') {
-      my $expansion = $self->gdt('@{No value for `{value}\'@}',
+      my $expansion = $self->cdt('@{No value for `{value}\'@}',
                                  {'value'
                                     => $element->{'args'}->[0]});
       $expansion = {'type' => 'paragraph',
@@ -3705,7 +3705,7 @@ sub _convert($$)
         if ($element->{'args'} and $element->{'args'}->[0]
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
-          my $prepended = $self->gdt('@b{{quotation_arg}:} ',
+          my $prepended = $self->cdt('@b{{quotation_arg}:} ',
                       {'quotation_arg' => $element->{'args'}->[0]});
           $result .= $self->_convert($prepended);
         }
@@ -4429,7 +4429,7 @@ sub _convert($$)
           if ($author->{'args'}->[0]->{'contents'}) {
             $result .= _convert($self,
                  # TRANSLATORS: quotation author
-                 $self->gdt('@center --- @emph{{author}}',
+                 $self->cdt('@center --- @emph{{author}}',
                     {'author' => $author->{'args'}->[0]}));
           }
         }

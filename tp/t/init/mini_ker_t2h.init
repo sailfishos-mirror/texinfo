@@ -17,7 +17,7 @@ sub mini_ker_element_type($$$$)
     my $overview = &{$self->formatting_function('format_contents')}($self,
                                                           'shortcontents');
     if ($overview) {
-      $result .= '<h2> ' .$self->convert_tree($self->gdt('Overview:'))
+      $result .= '<h2> ' .$self->convert_tree($self->cdt('Overview:'))
                   . "</h2>\n" . "<blockquote>\n";
       $result .= $overview;;
       $result .= "</blockquote>\n";
