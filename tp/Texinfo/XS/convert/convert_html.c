@@ -596,14 +596,19 @@ html_cdt (const char *string, CONVERTER *self, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      const char *translation_context)
 {
+  int debug_level = 0;
   char *translated_string;
   int document_descriptor;
 
   translated_string = html_translate_string (self, string, lang,
                                              translation_context);
+
+  if (self->conf && self->conf->DEBUG.integer >= 0)
+    debug_level = self->conf->DEBUG.integer;
+
   document_descriptor
-    = replace_convert_substrings (self->conf, translated_string,
-                                  replaced_substrings);
+    = replace_convert_substrings (translated_string,
+                                  replaced_substrings, debug_level);
   free (translated_string);
   return document_descriptor;
 }

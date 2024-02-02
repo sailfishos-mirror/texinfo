@@ -423,12 +423,14 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 /* the caller should have made sure that the
    inserted elements do not appear elsewhere in the tree. */
 int
-replace_convert_substrings (OPTIONS *options, char *translated_string,
-                            NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+replace_convert_substrings (char *translated_string,
+                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                            int debug_level)
 {
   int i;
   char *texinfo_line;
   int document_descriptor;
+  int parser_debug_level = 0;
   DOCUMENT *document;
 
   if (replaced_substrings)
@@ -459,18 +461,20 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
   fprintf(stderr, "INTERNAL V CMDS '%s' '%s'\n", translated_string,
                                                  texinfo_line);
    */ 
-  /* FIXME different from Perl case, as in perl case, a parser is
-     setup, which means a full reset of configuration, here would
-     correspond to a call of reset_parser */
+
+  /* set parser debug level to one less than debug_level */
+  if (debug_level > 0)
+    parser_debug_level = debug_level - 1;
+
+  reset_parser (parser_debug_level);
+  parser_set_debug (parser_debug_level);
+
   /*
    accept @txiinternalvalue as a valid Texinfo command, used to mark
    location in tree of substituted brace enclosed strings.
    */
   parser_set_accept_internalvalue (1);
 
-  /* TODO implement setting DEBUG.  This may not be needed when
-     called from a parser without reset_parser being called, but could be
-     when called from a converter. */
   document_descriptor = parse_string (texinfo_line, 1);
 
   /* FIXME if called from parser through complete_indices, options will
@@ -479,7 +483,7 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
   /*
   debug ("IN TR PARSER '%s'", texinfo_line);
    */
-  if (options && options->DEBUG.integer > 0)
+  if (debug_level > 0)
     fprintf (stderr, "XS|IN TR PARSER '%s'\n", texinfo_line);
 
   document = retrieve_document (document_descriptor);
@@ -507,7 +511,7 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
 /*
   {
     char *result_texi = convert_to_texinfo (document->tree);
-    if (options && options->DEBUG.integer > 0)
+    if (debug_level > 0)
       fprintf (stderr, "XS|RESULT GDT %d: '%s'\n", document_descriptor,
                result_texi);
     free (result_texi);
@@ -526,12 +530,16 @@ gdt (const char *string, OPTIONS *options, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      const char *translation_context)
 {
+  int debug_level = 0;
   char *translated_string = translate_string (string, lang,
                                               translation_context);
 
+  if (options && options->DEBUG.integer >= 0)
+    debug_level = options->DEBUG.integer;
+
   int document_descriptor
-    = replace_convert_substrings (options, translated_string,
-                                  replaced_substrings);
+    = replace_convert_substrings (translated_string,
+                                  replaced_substrings, debug_level);
   free (translated_string);
   return document_descriptor;
 }
