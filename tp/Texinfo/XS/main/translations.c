@@ -531,14 +531,15 @@ gdt (const char *string, OPTIONS *options, const char *lang,
      const char *translation_context)
 {
   int debug_level = 0;
+  int document_descriptor;
+
   char *translated_string = translate_string (string, lang,
                                               translation_context);
 
   if (options && options->DEBUG.integer >= 0)
     debug_level = options->DEBUG.integer;
 
-  int document_descriptor
-    = replace_convert_substrings (translated_string,
+  document_descriptor  = replace_convert_substrings (translated_string,
                                   replaced_substrings, debug_level);
   free (translated_string);
   return document_descriptor;
@@ -553,30 +554,11 @@ gdt_tree (const char *string, DOCUMENT *document, OPTIONS *options,
           const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           const char *translation_context)
 {
-  ELEMENT *tree;
   int gdt_document_descriptor = gdt (string, options, lang,
                                      replaced_substrings, translation_context);
-  TREE_AND_STRINGS *tree_and_strings
-     = unregister_document_descriptor_tree (gdt_document_descriptor);
-
-  tree = tree_and_strings->tree;
-
-  if (tree_and_strings->small_strings)
-    {
-      /* this is very unlikely, as small strings correspond to file names and
-         macro names, while we are parsing a simple string */
-      if (tree_and_strings->small_strings->number)
-        {
-          if (document)
-            merge_strings (document->small_strings,
-                           tree_and_strings->small_strings);
-          else
-            fatal ("gdt_tree no document but small_strings");
-        }
-      free (tree_and_strings->small_strings->list);
-      free (tree_and_strings->small_strings);
-    }
-  free (tree_and_strings);
+  ELEMENT *tree
+    = unregister_document_merge_with_document (gdt_document_descriptor,
+                                               document);
 
   return tree;
 }

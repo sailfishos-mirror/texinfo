@@ -245,6 +245,36 @@ unregister_document_descriptor_tree (int document_descriptor)
   return tree_and_strings;
 }
 
+/* destroy everything except for the tree and merge small string to
+   DOCUMENT */
+ELEMENT *
+unregister_document_merge_with_document (int document_descriptor,
+                                         DOCUMENT *document)
+{
+  TREE_AND_STRINGS *tree_and_strings
+     = unregister_document_descriptor_tree (document_descriptor);
+
+  ELEMENT *tree = tree_and_strings->tree;
+
+  if (tree_and_strings->small_strings)
+    {
+      if (tree_and_strings->small_strings->number)
+        {
+          if (document)
+            merge_strings (document->small_strings,
+                           tree_and_strings->small_strings);
+          else
+            fatal ("unregister_document_merge_with_document "
+                   "no document but small_strings");
+        }
+      free (tree_and_strings->small_strings->list);
+      free (tree_and_strings->small_strings);
+    }
+  free (tree_and_strings);
+
+  return tree;
+}
+
 void
 clear_document_errors (int document_descriptor)
 {

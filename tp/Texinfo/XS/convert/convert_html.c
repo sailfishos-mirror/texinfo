@@ -591,66 +591,55 @@ html_translate_string (CONVERTER *self, const char *string,
 }
 
 /* returns a document descriptor. */
+/* same as gdt with html_translate_string called instead of translate_string */
 int
-html_cdt (const char *string, CONVERTER *self, const char *lang,
+html_gdt (const char *string, CONVERTER *self, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      const char *translation_context)
 {
+  OPTIONS *options = self->conf;
   int debug_level = 0;
-  char *translated_string;
   int document_descriptor;
 
-  translated_string = html_translate_string (self, string, lang,
-                                             translation_context);
+  char *translated_string = html_translate_string (self, string, lang,
+                                                   translation_context);
 
-  if (self->conf && self->conf->DEBUG.integer >= 0)
-    debug_level = self->conf->DEBUG.integer;
+  if (options && options->DEBUG.integer >= 0)
+    debug_level = options->DEBUG.integer;
 
-  document_descriptor
-    = replace_convert_substrings (translated_string,
+  document_descriptor  = replace_convert_substrings (translated_string,
                                   replaced_substrings, debug_level);
   free (translated_string);
   return document_descriptor;
 }
 
-/* a copy and paste of cdt_tree with html_cdt instead of cdt */
+/* same as gdt_tree with html_gdt called instead of gdt */
+ELEMENT *
+html_gdt_tree (const char *string, CONVERTER *self,
+               const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+               const char *translation_context)
+{
+  DOCUMENT *document = self->document;
+
+  int gdt_document_descriptor = html_gdt (string, self, lang,
+                                     replaced_substrings, translation_context);
+
+  ELEMENT *tree
+    = unregister_document_merge_with_document (gdt_document_descriptor,
+                                               document);
+  return tree;
+}
+
+/* same as cdt_tree with html_gdt_tree called instead of gdt_tree */
 ELEMENT *
 html_cdt_tree (const char *string, CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {
-  ELEMENT *tree;
-  int cdt_document_descriptor;
-  const char *lang = 0;
+  const char *lang = self->conf->documentlanguage.string;
 
-  if (self->conf->documentlanguage.string)
-    lang = self->conf->documentlanguage.string;
-
-  cdt_document_descriptor = html_cdt (string, self, lang, replaced_substrings,
-                                     translation_context);
-  TREE_AND_STRINGS *tree_and_strings
-     = unregister_document_descriptor_tree (cdt_document_descriptor);
-
-  tree = tree_and_strings->tree;
-
-  if (tree_and_strings->small_strings)
-    {
-      /* this is very unlikely, as small strings correspond to file names and
-         macro names, while we are parsing a simple string */
-      if (tree_and_strings->small_strings->number)
-        {
-          if (self->document)
-            merge_strings (self->document->small_strings,
-                           tree_and_strings->small_strings);
-          else
-            fatal ("html_cdt_tree no document but small_strings");
-        }
-      free (tree_and_strings->small_strings->list);
-      free (tree_and_strings->small_strings);
-    }
-  free (tree_and_strings);
-
-  return tree;
+  return html_gdt_tree (string, self, lang,
+                        replaced_substrings, translation_context);
 }
 
 char *
