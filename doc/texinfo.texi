@@ -16620,27 +16620,8 @@ The expansion of a translation string is done like this:
 @item First, the string is translated.  The locale
 is @var{documentlanguage}@code{.}@var{documentencoding}.
 
-@cindex @code{us-ascii} encoding, and translations
 If the @var{documentlanguage} has the form @samp{ll_CC}, that is
 tried first, and then just @samp{ll}.
-
-To cope with the possibility of having multiple encodings, a
-special use of the @code{us-ascii} locale encoding is also possible.
-If the @samp{ll} locale in the current encoding does not exist, and the
-encoding is not @code{us-ascii}, then @code{us-ascii} is tried.
-
-The idea is that if there is a @code{us-ascii} encoding, it means that
-all the characters in the charset may be expressed as @@-commands.
-For example, there is a @code{fr.us-ascii} locale that can accommodate
-any encoding, since all the Latin@tie{}1 characters have associated
-@@-commands.  On the other hand, Japanese has only a translation
-@code{ja.utf-8}, since there are no @@-commands for Japanese
-characters.
-
-The @code{us-ascii} locales are not needed much now that
-UTF-8 is used for most documents.  Note that accented characters
-are required to be expressed as @@-commands in the @code{us-ascii} locales,
-which may be inconvenient for translators.
 
 @item Next, in most cases, the string is expanded as Texinfo, and converted.
 The arguments are substituted; for example, @samp{@{arg_name@}} is replaced by

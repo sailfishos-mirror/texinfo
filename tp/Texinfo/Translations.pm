@@ -99,8 +99,7 @@ sub configure($;$)
 }
 
 # libintl converts between encodings but doesn't decode them into the
-# perl internal format.  This is only called if the encoding is a proper
-# perl encoding.
+# perl internal format.
 sub _decode_i18n_string($$)
 {
   my $string = shift;
@@ -190,25 +189,6 @@ sub translate_string($$;$$)
 
   Locale::Messages::textdomain($strings_textdomain);
 
-  # FIXME do this only once when encoding is seen (or at beginning)
-  # instead of here, each time that gdt is called?
-  my $encoding;
-  #my $perl_encoding;
-  if ($customization_information) {
-    # NOTE the following customization variables are not set for
-    # a Parser, so the encoding will be undef when gdt is called from
-    # parsers.
-    if ($customization_information->get_conf('OUTPUT_ENCODING_NAME')) {
-      $encoding = $customization_information->get_conf('OUTPUT_ENCODING_NAME');
-    }
-    #if (defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))) {
-    #  $perl_encoding = $customization_information->get_conf('OUTPUT_PERL_ENCODING');
-    #}
-  } else {
-    # NOTE never happens in the tests, unlikely to happen at all.
-    $encoding = $DEFAULT_ENCODING;
-    #$perl_encoding = $DEFAULT_PERL_ENCODING;
-  }
   Locale::Messages::bind_textdomain_codeset($strings_textdomain, 'UTF-8');
   Locale::Messages::bind_textdomain_filter($strings_textdomain,
                           \&_decode_i18n_string, 'UTF-8');
@@ -219,16 +199,8 @@ sub translate_string($$;$$)
   # with UTF-8.  If there are actually characters that cannot be encoded in the
   # output encoding issues will still show up when encoding to output, though.
   # Should be more similar with code used in XS modules, too.
-  # As a side note, the best would have been to directly decode using the
+  # As a side note, the best could have been to directly decode using the
   # charset used in the po/gmo files, but it does not seems to be available.
-  #Locale::Messages::bind_textdomain_codeset($strings_textdomain, $encoding)
-  #  if (defined($encoding) and $encoding ne 'us-ascii');
-  #if (!($encoding and $encoding eq 'us-ascii')) {
-  #  if (defined($perl_encoding)) {
-  #    Locale::Messages::bind_textdomain_filter($strings_textdomain,
-  #      \&_decode_i18n_string, $perl_encoding);
-  #  }
-  #}
 
   my @langs = ($lang);
   if ($lang =~ /^([a-z]+)_([A-Z]+)/) {
@@ -237,31 +209,7 @@ sub translate_string($$;$$)
     push @langs, $main_lang;
   }
 
-  my @locales;
-  foreach my $language (@langs) {
-    # NOTE the locale file with appended encoding are searched for, but if
-    # not found, files with stripped encoding are searched for too:
-    # https://www.gnu.org/software/libc/manual/html_node/Using-gettextized-software.html
-    if (defined($encoding)) {
-      push @locales, "$language.$encoding";
-    } else {
-      push @locales, $language;
-    }
-    # also try us-ascii, the charset should be compatible with other
-    # charset, and should resort to @-commands if needed for non
-    # ascii characters
-    # REMARK this is not necessarily true for every language/encoding.
-    # This can be true for latin1, and maybe some other 8 bit encodings
-    # with accents available as @-commands, but not for most
-    # language.  However, for those languages, it is unlikely that
-    # the locale with .us-ascii are set, so it should not hurt
-    # to add this possibility.
-    if (!$encoding or ($encoding and $encoding ne 'us-ascii')) {
-      push @locales, "$language.us-ascii";
-    }
-  }
-
-  my $locales = join(':', @locales);
+  my $locales = join(':', @langs);
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
@@ -394,12 +342,6 @@ sub replace_convert_substrings($$;$)
       }
       $parser_conf->{'DEBUG'} = $debug_level;
     }
-    #foreach my $conf_variable () {
-    #  if (defined($customization_information->get_conf($conf_variable))) {
-    #    $parser_conf->{$conf_variable}
-    #      = $customization_information->get_conf($conf_variable);
-    #  }
-    #}
   }
   my $parser = Texinfo::Parser::simple_parser($parser_conf);
 

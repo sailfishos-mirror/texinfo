@@ -156,7 +156,6 @@ translate_string (OPTIONS *options, const char * string,
   char *saved_LANGUAGE;
   char *saved_LANG;
   char *saved_LC_MESSAGES;
-  char *encoding = 0;
   char *langs[2] = {0, 0};
   char *main_lang = 0;
   char *translated_string;
@@ -264,31 +263,9 @@ translate_string (OPTIONS *options, const char * string,
       if (i > 0)
         text_append_n (&language_locales, ":", 1);
       text_append (&language_locales, langs[i]);
-      if (encoding)
-        {
-          text_append_n (&language_locales, ".", 1);
-          text_append (&language_locales, encoding);
-        }
-    /*
-      also try us-ascii, the charset should be compatible with other
-      charset, and should resort to @-commands if needed for non
-      ascii characters
-      REMARK this is not necessarily true for every language/encoding.
-      This can be true for latin1, and maybe some other 8 bit encodings
-      with accents available as @-commands, but not for most
-      language.  However, for those languages, it is unlikely that
-      the locale with .us-ascii are set, so it should not hurt
-      to add this possibility.
-     */
-      if (!encoding || !strcmp (encoding, "us-ascii"))
-        {
-          text_append_n (&language_locales, ":", 1);
-          text_append (&language_locales, langs[i]);
-          text_append_n (&language_locales, ".", 1);
-          text_append (&language_locales, "us-ascii");
-        }
       free (langs[i]);
     }
+
   if (setenv ("LANGUAGE", language_locales.text, 1) != 0)
     {
       fprintf (stderr, "gdt: setenv `%s' error for string `%s': %s\n",
@@ -492,21 +469,9 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
    */
   parser_set_accept_internalvalue (1);
 
-  /* TODO implement setting configuration.  This may not be needed when
+  /* TODO implement setting DEBUG.  This may not be needed when
      called from a parser without reset_parser being called, but could be
-     when called from a converter.  As long as only DEBUG is passed
-     this is not really problematic. */
-  /*
-  # general customization relevant for parser
-  if ($customization_information) {
-    foreach my $conf_variable ('DEBUG') {
-      if (defined($customization_information->get_conf($conf_variable))) {
-        $parser_conf->{$conf_variable}
-          = $customization_information->get_conf($conf_variable);
-      }
-    }
-  }
-   */
+     when called from a converter. */
   document_descriptor = parse_string (texinfo_line, 1);
 
   /* FIXME if called from parser through complete_indices, options will
