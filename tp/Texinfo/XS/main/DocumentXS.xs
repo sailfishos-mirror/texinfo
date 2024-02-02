@@ -191,7 +191,7 @@ set_document_options (SV *sv_options_in, SV *document_in)
 # the approach does not work because replaced_substrings
 # perl element tree cannot be retrieved in C stored documents.
 # optional:
-# replaced_substrings, translation_context, lang
+# lang, replaced_substrings, translation_context
 SV *
 gdt (SV *options_in, string, ...)
         char *string = (char *)SvPVutf8_nolen($arg);
@@ -210,16 +210,16 @@ gdt (SV *options_in, string, ...)
            {
              options = init_copy_sv_options (options_in, 0, 0);
            }
-        if (items > 4 && SvOK(ST(4)))
-           in_lang = (char *)SvPVutf8_nolen(ST(4));
-        if (items > 3 && SvOK(ST(3)))
-           translation_context = (char *)SvPVutf8_nolen(ST(3));
         if (items > 2 && SvOK(ST(2)))
+           in_lang = (char *)SvPVutf8_nolen(ST(2));
+        if (items > 4 && SvOK(ST(4)))
+           translation_context = (char *)SvPVutf8_nolen(ST(4));
+        if (items > 3 && SvOK(ST(3)))
            {
              /* TODO put in get_perl_info.h */
              I32 hv_number;
              I32 i;
-             hv_replaced_substrings = (HV *)SvRV (ST(1));
+             hv_replaced_substrings = (HV *)SvRV (ST(3));
              hv_number = hv_iterinit (hv_replaced_substrings);
              if (hv_number > 0)
                replaced_substrings = new_named_string_element_list ();
@@ -241,8 +241,8 @@ gdt (SV *options_in, string, ...)
            }
 
          gdt_document_descriptor
-                     = gdt (string, options, replaced_substrings,
-                           translation_context, in_lang);
+                     = gdt (string, options, in_lang, replaced_substrings,
+                           translation_context);
          gdt_document = retrieve_document (gdt_document_descriptor);
          result_tree = build_texinfo_tree (gdt_document->tree, 0);
          hv_store (result_tree, "tree_document_descriptor",

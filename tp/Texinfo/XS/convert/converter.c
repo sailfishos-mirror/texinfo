@@ -343,15 +343,13 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_type", type_element_copy);
       if (float_number)
-        tree = gdt_tree ("{float_type} {float_number}", self->document,
-                         self->conf, replaced_substrings, 0, 0);
+        tree = cdt_tree ("{float_type} {float_number}", self,
+                         replaced_substrings, 0);
       else
-        tree = gdt_tree ("{float_type}", self->document, self->conf,
-                         replaced_substrings, 0, 0);
+        tree = cdt_tree ("{float_type}", self, replaced_substrings, 0);
     }
   else if (float_number)
-    tree = gdt_tree ("{float_number}", self->document, self->conf,
-                     replaced_substrings, 0, 0);
+    tree = cdt_tree ("{float_number}", self, replaced_substrings, 0);
 
   destroy_named_string_element_list (replaced_substrings);
 
@@ -395,34 +393,32 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
         {
           if (float_number)
             /* TRANSLATORS: added before caption */
-            prepended = gdt_tree ("{float_type} {float_number}: ",
-                                  self->document,
-                                  self->conf, replaced_substrings, 0, 0);
+            prepended = cdt_tree ("{float_type} {float_number}: ",
+                                  self, replaced_substrings, 0);
           else
             /* TRANSLATORS: added before caption, no float label */
-            prepended = gdt_tree ("{float_type}: ", self->document, self->conf,
-                                 replaced_substrings, 0, 0);
+            prepended = cdt_tree ("{float_type}: ", self,
+                                  replaced_substrings, 0);
         }
       else
         {
           if (float_number)
-            prepended = gdt_tree ("{float_type} {float_number}",
-                                  self->document,
-                                  self->conf, replaced_substrings, 0, 0);
+            prepended = cdt_tree ("{float_type} {float_number}",
+                                  self, replaced_substrings, 0);
           else
-            prepended = gdt_tree ("{float_type}", self->document, self->conf,
-                                 replaced_substrings, 0, 0);
+            prepended = cdt_tree ("{float_type}", self,
+                                  replaced_substrings, 0);
         }
     }
   else if (float_number)
     {
       if (caption_element)
       /* TRANSLATORS: added before caption, no float type */
-        prepended = gdt_tree ("{float_number}: ", self->document, self->conf,
-                              replaced_substrings, 0, 0);
+        prepended = cdt_tree ("{float_number}: ", self,
+                              replaced_substrings, 0);
       else
-        prepended = gdt_tree ("{float_number}", self->document, self->conf,
-                              replaced_substrings, 0, 0);
+        prepended = cdt_tree ("{float_number}", self,
+                              replaced_substrings, 0);
     }
 
   result->caption = caption_element;

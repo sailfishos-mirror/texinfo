@@ -149,8 +149,8 @@ switch_messages_locale (void)
 }
 
 char *
-translate_string (OPTIONS *options, const char * string,
-                  const char *translation_context, const char *in_lang)
+translate_string (OPTIONS *options, const char * string, const char *in_lang,
+                  const char *translation_context)
 {
   const char *lang = in_lang;
   char *saved_LANGUAGE;
@@ -163,9 +163,7 @@ translate_string (OPTIONS *options, const char * string,
   static TEXT language_locales;
   int i;
 
-  if ((!lang) && options && options->documentlanguage.string)
-    lang = options->documentlanguage.string;
-  if (!lang)
+  if (!in_lang)
     lang = "en";
 
   if (strlen (lang) == 0)
@@ -268,7 +266,8 @@ translate_string (OPTIONS *options, const char * string,
 
   if (setenv ("LANGUAGE", language_locales.text, 1) != 0)
     {
-      fprintf (stderr, "gdt: setenv `%s' error for string `%s': %s\n",
+      fprintf (stderr,
+              "translate_string: setenv `%s' error for string `%s': %s\n",
               language_locales.text, string, strerror(errno));
     }
 
@@ -523,13 +522,12 @@ replace_convert_substrings (OPTIONS *options, char *translated_string,
 
 /* returns a document descriptor. */
 int
-gdt (const char *string, OPTIONS *options,
+gdt (const char *string, OPTIONS *options, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-     const char *translation_context, const char *in_lang)
+     const char *translation_context)
 {
-  char *translated_string = translate_string (options, string,
-                                              translation_context,
-                                              in_lang);
+  char *translated_string = translate_string (options, string, lang,
+                                              translation_context);
 
   int document_descriptor
     = replace_convert_substrings (options, translated_string,
@@ -544,13 +542,12 @@ gdt (const char *string, OPTIONS *options,
    if one knows that there won't be small strings (the general case) */
 ELEMENT *
 gdt_tree (const char *string, DOCUMENT *document, OPTIONS *options,
-          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-          const char *translation_context,
-          const char *in_lang)
+          const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+          const char *translation_context)
 {
   ELEMENT *tree;
-  int gdt_document_descriptor = gdt (string, options, replaced_substrings,
-                                     translation_context, in_lang);
+  int gdt_document_descriptor = gdt (string, options, lang,
+                                     replaced_substrings, translation_context);
   TREE_AND_STRINGS *tree_and_strings
      = unregister_document_descriptor_tree (gdt_document_descriptor);
 
@@ -577,13 +574,12 @@ gdt_tree (const char *string, DOCUMENT *document, OPTIONS *options,
 }
 
 char *
-gdt_string (const char *string, OPTIONS *options,
+gdt_string (const char *string, OPTIONS *options, const char *lang,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-            const char *translation_context, const char *in_lang)
+            const char *translation_context)
 {
-  char *translated_string = translate_string (options, string,
-                                              translation_context,
-                                              in_lang);
+  char *translated_string = translate_string (options, string, lang,
+                                              translation_context);
 
   char *result = replace_substrings (translated_string, replaced_substrings);
   free (translated_string);
@@ -592,12 +588,11 @@ gdt_string (const char *string, OPTIONS *options,
 
 ELEMENT *
 pgdt_tree (const char *translation_context, const char *string,
-           DOCUMENT *document, OPTIONS *options,
-           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-           const char *in_lang)
+           DOCUMENT *document, OPTIONS *options, const char *lang,
+           NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
-  return gdt_tree (string, document, options, replaced_substrings,
-                   translation_context, in_lang);
+  return gdt_tree (string, document, options, lang, replaced_substrings,
+                   translation_context);
 }
 
 NAMED_STRING_ELEMENT_LIST *

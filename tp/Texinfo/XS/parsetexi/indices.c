@@ -461,7 +461,7 @@ complete_indices (int document_descriptor)
                           to be set, but we use the language of the element */
                           index_entry = gdt_tree ("{name} on {class}",
                                                   document, options,
-                                                  substrings, 0, lang);
+                                                  lang, substrings, 0);
 
                           text_append (&text_element->text, " on ");
                         }
@@ -471,8 +471,8 @@ complete_indices (int document_descriptor)
                                || def_command == CM_deftypecv)
                         {
                           index_entry = gdt_tree ("{name} of {class}",
-                                                  document, options,
-                                                  substrings, 0, lang);
+                                                  document, options, lang,
+                                                  substrings, 0);
 
                           text_append (&text_element->text, " of ");
                         }

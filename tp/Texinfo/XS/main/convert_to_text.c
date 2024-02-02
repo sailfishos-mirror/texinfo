@@ -533,10 +533,9 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         */
           char *translation_context
             = lookup_extra_string (element, "translation_context");
-          ELEMENT *tree = gdt_tree (element->text.text,
-                                    text_options->converter->document,
-                                    text_options->converter->conf, 0,
-                                    translation_context, 0);
+          ELEMENT *tree = cdt_tree (element->text.text,
+                                    text_options->converter,
+                                    0, translation_context);
           if (tree)
             {
               convert_to_text_internal (tree, text_options, result);

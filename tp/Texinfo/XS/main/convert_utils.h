@@ -8,6 +8,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "translations.h"
 
 extern char *convert_utils_month_name[12];
 
@@ -33,6 +34,10 @@ ELEMENT *expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (OPTIONS *options, const ELEMENT *current);
+
+ELEMENT *cdt_tree (const char * string, CONVERTER *self,
+                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                   const char *translation_context);
 
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
 void destroy_translated_commands (TRANSLATED_COMMAND *translated_commands);

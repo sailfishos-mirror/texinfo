@@ -92,7 +92,7 @@ expand_today (OPTIONS *options)
   year = time_tm->tm_year + 1900;
 
   month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0, options,
-                         0, 0, 0);
+                         options->documentlanguage.string, 0, 0);
   day_element = new_element (ET_NONE);
   year_element = new_element (ET_NONE);
   text_printf (&day_element->text, "%d", time_tm->tm_mday);
@@ -103,7 +103,8 @@ expand_today (OPTIONS *options)
   add_element_to_named_string_element_list (substrings, "day", day_element);
   add_element_to_named_string_element_list (substrings, "year", year_element);
 
-  result = gdt_tree ("{month} {day}, {year}", 0, options, substrings, 0, 0);
+  result = gdt_tree ("{month} {day}, {year}", 0, options,
+                     options->documentlanguage.string, substrings, 0);
   destroy_named_string_element_list (substrings);
 
   return result;
@@ -210,12 +211,14 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                 {
                   numbered_heading
                    = gdt_string ("Appendix {number} {section_title}",
-                                 options, substrings, 0, 0);
+                                 options, options->documentlanguage.string,
+                                 substrings, 0);
                 }
             }
           if (!numbered_heading)
-            numbered_heading = gdt_string ("{number} {section_title}",
-                                          options, substrings, 0, 0);
+            numbered_heading
+              = gdt_string ("{number} {section_title}", options,
+                            options->documentlanguage.string, substrings, 0);
 
           destroy_named_string_element_list (substrings);
 
@@ -563,7 +566,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
            */
 
           result = gdt_tree ("{category} on @code{{class}}", 0, options,
-                             substrings, 0, 0);
+                             options->documentlanguage.string, substrings, 0);
           destroy_named_string_element_list (substrings);
         }
       else
@@ -595,7 +598,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
            */
 
           result = gdt_tree ("{category} of @code{{class}}", 0, options,
-                             substrings, 0, 0);
+                             options->documentlanguage.string, substrings, 0);
           destroy_named_string_element_list (substrings);
         }
       else
@@ -612,6 +615,17 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
 }
 
 ELEMENT *
+cdt_tree (const char * string, CONVERTER *self,
+          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+          const char *translation_context)
+{
+  const char *lang = self->conf->documentlanguage.string;
+
+  return gdt_tree (string, self->document, self->conf, lang,
+                   replaced_substrings, translation_context);
+}
+
+ELEMENT *
 translated_command_tree (CONVERTER *self, enum command_id cmd)
 {
   size_t i;
@@ -622,8 +636,8 @@ translated_command_tree (CONVERTER *self, enum command_id cmd)
       if (translated_command->cmd == cmd
           && translated_command->translation)
         {
-          ELEMENT *result = gdt_tree (translated_command->translation, 0,
-                                      self->conf, 0, 0, 0);
+          ELEMENT *result = cdt_tree (translated_command->translation,
+                                      self, 0, 0);
           return result;
         }
     }

@@ -1967,26 +1967,41 @@ new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
   if (master_menu->contents.number > 0)
     {
       int i;
-      ELEMENT *master_menu_title;
       ELEMENT *new_line = new_element (ET_NONE);
     /* There is a menu comment with a preformatted added in front of each
        detailed menu section with the node section name */
       ELEMENT *first_preformatted
         = master_menu->contents.list[0]->contents.list[0];
-      master_menu_title
-          = gdt_tree (" --- The Detailed Node Listing ---", 0, options,
-                      0, 0, 0);
-
-      for (i = 0; i < master_menu_title->contents.number; i++)
-        master_menu_title->contents.list[i]->parent = first_preformatted;
 
       text_append (&new_line->text, "\n");
       new_line->parent = first_preformatted;
       insert_into_contents (first_preformatted, new_line, 0);
 
-      insert_slice_into_contents (first_preformatted, 0, master_menu_title, 0,
-                                  master_menu_title->contents.number);
-      destroy_element (master_menu_title);
+      if (options)
+        {
+          ELEMENT *master_menu_title;
+          master_menu_title
+            = gdt_tree (" --- The Detailed Node Listing ---", 0, options,
+                        options->documentlanguage.string, 0, 0);
+
+          for (i = 0; i < master_menu_title->contents.number; i++)
+            master_menu_title->contents.list[i]->parent = first_preformatted;
+
+          insert_slice_into_contents (first_preformatted, 0,
+                                      master_menu_title, 0,
+                                      master_menu_title->contents.number);
+          destroy_element (master_menu_title);
+        }
+      else
+        {
+          ELEMENT *master_menu_title_string = new_element (ET_NONE);
+          text_append (&master_menu_title_string->text,
+                       " --- The Detailed Node Listing ---");
+          master_menu_title_string->parent = first_preformatted;
+          insert_into_contents (first_preformatted,
+                                master_menu_title_string, 0);
+        }
+
 
       new_block_command (master_menu, CM_detailmenu);
       return master_menu;
