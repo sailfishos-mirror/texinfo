@@ -149,7 +149,7 @@ switch_messages_locale (void)
 }
 
 char *
-translate_string (OPTIONS *options, const char * string, const char *in_lang,
+translate_string (const char * string, const char *in_lang,
                   const char *translation_context)
 {
   const char *lang = in_lang;
@@ -526,7 +526,7 @@ gdt (const char *string, OPTIONS *options, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      const char *translation_context)
 {
-  char *translated_string = translate_string (options, string, lang,
+  char *translated_string = translate_string (string, lang,
                                               translation_context);
 
   int document_descriptor
@@ -578,7 +578,7 @@ gdt_string (const char *string, OPTIONS *options, const char *lang,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context)
 {
-  char *translated_string = translate_string (options, string, lang,
+  char *translated_string = translate_string (string, lang,
                                               translation_context);
 
   char *result = replace_substrings (translated_string, replaced_substrings);

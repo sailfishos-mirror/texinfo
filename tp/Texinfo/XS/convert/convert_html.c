@@ -587,7 +587,7 @@ html_translate_string (CONVERTER *self, const char *string,
         return translated_string;
     }
 
-  return translate_string (self->conf, string, lang, translation_context);
+  return translate_string (string, lang, translation_context);
 }
 
 /* returns a document descriptor. */
@@ -600,7 +600,7 @@ html_cdt (const char *string, CONVERTER *self, const char *lang,
   int document_descriptor;
 
   translated_string = html_translate_string (self, string, lang,
-                                              translation_context);
+                                             translation_context);
   document_descriptor
     = replace_convert_substrings (self->conf, translated_string,
                                   replaced_substrings);
@@ -661,7 +661,7 @@ html_cdt_string (const char *string, CONVERTER *self,
     lang = self->conf->documentlanguage.string;
 
   translated_string = html_translate_string (self, string, lang,
-                                                   translation_context);
+                                             translation_context);
 
   result = replace_substrings (translated_string, replaced_substrings);
   free (translated_string);

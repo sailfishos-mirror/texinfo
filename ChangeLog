@@ -1,5 +1,21 @@
 2024-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Translations.pm (translate_string, gdt, gdt_string):
+	remove unused translate_string first argument.  Do not remove the
+	first argument of the user-defined $translate_string_method optionally
+	passed to gdt and gdt_string.  Update callers.
+
+	* tp/Texinfo/Translations.pm (_replace_substrings)
+	(_replace_convert_substrings): rename to make clear that the functions
+	are internal.  Replace _replace_convert_substrings
+	$customization_information by $debug_level as it is the only variable
+	that is used and we want to keep it like this.
+
+	* tp/Texinfo/XS/main/translations.c (translate_string): remove unused
+	first argument.  Update callers.
+
+2024-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (pcdt): call cdt.
 
 	* tp/Texinfo/Translations.pm (gdt, gdt_string): add a

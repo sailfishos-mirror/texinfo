@@ -2842,7 +2842,7 @@ sub _translate_names($)
 # redefined functions
 #
 # Texinfo::Translations::translate_string redefined to call user defined function.
-sub html_translate_string($$;$$)
+sub html_translate_string($$$;$)
 {
   my ($self, $string, $lang, $translation_context) = @_;
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
@@ -2857,7 +2857,7 @@ sub html_translate_string($$;$$)
     }
   }
 
-  return Texinfo::Translations::translate_string($self, $string, $lang,
+  return Texinfo::Translations::translate_string($string, $lang,
                                                  $translation_context);
 }
 

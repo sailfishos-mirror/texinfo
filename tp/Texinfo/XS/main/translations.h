@@ -24,8 +24,7 @@ typedef struct NAMED_STRING_ELEMENT_LIST {
 void configure_output_strings_translations (char *localesdir,
                                             char *strings_textdomain_in);
 
-char *translate_string (OPTIONS *options, const char * string,
-                        const char *lang,
+char *translate_string (const char * string, const char *lang,
                         const char *translation_context);
 int replace_convert_substrings (OPTIONS *options, char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings);
