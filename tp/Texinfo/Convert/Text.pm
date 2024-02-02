@@ -43,6 +43,8 @@ use Texinfo::Convert::Texinfo;
 # misc functions and data
 use Texinfo::Convert::Utils;
 
+use Texinfo::Translations;
+
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
@@ -547,22 +549,31 @@ sub _convert($$)
                                                     $element->{'cmdname'}})))));
   my $result = '';
   if (defined($element->{'text'})) {
-    if ($element->{'type'} and $element->{'type'} eq 'untranslated'
-        and $options and $options->{'converter'}) {
-      # the tree documentlanguage corresponds to the documentlanguage
-      # at the place of the tree, but the converter may want to use
-      # another documentlanguage, for instance the documentlanguage at
-      # the end of the preamble, so we let the converter set it.
-      #my $tree = Texinfo::Translations::gdt(undef, $element->{'text'},
-      #                  undef, $element->{'extra'}->{'documentlanguage'});
+    if ($element->{'type'} and $element->{'type'} eq 'untranslated') {
       my $tree;
+      my $translation_context;
       if ($element->{'extra'}
           and $element->{'extra'}->{'translation_context'}) {
-        $tree = $options->{'converter'}->pcdt(
-                            $element->{'extra'}->{'translation_context'},
-                            $element->{'text'});
+        $translation_context = $element->{'extra'}->{'translation_context'};
+      }
+
+      if ($options and $options->{'converter'}) {
+        # the tree documentlanguage corresponds to the documentlanguage
+        # at the place of the tree, but the converter may want to use
+        # another documentlanguage, for instance the documentlanguage at
+        # the end of the preamble, so we let the converter set it.
+        if ($translation_context) {
+          $tree = $options->{'converter'}->pcdt($translation_context,
+                                                $element->{'text'});
+        } else {
+          $tree = $options->{'converter'}->cdt($element->{'text'});
+        }
       } else {
-        $tree = $options->{'converter'}->cdt($element->{'text'});
+        # if there is no converter, we use the documentlanguage available
+        # in the tree.
+        $tree = Texinfo::Translations::gdt(undef, $element->{'text'},
+                             $element->{'extra'}->{'documentlanguage'},
+                             undef, $translation_context);
       }
       $result = _convert($options, $tree);
     } else {
@@ -1135,7 +1146,7 @@ Texinfo to other formats.  There is no promise of API stability.
 C<Texinfo::Convert::Text> is a simple backend that converts a Texinfo tree
 to simple text.  It is used in converters, especially for file names.
 The conversion is very simple, and, in the default case, cannot handle
-output strings translation or error handling.
+error handling nor some output strings translation.
 
 Converters derived from L<Texinfo::Convert::Converter> should have conversion
 text options associated to the C<convert_text_options> key.

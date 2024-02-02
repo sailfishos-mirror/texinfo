@@ -747,7 +747,7 @@ top section
 1 chap
 ******
 
-Instance Variable of c: BBB CCC
+Instanzvariable of c: BBB CCC
 error-->
 ';
 

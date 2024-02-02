@@ -1778,7 +1778,7 @@ Instance Variable of AAA: BBB CCC
 3 fr_FR
 *******
 
-Instance Variable of AAA: BBB CCC
+Variable d\'instance of AAA: BBB CCC
 
 4 de
 ****

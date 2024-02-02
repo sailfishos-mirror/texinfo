@@ -522,20 +522,40 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
   /* or element->text.space? */
   if (element->text.end > 0)
     {
-      if (element->type == ET_untranslated && text_options->converter)
+      if (element->type == ET_untranslated)
         {
+          ELEMENT *tree = 0;
+          char *translation_context
+            = lookup_extra_string (element, "translation_context");
+
+          if (text_options->converter)
+            {
        /*
        the tree documentlanguage corresponds to the documentlanguage
        at the place of the tree, but the converter may want to use
        another documentlanguage, for instance the documentlanguage at
        the end of the preamble, so we let the converter set it.
-          documentlanguage = lookup_extra_string (element, "documentlanguage");
         */
-          char *translation_context
-            = lookup_extra_string (element, "translation_context");
-          ELEMENT *tree = cdt_tree (element->text.text,
-                                    text_options->converter,
-                                    0, translation_context);
+              tree = cdt_tree (element->text.text, text_options->converter,
+                               0, translation_context);
+            }
+          else
+            {
+            /* if there is no converter, we use the documentlanguage available
+               in the tree. */
+
+              const char *documentlanguage
+                = lookup_extra_string (element, "documentlanguage");
+
+              /* there is a possibility that some small strings are associated
+                 to the tree, and there is no document to get them.  However
+                 it is very unlikely to have small strings given that the
+                 converted tree should be very simple and is a string only,
+                 no macro, no file */
+              tree = gdt_tree (element->text.text, 0, 0, documentlanguage,
+                               0, translation_context);
+            }
+
           if (tree)
             {
               convert_to_text_internal (tree, text_options, result);

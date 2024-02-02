@@ -736,7 +736,7 @@ top section
 
 chapter.
 
-Method on class: data-type name arguments
+Método on class: data-type name arguments
 Some text.
 
 

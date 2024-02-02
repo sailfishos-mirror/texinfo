@@ -902,11 +902,11 @@ top section
 1 chap
 ******
 
-Instance Variable of hr: BBB CCC
+Primjerak varijable of hr: BBB CCC
 error-->
 
 
-Instance Variable of de: FFF GGG
+Instanzvariable of de: FFF GGG
 ';
 
 $result_sectioning{'multiple_in_preamble'} = {
