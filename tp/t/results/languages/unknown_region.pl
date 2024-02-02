@@ -303,7 +303,7 @@ $result_texis{'unknown_region'} = '@documentlanguage fr_NOWHERE
 
 $result_texts{'unknown_region'} = '
 
-Variable d\'instance of AAA: BBB CCC
+Variable d\'instance de AAA: BBB CCC
 ';
 
 $result_nodes{'unknown_region'} = [

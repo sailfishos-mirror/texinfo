@@ -736,7 +736,7 @@ top section
 
 chapter.
 
-Me\'thode on class: data-type name arguments
+Me\'thode de class: data-type name arguments
 Some text.
 
 

@@ -902,7 +902,7 @@ top section
 1 chap
 ******
 
-Primjerak varijable of hr: BBB CCC
+Primjerak varijable od hr: BBB CCC
 error-->
 
 

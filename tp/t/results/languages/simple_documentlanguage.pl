@@ -303,7 +303,7 @@ $result_texis{'simple_documentlanguage'} = '@documentlanguage fr
 
 $result_texts{'simple_documentlanguage'} = '
 
-Variable d\'instance of AAA: BBB CCC
+Variable d\'instance de AAA: BBB CCC
 ';
 
 $result_nodes{'simple_documentlanguage'} = [

@@ -180,35 +180,40 @@ sub definition_category_tree($$)
       or $def_command eq 'deftypeop'
       or $def_command eq 'defmethod'
       or $def_command eq 'deftypemethod') {
+    my $substrings = {'category' => $arg_category, 'class' => $arg_class};
     if ($self) {
       # TRANSLATORS: association of a method or operation name with a class
       # in descriptions of object-oriented programming methods or operations.
-      return $self->cdt('{category} on @code{{class}}',
-                                         {'category' => $arg_category,
-                                          'class' => $arg_class});
+      return $self->cdt('{category} on @code{{class}}', $substrings);
     } else {
-      my $result = {};
-      $result->{'contents'}
-        = [$arg_category, {'text' => ' on ', 'parent' => $result},
-           $arg_class_code];
-      return $result;
+      return Texinfo::Translations::gdt(undef, '{category} on @code{{class}}',
+                                 $current->{'extra'}->{'documentlanguage'},
+                                 $substrings);
+      #my $result = {};
+      #$result->{'contents'}
+      #  = [$arg_category, {'text' => ' on ', 'parent' => $result},
+      #     $arg_class_code];
+      #return $result;
     }
   } elsif ($def_command eq 'defivar'
            or $def_command eq 'deftypeivar'
            or $def_command eq 'defcv'
            or $def_command eq 'deftypecv') {
+    my $substrings = {'category' => $arg_category, 'class' => $arg_class};
     if ($self) {
       # TRANSLATORS: association of a variable or instance variable with
       # a class in descriptions of object-oriented programming variables
       # or instance variable.
-      return $self->cdt('{category} of @code{{class}}', { 'category' => $arg_category,
-                                          'class' => $arg_class });
+      return $self->cdt('{category} of @code{{class}}', $substrings);
     } else {
-      my $result = {};
-      $result->{'contents'}
-        = [$arg_category, {'text' => ' of ', 'parent' => $result},
-           $arg_class_code];
-      return $result;
+      return Texinfo::Translations::gdt(undef, '{category} of @code{{class}}',
+                                 $current->{'extra'}->{'documentlanguage'},
+                                 $substrings);
+      #my $result = {};
+      #$result->{'contents'}
+      #  = [$arg_category, {'text' => ' of ', 'parent' => $result},
+      #     $arg_class_code];
+      #return $result;
     }
   }
 }

@@ -400,7 +400,7 @@ top
 1 Chap
 ******
 
-da on db: dc dd de
+da de db: dc dd de
 DOC
 
 ';

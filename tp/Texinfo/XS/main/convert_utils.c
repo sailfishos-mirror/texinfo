@@ -497,7 +497,9 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
   ELEMENT *result = 0;
   ELEMENT *arg_category = 0;
   ELEMENT *arg_class = 0;
+  /*
   ELEMENT *arg_class_code;
+   */
   ELEMENT *class_copy;
   char *def_command;
 
@@ -534,6 +536,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
 
   class_copy = copy_tree (arg_class);
 
+  /*
   if (!options)
     {
       ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
@@ -542,6 +545,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
       add_to_element_contents (brace_command_arg, class_copy);
       add_to_element_args (arg_class_code, brace_command_arg);
     }
+   */
 
   def_command = lookup_extra_string (current, "def_command");
 
@@ -552,14 +556,14 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
       || !strcmp(def_command, "deftypemethod"))
     {
       ELEMENT *category_copy = copy_tree (arg_category);
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                   = new_named_string_element_list ();
+      add_element_to_named_string_element_list (substrings,
+                                                "category", category_copy);
+      add_element_to_named_string_element_list (substrings,
+                                                "class", class_copy);
       if (options)
         {
-          NAMED_STRING_ELEMENT_LIST *substrings
-                                       = new_named_string_element_list ();
-          add_element_to_named_string_element_list (substrings,
-                                                     "category", category_copy);
-          add_element_to_named_string_element_list (substrings,
-                                                           "class", class_copy);
           /*
           TRANSLATORS: association of a method or operation name with a class
           in descriptions of object-oriented programming methods or operations.
@@ -567,31 +571,37 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
 
           result = gdt_tree ("{category} on @code{{class}}", 0, options,
                              options->documentlanguage.string, substrings, 0);
-          destroy_named_string_element_list (substrings);
         }
       else
         {
+          const char *documentlanguage
+                = lookup_extra_string (current, "documentlanguage");
+          result = gdt_tree ("{category} on @code{{class}}", 0, 0,
+                             documentlanguage, substrings, 0);
+          /*
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_element (ET_NONE);
           add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " on ");
           add_to_element_contents (result, text_element);
           add_to_element_contents (result, arg_class_code);
+           */
         }
+      destroy_named_string_element_list (substrings);
     } else if (!strcmp(def_command, "defivar")
       || !strcmp(def_command, "deftypeivar")
       || !strcmp(def_command, "defcv")
       || !strcmp(def_command, "deftypecv"))
     {
       ELEMENT *category_copy = copy_tree (arg_category);
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                   = new_named_string_element_list ();
+      add_element_to_named_string_element_list (substrings,
+                                                "category", category_copy);
+      add_element_to_named_string_element_list (substrings,
+                                                "class", class_copy);
       if (options)
         {
-          NAMED_STRING_ELEMENT_LIST *substrings
-                                       = new_named_string_element_list ();
-          add_element_to_named_string_element_list (substrings,
-                                                     "category", category_copy);
-          add_element_to_named_string_element_list (substrings,
-                                                           "class", class_copy);
           /*
           TRANSLATORS: association of a method or operation name with a class
           in descriptions of object-oriented programming methods or operations.
@@ -599,17 +609,23 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
 
           result = gdt_tree ("{category} of @code{{class}}", 0, options,
                              options->documentlanguage.string, substrings, 0);
-          destroy_named_string_element_list (substrings);
         }
       else
         {
+          const char *documentlanguage
+                = lookup_extra_string (current, "documentlanguage");
+          result = gdt_tree ("{category} of @code{{class}}", 0, 0,
+                             documentlanguage, substrings, 0);
+          /*
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_element (ET_NONE);
           add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " of ");
           add_to_element_contents (result, text_element);
           add_to_element_contents (result, arg_class_code);
+           */
         }
+      destroy_named_string_element_list (substrings);
     }
   return result;
 }

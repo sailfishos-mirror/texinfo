@@ -1009,13 +1009,13 @@ top
 1 Chap
 ******
 
-Variable d\'instance of fr: BBB CCC
+Variable d\'instance de fr: BBB CCC
 error-->
 
 
 
 
-Primjerak varijable of hr: BBB CCC
+Primjerak varijable od hr: BBB CCC
 error-->
 
 
