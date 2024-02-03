@@ -543,8 +543,9 @@ sub sort_indices_by_index($$$$;$)
   return ($sorted_index_entries, $index_entries_sort_strings);
 }
 
+# Return the first non empty text or textual @-command.
 # NOTE quotes and dash are not handled especially and it is not known
-# if the text was in code or not
+# if the text was in code or not.
 sub _idx_leading_text_or_command($$);
 sub _idx_leading_text_or_command($$)
 {
@@ -609,14 +610,16 @@ sub _idx_leading_text_or_command($$)
 }
 
 # TODO document
+# Return the leading text or textual command that could be used
+# for sorting.
 sub index_entry_first_letter_text_or_command($;$)
 {
   my $index_entry = shift;
-  my $entry_key = shift;
+  # only used for debugging
+  #my $entry_key = shift;
 
   if (!defined($index_entry)) {
-    # FIXME cluck
-    return (undef, undef);
+    confess ("index_entry_first_letter_text_or_command: undef index_entry");
   }
 
   my $index_entry_element = $index_entry->{'entry_element'};

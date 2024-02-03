@@ -32,6 +32,11 @@ typedef struct INDICES_SORTABLE_ENTRIES {
     INDEX_SORTABLE_ENTRIES *indices;
 } INDICES_SORTABLE_ENTRIES;
 
+typedef struct INDEX_ENTRY_TEXT_OR_COMMAND {
+    char *text;
+    ELEMENT *command;
+} INDEX_ENTRY_TEXT_OR_COMMAND;
+
 MERGED_INDICES *merge_indices (INDEX **index_names);
 void destroy_merged_indices (MERGED_INDICES *merged_indices);
 
@@ -50,4 +55,7 @@ INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
                         ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, const MERGED_INDICES *merged_indices,
                         INDEX **indices_information);
+
+INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command
+                                                (INDEX_ENTRY *index_entry);
 #endif

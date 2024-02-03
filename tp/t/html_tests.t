@@ -299,6 +299,36 @@ in @code{documentdescri---ption} --- @bullet{} @enddots{} @verb{:"verb:} @aa{} @
 @cindex entry
 @printindex cp
 ', {'test_split' => 'section'}, {'USE_NODES', 0}],
+['letter_command_in_index',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter
+
+@cindex @TH{}
+
+@cindex @l{}
+
+@cindex @^e
+
+@printindex cp
+'],
+['U_in_index',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter
+
+@cindex @U{0131} dotless i
+
+@cindex @U{0074} letter t
+
+@cindex @U{00B5} greek letter mu
+
+@printindex cp
+'],
 ['menu',
 '
 @node Top

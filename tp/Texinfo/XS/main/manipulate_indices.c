@@ -25,6 +25,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "tree.h"
 #include "utils.h"
 #include "extra.h"
 #include "errors.h"
@@ -134,6 +135,8 @@ destroy_merged_indices (MERGED_INDICES *merged_indices)
   free (merged_indices);
 }
 
+
+
 void
 destroy_indices_sorted_by_letter (
          INDEX_SORTED_BY_LETTER *indices_entries_by_letter)
@@ -180,6 +183,36 @@ index_content_element (const ELEMENT *element, int prefer_reference_element)
    }
 }
 
+static char *
+strip_index_ignore_chars (const char *string, const char *index_ignore_chars)
+{
+  TEXT result_text;
+  const char *p = string;
+  text_init (&result_text);
+  /* in particular to be consistent with convert_to_text, which returned
+     variable is never NUL */
+  text_append (&result_text, "");
+
+  while (*p)
+    {
+      int n = strspn (p, index_ignore_chars);
+      if (n)
+        {
+          p += n;
+        }
+      if (*p)
+        {
+          /* store a character */
+          int char_len = 1;
+          while ((p[char_len] & 0xC0) == 0x80)
+            char_len++;
+          text_append_n (&result_text, p, char_len);
+          p += char_len;
+        }
+    }
+  return result_text.text;
+}
+
 char *
 index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
@@ -212,32 +245,10 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                             "index_ignore_chars");
   if (index_ignore_chars)
     {
-      TEXT sort_string_text;
-      char *p = sort_string;
-      text_init (&sort_string_text);
-      /* to be consistent with convert_to_text, which returned variable is
-         never NUL */
-      text_append (&sort_string_text, "");
-
-      while (*p)
-        {
-          int n = strspn (p, index_ignore_chars);
-          if (n)
-            {
-              p += n;
-            }
-          if (*p)
-            {
-              /* store a character */
-              int char_len = 1;
-              while ((p[char_len] & 0xC0) == 0x80)
-                char_len++;
-              text_append_n (&sort_string_text, p, char_len);
-              p += char_len;
-            }
-        }
+      char *sort_string_text = strip_index_ignore_chars (sort_string,
+                                                     index_ignore_chars);
       free (sort_string);
-      sort_string = sort_string_text.text;
+      sort_string = sort_string_text;
     }
   return sort_string;
 }
@@ -805,3 +816,166 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
   return sorted_index_entries;
 }
 
+static INDEX_ENTRY_TEXT_OR_COMMAND *
+new_index_entry_text_or_command (const char *text, ELEMENT *command)
+{
+  INDEX_ENTRY_TEXT_OR_COMMAND *result = (INDEX_ENTRY_TEXT_OR_COMMAND *)
+     malloc (sizeof (INDEX_ENTRY_TEXT_OR_COMMAND));
+
+  if (text)
+    result->text = strdup (text);
+  else
+    result->text = 0;
+  result->command = command;
+
+  return result;
+}
+
+
+
+/* Return the first non empty text or textual @-command.
+   To be freed by caller.
+   NOTE quotes and dash are not handled especially and it is not known
+   if the text was in code or not. */
+static INDEX_ENTRY_TEXT_OR_COMMAND *
+idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
+{
+  size_t i;
+
+  if (tree->contents.number <= 0)
+    return new_index_entry_text_or_command (0, 0);
+
+  for (i = 0; i < tree->contents.number; i++)
+    {
+      ELEMENT *content = tree->contents.list[i];
+
+      if (content->cmd)
+        {
+          enum command_id data_cmd = element_builtin_data_cmd (content);
+
+          if (builtin_command_data[data_cmd].other_flags & CF_formatted_nobrace)
+            {
+              if (ignore_chars && data_cmd == CM_AT_SIGN
+                  && strchr (ignore_chars, '@'))
+                continue;
+              return new_index_entry_text_or_command (0, content);
+            }
+          else
+            {
+              if (builtin_command_data[data_cmd].flags & CF_brace)
+                {
+                  int brace_command_type = builtin_command_data[data_cmd].data;
+
+                  if ((builtin_command_data[data_cmd].other_flags
+                       & CF_non_formatted_brace)
+                      || data_cmd == CM_footnote
+                      || data_cmd == CM_dmn
+                      || data_cmd == CM_value
+                      || (builtin_command_data[data_cmd].other_flags
+                          & CF_in_index))
+                    continue;
+                  else if (brace_command_type == BRACE_accent
+                           || brace_command_type == BRACE_noarg
+                           || data_cmd == CM_U)
+                    {
+                      return new_index_entry_text_or_command (0, content);
+                    }
+                  else if (brace_command_type != BRACE_inline)
+                    {
+                      if (content->args.number > 0)
+                        {
+                          return idx_leading_text_or_command (
+                                                   content->args.list[0],
+                                                              ignore_chars);
+                        }
+                    }
+                  else
+                    {
+                      int status;
+                      int expand_index
+                       = lookup_extra_integer (content, "expand_index", &status);
+                      if (expand_index > 0)
+                        return idx_leading_text_or_command (
+                                         content->args.list[expand_index],
+                                                            ignore_chars);
+
+                    }
+                }
+              else if ((builtin_command_data[data_cmd].other_flags
+                        & CF_formatted_line)
+                       && data_cmd != CM_page
+                       && content->args.number > 0)
+                {
+                   return idx_leading_text_or_command (
+                                                   content->args.list[0],
+                                                              ignore_chars);
+                }
+            }
+        }
+      else if (content->text.end > 0
+               && content->text.text[strspn (content->text.text,
+                                             whitespace_chars)] != '\0')
+        {
+          char *p = content->text.text;
+          p += strspn (p, whitespace_chars);
+          if (ignore_chars)
+            {
+              char *text = strip_index_ignore_chars (p, ignore_chars);
+              INDEX_ENTRY_TEXT_OR_COMMAND *result = 0;
+
+              if (text[strspn (text, whitespace_chars)] != '\0')
+                result = new_index_entry_text_or_command (text, 0);
+
+              free (text);
+
+              if (result)
+                return result;
+            }
+          else
+            return new_index_entry_text_or_command (p, 0);
+        }
+      else if (content->contents.number > 0)
+        return idx_leading_text_or_command (content, ignore_chars);
+    }
+  return new_index_entry_text_or_command (0, 0);
+}
+
+/* Return the leading text or textual command that could be used
+   for sorting.
+   To be freed by caller.
+*/
+INDEX_ENTRY_TEXT_OR_COMMAND *
+index_entry_first_letter_text_or_command (INDEX_ENTRY *index_entry)
+{
+  ELEMENT *index_entry_element = index_entry->entry_element;
+  char *sortas = lookup_extra_string (index_entry_element, "sortas");
+
+  INDEX_ENTRY_TEXT_OR_COMMAND *result;
+
+  if (sortas)
+    {
+      return new_index_entry_text_or_command (sortas, 0);
+    }
+  else
+    {
+      ELEMENT *entry_tree_element
+         = index_content_element (index_entry_element, 0);
+      char *index_ignore_chars = lookup_extra_string (index_entry_element,
+                                                      "index_ignore_chars");
+      ELEMENT *parsed_element;
+
+      if (entry_tree_element->contents.number <= 0)
+        {
+          parsed_element = new_element (ET_NONE);
+          add_to_contents_as_array (parsed_element, index_entry_element);
+        }
+      else
+        parsed_element = entry_tree_element;
+
+      result = idx_leading_text_or_command(parsed_element, index_ignore_chars);
+      if (parsed_element != entry_tree_element)
+        destroy_element (parsed_element);
+
+      return result;
+    }
+}

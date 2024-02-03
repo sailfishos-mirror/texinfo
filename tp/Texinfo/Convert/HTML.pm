@@ -6652,13 +6652,23 @@ sub _convert_printindex_command($$$$)
           = Texinfo::Indices::index_entry_first_letter_text_or_command(
                                                              $first_entry);
       }
-      #if ($letter_command) {
-      #  $formatted_letter = $self->convert_tree($letter_command,
-      #                                          "index letter $letter command");
-      #} else {
+
+      if ($letter_command and !$accent_commands{$letter_command->{'cmdname'}}
+          and $letter_command->{'cmdname'} ne 'U'
+          # special case, the uppercasing of that command is not done
+          # if as a command, while it is done correctly in $letter
+          and $letter_command->{'cmdname'} ne 'ss') {
+        my $cmdname = $letter_command->{'cmdname'};
+        if ($letter_no_arg_commands{$cmdname}
+            and $letter_no_arg_commands{uc($cmdname)}) {
+          $letter_command = {'cmdname' => uc($cmdname)};
+        }
+        $formatted_letter = $self->convert_tree($letter_command,
+                                                "index letter $letter command");
+      } else {
         $formatted_letter
          = &{$self->formatting_function('format_protect_text')}($self, $letter);
-      #}
+      }
       $formatted_letters{$letter} = $formatted_letter;
 
       $result_index_entries .= '<tr>' .

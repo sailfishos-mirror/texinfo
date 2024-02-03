@@ -13169,15 +13169,62 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
       if (entries_text.end > 0)
         {
           char *formatted_letter;
+          ELEMENT *letter_command = 0;
+          enum command_id letter_cmd = 0;
 
-          /* TODO cf perl */
-          {
-            TEXT text_letter;
-            text_init (&text_letter);
-            text_append (&text_letter, "");
-            format_protect_text (self, letter, &text_letter);
-            formatted_letter = text_letter.text;
-          }
+          if (first_entry)
+            {
+              INDEX_ENTRY_TEXT_OR_COMMAND *entry_text_or_command
+                = index_entry_first_letter_text_or_command (first_entry);
+
+              if (entry_text_or_command)
+                {
+                  letter_command = entry_text_or_command->command;
+
+                  free (entry_text_or_command->text);
+                  free (entry_text_or_command);
+
+                  if (letter_command)
+                    letter_cmd = element_builtin_data_cmd (letter_command);
+                }
+            }
+
+          if (letter_command
+              && (!(builtin_command_data[letter_cmd].flags & CF_accent))
+              && letter_cmd != CM_U
+            /* special case, the uppercasing of that command is not done
+               if as a command, while it is done correctly in letter */
+              && letter_cmd != CM_ss)
+            {
+              ELEMENT *formatted_command;
+              char *explanation;
+              if (html_commands_data[letter_cmd].upper_case_cmd)
+                {
+                   formatted_command = new_element (ET_NONE);
+                   formatted_command->cmd
+                      = html_commands_data[letter_cmd].upper_case_cmd;
+                }
+              else
+                formatted_command = letter_command;
+
+              xasprintf (&explanation, "index letter %s command", letter);
+              add_to_element_list (&self->tree_to_build, formatted_command);
+              formatted_letter
+                = html_convert_tree (self, formatted_command, explanation);
+              remove_element_from_list (&self->tree_to_build,
+                                        formatted_command);
+              if (formatted_command != letter_command)
+                destroy_element (formatted_command);
+              free (explanation);
+            }
+          else
+            {
+              TEXT text_letter;
+              text_init (&text_letter);
+              text_append (&text_letter, "");
+              format_protect_text (self, letter, &text_letter);
+              formatted_letter = text_letter.text;
+            }
 
           formatted_letters[i] = formatted_letter;
 

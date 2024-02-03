@@ -1,5 +1,25 @@
 2024-02-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command): if
+	the first command in the first index entry in a letter is a no
+	arg command, format the command, possibly using the upper case command 
+	to format the letter.
+
+	* tp/Texinfo/XS/main/manipulate_indices.c (strip_index_ignore_chars)
+	(index_entry_element_sort_string, new_index_entry_text_or_command)
+	(idx_leading_text_or_command)
+	(index_entry_first_letter_text_or_command),
+	tp/Texinfo/XS/main/manipulate_indices.h (INDEX_ENTRY_TEXT_OR_COMMAND):
+	add strip_index_ignore_chars based onindex_entry_element_sort_string
+	code.  Implement index_entry_first_letter_text_or_command in C.
+
+	* test_files_generated_list, tp/t/html_tests.t
+	(letter_command_in_index, U_in_index): new tests with @-commands in
+	index entries that should be used for letter formatting.
+
+2024-02-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (is_content_empty): do not consider text set to
 	'0' to be empty.
 
