@@ -6272,6 +6272,7 @@ sub _convert_printindex_command($$$$)
   my %letter_is_symbol;
   # First collect the links that are used in entries and in letter summaries
   my $symbol_idx = 0;
+  my $normalized_letter_idx = 0;
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $is_symbol = $letter !~ /^\p{Alpha}/;
@@ -6281,13 +6282,25 @@ sub _convert_printindex_command($$$$)
       $symbol_idx++;
       $identifier = $index_element_id . "_${index_name}_symbol-$symbol_idx";
     } else {
-      $identifier = $index_element_id . "_${index_name}_letter-${letter}";
+      my $normalized_letter =
+  Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+               {'text' => $letter});
+      my $letter_identifier = $normalized_letter;
+      if ($normalized_letter ne $letter) {
+        # disambiguate, as it could be another letter, case of @l, for example
+        $normalized_letter_idx++;
+        $letter_identifier = "${normalized_letter}-${normalized_letter_idx}";
+      }
+      $identifier = $index_element_id
+                       . "_${index_name}_letter-${letter_identifier}";
     }
     $letter_id{$letter} = $identifier;
+
   }
 
   $self->_new_document_context($cmdname);
 
+  my %formatted_letters;
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
   my $result_index_entries = '';
@@ -6295,6 +6308,7 @@ sub _convert_printindex_command($$$$)
     my $letter = $letter_entry->{'letter'};
     my $entries_text = '';
     my $entry_nr = -1;
+    my $first_entry;
     # since we normalize, a different formatting will not trigger a new
     # formatting of the main entry or a subentry level.  This is the
     # same for Texinfo TeX
@@ -6527,6 +6541,10 @@ sub _convert_printindex_command($$$$)
 
         next if ($entry !~ /\S/ and $last_entry_level == 0);
 
+        if (!defined($first_entry)) {
+          $first_entry = $index_entry_ref;
+        }
+
         @prev_normalized_entry_levels = @new_normalized_entry_levels;
 
         $entry = '<code>' .$entry .'</code>' if ($in_code);
@@ -6624,9 +6642,27 @@ sub _convert_printindex_command($$$$)
     }
     # a letter and associated indice entries
     if ($entries_text ne '') {
+      my $formatted_letter;
+      my $letter_command;
+
+      # may not be defined if there are only seeentry/seealso
+      if (defined($first_entry)) {
+        my $letter_text;
+        ($letter_text, $letter_command)
+          = Texinfo::Indices::index_entry_first_letter_text_or_command(
+                                                             $first_entry);
+      }
+      #if ($letter_command) {
+      #  $formatted_letter = $self->convert_tree($letter_command,
+      #                                          "index letter $letter command");
+      #} else {
+        $formatted_letter
+         = &{$self->formatting_function('format_protect_text')}($self, $letter);
+      #}
+      $formatted_letters{$letter} = $formatted_letter;
+
       $result_index_entries .= '<tr>' .
-        "<th id=\"$letter_id{$letter}\">".
-        &{$self->formatting_function('format_protect_text')}($self, $letter)
+        "<th id=\"$letter_id{$letter}\">".$formatted_letter
         . "</th></tr>\n" . $entries_text
         . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
       push @letter_entries, $letter_entry;
@@ -6640,8 +6676,7 @@ sub _convert_printindex_command($$$$)
     my $letter = $letter_entry->{'letter'};
     my $summary_letter_link
       = $self->html_attribute_class('a',["summary-letter-$cmdname"])
-       ." href=\"#$letter_id{$letter}\"><b>".
-          &{$self->formatting_function('format_protect_text')}($self, $letter)
+       ." href=\"#$letter_id{$letter}\"><b>".$formatted_letters{$letter}
            .'</b></a>';
     if ($letter_is_symbol{$letter}) {
       push @non_alpha, $summary_letter_link;

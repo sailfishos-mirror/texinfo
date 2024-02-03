@@ -1,3 +1,18 @@
+2024-02-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (is_content_empty): do not consider text set to
+	'0' to be empty.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command):
+	normalize and transliterate letter to use it as an identifier. Gather
+	the first formatted index entry in a letter. Format the letter only
+	once.
+
+	* tp/Texinfo/Indices.pm (_idx_leading_text_or_command)
+	(index_entry_first_letter_text_or_command): add a function that finds
+	the first letter as an @-command, or the first letter text.
+
 2024-02-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Utils.pm (definition_category_tree),

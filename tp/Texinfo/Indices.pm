@@ -27,7 +27,7 @@ use if $] >= 5.012, feature => 'unicode_strings';
 
 use strict;
 # Can be used to check that there is no incorrect autovivfication
-# no autovivification qw(fetch delete exists store strict);
+#no autovivification qw(fetch delete exists store strict);
 
 # Cannot do that because of sort_indices_by_letter, probably for uc().
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
@@ -199,6 +199,14 @@ sub setup_index_entry_keys_formatting($)
 {
   my $customization_info = shift;
 
+  my $text_options;
+
+  #$text_options = {};
+  #$text_options->{'enabled_encoding'} = 'utf-8';
+  #$text_options->{'INCLUDE_DIRECTORIES'}
+  #   = $customization_info->get_conf('INCLUDE_DIRECTORIES');
+  #return $text_options;
+
   my $additional_options = {};
 
   if (not $customization_info->get_conf('ENABLE_ENCODING')
@@ -206,7 +214,7 @@ sub setup_index_entry_keys_formatting($)
     $additional_options->{'sort_string'} = 1;
   }
 
-  my $text_options
+  $text_options
     = Texinfo::Convert::Text::copy_options_for_convert_text($customization_info,
                                                            $additional_options);
   return $text_options;
@@ -535,6 +543,119 @@ sub sort_indices_by_index($$$$;$)
   return ($sorted_index_entries, $index_entries_sort_strings);
 }
 
+# NOTE quotes and dash are not handled especially and it is not known
+# if the text was in code or not
+sub _idx_leading_text_or_command($$);
+sub _idx_leading_text_or_command($$)
+{
+  my $tree = shift;
+  my $ignore_chars = shift;
+
+  return (undef, undef) if (!$tree->{'contents'});
+  foreach my $content (@{$tree->{'contents'}}) {
+    if ($content->{'cmdname'}) {
+      my $cmdname = $content->{'cmdname'};
+      if ($Texinfo::Commands::formatted_nobrace_commands{$cmdname}) {
+        next if (defined($ignore_chars) and $cmdname eq '@'
+                 and $ignore_chars =~ /\@/);
+        return (undef, $content);
+      } else {
+        my $brace_command_type = $Texinfo::Commands::brace_commands{$cmdname};
+        if (defined($brace_command_type)) {
+          if ($Texinfo::Commands::non_formatted_brace_commands{$cmdname}
+              or $cmdname eq 'footnote' or $cmdname eq 'dmn'
+              or $cmdname eq 'value'
+              or $Texinfo::Commands::in_index_commands{$cmdname}) {
+            next;
+          } elsif ($brace_command_type eq 'accent'
+              or $brace_command_type eq 'noarg'
+              or $cmdname eq 'U') {
+            return (undef, $content);
+          } elsif ($brace_command_type ne 'inline') {
+            if ($content->{'args'} and scalar(@{$content->{'args'}})) {
+              return _idx_leading_text_or_command($content->{'args'}->[0],
+                                                  $ignore_chars);
+            }
+          } else {
+            if (defined($content->{'extra'})
+                and defined($content->{'extra'}->{'expand_index'})) {
+              return _idx_leading_text_or_command($content->{'args'}
+                             ->[$content->{'extra'}->{'expand_index'}],
+                                                  $ignore_chars);
+            }
+          }
+        } elsif ($Texinfo::Commands::formatted_line_commands{$cmdname}
+                 and $cmdname ne 'page'
+                 and $content->{'args'}
+                 and scalar(@{$content->{'args'}})) {
+          return _idx_leading_text_or_command($content->{'args'}->[0],
+                                              $ignore_chars);
+        }
+      }
+    } elsif (defined($content->{'text'}) and $content->{'text'} =~ /\S/) {
+      my $result_text = $content->{'text'};
+      $result_text =~ s/^\s*//;
+      if (defined($ignore_chars)) {
+        $result_text =~ s/[$ignore_chars]//g;
+        $result_text =~ s/^\s*//;
+        next if ($result_text eq '');
+      }
+      return ($result_text, undef);
+    } elsif ($content->{'contents'}) {
+      return _idx_leading_text_or_command($content, $ignore_chars);
+    }
+  }
+  return (undef, undef);
+}
+
+# TODO document
+sub index_entry_first_letter_text_or_command($;$)
+{
+  my $index_entry = shift;
+  my $entry_key = shift;
+
+  if (!defined($index_entry)) {
+    # FIXME cluck
+    return (undef, undef);
+  }
+
+  my $index_entry_element = $index_entry->{'entry_element'};
+  if ($index_entry_element->{'extra'}
+      and defined($index_entry_element->{'extra'}->{'sortas'})) {
+    return ($index_entry_element->{'extra'}->{'sortas'}, undef);
+  } else {
+    my $entry_tree_element = Texinfo::Common::index_content_element(
+                                                 $index_entry_element, 0);
+    my $ignore_chars;
+    if ($index_entry_element->{'extra'}
+        and defined($index_entry_element->{'extra'}
+                                            ->{'index_ignore_chars'})) {
+      $ignore_chars = quotemeta($index_entry_element->{'extra'}
+                                            ->{'index_ignore_chars'});
+    }
+    my $parsed_element;
+    if (!$entry_tree_element->{'contents'}) {
+      $parsed_element = {'contents' => [$entry_tree_element]};
+    } else {
+      $parsed_element = $entry_tree_element;
+    }
+
+    my ($text, $command) = _idx_leading_text_or_command($parsed_element,
+                                                        $ignore_chars);
+    #if ($command) {
+    #  print STDERR "CCC '$entry_key' "
+    #      .Texinfo::Common::debug_print_element($command)."\n";
+    #} elsif (defined($text)) {
+    #  if (substr($entry_key, 0, 1) ne substr($text, 0, 1)) {
+    #    print STDERR "TTT '$entry_key' '$text'\n";
+    #  }
+    #} else {
+    #  print STDERR "III '$entry_key'\n";
+    #}
+    return ($text, $command);
+  }
+}
+
 sub sort_indices_by_letter($$$$;$)
 {
   my $registrar = shift;
@@ -723,7 +844,9 @@ is returned.
 When sorting by letter, an array reference of letter hash references is
 associated with each index name.  Each letter hash reference has two
 keys, a I<letter> key with the letter, and an I<entries> key with an array
-reference of sorted index entries beginning with the letter.
+reference of sorted index entries beginning with the letter.  The letter
+is a character string suitable for sorting letters, but is not necessarily
+the best to use for output.
 
 When simply sorting, the array of the sorted index entries is associated
 with the index name.

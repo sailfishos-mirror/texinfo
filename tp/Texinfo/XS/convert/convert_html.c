@@ -12421,8 +12421,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   size_t non_alpha_nr = 0;
   size_t alpha_nr = 0;
   int *letter_is_symbol;
-  int *letter_has_entries;
+  char **formatted_letters;
   size_t symbol_idx = 0;
+  size_t normalized_letter_idx = 0;
   size_t i;
   char *entry_class_seeentry;
   char *section_class_seeentry;
@@ -12487,8 +12488,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   memset (non_alpha, 0, (index_sorted->letter_number +1) * sizeof (char *));
   letter_is_symbol
     = (int *) malloc (index_sorted->letter_number * sizeof (int));
-  letter_has_entries
-    = (int *) malloc (index_sorted->letter_number * sizeof (int));
+  formatted_letters = (char **) malloc
+      (index_sorted->letter_number * sizeof (char *));
 
   for (i = 0; i < index_sorted->letter_number; i++)
     {
@@ -12507,8 +12508,29 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                                    index_name, symbol_idx);
         }
       else
-        xasprintf (&letter_id[i], "%s_%s_letter-%s", index_element_id,
-                                   index_name, letter);
+        {
+          char *normalized_letter = letter;
+          ELEMENT *letter_text = new_element (ET_NONE);
+          text_append (&letter_text->text, letter);
+          normalized_letter = normalize_transliterate_texinfo (letter_text,
+                                             (self->conf->TEST.integer > 0));
+          destroy_element (letter_text);
+
+          if (strcmp (letter, normalized_letter))
+            {
+              char *tmp_normalized_letter;
+   /* disambiguate, as it could be another letter, case of @l, for example */
+              normalized_letter_idx++;
+              xasprintf (&tmp_normalized_letter, "%s-%zu", normalized_letter,
+                                                 normalized_letter_idx);
+              free (normalized_letter);
+              normalized_letter = tmp_normalized_letter;
+            }
+
+          xasprintf (&letter_id[i], "%s_%s_letter-%s", index_element_id,
+                                     index_name, normalized_letter);
+          free (normalized_letter);
+        }
     }
 
   html_new_document_context (self, builtin_command_name (cmd), 0, 0);
@@ -12539,6 +12561,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   /* Next do the entries to determine the letters that are not empty */
   for (i = 0; i < index_sorted->letter_number; i++)
     {
+      INDEX_ENTRY *first_entry = 0;
       LETTER_INDEX_ENTRIES *letter_entry = &index_sorted->letter_entries[i];
       char *letter = letter_entry->letter;
       size_t entry_nr = 0;
@@ -12973,6 +12996,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 }
               else
                 {
+                  if (!first_entry)
+                    first_entry = index_entry_ref;
+
                   if (index_entry_ref->entry_associated_element)
                     target_element = index_entry_ref->entry_associated_element;
                   else
@@ -13142,34 +13168,45 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
       if (entries_text.end > 0)
         {
+          char *formatted_letter;
+
+          /* TODO cf perl */
+          {
+            TEXT text_letter;
+            text_init (&text_letter);
+            text_append (&text_letter, "");
+            format_protect_text (self, letter, &text_letter);
+            formatted_letter = text_letter.text;
+          }
+
+          formatted_letters[i] = formatted_letter;
+
           text_append_n (&result_index_entries, "<tr>", 4);
           text_printf (&result_index_entries, "<th id=\"%s\">", letter_id[i]);
-          format_protect_text (self, letter, &result_index_entries);
+          text_append (&result_index_entries, formatted_letter);
           text_append_n (&result_index_entries, "</th></tr>\n", 11);
           text_append (&result_index_entries, entries_text.text);
           text_append_n (&result_index_entries, "<tr><td colspan=\"3\">", 20);
           text_append (&result_index_entries, self->conf->DEFAULT_RULE.string);
           text_append_n (&result_index_entries, "</td></tr>\n", 11);
-          letter_has_entries[i] = 1;
         }
       else
-        letter_has_entries[i] = 0;
+        {
+          formatted_letters[i] = 0;
+        }
     }
 
   add_string (summary_letter_cmd, entry_classes);
   attribute_class = html_attribute_class (self, "a", entry_classes);
   for (i = 0; i < index_sorted->letter_number; i++)
     {
-      if (letter_has_entries[i])
+      if (formatted_letters[i])
         {
-          LETTER_INDEX_ENTRIES *letter_entry = &index_sorted->letter_entries[i];
-          char *letter = letter_entry->letter;
-
           text_reset (&entries_text);
 
           text_append (&entries_text, attribute_class);
           text_printf (&entries_text, " href=\"#%s\"><b>", letter_id[i]);
-          format_protect_text (self, letter, &entries_text);
+          text_append (&entries_text, formatted_letters[i]);
           text_append_n (&entries_text, "</b></a>", 8);
 
           if (letter_is_symbol[i])
@@ -13182,12 +13219,14 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               alpha[alpha_nr] = strdup (entries_text.text);
               alpha_nr++;
             }
+
+          free (formatted_letters[i]);
         }
     }
   free (attribute_class);
 
   free (letter_is_symbol);
-  free (letter_has_entries);
+  free (formatted_letters);
 
   for (i = 0; i < index_sorted->letter_number; i++)
     free (letter_id[i]);

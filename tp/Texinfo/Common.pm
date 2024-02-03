@@ -1505,7 +1505,7 @@ sub is_content_empty($;$)
         return 0;
       }
     }
-    if ($content->{'text'} and $content->{'text'} =~ /\S/) {
+    if (defined($content->{'text'}) and $content->{'text'} =~ /\S/) {
       return 0;
     }
     if (not is_content_empty($content, $do_not_ignore_index_entries)) {
