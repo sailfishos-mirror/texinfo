@@ -702,14 +702,6 @@ In tp/tests/, generate Texinfo file for Texinfo TeX coverage
 From doc/
 texi2pdf -I ../tp/tests/layout/ ../tp/tests/formatting_valid.texi
 
-perl 5.38.0
-PERL_BASE=$HOME/localperl
-export PATH="$PERL_BASE/bin${PATH:+:$PATH}"
-export PERL5LIB="$PERL_BASE/lib/perl5"
-export PERL_MB_OPT='--install_base "$HOME/localperl"'
-export PERL_MM_OPT="INSTALL_BASE=$HOME/localperl"
-
-
 To generate valgrind .supp rules: --gen-suppressions=all --log-file=gen_supp_rules.log
 mkdir -p val_res
 PERL_DESTRUCT_LEVEL=2
