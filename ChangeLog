@@ -1,5 +1,17 @@
 2024-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	Add COLLATION_LANGUAGE for linguistic tailoring of indices sorting
+
+	* tp/Texinfo/options_data.txt (COLLATION_LANGUAGE),
+	tp/Texinfo/Indices.pm (setup_sortable_index_entries), doc/texinfo.texi
+	(Other Customization Variables): add COLLATION_LANGUAGE to set
+	linguistic tailoring for index sorting.  Not set in the default case.
+	Requires Unicode::Collate::Locale to be effective.
+	For a discussion about this customization option, see bug-texinfo, 4
+	Feb 2024.
+
+2024-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%text_brace_no_arg_commands),
 	tp/Texinfo/Convert/NodeNameNormalization.pm,
 	tp/Texinfo/Convert/Text.pm: move %text_brace_no_arg_commands to

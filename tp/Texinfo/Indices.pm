@@ -371,14 +371,6 @@ sub setup_sortable_index_entries($$$$$)
   # http://www.unicode.org/reports/tr10/#Variable_Weighting
   my %collate_options = ( 'variable' => 'Non-Ignorable' );
 
-  # TODO Unicode::Collate has been in perl core long enough, but
-  # Unicode::Collate::Locale is present since perl major version 5.14 only,
-  # released in 2011.  So probably better to use Unicode::Collate until 2031
-  # (and if documentlanguage is not set) and switch to Unicode::Collate::Locale
-  # at this date.
-  #my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage,
-  #                                             %collate_options);
-
   # The Unicode::Collate sorting changes often, based on the UCA version.
   # To test the result with a specific version, the UCA_Version should be set,
   # and, more importantly the table should correspond to that version.
@@ -405,12 +397,27 @@ sub setup_sortable_index_entries($$$$$)
     = $customization_information->get_conf('USE_UNICODE_COLLATION');
 
   my $collator;
-  if (!(defined($use_unicode_collation)
-        and !$use_unicode_collation)) {
-    eval { require Unicode::Collate; Unicode::Collate->import; };
-    my $unicode_collate_loading_error = $@;
-    if ($unicode_collate_loading_error eq '') {
-      $collator = Unicode::Collate->new(%collate_options);
+  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
+    # Unicode::Collate::Locale is present in perl core since perl major
+    # version 5.14 released in 2011.
+    if (defined($customization_information->get_conf('COLLATION_LANGUAGE'))) {
+      eval { require Unicode::Collate::Locale;
+             Unicode::Collate::Locale->import; };
+      my $unicode_collate_locale_loading_error = $@;
+      if ($unicode_collate_locale_loading_error eq '') {
+        my $locale_lang
+          = $customization_information->get_conf('COLLATION_LANGUAGE');
+        $collator = Unicode::Collate::Locale->new('locale' => $locale_lang,
+                                                  %collate_options);
+      }
+    }
+
+    if (!defined($collator)) {
+      eval { require Unicode::Collate; Unicode::Collate->import; };
+      my $unicode_collate_loading_error = $@;
+      if ($unicode_collate_loading_error eq '') {
+        $collator = Unicode::Collate->new(%collate_options);
+      }
     }
   }
   # Fall back to stub if Unicode::Collate not wanted or not available.

@@ -16157,6 +16157,20 @@ character.  The default for Info is set the same as for
 @code{OPEN_DOUBLE_QUOTE_SYMBOL}, except that the Unicode code is a closing
 double quote (see below).
 
+@item COLLATION_LANGUAGE
+By default, @command{texi2any} sorts document indices according to the
+@dfn{Unicode Collation Algorithm} (defined in
+@uref{http://www.unicode.org/reports/tr10/, Unicode Technical Standard #10}),
+without language specific collation tailoring.  If set, use the language
+for linguistic tailoring of indices sorting.
+
+If there is no support for linguistic tailoring because of missing software or
+missing support for the specified language, revert silently to the default.  In
+Perl, the @code{Unicode::Collate::Locale} module is used for linguistic
+tailoring, therefore if this module is not installed the variable will be
+silently ignored.  If @code{USE_UNICODE_COLLATION} is set to @samp{0}
+there is no unicode collation and no linguistic tailoring either.
+
 @item COMMAND_LINE_ENCODING
 Encoding used to decode command-line arguments.  Default is based on the locale
 encoding.  This may affect file names inserted into output files or error

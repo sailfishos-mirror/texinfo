@@ -213,6 +213,7 @@ CHAPTER_HEADER_LEVEL               converter_customization undef   integer
 CHECK_HTMLXREF                     converter_customization undef   integer
 CLOSE_DOUBLE_QUOTE_SYMBOL          converter_customization undef   char
 CLOSE_QUOTE_SYMBOL                 converter_customization undef   char
+COLLATION_LANGUAGE                 converter_customization undef   char
 COMMAND_LINE_ENCODING              converter_customization undef   char
 COMPLEX_FORMAT_IN_TABLE            converter_customization undef   integer
 CONTENTS_OUTPUT_LOCATION           converter_customization undef   char
