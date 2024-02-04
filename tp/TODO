@@ -68,17 +68,24 @@ Delayed bugs
 Add XS override for Document merged_indices?
 
 Sorting indices in C with strxfrm_l using the "en_US.utf-8" locale with
-LC_COLLATE_MASK is quite consistent with perl for number and letters, but
-leads to a different output than with Perl for non alphanumeric characters,
-which is probably somewhat incidental.  There are also differences that seem to
-be related to spaces with a result that looks better in Perl.  It could be the
-effect of 'variable' => 'Non-Ignorable' in Perl, as it allows to have spaces
-and punctuation marks sort before letters.
+LC_COLLATE_MASK on Debian GNU/Linux with glibc is quite consistent with perl
+for number and letters, but leads to a different output than with Perl for non
+alphanumeric characters.  It is because in Perl we set 'variable' => 'Non-Ignorable'
+to set Variable Weighting to Non-ignorable (see
+http://www.unicode.org/reports/tr10/#Variable_Weighting).
+For spaces, the output with Non-Ignorable Variable Weighting looks better for
+index sorting, as it allows to have spaces and punctuation marks sort before
+letters.
+
+In case sorting according to locale would be needed in perl it seems that
+the way to do it is to set
+use locale
+in a block and use regular sorting, it would be as if strcoll/strxfrm was used.
 
 Transliteration/protection with iconv in C leads to a result different of Perl
 for some characters.  It seems that the iconv result depends on the locale, and
 there are quite a bit of ? output, probably when there is no obvious
-transliteration.  In those cases, the Unidecode traansliterations are not
+transliteration.  In those cases, the Unidecode transliterations are not
 necessarily very good, either.
 
 
