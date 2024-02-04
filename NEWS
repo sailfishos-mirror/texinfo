@@ -16,6 +16,7 @@ See the manual for detailed information.
 * texi2any
  . info output: output Info-documentlanguage in Local Variables section
    of output file if @documentlanguage is given
+ . Indices sorting is independent of the input or output encodings.
  . new variable USE_UNICODE_COLLATION to allow turning off the slower
    use of Unicode collation when sorting indices
  . remove SIMPLE_MENU customization option and tree transformation.
@@ -24,7 +25,7 @@ See the manual for detailed information.
  . some unused translation files have been removed for the
    "texinfo_document" domain
  . the us-ascii encoding is not tried anymore when looking for a document
-   output string locale.  Accents @-command can still be used in translations.
+   output string locale.  Accent @-commands can still be used in translations.
  . HTML, Texinfo and raw text output:
    An implementation of the conversion in C has been included.  Set the
     `TEXINFO_XS_CONVERT' environment variable to 1 to use.

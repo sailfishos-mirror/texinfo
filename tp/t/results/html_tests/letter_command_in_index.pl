@@ -469,9 +469,9 @@ $result_floats{'letter_command_in_index'} = {};
 
 $result_indices_sort_strings{'letter_command_in_index'} = {
   'cp' => [
-    'e^',
-    'l',
-    'TH'
+    "\x{ea}",
+    "\x{142}",
+    "\x{de}"
   ]
 };
 

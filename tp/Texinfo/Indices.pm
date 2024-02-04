@@ -197,26 +197,21 @@ sub _collator_sort_index_entries($$$)
 
 sub setup_index_entry_keys_formatting($)
 {
-  my $customization_info = shift;
+  my $customization_information = shift;
 
   my $text_options;
 
-  #$text_options = {};
-  #$text_options->{'enabled_encoding'} = 'utf-8';
-  #$text_options->{'INCLUDE_DIRECTORIES'}
-  #   = $customization_info->get_conf('INCLUDE_DIRECTORIES');
-  #return $text_options;
-
   my $additional_options = {};
 
-  if (not $customization_info->get_conf('ENABLE_ENCODING')
-      or lc($customization_info->get_conf('OUTPUT_ENCODING_NAME')) ne 'utf-8') {
+  if (not $customization_information->get_conf('ENABLE_ENCODING')
+      or lc($customization_information->get_conf('OUTPUT_ENCODING_NAME'))
+           ne 'utf-8') {
     $additional_options->{'sort_string'} = 1;
   }
 
   $text_options
-    = Texinfo::Convert::Text::copy_options_for_convert_text($customization_info,
-                                                           $additional_options);
+    = Texinfo::Convert::Text::copy_options_for_convert_text(
+                             $customization_information, $additional_options);
   return $text_options;
 }
 
@@ -359,6 +354,13 @@ sub setup_sortable_index_entries($$$$$)
   my $indices_information = shift;
   my $preset_keys = shift;
 
+  # convert index entries to sort string using unicode when possible
+  # independently of input and output encodings
+  my $convert_text_options = {};
+  $convert_text_options->{'enabled_encoding'} = 'utf-8';
+  $convert_text_options->{'INCLUDE_DIRECTORIES'}
+     = $customization_information->get_conf('INCLUDE_DIRECTORIES');
+
   # The 'Non-Ignorable' for variable collation elements means that they are
   # treated as normal characters.   This allows to have spaces and punctuation
   # marks sort before letters.
@@ -417,8 +419,6 @@ sub setup_sortable_index_entries($$$$$)
   return $index_sortable_index_entries, $collator, $index_entries_sort_strings
     unless ($index_entries);
 
-  my $convert_text_options
-    = setup_index_entry_keys_formatting($customization_information);
   $index_sortable_index_entries = {};
   foreach my $index_name (keys(%$index_entries)) {
     my $sortable_index_entries = [];

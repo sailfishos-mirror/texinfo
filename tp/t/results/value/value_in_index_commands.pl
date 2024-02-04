@@ -1175,7 +1175,7 @@ $result_floats{'value_in_index_commands'} = {};
 
 $result_indices_sort_strings{'value_in_index_commands'} = {
   'codeidx' => [
-    'a index entry te\' i^'
+    "a index entry t\x{e9} \x{ee}"
   ],
   'ky' => [
     'truc kindex'

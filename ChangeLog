@@ -1,3 +1,17 @@
+2024-02-04  Patrice Dumas  <pertusus@free.fr>
+
+	Make indices sorting independent of the output encodings
+
+	* NEWS, tp/Texinfo/Indices.pm (setup_sortable_index_entries),
+	tp/Texinfo/XS/main/manipulate_indices.c
+	(setup_sortable_index_entries): do not use
+	setup_index_entry_keys_formatting to setup the conversion to text of
+	sort strings.  Instead setup the conversion to always use unicode if
+	possible and never pass a converter.
+
+	* tp/Texinfo/Indices.pm (setup_index_entry_keys_formatting): rename
+	$customization_info as $customization_information.
+
 2024-02-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command),

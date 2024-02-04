@@ -305,8 +305,13 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
                       locale_t *collation_locale)
 {
   size_t i;
-  TEXT_OPTIONS *convert_text_options
-    = setup_index_entry_keys_formatting (options);
+
+  /* convert index entries to sort string using unicode when possible
+     independently of input and output encodings */
+  TEXT_OPTIONS *convert_text_options = new_text_options ();
+  convert_text_options->encoding = strdup ("utf-8");
+  copy_strings (&convert_text_options->include_directories,
+                options->INCLUDE_DIRECTORIES.strlist);
 
   /* similar to using Unicode::Collate in Perl */
   *collation_locale = 0;

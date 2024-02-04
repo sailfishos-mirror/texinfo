@@ -3565,7 +3565,7 @@ $result_floats{'test_index'} = {};
 
 $result_indices_sort_strings{'test_index'} = {
   'cp' => [
-    '!',
+    "\x{a1}",
     '"',
     '@',
     'in Top',

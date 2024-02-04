@@ -1281,13 +1281,13 @@ $result_indices_sort_strings{'indices'} = {
   'cp' => [
     '\\cmd',
     '\\some\\command for file',
-    'a!"@b "!@ a" o", a!"@b',
-    'a" o"',
+    "\x{e4} \x{f6}",
+    "a!\"\@b \"!\@ \x{e4} \x{f6}, a!\"\@b",
     'AA',
     'aa',
     'cmd',
     'i',
-    'i^',
+    "\x{ee}",
     'Z'
   ],
   'fn' => [
