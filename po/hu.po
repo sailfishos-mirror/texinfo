@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.x\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-01-06 18:10+0100\n"
+"POT-Creation-Date: 2024-02-04 13:37+0100\n"
 "PO-Revision-Date: 2006-02-18 16:00+0100\n"
 "Last-Translator: Máté LABÁDI <labadimate@freemail.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -148,8 +148,8 @@ msgstr "Pár nélküli }"
 msgid "No previous regular expression"
 msgstr "Nincs korábbi keresési feltétel"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr ""
 
@@ -415,7 +415,7 @@ msgstr "Nincs %stárgymutató-bejegyzés, ami „%s!H-t tartalmazná."
 msgid "No available info files have '%s' in their indices"
 msgstr "Nincs elérhető fájl, amely tárgymutatója tartalmazná  „%s“-t."
 
-#: info/info.c:291 info/session.c:2792
+#: info/info.c:291 info/session.c:2811
 #, fuzzy, c-format
 #| msgid "No menu item `%s' in node `%s'."
 msgid "No menu item '%s' in node '%s'"
@@ -459,7 +459,7 @@ msgid "Try --help for more information.\n"
 msgstr "A --help több információt ad.\n"
 
 #: info/info.c:872 install-info/install-info.c:2261
-#: Pod-Simple-Texinfo/pod2texi.pl:177 tp/texi2any.pl:924
+#: Pod-Simple-Texinfo/pod2texi.pl:177 tp/texi2any.pl:941
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -568,7 +568,7 @@ msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
 #: info/info.c:1162 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:154 tp/texi2any.pl:911
+#: Pod-Simple-Texinfo/pod2texi.pl:154 tp/texi2any.pl:927
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -964,43 +964,43 @@ msgstr "Dokumentáció nyomtatása KEY-hez"
 msgid "Describe key: %s"
 msgstr "Leíró billentyű: %s"
 
-#: info/infodoc.c:471 info/infodoc.c:507
+#: info/infodoc.c:472 info/infodoc.c:508
 #, fuzzy, c-format
 #| msgid "%s is undefined."
 msgid "%s is undefined"
 msgstr "%s nincs definiálva."
 
 # esetleg egy jobb forditas ide ? LM
-#: info/infodoc.c:801
+#: info/infodoc.c:802
 msgid "Show what to type to execute a given command"
 msgstr "Egy adott parancs futtatásához szükséges utasítás megjelenítése"
 
-#: info/infodoc.c:805
+#: info/infodoc.c:806
 msgid "Where is command: "
 msgstr "Hol van a parancs: "
 
 # key = kulcs
 # key = billentyű ? LM
 # sztem itt billentyű - sas
-#: info/infodoc.c:827
+#: info/infodoc.c:828
 #, fuzzy, c-format
 #| msgid "`%s' is not on any keys"
 msgid "'%s' is not on any keys"
 msgstr "„%s“ egy billyentyűn sincs"
 
-#: info/infodoc.c:833
+#: info/infodoc.c:834
 #, fuzzy, c-format
 #| msgid "%s can only be invoked via %s."
 msgid "%s can only be invoked via %s"
 msgstr "%s csak %s-n át hívható meg."
 
-#: info/infodoc.c:837
+#: info/infodoc.c:838
 #, fuzzy, c-format
 #| msgid "%s can be invoked via %s."
 msgid "%s can be invoked via %s"
 msgstr "%s meghívható %s-n keresztül."
 
-#: info/infodoc.c:842
+#: info/infodoc.c:843
 #, fuzzy, c-format
 #| msgid "There is no function named `%s'"
 msgid "There is no function named '%s'"
@@ -1415,23 +1415,23 @@ msgstr ""
 msgid "Move to the start of this node's menu"
 msgstr "Ugrás az oldalhoz tartozó menü elejére"
 
-#: info/session.c:2512
+#: info/session.c:2528
 msgid "Visit as many menu items at once as possible"
 msgstr "A lehető legtöbb menüelem meglátogatása egyszerre"
 
-#: info/session.c:2612
+#: info/session.c:2631
 msgid "Move to the previous cross reference"
 msgstr "Ugrás az előző kereszthivatkozásra"
 
-#: info/session.c:2675
+#: info/session.c:2694
 msgid "Move to the next cross reference"
 msgstr "Ugrás a következő kereszthivatkozásra"
 
-#: info/session.c:2736
+#: info/session.c:2755
 msgid "Select reference or menu item appearing on this line"
 msgstr "A sorban megjelenő hivatkozás vagy menüelem kiválasztása"
 
-#: info/session.c:2770
+#: info/session.c:2789
 #, fuzzy, c-format
 #| msgid "No menu in node `%s'."
 msgid "No menu in node '%s'"
@@ -1439,150 +1439,150 @@ msgstr "Nincs menü a(z) „%s“ oldalon."
 
 # található / találom ? LM
 # lelem, találom, nincs - sas
-#: info/session.c:2817
+#: info/session.c:2836
 #, fuzzy, c-format
 #| msgid "Unable to find node referenced by `%s' in `%s'."
 msgid "Unable to find node referenced by '%s' in '%s'"
 msgstr "Nincs a(z) „%s“ által hivatkozott oldal ebben: „%s“."
 
 # FORDITANI
-#: info/session.c:2873
+#: info/session.c:2892
 msgid "Read a list of menus starting from dir and follow them"
 msgstr ""
 
-#: info/session.c:2875
+#: info/session.c:2894
 msgid "Follow menus: "
 msgstr "Menük követése: "
 
-#: info/session.c:2977
+#: info/session.c:2996
 msgid "Select the Next node"
 msgstr "Következő oldal kiválasztása"
 
-#: info/session.c:2984
+#: info/session.c:3003
 msgid "Select the Prev node"
 msgstr "Előző oldal kiválasztása"
 
-#: info/session.c:2991
+#: info/session.c:3010
 msgid "Select the Up node"
 msgstr "Szülő oldal kiválasztása"
 
-#: info/session.c:2997
+#: info/session.c:3016
 msgid "Select the last node in this file"
 msgstr "A fájl utolsó oldala kiválasztása"
 
-#: info/session.c:3024 info/session.c:3057
+#: info/session.c:3043 info/session.c:3076
 msgid "This window has no additional nodes"
 msgstr "Jelen ablaknak nincsenek további oldalai"
 
-#: info/session.c:3030
+#: info/session.c:3049
 msgid "Select the first node in this file"
 msgstr "A fájl első oldala kiválasztása"
 
 # node=oldal ? LM
-#: info/session.c:3164
+#: info/session.c:3183
 #, fuzzy
 #| msgid "No more nodes within this document."
 msgid "No more nodes within this document"
 msgstr "Nincs több oldal e dokumentumban."
 
 # ATNEZNI LM
-#: info/session.c:3208 info/session.c:3255
+#: info/session.c:3227 info/session.c:3274
 #, fuzzy
 #| msgid "No `Prev' or `Up' for this node within this document."
 msgid "No 'Prev' or 'Up' for this node within this document"
 msgstr "Nincs Előző vagy Fel lehetőség e ponthoz e dokumentumban."
 
-#: info/session.c:3268
+#: info/session.c:3287
 msgid "Move forwards or down through node structure"
 msgstr "Mozgás előre vagy le az oldal szerkeztében"
 
-#: info/session.c:3285
+#: info/session.c:3304
 msgid "Move backwards or up through node structure"
 msgstr "Mozgás hátra vagy fel az oldal szerkezetében"
 
-#: info/session.c:3308
+#: info/session.c:3327
 msgid "Read a node name and select it"
 msgstr "Egy oldalnév elolvasása és kiválasztása"
 
-#: info/session.c:3362 info/session.c:3366
+#: info/session.c:3381 info/session.c:3385
 msgid "Goto node: "
 msgstr "Ugrás az oldalra: "
 
 # FORDITANI
-#: info/session.c:3545
+#: info/session.c:3564
 msgid "Find the node describing program invocation"
 msgstr ""
 
 # FORDITANI
-#: info/session.c:3547
+#: info/session.c:3566
 #, c-format
 msgid "Find Invocation node of [%s]: "
 msgstr ""
 
-#: info/session.c:3593
+#: info/session.c:3612
 msgid "Read a manpage reference and select it"
 msgstr "Egy kéziköny oldal hivatkozás olvasása és kiválasztása"
 
 # Kézikönyv ? LM
 # Manpage = kézikönyv oldal. Adott esetben egyszerűen manlapként vagy manoldalként is hivatkozhatunk rájuk, mivel kissé elavultak. A GNU rendszer alapértelemzett dokumentációformátuma az Info. Ezért is olyan fontos a fordítás, amit készítesz :-) (és amibe ey icipicit besegítek ...) - sas
-#: info/session.c:3597
+#: info/session.c:3616
 msgid "Get Manpage: "
 msgstr "Kézikönyv oldal: "
 
-#: info/session.c:3618
+#: info/session.c:3637
 #, fuzzy
 #| msgid "Select the node `Top' in this file"
 msgid "Select the node 'Top' in this file"
 msgstr "Legfelső oldal kiválasztása e fájban"
 
-#: info/session.c:3624
+#: info/session.c:3643
 #, fuzzy
 #| msgid "Select the node `(dir)'"
 msgid "Select the node '(dir)'"
 msgstr "A „(dir)“ oldal kiválasztása"
 
-#: info/session.c:3630
+#: info/session.c:3649
 msgid "Show full file name of node being displayed"
 msgstr ""
 
-#: info/session.c:3647
+#: info/session.c:3666
 msgid "Select the most recently selected node"
 msgstr "A legutóbb választott oldal kiválasztása"
 
-#: info/session.c:3652
+#: info/session.c:3671
 #, c-format
 msgid "No earlier node in history"
 msgstr ""
 
-#: info/session.c:3656
+#: info/session.c:3675
 msgid "Read the name of a file and select it"
 msgstr "Fájlnév beolvasása és kiválasztása"
 
-#: info/session.c:3660
+#: info/session.c:3679
 msgid "Find file: "
 msgstr "Fájl keresése: "
 
 # található / találom
 # a mondatszerkezet miatt itt jó a nem található - sas
-#: info/session.c:3677
+#: info/session.c:3696
 #, fuzzy, c-format
 #| msgid "Cannot find `%s'."
 msgid "Cannot find '%s'"
 msgstr "„%s“ nem található."
 
-#: info/session.c:3758
+#: info/session.c:3777
 #, fuzzy, c-format
 #| msgid "Could not create output file `%s'."
 msgid "Could not create output file '%s'"
 msgstr "A kimeneti fájl („%s“) nem hozható létre."
 
-#: info/session.c:3784
+#: info/session.c:3803
 #, fuzzy, c-format
 #| msgid "error writing to `%s'"
 msgid "error writing to %s: %s"
 msgstr "hiba „%s“ írásakor."
 
-#: info/session.c:3793
+#: info/session.c:3812
 #, fuzzy, c-format
 #| msgid "Removing %s\n"
 msgid "closing %s"
@@ -1590,7 +1590,7 @@ msgstr "Törlés: %s\n"
 
 # írás / mentés ? LM
 # írás - sas
-#: info/session.c:3833
+#: info/session.c:3852
 #, fuzzy, c-format
 #| msgid "Writing node %s..."
 msgid "writing node %s..."
@@ -1598,49 +1598,49 @@ msgstr "„%s“ oldal írása..."
 
 # pipe/cső ? LM
 # elolvasva, nekem a cső tetszik - sas
-#: info/session.c:3879
+#: info/session.c:3898
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "Ezen oldal tartalmának csőbe irányítása INFO_PRINT_COMMAND -al"
 
 # pipe / cső ? LM
 # semmiképen nem pipe - sas
-#: info/session.c:3907
+#: info/session.c:3926
 #, fuzzy, c-format
 #| msgid "Cannot open pipe to `%s'."
 msgid "Cannot open pipe to '%s'"
 msgstr "Nem hozható létre cső ehhez:  „%s“."
 
-#: info/session.c:3912
+#: info/session.c:3931
 #, fuzzy, c-format
 #| msgid "Printing node %s..."
 msgid "printing node %s..."
 msgstr "%s oldal nyomtatása..."
 
-#: info/session.c:3920
+#: info/session.c:3939
 #, fuzzy, c-format
 #| msgid "Printing node %s..."
 msgid "finished printing node %s"
 msgstr "%s oldal nyomtatása..."
 
-#: info/session.c:3952
+#: info/session.c:3971
 msgid "Toggle the usage of regular expressions in searches"
 msgstr ""
 
-#: info/session.c:3956
+#: info/session.c:3975
 #, c-format
 msgid "Using regular expressions for searches"
 msgstr ""
 
-#: info/session.c:3957
+#: info/session.c:3976
 #, c-format
 msgid "Using literal strings for searches"
 msgstr ""
 
-#: info/session.c:4160
+#: info/session.c:4179
 msgid "Search continued from the end of the document"
 msgstr ""
 
-#: info/session.c:4165
+#: info/session.c:4184
 #, fuzzy
 #| msgid "Kill to the beginning of the line"
 msgid "Search continued from the beginning of the document"
@@ -1648,205 +1648,205 @@ msgstr "Törlés a sor elejéig"
 
 # alállomány ? LM
 # passz - sas
-#: info/session.c:4182
+#: info/session.c:4201
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "„%s“ alállomány keresése..."
 
-#: info/session.c:4223 info/session.c:4489 info/session.c:4602
+#: info/session.c:4242 info/session.c:4508 info/session.c:4621
 #, fuzzy, c-format
 #| msgid "Search failed."
 msgid "Search failed"
 msgstr "A keresés sikertelen volt."
 
 # FORDITANI
-#: info/session.c:4240
+#: info/session.c:4259
 #, fuzzy, c-format
 #| msgid "%s%sfor string [%s]: "
 msgid "%s%s%s [%s]: "
 msgstr "%s%sa sztringhez [%s]: "
 
-#: info/session.c:4241 info/session.c:4247
+#: info/session.c:4260 info/session.c:4266
 msgid "Regexp search"
 msgstr ""
 
-#: info/session.c:4241 info/session.c:4247
+#: info/session.c:4260 info/session.c:4266
 msgid "Search"
 msgstr "Keresés"
 
 # érzékenyen / érzékenység
-#: info/session.c:4242 info/session.c:4248
+#: info/session.c:4261 info/session.c:4267
 #, fuzzy
 #| msgid " case-sensitively "
 msgid " case-sensitively"
 msgstr "kis/nagybetű érzékenyen"
 
-#: info/session.c:4243 info/session.c:4249
+#: info/session.c:4262 info/session.c:4268
 #, fuzzy
 #| msgid "Search backward"
 msgid " backward"
 msgstr "Keresés felfelé"
 
-#: info/session.c:4246
+#: info/session.c:4265
 #, c-format
 msgid "%s%s%s: "
 msgstr ""
 
-#: info/session.c:4266
+#: info/session.c:4285
 msgid "Search string too short"
 msgstr ""
 
-#: info/session.c:4460
+#: info/session.c:4479
 #, c-format
 msgid "Going back to last match from %s"
 msgstr ""
 
-#: info/session.c:4489 info/session.c:4602
+#: info/session.c:4508 info/session.c:4621
 #, c-format
 msgid "No more matches"
 msgstr ""
 
-#: info/session.c:4629
+#: info/session.c:4648
 msgid "Search this node and subnodes for a string"
 msgstr ""
 
 # alállomány ? LM
 # passz - sas
 #. TRANSLATORS: %s is the title of a node.
-#: info/session.c:4636
+#: info/session.c:4655
 #, fuzzy, c-format
 #| msgid "Searching subfile %s ..."
 msgid "Search under %s: "
 msgstr "„%s“ alállomány keresése..."
 
-#: info/session.c:4651
+#: info/session.c:4670
 msgid "Go to next match in Info sub-tree"
 msgstr ""
 
-#: info/session.c:4655 info/session.c:4667
+#: info/session.c:4674 info/session.c:4686
 #, c-format
 msgid "No active search"
 msgstr ""
 
-#: info/session.c:4663
+#: info/session.c:4682
 msgid "Go to previous match in Info sub-tree"
 msgstr ""
 
-#: info/session.c:4676
+#: info/session.c:4695
 msgid "Read a string and search for it case-sensitively"
 msgstr "Szöveg beolvasása és keresése kis/nagybetű érzékenyen"
 
-#: info/session.c:4681
+#: info/session.c:4700
 msgid "Read a string and search for it"
 msgstr "Szöveg beolvasása és keresése "
 
-#: info/session.c:4687
+#: info/session.c:4706
 msgid "Read a string and search backward for it"
 msgstr "Szöveg beolvasása és keresése fel"
 
-#: info/session.c:4695
+#: info/session.c:4714
 msgid "Repeat last search in the same direction"
 msgstr "Utolsó keresés ismétlése azonos irányba"
 
 # keresési feltétel / keresési szöveg / keresett szöveg ? LM
-#: info/session.c:4709 info/session.c:4760
+#: info/session.c:4728 info/session.c:4779
 msgid "No previous search string"
 msgstr "Nincs korábbi keresési feltétel"
 
-#: info/session.c:4746
+#: info/session.c:4765
 msgid "Repeat last search in the reverse direction"
 msgstr "Utolsó keresés ismétlése ellenirányban"
 
-#: info/session.c:4799
+#: info/session.c:4818
 msgid "Clear displayed search matches"
 msgstr ""
 
 # JAVITANI ?
-#: info/session.c:4815 info/session.c:4821
+#: info/session.c:4834 info/session.c:4840
 msgid "Search interactively for a string as you type it"
 msgstr "Egy szöveg interaktív keresése gépeléskor"
 
-#: info/session.c:4941
+#: info/session.c:4960
 #, fuzzy
 #| msgid "I-search backward: "
 msgid "Regexp I-search backward: "
 msgstr "I.-keresés fel: "
 
-#: info/session.c:4942
+#: info/session.c:4961
 msgid "I-search backward: "
 msgstr "I.-keresés fel: "
 
-#: info/session.c:4944
+#: info/session.c:4963
 #, fuzzy
 #| msgid "I-search: "
 msgid "Regexp I-search: "
 msgstr "I.-keresés: "
 
-#: info/session.c:4945
+#: info/session.c:4964
 msgid "I-search: "
 msgstr "I.-keresés: "
 
 # checkit
 # FORDITANI
-#: info/session.c:4970 info/session.c:4973
+#: info/session.c:4989 info/session.c:4992
 msgid "Failing "
 msgstr "Sikertelen"
 
-#: info/session.c:5338
+#: info/session.c:5357
 msgid "Cancel current operation"
 msgstr "Jelen művelet törlése"
 
-#: info/session.c:5345
+#: info/session.c:5364
 msgid "Quit"
 msgstr "Kilépés"
 
-#: info/session.c:5350
+#: info/session.c:5369
 #, fuzzy
 #| msgid "display version information and exit"
 msgid "Display version of Info being run"
 msgstr "kiírja a verzióinformációt és kilép"
 
-#: info/session.c:5352
+#: info/session.c:5371
 #, c-format
 msgid "GNU Info version %s"
 msgstr ""
 
-#: info/session.c:5357
+#: info/session.c:5376
 msgid "Redraw the display"
 msgstr "Képernyő frissítése"
 
 # rövidebb forma? Kilépés az Info-ból ? LM
 # általában NAON.! fontos a RÖV.SÉG, de itt kivételesen szerintem maradhat ez - sas
-#: info/session.c:5394
+#: info/session.c:5413
 msgid "Quit using Info"
 msgstr "Az Info használatának befejezése"
 
-#: info/session.c:5410
+#: info/session.c:5429
 msgid "Run command bound to this key's lowercase variant"
 msgstr "E karakter kisbetűs változatához rendelt parancs futtatása"
 
-#: info/session.c:5421
+#: info/session.c:5440
 #, fuzzy, c-format
 #| msgid "Unknown command (%s)."
 msgid "Unknown command (%s)"
 msgstr "Ismeretlen parancs (%s)."
 
-#: info/session.c:5424
+#: info/session.c:5443
 #, c-format
 msgid "\"%s\" is invalid"
 msgstr "\"%s\" érvénytelen"
 
-#: info/session.c:5425
+#: info/session.c:5444
 #, fuzzy, c-format
 #| msgid "`%s' is invalid"
 msgid "'%s' is invalid"
 msgstr "„%s“ érvénytelen"
 
-#: info/session.c:5743
+#: info/session.c:5762
 msgid "Add this digit to the current numeric argument"
 msgstr "Add hozzá ezt a számjegyet az aktuális numerikus argumentumhoz"
 
-#: info/session.c:5750
+#: info/session.c:5769
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "Start (vagy szorozd be 4-gyel) az aktuális numerikus argumentumot"
 
@@ -2297,7 +2297,7 @@ msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 msgid "%s: missing file argument\n"
 msgstr "%s: hiányzó fájl argumentum.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:226 tp/texi2any.pl:1394
+#: Pod-Simple-Texinfo/pod2texi.pl:226 tp/texi2any.pl:1412
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "További információért próbálja meg a „%s --help“-t.\n"
@@ -2313,61 +2313,61 @@ msgstr "%s: figyelem: "
 msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:439 Pod-Simple-Texinfo/pod2texi.pl:526
-#: tp/texi2any.pl:1753 tp/texi2any.pl:1829
+#: Pod-Simple-Texinfo/pod2texi.pl:438 Pod-Simple-Texinfo/pod2texi.pl:525
+#: tp/texi2any.pl:1783 tp/texi2any.pl:1862
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:476
+#: Pod-Simple-Texinfo/pod2texi.pl:475
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "%s: could not open %s: %s\n"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:489 Pod-Simple-Texinfo/pod2texi.pl:575
-#: tp/texi2any.pl:1717 tp/texi2any.pl:1854
+#: Pod-Simple-Texinfo/pod2texi.pl:488 Pod-Simple-Texinfo/pod2texi.pl:574
+#: tp/texi2any.pl:1746 tp/texi2any.pl:1888
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:495
+#: Pod-Simple-Texinfo/pod2texi.pl:494
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:512
+#: Pod-Simple-Texinfo/pod2texi.pl:511
 #, fuzzy, perl-format
 #| msgid "%s: already have dir file: %s\n"
 msgid "%s: rename %s failed: %s\n"
 msgstr "%s: már van dir fájl: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:581
+#: Pod-Simple-Texinfo/pod2texi.pl:580
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error on closing stdout: %s\n"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Common.pm:753
+#: tp/Texinfo/Common.pm:782
 #, perl-format
 msgid "unrecognized encoding name `%s'"
 msgstr "ismeretlen kódolási név: „%s“"
 
-#: tp/Texinfo/Common.pm:778 tp/Texinfo/XS/parsetexi/end_line.c:1428
-#: tp/Texinfo/XS/parsetexi/end_line.c:1438
+#: tp/Texinfo/Common.pm:807 tp/Texinfo/XS/parsetexi/end_line.c:1449
+#: tp/Texinfo/XS/parsetexi/end_line.c:1459
 #, fuzzy, c-format, perl-format
 #| msgid "%s is not a valid ISO 639 language code"
 msgid "%s is not a valid language code"
 msgstr "%s nem egy ISO 639 szabvány szerinti nyelvkód"
 
-#: tp/Texinfo/Common.pm:783 tp/Texinfo/XS/parsetexi/end_line.c:1455
+#: tp/Texinfo/Common.pm:812 tp/Texinfo/XS/parsetexi/end_line.c:1476
 #, fuzzy, c-format, perl-format
 #| msgid "%s is not a valid ISO 639 language code"
 msgid "%s is not a valid region code"
 msgstr "%s nem egy ISO 639 szabvány szerinti nyelvkód"
 
-#: tp/Texinfo/Config.pm:121 tp/texi2any.pl:421
+#: tp/Texinfo/Config.pm:121 tp/texi2any.pl:438
 #, fuzzy, perl-format
 #| msgid "%s: warning: "
 msgctxt "program name: warning: warning_message"
@@ -2437,105 +2437,103 @@ msgstr "ismeretlen művelet: „%s“."
 msgid "%s: unknown special element information type %s\n"
 msgstr ""
 
-#: tp/Texinfo/DebugTree.pm:78 tp/Texinfo/Convert/Converter.pm:436
-#: tp/Texinfo/Convert/Converter.pm:487 tp/Texinfo/Convert/DocBook.pm:357
-#: tp/Texinfo/Convert/HTML.pm:11550 tp/Texinfo/Convert/HTML.pm:12227
-#: tp/Texinfo/Convert/HTML.pm:12675 tp/Texinfo/Convert/IXIN.pm:343
-#: tp/Texinfo/Convert/Info.pm:337 tp/Texinfo/Convert/LaTeX.pm:1080
-#: tp/Texinfo/Convert/Text.pm:976 tp/Texinfo/Convert/TexinfoMarkup.pm:313
-#: tp/Texinfo/XS/convert/convert_html.c:17991
-#, fuzzy, c-format, perl-format
-#| msgid "%s: could not open --css-file: %s"
-msgid "could not open %s for writing: %s"
-msgstr "%s: A CSS fájl nem nyitható meg: %s"
-
-#: tp/Texinfo/DebugTree.pm:90 tp/Texinfo/Convert/Converter.pm:464
-#: tp/Texinfo/Convert/Converter.pm:505 tp/Texinfo/Convert/DocBook.pm:522
-#: tp/Texinfo/Convert/HTML.pm:11545 tp/Texinfo/Convert/HTML.pm:12247
-#: tp/Texinfo/Convert/IXIN.pm:986 tp/Texinfo/Convert/Info.pm:180
-#: tp/Texinfo/Convert/Info.pm:207 tp/Texinfo/Convert/Info.pm:236
-#: tp/Texinfo/Convert/Info.pm:311 tp/Texinfo/Convert/LaTeX.pm:1149
-#: tp/Texinfo/Convert/TexinfoMarkup.pm:340 tp/Texinfo/ParserNonXS.pm:2483
-#: tp/Texinfo/XS/parsetexi/input.c:399
-#: tp/Texinfo/XS/convert/convert_html.c:18051
-#, fuzzy, c-format, perl-format
-#| msgid "error closing output file `%s'"
-msgid "error on closing %s: %s"
-msgstr "hiba a(z) „%s“ output fájl bezárásakor"
-
-#: tp/Texinfo/Document.pm:218
+#: tp/Texinfo/Document.pm:228
 #, fuzzy, perl-format
 #| msgid "macro `%s' previously defined"
 msgid "@%s `%s' previously defined"
 msgstr "a(z) „%s“ makró már korábban definiált lett"
 
-#: tp/Texinfo/Document.pm:224
+#: tp/Texinfo/Document.pm:234
 #, fuzzy, perl-format
 #| msgid "here is the previous definition of `%s'"
 msgid "here is the previous definition as @%s"
 msgstr "„%s“ korábbi definíciója"
 
-#: tp/Texinfo/Convert/Converter.pm:368
+#: tp/Texinfo/Convert/Converter.pm:379
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1194 tp/Texinfo/Convert/Text.pm:940
-#: tp/Texinfo/Convert/Text.pm:959
+#: tp/Texinfo/Convert/Converter.pm:451 tp/Texinfo/Convert/Converter.pm:506
+#: tp/Texinfo/Convert/Converter.pm:588 tp/Texinfo/Convert/HTML.pm:11513
+#: tp/Texinfo/Convert/HTML.pm:12433 tp/Texinfo/Convert/HTML.pm:12886
+#: tp/Texinfo/Convert/IXIN.pm:355 tp/Texinfo/Convert/Info.pm:385
+#: tp/Texinfo/Convert/LaTeX.pm:1102 tp/Texinfo/Convert/Text.pm:1039
+#: tp/Texinfo/XS/convert/convert_html.c:18343
+#, fuzzy, c-format, perl-format
+#| msgid "%s: could not open --css-file: %s"
+msgid "could not open %s for writing: %s"
+msgstr "%s: A CSS fájl nem nyitható meg: %s"
+
+#: tp/Texinfo/Convert/Converter.pm:480 tp/Texinfo/Convert/Converter.pm:525
+#: tp/Texinfo/Convert/Converter.pm:611 tp/Texinfo/Convert/HTML.pm:11508
+#: tp/Texinfo/Convert/HTML.pm:12453 tp/Texinfo/Convert/IXIN.pm:1028
+#: tp/Texinfo/Convert/Info.pm:197 tp/Texinfo/Convert/Info.pm:226
+#: tp/Texinfo/Convert/Info.pm:281 tp/Texinfo/Convert/Info.pm:358
+#: tp/Texinfo/Convert/LaTeX.pm:1171 tp/Texinfo/ParserNonXS.pm:2482
+#: tp/Texinfo/XS/parsetexi/input.c:399
+#: tp/Texinfo/XS/convert/convert_html.c:18403
+#, fuzzy, c-format, perl-format
+#| msgid "error closing output file `%s'"
+msgid "error on closing %s: %s"
+msgstr "hiba a(z) „%s“ output fájl bezárásakor"
+
+#: tp/Texinfo/Convert/Converter.pm:1341 tp/Texinfo/Convert/Text.pm:1003
+#: tp/Texinfo/Convert/Text.pm:1022
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1368
+#: tp/Texinfo/Convert/Converter.pm:1523
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/Converter.pm:1377
+#: tp/Texinfo/Convert/Converter.pm:1532
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"
 
-#: tp/Texinfo/Convert/DocBook.pm:1305
+#: tp/Texinfo/Convert/DocBook.pm:1328
 #, fuzzy, perl-format
 #| msgid "@image file `%s' unreadable: %s"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"
 
-#: tp/Texinfo/Convert/DocBook.pm:1440 tp/Texinfo/ParserNonXS.pm:6322
+#: tp/Texinfo/Convert/DocBook.pm:1478 tp/Texinfo/ParserNonXS.pm:6328
 #: tp/Texinfo/XS/parsetexi/separator.c:482
 #, fuzzy
 #| msgid "No node name specified for `%c%s' command"
 msgid "no argument specified for @U"
 msgstr "A(z) „%c%s“ parancshoz nem lett oldalnév rendelve"
 
-#: tp/Texinfo/Convert/HTML.pm:3761 tp/ext/epub3.pm:273
-#: tp/Texinfo/XS/convert/convert_html.c:9140
+#: tp/Texinfo/Convert/HTML.pm:3799 tp/ext/epub3.pm:274
+#: tp/Texinfo/XS/convert/convert_html.c:9139
 #, fuzzy, c-format, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image a(z) „%s“ fájl (HTML) nem olvasható: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:4973 tp/Texinfo/XS/convert/convert_html.c:10029
+#: tp/Texinfo/Convert/HTML.pm:5023 tp/Texinfo/XS/convert/convert_html.c:10260
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6499 tp/Texinfo/XS/convert/convert_html.c:12809
+#: tp/Texinfo/Convert/HTML.pm:6584 tp/Texinfo/XS/convert/convert_html.c:13067
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "A(z) „%s“ tárgymutató bejegyzése az oldalakon kívülre esik"
 
-#: tp/Texinfo/Convert/HTML.pm:6530 tp/Texinfo/XS/convert/convert_html.c:12849
+#: tp/Texinfo/Convert/HTML.pm:6615 tp/Texinfo/XS/convert/convert_html.c:13107
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "A(z) „%s“ tárgymutató bejegyzése az oldalakon kívülre esik"
 
-#: tp/Texinfo/Convert/HTML.pm:8288
+#: tp/Texinfo/Convert/HTML.pm:8430
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open html refs config file %s: %s"
@@ -2543,185 +2541,186 @@ msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
 # action=művelet ? LM
 # általában az - sas
-#: tp/Texinfo/Convert/HTML.pm:8316
+#: tp/Texinfo/Convert/HTML.pm:8458
 #, fuzzy
 #| msgid "missing action name"
 msgid "missing type"
 msgstr "hiányzó műveletnév"
 
-#: tp/Texinfo/Convert/HTML.pm:8320
+#: tp/Texinfo/Convert/HTML.pm:8462
 #, fuzzy, perl-format
 #| msgid "%s: unrecognized option `--%s'\n"
 msgid "unrecognized type: %s"
 msgstr "%s: ismeretlen opció „--%s“\n"
 
-#: tp/Texinfo/Convert/HTML.pm:8342
+#: tp/Texinfo/Convert/HTML.pm:8484
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing html refs config file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/HTML.pm:8366
+#: tp/Texinfo/Convert/HTML.pm:8508
 #, perl-format
 msgid "could not find html refs config file %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8888
+#: tp/Texinfo/Convert/HTML.pm:8831
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
 # action=művelet ? LM
 # általában az - sas
-#: tp/Texinfo/Convert/HTML.pm:8904
+#: tp/Texinfo/Convert/HTML.pm:8847
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "ismeretlen művelet: „%s“."
 
-#: tp/Texinfo/Convert/HTML.pm:9233
+#: tp/Texinfo/Convert/HTML.pm:9180
 msgid "string not closed in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9235
+#: tp/Texinfo/Convert/HTML.pm:9182
 #, fuzzy
 #| msgid "%s:%d: --css-file ended in comment"
 msgid "--css-include ended in comment"
 msgstr "%s:%d: --css-file kommenttel végződik"
 
-#: tp/Texinfo/Convert/HTML.pm:9237
+#: tp/Texinfo/Convert/HTML.pm:9184
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9268
+#: tp/Texinfo/Convert/HTML.pm:9215
 #, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9278
+#: tp/Texinfo/Convert/HTML.pm:9225
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open --include-file %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9297
+#: tp/Texinfo/Convert/HTML.pm:9244
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/HTML.pm:9502 tp/Texinfo/XS/convert/convert_html.c:2123
+#: tp/Texinfo/Convert/HTML.pm:9457 tp/Texinfo/XS/convert/convert_html.c:2131
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9826 tp/Texinfo/XS/convert/convert_html.c:5525
+#: tp/Texinfo/Convert/HTML.pm:9792 tp/Texinfo/XS/convert/convert_html.c:5550
 #, fuzzy, c-format, perl-format
 #| msgid "Making %s file `%s' from `%s'.\n"
 msgid "resetting %s file path %s to %s"
 msgstr "%s fájl („%s“) készítése „%s“-ból.\n"
 
-#: tp/Texinfo/Convert/HTML.pm:10607 tp/Texinfo/Convert/HTML.pm:10613
-#: tp/Texinfo/XS/convert/convert_html.c:3171
-#: tp/Texinfo/XS/convert/convert_html.c:3182
+#: tp/Texinfo/Convert/HTML.pm:10563 tp/Texinfo/Convert/HTML.pm:10569
+#: tp/Texinfo/XS/convert/convert_html.c:3161
+#: tp/Texinfo/XS/convert/convert_html.c:3172
 #, fuzzy, c-format, perl-format
 #| msgid "no index entries found for `%s'\n"
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "Nincs tárgymutató ehhez: %s\n"
 
-#: tp/Texinfo/Convert/HTML.pm:11064 tp/Texinfo/XS/convert/convert_html.c:6969
+#: tp/Texinfo/Convert/HTML.pm:11027 tp/Texinfo/XS/convert/convert_html.c:6993
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "@%s -nek nincs jelentése a(z) „@%s“ blokkon belül"
 
-#: tp/Texinfo/Convert/HTML.pm:11523
+#: tp/Texinfo/Convert/HTML.pm:11486
 #, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:11939
+#: tp/Texinfo/Convert/HTML.pm:12123
 #, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:11991
+#: tp/Texinfo/Convert/HTML.pm:12175
 #, perl-format
 msgid "%s already exists but is not a directory"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12012
+#: tp/Texinfo/Convert/HTML.pm:12196
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on copying %s into %s"
 msgstr "hiba „%s“ írásakor."
 
-#: tp/Texinfo/Convert/HTML.pm:12021
+#: tp/Texinfo/Convert/HTML.pm:12205
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on creating empty %s: %s"
 msgstr "hiba „%s“ írásakor."
 
-#: tp/Texinfo/Convert/HTML.pm:12026
+#: tp/Texinfo/Convert/HTML.pm:12210
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing empty %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/HTML.pm:12093 tp/Texinfo/XS/convert/convert_html.c:15442
+#: tp/Texinfo/Convert/HTML.pm:12295 tp/Texinfo/Convert/HTML.pm:12299
+#: tp/Texinfo/XS/convert/convert_html.c:15775
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12576
+#: tp/Texinfo/Convert/HTML.pm:12787
 #, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12593
+#: tp/Texinfo/Convert/HTML.pm:12804
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12596
+#: tp/Texinfo/Convert/HTML.pm:12807
 msgid "conflict with Top file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12599
+#: tp/Texinfo/Convert/HTML.pm:12810
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12602
+#: tp/Texinfo/Convert/HTML.pm:12813
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12605
+#: tp/Texinfo/Convert/HTML.pm:12816
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12611
+#: tp/Texinfo/Convert/HTML.pm:12822
 #, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12622
+#: tp/Texinfo/Convert/HTML.pm:12833
 #, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12632
+#: tp/Texinfo/Convert/HTML.pm:12843
 #, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12644
+#: tp/Texinfo/Convert/HTML.pm:12855
 #, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12683
+#: tp/Texinfo/Convert/HTML.pm:12894
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing redirection node file %s: %s"
@@ -2729,286 +2728,286 @@ msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
 # node = csomópont? LM
 # vagy csak pont? sas
-#: tp/Texinfo/Convert/Info.pm:121
+#: tp/Texinfo/Convert/Info.pm:132 tp/Texinfo/Convert/Info.pm:135
 #, fuzzy
 #| msgid "No menu in this node."
 msgid "document without nodes"
 msgstr "Nincs menü ezen az oldalon."
 
-#: tp/Texinfo/Convert/Info.pm:138
+#: tp/Texinfo/Convert/Info.pm:172 tp/Texinfo/Convert/Info.pm:175
 msgid "document without Top node"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:190
+#: tp/Texinfo/Convert/Info.pm:208
 #, perl-format
 msgid "rename %s failed: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:275
+#: tp/Texinfo/Convert/Info.pm:322
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:440
+#: tp/Texinfo/Convert/Info.pm:497
 #, fuzzy, perl-format
 #| msgid "(outside of any node)"
 msgid "@%s outside of any node"
 msgstr "(az oldalakon kívül)"
 
-#: tp/Texinfo/Convert/Info.pm:488
+#: tp/Texinfo/Convert/Info.pm:530
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:526
+#: tp/Texinfo/Convert/Info.pm:563
 #, perl-format
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:2964
+#: tp/Texinfo/Convert/LaTeX.pm:3005
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:2996
+#: tp/Texinfo/Convert/LaTeX.pm:3045
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image a(z) „%s“ fájl (HTML) nem olvasható: %s"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1483
+#: tp/Texinfo/Convert/Plaintext.pm:1657
 #, perl-format
 msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:1530 tp/Texinfo/ParserNonXS.pm:3412
+#: tp/Texinfo/Convert/Plaintext.pm:1699 tp/Texinfo/ParserNonXS.pm:3411
 #: tp/Texinfo/XS/parsetexi/indices.c:311
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' outside of any node"
 msgstr "A(z) „%s“ tárgymutató bejegyzése az oldalakon kívülre esik"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1546
+#: tp/Texinfo/Convert/Plaintext.pm:1715
 #, fuzzy, perl-format
 #| msgid "No %sindex entries containing `%s'."
 msgid "node name with index entries should not contain `%s'"
 msgstr "Nincs %stárgymutató-bejegyzés, ami „%s!H-t tartalmazná."
 
-#: tp/Texinfo/Convert/Plaintext.pm:1653
+#: tp/Texinfo/Convert/Plaintext.pm:1798
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2073
+#: tp/Texinfo/Convert/Plaintext.pm:2242
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2239
+#: tp/Texinfo/Convert/Plaintext.pm:2416
 #, perl-format
 msgid "@%s cross-reference name should not contain `:'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2298
+#: tp/Texinfo/Convert/Plaintext.pm:2481
 #, fuzzy, perl-format
 #| msgid "No %sindex entries containing `%s'."
 msgid "@%s node name should not contain `%s'"
 msgstr "Nincs %stárgymutató-bejegyzés, ami „%s!H-t tartalmazná."
 
-#: tp/Texinfo/Convert/Plaintext.pm:2364
+#: tp/Texinfo/Convert/Plaintext.pm:2544
 #, perl-format
 msgid "`.' or `,' must follow @xref, not %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2368
+#: tp/Texinfo/Convert/Plaintext.pm:2548
 msgid "`.' or `,' must follow @xref"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:3503
+#: tp/Texinfo/Convert/Plaintext.pm:3693
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:3514
+#: tp/Texinfo/Convert/Plaintext.pm:3704
 msgid "menu entry node name should not contain `:'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:3542
+#: tp/Texinfo/Convert/Plaintext.pm:3739
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:295 tp/Texinfo/XS/main/convert_utils.c:371
+#: tp/Texinfo/Convert/Utils.pm:300 tp/Texinfo/XS/main/convert_utils.c:374
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not read %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:318 tp/Texinfo/XS/main/convert_utils.c:418
+#: tp/Texinfo/Convert/Utils.pm:323 tp/Texinfo/XS/main/convert_utils.c:421
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/Utils.pm:325 tp/Texinfo/ParserNonXS.pm:3596
-#: tp/Texinfo/XS/main/convert_utils.c:430
+#: tp/Texinfo/Convert/Utils.pm:330 tp/Texinfo/ParserNonXS.pm:3596
+#: tp/Texinfo/XS/main/convert_utils.c:433
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "@%s: could not find %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:920 tp/Texinfo/XS/parsetexi/Parsetexi.pm:257
+#: tp/Texinfo/ParserNonXS.pm:919 tp/Texinfo/XS/parsetexi/Parsetexi.pm:257
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:1172 tp/Texinfo/Structuring.pm:693
+#: tp/Texinfo/ParserNonXS.pm:1171 tp/Texinfo/Structuring.pm:699
 #: tp/Texinfo/XS/parsetexi/parser.c:422
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:841
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:1288 tp/Texinfo/ParserNonXS.pm:4223
-#: tp/Texinfo/ParserNonXS.pm:4263 tp/Texinfo/XS/parsetexi/end_line.c:1061
-#: tp/Texinfo/XS/parsetexi/end_line.c:1097 tp/Texinfo/XS/parsetexi/macro.c:136
+#: tp/Texinfo/ParserNonXS.pm:1287 tp/Texinfo/ParserNonXS.pm:4228
+#: tp/Texinfo/ParserNonXS.pm:4268 tp/Texinfo/XS/parsetexi/end_line.c:1063
+#: tp/Texinfo/XS/parsetexi/end_line.c:1099 tp/Texinfo/XS/parsetexi/macro.c:136
 #, fuzzy, c-format, perl-format
 #| msgid "%c%s requires a name"
 msgid "@%s requires a name"
 msgstr "%c%s egy nevet igényel"
 
-#: tp/Texinfo/ParserNonXS.pm:1295 tp/Texinfo/ParserNonXS.pm:4267
-#: tp/Texinfo/ParserNonXS.pm:7534 tp/Texinfo/ParserNonXS.pm:7546
-#: tp/Texinfo/ParserNonXS.pm:7559 tp/Texinfo/XS/parsetexi/end_line.c:1101
+#: tp/Texinfo/ParserNonXS.pm:1294 tp/Texinfo/ParserNonXS.pm:4272
+#: tp/Texinfo/ParserNonXS.pm:7553 tp/Texinfo/ParserNonXS.pm:7565
+#: tp/Texinfo/ParserNonXS.pm:7578 tp/Texinfo/XS/parsetexi/end_line.c:1103
 #: tp/Texinfo/XS/parsetexi/macro.c:144
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s"
 msgid "bad name for @%s"
 msgstr "Rossz argumentum ide: @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:1317 tp/Texinfo/XS/parsetexi/macro.c:221
+#: tp/Texinfo/ParserNonXS.pm:1316 tp/Texinfo/XS/parsetexi/macro.c:221
 #, c-format, perl-format
 msgid "bad or empty @%s formal argument: %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:1327 tp/Texinfo/XS/parsetexi/macro.c:250
+#: tp/Texinfo/ParserNonXS.pm:1326 tp/Texinfo/XS/parsetexi/macro.c:250
 #, c-format, perl-format
 msgid "bad syntax for @%s argument: %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:1469 tp/Texinfo/XS/parsetexi/close.c:77
+#: tp/Texinfo/ParserNonXS.pm:1468 tp/Texinfo/XS/parsetexi/close.c:77
 #, c-format, perl-format
 msgid "@end %s seen before @%s closing brace"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:1473 tp/Texinfo/XS/parsetexi/close.c:82
+#: tp/Texinfo/ParserNonXS.pm:1472 tp/Texinfo/XS/parsetexi/close.c:82
 #, c-format, perl-format
 msgid "@%s seen before @%s closing brace"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:1477 tp/Texinfo/ParserNonXS.pm:2663
-#: tp/Texinfo/ParserNonXS.pm:2763 tp/Texinfo/XS/parsetexi/close.c:87
+#: tp/Texinfo/ParserNonXS.pm:1476 tp/Texinfo/ParserNonXS.pm:2662
+#: tp/Texinfo/ParserNonXS.pm:2762 tp/Texinfo/XS/parsetexi/close.c:87
 #: tp/Texinfo/XS/parsetexi/macro.c:354 tp/Texinfo/XS/parsetexi/macro.c:511
 #, fuzzy, c-format, perl-format
 #| msgid "%c%s missing close brace"
 msgid "@%s missing closing brace"
 msgstr "%c%s hiányzó kapcsos bezárójel"
 
-#: tp/Texinfo/ParserNonXS.pm:1481 tp/Texinfo/XS/parsetexi/close.c:93
+#: tp/Texinfo/ParserNonXS.pm:1480 tp/Texinfo/XS/parsetexi/close.c:93
 #, c-format, perl-format
 msgid "@%s missing closing delimiter sequence: %s}"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:1715 tp/Texinfo/XS/parsetexi/multitable.c:70
+#: tp/Texinfo/ParserNonXS.pm:1714 tp/Texinfo/XS/parsetexi/multitable.c:70
 #, c-format, perl-format
 msgid "@itemx should not begin @%s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:1839 tp/Texinfo/XS/parsetexi/multitable.c:174
+#: tp/Texinfo/ParserNonXS.pm:1838 tp/Texinfo/XS/parsetexi/multitable.c:174
 #, c-format
 msgid "@itemx must follow @item"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:2023 tp/Texinfo/XS/parsetexi/close.c:346
+#: tp/Texinfo/ParserNonXS.pm:2022 tp/Texinfo/XS/parsetexi/close.c:346
 #, c-format, perl-format
 msgid "@%s has text but no @item"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:2085 tp/Texinfo/XS/parsetexi/close.c:410
+#: tp/Texinfo/ParserNonXS.pm:2084 tp/Texinfo/XS/parsetexi/close.c:410
 #, c-format, perl-format
 msgid "`@end' expected `%s', but saw `%s'"
 msgstr "„@end“-t vártam „%s“, de „%s“-t találtam"
 
-#: tp/Texinfo/ParserNonXS.pm:2089 tp/Texinfo/XS/parsetexi/close.c:416
+#: tp/Texinfo/ParserNonXS.pm:2088 tp/Texinfo/XS/parsetexi/close.c:416
 #, c-format, perl-format
 msgid "@%s seen before @end %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:2093 tp/Texinfo/XS/parsetexi/close.c:422
+#: tp/Texinfo/ParserNonXS.pm:2092 tp/Texinfo/XS/parsetexi/close.c:422
 #, fuzzy, c-format, perl-format
 #| msgid "No matching `%cend %s'"
 msgid "no matching `@end %s'"
 msgstr "Nincs egyező „%cend %s“"
 
-#: tp/Texinfo/ParserNonXS.pm:2115 tp/Texinfo/ParserNonXS.pm:2126
-#: tp/Texinfo/ParserNonXS.pm:6132 tp/Texinfo/XS/parsetexi/close.c:449
+#: tp/Texinfo/ParserNonXS.pm:2114 tp/Texinfo/ParserNonXS.pm:2125
+#: tp/Texinfo/ParserNonXS.pm:6138 tp/Texinfo/XS/parsetexi/close.c:449
 #: tp/Texinfo/XS/parsetexi/close.c:459 tp/Texinfo/XS/parsetexi/separator.c:245
 #, fuzzy, c-format
 #| msgid "Misplaced %c"
 msgid "misplaced {"
 msgstr "Rossz helyen levő %c"
 
-#: tp/Texinfo/ParserNonXS.pm:2208
+#: tp/Texinfo/ParserNonXS.pm:2207
 #, fuzzy, perl-format
 #| msgid "Unmatched `%c%s'"
 msgid "unmatched `%c%s'"
 msgstr "Nem egyező „%c%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:2610 tp/Texinfo/XS/parsetexi/macro.c:375
+#: tp/Texinfo/ParserNonXS.pm:2609 tp/Texinfo/XS/parsetexi/macro.c:375
 #, c-format, perl-format
 msgid "use %s instead of %s in macro arg"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:2640 tp/Texinfo/XS/parsetexi/macro.c:428
+#: tp/Texinfo/ParserNonXS.pm:2639 tp/Texinfo/XS/parsetexi/macro.c:428
 #, fuzzy, c-format, perl-format
 #| msgid "Macro `%s' called on line %d with too many args"
 msgid "macro `%s' called with too many args"
 msgstr "A(z) „%s“ makró túl sok argumentummal lett meghívva a %d sorban"
 
-#: tp/Texinfo/ParserNonXS.pm:2674 tp/Texinfo/XS/parsetexi/macro.c:444
+#: tp/Texinfo/ParserNonXS.pm:2673 tp/Texinfo/XS/parsetexi/macro.c:444
 #, fuzzy, c-format, perl-format
 #| msgid "Macro `%s' called on line %d with too many args"
 msgid "macro `%s' declared without argument called with an argument"
 msgstr "A(z) „%s“ makró túl sok argumentummal lett meghívva a %d sorban"
 
-#: tp/Texinfo/ParserNonXS.pm:2867 tp/Texinfo/XS/parsetexi/macro.c:718
+#: tp/Texinfo/ParserNonXS.pm:2866 tp/Texinfo/XS/parsetexi/macro.c:718
 #, c-format, perl-format
 msgid "\\ in @%s expansion followed `%s' instead of parameter name or \\"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:3536 tp/Texinfo/ParserNonXS.pm:3734
-#: tp/Texinfo/ParserNonXS.pm:7617 tp/Texinfo/XS/parsetexi/end_line.c:115
-#: tp/Texinfo/XS/parsetexi/end_line.c:1219
-#: tp/Texinfo/XS/parsetexi/end_line.c:1553
+#: tp/Texinfo/ParserNonXS.pm:3535 tp/Texinfo/ParserNonXS.pm:3743
+#: tp/Texinfo/ParserNonXS.pm:7636 tp/Texinfo/XS/parsetexi/end_line.c:116
+#: tp/Texinfo/XS/parsetexi/end_line.c:1221
+#: tp/Texinfo/XS/parsetexi/end_line.c:1574
 #, fuzzy, c-format, perl-format
 #| msgid "%s: missing file argument.\n"
 msgid "@%s missing argument"
 msgstr "%s: hiányzó fájl argumentum.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:3550 tp/Texinfo/XS/parsetexi/end_line.c:1237
+#: tp/Texinfo/ParserNonXS.pm:3549 tp/Texinfo/XS/parsetexi/end_line.c:1239
 #, fuzzy, c-format, perl-format
 #| msgid "Unknown index `%s'"
 msgid "unknown @end %s"
 msgstr "Ismeretlen tárgymutató „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:3567 tp/Texinfo/ParserNonXS.pm:3675
-#: tp/Texinfo/ParserNonXS.pm:4103 tp/Texinfo/ParserNonXS.pm:7748
-#: tp/Texinfo/ParserNonXS.pm:7780 tp/Texinfo/ParserNonXS.pm:7811
-#: tp/Texinfo/ParserNonXS.pm:7920 tp/Texinfo/XS/parsetexi/end_line.c:356
-#: tp/Texinfo/XS/parsetexi/end_line.c:424
-#: tp/Texinfo/XS/parsetexi/end_line.c:906
-#: tp/Texinfo/XS/parsetexi/end_line.c:1479
+#: tp/Texinfo/ParserNonXS.pm:3566 tp/Texinfo/ParserNonXS.pm:3684
+#: tp/Texinfo/ParserNonXS.pm:4108 tp/Texinfo/ParserNonXS.pm:7767
+#: tp/Texinfo/ParserNonXS.pm:7799 tp/Texinfo/ParserNonXS.pm:7830
+#: tp/Texinfo/ParserNonXS.pm:7939 tp/Texinfo/XS/parsetexi/end_line.c:357
+#: tp/Texinfo/XS/parsetexi/end_line.c:426
+#: tp/Texinfo/XS/parsetexi/end_line.c:908
+#: tp/Texinfo/XS/parsetexi/end_line.c:1500
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s: %s"
 msgid "bad argument to @%s: %s"
@@ -3020,256 +3019,256 @@ msgstr "Rossz argumentum ide: %s: %s"
 msgid "@%s: could not open %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:3612 tp/Texinfo/XS/parsetexi/end_line.c:1319
+#: tp/Texinfo/ParserNonXS.pm:3621 tp/Texinfo/XS/parsetexi/end_line.c:1330
 #, fuzzy, c-format, perl-format
 #| msgid "unrecognized encoding name `%s'"
 msgid "bad encoding name `%s'"
 msgstr "ismeretlen kódolási név: „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:3618 tp/Texinfo/XS/parsetexi/end_line.c:1351
+#: tp/Texinfo/ParserNonXS.pm:3627 tp/Texinfo/XS/parsetexi/end_line.c:1362
 #, c-format, perl-format
 msgid "encoding `%s' is not a canonical texinfo encoding"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:3643 tp/Texinfo/XS/parsetexi/end_line.c:1408
+#: tp/Texinfo/ParserNonXS.pm:3652 tp/Texinfo/XS/parsetexi/end_line.c:1429
 #, fuzzy, c-format, perl-format
 #| msgid "unrecognized encoding name `%s'"
 msgid "unhandled encoding name `%s'"
 msgstr "ismeretlen kódolási név: „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:3701 tp/Texinfo/ParserNonXS.pm:6188
+#: tp/Texinfo/ParserNonXS.pm:3710 tp/Texinfo/ParserNonXS.pm:6194
 #: tp/Texinfo/XS/parsetexi/separator.c:321
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s"
 msgid "empty argument in @%s"
 msgstr "Rossz argumentum ide: @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:3835
+#: tp/Texinfo/ParserNonXS.pm:3840
 #, perl-format
 msgid "@%s after the first element"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:3842
+#: tp/Texinfo/ParserNonXS.pm:3847
 #, fuzzy, perl-format
 #| msgid "@%s not meaningful outside `@titlepage' environment"
 msgid "@%s only meaningful on a @multitable line"
 msgstr "A(z) @%s -nek nincs értelme a „@titlepage“ környezeten kívül"
 
-#: tp/Texinfo/ParserNonXS.pm:3884
+#: tp/Texinfo/ParserNonXS.pm:3889
 #, perl-format
 msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:3915 tp/Texinfo/XS/parsetexi/end_line.c:741
+#: tp/Texinfo/ParserNonXS.pm:3920 tp/Texinfo/XS/parsetexi/end_line.c:743
 #, c-format, perl-format
 msgid "missing category for @%s"
 msgstr ""
 
 # action=művelet ? LM
 # általában az - sas
-#: tp/Texinfo/ParserNonXS.pm:3961 tp/Texinfo/XS/parsetexi/end_line.c:735
+#: tp/Texinfo/ParserNonXS.pm:3966 tp/Texinfo/XS/parsetexi/end_line.c:737
 #, fuzzy, c-format, perl-format
 #| msgid "missing action name"
 msgid "missing name for @%s"
 msgstr "hiányzó műveletnév"
 
-#: tp/Texinfo/ParserNonXS.pm:4037 tp/Texinfo/ParserNonXS.pm:4207
-#: tp/Texinfo/XS/parsetexi/end_line.c:825
-#: tp/Texinfo/XS/parsetexi/end_line.c:1038
+#: tp/Texinfo/ParserNonXS.pm:4042 tp/Texinfo/ParserNonXS.pm:4212
+#: tp/Texinfo/XS/parsetexi/end_line.c:827
+#: tp/Texinfo/XS/parsetexi/end_line.c:1040
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s: %s"
 msgid "unexpected argument on @%s line: %s"
 msgstr "Rossz argumentum ide: %s: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:4049 tp/Texinfo/XS/parsetexi/end_line.c:836
+#: tp/Texinfo/ParserNonXS.pm:4054 tp/Texinfo/XS/parsetexi/end_line.c:838
 #, fuzzy
 #| msgid "%s: empty file"
 msgid "empty multitable"
 msgstr "%s: üres fájl"
 
-#: tp/Texinfo/ParserNonXS.pm:4080 tp/Texinfo/ParserNonXS.pm:7623
-#: tp/Texinfo/XS/parsetexi/end_line.c:121
-#: tp/Texinfo/XS/parsetexi/end_line.c:874
+#: tp/Texinfo/ParserNonXS.pm:4085 tp/Texinfo/ParserNonXS.pm:7642
+#: tp/Texinfo/XS/parsetexi/end_line.c:122
+#: tp/Texinfo/XS/parsetexi/end_line.c:876
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s"
 msgid "superfluous argument to @%s"
 msgstr "Rossz argumentum ide: @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:4086 tp/Texinfo/ParserNonXS.pm:7658
-#: tp/Texinfo/ParserNonXS.pm:7688 tp/Texinfo/XS/parsetexi/end_line.c:888
+#: tp/Texinfo/ParserNonXS.pm:4091 tp/Texinfo/ParserNonXS.pm:7677
+#: tp/Texinfo/ParserNonXS.pm:7707 tp/Texinfo/XS/parsetexi/end_line.c:890
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s"
 msgid "bad argument to @%s"
 msgstr "Rossz argumentum ide: @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:4107 tp/Texinfo/XS/parsetexi/end_line.c:912
+#: tp/Texinfo/ParserNonXS.pm:4112 tp/Texinfo/XS/parsetexi/end_line.c:914
 #, fuzzy, c-format, perl-format
 #| msgid "%s: missing file argument.\n"
 msgid "missing @%s argument"
 msgstr "%s: hiányzó fájl argumentum.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:4113 tp/Texinfo/XS/parsetexi/end_line.c:923
+#: tp/Texinfo/ParserNonXS.pm:4118 tp/Texinfo/XS/parsetexi/end_line.c:925
 #, c-format, perl-format
 msgid "command @%s not accepting argument in brace should not be on @%s line"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4154 tp/Texinfo/XS/parsetexi/end_line.c:979
+#: tp/Texinfo/ParserNonXS.pm:4159 tp/Texinfo/XS/parsetexi/end_line.c:981
 #, fuzzy, c-format, perl-format
 #| msgid "%s: option `--%s' doesn't allow an argument\n"
 msgid "accent command `@%s' not allowed as @%s argument"
 msgstr "%s: Opció „--%s“ nem fogad argumentumot\n"
 
-#: tp/Texinfo/ParserNonXS.pm:4586 tp/Texinfo/XS/parsetexi/labels.c:97
+#: tp/Texinfo/ParserNonXS.pm:4591 tp/Texinfo/XS/parsetexi/labels.c:98
 #, c-format, perl-format
 msgid "syntax for an external node used for `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4596
+#: tp/Texinfo/ParserNonXS.pm:4601
 #, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4639 tp/Texinfo/XS/parsetexi/menus.c:55
+#: tp/Texinfo/ParserNonXS.pm:4644 tp/Texinfo/XS/parsetexi/menus.c:55
 #, fuzzy, c-format, perl-format
 #| msgid "No menu in node `%s'."
 msgid "empty menu entry name in `%s'"
 msgstr "Nincs menü a(z) „%s“ oldalon."
 
-#: tp/Texinfo/ParserNonXS.pm:4647 tp/Texinfo/XS/parsetexi/menus.c:70
+#: tp/Texinfo/ParserNonXS.pm:4652 tp/Texinfo/XS/parsetexi/menus.c:70
 #, c-format
 msgid "empty node name in menu entry"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4832 tp/Texinfo/XS/parsetexi/parser.c:1268
+#: tp/Texinfo/ParserNonXS.pm:4837 tp/Texinfo/XS/parsetexi/parser.c:1268
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "@%s should not appear in @%s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/parser.c:1282
+#: tp/Texinfo/ParserNonXS.pm:4849 tp/Texinfo/XS/parsetexi/parser.c:1282
 #, c-format, perl-format
 msgid "@%s should not appear anywhere inside caption"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4861 tp/Texinfo/XS/parsetexi/parser.c:1335
+#: tp/Texinfo/ParserNonXS.pm:4866 tp/Texinfo/XS/parsetexi/parser.c:1335
 #, c-format, perl-format
 msgid "@%s should not appear anywhere inside @%s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4887 tp/Texinfo/XS/parsetexi/parser.c:1350
+#: tp/Texinfo/ParserNonXS.pm:4892 tp/Texinfo/XS/parsetexi/parser.c:1350
 #, c-format, perl-format
 msgid "@%s should not appear on @%s line"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4901 tp/Texinfo/XS/parsetexi/parser.c:1364
+#: tp/Texinfo/ParserNonXS.pm:4906 tp/Texinfo/XS/parsetexi/parser.c:1364
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "@%s should not appear in @%s block"
 msgstr "@%s -nek nincs jelentése a(z) „@%s“ blokkon belül"
 
-#: tp/Texinfo/ParserNonXS.pm:4977 tp/Texinfo/XS/parsetexi/macro.c:851
+#: tp/Texinfo/ParserNonXS.pm:4982 tp/Texinfo/XS/parsetexi/macro.c:851
 #, c-format, perl-format
 msgid ""
 "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
 "current value %d)"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4988 tp/Texinfo/XS/parsetexi/macro.c:841
+#: tp/Texinfo/ParserNonXS.pm:4993 tp/Texinfo/XS/parsetexi/macro.c:841
 #, c-format, perl-format
 msgid "recursive call of macro %s is not allowed; use @rmacro if needed"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5016 tp/Texinfo/XS/parsetexi/macro.c:885
+#: tp/Texinfo/ParserNonXS.pm:5021 tp/Texinfo/XS/parsetexi/macro.c:885
 #, c-format, perl-format
 msgid ""
 "@%s defined with zero or more than one argument should be invoked with {}"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5301 tp/Texinfo/XS/parsetexi/handle_commands.c:353
+#: tp/Texinfo/ParserNonXS.pm:5306 tp/Texinfo/XS/parsetexi/handle_commands.c:353
 #, c-format, perl-format
 msgid "@%s should only appear in heading or footing"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5309
+#: tp/Texinfo/ParserNonXS.pm:5314
 #, perl-format
 msgid "@%s should only appear in math context"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5337 tp/Texinfo/ParserNonXS.pm:5345
+#: tp/Texinfo/ParserNonXS.pm:5342 tp/Texinfo/ParserNonXS.pm:5350
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:402
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:411
 #, c-format, perl-format
 msgid "@%s not meaningful inside `@%s' block"
 msgstr "@%s -nek nincs jelentése a(z) „@%s“ blokkon belül"
 
-#: tp/Texinfo/ParserNonXS.pm:5352 tp/Texinfo/XS/parsetexi/handle_commands.c:427
+#: tp/Texinfo/ParserNonXS.pm:5357 tp/Texinfo/XS/parsetexi/handle_commands.c:427
 #, fuzzy, c-format, perl-format
 #| msgid "%s: empty file"
 msgid "@%s in empty multitable"
 msgstr "%s: üres fájl"
 
-#: tp/Texinfo/ParserNonXS.pm:5358 tp/Texinfo/XS/parsetexi/handle_commands.c:435
+#: tp/Texinfo/ParserNonXS.pm:5363 tp/Texinfo/XS/parsetexi/handle_commands.c:435
 #, c-format
 msgid "@tab before @item"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5361 tp/Texinfo/XS/parsetexi/handle_commands.c:439
+#: tp/Texinfo/ParserNonXS.pm:5366 tp/Texinfo/XS/parsetexi/handle_commands.c:439
 #, fuzzy, c-format, perl-format
 #| msgid "Too many columns in multitable item (max %d)"
 msgid "too many columns in multitable item (max %d)"
 msgstr "Túl sok oszlop szerepel a multitable elemben (max %d)"
 
-#: tp/Texinfo/ParserNonXS.pm:5392 tp/Texinfo/XS/parsetexi/handle_commands.c:483
+#: tp/Texinfo/ParserNonXS.pm:5397 tp/Texinfo/XS/parsetexi/handle_commands.c:483
 #, c-format
 msgid "ignoring @tab outside of multitable"
 msgstr "figyelmen kívül hagyom a multitable-n kívül eső @tab-ot"
 
-#: tp/Texinfo/ParserNonXS.pm:5396 tp/Texinfo/ParserNonXS.pm:5586
+#: tp/Texinfo/ParserNonXS.pm:5401 tp/Texinfo/ParserNonXS.pm:5591
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:488
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:746
 #, c-format, perl-format
 msgid "@%s outside of table or list"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5406 tp/Texinfo/XS/parsetexi/handle_commands.c:504
+#: tp/Texinfo/ParserNonXS.pm:5411 tp/Texinfo/XS/parsetexi/handle_commands.c:504
 #, c-format, perl-format
 msgid "@%s is useless inside of a paragraph"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5470 tp/Texinfo/XS/parsetexi/handle_commands.c:571
+#: tp/Texinfo/ParserNonXS.pm:5475 tp/Texinfo/XS/parsetexi/handle_commands.c:571
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "@%s not allowed inside `@copying' block"
 msgstr "@%s -nek nincs jelentése a(z) „@%s“ blokkon belül"
 
-#: tp/Texinfo/ParserNonXS.pm:5603 tp/Texinfo/XS/parsetexi/handle_commands.c:771
+#: tp/Texinfo/ParserNonXS.pm:5608 tp/Texinfo/XS/parsetexi/handle_commands.c:771
 msgid "multiple node @nodedescription"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5617 tp/Texinfo/XS/parsetexi/handle_commands.c:783
+#: tp/Texinfo/ParserNonXS.pm:5622 tp/Texinfo/XS/parsetexi/handle_commands.c:783
 #, fuzzy
 #| msgid "(outside of any node)"
 msgid "@nodedescription outside of any node"
 msgstr "(az oldalakon kívül)"
 
-#: tp/Texinfo/ParserNonXS.pm:5624 tp/Texinfo/ParserNonXS.pm:5938
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1214
+#: tp/Texinfo/ParserNonXS.pm:5629 tp/Texinfo/ParserNonXS.pm:5944
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1215
 #, c-format, perl-format
 msgid "@%s should only appear in an index entry"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5636 tp/Texinfo/XS/parsetexi/handle_commands.c:812
+#: tp/Texinfo/ParserNonXS.pm:5642 tp/Texinfo/XS/parsetexi/handle_commands.c:813
 #, c-format
 msgid "no more than two levels of index subentry are allowed"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5683 tp/Texinfo/XS/parsetexi/handle_commands.c:899
+#: tp/Texinfo/ParserNonXS.pm:5689 tp/Texinfo/XS/parsetexi/handle_commands.c:900
 #, fuzzy, c-format, perl-format
 #| msgid "Must be in `@%s' environment to use `@%s'"
 msgid "must be after `@%s' to use `@%s'"
 msgstr "Csak a(z) „@%s“ környezetben használható a(z) „@%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:5731 tp/Texinfo/XS/parsetexi/handle_commands.c:949
+#: tp/Texinfo/ParserNonXS.pm:5737 tp/Texinfo/XS/parsetexi/handle_commands.c:950
 #, fuzzy
 #| msgid ""
 #| "@%s not meaningful outside `@titlepage' and `@quotation' environments"
@@ -3279,79 +3278,79 @@ msgstr ""
 "A(z) @%s -nek nincs értelme a „@titlepage“ és a „@quotation“ környezeten "
 "kívül"
 
-#: tp/Texinfo/ParserNonXS.pm:5735 tp/Texinfo/XS/parsetexi/handle_commands.c:953
+#: tp/Texinfo/ParserNonXS.pm:5741 tp/Texinfo/XS/parsetexi/handle_commands.c:954
 msgid "@dircategory after first node"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5848
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1111
+#: tp/Texinfo/ParserNonXS.pm:5854
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1112
 msgid "@direntry after first node"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5860
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1116
+#: tp/Texinfo/ParserNonXS.pm:5866
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1117
 msgid "@menu in invalid context"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5878
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1134
+#: tp/Texinfo/ParserNonXS.pm:5884
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1135
 msgid "multiple node @nodedescriptionblock"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:5891
-#: tp/Texinfo/XS/parsetexi/handle_commands.c:1150
+#: tp/Texinfo/ParserNonXS.pm:5897
+#: tp/Texinfo/XS/parsetexi/handle_commands.c:1151
 #, fuzzy
 #| msgid "Entry for index `%s' outside of any node"
 msgid "@nodedescriptionblock outside of any node"
 msgstr "A(z) „%s“ tárgymutató bejegyzése az oldalakon kívülre esik"
 
-#: tp/Texinfo/ParserNonXS.pm:6001 tp/Texinfo/XS/parsetexi/separator.c:81
+#: tp/Texinfo/ParserNonXS.pm:6007 tp/Texinfo/XS/parsetexi/separator.c:81
 #, c-format
 msgid "@verb without associated character"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6020 tp/Texinfo/XS/parsetexi/separator.c:114
+#: tp/Texinfo/ParserNonXS.pm:6026 tp/Texinfo/XS/parsetexi/separator.c:114
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful outside `@float' environment"
 msgid "@%s is not meaningful outside `@float' environment"
 msgstr "A(z) @%s -nek nincs értelme a „@float“ környezeten kívül"
 
-#: tp/Texinfo/ParserNonXS.pm:6025 tp/Texinfo/XS/parsetexi/separator.c:120
+#: tp/Texinfo/ParserNonXS.pm:6031 tp/Texinfo/XS/parsetexi/separator.c:120
 #, c-format, perl-format
 msgid "@%s should be right below `@float'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6033 tp/Texinfo/XS/parsetexi/separator.c:128
+#: tp/Texinfo/ParserNonXS.pm:6039 tp/Texinfo/XS/parsetexi/separator.c:128
 #, c-format, perl-format
 msgid "ignoring multiple @%s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6182 tp/Texinfo/XS/parsetexi/separator.c:314
+#: tp/Texinfo/ParserNonXS.pm:6188 tp/Texinfo/XS/parsetexi/separator.c:314
 #, c-format, perl-format
 msgid "command @%s does not accept arguments"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6224 tp/Texinfo/XS/parsetexi/separator.c:353
+#: tp/Texinfo/ParserNonXS.pm:6230 tp/Texinfo/XS/parsetexi/separator.c:353
 #, c-format, perl-format
 msgid "command @%s missing a node or external manual argument"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6249 tp/Texinfo/XS/parsetexi/separator.c:405
+#: tp/Texinfo/ParserNonXS.pm:6255 tp/Texinfo/XS/parsetexi/separator.c:405
 #, c-format, perl-format
 msgid "in @%s empty cross reference name after expansion `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6259 tp/Texinfo/XS/parsetexi/separator.c:423
+#: tp/Texinfo/ParserNonXS.pm:6265 tp/Texinfo/XS/parsetexi/separator.c:423
 #, c-format, perl-format
 msgid "in @%s empty cross reference title after expansion `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6274 tp/Texinfo/XS/parsetexi/separator.c:438
+#: tp/Texinfo/ParserNonXS.pm:6280 tp/Texinfo/XS/parsetexi/separator.c:438
 #, c-format
 msgid "@image missing filename argument"
 msgstr "@image hiányzó fájlnév argumentum"
 
-#: tp/Texinfo/ParserNonXS.pm:6289 tp/Texinfo/ParserNonXS.pm:7090
+#: tp/Texinfo/ParserNonXS.pm:6295 tp/Texinfo/ParserNonXS.pm:7109
 #: tp/Texinfo/XS/parsetexi/parser.c:2100
 #: tp/Texinfo/XS/parsetexi/separator.c:451
 #, fuzzy, c-format, perl-format
@@ -3359,222 +3358,222 @@ msgstr "@image hiányzó fájlnév argumentum"
 msgid "@dotless expects `i' or `j' as argument, not `%s'"
 msgstr "%c%s „i“-t vagy „j“-t vár argumentumként, nem „%c“-t"
 
-#: tp/Texinfo/ParserNonXS.pm:6309 tp/Texinfo/XS/parsetexi/separator.c:468
+#: tp/Texinfo/ParserNonXS.pm:6315 tp/Texinfo/XS/parsetexi/separator.c:468
 #, fuzzy, c-format, perl-format
 #| msgid "%s: missing file argument.\n"
 msgid "@%s missing first argument"
 msgstr "%s: hiányzó fájl argumentum.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:6326 tp/Texinfo/XS/parsetexi/separator.c:490
+#: tp/Texinfo/ParserNonXS.pm:6332 tp/Texinfo/XS/parsetexi/separator.c:490
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s: %s"
 msgid "non-hex digits in argument for @U: %s"
 msgstr "Rossz argumentum ide: %s: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:6331 tp/Texinfo/XS/parsetexi/separator.c:495
+#: tp/Texinfo/ParserNonXS.pm:6337 tp/Texinfo/XS/parsetexi/separator.c:495
 #, c-format, perl-format
 msgid "fewer than four hex digits in argument for @U: %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6347 tp/Texinfo/XS/parsetexi/separator.c:510
+#: tp/Texinfo/ParserNonXS.pm:6353 tp/Texinfo/XS/parsetexi/separator.c:510
 #, c-format, perl-format
 msgid "argument for @U exceeds Unicode maximum 0x10FFFF: %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6395 tp/Texinfo/XS/parsetexi/separator.c:582
+#: tp/Texinfo/ParserNonXS.pm:6414 tp/Texinfo/XS/parsetexi/separator.c:599
 #, fuzzy, c-format
 #| msgid "Misplaced %c"
 msgid "misplaced }"
 msgstr "Rossz helyen levő %c"
 
-#: tp/Texinfo/ParserNonXS.pm:6633 tp/Texinfo/ParserNonXS.pm:6709
+#: tp/Texinfo/ParserNonXS.pm:6652 tp/Texinfo/ParserNonXS.pm:6728
 #: tp/Texinfo/XS/parsetexi/parser.c:1470 tp/Texinfo/XS/parsetexi/parser.c:1594
 #, fuzzy, c-format, perl-format
 #| msgid "Kill to the beginning of the line"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "Törlés a sor elejéig"
 
-#: tp/Texinfo/ParserNonXS.pm:6642
+#: tp/Texinfo/ParserNonXS.pm:6661
 #, perl-format
 msgid "macro `%s' previously defined"
 msgstr "a(z) „%s“ makró már korábban definiált lett"
 
-#: tp/Texinfo/ParserNonXS.pm:6645
+#: tp/Texinfo/ParserNonXS.pm:6664
 #, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "„%s“ korábbi definíciója"
 
-#: tp/Texinfo/ParserNonXS.pm:6652
+#: tp/Texinfo/ParserNonXS.pm:6671
 #, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6835 tp/Texinfo/XS/parsetexi/parser.c:1768
+#: tp/Texinfo/ParserNonXS.pm:6854 tp/Texinfo/XS/parsetexi/parser.c:1768
 #, fuzzy, c-format
 #| msgid "Expected `%s'"
 msgid "unexpected @"
 msgstr "„%s“-t várok"
 
-#: tp/Texinfo/ParserNonXS.pm:6894 tp/Texinfo/XS/parsetexi/parser.c:1849
+#: tp/Texinfo/ParserNonXS.pm:6913 tp/Texinfo/XS/parsetexi/parser.c:1849
 #, c-format, perl-format
 msgid ""
 "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
 "current value %d)"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:6953 tp/Texinfo/ParserNonXS.pm:7058
-#: tp/Texinfo/ParserNonXS.pm:7096 tp/Texinfo/XS/parsetexi/parser.c:1925
+#: tp/Texinfo/ParserNonXS.pm:6972 tp/Texinfo/ParserNonXS.pm:7077
+#: tp/Texinfo/ParserNonXS.pm:7115 tp/Texinfo/XS/parsetexi/parser.c:1925
 #: tp/Texinfo/XS/parsetexi/parser.c:2056 tp/Texinfo/XS/parsetexi/parser.c:2108
 #, fuzzy, c-format, perl-format
 #| msgid "%c%s expected braces"
 msgid "@%s expected braces"
 msgstr "%c%s kapcsos zárójelpárt vár"
 
-#: tp/Texinfo/ParserNonXS.pm:6969 tp/Texinfo/XS/parsetexi/parser.c:1962
+#: tp/Texinfo/ParserNonXS.pm:6988 tp/Texinfo/XS/parsetexi/parser.c:1962
 #, fuzzy, c-format, perl-format
 #| msgid "Unknown command `%s'"
 msgid "unknown command `%s'"
 msgstr "Ismeretlen parancs: „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7004 tp/Texinfo/XS/parsetexi/parser.c:1995
+#: tp/Texinfo/ParserNonXS.pm:7023 tp/Texinfo/XS/parsetexi/parser.c:1995
 #, c-format, perl-format
 msgid "command `@%s' must not be followed by new line"
 msgstr ""
 
 # flag ? LM
-#: tp/Texinfo/ParserNonXS.pm:7129 tp/Texinfo/XS/parsetexi/parser.c:2181
+#: tp/Texinfo/ParserNonXS.pm:7148 tp/Texinfo/XS/parsetexi/parser.c:2181
 #, c-format, perl-format
 msgid "undefined flag: %s"
 msgstr "ismeretlen flag: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7148 tp/Texinfo/XS/parsetexi/parser.c:2219
+#: tp/Texinfo/ParserNonXS.pm:7167 tp/Texinfo/XS/parsetexi/parser.c:2219
 #, c-format, perl-format
 msgid "bad syntax for @%s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7156 tp/Texinfo/XS/parsetexi/parser.c:2237
+#: tp/Texinfo/ParserNonXS.pm:7175 tp/Texinfo/XS/parsetexi/parser.c:2237
 #, fuzzy, c-format, perl-format
 #| msgid "%c%s is obsolete"
 msgid "@%s is obsolete"
 msgstr "%c%s elavult"
 
-#: tp/Texinfo/ParserNonXS.pm:7171 tp/Texinfo/XS/parsetexi/parser.c:2262
+#: tp/Texinfo/ParserNonXS.pm:7190 tp/Texinfo/XS/parsetexi/parser.c:2262
 #, fuzzy, c-format, perl-format
 #| msgid "Kill to the beginning of the line"
 msgid "@%s should only appear at the beginning of a line"
 msgstr "Törlés a sor elejéig"
 
-#: tp/Texinfo/ParserNonXS.pm:7270 tp/Texinfo/XS/parsetexi/parser.c:2394
+#: tp/Texinfo/ParserNonXS.pm:7289 tp/Texinfo/XS/parsetexi/parser.c:2394
 msgid "superfluous arguments for node"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7433 tp/Texinfo/ParserNonXS.pm:7438
-#: tp/Texinfo/XS/parsetexi/parser.c:2700 tp/Texinfo/XS/parsetexi/parser.c:2708
+#: tp/Texinfo/ParserNonXS.pm:7452 tp/Texinfo/ParserNonXS.pm:7457
+#: tp/Texinfo/XS/parsetexi/parser.c:2703 tp/Texinfo/XS/parsetexi/parser.c:2711
 #, fuzzy, c-format, perl-format
 #| msgid "Expected `%s'"
 msgid "expected @end %s"
 msgstr "„%s“-t várok"
 
-#: tp/Texinfo/ParserNonXS.pm:7531 tp/Texinfo/XS/parsetexi/handle_commands.c:229
+#: tp/Texinfo/ParserNonXS.pm:7550 tp/Texinfo/XS/parsetexi/handle_commands.c:229
 #, fuzzy, c-format
 #| msgid "%c%s requires a name"
 msgid "@set requires a name"
 msgstr "%c%s egy nevet igényel"
 
-#: tp/Texinfo/ParserNonXS.pm:7543 tp/Texinfo/XS/parsetexi/handle_commands.c:256
+#: tp/Texinfo/ParserNonXS.pm:7562 tp/Texinfo/XS/parsetexi/handle_commands.c:256
 #, fuzzy, c-format
 #| msgid "%c%s requires a name"
 msgid "@clear requires a name"
 msgstr "%c%s egy nevet igényel"
 
-#: tp/Texinfo/ParserNonXS.pm:7556 tp/Texinfo/XS/parsetexi/handle_commands.c:281
+#: tp/Texinfo/ParserNonXS.pm:7575 tp/Texinfo/XS/parsetexi/handle_commands.c:281
 #, fuzzy, c-format
 #| msgid "%c%s requires a name"
 msgid "@unmacro requires a name"
 msgstr "%c%s egy nevet igényel"
 
-#: tp/Texinfo/ParserNonXS.pm:7573 tp/Texinfo/XS/parsetexi/handle_commands.c:313
+#: tp/Texinfo/ParserNonXS.pm:7592 tp/Texinfo/XS/parsetexi/handle_commands.c:313
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s: %s"
 msgid "remaining argument on @%s line: %s"
 msgstr "Rossz argumentum ide: %s: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7579 tp/Texinfo/XS/parsetexi/handle_commands.c:319
+#: tp/Texinfo/ParserNonXS.pm:7598 tp/Texinfo/XS/parsetexi/handle_commands.c:319
 #, fuzzy, c-format, perl-format
 #| msgid "Use braces to give a command as an argument to @%s"
 msgid "@clickstyle should only accept an @-command as argument, not `%s'"
 msgstr "Kapcsos zárójelekkel egy parancsot is megadhat @%s argumentumaként"
 
-#: tp/Texinfo/ParserNonXS.pm:7640 tp/Texinfo/XS/parsetexi/end_line.c:173
+#: tp/Texinfo/ParserNonXS.pm:7659 tp/Texinfo/XS/parsetexi/end_line.c:174
 #, fuzzy, c-format, perl-format
 #| msgid "Use braces to give a command as an argument to @%s"
 msgid "environment command %s as argument to @alias"
 msgstr "Kapcsos zárójelekkel egy parancsot is megadhat @%s argumentumaként"
 
-#: tp/Texinfo/ParserNonXS.pm:7649 tp/Texinfo/XS/parsetexi/end_line.c:181
+#: tp/Texinfo/ParserNonXS.pm:7668 tp/Texinfo/XS/parsetexi/end_line.c:182
 #, c-format, perl-format
 msgid "recursive alias definition of %s through %s ignored"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7694 tp/Texinfo/XS/parsetexi/end_line.c:274
+#: tp/Texinfo/ParserNonXS.pm:7713 tp/Texinfo/XS/parsetexi/end_line.c:275
 #, c-format
 msgid "empty @columnfractions"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7702 tp/Texinfo/XS/parsetexi/end_line.c:294
+#: tp/Texinfo/ParserNonXS.pm:7721 tp/Texinfo/XS/parsetexi/end_line.c:295
 #, c-format, perl-format
 msgid "column fraction not a number: %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7711 tp/Texinfo/XS/parsetexi/end_line.c:316
+#: tp/Texinfo/ParserNonXS.pm:7730 tp/Texinfo/XS/parsetexi/end_line.c:317
 #, fuzzy, c-format, perl-format
 #| msgid "%s: %s arg must be numeric, not `%s'.\n"
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "%s: a(z) %s argumentumának numerikusnak kell lennie, „%s“ helyett.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7722 tp/Texinfo/XS/parsetexi/end_line.c:361
+#: tp/Texinfo/ParserNonXS.pm:7741 tp/Texinfo/XS/parsetexi/end_line.c:362
 #, c-format, perl-format
 msgid "reserved index name %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7757 tp/Texinfo/XS/parsetexi/end_line.c:392
+#: tp/Texinfo/ParserNonXS.pm:7776 tp/Texinfo/XS/parsetexi/end_line.c:394
 #, fuzzy, c-format, perl-format
 #| msgid "Unknown index `%s'"
 msgid "unknown source index in @%s: %s"
 msgstr "Ismeretlen tárgymutató „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7760 tp/Texinfo/XS/parsetexi/end_line.c:395
+#: tp/Texinfo/ParserNonXS.pm:7779 tp/Texinfo/XS/parsetexi/end_line.c:397
 #, c-format, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7775 tp/Texinfo/XS/parsetexi/end_line.c:415
+#: tp/Texinfo/ParserNonXS.pm:7794 tp/Texinfo/XS/parsetexi/end_line.c:417
 #, c-format, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7788 tp/Texinfo/XS/parsetexi/end_line.c:440
+#: tp/Texinfo/ParserNonXS.pm:7807 tp/Texinfo/XS/parsetexi/end_line.c:442
 #, fuzzy, c-format, perl-format
 #| msgid "Unknown index `%s' in @printindex"
 msgid "unknown index `%s' in @printindex"
 msgstr "Ismeretlen tárgymutató „%s“ itt: @printindex"
 
-#: tp/Texinfo/ParserNonXS.pm:7796 tp/Texinfo/XS/parsetexi/end_line.c:447
+#: tp/Texinfo/ParserNonXS.pm:7815 tp/Texinfo/XS/parsetexi/end_line.c:449
 #, c-format, perl-format
 msgid "printing an index `%s' merged in another one, `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7804 tp/Texinfo/XS/parsetexi/end_line.c:453
+#: tp/Texinfo/ParserNonXS.pm:7823 tp/Texinfo/XS/parsetexi/end_line.c:455
 #, c-format, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7818 tp/Texinfo/XS/parsetexi/end_line.c:486
+#: tp/Texinfo/ParserNonXS.pm:7837 tp/Texinfo/XS/parsetexi/end_line.c:488
 #, c-format, perl-format
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7826 tp/Texinfo/XS/parsetexi/end_line.c:497
+#: tp/Texinfo/ParserNonXS.pm:7845 tp/Texinfo/XS/parsetexi/end_line.c:499
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
@@ -3582,19 +3581,19 @@ msgstr ""
 "%s: a --footnote-style argumentumának „separate“-nek vagy  „end“-nek kell "
 "lennie, „%s“ helyett.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7834 tp/Texinfo/XS/parsetexi/end_line.c:509
+#: tp/Texinfo/ParserNonXS.pm:7853 tp/Texinfo/XS/parsetexi/end_line.c:511
 #, c-format, perl-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7842 tp/Texinfo/XS/parsetexi/end_line.c:520
+#: tp/Texinfo/ParserNonXS.pm:7861 tp/Texinfo/XS/parsetexi/end_line.c:522
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to @%s: %s"
 msgid "bad argument to @need: %s"
 msgstr "Rossz argumentum ide: %s: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7852 tp/Texinfo/ParserNonXS.pm:7857
-#: tp/Texinfo/XS/parsetexi/end_line.c:530
+#: tp/Texinfo/ParserNonXS.pm:7871 tp/Texinfo/ParserNonXS.pm:7876
+#: tp/Texinfo/XS/parsetexi/end_line.c:532
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -3603,7 +3602,7 @@ msgstr ""
 "%s: a --paragraph-indent argumentumának numerikusnak,  „none“-nak vagy  "
 "„asis“-nek kell lennie, „%s“ helyett.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7865 tp/Texinfo/XS/parsetexi/end_line.c:541
+#: tp/Texinfo/ParserNonXS.pm:7884 tp/Texinfo/XS/parsetexi/end_line.c:543
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -3612,7 +3611,7 @@ msgstr ""
 "%s: a --paragraph-indent argumentumának numerikusnak,  „none“-nak vagy  "
 "„asis“-nek kell lennie, „%s“ helyett.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7875 tp/Texinfo/XS/parsetexi/end_line.c:551
+#: tp/Texinfo/ParserNonXS.pm:7894 tp/Texinfo/XS/parsetexi/end_line.c:553
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -3621,18 +3620,18 @@ msgstr ""
 "%s: a --paragraph-indent argumentumának numerikusnak,  „none“-nak vagy  "
 "„asis“-nek kell lennie, „%s“ helyett.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7887 tp/Texinfo/XS/parsetexi/end_line.c:567
+#: tp/Texinfo/ParserNonXS.pm:7906 tp/Texinfo/XS/parsetexi/end_line.c:569
 #, fuzzy, c-format, perl-format
 #| msgid "Expected @%s on or off, not `%s'"
 msgid "expected @%s on or off, not `%s'"
 msgstr "@%s on vagy off-t vártam, „%s“ helyett"
 
-#: tp/Texinfo/ParserNonXS.pm:7896 tp/Texinfo/XS/parsetexi/end_line.c:587
+#: tp/Texinfo/ParserNonXS.pm:7915 tp/Texinfo/XS/parsetexi/end_line.c:589
 #, c-format, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7904 tp/Texinfo/XS/parsetexi/end_line.c:599
+#: tp/Texinfo/ParserNonXS.pm:7923 tp/Texinfo/XS/parsetexi/end_line.c:601
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
@@ -3640,7 +3639,7 @@ msgstr ""
 "%s: a --footnote-style argumentumának „separate“-nek vagy  „end“-nek kell "
 "lennie, „%s“ helyett.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7912 tp/Texinfo/XS/parsetexi/end_line.c:611
+#: tp/Texinfo/ParserNonXS.pm:7931 tp/Texinfo/XS/parsetexi/end_line.c:613
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
@@ -3648,7 +3647,7 @@ msgstr ""
 "%s: a --footnote-style argumentumának „separate“-nek vagy  „end“-nek kell "
 "lennie, „%s“ helyett.\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7930 tp/Texinfo/XS/parsetexi/end_line.c:474
+#: tp/Texinfo/ParserNonXS.pm:7949 tp/Texinfo/XS/parsetexi/end_line.c:476
 #, fuzzy, c-format, perl-format
 #| msgid "%s: %s arg must be numeric, not `%s'.\n"
 msgid "@%s arg must be `top' or `bottom', not `%s'"
@@ -3687,37 +3686,37 @@ msgctxt "whole document warning"
 msgid "warning: %s"
 msgstr "%s: figyelem: "
 
-#: tp/Texinfo/Structuring.pm:208
+#: tp/Texinfo/Structuring.pm:214
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:137
 #, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:253
+#: tp/Texinfo/Structuring.pm:259
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:206
 #, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:258
+#: tp/Texinfo/Structuring.pm:264
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:213
 #, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:369
+#: tp/Texinfo/Structuring.pm:375
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:381
 #, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:405
+#: tp/Texinfo/Structuring.pm:411
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:409
 #, c-format, perl-format
 msgid "@%s not empty"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:436 tp/Texinfo/Structuring.pm:1194
+#: tp/Texinfo/Structuring.pm:442 tp/Texinfo/Structuring.pm:1200
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:431
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1552
 #, fuzzy, c-format, perl-format
@@ -3727,38 +3726,38 @@ msgid "@%s reference to nonexistent node `%s'"
 msgstr ""
 "%s egy nem létező oldalra („%s“) hivatkozik (esetleg hibás szekcionálás?)"
 
-#: tp/Texinfo/Structuring.pm:444
+#: tp/Texinfo/Structuring.pm:450
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:444
 #, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:624
+#: tp/Texinfo/Structuring.pm:630
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:782
 #, fuzzy, c-format, perl-format
 #| msgid "node `%s' has been referenced %d times"
 msgid "node `%s' unreferenced"
 msgstr "a(z) „%s“ oldalra %d hivatkozás mutat"
 
-#: tp/Texinfo/Structuring.pm:875
+#: tp/Texinfo/Structuring.pm:881
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1084
 #, c-format, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:895
+#: tp/Texinfo/Structuring.pm:901
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1120
 #, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:962
+#: tp/Texinfo/Structuring.pm:968
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1215
 #, c-format, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:1001
+#: tp/Texinfo/Structuring.pm:1007
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1283
 #, fuzzy, c-format, perl-format
 #| msgid "Node `%s' lacks menu item for `%s' despite being its Up target"
@@ -3766,136 +3765,126 @@ msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "A(z) „%s“ oldal nem tartalmaz menüelemet „%s“-hez, bár ez uóbbi a szülője"
 
-#: tp/Texinfo/Structuring.pm:1132
+#: tp/Texinfo/Structuring.pm:1138
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1455
 #, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:1143
+#: tp/Texinfo/Structuring.pm:1149
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1475
 #, fuzzy, c-format, perl-format
 #| msgid "unreferenced node `%s'"
 msgid "%s reference to nonexistent `%s'"
 msgstr "nem hivatkozott oldal „%s“"
 
-#: tp/Texinfo/Structuring.pm:1206
+#: tp/Texinfo/Structuring.pm:1212
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1571
 #, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:2468
-#, perl-format
-msgid "empty index key in @%s"
-msgstr ""
-
-#: tp/Texinfo/Structuring.pm:2497
-#, perl-format
-msgid "empty index sub entry %d key in @%s"
-msgstr ""
-
-#: tp/Texinfo/Transformations.pm:851
-#: tp/Texinfo/XS/structuring_transfo/transformations.c:1337
+#: tp/Texinfo/Transformations.pm:856
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1338
 #, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr ""
 
-#: tp/init/chm.pm:230 tp/init/chm.pm:296 tp/init/chm.pm:377
+#: tp/init/chm.pm:226 tp/init/chm.pm:314 tp/init/chm.pm:395
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "chm.pm: could not open %s for writing: %s\n"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/init/chm.pm:282 tp/init/chm.pm:363 tp/init/chm.pm:429
+#: tp/init/chm.pm:300 tp/init/chm.pm:381 tp/init/chm.pm:447
 #, perl-format
 msgid "chm.pm: error on closing %s: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:295
+#: tp/ext/epub3.pm:296
 #, fuzzy, perl-format
 #| msgid "@image file `%s' unreadable: %s"
 msgid "@image file `%s' can not be copied"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"
 
-#: tp/ext/epub3.pm:307
+#: tp/ext/epub3.pm:308
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create images directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:327
+#: tp/ext/epub3.pm:328
 #, perl-format
 msgid "could not copy `%s' to `%s': %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:406
+#: tp/ext/epub3.pm:407
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error removing directory: %s: %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:411
+#: tp/ext/epub3.pm:412
 #, perl-format
 msgid "error removing directory: %s: unlinking %s: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:453
+#: tp/ext/epub3.pm:454
 msgid "Archive::Zip is required for EPUB file output"
 msgstr ""
 
-#: tp/ext/epub3.pm:548
+#: tp/ext/epub3.pm:549
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error creating directory: %s: %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:553
+#: tp/ext/epub3.pm:554
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:577
+#: tp/ext/epub3.pm:578
 msgid "epub: no filename output"
 msgstr ""
 
-#: tp/ext/epub3.pm:588
+#: tp/ext/epub3.pm:589
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create meta informations directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/ext/epub3.pm:602 tp/ext/epub3.pm:638 tp/ext/epub3.pm:668
-#: tp/ext/epub3.pm:779
+#: tp/ext/epub3.pm:603 tp/ext/epub3.pm:639 tp/ext/epub3.pm:675
+#: tp/ext/epub3.pm:786
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/ext/epub3.pm:622 tp/ext/epub3.pm:650 tp/ext/epub3.pm:749
-#: tp/ext/epub3.pm:928
+#: tp/ext/epub3.pm:623 tp/ext/epub3.pm:651 tp/ext/epub3.pm:756
+#: tp/ext/epub3.pm:935
 #, perl-format
 msgid "epub3.pm: error on closing %s: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:880
+#: tp/ext/epub3.pm:887
 #, perl-format
 msgid "epub3.pm: readdir %s error: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:948 tp/ext/epub3.pm:957 tp/ext/epub3.pm:970
+#: tp/ext/epub3.pm:955 tp/ext/epub3.pm:964 tp/ext/epub3.pm:977
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr ""
 
-#: tp/ext/epub3.pm:979
+#: tp/ext/epub3.pm:986
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "epub3.pm: error writing archive %s"
 msgstr "hiba „%s“ írásakor."
 
-#: tp/ext/highlight_syntax.pm:118 tp/ext/highlight_syntax.pm:352
+#: tp/ext/highlight_syntax.pm:118 tp/ext/highlight_syntax.pm:356
 #, perl-format
 msgid "%s: %s"
 msgstr ""
@@ -3910,73 +3899,73 @@ msgstr ""
 msgid "%s: no highlighted language found"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:362
+#: tp/ext/highlight_syntax.pm:366
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error closing input: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/ext/highlight_syntax.pm:373
+#: tp/ext/highlight_syntax.pm:377
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error closing output: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/ext/highlight_syntax.pm:378
+#: tp/ext/highlight_syntax.pm:382
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error closing errors: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/ext/highlight_syntax.pm:384
+#: tp/ext/highlight_syntax.pm:388
 #, perl-format
 msgid "%s: errors: %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:387
+#: tp/ext/highlight_syntax.pm:391
 #, perl-format
 msgid "  %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:423 tp/ext/highlight_syntax.pm:493
+#: tp/ext/highlight_syntax.pm:427 tp/ext/highlight_syntax.pm:497
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "highlight_syntax.pm: could not open %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/ext/highlight_syntax.pm:453 tp/ext/highlight_syntax.pm:551
+#: tp/ext/highlight_syntax.pm:457 tp/ext/highlight_syntax.pm:555
 #, perl-format
 msgid "highlight_syntax.pm: error on closing %s: %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:482
+#: tp/ext/highlight_syntax.pm:486
 #, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:529
+#: tp/ext/highlight_syntax.pm:533
 #, perl-format
 msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
 "+1"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:537
+#: tp/ext/highlight_syntax.pm:541
 #, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:546
+#: tp/ext/highlight_syntax.pm:550
 #, perl-format
 msgid "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:615
+#: tp/ext/highlight_syntax.pm:619
 #, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:703
+#: tp/ext/highlight_syntax.pm:707
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr ""
@@ -4135,19 +4124,19 @@ msgstr ""
 msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
 msgstr ""
 
-#: tp/texi2any.pl:447
+#: tp/texi2any.pl:464
 #, fuzzy, perl-format
 #| msgid "Could not create output file `%s'."
 msgid "could not read init file %s"
 msgstr "A kimeneti fájl („%s“) nem hozható létre."
 
-#: tp/texi2any.pl:465
+#: tp/texi2any.pl:482
 #, fuzzy, perl-format
 #| msgid "Could not create output file `%s'."
 msgid "could not read extension file %s"
 msgstr "A kimeneti fájl („%s“) nem hozható létre."
 
-#: tp/texi2any.pl:710
+#: tp/texi2any.pl:727
 #, fuzzy, perl-format
 #| msgid "%s: Ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'.\n"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
@@ -4155,12 +4144,12 @@ msgstr ""
 "%s: Figyelmen kívül hagyom a fel nem ismert TEXINFO_OUTPUT_FORMAT értéket "
 "(„%s“).\n"
 
-#: tp/texi2any.pl:755
+#: tp/texi2any.pl:772
 #, perl-format
 msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgstr "Használat: %s [OPCIÓK] ... TEXINFO-FÁJL...\n"
 
-#: tp/texi2any.pl:758
+#: tp/texi2any.pl:775
 msgid ""
 "Translate Texinfo source documentation to various other formats, by default\n"
 "Info files suitable for reading online with Emacs or standalone GNU Info.\n"
@@ -4169,70 +4158,117 @@ msgid ""
 "the behavior is identical, and does not depend on the installed name.\n"
 msgstr ""
 
-#: tp/texi2any.pl:766
-#, perl-format
-msgid ""
-"General options:\n"
-"      --document-language=STR locale to use in translating Texinfo keywords\n"
-"                                for the output document (default C).\n"
-"      --error-limit=NUM       quit after NUM errors (default %d).\n"
-"      --force                 preserve output even if errors.\n"
-"      --help                  display this help and exit.\n"
-"      --no-validate           suppress node cross-reference validation.\n"
-"      --no-warn               suppress warnings (but not errors).\n"
-"      --conf-dir=DIR          search also for initialization files in DIR.\n"
-"      --init-file=FILE        load FILE to modify the default behavior.\n"
-"  -c, --set-customization-variable VAR=VAL  set customization variable VAR \n"
-"                                to value VAL.\n"
-"  -v, --verbose               explain what is being done.\n"
-"      --version               display version information and exit.\n"
-msgstr ""
+#: tp/texi2any.pl:781
+#, fuzzy
+#| msgid "One completion:\n"
+msgid "General options:"
+msgstr "1 kiegészítés:\n"
 
 #: tp/texi2any.pl:782
-msgid "Output format selection (default is to produce Info):"
-msgstr ""
-
-#: tp/texi2any.pl:783
-msgid "      --docbook               output Docbook XML."
+msgid ""
+"      --document-language=STR locale to use in translating Texinfo keywords\n"
+"                                for the output document (default C)."
 msgstr ""
 
 #: tp/texi2any.pl:784
-msgid "      --html                  output HTML."
-msgstr ""
-
-#: tp/texi2any.pl:785
-msgid "      --epub3                 output EPUB 3."
+#, perl-format
+msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgstr ""
 
 #: tp/texi2any.pl:786
-msgid "      --latex                 output LaTeX."
+msgid "      --force                 preserve output even if errors."
 msgstr ""
 
 #: tp/texi2any.pl:787
-msgid "      --plaintext             output plain text rather than Info."
-msgstr ""
+#, fuzzy
+#| msgid "display this help and exit"
+msgid "      --help                  display this help and exit."
+msgstr "kiírja e súgót és kilép"
 
 #: tp/texi2any.pl:788
-msgid "      --xml                   output Texinfo XML."
+msgid "      --no-validate           suppress node cross-reference validation."
 msgstr ""
 
 #: tp/texi2any.pl:789
+msgid "      --no-warn               suppress warnings (but not errors)."
+msgstr ""
+
+#: tp/texi2any.pl:790
+msgid ""
+"      --conf-dir=DIR          search also for initialization files in DIR."
+msgstr ""
+
+#: tp/texi2any.pl:791
+msgid "      --init-file=FILE        load FILE to modify the default behavior."
+msgstr ""
+
+#: tp/texi2any.pl:792
+msgid ""
+"  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
+"                                to value VAL."
+msgstr ""
+
+#: tp/texi2any.pl:794
+msgid "      --trace-includes        print names of included files."
+msgstr ""
+
+#: tp/texi2any.pl:795
+#, fuzzy
+#| msgid "display version information and exit"
+msgid "  -v, --verbose               explain what is being done."
+msgstr "kiírja a verzióinformációt és kilép"
+
+#: tp/texi2any.pl:796
+#, fuzzy
+#| msgid "display version information and exit"
+msgid "      --version               display version information and exit."
+msgstr "kiírja a verzióinformációt és kilép"
+
+#: tp/texi2any.pl:798
+msgid "Output format selection (default is to produce Info):"
+msgstr ""
+
+#: tp/texi2any.pl:799
+msgid "      --docbook               output Docbook XML."
+msgstr ""
+
+#: tp/texi2any.pl:800
+msgid "      --html                  output HTML."
+msgstr ""
+
+#: tp/texi2any.pl:801
+msgid "      --epub3                 output EPUB 3."
+msgstr ""
+
+#: tp/texi2any.pl:802
+msgid "      --latex                 output LaTeX."
+msgstr ""
+
+#: tp/texi2any.pl:803
+msgid "      --plaintext             output plain text rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:804
+msgid "      --xml                   output Texinfo XML."
+msgstr ""
+
+#: tp/texi2any.pl:805
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE."
 msgstr ""
 
-#: tp/texi2any.pl:793
+#: tp/texi2any.pl:809
 msgid "General output options:"
 msgstr ""
 
-#: tp/texi2any.pl:795
+#: tp/texi2any.pl:811
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
 
-#: tp/texi2any.pl:798
+#: tp/texi2any.pl:814
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4244,19 +4280,19 @@ msgid ""
 "                                standard output by default."
 msgstr ""
 
-#: tp/texi2any.pl:804
+#: tp/texi2any.pl:820
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
 
-#: tp/texi2any.pl:807
+#: tp/texi2any.pl:823
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 
-#: tp/texi2any.pl:810
+#: tp/texi2any.pl:826
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4268,7 +4304,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tp/texi2any.pl:818
+#: tp/texi2any.pl:834
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4276,21 +4312,21 @@ msgid ""
 "                                encoding."
 msgstr ""
 
-#: tp/texi2any.pl:822
+#: tp/texi2any.pl:838
 msgid "      --enable-encoding       override --disable-encoding (default)."
 msgstr ""
 
-#: tp/texi2any.pl:824
+#: tp/texi2any.pl:840
 msgid "Options for Info and plain text:"
 msgstr ""
 
-#: tp/texi2any.pl:826
+#: tp/texi2any.pl:842
 #, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:828
+#: tp/texi2any.pl:844
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
 "                                `separate' to put them in their own node;\n"
@@ -4299,7 +4335,7 @@ msgid ""
 "                                which they are defined (this is the default)."
 msgstr ""
 
-#: tp/texi2any.pl:833
+#: tp/texi2any.pl:849
 #, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4308,13 +4344,13 @@ msgid ""
 "                                `asis', preserve existing indentation."
 msgstr ""
 
-#: tp/texi2any.pl:837
+#: tp/texi2any.pl:853
 #, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:845
+#: tp/texi2any.pl:861
 msgid ""
 "Options for HTML:\n"
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
@@ -4328,106 +4364,106 @@ msgid ""
 "                                anchors; default is set only if split.\n"
 msgstr ""
 
-#: tp/texi2any.pl:857
+#: tp/texi2any.pl:873
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
 msgstr ""
 
-#: tp/texi2any.pl:860
+#: tp/texi2any.pl:876
 msgid "Input file options:"
 msgstr ""
 
-#: tp/texi2any.pl:861
+#: tp/texi2any.pl:877
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr ""
 
-#: tp/texi2any.pl:862
+#: tp/texi2any.pl:878
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
 
-#: tp/texi2any.pl:863
+#: tp/texi2any.pl:879
 msgid " -I DIR                       append DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:864
+#: tp/texi2any.pl:880
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:865
+#: tp/texi2any.pl:881
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
 
-#: tp/texi2any.pl:867
+#: tp/texi2any.pl:883
 msgid "Conditional processing in input:"
 msgstr ""
 
-#: tp/texi2any.pl:868
+#: tp/texi2any.pl:884
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
 msgstr ""
 
-#: tp/texi2any.pl:870
+#: tp/texi2any.pl:886
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
 
-#: tp/texi2any.pl:871
+#: tp/texi2any.pl:887
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr ""
 
-#: tp/texi2any.pl:872
+#: tp/texi2any.pl:888
 msgid "  --iflatex         process @iflatex and @latex."
 msgstr ""
 
-#: tp/texi2any.pl:873
+#: tp/texi2any.pl:889
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
 
-#: tp/texi2any.pl:874
+#: tp/texi2any.pl:890
 msgid "  --iftex           process @iftex and @tex."
 msgstr ""
 
-#: tp/texi2any.pl:875
+#: tp/texi2any.pl:891
 msgid "  --ifxml           process @ifxml and @xml."
 msgstr ""
 
-#: tp/texi2any.pl:876
+#: tp/texi2any.pl:892
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgstr ""
 
-#: tp/texi2any.pl:877
+#: tp/texi2any.pl:893
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
 msgstr ""
 
-#: tp/texi2any.pl:878
+#: tp/texi2any.pl:894
 msgid "  --no-ifinfo       do not process @ifinfo text."
 msgstr ""
 
-#: tp/texi2any.pl:879
+#: tp/texi2any.pl:895
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
 msgstr ""
 
-#: tp/texi2any.pl:880
+#: tp/texi2any.pl:896
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgstr ""
 
-#: tp/texi2any.pl:881
+#: tp/texi2any.pl:897
 msgid "  --no-iftex        do not process @iftex and @tex text."
 msgstr ""
 
-#: tp/texi2any.pl:882
+#: tp/texi2any.pl:898
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
 msgstr ""
 
-#: tp/texi2any.pl:884
+#: tp/texi2any.pl:900
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
 msgstr ""
 
-#: tp/texi2any.pl:888
+#: tp/texi2any.pl:904
 msgid ""
 "  The defaults for the @if... conditionals depend on the output format:\n"
 "  if generating Docbook, --ifdocbook is on and the others are off;\n"
@@ -4438,7 +4474,7 @@ msgid ""
 "  if generating XML, --ifxml is on and the others are off."
 msgstr ""
 
-#: tp/texi2any.pl:899
+#: tp/texi2any.pl:915
 msgid ""
 "Examples:\n"
 "  makeinfo foo.texi                      write Info to foo's @setfilename\n"
@@ -4455,90 +4491,86 @@ msgid ""
 "  makeinfo --no-split foo.texi           write one Info file however big\n"
 msgstr ""
 
-#: tp/texi2any.pl:951
+#: tp/texi2any.pl:968
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr ""
 "%s: a --footnote-style argumentumának „separate“-nek vagy  „end“-nek kell "
 "lennie, „%s“ helyett.\n"
 
-#: tp/texi2any.pl:958
+#: tp/texi2any.pl:975
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr ""
 
-#: tp/texi2any.pl:1051
+#: tp/texi2any.pl:1068
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
 "%s: a --paragraph-indent argumentumának numerikusnak,  „none“-nak vagy  "
 "„asis“-nek kell lennie, „%s“ helyett.\n"
 
-#: tp/texi2any.pl:1188
+#: tp/texi2any.pl:1206
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 
-#: tp/texi2any.pl:1192
+#: tp/texi2any.pl:1210
 msgid "--Xopt option without printed output"
 msgstr ""
 
 # action=művelet ? LM
 # általában az - sas
-#: tp/texi2any.pl:1278
+#: tp/texi2any.pl:1296
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown tree transformation %s"
 msgstr "ismeretlen művelet: „%s“."
 
-#: tp/texi2any.pl:1298
+#: tp/texi2any.pl:1316
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr ""
 
-#: tp/texi2any.pl:1301
+#: tp/texi2any.pl:1319
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr ""
 
-#: tp/texi2any.pl:1317
+#: tp/texi2any.pl:1335
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error loading %s: %s"
 msgstr "hiba „%s“ írásakor."
 
-#: tp/texi2any.pl:1393
+#: tp/texi2any.pl:1411
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: hiányzó fájl argumentum.\n"
 
-#: tp/texi2any.pl:1420
+#: tp/texi2any.pl:1447
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr ""
 
-#: tp/texi2any.pl:1487
-msgid "fill_gaps_in_sectioning transformation return no result. No section?"
-msgstr ""
-
-#: tp/texi2any.pl:1541
+#: tp/texi2any.pl:1573
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/texi2any.pl:1546
+#: tp/texi2any.pl:1578
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open %s for writing: %s\n"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/texi2any.pl:1746
+#: tp/texi2any.pl:1775
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr ""
 
-#: tp/texi2any.pl:1822
+#: tp/texi2any.pl:1854
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error on closing elements size file %s: %s\n"
@@ -4550,57 +4582,57 @@ msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 msgid "unmatched `@end %s'"
 msgstr "Nem egyező „%c%s“"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:206
+#: tp/Texinfo/XS/parsetexi/end_line.c:207
 #, fuzzy, c-format
 #| msgid "Bad argument to @%s"
 msgid "bad argument to @alias"
 msgstr "Rossz argumentum ide: @%s"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:262
+#: tp/Texinfo/XS/parsetexi/end_line.c:263
 #, fuzzy, c-format
 #| msgid "Bad argument to @%s"
 msgid "bad argument to @definfoenclose"
 msgstr "Rossz argumentum ide: @%s"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:435
+#: tp/Texinfo/XS/parsetexi/end_line.c:437
 #, fuzzy, c-format
 #| msgid "Bad argument to @%s: %s"
 msgid "bad argument to @printindex: %s"
 msgstr "Rossz argumentum ide: %s: %s"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:624
+#: tp/Texinfo/XS/parsetexi/end_line.c:626
 #, fuzzy, c-format
 #| msgid "Bad argument to @%s: %s"
 msgid "bad argument to @headings: %s"
 msgstr "Rossz argumentum ide: %s: %s"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1257
+#: tp/Texinfo/XS/parsetexi/end_line.c:1259
 #, fuzzy, c-format
 #| msgid "Bad argument to @%s: %s"
 msgid "bad argument to @end: %s"
 msgstr "Rossz argumentum ide: %s: %s"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1275
+#: tp/Texinfo/XS/parsetexi/end_line.c:1277
 #, c-format
 msgid "@include: could not find %s"
 msgstr ""
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1285
+#: tp/Texinfo/XS/parsetexi/end_line.c:1287
 #, fuzzy, c-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "@include: could not open %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1680
+#: tp/Texinfo/XS/parsetexi/end_line.c:1699
 msgid "@setfilename after the first element"
 msgstr ""
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1686
+#: tp/Texinfo/XS/parsetexi/end_line.c:1705
 #, c-format
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr ""
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:1734
+#: tp/Texinfo/XS/parsetexi/end_line.c:1753
 msgid "@node precedes @part, but parts may not be associated with nodes"
 msgstr ""
 
@@ -4638,27 +4670,27 @@ msgstr ""
 msgid "@%s is obsolete; %s"
 msgstr "%c%s elavult"
 
-#: tp/Texinfo/XS/convert/convert_html.c:16230
+#: tp/Texinfo/XS/convert/convert_html.c:16588
 #, c-format
 msgid "%zu registered opened sections not closed"
 msgstr ""
 
-#: tp/Texinfo/XS/convert/convert_html.c:16239
+#: tp/Texinfo/XS/convert/convert_html.c:16597
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr ""
 
-#: tp/Texinfo/XS/convert/convert_html.c:16256
+#: tp/Texinfo/XS/convert/convert_html.c:16614
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr ""
 
-#: tp/Texinfo/XS/convert/convert_html.c:16263
+#: tp/Texinfo/XS/convert/convert_html.c:16621
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr ""
 
-#: tp/Texinfo/XS/convert/convert_html.c:16268
+#: tp/Texinfo/XS/convert/convert_html.c:16626
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr ""
@@ -4704,9 +4736,6 @@ msgstr ""
 
 #~ msgid "Insert this character"
 #~ msgstr "E karakter beszúrása"
-
-#~ msgid "One completion:\n"
-#~ msgstr "1 kiegészítés:\n"
 
 #~ msgid "No index entries."
 #~ msgstr "Nincs tárgymutató."
