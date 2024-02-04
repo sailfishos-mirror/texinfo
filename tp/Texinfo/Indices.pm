@@ -248,6 +248,7 @@ sub index_entry_element_sort_string($$$$;$)
   return $sort_string;
 }
 
+# $DOCUMENT_INFO is used in XS to retrieve the document.
 sub _index_entry_element_sort_string_key($$$$$;$)
 {
   my $document_info = shift;
@@ -750,7 +751,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Indices - sorting and merging indices in Texinfo
+Texinfo::Indices - merging and sorting indices from Texinfo
 
 =head1 SYNOPSIS
 
@@ -791,11 +792,16 @@ with C<sort_indices_by_index> or C<sort_indices_by_letter>.
 No method is exported in the default case.
 
 Some methods takes a L<Texinfo::Report> C<$registrar> as argument for
-error reporting.  Some also require Texinfo customization variables
+error reporting.  Error reporting also require Texinfo customization variables
 information, which means an object implementing the C<get_conf> method, in
 practice the main program configuration or a converter
 (L<Texinfo::Convert::Converter/Getting and setting customization
-variables>).  Other common input arguments such as indices information
+variables>).  If the C<$registrar> argument is not set, the object used to
+get customization information is assumed to be a converter, and the
+error reporting uses converters error messages reporting functions
+(L<Texinfo::Convert::Converter/Registering error and warning messages>).
+
+Other common input arguments such as indices information
 are obtained from a parsed document, see L<Texinfo::Document>.
 
 =over
@@ -812,12 +818,24 @@ The tree element index entry processed is I<$index_entry_element>,
 and can be a C<@subentry>.  I<$main_entry> is the main index entry
 that can be used to gather information.  The I<$options> are options
 used for Texinfo to text conversion for the generation of the sort
-string, typically obtained from
+string.  If the sort string is supposed to be output, the I<$options>
+are typically obtained from
 L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting($customization_information)>.
 If I<$prefer_reference_element> is set, prefer an untranslated
 element for the formatting as sort string.
 
-=item $merged_entries = merge_indices($indices_information)
+=item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
+
+Return the I<$index_entry> leading text I<$text> or textual command Texinfo
+tree hash reference I<$command>.  Here textual commands means accent
+commands, brace commands without arguments used for character and glyph
+insertion and C<@U>.
+
+This method can in particular be used to format the leading letter
+of an index entry using I<$command> instead of the sort string set by
+C<sort_indices_by_letter>.
+
+=item $merged_indices = merge_indices($indices_information)
 X<C<merge_indices>>
 
 Using information returned by L<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>,
@@ -825,14 +843,15 @@ a structure holding all the index entries by index name is returned,
 with all the entries of merged indices merged with those of the indice
 merged into.
 
-The I<$merged_entries> returned is a hash reference whose
+The I<$merged_indices> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Document/index_entries>.
 
 =item $option = setup_index_entry_keys_formatting($customization_information)
 X<C<setup_index_entry_keys_formatting>>
 
-Return options for conversion of Texinfo to text relevant for index keys sorting.
+Return options relevant for index keys sorting for conversion of Texinfo
+to text to be output.
 
 =item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices_by_index($registrar, $customization_information, $merged_index_entries, $indices_information)
 
@@ -857,7 +876,7 @@ with the index name.
 I<$index_entries_sort_strings> is a hash reference associating the index
 entries with the strings that were used to sort them.
 
-Register errors in I<$registrar>.
+Register errors in I<$registrar> or through I<$customization_information>.
 
 =back
 

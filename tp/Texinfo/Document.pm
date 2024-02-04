@@ -421,7 +421,7 @@ in the document.
 =item included_files
 
 An array of included file paths as they appear in the document.  Binary
-strings.
+strings.  From both C<@include> and C<@verbatiminclude>.
 
 =item input_encoding_name
 
@@ -516,8 +516,9 @@ by a call to L<register_document_sections_list|/register_document_sections_list 
 
 =back
 
-Information about defined indices, merged indices and index entries is
-also available through the C<indices_information> method.
+Information about defined indices, indices merging and index entries is
+also available through the C<indices_information> method.  Merged document
+indices are available through C<merged_indices>.
 
 =over
 
@@ -589,6 +590,15 @@ the indices corresponding to the following texinfo
 
 If C<name> is not set, it is set to the index name.
 
+=item $merged_indices = $document->merged_indices()
+
+Merge indices if needed and return merged indices.  The I<$merged_indices>
+returned is a hash reference whose keys are the index names and values arrays
+of index entry structures described in L</index_entries>.
+
+L<< C<Texinfo::Indices::merge_indices>|Texinfo::Indices/$merged_indices = merge_indices($indices_information) >>
+is used to merge the indices.
+
 =back
 
 =head2 Registering document and information in document
@@ -601,8 +611,8 @@ parsers codes.
 =item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list)
 
 Setup a document. There is no reason to call this method out of parsers, as
-it is already done by the Texinfo parsers.  The arguments correspond to
-information returned by the other methods.
+it is already done by the Texinfo parsers.  The arguments are gathered
+during parsing and correspond to information returned by the other methods.
 
 =back
 
@@ -678,10 +688,10 @@ or C<rebuild_tree>:
 X<C<rebuild_document>> X<C<rebuild_tree>>
 
 Return a I<$rebuilt_document>, rebuilt from C data if needed.  If there
-is no need to rebuild the document, the document is returned as is.  The
-document rebuilt is based on the Texinfo parsed I<$document> if
-C<rebuild_document> is called, or on the Texinfo parsed document associated
-to the Texinfo tree I<$tree> if C<rebuild_tree> is called.
+is not C data, the document is returned as is.  The document rebuilt is
+based on the Texinfo parsed I<$document> if C<rebuild_document> is
+called, or on the Texinfo parsed document associated to the Texinfo
+tree I<$tree> if C<rebuild_tree> is called.
 
 If the optional I<$no_store> argument is set, remove the C data.
 
