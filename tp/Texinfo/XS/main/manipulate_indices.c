@@ -310,8 +310,12 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
      independently of input and output encodings */
   TEXT_OPTIONS *convert_text_options = new_text_options ();
   convert_text_options->encoding = strdup ("utf-8");
+  /*  It could be possible to set INCLUDE_DIRECTORIES, but there is no
+      point doing so, as it is only useful for @verbatiminclude, which
+      cannot appear in index entries.
   copy_strings (&convert_text_options->include_directories,
                 options->INCLUDE_DIRECTORIES.strlist);
+   */
 
   /* similar to using Unicode::Collate in Perl */
   *collation_locale = 0;

@@ -359,8 +359,11 @@ sub setup_sortable_index_entries($$$$$)
   # independently of input and output encodings
   my $convert_text_options = {};
   $convert_text_options->{'enabled_encoding'} = 'utf-8';
-  $convert_text_options->{'INCLUDE_DIRECTORIES'}
-     = $customization_information->get_conf('INCLUDE_DIRECTORIES');
+  # It could be possible to set INCLUDE_DIRECTORIES, but there is no
+  # point doing so, as it is only useful for @verbatiminclude, which
+  # cannot appear in index entries.
+  #$convert_text_options->{'INCLUDE_DIRECTORIES'}
+  #   = $customization_information->get_conf('INCLUDE_DIRECTORIES');
 
   # The 'Non-Ignorable' for variable collation elements means that they are
   # treated as normal characters.   This allows to have spaces and punctuation
