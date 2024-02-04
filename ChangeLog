@@ -1,5 +1,10 @@
 2024-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* Texinfo/Convert/NodeNameNormalization.pm (_convert): rename $command
+	as $cmdname and use it more through the code.
+
+2024-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Indices.pm (setup_sortable_index_entries),
 	tp/Texinfo/XS/main/manipulate_indices.c
 	(setup_sortable_index_entries): do not set INCLUDE_DIRECTORIES, as it
