@@ -111,72 +111,6 @@ foreach my $ignored_command ('html', 'tex', 'xml', 'docbook', 'latex') {
   $ignored_format_raw_commands{$ignored_command} = 1;
 }
 
-# used by Texinfo::Convert::NodeNormalization
-our %text_brace_no_arg_commands = (
-               'TeX'                => 'TeX',
-               'LaTeX'              => 'LaTeX',
-               'bullet'             => '*',
-               'copyright'          => '(C)',
-               'registeredsymbol'   => '(R)',
-               'dots'         => '...',
-               'enddots'      => '...',
-               'equiv'        => '==',
-               'error'        => 'error-->',
-               'expansion'    => '==>',
-               'arrow'        => '->',
-               'minus'        => '-',
-               'point'        => '-!-',
-               'print'        => '-|',
-               'result'       => '=>',
-               'today'        => '',
-               'aa'           => 'aa',
-               'AA'           => 'AA',
-               'ae'           => 'ae',
-               'oe'           => 'oe',
-               'AE'           => 'AE',
-               'OE'           => 'OE',
-               'o'            => '/o',
-               'O'            => '/O',
-               'ss'           => 'ss',
-               'l'            => '/l',
-               'L'            => '/L',
-               'DH'           => 'D',
-               'dh'           => 'd',
-               'TH'           => 'TH', # http://www.evertype.com/standards/wynnyogh/thorn.html
-
-               'th'           => 'th',
-               'exclamdown'   => '!',
-               'questiondown' => '?',
-               'pounds'       => '#',
-               'ordf'         => 'a',
-               'ordm'         => 'o',
-               'comma'        => ',',
-               'atchar'       => '@',
-               'ampchar'      => '&',
-               'lbracechar'   => '{',
-               'rbracechar'   => '}',
-               'backslashchar' => '\\',
-               'hashchar'      => '#',
-               'euro'         => 'Euro',
-               'geq'          => '>=',
-               'leq'          => '<=',
-               'tie'          => ' ',
-               'textdegree'      => 'o',
-               'quotedblleft'    => '"',
-               'quotedblright'   => '"',
-               'quoteleft'       => '`',
-               'quoteright'      => "'",
-               'quotedblbase'    => ',,',
-               'quotesinglbase'  => ',',
-               'guillemetleft'   => '<<',
-               'guillemetright'  => '>>',
-               'guillemotleft'   => '<<',
-               'guillemotright'  => '>>',
-               'guilsinglleft'   => '<',
-               'guilsinglright'  => '>',
-               'click'           => '', # specially treated
-);
-
 # used in C commands table generation
 our %sort_brace_no_arg_commands = (
   'copyright' => 'C',
@@ -410,7 +344,7 @@ sub brace_no_arg_command($;$)
   $command = $element->{'extra'}->{'clickstyle'}
      if ($element->{'extra'}
       and defined($element->{'extra'}->{'clickstyle'})
-      and defined($text_brace_no_arg_commands{
+      and defined($Texinfo::Common::text_brace_no_arg_commands{
                                   $element->{'extra'}->{'clickstyle'}}));
   my $result;
   if (defined($encoding) and
@@ -432,7 +366,7 @@ sub brace_no_arg_command($;$)
         and $sort_brace_no_arg_commands{$command}) {
       $result = $sort_brace_no_arg_commands{$command};
     } else {
-      $result = $text_brace_no_arg_commands{$command};
+      $result = $Texinfo::Common::text_brace_no_arg_commands{$command};
     }
   }
   if ($options and $Texinfo::Commands::letter_no_arg_commands{$command}) {
@@ -618,7 +552,8 @@ sub _convert($$)
         $year += ($year < 70) ? 2000 : 1900;
         return "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year";
       }
-    } elsif (defined($text_brace_no_arg_commands{$element->{'cmdname'}})) {
+    } elsif (defined($Texinfo::Common::text_brace_no_arg_commands{
+                                                 $element->{'cmdname'}})) {
       return brace_no_arg_command($element, $options);
     # commands with braces
     } elsif ($accent_commands{$element->{'cmdname'}}) {

@@ -393,6 +393,73 @@ our %nobrace_symbol_text;
            '\\', '\\',  # should only appear in math
 );
 
+# used by Texinfo::Convert::Text, Texinfo::Convert::NodeNormalization
+# and Texinfo::Convert::TextContent.
+our %text_brace_no_arg_commands = (
+               'TeX'                => 'TeX',
+               'LaTeX'              => 'LaTeX',
+               'bullet'             => '*',
+               'copyright'          => '(C)',
+               'registeredsymbol'   => '(R)',
+               'dots'         => '...',
+               'enddots'      => '...',
+               'equiv'        => '==',
+               'error'        => 'error-->',
+               'expansion'    => '==>',
+               'arrow'        => '->',
+               'minus'        => '-',
+               'point'        => '-!-',
+               'print'        => '-|',
+               'result'       => '=>',
+               'today'        => '',
+               'aa'           => 'aa',
+               'AA'           => 'AA',
+               'ae'           => 'ae',
+               'oe'           => 'oe',
+               'AE'           => 'AE',
+               'OE'           => 'OE',
+               'o'            => '/o',
+               'O'            => '/O',
+               'ss'           => 'ss',
+               'l'            => '/l',
+               'L'            => '/L',
+               'DH'           => 'D',
+               'dh'           => 'd',
+               'TH'           => 'TH', # http://www.evertype.com/standards/wynnyogh/thorn.html
+
+               'th'           => 'th',
+               'exclamdown'   => '!',
+               'questiondown' => '?',
+               'pounds'       => '#',
+               'ordf'         => 'a',
+               'ordm'         => 'o',
+               'comma'        => ',',
+               'atchar'       => '@',
+               'ampchar'      => '&',
+               'lbracechar'   => '{',
+               'rbracechar'   => '}',
+               'backslashchar' => '\\',
+               'hashchar'      => '#',
+               'euro'         => 'Euro',
+               'geq'          => '>=',
+               'leq'          => '<=',
+               'tie'          => ' ',
+               'textdegree'      => 'o',
+               'quotedblleft'    => '"',
+               'quotedblright'   => '"',
+               'quoteleft'       => '`',
+               'quoteright'      => "'",
+               'quotedblbase'    => ',,',
+               'quotesinglbase'  => ',',
+               'guillemetleft'   => '<<',
+               'guillemetright'  => '>>',
+               'guillemotleft'   => '<<',
+               'guillemotright'  => '>>',
+               'guilsinglleft'   => '<',
+               'guilsinglright'  => '>',
+               'click'           => '', # specially treated
+);
+
 our %def_map = (
     # basic commands.
     # 'arg' and 'argtype' are for everything appearing after the other

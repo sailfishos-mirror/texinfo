@@ -58,9 +58,8 @@ BEGIN
 }
 
 use Texinfo::Common;
-use Texinfo::Convert::Text;
 use Texinfo::Convert::Unicode;
-
+use Texinfo::Convert::Text;
 
 
 my @commands_order = ('');
@@ -93,7 +92,7 @@ while (<STDIN>) {
 
 # Texinfo::Convert::NodeNameNormalization
 my %normalize_node_brace_no_arg_commands
-  = %Texinfo::Convert::Text::text_brace_no_arg_commands;
+  = %Texinfo::Common::text_brace_no_arg_commands;
 foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands)) {
   $normalize_node_brace_no_arg_commands{$command} =
      $Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands{$command};

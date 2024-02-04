@@ -40,12 +40,12 @@ use Locale::Messages;
 # modules do not setup data such that their order of loading is not
 # important, as long as they load after their dependencies.
 
-# to load a parser
-use Texinfo::Parser;
-
 use Texinfo::DocumentXS;
 
 use Texinfo::Convert::Unicode;
+
+# to load a parser
+use Texinfo::Parser;
 
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.

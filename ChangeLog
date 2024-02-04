@@ -1,5 +1,14 @@
 2024-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%text_brace_no_arg_commands),
+	tp/Texinfo/Convert/NodeNameNormalization.pm,
+	tp/Texinfo/Convert/Text.pm: move %text_brace_no_arg_commands to
+	Texinfo/Common.pm to avoid a dependency of NodeNameNormalization.pm on
+	Text.pm as it leads to a circular dependency as Text.pm depends
+	indirectly on NodeNameNormalization.pm.
+
+2024-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* Texinfo/Convert/NodeNameNormalization.pm (_convert): rename $command
 	as $cmdname and use it more through the code.
 

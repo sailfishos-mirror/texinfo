@@ -37,7 +37,7 @@ use strict;
 
 use Texinfo::Commands;
 
-use Texinfo::Convert::Text;
+use Texinfo::Common;
 
 
 texinfo_set_from_init_file('COMPLEX_FORMAT_IN_TABLE', 1);
@@ -91,7 +91,7 @@ foreach my $command ('euro', 'geq', 'leq',
    'quotedblbase', 'quotesinglbase', 'guillemetleft', 'guillemetright',
    'guillemotleft', 'guillemotright', 'guilsinglleft', 'guilsinglright') {
   my $formatted_command = html32_format_protect_text(undef,
-             $Texinfo::Convert::Text::text_brace_no_arg_commands{$command});
+             $Texinfo::Common::text_brace_no_arg_commands{$command});
   texinfo_register_no_arg_command_formatting($command, undef, $formatted_command);
 }
 

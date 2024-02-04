@@ -146,7 +146,7 @@ sub _convert($$)
         = localtime(time);
       $year += ($year < 70) ? 2000 : 1900;
       return "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year";
-    } elsif (defined($Texinfo::Convert::Text::text_brace_no_arg_commands{$element->{'cmdname'}})) {
+    } elsif (defined($Texinfo::Common::text_brace_no_arg_commands{$element->{'cmdname'}})) {
       return Texinfo::Convert::Text::brace_no_arg_command($element, undef);
     } elsif ($Texinfo::Commands::accent_commands{$element->{'cmdname'}}) {
       my $result = Texinfo::Convert::Text::text_accents($element,

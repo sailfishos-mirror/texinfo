@@ -37,12 +37,15 @@ use Text::Unidecode;
 
 # commands classes
 use Texinfo::Commands;
-# for nobrace_symbol_text
+# for nobrace_symbol_text and text_brace_no_arg_commands
 use Texinfo::Common;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
-# reuse conversion hashes
-use Texinfo::Convert::Text;
+
+# NOTE it is important that there is no dependency to Texinfo::Convert::Text
+# to avoid a dependency loop, in particular for data definition.
+# The loop would be Texinfo::Convert::Text -> Texinfo::Translations
+#   -> Texinfo::Parser -> this module
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -61,7 +64,8 @@ $VERSION = '7.1dev';
 
 
 my %normalize_node_brace_no_arg_commands
-  = %Texinfo::Convert::Text::text_brace_no_arg_commands;
+  = %Texinfo::Common::text_brace_no_arg_commands;
+
 foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands)) {
   $normalize_node_brace_no_arg_commands{$command} =
      $Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands{$command};
