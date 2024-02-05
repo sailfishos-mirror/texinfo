@@ -1,3 +1,10 @@
+2024-02-05  Patrice Dumas  <pertusus@free.fr>
+
+	* Texinfo/Indices.pm (_index_entry_element_sort_string_key)
+	(setup_sortable_index_entries, sort_indices_by_index)
+	(sort_indices_by_letter): always use a collator to sort index enties.
+	Remove now unused _collator_sort_key and _collator_sort_index_entries.
+
 2024-02-04  Patrice Dumas  <pertusus@free.fr>
 
 	Add COLLATION_LANGUAGE for linguistic tailoring of indices sorting
