@@ -138,17 +138,6 @@ sub _sort_index_entries($$)
   return $res;
 }
 
-sub _collator_sort_string($$$)
-{
-  my $a = shift;
-  my $b = shift;
-  my $collator = shift;
-  return (($a =~ /^[[:alpha:]]/ and $b =~ /^[[:alpha:]]/)
-              or ($a !~ /^[[:alpha:]]/ and $b !~ /^[[:alpha:]]/))
-                 ? ($collator->cmp ($a, $b))
-                 : (($a =~ /^[[:alpha:]]/ && 1) || -1);
-}
-
 sub setup_index_entry_keys_formatting($)
 {
   my $customization_information = shift;
@@ -634,15 +623,20 @@ sub sort_indices_by_letter($$$$;$)
 
       push @{$index_letter_hash->{$letter}}, $sortable_entry;
     }
-    # need to use directly the collator here as there is no
-    # separate sort keys.
-    my @sorted_letters = sort {_collator_sort_string($a, $b, $collator)}
-                                             (keys %$index_letter_hash);
-    foreach my $letter (@sorted_letters) {
-      my @sorted_letter_entries;
-      @sorted_letter_entries
+
+    my @letter_keys;
+    foreach my $letter (keys %$index_letter_hash) {
+      my $sort_key = $collator->getSortKey($letter);
+      push @letter_keys, [$sort_key, $letter, $index_letter_hash->{$letter}];
+    }
+
+    my @sorted_letters = sort{$a->[0] cmp $b->[0]} @letter_keys;
+
+    foreach my $letter_and_entries (@sorted_letters) {
+      my $letter = $letter_and_entries->[1];
+      my @sorted_letter_entries
          = map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
-                                            @{$index_letter_hash->{$letter}};
+                                            @{$letter_and_entries->[2]};
       push @{$sorted_index_entries->{$index_name}},
         { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
     }
