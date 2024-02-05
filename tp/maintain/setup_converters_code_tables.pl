@@ -269,8 +269,8 @@ foreach my $command_name (@commands_order) {
   if (exists($name_commands{$command_name})) {
     $command = $name_commands{$command_name};
   }
-  if (defined($Texinfo::Convert::Text::text_brace_no_arg_commands{$command_name})) {
-    my $result = $Texinfo::Convert::Text::text_brace_no_arg_commands{$command_name};
+  if (defined($Texinfo::Common::text_brace_no_arg_commands{$command_name})) {
+    my $result = $Texinfo::Common::text_brace_no_arg_commands{$command_name};
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
     print TEXT "\"$protected\",   /* $command */\n";
   } else {

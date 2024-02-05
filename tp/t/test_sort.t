@@ -47,8 +47,7 @@ $tree = $document->tree();
 my $registrar = $parser->registered_errors();
 my $indices_information = $document->indices_information();
 my $index_entries = $document->merged_indices();
-my $main_configuration = Texinfo::MainConfig::new({'ENABLE_ENCODING' => 1});
-Texinfo::Common::set_output_encodings($main_configuration, $document);
+my $main_configuration = Texinfo::MainConfig::new({});
 $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
 $main_configuration->register_XS_document_main_configuration($document);

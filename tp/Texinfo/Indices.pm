@@ -339,6 +339,11 @@ sub setup_sortable_index_entries($$$$$)
   my $index_entries = shift;
   my $indices_information = shift;
 
+  my $index_sortable_index_entries;
+  my $index_entries_sort_strings = {};
+  return $index_sortable_index_entries, $index_entries_sort_strings
+    unless ($index_entries);
+
   # convert index entries to sort string using unicode when possible
   # independently of input and output encodings
   my $convert_text_options = {};
@@ -348,11 +353,6 @@ sub setup_sortable_index_entries($$$$$)
   # cannot appear in index entries.
   #$convert_text_options->{'INCLUDE_DIRECTORIES'}
   #   = $customization_information->get_conf('INCLUDE_DIRECTORIES');
-
-  my $index_sortable_index_entries;
-  my $index_entries_sort_strings = {};
-  return $index_sortable_index_entries, $index_entries_sort_strings
-    unless ($index_entries);
 
   $index_sortable_index_entries = {};
   foreach my $index_name (keys(%$index_entries)) {
