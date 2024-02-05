@@ -50,7 +50,7 @@ my $index_entries = $document->merged_indices();
 my $main_configuration = Texinfo::MainConfig::new({});
 $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
-$main_configuration->register_XS_document_main_configuration($document);
+#$main_configuration->register_XS_document_main_configuration($document);
 my ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Indices::sort_indices_by_index($registrar, $main_configuration,
                                           $index_entries, $indices_information);
