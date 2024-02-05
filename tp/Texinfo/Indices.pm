@@ -442,20 +442,15 @@ sub setup_sortable_index_entries($$$$$)
   return ($index_sortable_index_entries, $index_entries_sort_strings);
 }
 
-sub sort_indices_by_index($$$$;$)
+sub sort_indices_by_index($$$$$$;$)
 {
   my $registrar = shift;
   my $customization_information = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
   my $index_entries = shift;
   my $indices_information = shift;
 
-  my $use_unicode_collation
-    = $customization_information->get_conf('USE_UNICODE_COLLATION');
-  my $locale_lang;
-  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-    $locale_lang
-     = $customization_information->get_conf('COLLATION_LANGUAGE');
-  }
   my $collator = _setup_collator($use_unicode_collation, $locale_lang);
 
   my $sorted_index_entries;
@@ -593,22 +588,15 @@ sub index_entry_first_letter_text_or_command($;$)
   }
 }
 
-sub sort_indices_by_letter($$$$;$)
+sub sort_indices_by_letter($$$$$$;$)
 {
   my $registrar = shift;
   my $customization_information = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
   my $index_entries = shift;
   my $indices_information = shift;
 
-  my $use_unicode_collation
-    = $customization_information->get_conf('USE_UNICODE_COLLATION');
-  my $locale_lang;
-  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-    if (defined($customization_information->get_conf('COLLATION_LANGUAGE'))) {
-      $locale_lang
-        = $customization_information->get_conf('COLLATION_LANGUAGE');
-    }
-  }
   my $collator = _setup_collator($use_unicode_collation, $locale_lang);
 
   my $sorted_index_entries;

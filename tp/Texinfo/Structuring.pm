@@ -30,7 +30,8 @@ use strict;
 # Can be used to check that there is no incorrect autovivfication
 # no autovivification qw(fetch delete exists store strict);
 
-# FIXME Could not do that because of sort_indices_by_letter, probably for uc().
+# FIXME Could not do that before index sorting was in that file, probably
+# for uc().
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
 #use if $] >= 5.014, re => '/a';

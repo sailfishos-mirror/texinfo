@@ -1179,9 +1179,18 @@ sub test($$)
   if ($merged_index_entries) {
     $main_configuration->{'document_descriptor'}
       = $document->document_descriptor();
+    my $use_unicode_collation
+      = $main_configuration->get_conf('USE_UNICODE_COLLATION');
+    my $locale_lang;
+    if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
+      $locale_lang
+       = $main_configuration->get_conf('COLLATION_LANGUAGE');
+    }
+
     ($sorted_index_entries, $index_entries_sort_strings)
       = Texinfo::Indices::sort_indices_by_index($registrar,
-                                   $main_configuration,
+                                                $main_configuration,
+                                 $use_unicode_collation, $locale_lang,
                                    $merged_index_entries,
                                    $indices_information);
     $indices_sorted_sort_strings = {};

@@ -1763,9 +1763,17 @@ sub get_converter_indices_sorted_by_letter($)
       my $merged_index_entries
         = $self->{'document'}->merged_indices();
 
+      my $use_unicode_collation
+        = $self->get_conf('USE_UNICODE_COLLATION');
+      my $locale_lang;
+      if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
+        $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
+      }
+
       my $index_entries_sort_strings;
       ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
           = Texinfo::Indices::sort_indices_by_letter(undef, $self,
+                                        $use_unicode_collation, $locale_lang,
                                            $merged_index_entries,
                                            $indices_information);
     }

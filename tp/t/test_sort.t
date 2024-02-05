@@ -53,6 +53,7 @@ $main_configuration->{'document_descriptor'}
 #$main_configuration->register_XS_document_main_configuration($document);
 my ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Indices::sort_indices_by_index($registrar, $main_configuration,
+                                          undef, undef,
                                           $index_entries, $indices_information);
 
 my @entries = ();
@@ -69,6 +70,7 @@ cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my ($sorted_index_entries_by_letter, $by_letter_index_entries_sort_strings)
  = Texinfo::Indices::sort_indices_by_letter($registrar, $main_configuration,
+                                          undef, undef,
                                        $index_entries, $indices_information);
 
 my @letter_entries_ref = (
@@ -130,6 +132,7 @@ $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
 ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Indices::sort_indices_by_index($registrar, $main_configuration,
+                                          undef, undef,
                                           $index_entries, $indices_information);
 
 @entries = ();
