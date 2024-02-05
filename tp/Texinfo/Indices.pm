@@ -242,12 +242,6 @@ sub getSortKey($$) {
   return $string;
 }
 
-sub cmp($$$) {
-  my ($self, $a, $b) = @_;
-
-  return ($a cmp $b);
-}
-
 package Texinfo::Indices;
 
 # this is needed here, as the code can be called both from the main
@@ -269,28 +263,12 @@ sub _converter_or_registrar_line_warn($$$$)
   }
 }
 
-# There is no strict need for document information in Perl, however, in XS
-# it is needed to retrieve the Tree elements in the C structures.
-# $CUSTOMIZATION_INFORMATION is used as the source of document
-# information.  It should already be set if it is a converter based
-# on Texinfo::Convert::Converter, but otherwise it should be set by
-# the caller, setting 'document_descriptor' to document->document_descriptor().
-sub setup_sortable_index_entries($$$$)
+sub _setup_collator($$)
 {
-  my $registrar = shift;
-  my $customization_information = shift;
-  my $index_entries = shift;
-  my $indices_information = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
 
-  # convert index entries to sort string using unicode when possible
-  # independently of input and output encodings
-  my $convert_text_options = {};
-  $convert_text_options->{'enabled_encoding'} = 'utf-8';
-  # It could be possible to set INCLUDE_DIRECTORIES, but there is no
-  # point doing so, as it is only useful for @verbatiminclude, which
-  # cannot appear in index entries.
-  #$convert_text_options->{'INCLUDE_DIRECTORIES'}
-  #   = $customization_information->get_conf('INCLUDE_DIRECTORIES');
+  my $collator;
 
   # The 'Non-Ignorable' for variable collation elements means that they are
   # treated as normal characters.   This allows to have spaces and punctuation
@@ -320,20 +298,14 @@ sub setup_sortable_index_entries($$$$)
   #                   'UCA_Version' => 9,
   #                   'table' => 'allkeys-3.1.1.txt');
 
-  my $use_unicode_collation
-    = $customization_information->get_conf('USE_UNICODE_COLLATION');
-
-  my $collator;
   if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
     # Unicode::Collate::Locale is present in perl core since perl major
     # version 5.14 released in 2011.
-    if (defined($customization_information->get_conf('COLLATION_LANGUAGE'))) {
+    if (defined($locale_lang)) {
       eval { require Unicode::Collate::Locale;
              Unicode::Collate::Locale->import; };
       my $unicode_collate_locale_loading_error = $@;
       if ($unicode_collate_locale_loading_error eq '') {
-        my $locale_lang
-          = $customization_information->get_conf('COLLATION_LANGUAGE');
         $collator = Unicode::Collate::Locale->new('locale' => $locale_lang,
                                                   %collate_options);
       }
@@ -350,9 +322,36 @@ sub setup_sortable_index_entries($$$$)
   # Fall back to stub if Unicode::Collate not wanted or not available.
   $collator = Texinfo::CollateStub->new() if (!defined($collator));
 
+  return $collator;
+}
+
+# There is no strict need for document information in Perl, however, in XS
+# it is needed to retrieve the Tree elements in the C structures.
+# $CUSTOMIZATION_INFORMATION is used as the source of document
+# information.  It should already be set if it is a converter based
+# on Texinfo::Convert::Converter, but otherwise it should be set by
+# the caller, setting 'document_descriptor' to document->document_descriptor().
+sub setup_sortable_index_entries($$$$$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $collator = shift;
+  my $index_entries = shift;
+  my $indices_information = shift;
+
+  # convert index entries to sort string using unicode when possible
+  # independently of input and output encodings
+  my $convert_text_options = {};
+  $convert_text_options->{'enabled_encoding'} = 'utf-8';
+  # It could be possible to set INCLUDE_DIRECTORIES, but there is no
+  # point doing so, as it is only useful for @verbatiminclude, which
+  # cannot appear in index entries.
+  #$convert_text_options->{'INCLUDE_DIRECTORIES'}
+  #   = $customization_information->get_conf('INCLUDE_DIRECTORIES');
+
   my $index_sortable_index_entries;
   my $index_entries_sort_strings = {};
-  return $index_sortable_index_entries, $collator, $index_entries_sort_strings
+  return $index_sortable_index_entries, $index_entries_sort_strings
     unless ($index_entries);
 
   $index_sortable_index_entries = {};
@@ -440,7 +439,7 @@ sub setup_sortable_index_entries($$$$)
     }
     $index_sortable_index_entries->{$index_name} = $sortable_index_entries;
   }
-  return ($index_sortable_index_entries, $collator, $index_entries_sort_strings);
+  return ($index_sortable_index_entries, $index_entries_sort_strings);
 }
 
 sub sort_indices_by_index($$$$;$)
@@ -450,10 +449,19 @@ sub sort_indices_by_index($$$$;$)
   my $index_entries = shift;
   my $indices_information = shift;
 
+  my $use_unicode_collation
+    = $customization_information->get_conf('USE_UNICODE_COLLATION');
+  my $locale_lang;
+  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
+    $locale_lang
+     = $customization_information->get_conf('COLLATION_LANGUAGE');
+  }
+  my $collator = _setup_collator($use_unicode_collation, $locale_lang);
+
   my $sorted_index_entries;
-  my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
+  my ($index_sortable_index_entries, $index_entries_sort_strings)
     = setup_sortable_index_entries($registrar, $customization_information,
-                       $index_entries, $indices_information);
+                       $collator, $index_entries, $indices_information);
 
   if (!$index_sortable_index_entries) {
     return ($sorted_index_entries, $index_entries_sort_strings);
@@ -592,10 +600,21 @@ sub sort_indices_by_letter($$$$;$)
   my $index_entries = shift;
   my $indices_information = shift;
 
+  my $use_unicode_collation
+    = $customization_information->get_conf('USE_UNICODE_COLLATION');
+  my $locale_lang;
+  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
+    if (defined($customization_information->get_conf('COLLATION_LANGUAGE'))) {
+      $locale_lang
+        = $customization_information->get_conf('COLLATION_LANGUAGE');
+    }
+  }
+  my $collator = _setup_collator($use_unicode_collation, $locale_lang);
+
   my $sorted_index_entries;
-  my ($index_sortable_index_entries, $collator, $index_entries_sort_strings)
+  my ($index_sortable_index_entries, $index_entries_sort_strings)
     = setup_sortable_index_entries($registrar, $customization_information,
-                       $index_entries, $indices_information);
+                       $collator, $index_entries, $indices_information);
 
   if (!$index_sortable_index_entries) {
     return ($sorted_index_entries, $index_entries_sort_strings);
