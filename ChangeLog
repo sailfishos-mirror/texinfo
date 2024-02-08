@@ -1,5 +1,10 @@
 2024-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: update instructions on updating copyright
+	years.
+
+2024-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Copyright years updating script
 
 	* grand-replace.sh: Ignore tp/t/include to avoid clobbering
@@ -25542,7 +25547,7 @@
 	* README-hacking: new ChangeLog file done
 
 
-Copyright 2022-2023 Free Software Foundation, Inc.
+Copyright 2022-2024 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright

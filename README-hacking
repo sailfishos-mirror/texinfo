@@ -1,4 +1,4 @@
-  Copyright 2002-2023 Free Software Foundation, Inc.
+  Copyright 2002-2024 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -208,39 +208,22 @@ program.  All the usual Texinfo output formats are possible.
 
 - Updating copyright years in files
 
-It may be simplest just to update them all at once.  First, look for
-lone copyright years:
+We try to handle updating years in copyright notices automatically to
+relive people of the burden of remembering to update copyright years when
+they edit a file for the first time in a new year.
 
-find . -type f \
-  \( -name '*' \) \
-  -not -name 'Makefile.in' \
-  -execdir perl -wnl -e '/ 20\d\d Free/ && print "$ARGV:$_"' '{}' \;
+In a new year, run "./grand-replace.sh ." from the top level.
+Check changes with "git diff" before committing.
 
-Adjust list of files as necessary, adding or excluding names.
-(Note that program help messages should only have a single year.)
-Once you are happy with the list of files, can update lone years to
-ranges with by changing the -execdir argument:
-
-find . -type f \
-  \( -name '*' \) \
-  -not -name 'Makefile.in' \
-  -execdir \ perl -wpli -e 's/( 20\d\d) Free/$1-2023 Free/' '{}' \;
-
-Then use a similar approach to update copyright ranges:
-
-find . -type f
-  \( -name '*.c' -o -name '*.pm' -o -name '*.h' \
-  -o -name '*.sh' -o -name Makefile.am \) \
-  -execdir perl -wpli -e 's/-20\d\d Free/-2023 Free/' '{}' \;
-
-Run git diff after each tranche of files to check the changes, followed
-by git add.  Look for omissions and anomalies by running, e.g.
+Look for omissions by running, e.g.
 
 find . \
   -name autom4te.cache -prune -o \
   -name .git -prune -o \
   -wholename ./tp/maintain/lib -prune -o \
   -name test -prune -o \
+  -name "test-infodir" -prune -o \
+  -name "gnulib" -prune -o \
   -type f \
   \( -name '*' \) \
   -not -name 'Makefile.in' \
@@ -249,11 +232,10 @@ find . \
   -not -name configure \
   -not -name "config.*" \
   -not -name "*~" \
-  -exec perl -wnl -e '/20\d[^3] Free/ && print "$ARGV:$_"' '{}' \;
+  -exec perl -wnl -e '/20\d[^4] Free/ && print "$ARGV:$_"' '{}' \;
 
-at the top level.
-
-(We should automate this process in the future.)
+at the top level.  It's likely that the script doesn't find all the
+years that should be updated yet.
 
 
 
