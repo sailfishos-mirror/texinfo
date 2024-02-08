@@ -516,24 +516,6 @@ $result_converted{'plaintext'}->{'ignored_sort_char_empty_entries'} = '* Menu:
 
 ';
 
-$result_converted_errors{'plaintext'}->{'ignored_sort_char_empty_entries'} = [
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 8,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 9,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 <div class="top-level-extent" id="Top">

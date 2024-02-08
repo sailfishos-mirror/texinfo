@@ -747,17 +747,6 @@ $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 
 ';
 
-$result_converted_errors{'plaintext'}->{'double_seeentry_seealso'} = [
-  {
-    'error_line' => 'warning: empty index key in @cindex
-',
-    'line_nr' => 10,
-    'text' => 'empty index key in @cindex',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">

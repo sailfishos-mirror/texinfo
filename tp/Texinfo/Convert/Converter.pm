@@ -1738,14 +1738,11 @@ sub _XS_get_converter_indices_sorted_by_letter($$)
   return undef;
 }
 
-# TODO document
+# TODO document?  Or should Texinfo::Document::sorted_indices_by_letter
+# be called directly?
 sub get_converter_indices_sorted_by_letter($)
 {
   my $self = shift;
-
-  if ($self->{'index_entries_by_letter'}) {
-    return $self->{'index_entries_by_letter'};
-  }
 
   my $indices_information;
   if ($self->{'document'}) {
@@ -1756,13 +1753,14 @@ sub get_converter_indices_sorted_by_letter($)
     if (!$self->get_conf('TEST') and $self->{'converter_descriptor'}
         and $XS_convert) {
       # get from XS
+      if ($self->{'index_entries_by_letter'}) {
+        return $self->{'index_entries_by_letter'};
+      }
+
       $self->{'index_entries_by_letter'}
         = _XS_get_converter_indices_sorted_by_letter($self,
                                                      $indices_information);
     } else {
-      my $merged_index_entries
-        = $self->{'document'}->merged_indices();
-
       my $use_unicode_collation
         = $self->get_conf('USE_UNICODE_COLLATION');
       my $locale_lang;
@@ -1770,12 +1768,10 @@ sub get_converter_indices_sorted_by_letter($)
         $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
       }
 
-      my $index_entries_sort_strings;
-      ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-          = Texinfo::Indices::sort_indices_by_letter(undef, $self,
-                                        $use_unicode_collation, $locale_lang,
-                                           $merged_index_entries,
-                                           $indices_information);
+      $self->{'index_entries_by_letter'}
+        = Texinfo::Document::sorted_indices_by_letter(undef, $self,
+                                                 $self->{'document'},
+                                   $use_unicode_collation, $locale_lang);
     }
   }
   return $self->{'index_entries_by_letter'};

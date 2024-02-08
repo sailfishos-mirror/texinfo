@@ -724,38 +724,6 @@ $result_converted{'plaintext'}->{'empty_string_index_entry'} = '‘’
 
 ';
 
-$result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 4,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @item
-',
-    'line_nr' => 7,
-    'text' => 'empty index key in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @defun
-',
-    'line_nr' => 10,
-    'text' => 'empty index key in @defun',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @defunx
-',
-    'line_nr' => 11,
-    'text' => 'empty index key in @defunx',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'html_text'}->{'empty_string_index_entry'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>

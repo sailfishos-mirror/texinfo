@@ -442,7 +442,7 @@ sub setup_sortable_index_entries($$$$$)
   return ($index_sortable_index_entries, $index_entries_sort_strings);
 }
 
-sub sort_indices_by_index($$$$$$;$)
+sub sort_indices_by_index($$$$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
@@ -588,7 +588,7 @@ sub index_entry_first_letter_text_or_command($;$)
   }
 }
 
-sub sort_indices_by_letter($$$$$$;$)
+sub sort_indices_by_letter($$$$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;

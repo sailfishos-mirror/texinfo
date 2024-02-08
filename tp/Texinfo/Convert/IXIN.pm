@@ -385,7 +385,7 @@ sub output_ixin($$)
   my $sections_list;
   my $identifiers_target;
   my $indices_information;
-  if ($self->->{'document'}) {
+  if ($self->{'document'}) {
     $document_info = $self->{'document'}->global_information();
     $floats = $self->{'document'}->floats_information();
     $sections_list = $self->{'document'}->sections_list();
@@ -707,19 +707,16 @@ sub output_ixin($$)
   my %dts_information;
 
   if ($indices_information) {
-    my $merged_index_entries
-        = $self->{'document'}->merged_indices();
     my $use_unicode_collation
       = $self->get_conf('USE_UNICODE_COLLATION');
     my $locale_lang;
     if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
       $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
     }
-    my ($entries, $index_entries_sort_strings)
-      = Texinfo::Indices::sort_indices_by_index(undef, $self,
-                                        $use_unicode_collation, $locale_lang,
-                                           $merged_index_entries,
-                                           $indices_information);
+    my $entries
+      = Texinfo::Document::sorted_indices_by_index(undef, $self,
+                                                   $self->{'document'},
+                                        $use_unicode_collation, $locale_lang);
     # first do the dts_text as the counts are needed for the dts index
     foreach my $index_name (sort(keys(%$entries))) {
       $dts_information{$index_name} = {};

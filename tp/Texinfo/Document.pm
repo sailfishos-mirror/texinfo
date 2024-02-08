@@ -204,6 +204,78 @@ sub merged_indices($)
   return $self->{'merged_indices'};
 }
 
+# TODO document
+sub sorted_indices_by_letter($$$$$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $document = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
+
+  my $lang_key;
+  if (!$use_unicode_collation) {
+    $lang_key = '';
+  } elsif (!defined($locale_lang)) {
+    # special name corresponding to Unicode Collation with 'Non-Ignorable'
+    # set for variable collation elements
+    $lang_key = '-';
+  } else {
+    $lang_key = $locale_lang;
+  }
+
+  $document->{'sorted_indices_by_letter'} = {}
+    if (!$document->{'sorted_indices_by_letter'});
+
+  if (!$document->{'sorted_indices_by_letter'}->{$lang_key}) {
+    my $index_entries_sort_strings;
+    ($document->{'sorted_indices_by_letter'}->{$lang_key},
+     $index_entries_sort_strings)
+      = Texinfo::Indices::sort_indices_by_letter($registrar,
+                               $customization_information,
+                        $use_unicode_collation, $locale_lang,
+                          $document->merged_indices(),
+                          $document->indices_information());
+  }
+  return $document->{'sorted_indices_by_letter'}->{$lang_key};
+}
+
+# TODO document
+sub sorted_indices_by_index($$$$$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $document = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
+
+  my $lang_key;
+  if (!$use_unicode_collation) {
+    $lang_key = '';
+  } elsif (!defined($locale_lang)) {
+    # special name corresponding to Unicode Collation with 'Non-Ignorable'
+    # set for variable collation elements
+    $lang_key = '-';
+  } else {
+    $lang_key = $locale_lang;
+  }
+
+  $document->{'sorted_indices_by_index'} = {}
+    if (!$document->{'sorted_indices_by_index'});
+
+  if (!$document->{'sorted_indices_by_index'}->{$lang_key}) {
+    my $index_entries_sort_strings;
+    ($document->{'sorted_indices_by_index'}->{$lang_key},
+     $index_entries_sort_strings)
+      = Texinfo::Indices::sort_indices_by_index($registrar,
+                               $customization_information,
+                        $use_unicode_collation, $locale_lang,
+                          $document->merged_indices(),
+                          $document->indices_information());
+  }
+  return $document->{'sorted_indices_by_index'}->{$lang_key};
+}
+
 # only set if the Texinfo::Document object has been set up by XS code.
 sub document_descriptor($)
 {
