@@ -2,6 +2,13 @@
 
 	Copyright years updating script
 
+	* grand-replace.sh: Ignore tp/t/include to avoid clobbering
+	tp/t/include/include_noeol.texi.
+
+2024-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Copyright years updating script
+
 	* grand-replace.sh: Add script.  Name and idea of script comes from
 	GNU Lilypond.
 
