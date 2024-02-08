@@ -1,5 +1,5 @@
 #! /bin/sh
-# Copyright 2012-2023 Free Software Foundation.
+# Copyright 2012-2024 Free Software Foundation.
 #
 # Copying and distribution of this file, with or without modification,
 # are permitted in any medium without royalty provided the copyright

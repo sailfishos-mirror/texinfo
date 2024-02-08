@@ -4,7 +4,7 @@
 
 #ifndef PARSER_H
 #define PARSER_H
-/* Copyright 2010-2023 Free Software Foundation, Inc.
+/* Copyright 2010-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
