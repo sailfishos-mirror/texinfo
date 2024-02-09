@@ -1,5 +1,12 @@
 2024-02-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\unmacro): Allow calling with undefined
+	macro, matching texi2any and the long-standing documentation.
+	Report from Werner Lemberg.
+	* NEWS: mention
+
+2024-02-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix unnumbered sections in PDF outline.
 
 	* doc/texinfo.tex (\unnumbered, \unnumberedsec, \unnumberedsubsec)

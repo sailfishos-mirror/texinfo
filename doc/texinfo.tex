@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-02-09.21}
+\def\texinfoversion{2024-02-10.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -8202,8 +8202,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \let\commondummyword\unmacrodo
       \xdef\macrolist{\macrolist}%
     \endgroup
-  \else
-    \errmessage{Macro #1 not defined}%
   \fi
 }
 
