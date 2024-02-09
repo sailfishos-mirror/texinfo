@@ -2115,17 +2115,6 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'sorted_subentries'} = [
-  {
-    'error_line' => 'warning: empty index sub entry 1 key in @cindex
-',
-    'line_nr' => 16,
-    'text' => 'empty index sub entry 1 key in @cindex',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 *****
@@ -2255,17 +2244,6 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 </div>
 </div>
 ';
-
-$result_converted_errors{'html_text'}->{'sorted_subentries'} = [
-  {
-    'error_line' => 'warning: empty index sub entry 1 key in @cindex
-',
-    'line_nr' => 16,
-    'text' => 'empty index sub entry 1 key in @cindex',
-    'type' => 'warning'
-  }
-];
-
 
 
 $result_converted{'xml'}->{'sorted_subentries'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter one</nodenext></node>

@@ -1192,7 +1192,7 @@ sub test($$)
                                                 $main_configuration,
                                  $use_unicode_collation, $locale_lang,
                                    $merged_index_entries,
-                                   $indices_information);
+                                   $indices_information, $document);
     $indices_sorted_sort_strings = {};
     foreach my $index_name (keys(%$sorted_index_entries)) {
       # index entries sort strings sorted in the order of the index entries

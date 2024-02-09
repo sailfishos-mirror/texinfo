@@ -235,7 +235,8 @@ sub sorted_indices_by_letter($$$$$)
                                $customization_information,
                         $use_unicode_collation, $locale_lang,
                           $document->merged_indices(),
-                          $document->indices_information());
+                          $document->indices_information(),
+                          $document);
   }
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
 }
@@ -271,7 +272,8 @@ sub sorted_indices_by_index($$$$$)
                                $customization_information,
                         $use_unicode_collation, $locale_lang,
                           $document->merged_indices(),
-                          $document->indices_information());
+                          $document->indices_information(),
+                          $document);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
 }

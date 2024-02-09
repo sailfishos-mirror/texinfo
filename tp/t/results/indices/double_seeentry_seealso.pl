@@ -727,17 +727,6 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'double_seeentry_seealso'} = [
-  {
-    'error_line' => 'warning: empty index key in @cindex
-',
-    'line_nr' => 10,
-    'text' => 'empty index key in @cindex',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 ***
@@ -809,17 +798,6 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 </div>
 </div>
 ';
-
-$result_converted_errors{'html_text'}->{'double_seeentry_seealso'} = [
-  {
-    'error_line' => 'warning: empty index key in @cindex
-',
-    'line_nr' => 10,
-    'text' => 'empty index key in @cindex',
-    'type' => 'warning'
-  }
-];
-
 
 
 $result_converted{'xml'}->{'double_seeentry_seealso'} = '<node name="Top" spaces=" "><nodename>top</nodename><nodenext automatic="on">node index</nodenext></node>

@@ -490,24 +490,6 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'ignored_sort_char_empty_entries'} = [
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 8,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 9,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'plaintext'}->{'ignored_sort_char_empty_entries'} = '* Menu:
 
@@ -562,24 +544,6 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 </div>
 </div>
 ';
-
-$result_converted_errors{'html_text'}->{'ignored_sort_char_empty_entries'} = [
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 8,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 9,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  }
-];
-
 
 
 $result_converted{'xml'}->{'ignored_sort_char_empty_entries'} = '<set name="txiindexhyphenignore" line=" txiindexhyphenignore"></set>
