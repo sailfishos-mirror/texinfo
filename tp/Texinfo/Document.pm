@@ -205,6 +205,26 @@ sub merged_indices($)
 }
 
 # TODO document
+sub indices_sort_strings($$$;$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $document = shift;
+  my $prefer_reference_element = shift;
+
+  if (!$document->{'index_entries_sort_strings'}) {
+    my $indices_sort_strings
+      = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
+             $customization_information, $document->merged_indices(),
+                          $document->indices_information(),
+                           $prefer_reference_element);
+    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
+  }
+
+  return $document->{'index_entries_sort_strings'};
+}
+
+# TODO document
 sub sorted_indices_by_letter($$$$$)
 {
   my $registrar = shift;

@@ -302,20 +302,15 @@ sub _setup_collator($$)
   return $collator;
 }
 
-sub setup_index_entries_sort_strings($$$$;$$)
+sub setup_index_entries_sort_strings($$$$;$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $index_entries = shift;
   my $indices_information = shift;
-  my $document = shift;
   my $prefer_reference_element = shift;
 
   return undef unless ($index_entries);
-
-  if ($document and $document->{'index_entries_sort_strings'}) {
-    return $document->{'index_entries_sort_strings'};
-  }
 
   # convert index entries to sort string using unicode when possible
   # independently of input and output encodings
@@ -404,9 +399,6 @@ sub setup_index_entries_sort_strings($$$$;$$)
     $indices_sort_strings->{$index_name} = $index_entries_sort_strings;
   }
 
-  if ($document) {
-    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
-  }
   return $indices_sort_strings;
 }
 
@@ -460,7 +452,7 @@ sub setup_sortable_index_entries($$)
   return ($index_sortable_index_entries, $index_entries_sort_strings);
 }
 
-sub sort_indices_by_index($$$$$$;$)
+sub _setup_sort_sortable_strings_collator($$$$;$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
@@ -470,9 +462,15 @@ sub sort_indices_by_index($$$$$$;$)
   my $indices_information = shift;
   my $document = shift;
 
-  my $indices_sort_strings = setup_index_entries_sort_strings($registrar,
+  my $indices_sort_strings;
+  if ($document) {
+    $indices_sort_strings = Texinfo::Document::indices_sort_strings($registrar,
+                                   $customization_information, $document);
+  } else {
+    $indices_sort_strings = setup_index_entries_sort_strings($registrar,
                                    $customization_information, $index_entries,
-                                   $indices_information, $document);
+                                   $indices_information);
+  }
 
   my $collator = _setup_collator($use_unicode_collation, $locale_lang);
 
@@ -480,6 +478,27 @@ sub sort_indices_by_index($$$$$$;$)
   my ($index_sortable_index_entries, $index_entries_sort_strings)
     = setup_sortable_index_entries($collator, $indices_sort_strings);
 
+  return ($index_sortable_index_entries, $index_entries_sort_strings,
+          $collator);
+}
+
+sub sort_indices_by_index($$$$;$$$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
+  my $index_entries = shift;
+  my $indices_information = shift;
+  my $document = shift;
+
+  my ($index_sortable_index_entries, $index_entries_sort_strings,
+      $collator) = _setup_sort_sortable_strings_collator($registrar,
+                       $customization_information, $use_unicode_collation,
+                       $locale_lang, $index_entries, $indices_information,
+                       $document);
+
+  my $sorted_index_entries;
   if (!$index_sortable_index_entries) {
     return ($sorted_index_entries, $index_entries_sort_strings);
   }
@@ -620,16 +639,13 @@ sub sort_indices_by_letter($$$$$$;$)
   my $indices_information = shift;
   my $document = shift;
 
-  my $indices_sort_strings = setup_index_entries_sort_strings($registrar,
-                                   $customization_information, $index_entries,
-                                   $indices_information, $document);
-
-  my $collator = _setup_collator($use_unicode_collation, $locale_lang);
+  my ($index_sortable_index_entries, $index_entries_sort_strings,
+      $collator) = _setup_sort_sortable_strings_collator($registrar,
+                       $customization_information, $use_unicode_collation,
+                       $locale_lang, $index_entries, $indices_information,
+                       $document);
 
   my $sorted_index_entries;
-  my ($index_sortable_index_entries, $index_entries_sort_strings)
-    = setup_sortable_index_entries($collator, $indices_sort_strings);
-
   if (!$index_sortable_index_entries) {
     return ($sorted_index_entries, $index_entries_sort_strings);
   }
