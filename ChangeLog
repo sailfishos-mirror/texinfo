@@ -1,3 +1,20 @@
+2024-02-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix unnumbered sections in PDF outline.
+
+	* doc/texinfo.tex (\unnumbered, \unnumberedsec, \unnumberedsubsec)
+	(\unnumberedsubsubsec): Only increment \unnumberedno, not \secno,
+	\subsecno or \subsubsecno.  Only place \unnumberedno in the auxiliary
+	.toc file.  There was a bug where the section identifier might
+	not be unique due to \unnumberedno only being incremented for the
+	top-level @unnumbered command, not for any of the lower levels.
+	For example, if two @chapter's had an @unnumberedsec in position
+	8 in the chapter, the identifier 10001.8 would occur twice.  PDF
+	readers such as evince had trouble making sense of the ensuing
+	PDF "outline".
+
+	Report from Arnold Robbins.
+
 2024-02-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Document.pm (indices_sort_strings), tp/Texinfo/Indices.pm
