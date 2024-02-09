@@ -402,6 +402,24 @@ sub setup_index_entries_sort_strings($$$$;$)
   return $indices_sort_strings;
 }
 
+# TODO document?  Probably not to be called in user-defined code.
+sub format_index_entries_sort_strings($)
+{
+  my $indices_sort_strings = shift;
+  my $index_entries_sort_strings = {};
+
+  return $index_entries_sort_strings unless ($indices_sort_strings);
+
+  foreach my $index_name (keys(%$indices_sort_strings)) {
+    foreach my $index_entry (@{$indices_sort_strings->{$index_name}}) {
+      $index_entries_sort_strings->{$index_entry->{'entry'}}
+         = join(', ', map {$_->{'sort_string'}}
+                          @{$index_entry->{'sort_strings'}});
+    }
+  }
+  return $index_entries_sort_strings;
+}
+
 # There is no strict need for document information in Perl, however, in XS
 # it is needed to retrieve the Tree elements in the C structures.
 # $CUSTOMIZATION_INFORMATION is used as the source of document
@@ -413,12 +431,9 @@ sub setup_sortable_index_entries($$)
   my $collator = shift;
   my $indices_sort_strings = shift;
 
-  my $index_sortable_index_entries;
-  my $index_entries_sort_strings = {};
-  return $index_sortable_index_entries, $index_entries_sort_strings
-    unless ($indices_sort_strings);
+  return undef unless ($indices_sort_strings);
 
-  $index_sortable_index_entries = {};
+  my $index_sortable_index_entries = {};
   foreach my $index_name (keys(%$indices_sort_strings)) {
     my $sortable_index_entries = [];
     foreach my $index_entry (@{$indices_sort_strings->{$index_name}}) {
@@ -442,14 +457,11 @@ sub setup_sortable_index_entries($$)
                             'number' => $index_entry->{'number'},
                             'index_name' => $index_entry->{'index_name'}};
       push @{$sortable_index_entries}, $sortable_entry;
-      $index_entries_sort_strings->{$index_entry->{'entry'}}
-         = join(', ', map {$_->{'sort_string'}}
-                          @{$index_entry->{'sort_strings'}});
     }
     $index_sortable_index_entries->{$index_name} = $sortable_index_entries;
   }
 
-  return ($index_sortable_index_entries, $index_entries_sort_strings);
+  return $index_sortable_index_entries;
 }
 
 sub _setup_sort_sortable_strings_collator($$$$;$$$)
@@ -474,12 +486,10 @@ sub _setup_sort_sortable_strings_collator($$$$;$$$)
 
   my $collator = _setup_collator($use_unicode_collation, $locale_lang);
 
-  my $sorted_index_entries;
-  my ($index_sortable_index_entries, $index_entries_sort_strings)
+  my $index_sortable_index_entries
     = setup_sortable_index_entries($collator, $indices_sort_strings);
 
-  return ($index_sortable_index_entries, $index_entries_sort_strings,
-          $collator);
+  return ($index_sortable_index_entries, $collator);
 }
 
 sub sort_indices_by_index($$$$;$$$)
@@ -492,18 +502,17 @@ sub sort_indices_by_index($$$$;$$$)
   my $indices_information = shift;
   my $document = shift;
 
-  my ($index_sortable_index_entries, $index_entries_sort_strings,
-      $collator) = _setup_sort_sortable_strings_collator($registrar,
+  my ($index_sortable_index_entries, $collator)
+      = _setup_sort_sortable_strings_collator($registrar,
                        $customization_information, $use_unicode_collation,
                        $locale_lang, $index_entries, $indices_information,
                        $document);
 
-  my $sorted_index_entries;
   if (!$index_sortable_index_entries) {
-    return ($sorted_index_entries, $index_entries_sort_strings);
+    return undef;
   }
 
-  $sorted_index_entries = {};
+  my $sorted_index_entries = {};
   foreach my $index_name (keys(%$index_sortable_index_entries)) {
     my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
     $sorted_index_entries->{$index_name} = [
@@ -511,7 +520,7 @@ sub sort_indices_by_index($$$$;$$$)
                                                 @{$sortable_index_entries}
        ];
   }
-  return ($sorted_index_entries, $index_entries_sort_strings);
+  return $sorted_index_entries;
 }
 
 # Return the first non empty text or textual @-command.
@@ -639,18 +648,17 @@ sub sort_indices_by_letter($$$$$$;$)
   my $indices_information = shift;
   my $document = shift;
 
-  my ($index_sortable_index_entries, $index_entries_sort_strings,
-      $collator) = _setup_sort_sortable_strings_collator($registrar,
+  my ($index_sortable_index_entries, $collator)
+     = _setup_sort_sortable_strings_collator($registrar,
                        $customization_information, $use_unicode_collation,
                        $locale_lang, $index_entries, $indices_information,
                        $document);
 
-  my $sorted_index_entries;
   if (!$index_sortable_index_entries) {
-    return ($sorted_index_entries, $index_entries_sort_strings);
+    return undef;
   }
 
-  $sorted_index_entries = {};
+  my $sorted_index_entries = {};
   foreach my $index_name (keys(%$index_sortable_index_entries)) {
     my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
     my $index_letter_hash = {};
@@ -691,7 +699,7 @@ sub sort_indices_by_letter($$$$$$;$)
         { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
     }
   }
-  return ($sorted_index_entries, $index_entries_sort_strings);
+  return $sorted_index_entries;
 }
 
 sub merge_indices($)

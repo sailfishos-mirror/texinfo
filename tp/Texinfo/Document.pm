@@ -205,6 +205,8 @@ sub merged_indices($)
 }
 
 # TODO document
+# call setup_index_entries_sort_strings and cache the result.
+# TODO XS override
 sub indices_sort_strings($$$;$)
 {
   my $registrar = shift;
@@ -248,9 +250,7 @@ sub sorted_indices_by_letter($$$$$)
     if (!$document->{'sorted_indices_by_letter'});
 
   if (!$document->{'sorted_indices_by_letter'}->{$lang_key}) {
-    my $index_entries_sort_strings;
-    ($document->{'sorted_indices_by_letter'}->{$lang_key},
-     $index_entries_sort_strings)
+    $document->{'sorted_indices_by_letter'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_letter($registrar,
                                $customization_information,
                         $use_unicode_collation, $locale_lang,
@@ -285,9 +285,7 @@ sub sorted_indices_by_index($$$$$)
     if (!$document->{'sorted_indices_by_index'});
 
   if (!$document->{'sorted_indices_by_index'}->{$lang_key}) {
-    my $index_entries_sort_strings;
-    ($document->{'sorted_indices_by_index'}->{$lang_key},
-     $index_entries_sort_strings)
+    $document->{'sorted_indices_by_index'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_index($registrar,
                                $customization_information,
                         $use_unicode_collation, $locale_lang,

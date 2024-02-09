@@ -51,7 +51,15 @@ my $main_configuration = Texinfo::MainConfig::new({});
 $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
 #$main_configuration->register_XS_document_main_configuration($document);
-my ($sorted_index_entries, $index_entries_sort_strings)
+
+my $indices_sort_strings
+  = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
+                                              $main_configuration,
+                                          $index_entries, $indices_information);
+my $index_entries_sort_strings
+  = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
+
+my $sorted_index_entries
   = Texinfo::Indices::sort_indices_by_index($registrar, $main_configuration,
                                           undef, undef,
                                           $index_entries, $indices_information);
@@ -68,7 +76,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
-my ($sorted_index_entries_by_letter, $by_letter_index_entries_sort_strings)
+my $sorted_index_entries_by_letter
  = Texinfo::Indices::sort_indices_by_letter($registrar, $main_configuration,
                                           undef, undef,
                                        $index_entries, $indices_information);
@@ -90,7 +98,7 @@ foreach my $letter (@{$sorted_index_entries_by_letter->{'cp'}}) {
   push @letter_entries, $letter_entry;
   foreach my $entry (@{$letter->{'entries'}}) {
     push @{$letter_entry->{$letter->{'letter'}}},
-      $by_letter_index_entries_sort_strings->{$entry};
+      $index_entries_sort_strings->{$entry};
   }
 }
 
@@ -130,7 +138,14 @@ $indices_information = $document->indices_information();
 $index_entries = $document->merged_indices();
 $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
-($sorted_index_entries, $index_entries_sort_strings)
+$indices_sort_strings
+  = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
+                                               $main_configuration,
+                                          $index_entries, $indices_information);
+$index_entries_sort_strings
+  = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
+
+$sorted_index_entries
   = Texinfo::Indices::sort_indices_by_index($registrar, $main_configuration,
                                           undef, undef,
                                           $index_entries, $indices_information);

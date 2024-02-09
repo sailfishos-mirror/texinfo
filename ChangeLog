@@ -92,6 +92,18 @@
 
 2024-02-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Indices.pm (format_index_entries_sort_strings)
+	(setup_sortable_index_entries, _setup_sort_sortable_strings_collator)
+	(sort_indices_by_index, sort_indices_by_letter), tp/t/test_sort.t,
+	tp/t/test_utils.pl (test): add format_index_entries_sort_strings
+	to obtain $index_entries_sort_strings from output of
+	setup_index_entries_sort_strings.  Do not output
+	$index_entries_sort_strings in setup_sortable_index_entries,
+	_setup_sort_sortable_strings_collator, sort_indices_by_index and
+	sort_indices_by_letter.  Update callers.
+
+2024-02-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (indices_sort_strings), tp/Texinfo/Indices.pm
 	(setup_index_entries_sort_strings)
 	(_setup_sort_sortable_strings_collator, sort_indices_by_index)

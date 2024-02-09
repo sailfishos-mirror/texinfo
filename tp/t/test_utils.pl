@@ -1187,7 +1187,14 @@ sub test($$)
        = $main_configuration->get_conf('COLLATION_LANGUAGE');
     }
 
-    ($sorted_index_entries, $index_entries_sort_strings)
+    my $indices_sort_strings
+      = Texinfo::Document::indices_sort_strings($registrar,
+                                   $main_configuration, $document);
+    $index_entries_sort_strings
+     = Texinfo::Indices::format_index_entries_sort_strings(
+                                                     $indices_sort_strings);
+
+    $sorted_index_entries
       = Texinfo::Indices::sort_indices_by_index($registrar,
                                                 $main_configuration,
                                  $use_unicode_collation, $locale_lang,
