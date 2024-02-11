@@ -14375,48 +14375,6 @@ coincidentally, he is also the long-time maintainer of @command{gawk}
 @file{texindex/Makefile.am} shows example usage of the system.
 
 
-@node Print with @command{lpr}
-@nodedescription How to print.
-@section Print with @command{lpr} from Shell
-
-@pindex lpr @r{(DVI print command)}
-
-The way to print a DVI file depends on your system installation.  Two
-common ones are @samp{dvips foo.dvi -o} to make a PostScript file
-first and then print that, and @samp{lpr -d foo.dvi} to print a DVI
-file directly.
-
-For example, the following commands will (probably) suffice to sort
-the indices, format, and print this manual using the @command{texi2dvi}
-shell script (@pxref{Format with @command{texi2dvi}}).
-
-@example
-@group
-texi2dvi texinfo.texi
-dvips texinfo.dvi -o
-lpr texinfo.ps
-@end group
-@end example
-
-Depending on the @command{lpr} setup on your machine, you might be able to
-combine the last two steps into @code{lpr -d texinfo.dvi}.
-
-@cindex PCL file, for printing
-You can also generate a PDF file by running @command{texi2dvi} instead of
-@command{texi2dvi}; a PDF is often directly printable.  Or you can
-generate a PCL file by using @command{dvilj} instead of @command{dvips}, if
-you have a printer that prefers that format.
-
-@cindex Shell printing, on MS-DOS/MS-Windows
-@cindex Printing DVI files, on MS-DOS/MS-Windows
-@pindex lpr@r{-d, replacements on MS-DOS/MS-Windows}
-@command{lpr} is a standard program on Unix systems, but it is usually
-absent on MS-DOS/MS-Windows.  If so, just create a PostScript or PDF
-or PCL file, whatever is most convenient, and print that in the usual
-way for your machine (e.g., by sending to the appropriate port,
-usually @samp{PRN}).
-
-
 @node Preparing for @TeX{}
 @nodedescription What to do before you use @TeX{}.
 @section Preparing for @TeX{}

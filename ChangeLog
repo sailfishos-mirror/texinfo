@@ -1,5 +1,11 @@
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Print with lpr): Remove node, as some of
+	the information may be outdated and we don't need to maintain
+	information on how a user may print a dvi or pdf file.
+
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/variables.c (set_variable_to_value): Reorder code
 	slightly.  No functional change.
 
