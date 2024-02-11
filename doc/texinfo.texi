@@ -14535,6 +14535,50 @@ before the @code{@@titlepage} command:
 @@finalout
 @end example
 
+@node Printing Japanese and Chinese
+@nodedescription XeTeX or LuaTeX required.
+@section Printing Japanese and Chinese
+
+@cindex Chinese language
+@cindex Japanese language
+Texinfo comes with support files for processing input in the
+Japanese and Chinese languages.
+
+@cindex Japanese with Xe@TeX{}
+@cindex Japanese with LuaTeX
+For Japanese, you use the @file{texinfo-ja.tex} file. Your main input
+file should begin with a @samp{\input texinfo-ja} line, rather than
+the standard
+@w{@samp{\input texinfo}}.  Use the UTF-8 character encoding as usual.
+You must process the files with either Xe@TeX{} or LuaTeX.
+
+@cindex Chinese with Xe@TeX{}
+For Chinese, you use the @file{texinfo-zh.tex} file. Your main input
+file should begin with a @samp{\input texinfo-zh} line, rather than
+the standard
+@w{@samp{\input texinfo}}.  Use the UTF-8 character encoding as usual.
+You must process the files with Xe@TeX{}.
+
+For example, you would run
+@samp{PDFTEX=xetex texi2pdf @var{my-input-file.texi}}
+to use Xe@TeX{} to produce PDF output.  You may have to install Xe@TeX{}
+(or LuaTeX), the @samp{zhspacing} package, and/or font packages.
+
+Neither Japanese nor Chinese is supported with the standard @TeX{} (or
+pdf@TeX{}) program, as it cannot support the fonts and thousands of
+glyphs needed for these languages.
+
+The Texinfo distribution comes with a couple of sample files that you
+can use to test support for these languages:
+@samp{short-sample-ja.texi} for Japanese, and @samp{short-sample-zh.texi}
+for Chinese.
+
+@cindex Xe@TeX{}
+@cindex LuaTeX
+For more information on these extensions to @TeX{}, see
+@uref{https://tug.org/xetex/, the Xe@TeX{} home page} and
+@uref{https://www.luatex.org/, the LuaTeX website}.
+
 
 @node Generic Translator @command{texi2any}
 @nodedescription @command{texi2any}, an all-purpose converter.
