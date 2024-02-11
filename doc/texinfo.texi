@@ -16163,15 +16163,19 @@ double quote (see below).
 By default, @command{texi2any} sorts document indices according to the
 @dfn{Unicode Collation Algorithm} (defined in
 @uref{http://www.unicode.org/reports/tr10/, Unicode Technical Standard #10}),
-without language specific collation tailoring.  If set, use the language
-for linguistic tailoring of indices sorting.
+without language-specific collation tailoring.  If set, use the language
+for linguistic tailoring of index sorting.
 
-If there is no support for linguistic tailoring because of missing software or
-missing support for the specified language, revert silently to the default.  In
-Perl, the @code{Unicode::Collate::Locale} module is used for linguistic
-tailoring, therefore if this module is not installed the variable will be
-silently ignored.  If @code{USE_UNICODE_COLLATION} is set to @samp{0}
-there is no unicode collation and no linguistic tailoring either.
+@command{texi2any} gives no warning if there is no support for linguistic
+tailoring, either due to missing software or missing support for the
+specified language.
+
+In Perl, the @code{Unicode::Collate::Locale} module is used for linguistic
+tailoring; therefore if this module is not installed, the variable will be
+silently ignored.
+
+If @code{USE_UNICODE_COLLATION} is set to @samp{0}, there is no Unicode
+collation and so no linguistic tailoring either.
 
 @item COMMAND_LINE_ENCODING
 Encoding used to decode command-line arguments.  Default is based on the locale
@@ -16563,8 +16567,8 @@ module, a standard part of Perl installations.)  However, the use of
 this algorithm incurs noticeably longer run times when processing manuals
 with large indices.
 
-Set this variable to @samp{0} to use a simpler, faster sorting algorithm
-which only uses Perl's built-in string comparison.
+Set this variable to @samp{0} to use a simpler, faster sorting algorithm.
+@c which only uses Perl's built-in string comparison or strcmp in C
 
 You may find this useful for speeding up @command{texi2any} if you don't
 have many non-ASCII characters in index entry text, or if you don't care

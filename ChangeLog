@@ -1,5 +1,13 @@
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Other Customization Variables)
+	<COLLATION_LANGUAGE>: Minor edits for grammar and style.
+	<USE_UNICODE_COLLATION>: Do not say that "Perl's built-in"
+	comparison is used if this variable is set to 0, because it may
+	in fact be strcmp in C that is used in XS code.
+
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* Makefile.am (grand-replace): Add target to run grand-replace.sh
 	script.
 	* README-hacking: update
