@@ -1,5 +1,9 @@
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: mention COLLATION_LANGUAGE
+
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Printing Japanese and Chinese): Document
 	the heretofore undocumented texinfo-ja.tex and texinfo-zh.tex files.
 
