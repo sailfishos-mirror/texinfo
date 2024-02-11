@@ -479,6 +479,25 @@ update_rendition_from_string (RENDITION *rendition, char *value)
   rendition->value = rendition_value;
 }
 
+static void
+update_highlight_searches (char *value)
+{
+  if (strcmp (on_off_choices[1], value) == 0)
+    {
+      /* Only use match-rendition=standout if not already defined. */
+      if (!match_rendition.mask)
+        {
+          match_rendition.mask = STANDOUT_MASK;
+          match_rendition.value = STANDOUT_MASK;
+        }
+    }
+  else
+    {
+      match_rendition.mask = 0;
+      match_rendition.value = 0;
+    }
+}
+
 /* VALUE is a string that is the value of the variable specified
    by the user.  Update our internal data structure VAR using this
    information. */
@@ -494,20 +513,9 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
     {
       register int j;
 
-      /* "highlight-searches=On" is equivalent to
-         "match-rendition=standout". */
       if (var->value == &highlight_searches)
         {
-          if (strcmp (on_off_choices[0], value) == 0)
-            {
-              match_rendition.mask = 0;
-              match_rendition.value = 0;
-            }
-          else
-            {
-              match_rendition.mask = STANDOUT_MASK;
-              match_rendition.value = STANDOUT_MASK;
-            }
+          update_highlight_searches (value);
         }
       else if (var->choices != (char **) &rendition_choices)
         {

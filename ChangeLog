@@ -1,5 +1,16 @@
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Avoid "M-x set-variable RET highlight-searches" inconsistency
+
+	* info/variables.c (set_variable_to_value, update_highlight_searches):
+	Split out code updating match_rendition.  Do not do anything if
+	it is already set to a non-zero value.  This avoids an inconsistency
+	with M-x set-variable, where selecting the default value "On" by
+	just pressing Return did nothing, while typing in "On" and
+	pressing Return would switch to using the "standout" style.
+
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/variables.c (set_variable): Split out code getting the
 	default value of a variable so it is easier to read, not using
 	the ternary conditional operator.  No functional change.
