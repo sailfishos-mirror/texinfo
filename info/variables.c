@@ -511,14 +511,18 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
 
   if (var->choices)
     {
-      register int j;
-
       if (var->value == &highlight_searches)
         {
           update_highlight_searches (value);
         }
-      else if (var->choices != (char **) &rendition_choices)
+      else if (var->choices == (char **) &rendition_choices)
         {
+          update_rendition_from_string ((RENDITION *) var->value, value);
+        }
+      else
+        {
+          register int j;
+
           /* Find the choice in our list of choices. */
           for (j = 0; var->choices[j]; j++)
             if (strcmp (var->choices[j], value) == 0)
@@ -527,10 +531,6 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
                 var->where_set = where;
                 return 1;
               }
-        }
-      else
-        {
-          update_rendition_from_string ((RENDITION *) var->value, value);
         }
       return 1;
     }

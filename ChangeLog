@@ -1,5 +1,10 @@
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/variables.c (set_variable_to_value): Reorder code
+	slightly.  No functional change.
+
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Avoid "M-x set-variable RET highlight-searches" inconsistency
 
 	* info/variables.c (set_variable_to_value, update_highlight_searches):
