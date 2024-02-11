@@ -1118,8 +1118,14 @@ adjust_nodestart (FILE_BUFFER *fb, TAG *node)
 
       /* Oh well, I guess we have to try to find it in a larger area. */
 
-      s.start -= DEFAULT_INFO_FUDGE;
-      s.end += DEFAULT_INFO_FUDGE;
+      long fudge = DEFAULT_INFO_FUDGE;
+      /* Increase the fudge size slightly the later in the file we get.
+         This way we are more likely to accommodate an counting error
+         that accumulates throughout the file. */
+      fudge += s.start >> 5;
+
+      s.start -= fudge;
+      s.end += fudge;
 
       if (s.start < 0)
         s.start = 0;

@@ -1,5 +1,10 @@
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (adjust_nodestart): Increase the "fudge size"
+	the later in the file the node is supposed to start.
+
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: mention COLLATION_LANGUAGE
 
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
