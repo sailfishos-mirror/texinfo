@@ -1,3 +1,15 @@
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Avoid crash from undefined style.
+
+	* info/variables.c (set_variable_to_value)
+	(update_rendition_from_string): Split code dealing with
+	rendition variables into a new function.  Null terminate an
+	array to avoid crash from undefined style.
+
+	Report from Francesco Turco <fturco@posteo.net> and fix
+	from Andreas Schwab <schwab@linux-m68k.org>.
+
 2024-02-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\unmacro): Allow calling with undefined

@@ -409,6 +409,75 @@ make_variable_completions_array (void)
   return array;
 }
 
+static void
+update_rendition_from_string (RENDITION *rendition, char *value)
+{
+  static struct {
+      unsigned long mask;
+      unsigned long value;
+      char *name;
+  } styles[] = {
+      COLOUR_MASK, COLOUR_BLACK,   "black",
+      COLOUR_MASK, COLOUR_RED,     "red",
+      COLOUR_MASK, COLOUR_GREEN,   "green",
+      COLOUR_MASK, COLOUR_YELLOW,  "yellow",
+      COLOUR_MASK, COLOUR_BLUE,    "blue",
+      COLOUR_MASK, COLOUR_MAGENTA, "magenta",
+      COLOUR_MASK, COLOUR_CYAN,    "cyan",
+      COLOUR_MASK, COLOUR_WHITE,   "white",
+      COLOUR_MASK, 0,           "nocolour",
+      COLOUR_MASK, 0,           "nocolor",
+      BGCOLOUR_MASK, BGCOLOUR_BLACK,   "bgblack",
+      BGCOLOUR_MASK, BGCOLOUR_RED,     "bgred",
+      BGCOLOUR_MASK, BGCOLOUR_GREEN,   "bggreen",
+      BGCOLOUR_MASK, BGCOLOUR_YELLOW,  "bgyellow",
+      BGCOLOUR_MASK, BGCOLOUR_BLUE,    "bgblue",
+      BGCOLOUR_MASK, BGCOLOUR_MAGENTA, "bgmagenta",
+      BGCOLOUR_MASK, BGCOLOUR_CYAN,    "bgcyan",
+      BGCOLOUR_MASK, BGCOLOUR_WHITE,   "bgwhite",
+      BGCOLOUR_MASK, 0,           "nobgcolour",
+      BGCOLOUR_MASK, 0,           "nobgcolor",
+      UNDERLINE_MASK, UNDERLINE_MASK, "underline",
+      UNDERLINE_MASK, 0,              "nounderline",
+      STANDOUT_MASK, STANDOUT_MASK, "standout",
+      STANDOUT_MASK, 0,             "nostandout",
+      BOLD_MASK, BOLD_MASK,         "bold",
+      BOLD_MASK, 0,                 "regular",
+      BOLD_MASK, 0,                 "nobold",
+      BLINK_MASK, BLINK_MASK,       "blink",
+      BLINK_MASK, 0,                "noblink",
+      0, 0,                         NULL
+  };
+  int i;
+  char *component;
+  unsigned long rendition_mask = 0;
+  unsigned long rendition_value = 0;
+
+  component = strtok (value, ",");
+  while (component)
+    {
+      for (i = 0; (styles[i].name); i++)
+        {
+          if (!strcmp (styles[i].name, component))
+            break;
+        }
+      if (styles[i].name)
+        {
+          rendition_mask |= styles[i].mask;
+          rendition_value &= ~styles[i].mask;
+          rendition_value |= styles[i].value;
+        }
+      /* If not found, silently ignore, in case more options are
+         added in the future. */
+
+      component = strtok (0, ",");
+    }
+
+  /* Now all the specified styles are recorded in rendition_value. */
+  rendition->mask = rendition_mask;
+  rendition->value = rendition_value;
+}
+
 /* VALUE is a string that is the value of the variable specified
    by the user.  Update our internal data structure VAR using this
    information. */
@@ -452,69 +521,7 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
         }
       else
         {
-          static struct {
-              unsigned long mask;
-              unsigned long value;
-              char *name;
-          } styles[] = {
-              COLOUR_MASK, COLOUR_BLACK,   "black",
-              COLOUR_MASK, COLOUR_RED,     "red",
-              COLOUR_MASK, COLOUR_GREEN,   "green",
-              COLOUR_MASK, COLOUR_YELLOW,  "yellow",
-              COLOUR_MASK, COLOUR_BLUE,    "blue",
-              COLOUR_MASK, COLOUR_MAGENTA, "magenta",
-              COLOUR_MASK, COLOUR_CYAN,    "cyan",
-              COLOUR_MASK, COLOUR_WHITE,   "white",
-              COLOUR_MASK, 0,           "nocolour",
-              COLOUR_MASK, 0,           "nocolor",
-              BGCOLOUR_MASK, BGCOLOUR_BLACK,   "bgblack",
-              BGCOLOUR_MASK, BGCOLOUR_RED,     "bgred",
-              BGCOLOUR_MASK, BGCOLOUR_GREEN,   "bggreen",
-              BGCOLOUR_MASK, BGCOLOUR_YELLOW,  "bgyellow",
-              BGCOLOUR_MASK, BGCOLOUR_BLUE,    "bgblue",
-              BGCOLOUR_MASK, BGCOLOUR_MAGENTA, "bgmagenta",
-              BGCOLOUR_MASK, BGCOLOUR_CYAN,    "bgcyan",
-              BGCOLOUR_MASK, BGCOLOUR_WHITE,   "bgwhite",
-              BGCOLOUR_MASK, 0,           "nobgcolour",
-              BGCOLOUR_MASK, 0,           "nobgcolor",
-              UNDERLINE_MASK, UNDERLINE_MASK, "underline",
-              UNDERLINE_MASK, 0,              "nounderline",
-              STANDOUT_MASK, STANDOUT_MASK, "standout",
-              STANDOUT_MASK, 0,             "nostandout",
-              BOLD_MASK, BOLD_MASK,         "bold",
-              BOLD_MASK, 0,                 "regular",
-              BOLD_MASK, 0,                 "nobold",
-              BLINK_MASK, BLINK_MASK,       "blink",
-              BLINK_MASK, 0,                "noblink",
-          };
-          int i;
-          char *component;
-          unsigned long rendition_mask = 0;
-          unsigned long rendition_value = 0;
-
-          component = strtok (value, ",");
-          while (component)
-            {
-              for (i = 0; (styles[i].name); i++)
-                {
-                  if (!strcmp (styles[i].name, component))
-                    break;
-                }
-              if (styles[i].name)
-                {
-                  rendition_mask |= styles[i].mask;
-                  rendition_value &= ~styles[i].mask;
-                  rendition_value |= styles[i].value;
-                }
-              /* If not found, silently ignore, in case more options are
-                 added in the future. */
-
-              component = strtok (0, ",");
-            }
-
-          /* Now all the specified styles are recorded in rendition_value. */
-          ((RENDITION *)var->value)->mask = rendition_mask;
-          ((RENDITION *)var->value)->value = rendition_value;
+          update_rendition_from_string ((RENDITION *) var->value, value);
         }
       return 1;
     }
