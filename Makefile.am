@@ -81,6 +81,10 @@ dtd-check:
 	&& diff $@-1 $(srcdir)/util/texinfo.dtd \
 	&& rm -f $@-1
 
+# For updating copyright years
+grand-replace:
+	./grand-replace.sh $(srcdir)
+
 # just for convenience:
 update-po:
 	cd po && $(MAKE) update-po

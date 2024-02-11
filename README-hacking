@@ -212,8 +212,8 @@ We try to handle updating years in copyright notices automatically to
 relive people of the burden of remembering to update copyright years when
 they edit a file for the first time in a new year.
 
-In a new year, run "./grand-replace.sh ." from the top level.
-Check changes with "git diff" before committing.
+In a new year, run "make grand-replace" from the top level.  Check changes
+with "git diff" before committing.
 
 Look for omissions by running, e.g.
 
