@@ -1,5 +1,11 @@
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/variables.c (set_variable): Split out code getting the
+	default value of a variable so it is easier to read, not using
+	the ternary conditional operator.  No functional change.
+
+2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Avoid crash from undefined style.
 
 	* info/variables.c (set_variable_to_value)

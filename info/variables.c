@@ -301,13 +301,14 @@ DECLARE_INFO_COMMAND (set_variable, _("Set the value of an Info variable"))
           add_pointer_to_array (entry, array_index, array, array_slots, 10);
         }
 
-      sprintf (prompt, _("Set %s to value (%s): "),
-               var->name,
-               var->value == &highlight_searches
-               ? on_off_choices[match_rendition.mask != 0]
-               : var->choices == (char **) &rendition_choices
-               ? rendition_to_string (var->value)
-               : var->choices[*(int *)(var->value)]);
+      char *current_value = var->choices[*(int *)(var->value)];
+
+      if (var->value == &highlight_searches)
+        current_value = on_off_choices[match_rendition.mask != 0];
+      else if (var->choices == (char **) &rendition_choices)
+        current_value = rendition_to_string (var->value);
+
+      sprintf (prompt, _("Set %s to value (%s): "), var->name, current_value);
 
       /* Ask the completer to read a variable value for us. */
       if (var->choices == (char **) &rendition_choices)
