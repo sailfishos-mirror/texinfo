@@ -267,8 +267,8 @@ typedef struct INDEX_COLLATOR {
     };
 } INDEX_COLLATOR;
 
-static BYTES_STRING *get_sort_key (INDEX_COLLATOR *collator,
-                                   const char *sort_string)
+static BYTES_STRING *
+get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
 {
   BYTES_STRING *sort_key;
   switch (collator->type)
@@ -695,8 +695,8 @@ setup_sort_sortable_strings_collator (
 
   if (document)
     {
-      indices_sort_strings = document_indices_sort_strings (error_messages,
-                                                        options, document, 0);
+      indices_sort_strings = document_indices_sort_strings (document,
+                                                error_messages, options, 0);
     }
   else
     {
@@ -1112,6 +1112,8 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
   return sorted_index_entries;
 }
 
+
+
 static INDEX_ENTRY_TEXT_OR_COMMAND *
 new_index_entry_text_or_command (const char *text, ELEMENT *command)
 {
@@ -1126,8 +1128,6 @@ new_index_entry_text_or_command (const char *text, ELEMENT *command)
 
   return result;
 }
-
-
 
 /* Return the first non empty text or textual @-command.
    To be freed by caller.

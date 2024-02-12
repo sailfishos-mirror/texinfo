@@ -1676,8 +1676,8 @@ while(@input_files) {
   }
 
   if ($formats_table{$converted_format}->{'setup_index_entries_sort_strings'}) {
-    Texinfo::Document::indices_sort_strings($registrar, $main_configuration,
-                                            $document);
+    Texinfo::Document::indices_sort_strings($document, $registrar,
+                                            $main_configuration);
   }
 
   $document = Texinfo::Document::rebuild_document($document);

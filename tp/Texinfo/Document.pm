@@ -210,9 +210,9 @@ sub merged_indices($)
 # call setup_index_entries_sort_strings and cache the result.
 sub indices_sort_strings($$$;$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $document = shift;
   my $prefer_reference_element = shift;
 
   if (!$document->{'index_entries_sort_strings'}) {

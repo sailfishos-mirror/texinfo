@@ -158,9 +158,9 @@ register_document_convert_index_text_options (DOCUMENT *document,
 }
 
 const INDICES_SORT_STRINGS *
-document_indices_sort_strings (ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options, DOCUMENT *document,
-                               int prefer_reference_element)
+document_indices_sort_strings (DOCUMENT *document,
+                               ERROR_MESSAGE_LIST *error_messages,
+                               OPTIONS *options, int prefer_reference_element)
 {
   if (!document->indices_sort_strings)
     {

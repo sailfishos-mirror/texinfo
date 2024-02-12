@@ -420,12 +420,6 @@ sub format_index_entries_sort_strings($)
   return $index_entries_sort_strings;
 }
 
-# There is no strict need for document information in Perl, however, in XS
-# it is needed to retrieve the Tree elements in the C structures.
-# $CUSTOMIZATION_INFORMATION is used as the source of document
-# information.  It should already be set if it is a converter based
-# on Texinfo::Convert::Converter, but otherwise it should be set by
-# the caller, setting 'document_descriptor' to document->document_descriptor().
 sub setup_sortable_index_entries($$)
 {
   my $collator = shift;
@@ -478,8 +472,8 @@ sub _setup_sort_sortable_strings_collator($$$$;$$$)
   if ($document) {
     # simple wrapper around setup_index_entries_sort_strings that caches the
     # result
-    $indices_sort_strings = Texinfo::Document::indices_sort_strings($registrar,
-                                   $customization_information, $document);
+    $indices_sort_strings = Texinfo::Document::indices_sort_strings($document,
+                                      $registrar, $customization_information);
   } else {
     $indices_sort_strings = setup_index_entries_sort_strings($registrar,
                                    $customization_information, $index_entries,

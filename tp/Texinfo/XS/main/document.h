@@ -32,9 +32,9 @@ void register_document_convert_index_text_options (DOCUMENT *document,
 
 const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
 const INDICES_SORT_STRINGS *document_indices_sort_strings (
+                               DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options, DOCUMENT *document,
-                               int prefer_reference_element);
+                               OPTIONS *options, int prefer_reference_element);
 INDEX_SORTED_BY_LETTER *sorted_indices_by_letter (
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options, DOCUMENT *document,
