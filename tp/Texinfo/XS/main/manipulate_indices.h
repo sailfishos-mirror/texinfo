@@ -8,7 +8,7 @@
 
 typedef struct SORTABLE_INDEX_SUBENTRY {
     char *sort_string;
-    char *sort_key;
+    BYTES_STRING *sort_key;
     int alpha;
 } SORTABLE_INDEX_SUBENTRY;
 
@@ -50,11 +50,20 @@ char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element);
+void destroy_index_entries_sort_strings (
+                          INDICES_SORT_STRINGS *indices_sort_strings);
+INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
+                    ERROR_MESSAGE_LIST *error_messages,
+                    OPTIONS *options, const MERGED_INDICES *merged_indices,
+                    INDEX **indices_information, int prefer_reference_element);
 
 INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
                         ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, const MERGED_INDICES *merged_indices,
-                        INDEX **indices_information);
+                        OPTIONS *options, int use_unicode_collation,
+                        const char *collation_language,
+                        const char *collation_locale,
+                        const MERGED_INDICES *merged_indices,
+                        INDEX **indices_information, DOCUMENT *document);
 
 INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command
                                                 (INDEX_ENTRY *index_entry);

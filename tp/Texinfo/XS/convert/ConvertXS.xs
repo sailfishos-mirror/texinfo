@@ -190,7 +190,7 @@ get_converter_indices_sorted_by_letter (SV *converter_sv, SV *indices_informatio
         if (self)
           {
             INDEX_SORTED_BY_LETTER *index_entries_by_letter
-              = converter_sort_indices_by_letter (self);
+              = get_converter_indices_sorted_by_letter (self);
             RETVAL
              = build_sorted_indices_by_letter (index_entries_by_letter,
                                                indices_information);

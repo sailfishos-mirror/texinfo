@@ -223,6 +223,7 @@ DEFAULT_RULE                       converter_customization undef   char
 DEF_TABLE                          converter_customization undef   integer
 DO_ABOUT                           converter_customization undef   integer
 DOCTYPE                            converter_customization undef   char
+DOCUMENTLANGUAGE_COLLATION         converter_customization undef   integer
 # for LaTeX
 END_USEPACKAGE                     converter_customization undef   char
 # for ext/epub3.pm
@@ -327,6 +328,9 @@ XREF_USE_NODE_NAME_ARG             converter_customization undef   integer
 # FIXME keep/document?
 XS_EXTERNAL_CONVERSION             converter_customization undef   integer
 XS_EXTERNAL_FORMATTING             converter_customization undef   integer
+
+# used for development tests, not sure that it will stay in the long term
+XS_STRXFRM_COLLATION_LOCALE        converter_customization undef   char
 
 # Not strings
 LINKS_BUTTONS                      converter_other undef   buttons

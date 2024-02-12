@@ -333,7 +333,7 @@ sub setup_index_entries_sort_strings($$$$;$)
         Texinfo::Convert::Text::set_options_code($convert_text_options);
       }
       my $entry_sort_string
-        = index_entry_element_sort_string ($customization_information,
+        = index_entry_element_sort_string($customization_information,
                                $index_entry, $main_entry_element,
                            $convert_text_options, $prefer_reference_element);
       my $non_empty_index_subentries = 0;
@@ -476,6 +476,8 @@ sub _setup_sort_sortable_strings_collator($$$$;$$$)
 
   my $indices_sort_strings;
   if ($document) {
+    # simple wrapper around setup_index_entries_sort_strings that caches the
+    # result
     $indices_sort_strings = Texinfo::Document::indices_sort_strings($registrar,
                                    $customization_information, $document);
   } else {
@@ -638,7 +640,7 @@ sub index_entry_first_letter_text_or_command($;$)
   }
 }
 
-sub sort_indices_by_letter($$$$$$;$)
+sub sort_indices_by_letter($$$$;$$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
@@ -665,7 +667,6 @@ sub sort_indices_by_letter($$$$$$;$)
     foreach my $sortable_entry (@{$sortable_index_entries}) {
       my $entry_key
         = $sortable_entry->{'entry_strings_alpha'}->[0]->{'sort_string'};
-
       # the following line leads to each accented letter being separate
       # $letter = uc(substr($entry_key, 0, 1));
       my $letter_string = uc(substr($entry_key, 0, 1));

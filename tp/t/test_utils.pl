@@ -1147,6 +1147,10 @@ sub test($$)
       }
     }
   }
+
+  Texinfo::Document::indices_sort_strings($registrar,
+                                   $main_configuration, $document);
+
   # could be in a if !$XS_structuring, but the function should not be
   # overriden already in that case
   $document = Texinfo::Document::rebuild_document($document);
@@ -1162,7 +1166,6 @@ sub test($$)
   }
 
   my ($errors, $error_nrs) = $registrar->errors();
-
   my $indices_information = $document->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries = $document->merged_indices();
@@ -1190,6 +1193,7 @@ sub test($$)
     my $indices_sort_strings
       = Texinfo::Document::indices_sort_strings($registrar,
                                    $main_configuration, $document);
+
     $index_entries_sort_strings
      = Texinfo::Indices::format_index_entries_sort_strings(
                                                      $indices_sort_strings);
@@ -1212,6 +1216,7 @@ sub test($$)
       }
     }
   }
+
 
   # use the parser expanded formats to be similar to the main program,
   # and also to avoid having @inline* and raw output format @-commands

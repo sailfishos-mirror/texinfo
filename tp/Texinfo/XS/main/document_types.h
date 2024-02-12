@@ -77,6 +77,68 @@ typedef struct MERGED_INDICES {
     MERGED_INDEX *indices;
 } MERGED_INDICES;
 
+/* not used in document, but used for indices for sort keys that can
+   contain NUL */
+typedef struct BYTES_STRING {
+    size_t len;
+    unsigned char *bytes;
+} BYTES_STRING;
+
+typedef struct INDEX_SUBENTRY_SORT_STRING {
+    char *sort_string;
+    int alpha;
+} INDEX_SUBENTRY_SORT_STRING;
+
+typedef struct INDEX_ENTRY_SORT_STRING {
+    INDEX_ENTRY *entry;
+    /* in perl 'index_name' => $index_entry->{'index_name'} */
+    /* in perl 'number' => $index_entry->{'entry_number'} */
+    size_t subentries_number;
+    INDEX_SUBENTRY_SORT_STRING *sort_string_subentries;
+} INDEX_ENTRY_SORT_STRING;
+
+typedef struct INDEX_SORT_STRINGS {
+    MERGED_INDEX *index;
+    size_t entries_number;
+    INDEX_ENTRY_SORT_STRING *sort_string_entries;
+} INDEX_SORT_STRINGS;
+
+typedef struct INDICES_SORT_STRINGS {
+    size_t number;
+    INDEX_SORT_STRINGS *indices;
+} INDICES_SORT_STRINGS;
+
+typedef struct LETTER_INDEX_ENTRIES {
+    char *letter;
+    INDEX_ENTRY **entries;
+    size_t entries_number;
+} LETTER_INDEX_ENTRIES;
+
+typedef struct INDEX_SORTED_BY_LETTER {
+    char *name;
+    LETTER_INDEX_ENTRIES *letter_entries;
+    size_t letter_number;
+} INDEX_SORTED_BY_LETTER;
+
+enum collation_type_name {
+   ctn_unicode, /* the default */
+   ctn_no_unicode,
+   ctn_language_collation,
+   ctn_locale_collation, /* experimental, to test strxfrm */
+};
+
+typedef struct COLLATION_INDICES_SORTED_BY_LETTER {
+    enum collation_type_name type;
+    char *language;
+    INDEX_SORTED_BY_LETTER *sorted_indices;
+} COLLATION_INDICES_SORTED_BY_LETTER;
+
+typedef struct COLLATIONS_INDICES_SORTED_BY_LETTER {
+    size_t number;
+    size_t space;
+    COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
+} COLLATIONS_INDICES_SORTED_BY_LETTER;
+
 typedef struct DOCUMENT {
     int descriptor;
     ELEMENT *tree;
@@ -96,6 +158,8 @@ typedef struct DOCUMENT {
     struct OPTIONS *options; /* for options used in structuring */
     struct TEXT_OPTIONS *convert_index_text_options; /* for index
                                        sorting without converter */
+    INDICES_SORT_STRINGS *indices_sort_strings;
+    COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
 } DOCUMENT;
 
 /* not in document, but used in parser */

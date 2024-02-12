@@ -60,6 +60,8 @@ our %XS_structure_overrides = (
     => "Texinfo::DocumentXS::rebuild_document",
   "Texinfo::Document::rebuild_tree"
     => "Texinfo::DocumentXS::rebuild_tree",
+  "Texinfo::Document::indices_sort_strings"
+    => "Texinfo::DocumentXS::indices_sort_strings",
 );
 
 our $module_loaded = 0;
@@ -206,7 +208,6 @@ sub merged_indices($)
 
 # TODO document
 # call setup_index_entries_sort_strings and cache the result.
-# TODO XS override
 sub indices_sort_strings($$$;$)
 {
   my $registrar = shift;

@@ -34,6 +34,7 @@
 #include "unicode.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
+#include "call_perl_function.h"
 #include "manipulate_indices.h"
 
 /* corresponding perl code in Texinfo::Indices */
@@ -253,62 +254,121 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
   return sort_string;
 }
 
-static void
-set_sort_key (locale_t collation_locale, const char *input_string,
-              char **result_key)
-{
-  if (collation_locale)
-    {
-  #ifdef HAVE_STRXFRM_L
-      size_t len = strxfrm_l (0, input_string, 0, collation_locale);
-      size_t check_len;
-
-      *result_key
-        = (char *) malloc ((len +1) * sizeof (char));
-      check_len = strxfrm_l (*result_key, input_string, len+1,
-                             collation_locale);
-      if (check_len != len)
-        fatal ("strxfrm_l returns a different length");
+typedef struct INDEX_COLLATOR {
+    enum collation_type_name type;
+    char *language;
+    union {
+      /* perl element. This should be SV *sv,
+         but we don't want to include the Perl headers everywhere; */
+      const void *sv;
+  #ifdef HAVE_NEWLOCALE
+      locale_t locale;
   #endif
-    }
-  else
-    *result_key = strdup (input_string);
-}
+    };
+} INDEX_COLLATOR;
 
-typedef struct INDEX_SORT_STRING_KEY {
-    char *sort_string;
-    char *sort_key;
-} INDEX_SORT_STRING_KEY;
-
-static INDEX_SORT_STRING_KEY *
-index_entry_element_sort_string_key (const INDEX_ENTRY *main_entry,
-                                     const ELEMENT *index_entry_element,
-                                     TEXT_OPTIONS *options, int in_code,
-                                     locale_t collation_locale,
-                                     int prefer_reference_element)
+static BYTES_STRING *get_sort_key (INDEX_COLLATOR *collator,
+                                   const char *sort_string)
 {
-  INDEX_SORT_STRING_KEY *sort_string_key = (INDEX_SORT_STRING_KEY *)
-    malloc (sizeof (INDEX_SORT_STRING_KEY));
-  sort_string_key->sort_string = index_entry_element_sort_string (main_entry,
-                                     index_entry_element, options, in_code,
-                                     prefer_reference_element);
-  set_sort_key (collation_locale, sort_string_key->sort_string,
-                &sort_string_key->sort_key);
-
-  return sort_string_key;
+  BYTES_STRING *sort_key;
+  switch (collator->type)
+    {
+      case ctn_no_unicode:
+        sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+        sort_key->len = strlen (sort_string);
+        sort_key->bytes = (unsigned char *)
+           malloc (sizeof (unsigned char) * sort_key->len);
+        memcpy (sort_key->bytes, (unsigned char *) sort_string, sort_key->len);
+        break;
+      #ifdef HAVE_STRXFRM_L
+      case ctn_locale_collation:
+        {
+          size_t check_len;
+          char *char_sort_key;
+          sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+          sort_key->len
+            = strxfrm_l (0, sort_string, 0,
+                         collator->locale);
+          char_sort_key = (char *) malloc (sizeof (char) * sort_key->len);
+          check_len
+            = strxfrm_l (char_sort_key, sort_string, sort_key->len,
+                         collator->locale);
+          sort_key->bytes = (unsigned char *)
+           malloc (sizeof (unsigned char) * sort_key->len);
+          memcpy (sort_key->bytes, (unsigned char *) char_sort_key,
+                  sort_key->len);
+          free (char_sort_key);
+          if (check_len != sort_key->len)
+            fatal ("strxfrm_l returns a different length");
+        }
+        break;
+      #endif
+      case ctn_unicode:
+      case ctn_language_collation:
+      default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
+        {
+          char *uc_sort_string
+            = to_upper_or_lower_multibyte (sort_string, 1);
+          sort_key = call_collator_getSortKey (collator->sv,
+                                               uc_sort_string);
+          free (uc_sort_string);
+        }
+        break;
+    }
+  return sort_key;
 }
 
-INDICES_SORTABLE_ENTRIES *
-setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
-                      OPTIONS *options, const MERGED_INDICES *merged_indices,
-                      INDEX **indices_information,
-                      locale_t *collation_locale)
+void
+destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
+{
+  if (indices_sort_strings && indices_sort_strings->number)
+    {
+      size_t i;
+      for (i = 0; i < indices_sort_strings->number; i++)
+        {
+          INDEX_SORT_STRINGS *index_sort_strings
+            = &indices_sort_strings->indices[i];
+          if (index_sort_strings->entries_number > 0)
+            {
+              size_t j;
+              for (j = 0; j < index_sort_strings->entries_number; j++)
+                {
+                  INDEX_ENTRY_SORT_STRING *entry_sort_string
+                    = &index_sort_strings->sort_string_entries[j];
+                  if (entry_sort_string->subentries_number > 0)
+                    {
+                      size_t k;
+                      for (k = 0; k < entry_sort_string->subentries_number;
+                           k++)
+                        {
+                          free (entry_sort_string->sort_string_subentries[k]
+                                             .sort_string);
+                        }
+                      free (entry_sort_string->sort_string_subentries);
+                    }
+                }
+            }
+          free (index_sort_strings->sort_string_entries);
+        }
+      free (indices_sort_strings->indices);
+    }
+  free (indices_sort_strings);
+}
+
+INDICES_SORT_STRINGS *
+setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
+                    OPTIONS *options, const MERGED_INDICES *merged_indices,
+                    INDEX **indices_information, int prefer_reference_element)
 {
   size_t i;
+  TEXT_OPTIONS *convert_text_options;
+
+  if (merged_indices->number <= 0)
+    return 0;
 
   /* convert index entries to sort string using unicode when possible
      independently of input and output encodings */
-  TEXT_OPTIONS *convert_text_options = new_text_options ();
+  convert_text_options = new_text_options ();
   convert_text_options->encoding = strdup ("utf-8");
   /*  It could be possible to set INCLUDE_DIRECTORIES, but there is no
       point doing so, as it is only useful for @verbatiminclude, which
@@ -317,47 +377,37 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
                 options->INCLUDE_DIRECTORIES.strlist);
    */
 
-  /* similar to using Unicode::Collate in Perl */
-  *collation_locale = 0;
+  INDICES_SORT_STRINGS *indices_sort_strings
+    = (INDICES_SORT_STRINGS *) malloc (sizeof (INDICES_SORT_STRINGS));
 
-  #ifdef HAVE_STRXFRM_L
-  #ifdef HAVE_NEWLOCALE
-  if (!options->USE_UNICODE_COLLATION.integer == 0)
-    *collation_locale = newlocale (LC_COLLATE_MASK, "en_US.utf-8", 0);
-  #endif
-  #endif
-
-  if (merged_indices->number <= 0)
-    return 0;
-
-  INDICES_SORTABLE_ENTRIES *indices_sortable_entries
-    = (INDICES_SORTABLE_ENTRIES *) malloc (sizeof (INDICES_SORTABLE_ENTRIES));
-
-  indices_sortable_entries->number = merged_indices->number;
-  indices_sortable_entries->indices = (INDEX_SORTABLE_ENTRIES *)
-    malloc (merged_indices->number * sizeof (INDEX_SORTABLE_ENTRIES));
-  memset (indices_sortable_entries->indices, 0,
-          merged_indices->number * sizeof (INDEX_SORTABLE_ENTRIES));
+  indices_sort_strings->number = merged_indices->number;
+  indices_sort_strings->indices = (INDEX_SORT_STRINGS *)
+    malloc (merged_indices->number * sizeof (INDEX_SORT_STRINGS));
+  memset (indices_sort_strings->indices, 0,
+          merged_indices->number * sizeof (INDEX_SORT_STRINGS));
 
   for (i = 0; i < merged_indices->number; i++)
     {
       MERGED_INDEX *index = &merged_indices->indices[i];
-      INDEX_SORTABLE_ENTRIES *sortable_index_entries
-        = &indices_sortable_entries->indices[i];
+      INDEX_SORT_STRINGS *index_sort_strings
+        = &indices_sort_strings->indices[i];
       if (index->entries_number > 0)
         {
           size_t j;
+          /* keep track of number of non empty index entries number */
+          size_t nr = 0;
 
-          sortable_index_entries->index = index;
-          sortable_index_entries->number = index->entries_number;
-          sortable_index_entries->sortable_entries = (SORTABLE_INDEX_ENTRY *)
-            malloc (index->entries_number * sizeof (SORTABLE_INDEX_ENTRY));
+          index_sort_strings->index = index;
+          index_sort_strings->sort_string_entries = (INDEX_ENTRY_SORT_STRING *)
+            malloc (index->entries_number * sizeof (INDEX_ENTRY_SORT_STRING));
 
           for (j = 0; j < index->entries_number; j++)
             {
               int non_empty_index_subentries = 0;
-              SORTABLE_INDEX_SUBENTRY *sortable_subentry;
+              char *sort_string;
+              INDEX_SUBENTRY_SORT_STRING *subentry_sort_string;
               INDEX_ENTRY *index_entry = &index->index_entries[j];
+              INDEX_ENTRY_SORT_STRING entry_sort_string;
 
               ELEMENT *main_entry_element = index_entry->entry_element;
               ELEMENT *subentry = main_entry_element;
@@ -366,30 +416,28 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
                 = indices_info_index_by_name (indices_information,
                                               index_entry->index_name);
 
-              INDEX_SORT_STRING_KEY *sort_string_key
-                = index_entry_element_sort_string_key (index_entry,
-                            main_entry_element, convert_text_options,
-                            entry_index->in_code, *collation_locale, 0);
+              sort_string
+               = index_entry_element_sort_string (index_entry,
+                                     subentry, convert_text_options,
+                                     entry_index->in_code,
+                                     prefer_reference_element);
 
-              SORTABLE_INDEX_ENTRY *sortable_entry
-                = &sortable_index_entries->sortable_entries[j];
+              entry_sort_string.entry = index_entry;
+              entry_sort_string.subentries_number = 1;
+              entry_sort_string.sort_string_subentries
+                = (INDEX_SUBENTRY_SORT_STRING *)
+                   malloc (sizeof (INDEX_SUBENTRY_SORT_STRING));
 
-              sortable_entry->entry = index_entry;
-              sortable_entry->subentries_number = 1;
-              sortable_entry->sortable_subentries = (SORTABLE_INDEX_SUBENTRY *)
-                malloc (sizeof (SORTABLE_INDEX_SUBENTRY));
+              subentry_sort_string
+                = &entry_sort_string.sort_string_subentries[0];
 
-              sortable_subentry = &sortable_entry->sortable_subentries[0];
-
-              if (sort_string_key->sort_string[strspn
-                   (sort_string_key->sort_string, whitespace_chars)] == '\0')
+              if (sort_string[strspn
+                   (sort_string, whitespace_chars)] == '\0')
                 {
                   const char *entry_cmdname;
 
-                  sortable_subentry->sort_string = strdup("");
-                  sortable_subentry->sort_key = strdup("");
-                  free (sort_string_key->sort_string);
-                  free (sort_string_key->sort_key);
+                  subentry_sort_string->sort_string = strdup("");
+                  free (sort_string);
 
                   entry_cmdname = element_command_name (main_entry_element);
                   if (!entry_cmdname)
@@ -404,12 +452,9 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
                 }
               else
                 {
-                  sortable_subentry->sort_string
-                     = sort_string_key->sort_string;
-                  sortable_subentry->sort_key = sort_string_key->sort_key;
+                  subentry_sort_string->sort_string = sort_string;
                   non_empty_index_subentries++;
                 }
-              free (sort_string_key);
 
               while (1)
                 {
@@ -419,34 +464,32 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
                     break;
 
                   subentry = next_subentry;
-                  sortable_entry->subentries_number++;
+                  entry_sort_string.subentries_number++;
 
-                  sortable_entry->sortable_subentries
-                   = (SORTABLE_INDEX_SUBENTRY *)
-                    realloc (sortable_entry->sortable_subentries,
-                        sizeof (SORTABLE_INDEX_SUBENTRY)
-                           * sortable_entry->subentries_number);
-                  if (!sortable_entry->sortable_subentries)
+                  entry_sort_string.sort_string_subentries
+                   = (INDEX_SUBENTRY_SORT_STRING *)
+                    realloc (entry_sort_string.sort_string_subentries,
+                        sizeof (INDEX_SUBENTRY_SORT_STRING)
+                           * entry_sort_string.subentries_number);
+                  if (!entry_sort_string.sort_string_subentries)
                     fatal ("realloc failed");
 
-                  sortable_subentry
-                   = &sortable_entry->sortable_subentries[
-                          sortable_entry->subentries_number -1];
+                  subentry_sort_string
+                   = &entry_sort_string.sort_string_subentries[
+                          entry_sort_string.subentries_number -1];
 
-                  sort_string_key
-                    = index_entry_element_sort_string_key (index_entry,
-                            subentry, convert_text_options,
-                            entry_index->in_code, *collation_locale, 0);
+                  sort_string
+                    = index_entry_element_sort_string (index_entry,
+                                     subentry, convert_text_options,
+                                     entry_index->in_code, 0);
 
-                  if (sort_string_key->sort_string[strspn
-                     (sort_string_key->sort_string, whitespace_chars)] == '\0')
+                  if (sort_string[strspn
+                     (sort_string, whitespace_chars)] == '\0')
                     {
                       const char *entry_cmdname;
 
-                      sortable_subentry->sort_string = strdup("");
-                      sortable_subentry->sort_key = strdup("");
-                      free (sort_string_key->sort_string);
-                      free (sort_string_key->sort_key);
+                      subentry_sort_string->sort_string = strdup("");
+                      free (sort_string);
 
                       entry_cmdname = element_command_name (main_entry_element);
                       if (!entry_cmdname)
@@ -459,43 +502,176 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
                       message_list_command_warn (error_messages, options,
                                              main_entry_element,
                                "empty index sub entry %zu key in @%s",
-                               sortable_entry->subentries_number -1,
+                               entry_sort_string.subentries_number -1,
                                 entry_cmdname);
                     }
                   else
                     {
-                      sortable_subentry->sort_string
-                         = sort_string_key->sort_string;
-                      sortable_subentry->sort_key = sort_string_key->sort_key;
+                      subentry_sort_string->sort_string = sort_string;
                       non_empty_index_subentries++;
                     }
-                  free (sort_string_key);
                 }
               if (non_empty_index_subentries > 0)
                 {
-                  int k;
-                  for (k = 0; k < sortable_entry->subentries_number; k++)
+                  size_t k;
+                  nr++;
+
+                  for (k = 0; k < entry_sort_string.subentries_number; k++)
                     {
                       uint8_t *encoded_u8;
                       ucs4_t next_char;
                       int new_len;
 
-                      sortable_subentry
-                        = &sortable_entry->sortable_subentries[k];
+                      subentry_sort_string
+                        = &entry_sort_string.sort_string_subentries[k];
              /* TODO quite inefficient, only need the first character */
                       encoded_u8
                        = u8_strconv_from_encoding (
-                                         sortable_subentry->sort_string,
+                                         subentry_sort_string->sort_string,
                                          "UTF-8", iconveh_question_mark);
                       new_len = u8_strmbtouc (&next_char, encoded_u8);
                       if (new_len > 0
                           && uc_is_property (next_char, UC_PROPERTY_ALPHABETIC))
-                        sortable_subentry->alpha = 1;
+                        subentry_sort_string->alpha = 1;
                       else
-                        sortable_subentry->alpha = 0;
+                        subentry_sort_string->alpha = 0;
 
                       free (encoded_u8);
                     }
+
+                  memcpy (&index_sort_strings->sort_string_entries[nr-1],
+                          &entry_sort_string,
+                          sizeof (INDEX_ENTRY_SORT_STRING));
+                }
+              else
+                {
+                  size_t k;
+                  for (k = 0; k < entry_sort_string.subentries_number; k++)
+                    {
+                      free (entry_sort_string.sort_string_subentries[k]
+                              .sort_string);
+                    }
+                  free (entry_sort_string.sort_string_subentries);
+                }
+              index_sort_strings->entries_number = nr;
+            }
+        }
+    }
+
+  destroy_text_options (convert_text_options);
+
+  return indices_sort_strings;
+}
+
+INDEX_COLLATOR *
+setup_collator (int use_unicode_collation, const char *collation_language,
+                const char *collation_locale)
+{
+  INDEX_COLLATOR *result = (INDEX_COLLATOR *) malloc (sizeof (INDEX_COLLATOR));
+  memset (result, 0, sizeof (INDEX_COLLATOR));
+
+  if (use_unicode_collation == 0)
+    {
+      result->type = ctn_no_unicode;
+      /* FIXME check if needed */
+      result->language = strdup ("");
+    }
+  else if (collation_language)
+    {
+      result->type = ctn_language_collation;
+      result->language = strdup (collation_language);
+      result->sv = call_setup_collator (1, collation_language);
+    }
+  else
+    {
+      #ifdef HAVE_STRXFRM_L
+      #ifdef HAVE_NEWLOCALE
+      if (collation_locale)
+        {
+          result->locale
+            = newlocale (LC_COLLATE_MASK, collation_locale, 0);
+          /* TODO warn if locale is not found? */
+          if (result->locale)
+            {
+              result->type = ctn_locale_collation;
+              result->language = strdup (collation_locale);
+              return result;
+            }
+        }
+      #endif
+      #endif
+
+      result->type = ctn_unicode;
+      /* FIXME check if needed */
+      result->language = strdup ("-");
+      result->sv = call_setup_collator (1, 0);
+    }
+  return result;
+}
+
+INDICES_SORTABLE_ENTRIES *
+setup_sortable_index_entries (INDEX_COLLATOR *collator,
+                         const INDICES_SORT_STRINGS *indices_sort_strings)
+{
+  size_t i;
+
+  if (!indices_sort_strings || indices_sort_strings->number <= 0)
+    return 0;
+
+  INDICES_SORTABLE_ENTRIES *indices_sortable_entries
+    = (INDICES_SORTABLE_ENTRIES *) malloc (sizeof (INDICES_SORTABLE_ENTRIES));
+
+  indices_sortable_entries->number = indices_sort_strings->number;
+  indices_sortable_entries->indices = (INDEX_SORTABLE_ENTRIES *)
+    malloc (indices_sort_strings->number * sizeof (INDEX_SORTABLE_ENTRIES));
+  memset (indices_sortable_entries->indices, 0,
+          indices_sort_strings->number * sizeof (INDEX_SORTABLE_ENTRIES));
+
+  for (i = 0; i < indices_sort_strings->number; i++)
+    {
+      INDEX_SORT_STRINGS *index_sort_strings
+         = &indices_sort_strings->indices[i];
+      INDEX_SORTABLE_ENTRIES *sortable_index_entries
+        = &indices_sortable_entries->indices[i];
+      if (index_sort_strings->entries_number > 0)
+        {
+          size_t j;
+
+          sortable_index_entries->index = index_sort_strings->index;
+          sortable_index_entries->number = index_sort_strings->entries_number;
+          sortable_index_entries->sortable_entries = (SORTABLE_INDEX_ENTRY *)
+            malloc (index_sort_strings->entries_number
+                    * sizeof (SORTABLE_INDEX_ENTRY));
+
+          for (j = 0; j < index_sort_strings->entries_number; j++)
+            {
+              size_t k;
+              INDEX_ENTRY_SORT_STRING *index_entry_sort_string
+                = &index_sort_strings->sort_string_entries[j];
+
+              SORTABLE_INDEX_ENTRY *sortable_entry
+                = &sortable_index_entries->sortable_entries[j];
+
+              sortable_entry->entry = index_entry_sort_string->entry;
+              sortable_entry->subentries_number
+                          = index_entry_sort_string->subentries_number;
+              sortable_entry->sortable_subentries = (SORTABLE_INDEX_SUBENTRY *)
+                malloc (index_entry_sort_string->subentries_number
+                        * sizeof (SORTABLE_INDEX_SUBENTRY));
+
+              for (k = 0; k < index_entry_sort_string->subentries_number; k++)
+                {
+                  SORTABLE_INDEX_SUBENTRY *sortable_subentry
+                    = &sortable_entry->sortable_subentries[k];
+                  INDEX_SUBENTRY_SORT_STRING *subenty_sort_string
+                    = &index_entry_sort_string->sort_string_subentries[k];
+              /*    if (subenty_sort_string->sort_string) */
+                    sortable_subentry->sort_string
+                     /* FIXME or refer to subenty_sort_string structure? */
+                     = strdup (subenty_sort_string->sort_string);
+                  sortable_subentry->alpha = subenty_sort_string->alpha;
+                  sortable_subentry->sort_key = get_sort_key (collator,
+                                           subenty_sort_string->sort_string);
                 }
             }
         }
@@ -503,9 +679,44 @@ setup_sortable_index_entries (ERROR_MESSAGE_LIST *error_messages,
   return indices_sortable_entries;
 }
 
+
+static INDICES_SORTABLE_ENTRIES *
+setup_sort_sortable_strings_collator (
+                      ERROR_MESSAGE_LIST *error_messages,
+                      OPTIONS *options, int use_unicode_collation,
+                      const char *collation_language,
+                      const char *collation_locale,
+                      const MERGED_INDICES *merged_indices,
+                      INDEX **indices_information, DOCUMENT *document,
+                      INDEX_COLLATOR **collator)
+{
+  const INDICES_SORT_STRINGS *indices_sort_strings;
+  INDICES_SORTABLE_ENTRIES *index_sortable_index_entries;
+
+  if (document)
+    {
+      indices_sort_strings = document_indices_sort_strings (error_messages,
+                                                        options, document, 0);
+    }
+  else
+    {
+      indices_sort_strings = setup_index_entries_sort_strings (error_messages,
+                                                      options, merged_indices,
+                                                      indices_information, 0);
+    }
+
+  *collator = setup_collator (use_unicode_collation, collation_language,
+                              collation_locale);
+
+  index_sortable_index_entries = setup_sortable_index_entries (*collator,
+                                                       indices_sort_strings);
+
+  return index_sortable_index_entries;
+}
+
 typedef struct LETTER_SORTABLE_ENTRIES {
     char *letter;
-    char *letter_sort_key;
+    BYTES_STRING *letter_sort_key;
     size_t space;
     size_t number;
     SORTABLE_INDEX_ENTRY **sortable_entries;
@@ -517,13 +728,26 @@ typedef struct INDEX_LETTERS_SORTABLE_ENTRIES {
     LETTER_SORTABLE_ENTRIES *letter_entries;
 } INDEX_LETTERS_SORTABLE_ENTRIES;
 
+#define MIN_INT(a,b) (((a)<(b))?(a):(b))
+static int
+compare_byte_strings (BYTES_STRING *a, BYTES_STRING *b)
+{
+  size_t common_len = MIN_INT (a->len, b->len);
+  int res = memcmp (a->bytes, b->bytes, common_len);
+  if (res == 0)
+    return (a->len > b->len) - (a->len < b->len);
+  return res;
+}
+
+#undef MIN_INT
+
 static int
 compare_index_letter (const void *a, const void *b)
 {
   const LETTER_SORTABLE_ENTRIES *lse_a = (const LETTER_SORTABLE_ENTRIES *) a;
   const LETTER_SORTABLE_ENTRIES *lse_b = (const LETTER_SORTABLE_ENTRIES *) b;
 
-  return strcmp (lse_a->letter_sort_key, lse_b->letter_sort_key);
+  return compare_byte_strings (lse_a->letter_sort_key, lse_b->letter_sort_key);
 }
 
 static int
@@ -533,7 +757,7 @@ compare_sortable_subentry_keys (const void *a, const void *b)
   const SORTABLE_INDEX_SUBENTRY *sis_b = (const SORTABLE_INDEX_SUBENTRY *) b;
 
   if (sis_a->alpha == sis_b->alpha)
-    return strcmp (sis_a->sort_key, sis_b->sort_key);
+    return compare_byte_strings (sis_a->sort_key, sis_b->sort_key);
 
   return (sis_a->alpha > sis_b->alpha) - (sis_a->alpha < sis_b->alpha);
 }
@@ -581,22 +805,80 @@ compare_sortable_index_entry (const void *a, const void *b)
   return strcmp (sie_a->entry->index_name, sie_b->entry->index_name);
 }
 
+void
+destroy_indices_sortable_entries (
+             INDICES_SORTABLE_ENTRIES *indices_sortable_entries)
+{
+  if (indices_sortable_entries)
+    {
+      size_t i;
+      for (i = 0; i < indices_sortable_entries->number; i++)
+        {
+          INDEX_SORTABLE_ENTRIES *sortable_index_entries
+            = &indices_sortable_entries->indices[i];
+          if (sortable_index_entries->number > 0)
+            {
+              size_t j;
+
+              for (j = 0; j < sortable_index_entries->number; j++)
+                {
+                  size_t k;
+                  SORTABLE_INDEX_ENTRY *sortable_entry
+                    = &sortable_index_entries->sortable_entries[j];
+
+                  for (k = 0; k < sortable_entry->subentries_number;
+                       k++)
+                    {
+                      SORTABLE_INDEX_SUBENTRY *sortable_subentry
+                        = &sortable_entry->sortable_subentries[k];
+                      free (sortable_subentry->sort_key->bytes);
+                      free (sortable_subentry->sort_key);
+                      free (sortable_subentry->sort_string);
+                    }
+                  free (sortable_entry->sortable_subentries);
+                }
+              free (sortable_index_entries->sortable_entries);
+            }
+        }
+      free (indices_sortable_entries->indices);
+      free (indices_sortable_entries);
+    }
+}
+
+void
+destroy_collator (INDEX_COLLATOR *collator)
+{
+  if (collator)
+    free (collator->language);
+  free (collator);
+}
+
 INDEX_SORTED_BY_LETTER *
 sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, const MERGED_INDICES *merged_indices,
-                        INDEX **indices_information)
+                        OPTIONS *options, int use_unicode_collation,
+                        const char *collation_language,
+                        const char *collation_locale,
+                        const MERGED_INDICES *merged_indices,
+                        INDEX **indices_information, DOCUMENT *document)
 {
   size_t i;
   int index_nr = 0;
-  locale_t collation_locale = 0;
   static INDEX_LETTERS_SORTABLE_ENTRIES index_letters_sortable_entries;
+  INDEX_COLLATOR *collator;
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
-    = setup_sortable_index_entries (error_messages, options, merged_indices,
-                                    indices_information, &collation_locale);
+    = setup_sort_sortable_strings_collator (error_messages, options,
+                                    use_unicode_collation, collation_language,
+                                    collation_locale,
+                                    merged_indices, indices_information,
+                                    document, &collator);
 
   if (!indices_sortable_entries || indices_sortable_entries->number <= 0)
-    return 0;
+    {
+      destroy_indices_sortable_entries (indices_sortable_entries);
+      destroy_collator (collator);
+      return 0;
+    }
 
   INDEX_SORTED_BY_LETTER *sorted_index_entries
    = (INDEX_SORTED_BY_LETTER *) malloc
@@ -629,7 +911,7 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
           char *upper_letter_string;
           char *norm_letter_string;
           TEXT letter_text;
-          char *letter_sort_key;
+          BYTES_STRING *letter_sort_key;
           int letter_added = 0;
 
           LETTER_SORTABLE_ENTRIES *letter_sortable_entries = 0;
@@ -661,6 +943,7 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
           free (upper_letter_string);
           encoded_u8 = u8_strconv_from_encoding (norm_letter_string, "UTF-8",
                                                   iconveh_question_mark);
+          free (norm_letter_string);
           current_u8 = encoded_u8;
 
           text_init (&letter_text);
@@ -692,8 +975,7 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
             }
           free (encoded_u8);
 
-          set_sort_key (collation_locale, letter_text.text,
-                        &letter_sort_key);
+          letter_sort_key = get_sort_key (collator, letter_text.text);
 
           if (index_letters_sortable_entries.letter_number > 0)
             {
@@ -739,6 +1021,7 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
           else
             {
               free (letter_text.text);
+              free (letter_sort_key->bytes);
               free (letter_sort_key);
             }
 
@@ -808,6 +1091,7 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
                 }
 
               /* TODO should we reuse the letters instead? */
+              free (letter_sortable_entries->letter_sort_key->bytes);
               free (letter_sortable_entries->letter_sort_key);
               free (letter_sortable_entries->sortable_entries);
             }
@@ -821,6 +1105,9 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
   if (index_nr < indices_sortable_entries->number)
     sorted_index_entries = realloc (sorted_index_entries,
                      (index_nr+1) * sizeof (INDEX_SORTED_BY_LETTER));
+
+  destroy_collator (collator);
+  destroy_indices_sortable_entries (indices_sortable_entries);
 
   return sorted_index_entries;
 }

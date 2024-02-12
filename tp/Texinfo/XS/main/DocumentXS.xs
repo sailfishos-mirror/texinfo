@@ -176,6 +176,40 @@ set_document_options (SV *sv_options_in, SV *document_in)
             register_document_options (document, options);
           }
 
+SV *
+indices_sort_strings (SV *registrar, SV *main_configuration, SV *document_in, int prefer_reference_element=0)
+    PREINIT:
+        DOCUMENT *document = 0;
+        const INDICES_SORT_STRINGS *indices_sort_strings = 0;
+        SV **indices_information_sv;
+        HV *document_hv;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "indices_sort_strings");
+        if (document)
+          indices_sort_strings
+           = document_indices_sort_strings (document->error_messages,
+                                          document->options, document,
+                                             prefer_reference_element);
+
+        document_hv = (HV *) SvRV (document_in);
+        indices_information_sv
+          = hv_fetch (document_hv, "indices", strlen ("indices"), 0);
+
+        if (indices_sort_strings && indices_information_sv)
+          {
+            HV *indices_information_hv = (HV *) SvRV (*indices_information_sv);
+            HV *indices_sort_strings_hv
+              = build_indices_sort_strings (indices_sort_strings,
+                                            indices_information_hv);
+
+            RETVAL = newRV_inc ((SV *) indices_sort_strings_hv);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
 
 # Next correspond to XS interfaces that have no associated
 # .xs file.

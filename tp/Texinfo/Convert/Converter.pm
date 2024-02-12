@@ -1750,15 +1750,8 @@ sub get_converter_indices_sorted_by_letter($)
   }
 
   if ($indices_information) {
-    if (!$self->get_conf('TEST') and $self->{'converter_descriptor'}
-        and $XS_convert) {
-      # get from XS
-      if ($self->{'index_entries_by_letter'}) {
-        return $self->{'index_entries_by_letter'};
-      }
-
-      $self->{'index_entries_by_letter'}
-        = _XS_get_converter_indices_sorted_by_letter($self,
+    if (!$self->{'converter_descriptor'} and $XS_convert) {
+      return _XS_get_converter_indices_sorted_by_letter($self,
                                                      $indices_information);
     } else {
       my $use_unicode_collation
@@ -1768,13 +1761,12 @@ sub get_converter_indices_sorted_by_letter($)
         $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
       }
 
-      $self->{'index_entries_by_letter'}
-        = Texinfo::Document::sorted_indices_by_letter(undef, $self,
+      return Texinfo::Document::sorted_indices_by_letter(undef, $self,
                                                  $self->{'document'},
                                    $use_unicode_collation, $locale_lang);
     }
   }
-  return $self->{'index_entries_by_letter'};
+  return {};
 }
 
 sub _count_converted_text($$)

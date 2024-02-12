@@ -34,6 +34,7 @@
 
 #include "tree_types.h"
 #include "converter_types.h"
+#include "document_types.h"
 #include "build_perl_info.h"
 /* for get_sv_index_entries_sorted_by_letter */
 #include "get_perl_info.h"
@@ -207,4 +208,98 @@ get_call_index_entries_sorted_by_letter (CONVERTER *self)
 
   return result;
 }
+
+const void *
+call_setup_collator (int use_unicode_collation, const char *locale_lang)
+{
+  int count;
+  const void *result = 0;
+  SV *collator_sv = 0;
+
+  dTHX;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 2);
+
+  PUSHs(sv_2mortal (newSViv (use_unicode_collation)));
+  PUSHs(sv_2mortal (newSVpv (locale_lang, 0)));
+
+  PUTBACK;
+
+  count = call_pv ("Texinfo::Indices::_setup_collator",
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("_setup_collator should return 1 item\n");
+
+  collator_sv = POPs;
+  if (SvOK (collator_sv))
+    {
+      SvREFCNT_inc (collator_sv);
+      result = (const void *) collator_sv;
+    }
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+BYTES_STRING *
+call_collator_getSortKey (const void *collator_sv, const char *string)
+{
+  BYTES_STRING *result;
+  unsigned char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  int count;
+
+  dTHX;
+
+  result = malloc (sizeof (BYTES_STRING));
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 2);
+
+  PUSHs((SV *) collator_sv);
+  PUSHs(sv_2mortal (newSVpv_utf8 (string, 0)));
+
+  PUTBACK;
+
+  count = call_method ("getSortKey",
+                       G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak("getSortKey should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = (unsigned char *)SvPVbyte (result_sv, len);
+  result->len = (size_t) len;
+  result->bytes = (unsigned char *)
+    malloc (sizeof (unsigned char) * len);
+  memcpy (result->bytes, result_ret, result->len);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
 

@@ -1,3 +1,69 @@
+2024-02-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/options_data.txt (DOCUMENTLANGUAGE_COLLATION)
+	(XS_STRXFRM_COLLATION_LOCALE): add customization variables.
+
+	* tp/Texinfo/XS/main/call_perl_function.c (call_setup_collator)
+	(call_collator_getSortKey), tp/Texinfo/XS/main/document_types.h
+	(BYTES_STRING, enum collation_type_name),
+	tp/Texinfo/XS/main/manipulate_indices.c (INDEX_COLLATOR, get_sort_key)
+	(setup_collator, compare_byte_strings, compare_index_letter)
+	(compare_sortable_subentry_keys),
+	tp/Texinfo/XS/main/manipulate_indices.h (SORTABLE_INDEX_SUBENTRY):
+	add an enum for the types of collations, and a structure for a
+	collator.  Add the possibility to call perl code to get a collator
+	object and get Perl sort keys as a possibility for collation sort
+	strings.  Use bytes strings with length through the BYTES_STRING
+	structure, to be able to use strings with NUL within as collation
+	string keys.  This is needed for collation keys coming from Perl and a
+	logical structure in C for collation binary strings.  Use memcmp to
+	compare.
+
+	* tp/Texinfo/XS/main/document.c (document_indices_sort_strings)
+	(destroy_document_information_except_tree),
+	tp/Texinfo/XS/main/document_types.h (INDEX_SUBENTRY_SORT_STRING)
+	(INDEX_ENTRY_SORT_STRING, INDEX_SORT_STRINGS, INDICES_SORT_STRINGS)
+	(DOCUMENT), tp/Texinfo/XS/main/manipulate_indices.c
+	(destroy_index_entries_sort_strings),
+	tp/Texinfo/XS/main/manipulate_indices.c
+	(setup_index_entries_sort_strings, setup_sortable_index_entries)
+	(setup_sort_sortable_strings_collator, sort_indices_by_letter): add
+	setup_index_entries_sort_strings based on setup_sortable_index_entries
+	code and add setup_sort_sortable_strings_collator, as in Perl.  Add
+	document_indices_sort_strings.
+
+	* tp/Texinfo/XS/main/manipulate_indices.c
+	(destroy_indices_sortable_entries): add.
+
+	* tp/Texinfo/XS/main/document.c (new_collation_sorted_indices)
+	(find_collation_sorted_indices, sorted_indices_by_letter)
+	(destroy_document_information_except_tree),
+	tp/Texinfo/XS/main/document_types.h
+	(COLLATION_INDICES_SORTED_BY_LETTER)
+	(COLLATIONS_INDICES_SORTED_BY_LETTER): add sorted_indices_by_letter
+	as in Perl.
+
+	* tp/Texinfo/XS/convert/converter.c
+	(get_converter_indices_sorted_by_letter): call document
+	sorted_indices_by_letter. Remove converter_sort_indices_by_letter.
+
+	* tp/Texinfo/Convert/Converter.pm
+	(get_converter_indices_sorted_by_letter),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_converter_indices_sorted_by_letter): return index sorted by
+	letter instead of caching it in the converter, it is already cached in
+	the document.
+
+	* tp/Texinfo/Document.pm (%XS_structure_overrides),
+	tp/Texinfo/XS/main/DocumentXS.xs (indices_sort_strings),
+	tp/Texinfo/XS/main/build_perl_info.c (build_document)
+	(find_idx_name_entry_number_sv, build_indices_sort_strings)
+	(build_sorted_indices_by_letter): add XS interface for
+	indices_sort_strings and sorted_indices_by_letter.
+
+	* tp/t/test_utils.pl (test), tp/texi2any.pl: call indices_sort_strings
+	early such that error messages from XS can be collected.
+
 2024-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Other Customization Variables)

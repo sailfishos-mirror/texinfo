@@ -2504,6 +2504,9 @@ sub _index_entry($$)
         Texinfo::Convert::Text::set_options_code(
           $self->{'index_formatting_text_options'});
       }
+      # NOTE in XS code, the $self->{'index_formatting_text_options'}
+      # argument is ignored, instead the $self converter is used to find C
+      # text options data setup by setup_index_entry_keys_formatting.
       my $sort_string
            = Texinfo::Indices::index_entry_element_sort_string(
                                           $self, $entry,

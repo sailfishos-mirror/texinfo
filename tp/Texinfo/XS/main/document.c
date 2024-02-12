@@ -157,6 +157,137 @@ register_document_convert_index_text_options (DOCUMENT *document,
   document->convert_index_text_options = text_options;
 }
 
+const INDICES_SORT_STRINGS *
+document_indices_sort_strings (ERROR_MESSAGE_LIST *error_messages,
+                               OPTIONS *options, DOCUMENT *document,
+                               int prefer_reference_element)
+{
+  if (!document->indices_sort_strings)
+    {
+      const MERGED_INDICES *merged_indices
+         = document_merged_indices (document);
+
+      document->indices_sort_strings
+       = setup_index_entries_sort_strings (error_messages, options,
+                               merged_indices, document->index_names,
+                               prefer_reference_element);
+    }
+
+  return document->indices_sort_strings;
+}
+
+static COLLATION_INDICES_SORTED_BY_LETTER *
+new_collation_sorted_indices (
+            COLLATIONS_INDICES_SORTED_BY_LETTER *collations,
+            enum collation_type_name type,
+            const char *language)
+{
+  COLLATION_INDICES_SORTED_BY_LETTER *result = 0;
+  if (collations->number <= collations->space)
+    {
+      collations->collation_sorted_indices
+        = (COLLATION_INDICES_SORTED_BY_LETTER *) realloc
+           (collations->collation_sorted_indices,
+             (collations->space += 3)
+                * sizeof (COLLATION_INDICES_SORTED_BY_LETTER));
+      if (!collations->collation_sorted_indices)
+        fatal ("realloc failed");
+    }
+
+  result = &collations->collation_sorted_indices[collations->number];
+  memset (result, 0, sizeof (COLLATION_INDICES_SORTED_BY_LETTER));
+  result->type = type;
+  result->language = strdup (language);
+
+  collations->number++;
+
+  return result;
+}
+
+COLLATION_INDICES_SORTED_BY_LETTER *
+find_collation_sorted_indices (
+            COLLATIONS_INDICES_SORTED_BY_LETTER *collations,
+            enum collation_type_name type,
+            const char *language)
+{
+  size_t i;
+  for (i = 2; i < collations->number; i++)
+    {
+      COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices
+        = &collations->collation_sorted_indices[i];
+      if (collation_sorted_indices->type == type
+          && !strcmp (collation_sorted_indices->language, language))
+        return collation_sorted_indices;
+    }
+  return 0;
+}
+
+INDEX_SORTED_BY_LETTER *
+sorted_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
+                          OPTIONS *options, DOCUMENT *document,
+                          int use_unicode_collation,
+                          const char *collation_language,
+                          const char *collation_locale)
+{
+  COLLATIONS_INDICES_SORTED_BY_LETTER *collations;
+  COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices = 0;
+  if (!document->sorted_indices_by_letter)
+    {
+      collations
+       = (COLLATIONS_INDICES_SORTED_BY_LETTER *)
+           malloc (sizeof (COLLATIONS_INDICES_SORTED_BY_LETTER));
+      memset (collations, 0,
+              sizeof (COLLATIONS_INDICES_SORTED_BY_LETTER));
+
+      /* order is important, to match enum */
+      new_collation_sorted_indices (collations, ctn_unicode, "-");
+      new_collation_sorted_indices (collations, ctn_no_unicode, "");
+
+      document->sorted_indices_by_letter = collations;
+    }
+
+  collations = document->sorted_indices_by_letter;
+
+  if (use_unicode_collation == 0)
+    collation_sorted_indices
+      = &collations->collation_sorted_indices[ctn_no_unicode];
+  else if (!collation_language && !collation_locale)
+    collation_sorted_indices
+      = &collations->collation_sorted_indices[ctn_unicode];
+  else
+    {
+      enum collation_type_name type;
+      const char *language;
+      if (collation_language)
+        {
+          type = ctn_language_collation;
+          language = collation_language;
+        }
+      else
+        {
+          type = ctn_locale_collation;
+          language = collation_locale;
+        }
+      collation_sorted_indices
+          = find_collation_sorted_indices (collations, type, language);
+      if (!collation_sorted_indices)
+        collation_sorted_indices = new_collation_sorted_indices (collations,
+                                                              type, language);
+    }
+
+  if (!collation_sorted_indices->sorted_indices)
+    {
+      const MERGED_INDICES *merged_indices
+         = document_merged_indices (document);
+      collation_sorted_indices->sorted_indices
+        = sort_indices_by_letter (error_messages, options,
+                                  use_unicode_collation, collation_language,
+                                  collation_locale, merged_indices,
+                                  document->index_names, document);
+    }
+  return collation_sorted_indices->sorted_indices;
+}
+
 void
 destroy_document_information_except_tree (DOCUMENT *document)
 {
@@ -191,6 +322,26 @@ destroy_document_information_except_tree (DOCUMENT *document)
         destroy_text_options (document->convert_index_text_options);
       if (document->merged_indices)
         destroy_merged_indices (document->merged_indices);
+      if (document->indices_sort_strings)
+        destroy_index_entries_sort_strings (document->indices_sort_strings);
+      if (document->sorted_indices_by_letter)
+        {
+          if (document->sorted_indices_by_letter->number > 0)
+            {
+              size_t i;
+              for (i = 0; i < document->sorted_indices_by_letter->number; i++)
+                {
+                  COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices
+            = &document->sorted_indices_by_letter->collation_sorted_indices[i];
+                  free (collation_sorted_indices->language);
+                  if (collation_sorted_indices->sorted_indices)
+                    destroy_indices_sorted_by_letter (
+                                    collation_sorted_indices->sorted_indices);
+                }
+            }
+          free (document->sorted_indices_by_letter->collation_sorted_indices);
+          free (document->sorted_indices_by_letter);
+        }
     }
 }
 

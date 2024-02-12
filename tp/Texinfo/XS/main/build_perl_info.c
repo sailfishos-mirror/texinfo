@@ -1216,6 +1216,7 @@ build_document (size_t document_descriptor, int no_store)
   HV *hv_commands_info;
   HV *hv_index_names;
   HV *hv_listoffloats_list;
+  HV *hv_indices_sort_strings = 0;
   AV *av_internal_xref;
   HV *hv_identifiers_target;
   AV *av_labels_list;
@@ -1267,6 +1268,11 @@ build_document (size_t document_descriptor, int no_store)
   if (document->sections_list)
     av_sections_list = build_elements_list (document->sections_list);
 
+  if (document->indices_sort_strings)
+    hv_indices_sort_strings = build_indices_sort_strings (
+                                      document->indices_sort_strings,
+                                      hv_index_names);
+
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
 
   /* must be kept in sync with Texinfo::Document register keys */
@@ -1285,6 +1291,9 @@ build_document (size_t document_descriptor, int no_store)
 
   if (av_sections_list)
     STORE("sections_list", av_sections_list);
+
+  if (hv_indices_sort_strings)
+    STORE("index_entries_sort_strings", hv_indices_sort_strings);
 #undef STORE
 
   if (no_store)
@@ -1923,13 +1932,161 @@ build_expanded_formats (EXPANDED_FORMAT *expanded_formats)
 }
 
 SV *
+find_idx_name_entry_number_sv (HV *indices_information_hv,
+                               const char* index_name, int entry_number,
+                               const char *message)
+{
+  SV **index_info_sv;
+  SV *index_entry_sv = 0;
+
+  dTHX;
+
+  index_info_sv = hv_fetch (indices_information_hv, index_name,
+                            strlen (index_name), 0);
+  if (!index_info_sv)
+    {
+      fprintf (stderr, "%s index %s not found\n", message, index_name);
+    }
+  else
+    {
+      HV *index_info_hv = (HV *) SvRV (*index_info_sv);
+      SV **index_info_index_entries_sv = hv_fetch (index_info_hv,
+             "index_entries", strlen ("index_entries"), 0);
+
+      if (!index_info_index_entries_sv)
+        {
+          fprintf (stderr, "%s index %s 'index_entries' not found\n",
+                           message, index_name);
+        }
+      else
+        {
+          AV *index_info_entries_av
+              = (AV *) SvRV (*index_info_index_entries_sv);
+
+          SV **index_entry_info_sv = av_fetch (index_info_entries_av,
+                                             entry_number -1, 0);
+
+          if (!index_entry_info_sv)
+            {
+              fprintf (stderr, "%s: %d in %s not found\n", message,
+                       entry_number, index_name);
+            }
+          else
+            index_entry_sv = *index_entry_info_sv;
+        }
+    }
+  return index_entry_sv;
+}
+
+HV *
+build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
+                            HV *indices_information_hv)
+{
+  HV *indices_sort_strings_hv;
+  size_t i;
+
+  dTHX;
+
+  if (!indices_sort_strings)
+    return 0;
+
+  indices_sort_strings_hv = newHV ();
+
+  for (i = 0; i < indices_sort_strings->number; i++)
+    {
+      INDEX_SORT_STRINGS *index_sort_strings
+         = &indices_sort_strings->indices[i];
+      char *index_name = index_sort_strings->index->name;
+
+      if (index_sort_strings->entries_number > 0)
+        {
+          size_t j;
+          AV *sort_string_entries_av = newAV ();
+
+          hv_store (indices_sort_strings_hv, index_name, strlen (index_name),
+                    newRV_noinc ((SV *)sort_string_entries_av), 0);
+
+          for (j = 0; j < index_sort_strings->entries_number; j++)
+            {
+              INDEX_ENTRY_SORT_STRING *index_entry_sort_string
+                = &index_sort_strings->sort_string_entries[j];
+              INDEX_ENTRY *entry = index_entry_sort_string->entry;
+              char *entry_index_name = entry->index_name;
+              int entry_number = entry->number;
+              char *message;
+              SV *index_entry_sv;
+              HV *index_entry_sort_string_hv;
+              AV *sort_string_subentries_av;
+              size_t k;
+
+              if (index_entry_sort_string->subentries_number <= 0)
+                {
+                  fprintf (stderr, "BUG: build_indices_sort_strings:"
+                   " %s: entry %zu: no subentries", index_name, j);
+                  continue;
+                }
+
+              xasprintf (&message, "BUG: build_indices_sort_strings:"
+                                   " %s: entry %zu", index_name, j);
+              index_entry_sv
+                = find_idx_name_entry_number_sv (indices_information_hv,
+                                                 entry_index_name, entry_number,
+                                                 message);
+              free (message);
+
+              /* probably not possible, unless there is a bug */
+              if (!index_entry_sv)
+                continue;
+
+              index_entry_sort_string_hv = newHV ();
+              av_push (sort_string_entries_av,
+                       newRV_noinc ((SV *) index_entry_sort_string_hv));
+
+              hv_store (index_entry_sort_string_hv, "index_name",
+                        strlen ("index_name"),
+                        newSVpv_utf8 (entry->index_name, 0), 0);
+              hv_store (index_entry_sort_string_hv, "number",
+                        strlen ("number"), newSViv (entry->number), 0);
+
+              SvREFCNT_inc (index_entry_sv);
+              hv_store (index_entry_sort_string_hv, "entry",
+                        strlen ("entry"), index_entry_sv, 0);
+
+              sort_string_subentries_av = newAV ();
+              hv_store (index_entry_sort_string_hv, "sort_strings",
+                        strlen ("sort_strings"),
+                        newRV_noinc ((SV *) sort_string_subentries_av), 0);
+
+              for (k = 0; k < index_entry_sort_string->subentries_number; k++)
+                {
+                  INDEX_SUBENTRY_SORT_STRING *subentry_sort_string
+                    = &index_entry_sort_string->sort_string_subentries[k];
+                  HV *subentry_sort_string_hv = newHV ();
+
+                  av_push (sort_string_subentries_av,
+                           newRV_noinc ((SV *) subentry_sort_string_hv));
+
+                  hv_store (subentry_sort_string_hv, "sort_string",
+                            strlen ("sort_string"),
+                     newSVpv_utf8 (subentry_sort_string->sort_string, 0), 0);
+                  hv_store (subentry_sort_string_hv, "alpha",
+                            strlen ("alpha"),
+                            newSViv (subentry_sort_string->alpha), 0);
+                }
+            }
+        }
+    }
+  return indices_sort_strings_hv;
+}
+
+SV *
 build_sorted_indices_by_letter (
-                      INDEX_SORTED_BY_LETTER *index_entries_by_letter,
+                      const INDEX_SORTED_BY_LETTER *index_entries_by_letter,
                       SV *indices_information)
 {
   HV *indices_hv;
   HV *indices_information_hv;
-  INDEX_SORTED_BY_LETTER *idx;
+  const INDEX_SORTED_BY_LETTER *idx;
 
   dTHX;
 
@@ -1973,51 +2130,16 @@ build_sorted_indices_by_letter (
               INDEX_ENTRY *entry = letter->entries[j];
               char *index_name = entry->index_name;
               int entry_number = entry->number;
-              SV **index_info_sv;
-              SV *index_entry_sv = 0;
-
-              index_info_sv = hv_fetch (indices_information_hv, index_name,
-                                        strlen (index_name), 0);
-              if (!index_info_sv)
-                {
-                  fprintf (stderr,
-                       "BUG: build_sorted_indices_by_letter: "
-                       "%s: %s: entry %zu index %s not found\n",
-                           idx->name, letter->letter, j, index_name);
-                }
-              else
-                {
-                  HV *index_info_hv = (HV *) SvRV (*index_info_sv);
-                  SV **index_info_index_entries_sv = hv_fetch (index_info_hv,
-                         "index_entries", strlen ("index_entries"), 0);
-
-                  if (!index_info_index_entries_sv)
-                    {
-                      fprintf (stderr,
-                       "BUG: build_sorted_indices_by_letter: "
-                 "%s: %s: entry %zu index %s 'index_entries' not found\n",
-                         idx->name, letter->letter, j, index_name);
-                    }
-                  else
-                    {
-                      AV *index_info_entries_av
-                          = (AV *) SvRV (*index_info_index_entries_sv);
-
-                      SV **index_entry_info_sv = av_fetch (index_info_entries_av,
-                                                         entry_number -1, 0);
-
-                      if (!index_entry_info_sv)
-                        {
-                          fprintf (stderr,
-                             "BUG: build_sorted_indices_by_letter: "
-                             "%s: %s: entry %zu: %d in %s not found\n",
-                                idx->name, letter->letter, j,
-                                entry_number, index_name);
-                        }
-                      else
-                        index_entry_sv = *index_entry_info_sv;
-                    }
-                }
+              char *message;
+              SV *index_entry_sv;
+              xasprintf (&message, "BUG: build_sorted_indices_by_letter:"
+                                   " %s: %s: entry %zu", idx->name,
+                                   letter->letter, j);
+              index_entry_sv
+                = find_idx_name_entry_number_sv (indices_information_hv,
+                                                 index_name, entry_number,
+                                                 message);
+              free (message);
 
               if (index_entry_sv)
                 {

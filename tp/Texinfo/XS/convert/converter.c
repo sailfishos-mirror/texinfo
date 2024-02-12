@@ -638,38 +638,17 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
 }
 
 INDEX_SORTED_BY_LETTER *
-converter_sort_indices_by_letter (CONVERTER *self)
-{
-  if (self->index_entries_by_letter)
-    return self->index_entries_by_letter;
-
-  const MERGED_INDICES *merged_indices
-    = document_merged_indices (self->document);
-
-  self->index_entries_by_letter
-    = sort_indices_by_letter (&self->error_messages, self->conf,
-                              merged_indices,
-                              self->document->index_names);
-  return self->index_entries_by_letter;
-}
-
-INDEX_SORTED_BY_LETTER *
 get_converter_indices_sorted_by_letter (CONVERTER *self)
 {
-  if (self->index_entries_by_letter)
-    return self->index_entries_by_letter;
-
-  if (self->document->index_names)
+  if (self->document)
     {
-      /* get Perl sorting for reproducible tests */
-      if (self->conf->TEST.integer > 0)
-        self->index_entries_by_letter
-         = get_call_index_entries_sorted_by_letter (self);
-      else /* sets self->index_entries_by_letter */
-        converter_sort_indices_by_letter (self);
+      return sorted_indices_by_letter (&self->error_messages, self->conf,
+                               self->document,
+                               self->conf->USE_UNICODE_COLLATION.integer,
+                               self->conf->COLLATION_LANGUAGE.string,
+                               self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
     }
-
-  return self->index_entries_by_letter;
+  return 0;
 }
 
 /* to be freed by caller */

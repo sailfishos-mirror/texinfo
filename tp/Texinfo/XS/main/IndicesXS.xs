@@ -47,13 +47,13 @@ MODULE = Texinfo::IndicesXS	PACKAGE = Texinfo::IndicesXS
 PROTOTYPES: ENABLE
 
 # This function triggers setting the information needed for calls
-# to index_entry_element_sort_string in C, either in a document
+# to index_entry_element_sort_string through XS, either in a document
 # or in a converter, depending whether index sorting is done with a converter
 # or without.
 # A returned hash reference is needed as some information is set in the
-# hash in perl afterwards, but this information is not used as the hash
+# hash in Perl afterwards, but this information is not used as the hash
 # is not used by any function not overriden, so there is no need to
-# return information corresponding to the text options for perl.  An empty
+# return information corresponding to the text options for Perl.  An empty
 # hash reference is therefore returned.
 SV *
 setup_index_entry_keys_formatting (SV *customization_info_sv)
