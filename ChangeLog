@@ -1,5 +1,10 @@
 2024-02-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_indices.c: remove TODO, replace FIXME
+	by TODO.
+
+2024-02-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (indices_sort_strings),
 	tp/Texinfo/XS/main/DocumentXS.xs (indices_sort_strings),
 	tp/Texinfo/XS/main/document.c (document_indices_sort_strings): change

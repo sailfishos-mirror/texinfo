@@ -573,7 +573,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
   if (use_unicode_collation == 0)
     {
       result->type = ctn_no_unicode;
-      /* FIXME check if needed */
+      /* TODO check if needed */
       result->language = strdup ("");
     }
   else if (collation_language)
@@ -602,7 +602,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
       #endif
 
       result->type = ctn_unicode;
-      /* FIXME check if needed */
+      /* TODO check if needed */
       result->language = strdup ("-");
       result->sv = call_setup_collator (1, 0);
     }
@@ -665,10 +665,9 @@ setup_sortable_index_entries (INDEX_COLLATOR *collator,
                     = &sortable_entry->sortable_subentries[k];
                   INDEX_SUBENTRY_SORT_STRING *subenty_sort_string
                     = &index_entry_sort_string->sort_string_subentries[k];
-              /*    if (subenty_sort_string->sort_string) */
-                    sortable_subentry->sort_string
-                     /* FIXME or refer to subenty_sort_string structure? */
-                     = strdup (subenty_sort_string->sort_string);
+                  /* TODO or refer to subenty_sort_string structure? */
+                  sortable_subentry->sort_string
+                    = strdup (subenty_sort_string->sort_string);
                   sortable_subentry->alpha = subenty_sort_string->alpha;
                   sortable_subentry->sort_key = get_sort_key (collator,
                                            subenty_sort_string->sort_string);
@@ -1090,12 +1089,10 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
                     = letter_sortable_entries->sortable_entries[k]->entry;
                 }
 
-              /* TODO should we reuse the letters instead? */
               free (letter_sortable_entries->letter_sort_key->bytes);
               free (letter_sortable_entries->letter_sort_key);
               free (letter_sortable_entries->sortable_entries);
             }
-          /* TODO should we reuse the letters instead? */
           index_letters_sortable_entries.letter_number = 0;
         }
       index_nr++;

@@ -678,6 +678,7 @@ find_index_entry_sv (const SV *index_entry_sv, INDEX **index_names,
    in the data structure.  Not clear that it is useful or not, not enabled
    for now */
 /* return value to be freed by caller */
+/* Currently not used */
 INDEX_SORTED_BY_LETTER *
 get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                                        SV *index_entries_sorted_by_letter)
