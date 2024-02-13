@@ -108,6 +108,12 @@ typedef struct INDICES_SORT_STRINGS {
     INDEX_SORT_STRINGS *indices;
 } INDICES_SORT_STRINGS;
 
+typedef struct INDEX_SORTED_BY_INDEX {
+    char *name;
+    INDEX_ENTRY **entries;
+    size_t entries_number;
+} INDEX_SORTED_BY_INDEX;
+
 typedef struct LETTER_INDEX_ENTRIES {
     char *letter;
     INDEX_ENTRY **entries;
@@ -126,6 +132,18 @@ enum collation_type_name {
    ctn_language_collation,
    ctn_locale_collation, /* experimental, to test strxfrm */
 };
+
+typedef struct COLLATION_INDICES_SORTED_BY_INDEX {
+    enum collation_type_name type;
+    char *language;
+    INDEX_SORTED_BY_INDEX *sorted_indices;
+} COLLATION_INDICES_SORTED_BY_INDEX;
+
+typedef struct COLLATIONS_INDICES_SORTED_BY_INDEX {
+    size_t number;
+    size_t space;
+    COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
+} COLLATIONS_INDICES_SORTED_BY_INDEX;
 
 typedef struct COLLATION_INDICES_SORTED_BY_LETTER {
     enum collation_type_name type;
@@ -159,6 +177,7 @@ typedef struct DOCUMENT {
     struct TEXT_OPTIONS *convert_index_text_options; /* for index
                                        sorting without converter */
     INDICES_SORT_STRINGS *indices_sort_strings;
+    COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
 } DOCUMENT;
 

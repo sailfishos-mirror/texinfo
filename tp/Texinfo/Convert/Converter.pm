@@ -96,8 +96,6 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::get_conf",
   "Texinfo::Convert::Converter::_XS_set_document"
    => "Texinfo::Convert::ConvertXS::converter_set_document",
-  "Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter"
-   => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_letter",
 
   # fully overriden for all the converters
   "Texinfo::Convert::Converter::get_converter_errors"
@@ -110,6 +108,10 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::converter_document_error",
   "Texinfo::Convert::Converter::converter_document_warn"
    => "Texinfo::Convert::ConvertXS::converter_document_warn",
+  "Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter"
+   => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_letter",
+  "Texinfo::Convert::Converter::get_converter_indices_sorted_by_index"
+   => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_index",
 
   # XS only
   "Texinfo::Convert::Converter::reset_converter"

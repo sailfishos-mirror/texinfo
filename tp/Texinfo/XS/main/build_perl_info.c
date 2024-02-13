@@ -2080,6 +2080,54 @@ build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
 }
 
 HV *
+build_sorted_indices_by_index (
+                      const INDEX_SORTED_BY_INDEX *index_entries_by_index,
+                      HV *indices_information_hv)
+{
+  HV *indices_hv;
+  const INDEX_SORTED_BY_INDEX *idx;
+
+  dTHX;
+
+  if (!index_entries_by_index)
+    return 0;
+
+  indices_hv = newHV ();
+
+  for (idx = index_entries_by_index; idx->name; idx++)
+    {
+      AV *entries_av = newAV ();
+      size_t j;
+
+      hv_store (indices_hv, idx->name, strlen (idx->name),
+                newRV_noinc ((SV *)entries_av), 0);
+
+      for (j = 0; j < idx->entries_number; j++)
+        {
+          INDEX_ENTRY *entry = idx->entries[j];
+          char *index_name = entry->index_name;
+          int entry_number = entry->number;
+          char *message;
+          SV *index_entry_sv;
+          xasprintf (&message, "BUG: build_sorted_indices_by_index:"
+                               " %s: entry %zu", idx->name, j);
+          index_entry_sv
+            = find_idx_name_entry_number_sv (indices_information_hv,
+                                             index_name, entry_number,
+                                             message);
+          free (message);
+
+          if (index_entry_sv)
+            {
+              SvREFCNT_inc (index_entry_sv);
+              av_push (entries_av, index_entry_sv);
+            }
+        }
+    }
+  return indices_hv;
+}
+
+HV *
 build_sorted_indices_by_letter (
                       const INDEX_SORTED_BY_LETTER *index_entries_by_letter,
                       HV *indices_information_hv)

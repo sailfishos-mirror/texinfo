@@ -139,6 +139,20 @@ destroy_merged_indices (MERGED_INDICES *merged_indices)
 
 
 void
+destroy_indices_sorted_by_index (
+         INDEX_SORTED_BY_INDEX *indices_entries_by_index)
+{
+  INDEX_SORTED_BY_INDEX *index;
+
+  for (index = indices_entries_by_index; index->name; index++)
+    {
+      free (index->name);
+      free (index->entries);
+    }
+  free (indices_entries_by_index);
+}
+
+void
 destroy_indices_sorted_by_letter (
          INDEX_SORTED_BY_LETTER *indices_entries_by_letter)
 {
@@ -757,13 +771,9 @@ compare_sortable_subentry_keys (const void *a, const void *b)
 }
 
 static int
-compare_sortable_index_entry (const void *a, const void *b)
+compare_sortable_index_entry (const SORTABLE_INDEX_ENTRY *sie_a,
+                              const SORTABLE_INDEX_ENTRY *sie_b)
 {
-  const SORTABLE_INDEX_ENTRY **psie_a = (const SORTABLE_INDEX_ENTRY **) a;
-  const SORTABLE_INDEX_ENTRY **psie_b = (const SORTABLE_INDEX_ENTRY **) b;
-  const SORTABLE_INDEX_ENTRY *sie_a = *psie_a;
-  const SORTABLE_INDEX_ENTRY *sie_b = *psie_b;
-
   size_t i;
   int res;
 
@@ -797,6 +807,24 @@ compare_sortable_index_entry (const void *a, const void *b)
      index name. */
 
   return strcmp (sie_a->entry->index_name, sie_b->entry->index_name);
+}
+
+static int
+compare_sortable_index_entry_refs (const void *a, const void *b)
+{
+  const SORTABLE_INDEX_ENTRY **psie_a = (const SORTABLE_INDEX_ENTRY **) a;
+  const SORTABLE_INDEX_ENTRY **psie_b = (const SORTABLE_INDEX_ENTRY **) b;
+
+  return compare_sortable_index_entry (*psie_a, *psie_b);
+}
+
+static int
+compare_sortable_index_entry_wrapper (const void *a, const void *b)
+{
+  const SORTABLE_INDEX_ENTRY *sie_a = (const SORTABLE_INDEX_ENTRY *) a;
+  const SORTABLE_INDEX_ENTRY *sie_b = (const SORTABLE_INDEX_ENTRY *) b;
+
+  return compare_sortable_index_entry (sie_a, sie_b);
 }
 
 void
@@ -846,6 +874,82 @@ destroy_collator (INDEX_COLLATOR *collator)
     free (collator->language);
   free (collator);
 }
+
+INDEX_SORTED_BY_INDEX *
+sort_indices_by_index (ERROR_MESSAGE_LIST *error_messages,
+                       OPTIONS *options, int use_unicode_collation,
+                       const char *collation_language,
+                       const char *collation_locale,
+                       const MERGED_INDICES *merged_indices,
+                       INDEX **indices_information, DOCUMENT *document)
+{
+  size_t i;
+  int index_nr = 0;
+  INDEX_COLLATOR *collator;
+
+  INDICES_SORTABLE_ENTRIES *indices_sortable_entries
+    = setup_sort_sortable_strings_collator (error_messages, options,
+                                    use_unicode_collation, collation_language,
+                                    collation_locale,
+                                    merged_indices, indices_information,
+                                    document, &collator);
+
+  if (!indices_sortable_entries || indices_sortable_entries->number <= 0)
+    {
+      destroy_indices_sortable_entries (indices_sortable_entries);
+      destroy_collator (collator);
+      return 0;
+    }
+
+  INDEX_SORTED_BY_INDEX *sorted_index_entries
+   = (INDEX_SORTED_BY_INDEX *) malloc
+    ((indices_sortable_entries->number +1) * sizeof (INDEX_SORTED_BY_INDEX));
+
+  for (i = 0; i < indices_sortable_entries->number; i++)
+    {
+      size_t k;
+      INDEX_SORTABLE_ENTRIES *sortable_index_entries
+        = &indices_sortable_entries->indices[i];
+      INDEX_SORTED_BY_INDEX *index_sorted;
+
+      if (sortable_index_entries->number <= 0)
+        continue;
+
+      index_sorted = &sorted_index_entries[index_nr];
+      index_sorted->name = strdup (sortable_index_entries->index->name);
+      index_sorted->entries_number = sortable_index_entries->number;
+
+      /* directly sort the sortable entries */
+      qsort (sortable_index_entries->sortable_entries,
+             index_sorted->entries_number,
+             sizeof (SORTABLE_INDEX_ENTRY),
+             compare_sortable_index_entry_wrapper);
+
+      index_sorted->entries = (INDEX_ENTRY **) malloc
+         (sizeof (INDEX_ENTRY *) * index_sorted->entries_number);
+
+      /* set index entries in the sorted order */
+      for (k = 0; k < index_sorted->entries_number; k++)
+        {
+          index_sorted->entries[k]
+            = sortable_index_entries->sortable_entries[k].entry;
+        }
+
+      index_nr++;
+    }
+
+  memset (&sorted_index_entries[index_nr], 0, sizeof (INDEX_SORTED_BY_INDEX));
+  if (index_nr < indices_sortable_entries->number)
+    sorted_index_entries = realloc (sorted_index_entries,
+                     (index_nr+1) * sizeof (INDEX_SORTED_BY_INDEX));
+
+  destroy_collator (collator);
+  destroy_indices_sortable_entries (indices_sortable_entries);
+
+  return sorted_index_entries;
+}
+
+
 
 INDEX_SORTED_BY_LETTER *
 sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
@@ -1069,7 +1173,7 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
               qsort (letter_sortable_entries->sortable_entries,
                    letter_sortable_entries->number,
                    sizeof (SORTABLE_INDEX_ENTRY *),
-                   compare_sortable_index_entry);
+                   compare_sortable_index_entry_refs);
 
               letter_index_entries->letter = letter_sortable_entries->letter;
               letter_index_entries->entries = (INDEX_ENTRY **) malloc

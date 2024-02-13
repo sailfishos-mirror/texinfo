@@ -637,6 +637,27 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
   destroy_list (element_list);
 }
 
+INDEX_SORTED_BY_INDEX *
+get_converter_indices_sorted_by_index (CONVERTER *self)
+{
+  if (self->document)
+    {
+      char *collation_language = 0;
+      if (self->conf->COLLATION_LANGUAGE.string)
+        collation_language = self->conf->COLLATION_LANGUAGE.string;
+      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.integer > 0
+               && self->conf->documentlanguage.string)
+        collation_language = self->conf->documentlanguage.string;
+
+      return sorted_indices_by_index (&self->error_messages, self->conf,
+                               self->document,
+                               self->conf->USE_UNICODE_COLLATION.integer,
+                               collation_language,
+                               self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
+    }
+  return 0;
+}
+
 INDEX_SORTED_BY_LETTER *
 get_converter_indices_sorted_by_letter (CONVERTER *self)
 {

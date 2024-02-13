@@ -35,6 +35,13 @@ const INDICES_SORT_STRINGS *document_indices_sort_strings (
                                DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
                                OPTIONS *options, int prefer_reference_element);
+
+INDEX_SORTED_BY_INDEX *sorted_indices_by_index (
+                         ERROR_MESSAGE_LIST *error_messages,
+                         OPTIONS *options, DOCUMENT *document,
+                         int use_unicode_collation,
+                         const char *collation_language,
+                         const char *collation_locale);
 INDEX_SORTED_BY_LETTER *sorted_indices_by_letter (
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options, DOCUMENT *document,

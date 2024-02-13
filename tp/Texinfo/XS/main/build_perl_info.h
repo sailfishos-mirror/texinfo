@@ -59,6 +59,9 @@ HV *build_indices_sort_strings (
 HV *build_sorted_indices_by_letter (
                       const INDEX_SORTED_BY_LETTER *index_entries_by_letter,
                       HV *indices_information_hv);
+HV *build_sorted_indices_by_index (
+                      const INDEX_SORTED_BY_INDEX *index_entries_by_index,
+                      HV *indices_information_hv);
 
 SV *html_build_direction_icons (CONVERTER *converter,
                             DIRECTION_ICON_LIST *direction_icons);
