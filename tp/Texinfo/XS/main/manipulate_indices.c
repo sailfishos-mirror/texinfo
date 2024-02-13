@@ -271,14 +271,16 @@ static BYTES_STRING *
 get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
 {
   BYTES_STRING *sort_key;
+  char *uc_sort_string = to_upper_or_lower_multibyte (sort_string, 1);
   switch (collator->type)
     {
       case ctn_no_unicode:
         sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-        sort_key->len = strlen (sort_string);
+        sort_key->len = strlen (uc_sort_string);
         sort_key->bytes = (unsigned char *)
            malloc (sizeof (unsigned char) * sort_key->len);
-        memcpy (sort_key->bytes, (unsigned char *) sort_string, sort_key->len);
+        memcpy (sort_key->bytes, (unsigned char *) uc_sort_string,
+                sort_key->len);
         break;
       #ifdef HAVE_STRXFRM_L
       case ctn_locale_collation:
@@ -286,15 +288,12 @@ get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
           size_t check_len;
           char *char_sort_key;
           sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-          sort_key->len
-            = strxfrm_l (0, sort_string, 0,
-                         collator->locale);
+          sort_key->len = strxfrm_l (0, uc_sort_string, 0, collator->locale);
           char_sort_key = (char *) malloc (sizeof (char) * sort_key->len);
-          check_len
-            = strxfrm_l (char_sort_key, sort_string, sort_key->len,
-                         collator->locale);
+          check_len = strxfrm_l (char_sort_key, uc_sort_string, sort_key->len,
+                                 collator->locale);
           sort_key->bytes = (unsigned char *)
-           malloc (sizeof (unsigned char) * sort_key->len);
+                     malloc (sizeof (unsigned char) * sort_key->len);
           memcpy (sort_key->bytes, (unsigned char *) char_sort_key,
                   sort_key->len);
           free (char_sort_key);
@@ -306,15 +305,11 @@ get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
       case ctn_unicode:
       case ctn_language_collation:
       default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
-        {
-          char *uc_sort_string
-            = to_upper_or_lower_multibyte (sort_string, 1);
-          sort_key = call_collator_getSortKey (collator->sv,
-                                               uc_sort_string);
-          free (uc_sort_string);
-        }
+        sort_key = call_collator_getSortKey (collator->sv,
+                                             uc_sort_string);
         break;
     }
+  free (uc_sort_string);
   return sort_key;
 }
 
