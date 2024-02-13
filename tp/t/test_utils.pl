@@ -940,6 +940,7 @@ sub test($$)
   my $added_main_configurations = {'FORMAT_MENU' => 'menu',
                                    'CHECK_MISSING_MENU_ENTRY' => 1};
 
+  # FIXME this has changed
   # this is only used for index keys sorting in structuring
   foreach my $structuring_and_converter_option ('ENABLE_ENCODING') {
     if (defined($parser_options->{$structuring_and_converter_option})) {
@@ -952,7 +953,7 @@ sub test($$)
   }
 
   foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
-                                                    'FORMAT_MENU') {
+                                  'FORMAT_MENU', 'USE_UNICODE_COLLATION') {
     if (defined($parser_options->{$structuring_option})) {
       $added_main_configurations->{$structuring_option}
         = $parser_options->{$structuring_option};

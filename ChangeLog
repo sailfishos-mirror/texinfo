@@ -1,3 +1,19 @@
+2024-02-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/test_utils.pl (test): pass USE_UNICODE_COLLATION option.
+
+	* tp/t/09indices.t (encoding_index_utf8_no_use_unicode),
+	tp/Makefile.tres: add test of USE_UNICODE_COLLATION set to 0.
+
+	* tp/tests/Makefile.onetst, tp/tests/other/Makefile.am (EXTRA_DIST),
+	tp/tests/other/index_collation_test.texi,
+	tp/tests/other/list-of-tests: add index_collation_test_plaintext,
+	index_collation_test_collation_language,
+	index_collation_test_collation_locale_en,
+	index_collation_test_collation_locale_sv and
+	index_collation_test_documentlanguage_collation to test all the cases
+	of collation customization.
+
 2024-02-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/manipulate_indices.c: remove TODO, replace FIXME

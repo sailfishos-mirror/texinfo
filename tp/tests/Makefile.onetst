@@ -140,5 +140,10 @@ type_other_one_test_files_generated_list =  \
     test_scripts/other_highlight_syntax_example_pygments.sh \
     test_scripts/other_highlight_syntax_example_highlight.sh \
     test_scripts/other_highlight_syntax_example_default_language.sh \
-    test_scripts/other_highlight_syntax_example_latin9.sh
+    test_scripts/other_highlight_syntax_example_latin9.sh \
+    test_scripts/other_index_collation_test_plaintext.sh \
+    test_scripts/other_index_collation_test_collation_language.sh \
+    test_scripts/other_index_collation_test_collation_locale_en.sh \
+    test_scripts/other_index_collation_test_collation_locale_sv.sh \
+    test_scripts/other_index_collation_test_documentlanguage_collation.sh
 
