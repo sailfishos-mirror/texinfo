@@ -673,7 +673,6 @@ typedef struct CONVERTER {
     STRING_LIST small_strings;
 
     DOCUMENT *document;
-    INDEX_SORTED_BY_LETTER *index_entries_by_letter;
     int document_units_descriptor;
 
     struct TEXT_OPTIONS *convert_text_options;

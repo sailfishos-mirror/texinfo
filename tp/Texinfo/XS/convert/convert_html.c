@@ -16704,12 +16704,6 @@ html_reset_converter (CONVERTER *self)
       self->added_title_tree = 0;
     }
 
-  if (self->index_entries_by_letter)
-    {
-      destroy_indices_sorted_by_letter (self->index_entries_by_letter);
-      self->index_entries_by_letter = 0;
-    }
-
   if (self->jslicenses.number)
     {
       int i;
