@@ -249,18 +249,7 @@ sub chm_init($)
 
   my $index_entries;
   if ($indices_information) {
-    my $merged_index_entries
-        = $self->{'document'}->merged_indices();
-    my $use_unicode_collation
-      = $self->get_conf('USE_UNICODE_COLLATION');
-    my $locale_lang;
-    if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-      $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
-    }
-
-    $index_entries = Texinfo::Document::sorted_indices_by_index(undef,
-                                    $self, $self->{'document'},
-                                  $use_unicode_collation, $locale_lang);
+    $index_entries = $self->get_converter_indices_sorted_by_index();
   }
 
   if ($index_entries) {

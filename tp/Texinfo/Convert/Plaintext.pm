@@ -1510,27 +1510,16 @@ sub process_printindex($$;$)
     return '';
   }
 
+  my $index_entries;
   my $indices_information;
   if ($self->{'document'}) {
     $indices_information = $self->{'document'}->indices_information();
-
-    # this is not redone for each index, only once
-    if (!defined($self->{'index_entries'}) and $indices_information) {
-
-      my $use_unicode_collation
-        = $self->get_conf('USE_UNICODE_COLLATION');
-      my $locale_lang;
-      if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-        $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
-      }
-      $self->{'index_entries'}
-        = Texinfo::Document::sorted_indices_by_index(undef, $self,
-                                                   $self->{'document'},
-                                        $use_unicode_collation, $locale_lang);
+    if ($indices_information) {
+      $index_entries = $self->get_converter_indices_sorted_by_index();
     }
   }
-  if (!$self->{'index_entries'} or !$self->{'index_entries'}->{$index_name}
-      or ! @{$self->{'index_entries'}->{$index_name}}) {
+  if (!$index_entries or !$index_entries->{$index_name}
+      or !@{$index_entries->{$index_name}}) {
     return '';
   }
 
@@ -1539,7 +1528,7 @@ sub process_printindex($$;$)
   my %entry_nodes;
   my $max_index_line_nr_string_length = 0;
   my %ignored_entries;
-  foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
+  foreach my $entry (@{$index_entries->{$index_name}}) {
     my $main_entry_element = $entry->{'entry_element'};
     # FIXME format in a way instead of ignoring
     if ($main_entry_element->{'extra'}
@@ -1612,7 +1601,7 @@ sub process_printindex($$;$)
                                   'no_added_eol' => 1});
   push @{$self->{'formatters'}}, $formatter;
 
-  foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
+  foreach my $entry (@{$index_entries->{$index_name}}) {
     next if ($ignored_entries{$entry});
 
     my $main_entry_element = $entry->{'entry_element'};

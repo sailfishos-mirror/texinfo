@@ -1,5 +1,24 @@
 2024-02-13  Patrice Dumas  <pertusus@free.fr>
 
+	Use DOCUMENTLANGUAGE_COLLATION.
+
+	* NEWS: update.
+
+	* tp/Texinfo/Convert/Converter.pm
+	(get_converter_indices_sorted_by_letter)
+	(get_converter_indices_sorted_by_index),
+	tp/Texinfo/XS/convert/converter.c
+	(get_converter_indices_sorted_by_letter): add
+	get_converter_indices_sorted_by_index.  Handle
+	DOCUMENTLANGUAGE_COLLATION.  Return undef if there is no document or
+	no index information.
+
+	* tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Plaintext.pm
+	(process_printindex), tp/init/chm.pm (chm_init): use
+	get_converter_indices_sorted_by_index.
+
+2024-02-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/manipulate_indices.c (get_sort_key): use upper
 	cased sort string to obtain the sort key for all the collation types.
 

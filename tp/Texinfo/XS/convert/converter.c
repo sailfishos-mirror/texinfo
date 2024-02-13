@@ -642,10 +642,17 @@ get_converter_indices_sorted_by_letter (CONVERTER *self)
 {
   if (self->document)
     {
+      char *collation_language = 0;
+      if (self->conf->COLLATION_LANGUAGE.string)
+        collation_language = self->conf->COLLATION_LANGUAGE.string;
+      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.integer > 0
+               && self->conf->documentlanguage.string)
+        collation_language = self->conf->documentlanguage.string;
+
       return sorted_indices_by_letter (&self->error_messages, self->conf,
                                self->document,
                                self->conf->USE_UNICODE_COLLATION.integer,
-                               self->conf->COLLATION_LANGUAGE.string,
+                               collation_language,
                                self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
     }
   return 0;

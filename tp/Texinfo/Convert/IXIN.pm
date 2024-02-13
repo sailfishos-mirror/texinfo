@@ -707,16 +707,8 @@ sub output_ixin($$)
   my %dts_information;
 
   if ($indices_information) {
-    my $use_unicode_collation
-      = $self->get_conf('USE_UNICODE_COLLATION');
-    my $locale_lang;
-    if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-      $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
-    }
     my $entries
-      = Texinfo::Document::sorted_indices_by_index(undef, $self,
-                                                   $self->{'document'},
-                                        $use_unicode_collation, $locale_lang);
+      = $self->get_converter_indices_sorted_by_index();
     # first do the dts_text as the counts are needed for the dts index
     foreach my $index_name (sort(keys(%$entries))) {
       $dts_information{$index_name} = {};

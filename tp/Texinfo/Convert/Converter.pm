@@ -1759,6 +1759,10 @@ sub get_converter_indices_sorted_by_letter($)
       my $locale_lang;
       if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
         $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
+        if (!defined($locale_lang)
+            and $self->get_conf('DOCUMENTLANGUAGE_COLLATION')) {
+          $locale_lang = $self->get_conf('documentlanguage');
+        }
       }
 
       return Texinfo::Document::sorted_indices_by_letter(undef, $self,
@@ -1766,7 +1770,35 @@ sub get_converter_indices_sorted_by_letter($)
                                    $use_unicode_collation, $locale_lang);
     }
   }
-  return {};
+  return undef;
+}
+
+sub get_converter_indices_sorted_by_index($)
+{
+  my $self = shift;
+
+  my $indices_information;
+  if ($self->{'document'}) {
+    $indices_information = $self->{'document'}->indices_information();
+
+    if ($indices_information) {
+      my $use_unicode_collation
+        = $self->get_conf('USE_UNICODE_COLLATION');
+      my $locale_lang;
+      if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
+        $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
+        if (!defined($locale_lang)
+            and $self->get_conf('DOCUMENTLANGUAGE_COLLATION')) {
+          $locale_lang = $self->get_conf('documentlanguage');
+        }
+      }
+
+      return Texinfo::Document::sorted_indices_by_index(undef, $self,
+                                               $self->{'document'},
+                                 $use_unicode_collation, $locale_lang);
+    }
+  }
+  return undef;
 }
 
 sub _count_converted_text($$)
