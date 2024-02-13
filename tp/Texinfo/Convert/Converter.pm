@@ -96,7 +96,7 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::get_conf",
   "Texinfo::Convert::Converter::_XS_set_document"
    => "Texinfo::Convert::ConvertXS::converter_set_document",
-  "Texinfo::Convert::Converter::_XS_get_converter_indices_sorted_by_letter"
+  "Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter"
    => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_letter",
 
   # fully overriden for all the converters
@@ -1729,17 +1729,7 @@ sub comma_index_subentries_tree {
   return undef;
 }
 
-# Perl version should not be called, only used for the XS override.
-sub _XS_get_converter_indices_sorted_by_letter($$)
-{
-  my $converter = shift;
-  my $indices_information = shift;
-
-  return undef;
-}
-
-# TODO document?  Or should Texinfo::Document::sorted_indices_by_letter
-# be called directly?
+# TODO document?
 sub get_converter_indices_sorted_by_letter($)
 {
   my $self = shift;
@@ -1747,13 +1737,8 @@ sub get_converter_indices_sorted_by_letter($)
   my $indices_information;
   if ($self->{'document'}) {
     $indices_information = $self->{'document'}->indices_information();
-  }
 
-  if ($indices_information) {
-    if (!$self->{'converter_descriptor'} and $XS_convert) {
-      return _XS_get_converter_indices_sorted_by_letter($self,
-                                                     $indices_information);
-    } else {
+    if ($indices_information) {
       my $use_unicode_collation
         = $self->get_conf('USE_UNICODE_COLLATION');
       my $locale_lang;
@@ -1773,6 +1758,7 @@ sub get_converter_indices_sorted_by_letter($)
   return undef;
 }
 
+# TODO document?
 sub get_converter_indices_sorted_by_index($)
 {
   my $self = shift;

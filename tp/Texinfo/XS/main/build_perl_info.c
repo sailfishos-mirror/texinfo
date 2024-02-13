@@ -2079,21 +2079,18 @@ build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
   return indices_sort_strings_hv;
 }
 
-SV *
+HV *
 build_sorted_indices_by_letter (
                       const INDEX_SORTED_BY_LETTER *index_entries_by_letter,
-                      SV *indices_information)
+                      HV *indices_information_hv)
 {
   HV *indices_hv;
-  HV *indices_information_hv;
   const INDEX_SORTED_BY_LETTER *idx;
 
   dTHX;
 
   if (!index_entries_by_letter)
-    return newSV (0);
-
-  indices_information_hv = (HV *) SvRV (indices_information);
+    return 0;
 
   indices_hv = newHV ();
 
@@ -2149,7 +2146,7 @@ build_sorted_indices_by_letter (
             }
         }
     }
-  return newRV_noinc ((SV *)indices_hv);
+  return indices_hv;
 }
 
 SV *

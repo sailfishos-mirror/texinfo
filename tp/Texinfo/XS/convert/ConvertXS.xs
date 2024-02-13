@@ -181,21 +181,42 @@ converter_document_warn (SV *converter_in, text, ...)
            }
 
 SV *
-get_converter_indices_sorted_by_letter (SV *converter_sv, SV *indices_information)
+get_converter_indices_sorted_by_letter (SV *converter_sv)
      PREINIT:
         CONVERTER *self;
+        INDEX_SORTED_BY_LETTER *index_entries_by_letter = 0;
+        HV *converter_hv;
+        SV **document_sv;
      CODE:
         self = get_sv_converter (converter_sv,
                                  "get_converter_indices_sorted_by_letter");
         if (self)
+          index_entries_by_letter
+            = get_converter_indices_sorted_by_letter (self);
+
+        converter_hv = (HV *) SvRV (converter_sv);
+        document_sv = hv_fetch (converter_hv, "document",
+                                strlen ("document"), 0);
+        RETVAL = 0;
+        if (document_sv)
           {
-            INDEX_SORTED_BY_LETTER *index_entries_by_letter
-              = get_converter_indices_sorted_by_letter (self);
-            RETVAL
-             = build_sorted_indices_by_letter (index_entries_by_letter,
-                                               indices_information);
+            SV **indices_information_sv;
+            HV *document_hv = (HV *) SvRV (*document_sv);
+            indices_information_sv
+              = hv_fetch (document_hv, "indices", strlen ("indices"), 0);
+
+            if (index_entries_by_letter && indices_information_sv)
+              {
+                HV *indices_information_hv
+                   = (HV *) SvRV (*indices_information_sv);
+                HV *index_entries_by_letter_hv
+                   = build_sorted_indices_by_letter (index_entries_by_letter,
+                                                     indices_information_hv);
+                RETVAL
+                 = newRV_inc ((SV *) index_entries_by_letter_hv);
+              }
           }
-        else
+        if (!RETVAL)
           RETVAL = newSV (0);
     OUTPUT:
          RETVAL
