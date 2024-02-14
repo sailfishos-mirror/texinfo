@@ -1,6 +1,6 @@
 #! /bin/sh
 # Run all Texinfo tests.
-# 
+#
 # Copyright 2010-2024 Free Software Foundation, Inc.
 #
 # Copying and distribution of this file, with or without modification,
@@ -37,13 +37,24 @@ check_need_command_line_unicode ()
 }
 
 check_unicode_collate_ok ()
-{        
+{
   if echo "$remaining" | grep 'Need collation compatibility' >/dev/null; then
     if test "z$PERL_UNICODE_COLLATE_OK" = 'zno' ; then
       echo "S: (no compatible unicode collation) $current"
      return 1
     fi
-  fi 
+  fi
+  return 0
+}
+
+check_strxfrm_ok ()
+{
+  if echo "$remaining" | grep XS_STRXFRM_COLLATION_LOCALE >/dev/null; then
+    if test "z$TEXINFO_XS_CONVERT" = "z" -o "z$TEXINFO_XS_CONVERT" = "z0" ; then
+      echo "S: (Need TEXINFO_XS_CONVERT set) $current"
+     return 1
+    fi
+  fi
   return 0
 }
 
@@ -142,7 +153,7 @@ post_process_output ()
     #for file in "${raw_outdir}$dir/"*.htm* "${raw_outdir}$dir/"*-l2h_cache.pm "${raw_outdir}$dir/"*_l2h_images.pl; do
     for file in "${raw_outdir}$dir/"*.htm* "${raw_outdir}$dir/"*-l2h_cache.pm; do
      if test -f "$file" ; then
-     # width and height changed because of different rounding on 
+     # width and height changed because of different rounding on
      # different computers.  Also remove version information.
       filename=`basename "$file"`
       sed -e 's/WIDTH="\([0-9]*\)\([0-9]\)"/WIDTH="100"/' \
@@ -198,7 +209,7 @@ while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy'  -o z"$1" = 'z-dir' ]; do
     shift
   fi
   if [ z"$1" = 'z-dir' ]; then
-    shift 
+    shift
     #mydir=`echo "$1" | sed 's:/*$::'`'/'
     testdir=`echo "$1" | sed 's:/*$::'`'/'
     shift
@@ -363,14 +374,14 @@ while read line; do
   #remaining=`echo $line | sed 's/[a-zA-Z0-9_./-]*  *[a-zA-Z0-9_./-]* *//'`
   remaining=`echo $line | sed 's/[a-zA-Z0-9_é./-]*  *[a-zA-Z0-9_é./-]* *//'`
   src_file="$srcdir/$testdir/$file"
-  
+
   for command_dir in $commands; do
     format_option=
     command=`echo $command_dir | cut -d':' -f1`
     dir_suffix=`echo $command_dir | cut -d':' -f2`
     format=`echo $dir_suffix |sed 's/^_//'`
     #
-    if test -z "$command"; then 
+    if test -z "$command"; then
       command=$main_command
       if test -n "$format"; then
         format_option="--$format"
@@ -392,7 +403,7 @@ while read line; do
       echo "$0: Command $command not found" >&2
       exit 1
     fi
-    
+
     outdir="$testdir/${out_dir}${dir_suffix}/"
     results_dir="$srcdir/$testdir/${res_dir}${dir_suffix}"
     one_test_done=yes
@@ -402,6 +413,7 @@ while read line; do
     check_need_command_line_unicode || skipped_test=yes
     check_latex2html_and_tex4ht || skipped_test=yes
     check_unicode_collate_ok || skipped_test=yes
+    check_strxfrm_ok || skipped_test=yes
     if [ "$skipped_test" = 'yes' ] ; then
       if test $one_test = 'yes' ; then
         return_code=77
