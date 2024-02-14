@@ -1,5 +1,17 @@
 2024-02-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/other/index_collation_test.texi: modify test file to have
+	the difference between strxfrm_l and Perl Unicode::Collate used in
+	texi2any with Non-ignorable variable weighting show up in test
+	output.
+
+	* tp/tests/Makefile.onetst, tp/tests/other/list-of-tests
+	(index_collation_test_collation_locale_en_US): test with
+	XS_STRXFRM_COLLATION_LOCALE='en_US.utf-8' to find the collating
+	locale on my Debian testing.
+
+2024-02-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/run_parser_all.sh (check_strxfrm_ok): skip test if
 	TEXINFO_XS_CONVERT is not set or 0 and XS_STRXFRM_COLLATION_LOCALE
 	is set.

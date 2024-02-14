@@ -17,6 +17,8 @@ index_collation_test_collation_language index_collation_test.texi --plaintext -c
 
 index_collation_test_collation_locale_en index_collation_test.texi --plaintext -c XS_STRXFRM_COLLATION_LOCALE='en.utf-8'
 
+index_collation_test_collation_locale_en_US index_collation_test.texi --plaintext -c XS_STRXFRM_COLLATION_LOCALE='en_US.utf-8'
+
 index_collation_test_collation_locale_sv index_collation_test.texi --plaintext -c XS_STRXFRM_COLLATION_LOCALE='sv_SE.utf8'
 
 index_collation_test_documentlanguage_collation index_collation_test.texi --plaintext -c DOCUMENTLANGUAGE_COLLATION=1

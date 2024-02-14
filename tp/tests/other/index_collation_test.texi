@@ -8,7 +8,10 @@
 @node Chapter
 @chapter chap
 
+@cindex cdab
 @cindex e
+@cindex c e
+@cindex c d ! a-b
 @cindex @'e
 @cindex z
 @cindex ö
