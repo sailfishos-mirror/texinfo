@@ -8,8 +8,8 @@ top
 
 * e:                                     Chapter.               (line 6)
 * é:                                     Chapter.               (line 6)
-* ö:                                     Chapter.               (line 6)
 * z:                                     Chapter.               (line 6)
+* ö:                                     Chapter.               (line 6)
 
 Appendix A Indices
 ******************
@@ -18,6 +18,6 @@ Appendix A Indices
 
 * e:                                     Chapter.               (line 6)
 * é:                                     Chapter.               (line 6)
-* ö:                                     Chapter.               (line 6)
 * z:                                     Chapter.               (line 6)
+* ö:                                     Chapter.               (line 6)
 

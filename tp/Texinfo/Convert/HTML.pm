@@ -2301,9 +2301,8 @@ my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document', 'document_name',
    'documentdescription_string', 'expanded_formats',
-   'index_entries_by_letter', 'jslicenses',
-   'line_break_element', 'non_breaking_space', 'paragraph_symbol',
-   'simpletitle_command_name', 'simpletitle_tree',
+   'jslicenses', 'line_break_element', 'non_breaking_space',
+   'paragraph_symbol', 'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
   $available_converter_info{$converter_info} = 1;
 }
@@ -2322,12 +2321,6 @@ sub get_info($$)
     } else {
       return $self->{'converter_info'}->{$converter_info};
     }
-  #} else {
-  #  cluck();
-  } elsif ($converter_info eq 'index_entries_by_letter') {
-    $self->{'converter_info'}->{'index_entries_by_letter'}
-      = $self->get_converter_indices_sorted_by_letter();
-    return $self->{'converter_info'}->{'index_entries_by_letter'};
   }
   return undef;
 }
@@ -6235,7 +6228,8 @@ sub _convert_printindex_command($$$$)
   } else {
     return '';
   }
-  my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
+  my $index_entries_by_letter
+    = $self->get_converter_indices_sorted_by_letter();
   if (!defined($index_entries_by_letter)
       or !$index_entries_by_letter->{$index_name}
       or !scalar(@{$index_entries_by_letter->{$index_name}})) {
@@ -12044,7 +12038,8 @@ sub output_internal_links($)
       }
     }
   }
-  my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
+  my $index_entries_by_letter
+    = $self->get_converter_indices_sorted_by_letter();
   if ($index_entries_by_letter) {
     my $indices_information;
     if ($self->{'document'}) {

@@ -1731,7 +1731,6 @@ sub comma_index_subentries_tree {
   return undef;
 }
 
-# TODO document?
 sub get_converter_indices_sorted_by_letter($)
 {
   my $self = shift;
@@ -1760,7 +1759,6 @@ sub get_converter_indices_sorted_by_letter($)
   return undef;
 }
 
-# TODO document?
 sub get_converter_indices_sorted_by_index($)
 {
   my $self = shift;
@@ -2729,6 +2727,26 @@ the element.  In many cases, converters ignore comments and output is
 better formatted with new lines added independently of the presence
 of newline or comment in the initial Texinfo line, so most converters
 are better off not using this method.
+
+=item $sorted_indices = $converter->get_converter_indices_sorted_by_index()
+
+=item $sorted_indices = $converter->get_converter_indices_sorted_by_letter()
+X<C<get_converter_indices_sorted_by_index>>
+X<C<get_converter_indices_sorted_by_letter>>
+
+C<get_converter_indices_sorted_by_letter> returns the indices sorted by index
+and letter, while C<get_converter_indices_sorted_by_index> returns the indices
+with all entries of an index together.
+
+When sorting by letter, an array reference of letter hash references is
+associated with each index name.  Each letter hash reference has two
+keys, a I<letter> key with the letter, and an I<entries> key with an array
+reference of sorted index entries beginning with the letter.  The letter
+is a character string suitable for sorting letters, but is not necessarily
+the best to use for output.
+
+When simply sorting, the array of the sorted index entries is associated
+with the index name.
 
 =item $filename = sub $converter->node_information_filename($normalized, $label_element)
 X<C<node_information_filename>>

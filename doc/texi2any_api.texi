@@ -1788,6 +1788,14 @@ Return true if format @var{$format} is expanded, according to
 command-line and init file information.
 @end deftypefun
 
+Sorted index entries are available through
+@code{get_converter_indices_sorted_by_letter}:
+
+@deftypefun {@var{$sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
+Returns index entries sorted by index and letter.
+@xref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),,Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter,texi2any_internals}.
+@end deftypefun
+
 The main method to get information from the converter is @code{get_info}:
 
 @deftypefun {@var{$info} =} @var{$converter}->get_info (@var{$item})
@@ -1861,9 +1869,6 @@ information.
 Information on indices taking into account merged indices.
 @xref{Texinfo::Structuring $merged_entries = merge_indices($index_names),,Texinfo::Structuring::merge_indices, texi2any_internals}.
 @end ignore
-
-@item index_entries_by_letter
-Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorted@comma{} $index_entries_sort_strings) = sort_indices($registrar@comma{} $configuration_information@comma{} $merged_index_entries@comma{} $sort_by_letter),,Texinfo::Structuring::sort_indices,texi2any_internals}.
 
 @item jslicenses
 An hash reference with  categories of javascript used in the document
