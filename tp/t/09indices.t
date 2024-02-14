@@ -1026,6 +1026,8 @@ my $encoding_index_text = '
 @cindex @exclamdown{}
 @cindex @TH{}
 @cindex @DH{}
+@cindex @ordf{}
+@cindex @ordm{}
 @cindex @textdegree{}
 @cindex 0
 @cindex 9

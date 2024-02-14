@@ -2003,7 +2003,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
                       'type' => 'brace_command_arg'
                     }
                   ],
-                  'cmdname' => 'textdegree',
+                  'cmdname' => 'ordf',
                   'source_info' => {
                     'line_nr' => 50
                   }
@@ -2042,7 +2042,15 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '0'
+                  'args' => [
+                    {
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'ordm',
+                  'source_info' => {
+                    'line_nr' => 51
+                  }
                 }
               ],
               'info' => {
@@ -2078,7 +2086,15 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '9'
+                  'args' => [
+                    {
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'textdegree',
+                  'source_info' => {
+                    'line_nr' => 52
+                  }
                 }
               ],
               'info' => {
@@ -2114,15 +2130,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'quotedblleft',
-                  'source_info' => {
-                    'line_nr' => 53
-                  }
+                  'text' => '0'
                 }
               ],
               'info' => {
@@ -2158,15 +2166,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'geq',
-                  'source_info' => {
-                    'line_nr' => 54
-                  }
+                  'text' => '9'
                 }
               ],
               'info' => {
@@ -2207,7 +2207,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
                       'type' => 'brace_command_arg'
                     }
                   ],
-                  'cmdname' => 'comma',
+                  'cmdname' => 'quotedblleft',
                   'source_info' => {
                     'line_nr' => 55
                   }
@@ -2246,7 +2246,15 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '``'
+                  'args' => [
+                    {
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'geq',
+                  'source_info' => {
+                    'line_nr' => 56
+                  }
                 }
               ],
               'info' => {
@@ -2282,7 +2290,15 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '`'
+                  'args' => [
+                    {
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'comma',
+                  'source_info' => {
+                    'line_nr' => 57
+                  }
                 }
               ],
               'info' => {
@@ -2318,7 +2334,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '\''
+                  'text' => '``'
                 }
               ],
               'info' => {
@@ -2354,7 +2370,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '\'\''
+                  'text' => '`'
                 }
               ],
               'info' => {
@@ -2390,7 +2406,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '"'
+                  'text' => '\''
                 }
               ],
               'info' => {
@@ -2426,7 +2442,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'cmdname' => '@'
+                  'text' => '\'\''
                 }
               ],
               'info' => {
@@ -2462,7 +2478,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '--'
+                  'text' => '"'
                 }
               ],
               'info' => {
@@ -2498,7 +2514,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'text' => '---'
+                  'cmdname' => '@'
                 }
               ],
               'info' => {
@@ -2526,6 +2542,78 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
           },
           'source_info' => {
             'line_nr' => 63
+          },
+          'type' => 'index_entry_command'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => '--'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'element_node' => {},
+            'index_entry' => [
+              'cp',
+              56
+            ]
+          },
+          'info' => {
+            'command_name' => 'cindex',
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'line_nr' => 64
+          },
+          'type' => 'index_entry_command'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => '---'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'element_node' => {},
+            'index_entry' => [
+              'cp',
+              57
+            ]
+          },
+          'info' => {
+            'command_name' => 'cindex',
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'line_nr' => 65
           },
           'type' => 'index_entry_command'
         },
@@ -2563,7 +2651,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 65
+            'line_nr' => 67
           }
         }
       ],
@@ -2639,6 +2727,8 @@ $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3]{'contents'}
 $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3]{'contents'}[53]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3];
 $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3]{'contents'}[54]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3];
 $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3]{'contents'}[56]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3]{'contents'}[57]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii_enable_encoding'}{'contents'}[3];
 
 $result_texis{'encoding_index_ascii_enable_encoding'} = '
 @setfilename encoding_index_ascii_enable_encoding.info
@@ -2689,6 +2779,8 @@ $result_texis{'encoding_index_ascii_enable_encoding'} = '
 @cindex @exclamdown{}
 @cindex @TH{}
 @cindex @DH{}
+@cindex @ordf{}
+@cindex @ordm{}
 @cindex @textdegree{}
 @cindex 0
 @cindex 9
@@ -2804,6 +2896,7 @@ $result_indices_sort_strings{'encoding_index_ascii_enable_encoding'} = {
     '9',
     'a',
     'A',
+    "\x{aa}",
     "\x{c6}",
     'b',
     'B',
@@ -2828,6 +2921,7 @@ $result_indices_sort_strings{'encoding_index_ascii_enable_encoding'} = {
     'm',
     'n',
     'o',
+    "\x{ba}",
     'p',
     'q',
     'r',

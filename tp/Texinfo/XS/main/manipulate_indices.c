@@ -18,6 +18,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <locale.h>
+#include <ctype.h>
 #include "uniconv.h"
 #include "unictype.h"
 #include "unistr.h"
@@ -287,15 +288,14 @@ static BYTES_STRING *
 get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
 {
   BYTES_STRING *sort_key;
-  char *uc_sort_string = to_upper_or_lower_multibyte (sort_string, 1);
   switch (collator->type)
     {
       case ctn_no_unicode:
         sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-        sort_key->len = strlen (uc_sort_string);
+        sort_key->len = strlen (sort_string);
         sort_key->bytes = (unsigned char *)
            malloc (sizeof (unsigned char) * sort_key->len);
-        memcpy (sort_key->bytes, (unsigned char *) uc_sort_string,
+        memcpy (sort_key->bytes, (unsigned char *) sort_string,
                 sort_key->len);
         break;
       #ifdef HAVE_STRXFRM_L
@@ -304,9 +304,9 @@ get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
           size_t check_len;
           char *char_sort_key;
           sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-          sort_key->len = strxfrm_l (0, uc_sort_string, 0, collator->locale);
+          sort_key->len = strxfrm_l (0, sort_string, 0, collator->locale);
           char_sort_key = (char *) malloc (sizeof (char) * sort_key->len);
-          check_len = strxfrm_l (char_sort_key, uc_sort_string, sort_key->len,
+          check_len = strxfrm_l (char_sort_key, sort_string, sort_key->len,
                                  collator->locale);
           sort_key->bytes = (unsigned char *)
                      malloc (sizeof (unsigned char) * sort_key->len);
@@ -322,10 +322,9 @@ get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
       case ctn_language_collation:
       default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
         sort_key = call_collator_getSortKey (collator->sv,
-                                             uc_sort_string);
+                                             sort_string);
         break;
     }
-  free (uc_sort_string);
   return sort_key;
 }
 
@@ -677,6 +676,7 @@ setup_sortable_index_entries (INDEX_COLLATOR *collator,
 
               for (k = 0; k < index_entry_sort_string->subentries_number; k++)
                 {
+                  char *uc_sort_string;
                   SORTABLE_INDEX_SUBENTRY *sortable_subentry
                     = &sortable_entry->sortable_subentries[k];
                   INDEX_SUBENTRY_SORT_STRING *subenty_sort_string
@@ -685,8 +685,11 @@ setup_sortable_index_entries (INDEX_COLLATOR *collator,
                   sortable_subentry->sort_string
                     = strdup (subenty_sort_string->sort_string);
                   sortable_subentry->alpha = subenty_sort_string->alpha;
+                  uc_sort_string = to_upper_or_lower_multibyte
+                                         (subenty_sort_string->sort_string, 1);
                   sortable_subentry->sort_key = get_sort_key (collator,
-                                           subenty_sort_string->sort_string);
+                                                            uc_sort_string);
+                  free (uc_sort_string);
                 }
             }
         }
@@ -716,6 +719,32 @@ setup_sort_sortable_strings_collator (DOCUMENT *document,
                                                        indices_sort_strings);
 
   return index_sortable_index_entries;
+}
+
+
+/* for debugging purposes, printable representation of sort keys bytes */
+/*
+static
+*/
+char *
+print_bytes (BYTES_STRING *bytes)
+{
+  size_t i;
+  TEXT text;
+  text_init (&text);
+  text_append (&text, "");
+
+  char *p = (char *)bytes->bytes;
+  for (i = 0; i < bytes->len; i++)
+    {
+      char c = *p;
+      if (((c & ~0x7f) == 0) && c != '\\' && isprint (c))
+        text_append_n (&text, p, 1);
+      else
+        text_printf (&text, "\\%02X", c);
+      p++;
+    }
+  return text.text;
 }
 
 typedef struct LETTER_SORTABLE_ENTRIES {

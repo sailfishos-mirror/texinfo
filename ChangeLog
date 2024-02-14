@@ -12,6 +12,24 @@
 
 2024-02-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_indices.c (get_sort_key)
+	(setup_sortable_index_entries): do not uppercase sort strings in
+	get_sort_key, as it is not right to do so for letters that are already
+	uppercased.  Instead uppercase sort string in
+	setup_sortable_index_entries before calling get_sort_key.
+
+	* tp/t/09indices.t ($encoding_index_text): add @ordf{} and @ordm{},
+	which are interesting to test as their uppercase representation is a
+	lowercase letter.
+
+	* tp/Texinfo/XS/main/manipulate_indices.c (print_bytes): add to help
+	debugging.
+
+	* tp/Texinfo/Indices.pm (sort_indices_by_letter): rename $entry_key as
+	$sort_string.
+
+2024-02-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/manipulate_indices.c (setup_collator): warn if
 	the collation_locale is not found.
 

@@ -650,18 +650,18 @@ sub sort_indices_by_letter($$$;$$)
     my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
     my $index_letter_hash = {};
     foreach my $sortable_entry (@{$sortable_index_entries}) {
-      my $entry_key
+      my $sort_string
         = $sortable_entry->{'entry_strings_alpha'}->[0]->{'sort_string'};
       # the following line leads to each accented letter being separate
-      # $letter = uc(substr($entry_key, 0, 1));
-      my $letter_string = uc(substr($entry_key, 0, 1));
+      # $letter = uc(substr($sort_string, 0, 1));
+      my $letter_string = uc(substr($sort_string, 0, 1));
       # determine main letter by decomposing and removing diacritics
       my $letter = Unicode::Normalize::NFKD($letter_string);
       $letter =~ s/\p{NonspacingMark}//g;
       # following code is less good, as the upper-casing may lead to
       # two letters in case of the german Eszett that becomes SS.  So
       # it is better to upper-case first and remove diacritics after.
-      #my $normalized_string = Unicode::Normalize::NFKD(uc($entry_key));
+      #my $normalized_string = Unicode::Normalize::NFKD(uc($sort_string));
       #$normalized_string =~ s/\p{NonspacingMark}//g;
       #$letter = substr($normalized_string, 0, 1);
 
