@@ -1,15 +1,3 @@
-2024-02-14  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* NEWS: minor tweaks
-
-2024-02-14  Gavin Smith <gavinsmith0123@gmail.com>
-
-	Document DOCUMENTLANGUAGE_COLLATION.
-
-	* doc/texinfo.texi (Other Customization Variables):
-	Document DOCUMENTLANGUAGE_COLLATION.
-	(@documentlanguage): Reference DOCUMENTLANGUAGE_COLLATION.
-
 2024-02-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/manipulate_indices.c (get_sort_key)
@@ -27,6 +15,18 @@
 
 	* tp/Texinfo/Indices.pm (sort_indices_by_letter): rename $entry_key as
 	$sort_string.
+
+2024-02-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: minor tweaks
+
+2024-02-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Document DOCUMENTLANGUAGE_COLLATION.
+
+	* doc/texinfo.texi (Other Customization Variables):
+	Document DOCUMENTLANGUAGE_COLLATION.
+	(@documentlanguage): Reference DOCUMENTLANGUAGE_COLLATION.
 
 2024-02-14  Patrice Dumas  <pertusus@free.fr>
 
