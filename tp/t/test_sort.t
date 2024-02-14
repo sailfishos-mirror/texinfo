@@ -42,19 +42,26 @@ my $document = $parser->parse_texi_text('@node Top
 @cindex aaaaaaaaaaaa
 @cindex @l{}
 ');
-$tree = $document->tree();
 
 my $registrar = $parser->registered_errors();
+my $main_configuration = Texinfo::MainConfig::new({});
+
+# To set $indices_sort_strings, calling
+# Texinfo::Document::indices_sort_strings is more natural, but we want
+# to test direct call of Texinfo::Indices::setup_index_entries_sort_strings.
+# my $indices_sort_strings
+#   = Texinfo::Document::indices_sort_strings($document, $registrar,
+#                                            $main_configuration);
 my $indices_information = $document->indices_information();
 my $index_entries = $document->merged_indices();
-my $main_configuration = Texinfo::MainConfig::new({});
 $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
 
 my $indices_sort_strings
   = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
                                               $main_configuration,
-                                          $index_entries, $indices_information);
+                                      $index_entries, $indices_information);
+
 my $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
@@ -128,17 +135,11 @@ $document = $parser->parse_texi_text('@node Top
 @cindex @subentry aa
 @cindex hhh @subentry jjj @subentry lll @sortas{A}
 ');
-$tree = $document->tree();
 
 $registrar = $parser->registered_errors();
-$indices_information = $document->indices_information();
-$index_entries = $document->merged_indices();
-$main_configuration->{'document_descriptor'}
-  = $document->document_descriptor();
 $indices_sort_strings
-  = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
-                                               $main_configuration,
-                                          $index_entries, $indices_information);
+  = Texinfo::Document::indices_sort_strings($document, $registrar,
+                                            $main_configuration);
 $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 

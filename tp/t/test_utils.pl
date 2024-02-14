@@ -1151,9 +1151,9 @@ sub test($$)
   }
 
   # Here the sort strings are generated, both in Perl and XS.
-  # The Perl structure cannot be built yet from XS as the document
-  # index information have not been rebuilt yet, but it is
-  # not needed at that point.
+  # If $XS_structuring is set, the Perl structure cannot be
+  # built yet from XS as the document index information have not
+  # been rebuilt yet, but it is not needed at that point.
   Texinfo::Document::indices_sort_strings($document, $registrar,
                                           $main_configuration);
 
