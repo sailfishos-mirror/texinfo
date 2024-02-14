@@ -576,7 +576,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 
 static INDEX_COLLATOR *
 setup_collator (int use_unicode_collation, const char *collation_language,
-                const char *collation_locale)
+                const char *collation_locale,
+                ERROR_MESSAGE_LIST *error_messages, OPTIONS *options)
 {
   INDEX_COLLATOR *result = (INDEX_COLLATOR *) malloc (sizeof (INDEX_COLLATOR));
   memset (result, 0, sizeof (INDEX_COLLATOR));
@@ -601,12 +602,16 @@ setup_collator (int use_unicode_collation, const char *collation_language,
         {
           result->locale
             = newlocale (LC_COLLATE_MASK, collation_locale, 0);
-          /* TODO warn if locale is not found? */
           if (result->locale)
             {
               result->type = ctn_locale_collation;
               result->language = strdup (collation_locale);
               return result;
+            }
+          else
+            {
+              message_list_document_warn (error_messages, options,
+                         "collation locale not found: %s", collation_locale);
             }
         }
       #endif
@@ -705,7 +710,7 @@ setup_sort_sortable_strings_collator (DOCUMENT *document,
                                                 error_messages, options, 0);
 
   *collator = setup_collator (use_unicode_collation, collation_language,
-                              collation_locale);
+                              collation_locale, error_messages, options);
 
   index_sortable_index_entries = setup_sortable_index_entries (*collator,
                                                        indices_sort_strings);

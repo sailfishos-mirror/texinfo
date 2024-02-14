@@ -1,5 +1,10 @@
 2024-02-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_indices.c (setup_collator): warn if
+	the collation_locale is not found.
+
+2024-02-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/other/index_collation_test.texi: modify test file to have
 	the difference between strxfrm_l and Perl Unicode::Collate used in
 	texi2any with Non-ignorable variable weighting show up in test
