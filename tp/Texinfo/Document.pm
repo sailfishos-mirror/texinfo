@@ -251,13 +251,11 @@ sub sorted_indices_by_letter($$$$$)
     if (!$document->{'sorted_indices_by_letter'});
 
   if (!$document->{'sorted_indices_by_letter'}->{$lang_key}) {
+    $document->merged_indices();
     $document->{'sorted_indices_by_letter'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_letter($registrar,
-                               $customization_information,
-                        $use_unicode_collation, $locale_lang,
-                          $document->merged_indices(),
-                          $document->indices_information(),
-                          $document);
+      = Texinfo::Indices::sort_indices_by_letter($document,
+                          $registrar, $customization_information,
+                           $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
 }
@@ -286,13 +284,11 @@ sub sorted_indices_by_index($$$$$)
     if (!$document->{'sorted_indices_by_index'});
 
   if (!$document->{'sorted_indices_by_index'}->{$lang_key}) {
+    $document->merged_indices();
     $document->{'sorted_indices_by_index'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_index($registrar,
-                               $customization_information,
-                        $use_unicode_collation, $locale_lang,
-                          $document->merged_indices(),
-                          $document->indices_information(),
-                          $document);
+      = Texinfo::Indices::sort_indices_by_index($document,
+                       $registrar, $customization_information,
+                        $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
 }

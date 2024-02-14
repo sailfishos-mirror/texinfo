@@ -458,27 +458,18 @@ sub setup_sortable_index_entries($$)
   return $index_sortable_index_entries;
 }
 
-sub _setup_sort_sortable_strings_collator($$$$;$$$)
+sub _setup_sort_sortable_strings_collator($$$$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
-  my $index_entries = shift;
-  my $indices_information = shift;
-  my $document = shift;
 
-  my $indices_sort_strings;
-  if ($document) {
-    # simple wrapper around setup_index_entries_sort_strings that caches the
-    # result
-    $indices_sort_strings = Texinfo::Document::indices_sort_strings($document,
+  # simple wrapper around setup_index_entries_sort_strings that caches the
+  # result
+  my $indices_sort_strings = Texinfo::Document::indices_sort_strings($document,
                                       $registrar, $customization_information);
-  } else {
-    $indices_sort_strings = setup_index_entries_sort_strings($registrar,
-                                   $customization_information, $index_entries,
-                                   $indices_information);
-  }
 
   my $collator = _setup_collator($use_unicode_collation, $locale_lang);
 
@@ -488,21 +479,18 @@ sub _setup_sort_sortable_strings_collator($$$$;$$$)
   return ($index_sortable_index_entries, $collator);
 }
 
-sub sort_indices_by_index($$$$;$$$)
+sub sort_indices_by_index($$$;$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
-  my $index_entries = shift;
-  my $indices_information = shift;
-  my $document = shift;
 
   my ($index_sortable_index_entries, $collator)
-      = _setup_sort_sortable_strings_collator($registrar,
+     = _setup_sort_sortable_strings_collator($document, $registrar,
                        $customization_information, $use_unicode_collation,
-                       $locale_lang, $index_entries, $indices_information,
-                       $document);
+                       $locale_lang);
 
   if (!$index_sortable_index_entries) {
     return undef;
@@ -634,21 +622,18 @@ sub index_entry_first_letter_text_or_command($;$)
   }
 }
 
-sub sort_indices_by_letter($$$$;$$$)
+sub sort_indices_by_letter($$$;$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
-  my $index_entries = shift;
-  my $indices_information = shift;
-  my $document = shift;
 
   my ($index_sortable_index_entries, $collator)
-     = _setup_sort_sortable_strings_collator($registrar,
+     = _setup_sort_sortable_strings_collator($document, $registrar,
                        $customization_information, $use_unicode_collation,
-                       $locale_lang, $index_entries, $indices_information,
-                       $document);
+                       $locale_lang);
 
   if (!$index_sortable_index_entries) {
     return undef;

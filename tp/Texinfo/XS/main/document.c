@@ -278,13 +278,11 @@ sorted_indices_by_index (ERROR_MESSAGE_LIST *error_messages,
 
   if (!collation_sorted_indices->sorted_indices)
     {
-      const MERGED_INDICES *merged_indices
-         = document_merged_indices (document);
+      document_merged_indices (document);
       collation_sorted_indices->sorted_indices
-        = sort_indices_by_index (error_messages, options,
-                                  use_unicode_collation, collation_language,
-                                  collation_locale, merged_indices,
-                                  document->index_names, document);
+        = sort_indices_by_index (document, error_messages, options,
+                                 use_unicode_collation, collation_language,
+                                 collation_locale);
     }
   return collation_sorted_indices->sorted_indices;
 }
@@ -391,13 +389,11 @@ sorted_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
 
   if (!collation_sorted_indices->sorted_indices)
     {
-      const MERGED_INDICES *merged_indices
-         = document_merged_indices (document);
+      document_merged_indices (document);
       collation_sorted_indices->sorted_indices
-        = sort_indices_by_letter (error_messages, options,
+        = sort_indices_by_letter (document, error_messages, options,
                                   use_unicode_collation, collation_language,
-                                  collation_locale, merged_indices,
-                                  document->index_names, document);
+                                  collation_locale);
     }
   return collation_sorted_indices->sorted_indices;
 }

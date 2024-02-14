@@ -60,20 +60,16 @@ INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
                     INDEX **indices_information, int prefer_reference_element);
 
 INDEX_SORTED_BY_INDEX *sort_indices_by_index (
-                       ERROR_MESSAGE_LIST *error_messages,
+                       DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
                        OPTIONS *options, int use_unicode_collation,
                        const char *collation_language,
-                       const char *collation_locale,
-                       const MERGED_INDICES *merged_indices,
-                       INDEX **indices_information, DOCUMENT *document);
+                       const char *collation_locale);
 
 INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
-                        ERROR_MESSAGE_LIST *error_messages,
+                        DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, int use_unicode_collation,
                         const char *collation_language,
-                        const char *collation_locale,
-                        const MERGED_INDICES *merged_indices,
-                        INDEX **indices_information, DOCUMENT *document);
+                        const char *collation_locale);
 
 INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command
                                                 (INDEX_ENTRY *index_entry);

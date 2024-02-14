@@ -50,7 +50,6 @@ my $index_entries = $document->merged_indices();
 my $main_configuration = Texinfo::MainConfig::new({});
 $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
-#$main_configuration->register_XS_document_main_configuration($document);
 
 my $indices_sort_strings
   = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
@@ -60,9 +59,8 @@ my $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 my $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($registrar, $main_configuration,
-                                          undef, undef,
-                                          $index_entries, $indices_information);
+  = Texinfo::Indices::sort_indices_by_index($document, $registrar,
+                                            $main_configuration);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
@@ -77,9 +75,8 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter
- = Texinfo::Indices::sort_indices_by_letter($registrar, $main_configuration,
-                                          undef, undef,
-                                       $index_entries, $indices_information);
+ = Texinfo::Indices::sort_indices_by_letter($document, $registrar,
+                                            $main_configuration);
 
 my @letter_entries_ref = (
    {'!' => [ '!' ]},
@@ -146,9 +143,8 @@ $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($registrar, $main_configuration,
-                                          undef, undef,
-                                          $index_entries, $indices_information);
+  = Texinfo::Indices::sort_indices_by_index($document, $registrar,
+                                            $main_configuration);
 
 @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {

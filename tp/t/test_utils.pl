@@ -953,7 +953,8 @@ sub test($$)
   }
 
   foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
-                                  'FORMAT_MENU', 'USE_UNICODE_COLLATION') {
+                                  'FORMAT_MENU', 'USE_UNICODE_COLLATION',
+                                  'COLLATION_LANGUAGE') {
     if (defined($parser_options->{$structuring_option})) {
       $added_main_configurations->{$structuring_option}
         = $parser_options->{$structuring_option};
@@ -1204,11 +1205,9 @@ sub test($$)
                                                      $indices_sort_strings);
 
     $sorted_index_entries
-      = Texinfo::Indices::sort_indices_by_index($registrar,
+      = Texinfo::Indices::sort_indices_by_index($document, $registrar,
                                                 $main_configuration,
-                                 $use_unicode_collation, $locale_lang,
-                                   $merged_index_entries,
-                                   $indices_information, $document);
+                                 $use_unicode_collation, $locale_lang);
     $indices_sorted_sort_strings = {};
     foreach my $index_name (keys(%$sorted_index_entries)) {
       # index entries sort strings sorted in the order of the index entries

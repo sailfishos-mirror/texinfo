@@ -689,29 +689,18 @@ setup_sortable_index_entries (INDEX_COLLATOR *collator,
 
 
 static INDICES_SORTABLE_ENTRIES *
-setup_sort_sortable_strings_collator (
+setup_sort_sortable_strings_collator (DOCUMENT *document,
                       ERROR_MESSAGE_LIST *error_messages,
                       OPTIONS *options, int use_unicode_collation,
                       const char *collation_language,
                       const char *collation_locale,
-                      const MERGED_INDICES *merged_indices,
-                      INDEX **indices_information, DOCUMENT *document,
                       INDEX_COLLATOR **collator)
 {
   const INDICES_SORT_STRINGS *indices_sort_strings;
   INDICES_SORTABLE_ENTRIES *index_sortable_index_entries;
 
-  if (document)
-    {
-      indices_sort_strings = document_indices_sort_strings (document,
+  indices_sort_strings = document_indices_sort_strings (document,
                                                 error_messages, options, 0);
-    }
-  else
-    {
-      indices_sort_strings = setup_index_entries_sort_strings (error_messages,
-                                                      options, merged_indices,
-                                                      indices_information, 0);
-    }
 
   *collator = setup_collator (use_unicode_collation, collation_language,
                               collation_locale);
@@ -876,23 +865,19 @@ destroy_collator (INDEX_COLLATOR *collator)
 }
 
 INDEX_SORTED_BY_INDEX *
-sort_indices_by_index (ERROR_MESSAGE_LIST *error_messages,
+sort_indices_by_index (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
                        OPTIONS *options, int use_unicode_collation,
                        const char *collation_language,
-                       const char *collation_locale,
-                       const MERGED_INDICES *merged_indices,
-                       INDEX **indices_information, DOCUMENT *document)
+                       const char *collation_locale)
 {
   size_t i;
   int index_nr = 0;
   INDEX_COLLATOR *collator;
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
-    = setup_sort_sortable_strings_collator (error_messages, options,
+    = setup_sort_sortable_strings_collator (document, error_messages, options,
                                     use_unicode_collation, collation_language,
-                                    collation_locale,
-                                    merged_indices, indices_information,
-                                    document, &collator);
+                                    collation_locale, &collator);
 
   if (!indices_sortable_entries || indices_sortable_entries->number <= 0)
     {
@@ -950,14 +935,11 @@ sort_indices_by_index (ERROR_MESSAGE_LIST *error_messages,
 }
 
 
-
 INDEX_SORTED_BY_LETTER *
-sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
+sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, int use_unicode_collation,
                         const char *collation_language,
-                        const char *collation_locale,
-                        const MERGED_INDICES *merged_indices,
-                        INDEX **indices_information, DOCUMENT *document)
+                        const char *collation_locale)
 {
   size_t i;
   int index_nr = 0;
@@ -965,11 +947,9 @@ sort_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
   INDEX_COLLATOR *collator;
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
-    = setup_sort_sortable_strings_collator (error_messages, options,
+    = setup_sort_sortable_strings_collator (document, error_messages, options,
                                     use_unicode_collation, collation_language,
-                                    collation_locale,
-                                    merged_indices, indices_information,
-                                    document, &collator);
+                                    collation_locale, &collator);
 
   if (!indices_sortable_entries || indices_sortable_entries->number <= 0)
     {
