@@ -1,5 +1,9 @@
 2024-02-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: minor tweaks
+
+2024-02-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Document DOCUMENTLANGUAGE_COLLATION.
 
 	* doc/texinfo.texi (Other Customization Variables):
