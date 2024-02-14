@@ -1,5 +1,20 @@
 2024-02-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (sorted_indices_by_letter)
+	(sorted_indices_by_index), tp/Texinfo/XS/main/document.c
+	(sorted_indices_by_letter, sorted_indices_by_index): set the document
+	argument to be the first argument.  Update callers.
+
+	* tp/Texinfo/Indices.pm (_setup_sortable_index_entries): rename
+	setup_sortable_index_entries as _setup_sortable_index_entries.
+
+	* tp/Texinfo/XS/main/manipulate_indices.c: make internal functions
+	static.
+
+	Update POD documentation.
+
+2024-02-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Indices.pm (_setup_sort_sortable_strings_collator)
 	(sort_indices_by_index, sort_indices_by_letter),
 	tp/Texinfo/XS/main/manipulate_indices.c

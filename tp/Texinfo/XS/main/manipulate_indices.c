@@ -228,6 +228,8 @@ strip_index_ignore_chars (const char *string, const char *index_ignore_chars)
   return result_text.text;
 }
 
+/* corresponding perl code in Texinfo::Indices */
+
 char *
 index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
@@ -572,7 +574,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
   return indices_sort_strings;
 }
 
-INDEX_COLLATOR *
+static INDEX_COLLATOR *
 setup_collator (int use_unicode_collation, const char *collation_language,
                 const char *collation_locale)
 {
@@ -618,7 +620,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
   return result;
 }
 
-INDICES_SORTABLE_ENTRIES *
+static INDICES_SORTABLE_ENTRIES *
 setup_sortable_index_entries (INDEX_COLLATOR *collator,
                          const INDICES_SORT_STRINGS *indices_sort_strings)
 {
@@ -816,7 +818,7 @@ compare_sortable_index_entry_wrapper (const void *a, const void *b)
   return compare_sortable_index_entry (sie_a, sie_b);
 }
 
-void
+static void
 destroy_indices_sortable_entries (
              INDICES_SORTABLE_ENTRIES *indices_sortable_entries)
 {
@@ -856,7 +858,7 @@ destroy_indices_sortable_entries (
     }
 }
 
-void
+static void
 destroy_collator (INDEX_COLLATOR *collator)
 {
   if (collator)

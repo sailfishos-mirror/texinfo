@@ -1752,8 +1752,8 @@ sub get_converter_indices_sorted_by_letter($)
         }
       }
 
-      return Texinfo::Document::sorted_indices_by_letter(undef, $self,
-                                                 $self->{'document'},
+      return Texinfo::Document::sorted_indices_by_letter($self->{'document'},
+                                                 undef, $self,
                                    $use_unicode_collation, $locale_lang);
     }
   }
@@ -1781,8 +1781,8 @@ sub get_converter_indices_sorted_by_index($)
         }
       }
 
-      return Texinfo::Document::sorted_indices_by_index(undef, $self,
-                                               $self->{'document'},
+      return Texinfo::Document::sorted_indices_by_index($self->{'document'},
+                                               undef, $self,
                                  $use_unicode_collation, $locale_lang);
     }
   }

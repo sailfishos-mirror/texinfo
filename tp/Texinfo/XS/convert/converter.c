@@ -649,8 +649,8 @@ get_converter_indices_sorted_by_index (CONVERTER *self)
                && self->conf->documentlanguage.string)
         collation_language = self->conf->documentlanguage.string;
 
-      return sorted_indices_by_index (&self->error_messages, self->conf,
-                               self->document,
+      return sorted_indices_by_index (self->document,
+                               &self->error_messages, self->conf,
                                self->conf->USE_UNICODE_COLLATION.integer,
                                collation_language,
                                self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
@@ -670,8 +670,8 @@ get_converter_indices_sorted_by_letter (CONVERTER *self)
                && self->conf->documentlanguage.string)
         collation_language = self->conf->documentlanguage.string;
 
-      return sorted_indices_by_letter (&self->error_messages, self->conf,
-                               self->document,
+      return sorted_indices_by_letter (self->document,
+                               &self->error_messages, self->conf,
                                self->conf->USE_UNICODE_COLLATION.integer,
                                collation_language,
                                self->conf->XS_STRXFRM_COLLATION_LOCALE.string);

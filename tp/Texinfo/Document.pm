@@ -206,8 +206,10 @@ sub merged_indices($)
   return $self->{'merged_indices'};
 }
 
-# TODO document
 # call setup_index_entries_sort_strings and cache the result.
+# In general, it is not needed to call that function directly,
+# as it is called by Texinfo::Indices::sort_indices_by_*.  It may
+# be called in advance, however, if errors need to be collected early.
 sub indices_sort_strings($$$;$)
 {
   my $document = shift;
@@ -227,12 +229,12 @@ sub indices_sort_strings($$$;$)
   return $document->{'index_entries_sort_strings'};
 }
 
-# TODO document
+# call Texinfo::Indices::sort_indices_by_letter and cache the result
 sub sorted_indices_by_letter($$$$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $document = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
 
@@ -260,12 +262,12 @@ sub sorted_indices_by_letter($$$$$)
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
 }
 
-# TODO document
+# call Texinfo::Indices::sort_indices_by_index and cache the result
 sub sorted_indices_by_index($$$$$)
 {
+  my $document = shift;
   my $registrar = shift;
   my $customization_information = shift;
-  my $document = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
 
@@ -564,9 +566,8 @@ labels, and the associated value is the corresponding @-command.
 
 =back
 
-Information on C<@float> is also available, grouped by type of
-floats, each type corresponding to potential C<@listoffloats>.
-This information is available through the method C<floats_information>.
+Information on C<@float> grouped by type of floats, each type corresponding
+to potential C<@listoffloats> is available through C<floats_information>.
 
 =over
 
@@ -606,8 +607,7 @@ by a call to L<register_document_sections_list|/register_document_sections_list 
 =back
 
 Information about defined indices, indices merging and index entries is
-also available through the C<indices_information> method.  Merged document
-indices are available through C<merged_indices>.
+available through C<indices_information>.
 
 =over
 
@@ -679,7 +679,18 @@ the indices corresponding to the following texinfo
 
 If C<name> is not set, it is set to the index name.
 
+=back
+
+Merged and sorted document indices are also available.  Parsed indices
+are not merged nor sorted, L<Texinfo::Indices> functions are
+called to merge or sort the indices the first time the following
+methods are called.  The results are afterwards associated to the
+document and simply returned.
+
+=over
+
 =item $merged_indices = $document->merged_indices()
+X<C<merged_indices>>
 
 Merge indices if needed and return merged indices.  The I<$merged_indices>
 returned is a hash reference whose keys are the index names and values arrays
@@ -687,6 +698,39 @@ of index entry structures described in L</index_entries>.
 
 L<< C<Texinfo::Indices::merge_indices>|Texinfo::Indices/$merged_indices = merge_indices($indices_information) >>
 is used to merge the indices.
+
+=item $sorted_indices = $document->sorted_indices_by_index($registrar, $customization_information, $use_unicode_collation, $locale_lang)
+
+=item $sorted_indices = $document->sorted_indices_by_letter($registrar, $customization_information, $use_unicode_collation, $locale_lang)
+X<C<sorted_indices_by_index>> X<C<sorted_indices_by_letter>>
+
+C<sorted_indices_by_letter> returns the indices sorted by index and letter,
+while C<sorted_indices_by_index> returns the indices with all entries
+of an index together.
+
+By default, indices are sorted according to the I<Unicode Collation Algorithm>
+defined in the L<Unicode Technical Standard
+#10|http://www.unicode.org/reports/tr10/>, without language-specific collation
+tailoring.  If I<$use_unicode_collation> is set to 0, the sorting will not use
+the I<Unicode Collation Algorithm> and simply sort according to the codepoints.
+If I<$locale_lang> is set, the language is used for linguistic tailoring of the
+sorting, if possible.
+
+When sorting by letter, an array reference of letter hash references is
+associated with each index name.  Each letter hash reference has two
+keys, a I<letter> key with the letter, and an I<entries> key with an array
+reference of sorted index entries beginning with the letter.  The letter
+is a character string suitable for sorting letters, but is not necessarily
+the best to use for output.
+
+When simply sorting, the array of the sorted index entries is associated
+with the index name.
+
+Register errors in I<$registrar> or through I<$customization_information>.
+
+L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
+and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
+are used to sort the indices, if needed.
 
 =back
 

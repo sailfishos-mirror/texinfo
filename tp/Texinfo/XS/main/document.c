@@ -223,9 +223,9 @@ find_collation_sorted_indices_by_index (
 }
 
 INDEX_SORTED_BY_INDEX *
-sorted_indices_by_index (ERROR_MESSAGE_LIST *error_messages,
-                         OPTIONS *options, DOCUMENT *document,
-                         int use_unicode_collation,
+sorted_indices_by_index (DOCUMENT *document,
+                         ERROR_MESSAGE_LIST *error_messages,
+                         OPTIONS *options, int use_unicode_collation,
                          const char *collation_language,
                          const char *collation_locale)
 {
@@ -334,9 +334,9 @@ find_collation_sorted_indices_by_letter (
 }
 
 INDEX_SORTED_BY_LETTER *
-sorted_indices_by_letter (ERROR_MESSAGE_LIST *error_messages,
-                          OPTIONS *options, DOCUMENT *document,
-                          int use_unicode_collation,
+sorted_indices_by_letter (DOCUMENT *document,
+                          ERROR_MESSAGE_LIST *error_messages,
+                          OPTIONS *options, int use_unicode_collation,
                           const char *collation_language,
                           const char *collation_locale)
 {
