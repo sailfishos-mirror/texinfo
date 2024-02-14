@@ -11805,12 +11805,16 @@ example, @code{de} is equivalent to @code{de_DE} (German as spoken in
 Germany).
 
 @cindex Document strings, translation of
-For Info and other online output, this command changes the translation
-of various @dfn{document strings} such as ``see'' in cross-references
-(@pxref{Cross References}), ``Function'' in defuns (@pxref{Definition
-Commands}), and so on.  Some strings, such as ``Node:'', ``Next:'',
-``Menu:'', etc., are keywords in Info output, so are not translated
-there; they are translated in other output formats.
+This command changes the translation of various @dfn{document strings}
+such as ``see'' in cross-references (@pxref{Cross References}),
+``Function'' in defuns (@pxref{Definition Commands}), and so on.
+Optionally, this command may also affect how @command{texi2any}
+sorts indices (@pxref{Other Customization Variables}, under
+@code{DOCUMENTLANGUAGE_COLLATION}).
+
+Note that in Info output, some strings, such as ``Node:'', ``Next:'',
+``Menu:'', etc., are keywords and so are not translated.
+
 In DocBook output @code{@@documentlanguage} sets the language for
 following sections.
 
@@ -16166,9 +16170,9 @@ By default, @command{texi2any} sorts document indices according to the
 without language-specific collation tailoring.  If set, use the language
 for linguistic tailoring of index sorting.
 
-@command{texi2any} gives no warning if there is no support for linguistic
-tailoring, either due to missing software or missing support for the
-specified language.
+Currently, @command{texi2any} gives no warning if there is no support
+for linguistic tailoring due to either missing software or missing
+support for the specified language.
 
 In Perl, the @code{Unicode::Collate::Locale} module is used for linguistic
 tailoring; therefore if this module is not installed, the variable will be
@@ -16176,6 +16180,8 @@ silently ignored.
 
 If @code{USE_UNICODE_COLLATION} is set to @samp{0}, there is no Unicode
 collation and so no linguistic tailoring either.
+
+See also the @code{DOCUMENTLANGUAGE_COLLATION} variable, described below.
 
 @item COMMAND_LINE_ENCODING
 Encoding used to decode command-line arguments.  Default is based on the locale
@@ -16226,6 +16232,12 @@ entity's system identifier.  This is a URI which may be used to
 retrieve the entity, and identifies the canonical DTD for the
 document.  The default value is different for each of HTML, DocBook
 and XML.
+
+@item DOCUMENTLANGUAGE_COLLATION
+If set, try to use the language specified in a @code{@@documentlanguage}
+directive for language-specific tailoring of index sorting.
+See also the @code{COLLATION_LANGUAGE} variable, described above.
+(@xref{@code{@@documentlanguage}}.)
 
 @item DUMP_TEXI
 For debugging.  If set, no conversion is done, only parsing and macro
