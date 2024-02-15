@@ -934,6 +934,14 @@ components of output units, isolated sections not associated with nodes
 are associated with the previous node, and isolated nodes are
 output units.
 
+A last type of output units exist, ``virtual'' output units corresponding to
+directions to external manual nodes.  They are not part of the output, but can
+be used in directions.  They are often referred to as @dfn{external node units}
+or @dfn{external manual units}.  These units do not exist in the document
+output, therefore there are no functions called to format those output units.
+They can appear in directions formatting (@pxref{Elements and Links for
+Directions}).
+
 
 @node Directions
 @section Directions
@@ -1384,9 +1392,8 @@ converter and as a generic @code{Texinfo::Convert::Converter}
 converter can be used for error reporting by using
 @code{Texinfo::Convert::Converter} methods. @xref{Error
 Reporting in User Defined Functions} on error reporting.
-The converter can also be used for
-in-document strings translation as it is also a @code{Texinfo::Translations}
-object (@pxref{Texinfo::Translations,,, texi2any_internals}).
+The converter can also be used for in-document strings translation.
+@xref{Translations Output and Customization} on translated strings in output.
 
 
 @node Texinfo Tree Conversion Functions
@@ -1478,6 +1485,10 @@ is a continuation of the previous registered message.
 
 Note that registering an error does not stop the processing of the Texinfo tree.
 
+@xref{Texinfo@asis{::}Convert@asis{::}Converter Registering error and warning
+messages,,,texi2any_internals} for the converter module documentation on
+errors and warning messages registration.
+
 
 @node Texinfo Tree Elements in User Defined Functions
 @section Texinfo Tree Elements in User Defined Functions
@@ -1537,8 +1548,11 @@ The following keys of output unit hashes can be interesting:
 
 @table @code
 @item unit_type
+@anchor{Unit Type}
+@cindex Unit type
 @code{unit} for normal output units, @code{special_unit} for
-special units.
+special units and @code{external_node_unit} for external nodes virtual units
+corresponding to references to external manuals.
 
 @item unit_command
 For normal output units, points to the associated @code{@@node} or sectioning
@@ -1555,6 +1569,9 @@ appear in the Texinfo tree but can be used as a target for directions
 to the special unit.  This element has an @code{associated_unit} key
 that points to the associated output unit.
 
+for references to external manuals virtual units, points to the tree
+element corresponding to the external manual and node label.
+
 @item unit_contents
 Array reference on tree elements associated to the output unit.
 
@@ -1564,6 +1581,10 @@ The associated file name.
 @item unit_directions
 Hash with @code{next} and @code{prev} for the
 next and previous output units in document order.
+
+@item special_unit_variety
+The variety of the special output unit.
+For special units only. @xref{Special Units Varieties}.
 @end table
 
 
@@ -1788,14 +1809,6 @@ Return true if format @var{$format} is expanded, according to
 command-line and init file information.
 @end deftypefun
 
-Sorted index entries are available through
-@code{get_converter_indices_sorted_by_letter}:
-
-@deftypefun {@var{$sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
-Returns index entries sorted by index and letter.
-@xref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),,Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter,texi2any_internals}.
-@end deftypefun
-
 The main method to get information from the converter is @code{get_info}:
 
 @deftypefun {@var{$info} =} @var{$converter}->get_info (@var{$item})
@@ -1918,6 +1931,9 @@ The formatted title, possibly based on @code{@@titlepage}, or on
 and @code{USE_TITLEPAGE_FOR_TITLE} customization variables in the default case.
 
 @end table
+
+@code{current_filename} is set dynamically, the other information
+should not change during conversion.
 
 @xref{Simple Customization of CSS} for an explanation on getting
 information on CSS.
@@ -2175,7 +2191,7 @@ This could be used, for example, to initialize variables and collect
 some @@-commands text, and doing clean-up after the Texinfo tree
 conversion.
 
-There are four places for user defined functions:
+There are four stages for user defined functions:
 @table @code
 @item setup
 Called right after completing main program customization information
@@ -2490,23 +2506,25 @@ which should only be the case for types ignored in HTML.
 
 Output units formatting function are setup and used similarly as
 for tree container types (@pxref{Type Tree Element Conversion Functions}).
+The output unit types correspond to the @code{unit_type} key values
+of output unit hashes (@pxref{Unit Type}).
 
 User defined functions called for the conversion of an output unit
 are registered with @code{texinfo_register_output_unit_formatting}.  The user
 defined function is called after conversion of the content.
 
-@defun texinfo_register_output_unit_formatting ($type, \@ampchar{}handler)
-@var{$type} is the output unit type.
+@defun texinfo_register_output_unit_formatting ($unit_type, \@ampchar{}handler)
+@var{$unit_type} is the output unit type.
 @var{\&handler} is the user defined function reference.
 @end defun
 
 The call of the user defined functions is:
 
 @deftypefn {Function Reference} @var{$text} output_unit_conversion (@var{$converter}, @
-        @var{$type}, @var{\%output_unit}, @var{$content})
-@var{$converter} is a converter object. @var{$type} is the output unit type.
-@var{\%output_unit} is the output unit.  @var{$content} the formatted contents.
-@var{$content} can be @code{undef} or the empty string.
+        @var{$unit_type}, @var{\%output_unit}, @var{$content})
+@var{$converter} is a converter object. @var{$unit_type} is the output unit
+type. @var{\%output_unit} is the output unit.  @var{$content} the formatted
+contents.  @var{$content} can be @code{undef} or the empty string.
 
 The @var{$text} returned is the result of the output unit conversion.
 @end deftypefn
@@ -2514,18 +2532,30 @@ The @var{$text} returned is the result of the output unit conversion.
 To call a conversion function from user defined code, the function reference
 should first be retrieved using @code{type_conversion}:
 
-@deftypefun {@var{\&output_unit_conversion} =} @var{$converter}->output_unit_conversion (@var{$type})
-@var{$type} is the output unit type.  Returns the
-conversion function reference for @var{$type}, or @samp{undef} if there is none.
+@deftypefun {@var{\&output_unit_conversion} =} @var{$converter}->output_unit_conversion (@var{$unit_type})
+@var{$unit_type} is the output unit type.  Returns the
+conversion function reference for @var{$unit_type}, or @samp{undef} if there is none.
 @end deftypefun
 
 It is possible to have access to the default conversion function reference.
 The function used is:
 
-@deftypefun {@var{\&default_output_unit_conversion} =} @var{$converter}->default_output_unit_conversion (@var{$type})
-@var{$type} is the output unit type.  Returns the
-default conversion function reference for @var{$type}, or @samp{undef} if there is none.
+@deftypefun {@var{\&default_output_unit_conversion} =} @var{$converter}->default_output_unit_conversion (@var{$unit_type})
+@var{$unit_type} is the output unit type.  Returns the
+default conversion function reference for @var{$unit_type}, or @samp{undef}
+if there is none.
 @end deftypefun
+
+Nomal output units with output unit type @code{unit} default conversion
+involves calling the formatting reference
+@code{format_element_footer} (@pxref{Element Header and Footer Formatting}).
+
+Special units conversion is achieved by calling
+@code{special_unit_body_formatting} (@pxref{Special Unit Body Formatting
+Functions}), @code{format_navigation_header} (@pxref{Navigation Panel and
+Navigation Header Formatting}), @code{format_heading_text} (@pxref{Basic
+Formatting Customization}) and @code{format_element_footer} (@pxref{Element
+Header and Footer Formatting}).  Special units type is @code{special_unit}.
 
 
 @node Formatting Functions
@@ -2963,7 +2993,6 @@ preformatted containers and @@-commands such as @code{@@abbr}, @code{@@footnote}
 @node Dynamic Converter Formatting Information
 @section Dynamic Converter Formatting Information
 
-
 To get the current paragraph and preformatted number, use @code{paragraph_number}
 or @code{preformatted_number}:
 
@@ -2992,6 +3021,16 @@ use @code{in_multi_expanded}:
 @deftypefun {@var{$multi_expanded_context_information} =} @var{$converter}->in_multi_expanded ()
 Return a string representing the multiple expanded context, or @code{undef} if
 not in a multiple expanded context.
+@end deftypefun
+
+Sorted index entries are available through
+@code{get_converter_indices_sorted_by_letter}:
+
+@deftypefun {@var{$sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
+Returns index entries sorted by index and letter.
+This function should be called each time sorted indices are needed,
+in case the sorting depends on the @code{@@documentlanguage} value.
+@xref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),,Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter,texi2any_internals}.
 @end deftypefun
 
 To get the location of an image file, use @code{html_image_file_location_name}:
@@ -3209,14 +3248,14 @@ The function @code{get_shared_conversion_state} is used to get information:
 @deftypefun {@var{$value} =} @var{$converter}->get_shared_conversion_state (@var{$cmdname}, @var{$name}, [@var{$selector} @dots{}])
 Return the reference @var{$value} associated with @var{$cmdname}
 and @var{$name}. The number of selectors given in argument should match
-the number of selectors in the definition (possible none).
+the number of selectors in the definition (possibly none).
 @end deftypefun
 
 For example, continuing with the @samp{color} shared information data
 defined above, with one selector variable:
 @example
 my $number = $converter->get_shared_conversion_state('quotation',
-                                               'color', $element);
+                                               'color', 'purple1');
 @end example
 
 The function @code{set_shared_conversion_state} is used to set
@@ -3231,7 +3270,7 @@ the number of selectors in the definition (possible none).
 For example:
 @example
 $converter->set_shared_conversion_state('quotation', 'color',
-                                        $selector_element, 42);
+                                        'special_black', 42);
 @end example
 
 The converter is used to hold the information, but does not use nor write.
@@ -3289,7 +3328,9 @@ Customization}) and for specific elements headings such as footnotes,
 contents or about (@pxref{Special Units Information Customization}).
 Translated strings can also be inserted in the output in user-defined
 customization functions, by using specific functions for internationalization
-of strings, @code{cdt}, @code{cdt_string} or @code{cgdt}.
+of strings, @code{cdt}, @code{cdt_string} or @code{pcdt}
+(@pxref{Texinfo@asis{::}Convert@asis{::}Converter Translations in output
+documents,,, texi2any_internals}).
 
 It is possible to customize the translated strings, in order to
 change the translations of the strings translated in the default case.
@@ -3303,7 +3344,7 @@ information on the default case.
 @section Internationalization of Strings Function
 
 @vindex texinfo_document @r{Gettext domain}
-The subroutines @code{cdt}, @code{cdt_string} or @code{cgdt}, are used for
+The subroutines @code{cdt}, @code{cdt_string} or @code{pcdt}, are used for
 translated strings:
 
 @deftypefun {@var{$translated_tree} =} @var{$converter}->cdt (@var{$string}, @var{\%variables_hash}, @var{$translation_context})
@@ -4224,11 +4265,11 @@ By default, the function associated with @code{format_element_header}
 formats the header and navigation panel of an output unit.
 
 @deftypefn {Function Reference} @var{$formatted_header} format_element_header @
-    (@var{$converter}, @var{$command_name}, @var{\%element}, @var{\%tree_unit_element})
+    (@var{$converter}, @var{$command_name}, @var{\%element}, @var{\%output_unit})
 @var{\%element} is the element in which the navigation header is formatted
 (sectioning command, @code{@@node} or special output unit). @var{$command_name} is
 the associated command name.  It may be @code{undef} for special output units.
-@var{\%tree_unit_element} is the associated output unit (@pxref{Texinfo
+@var{\%output_unit} is the associated output unit (@pxref{Texinfo
 Tree Elements in User Defined Functions}).
 
 Returns the formatted navigation header and panel.
@@ -4245,10 +4286,10 @@ Similarly, the function associated with @code{format_element_footer}
 formats the footer and navigation panel of a output unit.
 
 @deftypefn {Function Reference} @var{$formatted_footer} format_element_footer @
-   (@var{$converter}, @var{$tree_unit_type}, @var{\%output_unit}, @
+   (@var{$converter}, @var{$output_unit_type}, @var{\%output_unit}, @
     @var{$content}, @var{$command})
 @var{\%output_unit} is the output unit in which the
-navigation footer is formatted.  @var{$tree_unit_type} is the associated type.
+navigation footer is formatted.  @var{$output_unit_type} is the associated type.
 @var{$content} is the formatted element content.  @var{$content} can be
 @code{undef}. @var{$command} is an optional argument, the @@-command
 associated with the @var{\%output_unit}.
@@ -4266,8 +4307,8 @@ formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
 @end deftypefn
 
 
-@node Heading Commands and Tree Elements Formatting
-@chapter Heading Commands and Tree Elements Formatting
+@node Heading Commands Formatting
+@chapter Heading Commands Formatting
 
 The customization variables
 @code{CONTENTS_OUTPUT_LOCATION},
@@ -4285,22 +4326,6 @@ extent (@pxref{Opening and Closing Sectioning Commands Extent}).  The
 associated with @@-commands.  The corresponding function references can
 therefore be replaced by user defined functions for a precise control of
 conversion (@xref{Command Tree Element Conversion Functions}).
-
-Tree unit elements default conversion involves calling the formatting reference
-@code{format_element_footer} (@pxref{Element Header and Footer Formatting}).
-The conversion for these elements with type @code{unit} can be be replaced by
-user defined functions for a precise control of conversion (@pxref{Type Tree
-Element Conversion Functions}).
-
-Special units conversion is achieved by calling
-@code{special_unit_body_formatting} (@pxref{Special Unit Body Formatting
-Functions}), @code{format_navigation_header} (@pxref{Navigation Panel and
-Navigation Header Formatting}), @code{format_heading_text} (@pxref{Basic
-Formatting Customization}) and @code{format_element_footer} (@pxref{Element
-Header and Footer Formatting}).  The conversion for these special units with
-unit type @code{special_unit_type} can be be replaced by user defined functions
-for a precise control of conversion (@pxref{Output Units Conversion
-Functions}).
 
 
 @node Beginning and Ending Files
@@ -4323,7 +4348,7 @@ the functions references.
 
 @vindex DOCTYPE
 You can set the variable @code{DOCTYPE} to replace the default.
-the @code{DOCTYPE} is output at the very beginning of each output
+The @code{DOCTYPE} is output at the very beginning of each output
 file.
 
 @vindex EXTRA_HEAD
