@@ -814,10 +814,19 @@ html_in_align (SV *converter_in)
          CONVERTER *self;
          enum command_id cmd;
      CODE:
-         self = get_sv_converter (converter_in,
-                                  "html_in_align");
+         self = get_sv_converter (converter_in, "html_in_align");
          cmd = html_in_align (self);
          RETVAL = builtin_command_name (cmd);
+    OUTPUT:
+         RETVAL
+
+const char *
+html_current_filename (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in, "html_current_filename");
+         RETVAL = self->current_filename.filename;
     OUTPUT:
          RETVAL
 

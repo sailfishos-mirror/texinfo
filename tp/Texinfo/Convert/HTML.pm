@@ -217,6 +217,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_preformatted_classes_stack",
   "Texinfo::Convert::HTML::in_align"
    => "Texinfo::Convert::ConvertXS::html_in_align",
+  "Texinfo::Convert::HTML::current_filename"
+    => "Texinfo::Convert::ConvertXS::html_current_filename",
 
   "Texinfo::Convert::HTML::count_elements_in_filename"
    => "Texinfo::Convert::ConvertXS::html_count_elements_in_filename",
@@ -1568,7 +1570,7 @@ foreach my $no_number_type ('text', 'string') {
 # are about external nodes not found.
 #
 # $self->{'current_output_unit'} undef happens at least when there is no
-# output file  That call would result for instance from from_element_direction
+# output file.  That call would result for instance from from_element_direction
 # being called from _get_links, itself called from 'format_begin_file'.
 # TODO are there other cases?
 sub from_element_direction($$$;$$$)
@@ -2296,6 +2298,7 @@ sub get_file_information($$;$)
 
 sub current_filename($)
 {
+  my $self = shift;
   return $self->{'current_filename'};
 }
 
