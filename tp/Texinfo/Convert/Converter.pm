@@ -2748,6 +2748,12 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
+The functions call L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
+or L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
+with arguments based on C<USE_UNICODE_COLLATION>, C<COLLATION_LANGUAGE> and
+C<DOCUMENTLANGUAGE_COLLATION> customization options, and, if relevant, current
+C<@documentlanguage>.
+
 =item $filename = sub $converter->node_information_filename($normalized, $label_element)
 X<C<node_information_filename>>
 

@@ -2294,11 +2294,16 @@ sub get_file_information($$;$)
   return (1, $self->{'html_files_information'}->{$filename}->{$key})
 }
 
-# information from converter available 'read-only', in general set up before
-# really starting the formatting (except for current_filename).
+sub current_filename($)
+{
+  return $self->{'current_filename'};
+}
+
+# information from converter available 'read-only', set up before
+# really starting the formatting.
 # 'document' is set up in the generic converter
 my %available_converter_info;
-foreach my $converter_info ('copying_comment', 'current_filename',
+foreach my $converter_info ('copying_comment',
    'destination_directory', 'document', 'document_name',
    'documentdescription_string', 'expanded_formats',
    'jslicenses', 'line_break_element', 'non_breaking_space',
@@ -3713,7 +3718,7 @@ sub _convert_footnote_command($$$$)
   }
 
   $self->register_footnote($command, $footid, $docid, $number_in_doc,
-                    $self->get_info('current_filename'), $multi_expanded_region);
+                    $self->current_filename(), $multi_expanded_region);
 
   my $footnote_number_text;
   if (in_preformatted_context($self)) {
@@ -10697,7 +10702,7 @@ sub _default_format_contents($$;$$)
   my $command = shift;
   my $filename = shift;
 
-  $filename = $self->get_info('current_filename') if (!defined($filename));
+  $filename = $self->current_filename() if (!defined($filename));
 
   my $document = $self->get_info('document');
   my $sections_list;

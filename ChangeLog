@@ -1,5 +1,14 @@
 2024-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (current_filename)
+	(%available_converter_info): add a specific accessor to get the
+	current_filename.  Remove from %available_converter_info.  Update
+	callers of get_info('current_filename').
+
+	* doc/texi2any_api.texi: update.
+
+2024-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi: update.
 
 2024-02-14  Patrice Dumas  <pertusus@free.fr>
