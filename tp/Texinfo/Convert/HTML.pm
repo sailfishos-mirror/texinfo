@@ -621,11 +621,11 @@ my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
 my %default_css_string_formatting_references;
 
-sub html_convert_css_string($$;$)
+sub html_convert_css_string($$$)
 {
   my $self = shift;
   my $element = shift;
-  my $explanation = shift;
+  my $context_str = shift;
 
   my $saved_commands = {};
   my $saved_types = {};
@@ -651,8 +651,7 @@ sub html_convert_css_string($$;$)
   my $result
    = $self->convert_tree_new_formatting_context({'type' => '_string',
                                                  'contents' => [$element]},
-                                                'css_string',
-                                                $explanation);
+                                                'CSS string '.$context_str);
   foreach my $cmdname (keys (%default_css_string_commands_conversion)) {
     $self->{'commands_conversion'}->{$cmdname} = $saved_commands->{$cmdname};
   }
@@ -8399,7 +8398,8 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
                                           'contents' => [$translated_tree]},
                                                      $context_str);
     } elsif ($reset_context eq 'css_string') {
-      $translation_result = $self->html_convert_css_string($translated_tree);
+      $translation_result = $self->html_convert_css_string($translated_tree,
+                                                           $context_str);
     }
     $no_arg_command_context->{'text'}
       = $translation_result;

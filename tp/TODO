@@ -14,9 +14,6 @@ Before next release
 Bugs
 ====
 
-Check html_convert_css_string probable misuse of multiple_formatted
-argument.
-
 
 HTML API
 ========

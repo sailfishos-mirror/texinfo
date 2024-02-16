@@ -11363,8 +11363,12 @@ convert_cartouche_command (CONVERTER *self, const enum command_id cmd,
    that can be called are perl functions that do not call formatting/conversion
    functions or the formatting/conversion functions for HTML will be used. */
 char *
-html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanation)
+html_convert_css_string (CONVERTER *self, const ELEMENT *element,
+                         char *context_str)
 {
+  char *css_string_context_str;
+  char *context_string_str;
+  char *explanation;
   char *result;
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
 
@@ -11385,13 +11389,26 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element, char *explanat
     = &self->css_string_type_conversion_function[0];
   self->current_format_protect_text = &default_css_string_format_protect_text;
 
-  html_new_document_context (self, "css_string", 0, 0);
+  if (context_str)
+    xasprintf (&css_string_context_str, "CSS string %s");
+  else
+    css_string_context_str = "CSS string ";
+
+  xasprintf (&context_string_str, "C(%s)", css_string_context_str);
+  xasprintf (&explanation, "new_fmt_ctx %s", context_string_str);
+
+  html_new_document_context (self, css_string_context_str, 0, 0);
   top_document_ctx = html_top_document_context (self);
   top_document_ctx->string_ctx++;
 
   result = html_convert_tree (self, element, explanation);
 
   html_pop_document_context (self);
+
+  free (explanation);
+  free (context_string_str);
+  if (context_str)
+    free (css_string_context_str);
 
   self->current_formatting_references = saved_formatting_references;
   self->current_commands_conversion_function
@@ -17112,7 +17129,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       else if (reset_context == HCC_type_css_string)
         {
           translation_result = html_convert_css_string (self, translated_tree,
-                                                        0);
+                                                        context);
         }
       free (explanation);
       free (context);
