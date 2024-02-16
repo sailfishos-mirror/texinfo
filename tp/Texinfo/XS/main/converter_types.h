@@ -313,6 +313,7 @@ typedef struct HTML_SHARED_CONVERSION_STATE {
     FOOTNOTE_ID_NUMBER *footnote_id_numbers; /* footnote_id_numbers->{char $footid} = int */
     int html_menu_entry_index;
     int **formatted_index_entries; /* formatted_index_entries->{INDEX_ENTRY $index_entry_ref} = 1, ++ */
+    int *formatted_listoffloats_nr;
     /* stored in HTML_TARGET formatted_nodedescription_nr */
     /* formatted_nodedescriptions */
 } HTML_SHARED_CONVERSION_STATE;

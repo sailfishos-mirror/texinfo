@@ -10930,11 +10930,22 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
       if (!strcmp (float_types->type, listoffloats_name))
         {
           char *attribute_class;
+          char *multiple_pass_str;
           STRING_LIST *classes;
           size_t j;
+          int *formatted_listoffloats_nr;
 
           if (float_types->float_list.number <= 0)
             return;
+
+          formatted_listoffloats_nr
+            = &self->shared_conversion_state.formatted_listoffloats_nr[i];
+          (*formatted_listoffloats_nr)++;
+          if (*formatted_listoffloats_nr > 1)
+            xasprintf (&multiple_pass_str, "listoffloats-%d",
+                                           (*formatted_listoffloats_nr) - 1);
+          else
+            multiple_pass_str = "listoffloats";
 
           classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
           memset (classes, 0, sizeof (STRING_LIST));
@@ -10998,7 +11009,7 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
                     = convert_tree_new_formatting_context (self,
                         caption_element->args.list[0],
                         builtin_command_name (cmd),
-                        "listoffloats", 0, 0);
+                        multiple_pass_str, 0, 0);
                   text_append (result, caption_text);
                   free (caption_text);
                 }
@@ -11006,6 +11017,8 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
             }
           text_append_n (result, "</dl>\n", 6);
 
+          if (*formatted_listoffloats_nr > 1)
+            free (multiple_pass_str);
           free (attribute_class);
           destroy_strings_list (classes);
         }
@@ -16606,6 +16619,19 @@ html_initialize_output_state (CONVERTER *self, char *context)
         }
       free (sorted_index_names);
     }
+
+  if (self->document)
+    {
+      LISTOFFLOATS_TYPE_LIST *listoffloats = self->document->listoffloats;
+
+      if (listoffloats && listoffloats->number)
+        {
+          self->shared_conversion_state.formatted_listoffloats_nr
+           = (int *) malloc (listoffloats->number * sizeof (int));
+          memset (self->shared_conversion_state.formatted_listoffloats_nr,
+              0, listoffloats->number * sizeof (int));
+        }
+    }
 }
 
 void
@@ -16709,6 +16735,9 @@ html_reset_converter (CONVERTER *self)
   self->html_target_cmds.top = 0;
 
   free (self->shared_conversion_state.footnote_id_numbers);
+
+  free (self->shared_conversion_state.formatted_listoffloats_nr);
+  self->shared_conversion_state.formatted_listoffloats_nr = 0;
 
   if (self->document->index_names)
     {

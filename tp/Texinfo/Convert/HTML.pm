@@ -2007,6 +2007,7 @@ my %default_shared_conversion_states = (
   'acronym' => {'explained_commands' => ['string', 'string']},
   'footnote' => {'footnote_number' => ['integer'],
                  'footnote_id_numbers' => ['string', 'integer']},
+  'listoffloats' => {'formatted_listoffloats' => ['string', 'integer']},
   'menu' => {'html_menu_entry_index' => ['integer']},
   'printindex' => {'formatted_index_entries' => ['index_entry', 'integer']},
   'nodedescription' => {'formatted_nodedescriptions' => ['element', 'integer']},
@@ -3034,8 +3035,6 @@ my %default_commands_args = (
   'link' => [['monospace'],['normal'],['filenametext']],
   'image' => [['monospacestring', 'filenametext', 'url'],['filenametext'],['filenametext'],['normal','string'],['filenametext']],
   # FIXME shouldn't it better not to convert if later ignored?
-  # note that right now ignored argument are in elided empty types
-  # but this could change.
   'inlinefmt' => [['monospacetext'],['normal']],
   'inlinefmtifelse' => [['monospacetext'],['normal'],['normal']],
   'inlineraw' => [['monospacetext'],['raw']],
@@ -5457,6 +5456,15 @@ sub _convert_listoffloats_command($$$$)
     $floats = $document->floats_information();
   }
   my $listoffloats_name = $command->{'extra'}->{'float_type'};
+  my $formatted_listoffloats_nr
+   = $self->get_shared_conversion_state('listoffloats',
+                                        'formatted_listoffloats',
+                                        $listoffloats_name);
+  $formatted_listoffloats_nr = 0 if (!defined($formatted_listoffloats_nr));
+  $formatted_listoffloats_nr++;
+  $self->set_shared_conversion_state('listoffloats', 'formatted_listoffloats',
+                            $listoffloats_name, $formatted_listoffloats_nr);
+
   if ($floats and $floats->{$listoffloats_name}
       and scalar(@{$floats->{$listoffloats_name}})) {
     my $result = $self->html_attribute_class('dl', [$cmdname]).">\n" ;
@@ -5486,10 +5494,12 @@ sub _convert_listoffloats_command($$$$)
       my $caption_text;
       my @caption_classes;
       if ($caption_element) {
-        # FIXME 'listoffloats' multiple pass/formatting argument is not
-        # unicized.
+        my $multiple_formatted = 'listoffloats';
+        if ($formatted_listoffloats_nr > 1) {
+          $multiple_formatted .= '-'.($formatted_listoffloats_nr - 1);
+        }
         $caption_text = $self->convert_tree_new_formatting_context(
-          $caption_element->{'args'}->[0], $cmdname, 'listoffloats');
+          $caption_element->{'args'}->[0], $cmdname, $multiple_formatted);
         push @caption_classes, "${caption_cmdname}-in-${cmdname}";
       } else {
         $caption_text = '';

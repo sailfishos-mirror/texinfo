@@ -1476,6 +1476,32 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (target_info)
         target_info->formatted_nodedescription_nr = number;
     }
+  else if (!strcmp (state_name, "formatted_listoffloats"))
+    {
+      char *type = (char *)SvPVutf8_nolen(args_sv[0]);
+      int number = SvIV (args_sv[1]);
+      if (converter->document && converter->document->listoffloats)
+        {
+          int i;
+          LISTOFFLOATS_TYPE_LIST
+            *listoffloats = converter->document->listoffloats;
+          for (i = 0; i < listoffloats->number; i++)
+            {
+              LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+              if (!strcmp (float_types->type, type))
+                {
+                  if (float_types->float_list.number >= 0)
+                    {
+                      int *formatted_listoffloats_nr
+                        = &converter->shared_conversion_state
+                            .formatted_listoffloats_nr[i];
+                      *formatted_listoffloats_nr = number;
+                    }
+                  break;
+                }
+            }
+        }
+    }
   else if (!strcmp (state_name, "in_skipped_node_top"))
     {
       int in_skipped_node_top = SvIV (args_sv[0]);
@@ -1537,6 +1563,30 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
 
       if (target_info && target_info->formatted_nodedescription_nr > 0)
         return newSViv (target_info->formatted_nodedescription_nr);
+    }
+  else if (!strcmp (state_name, "formatted_listoffloats"))
+    {
+      char *type = (char *)SvPVutf8_nolen(args_sv[0]);
+      if (converter->document && converter->document->listoffloats)
+        {
+          int i;
+          LISTOFFLOATS_TYPE_LIST *listoffloats
+            = converter->document->listoffloats;
+          for (i = 0; i < listoffloats->number; i++)
+            {
+              LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+              if (!strcmp (float_types->type, type))
+                {
+                  if (float_types->float_list.number >= 0)
+                    {
+                      return newSViv (converter->shared_conversion_state
+                                       .formatted_listoffloats_nr[i]);
+                    }
+                  else
+                    return newSV (0);
+                }
+            }
+        }
     }
   else if (!strcmp (state_name, "in_skipped_node_top"))
     return newSViv(converter->shared_conversion_state.in_skipped_node_top);

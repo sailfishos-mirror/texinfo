@@ -3282,6 +3282,7 @@ default formatting functions:
 @item @code{acronym} @tab @code{explained_commands} @tab string (first argument) @tab string
 @item @code{footnote} @tab @code{footnote_number} @tab @tab integer
 @item @code{footnote} @tab @code{footnote_id_numbers} @tab string (footnote id) @tab integer
+@item @code{listoffloats} @tab @code{formatted_listoffloats} @tab string (normalized argument) @tab integer
 @item @code{menu} @tab @code{html_menu_entry_index} @tab @tab integer
 @item @code{printindex} @tab @code{formatted_index_entries} @tab index_entry (index entry hash) @tab integer
 @item @code{top} @tab @code{in_skipped_node_top} @tab @tab integer
@@ -3301,6 +3302,8 @@ Associate a footnote identifier, typically used in hyperlink reference,
 to the number of time the corresponding footnote was formatted.  More than
 one corresponds to very rare cases, for instance a footnote in @code{@@copying}
 and multiple @code{@@insertcopying}.
+@item formatted_listoffloats
+Associate a list of float type to the number of time it was formatted.
 @item html_menu_entry_index
 Current number of menu entries in a menu. Reset to 0 at @code{@@menu} beginning.
 @item formatted_index_entries
