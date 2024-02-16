@@ -139,6 +139,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_command_contents_target",
   "Texinfo::Convert::HTML::footnote_location_target"
    => "Texinfo::Convert::ConvertXS::html_footnote_location_target",
+  "Texinfo::Convert::HTML::footnote_location_href"
+   => "Texinfo::Convert::ConvertXS::html_footnote_location_href",
   "Texinfo::Convert::HTML::command_filename"
    => "Texinfo::Convert::ConvertXS::html_command_filename",
   "Texinfo::Convert::HTML::command_root_element_command"
@@ -218,7 +220,7 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::in_align"
    => "Texinfo::Convert::ConvertXS::html_in_align",
   "Texinfo::Convert::HTML::current_filename"
-    => "Texinfo::Convert::ConvertXS::html_current_filename",
+   => "Texinfo::Convert::ConvertXS::html_current_filename",
 
   "Texinfo::Convert::HTML::count_elements_in_filename"
    => "Texinfo::Convert::ConvertXS::html_count_elements_in_filename",
@@ -1587,8 +1589,13 @@ sub from_element_direction($$$;$$$)
   my $command;
 
   $source_unit = $self->{'current_output_unit'} if (!defined($source_unit));
-  $source_filename = $self->{'current_filename'} if (!defined($source_filename));
-
+  # NOTE $source_filename is only used for a command_href call.  If with XS,
+  # if source_filename remains undef, the command_href XS code will set the
+  # source_filename to the current filename in XS. Therefore undef
+  # current_filename in that case leads to the same output as set
+  # current_filename.
+  # We still set it correctly in case it becomes used in other codes.
+  $source_filename = $self->current_filename() if (!defined($source_filename));
   if (!$valid_direction_return_type{$type}) {
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;

@@ -1,3 +1,18 @@
+2024-02-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides): add missed
+	override for footnote_location_href.
+
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction): use the
+	current_filename function.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state): do not pass current_filename anymore,
+	it is not needed, the current_filename function should be used instead.
+
+	* tp/Texinfo/Common.pm (debug_print_element): remove useless end of
+	lines.
+
 2024-02-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (current_filename): set $self.

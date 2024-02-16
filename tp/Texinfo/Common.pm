@@ -2646,10 +2646,10 @@ sub debug_print_element($;$)
   my $print_parent = shift;
 
   if (!defined($current)) {
-    return "debug_print_element: UNDEF\n";
+    return "debug_print_element: UNDEF";
   }
   if (ref($current) ne 'HASH') {
-    return "debug_print_element: $current not a hash\n";
+    return "debug_print_element: $current not a hash";
   }
   my $type = '';
   my $cmd = '';

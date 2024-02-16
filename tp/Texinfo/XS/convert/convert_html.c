@@ -8268,12 +8268,10 @@ html_prepare_node_redirection_page (CONVERTER *self, const ELEMENT *element,
 
   self->current_filename.filename = filename;
   self->current_filename.file_number = 0;
-  self->modified_state |= HMSF_current_filename;
 
   result = format_node_redirection_page (self, element, filename);
 
   self->current_filename.filename = 0;
-  self->modified_state |= HMSF_current_filename;
 
   return result;
 }
@@ -18207,7 +18205,6 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
 
   self->current_filename.filename = "";
   self->current_filename.file_number = 1;
-  self->modified_state |= HMSF_current_filename;
 
   if (!output_units || !output_units->number)
     {
@@ -18242,7 +18239,6 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
         }
     }
   self->current_filename.filename = 0;
-  self->modified_state |= HMSF_current_filename;
 
   return result.text;
 }
@@ -18260,7 +18256,6 @@ convert_output_output_unit_internal (CONVERTER *self,
   char *output_unit_filename = output_unit->unit_filename;
 
   self->current_filename.filename = output_unit_filename;
-  self->modified_state |= HMSF_current_filename;
 
   text_reset (text);
   text_append (text, "");
@@ -18428,11 +18423,8 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
       self->current_filename.file_number = 1;
     }
 
-  self->modified_state |= HMSF_current_filename;
-
   self->title_titlepage = format_title_titlepage (self);
   memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
-  self->modified_state |= HMSF_current_filename;
 }
 
 char *
@@ -18486,7 +18478,6 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
 
       self->current_filename.filename = output_filename;
       self->current_filename.file_number = 1;
-      self->modified_state |= HMSF_current_filename;
 
       text_append (&text, "");
 
@@ -18542,7 +18533,6 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
           free (file_end);
         }
       self->current_filename.filename = 0;
-      self->modified_state |= HMSF_current_filename;
     }
   else
     {
@@ -18589,7 +18579,6 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
             }
         }
       memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
-      self->modified_state |= HMSF_current_filename;
     }
 
  out:
