@@ -113,7 +113,7 @@ enum command_location {
 /*
 #define HMSF_        0x0800
 */
-#define HMSF_converter_state         0x1000
+#define HMSF_ignore_notice           0x1000
 #define HMSF_multiple_pass           0x2000
 #define HMSF_translations            0x4000
 /*

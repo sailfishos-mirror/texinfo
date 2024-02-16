@@ -2787,45 +2787,43 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   char *result;
   char *multiple_pass_str = "";
   char *explanation;
-  TEXT context_string_str;
-  text_init (&context_string_str);
-  text_append (&context_string_str, "");
+  char *context_string_str = "";
 
   if (context_string)
     {
       html_new_document_context (self, context_string,
                                  document_global_context, block_cmd);
-      text_printf (&context_string_str, "C(%s)", context_string);
+      xasprintf (&context_string_str, "C(%s)", context_string);
     }
 
   if (multiple_pass)
     {
       self->ignore_notice++;
       push_string_stack_string (&self->multiple_pass, multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_converter_state;
+      self->modified_state |= HMSF_multiple_pass | HMSF_ignore_notice;
       multiple_pass_str = "|M";
     }
 
   if (self->conf->DEBUG.integer > 0)
-    fprintf (stderr, "XS|new_fmt_ctx %s%s\n", context_string_str.text,
-                                           multiple_pass_str);
+    fprintf (stderr, "XS|new_fmt_ctx %s%s\n", context_string_str,
+                                              multiple_pass_str);
 
-  xasprintf (&explanation, "new_fmt_ctx %s", context_string_str.text);
+  xasprintf (&explanation, "new_fmt_ctx %s", context_string_str);
   result = html_convert_tree (self, tree, explanation);
 
   free (explanation);
-  free (context_string_str.text);
 
   if (context_string)
     {
       html_pop_document_context (self);
+      free (context_string_str);
     }
 
   if (multiple_pass)
     {
       self->ignore_notice--;
       pop_string_stack (&self->multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_converter_state;
+      self->modified_state |= HMSF_multiple_pass | HMSF_ignore_notice;
     }
 
   return result;
@@ -3975,13 +3973,13 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           self->ignore_notice++;
           push_element_reference_stack_element (&self->referred_command_stack,
                                                 command, command->hv);
-          self->modified_state |= HMSF_converter_state;
+          self->modified_state |= HMSF_ignore_notice;
           target_info->command_text[type]
             = html_convert_tree (self, tree_root, explanation);
           free (explanation);
           pop_element_reference_stack (&self->referred_command_stack);
           self->ignore_notice--;
-          self->modified_state |= HMSF_converter_state;
+          self->modified_state |= HMSF_ignore_notice;
 
           html_pop_document_context (self);
 
@@ -4018,6 +4016,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
                                                   "manual_content");
   if (manual_content)
     {
+      char *context_str;
       ELEMENT *tree_root;
       TREE_ADDED_ELEMENTS *command_tree
         = html_external_command_tree (self, command, manual_content);
@@ -4030,9 +4029,26 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       else
         tree_root = command_tree->tree;
 
+      if (command->cmd)
+        /* this never happens, as the external node label tree
+           element is never directly an @-command.  It can be an @-command
+           argument, in a menu, or a reconstituted tree. */
+        xasprintf (&context_str, "command_text %s @%s",
+                   html_command_text_type_name[type],
+                   element_command_name(command));
+      else if (command->type)
+        xasprintf (&context_str, "command_text %s %s",
+                   html_command_text_type_name[type],
+                   element_type_names[command->type]);
+      else
+        xasprintf (&context_str, "command_text %s ",
+                   html_command_text_type_name[type]);
+
       result = convert_tree_new_formatting_context (self, tree_root,
-                                     element_command_name(command),
+                                     context_str,
                                      "command_text-manual_content", 0, 0);
+
+      free (context_str);
 
       if (type == HTT_string)
         {
@@ -6872,6 +6888,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
       if (command_string && strlen (command_string)
           && strcmp (command_string, self->title_string))
         {
+          char *context_str;
           NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
           ELEMENT *title_tree_copy = copy_tree (self->title_tree);
@@ -6913,11 +6930,21 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           add_to_element_list (&self->tree_to_build, title_tree);
 
+          if (command->cmd)
+            xasprintf (&context_str, "file_header_title-element-@%s",
+                       element_command_name (command));
+          else if (command->type)
+            xasprintf (&context_str, "file_header_title-element-%s",
+                       element_type_names[command->type]);
+          else
+            context_str = strdup ("file_header_title-element-");
+
           begin_info->title
                  = convert_string_tree_new_formatting_context (self,
-                          title_tree, element_command_name (command),
+                          title_tree, context_str,
                           "element_title");
 
+          free (context_str);
           remove_element_from_list (&self->tree_to_build, title_tree);
           destroy_element_and_children (title_tree);
         }

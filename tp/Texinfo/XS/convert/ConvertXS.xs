@@ -820,13 +820,13 @@ html_in_align (SV *converter_in)
     OUTPUT:
          RETVAL
 
-const char *
+SV *
 html_current_filename (SV *converter_in)
      PREINIT:
          CONVERTER *self;
      CODE:
          self = get_sv_converter (converter_in, "html_current_filename");
-         RETVAL = self->current_filename.filename;
+         RETVAL = newSVpv_utf8 (self->current_filename.filename, 0);
     OUTPUT:
          RETVAL
 

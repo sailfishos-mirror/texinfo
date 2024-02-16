@@ -648,10 +648,11 @@ sub html_convert_css_string($$;$)
       = $default_css_string_formatting_references{$formatting_reference};
   }
 
-  my $result = $self->convert_tree_new_formatting_context(
-                                           {'type' => '_string',
-                                            'contents' => [$element]},
-                                            'css_string', $explanation);
+  my $result
+   = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                                 'contents' => [$element]},
+                                                'css_string',
+                                                $explanation);
   foreach my $cmdname (keys (%default_css_string_commands_conversion)) {
     $self->{'commands_conversion'}->{$cmdname} = $saved_commands->{$cmdname};
   }
@@ -1450,9 +1451,24 @@ sub command_text($$;$)
       $tree = {'type' => '_string',
                'contents' => [$tree]};
     }
-    my $result = $self->convert_tree_new_formatting_context(
+    my $context_str = "command_text $type ";
+    if (defined($command->{'cmdname'})) {
+      # this never happens, as the external node label tree
+      # element is never directly an @-command.  It can be an @-command
+      # argument, in a menu, or a reconstituted tree.
+      $context_str .= '@'.$command->{'cmdname'};
+    } elsif ($command->{'type'}) {
+      $context_str .= $command->{'type'};
+    }
+    # NOTE the multiple pass argument is not unicized, however the
+    # external node manual label should in general be converted only
+    # once, and even if it is converted more than once, it is unlikely
+    # to contain @-commands which should better be converted only once.
+    my $result
+      = $self->convert_tree_new_formatting_context($tree,
+                                                   $context_str,
       # FIXME check if $document_global_context argument would be needed?
-          $tree, $command->{'cmdname'}, 'command_text-manual_content');
+                                               'command_text-manual_content');
     return $result;
   }
 
@@ -1603,9 +1619,9 @@ sub from_element_direction($$$;$$$)
   my $global_target_unit = $self->global_direction_unit($direction);
   if ($global_target_unit) {
     $target_unit = $global_target_unit;
-  # output TOP_NODE_UP related infos even if element is not
-  # defined which should mostly correspond to cases when there is no
-  # output file, for example in the tests.
+  # output TOP_NODE_UP related info even if $source_unit is not defined,
+  # which should mostly correspond to cases when there is no
+  # output file, for example in tests.
   } elsif ((not defined($source_unit)
             or ($source_unit
                 and $self->unit_is_top_output_unit($source_unit)))
@@ -1804,7 +1820,8 @@ sub direction_string($$$;$)
       # set above if not already existing.
       my $result_string
          = $self->convert_tree_new_formatting_context($converted_tree,
-                 $context_str, undef, $context_str);
+                                                      $context_str,
+                                                      undef, $context_str);
       $self->{'directions_strings'}->{$string_type}->{$direction} = {}
           if (not $self->{'directions_strings'}->{$string_type}->{$direction});
       $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
@@ -2342,6 +2359,7 @@ sub get_info($$)
 
 # This function should be used in formatting functions when some
 # Texinfo tree need to be converted.
+# FIXME make $context_string a non-optional argument?
 sub convert_tree_new_formatting_context($$;$$$$)
 {
   my $self = shift;
@@ -5469,6 +5487,8 @@ sub _convert_listoffloats_command($$$$)
       my $caption_text;
       my @caption_classes;
       if ($caption_element) {
+        # FIXME 'listoffloats' multiple pass/formatting argument is not
+        # unicized.
         $caption_text = $self->convert_tree_new_formatting_context(
           $caption_element->{'args'}->[0], $cmdname, 'listoffloats');
         push @caption_classes, "${caption_cmdname}-in-${cmdname}";
@@ -5538,8 +5558,9 @@ sub _convert_float_command($$$$$)
   if (in_string($self)) {
     my $prepended_text;
     if ($prepended) {
-      $prepended_text = $self->convert_tree_new_formatting_context(
-        $prepended, 'float prepended');
+      $prepended_text
+        = $self->convert_tree_new_formatting_context($prepended,
+                                                     'float prepended');
     } else {
       $prepended_text = '';
     }
@@ -5582,7 +5603,7 @@ sub _convert_float_command($$$$$)
       $self->register_pending_formatted_inline_content($caption_command_name,
                                                        $prepended_text);
       $caption_text = $self->convert_tree_new_formatting_context(
-               $caption_element->{'args'}->[0], 'float caption');
+                   $caption_element->{'args'}->[0], 'float caption');
       my $cancelled_prepended
         = $self->cancel_pending_formatted_inline_content($caption_command_name);
       # unset if prepended text is in caption, i.e. is not cancelled
@@ -5594,7 +5615,7 @@ sub _convert_float_command($$$$$)
     }
   } elsif (defined($caption_element)) {
     $caption_text = $self->convert_tree_new_formatting_context(
-      $caption_element->{'args'}->[0], 'float caption');
+                   $caption_element->{'args'}->[0], 'float caption');
   }
 
   if (defined($caption_text) and $caption_text ne '') {
@@ -6333,9 +6354,10 @@ sub _convert_printindex_command($$$$)
                and $main_entry_element->{'extra'}->{'element_node'}
                                        ->{'extra'}->{'normalized'} eq 'Top');
 
-      # to avoid double error messages, call convert_tree_new_formatting_context
-      # below with a multiple_pass argument if an entry was already formatted once,
-      # for example if there are multiple printindex.
+      # to avoid double error messages, call
+      # convert_tree_new_formatting_context below with a multiple_pass
+      # argument if an entry was already formatted once, for example if
+      # there are multiple printindex.
       my $formatted_index_entry_nr
        = $self->get_shared_conversion_state('printindex',
                                           'formatted_index_entries',
@@ -6416,7 +6438,8 @@ sub _convert_printindex_command($$$$)
           # call with multiple_pass argument
           $entry
            = $self->convert_tree_new_formatting_context($entry_trees[$level],
-                 $convert_info, "index-formatted-$formatted_index_entry_nr")
+                                                        $convert_info,
+                                  "index-formatted-$formatted_index_entry_nr");
         } else {
           $entry = $self->convert_tree($entry_trees[$level],
                                        $convert_info);
@@ -7486,11 +7509,11 @@ sub _convert_menu_entry_type($$$)
         $multiple_formatted
           = 'preformatted-node-description-'.$formatted_nodedescription_nr;
       }
-      $description .= $self->convert_tree_new_formatting_context(
-                                $description_element,
-                                'menu_arg node description preformatted',
-                                $multiple_formatted, undef,
-                                'menu');
+      $description
+        .= $self->convert_tree_new_formatting_context($description_element,
+                                   'menu_arg node description preformatted',
+                                   $multiple_formatted, undef,
+                                   'menu');
     } elsif ($menu_description) {
       $description .= $self->convert_tree($menu_description,
                                           'menu_arg description preformatted');
@@ -7545,9 +7568,10 @@ sub _convert_menu_entry_type($$$)
       $multiple_formatted
         = 'node-description-'.$formatted_nodedescription_nr;
     }
-    $description = $self->convert_tree_new_formatting_context(
-                            $description_element, 'menu_arg node description',
-                            $multiple_formatted, undef, 'menu');
+    $description
+      = $self->convert_tree_new_formatting_context($description_element,
+                                            'menu_arg node description',
+                                     $multiple_formatted, undef, 'menu');
   } elsif ($menu_description) {
     $description = $self->convert_tree($menu_description,
                                          'menu_arg description');
@@ -8027,12 +8051,15 @@ sub _default_format_titlepage($)
   } else {
     my $simpletitle_tree = $self->get_info('simpletitle_tree');
     if ($simpletitle_tree) {
-      my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
-      my $title_text = $self->convert_tree_new_formatting_context(
-        $simpletitle_tree, "$simpletitle_command_name simpletitle");
-      $titlepage_text = &{$self->formatting_function('format_heading_text')}($self,
-                                  $simpletitle_command_name,
-                          [$simpletitle_command_name], $title_text, 0);
+      my $simpletitle_command_name
+       = $self->get_info('simpletitle_command_name');
+      my $title_text
+       = $self->convert_tree_new_formatting_context($simpletitle_tree,
+                                     "$simpletitle_command_name simpletitle");
+      $titlepage_text
+        = &{$self->formatting_function('format_heading_text')}($self,
+                                                $simpletitle_command_name,
+                                  [$simpletitle_command_name], $title_text, 0);
     }
   }
   my $result = '';
@@ -8053,12 +8080,15 @@ sub _default_format_title_titlepage($)
       my $result = '';
       my $simpletitle_tree = $self->get_info('simpletitle_tree');
       if ($simpletitle_tree) {
-        my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
-        my $title_text = $self->convert_tree_new_formatting_context(
-         $simpletitle_tree, "$simpletitle_command_name simpletitle");
-        $result .= &{$self->formatting_function('format_heading_text')}($self,
-                       $simpletitle_command_name,
-                       [$simpletitle_command_name], $title_text, 0);
+        my $simpletitle_command_name
+              = $self->get_info('simpletitle_command_name');
+        my $title_text
+         = $self->convert_tree_new_formatting_context($simpletitle_tree,
+                                     "$simpletitle_command_name simpletitle");
+        $result
+          .= &{$self->formatting_function('format_heading_text')}($self,
+                                              $simpletitle_command_name,
+                            [$simpletitle_command_name], $title_text, 0);
       }
       $result .= $self->_contents_shortcontents_in_title();
       return $result;
@@ -8367,7 +8397,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
       $translation_result
         = $self->convert_tree_new_formatting_context({'type' => '_string',
                                           'contents' => [$translated_tree]},
-                                              $context_str);
+                                                     $context_str);
     } elsif ($reset_context eq 'css_string') {
       $translation_result = $self->html_convert_css_string($translated_tree);
     }
@@ -10968,11 +10998,23 @@ sub _file_header_information($$;$)
       }
       # TRANSLATORS: sectioning element title for the page header
       my $title_tree = $self->cdt('{element_text} ({title})',
-                   { 'title' => $self->get_info('title_tree'),
-                     'element_text' => $element_tree });
-      $title = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$title_tree]},
-          $command->{'cmdname'}, 'element_title');
+                                  {'title' => $self->get_info('title_tree'),
+                                   'element_text' => $element_tree });
+
+      my $context_str = 'file_header_title-element-';
+      if ($command->{'cmdname'}) {
+        $context_str .= '@'.$command->{'cmdname'};
+      } elsif ($command->{'type'}) {
+        $context_str .= $command->{'type'};
+      }
+      # NOTE 'element_title' is not unique although this could be called
+      # for each file.  We are in string context, though, so it is
+      # probably not important.
+      $title
+        = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                                 'contents' => [$title_tree]},
+                                                     $context_str,
+                                                     'element_title');
     }
   }
   $title = $self->get_info('title_string') if (!defined($title));
@@ -10993,8 +11035,9 @@ sub _file_header_information($$;$)
 
   my $date = '';
   if ($self->get_conf('DATE_IN_HEADER')) {
-    my $today = $self->convert_tree_new_formatting_context(
-            {'cmdname' => 'today'}, 'DATE_IN_HEADER');
+    my $today
+      = $self->convert_tree_new_formatting_context({'cmdname' => 'today'},
+                                                   'DATE_IN_HEADER');
     $date =
       $self->close_html_lone_element(
         "<meta name=\"date\" content=\"$today\"")."\n";
@@ -12274,9 +12317,10 @@ sub _prepare_converted_output_info($)
   my $html_title_string;
   if ($fulltitle_tree) {
     $self->{'title_tree'} = $fulltitle_tree;
-    $html_title_string = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
-          'title_string');
+    $html_title_string
+      = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                       'contents' => [$self->{'title_tree'}]},
+                                                   'title_string');
     if ($html_title_string !~ /\S/) {
       $html_title_string = undef;
     }
@@ -12284,9 +12328,10 @@ sub _prepare_converted_output_info($)
   if (!defined($html_title_string)) {
     my $default_title = $self->cdt('Untitled Document');
     $self->{'title_tree'} = $default_title;
-    $self->{'title_string'} = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
-          'title_string');
+    $self->{'title_string'}
+      = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                     'contents' => [$self->{'title_tree'}]},
+                                                   'title_string');
 
     my $input_file_name;
     if ($self->{'document'}) {
@@ -12329,11 +12374,10 @@ sub _prepare_converted_output_info($)
       = $self->get_conf('documentdescription');
   } elsif ($global_commands and $global_commands->{'documentdescription'}) {
     $self->{'documentdescription_string'}
-      = $self->convert_tree_new_formatting_context(
-       {'type' => '_string',
-        'contents' =>
-            $global_commands->{'documentdescription'}->{'contents'}},
-       'documentdescription');
+      = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                                    'contents' =>
+                     $global_commands->{'documentdescription'}->{'contents'}},
+                                                   'documentdescription');
     chomp($self->{'documentdescription_string'});
   }
 }
@@ -13332,6 +13376,9 @@ sub _convert($$;$)
 
       _convert_command_update_context($self, $command_name);
 
+      # TODO remove some time in the future of 2024, it is not used
+      # in texi2any and have never been documented.  It may be used in 3rd
+      # party codes, though.
       if ($element->{'cmdname'} eq 'node') {
         $self->{'current_node'} = $element;
       }
