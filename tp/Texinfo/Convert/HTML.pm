@@ -11375,9 +11375,9 @@ sub _default_format_special_body_about($$$)
 
   my $about = '';
   if ($self->get_conf('PROGRAM_NAME_IN_ABOUT')) {
-    $about .= "<p>\n";
-    $about .= '  '.&{$self->formatting_function('format_program_string')}($self) ."\n";
-    $about .= "</p>\n";
+    $about .= "<p>\n  ";
+    $about .= &{$self->formatting_function('format_program_string')}($self);
+    $about .= "\n</p>\n";
   }
   $about .= "<p>\n";
   $about .= $self->convert_tree(
@@ -11389,14 +11389,14 @@ sub _default_format_special_body_about($$$)
   <tr>
 EOT
    # TRANSLATORS: direction column header in the navigation help
-  $about .= '    <th> ' . $self->convert_tree($self->cdt('Button')) . " </th>\n" .
+  $about .= '    <th> '. $self->convert_tree($self->cdt('Button'))." </th>\n".
    # TRANSLATORS: button label column header in the navigation help
    '    <th> ' . $self->convert_tree($self->cdt('Name')) . " </th>\n" .
    # TRANSLATORS: direction description column header in the navigation help
    '    <th> ' . $self->convert_tree($self->cdt('Go to')) . " </th>\n" .
    # TRANSLATORS: section reached column header in the navigation help
-   '    <th> ' . $self->convert_tree($self->cdt('From 1.2.3 go to')) . "</th>\n"
- . "  </tr>\n";
+   '    <th> ' . $self->convert_tree($self->cdt('From 1.2.3 go to'))."</th>\n"
+   . "  </tr>\n";
 
   my $active_icons;
   if ($self->get_conf('ICONS')) {
@@ -11475,32 +11475,40 @@ EOT
         </ul>
       </li>
 EOT
+  $about .= '      <li>1.2 ' .
                  # TRANSLATORS: example name of section for section 1.2
-  $about .= '      <li>1.2 ' . $self->convert_tree($self->cdt('Subsection One-Two')) . "\n" .
+            $self->convert_tree($self->cdt('Subsection One-Two')) . "\n" .
 "        <ul>\n" .
+'          <li>1.2.1 ' .
                  # TRANSLATORS: example name of section for section 1.2.1
-'          <li>1.2.1 ' . $self->convert_tree($self->cdt('Subsubsection One-Two-One')) . "</li>\n" .
+    $self->convert_tree($self->cdt('Subsubsection One-Two-One')) . "</li>\n" .
+'          <li>1.2.2 ' .
                  # TRANSLATORS: example name of section for section 1.2.2
-'          <li>1.2.2 ' . $self->convert_tree($self->cdt('Subsubsection One-Two-Two')) . "</li>\n" .
+    $self->convert_tree($self->cdt('Subsubsection One-Two-Two')) . "</li>\n" .
+'          <li>1.2.3 ' .
                  # TRANSLATORS: example name of section for section 1.2.3
-'          <li>1.2.3 ' . $self->convert_tree($self->cdt('Subsubsection One-Two-Three'))
+        $self->convert_tree($self->cdt('Subsubsection One-Two-Three'))
                   . " $non_breaking_space $non_breaking_space\n"
 .
-'            <strong>&lt;== ' . $self->convert_tree($self->cdt('Current Position')) . " </strong></li>\n" .
+'            <strong>&lt;== ' .
+   $self->convert_tree($self->cdt('Current Position')) . " </strong></li>\n" .
+'          <li>1.2.4 ' .
                  # TRANSLATORS: example name of section for section 1.2.4
-'          <li>1.2.4 ' . $self->convert_tree($self->cdt('Subsubsection One-Two-Four')) . "</li>\n" .
+  $self->convert_tree($self->cdt('Subsubsection One-Two-Four')) . "</li>\n" .
 "        </ul>\n" .
 "      </li>\n" .
+'      <li>1.3 ' .
                  # TRANSLATORS: example name of section for section 1.3
-'      <li>1.3 ' . $self->convert_tree($self->cdt('Subsection One-Three')) . "\n";
+          $self->convert_tree($self->cdt('Subsection One-Three')) . "\n";
   $about .= <<EOT;
         <ul>
           <li>...</li>
         </ul>
       </li>
 EOT
+  $about .= '      <li>1.4 ' .
                  # TRANSLATORS: example name of section for section 1.4
-  $about .= '      <li>1.4 ' . $self->convert_tree($self->cdt('Subsection One-Four')) . "</li>\n";
+         $self->convert_tree($self->cdt('Subsection One-Four')) . "</li>\n";
 
   $about .= <<EOT;
     </ul>
