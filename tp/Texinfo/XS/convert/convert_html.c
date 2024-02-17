@@ -4168,7 +4168,9 @@ from_element_direction (CONVERTER *self, int direction,
           else if (type == HTT_target)
             {
               if (command)
-                return html_command_id (self, command);
+                {
+                  return html_command_id (self, command);
+                }
               else
                 return 0;
             }
@@ -8803,7 +8805,7 @@ convert_anchor_command (CONVERTER *self, const enum command_id cmd,
 {
   if (!html_in_multi_expanded (self) && !html_in_string (self))
     {
-      char *id = html_command_id (self, element);
+      const char *id = html_command_id (self, element);
       if (id && strlen (id))
         {
           format_separate_anchor (self, id, "anchor", result);
@@ -9690,6 +9692,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
                 = self->command_special_variety_name_index[j];
           if (cmd_variety_index.cmd == cmd)
             {
+              const char *id;
               char *heading = 0;
               TEXT result;
               STRING_LIST *classes;
@@ -9704,6 +9707,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
                                                 special_unit_variety);
               const OUTPUT_UNIT *special_unit
                 = self->global_units_directions[special_unit_direction_index];
+              const ELEMENT *unit_command = special_unit->unit_command;
 
               text_init (&result);
 
@@ -9722,28 +9726,11 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
               text_append (&result, attribute_class);
               free (attribute_class);
 
-              if (special_unit)
-                {
-                  ELEMENT *unit_command = special_unit->unit_command;
-                  char *id = html_command_id (self, unit_command);
-                  if (id && strlen (id))
-                    text_printf (&result, " id=\"%s\"", id);
-                  heading = html_command_text (self, unit_command, 0);
-                }
-              else
-                { /* happens when called as convert() and not output() */
-                  ELEMENT *heading_tree = special_unit_info_tree (self,
-                                   SUIT_type_heading, special_unit_variety);
-                  if (heading_tree)
-                    {
-                      char *explanation;
-                      xasprintf (&explanation, "convert %s special heading",
-                                               builtin_command_name (cmd));
-                      heading = html_convert_tree (self, heading_tree,
-                                                   explanation);
-                      free (explanation);
-                    }
-                }
+              id = html_command_id (self, unit_command);
+              if (id && strlen (id))
+                text_printf (&result, " id=\"%s\"", id);
+              heading = html_command_text (self, unit_command, 0);
+
               text_append_n (&result, ">\n", 2);
 
               xasprintf (&class, "%s-heading", class_base);
@@ -9857,7 +9844,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  char *element_id;
+  const char *element_id;
   OUTPUT_UNIT *output_unit = 0;
   TEXT element_header;
   /* could use only one, but this is more similar to perl code */
@@ -9868,7 +9855,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   char *heading;
   int heading_level = -1;
   int do_heading;
-  char *heading_id = 0;
+  const char *heading_id = 0;
   char *level_set_class = 0;
 
   const ELEMENT *opening_section = 0;
@@ -11088,7 +11075,7 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
   char *attribute_class;
   STRING_LIST *classes;
 
-  char *id;
+  const char *id;
   char *prepended_text = 0;
   char *caption_text = 0;
   char *caption_command_name = 0;
@@ -11750,7 +11737,7 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
           ELEMENT *converted_e;
           TREE_ADDED_ELEMENTS *tree;
           char *anchor = 0;
-          char *index_entry_id;
+          const char *index_entry_id;
           char *pre_class_close = 0;
 
           if (cmd != CM_item)
@@ -12473,7 +12460,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   const char *index_name;
   INDEX_SORTED_BY_LETTER *idx;
   INDEX_SORTED_BY_LETTER *index_sorted = 0;
-  char *index_element_id;
+  const char *index_element_id;
   char **letter_id;
   char **alpha;
   char **non_alpha;
@@ -14035,7 +14022,7 @@ convert_index_entry_command_type (CONVERTER *self, const enum element_type type,
                        const ELEMENT *element, const char *content,
                        TEXT *result)
 {
-  char *index_id;
+  const char *index_id;
 
   if (html_in_string (self) || html_in_multi_expanded (self))
     return;
@@ -14717,7 +14704,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
                        const ELEMENT *element, const char *content,
                        TEXT *result)
 {
-  char *index_id;
+  const char *index_id;
   PARSED_DEF *parsed_def;
   STRING_LIST *classes;
   char *attribute_class;
@@ -15208,7 +15195,7 @@ convert_special_unit_type (CONVERTER *self,
   size_t number;
   TEXT special_unit_body;
   ELEMENT *unit_command;
-  char *id;
+  const char *id;
   char *class_base;
   char *attribute_class;
   char *class;

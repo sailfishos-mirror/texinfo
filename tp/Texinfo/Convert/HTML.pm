@@ -4478,8 +4478,8 @@ sub _default_format_button($$;$)
     }
     $need_delimiter = 0;
   }
-  # FIXME chose another option among those proposed in comments below?
   if (not defined($need_delimiter)) {
+    # NOTE other options could have been chosen in that case:
     # option 1: be forgiving if $need_delimiter is not set
     # if ($html_default_node_directions{$button}) {
     #   $need_delimiter = 1;
@@ -4504,7 +4504,7 @@ sub _default_format_navigation_panel($$$$;$)
   my $source_command = shift;
   my $vertical = shift;
 
-  # do the buttons first in case they are formatteed as an empty string
+  # do the buttons first in case they are formatted as an empty string
   my $nr_of_buttons_shown = 0;
   my $result_buttons = '';
   foreach my $button (@$buttons) {
@@ -4530,7 +4530,7 @@ sub _default_format_navigation_panel($$$$;$)
                                                               $source_command);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       $result_buttons .= '<tr>'."\n" if $vertical;
-      $result_buttons .=  '<td>';
+      $result_buttons .= '<td>';
 
       if (defined($active)) {
         $result_buttons .= $active;
@@ -4554,9 +4554,9 @@ sub _default_format_navigation_panel($$$$;$)
 
   my $result = '';
 
-  # if VERTICAL_HEAD_NAVIGATION, the buttons are in a vertical table which
-  # is itself in the first column of a table opened in header_navigation
-  #my $vertical = $self->get_conf('VERTICAL_HEAD_NAVIGATION');
+  # if $vertical/VERTICAL_HEAD_NAVIGATION, the buttons are in a vertical
+  # table which is itself in the first column of a table opened in
+  # header_navigation
 
   if ($self->get_conf('HEADER_IN_TABLE')) {
     $result .= $self->html_attribute_class('table', ['nav-panel'])
@@ -4733,23 +4733,12 @@ sub _contents_inline_element($$$)
           = $self->command_name_special_unit_information($cmdname);
     # FIXME is element- the best prefix?
     my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
-    my $heading;
-    if ($special_unit) {
-      my $unit_command = $special_unit->{'unit_command'};
-      my $id = $self->command_id($unit_command);
-      if (defined($id) and $id ne '') {
-        $result .= " id=\"$id\"";
-      }
-      $heading = $self->command_text($unit_command);
-    } else {
-      # happens when called as convert() and not output()
-      my $heading_tree = $self->special_unit_info('heading_tree',
-                                             $special_unit_variety);
-      if (defined($heading_tree)) {
-        $heading = $self->convert_tree($heading_tree,
-                                       "convert $cmdname special heading");
-      }
+    my $unit_command = $special_unit->{'unit_command'};
+    my $id = $self->command_id($unit_command);
+    if (defined($id) and $id ne '') {
+      $result .= " id=\"$id\"";
     }
+    my $heading = $self->command_text($unit_command);
     $heading = '' if (!defined($heading));
     $result .= ">\n";
     $result .= &{$self->formatting_function('format_heading_text')}($self,
@@ -7986,8 +7975,9 @@ $default_output_units_conversion{'special_unit'}
   = \&_convert_special_unit_type;
 
 # Function for converting the output units.  The node and associated section
-# appear together in the output unit.  $ELEMENT was created in this module (in
-# _prepare_conversion_units), it's not a tree element (created by the parser).
+# appear together in the output unit.  $OUTPUT_UNIT was created in this
+# module (in _prepare_conversion_units), it's not a tree element (created
+# by the parser).
 # $CONTENT is the contents of the output unit, already converted.
 sub _convert_unit_type($$$$)
 {
