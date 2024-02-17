@@ -2776,8 +2776,8 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
   return result.text;
 }
 
-/* This function should be used in formatting functions when some
-   Texinfo tree need to be converted. */
+/* Call convert_tree out of the main conversion flow.
+ */
 char *
 convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
                               const char *context_string, char *multiple_pass,
@@ -2787,14 +2787,11 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   char *result;
   char *multiple_pass_str = "";
   char *explanation;
-  char *context_string_str = "";
+  char *context_string_str;
 
-  if (context_string)
-    {
-      html_new_document_context (self, context_string,
-                                 document_global_context, block_cmd);
-      xasprintf (&context_string_str, "C(%s)", context_string);
-    }
+  html_new_document_context (self, context_string,
+                             document_global_context, block_cmd);
+  xasprintf (&context_string_str, "C(%s)", context_string);
 
   if (multiple_pass)
     {
@@ -2813,18 +2810,15 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 
   free (explanation);
 
-  if (context_string)
-    {
-      html_pop_document_context (self);
-      free (context_string_str);
-    }
-
   if (multiple_pass)
     {
       self->ignore_notice--;
       pop_string_stack (&self->multiple_pass);
       self->modified_state |= HMSF_multiple_pass | HMSF_ignore_notice;
     }
+
+  free (context_string_str);
+  html_pop_document_context (self);
 
   return result;
 }

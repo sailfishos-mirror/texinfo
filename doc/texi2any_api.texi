@@ -1429,16 +1429,15 @@ For such cases, the function is
 @deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree_new_formatting_context @
       (@var{\%element}, @var{$context}, @var{$multiple_pass}, @var{$global_context}, @
        @var{$block_command_name})
-@var{\%element} is a Texinfo tree element.  @var{$context} is an optional
-string describing the new context to be setup to format out of the main
-conversion flow.  If not defined, the conversion is done in the main document
-flow.  @var{$multiple_pass} is an optional string that marks that the
-conversion is done more than once.  It should be unique and suitable for
-inclusion in targets and identifiers.  @var{$global_context} is an optional
-string that marks that the formatting may be done in advance, and can be
-redone.  @var{$block_command_name} is an optional block command name that is
-used to initialized the new context.  It can be useful, in particular, to propagate
-the topmost block command in the new context.
+@var{\%element} is a Texinfo tree element.  @var{$context} describes the new
+context setup to format out of the main conversion flow.  @var{$multiple_pass}
+is an optional string that marks that the conversion is done more than once.
+It should be unique and suitable for inclusion in targets and identifiers.
+@var{$global_context} is an optional string that marks that the formatting may
+be done in advance, and can be redone.  @var{$block_command_name} is an
+optional block command name that is used to initialized the new context.  It
+can be useful, in particular, to propagate the topmost block command in the new
+context.
 
 The function returns @var{\%element} converted, setting the conversion context
 according to the arguments.
@@ -3560,7 +3559,7 @@ Retrieve the @var{$direction} (@pxref{Directions}) string of type
 @var{$string_type} (@pxref{Direction Strings}).  @var{$context} is
 @samp{normal} or @samp{string}.  @xref{Init File Expansion Contexts}.  If
 @var{$context} is @code{undef}, the @samp{normal} context is assumed.
-The string will be translated if needed.
+The string will be translated if needed.  May return @code{undef}.
 @end deftypefun
 
 

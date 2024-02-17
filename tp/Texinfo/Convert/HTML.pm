@@ -2372,10 +2372,8 @@ sub get_info($$)
   return undef;
 }
 
-# This function should be used in formatting functions when some
-# Texinfo tree need to be converted.
-# FIXME make $context_string a non-optional argument?
-sub convert_tree_new_formatting_context($$;$$$$)
+# Call convert_tree out of the main conversion flow.
+sub convert_tree_new_formatting_context($$$;$$$)
 {
   my $self = shift;
   my $tree = shift;
@@ -2384,28 +2382,29 @@ sub convert_tree_new_formatting_context($$;$$$$)
   my $document_global_context = shift;
   my $block_command = shift;
 
-  my $context_string_str = '';
-  if (defined($context_string)) {
-    $self->_new_document_context($context_string, $document_global_context,
-                                 $block_command);
-    $context_string_str = "C($context_string)";
-  }
+  $self->_new_document_context($context_string, $document_global_context,
+                               $block_command);
+
+  my $context_string_str = "C($context_string)";
   my $multiple_pass_str = '';
+
   if ($multiple_pass) {
     $self->{'ignore_notice'}++;
     push @{$self->{'multiple_pass'}}, $multiple_pass;
     $multiple_pass_str = '|M'
   }
+
   print STDERR "new_fmt_ctx ${context_string_str}${multiple_pass_str}\n"
         if ($self->get_conf('DEBUG'));
   my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
-  if (defined($context_string)) {
-    $self->_pop_document_context();
-  }
+
   if ($multiple_pass) {
     $self->{'ignore_notice'}--;
     pop @{$self->{'multiple_pass'}};
   }
+
+  $self->_pop_document_context();
+
   return $result;
 }
 
@@ -11533,7 +11532,8 @@ sub _default_format_special_body_shortcontents($$$)
   my $special_type = shift;
   my $element = shift;
 
-  return &{$self->formatting_function('format_contents')}($self, 'shortcontents');
+  return &{$self->formatting_function('format_contents')}($self,
+                                                          'shortcontents');
 }
 
 sub _default_format_special_body_footnotes($$$)
@@ -11560,8 +11560,8 @@ sub _do_jslicenses_file {
 
   my $doctype = $self->get_conf('DOCTYPE');
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
-  my $a = $doctype . "\n" .
-"<html${root_html_element_attributes}>".'<head><title>jslicense labels</title></head>
+  my $a = $doctype . "\n" ."<html${root_html_element_attributes}>"
+   .'<head><title>jslicense labels</title></head>
 <body>
 <table id="jslicense-labels1">
 ';
@@ -11571,7 +11571,8 @@ sub _do_jslicenses_file {
     foreach my $file (sort(keys %{$jslicenses->{$category}})) {
       my $file_info = $jslicenses->{$category}->{$file};
       $a .= "<tr>\n";
-      $a .= '<td><a href="'.$self->url_protect_url_text($file)."\">$file</a></td>\n";
+      $a .= '<td><a href="'.
+                 $self->url_protect_url_text($file)."\">$file</a></td>\n";
       $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[1])
                                          ."\">$file_info->[0]</a></td>\n";
       $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[2])
