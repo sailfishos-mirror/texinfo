@@ -966,6 +966,7 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
       int i;
       SV **direction_sv = 0;
       HV *direction_hv = 0;
+      const char *type_name = direction_string_type_names[DS_type];
 
       converter->directions_strings[DS_type] = (char ***)
         malloc (nr_string_directions * sizeof (char **));
@@ -974,7 +975,6 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
 
       if (directions_strings_sv)
         {
-          const char *type_name = direction_string_type_names[DS_type];
           direction_sv = hv_fetch (directions_strings_hv, type_name,
                                    strlen (type_name), 0);
           if (direction_sv)
@@ -1016,7 +1016,7 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
                       SV **value_sv = hv_fetch (context_hv, context_name,
                                                 strlen (context_name), 0);
 
-                      if (value_sv)
+                      if (value_sv && SvOK (*value_sv))
                         {
                            converter->directions_strings[DS_type][i][j]
                              = strdup ((char *) SvPVutf8_nolen (*value_sv));

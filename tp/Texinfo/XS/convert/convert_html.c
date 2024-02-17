@@ -2868,7 +2868,8 @@ direction_string (CONVERTER *self, int direction,
   else if (direction > NON_SPECIAL_DIRECTIONS_NR - 1)
     direction -= FIRSTINFILE_NR;
 
-  if (!self->directions_strings[string_type][direction][context])
+  if (!self->directions_strings[string_type][direction][context]
+      && string_type < TDS_TRANSLATED_MAX_NR)
     {
       HTML_DIRECTION_STRING_TRANSLATED *dir_translated
         = &self->translated_direction_strings[string_type][direction];
@@ -7320,7 +7321,9 @@ default_panel_button_dynamic_direction_internal (CONVERTER *self,
 
   if (node && node[strspn (node, whitespace_chars)] != '\0')
     {
-      char *text = direction_string (self, direction, TDS_type_text, 0);
+      const char *text = direction_string (self, direction, TDS_type_text, 0);
+      if (!text)
+        text = "";
       if (href && strlen (href))
         {
           char *hyperlink
@@ -7491,8 +7494,11 @@ html_default_format_button (CONVERTER *self,
             }
           else
             {
-              formatted_button->active = strdup (direction_string (self,
-                                    button->direction, TDS_type_text, 0));
+              const char *button_text = direction_string (self,
+                                    button->direction, TDS_type_text, 0);
+              if (!button_text)
+                button_text = "";
+              formatted_button->active = strdup (button_text);
             }
           formatted_button->need_delimiter = 0;
         }
@@ -7541,8 +7547,8 @@ html_default_format_button (CONVERTER *self,
               text_append_n (&active_text, ">", 1);
               if (active_icon)
                 {
-                  char *button_name_string = direction_string (self,
-                                     button->direction, TDS_type_button,
+                  const char *button_name_string = direction_string (self,
+                                       button->direction, TDS_type_button,
                                                       TDS_context_string);
                   char *icon_name = from_element_direction (self,
                                                         button->direction,
@@ -7557,9 +7563,12 @@ html_default_format_button (CONVERTER *self,
                   free (icon_img);
                 }
               else
-                text_append (&active_text,
-                             direction_string (self, button->direction,
-                                               TDS_type_text, 0));
+                {
+                  const char *button_text_string = direction_string (self,
+                                     button->direction, TDS_type_text, 0);
+                  if (button_text_string)
+                    text_append (&active_text, button_text_string);
+                }
 
               text_append_n (&active_text, "</a>", 4);
 
@@ -7604,10 +7613,11 @@ html_default_format_button (CONVERTER *self,
                 }
               else
                 {
+                  const char *button_text_string = direction_string (self,
+                                     button->direction, TDS_type_text, 0);
                   text_append_n (&passive_text, "[", 1);
-                  text_append (&passive_text,
-                             direction_string (self, button->direction,
-                                               TDS_type_text, 0));
+                  if (button_text_string)
+                    text_append (&passive_text, button_text_string);
                   text_append_n (&passive_text, "]", 1);
                 }
               formatted_button->passive = passive_text.text;
@@ -15537,6 +15547,9 @@ default_format_special_body_about (CONVERTER *self,
       const BUTTON_SPECIFICATION *button = &buttons->list[i];
       char * attribute_class;
       int direction = -1;
+      const char *button_name;
+      const char *button_description;
+      const char *button_example;
 
       if (button->type == BST_direction_info)
         direction = button->button_info->direction;
@@ -15573,9 +15586,11 @@ default_format_special_body_about (CONVERTER *self,
             }
           else
             {
+              const char *button_text = direction_string (self, direction,
+                                                          TDS_type_text, 0);
               text_append_n (result, " [", 2);
-              text_append (result, direction_string (self, direction,
-                                                     TDS_type_text, 0));
+              if (button_text)
+                text_append (result, button_text);
               text_append_n (result, "] ", 2);
             }
         }
@@ -15586,14 +15601,18 @@ default_format_special_body_about (CONVERTER *self,
       free (attribute_class);
       text_append_n (result, ">", 1);
 
-      text_append (result, direction_string (self, direction,
-                                             TDS_type_button, 0));
+      button_name = direction_string (self, direction, TDS_type_button, 0);
+      if (button_name)
+        text_append (result, button_name);
       text_append_n (result, "</td>\n    <td>", 14);
-      text_append (result, direction_string (self, direction,
-                                             TDS_type_description, 0));
+      button_description = direction_string (self, direction,
+                                             TDS_type_description, 0);
+      if (button_description)
+        text_append (result, button_description);
       text_append_n (result, "</td>\n    <td>", 14);
-      text_append (result, direction_string (self, direction,
-                                             TDS_type_example, 0));
+      button_example = direction_string (self, direction, TDS_type_example, 0);
+      if (button_example)
+        text_append (result, button_example);
       text_append_n (result, "</td>\n  </tr>\n", 14);
     }
 

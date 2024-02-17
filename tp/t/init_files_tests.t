@@ -30,6 +30,25 @@ pt @error{}.
 }],
 );
 
+my $direction_strings_test_text = '@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@node chap2
+@chapter Chap 2
+
+@node sec1
+@section Sec 1
+
+@node sec2
+@section Sec 2
+
+@node sec3
+@section Sec 3
+';
+
 my @file_tests = (
 ['customize_translations',
 '
@@ -155,6 +174,18 @@ DOC
 @end deftypeop
 
 ', {'init_files' => ['translation_in_parser_in_translation.pm']}],
+# usefull to setup a base for comparison with the next test
+['directions_string_base',
+$direction_strings_test_text,],
+['directions_string_undef',
+$direction_strings_test_text,
+{'init_files' => ['directions_string_undef.pm']},],
+# test texi2html style buttons and directions strings undef
+['directions_string_undef_texi2html',
+$direction_strings_test_text,
+{'init_files' => ['directions_string_undef.pm']},
+{'TEXI2HTML' => 1},
+],
 );
 
 foreach my $test (@test_cases) {

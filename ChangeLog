@@ -1,5 +1,29 @@
 2024-02-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (direction_string),
+	tp/Texinfo/XS/convert/convert_html.c (direction_string): do not
+	access untranslated direction strings types for translated
+	translations strings.
+
+	* tp/Texinfo/Convert/HTML.pm (%default_converted_directions_strings):
+	keep one empty direction string undef.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_panel_button_dynamic_direction)
+	(_default_format_button, _default_format_special_body_about)
+	(conversion_initialization), tp/Texinfo/XS/convert/convert_html.c
+	(default_panel_button_dynamic_direction_internal)
+	(html_default_format_button, default_format_special_body_about),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_conversion_initialization_sv): handle undef direction strings.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres,
+	tp/t/init_files_tests.t ($direction_strings_test_text)
+	(directions_string_base, direction_strings_test_text)
+	(directions_string_undef_texi2html),
+	tp/t/init/directions_string_undef.pm: test directions strings undef.
+
+2024-02-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%format_context_commands),
 	tp/Texinfo/XS/convert/convert_html.c (html_format_init): do not set
 	raw format block commands as format_context_command, it is not needed

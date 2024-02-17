@@ -1254,7 +1254,8 @@ sub _internal_command_tree($$$)
       } elsif ($command->{'cmdname'}
                and ($command->{'cmdname'} eq 'node'
                     or $command->{'cmdname'} eq 'anchor')) {
-        # FIXME is it possible not to have contents (nor args)?
+        # to be a target, the node or anchor cannot be empty (nor expand to
+        # spaces only), so argument is necessarily set.
         $tree = {'type' => '_code',
                  'contents' => [$command->{'args'}->[0]]};
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
@@ -1459,14 +1460,14 @@ sub command_text($$;$)
     } elsif ($command->{'type'}) {
       $context_str .= $command->{'type'};
     }
-    # NOTE the multiple pass argument is not unicized, however the
-    # external node manual label should in general be converted only
-    # once, and even if it is converted more than once, it is unlikely
-    # to contain @-commands which should better be converted only once.
+    # NOTE the multiple pass argument is not unicized, and no global
+    # context argument is given because the external node manual label
+    # should in general be converted only once.
+    # In addition, regarding multiple pass, it is unlikely for
+    # @-commands which should better be converted only once to be present.
     my $result
       = $self->convert_tree_new_formatting_context($tree,
                                                    $context_str,
-      # FIXME check if $document_global_context argument would be needed?
                                                'command_text-manual_content');
     return $result;
   }
@@ -1767,13 +1768,16 @@ sub direction_string($$$;$)
 
   $direction =~ s/^FirstInFile//;
 
+  my $translated_directions_strings = $self->{'translated_direction_strings'};
+
   if (not $self->{'directions_strings'}->{$string_type}->{$direction}
-      or not exists($self->{'directions_strings'}->{$string_type}
+       or not exists($self->{'directions_strings'}->{$string_type}
                                                 ->{$direction}->{$context})) {
     $self->{'directions_strings'}->{$string_type}->{$direction} = {}
       if not ($self->{'directions_strings'}->{$string_type}->{$direction});
-    my $translated_directions_strings = $self->{'translated_direction_strings'};
-    if (defined($translated_directions_strings->{$string_type}
+    if ($translated_directions_strings->{$string_type}
+        and $translated_directions_strings->{$string_type}->{$direction}
+        and defined($translated_directions_strings->{$string_type}
                                               ->{$direction}->{'converted'})) {
       # translate already converted direction strings
       my $converted_directions
@@ -1795,7 +1799,9 @@ sub direction_string($$$;$)
         $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
           = undef;
       }
-    } elsif (defined($translated_directions_strings->{$string_type}
+    } elsif ($translated_directions_strings->{$string_type}
+             and $translated_directions_strings->{$string_type}->{$direction}
+             and defined($translated_directions_strings->{$string_type}
                                             ->{$direction}->{'to_convert'})) {
       # translate direction strings that need to be translated and converted
       my $translation_context = $direction;
@@ -1835,7 +1841,6 @@ sub direction_string($$$;$)
       $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
         = $result_string;
     } else {
-      # FIXME or ''
       $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
          = undef;
     }
@@ -2592,7 +2597,9 @@ my %default_converted_directions_strings = (
   'accesskey' =>
    {
      'Top',         '',
-     'Contents',    '',
+     # this direction is set undef to make sure that it does not break
+     # any code.
+     #'Contents',    '',
      'Overview',    '',
      'Index',       '',
      'This',        '',
@@ -4238,7 +4245,9 @@ sub _default_panel_button_dynamic_direction($$;$$$)
       $hyperlink = $node;
     }
     # i18n
-    $result = $self->direction_string($direction, 'text').": $hyperlink";
+    my $direction_text = $self->direction_string($direction, 'text');
+    $direction_text = '' if (!defined($direction_text));
+    $result = $direction_text.": $hyperlink";
   }
   # 1 to communicate that a delimiter is needed for that button
   return ($result, 1);
@@ -4431,13 +4440,15 @@ sub _default_format_button($$;$)
                       $self->from_element_direction($button, 'string')) ."</a>";
         } else {
           # use text
-          $active = '[' . "<a href=\"$href\"${btitle}>".
-            $self->direction_string($button, 'text')."</a>" . ']';
+          my $button_text = $self->direction_string($button, 'text');
+          $button_text = '' if (!defined($button_text));
+          $active = '['."<a href=\"$href\"${btitle}>".$button_text."</a>".']';
         }
       } else {
         # use text
-        $active = '[' . "<a href=\"$href\"${btitle}>".
-          $self->direction_string($button, 'text')."</a>" . ']';
+        my $button_text = $self->direction_string($button, 'text');
+        $button_text = '' if (!defined($button_text));
+        $active = '['."<a href=\"$href\"${btitle}>".$button_text."</a>".']';
       }
     } else {
       # button is passive
@@ -4456,10 +4467,14 @@ sub _default_format_button($$;$)
                       $self, $button_name_string, $passive_icon,
                       $self->from_element_direction($button, 'string'));
         } else {
-          $passive = '[' . $self->direction_string($button, 'text') . ']';
+          my $button_text = $self->direction_string($button, 'text');
+          $button_text = '' if (!defined($button_text));
+          $passive = '['.$button_text. ']';
         }
       } else {
-        $passive = '[' . $self->direction_string($button, 'text') . ']';
+        my $button_text = $self->direction_string($button, 'text');
+        $button_text = '' if (!defined($button_text));
+        $passive = '['.$button_text. ']';
       }
     }
     $need_delimiter = 0;
@@ -11406,20 +11421,29 @@ EOT
       my $button_name_string
           = $self->direction_string($direction, 'button', 'string');
       # FIXME strip FirstInFile from $button to get active icon file?
-      $about .=
-        (($active_icons and $active_icons->{$direction}) ?
-            &{$self->formatting_function('format_button_icon_img')}($self,
+      if ($active_icons and $active_icons->{$direction}) {
+        $about
+         .= &{$self->formatting_function('format_button_icon_img')}($self,
                          $button_name_string, $active_icons->{$direction})
-        : ' [' . $self->direction_string($direction, 'text') . '] ');
+      } else {
+        my $direction_text = $self->direction_string($direction, 'text');
+        $direction_text = '' if (!defined($direction_text));
+        $about .= ' ['. $direction_text .'] ';
+      }
     }
     $about .= "</td>\n";
-    my $button_name
-          = $self->direction_string($direction, 'button');
+    my $direction_description
+      = $self->direction_string($direction, 'description');
+    $direction_description = '' if (!defined($direction_description));
+    my $direction_example = $self->direction_string($direction, 'example');
+    $direction_example = '' if (!defined($direction_example));
+    my $button_name = $self->direction_string($direction, 'button');
+    $button_name = '' if (!defined($button_name));
     $about .=
 '    '.$self->html_attribute_class('td', ['name-direction-about']).'>'
-    .$button_name."</td>
-    <td>".$self->direction_string($direction, 'description')."</td>
-    <td>".$self->direction_string($direction, 'example')."</td>
+    ."$button_name</td>
+    <td>$direction_description</td>
+    <td>$direction_example</td>
   </tr>
 ";
   }
@@ -11833,19 +11857,26 @@ sub conversion_initialization($;$)
           $string_contexts
             = $customized_direction_strings->{$string_type}
                                           ->{$direction}->{'converted'};
+        } else {
+          $string_contexts = {'normal' => undef };
         }
       } else {
         my $string
           = $default_converted_directions_strings{$string_type}->{$direction};
-        $string_contexts
-          = {'normal' => $string};
+        $string_contexts = {'normal' => $string};
       }
       $string_contexts->{'string'} = $string_contexts->{'normal'}
         if (not defined($string_contexts->{'string'}));
       foreach my $context (keys(%$string_contexts)) {
-        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
-          = $self->substitute_html_non_breaking_space(
-                                                  $string_contexts->{$context});
+        if (defined($string_contexts->{$context})) {
+          $self->{'directions_strings'}->{$string_type}
+                                     ->{$direction}->{$context}
+            = $self->substitute_html_non_breaking_space(
+                                             $string_contexts->{$context});
+        } else {
+          $self->{'directions_strings'}->{$string_type}
+                                     ->{$direction}->{$context} = undef;
+        }
       }
     }
   }
