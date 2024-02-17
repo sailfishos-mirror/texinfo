@@ -1,5 +1,22 @@
 2024-02-17  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Dynamic Converter Formatting Information),
+	tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(current_output_unit), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_current_output_unit), tp/Texinfo/XS/convert/convert_html.c
+	(convert_output_unit), tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state): add a function accessor for
+	convert_output_unit.  Add an XS override for the.  Do not pass
+	current_output_unit through build_html_formatting_state anymore, the
+	accessor function should be always be used instead.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tp/Texinfo/XS/convert/convert_html (convert_printindex_command):
+	instead of calling from_element_direction('This', 'target'), call
+	directly command_id on current_output_unit unit_command.
+
+2024-02-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_contents_inline_element),
 	tp/Texinfo/XS/convert/convert_html.c (contents_inline_element):
 	remove code that was different before when called as convert, but

@@ -398,15 +398,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
            newRV_inc ((SV *) converter->current_node->hv));
     }
 
-  if (flags & HMSF_current_output_unit)
-    {
-      if (!converter->current_output_unit)
-        STORE("current_output_unit", newSV (0));
-      else
-        STORE("current_output_unit",
-           newRV_inc ((SV *) converter->current_output_unit->hv));
-    }
-
   if (flags & HMSF_multiple_pass)
     {
       SV **multiple_pass_sv;

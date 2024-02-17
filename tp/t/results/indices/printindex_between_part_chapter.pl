@@ -861,34 +861,34 @@ $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div clas
 <hr>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Part-1_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node-chap1_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Part-1_cp_letter-C"><b>C</b></a>
+<a class="summary-letter-printindex" href="#node-chap1_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Part-1_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#node-chap1_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Part-1_cp_letter-A">A</th></tr>
+<tr><th id="node-chap1_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aop1">aop1</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aop1-1">aop1</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Part-1_cp_letter-C">C</th></tr>
+<tr><th id="node-chap1_cp_letter-C">C</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-chap2">chap2</a></td><td class="printindex-index-section"><a href="#node-chap2">node chap2</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-chap2-1">chap2</a></td><td class="printindex-index-section"><a href="#node-chap2">node chap2</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Part-1_cp_letter-T">T</th></tr>
+<tr><th id="node-chap1_cp_letter-T">T</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-top1">top1</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-top1-1">top1</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Part-1_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node-chap1_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Part-1_cp_letter-C"><b>C</b></a>
+<a class="summary-letter-printindex" href="#node-chap1_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Part-1_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#node-chap1_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
 </div>

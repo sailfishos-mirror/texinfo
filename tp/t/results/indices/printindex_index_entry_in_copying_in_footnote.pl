@@ -775,7 +775,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Top_cp_letter-C">C</th></tr>
+<tr><th id="chapter_cp_letter-C">C</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-copying-Copying-this-document">Copying this document</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

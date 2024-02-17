@@ -831,6 +831,19 @@ html_current_filename (SV *converter_in)
          RETVAL
 
 SV *
+html_current_output_unit (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in, "html_current_output_unit");
+         if (!self->current_output_unit)
+           RETVAL = newSV (0);
+         else
+           RETVAL = newRV_inc ((SV *) self->current_output_unit->hv);
+    OUTPUT:
+         RETVAL
+
+SV *
 html_count_elements_in_filename (SV *converter_in, char *spec, filename)
          char *filename = (char *)SvPVutf8_nolen($arg);
      PREINIT:

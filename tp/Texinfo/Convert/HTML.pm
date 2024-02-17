@@ -221,6 +221,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_in_align",
   "Texinfo::Convert::HTML::current_filename"
    => "Texinfo::Convert::ConvertXS::html_current_filename",
+  "Texinfo::Convert::HTML::current_output_unit"
+   => "Texinfo::Convert::ConvertXS::html_current_output_unit",
 
   "Texinfo::Convert::HTML::count_elements_in_filename"
    => "Texinfo::Convert::ConvertXS::html_count_elements_in_filename",
@@ -1580,14 +1582,14 @@ foreach my $no_number_type ('text', 'string') {
 #
 # This is used both for output units and external nodes
 #
-# If $SOURCE_UNIT is undef, $self->{'current_output_unit'} is used.
+# If $SOURCE_UNIT is undef, $self->current_output_unit() is used.
 #
 # $SOURCE_FOR_MESSAGES is an element used for messages formatting, to get a
 # location in input file.  It is better to choose the node and not the
 # sectioning command associated with the element, as the error messages
 # are about external nodes not found.
 #
-# $self->{'current_output_unit'} undef happens at least when there is no
+# $self->current_output_unit() undef happens at least when there is no
 # output file.  That call would result for instance from from_element_direction
 # being called from _get_links, itself called from 'format_begin_file'.
 # TODO are there other cases?
@@ -1604,7 +1606,7 @@ sub from_element_direction($$$;$$$)
   my $target_unit;
   my $command;
 
-  $source_unit = $self->{'current_output_unit'} if (!defined($source_unit));
+  $source_unit = $self->current_output_unit() if (!defined($source_unit));
   # NOTE $source_filename is only used for a command_href call.  If with XS,
   # if source_filename remains undef, the command_href XS code will set the
   # source_filename to the current filename in XS. Therefore undef
@@ -2339,6 +2341,12 @@ sub current_filename($)
 {
   my $self = shift;
   return $self->{'current_filename'};
+}
+
+sub current_output_unit($)
+{
+  my $self = shift;
+  return $self->{'current_output_unit'};
 }
 
 # information from converter available 'read-only', set up before
@@ -6306,7 +6314,12 @@ sub _convert_printindex_command($$$$)
   #    print STDERR "   ".join('|', keys(%$index_entry))."||| $index_entry->{'key'}\n";
   #  }
   #}
-  my $index_element_id = $self->from_element_direction('This', 'target');
+  my $index_element_id;
+  my $current_output_unit = $self->current_output_unit();
+  if ($current_output_unit and $current_output_unit->{'unit_command'}) {
+    $index_element_id
+     = $self->command_id ($current_output_unit->{'unit_command'});
+  }
   if (!defined($index_element_id)) {
     my ($root_element, $root_command)
         = $self->get_element_root_command_element($command);
@@ -8627,6 +8640,7 @@ sub _load_htmlxref_files {
 #
 #     API exists
 #  current_filename
+#  current_output_unit
 #  document_name
 #  destination_directory
 #  paragraph_symbol
@@ -8705,7 +8719,6 @@ sub _load_htmlxref_files {
 #     No API, converter internals
 #  document_units
 #  out_filepaths          (partially common with Texinfo::Converter)
-#  current_output_unit
 #  seen_ids
 #  ignore_notice
 #  options_latex_math

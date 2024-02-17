@@ -2981,6 +2981,12 @@ preformatted containers and @@-commands such as @code{@@abbr}, @code{@@footnote}
 @node Dynamic Converter Formatting Information
 @section Dynamic Converter Formatting Information
 
+To get the current output unit being converted, use @code{current_output_unit}:
+@deftypefun {@var{$output_unit} =} @var{$converter}->current_output_unit ()
+Return the output unit being converted, or @code{undef} if there is no
+output unit.
+@end deftypefun
+
 To get the file name of the current output unit being converted,
 use @code{current_filename}:
 @deftypefun {@var{$filename} =} @var{$converter}->current_filename ()

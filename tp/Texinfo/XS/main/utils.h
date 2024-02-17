@@ -109,8 +109,8 @@ enum command_location {
 #define HMSF_        0x0100
  */
 #define HMSF_current_node            0x0200
-#define HMSF_current_output_unit     0x0400
 /*
+#define HMSF_     0x0400
 #define HMSF_        0x0800
 */
 #define HMSF_ignore_notice           0x1000

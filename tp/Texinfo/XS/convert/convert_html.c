@@ -12460,7 +12460,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   const char *index_name;
   INDEX_SORTED_BY_LETTER *idx;
   INDEX_SORTED_BY_LETTER *index_sorted = 0;
-  const char *index_element_id;
+  const char *index_element_id = 0;
   char **letter_id;
   char **alpha;
   char **non_alpha;
@@ -12509,8 +12509,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   if (!index_sorted || !index_sorted->letter_number)
     return;
 
-  index_element_id = from_element_direction (self, D_direction_This,
-                                             HTT_target, 0, 0, 0);
+  if (self->current_output_unit && self->current_output_unit->unit_command)
+    index_element_id
+      = html_command_id (self, self->current_output_unit->unit_command);
+
   if (!index_element_id)
     {
       ROOT_AND_UNIT *root_unit
@@ -18205,7 +18207,6 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
     }
 
   self->current_output_unit = output_unit;
-  self->modified_state |= HMSF_current_output_unit;
 
   text_init (&content_formatted);
   text_append (&content_formatted, "");
@@ -18240,7 +18241,6 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
   free (content_formatted.text);
 
   self->current_output_unit = 0;
-  self->modified_state |= HMSF_current_output_unit;
 
   if (self->conf->DEBUG.integer > 0)
     fprintf (stderr, "DOUNIT (%s) => `%s'\n", output_unit_type_names[unit_type],
