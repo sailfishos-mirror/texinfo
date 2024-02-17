@@ -339,13 +339,6 @@ foreach my $def_command (keys(%def_commands)) {
   $formatted_line_commands{$def_command} = 1 if ($line_commands{$def_command});
 }
 
-# FIXME remove raw commands?
-my %format_context_commands = (%block_commands, %root_commands);
-
-foreach my $misc_context_command('tab', 'item', 'itemx', 'headitem') {
-  $format_context_commands{$misc_context_command} = 1;
-}
-
 my %HTML_align_commands;
 foreach my $align_command('raggedright', 'flushleft', 'flushright', 'center') {
   $HTML_align_commands{$align_command} = 1;
@@ -354,12 +347,19 @@ foreach my $align_command('raggedright', 'flushleft', 'flushright', 'center') {
 my %composition_context_commands = (%preformatted_commands, %root_commands,
   %HTML_align_commands);
 $composition_context_commands{'float'} = 1;
+my %format_context_commands = (%block_commands, %root_commands);
 my %format_raw_commands;
 foreach my $block_command (keys(%block_commands)) {
   $composition_context_commands{$block_command} = 1
     if ($block_commands{$block_command} eq 'menu');
-  $format_raw_commands{$block_command} = 1
-    if ($block_commands{$block_command} eq 'format_raw');
+  if ($block_commands{$block_command} eq 'format_raw') {
+    $format_raw_commands{$block_command} = 1;
+    delete $format_context_commands{$block_command};
+  }
+}
+
+foreach my $misc_context_command('tab', 'item', 'itemx', 'headitem') {
+  $format_context_commands{$misc_context_command} = 1;
 }
 
 
@@ -1767,17 +1767,18 @@ sub direction_string($$$;$)
 
   $direction =~ s/^FirstInFile//;
 
-  if (not exists($self->{'directions_strings'}->{$string_type}->{$direction})
+  if (not $self->{'directions_strings'}->{$string_type}->{$direction}
       or not exists($self->{'directions_strings'}->{$string_type}
-                                                 ->{$direction}->{$context})) {
+                                                ->{$direction}->{$context})) {
     $self->{'directions_strings'}->{$string_type}->{$direction} = {}
       if not ($self->{'directions_strings'}->{$string_type}->{$direction});
     my $translated_directions_strings = $self->{'translated_direction_strings'};
     if (defined($translated_directions_strings->{$string_type}
-                                                ->{$direction}->{'converted'})) {
+                                              ->{$direction}->{'converted'})) {
       # translate already converted direction strings
       my $converted_directions
-       = $translated_directions_strings->{$string_type}->{$direction}->{'converted'};
+       = $translated_directions_strings->{$string_type}
+                                          ->{$direction}->{'converted'};
       my $context_converted_string;
       if ($converted_directions->{$context}) {
         $context_converted_string = $converted_directions->{$context};
@@ -1814,15 +1815,23 @@ sub direction_string($$$;$)
         $converted_tree = $translated_tree;
       }
       my $context_str = "DIRECTION $direction ($string_type/$context)";
-      # FIXME calling convert_tree_new_formatting_context may remove
-      # $self->{'directions_strings'}->{$string_type}->{$direction}, that was
-      # set above if not already existing.
       my $result_string
          = $self->convert_tree_new_formatting_context($converted_tree,
                                                       $context_str,
                                                       undef, $context_str);
+      # NOTE direction strings should be simple Texinfo code, but it is
+      # possible to set to anything through customization.  Since
+      # anything except simple code is incorrect, there is no guarantee
+      # on the output, but it is good if there is no crash.
+      # If there is a @documentlanguage in $converted_tree, translate_names
+      # would be called and
+      # $self->{'directions_strings'}->{$string_type}->{$direction} would be
+      # reset.  So, for this very special case (tested in the test suite),
+      # there may be a need to set again even though it was already done
+      # just above.
       $self->{'directions_strings'}->{$string_type}->{$direction} = {}
           if (not $self->{'directions_strings'}->{$string_type}->{$direction});
+
       $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
         = $result_string;
     } else {
@@ -1831,7 +1840,8 @@ sub direction_string($$$;$)
          = undef;
     }
   }
-  return $self->{'directions_strings'}->{$string_type}->{$direction}->{$context};
+  return $self->{'directions_strings'}->{$string_type}
+                                       ->{$direction}->{$context};
 }
 
 my %default_translated_special_unit_info;
@@ -8176,8 +8186,8 @@ sub _default_format_element_footer($$$$;$)
           # splitting at [\h\v] may have been relevant, but then the result
           # would be different from XS code result and could give different
           # results in perl in some cases.
-          # FIXME it seems that NO-BREAK SPACE and NEXT LINE (NEL) may
-          # not be in \h and \v in some case, but not sure which case it is
+          # NOTE it seems that NO-BREAK SPACE and NEXT LINE (NEL) may
+          # not be in \h and \v in some case, but not sure when.
           # It is supposed to be explained but it is not very clear
           # https://perldoc.perl.org/perlrecharclass#Whitespace
           # [\h\v]+ does not match on solaris 11 with perl 5.10.1, not sure
@@ -9049,8 +9059,7 @@ sub convert_tree($$;$)
   return $self->_convert($tree, $explanation);
 }
 
-# FIXME document as part of the API.  Make it a mandatory called function?
-# a format_* function?
+# FIXME make it a format_* function?
 # protect an url, in which characters with specific meaning in url are considered
 # to have their specific meaning
 # TODO turn end of lines to spaces?  Currently, an end of line is percent
@@ -9068,8 +9077,7 @@ sub url_protect_url_text($$)
   return &{$self->formatting_function('format_protect_text')}($self, $href);
 }
 
-# FIXME document as part of the API.  Make it a mandatory called function?
-# a format_* function?
+# FIXME make it a format_* function?
 # protect a file path used in an url.  Characters appearing in file paths
 # are not protected.   All the other characters that can be percent
 # protected are protected, including characters with specific meaning in url.
@@ -9457,7 +9465,7 @@ sub _new_sectioning_command_target($$)
 
 # This set with two different codes
 #  * the target information, id and normalized filename of 'identifiers_target',
-#    ie everything that may be the target of a ref, @node, @float label,
+#    ie everything that may be the target of a ref: @node, @float label,
 #    @anchor.
 #  * The target information of sectioning elements
 # @node and section commands targets are therefore both set.
@@ -9489,7 +9497,8 @@ sub _set_root_commands_targets_node_files($)
                or not $target_element->{'extra'}->{'is_target'});
       my $label_element = Texinfo::Common::get_label_element($target_element);
       my ($node_filename, $target)
-        = $self->_normalized_label_id_file($target_element->{'extra'}->{'normalized'},
+        = $self->_normalized_label_id_file($target_element->{'extra'}
+                                                              ->{'normalized'},
                                            $label_element);
       $node_filename .= $extension;
       if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
@@ -9539,8 +9548,7 @@ sub _set_heading_commands_targets($)
   }
   if ($global_commands) {
     foreach my $cmdname (sort(keys(%sectioning_heading_commands))) {
-      if (!$root_commands{$cmdname}
-          and $global_commands->{$cmdname}) {
+      if (!$root_commands{$cmdname} and $global_commands->{$cmdname}) {
         foreach my $command (@{$global_commands->{$cmdname}}) {
           $self->_new_sectioning_command_target($command);
         }
@@ -9961,12 +9969,13 @@ sub _prepare_conversion_units($$$)
   $self->set_global_document_commands('last', \@conf_for_special_units);
   # NOTE if the last value of footnotestyle is separate, all the footnotes
   # formatted text are set to the special element set in _prepare_special_units
-  # as _html_get_tree_root_element uses the Footnote direction for every footnote.
-  # Therefore if @footnotestyle separate is set late in the document the current
-  # value may not be consistent with the link obtained for the footnote
-  # formatted text.  This is not an issue, as the manual says that
-  # @footnotestyle should only appear in the preamble, and it makes sense
-  # to have something consistent in the whole document for footnotes position.
+  # as _html_get_tree_root_element uses the Footnote direction for every
+  # footnote.  Therefore if @footnotestyle separate is set late in the
+  # document the current value may not be consistent with the link obtained
+  # for the footnote formatted text.  This is not an issue, as the manual
+  # says that @footnotestyle should only appear in the preamble, and it
+  # makes sense to have something consistent in the whole document for
+  # footnotes position.
   ($special_units, $associated_special_units)
      = $self->_prepare_special_units($output_units);
   # reset to the default
@@ -11109,9 +11118,7 @@ sub _file_header_information($$;$)
   }
   if ((defined($self->get_conf('HTML_MATH'))
        and $self->get_conf('HTML_MATH') eq 'mathjax')
-      and ($self->get_file_information('mathjax', $filename)
-            # FIXME do we really want the script element if no math was seen?
-            or !$self->get_conf('SPLIT'))) {
+      and ($self->get_file_information('mathjax', $filename))) {
     my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
 
     $extra_head .=
@@ -11654,7 +11661,8 @@ sub _initialize_output_state($$)
 }
 
 # This function initializes states that are initialized both in XS and
-# in perl.
+# in perl.  Called as early as possible in the conversion functions.
+# $DOCUMENT is the converted Texinfo parsed document.
 sub conversion_initialization($;$)
 {
   my $self = shift;
@@ -11673,14 +11681,16 @@ sub conversion_initialization($;$)
   my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
 
   foreach my $special_character (keys(%special_characters)) {
-    my ($default_entity, $unicode_point) = @{$special_characters{$special_character}};
+    my ($default_entity, $unicode_point)
+           = @{$special_characters{$special_character}};
     if ($self->get_conf('OUTPUT_CHARACTERS')
         and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
                                          $output_encoding, $unicode_point)) {
       $special_characters_set{$special_character}
                                     = charnames::vianame("U+$unicode_point");
     } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
-      $special_characters_set{$special_character} = '&#'.hex($unicode_point).';';
+      $special_characters_set{$special_character}
+                     = '&#'.hex($unicode_point).';';
     } else {
       $special_characters_set{$special_character} = $default_entity;
     }
@@ -11705,7 +11715,8 @@ sub conversion_initialization($;$)
     $self->set_conf('OPEN_QUOTE_SYMBOL', $special_characters_set{'left_quote'});
   }
   if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
-    $self->set_conf('CLOSE_QUOTE_SYMBOL', $special_characters_set{'right_quote'});
+    $self->set_conf('CLOSE_QUOTE_SYMBOL',
+                    $special_characters_set{'right_quote'});
   }
   if (not defined($self->get_conf('MENU_SYMBOL'))) {
     $self->set_conf('MENU_SYMBOL', $special_characters_set{'bullet'});
@@ -11737,12 +11748,15 @@ sub conversion_initialization($;$)
 
   %{$self->{'css_element_class_styles'}} = %css_element_class_styles;
 
+  # initialized here and not with the converter because it may depend on
+  # the document encoding.
   $self->{'no_arg_commands_formatting'} = {};
   foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     $self->{'no_arg_commands_formatting'}->{$command} = {};
     foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
       my $no_arg_command_customized_formatting
-        = Texinfo::Config::GNUT_get_no_arg_command_formatting($command, $context);
+        = Texinfo::Config::GNUT_get_no_arg_command_formatting($command,
+                                                              $context);
       if (defined($no_arg_command_customized_formatting)) {
         $self->{'no_arg_commands_formatting'}->{$command}->{$context}
            = $no_arg_command_customized_formatting;
@@ -11753,10 +11767,11 @@ sub conversion_initialization($;$)
           $context_default_default_no_arg_commands_formatting
            = $conf_default_no_arg_commands_formatting_normal;
         }
-        if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
+        if (defined($context_default_default_no_arg_commands_formatting
+                                                              ->{$command})) {
           if ($self->get_conf('OUTPUT_CHARACTERS')
               and Texinfo::Convert::Unicode::brace_no_arg_command(
-                             $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
+                         $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
             $self->{'no_arg_commands_formatting'}->{$command}->{$context}
               = { 'text' => Texinfo::Convert::Unicode::brace_no_arg_command(
                            $command, $self->get_conf('OUTPUT_ENCODING_NAME'))};
@@ -11801,7 +11816,8 @@ sub conversion_initialization($;$)
   #   - strings not already converted
   $self->{'directions_strings'} = {};
 
-  # here because substitute_html_non_breaking_space is used
+  # initialized here and not with the converter because
+  # substitute_html_non_breaking_space is used and it depends on the document.
   my $customized_direction_strings
       = Texinfo::Config::GNUT_get_direction_string_info();
   foreach my $string_type (keys(%default_converted_directions_strings)) {
@@ -11964,6 +11980,9 @@ sub _prepare_simpletitle($)
   }
 }
 
+# Conversion to a string, mostly used in tests.
+# $SELF is the output converter object of class Texinfo::Convert::HTML (this
+# module), and $DOCUMENT is the parsed document from the parser and structuring
 sub convert($$)
 {
   my $self = shift;
@@ -12500,10 +12519,10 @@ sub _html_convert_output($$$$$$$$)
         }
         # do end file first in case it requires some CSS
         my $end_file = &{$self->formatting_function('format_end_file')}($self,
-                                                           $output_unit_filename,
+                                                         $output_unit_filename,
                                                            $output_unit);
         print $file_fh "".&{$self->formatting_function('format_begin_file')}(
-                                       $self, $output_unit_filename, $file_output_unit);
+                               $self, $output_unit_filename, $file_output_unit);
         print $file_fh "".$files{$output_unit_filename}->{'body'};
         # end file
         print $file_fh "". $end_file;
@@ -13306,7 +13325,7 @@ sub _convert($$;$)
             # NOTE here commands with empty array reference in
             # array reference associated to command in default_commands_args
             # do not have $arg_spec reset to normal, such that their argument
-            # is not converter here
+            # is not converted here
             $arg_spec = ['normal'] if (!defined($arg_spec));
             my $arg_formatted = {'tree' => $arg};
             foreach my $arg_type (@$arg_spec) {
@@ -13317,7 +13336,8 @@ sub _convert($$;$)
                    = Texinfo::Convert::LaTeX::convert_to_latex_math(undef, $arg,
                                                   $self->{'options_latex_math'});
                 } else {
-                  $arg_formatted->{'normal'} = $self->_convert($arg, $explanation);
+                  $arg_formatted->{'normal'}
+                    = $self->_convert($arg, $explanation);
                 }
               } elsif ($arg_type eq 'monospace') {
                 _set_code_context($self, 1);
@@ -13362,8 +13382,8 @@ sub _convert($$;$)
               } elsif ($arg_type eq 'url') {
                 Texinfo::Convert::Text::set_options_code(
                                               $self->{'convert_text_options'});
-                # set the encoding to UTF-8 to always have a string that is suitable
-                # for percent encoding.
+                # set the encoding to UTF-8 to always have a string that
+                # is suitable for percent encoding.
                 Texinfo::Convert::Text::set_options_encoding(
                                   $self->{'convert_text_options'}, 'utf-8');
                 $arg_formatted->{$arg_type}
@@ -13540,7 +13560,7 @@ sub _set_variables_texi2html($)
 
 1;
 
-# The documentation of the customization API is in the customization_api
+# The documentation of the customization API is in the texi2any_api
 # Texinfo manual.  POD format is not suitable for such a documentation, because
 # of the module documentation style, the language limitations, and also because
 # the customization API involves multiple modules as well as the main program.

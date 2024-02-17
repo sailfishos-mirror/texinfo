@@ -15963,7 +15963,8 @@ html_format_init (void)
 
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
     {
-      if (builtin_command_data[i].flags & CF_block
+      if ((builtin_command_data[i].flags & CF_block
+           && builtin_command_data[i].data != BLOCK_format_raw)
           || builtin_command_data[i].flags & CF_root)
         register_format_context_command (i);
 
