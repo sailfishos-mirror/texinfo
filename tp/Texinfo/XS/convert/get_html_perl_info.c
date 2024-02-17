@@ -1246,13 +1246,13 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
 
 /* find C Texinfo tree element based on element_sv perl tree element.
    Only for elements that can be targets of links. */
-ELEMENT *
-html_find_element_from_sv (CONVERTER *converter, SV *element_sv,
-                      int output_units_descriptor)
+const ELEMENT *
+html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
+                           int output_units_descriptor)
 {
   HV *element_hv;
   SV **type_sv;
-  ELEMENT *element;
+  const ELEMENT *element;
 
   dTHX;
 
@@ -1323,8 +1323,8 @@ get_output_units_descriptor_converter_sv (SV *converter_in)
 }
 
 /* find converter and element */
-ELEMENT *
-element_converter_from_sv (SV *converter_in, SV *element_sv,
+const ELEMENT *
+element_converter_from_sv (SV *converter_in, const SV *element_sv,
                            const char *warn_string, CONVERTER **converter_out)
 {
   int output_units_descriptor;
@@ -1400,7 +1400,7 @@ find_node_target_info_nodedescription_sv (CONVERTER *converter,
                                        strlen ("element_node"), 0);
       if (element_node_sv)
         {
-          ELEMENT *node = html_find_element_from_sv (converter,
+          const ELEMENT *node = html_find_element_from_sv (converter,
                                                 *element_node_sv, 0);
           if (node)
             {

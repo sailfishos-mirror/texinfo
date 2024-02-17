@@ -1,5 +1,9 @@
 2024-02-17  Patrice Dumas  <pertusus@free.fr>
 
+	Add some const for *find_element_from_sv and similar functions.
+
+2024-02-17  Patrice Dumas  <pertusus@free.fr>
+
 	* main/utils.c (html_command_text_type_name): remove target.
 
 2024-02-17  Patrice Dumas  <pertusus@free.fr>

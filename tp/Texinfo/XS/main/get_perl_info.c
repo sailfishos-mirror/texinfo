@@ -1223,7 +1223,7 @@ html_get_direction_icons_sv (CONVERTER *converter,
 INDEX_ENTRY *
 find_sorted_index_names_index_entry_extra_index_entry_sv (
                                        SORTED_INDEX_NAMES *sorted_index_names,
-                                       SV *extra_index_entry_sv)
+                                       const SV *extra_index_entry_sv)
 {
   AV *extra_index_entry_av;
   SV **index_name_sv;
@@ -1260,8 +1260,8 @@ find_sorted_index_names_index_entry_extra_index_entry_sv (
 }
 
 INDEX_ENTRY *
-find_document_index_entry_extra_index_entry_sv (DOCUMENT *document,
-                                               SV *extra_index_entry_sv)
+find_document_index_entry_extra_index_entry_sv (const DOCUMENT *document,
+                                             const SV *extra_index_entry_sv)
 {
   AV *extra_index_entry_av;
   SV **index_name_sv;
@@ -1300,9 +1300,9 @@ find_document_index_entry_extra_index_entry_sv (DOCUMENT *document,
    sorted index names, otherwise use the index information from
    a document */
 static INDEX_ENTRY *
-find_element_extra_index_entry_sv (DOCUMENT *document,
+find_element_extra_index_entry_sv (const DOCUMENT *document,
                                    CONVERTER *converter,
-                                   SV *extra_index_entry_sv)
+                                   const SV *extra_index_entry_sv)
 {
   INDEX_ENTRY *index_entry;
   if (!converter || !converter->document || !converter->document->index_names)
@@ -1323,11 +1323,12 @@ find_element_extra_index_entry_sv (DOCUMENT *document,
 
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
 /* find C tree root element corresponding to perl tree element element_hv */
-ELEMENT *find_root_command (DOCUMENT *document, HV *element_hv,
-                            int output_units_descriptor)
+const ELEMENT *
+find_root_command (const DOCUMENT *document, HV *element_hv,
+                   int output_units_descriptor)
 {
   SV **associated_unit_sv;
-  ELEMENT *root;
+  const ELEMENT *root;
   size_t i;
 
   dTHX;
@@ -1377,15 +1378,15 @@ ELEMENT *find_root_command (DOCUMENT *document, HV *element_hv,
 }
 
 /* find the subentry matching ELEMENT_HV */
-static ELEMENT *
-find_index_entry_subentry (ELEMENT *index_element, HV *element_hv)
+static const ELEMENT *
+find_index_entry_subentry (const ELEMENT *index_element, HV *element_hv)
 {
-  ELEMENT *current_element = index_element;
+  const ELEMENT *current_element = index_element;
 
   while (1)
     {
-      ELEMENT *subentry = lookup_extra_element (current_element,
-                                                "subentry");
+      const ELEMENT *subentry = lookup_extra_element (current_element,
+                                                      "subentry");
       if (subentry)
         {
           if (subentry->hv == element_hv)
@@ -1425,8 +1426,8 @@ subentry_hv_parent (HV *element_hv)
 
 /* Find the index entry parent of a subentry going through
    "subentry_parent" until finding the index element hash */
-ELEMENT *
-find_subentry_index_command_sv (DOCUMENT *document, HV *element_hv)
+const ELEMENT *
+find_subentry_index_command_sv (const DOCUMENT *document, HV *element_hv)
 {
   HV *current_parent = element_hv;
   SV *current_sv = 0;
@@ -1466,8 +1467,8 @@ find_subentry_index_command_sv (DOCUMENT *document, HV *element_hv)
    when going through the elements associated to indices to setup
    index entries sort strings.
  */
-ELEMENT *find_index_entry_associated_hv (INDEX_ENTRY *index_entry,
-                                         HV *element_hv)
+const ELEMENT *find_index_entry_associated_hv (INDEX_ENTRY *index_entry,
+                                               HV *element_hv)
 {
   if (index_entry->entry_associated_element
       && index_entry->entry_associated_element->hv == element_hv)
@@ -1494,15 +1495,15 @@ ELEMENT *find_index_entry_associated_hv (INDEX_ENTRY *index_entry,
    commands faster.
    Only for global commands, commands with indices, and sectioning root
    commands */
-ELEMENT *
-find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
-                      SV *element_sv, int output_units_descriptor)
+const ELEMENT *
+find_element_from_sv (CONVERTER *converter, const DOCUMENT *document_in,
+                      const SV *element_sv, int output_units_descriptor)
 {
   enum command_id cmd = 0;
   HV *element_hv;
   SV **cmdname_sv;
   SV **extra_sv;
-  DOCUMENT *document = document_in;
+  const DOCUMENT *document = document_in;
 
   dTHX;
 
@@ -1521,7 +1522,7 @@ find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
       if (builtin_command_data[cmd].flags & CF_root
           && cmd != CM_node)
         {
-          ELEMENT *element = find_root_command (document,
+          const ELEMENT *element = find_root_command (document,
                                                 element_hv,
                                                 output_units_descriptor);
           if (element)
@@ -1529,12 +1530,12 @@ find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
         }
       else if (cmd == CM_subentry)
         {
-          ELEMENT *index_element = find_subentry_index_command_sv (document,
-                                                                   element_hv);
+          const ELEMENT *index_element
+               = find_subentry_index_command_sv (document, element_hv);
           if (index_element)
             {
-              ELEMENT *element = find_index_entry_subentry (index_element,
-                                                            element_hv);
+              const ELEMENT *element
+                = find_index_entry_subentry (index_element, element_hv);
               if (element)
                 return element;
             }
@@ -1591,7 +1592,7 @@ find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
                                               *associated_index_entry_sv);
           if (index_entry)
             {
-              ELEMENT *index_element
+              const ELEMENT *index_element
                 = find_index_entry_associated_hv (index_entry, element_hv);
               if (index_element)
                 return (index_element);
@@ -1607,7 +1608,7 @@ find_element_from_sv (CONVERTER *converter, DOCUMENT *document_in,
                                                           *index_entry_sv);
           if (index_entry)
             {
-              ELEMENT *index_element
+              const ELEMENT *index_element
                 = find_index_entry_associated_hv (index_entry, element_hv);
               if (index_element)
                 return (index_element);
