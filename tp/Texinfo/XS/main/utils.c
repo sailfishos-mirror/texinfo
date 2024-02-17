@@ -134,7 +134,7 @@ const char *html_button_direction_names[] = {
 /* keep in sync with enum html_text_type */
 char *html_command_text_type_name[] = {
   "text", "text_nonumber", "string", "string_nonumber",
-  "href", "target", "node", "section",
+  "href", "node", "section",
 };
 
 /* wrapper for asprintf */

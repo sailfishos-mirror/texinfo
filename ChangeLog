@@ -1,5 +1,9 @@
 2024-02-17  Patrice Dumas  <pertusus@free.fr>
 
+	* main/utils.c (html_command_text_type_name): remove target.
+
+2024-02-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_command_id): set return
 	const.
 
