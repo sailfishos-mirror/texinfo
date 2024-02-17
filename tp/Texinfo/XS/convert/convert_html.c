@@ -2951,7 +2951,7 @@ html_get_target (CONVERTER *self, const ELEMENT *element)
   return result;
 }
 
-char *
+const char *
 html_command_id (CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *target_info = html_get_target (self, command);

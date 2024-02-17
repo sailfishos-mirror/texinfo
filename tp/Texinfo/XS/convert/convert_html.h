@@ -94,7 +94,7 @@ int html_special_unit_variety_direction_index (CONVERTER *self,
                                         char *special_unit_variety);
 
 HTML_TARGET *html_get_target (CONVERTER *self, const ELEMENT *element);
-char *html_command_id (CONVERTER *self, const ELEMENT *command);
+const char *html_command_id (CONVERTER *self, const ELEMENT *command);
 char *html_command_contents_target (CONVERTER *self, const ELEMENT *command,
                                     enum command_id contents_or_shortcontents);
 char *html_footnote_location_target (CONVERTER *self, const ELEMENT *command);

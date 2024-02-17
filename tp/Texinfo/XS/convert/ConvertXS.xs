@@ -962,8 +962,8 @@ SV *
 html_command_id (SV *converter_in, SV *element_sv)
      PREINIT:
          CONVERTER *self;
-         char *id = 0;
-         ELEMENT *element;
+         const char *id = 0;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                               "html_command_id", &self);
@@ -983,7 +983,7 @@ html_command_contents_target (SV *converter_in, SV *element_sv, cmdname)
      PREINIT:
          CONVERTER *self;
          char *id = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                               "html_command_contents_target",
@@ -1006,7 +1006,7 @@ html_footnote_location_target (SV *converter_in, SV *element_sv)
      PREINIT:
          CONVERTER *self;
          char *id = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                               "html_footnote_location_target",
@@ -1026,7 +1026,7 @@ html_command_filename (SV *converter_in, SV *element_sv)
      PREINIT:
          CONVERTER *self;
          const char *filename = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                               "html_command_filename",
@@ -1095,7 +1095,7 @@ html_internal_command_href (SV *converter_in, SV *element_sv, SV *source_filenam
      PREINIT:
          CONVERTER *self;
          char *href = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                          "html_internal_command_href", &self);
@@ -1128,7 +1128,7 @@ html_command_contents_href (SV *converter_in, SV *element_sv, cmdname, SV *sourc
      PREINIT:
          CONVERTER *self;
          char *href = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                          "html_command_contents_href", &self);
@@ -1158,7 +1158,7 @@ html_footnote_location_href (SV *converter_in, SV *element_sv, SV *source_filena
      PREINIT:
          CONVERTER *self;
          char *href = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                          "html_footnote_location_href", &self);
@@ -1190,7 +1190,7 @@ html_internal_command_tree (SV *converter_in, SV *element_sv, SV* no_number_sv)
      PREINIT:
          CONVERTER *self;
          ELEMENT *command_tree = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                          "html_internal_command_tree", &self);
@@ -1221,7 +1221,7 @@ html_internal_command_text (SV *converter_in, SV *element_sv, char *type)
      PREINIT:
          CONVERTER *self;
          char *text = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                                          "html_internal_command_text", &self);
@@ -2159,7 +2159,7 @@ html_prepare_node_redirection_page (SV *converter_in, SV *element_sv, redirectio
      PREINIT:
          CONVERTER *self;
          char *redirection_page = 0;
-         ELEMENT *element;
+         const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
                               "html_prepare_node_redirection_page", &self);

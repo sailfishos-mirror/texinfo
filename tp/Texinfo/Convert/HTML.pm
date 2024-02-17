@@ -1556,7 +1556,7 @@ my %valid_direction_return_type = (
   # a string that can be used in a href linking to the direction
   'href' => 1,
   # a string representing the direction that can be used in
-  # context where only entities are available (attributes)
+  # context where only entities are available (ie with HTML attributes)
   'string' => 1,
   # a string representing the direction to be used in contexts
   # not restricted in term of available formatting (ie with HTML elements)
