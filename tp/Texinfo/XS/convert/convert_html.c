@@ -4165,15 +4165,6 @@ from_element_direction (CONVERTER *self, int direction,
               else
                 return 0;
             }
-          else if (type == HTT_target)
-            {
-              if (command)
-                {
-                  return html_command_id (self, command);
-                }
-              else
-                return 0;
-            }
         }
     }
   else

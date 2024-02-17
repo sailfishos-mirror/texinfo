@@ -181,7 +181,6 @@ enum html_text_type {
    HTT_string_nonumber, /* not sure that it is set/used */
    /* not only used for element text, also for direction text */
    HTT_href,
-   HTT_target,
    HTT_node,
    HTT_section,
 };

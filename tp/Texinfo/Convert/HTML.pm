@@ -1561,8 +1561,6 @@ my %valid_direction_return_type = (
   # a string representing the direction to be used in contexts
   # not restricted in term of available formatting (ie with HTML elements)
   'text' => 1,
-  # string representing the target, typically used as id and in href
-  'target' => 1,
   # same as 'text', but select node in priority
   'node' => 1,
   # same as 'text_nonumber' but select section in priority
@@ -1696,12 +1694,6 @@ sub from_element_direction($$$;$$$)
       if ($type eq 'href') {
         if (defined($command)) {
           return $self->command_href($command, $source_filename);
-        } else {
-          return undef;
-        }
-      } elsif ($type eq 'target') {
-        if (defined($command)) {
-          return $self->command_id($command);
         } else {
           return undef;
         }

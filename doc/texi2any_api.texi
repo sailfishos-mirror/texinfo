@@ -1085,11 +1085,6 @@ A string representing the direction to be used in contexts
 with HTML elements (preformatted and normal contexts).
 @xref{Init File Expansion Contexts}.
 
-@item target
-A string representing the target of the direction, typically used as id
-attribute in the output unit corresponding to the direction, and in href
-attribute.
-
 @item node
 Same as @code{text}, but selecting the node associated with the
 element direction in priority.

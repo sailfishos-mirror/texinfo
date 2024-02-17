@@ -1,5 +1,15 @@
 2024-02-17  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Element Direction Information Type),
+	tp/Texinfo/Convert/HTML.pm (%valid_direction_return_type)
+	(from_element_direction), tp/Texinfo/XS/convert/convert_html.c
+	(from_element_direction), tp/Texinfo/XS/main/converter_types.h (enum
+	html_text_type): remove the target direction information type of
+	from_element_direction, it is not used anymore and it is in general
+	better to get the href.
+
+2024-02-17  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Dynamic Converter Formatting Information),
 	tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
 	(current_output_unit), tp/Texinfo/XS/convert/ConvertXS.xs
