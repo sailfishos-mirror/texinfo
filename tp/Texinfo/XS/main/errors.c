@@ -81,7 +81,7 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
       if (type == MSG_warning)
         {
           text_printf (&error_line,
-                       pgettext ("Texinfo source file warning",
+                       pgettext ("Texinfo source file warning in macro",
                                  "warning: %s (possibly involving @%s)"),
                        error_message->message, error_message->source_info.macro);
         }

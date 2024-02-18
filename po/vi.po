@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-02-04 13:37+0100\n"
+"POT-Creation-Date: 2024-02-18 17:12+0100\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -426,7 +426,7 @@ msgid "Try --help for more information.\n"
 msgstr "Hãy thử lệnh trợ giúp “--help” để xem thông tin thêm.\n"
 
 #: info/info.c:872 install-info/install-info.c:2261
-#: Pod-Simple-Texinfo/pod2texi.pl:177 tp/texi2any.pl:941
+#: Pod-Simple-Texinfo/pod2texi.pl:177 tp/texi2any.pl:945
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -567,7 +567,7 @@ msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
 #: info/info.c:1162 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:154 tp/texi2any.pl:927
+#: Pod-Simple-Texinfo/pod2texi.pl:154 tp/texi2any.pl:931
 #, fuzzy
 #| msgid ""
 #| "Email bug reports to bug-texinfo@gnu.org,\n"
@@ -1737,7 +1737,7 @@ msgstr "Đặt biến: "
 msgid "Set %s to value (%d): "
 msgstr "Đặt %s thành giá trị (%d): "
 
-#: info/variables.c:304
+#: info/variables.c:311
 #, c-format
 msgid "Set %s to value (%s): "
 msgstr "Đặt %s thành giá trị (%s): "
@@ -2133,7 +2133,7 @@ msgstr "không thể tạo thư mục “%s”: %s"
 msgid "%s: missing file argument\n"
 msgstr "%s: thiếu đối số tập tin.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:226 tp/texi2any.pl:1412
+#: Pod-Simple-Texinfo/pod2texi.pl:226 tp/texi2any.pl:1416
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Hãy thử lệnh trợ giúp “%s --help” để xem thông tin thêm.\n"
@@ -2151,7 +2151,7 @@ msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "@%s tên nút mục trình đơn “%s” khác biệt với %s tên “%s”"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:438 Pod-Simple-Texinfo/pod2texi.pl:525
-#: tp/texi2any.pl:1783 tp/texi2any.pl:1862
+#: tp/texi2any.pl:1792 tp/texi2any.pl:1871
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: không thể mở “%s” để ghi: %s\n"
@@ -2163,7 +2163,7 @@ msgid "%s: could not open %s: %s\n"
 msgstr "@%s: không thể mở %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:488 Pod-Simple-Texinfo/pod2texi.pl:574
-#: tp/texi2any.pl:1746 tp/texi2any.pl:1888
+#: tp/texi2any.pl:1755 tp/texi2any.pl:1897
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: lỗi đóng tập tin %s: %s\n"
@@ -2185,18 +2185,18 @@ msgstr "đổi tên %s gặp lỗi: %s"
 msgid "%s: error on closing stdout: %s\n"
 msgstr "%s: lỗi đóng tập tin %s: %s\n"
 
-#: tp/Texinfo/Common.pm:782
+#: tp/Texinfo/Common.pm:849
 #, perl-format
 msgid "unrecognized encoding name `%s'"
 msgstr "không nhận ra tên bảng mã “%s”"
 
-#: tp/Texinfo/Common.pm:807 tp/Texinfo/XS/parsetexi/end_line.c:1449
+#: tp/Texinfo/Common.pm:874 tp/Texinfo/XS/parsetexi/end_line.c:1449
 #: tp/Texinfo/XS/parsetexi/end_line.c:1459
 #, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s không phải mã ngôn ngữ hợp lệ"
 
-#: tp/Texinfo/Common.pm:812 tp/Texinfo/XS/parsetexi/end_line.c:1476
+#: tp/Texinfo/Common.pm:879 tp/Texinfo/XS/parsetexi/end_line.c:1476
 #, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s không phải mã vùng hợp lệ"
@@ -2269,55 +2269,55 @@ msgstr "%s: không hiểu biến %s\n"
 msgid "%s: unknown special element information type %s\n"
 msgstr "không hiểu sự biến đổi cây %s"
 
-#: tp/Texinfo/Document.pm:228
+#: tp/Texinfo/Document.pm:319
 #, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s “%s” đã định nghĩa từ trước"
 
-#: tp/Texinfo/Document.pm:234
+#: tp/Texinfo/Document.pm:325
 #, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "ở đây có định nghĩa trước như là @%s"
 
-#: tp/Texinfo/Convert/Converter.pm:379
+#: tp/Texinfo/Convert/Converter.pm:381
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr "%s: kết xuất không tương thích với split (chia tách)"
 
-#: tp/Texinfo/Convert/Converter.pm:451 tp/Texinfo/Convert/Converter.pm:506
-#: tp/Texinfo/Convert/Converter.pm:588 tp/Texinfo/Convert/HTML.pm:11513
-#: tp/Texinfo/Convert/HTML.pm:12433 tp/Texinfo/Convert/HTML.pm:12886
+#: tp/Texinfo/Convert/Converter.pm:453 tp/Texinfo/Convert/Converter.pm:508
+#: tp/Texinfo/Convert/Converter.pm:590 tp/Texinfo/Convert/HTML.pm:11604
+#: tp/Texinfo/Convert/HTML.pm:12547 tp/Texinfo/Convert/HTML.pm:13000
 #: tp/Texinfo/Convert/IXIN.pm:355 tp/Texinfo/Convert/Info.pm:385
-#: tp/Texinfo/Convert/LaTeX.pm:1102 tp/Texinfo/Convert/Text.pm:1039
-#: tp/Texinfo/XS/convert/convert_html.c:18343
+#: tp/Texinfo/Convert/LaTeX.pm:1102 tp/Texinfo/Convert/Text.pm:976
+#: tp/Texinfo/XS/convert/convert_html.c:18418
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "không thể mở “%s” để ghi: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:480 tp/Texinfo/Convert/Converter.pm:525
-#: tp/Texinfo/Convert/Converter.pm:611 tp/Texinfo/Convert/HTML.pm:11508
-#: tp/Texinfo/Convert/HTML.pm:12453 tp/Texinfo/Convert/IXIN.pm:1028
+#: tp/Texinfo/Convert/Converter.pm:482 tp/Texinfo/Convert/Converter.pm:527
+#: tp/Texinfo/Convert/Converter.pm:613 tp/Texinfo/Convert/HTML.pm:11599
+#: tp/Texinfo/Convert/HTML.pm:12567 tp/Texinfo/Convert/IXIN.pm:1024
 #: tp/Texinfo/Convert/Info.pm:197 tp/Texinfo/Convert/Info.pm:226
 #: tp/Texinfo/Convert/Info.pm:281 tp/Texinfo/Convert/Info.pm:358
 #: tp/Texinfo/Convert/LaTeX.pm:1171 tp/Texinfo/ParserNonXS.pm:2482
 #: tp/Texinfo/XS/parsetexi/input.c:399
-#: tp/Texinfo/XS/convert/convert_html.c:18403
+#: tp/Texinfo/XS/convert/convert_html.c:18478
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1341 tp/Texinfo/Convert/Text.pm:1003
-#: tp/Texinfo/Convert/Text.pm:1022
+#: tp/Texinfo/Convert/Converter.pm:1343 tp/Texinfo/Convert/Text.pm:940
+#: tp/Texinfo/Convert/Text.pm:959
 #, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "không thể tạo thư mục “%s”: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1523
+#: tp/Texinfo/Convert/Converter.pm:1525
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin ảnh dạng text %s: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1532
+#: tp/Texinfo/Convert/Converter.pm:1534
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "Không thể đọc tập tin @image “%s”: %s"
@@ -2332,204 +2332,204 @@ msgstr "không tìm thấy tập tin @image “%s”, đang dùng “%s”"
 msgid "no argument specified for @U"
 msgstr "chưa chỉ định đối số cho @U"
 
-#: tp/Texinfo/Convert/HTML.pm:3799 tp/ext/epub3.pm:274
-#: tp/Texinfo/XS/convert/convert_html.c:9139
+#: tp/Texinfo/Convert/HTML.pm:3839 tp/ext/epub3.pm:274
+#: tp/Texinfo/XS/convert/convert_html.c:9179
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "Tập tin @image “%s” (cho HTML) không đọc được, dùng “%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:5023 tp/Texinfo/XS/convert/convert_html.c:10260
+#: tp/Texinfo/Convert/HTML.pm:5055 tp/Texinfo/XS/convert/convert_html.c:10288
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "định dạng thô %s không được chuyển đổi"
 
-#: tp/Texinfo/Convert/HTML.pm:6584 tp/Texinfo/XS/convert/convert_html.c:13067
+#: tp/Texinfo/Convert/HTML.pm:6638 tp/Texinfo/XS/convert/convert_html.c:13127
 #, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tp/Texinfo/Convert/HTML.pm:6615 tp/Texinfo/XS/convert/convert_html.c:13107
+#: tp/Texinfo/Convert/HTML.pm:6669 tp/Texinfo/XS/convert/convert_html.c:13167
 #, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tp/Texinfo/Convert/HTML.pm:8430
+#: tp/Texinfo/Convert/HTML.pm:8492
 #, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr "không thể mở tập tin cấu hình dùng để tham chiếu html %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8458
+#: tp/Texinfo/Convert/HTML.pm:8520
 msgid "missing type"
 msgstr "thiếu kiểu"
 
-#: tp/Texinfo/Convert/HTML.pm:8462
+#: tp/Texinfo/Convert/HTML.pm:8524
 #, perl-format
 msgid "unrecognized type: %s"
 msgstr "không nhận ra kiểu: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8484
+#: tp/Texinfo/Convert/HTML.pm:8546
 #, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin cấu hình tham chiếu cho html %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8508
+#: tp/Texinfo/Convert/HTML.pm:8570
 #, fuzzy, perl-format
 #| msgid "could not open html refs config file %s: %s"
 msgid "could not find html refs config file %s"
 msgstr "không thể mở tập tin cấu hình dùng để tham chiếu html %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8831
+#: tp/Texinfo/Convert/HTML.pm:8893
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8847
+#: tp/Texinfo/Convert/HTML.pm:8909
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "hành động lạ “%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:9180
+#: tp/Texinfo/Convert/HTML.pm:9242
 msgid "string not closed in css file"
 msgstr "chuỗi chưa được đóng trong tập tin css"
 
-#: tp/Texinfo/Convert/HTML.pm:9182
+#: tp/Texinfo/Convert/HTML.pm:9244
 msgid "--css-include ended in comment"
 msgstr "“--css-include” kết thúc tại phần ghi chú"
 
-#: tp/Texinfo/Convert/HTML.pm:9184
+#: tp/Texinfo/Convert/HTML.pm:9246
 msgid "@import not finished in css file"
 msgstr "@import chưa hoàn thiện trong tập tin css"
 
-#: tp/Texinfo/Convert/HTML.pm:9215
+#: tp/Texinfo/Convert/HTML.pm:9277
 #, perl-format
 msgid "CSS file %s not found"
 msgstr "không tìm thấy tập tin CSS %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9225
+#: tp/Texinfo/Convert/HTML.pm:9287
 #, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "không thể mở --include-file %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9244
+#: tp/Texinfo/Convert/HTML.pm:9306
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin CSS %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9457 tp/Texinfo/XS/convert/convert_html.c:2131
+#: tp/Texinfo/Convert/HTML.pm:9520 tp/Texinfo/XS/convert/convert_html.c:2131
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9792 tp/Texinfo/XS/convert/convert_html.c:5550
+#: tp/Texinfo/Convert/HTML.pm:9854 tp/Texinfo/XS/convert/convert_html.c:5572
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10563 tp/Texinfo/Convert/HTML.pm:10569
-#: tp/Texinfo/XS/convert/convert_html.c:3161
+#: tp/Texinfo/Convert/HTML.pm:10624 tp/Texinfo/Convert/HTML.pm:10630
 #: tp/Texinfo/XS/convert/convert_html.c:3172
+#: tp/Texinfo/XS/convert/convert_html.c:3183
 #, c-format, perl-format
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "không tìm thấy mục htmlxref.cnf dành cho “%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:11027 tp/Texinfo/XS/convert/convert_html.c:6993
+#: tp/Texinfo/Convert/HTML.pm:11101 tp/Texinfo/XS/convert/convert_html.c:7026
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "@%s không có nghĩa bên trong khối “@%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:11486
+#: tp/Texinfo/Convert/HTML.pm:11577
 #, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12123
+#: tp/Texinfo/Convert/HTML.pm:12240
 #, fuzzy, perl-format
 #| msgid "handler %s of stage %s priority %s failed"
 msgid "handler %d of stage %s priority %s failed"
 msgstr "bộ tiếp hợp %s của trạng thái %s mức ưu tiên %s gặp lỗi"
 
-#: tp/Texinfo/Convert/HTML.pm:12175
+#: tp/Texinfo/Convert/HTML.pm:12292
 #, perl-format
 msgid "%s already exists but is not a directory"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12196
+#: tp/Texinfo/Convert/HTML.pm:12313
 #, fuzzy, perl-format
 #| msgid "error on closing %s: %s"
 msgid "error on copying %s into %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12205
+#: tp/Texinfo/Convert/HTML.pm:12322
 #, fuzzy, perl-format
 #| msgid "error on closing %s: %s"
 msgid "error on creating empty %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12210
+#: tp/Texinfo/Convert/HTML.pm:12327
 #, fuzzy, perl-format
 #| msgid "error on closing %s: %s"
 msgid "error on closing empty %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12295 tp/Texinfo/Convert/HTML.pm:12299
-#: tp/Texinfo/XS/convert/convert_html.c:15775
+#: tp/Texinfo/Convert/HTML.pm:12410 tp/Texinfo/Convert/HTML.pm:12414
+#: tp/Texinfo/XS/convert/convert_html.c:15844
 msgid "must specify a title with a title command or @top"
 msgstr "phải chỉ định một tiêu đề cùng với lệnh title hay @top"
 
-#: tp/Texinfo/Convert/HTML.pm:12787
+#: tp/Texinfo/Convert/HTML.pm:12901
 #, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12804
+#: tp/Texinfo/Convert/HTML.pm:12918
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12807
+#: tp/Texinfo/Convert/HTML.pm:12921
 msgid "conflict with Top file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12810
+#: tp/Texinfo/Convert/HTML.pm:12924
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12813
+#: tp/Texinfo/Convert/HTML.pm:12927
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12816
+#: tp/Texinfo/Convert/HTML.pm:12930
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12822
+#: tp/Texinfo/Convert/HTML.pm:12936
 #, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12833
+#: tp/Texinfo/Convert/HTML.pm:12947
 #, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12843
+#: tp/Texinfo/Convert/HTML.pm:12957
 #, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12855
+#: tp/Texinfo/Convert/HTML.pm:12969
 #, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12894
+#: tp/Texinfo/Convert/HTML.pm:13008
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin nút chuyển hướng %s: %s"
@@ -2568,41 +2568,41 @@ msgstr "tên @node không được chứa “,”: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "tên @node không được chứa “,”: %s"
 
-#: tp/Texinfo/Convert/LaTeX.pm:3005
+#: tp/Texinfo/Convert/LaTeX.pm:3008
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:3045
+#: tp/Texinfo/Convert/LaTeX.pm:3048
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "Tập tin @image “%s” (cho HTML) không đọc được, dùng “%s”"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1657
+#: tp/Texinfo/Convert/Plaintext.pm:1649
 #, perl-format
 msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr "Mục chỉ số trong @%s với: sản sinh Info không hợp lệ: %s"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1699 tp/Texinfo/ParserNonXS.pm:3411
+#: tp/Texinfo/Convert/Plaintext.pm:1691 tp/Texinfo/ParserNonXS.pm:3411
 #: tp/Texinfo/XS/parsetexi/indices.c:311
 #, c-format, perl-format
 msgid "entry for index `%s' outside of any node"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1715
+#: tp/Texinfo/Convert/Plaintext.pm:1707
 #, fuzzy, perl-format
 #| msgid "@%s node name should not contain `%s'"
 msgid "node name with index entries should not contain `%s'"
 msgstr "tên nút @%s không được chứa “%s”"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1798
+#: tp/Texinfo/Convert/Plaintext.pm:1790
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr ""
 "không thể tìm thấy tập tin @image “%s.txt” mà cũng không có chữ thay thế"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2242
+#: tp/Texinfo/Convert/Plaintext.pm:2234
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
@@ -2610,35 +2610,35 @@ msgstr ""
 "“@strong{Note…}” tạo một tham chiếu chéo giả trong Info; hãy sửa đổi để "
 "tránh nó"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2416
+#: tp/Texinfo/Convert/Plaintext.pm:2408
 #, perl-format
 msgid "@%s cross-reference name should not contain `:'"
 msgstr "tên tham chiếu chéo @%s không được phép chứa “:”"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2481
+#: tp/Texinfo/Convert/Plaintext.pm:2473
 #, perl-format
 msgid "@%s node name should not contain `%s'"
 msgstr "tên nút @%s không được chứa “%s”"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2544
+#: tp/Texinfo/Convert/Plaintext.pm:2536
 #, perl-format
 msgid "`.' or `,' must follow @xref, not %s"
 msgstr "“.” hay “,” phải theo sau @xref, không phải %s"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2548
+#: tp/Texinfo/Convert/Plaintext.pm:2540
 msgid "`.' or `,' must follow @xref"
 msgstr "“.” hay “,” phải theo sau @xref"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3693
+#: tp/Texinfo/Convert/Plaintext.pm:3685
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr "tên mục trình đơn không được chứa “%s”"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3704
+#: tp/Texinfo/Convert/Plaintext.pm:3696
 msgid "menu entry node name should not contain `:'"
 msgstr "tên nút mục trình đơn không được chứa dấu hai chấm “:”"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3739
+#: tp/Texinfo/Convert/Plaintext.pm:3731
 msgid "menu entry name should not contain `:'"
 msgstr "tên mục trình đơn không được chứa dấu hai chấm “:”"
 
@@ -2663,7 +2663,7 @@ msgstr "@%s: không tìm thấy %s"
 msgid "could not open %s: %s"
 msgstr "không thể mở %s: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:1171 tp/Texinfo/Structuring.pm:699
+#: tp/Texinfo/ParserNonXS.pm:1171 tp/Texinfo/Structuring.pm:698
 #: tp/Texinfo/XS/parsetexi/parser.c:422
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:841
 #, c-format, perl-format
@@ -3451,7 +3451,7 @@ msgstr ""
 #: tp/Texinfo/Report.pm:101 tp/Texinfo/XS/main/errors.c:85
 #, fuzzy, c-format, perl-format
 #| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-msgctxt "Texinfo source file warning"
+msgctxt "Texinfo source file warning in macro"
 msgid "warning: %s (possibly involving @%s)"
 msgstr "%s:%d: cảnh báo: %s (có lẽ gọi @%s)\n"
 
@@ -3469,70 +3469,70 @@ msgctxt "Texinfo source file warning"
 msgid "warning: %s"
 msgstr "Cảnh báo: %s\n"
 
-#: tp/Texinfo/Report.pm:176 tp/Texinfo/XS/main/errors.c:175
+#: tp/Texinfo/Report.pm:186 tp/Texinfo/XS/main/errors.c:175
 #, fuzzy, c-format, perl-format
 #| msgid "%s:%d: warning: %s\n"
 msgctxt "whole document warning"
 msgid "%s: warning: %s"
 msgstr "%s:%d: cảnh báo: %s\n"
 
-#: tp/Texinfo/Report.pm:184 tp/Texinfo/XS/main/errors.c:195
+#: tp/Texinfo/Report.pm:194 tp/Texinfo/XS/main/errors.c:195
 #, fuzzy, c-format, perl-format
 #| msgid "warning: %s\n"
 msgctxt "whole document warning"
 msgid "warning: %s"
 msgstr "Cảnh báo: %s\n"
 
-#: tp/Texinfo/Structuring.pm:214
+#: tp/Texinfo/Structuring.pm:213
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:137
 #, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr "nâng mức chương của @%s là quá thấp"
 
-#: tp/Texinfo/Structuring.pm:259
+#: tp/Texinfo/Structuring.pm:258
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:206
 #, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr "không có lệnh chapter-level trước @%s"
 
-#: tp/Texinfo/Structuring.pm:264
+#: tp/Texinfo/Structuring.pm:263
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:213
 #, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr "đang hạ thấp mức chương của @%s xuất hiện sau một phần tử ở thấp hơn"
 
-#: tp/Texinfo/Structuring.pm:375
+#: tp/Texinfo/Structuring.pm:374
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:381
 #, c-format, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
 
-#: tp/Texinfo/Structuring.pm:411
+#: tp/Texinfo/Structuring.pm:410
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:409
 #, c-format, perl-format
 msgid "@%s not empty"
 msgstr "@%s không trống rỗng"
 
-#: tp/Texinfo/Structuring.pm:442 tp/Texinfo/Structuring.pm:1200
+#: tp/Texinfo/Structuring.pm:441 tp/Texinfo/Structuring.pm:1199
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:431
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1552
 #, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "@%s tham chiếu đến nút chưa tồn tại “%s”"
 
-#: tp/Texinfo/Structuring.pm:450
+#: tp/Texinfo/Structuring.pm:449
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:444
 #, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "@%s tên nút mục trình đơn “%s” khác biệt với %s tên “%s”"
 
-#: tp/Texinfo/Structuring.pm:630
+#: tp/Texinfo/Structuring.pm:629
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:782
 #, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:881
+#: tp/Texinfo/Structuring.pm:880
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1084
 #, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
@@ -3540,13 +3540,13 @@ msgid "node %s for `%s' is `%s' in sectioning but not in menu"
 msgstr ""
 "nút “%s” là %s dành cho “%s” trong phần chương nhưng không có trong trình đơn"
 
-#: tp/Texinfo/Structuring.pm:901
+#: tp/Texinfo/Structuring.pm:900
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1120
 #, c-format, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "nút “%s” là %s cho “%s” trong trình đơn nhưng mà không ở trong chương"
 
-#: tp/Texinfo/Structuring.pm:968
+#: tp/Texinfo/Structuring.pm:967
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1215
 #, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
@@ -3554,26 +3554,26 @@ msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
 msgstr ""
 "nút “%s” là %s dành cho “%s” trong phần chương nhưng không có trong trình đơn"
 
-#: tp/Texinfo/Structuring.pm:1007
+#: tp/Texinfo/Structuring.pm:1006
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1283
 #, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "nút “%s” không có mục trình đơn cho “%s”, không kể nút này là đích Lên của nó"
 
-#: tp/Texinfo/Structuring.pm:1138
+#: tp/Texinfo/Structuring.pm:1137
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1455
 #, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr "con trỏ %s “%s” (cho nút “%s”) khác với %s tên “%s”"
 
-#: tp/Texinfo/Structuring.pm:1149
+#: tp/Texinfo/Structuring.pm:1148
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1475
 #, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s tham chiếu đến nơi mà chưa có “%s”"
 
-#: tp/Texinfo/Structuring.pm:1212
+#: tp/Texinfo/Structuring.pm:1211
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1571
 #, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
@@ -3585,12 +3585,12 @@ msgstr "@%s thành “%s”, khác với %s tên “%s”"
 msgid "could not protect hash character in @%s"
 msgstr "không thể bảo vệ ký tự băm trong @%s"
 
-#: tp/init/chm.pm:226 tp/init/chm.pm:314 tp/init/chm.pm:395
+#: tp/init/chm.pm:226 tp/init/chm.pm:307 tp/init/chm.pm:388
 #, perl-format
 msgid "chm.pm: could not open %s for writing: %s\n"
 msgstr "chm.pm: không thể mở %s để ghi: %s\n"
 
-#: tp/init/chm.pm:300 tp/init/chm.pm:381 tp/init/chm.pm:447
+#: tp/init/chm.pm:293 tp/init/chm.pm:374 tp/init/chm.pm:440
 #, perl-format
 msgid "chm.pm: error on closing %s: %s"
 msgstr "chm.pm: gặp lỗi khi đang đóng %s: %s"
@@ -3967,19 +3967,19 @@ msgstr "không thể đọc tập tin khởi tạo %s"
 msgid "could not read extension file %s"
 msgstr "không thể đọc tập tin khởi tạo %s"
 
-#: tp/texi2any.pl:727
+#: tp/texi2any.pl:731
 #, perl-format
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
 msgstr ""
 "bỏ qua giá trị không chấp nhận được “TEXINFO_OUTPUT_FORMAT” (định dạng xuất "
 "Texinfo) “%s”\n"
 
-#: tp/texi2any.pl:772
+#: tp/texi2any.pl:776
 #, perl-format
 msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgstr "Cách dùng: %s [TÙY-CHỌN]… TẬP-TIN-TEXTINFO…\n"
 
-#: tp/texi2any.pl:775
+#: tp/texi2any.pl:779
 msgid ""
 "Translate Texinfo source documentation to various other formats, by default\n"
 "Info files suitable for reading online with Emacs or standalone GNU Info.\n"
@@ -3994,117 +3994,117 @@ msgstr ""
 "Chương trình này thường được cài cùng cả “makeinfo” và “texi2any”;\n"
 "chúng làm cùng nhiệm vụ, không phụ thuộc vào tên được cài đặt.\n"
 
-#: tp/texi2any.pl:781
+#: tp/texi2any.pl:785
 #, fuzzy
 #| msgid "One completion:\n"
 msgid "General options:"
 msgstr "Một từ gợi ý:\n"
 
-#: tp/texi2any.pl:782
+#: tp/texi2any.pl:786
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)."
 msgstr ""
 
-#: tp/texi2any.pl:784
+#: tp/texi2any.pl:788
 #, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:786
+#: tp/texi2any.pl:790
 msgid "      --force                 preserve output even if errors."
 msgstr ""
 
-#: tp/texi2any.pl:787
+#: tp/texi2any.pl:791
 #, fuzzy
 #| msgid " -h, --help   display this help and exit"
 msgid "      --help                  display this help and exit."
 msgstr " -h, --help   hiển thị trợ giúp này rồi thoát"
 
-#: tp/texi2any.pl:788
+#: tp/texi2any.pl:792
 msgid "      --no-validate           suppress node cross-reference validation."
 msgstr ""
 
-#: tp/texi2any.pl:789
+#: tp/texi2any.pl:793
 msgid "      --no-warn               suppress warnings (but not errors)."
 msgstr ""
 
-#: tp/texi2any.pl:790
+#: tp/texi2any.pl:794
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR."
 msgstr ""
 
-#: tp/texi2any.pl:791
+#: tp/texi2any.pl:795
 msgid "      --init-file=FILE        load FILE to modify the default behavior."
 msgstr ""
 
-#: tp/texi2any.pl:792
+#: tp/texi2any.pl:796
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL."
 msgstr ""
 
-#: tp/texi2any.pl:794
+#: tp/texi2any.pl:798
 msgid "      --trace-includes        print names of included files."
 msgstr ""
 
-#: tp/texi2any.pl:795
+#: tp/texi2any.pl:799
 #, fuzzy
 #| msgid " --version    display version information and exit"
 msgid "  -v, --verbose               explain what is being done."
 msgstr " --version    hiển thị thông tin phiên bản rồi thoát"
 
-#: tp/texi2any.pl:796
+#: tp/texi2any.pl:800
 #, fuzzy
 #| msgid " --version    display version information and exit"
 msgid "      --version               display version information and exit."
 msgstr " --version    hiển thị thông tin phiên bản rồi thoát"
 
-#: tp/texi2any.pl:798
+#: tp/texi2any.pl:802
 msgid "Output format selection (default is to produce Info):"
 msgstr ""
 
-#: tp/texi2any.pl:799
+#: tp/texi2any.pl:803
 msgid "      --docbook               output Docbook XML."
 msgstr ""
 
-#: tp/texi2any.pl:800
+#: tp/texi2any.pl:804
 msgid "      --html                  output HTML."
 msgstr ""
 
-#: tp/texi2any.pl:801
+#: tp/texi2any.pl:805
 msgid "      --epub3                 output EPUB 3."
 msgstr ""
 
-#: tp/texi2any.pl:802
+#: tp/texi2any.pl:806
 msgid "      --latex                 output LaTeX."
 msgstr ""
 
-#: tp/texi2any.pl:803
+#: tp/texi2any.pl:807
 msgid "      --plaintext             output plain text rather than Info."
 msgstr ""
 
-#: tp/texi2any.pl:804
+#: tp/texi2any.pl:808
 msgid "      --xml                   output Texinfo XML."
 msgstr ""
 
-#: tp/texi2any.pl:805
+#: tp/texi2any.pl:809
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE."
 msgstr ""
 
-#: tp/texi2any.pl:809
+#: tp/texi2any.pl:813
 msgid "General output options:"
 msgstr ""
 
-#: tp/texi2any.pl:811
+#: tp/texi2any.pl:815
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
 
-#: tp/texi2any.pl:814
+#: tp/texi2any.pl:818
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4116,19 +4116,19 @@ msgid ""
 "                                standard output by default."
 msgstr ""
 
-#: tp/texi2any.pl:820
+#: tp/texi2any.pl:824
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
 
-#: tp/texi2any.pl:823
+#: tp/texi2any.pl:827
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 
-#: tp/texi2any.pl:826
+#: tp/texi2any.pl:830
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4140,7 +4140,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tp/texi2any.pl:834
+#: tp/texi2any.pl:838
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4148,21 +4148,21 @@ msgid ""
 "                                encoding."
 msgstr ""
 
-#: tp/texi2any.pl:838
+#: tp/texi2any.pl:842
 msgid "      --enable-encoding       override --disable-encoding (default)."
 msgstr ""
 
-#: tp/texi2any.pl:840
+#: tp/texi2any.pl:844
 msgid "Options for Info and plain text:"
 msgstr ""
 
-#: tp/texi2any.pl:842
+#: tp/texi2any.pl:846
 #, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:844
+#: tp/texi2any.pl:848
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
 "                                `separate' to put them in their own node;\n"
@@ -4171,7 +4171,7 @@ msgid ""
 "                                which they are defined (this is the default)."
 msgstr ""
 
-#: tp/texi2any.pl:849
+#: tp/texi2any.pl:853
 #, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4180,13 +4180,13 @@ msgid ""
 "                                `asis', preserve existing indentation."
 msgstr ""
 
-#: tp/texi2any.pl:853
+#: tp/texi2any.pl:857
 #, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:861
+#: tp/texi2any.pl:865
 msgid ""
 "Options for HTML:\n"
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
@@ -4212,7 +4212,7 @@ msgstr ""
 "      --node-files            tạo ra các tập tin chuyển hướng cho các nút\n"
 "                               và điểm neo; mặc định chỉ được đặt nếu tách.\n"
 
-#: tp/texi2any.pl:873
+#: tp/texi2any.pl:877
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
@@ -4220,100 +4220,100 @@ msgstr ""
 "Tùy chọn cho DVI/PS/PDF:\n"
 "      --Xopt=OPT              chuyển TÙY-CHỌN cho texi2dvi; có thể lặp lại.\n"
 
-#: tp/texi2any.pl:876
+#: tp/texi2any.pl:880
 msgid "Input file options:"
 msgstr ""
 
-#: tp/texi2any.pl:877
+#: tp/texi2any.pl:881
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr ""
 
-#: tp/texi2any.pl:878
+#: tp/texi2any.pl:882
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
 
-#: tp/texi2any.pl:879
+#: tp/texi2any.pl:883
 msgid " -I DIR                       append DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:880
+#: tp/texi2any.pl:884
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:881
+#: tp/texi2any.pl:885
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
 
-#: tp/texi2any.pl:883
+#: tp/texi2any.pl:887
 msgid "Conditional processing in input:"
 msgstr ""
 
-#: tp/texi2any.pl:884
+#: tp/texi2any.pl:888
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
 msgstr ""
 
-#: tp/texi2any.pl:886
+#: tp/texi2any.pl:890
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
 
-#: tp/texi2any.pl:887
+#: tp/texi2any.pl:891
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr ""
 
-#: tp/texi2any.pl:888
+#: tp/texi2any.pl:892
 msgid "  --iflatex         process @iflatex and @latex."
 msgstr ""
 
-#: tp/texi2any.pl:889
+#: tp/texi2any.pl:893
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
 
-#: tp/texi2any.pl:890
+#: tp/texi2any.pl:894
 msgid "  --iftex           process @iftex and @tex."
 msgstr ""
 
-#: tp/texi2any.pl:891
+#: tp/texi2any.pl:895
 msgid "  --ifxml           process @ifxml and @xml."
 msgstr ""
 
-#: tp/texi2any.pl:892
+#: tp/texi2any.pl:896
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgstr ""
 
-#: tp/texi2any.pl:893
+#: tp/texi2any.pl:897
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
 msgstr ""
 
-#: tp/texi2any.pl:894
+#: tp/texi2any.pl:898
 msgid "  --no-ifinfo       do not process @ifinfo text."
 msgstr ""
 
-#: tp/texi2any.pl:895
+#: tp/texi2any.pl:899
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
 msgstr ""
 
-#: tp/texi2any.pl:896
+#: tp/texi2any.pl:900
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgstr ""
 
-#: tp/texi2any.pl:897
+#: tp/texi2any.pl:901
 msgid "  --no-iftex        do not process @iftex and @tex text."
 msgstr ""
 
-#: tp/texi2any.pl:898
+#: tp/texi2any.pl:902
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
 msgstr ""
 
-#: tp/texi2any.pl:900
+#: tp/texi2any.pl:904
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
 msgstr ""
 
-#: tp/texi2any.pl:904
+#: tp/texi2any.pl:908
 #, fuzzy
 #| msgid ""
 #| "  The defaults for the @if... conditionals depend on the output format:\n"
@@ -4338,7 +4338,7 @@ msgstr ""
 "  nếu tạo chữ dạng thô thì bật “--ifplaintext” và các cái khác bị tắt;\n"
 "  nếu tạo XML thì bật “--ifxml” và các cái khác bị tắt;\n"
 
-#: tp/texi2any.pl:915
+#: tp/texi2any.pl:919
 msgid ""
 "Examples:\n"
 "  makeinfo foo.texi                      write Info to foo's @setfilename\n"
@@ -4369,7 +4369,7 @@ msgstr ""
 "  makeinfo --no-split phu.texi           ghi một tập tin Info, bất chấp kích "
 "cỡ tối đa\n"
 
-#: tp/texi2any.pl:968
+#: tp/texi2any.pl:972
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr ""
@@ -4378,12 +4378,12 @@ msgstr ""
 " * end        cuối\n"
 "không phải “%s”.\n"
 
-#: tp/texi2any.pl:975
+#: tp/texi2any.pl:979
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "“%s” không phải là khả năng chia tách (split) hợp lệ"
 
-#: tp/texi2any.pl:1068
+#: tp/texi2any.pl:1072
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
@@ -4393,65 +4393,65 @@ msgstr ""
 " * asis       như thế\n"
 "không phải “%s”.\n"
 
-#: tp/texi2any.pl:1206
+#: tp/texi2any.pl:1210
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 "%s: khi đang tạo %s, chỉ một TẬP-TIN đầu vào có thể được chỉ ra cùng với tùy "
 "chọn -o\n"
 
-#: tp/texi2any.pl:1210
+#: tp/texi2any.pl:1214
 msgid "--Xopt option without printed output"
 msgstr "tùy chọn --Xopt không in ra kết xuất"
 
-#: tp/texi2any.pl:1296
+#: tp/texi2any.pl:1300
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "không hiểu sự biến đổi cây %s"
 
-#: tp/texi2any.pl:1316
+#: tp/texi2any.pl:1320
 #, fuzzy, perl-format
 #| msgid "ignoring splitting for format %s"
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr "bỏ qua việc chia cắt cho định dạng %s"
 
-#: tp/texi2any.pl:1319
+#: tp/texi2any.pl:1323
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "bỏ qua việc chia cắt cho định dạng %s"
 
-#: tp/texi2any.pl:1335
+#: tp/texi2any.pl:1339
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "lỗi tải %s: %s\n"
 
-#: tp/texi2any.pl:1411
+#: tp/texi2any.pl:1415
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: thiếu đối số tập tin.\n"
 
-#: tp/texi2any.pl:1447
+#: tp/texi2any.pl:1451
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr ""
 
-#: tp/texi2any.pl:1573
+#: tp/texi2any.pl:1577
 #, perl-format
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "gặp lỗi khi đóng tập tin vĩ lệnh mở rộng %s: %s\n"
 
-#: tp/texi2any.pl:1578
+#: tp/texi2any.pl:1582
 #, perl-format
 msgid "could not open %s for writing: %s\n"
 msgstr "không thể mở “%s” để ghi: %s\n"
 
-#: tp/texi2any.pl:1775
+#: tp/texi2any.pl:1784
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr "%s: gặp lỗi khi đóng tập tin liên kết nội tại %s: %s\n"
 
-#: tp/texi2any.pl:1854
+#: tp/texi2any.pl:1863
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s\n"
@@ -4566,33 +4566,39 @@ msgstr "đối số có dạng thức sai hoặc trống rỗng @%s: %s"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s quá cũ; %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:16588
+#: tp/Texinfo/XS/convert/convert_html.c:16671
 #, c-format
 msgid "%zu registered opened sections not closed"
 msgstr ""
 
-#: tp/Texinfo/XS/convert/convert_html.c:16597
+#: tp/Texinfo/XS/convert/convert_html.c:16680
 #, fuzzy, c-format
 #| msgid "reserved index name %s"
 msgid "%zu registered inline contents: %s"
 msgstr "đã đảo ngược tên chỉ mục %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:16614
+#: tp/Texinfo/XS/convert/convert_html.c:16697
 #, fuzzy, c-format
 #| msgid "no sectioning command associated with @%s"
 msgid "left inline content associated to %s: '%s'"
 msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:16621
+#: tp/Texinfo/XS/convert/convert_html.c:16704
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr ""
 
-#: tp/Texinfo/XS/convert/convert_html.c:16626
+#: tp/Texinfo/XS/convert/convert_html.c:16709
 #, fuzzy, c-format
 #| msgid "no sectioning command associated with @%s"
 msgid "left inline content associated: '%s'"
 msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
+
+#, fuzzy, c-format
+#~| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
+#~ msgctxt "Texinfo source file warning"
+#~ msgid "warning: %s (possibly involving @%s)"
+#~ msgstr "%s:%d: cảnh báo: %s (có lẽ gọi @%s)\n"
 
 #, perl-format
 #~ msgid "empty index key in @%s"
