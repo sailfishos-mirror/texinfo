@@ -9066,13 +9066,13 @@ sub convert_tree($$;$)
 
 # Protect an url, in which characters with specific meaning in url are
 # considered to have their specific meaning.
-# TODO turn end of lines to spaces?  Currently, an end of line is percent
-# protected, it is most likely not what the author intended.  Tested in
-# html_tests.t end_of_line_in_uref
 sub url_protect_url_text($$)
 {
   my $self = shift;
   my $input_string = shift;
+  # turn end of lines to spaces, as it is most likely what is expected
+  # rather than a percent encoded end of line.
+  $input_string =~ s/[\n\r]+/ /g;
   # percent encode character string.  It is better use UTF-8 irrespective
   # of the actual charset of the HTML output file, according to the tests done.
   my $href = encode("UTF-8", $input_string);
@@ -9088,6 +9088,8 @@ sub url_protect_file_text($$)
 {
   my $self = shift;
   my $input_string = shift;
+  # turn end of lines to spaces, as it is most likely what is expected.
+  $input_string =~ s/[\n\r]+/ /g;
   # percent encode character string.  It is better use UTF-8 irrespective
   # of the actual charset of the HTML output file, according to the tests done.
   my $href = encode("UTF-8", $input_string);
