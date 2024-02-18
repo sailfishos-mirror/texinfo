@@ -1,3 +1,12 @@
+2024-02-18  Roland Clobus <rclobus@rclobus.nl> (tiny change)
+
+	* install-info/install-info.c (compare_entries_text):
+	If two strings compare identical, check which is longer.
+	* install-info/tests/ii-0060-test: New test.
+
+	This ensures reproducible results.
+	See <https://reproducible-builds.org/>.
+
 2024-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/errors.c (message_list_line_formatted_message):

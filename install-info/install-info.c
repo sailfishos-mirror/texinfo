@@ -2822,7 +2822,11 @@ compare_entries_text (const void *p1, const void *p2)
     len2 = strlen (text2);
   else
     len2 = colon2 - text2;
-  return mbsncasecmp (text1, text2, len1 <= len2 ? len1 : len2);
+  int result = mbsncasecmp (text1, text2, len1 <= len2 ? len1 : len2);
+  if (result == 0) /* Identical start, the longer goes last */
+    return len1 <= len2 ? -1 : +1;
+  else
+    return result;
 }
 
 /* Insert ENTRY into the ADD_ENTRIES_BEFORE vector for line number LINE_NUMBER 

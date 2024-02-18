@@ -180,3 +180,5 @@ This file describes each of the numbered install-info tests.
       extra blank lines.
 0059: Deletion of section between two other sections leaves one
       blank line between the remaining sections.
+0060: Installing an Info file.  The Info file contains entries with the same
+      start, the longest entry should be listed last (dictionary sort).
