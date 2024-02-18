@@ -358,6 +358,26 @@ $top_in_ref_text
 @section @xref{,,,filename}. xref filename only, no spaces
 
 '],
+# this tests in particular printindex in a document with multiple output
+# units and conversion called through convert.  This can happen in other
+# tests, but they are focused on other issues.
+['sections_and_printindex',
+'@node Top
+@top for example
+
+@node node
+@chapter chap
+
+@cindex entry1
+@node sec
+@section Sec
+
+@cindex entry2
+@appendix App
+
+@printindex cp
+
+'],
 ['link',
 '@node One
 @chapter ONEX

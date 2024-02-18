@@ -6470,7 +6470,7 @@ sub _convert_printindex_command($$$$)
           push @td_entry_classes, "index-entry-level-$level";
         }
         $entries_text .= '<tr><td></td>'
-         # FIXME same class used for leading entry rows here and
+         # TODO same class used for leading entry rows here and
          # last element of the entry with the href below.  Could be different.
          .$self->html_attribute_class('td', \@td_entry_classes).'>'
          . $entry . '</td>'
@@ -7169,7 +7169,8 @@ sub _convert_definfoenclose_type($$$$) {
 
   $content = '' if (!defined($content));
 
-  # FIXME add a span to mark the original command as a class?
+  # TODO add a span to mark the original command as a class?
+  # Not to be done as long as the definfoenclose is deprecated.
   return &{$self->formatting_function('format_protect_text')}($self,
                                       $element->{'extra'}->{'begin'})
      . $content .
@@ -8205,7 +8206,7 @@ sub _default_format_element_footer($$$$;$)
       }
     }
   }
-  # FIXME the following condition is almost a duplication of the
+  # NOTE the following condition is almost a duplication of the
   # condition appearing in end_page except that the file counter
   # needs not to be 1
   if ((!$unit->{'tree_unit_directions'}->{'next'}
@@ -9981,9 +9982,7 @@ sub _prepare_conversion_units($$$)
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
   $self->_set_special_units_targets_files($special_units, $document_name);
-  # FIXME when called in convert(),
-  # in converters_tests/ref_in_sectioning this leads to lone [Contents]
-  # button in otherwise empty navigation headings
+
   $self->_prepare_associated_special_units_targets($associated_special_units);
 
   $self->_set_root_commands_targets_node_files();
@@ -12041,6 +12040,12 @@ sub convert($$)
   # global targets when called as convert, but the Top global
   # unit directions is often referred to in code, so at least this
   # global target needs to be setup.
+  # Since the relative directions are not set, this leads to lone
+  # global direction buttons such as [Contents] or [Index] appearing
+  # in otherwise empty navigation headings if those global directions
+  # are set and present in the buttons, as is the case in the default
+  # buttons.  For example in converters_tests/ref_in_sectioning
+  # or converters_tests/sections_and_printindex.
   $self->_prepare_output_units_global_targets($output_units,
                                               $special_units,
                                               $associated_special_units);

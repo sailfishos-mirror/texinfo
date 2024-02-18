@@ -1,5 +1,13 @@
 2024-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm: modify/remove FIXMEs.
+
+	* tp/Makefile.tres, tp/t/converters_tests.t (sections_and_printindex):
+	focused test of printindex with sectioning commands and converters
+	called through convert.
+
+2024-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm, doc/texi2any_api.texi: remove/handle
 	FIXMEs.
 

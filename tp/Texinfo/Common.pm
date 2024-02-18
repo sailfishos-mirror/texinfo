@@ -1464,7 +1464,8 @@ sub set_output_encodings($$)
     }
     my $perl_encoding = Encode::resolve_alias($conversion_encoding);
     if (defined($perl_encoding) and $perl_encoding ne '') {
-      $customization_information->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
+      $customization_information->set_conf('OUTPUT_PERL_ENCODING',
+                                           $perl_encoding);
     }
   }
 }
