@@ -62,32 +62,33 @@ document MainConfig.
 Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 
-Delayed bugs
-============
+Delayed bugs/features
+=====================
 
-Add XS override for Document merged_indices?
+Gavin idea to use see/See for cross references in --plaintext output.
+More generally, the plaintext ref_commands formatting code
+could be completly different from the Info code, which is the current
+code, as most of the code deals with specific contraints of Info.
 
-Sorting indices in C with strxfrm_l using the "en_US.utf-8" locale with
-LC_COLLATE_MASK on Debian GNU/Linux with glibc is quite consistent with perl
-for number and letters, but leads to a different output than with Perl for non
-alphanumeric characters.  It is because in Perl we set 'variable' => 'Non-Ignorable'
-to set Variable Weighting to Non-ignorable (see
-http://www.unicode.org/reports/tr10/#Variable_Weighting).
-For spaces, the output with Non-Ignorable Variable Weighting looks better for
-index sorting, as it allows to have spaces and punctuation marks sort before
-letters.
 
-In case sorting according to locale would be needed in perl it seems that
-the way to do it is to set
-use locale
-in a block and use regular sorting, it would be as if strcoll/strxfrm was used.
+Some ideas for the reduction of the XS/C ELEMENT memory footprint, from
+Gavin and Patrice
 
-Transliteration/protection with iconv in C leads to a result different of Perl
-for some characters.  It seems that the iconv result depends on the locale, and
-there are quite a bit of ? output, probably when there is no obvious
-transliteration.  In those cases, the Unidecode transliterations are not
-necessarily very good, either.
+1) combine the two ASSOCIATED_INFO hashes?
 
+2) Represent the info ASSOCIATED_INFO hash information completly differently as
+  there are only a few possibilities and they are only relevant for some
+  specific commands/types.
+  For instance a union of an ELEMENT pointer and a string?
+
+3) make building "source marks" optional.
+  With 8 byte pointers and integers, the 24 byte section of ELEMENT relating
+  to source marks could be replaced with an 8 byte pointer to an external
+  structure, reducing the size of ELEMENT and reducing memory usage if source
+  marks aren't recorded.
+
+4) separate the structure of text elements and other elements, as text elements
+   should not need contents/args/extra.
 
 hyphenation: should only appear in toplevel.
 
@@ -126,6 +127,29 @@ the context command stack.
 
 Modules included in tp/maintain/lib/ need to be updated from time to
 time.
+
+
+Transliteration/protection with iconv in C leads to a result different of Perl
+for some characters.  It seems that the iconv result depends on the locale, and
+there are quite a bit of ? output, probably when there is no obvious
+transliteration.  In those cases, the Unidecode transliterations are not
+necessarily very good, either.
+
+
+Sorting indices in C with strxfrm_l using an utf-8 locale with
+LC_COLLATE_MASK on Debian GNU/Linux with glibc is quite consistent with Perl
+for number and letters, but leads to a different output than with Perl for non
+alphanumeric characters.  It is because in Perl we set
+'variable' => 'Non-Ignorable' to set Variable Weighting to Non-ignorable (see
+http://www.unicode.org/reports/tr10/#Variable_Weighting).
+For spaces, the output with Non-Ignorable Variable Weighting looks better for
+index sorting, as it allows to have spaces and punctuation marks sort before
+letters.  Right now, the C code calls Perl to get the sorting
+collation strings with Non-Ignorable Variable Weighting.  There exist an
+undocumented XS_STRXFRM_COLLATION_LOCALE that uses strxfrm_l, but it is only
+for testing and should not be kept in the long term, the plan is to replace by
+C code that sets Variable Weighting to Non-ignorable and before that keep
+calling Perl.
 
 
 HTML5 validation tidy errors that do not need fixing
