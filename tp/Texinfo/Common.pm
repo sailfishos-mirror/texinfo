@@ -1730,7 +1730,7 @@ sub split_custom_heading_command_contents($)
   return $result;
 }
 
-# FIXME document?
+# TODO document?
 # currently untested/unused, but there is a similar function in XS that
 # is used.
 sub replace_element_in_contents($$$)

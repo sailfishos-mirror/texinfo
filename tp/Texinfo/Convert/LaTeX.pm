@@ -3332,7 +3332,7 @@ sub _convert($$)
             # the table of content.  In that case, setup a text representation.
             $text_representation = '';
           }
-          # TODO: should translate
+          # TODO translation
           my $reference_result = '';
           if ($cmdname eq 'xref') {
             $reference_result = "See ";
@@ -3425,7 +3425,7 @@ sub _convert($$)
           # external ref
           # TODO hyper reference to manual file which seems to be implemented
           # in recent Texinfo TeX
-          # TODO: should translate
+          # TODO translation
           if ($cmdname eq 'xref') {
             $result .= "See ";
           } elsif ($cmdname eq 'pxref') {

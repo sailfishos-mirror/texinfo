@@ -30,11 +30,9 @@ use strict;
 # Can be used to check that there is no incorrect autovivfication
 # no autovivification qw(fetch delete exists store strict);
 
-# FIXME Could not do that before index sorting was in that file, probably
-# for uc().
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
-#use if $] >= 5.014, re => '/a';
+use if $] >= 5.014, re => '/a';
 
 use Carp qw(cluck confess);
 
@@ -1011,8 +1009,8 @@ sub complete_node_tree_with_menus($$$)
             $up_node->{'source_info'});
         }
       }
-      # FIXME check that the all the nodes are in a menu (except for Top)?
-      # FIXME check that node_up is not an external node (except for Top)?
+      # TODO check that the all the nodes are in a menu (except for Top)?
+      # TODO check that node_up is not an external node (except for Top)?
     }
   }
 }

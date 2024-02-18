@@ -672,7 +672,7 @@ sub regenerate_master_menu($$;$)
           splice (@$global_detailmenu, $global_detailmenu_index, 1,
                   $new_master_menu);
         }
-        # FIXME use an API?
+        # FIXME use an API to register a new internal reference?
         my $internal_references = $document->internal_references_information();
         foreach my $detailmenu_entry (@{$entry->{'contents'}}) {
           if ($detailmenu_entry->{'type'}

@@ -97,9 +97,7 @@ sub format_line_message($$$$;$)
 
   if (defined($error_location_info->{'macro'})) {
     if ($type eq 'warning') {
-      # TODO change the context to "Texinfo source file warning in a macro"
-      # when nearing the release
-      $message_line = sprintf(__p("Texinfo source file warning",
+      $message_line = sprintf(__p("Texinfo source file warning in macro",
                                "warning: %s (possibly involving \@%s)")."\n",
                            $text, $error_location_info->{'macro'});
     } else {

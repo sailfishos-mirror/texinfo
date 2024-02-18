@@ -1227,7 +1227,7 @@ sub _compute_spaces_align_line($$$;$)
   return $spaces_prepended;
 }
 
-# TODO: $bytes_count return value is not needed anywheree
+# TODO $bytes_count return value is not needed anywhere
 sub _align_lines($$$$$$)
 {
   my ($self, $text_encoded, $max_column, $direction,
@@ -2507,7 +2507,7 @@ sub _convert($$)
 
           # Check if punctuation follows the ref command.
           #
-          # FIXME: is @xref really special here?  Original comment:
+          # FIXME is @xref really special here?  Original comment:
           # "If command is @xref, the punctuation must always follow the
           # command, for other commands it may be in the argument..."
 
