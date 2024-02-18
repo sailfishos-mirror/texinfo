@@ -4775,6 +4775,8 @@ sub _convert_heading_command($$$$$)
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $output_unit;
+  # All the root commands are associated to an output unit, the condition
+  # on associated_unit is always true.
   if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
       and $element->{'associated_unit'}) {
     $output_unit = $element->{'associated_unit'};
@@ -4920,16 +4922,9 @@ sub _convert_heading_command($$$$$)
   my $heading_level;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    # FIXME what to do if the $output_unit does not contain any
-    # unit_command, but output_unit is defined (it can contain only
-    # 'first_in_page')
-    if ((!$output_unit
-         # or !$output_unit->{'unit_command'}
-         or ($output_unit->{'unit_command'}
-             and $output_unit->{'unit_command'} eq $element
-             and (not $element->{'extra'}
-                  or not $element->{'extra'}->{'associated_section'})))
-        and defined($element->{'extra'})
+    if ($output_unit->{'unit_command'} eq $element
+        and $element->{'extra'}
+        and not $element->{'extra'}->{'associated_section'}
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;

@@ -9876,6 +9876,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
     fprintf (stderr, "CONVERT elt heading %s\n",
                      root_heading_command_to_texinfo (element));
 
+  /* All the root commands are associated to an output unit, the condition
+     on associated_unit is always true. */
   if (flags & CF_root && element->associated_unit)
     output_unit = element->associated_unit;
 
@@ -10055,15 +10057,14 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
     if there is an error in the node. */
   heading = html_command_text (self, element, 0);
 
+  /* node is used as heading if there is nothing else. */
   if (cmd == CM_node)
     {
       ELEMENT *associated_section
         = lookup_extra_element (element, "associated_section");
       char *normalized = lookup_extra_string (element, "normalized");
-      if ((!output_unit
-           || (output_unit->unit_command
-               && output_unit->unit_command == element
-               && !associated_section))
+      if (output_unit->unit_command == element
+          && !associated_section
           && normalized)
         {
           if (!strcmp (normalized, "Top"))

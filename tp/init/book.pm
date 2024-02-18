@@ -34,7 +34,6 @@ my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_command
 texinfo_set_from_init_file('contents', 1);
 texinfo_set_from_init_file('CONTENTS_OUTPUT_LOCATION', 'inline');
 texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
-#texinfo_set_from_init_file('USE_TITLEPAGE_FOR_TITLE', 1);
 
 my @book_buttons = ('Back', 'Forward', ' ', 'Contents', 'Index', 'About');
 
@@ -200,6 +199,8 @@ sub book_convert_heading_command($$$$$)
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $output_unit;
+  # All the root commands are associated to an output unit, the condition
+  # on associated_unit is always true.
   if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
       and $element->{'associated_unit'}) {
     $output_unit = $element->{'associated_unit'};
@@ -210,14 +211,16 @@ sub book_convert_heading_command($$$$$)
                                         $self, $cmdname, $element, $output_unit);
   }
 
+  my $document = $self->get_info('document');
   my $sections_list;
-  if ($self->{'document'}) {
-    $sections_list = $self->{'document'}->sections_list();
+  if ($document) {
+    $sections_list = $document->sections_list();
   }
 
   my $tables_of_contents = '';
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
-      and $cmdname eq 'top' and $sections_list
+      and $cmdname eq 'top'
+      and $sections_list
       and scalar(@{$sections_list}) > 1) {
     foreach my $content_command_name ('shortcontents', 'contents') {
       if ($self->get_conf($content_command_name)) {
@@ -233,9 +236,10 @@ sub book_convert_heading_command($$$$$)
   my $sub_toc = '';
   if ($tables_of_contents eq ''
       and $element->{'extra'}->{'section_childs'}
-      and @{$element->{'extra'}->{'section_childs'}}
-      # FIXME why not @top?
-      and $cmdname ne 'top'
+      and scalar(@{$element->{'extra'}->{'section_childs'}})
+      # avoid a double of contents if already after title
+      and ($cmdname ne 'top'
+           or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')
       and $Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
     $sub_toc .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
     $sub_toc .= book_print_sub_toc($self, $element,
@@ -247,6 +251,7 @@ sub book_convert_heading_command($$$$$)
       and $Texinfo::Commands::root_commands{$cmdname}) {
     my $in_skipped_node_top
       = $self->get_shared_conversion_state('top', 'in_skipped_node_top');
+    $in_skipped_node_top = 0 if (!defined($in_skipped_node_top));
     my $node_element;
     if ($cmdname eq 'node') {
       $node_element = $element;
@@ -278,16 +283,15 @@ sub book_convert_heading_command($$$$$)
     }
   }
 
-  my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
+  my $level_set_class;
   if ($element->{'extra'}
       and defined $element->{'extra'}->{'section_level'}) {
     # if the level was changed, use a consistent command name
     $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if ($level_corrected_cmdname ne $cmdname) {
-      push @heading_classes,
-            "${cmdname}-level-set-${level_corrected_cmdname}";
+      $level_set_class = "${cmdname}-level-set-${level_corrected_cmdname}";
     }
   }
 
@@ -313,22 +317,18 @@ sub book_convert_heading_command($$$$$)
     $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
 
+  # could use empty args information also, to avoid calling command_text
+  #my $empty_heading = (!scalar(@$args) or !defined($args->[0]));
+
   # $heading not defined may happen if the command is a @node, for example
   # if there is an error in the node.
   my $heading = $self->command_text($element);
   my $heading_level;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    # FIXME what to do if the $output_unit extra does not contain any
-    # unit_command, but tree_unit is defined (it can contain only
-    # 'first_in_page')
-    if ((!$output_unit
-         # or !$output_unit->{'unit_command'}
-         or ($output_unit->{'unit_command'}
-             and $output_unit->{'unit_command'} eq $element
-             and (not $element->{'extra'}
-                  or not $element->{'extra'}->{'associated_section'})))
-        and defined($element->{'extra'})
+    if ($output_unit->{'unit_command'} eq $element
+        and $element->{'extra'}
+        and not $element->{'extra'}->{'associated_section'}
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
@@ -401,13 +401,16 @@ sub book_convert_heading_command($$$$$)
         and $Texinfo::Commands::root_commands{$cmdname}
         and $sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents');
-      if ($content_href ne '') {
+      if (defined($content_href)) {
         $heading = "<a href=\"$content_href\">$heading</a>";
       }
     }
 
-    my $heading_class = $level_corrected_cmdname;
-    unshift @heading_classes, $heading_class;
+    my @heading_classes;
+    push @heading_classes, $level_corrected_cmdname;
+    if (defined($level_set_class)) {
+      push @heading_classes, $level_set_class;
+    }
     if ($self->in_preformatted_context()) {
       my $id_str = '';
       if (defined($heading_id)) {

@@ -1,3 +1,14 @@
+2024-02-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_heading_command): update
+	the condition used to determine if the node is used for heading.
+
+	* tp/init/book.pm (book_convert_heading_command): avoid doing a
+	sub toc for @top only if CONTENTS_OUTPUT_LOCATION is after_title.
+
+	* tp/init/book.pm (book_convert_heading_command): sync with HTML.pm.
+
 2024-02-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_contents_inline_element),
