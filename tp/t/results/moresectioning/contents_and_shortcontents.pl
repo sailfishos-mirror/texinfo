@@ -783,7 +783,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="top-level-extent" id="top">
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
-<div class="element-shortcontents" id="SEC_Shortcontents">
+<div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -801,7 +801,7 @@ ul.toc-numbered-mark {list-style: none}
 </ul>
 </div>
 </div>
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

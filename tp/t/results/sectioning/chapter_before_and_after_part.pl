@@ -372,7 +372,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="chapter-level-extent" id="chapter-2">
 <h2 class="chapter"><span>2 chapter 2<a class="copiable-link" href="#chapter-2"> &para;</a></span></h2>
 
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

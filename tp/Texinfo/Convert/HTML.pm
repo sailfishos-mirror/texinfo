@@ -4731,16 +4731,15 @@ sub _contents_inline_element($$$)
     my ($special_unit_variety, $special_unit, $class_base,
         $special_unit_direction)
           = $self->command_name_special_unit_information($cmdname);
-    # FIXME is element- the best prefix?
-    my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
+    my $result = $self->html_attribute_class('div', ["region-${class_base}"]);
     my $unit_command = $special_unit->{'unit_command'};
     my $id = $self->command_id($unit_command);
     if (defined($id) and $id ne '') {
       $result .= " id=\"$id\"";
     }
+    $result .= ">\n";
     my $heading = $self->command_text($unit_command);
     $heading = '' if (!defined($heading));
-    $result .= ">\n";
     $result .= &{$self->formatting_function('format_heading_text')}($self,
                                   $cmdname, [$class_base.'-heading'], $heading,
                                   $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
@@ -6478,8 +6477,8 @@ sub _convert_printindex_command($$$$)
           push @td_entry_classes, "index-entry-level-$level";
         }
         $entries_text .= '<tr><td></td>'
-         # FIXME same class used for leading element of the entry and
-         # last element of the entry.  Could be different.
+         # FIXME same class used for leading entry rows here and
+         # last element of the entry with the href below.  Could be different.
          .$self->html_attribute_class('td', \@td_entry_classes).'>'
          . $entry . '</td>'
          # empty cell, no section for this line
@@ -7068,8 +7067,6 @@ sub _preformatted_class($)
   my $pre_class;
   my $pre_classes = $self->preformatted_classes_stack();
   foreach my $class (@$pre_classes) {
-    # FIXME maybe add   or $pre_class eq 'menu'  to override
-    # 'menu' with 'menu-comment'?
     $pre_class = $class unless ($pre_class
                            and $preformatted_code_commands{$pre_class}
                            and !($preformatted_code_commands{$class}

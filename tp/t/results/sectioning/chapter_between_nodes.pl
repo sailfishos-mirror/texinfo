@@ -625,7 +625,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="
 
 <p>section.
 </p>
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

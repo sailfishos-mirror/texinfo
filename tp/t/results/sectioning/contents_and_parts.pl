@@ -970,7 +970,7 @@ Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
-<div class="element-shortcontents" id="SEC_Shortcontents">
+<div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -986,7 +986,7 @@ Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<
 </ul>
 </div>
 </div>
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

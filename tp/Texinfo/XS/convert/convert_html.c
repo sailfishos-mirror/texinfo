@@ -9707,7 +9707,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
 
               class_base = special_unit_info (self, SUI_type_class,
                                               special_unit_variety);
-              xasprintf (&class, "element-%s", class_base);
+              xasprintf (&class, "region-%s", class_base);
 
               add_string (class, classes);
               free (class);

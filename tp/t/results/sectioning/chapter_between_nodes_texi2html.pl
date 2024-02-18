@@ -652,7 +652,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <p>section.
 </p>
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h1 class="contents-heading">Table of Contents</h1>
 
 <div class="contents">

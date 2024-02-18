@@ -252,7 +252,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="section-level-extent" id="sec">
 <h3 class="section"><span>2.1 sec<a class="copiable-link" href="#sec"> &para;</a></span></h3>
 
-<div class="element-shortcontents" id="SEC_Shortcontents">
+<div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">

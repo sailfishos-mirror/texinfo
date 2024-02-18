@@ -223,7 +223,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="top-level-extent" id="for-example">
 <h1 class="top"><span>for example<a class="copiable-link" href="#for-example"> &para;</a></span></h1>
 
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

@@ -311,7 +311,7 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top-lev
 <div class="chapter-level-extent" id="Chap2">
 <h2 class="chapter"><span>2 Chap2<a class="copiable-link" href="#Chap2"> &para;</a></span></h2>
 
-<div class="element-shortcontents" id="SEC_Shortcontents">
+<div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -321,7 +321,7 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top-lev
 </ul>
 </div>
 </div>
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
