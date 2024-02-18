@@ -1,5 +1,12 @@
 2024-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tp/init/book.pm (book_convert_heading_command): if USE_NODES = 0 and
+	there are no sectioning commands, $output_unit->{'unit_command'} does
+	not exist.
+
+2024-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Report.pm (format_line_message, line_warn, line_error):
 	add a bug message if error_location_info argument is undef.
 

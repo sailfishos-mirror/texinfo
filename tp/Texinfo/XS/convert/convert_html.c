@@ -10063,6 +10063,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       ELEMENT *associated_section
         = lookup_extra_element (element, "associated_section");
       char *normalized = lookup_extra_string (element, "normalized");
+      /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
+         output_unit->unit_command is NUL (and not equal to elemen). */
       if (output_unit->unit_command == element
           && !associated_section
           && normalized)

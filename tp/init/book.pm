@@ -326,7 +326,10 @@ sub book_convert_heading_command($$$$$)
   my $heading_level;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    if ($output_unit->{'unit_command'} eq $element
+    # NOTE: if USE_NODES = 0 and there are no sectioning commands,
+    # $output_unit->{'unit_command'} does not exist.
+    if ($output_unit->{'unit_command'}
+        and $output_unit->{'unit_command'} eq $element
         and $element->{'extra'}
         and not $element->{'extra'}->{'associated_section'}
         and defined($element->{'extra'}->{'normalized'})) {
