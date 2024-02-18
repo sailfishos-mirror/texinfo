@@ -289,6 +289,17 @@ in @code{documentdescri---ption} --- @bullet{} @enddots{} @verb{:"verb:} @aa{} @
 
 @top top
 '],
+['menu_in_documentdescription',
+'@node Top
+@top top
+
+@documentdescription
+@menu
+* (f)b::
+@end menu
+@end documentdescription
+', {'FORMAT_MENU' => 'menu'},
+   {'FORMAT_MENU' => 'menu'}],
 ['index_below',
 '@top top
 

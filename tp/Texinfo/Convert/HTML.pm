@@ -4459,9 +4459,8 @@ sub _default_format_button($$;$)
           $passive_icon = $passive_icons->{$button};
         }
         if (defined($passive_icon) and $passive_icon ne '') {
-          # FIXME strip FirstInFile from $button to get $passive_icon?
           my $button_name_string = $self->direction_string($button,
-                                                         'button', 'string');
+                                                           'button', 'string');
           $passive = &{$self->formatting_function('format_button_icon_img')}(
                       $self, $button_name_string, $passive_icon,
                       $self->from_element_direction($button, 'string'));
@@ -4516,7 +4515,6 @@ sub _default_format_navigation_panel($$$$;$)
       $direction = $button;
     }
     # if the first button is an empty button, pass
-    # FIXME check if documented, if not, document
     if (defined($direction)
         and $direction eq ' ' and $nr_of_buttons_shown == 0) {
       next;
@@ -5538,9 +5536,9 @@ sub _convert_menu_command($$$$$)
   if ($content !~ /\S/) {
     return '';
   }
-  # This can probably only happen with incorrect input,
-  # for instance menu in copying
-  # FIXME check?
+  # This can probably only happen with incorrect input.  It happens with
+  # menu in documentdescription.  It does not seem that it could happen
+  # in other situation with a Texinfo tree parsed from Texinfo code.
   if (in_string($self)) {
     return $content;
   }
@@ -9060,9 +9058,8 @@ sub convert_tree($$;$)
   return $self->_convert($tree, $explanation);
 }
 
-# FIXME make it a format_* function?
-# protect an url, in which characters with specific meaning in url are considered
-# to have their specific meaning
+# Protect an url, in which characters with specific meaning in url are
+# considered to have their specific meaning.
 # TODO turn end of lines to spaces?  Currently, an end of line is percent
 # protected, it is most likely not what the author intended.  Tested in
 # html_tests.t end_of_line_in_uref
@@ -9078,8 +9075,7 @@ sub url_protect_url_text($$)
   return &{$self->formatting_function('format_protect_text')}($self, $href);
 }
 
-# FIXME make it a format_* function?
-# protect a file path used in an url.  Characters appearing in file paths
+# Protect a file path used in an url.  Characters appearing in file paths
 # are not protected.   All the other characters that can be percent
 # protected are protected, including characters with specific meaning in url.
 sub url_protect_file_text($$)
@@ -13015,8 +13011,9 @@ sub output($$)
 }
 
 #my $characters_replaced_from_class_names = quotemeta('[](),~#:/\\@+=!;.,?* ');
-# FIXME not clear what character should be allowed and which ones replaced
-# besides space
+# Not clear what character should be allowed and which ones replaced
+# besides space.  Not really important as the caller should themselves
+# sanitize the class names already.
 my $characters_replaced_from_class_names = quotemeta(' ');
 sub _protect_class_name($$)
 {

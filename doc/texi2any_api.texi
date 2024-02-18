@@ -1324,6 +1324,9 @@ the @code{rel} attribute is used in navigation.  In that case the
 @code{rel} direction string is used for the @code{rel}
 attribute (@pxref{Direction Strings}).
 
+Leading space buttons mixed with directions not found may be omitted
+of the navigation panel output.
+
 
 @node User Defined Functions
 @chapter User Defined Functions
