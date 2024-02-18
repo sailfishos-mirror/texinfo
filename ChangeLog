@@ -1,3 +1,10 @@
+2024-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_stream_encode):
+	Set $self->{'encoding_disabled'} if no encoding is taking place.
+	This avoids attempting to initialise $self->{'encoding_object'}
+	each time this runs.  Report from Patrice.
+
 2024-02-18  Roland Clobus <rclobus@rclobus.nl> (tiny change)
 
 	* install-info/install-info.c (compare_entries_text):

@@ -956,23 +956,24 @@ sub _stream_encode($$)
   my $self = shift;
   my $string = shift;
 
-  if (!defined($self->{'encoding_object'})) {
-    my $encoding = $self->{'output_perl_encoding'};
-    if ($encoding and $encoding ne 'ascii') {
-      my $Encode_encoding_object = Encode::find_encoding($encoding);
-      if (!defined($Encode_encoding_object)) {
-        Carp::croak "Unknown encoding '$encoding'";
-      }
-      $self->{'encoding_object'} = $Encode_encoding_object;
-    }
-  }
-
-  if ($self->{'encoding_object'}) {
-    my $encoded = $self->{'encoding_object'}->encode($string);
-    return $encoded;
-  } else {
+  if ($self->{'encoding_disabled'}) {
     return $string;
   }
+
+  if (!defined($self->{'encoding_object'})) {
+    my $encoding = $self->{'output_perl_encoding'};
+    if (!$encoding or $encoding eq 'ascii') {
+      $self->{'encoding_disabled'} = 1;
+      return $string;
+    }
+    my $Encode_encoding_object = Encode::find_encoding($encoding);
+    if (!defined($Encode_encoding_object)) {
+      Carp::croak "Unknown encoding '$encoding'";
+    }
+    $self->{'encoding_object'} = $Encode_encoding_object;
+  }
+
+  return $self->{'encoding_object'}->encode($string);
 }
 
 
