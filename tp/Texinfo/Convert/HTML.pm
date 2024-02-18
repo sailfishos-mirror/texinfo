@@ -6560,7 +6560,7 @@ sub _convert_printindex_command($$$$)
           }
           $entry = '<code>' .$entry .'</code>' if ($in_code);
           $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
-          # TODO add the information that the entry is associated with see also?
+          # TODO add the information that the entry column is with see also?
           $entry_class = "$cmdname-index-entry";
           $section_class = "$cmdname-index-see-also";
         }
@@ -8974,8 +8974,10 @@ sub converter_initialize($)
       = $customized_special_unit_body->{$special_unit_variety};
   }
 
-  # TODO warn if the split specification is not one known?  The main
-  # program warns if the specific command line option value is not known.
+  # NOTE we reset silently if the split specification is not one known.
+  # The main program warns if the specific command line option value is
+  # not known.  We could add a warning here to catch mistakes in init
+  # files.  Wait for user reports.
   if ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'chapter'
       and $self->get_conf('SPLIT') ne 'section'
       and $self->get_conf('SPLIT') ne 'node') {
@@ -12398,10 +12400,6 @@ sub _prepare_converted_output_info($)
       }
     }
 
-    # TODO it is not clear that a filename without line number is ok
-    # for line_warn.  Not clear what is the right way to do.  There is
-    # no file level warn, as in general document_warn is used for messages
-    # for other files than the main file name.
     if (defined($input_file_name)) {
       $self->converter_line_warn(__(
                          "must specify a title with a title command or \@top"),
