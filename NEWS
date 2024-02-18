@@ -32,6 +32,7 @@ See the manual for detailed information.
    "texinfo_document" domain
  . the us-ascii encoding is not tried anymore when looking for a document
    output string locale.  Accent @-commands can still be used in translations.
+ . only allow highlighting commands to be redefined with @definfoenclose.
  . HTML, Texinfo and raw text output:
    An implementation of the conversion in C has been included.  Set the
     `TEXINFO_XS_CONVERT' environment variable to 1 to use.

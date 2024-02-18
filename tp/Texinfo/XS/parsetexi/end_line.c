@@ -243,6 +243,19 @@ parse_line_command_args (ELEMENT *line_command)
         if (*line == ',')
           goto definfoenclose_invalid; /* Too many args. */
 
+        /* check that it is an highlighting command */
+        new_cmd = lookup_builtin_command (new_command);
+        if (new_cmd &&
+            (!(builtin_command_data[new_cmd].flags & CF_brace)
+             || (builtin_command_data[new_cmd].data != BRACE_style_no_code
+                 && builtin_command_data[new_cmd].data != BRACE_style_code
+                 && builtin_command_data[new_cmd].data != BRACE_style_other)))
+          {
+            line_error ("cannot redefine with @definfoenclose: %s",
+                        new_command);
+            goto definfoenclose_add_args;
+          }
+
         /* Remember it. */
         new_cmd = add_texinfo_command (new_command);
         add_infoenclose (new_cmd, start, end);
@@ -254,6 +267,7 @@ parse_line_command_args (ELEMENT *line_command)
         user_defined_command_data[new_cmd].data = BRACE_style_other;
         user_defined_command_data[new_cmd].args_number = 1;
 
+      definfoenclose_add_args:
         ADD_ARG(new_command); free (new_command);
         ADD_ARG(start); free (start);
         ADD_ARG(end); free (end);

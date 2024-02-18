@@ -7685,24 +7685,33 @@ sub _parse_line_command_args($$$)
     } elsif ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
       $args = [$1, $2, $3 ];
       my ($cmd_name, $begin, $end) = ($1, $2, $3);
-      $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
-      print STDERR "DEFINFOENCLOSE \@$cmd_name: $begin, $end\n"
+      if ($all_commands{$cmd_name}
+          and (!$brace_commands{$cmd_name}
+               or ($brace_commands{$cmd_name} ne 'style_code'
+                   and $brace_commands{$cmd_name} ne 'style_no_code'
+                   and $brace_commands{$cmd_name} ne 'style_other'))) {
+        $self->_line_error(sprintf(__("cannot redefine with \@%s: %s"),
+                           $command, $cmd_name), $source_info);
+      } else {
+        $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
+        print STDERR "DEFINFOENCLOSE \@$cmd_name: $begin, $end\n"
                if ($self->{'DEBUG'});
-      delete $self->{'macros'}->{$cmd_name};
-      delete $self->{'aliases'}->{$cmd_name};
-      # unset @def*index effect
-      delete $self->{'line_commands'}->{$cmd_name};
-      #delete $self->{'close_paragraph_commands'}->{$cmd_name};
-      delete $self->{'no_paragraph_commands'}->{$cmd_name};
-      delete $self->{'basic_inline_commands'}->{$cmd_name};
-      delete $self->{'command_index'}->{$cmd_name};
-      # consistent with XS parser, value not actually used anywhere.
-      $self->{'brace_commands'}->{$cmd_name} = 'style_other';
-      # this allows to obtain the same result as the XS parser which checks
-      # dynamically the brace_commands type
-      $self->{'valid_nestings'}->{$cmd_name} = \%in_full_text_commands;
-      # note that a built-in command previously in a hash classifying the
-      # @-command otherwise will remain there, possibly having specific effects.
+        delete $self->{'macros'}->{$cmd_name};
+        delete $self->{'aliases'}->{$cmd_name};
+        # unset @def*index effect
+        delete $self->{'line_commands'}->{$cmd_name};
+        #delete $self->{'close_paragraph_commands'}->{$cmd_name};
+        delete $self->{'no_paragraph_commands'}->{$cmd_name};
+        delete $self->{'basic_inline_commands'}->{$cmd_name};
+        delete $self->{'command_index'}->{$cmd_name};
+        # consistent with XS parser, value not actually used anywhere.
+        $self->{'brace_commands'}->{$cmd_name} = 'style_other';
+        # this allows to obtain the same result as the XS parser which checks
+        # dynamically the brace_commands type
+        $self->{'valid_nestings'}->{$cmd_name} = \%in_full_text_commands;
+        # note that a built-in command previously in a hash classifying the
+        # @-command otherwise will remain there, possibly having specific effects.
+      }
     } else {
       $self->_line_error(sprintf(__("bad argument to \@%s"), $command),
                          $source_info);

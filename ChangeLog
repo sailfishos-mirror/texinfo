@@ -1,3 +1,17 @@
+2024-02-18  Patrice Dumas  <pertusus@free.fr>
+
+	Only allow highlighting commands to be redefined with @definfoenclose
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args):
+	before redefining with definfoenclose, verify that the command is not
+	a builtin command, or, if it is, that it is a brace command and a
+	style* brace command.
+
+	* tp/Makefile.tres, tp/t/03coverage_braces.t
+	(definfoenclose_texinfo_commands): add tests of redefinition of
+	builtin @-commands by @definfoenclose.
+
 2024-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_stream_encode):

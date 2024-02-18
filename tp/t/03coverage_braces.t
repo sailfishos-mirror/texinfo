@@ -286,6 +286,20 @@ Text @w{@ref{Top, cross in w} text}.
 
 @printindex cp
 '],
+['definfoenclose_texinfo_commands',
+'@definfoenclose verb,;;,!!
+@definfoenclose TeX,aa,bb
+@definfoenclose strong,(,)
+@definfoenclose quotation,q,e
+
+@verb{*aaa*}.
+
+@TeX{}. @strong{in strong}.
+
+@quotation important
+in quotation
+@end quotation
+'],
 );
 
 my @test_invalid = (
