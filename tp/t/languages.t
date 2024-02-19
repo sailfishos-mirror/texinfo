@@ -169,6 +169,31 @@ Another unknown language. @xref{Top}.
 @defivar AAA BBB CCC
 @end defivar
 '],
+['documentlanguage_generated_master_menu',
+'@documentlanguage pt
+
+@documentlanguage de
+
+@node Top
+@top top
+
+@part Part I
+
+@node chapter
+@chapter Chap
+
+@documentlanguage fr
+
+@part Part II
+
+@node other chap
+@chapter Other chap
+
+@documentlanguage  hr
+
+@node appendix
+@appendix App
+'],
 );
 
 my $multiple_lang_chapters_text = 
@@ -272,6 +297,7 @@ my %info_tests = (
   'command_translated' => 1,
   'unknown_language' => 1,
   'unknown_region' => 1,
+  'documentlanguage_generated_master_menu' => 1,
 );
 
 my %xml_tests = (
