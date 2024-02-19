@@ -1449,6 +1449,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/verb_with_brace_in_macro_call.pl \
   t/results/macro/zero_argument.pl \
   t/results/macro/zero_argument_comment.pl \
+  t/results/menu/appendix_and_associated_part_in_generated_menu.pl \
   t/results/menu/bad_beginning.pl \
   t/results/menu/block_commands_in_menu_description.pl \
   t/results/menu/commands_in_nodedescriptionblock.pl \
@@ -1490,6 +1491,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/menu/no_colon_in_menu.pl \
   t/results/menu/nodedescription_descriptions.pl \
   t/results/menu/nodedescriptionblock_descriptions.pl \
+  t/results/menu/part_appendix_in_generated_menu.pl \
   t/results/menu/reference_to_external_manual.pl \
   t/results/menu/sc_in_menu.pl \
   t/results/menu/simple.pl \
