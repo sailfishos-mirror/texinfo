@@ -201,7 +201,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
         }
       ],
       'extra' => {
-        'section_number' => '1.A'
+        'section_number' => '1.1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -402,7 +402,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
       'cmdname' => 'appendix',
       'extra' => {
         'associated_part' => {},
-        'section_number' => '3'
+        'section_number' => 'A'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -446,7 +446,7 @@ $result_texts{'appendix_and_associated_part_in_generated_menu'} = 'top
 1 Chap
 ******
 
-1.A Sec
+1.1 Sec
 =======
 
 P1
@@ -458,7 +458,7 @@ P1
 Final
 *****
 
-Appendix 3 GGG
+Appendix A GGG
 **************
 ';
 
@@ -498,7 +498,7 @@ $result_sectioning{'appendix_and_associated_part_in_generated_menu'} = {
                         'up' => {}
                       },
                       'section_level' => 2,
-                      'section_number' => '1.A'
+                      'section_number' => '1.1'
                     }
                   }
                 ],
@@ -571,7 +571,7 @@ $result_sectioning{'appendix_and_associated_part_in_generated_menu'} = {
                 'up' => {}
               },
               'section_level' => 1,
-              'section_number' => '3',
+              'section_number' => 'A',
               'toplevel_directions' => {
                 'prev' => {},
                 'up' => {}
@@ -655,7 +655,7 @@ $result_nodes{'appendix_and_associated_part_in_generated_menu'} = [
                               'cmdname' => 'part',
                               'extra' => {}
                             },
-                            'section_number' => '3'
+                            'section_number' => 'A'
                           }
                         },
                         'node_directions' => {
@@ -690,7 +690,7 @@ $result_nodes{'appendix_and_associated_part_in_generated_menu'} = [
       'associated_section' => {
         'cmdname' => 'appendixsec',
         'extra' => {
-          'section_number' => '1.A'
+          'section_number' => '1.1'
         }
       },
       'node_directions' => {
@@ -778,13 +778,13 @@ Chap
 * Menu:
 
 * sec::
-1.A Sec
+1.1 Sec
 =======
 
 2 Chap 2
 ********
 
-Appendix 3 GGG
+Appendix A GGG
 **************
 
 ';
@@ -870,7 +870,7 @@ Next: <a href="#chap2" accesskey="n" rel="next">Chap 2</a>, Previous: <a href="#
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">Chap</a> &nbsp; </p>
 </div>
-<h3 class="appendixsec" id="Sec"><span>1.A Sec<a class="copiable-link" href="#Sec"> &para;</a></span></h3>
+<h3 class="appendixsec" id="Sec"><span>1.1 Sec<a class="copiable-link" href="#Sec"> &para;</a></span></h3>
 
 <hr>
 </div>
@@ -899,7 +899,7 @@ Previous: <a href="#chap2" accesskey="p" rel="prev">Chap 2</a>, Up: <a href="#To
 <hr>
 
 <div class="appendix-level-extent" id="app">
-<h2 class="appendix" id="GGG"><span>Appendix 3 GGG<a class="copiable-link" href="#GGG"> &para;</a></span></h2>
+<h2 class="appendix" id="GGG"><span>Appendix A GGG<a class="copiable-link" href="#GGG"> &para;</a></span></h2>
 </div>
 </div>
 
@@ -979,7 +979,7 @@ File: ,  Node: chapter,  Next: chap2,  Prev: Top,  Up: Top
 
 File: ,  Node: sec,  Up: chapter
 
-1.A Sec
+1.1 Sec
 =======
 
 
@@ -991,7 +991,7 @@ File: ,  Node: chap2,  Next: app,  Prev: chapter,  Up: Top
 
 File: ,  Node: app,  Prev: chap2,  Up: Top
 
-Appendix 3 GGG
+Appendix A GGG
 **************
 
 

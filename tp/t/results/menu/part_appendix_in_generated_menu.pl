@@ -206,7 +206,7 @@ $result_trees{'part_appendix_in_generated_menu'} = {
         }
       ],
       'extra' => {
-        'section_number' => '1.A'
+        'section_number' => '1.1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -371,7 +371,7 @@ $result_trees{'part_appendix_in_generated_menu'} = {
       ],
       'cmdname' => 'appendix',
       'extra' => {
-        'section_number' => '3'
+        'section_number' => 'A'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -414,7 +414,7 @@ $result_texts{'part_appendix_in_generated_menu'} = 'top
 1 Chap
 ******
 
-1.A Sec
+1.1 Sec
 =======
 
 P1
@@ -423,7 +423,7 @@ P1
 2 Chap 2
 ********
 
-Appendix 3 GGG
+Appendix A GGG
 **************
 ';
 
@@ -463,7 +463,7 @@ $result_sectioning{'part_appendix_in_generated_menu'} = {
                         'up' => {}
                       },
                       'section_level' => 2,
-                      'section_number' => '1.A'
+                      'section_number' => '1.1'
                     }
                   }
                 ],
@@ -511,33 +511,32 @@ $result_sectioning{'part_appendix_in_generated_menu'} = {
           },
           'part_following_node' => {},
           'section_childs' => [
-            {},
-            {
-              'cmdname' => 'appendix',
-              'extra' => {
-                'associated_node' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'normalized' => 'app'
-                  }
-                },
-                'section_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                },
-                'section_level' => 1,
-                'section_number' => '3',
-                'toplevel_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                }
-              }
-            }
+            {}
           ],
           'section_directions' => {
             'prev' => {}
           },
           'section_level' => 0
+        }
+      },
+      {
+        'cmdname' => 'appendix',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'app'
+            }
+          },
+          'section_directions' => {
+            'prev' => {}
+          },
+          'section_level' => 1,
+          'section_number' => 'A',
+          'toplevel_directions' => {
+            'prev' => {},
+            'up' => {}
+          }
         }
       }
     ],
@@ -555,11 +554,10 @@ $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}
 $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'part_following_node'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'associated_node'};
 $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[0] = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'};
-$result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'};
-$result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1];
-$result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'};
-$result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1];
+$result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[1]{'extra'}{'part_associated_section'};
+$result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'part_appendix_in_generated_menu'}{'extra'}{'section_childs'}[0];
 
 $result_nodes{'part_appendix_in_generated_menu'} = [
   {
@@ -600,7 +598,7 @@ $result_nodes{'part_appendix_in_generated_menu'} = [
                         'associated_section' => {
                           'cmdname' => 'appendix',
                           'extra' => {
-                            'section_number' => '3'
+                            'section_number' => 'A'
                           }
                         },
                         'node_directions' => {
@@ -634,7 +632,7 @@ $result_nodes{'part_appendix_in_generated_menu'} = [
       'associated_section' => {
         'cmdname' => 'appendixsec',
         'extra' => {
-          'section_number' => '1.A'
+          'section_number' => '1.1'
         }
       },
       'node_directions' => {
@@ -719,13 +717,13 @@ Chap
 * Menu:
 
 * sec::
-1.A Sec
+1.1 Sec
 =======
 
 2 Chap 2
 ********
 
-Appendix 3 GGG
+Appendix A GGG
 **************
 
 ';
@@ -810,7 +808,7 @@ Next: <a href="#chap2" accesskey="n" rel="next">Chap 2</a>, Previous: <a href="#
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">Chap</a> &nbsp; </p>
 </div>
-<h3 class="appendixsec" id="Sec"><span>1.A Sec<a class="copiable-link" href="#Sec"> &para;</a></span></h3>
+<h3 class="appendixsec" id="Sec"><span>1.1 Sec<a class="copiable-link" href="#Sec"> &para;</a></span></h3>
 
 <hr>
 </div>
@@ -834,7 +832,7 @@ Next: <a href="#app" accesskey="n" rel="next">GGG</a>, Previous: <a href="#chapt
 <p>
 Previous: <a href="#chap2" accesskey="p" rel="prev">Chap 2</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="appendix" id="GGG"><span>Appendix 3 GGG<a class="copiable-link" href="#GGG"> &para;</a></span></h2>
+<h2 class="appendix" id="GGG"><span>Appendix A GGG<a class="copiable-link" href="#GGG"> &para;</a></span></h2>
 </div>
 </div>
 
@@ -864,10 +862,10 @@ $result_converted{'xml'}->{'part_appendix_in_generated_menu'} = '<node name="Top
 <chapter spaces=" "><sectiontitle>Chap 2</sectiontitle>
 
 </chapter>
+</part>
 <node name="app" spaces=" "><nodename>app</nodename><nodeprev automatic="on">chap2</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <appendix spaces=" "><sectiontitle>GGG</sectiontitle>
 </appendix>
-</part>
 ';
 
 
@@ -910,7 +908,7 @@ File: ,  Node: chapter,  Next: chap2,  Prev: Top,  Up: Top
 
 File: ,  Node: sec,  Up: chapter
 
-1.A Sec
+1.1 Sec
 =======
 
 
@@ -922,7 +920,7 @@ File: ,  Node: chap2,  Next: app,  Prev: chapter,  Up: Top
 
 File: ,  Node: app,  Prev: chap2,  Up: Top
 
-Appendix 3 GGG
+Appendix A GGG
 **************
 
 

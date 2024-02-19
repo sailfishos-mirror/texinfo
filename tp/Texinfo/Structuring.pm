@@ -328,7 +328,8 @@ sub sectioning_structure($$$)
         $command_numbers[$level] = 1;
       }
     }
-    if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix) {
+    if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix
+        and $level == $number_top_level) {
       $in_appendix = 1;
       # NOTE we rely on perl auto-increment operator 'magic' for variables
       # in string context, the increment is done as a string, preserving each

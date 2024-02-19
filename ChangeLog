@@ -1,5 +1,12 @@
 2024-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (sectioning_structure),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(sectioning_structure): start appendix numbering only if at the top
+	level.
+
+2024-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/10menu.t (part_appendix_in_generated_menu)
 	(appendix_and_associated_part_in_generated_menu): add tests with
 	part and appendices in generated top menu.

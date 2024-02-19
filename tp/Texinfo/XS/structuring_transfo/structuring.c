@@ -304,7 +304,7 @@ sectioning_structure (DOCUMENT *document)
             command_numbers[level] = 1;
         }
       if ((command_other_flags (content) & CF_appendix)
-          && !in_appendix)
+          && !in_appendix && level == number_top_level)
         {
           in_appendix = 1;
           command_numbers[level] = 1;
