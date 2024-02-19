@@ -606,9 +606,12 @@ sub complete_tree_nodes_menus($;$)
 }
 
 # this only complete menus if there was no menu
-sub complete_tree_nodes_missing_menu($;$)
+# customization_information is used to pass down a translatable object with
+# customization information for the gdt() call.
+sub complete_tree_nodes_missing_menu($;$$)
 {
   my $root = shift;
+  my $customization_information = shift;
   my $use_sections = shift;
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
@@ -617,7 +620,8 @@ sub complete_tree_nodes_missing_menu($;$)
         or not scalar(@{$node->{'extra'}->{'menus'}})) {
       my $section = $node->{'extra'}->{'associated_section'};
       my $current_menu
-        = Texinfo::Structuring::new_complete_node_menu($node, $use_sections);
+        = Texinfo::Structuring::new_complete_node_menu($node,
+                                 $customization_information, $use_sections);
       if (defined($current_menu)) {
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
       }
@@ -969,12 +973,15 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
 
-=item complete_tree_nodes_missing_menu($tree, $use_section_names_in_entries)
+=item complete_tree_nodes_missing_menu($tree, $customization_information, $use_section_names_in_entries)
 X<C<complete_tree_nodes_missing_menu>>
 
 Add whole menus for nodes associated with sections and without menu,
-based on the sectioning tree.  If the optional
-C<$add_section_names_in_entries> argument is set, a menu entry
+based on the sectioning tree.
+I<$customization_information>, if defined, should hold information
+needed for translations.  Translations are only needed when generating the
+top node menu.
+If the optional I<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
 

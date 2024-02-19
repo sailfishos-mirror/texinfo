@@ -1773,8 +1773,45 @@ new_node_menu_entry (ELEMENT *node, int use_sections)
   return entry;
 }
 
+static void
+insert_menu_comment_content (ELEMENT_LIST *element_list, int position,
+                   ELEMENT *inserted_element, int no_leading_empty_line)
+{
+  ELEMENT *menu_comment = new_element (ET_menu_comment);
+  ELEMENT *preformatted = new_element (ET_preformatted);
+  ELEMENT *empty_line_first_after = new_element (ET_empty_line);
+  ELEMENT *empty_line_second_after = new_element (ET_empty_line);
+  int index_in_preformatted = 0;
+  int i;
+
+  add_to_element_contents (menu_comment, preformatted);
+
+  if (!no_leading_empty_line)
+    {
+      ELEMENT *empty_line_before = new_element (ET_empty_line);
+      text_append (&empty_line_before->text, "\n");
+      add_to_element_contents (preformatted, empty_line_before);
+      index_in_preformatted = 1;
+    }
+
+  for (i = 0; i < inserted_element->contents.number; i++)
+    inserted_element->contents.list[i]->parent = preformatted;
+
+  insert_slice_into_contents (preformatted, index_in_preformatted,
+                              inserted_element,
+                              0, inserted_element->contents.number);
+
+  text_append (&empty_line_first_after->text, "\n");
+  text_append (&empty_line_second_after->text, "\n");
+  add_to_element_contents (preformatted, empty_line_first_after);
+  add_to_element_contents (preformatted, empty_line_second_after);
+
+  insert_into_element_list (element_list, menu_comment, position);
+}
+
 ELEMENT *
-new_complete_node_menu (ELEMENT *node, int use_sections)
+new_complete_node_menu (ELEMENT *node, DOCUMENT *document,
+                        OPTIONS *options, int use_sections)
 {
   ELEMENT_LIST *node_childs = get_node_node_childs_from_sectioning (node);
   ELEMENT *section;
@@ -1803,6 +1840,79 @@ new_complete_node_menu (ELEMENT *node, int use_sections)
           add_to_element_contents (new_menu, entry);
         }
     }
+
+  if (section && section->cmd == CM_top && options)
+    {
+      char *normalized = lookup_extra_string (node, "normalized");
+      if (normalized && !strcmp (normalized, "Top"))
+        {
+          int content_index = 0;
+          int in_appendix = 0;
+          for (i = 0; i < node_childs->number; i++)
+            {
+              ELEMENT *child = node_childs->list[i];
+              int status;
+              int is_target = lookup_extra_integer (child, "is_target",
+                                                    &status);
+              ELEMENT *child_section;
+
+              if (!is_target)
+                continue;
+
+              child_section
+                  = lookup_extra_element (child, "associated_section");
+              if (child_section)
+                {
+                  int part_added = 0;
+                  ELEMENT *associated_part
+                    = lookup_extra_element (child, "associated_part");
+                  if (associated_part && associated_part->args.number > 0)
+                    {
+                      ELEMENT *part_title_copy
+                        = copy_tree (associated_part->args.list[0]);
+                      NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+                      ELEMENT *part_title;
+                      add_element_to_named_string_element_list (substrings,
+                                                "part_title", part_title_copy);
+
+                      part_title
+                        = gdt_tree ("Part: {part_title}", document, options,
+                                    options->documentlanguage.string,
+                                    substrings, 0);
+
+                      insert_menu_comment_content (&new_menu->contents,
+                                                   content_index, part_title,
+                                                   (content_index == 0));
+                      destroy_element (part_title);
+
+                      content_index++;
+                      part_added = 1;
+                      destroy_named_string_element_list (substrings);
+                    }
+                  if (!in_appendix
+                      && command_other_flags (child_section) & CF_appendix)
+                    {
+                      ELEMENT *appendix_title
+                        = gdt_tree ("Appendices", document, options,
+                                    options->documentlanguage.string,
+                                    0, 0);
+
+                      insert_menu_comment_content (&new_menu->contents,
+                                                   content_index,
+                                                   appendix_title,
+                                         (content_index == 0 || part_added));
+                      destroy_element (appendix_title);
+
+                      content_index++;
+                      in_appendix++;
+                    }
+                }
+              content_index++;
+            }
+        }
+    }
+
   destroy_list (node_childs);
 
   new_block_command (new_menu, CM_menu);
@@ -1827,7 +1937,7 @@ print_down_menus (ELEMENT *node, LABEL_LIST *identifiers_target,
     {
       /* If there is no menu for the node, we create a temporary menu to be
          able to find and copy entries as if there was already a menu */
-      new_current_menu = new_complete_node_menu (node, use_sections);
+      new_current_menu = new_complete_node_menu (node, 0, 0, use_sections);
       if (new_current_menu)
         {
           menus = new_list ();
@@ -1870,11 +1980,6 @@ print_down_menus (ELEMENT *node, LABEL_LIST *identifiers_target,
     {
       ELEMENT *node_name_element;
       ELEMENT *node_title_copy;
-      ELEMENT *menu_comment = new_element (ET_menu_comment);
-      ELEMENT *preformatted = new_element (ET_preformatted);
-      ELEMENT *empty_line_before = new_element (ET_empty_line);
-      ELEMENT *empty_line_first_after = new_element (ET_empty_line);
-      ELEMENT *empty_line_second_after = new_element (ET_empty_line);
       ELEMENT *associated_section
        = lookup_extra_element (node, "associated_section");
       if (associated_section)
@@ -1884,23 +1989,10 @@ print_down_menus (ELEMENT *node, LABEL_LIST *identifiers_target,
 
       node_title_copy = copy_contents (node_name_element, ET_NONE);
 
-      for (i = 0; i < node_title_copy->contents.number; i++)
-        node_title_copy->contents.list[i]->parent = preformatted;
+      insert_menu_comment_content (master_menu_contents,
+                                   0, node_title_copy, 0);
 
-      add_to_element_contents (menu_comment, preformatted);
-
-      text_append (&empty_line_before->text, "\n");
-      text_append (&empty_line_first_after->text, "\n");
-      text_append (&empty_line_second_after->text, "\n");
-
-      add_to_element_contents (preformatted, empty_line_before);
-      insert_slice_into_contents (preformatted, 1, node_title_copy,
-                                  0, node_title_copy->contents.number);
       destroy_element (node_title_copy);
-      add_to_element_contents (preformatted, empty_line_first_after);
-      add_to_element_contents (preformatted, empty_line_second_after);
-
-      insert_into_element_list (master_menu_contents, menu_comment, 0);
 
       /* now recurse in the children */
       for (i = 0; i < node_children->number; i++)
@@ -2030,7 +2122,7 @@ new_complete_menu_master_menu (OPTIONS *options,
                                LABEL_LIST *identifiers_target,
                                ELEMENT *node)
 {
-  ELEMENT *menu_node = new_complete_node_menu (node, 0);
+  ELEMENT *menu_node = new_complete_node_menu (node, 0, options, 0);
 
   if (menu_node)
     {

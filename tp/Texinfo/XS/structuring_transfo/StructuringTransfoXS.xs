@@ -231,8 +231,10 @@ complete_tree_nodes_menus (SV *tree_in, SV *use_sections_in=0)
         if (document)
           complete_tree_nodes_menus (document->tree, use_sections);
 
+# We use the options of the document, so we ignore
+# customization_information, which should contain the same information
 void
-complete_tree_nodes_missing_menu (SV *tree_in, SV *use_sections_in=0)
+complete_tree_nodes_missing_menu (SV *tree_in, SV *customization_information=0, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
         int use_sections = 0;
@@ -244,7 +246,8 @@ complete_tree_nodes_missing_menu (SV *tree_in, SV *use_sections_in=0)
             use_sections = SvIV (use_sections_in);
           }
         if (document)
-          complete_tree_nodes_missing_menu (document->tree, use_sections);
+          complete_tree_nodes_missing_menu (document->tree, document,
+                                            document->options, use_sections);
 
 # regenerate_master_menu uses the options of the document, so we ignore
 # customization_information, which should contain the same information

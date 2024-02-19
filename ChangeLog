@@ -1,3 +1,21 @@
+2024-02-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (_insert_menu_comment_content)
+	(new_complete_node_menu, _print_down_menus),
+	tp/Texinfo/Transformations.pm (complete_tree_nodes_menus),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(complete_tree_nodes_missing_menu),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(insert_menu_comment_content, new_complete_node_menu)
+	(print_down_menus),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(complete_tree_nodes_missing_menu): Add comment lines in generated
+	main menus for the start of the appendices or @part's.  Add
+	$customization_information argument for translations.  Add
+	insert_menu_comment_content for the comment insertion based on
+	_print_down_menus code.
+	Update callers.
+
 2024-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	Only allow highlighting commands to be redefined with @definfoenclose

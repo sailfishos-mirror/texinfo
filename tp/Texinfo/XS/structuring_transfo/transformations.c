@@ -1094,7 +1094,8 @@ complete_tree_nodes_menus (ELEMENT *root, int use_sections)
 }
 
 void
-complete_tree_nodes_missing_menu (ELEMENT *root, int use_sections)
+complete_tree_nodes_missing_menu (ELEMENT *root, DOCUMENT *document,
+                                  OPTIONS *options, int use_sections)
 {
   ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (root);
@@ -1106,7 +1107,8 @@ complete_tree_nodes_missing_menu (ELEMENT *root, int use_sections)
       if (!(menus && menus->number > 0))
         {
           ELEMENT *section = lookup_extra_element (node, "associated_section");
-          ELEMENT *current_menu = new_complete_node_menu (node, use_sections);
+          ELEMENT *current_menu = new_complete_node_menu (node, document,
+                                                      options, use_sections);
           if (current_menu)
             prepend_new_menu_in_node_section (node, section, current_menu);
         }

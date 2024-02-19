@@ -440,6 +440,8 @@ top section
 
 * Menu:
 
+Appendices
+
 * Additional::
 
 1 Main
@@ -460,7 +462,7 @@ Appendix A Annex
 
 Tag Table:
 Node: Top27
-Node: Additional161
+Node: Additional173
 
 End Tag Table
 

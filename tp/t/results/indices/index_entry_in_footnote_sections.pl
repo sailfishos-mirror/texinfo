@@ -427,6 +427,8 @@ Top node(1)
 
 * Menu:
 
+Appendices
+
 * Index::
 
    ---------- Footnotes ----------
@@ -444,13 +446,13 @@ Appendix A index
  [index ]
 * Menu:
 
-* index entry in footnote:               Top.                  (line 16)
+* index entry in footnote:               Top.                  (line 18)
 
 
 Tag Table:
 Node: Top27
-Ref: Top-Footnote-1193
-Node: Index243
+Ref: Top-Footnote-1205
+Node: Index255
 
 End Tag Table
 
