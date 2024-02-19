@@ -1,5 +1,11 @@
 2024-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (new_complete_node_menu),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(new_complete_node_menu): use section to find associated part.
+
+2024-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (_insert_menu_comment_content)
 	(new_complete_node_menu, _print_down_menus),
 	tp/Texinfo/Transformations.pm (complete_tree_nodes_menus),

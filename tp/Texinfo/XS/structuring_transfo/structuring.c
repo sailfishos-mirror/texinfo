@@ -1865,7 +1865,7 @@ new_complete_node_menu (ELEMENT *node, DOCUMENT *document,
                 {
                   int part_added = 0;
                   ELEMENT *associated_part
-                    = lookup_extra_element (child, "associated_part");
+                    = lookup_extra_element (child_section, "associated_part");
                   if (associated_part && associated_part->args.number > 0)
                     {
                       ELEMENT *part_title_copy

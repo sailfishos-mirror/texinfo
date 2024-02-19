@@ -777,6 +777,8 @@ top
 
 * Menu:
 
+Part: Part 1
+
 * node chap1::
 * node chap2::
 
@@ -805,8 +807,8 @@ File: ,  Node: node chap2,  Prev: node chap1,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: node chap1589
-Node: node chap2684
+Node: node chap1603
+Node: node chap2698
 
 End Tag Table
 

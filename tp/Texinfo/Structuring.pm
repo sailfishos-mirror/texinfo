@@ -1472,7 +1472,7 @@ sub new_complete_node_menu
       my $child_section = $child->{'extra'}->{'associated_section'};
       if ($child_section) {
         my $part_added = 0;
-        my $associated_part = $child->{'extra'}->{'associated_part'};
+        my $associated_part = $child_section->{'extra'}->{'associated_part'};
         if ($associated_part and $associated_part->{'args'}
             and scalar(@{$associated_part->{'args'}}) > 0) {
           my $part_title_copy
