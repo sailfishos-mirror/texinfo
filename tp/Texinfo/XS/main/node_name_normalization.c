@@ -191,8 +191,7 @@ protect_unicode_char (const char *text, TEXT *result)
   char *str;
 
   /* determine unicode codepoint */
-  encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                         iconveh_question_mark);
+  encoded_u8 = utf8_from_string (text);
   next = u8_next (&next_char, encoded_u8);
   if (next && *next)
     bug ("Something left on next_str/encoded_u8\n");

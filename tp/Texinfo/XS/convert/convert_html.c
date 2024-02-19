@@ -9455,8 +9455,7 @@ css_string_accent (CONVERTER *self, const char *text,
           if (!p)
             {
               /* check if a character matches */
-              encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                                  iconveh_question_mark);
+              encoded_u8 = utf8_from_string (text);
               next = u8_next (&first_char, encoded_u8);
               if (next && (uc_is_general_category (first_char, UC_CATEGORY_L)
                           /* ASCII digits */
@@ -9481,8 +9480,7 @@ css_string_accent (CONVERTER *self, const char *text,
                   const uint8_t *remaining;
                   if (!next)
                     {
-                      encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                                  iconveh_question_mark);
+                      encoded_u8 = utf8_from_string (text);
                       next = encoded_u8;
                     }
                   remaining = u8_next (&second_char, next);
@@ -9562,9 +9560,7 @@ css_string_accent (CONVERTER *self, const char *text,
           /* determine the hexadecimal unicode point of the normalized
              character to output in the format expected in CSS strings */
           char *next_text;
-          uint8_t *encoded_u8 = u8_strconv_from_encoding (
-                                 normalized_accent_text, "UTF-8",
-                                               iconveh_question_mark);
+          uint8_t *encoded_u8 = utf8_from_string (normalized_accent_text);
           ucs4_t first_char;
           const uint8_t *next = u8_next (&first_char, encoded_u8);
           text_printf (&accented_text, "\\%04lX ", first_char);
@@ -12554,8 +12550,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   for (i = 0; i < index_sorted->letter_number; i++)
     {
       char *letter = index_sorted->letter_entries[i].letter;
-      uint8_t *encoded_u8 = u8_strconv_from_encoding (letter, "UTF-8",
-                                                  iconveh_question_mark);
+      uint8_t *encoded_u8 = utf8_from_string (letter);
       ucs4_t next_char;
       u8_next (&next_char, encoded_u8);
       letter_is_symbol[i]

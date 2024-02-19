@@ -1022,8 +1022,7 @@ next_for_tieaccent (const char *text, const char **next)
     }
   else
     {
-      uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                                  iconveh_question_mark);
+      uint8_t *encoded_u8 = utf8_from_string (text);
       ucs4_t first_char;
       u8_next (&first_char, encoded_u8);
       free (encoded_u8);
@@ -1099,8 +1098,7 @@ xml_numeric_entity_accent (enum command_id cmd, const char *text)
               xasprintf (&accented_char, "%s%s", text,
                          unicode_diacritics[cmd].text);
               normalized_char = normalize_NFC (accented_char);
-              encoded_u8 = u8_strconv_from_encoding (normalized_char, "UTF-8",
-                                                     iconveh_question_mark);
+              encoded_u8 = utf8_from_string (normalized_char);
               next = u8_next (&first_char, encoded_u8);
               if (next)
                 {

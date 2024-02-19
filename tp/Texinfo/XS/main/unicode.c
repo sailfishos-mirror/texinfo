@@ -37,21 +37,26 @@
 
 #include "accent_tables_8bit_codepoints.c"
 
+uint8_t *
+utf8_from_string (const char *text)
+{
+  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
+  return u8_strconv_from_encoding (text, "UTF-8", iconveh_question_mark);
+}
+
 char *
 normalize_NFC (const char *text)
 {
   size_t lengthp;
 
   char *result = 0;
-  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
-  uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                                 iconveh_question_mark);
+  uint8_t *encoded_u8 = utf8_from_string (text);
   /* +1 to have the terminating NUL included in the string */
   uint8_t *normalized_u8 = u8_normalize (UNINORM_NFC, encoded_u8,
                                          u8_strlen (encoded_u8)+1,
                                          NULL, &lengthp);
   free (encoded_u8);
-  result = u8_strconv_to_encoding (normalized_u8, "UTF-8", iconveh_question_mark);
+  result = utf8_from_string (normalized_u8);
   free (normalized_u8);
   return result;
 }
@@ -62,15 +67,13 @@ normalize_NFKD (const char *text)
   size_t lengthp;
 
   char *result = 0;
-  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
-  uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                                 iconveh_question_mark);
+  uint8_t *encoded_u8 = utf8_from_string (text);
   /* +1 to have the terminating NUL included in the string */
   uint8_t *normalized_u8 = u8_normalize (UNINORM_NFKD, encoded_u8,
                                          u8_strlen (encoded_u8)+1,
                                          NULL, &lengthp);
   free (encoded_u8);
-  result = u8_strconv_to_encoding (normalized_u8, "UTF-8", iconveh_question_mark);
+  result = utf8_from_string (normalized_u8);
   free (normalized_u8);
   return result;
 }
@@ -110,8 +113,7 @@ unicode_accent (const char *text, const ELEMENT *e)
         {
           /* tieaccent diacritic is naturally and correctly composed
              between two characters */
-          uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                                  iconveh_question_mark);
+          uint8_t *encoded_u8 = utf8_from_string (text);
           const uint8_t *next;
           ucs4_t first_char;
           next = u8_next (&first_char, encoded_u8);
@@ -133,15 +135,13 @@ unicode_accent (const char *text, const ELEMENT *e)
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
                   first_char_u8[first_char_len] = 0;
-                  first_char_text = u8_strconv_to_encoding (first_char_u8, "UTF-8",
-                                                            iconveh_question_mark);
+                  first_char_text = utf8_from_string (first_char_u8);
                   free (first_char_u8);
                   text_init (&accented_text);
                   text_append (&accented_text, first_char_text);
                   free (first_char_text);
                   text_append (&accented_text, unicode_diacritics[e->cmd].text);
-                  next_text = u8_strconv_to_encoding (next, "UTF-8",
-                                                      iconveh_question_mark);
+                  next_text = utf8_from_string (next);
                   text_append (&accented_text, next_text);
                   free (next_text);
                   result = normalize_NFC (accented_text.text);

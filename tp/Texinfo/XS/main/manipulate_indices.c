@@ -536,9 +536,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                         = &entry_sort_string.sort_string_subentries[k];
              /* TODO quite inefficient, only need the first character */
                       encoded_u8
-                       = u8_strconv_from_encoding (
-                                         subentry_sort_string->sort_string,
-                                         "UTF-8", iconveh_question_mark);
+                       = utf8_from_string (subentry_sort_string->sort_string);
                       new_len = u8_strmbtouc (&next_char, encoded_u8);
                       if (new_len > 0
                           && uc_is_property (next_char, UC_PROPERTY_ALPHABETIC))
@@ -1018,8 +1016,7 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
             = &sortable_index_entries->sortable_entries[j];
           char *sort_string
             = sortable_entry->sortable_subentries[0].sort_string;
-          uint8_t *encoded_u8 = u8_strconv_from_encoding (sort_string, "UTF-8",
-                                                  iconveh_question_mark);
+          uint8_t *encoded_u8 = utf8_from_string (sort_string);
           uint8_t *current_u8 = encoded_u8;
           char *letter_string;
           char *upper_letter_string;
@@ -1055,8 +1052,7 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
           free (letter_string);
           norm_letter_string = normalize_NFKD (upper_letter_string);
           free (upper_letter_string);
-          encoded_u8 = u8_strconv_from_encoding (norm_letter_string, "UTF-8",
-                                                  iconveh_question_mark);
+          encoded_u8 = utf8_from_string (norm_letter_string);
           free (norm_letter_string);
           current_u8 = encoded_u8;
 

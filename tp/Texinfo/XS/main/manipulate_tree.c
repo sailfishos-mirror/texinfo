@@ -32,6 +32,7 @@
 #include "targets.h"
 #include "utils.h"
 #include "manipulate_tree.h"
+#include "unicode.h"
 
 /* copy_tree from Texinfo::Common */
 
@@ -878,8 +879,7 @@ protect_text (ELEMENT *current, char *to_protect)
 
       if (current->source_mark_list.number)
         {
-          u8_text = u8_strconv_from_encoding (p, "UTF-8",
-                                            iconveh_question_mark);
+          u8_text = utf8_from_string (p);
           u8_p = u8_text;
 
           current_position = 0;

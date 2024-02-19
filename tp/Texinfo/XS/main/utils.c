@@ -45,6 +45,7 @@
 #include "builtin_commands.h"
 #include "api_to_perl.h"
 #include "utils.h"
+#include "unicode.h"
 
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
@@ -193,9 +194,7 @@ isascii_upper (int c)
 size_t
 count_multibyte (const char *text)
 {
-  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
-  uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
-                                                 iconveh_question_mark);
+  uint8_t *u8_text = utf8_from_string (text);
   size_t result = u8_mbsnlen (u8_text, u8_strlen (u8_text));
 
   free (u8_text);
@@ -209,9 +208,7 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
   char *result;
   size_t lengthp;
   uint8_t *u8_result;
-  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
-  uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
-                                               iconveh_question_mark);
+  uint8_t *u8_text = utf8_from_string (text);
   if (lower_or_upper > 0)
     /* the + 1 is there to hold the terminating NULL */
     u8_result = u8_toupper (u8_text, u8_strlen (u8_text) + 1,
@@ -231,9 +228,7 @@ int
 width_multibyte (const char *text)
 {
   int result;
-  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
-  uint8_t *u8_text = u8_strconv_from_encoding (text, "UTF-8",
-                                                 iconveh_question_mark);
+  uint8_t *u8_text = utf8_from_string (text);
   /* NOTE the libunistring documentation described encoding as
      The encoding argument identifies the encoding (e.g. "ISO-8859-2"
      for Polish).  Looking at the code, it seems that it is only
@@ -250,8 +245,7 @@ width_multibyte (const char *text)
 int
 word_bytes_len_multibyte (const char *text)
 {
-  uint8_t *encoded_u8 = u8_strconv_from_encoding (text, "UTF-8",
-                                                  iconveh_question_mark);
+  uint8_t *encoded_u8 = utf8_from_string (text);
   uint8_t *current_u8 = encoded_u8;
   int len = 0;
   while (1)

@@ -34,6 +34,7 @@
 #include "manipulate_tree.h"
 #include "source_marks.h"
 #include "commands.h"
+#include "unicode.h"
 
 void
 gather_def_item (ELEMENT *current, enum command_id next_command)
@@ -198,8 +199,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
 
       if (e->source_mark_list.number)
         {
-          u8_text = u8_strconv_from_encoding (p, "UTF-8",
-                                            iconveh_question_mark);
+          u8_text = utf8_from_string (p);
           u8_p = u8_text;
 
           current_position = 0;
@@ -284,8 +284,7 @@ split_def_args (ELEMENT *current, int starting_idx)
 
       if (e->source_mark_list.number)
         {
-          u8_text = u8_strconv_from_encoding (p, "UTF-8",
-                                              iconveh_question_mark);
+          u8_text = utf8_from_string (p);
           u8_p = u8_text;
 
           current_position = 0;

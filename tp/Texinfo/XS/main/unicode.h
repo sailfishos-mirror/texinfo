@@ -3,6 +3,7 @@
 #define UNICODE_H
 
 #include <stddef.h>
+#include <unitypes.h>
 
 #include "tree_types.h"
 
@@ -77,6 +78,8 @@ typedef struct DIACRITIC_UNICODE {
 
 extern DIACRITIC_UNICODE unicode_diacritics[];
 extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
+
+uint8_t *utf8_from_string (const char *text);
 
 int unicode_point_decoded_in_encoding (const char *encoding, char *codepoint);
 
