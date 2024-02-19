@@ -678,6 +678,9 @@ where the max column could be. @w{in w}.
 
 ',{},{'AUTO_MENU_DESCRIPTION_ALIGN_COLUMN' => 16,
        'AUTO_MENU_MAX_WIDTH' => 90}],
+# Note that the following tests also test @appendixsec in a chapter
+# (before another chapter) which does not seems to be tested in any other
+# test.
 ['part_appendix_in_generated_menu',
 '@node Top
 @top top
