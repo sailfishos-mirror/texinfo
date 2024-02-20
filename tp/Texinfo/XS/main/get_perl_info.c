@@ -154,6 +154,7 @@ get_sv_document_document (SV *document_in, char *warn_string)
                                warn_string);
 }
 
+/* caller should ensure that OUTPUT_UNIT_IN is defined */
 int
 get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
 {

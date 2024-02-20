@@ -400,24 +400,17 @@ unsplit (SV *tree_in)
     OUTPUT:
         RETVAL
 
-# return the input if XS information is missing
-SV *
+void
 rebuild_output_units (SV *output_units_in)
     PREINIT:
         int output_units_descriptor = 0;
      CODE:
-      /* This is called in Texinfo::Convert::Converter::output on
+      /* This may be called in Texinfo::Convert::Converter::output on
          converters that may or may not have XS information, so no warning */
         output_units_descriptor
            = get_sv_output_units_descriptor (output_units_in, 0);
         if (output_units_descriptor)
-          RETVAL = build_output_units_list (output_units_descriptor);
-        else
-         /* NOTE adding SvREFCNT_inc was done by trial and error
-            as without one gets "Useless assignment to a temporary" */
-          RETVAL = SvREFCNT_inc(output_units_in);
-    OUTPUT:
-        RETVAL
+          rebuild_output_units_list (output_units_in, output_units_descriptor);
 
 void
 split_pages (SV *output_units_in, char *split)

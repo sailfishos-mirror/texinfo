@@ -1383,12 +1383,12 @@ sub test($$)
     if ($self->{'DEBUG'} and $unsplit_needed);
 
   # There is no XS overriding for the following codes. rebuild_output_units
-  # returns the input output units if there is no XS structures, which allows
-  # to have tests passing when XS is used (in the default case).  If overriding
+  # does nothing if there is no XS structures, which allows to have tests
+  # passing when XS is used (in the default case).  If overriding
   # of XS is setup, most likely all the functions should have an XS override
   # (units_directions has not, though there is an implementation in C),
   # otherwise some information will be missing in the rebuild_output_units
-  # output.
+  # output units.
   my $output_units;
   if ($test_split eq 'node') {
     $output_units = Texinfo::Structuring::split_by_node($tree);
@@ -1411,8 +1411,7 @@ sub test($$)
   }
 
   if ($test_split or $split_pages) {
-    $output_units
-      = Texinfo::Structuring::rebuild_output_units($output_units);
+    Texinfo::Structuring::rebuild_output_units($output_units);
   }
 
   my $file = "t/results/$self->{'name'}/$test_name.pl";

@@ -137,9 +137,9 @@ build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
   return newRV_noinc ((SV *) hv);
 }
 
-HV *
+static HV *
 build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
-                       SPECIAL_UNIT_DIRECTION *special_units_direction_name)
+                     const SPECIAL_UNIT_DIRECTION *special_units_direction_name)
 {
   int i;
   HV *hv;
@@ -161,13 +161,15 @@ build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
         }
     }
 
-  /* html_prepare_units_directions_files is allocated because
-     html_prepare_units_directions_files was called before */
+  /* special_units_direction_name is allocated because
+     html_prepare_output_units_global_targets or
+     html_prepare_units_directions_files was called before
+     calling pass_html_global_units_directions */
   for (i = 0; special_units_direction_name[i].output_unit; i++)
     {
-      SPECIAL_UNIT_DIRECTION *special_unit_direction
+      const SPECIAL_UNIT_DIRECTION *special_unit_direction
        = &special_units_direction_name[i];
-      char *direction_name = special_unit_direction->direction;
+      const char *direction_name = special_unit_direction->direction;
       const OUTPUT_UNIT *output_unit = special_unit_direction->output_unit;
       hv_store (hv, direction_name, strlen (direction_name),
                   newRV_inc ((SV *) output_unit->hv), 0);
@@ -179,7 +181,7 @@ build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
 void
 pass_html_global_units_directions (SV *converter_sv,
                        const OUTPUT_UNIT **global_units_directions,
-                       SPECIAL_UNIT_DIRECTION *special_units_direction_name)
+                   const SPECIAL_UNIT_DIRECTION *special_units_direction_name)
 {
   HV *global_units_directions_hv;
   SV *global_units_directions_sv;

@@ -1805,7 +1805,6 @@ sub unsplit($)
 sub rebuild_output_units($)
 {
   my $output_units = shift;
-  return $output_units;
 }
 
 # Associate top-level units with pages according to the splitting

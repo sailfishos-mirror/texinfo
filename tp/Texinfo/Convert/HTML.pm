@@ -12053,6 +12053,7 @@ sub convert($$)
   # are set and present in the buttons, as is the case in the default
   # buttons.  For example in converters_tests/ref_in_sectioning
   # or converters_tests/sections_and_printindex.
+  # Output units lists are rebuilt in the XS code.
   $self->_prepare_output_units_global_targets($output_units,
                                               $special_units,
                                               $associated_special_units);
@@ -12772,7 +12773,7 @@ sub output($$)
   # setup untranslated strings
   $self->_translate_names();
 
-  # The XS code override rebuilds output units, so there is no need to call
+  # Output units lists are rebuilt in the XS code so there is no need to call
   # rebuild_output_units.
   my $files_source_info
     = $self->_prepare_units_directions_files($output_units, $special_units,

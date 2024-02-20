@@ -1525,12 +1525,38 @@ build_output_units_list (size_t output_units_descriptor)
 
   if (!fill_output_units_descriptor_av (av_output_units,
                                         output_units_descriptor))
-    {
+    {/* no output unit */
       av_undef (av_output_units);
       return newSV(0);
     }
   else
     return newRV_noinc ((SV *) av_output_units);
+}
+
+void
+rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
+{
+  AV *av_output_units;
+
+  dTHX;
+
+  if (!SvOK (output_units_sv))
+    {
+      OUTPUT_UNIT_LIST *output_units
+         = retrieve_output_units (output_units_descriptor);
+      if (output_units && output_units->number)
+        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
+                 output_units->number, output_units_descriptor);
+      return;
+    }
+
+  av_output_units = (AV *) SvRV (output_units_sv);
+  av_clear (av_output_units);
+
+  if (!fill_output_units_descriptor_av (av_output_units,
+                                        output_units_descriptor))
+    /* TODO cannot associate output_units_descriptor. A problem? */
+    return;
 }
 
 SV *
@@ -1604,32 +1630,6 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
     }
 
   clear_error_message_list (error_messages);
-}
-
-void
-rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
-{
-  AV *av_output_units;
-
-  dTHX;
-
-  if (!SvOK (output_units_sv))
-    {
-      OUTPUT_UNIT_LIST *output_units
-         = retrieve_output_units (output_units_descriptor);
-      if (output_units && output_units->number)
-        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
-                 output_units->number, output_units_descriptor);
-      return;
-    }
-
-  av_output_units = (AV *) SvRV (output_units_sv);
-  av_clear (av_output_units);
-
-  if (!fill_output_units_descriptor_av (av_output_units,
-                                        output_units_descriptor))
-    /* TODO cannot associate output_units_descriptor. A problem? */
-    return;
 }
 
 AV *

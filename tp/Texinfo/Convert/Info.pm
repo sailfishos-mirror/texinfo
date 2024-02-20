@@ -98,7 +98,7 @@ sub output($$)
   }
 
   my $fh;
-  if (! $output_file eq '') {
+  if ($output_file ne '') {
     if ($self->get_conf('VERBOSE')) {
       print STDERR "Output file $output_file\n";
     }
@@ -117,13 +117,14 @@ sub output($$)
 
   my $header_bytes = length($header);
   my $complete_header_bytes = $header_bytes;
-  my $tree_units = Texinfo::Structuring::split_by_node($root);
+  my $output_units = Texinfo::Structuring::split_by_node($root);
 
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
+
   my $out_file_nr = 0;
   my @indirect_files;
-  if (!defined($tree_units) or not defined($tree_units->[0])
-      or not defined($tree_units->[0]->{'unit_command'})) {
+  if (!defined($output_units) or not defined($output_units->[0])
+      or not defined($output_units->[0]->{'unit_command'})) {
     my $input_file_name;
     if ($self->{'document'}) {
       my $document_info = $self->{'document'}->global_information();
@@ -181,7 +182,7 @@ sub output($$)
     $out_file_nr = 1;
     my $first_node_seen = 0;
     $self->{'count_context'}->[-1]->{'bytes'} += $header_bytes;
-    foreach my $node_root_element (@$tree_units) {
+    foreach my $output_unit (@$output_units) {
       if ($first_node_seen
           and defined($self->get_conf('SPLIT_SIZE'))
           and $self->{'count_context'}->[-1]->{'bytes'} >
@@ -250,7 +251,7 @@ sub output($$)
         #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
       }
 
-      my $node_text = $self->convert_output_unit($node_root_element);
+      my $node_text = $self->convert_output_unit($output_unit);
       if ($node_text !~ /\n\n$/) {
         $node_text .= "\n";
         $self->{'count_context'}->[-1]->{'bytes'}++;

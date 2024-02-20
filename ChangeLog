@@ -12,6 +12,25 @@
 
 2024-02-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (rebuild_output_units),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(rebuild_output_units): reuse the input reference instead of creating
+	a new one.  Do that by calling rebuild_output_units_list in XS.
+	Do not return anything.  Update callers.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c: make a function
+	static, add const.
+
+	* tp/Texinfo/XS/main/build_perl_info.c: move code around.
+
+	* tp/Texinfo/Convert/Info.pm (output): move code around.  Rename
+	variables as output_unit*.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): remove
+	a useless TODO.
+
+2024-02-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c
 	(fill_output_units_descriptor_av): inline fill_output_units in
 	fill_output_units_descriptor_av.
