@@ -1328,6 +1328,7 @@ end_line_misc_line (ELEMENT *current)
               fullpath = parser_locate_include_file (sys_filename);
               if (fullpath && access (fullpath, R_OK) == 0)
                 add_string (fullpath, &global_info.included_files);
+              free (fullpath);
             }
           else if (current->cmd == CM_documentencoding)
             {

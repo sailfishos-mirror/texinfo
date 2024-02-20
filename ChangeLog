@@ -1,3 +1,13 @@
+2024-02-20  Patrice Dumas  <pertusus@free.fr>
+
+	Fix memory leaks found with valgrind
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): free
+	fullpath of verbatiminclude after adding to global_info included_files.
+
+	* tp/Texinfo/XS/convert/convert_html.c (mini_toc_internal): set href
+	after it is sure that the section is non empty and processed.
+
 2024-02-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS:

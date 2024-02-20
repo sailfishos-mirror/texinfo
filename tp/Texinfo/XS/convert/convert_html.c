@@ -9799,11 +9799,13 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
           char *explanation;
           char *accesskey;
           char *text;
-          char *href = html_command_href (self, section, 0, 0, 0);
+          char *href;
 
           /* happens with empty sectioning command */
           if (!command_tree->tree)
             continue;
+
+          href = html_command_href (self, section, 0, 0, 0);
 
           xasprintf (&explanation, "mini_toc @%s",
                      element_command_name (section));
