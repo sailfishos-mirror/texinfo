@@ -1481,31 +1481,12 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 #undef STORE
 }
 
-static void
-fill_output_units (AV *av_output_units, OUTPUT_UNIT_LIST *output_units)
-{
-  SV *sv;
-  int i;
-
-  dTHX;
-
-  for (i = 0; i < output_units->number; i++)
-    {
-      OUTPUT_UNIT *output_unit = output_units->list[i];
-      output_unit_to_perl_hash (output_unit);
-      /* we do not transfer the hv ref to the perl av because we consider
-         that output_unit->hv still own a reference, which should only be
-         released when the output_unit is destroyed in C */
-      sv = newRV_inc ((SV *) output_unit->hv);
-      av_push (av_output_units, sv);
-    }
-}
-
 static int
 fill_output_units_descriptor_av (AV *av_output_units,
                                  size_t output_units_descriptor)
 {
   OUTPUT_UNIT_LIST *output_units;
+  size_t i;
 
   dTHX;
 
@@ -1514,7 +1495,17 @@ fill_output_units_descriptor_av (AV *av_output_units,
   if (!output_units || !output_units->number)
     return 0;
 
-  fill_output_units (av_output_units, output_units);
+  for (i = 0; i < output_units->number; i++)
+    {
+      SV *sv;
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      output_unit_to_perl_hash (output_unit);
+      /* we do not transfer the hv ref to the perl av because we consider
+         that output_unit->hv still own a reference, which should only be
+         released when the output_unit is destroyed in C */
+      sv = newRV_inc ((SV *) output_unit->hv);
+      av_push (av_output_units, sv);
+    }
 
   /* store in the first perl output unit of the list */
   hv_store (output_units->list[0]->hv, "output_units_descriptor",
