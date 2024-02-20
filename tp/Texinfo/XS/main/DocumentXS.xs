@@ -51,37 +51,72 @@ configure_output_strings_translations (localesdir, strings_textdomain="texinfo_d
       CODE:
        configure_output_strings_translations (localesdir, strings_textdomain);
 
+void
+rebuild_document (SV *document_in, int no_store=0)
+
+# Since build_document is called, the underlying document HV is destroyed
+# instead of being reused.  Being able to get the document HV from the
+# XS document or from the Perl tree would be needed to do it differently.
 SV *
-rebuild_document (SV *document_in, ...)
+rebuild_tree (SV *tree_in, ...)
       PROTOTYPE: $;$
       PREINIT:
         int no_store = 0;
-        int document_descriptor;
-        SV **document_descriptor_sv;
-        char *descriptor_key = "document_descriptor";
-        HV *hv_in;
+        DOCUMENT *document = 0;
       CODE:
         if (items > 1 && SvOK(ST(1)))
           no_store = SvIV (ST(1));
 
-        hv_in = (HV *)SvRV (document_in);
-        document_descriptor_sv = hv_fetch (hv_in, descriptor_key,
-                                           strlen (descriptor_key), 0);
-        if (document_descriptor_sv)
+        document = get_sv_tree_document (tree_in, "rebuild_tree");
+        if (document)
           {
-            SV *rebuilt_doc_sv;
+       /* if no_store is set, get the reference on the tree HV before calling
+          build_document, as the tree is gonna be destroyed.  This requires
+          that the document the tree comes from to have already been built to
+          Perl, which should be the general case */
 
-            document_descriptor = SvIV (*document_descriptor_sv);
-            rebuilt_doc_sv = build_document (document_descriptor, no_store);
-            RETVAL = rebuilt_doc_sv;
+            ELEMENT *tree = document->tree;
+            if (no_store)
+              RETVAL = newRV_inc ((SV *) tree->hv);
+
+            build_document (document->descriptor, no_store);
+            if (!no_store)
+              RETVAL = newRV_inc ((SV *) tree->hv);
           }
         else
-          {
-            fprintf (stderr, "ERROR: document rebuild: no %s\n", descriptor_key);
-            RETVAL = newSV(0);
-          }
+          RETVAL = newSV(0);
     OUTPUT:
         RETVAL
+
+void
+remove_document_descriptor (int document_descriptor)
+
+void
+remove_document (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        /* it is ok not to found a document if there is no
+           document descriptor */
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          remove_document_descriptor (document->descriptor);
+
+void
+clear_document_errors (int document_descriptor)
+
+void
+set_document_options (SV *sv_options_in, SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "set_document_options");
+        if (document)
+          {
+            OPTIONS *options = init_copy_sv_options (sv_options_in, 0, 0);
+            register_document_options (document, options);
+          }
 
 void
 set_document_global_info (SV *document_in, char *key, SV *value_sv)
@@ -118,60 +153,6 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
                           &document->global_info->other_info,
                           key, (char *)SvPVutf8_nolen(value_sv));
               }
-          }
-
-SV *
-rebuild_tree (SV *tree_in, ...)
-      PROTOTYPE: $;$
-      PREINIT:
-        int no_store = 0;
-        DOCUMENT *document = 0;
-      CODE:
-        if (items > 1 && SvOK(ST(1)))
-          no_store = SvIV (ST(1));
-
-        document = get_sv_tree_document (tree_in, "rebuild_tree");
-        if (document)
-          {
-            ELEMENT *tree;
-
-            build_document (document->descriptor, no_store);
-            tree = document->tree;
-            RETVAL = newRV_inc ((SV *) tree->hv);
-          }
-        else
-          RETVAL = newSV(0);
-    OUTPUT:
-        RETVAL
-
-void
-remove_document_descriptor (int document_descriptor)
-
-void
-remove_document (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-     CODE:
-        /* it is ok not to found a document if there is no
-           document descriptor */
-        document = get_sv_document_document (document_in, 0);
-        if (document)
-          remove_document_descriptor (document->descriptor);
-
-void
-clear_document_errors (int document_descriptor)
-
-void
-set_document_options (SV *sv_options_in, SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "set_document_options");
-        if (document)
-          {
-            OPTIONS *options = init_copy_sv_options (sv_options_in, 0, 0);
-            register_document_options (document, options);
           }
 
 # registrar, main_configuration, prefer_reference_element

@@ -416,8 +416,6 @@ sub rebuild_document($;$)
 {
   my $document = shift;
   my $no_store = shift;
-
-  return $document;
 }
 
 # this method does nothing, but the XS override rebuilds the Perl

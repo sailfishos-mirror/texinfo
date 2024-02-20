@@ -1201,15 +1201,9 @@ get_document (size_t document_descriptor)
   return sv;
 }
 
-/* Return Texinfo::Document perl object corresponding to the
-   C document structure corresponding to DOCUMENT_DESCRIPTOR.
-   If NO_STORE is set, destroy the C document.
- */
-SV *
-build_document (size_t document_descriptor, int no_store)
+static void
+fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 {
-  HV *hv;
-  SV *sv;
   DOCUMENT *document;
   HV *hv_tree;
   HV *hv_info;
@@ -1223,11 +1217,8 @@ build_document (size_t document_descriptor, int no_store)
   AV *av_errors_list;
   AV *av_nodes_list = 0;
   AV *av_sections_list = 0;
-  HV *hv_stash;
 
   dTHX;
-
-  hv = newHV ();
 
   document = retrieve_document (document_descriptor);
 
@@ -1308,6 +1299,24 @@ build_document (size_t document_descriptor, int no_store)
                 newSViv (document_descriptor), 0);
 
     }
+}
+
+/* Return Texinfo::Document perl object corresponding to the
+   C document structure corresponding to DOCUMENT_DESCRIPTOR.
+   If NO_STORE is set, destroy the C document.
+ */
+SV *
+build_document (size_t document_descriptor, int no_store)
+{
+  HV *hv;
+  SV *sv;
+  HV *hv_stash;
+
+  dTHX;
+
+  hv = newHV ();
+
+  fill_document_hv (hv, document_descriptor, no_store);
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   sv = newRV_noinc ((SV *) hv);
@@ -1315,6 +1324,31 @@ build_document (size_t document_descriptor, int no_store)
   return sv;
 }
 
+void
+rebuild_document (SV *document_in, int no_store)
+{
+  HV *hv;
+  SV **document_descriptor_sv;
+  char *descriptor_key = "document_descriptor";
+
+  dTHX;
+
+  hv = (HV *)SvRV (document_in);
+
+  document_descriptor_sv = hv_fetch (hv, descriptor_key,
+                                     strlen (descriptor_key), 0);
+
+  if (document_descriptor_sv)
+    {
+      int document_descriptor = SvIV (*document_descriptor_sv);
+      hv_clear (hv);
+      fill_document_hv (hv, document_descriptor, no_store);
+    }
+  else
+    {
+      fprintf (stderr, "ERROR: document rebuild: no %s\n", descriptor_key);
+    }
+}
 
 static void
 output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
@@ -1555,8 +1589,19 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
 
   if (!fill_output_units_descriptor_av (av_output_units,
                                         output_units_descriptor))
-    /* TODO cannot associate output_units_descriptor. A problem? */
-    return;
+    {
+ /* the output_units_descriptor is not found.  In the codes calling
+    this function, the output_units_descriptor should have been found
+    within the Perl reference used as argument here.  If there is
+    something to rebuild, this should mean that there is an output
+    units list in C, therefore we output an error here.  It could
+    be redundant with errors output earlier in calling code, but it
+    is better to have more debug messages.
+  */
+      fprintf (stderr, "BUG: rebuild_output_units_list: output unit"
+                       "descriptor not found: %zu\n", output_units_descriptor);
+      return;
+    }
 }
 
 SV *
@@ -1571,8 +1616,11 @@ get_conf (CONVERTER *converter, const char *option_name)
 
 /* add C messages to a Texinfo::Report object, like
    Texinfo::Report::add_formatted_message does.
-   TODO it could replace the calls to add_formatted_message
-   in perl code, if it is found relevant.
+   TODO currently unused. It could replace the calls to add_formatted_message
+   in perl code, if it is found relevant.  For converters, this is unlikely,
+   as errors need to be passed explicitely both from Perl and XS.  For
+   errors registered in document, it may be useful to avoid the need to
+   rebuild the document prior to passing error messages.
  */
 void
 pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,

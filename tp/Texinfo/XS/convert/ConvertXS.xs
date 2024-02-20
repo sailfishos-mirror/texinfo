@@ -1829,7 +1829,8 @@ html_prepare_conversion_units (SV *converter_in, ...)
                    newRV_inc ((SV *) output_units_hv), 0);
 
          /* calls perl customization functions, so need to be done after
-            build_output_units_list calls to be able to retrieve perl units */
+            build_output_units_list calls to be able to retrieve Perl
+            output units references */
          html_prepare_conversion_units_targets (self, document_name,
               output_units_descriptor, special_units_descriptor,
               associated_special_units_descriptor);

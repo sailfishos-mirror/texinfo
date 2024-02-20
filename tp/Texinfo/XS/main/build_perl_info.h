@@ -26,6 +26,7 @@ void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 
 SV *build_document (size_t document_descriptor, int no_store);
 SV *get_document (size_t document_descriptor);
+void rebuild_document (SV *document_in, int no_store);
 
 HV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 AV *build_errors (ERROR_MESSAGE* error_list, size_t error_number);

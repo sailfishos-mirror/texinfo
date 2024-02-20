@@ -1142,7 +1142,7 @@ sub test($$)
 
   # could be in a if !$XS_structuring, but the function should not be
   # overriden already in that case
-  $document = Texinfo::Document::rebuild_document($document);
+  Texinfo::Document::rebuild_document($document);
   # should not actually be useful, as the same element should be reused.
   $tree = $document->tree();
 

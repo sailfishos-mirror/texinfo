@@ -52,7 +52,7 @@ sub run_test($$$$)
     }
   }
 
-  $document = Texinfo::Document::rebuild_document($document);
+  Texinfo::Document::rebuild_document($document);
   $tree_as_text = $document->tree();
 
   $tree_as_line = Texinfo::Document::rebuild_tree($tree_as_line);
