@@ -1316,18 +1316,11 @@ build_document (size_t document_descriptor, int no_store)
 }
 
 
-/*
- Return a non 0 status if pointers to perl elements from C elements are
- missing.
- NOTE that this cannot happen anymore as the hv are always set
- and never removed.
- */
-static int
+static void
 output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 {
   int i;
   SV *sv;
-  int status = 0;
   HV *directions_hv;
 
   dTHX;
@@ -1363,12 +1356,15 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
              not yet been processed */
           if (!direction_unit->hv)
             {
-              int direction_status;
               if (direction_unit->unit_type != OU_external_node_unit)
-                fprintf (stderr, "BUG: not external node but no perl ref %s\n",
-                                 output_unit_texi (direction_unit));
-              direction_status = output_unit_to_perl_hash (direction_unit);
-              status += direction_status;
+                {
+                  char *msg;
+                  xasprintf (&msg, "BUG: not external node but no perl ref %s",
+                                   output_unit_texi (direction_unit));
+                  fatal (msg);
+                  free (msg);
+                }
+              output_unit_to_perl_hash (direction_unit);
             }
           unit_sv = newRV_inc ((SV *) direction_unit->hv);
           hv_store (directions_hv, direction_name, strlen (direction_name),
@@ -1384,21 +1380,21 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
           if (command->type == ET_special_unit_element)
             {
               SV *unit_sv;
-              unit_sv = newRV_inc ((SV *) output_unit->hv);
+
               /* a virtual out of tree element, add it to perl */
               element_to_perl_hash (command, 0);
+
+              unit_sv = newRV_inc ((SV *) output_unit->hv);
               hv_store (command->hv, "associated_unit",
                         strlen ("associated_unit"), unit_sv, 0);
             }
         }
 
-      if (command->hv)
-        {
-          sv = newRV_inc ((SV *) command->hv);
-          STORE("unit_command");
-        }
-      else
-       status++;
+      if (!command->hv)
+        fatal ("Missing output unit unit_command hv");
+
+      sv = newRV_inc ((SV *) command->hv);
+      STORE("unit_command");
     }
 
   if (output_unit->associated_document_unit)
@@ -1429,10 +1425,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
           SV *unit_sv;
 
           if (!element_hv)
-            {
-              status++;
-              continue;
-            }
+            fatal ("Missing output unit unit_contents element hv");
 
           sv = newRV_inc ((SV *) element_hv);
 
@@ -1486,11 +1479,9 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
     }
 
 #undef STORE
-
-  return status;
 }
 
-static int
+static void
 fill_output_units (AV *av_output_units, OUTPUT_UNIT_LIST *output_units)
 {
   SV *sv;
@@ -1501,37 +1492,31 @@ fill_output_units (AV *av_output_units, OUTPUT_UNIT_LIST *output_units)
   for (i = 0; i < output_units->number; i++)
     {
       OUTPUT_UNIT *output_unit = output_units->list[i];
-      int status = output_unit_to_perl_hash (output_unit);
-      if (status)
-        return 0;
+      output_unit_to_perl_hash (output_unit);
       /* we do not transfer the hv ref to the perl av because we consider
          that output_unit->hv still own a reference, which should only be
          released when the output_unit is destroyed in C */
       sv = newRV_inc ((SV *) output_unit->hv);
       av_push (av_output_units, sv);
     }
-  return 1;
 }
 
 SV *
 build_output_units_list (size_t output_units_descriptor)
 {
-  int status;
   AV *av_output_units;
-  OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
+  OUTPUT_UNIT_LIST *output_units;
 
   dTHX;
+
+  output_units = retrieve_output_units (output_units_descriptor);
 
   if (!output_units || !output_units->number)
     return newSV(0);
 
   av_output_units = newAV ();
 
-  status = fill_output_units (av_output_units, output_units);
-
-  if (!status)
-    return newSV(0);
+  fill_output_units (av_output_units, output_units);
 
   /* store in the first perl output unit of the list */
   hv_store (output_units->list[0]->hv, "output_units_descriptor",
@@ -1618,12 +1603,11 @@ void
 rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
 {
   AV *av_output_units;
-  int status;
-
-  OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
+  OUTPUT_UNIT_LIST *output_units;
 
   dTHX;
+
+  output_units = retrieve_output_units (output_units_descriptor);
 
   if (! SvOK (output_units_sv))
     {
@@ -1640,11 +1624,7 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
   if (!output_units || !output_units->number)
     return;
 
-  status = fill_output_units (av_output_units, output_units);
-
-  /* warn? */
-  if (!status)
-    return;
+  fill_output_units (av_output_units, output_units);
 
   /* store in the first perl output unit of the list */
   hv_store (output_units->list[0]->hv, "output_units_descriptor",
@@ -1761,7 +1741,6 @@ pass_output_unit_files (SV *converter_sv,
   dTHX;
 
   HV *converter_hv = (HV *) SvRV (converter_sv);
-
 
   filenames_sv = build_filenames (output_unit_files);
   file_counters_sv = build_file_counters (output_unit_files);
