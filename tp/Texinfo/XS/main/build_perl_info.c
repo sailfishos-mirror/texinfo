@@ -1501,10 +1501,10 @@ fill_output_units (AV *av_output_units, OUTPUT_UNIT_LIST *output_units)
     }
 }
 
-SV *
-build_output_units_list (size_t output_units_descriptor)
+static int
+fill_output_units_descriptor_av (AV *av_output_units,
+                                 size_t output_units_descriptor)
 {
-  AV *av_output_units;
   OUTPUT_UNIT_LIST *output_units;
 
   dTHX;
@@ -1512,9 +1512,7 @@ build_output_units_list (size_t output_units_descriptor)
   output_units = retrieve_output_units (output_units_descriptor);
 
   if (!output_units || !output_units->number)
-    return newSV(0);
-
-  av_output_units = newAV ();
+    return 0;
 
   fill_output_units (av_output_units, output_units);
 
@@ -1522,8 +1520,26 @@ build_output_units_list (size_t output_units_descriptor)
   hv_store (output_units->list[0]->hv, "output_units_descriptor",
             strlen ("output_units_descriptor"),
             newSViv (output_units_descriptor), 0);
+  return 1;
+}
 
-  return newRV_noinc ((SV *) av_output_units);
+SV *
+build_output_units_list (size_t output_units_descriptor)
+{
+  AV *av_output_units;
+
+  dTHX;
+
+  av_output_units = newAV ();
+
+  if (!fill_output_units_descriptor_av (av_output_units,
+                                        output_units_descriptor))
+    {
+      av_undef (av_output_units);
+      return newSV(0);
+    }
+  else
+    return newRV_noinc ((SV *) av_output_units);
 }
 
 SV *
@@ -1603,14 +1619,13 @@ void
 rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
 {
   AV *av_output_units;
-  OUTPUT_UNIT_LIST *output_units;
 
   dTHX;
 
-  output_units = retrieve_output_units (output_units_descriptor);
-
-  if (! SvOK (output_units_sv))
+  if (!SvOK (output_units_sv))
     {
+      OUTPUT_UNIT_LIST *output_units
+         = retrieve_output_units (output_units_descriptor);
       if (output_units && output_units->number)
         fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
                  output_units->number, output_units_descriptor);
@@ -1620,16 +1635,10 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
   av_output_units = (AV *) SvRV (output_units_sv);
   av_clear (av_output_units);
 
-  /* TODO cannot associate output_units_descriptor. A problem? */
-  if (!output_units || !output_units->number)
+  if (!fill_output_units_descriptor_av (av_output_units,
+                                        output_units_descriptor))
+    /* TODO cannot associate output_units_descriptor. A problem? */
     return;
-
-  fill_output_units (av_output_units, output_units);
-
-  /* store in the first perl output unit of the list */
-  hv_store (output_units->list[0]->hv, "output_units_descriptor",
-            strlen ("output_units_descriptor"),
-            newSViv (output_units_descriptor), 0);
 }
 
 AV *
