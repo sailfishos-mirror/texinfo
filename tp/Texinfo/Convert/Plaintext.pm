@@ -572,6 +572,10 @@ sub conversion_finalization($)
   my $self = shift;
 
   $self->pop_top_formatter();
+
+  if ($self->{'encoding_disabled'}) {
+    delete $self->{'encoding_disabled'};
+  }
 }
 
 sub count_context_bug_message($$$)
@@ -619,6 +623,7 @@ sub convert($$)
   my ($self, $document) = @_;
 
   $self->conversion_initialization($document);
+  $self->{'encoding_disabled'} = 1;
 
   my $root = $document->tree();
 

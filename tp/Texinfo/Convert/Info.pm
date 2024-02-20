@@ -97,14 +97,6 @@ sub output($$)
     $self->force_conf('SPLIT_SIZE', undef);
   }
 
-  my $header = $self->_info_header($input_basefile, $output_filename);
-  # header + text between setfilename and first node
-  my $complete_header = $header;
-
-  my $header_bytes = length($header);
-  my $complete_header_bytes = $header_bytes;
-  my $tree_units = Texinfo::Structuring::split_by_node($root);
-
   my $fh;
   if (! $output_file eq '') {
     if ($self->get_conf('VERBOSE')) {
@@ -115,7 +107,18 @@ sub output($$)
       $self->conversion_finalization();
       return undef;
     }
+  } else {
+    $self->{'encoding_disabled'} = 1;
   }
+
+  my $header = $self->_info_header($input_basefile, $output_filename);
+  # header + text between setfilename and first node
+  my $complete_header = $header;
+
+  my $header_bytes = length($header);
+  my $complete_header_bytes = $header_bytes;
+  my $tree_units = Texinfo::Structuring::split_by_node($root);
+
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
   my $out_file_nr = 0;
   my @indirect_files;

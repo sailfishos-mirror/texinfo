@@ -532,14 +532,6 @@ sub convert_to_plaintext($$$$$)
     }
   }
 
-  # If not outputing to a file, do not encode.  Return value from
-  # 'output' is a character string.  It will be encoded to
-  # UTF-8 in the results file.
-  if (defined($converter_options->{'OUTFILE'})
-      and $converter_options->{'OUTFILE'} eq '') {
-    $converter_options->{'OUTPUT_PERL_ENCODING'} = '';
-  }
-
   my $converter = Texinfo::Convert::Plaintext->converter($converter_options);
 
   my $result;
@@ -573,16 +565,6 @@ sub convert_to_info($$$$$)
   $converter_options
     = set_converter_option_defaults($converter_options, 'info',
                                     $self->{'DEBUG'});
-
-  # If not outputing to a file, do not encode.  Return value from
-  # 'output' is a character string.  This will be encoded to
-  # UTF-8 in the results file.  This may make byte offsets in the tag table
-  # incorrect, so if those needed to be tested, an separate output file
-  # would have to be used instead.
-  if (defined($converter_options->{'OUTFILE'})
-      and $converter_options->{'OUTFILE'} eq '') {
-    $converter_options->{'OUTPUT_PERL_ENCODING'} = '';
-  }
 
   my $converter = Texinfo::Convert::Info->converter($converter_options);
   my $result = $converter->output($document);

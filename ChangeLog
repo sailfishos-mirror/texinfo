@@ -1,3 +1,15 @@
+2024-02-19  Gavin Smith  <gavinsmith0123@gmail.com>, and
+            Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Plaintext.pm (convert):
+	Set $self->{'encoding_disabled'} to 1 so that 'convert' will
+	always return an unencoded character string.
+	* tp/t/test_utils.pl (convert_to_plaintext, convert_to_info):
+	Do not set OUTPUT_PERL_ENCODING to prevent encoding.
+	* tp/Texinfo/Convert/Info.pm (output): Set
+	$self->{'encoding_disabled'} if not outputting to a file, before
+	any conversion is done.
+
 2024-02-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/build_perl_info.c
