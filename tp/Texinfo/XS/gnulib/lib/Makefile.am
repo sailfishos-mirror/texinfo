@@ -42,9 +42,6 @@
 #  uchar \
 #  unicase/u8-tolower \
 #  unicase/u8-toupper \
-#  uniconv/u32-strconv-from-enc \
-#  uniconv/u8-strconv-from-enc \
-#  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
 #  unictype/category-M \
 #  unictype/category-Mn \
@@ -184,25 +181,6 @@ EXTRA_DIST += attribute.h
 
 ## end   gnulib module attribute
 
-## begin gnulib module c-ctype
-
-libgnu_la_SOURCES += c-ctype.h c-ctype.c
-
-## end   gnulib module c-ctype
-
-## begin gnulib module c-strcase
-
-libgnu_la_SOURCES += c-strcase.h c-strcasecmp.c c-strncasecmp.c
-
-## end   gnulib module c-strcase
-
-## begin gnulib module c-strcaseeq
-
-
-EXTRA_DIST += c-strcaseeq.h
-
-## end   gnulib module c-strcaseeq
-
 ## begin gnulib module errno
 
 BUILT_SOURCES += $(ERRNO_H)
@@ -341,76 +319,6 @@ V_GPERF_0 = @echo "  GPERF   " $@;
 EXTRA_DIST += $(top_srcdir)/./config.rpath
 
 ## end   gnulib module havelib
-
-## begin gnulib module iconv-h
-
-BUILT_SOURCES += $(ICONV_H)
-
-# We need the following in order to create <iconv.h> when the system
-# doesn't have one that works with the given compiler.
-if GL_GENERATE_ICONV_H
-iconv.h: iconv.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
-	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''GUARD_PREFIX''@|GL|g' \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
-	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
-	      -e 's|@''NEXT_ICONV_H''@|$(NEXT_ICONV_H)|g' \
-	      -e 's/@''GNULIB_ICONV''@/$(GL_GNULIB_ICONV)/g' \
-	      -e 's|@''ICONV_CONST''@|$(ICONV_CONST)|g' \
-	      -e 's|@''REPLACE_ICONV''@|$(REPLACE_ICONV)|g' \
-	      -e 's|@''REPLACE_ICONV_OPEN''@|$(REPLACE_ICONV_OPEN)|g' \
-	      -e 's|@''REPLACE_ICONV_UTF''@|$(REPLACE_ICONV_UTF)|g' \
-	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
-	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
-	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
-	      $(srcdir)/iconv.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-else
-iconv.h: $(top_builddir)/config.status
-	rm -f $@
-endif
-MOSTLYCLEANFILES += iconv.h iconv.h-t
-
-EXTRA_DIST += iconv.in.h
-
-## end   gnulib module iconv-h
-
-## begin gnulib module iconv_open
-
-if GL_COND_OBJ_ICONV_OPEN
-libgnu_la_SOURCES += iconv_open.c
-endif
-if GL_COND_OBJ_ICONV
-libgnu_la_SOURCES += iconv.c iconv_close.c
-endif
-
-$(srcdir)/iconv_open-aix.h: $(srcdir)/iconv_open-aix.gperf
-	$(V_GPERF)$(GPERF) -m 10 $(srcdir)/iconv_open-aix.gperf > $(srcdir)/iconv_open-aix.h-t && \
-	mv $(srcdir)/iconv_open-aix.h-t $(srcdir)/iconv_open-aix.h
-$(srcdir)/iconv_open-hpux.h: $(srcdir)/iconv_open-hpux.gperf
-	$(V_GPERF)$(GPERF) -m 10 $(srcdir)/iconv_open-hpux.gperf > $(srcdir)/iconv_open-hpux.h-t && \
-	mv $(srcdir)/iconv_open-hpux.h-t $(srcdir)/iconv_open-hpux.h
-$(srcdir)/iconv_open-irix.h: $(srcdir)/iconv_open-irix.gperf
-	$(V_GPERF)$(GPERF) -m 10 $(srcdir)/iconv_open-irix.gperf > $(srcdir)/iconv_open-irix.h-t && \
-	mv $(srcdir)/iconv_open-irix.h-t $(srcdir)/iconv_open-irix.h
-$(srcdir)/iconv_open-osf.h: $(srcdir)/iconv_open-osf.gperf
-	$(V_GPERF)$(GPERF) -m 10 $(srcdir)/iconv_open-osf.gperf > $(srcdir)/iconv_open-osf.h-t && \
-	mv $(srcdir)/iconv_open-osf.h-t $(srcdir)/iconv_open-osf.h
-$(srcdir)/iconv_open-solaris.h: $(srcdir)/iconv_open-solaris.gperf
-	$(V_GPERF)$(GPERF) -m 10 $(srcdir)/iconv_open-solaris.gperf > $(srcdir)/iconv_open-solaris.h-t && \
-	mv $(srcdir)/iconv_open-solaris.h-t $(srcdir)/iconv_open-solaris.h
-$(srcdir)/iconv_open-zos.h: $(srcdir)/iconv_open-zos.gperf
-	$(V_GPERF)$(GPERF) -m 10 $(srcdir)/iconv_open-zos.gperf > $(srcdir)/iconv_open-zos.h-t && \
-	mv $(srcdir)/iconv_open-zos.h-t $(srcdir)/iconv_open-zos.h
-BUILT_SOURCES        += iconv_open-aix.h iconv_open-hpux.h iconv_open-irix.h iconv_open-osf.h iconv_open-solaris.h iconv_open-zos.h
-MOSTLYCLEANFILES     += iconv_open-aix.h-t iconv_open-hpux.h-t iconv_open-irix.h-t iconv_open-osf.h-t iconv_open-solaris.h-t iconv_open-zos.h-t
-MAINTAINERCLEANFILES += iconv_open-aix.h iconv_open-hpux.h iconv_open-irix.h iconv_open-osf.h iconv_open-solaris.h iconv_open-zos.h
-EXTRA_DIST           += iconv_open-aix.h iconv_open-hpux.h iconv_open-irix.h iconv_open-osf.h iconv_open-solaris.h iconv_open-zos.h
-
-EXTRA_DIST += iconv_open-aix.gperf iconv_open-hpux.gperf iconv_open-irix.gperf iconv_open-osf.gperf iconv_open-solaris.gperf iconv_open-zos.gperf
-
-## end   gnulib module iconv_open
 
 ## begin gnulib module idx
 
@@ -1048,21 +956,6 @@ EXTRA_DIST += streq.h
 
 ## end   gnulib module streq
 
-## begin gnulib module striconveh
-
-libgnu_la_SOURCES += striconveh.h striconveh.c
-libgnu_la_LDFLAGS += $(LTLIBICONV)
-
-EXTRA_DIST += iconveh.h
-
-## end   gnulib module striconveh
-
-## begin gnulib module striconveha
-
-libgnu_la_SOURCES += striconveha.h striconveha.c
-
-## end   gnulib module striconveha
-
 ## begin gnulib module string
 
 BUILT_SOURCES += string.h
@@ -1422,65 +1315,6 @@ endif
 
 ## end   gnulib module unicase/u8-toupper
 
-## begin gnulib module uniconv/base
-
-BUILT_SOURCES += $(LIBUNISTRING_UNICONV_H)
-
-uniconv.h: uniconv.in.h
-	$(gl_V_at)$(SED_HEADER_TO_AT_t) $(srcdir)/uniconv.in.h
-	$(AM_V_at)mv $@-t $@
-MOSTLYCLEANFILES += uniconv.h uniconv.h-t
-
-EXTRA_DIST += iconveh.h localcharset.h striconveha.h uniconv.in.h
-
-## end   gnulib module uniconv/base
-
-## begin gnulib module uniconv/u32-conv-from-enc
-
-if LIBUNISTRING_COMPILE_UNICONV_U32_CONV_FROM_ENC
-libgnu_la_SOURCES += uniconv/u32-conv-from-enc.c
-endif
-
-EXTRA_DIST += uniconv/u-conv-from-enc.h
-
-## end   gnulib module uniconv/u32-conv-from-enc
-
-## begin gnulib module uniconv/u32-strconv-from-enc
-
-if LIBUNISTRING_COMPILE_UNICONV_U32_STRCONV_FROM_ENC
-libgnu_la_SOURCES += uniconv/u32-strconv-from-enc.c
-endif
-
-EXTRA_DIST += uniconv/u-strconv-from-enc.h
-
-## end   gnulib module uniconv/u32-strconv-from-enc
-
-## begin gnulib module uniconv/u8-conv-from-enc
-
-if LIBUNISTRING_COMPILE_UNICONV_U8_CONV_FROM_ENC
-libgnu_la_SOURCES += uniconv/u8-conv-from-enc.c
-endif
-
-## end   gnulib module uniconv/u8-conv-from-enc
-
-## begin gnulib module uniconv/u8-strconv-from-enc
-
-if LIBUNISTRING_COMPILE_UNICONV_U8_STRCONV_FROM_ENC
-libgnu_la_SOURCES += uniconv/u8-strconv-from-enc.c
-endif
-
-EXTRA_DIST += uniconv/u-strconv-from-enc.h
-
-## end   gnulib module uniconv/u8-strconv-from-enc
-
-## begin gnulib module uniconv/u8-strconv-to-enc
-
-if LIBUNISTRING_COMPILE_UNICONV_U8_STRCONV_TO_ENC
-libgnu_la_SOURCES += uniconv/u8-strconv-to-enc.c
-endif
-
-## end   gnulib module uniconv/u8-strconv-to-enc
-
 ## begin gnulib module unictype/base
 
 BUILT_SOURCES += $(LIBUNISTRING_UNICTYPE_H)
@@ -1560,6 +1394,8 @@ unictype.h: unictype.in.h
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_OTHER_ID_CONTINUE_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_OTHER_ID_CONTINUE_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_XID_START_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_XID_START_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_XID_CONTINUE_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_XID_CONTINUE_DLL_VARIABLE)/g' \
+	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_ID_COMPAT_MATH_START_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_ID_COMPAT_MATH_START_DLL_VARIABLE)/g' \
+	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_ID_COMPAT_MATH_CONTINUE_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_ID_COMPAT_MATH_CONTINUE_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_PATTERN_WHITE_SPACE_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_PATTERN_WHITE_SPACE_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_PATTERN_SYNTAX_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_PATTERN_SYNTAX_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_JOIN_CONTROL_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_JOIN_CONTROL_DLL_VARIABLE)/g' \
@@ -1591,6 +1427,7 @@ unictype.h: unictype.in.h
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_IDEOGRAPHIC_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_IDEOGRAPHIC_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_UNIFIED_IDEOGRAPH_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_UNIFIED_IDEOGRAPH_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_RADICAL_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_RADICAL_DLL_VARIABLE)/g' \
+	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_IDS_UNARY_OPERATOR_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_IDS_UNARY_OPERATOR_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_IDS_BINARY_OPERATOR_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_IDS_BINARY_OPERATOR_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_IDS_TRINARY_OPERATOR_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_IDS_TRINARY_OPERATOR_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_EMOJI_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_EMOJI_DLL_VARIABLE)/g' \
@@ -1604,6 +1441,7 @@ unictype.h: unictype.in.h
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_NON_BREAK_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_NON_BREAK_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_ISO_CONTROL_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_ISO_CONTROL_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_FORMAT_CONTROL_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_FORMAT_CONTROL_DLL_VARIABLE)/g' \
+	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_PREPENDED_CONCATENATION_MARK_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_PREPENDED_CONCATENATION_MARK_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_DASH_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_DASH_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_HYPHEN_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_HYPHEN_DLL_VARIABLE)/g' \
 	      -e 's/@''GNULIB_UNICTYPE_PROPERTY_PUNCTUATION_DLL_VARIABLE''@/$(GL_GNULIB_UNICTYPE_PROPERTY_PUNCTUATION_DLL_VARIABLE)/g' \
@@ -2091,14 +1929,6 @@ EXTRA_DIST += unistr.in.h
 
 ## end   gnulib module unistr/base
 
-## begin gnulib module unistr/u32-mblen
-
-if LIBUNISTRING_COMPILE_UNISTR_U32_MBLEN
-libgnu_la_SOURCES += unistr/u32-mblen.c
-endif
-
-## end   gnulib module unistr/u32-mblen
-
 ## begin gnulib module unistr/u32-next
 
 if LIBUNISTRING_COMPILE_UNISTR_U32_NEXT
@@ -2107,16 +1937,6 @@ endif
 
 ## end   gnulib module unistr/u32-next
 
-## begin gnulib module unistr/u32-strlen
-
-if LIBUNISTRING_COMPILE_UNISTR_U32_STRLEN
-libgnu_la_SOURCES += unistr/u32-strlen.c
-endif
-
-EXTRA_DIST += unistr/u-strlen.h
-
-## end   gnulib module unistr/u32-strlen
-
 ## begin gnulib module unistr/u32-strmbtouc
 
 if LIBUNISTRING_COMPILE_UNISTR_U32_STRMBTOUC
@@ -2124,14 +1944,6 @@ libgnu_la_SOURCES += unistr/u32-strmbtouc.c
 endif
 
 ## end   gnulib module unistr/u32-strmbtouc
-
-## begin gnulib module unistr/u8-check
-
-if LIBUNISTRING_COMPILE_UNISTR_U8_CHECK
-libgnu_la_SOURCES += unistr/u8-check.c
-endif
-
-## end   gnulib module unistr/u8-check
 
 ## begin gnulib module unistr/u8-cpy
 
@@ -2142,14 +1954,6 @@ endif
 EXTRA_DIST += unistr/u-cpy.h
 
 ## end   gnulib module unistr/u8-cpy
-
-## begin gnulib module unistr/u8-mblen
-
-if LIBUNISTRING_COMPILE_UNISTR_U8_MBLEN
-libgnu_la_SOURCES += unistr/u8-mblen.c
-endif
-
-## end   gnulib module unistr/u8-mblen
 
 ## begin gnulib module unistr/u8-mbsnlen
 
@@ -2191,14 +1995,6 @@ endif
 
 ## end   gnulib module unistr/u8-next
 
-## begin gnulib module unistr/u8-prev
-
-if LIBUNISTRING_COMPILE_UNISTR_U8_PREV
-libgnu_la_SOURCES += unistr/u8-prev.c
-endif
-
-## end   gnulib module unistr/u8-prev
-
 ## begin gnulib module unistr/u8-strlen
 
 if LIBUNISTRING_COMPILE_UNISTR_U8_STRLEN
@@ -2214,14 +2010,6 @@ libgnu_la_SOURCES += unistr/u8-strmbtouc.c
 endif
 
 ## end   gnulib module unistr/u8-strmbtouc
-
-## begin gnulib module unistr/u8-to-u32
-
-if LIBUNISTRING_COMPILE_UNISTR_U8_TO_U32
-libgnu_la_SOURCES += unistr/u8-to-u32.c
-endif
-
-## end   gnulib module unistr/u8-to-u32
 
 ## begin gnulib module unistr/u8-uctomb
 

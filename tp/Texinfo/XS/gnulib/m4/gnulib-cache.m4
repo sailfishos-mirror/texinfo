@@ -47,9 +47,6 @@
 #  uchar \
 #  unicase/u8-tolower \
 #  unicase/u8-toupper \
-#  uniconv/u32-strconv-from-enc \
-#  uniconv/u8-strconv-from-enc \
-#  uniconv/u8-strconv-to-enc \
 #  unictype/category-L \
 #  unictype/category-M \
 #  unictype/category-Mn \
@@ -87,9 +84,6 @@ gl_MODULES([
   uchar
   unicase/u8-tolower
   unicase/u8-toupper
-  uniconv/u32-strconv-from-enc
-  uniconv/u8-strconv-from-enc
-  uniconv/u8-strconv-to-enc
   unictype/category-L
   unictype/category-M
   unictype/category-Mn

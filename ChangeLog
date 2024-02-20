@@ -1,5 +1,12 @@
 2024-02-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS:
+	Run "gnulib --remove-import uniconv/u8-strconv-to-enc" and
+	"gnulib --remove-import uniconv/u8-strconv-from-enc" and
+	"gnulib --remove-import uniconv/u32-strconv-from-enc".
+
+2024-02-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/unicode.c (utf8_from_string, string_from_utf8):
 	Replace calls to u8_strconv_from_encoding and u8_strconv_to_encoding
 	with call to strdup followed by cast.
