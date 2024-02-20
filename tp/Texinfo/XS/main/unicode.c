@@ -21,7 +21,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
-#include "uniconv.h"
 #include "unictype.h"
 #include "uninorm.h"
 #include "unistr.h"
@@ -40,14 +39,21 @@
 uint8_t *
 utf8_from_string (const char *text)
 {
-  /* TODO error checking? Or cast (uint8_t *) instead of conversion? */
-  return u8_strconv_from_encoding (text, "UTF-8", iconveh_question_mark);
+  /* TODO error checking? */
+  return (uint8_t *) strdup (text);
+
+  /* With uniconv/* gnulib module this could be the following, although
+     this pulls in quite a few other gnulib module dependencies. */
+  /* return u8_strconv_from_encoding (text, "UTF-8", iconveh_question_mark); */
 }
 
 char *
 string_from_utf8 (const uint8_t *encoded_u8)
 {
-  return u8_strconv_to_encoding (encoded_u8, "UTF-8", iconveh_question_mark);
+  return (char *) strdup (encoded_u8);
+  /* With uniconv/* gnulib module this could be the following, although
+     this pulls in quite a few other gnulib module dependencies. */
+  /* return u8_strconv_to_encoding (encoded_u8, "UTF-8", iconveh_question_mark); */
 }
 
 char *
@@ -232,9 +238,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
       if (!results_stack[j])
         break;
 
-      uint8_t *encoded_u8 = u8_strconv_from_encoding (
-                                               results_stack[j], "UTF-8",
-                                               iconveh_question_mark);
+      uint8_t *encoded_u8 = utf8_from_string (results_stack[j]);
       ucs4_t first_char;
       u8_next (&first_char, encoded_u8);
       free (encoded_u8);

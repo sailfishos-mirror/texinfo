@@ -19,7 +19,6 @@
 #include <stdio.h>
 #include <locale.h>
 #include <ctype.h>
-#include "uniconv.h"
 #include "unictype.h"
 #include "unistr.h"
 

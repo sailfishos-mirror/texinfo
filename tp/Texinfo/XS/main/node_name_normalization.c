@@ -19,7 +19,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
-#include "uniconv.h"
 #include "unistr.h"
 /*
 #include "xvasprintf.h"

@@ -24,7 +24,6 @@
 #include <iconv.h>
 #include <errno.h>
 #include <stdbool.h>
-#include "uniconv.h"
 #include "unistr.h"
 #include "unicase.h"
 #include "uniwidth.h"

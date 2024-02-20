@@ -22,7 +22,6 @@
 #include <stddef.h>
 #include <inttypes.h>
 #include <unistr.h>
-#include <uniconv.h>
 #include <unictype.h>
 
 #include "command_ids.h"

@@ -22,7 +22,6 @@
 #include <ctype.h>
 #include <stdarg.h>
 #include <iconv.h>
-#include "uniconv.h"
 #include <unistr.h>
 #include <unictype.h>
 

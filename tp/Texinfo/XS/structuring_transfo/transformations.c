@@ -23,7 +23,6 @@
 #include <string.h>
 #include <iconv.h>
 #include <stdbool.h>
-#include "uniconv.h"
 #include "unistr.h"
 
 #include "element_types.h"

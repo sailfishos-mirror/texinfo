@@ -17,7 +17,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include <iconv.h>
-#include "uniconv.h"
 #include "unistr.h"
 
 /* for isolate_last_space and global_documentlanguage */

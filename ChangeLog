@@ -1,4 +1,15 @@
-2024-02-19  Gavin Smith  <gavinsmith0123@gmail.com>, and
+2024-02-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/main/unicode.c (utf8_from_string, string_from_utf8):
+	Replace calls to u8_strconv_from_encoding and u8_strconv_to_encoding
+	with call to strdup followed by cast.
+	(format_eight_bit_accents_stack): Replace call to
+	u8_strconv_from_encoding with call to utf8_from_string.
+
+	This eliminates the requirement for gnulib uniconv modules, which
+	indirectly required the iconv_open module.
+
+2024-02-20  Gavin Smith  <gavinsmith0123@gmail.com>, and
             Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Plaintext.pm (convert):
