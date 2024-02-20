@@ -630,23 +630,10 @@ sub convert($$)
   my $result = '';
 
   my $output_units = Texinfo::Structuring::split_by_node($root);
-  if (!defined($output_units)) {
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                       'locations' => [],
-                                       'result' => '' };
-    $self->_convert($root);
-    $self->count_context_bug_message('no element ');
-    $self->process_footnotes();
-    $self->count_context_bug_message('no element footnotes ');
-    $result = _stream_result($self);
 
-    pop @{$self->{'count_context'}};
-    return $result;
-  } else {
-    foreach my $output_unit (@$output_units) {
-      my $node_text = convert_output_unit($self, $output_unit);
-      $result .= $node_text;
-    }
+  foreach my $output_unit (@$output_units) {
+    my $node_text = convert_output_unit($self, $output_unit);
+    $result .= $node_text;
   }
 
   $self->conversion_finalization();

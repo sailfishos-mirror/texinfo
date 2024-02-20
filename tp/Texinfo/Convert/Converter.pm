@@ -421,8 +421,7 @@ sub output($$)
 
   # Now do the output
   my $fh;
-  if (!$output_units
-      or !defined($output_units->[0]->{'unit_filename'})) {
+  if (!defined($output_units->[0]->{'unit_filename'})) {
     # no page
     my $output = '';
     my $outfile_name;
@@ -460,17 +459,9 @@ sub output($$)
         if ($self->get_conf('DEBUG'));
     }
 
-    if ($output_units and scalar(@$output_units)) {
-      foreach my $output_unit (@$output_units) {
-        my $output_unit_text = $self->convert_output_unit($output_unit);
-        $output .= $self->write_or_return($output_unit_text, $fh);
-      }
-    } else {
-      # REMARK right now, this code is never called, as
-      # Texinfo::Structuring::split_by_node or split_by_page always return
-      # an array containing at least one unit.  But this was not the case
-      # in the past and could change again in the future.
-      $output .= $self->write_or_return($self->convert($document), $fh);
+    foreach my $output_unit (@$output_units) {
+      my $output_unit_text = $self->convert_output_unit($output_unit);
+      $output .= $self->write_or_return($output_unit_text, $fh);
     }
     # NOTE do not close STDOUT now to avoid a perl warning.
     # FIXME is it still true that there is such a warning?

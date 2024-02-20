@@ -374,8 +374,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
             }
           else if (data_cmd == CM_titlepage
                    && self->conf->USE_TITLEPAGE_FOR_TITLE.integer > 0
-                   && self->conf->SHOW_TITLE.integer > 0
-                   && output_units->number > 0)
+                   && self->conf->SHOW_TITLE.integer > 0)
             {
               ROOT_AND_UNIT *result = malloc (sizeof (ROOT_AND_UNIT));
               result->output_unit = output_units->list[0];
@@ -1483,10 +1482,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
                   const OUTPUT_UNIT *associated_output_unit = 0;
                   if (!strcmp (contents_location, "after_title"))
                     {
-                      if (output_units->number > 0)
-                        associated_output_unit = output_units->list[0];
-                      else
-                        continue;
+                      associated_output_unit = output_units->list[0];
                     }
                   else if (!strcmp (contents_location, "after_top"))
                     {
@@ -1541,11 +1537,11 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
 
   if (self->document->global_commands->footnotes.number > 0
       && !strcmp(self->conf->footnotestyle.string, "separate")
-      && output_units && output_units->number > 1)
+      && output_units->number > 1)
     add_string ("footnotes", do_special);
 
   if ((self->conf->DO_ABOUT.integer < 0
-       && output_units && output_units->number > 1
+       && output_units->number > 1
        && ((self->conf->SPLIT.string && strlen (self->conf->SPLIT.string))
            || self->conf->HEADERS.integer > 0))
       || self->conf->DO_ABOUT.integer > 0)
@@ -1564,8 +1560,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
   qsort (special_units_order, do_special->number, sizeof (SPECIAL_UNIT_ORDER),
          compare_special_units);
 
-  if (output_units && output_units->number > 0)
-    previous_output_unit = output_units->list[output_units->number-1];
+  previous_output_unit = output_units->list[output_units->number-1];
 
   for (i = 0; i < do_special->number; i++)
     {
@@ -3502,8 +3497,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
       titlepage is not output. */
       const OUTPUT_UNIT_LIST *output_units
          = retrieve_output_units (self->document_units_descriptor);
-      if (output_units && output_units->number > 0
-          && output_units->list[0]->unit_filename)
+      if (output_units->list[0]->unit_filename)
         { /* In that case use the first page. */
           target_filename = (FILE_NUMBER_NAME *)
             malloc (sizeof (FILE_NUMBER_NAME));
@@ -5260,9 +5254,6 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   char **unit_file_name_paths;
   int i;
 
-  if (!output_units || !output_units->number)
-    return 0;
-
   initialize_output_units_files (self);
 
   files_source_info = (FILE_SOURCE_INFO_LIST *)
@@ -5617,7 +5608,6 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
         /* Associate the special elements that have no page with the main page.
            This may only happen if not split. */
           if (!filename && special_units->number
-              && output_units && output_units->number
               && output_units->list[0]->unit_filename)
             {
               filename = output_units->list[0]->unit_filename;
@@ -18274,6 +18264,8 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
                       int special_units_descriptor)
 {
   TEXT result;
+  int unit_nr = 0;
+  int i;
 
   const OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
@@ -18285,38 +18277,24 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
   self->current_filename.filename = "";
   self->current_filename.file_number = 1;
 
-  if (!output_units || !output_units->number)
+  for (i = 0; i < output_units->number; i++)
     {
-      if (self->conf->DEBUG.integer > 0)
-        fprintf (stderr, "\nC NO UNIT\n");
-
-      convert_to_html_internal (self, root, &result,
-                                "convert no unit");
-
-      format_footnotes_segment (self, &result);
+      const OUTPUT_UNIT *output_unit = output_units->list[i];
+      convert_convert_output_unit_internal (self, &result, output_unit,
+                            unit_nr, "C UNIT", "convert unit");
+      unit_nr++;
     }
-  else
+  if (special_units && special_units->number)
     {
-      int unit_nr = 0;
-      int i;
-      for (i = 0; i < output_units->number; i++)
+      for (i = 0; i < special_units->number; i++)
         {
-          const OUTPUT_UNIT *output_unit = output_units->list[i];
-          convert_convert_output_unit_internal (self, &result, output_unit,
-                                unit_nr, "C UNIT", "convert unit");
+          const OUTPUT_UNIT *special_unit = special_units->list[i];
+          convert_convert_output_unit_internal (self, &result,
+                    special_unit, unit_nr, "C UNIT", "convert unit");
           unit_nr++;
         }
-      if (special_units && special_units->number)
-        {
-          for (i = 0; i < special_units->number; i++)
-            {
-              const OUTPUT_UNIT *special_unit = special_units->list[i];
-              convert_convert_output_unit_internal (self, &result,
-                        special_unit, unit_nr, "C UNIT", "convert unit");
-              unit_nr++;
-            }
-        }
     }
+
   self->current_filename.filename = 0;
 
   return result.text;
@@ -18554,47 +18532,34 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
     {
       char *file_end;
       char *file_beginning;
+      int unit_nr = 0;
+      int i;
 
       self->current_filename.filename = output_filename;
       self->current_filename.file_number = 1;
 
       text_append (&text, "");
 
-      if (output_units && output_units->number)
+      for (i = 0; i < output_units->number; i++)
         {
-          int unit_nr = 0;
-          int i;
-          for (i = 0; i < output_units->number; i++)
-            {
-              const OUTPUT_UNIT *output_unit = output_units->list[i];
-              convert_convert_output_unit_internal (self, &text, output_unit,
-                             unit_nr, "UNIT NO-PAGE", "no-page output unit");
-              unit_nr++;
-            }
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          convert_convert_output_unit_internal (self, &text, output_unit,
+                         unit_nr, "UNIT NO-PAGE", "no-page output unit");
+          unit_nr++;
+        }
       /* TODO there is no rule before the footnotes special element in
          case of separate footnotes in the default formatting style.
          Not sure if it is an issue. */
-          if (special_units && special_units->number)
-            {
-              for (i = 0; i < special_units->number; i++)
-                {
-                  const OUTPUT_UNIT *special_unit = special_units->list[i];
-                  convert_convert_output_unit_internal (self, &text,
-                                 special_unit, unit_nr, "UNIT NO-PAGE",
-                                 "no-page output unit");
-                  unit_nr++;
-                }
-            }
-        }
-      else
+      if (special_units && special_units->number)
         {
-          if (self->conf->DEBUG.integer > 0)
-            fprintf (stderr, "\nNO UNIT NO PAGE\n");
-
-          text_append (&text, self->title_titlepage);
-          convert_to_html_internal (self, root, &text,
-                                     "no-page output no unit");
-          format_footnotes_segment (self, &result);
+          for (i = 0; i < special_units->number; i++)
+            {
+              const OUTPUT_UNIT *special_unit = special_units->list[i];
+              convert_convert_output_unit_internal (self, &text,
+                             special_unit, unit_nr, "UNIT NO-PAGE",
+                             "no-page output unit");
+              unit_nr++;
+            }
         }
 
       /* do end file first, in case it needs some CSS */

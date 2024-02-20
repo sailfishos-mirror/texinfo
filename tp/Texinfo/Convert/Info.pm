@@ -123,8 +123,7 @@ sub output($$)
 
   my $out_file_nr = 0;
   my @indirect_files;
-  if (!defined($output_units) or not defined($output_units->[0])
-      or not defined($output_units->[0]->{'unit_command'})) {
+  if (not defined($output_units->[0]->{'unit_command'})) {
     my $input_file_name;
     if ($self->{'document'}) {
       my $document_info = $self->{'document'}->global_information();

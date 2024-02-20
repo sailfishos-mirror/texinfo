@@ -1,5 +1,20 @@
 2024-02-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (output), tp/Texinfo/Convert/HTML.pm
+	(_internal_command_href, _html_get_tree_root_element)
+	(_html_set_pages_files, _prepare_special_units, _html_convert_convert)
+	(output_internal_links, _html_convert_output),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm (output),
+	tp/Texinfo/Convert/Plaintext.pm (convert),
+	tp/Texinfo/XS/convert/convert_html.c  (html_get_tree_root_element)
+	(prepare_special_units, html_internal_command_href)
+	(html_set_pages_files, html_convert_convert, html_convert_output):
+	remove all the codes that are never run as they correspond to
+	no output unit since output units are always set if split_by_*
+	have been called.
+
+2024-02-20  Patrice Dumas  <pertusus@free.fr>
+
 	Fix memory leaks found with valgrind
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): free

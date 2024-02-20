@@ -519,45 +519,42 @@ sub output_ixin($$)
   my %node_tweaks;
   my @nodes;
   my $document_output = '';
-  if ($output_units) {
-    foreach my $output_unit (@$output_units) {
-      next if (not defined($output_unit->{'unit_command'}));
-      $node_nr++;
-      my $node = $output_unit->{'unit_command'};
-      push @nodes, $node;
-      my $normalized_node_name = $node->{'extra'}->{'normalized'};
-      foreach my $setting_command_name (keys(%current_settings)) {
-        $node_tweaks{$normalized_node_name}->{$setting_command_name}
-          = $current_settings{$setting_command_name};
-      }
-      $node_label_number{$normalized_node_name} = $node_nr;
 
-      my $output_unit_result = $self->convert_output_unit($output_unit)."\n";
-      $document_output .= $output_unit_result;
+  foreach my $output_unit (@$output_units) {
+    next if (not defined($output_unit->{'unit_command'}));
+    $node_nr++;
+    my $node = $output_unit->{'unit_command'};
+    push @nodes, $node;
+    my $normalized_node_name = $node->{'extra'}->{'normalized'};
+    foreach my $setting_command_name (keys(%current_settings)) {
+      $node_tweaks{$normalized_node_name}->{$setting_command_name}
+        = $current_settings{$setting_command_name};
+    }
+    $node_label_number{$normalized_node_name} = $node_nr;
 
-      # get node length.
-      $output_unit_byte_sizes{$normalized_node_name}
-         = $self->_count_bytes($output_unit_result);
-      # update current settings
-      if (defined($end_of_nodes_setting_commands{$normalized_node_name})) {
-        foreach my $setting_command_name (keys(%{$end_of_nodes_setting_commands{$normalized_node_name}})) {
-          # FIXME should use get_conf instead?
-          my $value = Texinfo::Common::_informative_command_value_informative_command_value(
-            $end_of_nodes_setting_commands{$normalized_node_name}->{$setting_command_name});
-          if ((defined($settings{$setting_command_name})
-               and $settings{$setting_command_name} eq $value)
-              or (!defined($settings{$setting_command_name})
-                  and defined($setting_commands_defaults{$setting_command_name})
-                  and $setting_commands_defaults{$setting_command_name} eq $value)) {
-            delete $current_settings{$setting_command_name};
-          } else {
-            $current_settings{$setting_command_name} = $value;
-          }
+    my $output_unit_result = $self->convert_output_unit($output_unit)."\n";
+    $document_output .= $output_unit_result;
+
+    # get node length.
+    $output_unit_byte_sizes{$normalized_node_name}
+       = $self->_count_bytes($output_unit_result);
+    # update current settings
+    if (defined($end_of_nodes_setting_commands{$normalized_node_name})) {
+      foreach my $setting_command_name (keys(%{$end_of_nodes_setting_commands{$normalized_node_name}})) {
+        # FIXME should use get_conf instead?
+        my $value = Texinfo::Common::_informative_command_value_informative_command_value(
+          $end_of_nodes_setting_commands{$normalized_node_name}->{$setting_command_name});
+        if ((defined($settings{$setting_command_name})
+             and $settings{$setting_command_name} eq $value)
+            or (!defined($settings{$setting_command_name})
+                and defined($setting_commands_defaults{$setting_command_name})
+                and $setting_commands_defaults{$setting_command_name} eq $value)) {
+          delete $current_settings{$setting_command_name};
+        } else {
+          $current_settings{$setting_command_name} = $value;
         }
       }
     }
-  } else {
-    # not a full document.
   }
 
   my $nodes_index = $self->ixin_open_element('nodesindex');
