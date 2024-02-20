@@ -1075,8 +1075,7 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
                   first_char_u8[first_char_len] = 0;
-                  first_char_text = u8_strconv_to_encoding (first_char_u8,
-                                               "UTF-8", iconveh_question_mark);
+                  first_char_text = string_from_utf8 (first_char_u8);
                   free (first_char_u8);
                   text_append (&letter_text, first_char_text);
                   free (first_char_text);

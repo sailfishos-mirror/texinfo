@@ -51,7 +51,7 @@
 #include "call_html_perl_function.h"
 /* for unregister_document_merge_with_document */
 #include "document.h"
-/* for OTXI_UNICODE_TEXT_CASES */
+/* for OTXI_UNICODE_TEXT_CASES utf8_from_string string_from_utf8 */
 #include "unicode.h"
 #include "manipulate_tree.h"
 /* for new_complete_menu_master_menu */
@@ -9461,8 +9461,7 @@ css_string_accent (CONVERTER *self, const char *text,
                           /* ASCII digits */
                           || (first_char >= 0x0030 && first_char <= 0x0039)))
                 {
-                  next_text = u8_strconv_to_encoding (next, "UTF-8",
-                                                      iconveh_question_mark);
+                  next_text = string_from_utf8 (next);
                 }
             }
           else
@@ -9509,8 +9508,7 @@ css_string_accent (CONVERTER *self, const char *text,
                       if (first_char_len < 0)
                         fatal ("u8_uctomb returns negative value");
                       first_char_u8[first_char_len] = 0;
-                      first_char_text = u8_strconv_to_encoding (first_char_u8,
-                                              "UTF-8", iconveh_question_mark);
+                      first_char_text = string_from_utf8 (first_char_u8);
                       free (first_char_u8);
                       text_append (&accented_text, first_char_text);
                       free (first_char_text);
@@ -9564,8 +9562,7 @@ css_string_accent (CONVERTER *self, const char *text,
           ucs4_t first_char;
           const uint8_t *next = u8_next (&first_char, encoded_u8);
           text_printf (&accented_text, "\\%04lX ", first_char);
-          next_text = u8_strconv_to_encoding (next, "UTF-8",
-                                              iconveh_question_mark);
+          next_text = string_from_utf8 (next);
           free (encoded_u8);
           text_append (&accented_text, next_text);
           free (next_text);

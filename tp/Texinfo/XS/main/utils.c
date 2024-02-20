@@ -44,8 +44,8 @@
 #include "debug.h"
 #include "builtin_commands.h"
 #include "api_to_perl.h"
-#include "utils.h"
 #include "unicode.h"
+#include "utils.h"
 
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
@@ -218,8 +218,7 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
                             NULL, NULL, NULL, &lengthp);
 
   free (u8_text);
-  result = u8_strconv_to_encoding (u8_result, "UTF-8",
-                                   iconveh_question_mark);
+  result = string_from_utf8 (u8_result);
   free (u8_result);
   return result;
 }

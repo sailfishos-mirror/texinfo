@@ -1036,8 +1036,7 @@ next_for_tieaccent (const char *text, const char **next)
           if (first_char_len < 0)
             fatal ("u8_uctomb returns negative value");
           first_char_u8[first_char_len] = 0;
-          first_char_text = u8_strconv_to_encoding (first_char_u8, "UTF-8",
-                                                    iconveh_question_mark);
+          first_char_text = string_from_utf8 (first_char_u8);
           free (first_char_u8);
           p = text + strlen (first_char_text);
           *next = p;

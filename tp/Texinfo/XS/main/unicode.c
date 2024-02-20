@@ -45,6 +45,12 @@ utf8_from_string (const char *text)
 }
 
 char *
+string_from_utf8 (const uint8_t *encoded_u8)
+{
+  return u8_strconv_to_encoding (encoded_u8, "UTF-8", iconveh_question_mark);
+}
+
+char *
 normalize_NFC (const char *text)
 {
   size_t lengthp;
@@ -56,7 +62,7 @@ normalize_NFC (const char *text)
                                          u8_strlen (encoded_u8)+1,
                                          NULL, &lengthp);
   free (encoded_u8);
-  result = utf8_from_string (normalized_u8);
+  result = string_from_utf8 (normalized_u8);
   free (normalized_u8);
   return result;
 }
@@ -73,7 +79,7 @@ normalize_NFKD (const char *text)
                                          u8_strlen (encoded_u8)+1,
                                          NULL, &lengthp);
   free (encoded_u8);
-  result = utf8_from_string (normalized_u8);
+  result = string_from_utf8 (normalized_u8);
   free (normalized_u8);
   return result;
 }
@@ -135,13 +141,13 @@ unicode_accent (const char *text, const ELEMENT *e)
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
                   first_char_u8[first_char_len] = 0;
-                  first_char_text = utf8_from_string (first_char_u8);
+                  first_char_text = string_from_utf8 (first_char_u8);
                   free (first_char_u8);
                   text_init (&accented_text);
                   text_append (&accented_text, first_char_text);
                   free (first_char_text);
                   text_append (&accented_text, unicode_diacritics[e->cmd].text);
-                  next_text = utf8_from_string (next);
+                  next_text = string_from_utf8 (next);
                   text_append (&accented_text, next_text);
                   free (next_text);
                   result = normalize_NFC (accented_text.text);
