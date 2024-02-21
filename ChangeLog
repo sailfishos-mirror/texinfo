@@ -1,5 +1,18 @@
 2024-02-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_output_units_files),
+	tp/Texinfo/Convert/Plaintext.pm (output): move output implementation
+	out of Converter.pm to Plaintext.pm. Rename _set_output_units_files as
+	set_output_units_files.
+
+	* tp/Texinfo/Convert/Plaintext.pm (output): set
+	$self->{'encoding_disabled'} if not outputting to a file, before any
+	conversion is done.
+
+	* tp/Texinfo/Convert/Plaintext.pm: move code around.
+
+2024-02-21  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree)
 	(_parsed_manual_tree): update Texinfo::Document::rebuild_document
 	call.

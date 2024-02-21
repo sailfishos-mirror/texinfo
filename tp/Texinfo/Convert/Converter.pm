@@ -357,177 +357,6 @@ sub convert_output_unit($$)
   return $result;
 }
 
-# In general, converters override this method, but simple
-# converters can use it.  It is used for the plaintext
-# output format.
-# use file_counters and out_filepaths converter states.
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
-
-  $self->conversion_initialization($document);
-
-  my $root = $document->tree();
-
-  my $output_units;
-
-  if (defined($self->get_conf('OUTFILE'))
-      and ($Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')}
-           or $self->get_conf('OUTFILE') eq '-'
-           or $self->get_conf('OUTFILE') eq '')) {
-    if ($self->get_conf('SPLIT')) {
-      $self->converter_document_warn(
-               sprintf(__("%s: output incompatible with split"),
-                                   $self->get_conf('OUTFILE')));
-      $self->force_conf('SPLIT', '');
-    }
-  }
-  if ($self->get_conf('SPLIT')) {
-    $self->set_conf('NODE_FILES', 1);
-  }
-
-  my ($output_file, $destination_directory, $output_filename,
-       $document_name)
-      = $self->determine_files_and_directory($self->{'output_format'});
-  my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_output_file_name($destination_directory);
-  my $succeeded
-    = $self->create_destination_directory($encoded_destination_directory,
-                                          $destination_directory);
-  unless ($succeeded) {
-    $self->conversion_finalization();
-    return undef;
-  }
-
-  if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::Structuring::split_by_node($root);
-  } else {
-    $output_units = Texinfo::Structuring::split_by_section($root);
-  }
-
-  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
-
-  Texinfo::Structuring::rebuild_output_units($output_units);
-
-  # determine file names associated with the different pages
-  if ($output_file ne '') {
-    $self->_set_output_units_files($output_units, $output_file,
-                                   $destination_directory,
-                                   $output_filename, $document_name);
-  }
-
-  #print STDERR "$output_units $output_units->[0]->{'unit_filename'}\n";
-
-  # Now do the output
-  my $fh;
-  if (!defined($output_units->[0]->{'unit_filename'})) {
-    # no page
-    my $output = '';
-    my $outfile_name;
-    my $encoded_outfile_name;
-    if ($output_file ne '') {
-      if ($self->get_conf('SPLIT')) {
-        my $top_node_file_name = $self->top_node_filename($document_name);
-        if ($destination_directory ne '') {
-          $outfile_name = File::Spec->catfile($destination_directory,
-                                              $top_node_file_name);
-        } else {
-          $outfile_name = $top_node_file_name;
-        }
-      } else {
-        $outfile_name = $output_file;
-      }
-      print STDERR "DO No pages, output in $outfile_name\n"
-        if ($self->get_conf('DEBUG'));
-      my $path_encoding;
-      ($encoded_outfile_name, $path_encoding)
-        = $self->encoded_output_file_name($outfile_name);
-      my $error_message;
-      ($fh, $error_message) = Texinfo::Common::output_files_open_out(
-                    $self->output_files_information(), $self,
-                    $encoded_outfile_name);
-      if (!$fh) {
-        $self->converter_document_error(
-                 sprintf(__("could not open %s for writing: %s"),
-                                      $outfile_name, $error_message));
-        $self->conversion_finalization();
-        return undef;
-      }
-    } else {
-      print STDERR "DO No pages, string output\n"
-        if ($self->get_conf('DEBUG'));
-    }
-
-    foreach my $output_unit (@$output_units) {
-      my $output_unit_text = $self->convert_output_unit($output_unit);
-      $output .= $self->write_or_return($output_unit_text, $fh);
-    }
-    # NOTE do not close STDOUT now to avoid a perl warning.
-    # FIXME is it still true that there is such a warning?
-    if ($fh and $outfile_name ne '-') {
-      Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $encoded_outfile_name);
-      if (!close($fh)) {
-        $self->converter_document_error(
-                 sprintf(__("error on closing %s: %s"),
-                                      $outfile_name, $!));
-      }
-    }
-    if ($output_file eq '') {
-      $self->conversion_finalization();
-      return $output;
-    }
-  } else {
-    # output with pages
-    print STDERR "DO Elements with filenames\n"
-      if ($self->get_conf('DEBUG'));
-    my %files_filehandle;
-
-    foreach my $output_unit (@$output_units) {
-      my $output_unit_filename = $output_unit->{'unit_filename'};
-      my $out_filepath = $self->{'out_filepaths'}->{$output_unit_filename};
-      my $file_fh;
-      # open the file and output the elements
-      if (!exists($files_filehandle{$output_unit_filename})) {
-        my $error_message;
-        ($file_fh, $error_message) = Texinfo::Common::output_files_open_out(
-                             $self->output_files_information(), $self,
-                             $out_filepath);
-        if (!$file_fh) {
-          $self->converter_document_error(
-                sprintf(__("could not open %s for writing: %s"),
-                       $out_filepath, $error_message));
-          $self->conversion_finalization();
-          return undef;
-        }
-        $files_filehandle{$output_unit_filename} = $file_fh;
-      } else {
-        $file_fh = $files_filehandle{$output_unit_filename};
-      }
-      my $output_unit_text = $self->convert_output_unit($output_unit);
-      print $file_fh $output_unit_text;
-      $self->{'file_counters'}->{$output_unit_filename}--;
-      if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
-        # NOTE do not close STDOUT here to avoid a perl warning
-        if ($out_filepath ne '-') {
-          Texinfo::Common::output_files_register_closed(
-            $self->output_files_information(), $out_filepath);
-          if (!close($file_fh)) {
-            $self->converter_document_error(
-                     sprintf(__("error on closing %s: %s"),
-                                  $out_filepath, $!));
-            $self->conversion_finalization();
-            return undef;
-          }
-        }
-      }
-    }
-  }
-  $self->conversion_finalization();
-  return undef;
-}
-
 sub conversion_output_begin($;$$)
 {
   my $self = shift;
@@ -1194,8 +1023,9 @@ sub _get_root_element($$)
   }
 }
 
+# TODO document
 # set file_counters converter state
-sub _set_output_units_files($$$$$$)
+sub set_output_units_files($$$$$$)
 {
   my $self = shift;
   my $output_units = shift;
@@ -2245,10 +2075,7 @@ modules, this method should in general be implemented by converters.
 C<output> is called from C<texi2any>.  C<output> takes a converter and a
 Texinfo parsed document C<Texinfo::Document> in arguments.
 
-C<Texinfo::Convert::Converter> implements a generic C<output> suitable
-for simple output formats based on output units conversion.
-
-C<Texinfo::Convert::Converter> also implements a generic C<output_tree>
+C<Texinfo::Convert::Converter> implements a generic C<output_tree>
 function suitable for conversion of the Texinfo tree, with the conversion
 result output into a file or returned from the function. C<output_tree>
 takes a converter and a Texinfo parsed document C<Texinfo::Document> in
@@ -2262,21 +2089,22 @@ general defined as:
     return $self->output_tree($document);
   }
 
+For output formats based on output units conversion, the
+C<Texinfo::Convert::Plaintext> C<output> method could be a good starting
+point.
+
 =item C<convert>
 X<C<convert>>
 
 Optional entry point for the conversion of a Texinfo parsed document without
-the headers done when outputting to a file and can also be used to output
-simple documents.  It could be called from the C<Texinfo::Convert::Converter>
-C<output> implementation.  C<convert> takes a converter and a Texinfo parsed
-document C<Texinfo::Document> in arguments.
+the headers done when outputting to a file.  C<convert> takes a converter
+and a Texinfo parsed document C<Texinfo::Document> in arguments.  Used in the
+C<texi2any> test suite.
 
 =item C<convert_output_unit>
 X<C<convert_output_unit>>
 
-Used as entry point for the conversion
-of output units by converters, for example by the
-C<Texinfo::Convert::Converter> C<output> implementation.
+Can be used for the conversion of output units by converters.
 C<convert_output_unit> takes an output unit as argument.  The implementation of
 C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
 many cases.  Output units are typically returned by L<Texinfo::Structuring
@@ -2292,13 +2120,14 @@ converted directly, in general by using C<output_tree>.
 To help with the conversion, the C<set_document> function associates a
 C<Texinfo::Document> to a converter.  Other methods are called in default
 implementations to be redefined to call code at specific moments of the
-conversion. C<conversion_initialization>, for instance, is called at the
-beginning of C<output>, C<output_tree> and C<convert>.
-C<conversion_finalization> is called at the end of C<output_tree>, C<output>
-and C<convert>.  C<output_tree> also calls the C<conversion_output_begin>
-method before the Texinfo tree conversion to obtain the beginning of the
-output. C<output_tree> calls the C<conversion_output_begin> method after the
-Texinfo tree conversion to obtain the end of the output.
+conversion. C<conversion_initialization>, for instance, is generally
+called at the beginning of C<output>, C<output_tree> and C<convert>.
+C<conversion_finalization> is generally called at the end of C<output_tree>,
+C<output> and C<convert>.  C<output_tree> also calls the
+C<conversion_output_begin> method before the Texinfo tree conversion to obtain
+the beginning of the output. C<output_tree> calls the
+C<conversion_output_begin> method after the Texinfo tree conversion to obtain
+the end of the output.
 
 Existing backends may be used as examples that implement and use those
 methods.  C<Texinfo::Convert::Texinfo> together with
