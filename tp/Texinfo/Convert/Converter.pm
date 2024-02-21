@@ -2050,37 +2050,36 @@ Texinfo to other formats.  There is no promise of API stability.
 
 C<Texinfo::Convert::Converter> is a super class that can be used to
 simplify converters initialization.  The class also provide some
-useful methods.
-
-In turn, the converter should define some methods.  Two are
-optional, C<converter_defaults>, C<converter_initialize> and
-used for initialization, to give information to C<Texinfo::Convert::Converter>.
-
-The following methods can be defined too:
+useful methods.  In turn, the converter should define some methods for
+conversion.  In general C<convert_tree>, C<output> and C<convert> should be
+defined.
 
 =over
 
-=item C<convert_tree>
+=item $result = $converter->convert_tree($tree)
 X<C<convert_tree>>
 
 The C<convert_tree> method is mandatory and should convert portions of Texinfo
-tree. Takes a converter and Texinfo tree in arguments.
+tree. Takes a I<$converter> and Texinfo tree I<$tree> in arguments.  Returns
+the converted output.
 
-=item C<output>
+=item $result = $converter->output($document)
+
+=item $result = $converter->output_tree($document)
 X<C<output>>X<C<output_tree>>
 
 The C<output> method is used by converters as entry point for conversion
 to a file with headers and so on.  Although not called from other
 modules, this method should in general be implemented by converters.
-C<output> is called from C<texi2any>.  C<output> takes a converter and a
-Texinfo parsed document C<Texinfo::Document> in arguments.
+C<output> is called from C<texi2any>.  C<output> takes a I<$converter> and a
+Texinfo parsed document C<Texinfo::Document> I<$document> as arguments.
 
 C<Texinfo::Convert::Converter> implements a generic C<output_tree>
 function suitable for conversion of the Texinfo tree, with the conversion
 result output into a file or returned from the function. C<output_tree>
-takes a converter and a Texinfo parsed document C<Texinfo::Document> in
-arguments. In a converter that uses C<output_tree>, C<output> is in
-general defined as:
+takes a I<$converter> and a Texinfo parsed document C<Texinfo::Document>
+I<$document> as arguments. In a converter that uses C<output_tree>,
+C<output> is in general defined as:
 
   sub output($$) {
     my $self = shift;
@@ -2089,23 +2088,30 @@ general defined as:
     return $self->output_tree($document);
   }
 
+In general, C<output> and C<output_tree> output to files and return C<undef>.
+When the output file name is an empty string, however, it is customary
+for C<output> and C<output_tree> to return the output as a character string
+instead.
+
 For output formats based on output units conversion, the
 C<Texinfo::Convert::Plaintext> C<output> method could be a good starting
 point.
 
-=item C<convert>
+=item $result = $converter->convert($document)
 X<C<convert>>
 
-Optional entry point for the conversion of a Texinfo parsed document without
-the headers done when outputting to a file.  C<convert> takes a converter
-and a Texinfo parsed document C<Texinfo::Document> in arguments.  Used in the
-C<texi2any> test suite.
+Entry point for the conversion of a Texinfo parsed document without
+the headers done when outputting to a file.  C<convert> takes a I<$converter>
+and a Texinfo parsed document C<Texinfo::Document> I<$document> as arguments.
+Returns the output as a character string.  Not mandatory, not called from
+other modules nor from C<texi2any>, but used in the C<texi2any> test suite.
 
-=item C<convert_output_unit>
+=item $result = $converter->convert_output_unit($output_unit)
 X<C<convert_output_unit>>
 
 Can be used for the conversion of output units by converters.
-C<convert_output_unit> takes an output unit as argument.  The implementation of
+C<convert_output_unit> takes a I<$converter> and an output unit
+I<$output_unit> as argument.  The implementation of
 C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
 many cases.  Output units are typically returned by L<Texinfo::Structuring
 split_by_section|Texinfo::Structuring/$output_units = split_by_section($tree)>
@@ -2116,6 +2122,10 @@ Output units are not relevant for all the formats, the Texinfo tree can also be
 converted directly, in general by using C<output_tree>.
 
 =back
+
+Two methods, C<converter_defaults> and C<converter_initialize> are
+used for initialization, to give information
+to C<Texinfo::Convert::Converter> and can be redefined in converters.
 
 To help with the conversion, the C<set_document> function associates a
 C<Texinfo::Document> to a converter.  Other methods are called in default
@@ -2421,7 +2431,7 @@ should be a Texinfo tree element corresponding to an accent command taking
 an argument.  I<$in_upper_case> is optional, and, if set, the text is put
 in upper case.  The function returns the accented letter as XML named entity
 if possible, falling back to numeric entities if there is no named entity
-and to an ASCII transliteration as last resort.  I<$use_numeric_entities>
+and returns the argument as last resort.  I<$use_numeric_entities>
 is optional.  If set, numerical entities are used instead of named entities
 if possible.
 
