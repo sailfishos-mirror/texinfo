@@ -304,7 +304,7 @@ sub _parsed_manual_tree($$$$$)
     if ($section_nodes) {
       Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                                            $document, $registrar, $texi_parser);
-      $document = Texinfo::Document::rebuild_document($document);
+      Texinfo::Document::rebuild_document($document);
     }
   }
   Texinfo::Structuring::sectioning_structure($tree, $registrar, $texi_parser);
@@ -360,7 +360,7 @@ sub _fix_texinfo_tree($$$$;$$)
       }
     }
   }
-  $document = Texinfo::Document::rebuild_document($document);
+  Texinfo::Document::rebuild_document($document);
   return ($texi_parser, $document);
 }
 
