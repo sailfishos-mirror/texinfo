@@ -42,7 +42,7 @@ utf8_from_string (const char *text)
   /* TODO error checking? */
   return (uint8_t *) strdup (text);
 
-  /* With uniconv/* gnulib module this could be the following, although
+  /* With uniconv gnulib module this could be the following, although
      this pulls in quite a few other gnulib module dependencies. */
   /* return u8_strconv_from_encoding (text, "UTF-8", iconveh_question_mark); */
 }
@@ -50,8 +50,8 @@ utf8_from_string (const char *text)
 char *
 string_from_utf8 (const uint8_t *encoded_u8)
 {
-  return (char *) strdup (encoded_u8);
-  /* With uniconv/* gnulib module this could be the following, although
+  return strdup ((char *) encoded_u8);
+  /* With uniconv gnulib module this could be the following, although
      this pulls in quite a few other gnulib module dependencies. */
   /* return u8_strconv_to_encoding (encoded_u8, "UTF-8", iconveh_question_mark); */
 }

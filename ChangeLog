@@ -1,5 +1,13 @@
 2024-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/unicode.c (string_from_utf8): cast to char *
+	before using strdup.
+
+	* tp/Texinfo/XS/main/unicode.c (utf8_from_string, string_from_utf8):
+	change comment to avoid compiler warning.
+
+2024-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/targets.c (existing_label_error)
 	(register_label_element),
 	tp/Texinfo/XS/structuring_transfo/transformations.c (new_node)
