@@ -141,8 +141,7 @@ sub __p($$) {
 #
 # Return the string but do nothing else, used to mark strings to be translated
 # in the Gettext framework.
-# Can be used in other modules, in particular if the modules already overwrite
-# gdt from Texinfo::Translations.
+# Can be used in other modules.
 sub gdt($)
 {
   return $_[0];

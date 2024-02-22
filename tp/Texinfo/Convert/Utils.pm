@@ -63,30 +63,19 @@ $VERSION = '7.1dev';
 
 our @month_name =
     (
-     'January', 'February', 'March', 'April', 'May',
-     'June', 'July', 'August', 'September', 'October',
-     'November', 'December'
+     Texinfo::Common::gdt('January'),
+     Texinfo::Common::gdt('February'),
+     Texinfo::Common::gdt('March'),
+     Texinfo::Common::gdt('April'),
+     Texinfo::Common::gdt('May'),
+     Texinfo::Common::gdt('June'),
+     Texinfo::Common::gdt('July'),
+     Texinfo::Common::gdt('August'),
+     Texinfo::Common::gdt('September'),
+     Texinfo::Common::gdt('October'),
+     Texinfo::Common::gdt('November'),
+     Texinfo::Common::gdt('December')
     );
-
-# This is not used as code, but used to mark months as strings to be
-# translated
-if (0) {
-  my $self;
-  my @mark_month_for_translation = (
-   $self->gdt('January'),
-   $self->gdt('February'),
-   $self->gdt('March'),
-   $self->gdt('April'),
-   $self->gdt('May'),
-   $self->gdt('June'),
-   $self->gdt('July'),
-   $self->gdt('August'),
-   $self->gdt('September'),
-   $self->gdt('October'),
-   $self->gdt('November'),
-   $self->gdt('December')
-  );
-}
 
 # this method requires a converter.
 sub expand_today($)

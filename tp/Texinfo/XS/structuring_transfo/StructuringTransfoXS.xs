@@ -72,6 +72,8 @@ fill_gaps_in_sectioning (SV *tree_in, ...)
             destroy_list (added_sections);
           }
 
+# This is only used in tests, and not for all the tests, copy_treeNonXS is
+# more generally used because the C tree element cannot be found in general.
 SV *
 copy_tree (SV *tree_in)
     PREINIT:
@@ -81,7 +83,11 @@ copy_tree (SV *tree_in)
         if (document)
           {
             ELEMENT *result = copy_tree (document->tree);
-            /* FIXME have a similar system but for trees only? */
+          /* document additional information, global info, labels, indices...
+             is not setup with copy_tree, so we only have the tree to store.
+             This is not different from the Perl code and, in general,
+             it is best that way.
+           */
             int copy_document_descriptor = register_document (result, 0, 0, 0,
                                                       0, 0, 0, 0, 0, 0);
             HV *hv = build_texinfo_tree (result, 0);

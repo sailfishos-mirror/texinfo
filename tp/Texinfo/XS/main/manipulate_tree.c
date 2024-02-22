@@ -835,8 +835,7 @@ modify_tree (ELEMENT *tree,
                                           argument);
               if (new_element)
                 {
-                  /* FIXME destroy previous element? or let (*operation)
-                     do it? */
+               /* *operation should take care of destroying removed element */
                   tree->source_mark_list.list[i]->element
                       = new_element->list[0];
                   destroy_list (new_element);

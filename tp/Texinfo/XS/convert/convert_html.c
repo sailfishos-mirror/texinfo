@@ -7972,7 +7972,7 @@ word_number_more_than_level (const char *text, int level, int *count)
     *count = 1;
 
   while (*p)
-    {/* FIXME in perl unicode spaces are also matched */
+    {
       int n = strspn (p, whitespace_chars);
       if (n)
         {
@@ -14039,7 +14039,9 @@ convert_definfoenclose_type (CONVERTER *self, const enum element_type type,
                        const ELEMENT *element, const char *content,
                        TEXT *result)
 {
-  /* FIXME add a span to mark the original command as a class? */
+  /* TODO add a span to mark the original command as a class?
+     Not to be done as long as definfoenclose is deprecated. */
+
   char *begin = lookup_extra_string (element, "begin");
   char *end = lookup_extra_string (element, "end");
 

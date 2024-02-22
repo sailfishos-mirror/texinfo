@@ -7171,7 +7171,7 @@ sub _convert_definfoenclose_type($$$$) {
   $content = '' if (!defined($content));
 
   # TODO add a span to mark the original command as a class?
-  # Not to be done as long as the definfoenclose is deprecated.
+  # Not to be done as long as definfoenclose is deprecated.
   return &{$self->formatting_function('format_protect_text')}($self,
                                       $element->{'extra'}->{'begin'})
      . $content .
