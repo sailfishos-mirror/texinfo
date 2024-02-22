@@ -1,5 +1,9 @@
 2024-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	Update po files.
+
+2024-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args): use the same
 	messages as in C for definfoenclose related messages.
 

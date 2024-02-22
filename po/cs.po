@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-02-22 21:30+0100\n"
+"POT-Creation-Date: 2024-02-22 21:38+0100\n"
 "PO-Revision-Date: 2023-09-25 21:16+02:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -2794,9 +2794,9 @@ msgid "unknown @end %s"
 msgstr "neznámý @end %s"
 
 #: tp/Texinfo/ParserNonXS.pm:3566 tp/Texinfo/ParserNonXS.pm:3684
-#: tp/Texinfo/ParserNonXS.pm:4108 tp/Texinfo/ParserNonXS.pm:7776
-#: tp/Texinfo/ParserNonXS.pm:7808 tp/Texinfo/ParserNonXS.pm:7839
-#: tp/Texinfo/ParserNonXS.pm:7948 tp/Texinfo/XS/parsetexi/end_line.c:370
+#: tp/Texinfo/ParserNonXS.pm:4108 tp/Texinfo/ParserNonXS.pm:7778
+#: tp/Texinfo/ParserNonXS.pm:7810 tp/Texinfo/ParserNonXS.pm:7841
+#: tp/Texinfo/ParserNonXS.pm:7950 tp/Texinfo/XS/parsetexi/end_line.c:370
 #: tp/Texinfo/XS/parsetexi/end_line.c:439
 #: tp/Texinfo/XS/parsetexi/end_line.c:921
 #: tp/Texinfo/XS/parsetexi/end_line.c:1514
@@ -2874,7 +2874,7 @@ msgid "superfluous argument to @%s"
 msgstr "přebývající argument u @%s"
 
 #: tp/Texinfo/ParserNonXS.pm:4091 tp/Texinfo/ParserNonXS.pm:7677
-#: tp/Texinfo/ParserNonXS.pm:7716 tp/Texinfo/XS/parsetexi/end_line.c:903
+#: tp/Texinfo/XS/parsetexi/end_line.c:903
 #, c-format, perl-format
 msgid "bad argument to @%s"
 msgstr "špatný argument u @%s"
@@ -3263,121 +3263,126 @@ msgstr "příkaz prostředí %s jako argument u @alias"
 msgid "recursive alias definition of %s through %s ignored"
 msgstr "rekurzivní definice aliasu %s skrze %s se ignoruje"
 
-#: tp/Texinfo/ParserNonXS.pm:7693
-#, fuzzy, perl-format
-#| msgid "unknown source index in @%s: %s"
-msgid "cannot redefine with @%s: %s"
-msgstr "neznámý rejstřík zdrojů v @%s: %s"
+#: tp/Texinfo/ParserNonXS.pm:7694 tp/Texinfo/XS/parsetexi/end_line.c:253
+#, fuzzy, c-format, perl-format
+#| msgid "bad argument to @definfoenclose"
+msgid "cannot redefine with @definfoenclose: %s"
+msgstr "špatný argument u @definfoenclose"
 
-#: tp/Texinfo/ParserNonXS.pm:7722 tp/Texinfo/XS/parsetexi/end_line.c:288
+#: tp/Texinfo/ParserNonXS.pm:7717 tp/Texinfo/XS/parsetexi/end_line.c:276
+#, c-format
+msgid "bad argument to @definfoenclose"
+msgstr "špatný argument u @definfoenclose"
+
+#: tp/Texinfo/ParserNonXS.pm:7724 tp/Texinfo/XS/parsetexi/end_line.c:288
 #, c-format
 msgid "empty @columnfractions"
 msgstr "prázdný @columnfractions"
 
-#: tp/Texinfo/ParserNonXS.pm:7730 tp/Texinfo/XS/parsetexi/end_line.c:308
+#: tp/Texinfo/ParserNonXS.pm:7732 tp/Texinfo/XS/parsetexi/end_line.c:308
 #, c-format, perl-format
 msgid "column fraction not a number: %s"
 msgstr "podíl sloupce není číslo: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7739 tp/Texinfo/XS/parsetexi/end_line.c:330
+#: tp/Texinfo/ParserNonXS.pm:7741 tp/Texinfo/XS/parsetexi/end_line.c:330
 #, c-format, perl-format
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "@sp argument musí být číslo, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7750 tp/Texinfo/XS/parsetexi/end_line.c:375
+#: tp/Texinfo/ParserNonXS.pm:7752 tp/Texinfo/XS/parsetexi/end_line.c:375
 #, c-format, perl-format
 msgid "reserved index name %s"
 msgstr "vyhrazený název rejstříku %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7785 tp/Texinfo/XS/parsetexi/end_line.c:407
+#: tp/Texinfo/ParserNonXS.pm:7787 tp/Texinfo/XS/parsetexi/end_line.c:407
 #, c-format, perl-format
 msgid "unknown source index in @%s: %s"
 msgstr "neznámý rejstřík zdrojů v @%s: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7788 tp/Texinfo/XS/parsetexi/end_line.c:410
+#: tp/Texinfo/ParserNonXS.pm:7790 tp/Texinfo/XS/parsetexi/end_line.c:410
 #, c-format, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr "neznámý rejstřík cílů v @%s: %s "
 
-#: tp/Texinfo/ParserNonXS.pm:7803 tp/Texinfo/XS/parsetexi/end_line.c:430
+#: tp/Texinfo/ParserNonXS.pm:7805 tp/Texinfo/XS/parsetexi/end_line.c:430
 #, c-format, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr "@%s vede ke spojení %s do sebe, ignoruje se"
 
-#: tp/Texinfo/ParserNonXS.pm:7816 tp/Texinfo/XS/parsetexi/end_line.c:455
+#: tp/Texinfo/ParserNonXS.pm:7818 tp/Texinfo/XS/parsetexi/end_line.c:455
 #, c-format, perl-format
 msgid "unknown index `%s' in @printindex"
 msgstr "neznámý rejstřík „%s“ v @printindex"
 
-#: tp/Texinfo/ParserNonXS.pm:7824 tp/Texinfo/XS/parsetexi/end_line.c:462
+#: tp/Texinfo/ParserNonXS.pm:7826 tp/Texinfo/XS/parsetexi/end_line.c:462
 #, c-format, perl-format
 msgid "printing an index `%s' merged in another one, `%s'"
 msgstr "vypisuje se rejstřík „%s“ spojený do jiného „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7832 tp/Texinfo/XS/parsetexi/end_line.c:468
+#: tp/Texinfo/ParserNonXS.pm:7834 tp/Texinfo/XS/parsetexi/end_line.c:468
 #, c-format, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr "printindex před začátkem dokumentu: @printindex %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7846 tp/Texinfo/XS/parsetexi/end_line.c:501
+#: tp/Texinfo/ParserNonXS.pm:7848 tp/Texinfo/XS/parsetexi/end_line.c:501
 #, c-format, perl-format
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
 msgstr "Je podporován pouze @fonttextsize 10 nebo 11, ne %s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7854 tp/Texinfo/XS/parsetexi/end_line.c:512
+#: tp/Texinfo/ParserNonXS.pm:7856 tp/Texinfo/XS/parsetexi/end_line.c:512
 #, c-format, perl-format
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
 msgstr "argument u @footnotestyle musí být „separate“ nebo „end“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7862 tp/Texinfo/XS/parsetexi/end_line.c:524
+#: tp/Texinfo/ParserNonXS.pm:7864 tp/Texinfo/XS/parsetexi/end_line.c:524
 #, c-format, perl-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr "argument u @setchapternewpage musí být „on“, „off“ nebo „odd“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7870 tp/Texinfo/XS/parsetexi/end_line.c:535
+#: tp/Texinfo/ParserNonXS.pm:7872 tp/Texinfo/XS/parsetexi/end_line.c:535
 #, c-format, perl-format
 msgid "bad argument to @need: %s"
 msgstr "špatný argument u @need: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7880 tp/Texinfo/ParserNonXS.pm:7885
+#: tp/Texinfo/ParserNonXS.pm:7882 tp/Texinfo/ParserNonXS.pm:7887
 #: tp/Texinfo/XS/parsetexi/end_line.c:545
 #, c-format, perl-format
 msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
 msgstr "argument @paragraphindent musí být číslo, „none“ nebo „asis“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7893 tp/Texinfo/XS/parsetexi/end_line.c:556
+#: tp/Texinfo/ParserNonXS.pm:7895 tp/Texinfo/XS/parsetexi/end_line.c:556
 #, c-format, perl-format
 msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
 msgstr "argument @firstparagraphindent musí být „none“ nebo „insert“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7903 tp/Texinfo/XS/parsetexi/end_line.c:566
+#: tp/Texinfo/ParserNonXS.pm:7905 tp/Texinfo/XS/parsetexi/end_line.c:566
 #, c-format, perl-format
 msgid "@exampleindent arg must be numeric/`asis', not `%s'"
 msgstr "argument @exampleindent musí být číslo nebo „asis“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7915 tp/Texinfo/XS/parsetexi/end_line.c:582
+#: tp/Texinfo/ParserNonXS.pm:7917 tp/Texinfo/XS/parsetexi/end_line.c:582
 #, c-format, perl-format
 msgid "expected @%s on or off, not `%s'"
 msgstr "očekáváno @%s on nebo off, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7924 tp/Texinfo/XS/parsetexi/end_line.c:602
+#: tp/Texinfo/ParserNonXS.pm:7926 tp/Texinfo/XS/parsetexi/end_line.c:602
 #, c-format, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 "argument @kbdinputstyle musí být „code“, „example“ nebo „distinct“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7932 tp/Texinfo/XS/parsetexi/end_line.c:614
+#: tp/Texinfo/ParserNonXS.pm:7934 tp/Texinfo/XS/parsetexi/end_line.c:614
 #, c-format, perl-format
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
 msgstr "argument @allowcodebreaks musí být „true“ nebo „false“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7940 tp/Texinfo/XS/parsetexi/end_line.c:626
+#: tp/Texinfo/ParserNonXS.pm:7942 tp/Texinfo/XS/parsetexi/end_line.c:626
 #, c-format, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
 "argument @urefbreakstyle musí být „after“, „before“ nebo „none“, ne „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:7958 tp/Texinfo/XS/parsetexi/end_line.c:489
+#: tp/Texinfo/ParserNonXS.pm:7960 tp/Texinfo/XS/parsetexi/end_line.c:489
 #, c-format, perl-format
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s argument musí být „top“ nebo „bottom“, ne „%s“"
@@ -4387,17 +4392,6 @@ msgstr "nepárový „@end %s“"
 msgid "bad argument to @alias"
 msgstr "špatný argument u @alias"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:253
-#, fuzzy, c-format
-#| msgid "bad argument to @definfoenclose"
-msgid "cannot redefine with @definfoenclose: %s"
-msgstr "špatný argument u @definfoenclose"
-
-#: tp/Texinfo/XS/parsetexi/end_line.c:276
-#, c-format
-msgid "bad argument to @definfoenclose"
-msgstr "špatný argument u @definfoenclose"
-
 #: tp/Texinfo/XS/parsetexi/end_line.c:450
 #, c-format
 msgid "bad argument to @printindex: %s"
@@ -4496,6 +4490,11 @@ msgstr ""
 #| msgid "no sectioning command associated with @%s"
 msgid "left inline content associated: '%s'"
 msgstr "s @%s se nepojí žádný příkaz oddílu"
+
+#, fuzzy, perl-format
+#~| msgid "unknown source index in @%s: %s"
+#~ msgid "cannot redefine with @%s: %s"
+#~ msgstr "neznámý rejstřík zdrojů v @%s: %s"
 
 #, c-format
 #~ msgctxt "Texinfo source file warning"

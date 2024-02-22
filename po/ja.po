@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-02-22 21:30+0100\n"
+"POT-Creation-Date: 2024-02-22 21:38+0100\n"
 "PO-Revision-Date: 2014-11-07 08:03+0000\n"
 "Last-Translator: Yasuaki Taniguchi <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -2930,9 +2930,9 @@ msgid "unknown @end %s"
 msgstr "終了インデックス"
 
 #: tp/Texinfo/ParserNonXS.pm:3566 tp/Texinfo/ParserNonXS.pm:3684
-#: tp/Texinfo/ParserNonXS.pm:4108 tp/Texinfo/ParserNonXS.pm:7776
-#: tp/Texinfo/ParserNonXS.pm:7808 tp/Texinfo/ParserNonXS.pm:7839
-#: tp/Texinfo/ParserNonXS.pm:7948 tp/Texinfo/XS/parsetexi/end_line.c:370
+#: tp/Texinfo/ParserNonXS.pm:4108 tp/Texinfo/ParserNonXS.pm:7778
+#: tp/Texinfo/ParserNonXS.pm:7810 tp/Texinfo/ParserNonXS.pm:7841
+#: tp/Texinfo/ParserNonXS.pm:7950 tp/Texinfo/XS/parsetexi/end_line.c:370
 #: tp/Texinfo/XS/parsetexi/end_line.c:439
 #: tp/Texinfo/XS/parsetexi/end_line.c:921
 #: tp/Texinfo/XS/parsetexi/end_line.c:1514
@@ -3013,7 +3013,7 @@ msgid "superfluous argument to @%s"
 msgstr "%s: --auto/-a オプションに対して不当な引数\n"
 
 #: tp/Texinfo/ParserNonXS.pm:4091 tp/Texinfo/ParserNonXS.pm:7677
-#: tp/Texinfo/ParserNonXS.pm:7716 tp/Texinfo/XS/parsetexi/end_line.c:903
+#: tp/Texinfo/XS/parsetexi/end_line.c:903
 #, fuzzy, c-format, perl-format
 msgid "bad argument to @%s"
 msgstr "@%s に対する誤った引数です"
@@ -3412,68 +3412,73 @@ msgstr "@%s への引数としてコマンドを与えるには、ブレース�
 msgid "recursive alias definition of %s through %s ignored"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7693
-#, fuzzy, perl-format
-msgid "cannot redefine with @%s: %s"
-msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視されました"
+#: tp/Texinfo/ParserNonXS.pm:7694 tp/Texinfo/XS/parsetexi/end_line.c:253
+#, fuzzy, c-format, perl-format
+msgid "cannot redefine with @definfoenclose: %s"
+msgstr "@%s に対する誤った引数です"
 
-#: tp/Texinfo/ParserNonXS.pm:7722 tp/Texinfo/XS/parsetexi/end_line.c:288
+#: tp/Texinfo/ParserNonXS.pm:7717 tp/Texinfo/XS/parsetexi/end_line.c:276
+#, fuzzy, c-format
+msgid "bad argument to @definfoenclose"
+msgstr "@%s に対する誤った引数です"
+
+#: tp/Texinfo/ParserNonXS.pm:7724 tp/Texinfo/XS/parsetexi/end_line.c:288
 #, fuzzy, c-format
 msgid "empty @columnfractions"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
-#: tp/Texinfo/ParserNonXS.pm:7730 tp/Texinfo/XS/parsetexi/end_line.c:308
+#: tp/Texinfo/ParserNonXS.pm:7732 tp/Texinfo/XS/parsetexi/end_line.c:308
 #, fuzzy, c-format, perl-format
 msgid "column fraction not a number: %s"
 msgstr "iconv 関数が使えません"
 
-#: tp/Texinfo/ParserNonXS.pm:7739 tp/Texinfo/XS/parsetexi/end_line.c:330
+#: tp/Texinfo/ParserNonXS.pm:7741 tp/Texinfo/XS/parsetexi/end_line.c:330
 #, fuzzy, c-format, perl-format
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "%s: %s 引数は `%s' ではなくて、数値でなければなりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7750 tp/Texinfo/XS/parsetexi/end_line.c:375
+#: tp/Texinfo/ParserNonXS.pm:7752 tp/Texinfo/XS/parsetexi/end_line.c:375
 #, fuzzy, c-format, perl-format
 msgid "reserved index name %s"
 msgstr "認識できないエミュレーション名 `%s' です"
 
-#: tp/Texinfo/ParserNonXS.pm:7785 tp/Texinfo/XS/parsetexi/end_line.c:407
+#: tp/Texinfo/ParserNonXS.pm:7787 tp/Texinfo/XS/parsetexi/end_line.c:407
 #, fuzzy, c-format, perl-format
 msgid "unknown source index in @%s: %s"
 msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視されました"
 
-#: tp/Texinfo/ParserNonXS.pm:7788 tp/Texinfo/XS/parsetexi/end_line.c:410
+#: tp/Texinfo/ParserNonXS.pm:7790 tp/Texinfo/XS/parsetexi/end_line.c:410
 #, fuzzy, c-format, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr "不明な索引 `%s' です"
 
-#: tp/Texinfo/ParserNonXS.pm:7803 tp/Texinfo/XS/parsetexi/end_line.c:430
+#: tp/Texinfo/ParserNonXS.pm:7805 tp/Texinfo/XS/parsetexi/end_line.c:430
 #, c-format, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7816 tp/Texinfo/XS/parsetexi/end_line.c:455
+#: tp/Texinfo/ParserNonXS.pm:7818 tp/Texinfo/XS/parsetexi/end_line.c:455
 #, fuzzy, c-format, perl-format
 msgid "unknown index `%s' in @printindex"
 msgstr "@printindex に不明な見出し `%s' があります"
 
-#: tp/Texinfo/ParserNonXS.pm:7824 tp/Texinfo/XS/parsetexi/end_line.c:462
+#: tp/Texinfo/ParserNonXS.pm:7826 tp/Texinfo/XS/parsetexi/end_line.c:462
 #, c-format, perl-format
 msgid "printing an index `%s' merged in another one, `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7832 tp/Texinfo/XS/parsetexi/end_line.c:468
+#: tp/Texinfo/ParserNonXS.pm:7834 tp/Texinfo/XS/parsetexi/end_line.c:468
 #, c-format, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7846 tp/Texinfo/XS/parsetexi/end_line.c:501
+#: tp/Texinfo/ParserNonXS.pm:7848 tp/Texinfo/XS/parsetexi/end_line.c:501
 #, fuzzy, c-format, perl-format
 #| msgid "Only @%s 10 or 11 is supported, not `%s'"
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
 msgstr "@%s 10 または 11 がサポートされています。`%s' はサポートされていません"
 
-#: tp/Texinfo/ParserNonXS.pm:7854 tp/Texinfo/XS/parsetexi/end_line.c:512
+#: tp/Texinfo/ParserNonXS.pm:7856 tp/Texinfo/XS/parsetexi/end_line.c:512
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
@@ -3481,17 +3486,17 @@ msgstr ""
 "%s: --footnote-style 引数は `%s' ではなく、`separate' 又は `end' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7862 tp/Texinfo/XS/parsetexi/end_line.c:524
+#: tp/Texinfo/ParserNonXS.pm:7864 tp/Texinfo/XS/parsetexi/end_line.c:524
 #, fuzzy, c-format, perl-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr "%s: %s 引数は `%s' ではなくて、数値でなければなりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7870 tp/Texinfo/XS/parsetexi/end_line.c:535
+#: tp/Texinfo/ParserNonXS.pm:7872 tp/Texinfo/XS/parsetexi/end_line.c:535
 #, fuzzy, c-format, perl-format
 msgid "bad argument to @need: %s"
 msgstr "@%s に対する誤った引数です: %s"
 
-#: tp/Texinfo/ParserNonXS.pm:7880 tp/Texinfo/ParserNonXS.pm:7885
+#: tp/Texinfo/ParserNonXS.pm:7882 tp/Texinfo/ParserNonXS.pm:7887
 #: tp/Texinfo/XS/parsetexi/end_line.c:545
 #, fuzzy, c-format, perl-format
 msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
@@ -3499,45 +3504,45 @@ msgstr ""
 "%s: --paragraph-indent 引数は `%s' ではなく、数値/`none'/`asis' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7893 tp/Texinfo/XS/parsetexi/end_line.c:556
+#: tp/Texinfo/ParserNonXS.pm:7895 tp/Texinfo/XS/parsetexi/end_line.c:556
 #, fuzzy, c-format, perl-format
 msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
 msgstr ""
 "%s: --paragraph-indent 引数は `%s' ではなく、数値/`none'/`asis' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7903 tp/Texinfo/XS/parsetexi/end_line.c:566
+#: tp/Texinfo/ParserNonXS.pm:7905 tp/Texinfo/XS/parsetexi/end_line.c:566
 #, fuzzy, c-format, perl-format
 msgid "@exampleindent arg must be numeric/`asis', not `%s'"
 msgstr ""
 "%s: --paragraph-indent 引数は `%s' ではなく、数値/`none'/`asis' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7915 tp/Texinfo/XS/parsetexi/end_line.c:582
+#: tp/Texinfo/ParserNonXS.pm:7917 tp/Texinfo/XS/parsetexi/end_line.c:582
 #, fuzzy, c-format, perl-format
 msgid "expected @%s on or off, not `%s'"
 msgstr "@%s は on または off が予期されます。`%s' ではありません"
 
-#: tp/Texinfo/ParserNonXS.pm:7924 tp/Texinfo/XS/parsetexi/end_line.c:602
+#: tp/Texinfo/ParserNonXS.pm:7926 tp/Texinfo/XS/parsetexi/end_line.c:602
 #, c-format, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:7932 tp/Texinfo/XS/parsetexi/end_line.c:614
+#: tp/Texinfo/ParserNonXS.pm:7934 tp/Texinfo/XS/parsetexi/end_line.c:614
 #, fuzzy, c-format, perl-format
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
 msgstr ""
 "%s: --footnote-style 引数は `%s' ではなく、`separate' 又は `end' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7940 tp/Texinfo/XS/parsetexi/end_line.c:626
+#: tp/Texinfo/ParserNonXS.pm:7942 tp/Texinfo/XS/parsetexi/end_line.c:626
 #, fuzzy, c-format, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
 "%s: --footnote-style 引数は `%s' ではなく、`separate' 又は `end' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/ParserNonXS.pm:7958 tp/Texinfo/XS/parsetexi/end_line.c:489
+#: tp/Texinfo/ParserNonXS.pm:7960 tp/Texinfo/XS/parsetexi/end_line.c:489
 #, fuzzy, c-format, perl-format
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "%s: %s 引数は `%s' ではなくて、数値でなければなりません。\n"
@@ -4502,16 +4507,6 @@ msgstr "`%c%s' との対応が見つかりません"
 msgid "bad argument to @alias"
 msgstr "@%s に対する誤った引数です"
 
-#: tp/Texinfo/XS/parsetexi/end_line.c:253
-#, fuzzy, c-format
-msgid "cannot redefine with @definfoenclose: %s"
-msgstr "@%s に対する誤った引数です"
-
-#: tp/Texinfo/XS/parsetexi/end_line.c:276
-#, fuzzy, c-format
-msgid "bad argument to @definfoenclose"
-msgstr "@%s に対する誤った引数です"
-
 #: tp/Texinfo/XS/parsetexi/end_line.c:450
 #, fuzzy, c-format
 msgid "bad argument to @printindex: %s"
@@ -4609,6 +4604,10 @@ msgstr ""
 #, fuzzy, c-format
 msgid "left inline content associated: '%s'"
 msgstr "ホスト名にアドレスが割り当てられていません"
+
+#, fuzzy, perl-format
+#~ msgid "cannot redefine with @%s: %s"
+#~ msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視されました"
 
 #, fuzzy, perl-format
 #~ msgid "empty index key in @%s"
