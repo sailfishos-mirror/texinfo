@@ -1,5 +1,9 @@
 2024-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	Update po files.
+
+2024-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Utils.pm (@month_name): use Texinfo::Common::gdt
 	to mark strings at the same time as filling @month_name.
 
