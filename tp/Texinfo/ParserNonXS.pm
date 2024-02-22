@@ -7690,8 +7690,9 @@ sub _parse_line_command_args($$$)
                or ($brace_commands{$cmd_name} ne 'style_code'
                    and $brace_commands{$cmd_name} ne 'style_no_code'
                    and $brace_commands{$cmd_name} ne 'style_other'))) {
-        $self->_line_error(sprintf(__("cannot redefine with \@%s: %s"),
-                           $command, $cmd_name), $source_info);
+        $self->_line_error(sprintf(
+                    __("cannot redefine with \@definfoenclose: %s"),
+                                   $cmd_name), $source_info);
       } else {
         $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
         print STDERR "DEFINFOENCLOSE \@$cmd_name: $begin, $end\n"
@@ -7713,7 +7714,8 @@ sub _parse_line_command_args($$$)
         # @-command otherwise will remain there, possibly having specific effects.
       }
     } else {
-      $self->_line_error(sprintf(__("bad argument to \@%s"), $command),
+      $self->_line_error(sprintf(__("bad argument to \@definfoenclose"),
+                                 $command),
                          $source_info);
     }
   } elsif ($command eq 'columnfractions') {
