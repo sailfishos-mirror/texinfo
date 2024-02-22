@@ -1,5 +1,11 @@
 2024-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/translations.c (gdt, gdt_tree, pgdt_tree)
+	(gdt_string), tp/Texinfo/XS/main/DocumentXS.xs (gdt): remove options
+	argument, pass debug_level as argument.  Update callers.
+
+2024-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (gdt, gdt_string): pass debug_level
 	as an argument, change argument order, use customization_information
 	as translate_string_method first argument only.  Update callers.

@@ -201,42 +201,34 @@ indices_sort_strings (SV *document_in, ...)
 # Next one is unused, kept as documentation only, as the code is
 # ok, but the approach is flawed as the trees in replaced_substrings
 # do not exist in XS/C data.
-
-# TODO not sure that the options_in argument is good to be
-# init_copy_sv_options argument, may need to retrieve a converter
-# first or Parser configuration.  Does not matter much as
-# the approach does not work because replaced_substrings
-# perl element tree cannot be retrieved in C stored documents.
 # optional:
-# lang, replaced_substrings, translation_context
+# lang, replaced_substrings, debug_level, translation_context
 SV *
-gdt (SV *options_in, string, ...)
+gdt (string, ...)
         char *string = (char *)SvPVutf8_nolen($arg);
       PROTOTYPE: $$;$$$
       PREINIT:
         char *translation_context = 0;
         char *in_lang = 0;
+        int debug_level = 0;
         HV *hv_replaced_substrings = 0;
         NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
-        OPTIONS *options = 0;
         HV *result_tree;
         int gdt_document_descriptor;
         DOCUMENT *gdt_document;
       CODE:
-         if (SvOK(options_in))
-           {
-             options = init_copy_sv_options (options_in, 0, 0);
-           }
-        if (items > 2 && SvOK(ST(2)))
-           in_lang = (char *)SvPVutf8_nolen(ST(2));
-        if (items > 4 && SvOK(ST(4)))
-           translation_context = (char *)SvPVutf8_nolen(ST(4));
+        if (items > 1 && SvOK(ST(1)))
+           in_lang = (char *)SvPVutf8_nolen(ST(1));
         if (items > 3 && SvOK(ST(3)))
+           translation_context = (char *)SvPVutf8_nolen(ST(3));
+        if (items > 4 && SvOK(ST(4)))
+           debug_level = SvIV (ST(4));
+        if (items > 2 && SvOK(ST(2)))
            {
              /* TODO put in get_perl_info.h */
              I32 hv_number;
              I32 i;
-             hv_replaced_substrings = (HV *)SvRV (ST(3));
+             hv_replaced_substrings = (HV *)SvRV (ST(2));
              hv_number = hv_iterinit (hv_replaced_substrings);
              if (hv_number > 0)
                replaced_substrings = new_named_string_element_list ();
@@ -258,8 +250,8 @@ gdt (SV *options_in, string, ...)
            }
 
          gdt_document_descriptor
-                     = gdt (string, options, in_lang, replaced_substrings,
-                           translation_context);
+                     = gdt (string, in_lang, replaced_substrings,
+                           debug_level, translation_context);
          gdt_document = retrieve_document (gdt_document_descriptor);
          result_tree = build_texinfo_tree (gdt_document->tree, 0);
          hv_store (result_tree, "tree_document_descriptor",

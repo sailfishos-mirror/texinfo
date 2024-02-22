@@ -526,18 +526,14 @@ replace_convert_substrings (char *translated_string,
 
 /* returns a document descriptor. */
 int
-gdt (const char *string, OPTIONS *options, const char *lang,
+gdt (const char *string, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-     const char *translation_context)
+     int debug_level, const char *translation_context)
 {
-  int debug_level = 0;
   int document_descriptor;
 
   char *translated_string = translate_string (string, lang,
                                               translation_context);
-
-  if (options && options->DEBUG.integer >= 0)
-    debug_level = options->DEBUG.integer;
 
   document_descriptor  = replace_convert_substrings (translated_string,
                                   replaced_substrings, debug_level);
@@ -550,12 +546,12 @@ gdt (const char *string, OPTIONS *options, const char *lang,
    DOCUMENT small strings.  It is possible to pass 0 for the DOCUMENT
    if one knows that there won't be small strings (the general case) */
 ELEMENT *
-gdt_tree (const char *string, DOCUMENT *document, OPTIONS *options,
+gdt_tree (const char *string, DOCUMENT *document,
           const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-          const char *translation_context)
+          int debug_level, const char *translation_context)
 {
-  int gdt_document_descriptor = gdt (string, options, lang,
-                                     replaced_substrings, translation_context);
+  int gdt_document_descriptor = gdt (string, lang, replaced_substrings,
+                                    debug_level, translation_context);
   ELEMENT *tree
     = unregister_document_merge_with_document (gdt_document_descriptor,
                                                document);
@@ -564,7 +560,7 @@ gdt_tree (const char *string, DOCUMENT *document, OPTIONS *options,
 }
 
 char *
-gdt_string (const char *string, OPTIONS *options, const char *lang,
+gdt_string (const char *string, const char *lang,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context)
 {
@@ -578,11 +574,12 @@ gdt_string (const char *string, OPTIONS *options, const char *lang,
 
 ELEMENT *
 pgdt_tree (const char *translation_context, const char *string,
-           DOCUMENT *document, OPTIONS *options, const char *lang,
-           NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+           DOCUMENT *document, const char *lang,
+           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+           int debug_level)
 {
-  return gdt_tree (string, document, options, lang, replaced_substrings,
-                   translation_context);
+  return gdt_tree (string, document, lang, replaced_substrings,
+                   debug_level, translation_context);
 }
 
 NAMED_STRING_ELEMENT_LIST *

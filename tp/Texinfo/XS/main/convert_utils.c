@@ -91,8 +91,9 @@ expand_today (OPTIONS *options)
 
   year = time_tm->tm_year + 1900;
 
-  month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0, options,
-                         options->documentlanguage.string, 0, 0);
+  month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0,
+                         options->documentlanguage.string, 0,
+                         options->DEBUG.integer, 0);
   day_element = new_element (ET_NONE);
   year_element = new_element (ET_NONE);
   text_printf (&day_element->text, "%d", time_tm->tm_mday);
@@ -103,8 +104,9 @@ expand_today (OPTIONS *options)
   add_element_to_named_string_element_list (substrings, "day", day_element);
   add_element_to_named_string_element_list (substrings, "year", year_element);
 
-  result = gdt_tree ("{month} {day}, {year}", 0, options,
-                     options->documentlanguage.string, substrings, 0);
+  result = gdt_tree ("{month} {day}, {year}", 0,
+                     options->documentlanguage.string, substrings,
+                     options->DEBUG.integer, 0);
   destroy_named_string_element_list (substrings);
 
   return result;
@@ -211,13 +213,13 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                 {
                   numbered_heading
                    = gdt_string ("Appendix {number} {section_title}",
-                                 options, options->documentlanguage.string,
+                                 options->documentlanguage.string,
                                  substrings, 0);
                 }
             }
           if (!numbered_heading)
             numbered_heading
-              = gdt_string ("{number} {section_title}", options,
+              = gdt_string ("{number} {section_title}",
                             options->documentlanguage.string, substrings, 0);
 
           destroy_named_string_element_list (substrings);
@@ -569,15 +571,16 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
           in descriptions of object-oriented programming methods or operations.
            */
 
-          result = gdt_tree ("{category} on @code{{class}}", 0, options,
-                             options->documentlanguage.string, substrings, 0);
+          result = gdt_tree ("{category} on @code{{class}}", 0,
+                             options->documentlanguage.string, substrings,
+                             options->DEBUG.integer, 0);
         }
       else
         {
           const char *documentlanguage
                 = lookup_extra_string (current, "documentlanguage");
-          result = gdt_tree ("{category} on @code{{class}}", 0, 0,
-                             documentlanguage, substrings, 0);
+          result = gdt_tree ("{category} on @code{{class}}", 0,
+                             documentlanguage, substrings, 0, 0);
           /*
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_element (ET_NONE);
@@ -607,15 +610,16 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
           in descriptions of object-oriented programming methods or operations.
            */
 
-          result = gdt_tree ("{category} of @code{{class}}", 0, options,
-                             options->documentlanguage.string, substrings, 0);
+          result = gdt_tree ("{category} of @code{{class}}", 0,
+                             options->documentlanguage.string, substrings,
+                             options->DEBUG.integer, 0);
         }
       else
         {
           const char *documentlanguage
                 = lookup_extra_string (current, "documentlanguage");
-          result = gdt_tree ("{category} of @code{{class}}", 0, 0,
-                             documentlanguage, substrings, 0);
+          result = gdt_tree ("{category} of @code{{class}}", 0,
+                             documentlanguage, substrings, 0, 0);
           /*
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_element (ET_NONE);
@@ -636,9 +640,10 @@ cdt_tree (const char * string, CONVERTER *self,
           const char *translation_context)
 {
   const char *lang = self->conf->documentlanguage.string;
+  int debug_level = self->conf->DEBUG.integer;
 
-  return gdt_tree (string, self->document, self->conf, lang,
-                   replaced_substrings, translation_context);
+  return gdt_tree (string, self->document, lang, replaced_substrings,
+                   debug_level, translation_context);
 }
 
 ELEMENT *

@@ -552,8 +552,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                  it is very unlikely to have small strings given that the
                  converted tree should be very simple and is a string only,
                  no macro, no file */
-              tree = gdt_tree (element->text.text, 0, 0, documentlanguage,
-                               0, translation_context);
+              tree = gdt_tree (element->text.text, 0, documentlanguage,
+                               0, 0, translation_context);
             }
 
           if (tree)

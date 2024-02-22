@@ -1877,9 +1877,9 @@ new_complete_node_menu (ELEMENT *node, DOCUMENT *document,
                                                 "part_title", part_title_copy);
 
                       part_title
-                        = gdt_tree ("Part: {part_title}", document, options,
+                        = gdt_tree ("Part: {part_title}", document,
                                     options->documentlanguage.string,
-                                    substrings, 0);
+                                    substrings, options->DEBUG.integer, 0);
 
                       insert_menu_comment_content (&new_menu->contents,
                                                    content_index, part_title,
@@ -1894,9 +1894,9 @@ new_complete_node_menu (ELEMENT *node, DOCUMENT *document,
                       && command_other_flags (child_section) & CF_appendix)
                     {
                       ELEMENT *appendix_title
-                        = gdt_tree ("Appendices", document, options,
+                        = gdt_tree ("Appendices", document,
                                     options->documentlanguage.string,
-                                    0, 0);
+                                    0, options->DEBUG.integer, 0);
 
                       insert_menu_comment_content (&new_menu->contents,
                                                    content_index,
@@ -2073,8 +2073,9 @@ new_master_menu (OPTIONS *options, LABEL_LIST *identifiers_target,
         {
           ELEMENT *master_menu_title;
           master_menu_title
-            = gdt_tree (" --- The Detailed Node Listing ---", 0, options,
-                        options->documentlanguage.string, 0, 0);
+            = gdt_tree (" --- The Detailed Node Listing ---", 0,
+                        options->documentlanguage.string, 0,
+                        options->DEBUG.integer, 0);
 
           for (i = 0; i < master_menu_title->contents.number; i++)
             master_menu_title->contents.list[i]->parent = first_preformatted;

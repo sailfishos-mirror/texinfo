@@ -32,23 +32,23 @@ int replace_convert_substrings (char *translated_string,
 char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
-int gdt (const char * string, OPTIONS *options, const char *lang,
+int gdt (const char *string, const char *lang,
          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-         const char *translation_context);
+         int debug_level, const char *translation_context);
 
-ELEMENT *gdt_tree (const char * string, DOCUMENT *document, OPTIONS *options,
+ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
                    const char *lang,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                   const char *translation_context);
+                   int debug_level, const char *translation_context);
 
-char *gdt_string (const char *string, OPTIONS *options, const char *lang,
+char *gdt_string (const char *string, const char *lang,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                   const char *translation_context);
 
 ELEMENT *pgdt_tree (const char *translation_context, const char *string,
-                    DOCUMENT *document, OPTIONS *options,
-                    const char *lang,
-                    NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+                    DOCUMENT *document, const char *lang,
+                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                    int debug_level);
 
 NAMED_STRING_ELEMENT_LIST * new_named_string_element_list (void);
 void add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
