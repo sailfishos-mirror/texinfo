@@ -1,5 +1,14 @@
 2024-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/targets.c (existing_label_error)
+	(register_label_element),
+	tp/Texinfo/XS/structuring_transfo/transformations.c (new_node)
+	(insert_nodes_for_sectioning_commands): use message_list_* functions
+	in existing_label_error.  Pass error_messages to existing_label_error
+	through new_node and register_label_element.
+
+2024-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi), tp/Texinfo/Translations.pm
 	(complete_indices), tp/Texinfo/XS/parsetexi/indices.c
 	(complete_indices), tp/Texinfo/XS/parsetexi/parser.c (parse_texi):

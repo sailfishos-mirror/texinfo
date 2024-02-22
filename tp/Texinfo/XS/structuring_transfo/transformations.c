@@ -543,12 +543,12 @@ move_index_entries_after_items_in_tree (ELEMENT *tree)
   modify_tree (tree, &move_index_entries_after_items_internal, 0);
 }
 
-/* in perl REGISTRAR and CUSTOMIZATION_INFORMATION used for error
-# reporting, but they should not be useful, as the code checks that
-# the new node target label does not exist already.
+/* ERROR_MESSAGES is not actually useful, as the code checks that
+   the new node target label does not exist already.
  */
 ELEMENT *
-new_node (ELEMENT *node_tree, DOCUMENT *document)
+new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
+          DOCUMENT *document)
 {
   LABEL_LIST *identifiers_target = document->identifiers_target;
   int document_descriptor = document->descriptor;
@@ -670,7 +670,7 @@ new_node (ELEMENT *node_tree, DOCUMENT *document)
 
   add_extra_string (node, "normalized", normalized);
 
-  register_label_element (document_descriptor, node);
+  register_label_element (document_descriptor, node, error_messages);
 
   free (spaces_after_argument.text);
 
@@ -749,8 +749,11 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   return 0;
 }
 
-/* in perl registrar and configuration, but they are not useful,
-   see comment before new_node */
+/* in perl registrar and configuration.  The document errors list
+   is used here.  It could be relevant to use an error messages list
+   as argument instead of using the document error messages list, but
+   it does not matter much as there should be no error, see comment
+   before new_node */
 ELEMENT_LIST *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
@@ -786,7 +789,8 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   new_node_tree = copy_contents(content->args.list[0],
                                                 ET_NONE);
                 }
-              added_node = new_node (new_node_tree, document);
+              added_node = new_node (document->error_messages, new_node_tree,
+                                     document);
               destroy_element (new_node_tree);
               if (added_node)
                 {
