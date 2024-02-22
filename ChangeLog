@@ -1,3 +1,7 @@
+2024-02-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Utils.pm (expand_today): use cdt with converter.
+
 2024-02-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: Update which gnulib modules now depend on gperf.

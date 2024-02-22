@@ -103,8 +103,8 @@ sub expand_today($)
   # See https://reproducible-builds.org/specs/source-date-epoch/.
 
   $year += ($year < 70) ? 2000 : 1900;
-  return $self->gdt('{month} {day}, {year}',
-          { 'month' => $self->gdt($month_name[$mon]),
+  return $self->cdt('{month} {day}, {year}',
+          { 'month' => $self->cdt($month_name[$mon]),
             'day' => {'text' => $mday}, 'year' => {'text' => $year} });
 }
 
