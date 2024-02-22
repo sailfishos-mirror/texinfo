@@ -2770,7 +2770,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   document_descriptor = store_document(current);
 
-  complete_indices (document_descriptor);
+  complete_indices (document_descriptor, debug_output);
 
   return document_descriptor;
 }

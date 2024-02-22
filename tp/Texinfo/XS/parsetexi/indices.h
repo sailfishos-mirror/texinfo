@@ -17,6 +17,6 @@ void set_non_ignored_space_in_index_before_command (ELEMENT *content);
 void forget_indices (void);
 
 void resolve_indices_merged_in (void);
-void complete_indices (int document_descriptor);
+void complete_indices (int document_descriptor, int debug_level);
 
 #endif

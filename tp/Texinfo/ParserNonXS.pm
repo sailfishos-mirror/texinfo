@@ -7513,7 +7513,8 @@ sub _parse_texi($$$)
   # Setup identifier target elements based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($self,
                                               $self->{'registrar'}, $self);
-  Texinfo::Translations::complete_indices($self, $self->{'index_names'});
+  Texinfo::Translations::complete_indices($self->{'index_names'},
+                                          $self->{'DEBUG'});
 
   my $document = Texinfo::Document::register($root,
      $self->{'global_info'}, $self->{'index_names'}, $self->{'floats'},

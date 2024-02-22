@@ -391,15 +391,10 @@ sub pgdt($$;$$$)
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of ParserNonXS.pm.
-sub complete_indices($$)
+sub complete_indices($;$)
 {
-  my $customization_information = shift;
   my $index_names = shift;
-
-  my $debug_level;
-  if ($customization_information) {
-    $debug_level = $customization_information->get_conf('DEBUG');
-  }
+  my $debug_level = shift;
 
   foreach my $index_name (sort(keys(%{$index_names}))) {
     next if (not defined($index_names->{$index_name}->{'index_entries'}));

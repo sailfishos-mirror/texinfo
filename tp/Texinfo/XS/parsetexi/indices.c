@@ -374,7 +374,7 @@ resolve_indices_merged_in (void)
    Done in a separate function and not inside the main parser loop because
    it requires parsing Texinfo code in gdt_tree too */
 void
-complete_indices (int document_descriptor)
+complete_indices (int document_descriptor, int debug_level)
 {
   INDEX **i, *idx;
   DOCUMENT *document;
@@ -456,8 +456,8 @@ complete_indices (int document_descriptor)
                           || def_command == CM_deftypemethod)
                         {
                           index_entry = gdt_tree ("{name} on {class}",
-                                                  document,
-                                                  lang, substrings, 0, 0);
+                                                  document, lang, substrings,
+                                                  debug_level, 0);
 
                           text_append (&text_element->text, " on ");
                         }
@@ -467,8 +467,8 @@ complete_indices (int document_descriptor)
                                || def_command == CM_deftypecv)
                         {
                           index_entry = gdt_tree ("{name} of {class}",
-                                                  document, lang,
-                                                  substrings, 0, 0);
+                                                  document, lang, substrings,
+                                                  debug_level, 0);
 
                           text_append (&text_element->text, " of ");
                         }
