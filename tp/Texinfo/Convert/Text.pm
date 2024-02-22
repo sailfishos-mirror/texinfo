@@ -507,9 +507,9 @@ sub _convert($$)
       } else {
         # if there is no converter, we use the documentlanguage available
         # in the tree.
-        $tree = Texinfo::Translations::gdt(undef, $element->{'text'},
+        $tree = Texinfo::Translations::gdt($element->{'text'},
                              $element->{'extra'}->{'documentlanguage'},
-                             undef, $translation_context);
+                             undef, undef, $translation_context);
       }
       $result = _convert($options, $tree);
     } else {

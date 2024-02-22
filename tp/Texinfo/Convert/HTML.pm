@@ -2907,10 +2907,11 @@ sub cdt($$;$$)
 {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
-  return Texinfo::Translations::gdt($self, $string,
+  return Texinfo::Translations::gdt($string,
                                     $self->get_conf('documentlanguage'),
                                     $replaced_substrings,
-                                    $translation_context,
+                                    $self->get_conf('DEBUG'),
+                                    $translation_context, $self,
                                     \&html_translate_string);
 }
 
@@ -2918,10 +2919,10 @@ sub cdt_string($$;$$)
 {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
-  return Texinfo::Translations::gdt_string($self, $string,
+  return Texinfo::Translations::gdt_string($string,
                                     $self->get_conf('documentlanguage'),
                                     $replaced_substrings,
-                                    $translation_context,
+                                    $translation_context, $self,
                                     \&html_translate_string);
 }
 

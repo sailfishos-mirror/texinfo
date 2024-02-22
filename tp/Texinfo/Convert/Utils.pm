@@ -175,7 +175,7 @@ sub definition_category_tree($$)
       # in descriptions of object-oriented programming methods or operations.
       return $self->cdt('{category} on @code{{class}}', $substrings);
     } else {
-      return Texinfo::Translations::gdt(undef, '{category} on @code{{class}}',
+      return Texinfo::Translations::gdt('{category} on @code{{class}}',
                                  $current->{'extra'}->{'documentlanguage'},
                                  $substrings);
       #my $result = {};
@@ -195,7 +195,7 @@ sub definition_category_tree($$)
       # or instance variable.
       return $self->cdt('{category} of @code{{class}}', $substrings);
     } else {
-      return Texinfo::Translations::gdt(undef, '{category} of @code{{class}}',
+      return Texinfo::Translations::gdt('{category} of @code{{class}}',
                                  $current->{'extra'}->{'documentlanguage'},
                                  $substrings);
       #my $result = {};

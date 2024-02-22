@@ -228,10 +228,11 @@ sub translate_string($$;$)
 # of translate_string.  $TRANSLATED_STRING_METHOD takes
 # $CUSTOMIZATION_INFORMATION as first argument in addition to other
 # translate_string arguments.
-sub gdt($$;$$$$)
+sub gdt($;$$$$$$)
 {
-  my ($customization_information, $string, $lang, $replaced_substrings,
-      $translation_context, $translate_string_method) = @_;
+  my ($string, $lang, $replaced_substrings, $debug_level,
+      $translation_context, $customization_information,
+      $translate_string_method) = @_;
 
   my $translated_string;
   if ($translate_string_method) {
@@ -239,11 +240,6 @@ sub gdt($$;$$$$)
                                        $string, $lang, $translation_context);
   } else {
     $translated_string = translate_string($string, $lang, $translation_context);
-  }
-
-  my $debug_level;
-  if ($customization_information) {
-    $debug_level = $customization_information->get_conf('DEBUG');
   }
 
   my $result_tree
@@ -257,10 +253,10 @@ sub gdt($$;$$$$)
 # Get document translation - handle translations of in-document strings.
 # In general for already converted strings that do not need to go through
 # a Texinfo tree.
-sub gdt_string($$;$$$$)
+sub gdt_string($;$$$$$)
 {
-  my ($customization_information, $string, $lang, $replaced_substrings,
-      $translation_context, $translate_string_method) = @_;
+  my ($string, $lang, $replaced_substrings, $translation_context,
+      $customization_information, $translate_string_method) = @_;
 
   my $translated_string;
   if ($translate_string_method) {
@@ -384,25 +380,12 @@ sub _substitute($$) {
 
 # Same as gdt but with mandatory translation context, used for marking
 # of strings with translation contexts
-sub pgdt($$$;$$)
+sub pgdt($$;$$$)
 {
-  my ($customization_information, $translation_context, $string,
-      $lang, $replaced_substrings) = @_;
-  return gdt($customization_information, $string, $lang,
-             $replaced_substrings, $translation_context);
-}
-
-if (0) {
-  # it is needed to mark the translation as gdt is called like
-  # gdt($customization_information, '....')
-  # and not like gdt('....')
-  # TRANSLATORS: association of a method or operation name with a class
-  # in descriptions of object-oriented programming methods or operations.
-  gdt('{name} on {class}', undef, undef);
-  # TRANSLATORS: association of a variable or instance variable with
-  # a class in descriptions of object-oriented programming variables or
-  # instance variable.
-  gdt('{name} of {class}', undef, undef);
+  my ($translation_context, $string,
+      $lang, $replaced_substrings, $debug_level) = @_;
+  return gdt($string, $lang, $replaced_substrings, $debug_level,
+             $translation_context, $debug_level);
 }
 
 # For some @def* commands, we delay storing the contents of the
@@ -412,6 +395,11 @@ sub complete_indices($$)
 {
   my $customization_information = shift;
   my $index_names = shift;
+
+  my $debug_level;
+  if ($customization_information) {
+    $debug_level = $customization_information->get_conf('DEBUG');
+  }
 
   foreach my $index_name (sort(keys(%{$index_names}))) {
     next if (not defined($index_names->{$index_name}->{'index_entries'}));
@@ -453,18 +441,23 @@ sub complete_indices($$)
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
-            $index_entry = gdt($customization_information, '{name} on {class}',
-                               $entry_language,
-                               {'name' => $name_copy, 'class' => $class_copy});
+  # TRANSLATORS: association of a method or operation name with a class
+  # in descriptions of object-oriented programming methods or operations.
+            $index_entry = gdt('{name} on {class}', $entry_language,
+                               {'name' => $name_copy, 'class' => $class_copy},
+                               $debug_level);
             $text_element = {'text' => ' on ',
                              'parent' => $index_entry_normalized};
           } elsif ($def_command eq 'defcv'
                    or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
-            $index_entry = gdt($customization_information, '{name} of {class}',
-                               $entry_language,
-                               {'name' => $name_copy, 'class' => $class_copy});
+  # TRANSLATORS: association of a variable or instance variable with
+  # a class in descriptions of object-oriented programming variables or
+  # instance variable.
+            $index_entry = gdt('{name} of {class}', $entry_language,
+                               {'name' => $name_copy, 'class' => $class_copy},
+                               $debug_level);
             $text_element = {'text' => ' of ',
                              'parent' => $index_entry_normalized};
           }
@@ -501,10 +494,11 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
   Texinfo::Translations::configure('LocaleData');
 
-  my $tree_translated = $converter->gdt('See {reference} in @cite{{book}}',
-                         $converter->get_conf('documentlanguage'),
-                       {'reference' => $tree_reference,
-                        'book'  => {'text' => $book_name}});
+  my $tree_translated
+    = Texinfo::Translations::gdt('See {reference} in @cite{{book}}',
+                           $converter->get_conf('documentlanguage'),
+                          {'reference' => $tree_reference,
+                           'book'  => {'text' => $book_name}});
 
 
 =head1 NOTES
@@ -546,9 +540,9 @@ but returns a simple string, for already converted strings.
 
 =over
 
-=item $tree = $object->gdt($string, $lang, $replaced_substrings, $translation_context, $translate_string_method)
+=item $tree = gdt($string, $lang, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
 
-=item $string = $object->gdt_string($string, $lang, $replaced_substrings, $translation_context, $translate_string_method)
+=item $string = gdt_string($string, $lang, $replaced_substrings, $translation_context, $object, $translate_string_method)
 
 X<C<gdt>> X<C<gdt_string>>
 
@@ -568,9 +562,9 @@ For C<gdt>, the value is a Texinfo tree that is substituted in the
 resulting texinfo tree. For C<gdt_string>, the value is a string that
 is replaced in the resulting string.
 
-The I<$object> is typically a converter, but can be any object that implements
-C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
-I<$object> is used to get some customization information.
+I<$debug_level> is an optional debugging level supplied to gdt, similar to the
+C<DEBUG> customization variable.  If set, the debug level minus one is passed to
+the parser.
 
 The I<$translation_context> is optional.  If not C<undef> this is a translation
 context string for I<$string>.  It is the first argument of C<pgettext>
@@ -578,7 +572,8 @@ in the C API of Gettext.
 
 The I<$translate_string_method> is optional.  If not undef it should be a
 reference on a function that is called instead of C<translate_string>.  It
-allows to customize string translation.
+allows to customize string translation.  The I<$object> is passed as first
+argument of the <$translate_string_method>.
 
 For example, in the following call, the string
 C<See {reference} in @cite{{book}}> is translated, then
@@ -586,15 +581,15 @@ parsed as a Texinfo string, with I<{reference}> substituted by
 I<$tree_reference> in the resulting tree, and I<{book}>
 replaced by the associated texinfo tree text element:
 
-  $tree = $converter->gdt('See {reference} in @cite{{book}}',
-                       $converter->get_conf('documentlanguage'),
-                       {'reference' => $tree_reference,
-                        'book'  => {'text' => $book_name}});
+  $tree = gdt('See {reference} in @cite{{book}}',
+              $converter->get_conf('documentlanguage'),
+              {'reference' => $tree_reference,
+               'book'  => {'text' => $book_name}});
 
 C<gdt> uses a gettext-like infrastructure to retrieve the
 translated strings, using the I<texinfo_document> domain.
 
-=item $tree = $object->pgdt($translation_context, $string, $lang, $replaced_substrings)
+=item $tree = pgdt($translation_context, $string, $lang, $replaced_substrings, $debug_level)
 X<C<pgdt>>
 
 Same to C<gdt> except that the I<$translation_context> is not optional.

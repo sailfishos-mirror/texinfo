@@ -3939,7 +3939,7 @@ sub _end_line_def_line($$$)
     if (defined($index_entry)) {
       if ($class_element) {
         # Delay getting the text until Texinfo::Indices
-        # in order to avoid using gdt.
+        # in order to avoid calling gdt.
         # We need to store the language as well in case there are multiple
         # languages in the document.
         if ($command_index{$def_command} eq 'fn'
@@ -7148,7 +7148,7 @@ sub _process_remaining_on_line($$$$)
                sprintf(__("undefined flag: %s"), $value), $source_info);
 
             # caller should expand something along
-            # gdt($self, '@{No value for `{value}\'@}',
+            # cdt($self, '@{No value for `{value}\'@}',
             #                            {'value' => ...});
             my $new_element = _new_value_element($command, $value, $current,
                                                  $spaces_element);

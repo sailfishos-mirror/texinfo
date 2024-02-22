@@ -1480,10 +1480,10 @@ sub new_complete_node_menu
             = Texinfo::Common::copy_contentsNonXS(
                                 $associated_part->{'args'}->[0]);
           my $part_title
-           = Texinfo::Translations::gdt($customization_information,
-                                        'Part: {part_title}',
+           = Texinfo::Translations::gdt('Part: {part_title}',
                     $customization_information->get_conf('documentlanguage'),
-                                     {'part_title' => $part_title_copy});
+                                     {'part_title' => $part_title_copy},
+                              $customization_information->get_conf('DEBUG'));
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $part_title, ($content_index == 0));
           $content_index++;
@@ -1492,9 +1492,9 @@ sub new_complete_node_menu
         if (!$in_appendix
             and $appendix_commands{$child_section->{'cmdname'}}) {
           my $appendix_title
-             = Texinfo::Translations::gdt($customization_information,
-                                          'Appendices',
-                   $customization_information->get_conf('documentlanguage'));
+             = Texinfo::Translations::gdt('Appendices',
+                   $customization_information->get_conf('documentlanguage'),
+                      undef, $customization_information->get_conf('DEBUG'));
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $appendix_title,
                                        ($content_index == 0 or $part_added));
@@ -1542,9 +1542,9 @@ sub new_master_menu($$$;$)
     # detailed menu section with the node section name
     my $first_preformatted = $master_menu->{'contents'}->[0]->{'contents'}->[0];
     my $master_menu_title
-           = Texinfo::Translations::gdt($customization_information,
-                                        ' --- The Detailed Node Listing ---',
-                    $customization_information->get_conf('documentlanguage'));
+           = Texinfo::Translations::gdt(' --- The Detailed Node Listing ---',
+                    $customization_information->get_conf('documentlanguage'),
+                  undef, $customization_information->get_conf('DEBUG'));
     my @master_menu_title_contents;
     foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
       $content->{'parent'} = $first_preformatted;
@@ -1659,14 +1659,6 @@ sub _print_down_menus($$;$)
 
   return @master_menu_contents;
 }
-
-if (0) {
-  # it is needed to mark the translation as gdt is called like
-  # gdt($customization_information, ' --- The Detailed Node Listing ---', ...)
-  # and not like gdt(' --- The Detailed Node Listing ---', ...)
-  gdt(' --- The Detailed Node Listing ---');
-}
-
 
 # Return a list of output units.  Each output unit starts with a @node as its
 # first content (except possibly the first one).  It is important that this
