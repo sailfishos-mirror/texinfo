@@ -477,12 +477,6 @@ replace_convert_substrings (char *translated_string,
 
   document_descriptor = parse_string (texinfo_line, 1);
 
-  /* FIXME if called from parser through complete_indices, options will
-     not be set, but debug() would do the right thing.  debug() is not
-     right in general, though, as it uses parser internal data */
-  /*
-  debug ("IN TR PARSER '%s'", texinfo_line);
-   */
   if (debug_level > 0)
     fprintf (stderr, "XS|IN TR PARSER '%s'\n", texinfo_line);
 
@@ -517,9 +511,6 @@ replace_convert_substrings (char *translated_string,
     free (result_texi);
   }
 */
-   /*
-    debug("XS|RESULT GDT %d: '%s'\n", document_descriptor, result_texi);
-    */
 
   return document_descriptor;
 }
