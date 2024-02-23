@@ -627,7 +627,9 @@ ultimate_index (INDEX *index)
 }
 
 /* only used in conversion, on sorted indices names */
-/* TODO also a bsearch? */
+/* A linear search is probably ok, as the number of
+   indices should always be small.  If needed a bsearch
+   could also be implemented. */
 size_t
 index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
                             const char *name)
@@ -636,7 +638,7 @@ index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
 
   for (i = 0; i < sorted_indices->number; i++)
     {
-      if (!strcmp (sorted_indices->list[i].index->name, name))
+      if (!strcmp (sorted_indices->list[i]->name, name))
         return i+1;
     }
   return 0;

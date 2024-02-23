@@ -1,3 +1,14 @@
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
+	* /tp/Texinfo/XS/convert/convert_html.c
+	(prepare_index_entries_targets, html_initialize_output_state),
+	tp/Texinfo/XS/main/converter_types.h (SORTED_INDEX_NAMES),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(find_sorted_index_names_index_entry_extra_index_entry_sv),
+	tp/Texinfo/XS/main/utils.c (index_number_index_by_name): keep only
+	indices with entries in sorted_index_names.  Have SORTED_INDEX_NAMES
+	hold a list of INDEX pointers.  Remove INDEX_NUMBER.
+
 2024-02-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/unicode.c (string_from_utf8): cast to char *

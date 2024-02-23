@@ -646,14 +646,10 @@ typedef struct JSLICENSE_CATEGORY_LIST {
     JSLICENSE_FILE_INFO_LIST *list;
 } JSLICENSE_CATEGORY_LIST;
 
-typedef struct INDEX_NUMBER {
-    size_t number;
-    INDEX *index;
-} INDEX_NUMBER;
-
+/* contains only indices with entries */
 typedef struct SORTED_INDEX_NAMES {
     size_t number;
-    INDEX_NUMBER *list;
+    INDEX **list;
 } SORTED_INDEX_NAMES;
 
 typedef struct CONVERTER {

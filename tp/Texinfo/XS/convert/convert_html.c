@@ -4702,8 +4702,9 @@ prepare_index_entries_targets (CONVERTER *self)
         = (int **) malloc (self->sorted_index_names.number * sizeof (int *));
       for (i = 0; i < self->sorted_index_names.number; i++)
         {
-          INDEX *idx = self->sorted_index_names.list[i].index;
+          INDEX *idx = self->sorted_index_names.list[i];
           self->shared_conversion_state.formatted_index_entries[i] = 0;
+          /* TODO should always be true */
           if (idx->entries_number > 0)
             {
               self->shared_conversion_state.formatted_index_entries[i]
@@ -12674,7 +12675,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           entry_index_nr
              = index_number_index_by_name (&self->sorted_index_names,
                                                    index_entry_ref->index_name);
-          entry_index = self->sorted_index_names.list[entry_index_nr-1].index;
+          entry_index = self->sorted_index_names.list[entry_index_nr-1];
 
  /* to avoid double error messages, call convert_tree_new_formatting_context
     below with a multiple_pass argument if an entry was already formatted once,
@@ -16599,23 +16600,34 @@ html_initialize_output_state (CONVERTER *self, char *context)
       INDEX **index_names = self->document->index_names;
       INDEX **sorted_index_names;
       size_t index_nr = 0;
+      size_t non_empty_index_nr = 0;
+      size_t idx_non_empty = 0;
 
       for (i = index_names; (idx = *i); i++)
-        index_nr++;
-
-      self->sorted_index_names.number = index_nr;
+        {
+          index_nr++;
+          if (idx->entries_number > 0)
+            non_empty_index_nr++;
+        }
 
       sorted_index_names = (INDEX **) malloc (index_nr * sizeof (INDEX *));
 
       memcpy (sorted_index_names, index_names, index_nr * sizeof (INDEX *));
       qsort (sorted_index_names, index_nr, sizeof (INDEX *),
              compare_index_name);
-      self->sorted_index_names.list = (INDEX_NUMBER *)
-         malloc (index_nr * sizeof (INDEX_NUMBER));
+
+      /* store only non empty indices in sorted_index_names */
+      self->sorted_index_names.number = non_empty_index_nr;
+      self->sorted_index_names.list = (INDEX **)
+         malloc (self->sorted_index_names.number * sizeof (INDEX *));
       for (j = 0; j < index_nr; j++)
         {
-          self->sorted_index_names.list[j].index = sorted_index_names[j];
-          self->sorted_index_names.list[j].number = j+1;
+          if (sorted_index_names[j]->entries_number > 0)
+            {
+              self->sorted_index_names.list[idx_non_empty]
+                  = sorted_index_names[j];
+              idx_non_empty++;
+            }
         }
       free (sorted_index_names);
     }

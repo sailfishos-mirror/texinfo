@@ -1252,7 +1252,7 @@ find_sorted_index_names_index_entry_extra_index_entry_sv (
               size_t index_nr
                 = index_number_index_by_name (sorted_index_names,
                                               index_name);
-              return &sorted_index_names->list[index_nr -1].index
+              return &sorted_index_names->list[index_nr -1]
                  ->index_entries[entry_number -1];
             }
         }
