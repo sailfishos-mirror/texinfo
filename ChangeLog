@@ -1,5 +1,11 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_indices.c: add const.
+
+	Remove TODOs.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/manipulate_indices.c
 	(INDEX_COLLATOR, setup_collator, destroy_indices_sortable_entries):
 	remove INDEX_COLLATOR language field.

@@ -1483,9 +1483,6 @@ find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
   return 0;
 }
 
-/* TODO nodedescription using the extra element_node and the
- * node extra node_description? */
-
 /* find C Texinfo tree element based on element_sv perl tree element.
    Both DOCUMENT_IN and CONVERTER are optional, but if there is no
    document coming from one or the other, elements will not be found.
@@ -1495,7 +1492,8 @@ find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
    OUTPUT_UNIT_DESCRIPTOR is optional, it should allow to find sectioning
    commands faster.
    Only for global commands, commands with indices, and sectioning root
-   commands */
+   commands.  More could be added if needed, for example nodedescription.
+ */
 const ELEMENT *
 find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
                       const SV *element_sv, int output_units_descriptor)

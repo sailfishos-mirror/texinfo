@@ -283,7 +283,7 @@ typedef struct INDEX_COLLATOR {
 } INDEX_COLLATOR;
 
 static BYTES_STRING *
-get_sort_key (INDEX_COLLATOR *collator, const char *sort_string)
+get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
 {
   BYTES_STRING *sort_key;
   switch (collator->type)
@@ -615,7 +615,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
 }
 
 static INDICES_SORTABLE_ENTRIES *
-setup_sortable_index_entries (INDEX_COLLATOR *collator,
+setup_sortable_index_entries (const INDEX_COLLATOR *collator,
                          const INDICES_SORT_STRINGS *indices_sort_strings)
 {
   size_t i;
@@ -671,7 +671,7 @@ setup_sortable_index_entries (INDEX_COLLATOR *collator,
                     = &sortable_entry->sortable_subentries[k];
                   INDEX_SUBENTRY_SORT_STRING *subenty_sort_string
                     = &index_entry_sort_string->sort_string_subentries[k];
-                  /* TODO or refer to subenty_sort_string structure? */
+
                   sortable_subentry->sort_string
                     = strdup (subenty_sort_string->sort_string);
                   sortable_subentry->alpha = subenty_sort_string->alpha;
