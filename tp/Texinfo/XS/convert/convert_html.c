@@ -4702,90 +4702,88 @@ prepare_index_entries_targets (CONVERTER *self)
         = (int **) malloc (self->sorted_index_names.number * sizeof (int *));
       for (i = 0; i < self->sorted_index_names.number; i++)
         {
+          int j;
           const INDEX *idx = self->sorted_index_names.list[i];
           self->shared_conversion_state.formatted_index_entries[i] = 0;
-          /* TODO should always be true */
-          if (idx->entries_number > 0)
+          /* no need to test for idx->entries_number > 0 as indices without
+             entries are not kept in sorted_index_names. */
+          self->shared_conversion_state.formatted_index_entries[i]
+            = (int *) malloc (idx->entries_number * sizeof (int));
+          memset (self->shared_conversion_state.formatted_index_entries[i],
+                  0, idx->entries_number * sizeof (int));
+          for (j = 0; j < idx->entries_number; j++)
             {
-              self->shared_conversion_state.formatted_index_entries[i]
-                = (int *) malloc (idx->entries_number * sizeof (int));
-              memset (self->shared_conversion_state.formatted_index_entries[i],
-                      0, idx->entries_number * sizeof (int));
-              int j;
-              for (j = 0; j < idx->entries_number; j++)
-                {
-                  INDEX_ENTRY *index_entry;
-                  const ELEMENT *main_entry_element;
-                  const ELEMENT *seeentry;
-                  const ELEMENT *seealso;
-                  ELEMENT *entry_reference_content_element;
-                  ELEMENT *normalize_index_element;
-                  ELEMENT_LIST *subentries_tree;
-                  const ELEMENT *target_element;
-                  TEXT target_base;
-                  char *normalized_index;
-                  char *region = 0;
-                  char *target;
+              INDEX_ENTRY *index_entry;
+              const ELEMENT *main_entry_element;
+              const ELEMENT *seeentry;
+              const ELEMENT *seealso;
+              ELEMENT *entry_reference_content_element;
+              ELEMENT *normalize_index_element;
+              ELEMENT_LIST *subentries_tree;
+              const ELEMENT *target_element;
+              TEXT target_base;
+              char *normalized_index;
+              char *region = 0;
+              char *target;
 
-                  index_entry = &idx->index_entries[j];
-                  main_entry_element = index_entry->entry_element;
-                  seeentry = lookup_extra_element (main_entry_element,
-                                                   "seeentry");
-                  if (seeentry)
-                    continue;
-                  seealso = lookup_extra_element (main_entry_element,
-                                                  "seealso");
-                  if (seealso)
-                    continue;
+              index_entry = &idx->index_entries[j];
+              main_entry_element = index_entry->entry_element;
+              seeentry = lookup_extra_element (main_entry_element,
+                                               "seeentry");
+              if (seeentry)
+                continue;
+              seealso = lookup_extra_element (main_entry_element,
+                                              "seealso");
+              if (seealso)
+                continue;
 
-                  region = lookup_extra_string (main_entry_element,
-                                                "element_region");
-                  entry_reference_content_element
-                   = index_content_element (main_entry_element, 1);
+              region = lookup_extra_string (main_entry_element,
+                                            "element_region");
+              entry_reference_content_element
+               = index_content_element (main_entry_element, 1);
         /* construct element to convert to a normalized identifier to use as
            hrefs target */
-                  normalize_index_element = new_element (ET_NONE);
-                  add_to_contents_as_array (normalize_index_element,
-                                            entry_reference_content_element);
+              normalize_index_element = new_element (ET_NONE);
+              add_to_contents_as_array (normalize_index_element,
+                                        entry_reference_content_element);
 
-                  subentries_tree
-                   = comma_index_subentries_tree (main_entry_element, " ");
-                  if (subentries_tree)
-                    {
-                      insert_list_slice_into_contents (normalize_index_element,
-                                       normalize_index_element->contents.number,
-                                       subentries_tree, 0,
-                                       subentries_tree->number);
-                    }
-                  normalized_index
-                    = normalize_transliterate_texinfo (normalize_index_element,
-                                                (self->conf->TEST.integer > 0));
-
-                  destroy_element (normalize_index_element);
-                  if (subentries_tree)
-                    free_comma_index_subentries_tree (subentries_tree);
-
-                  text_init (&target_base);
-                  text_append (&target_base, "index-");
-                  if (region)
-                    {
-                      text_append (&target_base, region);
-                      text_append (&target_base, "-");
-                    }
-                  text_append (&target_base, normalized_index);
-                  free (normalized_index);
-                  target = unique_target (self, target_base.text);
-                  free (target_base.text);
-                  if (index_entry->entry_associated_element)
-                    target_element = index_entry->entry_associated_element;
-                  else
-                    target_element = main_entry_element;
-
-                  add_element_target (self, target_element, target);
-                  add_string (target, &self->seen_ids);
-
-                  free (target);
+              subentries_tree
+               = comma_index_subentries_tree (main_entry_element, " ");
+              if (subentries_tree)
+                {
+                  insert_list_slice_into_contents (normalize_index_element,
+                                   normalize_index_element->contents.number,
+                                   subentries_tree, 0,
+                                   subentries_tree->number);
                 }
+              normalized_index
+                = normalize_transliterate_texinfo (normalize_index_element,
+                                            (self->conf->TEST.integer > 0));
+
+              destroy_element (normalize_index_element);
+              if (subentries_tree)
+                free_comma_index_subentries_tree (subentries_tree);
+
+              text_init (&target_base);
+              text_append (&target_base, "index-");
+              if (region)
+                {
+                  text_append (&target_base, region);
+                  text_append (&target_base, "-");
+                }
+              text_append (&target_base, normalized_index);
+              free (normalized_index);
+              target = unique_target (self, target_base.text);
+              free (target_base.text);
+              if (index_entry->entry_associated_element)
+                target_element = index_entry->entry_associated_element;
+              else
+                target_element = main_entry_element;
+
+              add_element_target (self, target_element, target);
+              add_string (target, &self->seen_ids);
+
+              free (target);
             }
         }
     }

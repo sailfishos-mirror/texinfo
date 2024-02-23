@@ -1,5 +1,11 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(prepare_index_entries_targets): remove test of index having entries
+	as indices in sorted_index_names always have entries.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_get_shared_conversion_state): check if index_nr is not 0.
 
