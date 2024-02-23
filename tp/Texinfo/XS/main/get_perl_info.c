@@ -117,6 +117,11 @@ get_document_or_warn (SV *sv_in, char *key, char *warn_string)
   dTHX;
 
   hv_in = (HV *)SvRV (sv_in);
+  if (!hv_in)
+    {
+      fprintf (stderr, "ERROR: %s: no hash\n", warn_string);
+      return 0;
+    }
   document_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
   if (document_descriptor_sv && SvOK (*document_descriptor_sv))
     {

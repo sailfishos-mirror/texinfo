@@ -1,5 +1,17 @@
 2024-02-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Stop calling hv_fetch with null argument
+
+	* tp/texi2any.pl: Avoid calling Texinfo::Document::remove_document
+	with undef argument.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_document_or_warn):
+	Check if hash obtained from argument is null.
+
+	This is the case in test_scripts/formatting_info_extension_warning.sh.
+
+2024-02-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/t/test_parse_texi_line.t: invert order of Test::More::is test
 	to put expected result second, not first.
 
