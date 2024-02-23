@@ -35,10 +35,10 @@ void message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages
                                          enum error_type type, int continuation,
                                          char *message);
 void message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
-                                  OPTIONS *conf,
+                                  OPTIONS *conf, int continuation,
                                   const char *format, ...);
 void message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
-                                 OPTIONS *conf,
+                                 OPTIONS *conf, int continuation,
                                  const char *format, ...);
 void vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                             OPTIONS *conf,

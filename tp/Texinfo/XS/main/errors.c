@@ -283,30 +283,31 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
                            &e->source_info, format, v);
 }
 
-/* TODO a continuation argument may need to be added. */
 void
 message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
-                             OPTIONS *conf,
+                             OPTIONS *conf, int continuation,
                              const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
   message_list_document_error_internal (error_messages, conf,
-                                        MSG_document_error, 0,
+                                        MSG_document_error,
+                                        continuation,
                                         format, v);
 }
 
 void
 message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
-                            OPTIONS *conf,
+                            OPTIONS *conf, int continuation,
                             const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
   message_list_document_error_internal (error_messages, conf,
-                                        MSG_document_warning, 0,
+                                        MSG_document_warning,
+                                        continuation,
                                         format, v);
 }
 

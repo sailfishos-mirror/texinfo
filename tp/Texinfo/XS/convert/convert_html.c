@@ -2122,7 +2122,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
               if (self->conf->VERBOSE.integer > 0)
                 {
                   message_list_document_warn (&self->error_messages, self->conf,
-                             "user-defined node file name not set for `%s'",
+                             0, "user-defined node file name not set for `%s'",
                              node_filename);
                 }
               else if (self->conf->DEBUG.integer > 0)
@@ -3173,7 +3173,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                                                            manual_name, 0))
                     {
                       message_list_document_warn (&self->error_messages,
-                        self->conf,
+                        self->conf, 0,
                         "no htmlxref.cnf entry found for `%s'", manual_name);
                     }
                 }
@@ -5557,7 +5557,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                                  file_name_path->filepath))
                     {
                       message_list_document_warn (&self->error_messages,
-                                                  self->conf,
+                                                  self->conf, 0,
                                      "resetting %s file path %s to %s",
                                            file_name_path->filename,
                                            file_source_info->path,
@@ -7010,7 +7010,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
     {
       if (!self->conf->SPLIT.string || !strlen (self->conf->SPLIT.string))
         {
-          message_list_document_error (&self->error_messages, self->conf,
+          message_list_document_error (&self->error_messages, self->conf, 0,
                      "%s not meaningful for non-split output", "INFO_JS_DIR");
         }
       else
@@ -16662,7 +16662,7 @@ html_conversion_finalization (CONVERTER *self)
    */
   if (self->pending_closes.top > 0)
     {
-      message_list_document_warn (&self->error_messages, self->conf,
+      message_list_document_warn (&self->error_messages, self->conf, 0,
          "%zu registered opened sections not closed",
           self->pending_closes.top);
       clear_string_stack (&self->pending_closes);
@@ -16671,7 +16671,7 @@ html_conversion_finalization (CONVERTER *self)
   if (self->pending_inline_content.top > 0)
     {
       char *inline_content = html_get_pending_formatted_inline_content (self);
-      message_list_document_warn (&self->error_messages, self->conf,
+      message_list_document_warn (&self->error_messages, self->conf, 0,
          "%zu registered inline contents: %s",
            self->pending_inline_content.top, inline_content);
       free (inline_content);
@@ -16688,19 +16688,19 @@ html_conversion_finalization (CONVERTER *self)
             {
               char *element_str
                 = print_element_debug (associated_content->element, 0);
-              message_list_document_warn (&self->error_messages, self->conf,
+              message_list_document_warn (&self->error_messages, self->conf, 0,
                 "left inline content associated to %s: '%s'", element_str,
                 inline_content);
               free (element_str);
             }
           else if (associated_content->hv)
             {
-              message_list_document_warn (&self->error_messages, self->conf,
+              message_list_document_warn (&self->error_messages, self->conf, 0,
                 "left inline content of %p: '%s'", associated_content->hv,
                 inline_content);
             }
           else
-            message_list_document_warn (&self->error_messages, self->conf,
+            message_list_document_warn (&self->error_messages, self->conf, 0,
                "left inline content associated: '%s'", inline_content);
           free (associated_content->inline_content.text);
         }
@@ -18397,7 +18397,7 @@ convert_output_output_unit_internal (CONVERTER *self,
       free (path_encoding);
       if (!file_fh)
         {
-          message_list_document_error (&self->error_messages, self->conf,
+          message_list_document_error (&self->error_messages, self->conf, 0,
                              "could not open %s for writing: %s",
                              out_filepath, open_error_message);
           free (encoded_out_filepath);
@@ -18457,7 +18457,7 @@ convert_output_output_unit_internal (CONVERTER *self,
                                         encoded_out_filepath);
           if (fclose (file_fh))
             {
-              message_list_document_error (&self->error_messages, self->conf,
+              message_list_document_error (&self->error_messages, self->conf, 0,
                              "error on closing %s: %s",
                              out_filepath, strerror (errno));
               free (encoded_out_filepath);

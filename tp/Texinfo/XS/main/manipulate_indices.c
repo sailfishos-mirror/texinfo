@@ -606,7 +606,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
             }
           else
             {
-              message_list_document_warn (error_messages, options,
+              message_list_document_warn (error_messages, options, 0,
                          "collation locale not found: %s", collation_locale);
             }
         }

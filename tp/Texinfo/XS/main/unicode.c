@@ -39,11 +39,11 @@
 uint8_t *
 utf8_from_string (const char *text)
 {
-  /* TODO error checking? */
   return (uint8_t *) strdup (text);
 
   /* With uniconv gnulib module this could be the following, although
      this pulls in quite a few other gnulib module dependencies. */
+  /* TODO error checking? */
   /* return u8_strconv_from_encoding (text, "UTF-8", iconveh_question_mark); */
 }
 
