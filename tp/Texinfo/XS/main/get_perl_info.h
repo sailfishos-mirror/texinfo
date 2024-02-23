@@ -59,7 +59,7 @@ void html_get_direction_icons_sv (CONVERTER *converter,
                              DIRECTION_ICON_LIST *direction_icons,
                              SV *icons_sv);
 
-const ELEMENT *find_element_from_sv (CONVERTER *converter,
+const ELEMENT *find_element_from_sv (const CONVERTER *converter,
                                      const DOCUMENT *document_in,
                           const SV *element_sv, int output_units_descriptor);
 #endif

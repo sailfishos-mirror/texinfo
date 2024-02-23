@@ -1,5 +1,15 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_get_shared_conversion_state): check if index_nr is not 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/get_html_perl_info.c,
+	tp/Texinfo/XS/main/converter_types.h (SORTED_INDEX_NAMES),
+	tp/Texinfo/XS/main/get_perl_info.c: add static and const.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/node_name_normalization.c
 	(convert_to_normalized_internal): change order of condition in if,
 	change comments.

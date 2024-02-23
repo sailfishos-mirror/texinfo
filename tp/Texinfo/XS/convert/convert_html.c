@@ -4702,7 +4702,7 @@ prepare_index_entries_targets (CONVERTER *self)
         = (int **) malloc (self->sorted_index_names.number * sizeof (int *));
       for (i = 0; i < self->sorted_index_names.number; i++)
         {
-          INDEX *idx = self->sorted_index_names.list[i];
+          const INDEX *idx = self->sorted_index_names.list[i];
           self->shared_conversion_state.formatted_index_entries[i] = 0;
           /* TODO should always be true */
           if (idx->entries_number > 0)
@@ -12627,7 +12627,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           int *formatted_index_entry_nr;
           char *multiple_pass_str;
           size_t entry_index_nr;
-          INDEX *entry_index;
+          const INDEX *entry_index;
           ELEMENT *seeentry;
           ELEMENT *seealso;
           char *new_normalized_entry_levels[SUBENTRIES_MAX_LEVEL +1];
@@ -16618,7 +16618,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
 
       /* store only non empty indices in sorted_index_names */
       self->sorted_index_names.number = non_empty_index_nr;
-      self->sorted_index_names.list = (INDEX **)
+      self->sorted_index_names.list = (const INDEX **)
          malloc (self->sorted_index_names.number * sizeof (INDEX *));
       for (j = 0; j < index_nr; j++)
         {

@@ -649,7 +649,7 @@ typedef struct JSLICENSE_CATEGORY_LIST {
 /* contains only indices with entries */
 typedef struct SORTED_INDEX_NAMES {
     size_t number;
-    INDEX **list;
+    const INDEX **list;
 } SORTED_INDEX_NAMES;
 
 typedef struct CONVERTER {

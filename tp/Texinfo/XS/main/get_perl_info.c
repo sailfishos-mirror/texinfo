@@ -638,7 +638,7 @@ find_index_entry_sv (const SV *index_entry_sv, INDEX **index_names,
   SV **index_name_sv;
   SV **entry_number_sv;
   int entry_idx_in_index;
-  char *entry_index_name = 0;
+  const char *entry_index_name = 0;
   const INDEX *idx;
 
   dTHX;
@@ -658,7 +658,7 @@ find_index_entry_sv (const SV *index_entry_sv, INDEX **index_names,
       xasprintf (&msg, "%s: no entry info\n", warn_str);
       fatal (msg);
     }
-  entry_index_name = (char *) SvPVutf8_nolen (*index_name_sv);
+  entry_index_name = (const char *) SvPVutf8_nolen (*index_name_sv);
   *entry_number = SvIV (*entry_number_sv);
   entry_idx_in_index = *entry_number - 1;
 
@@ -1221,17 +1221,16 @@ html_get_direction_icons_sv (CONVERTER *converter,
     }
 }
 
-INDEX_ENTRY *
+static const INDEX_ENTRY *
 find_sorted_index_names_index_entry_extra_index_entry_sv (
-                                       SORTED_INDEX_NAMES *sorted_index_names,
-                                       const SV *extra_index_entry_sv)
+                                  const SORTED_INDEX_NAMES *sorted_index_names,
+                                  const SV *extra_index_entry_sv)
 {
   AV *extra_index_entry_av;
   SV **index_name_sv;
-  char *index_name = 0;
+  const char *index_name = 0;
 
   dTHX;
-
 
   extra_index_entry_av = (AV *) SvRV (extra_index_entry_sv);
 
@@ -1260,7 +1259,7 @@ find_sorted_index_names_index_entry_extra_index_entry_sv (
   return 0;
 }
 
-INDEX_ENTRY *
+static const INDEX_ENTRY *
 find_document_index_entry_extra_index_entry_sv (const DOCUMENT *document,
                                              const SV *extra_index_entry_sv)
 {
@@ -1300,12 +1299,12 @@ find_document_index_entry_extra_index_entry_sv (const DOCUMENT *document,
 /* if there is a converter with sorted index names, use the
    sorted index names, otherwise use the index information from
    a document */
-static INDEX_ENTRY *
+static const INDEX_ENTRY *
 find_element_extra_index_entry_sv (const DOCUMENT *document,
-                                   CONVERTER *converter,
+                                   const CONVERTER *converter,
                                    const SV *extra_index_entry_sv)
 {
-  INDEX_ENTRY *index_entry;
+  const INDEX_ENTRY *index_entry;
   if (!converter || !converter->document || !converter->document->index_names)
     {
       if (document)
@@ -1431,13 +1430,13 @@ const ELEMENT *
 find_subentry_index_command_sv (const DOCUMENT *document, HV *element_hv)
 {
   HV *current_parent = element_hv;
-  SV *current_sv = 0;
+  const SV *current_sv = 0;
 
   dTHX;
 
   while (1)
     {
-      SV *subentry_parent_sv = subentry_hv_parent (current_parent);
+      const SV *subentry_parent_sv = subentry_hv_parent (current_parent);
       if (subentry_parent_sv)
         {
           current_parent = (HV *) SvRV (subentry_parent_sv);
@@ -1468,8 +1467,9 @@ find_subentry_index_command_sv (const DOCUMENT *document, HV *element_hv)
    when going through the elements associated to indices to setup
    index entries sort strings.
  */
-const ELEMENT *find_index_entry_associated_hv (INDEX_ENTRY *index_entry,
-                                               HV *element_hv)
+static const ELEMENT *
+find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
+                                const HV *element_hv)
 {
   if (index_entry->entry_associated_element
       && index_entry->entry_associated_element->hv == element_hv)
@@ -1497,7 +1497,7 @@ const ELEMENT *find_index_entry_associated_hv (INDEX_ENTRY *index_entry,
    Only for global commands, commands with indices, and sectioning root
    commands */
 const ELEMENT *
-find_element_from_sv (CONVERTER *converter, const DOCUMENT *document_in,
+find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
                       const SV *element_sv, int output_units_descriptor)
 {
   enum command_id cmd = 0;
@@ -1587,7 +1587,7 @@ find_element_from_sv (CONVERTER *converter, const DOCUMENT *document_in,
       EXTRA(associated_index_entry)
       if (associated_index_entry_sv)
         {
-          INDEX_ENTRY *index_entry
+          const INDEX_ENTRY *index_entry
                = find_element_extra_index_entry_sv (document,
                                                     converter,
                                               *associated_index_entry_sv);
@@ -1603,7 +1603,7 @@ find_element_from_sv (CONVERTER *converter, const DOCUMENT *document_in,
       EXTRA(index_entry)
       if (index_entry_sv)
         {
-          INDEX_ENTRY *index_entry
+          const INDEX_ENTRY *index_entry
                      = find_element_extra_index_entry_sv (document,
                                                           converter,
                                                           *index_entry_sv);

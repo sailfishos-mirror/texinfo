@@ -1348,7 +1348,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
 {
   HV *index_entry_hv;
   SV **index_name_sv;
-  char *index_name = 0;
+  const char *index_name = 0;
 
   dTHX;
 
@@ -1524,7 +1524,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       int entry_number
         = find_index_entry_numbers_index_entry_sv (converter,
                                                 args_sv[0], &index_nr);
-      if (entry_number <= 0)
+      if (entry_number <= 0 || index_nr == 0)
         fatal ("index entry not found");
 
       return newSViv(converter->shared_conversion_state
