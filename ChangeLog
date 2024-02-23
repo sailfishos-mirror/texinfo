@@ -1,5 +1,11 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal): change order of condition in if,
+	change comments.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	* /tp/Texinfo/XS/convert/convert_html.c
 	(prepare_index_entries_targets, html_initialize_output_state),
 	tp/Texinfo/XS/main/converter_types.h (SORTED_INDEX_NAMES),

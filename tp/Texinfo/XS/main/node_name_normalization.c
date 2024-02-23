@@ -102,20 +102,15 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
               text_init (&accent_text);
               convert_to_normalized_internal (e->args.list[0], &accent_text);
               accented_char = unicode_accent (accent_text.text, e);
-              if (!accented_char)
-                ADD(accent_text.text);
-              /* TODO?  Should never happen
+              if (accented_char)
                 {
-                  accented_char = ascii_accent (accent_text, e)
                   ADD(accented_char);
                   free (accented_char);
                 }
-               */
               else
-                {
-                  ADD(accented_char);
-                  free (accented_char);
-                }
+     /* If this case was possible, the node normalization would not follow the
+        specification, but it is not possible, see unicode_accent. */
+                ADD(accent_text.text);
               free (accent_text.text);
             }
         }
