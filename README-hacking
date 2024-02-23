@@ -307,6 +307,9 @@ Update gnulib:
 
 Use util/srclist-txi for checking files to be copied from gnulib
 
+Update ppport.h in tp/Texinfo/XS:
+  perl -MDevel::PPPort -e'Devel::PPPort::WriteFile'
+
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
 
