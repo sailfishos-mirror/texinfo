@@ -1,5 +1,15 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c: replace G_ARRAY by
+	G_LIST and use ppport.h which should provide compatibility.  ppport.h
+	do not proposes to include ppport.h, but it is likely that it is
+	needed.
+
+	* README-hacking: only propose to check the changes proposed by
+	ppport.h, as it may be wrong.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	Remove/add ppport.h includes based on perl ppport.h output
 
 	* README-hacking: add instructions on calling ppport.h.

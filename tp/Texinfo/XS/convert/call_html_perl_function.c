@@ -28,6 +28,8 @@
 #endif
 #include "XSUB.h"
 
+#include "ppport.h"
+
 #undef context
 
 #include "text.h"
@@ -100,7 +102,7 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv_utf8 (default_filename, 0)));
           PUTBACK;
 
-          count = call_sv (*special_unit_target_file_name_sv, G_ARRAY);
+          count = call_sv (*special_unit_target_file_name_sv, G_LIST);
 
           SPAGAIN;
 
@@ -184,7 +186,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv (target, 0)));
           PUTBACK;
 
-          count = call_sv (*label_target_name_sv, G_ARRAY);
+          count = call_sv (*label_target_name_sv, G_LIST);
 
           SPAGAIN;
 
@@ -254,7 +256,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv_utf8 (node_filename, 0)));
           PUTBACK;
 
-          count = call_sv (*node_file_name_sv, G_ARRAY);
+          count = call_sv (*node_file_name_sv, G_LIST);
 
           SPAGAIN;
 
@@ -341,7 +343,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
           PUTBACK;
 
-          count = call_sv (*sectioning_command_target_name_sv, G_ARRAY);
+          count = call_sv (*sectioning_command_target_name_sv, G_LIST);
 
           SPAGAIN;
 
@@ -422,7 +424,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv_utf8 (filepath, 0)));
           PUTBACK;
 
-          count = call_sv (*unit_file_name_sv, G_ARRAY);
+          count = call_sv (*unit_file_name_sv, G_LIST);
 
           SPAGAIN;
 
@@ -505,7 +507,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv_utf8 (file_name, 0)));
           PUTBACK;
 
-          count = call_sv (*external_target_split_name_sv, G_ARRAY);
+          count = call_sv (*external_target_split_name_sv, G_LIST);
 
           SPAGAIN;
 
@@ -599,7 +601,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
           PUSHs(sv_2mortal (newSVpv_utf8 (file, 0)));
           PUTBACK;
 
-          count = call_sv (*external_target_non_split_name_sv, G_ARRAY);
+          count = call_sv (*external_target_non_split_name_sv, G_LIST);
 
           SPAGAIN;
 
@@ -1390,7 +1392,7 @@ call_formatting_function_format_button (CONVERTER *self,
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
-                   G_ARRAY);
+                   G_LIST);
 
   SPAGAIN;
 
@@ -2401,7 +2403,7 @@ call_button_simple_function (CONVERTER *self,
   PUTBACK;
 
   count = call_sv ((SV *) formatting_reference_sv,
-                   G_ARRAY);
+                   G_LIST);
 
   SPAGAIN;
 
@@ -2473,7 +2475,7 @@ call_button_direction_function (CONVERTER *self,
   PUTBACK;
 
   count = call_sv ((SV *) formatting_reference_sv,
-                   G_ARRAY);
+                   G_LIST);
 
   SPAGAIN;
 
