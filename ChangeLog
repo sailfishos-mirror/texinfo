@@ -1,3 +1,7 @@
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
+	remove duplicate ppport.h file
+
 2024-02-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Stop calling hv_fetch with null argument
@@ -14,10 +18,6 @@
 
 	* tp/t/test_parse_texi_line.t: invert order of Test::More::is test
 	to put expected result second, not first.
-
-2024-02-23  Patrice Dumas  <pertusus@free.fr>
-
-	remove duplicate ppport.h file
 
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
