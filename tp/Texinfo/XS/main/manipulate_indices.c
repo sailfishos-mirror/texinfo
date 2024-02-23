@@ -272,7 +272,6 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
 
 typedef struct INDEX_COLLATOR {
     enum collation_type_name type;
-    char *language;
     union {
       /* perl element. This should be SV *sv,
          but we don't want to include the Perl headers everywhere; */
@@ -581,13 +580,10 @@ setup_collator (int use_unicode_collation, const char *collation_language,
   if (use_unicode_collation == 0)
     {
       result->type = ctn_no_unicode;
-      /* TODO check if needed */
-      result->language = strdup ("");
     }
   else if (collation_language)
     {
       result->type = ctn_language_collation;
-      result->language = strdup (collation_language);
       result->sv = call_setup_collator (1, collation_language);
     }
   else
@@ -601,7 +597,6 @@ setup_collator (int use_unicode_collation, const char *collation_language,
           if (result->locale)
             {
               result->type = ctn_locale_collation;
-              result->language = strdup (collation_locale);
               return result;
             }
           else
@@ -614,8 +609,6 @@ setup_collator (int use_unicode_collation, const char *collation_language,
       #endif
 
       result->type = ctn_unicode;
-      /* TODO check if needed */
-      result->language = strdup ("-");
       result->sv = call_setup_collator (1, 0);
     }
   return result;
@@ -892,8 +885,6 @@ destroy_indices_sortable_entries (
 static void
 destroy_collator (INDEX_COLLATOR *collator)
 {
-  if (collator)
-    free (collator->language);
   free (collator);
 }
 
