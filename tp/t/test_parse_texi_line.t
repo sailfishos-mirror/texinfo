@@ -37,7 +37,7 @@ sub test_line($$$$)
   my $parser_registrar = $parser->registered_errors();
   my ($error_warnings_list, $error_count) = $parser_registrar->errors();
   if (defined($errors_references)) {
-    is (scalar(@$errors_references), scalar(@$error_warnings_list),
+    is (scalar(@$error_warnings_list), scalar(@$errors_references),
         "warning/errors nr $test_explanation");
   }
   my $error_idx = 0;
