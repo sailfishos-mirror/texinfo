@@ -27,8 +27,6 @@
 #endif
 #include "XSUB.h"
 
-#include "ppport.h"
-
 #include "xspara.h"
 
 MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFIX = xspara_

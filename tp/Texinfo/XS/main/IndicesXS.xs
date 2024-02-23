@@ -28,8 +28,6 @@
 
 #undef context
 
-#include "ppport.h"
-
 #include "tree_types.h"
 #include "document_types.h"
 /*

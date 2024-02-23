@@ -42,8 +42,6 @@
 #endif
 #include "XSUB.h"
 
-#include "ppport.h"
-
 #include "miscxs.h"
 
 const char *whitespace_chars = " \t\f\v\r\n";

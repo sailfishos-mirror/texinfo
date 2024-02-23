@@ -30,8 +30,6 @@
 
 #undef context
 
-#include "ppport.h"
-
 #include "command_ids.h"
 #include "element_types.h"
 #include "converter_types.h"

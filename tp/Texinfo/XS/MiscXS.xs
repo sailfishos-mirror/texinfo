@@ -25,8 +25,6 @@
 #endif
 #include "XSUB.h"
 
-#include "ppport.h"
-
 #include "miscxs.h"
 
 MODULE = Texinfo::MiscXS  PACKAGE = Texinfo::MiscXS  PREFIX = xs_

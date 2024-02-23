@@ -1,5 +1,11 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	Remove/add ppport.h includes based on perl ppport.h output
+
+	* README-hacking: add instructions on calling ppport.h.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	update ppport.h
 
 	* README-hacking: add instructions on updating tp/Texinfo/XS/ppport.h.

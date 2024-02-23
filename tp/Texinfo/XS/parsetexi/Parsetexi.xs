@@ -28,8 +28,6 @@
 
 #undef context
 
-#include "ppport.h"
-
 #include "api.h"
 #include "conf.h"
 #include "build_perl_info.h"

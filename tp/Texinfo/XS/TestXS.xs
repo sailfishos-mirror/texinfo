@@ -5,8 +5,6 @@
 #include "perl.h"
 #include "XSUB.h"
 
-#include "ppport.h"
-
 
 
 MODULE = TestXS PACKAGE = TestXS PREFIX = xspara_

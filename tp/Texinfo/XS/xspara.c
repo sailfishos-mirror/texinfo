@@ -36,8 +36,6 @@
 #endif
 #include "XSUB.h"
 
-#include "ppport.h"
-
 #include "xspara.h"
 
 #include "xspara_text.h"
