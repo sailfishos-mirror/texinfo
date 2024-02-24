@@ -1229,6 +1229,22 @@ sub _exit($$)
      or $error_count > get_conf('ERROR_LIMIT')));
 }
 
+sub handle_document_errors($$$)
+{
+  my $document = shift;
+  my $error_count = shift;
+  my $opened_files = shift;
+
+  die if ref($document) ne 'Texinfo::Document';
+
+  my ($errors, $new_error_count) = $document->errors();
+  $error_count += $new_error_count if ($new_error_count);
+  _handle_errors($errors);
+
+  _exit($error_count, $opened_files);
+  return $error_count;
+}
+
 sub handle_errors($$$)
 {
   my $self = shift;
@@ -1237,6 +1253,15 @@ sub handle_errors($$$)
 
   my ($errors, $new_error_count) = $self->errors();
   $error_count += $new_error_count if ($new_error_count);
+  _handle_errors($errors);
+
+  _exit($error_count, $opened_files);
+  return $error_count;
+}
+
+sub _handle_errors($)
+{
+  my $errors = shift;
   foreach my $error_message (@$errors) {
     if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN')) {
       my $s = '';
@@ -1260,9 +1285,6 @@ sub handle_errors($$$)
       warn $s;
     }
   }
-
-  _exit($error_count, $opened_files);
-  return $error_count;
 }
 
 # Avoid loading these modules until down here to speed up the case
@@ -1682,16 +1704,8 @@ while(@input_files) {
   }
 
   Texinfo::Document::rebuild_document($document);
-
-  if ($XS_structuring) {
-    foreach my $error (@{$document->{'errors'}}) {
-      $registrar->add_formatted_message($error);
-    }
-    Texinfo::Document::clear_document_errors(
-                                        $document->document_descriptor());
-  }
-
-  $error_count = handle_errors($registrar, $error_count, \@opened_files);
+  $error_count = handle_document_errors($document,
+                                        $error_count, \@opened_files);
 
   if ($format eq 'structure') {
     goto NEXT;

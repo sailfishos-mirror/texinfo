@@ -217,8 +217,11 @@ sub _get_parser_info($$;$$) {
   foreach my $error (@{$document->{'errors'}}) {
     $registrar->add_formatted_message($error);
   }
-
+  @{$document->{'errors'}} = ();
   clear_document_errors($document_descriptor);
+
+  # Reference the same Texinfo::Report object
+  $document->{'registrar'} = $registrar;
 
   # additional info relevant in perl only.
   my $perl_encoding

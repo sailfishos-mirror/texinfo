@@ -1329,6 +1329,7 @@ rebuild_document (SV *document_in, int no_store)
   HV *hv;
   SV **document_descriptor_sv;
   char *descriptor_key = "document_descriptor";
+  char *registrar_key = "registrar";
 
   dTHX;
 
@@ -1337,11 +1338,21 @@ rebuild_document (SV *document_in, int no_store)
   document_descriptor_sv = hv_fetch (hv, descriptor_key,
                                      strlen (descriptor_key), 0);
 
+  SV **registrar_svp, *registrar_sv = 0;
+  registrar_svp = hv_fetch (hv, registrar_key, strlen (registrar_key), 0);
+  if (registrar_svp)
+    {
+      registrar_sv = *registrar_svp;
+      SvREFCNT_inc(registrar_sv); /* prevent destruction at hv_clear below */
+    }
+
   if (document_descriptor_sv)
     {
       int document_descriptor = SvIV (*document_descriptor_sv);
       hv_clear (hv);
       fill_document_hv (hv, document_descriptor, no_store);
+      if (registrar_sv)
+        hv_store (hv, registrar_key, strlen (registrar_key), registrar_sv, 0);
     }
   else
     {

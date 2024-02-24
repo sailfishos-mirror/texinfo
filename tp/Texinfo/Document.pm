@@ -93,6 +93,7 @@ sub register
   my $global_commands_information = shift;
   my $identifier_target = shift;
   my $labels_list = shift;
+  my $registrar = shift;
 
   my $document = {
     'tree' => $tree,
@@ -103,6 +104,7 @@ sub register
     'global_info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,
+    'registrar' => $registrar,
   };
 
   bless $document;
@@ -433,6 +435,23 @@ sub clear_document_errors($)
 {
 }
 
+sub errors($)
+{
+  my $document = shift;
+
+  my $registrar = $document->{'registrar'};
+  return if !defined($registrar);
+
+  foreach my $error (@{$document->{'errors'}}) {
+    $registrar->add_formatted_message($error);
+  }
+  @{$document->{'errors'}} = ();
+  Texinfo::Document::clear_document_errors(
+                                      $document->document_descriptor());
+
+  return $registrar->errors();
+}
+
 1;
 __END__
 =head1 NAME
@@ -739,7 +758,7 @@ parsers codes.
 
 =over
 
-=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list)
+=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list, $registrar)
 
 Setup a document. There is no reason to call this method out of parsers, as
 it is already done by the Texinfo parsers.  The arguments are gathered

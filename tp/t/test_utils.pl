@@ -1146,15 +1146,7 @@ sub test($$)
   # should not actually be useful, as the same element should be reused.
   $tree = $document->tree();
 
-  if ($XS_structuring) {
-    foreach my $error (@{$document->{'errors'}}) {
-      $registrar->add_formatted_message($error);
-    }
-    Texinfo::Document::clear_document_errors(
-                                           $document->document_descriptor());
-  }
-
-  my ($errors, $error_nrs) = $registrar->errors();
+  my ($errors, $error_nrs) = $document->errors();
   my $indices_information = $document->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries = $document->merged_indices();

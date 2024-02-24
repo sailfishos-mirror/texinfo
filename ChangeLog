@@ -1,5 +1,36 @@
 2024-02-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Reference Texinfo::Report in Texinfo::Document object.
+
+	* tp/Texinfo/Document.pm (register): Take an extra argument, a
+	Texinfo::Report reference, and keep it in the 'registrar' value.
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm: (_get_parser_info):
+	Save reference to Texinfo::Document object in 'registrar' .
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi): Update call to "register".
+	* tp/Texinfo/XS/main/build_perl_info.c (rebuild_document):
+	Do not clear 'registrar' key on hash.
+
+	* tp/Texinfo/Document.pm (errors):
+	New function.  Return errors, including any errors in
+	the 'errors' array.  Wipe 'errors' array after adding the errors
+	to the Texinfo::Report object to allow calling multiple times.
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm: (_get_parser_info):
+	Wipe 'errors' array after propagating to Texinfo::Report.
+
+	* tp/texi2any.pl (handle_document_errors, handle_errors)
+	(_handle_errors): Add new function handle_document_errors to
+	get errors from Texinfo::Document.
+	* tp/t/test_parser_registrar.t,
+	* tp/t/test_utils.pl: Call Texinfo::Document::errors instead
+	of Texinfo::Report::errors.
+
+	* tp/texi2any.pl, tp/t/test_utils.pl [XS structuring]:
+	Eliminate loop copying errors with
+	Texinfo::Report::add_formatted_message, as this is dealt with in
+	Texinfo::Document::errors instead.
+
+2024-02-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XSLoader.pm (init): Remove $warning_message and
 	$fatal_message arguments.
 

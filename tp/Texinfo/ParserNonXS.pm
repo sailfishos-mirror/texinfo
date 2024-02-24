@@ -7519,7 +7519,8 @@ sub _parse_texi($$$)
   my $document = Texinfo::Document::register($root,
      $self->{'global_info'}, $self->{'index_names'}, $self->{'floats'},
      $self->{'internal_references'}, $self->{'commands_info'},
-     $self->{'identifiers_target'}, $self->{'labels_list'});
+     $self->{'identifiers_target'}, $self->{'labels_list'},
+     $self->{'registrar'});
 
   return $document;
 }
