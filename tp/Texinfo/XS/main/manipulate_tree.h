@@ -47,8 +47,8 @@ ELEMENT_LIST *protect_text (ELEMENT *current, char *to_protect);
 
 
 
-char *normalized_menu_entry_internal_node (ELEMENT *entry);
-ELEMENT *normalized_entry_associated_internal_node (ELEMENT *entry,
-                                                    LABEL_LIST *identifiers_target);
+char *normalized_menu_entry_internal_node (const ELEMENT *entry);
+ELEMENT *normalized_entry_associated_internal_node (const ELEMENT *entry,
+                                                    const LABEL_LIST *identifiers_target);
 ELEMENT *first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target);
 #endif

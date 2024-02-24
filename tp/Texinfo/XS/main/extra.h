@@ -42,7 +42,7 @@ KEY_PAIR *lookup_info (const ELEMENT *e, const char *key);
 ELEMENT *lookup_extra_element (const ELEMENT *e, const char *key);
 ELEMENT *lookup_info_element (const ELEMENT *e, const char *key);
 ELEMENT_LIST *lookup_extra_contents (const ELEMENT *e, const char *key);
-ELEMENT *lookup_extra_directions (ELEMENT *e, const char *key);
+const ELEMENT *lookup_extra_directions (const ELEMENT *e, const char *key);
 int lookup_extra_integer (const ELEMENT *e, const char *key, int *ret);
 char *lookup_extra_string (const ELEMENT *e, const char *key);
 char *lookup_info_string (const ELEMENT *e, const char *key);

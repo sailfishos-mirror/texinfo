@@ -940,7 +940,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
       ELEMENT *current_menu = 0;
 
       int i;
-      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
+      const ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
 
       if (menus)
         {
@@ -1110,7 +1110,7 @@ complete_tree_nodes_missing_menu (ELEMENT *root, DOCUMENT *document,
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
       ELEMENT *node = non_automatic_nodes->list[i];
-      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
+      const ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
       if (!(menus && menus->number > 0))
         {
           ELEMENT *section = lookup_extra_element (node, "associated_section");
@@ -1134,7 +1134,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   LABEL_LIST *identifiers_target = document->identifiers_target;
 
   ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
-  ELEMENT_LIST *menus;
+  const ELEMENT_LIST *menus;
   ELEMENT *master_menu;
   ELEMENT *last_menu;
   ELEMENT *last_content;

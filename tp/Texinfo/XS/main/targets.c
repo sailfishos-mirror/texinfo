@@ -51,12 +51,12 @@ compare_targets (const void *a, const void *b)
 }
 
 ELEMENT *
-find_identifier_target (LABEL_LIST *identifiers_target,
-                        char *normalized)
+find_identifier_target (const LABEL_LIST *identifiers_target,
+                        const char *normalized)
 {
   static LABEL target_key;
   LABEL *result;
-  target_key.identifier = normalized;
+  target_key.identifier = (char *) normalized;
   result = (LABEL *)bsearch (&target_key, identifiers_target->list,
                              identifiers_target->number, sizeof(LABEL),
                              compare_targets);

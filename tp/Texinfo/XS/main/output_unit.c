@@ -513,7 +513,7 @@ units_directions (OPTIONS *customization_information,
       OUTPUT_UNIT *output_unit = output_units->list[i];
       OUTPUT_UNIT **directions = output_unit->directions;
       ELEMENT *node = output_unit_node (output_unit);
-      ELEMENT *node_directions;
+      const ELEMENT *node_directions;
       ELEMENT *section = output_unit_section (output_unit);
 
       directions[RUD_type_This] = output_unit;
@@ -528,7 +528,7 @@ units_directions (OPTIONS *customization_information,
 
       if (node)
         {
-          ELEMENT *menu_child = first_menu_node(node, identifiers_target);
+          ELEMENT *menu_child = first_menu_node (node, identifiers_target);
           enum directions d;
           node_directions = lookup_extra_directions (node, "node_directions");
           if (node_directions)
@@ -545,14 +545,14 @@ units_directions (OPTIONS *customization_information,
           if (menu_child)
             {
               directions[RUD_type_NodeForward]
-                = label_target_unit_element(menu_child);
+                = label_target_unit_element (menu_child);
             }
           else
             {
               int automatic_directions = (node->args.number <= 1);
-              ELEMENT *associated_section = lookup_extra_element (node,
+              const ELEMENT *associated_section = lookup_extra_element (node,
                                                    "associated_section");
-              ELEMENT_LIST *section_childs = 0;
+              const ELEMENT_LIST *section_childs = 0;
               if (associated_section)
                 section_childs = lookup_extra_contents (associated_section,
                                                         "section_childs");
@@ -565,7 +565,7 @@ units_directions (OPTIONS *customization_information,
               else if (node_directions
                        && node_directions->contents.list[D_next])
                directions[RUD_type_NodeForward]
-                 = label_target_unit_element(
+                 = label_target_unit_element (
                          node_directions->contents.list[D_next]);
               else if (node_directions && node_directions->contents.list[D_up])
                 {
@@ -575,7 +575,7 @@ units_directions (OPTIONS *customization_information,
                   add_to_element_list (&up_list, node);
                   while (1)
                     {
-                      ELEMENT *up_node_directions;
+                      const ELEMENT *up_node_directions;
                       int i;
                       int in_up = 0;
                       for (i = 0; i < up_list.number; i++)
@@ -593,7 +593,7 @@ units_directions (OPTIONS *customization_information,
                           && up_node_directions->contents.list[D_next])
                         {
                            directions[RUD_type_NodeForward]
-                             = label_target_unit_element(
+                             = label_target_unit_element (
                               up_node_directions->contents.list[D_next]);
                            break;
                         }
@@ -651,12 +651,12 @@ units_directions (OPTIONS *customization_information,
         }
       else
         {
-          ELEMENT *up = section;
-          ELEMENT_LIST *up_section_childs;
+          const ELEMENT *up = section;
+          const ELEMENT_LIST *up_section_childs;
           int up_section_level;
           int status;
           enum directions d;
-          ELEMENT *section_directions = lookup_extra_directions (section,
+          const ELEMENT *section_directions = lookup_extra_directions (section,
                                                    "section_directions");
           if (section_directions)
             {
@@ -687,7 +687,7 @@ units_directions (OPTIONS *customization_information,
               up_section_level
                 = lookup_extra_integer (up, "section_level", &status);
 
-              ELEMENT *up_section_directions = lookup_extra_directions (up,
+              const ELEMENT *up_section_directions = lookup_extra_directions (up,
                                                    "section_directions");
               if (status >= 0 && up_section_level > 1
                   && up_section_directions
@@ -707,7 +707,7 @@ units_directions (OPTIONS *customization_information,
             }
           else
             {
-              ELEMENT *toplevel_directions
+              const ELEMENT *toplevel_directions
                = lookup_extra_directions (up, "toplevel_directions");
               if (toplevel_directions
                   && toplevel_directions->contents.list[D_next])
@@ -715,7 +715,8 @@ units_directions (OPTIONS *customization_information,
                   = toplevel_directions->contents.list[D_next]->associated_unit;
               else
                 {
-                  ELEMENT *up_section_directions = lookup_extra_directions (up,
+                  const ELEMENT *up_section_directions
+                        = lookup_extra_directions (up,
                                                    "section_directions");
                   if (up_section_directions
                       && up_section_directions->contents.list[D_next])

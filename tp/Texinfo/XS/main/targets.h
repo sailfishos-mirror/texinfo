@@ -7,8 +7,8 @@
 #include "tree_types.h"
 #include "document_types.h"
 
-ELEMENT *find_identifier_target (LABEL_LIST *identifiers_target,
-                                 char *normalized);
+ELEMENT *find_identifier_target (const LABEL_LIST *identifiers_target,
+                                 const char *normalized);
 int register_label_element (int document_descriptor, ELEMENT *element,
                             ERROR_MESSAGE_LIST *error_messages);
 

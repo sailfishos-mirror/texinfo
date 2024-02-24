@@ -1,5 +1,9 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	Add const.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/extra.c (add_extra_contents)
 	(lookup_extra_contents): remove create argument of
 	lookup_extra_contents.  If value is 0, create a list in

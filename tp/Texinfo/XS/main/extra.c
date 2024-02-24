@@ -279,7 +279,6 @@ lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
 ELEMENT_LIST *
 lookup_extra_contents (const ELEMENT *e, const char *key)
 {
-  ELEMENT_LIST *e_list = 0;
   KEY_PAIR *k = lookup_extra (e, key);
   if (!k)
     return 0;
@@ -294,8 +293,8 @@ lookup_extra_contents (const ELEMENT *e, const char *key)
   return k->list;
 }
 
-ELEMENT *
-lookup_extra_directions (ELEMENT *e, const char *key)
+const ELEMENT *
+lookup_extra_directions (const ELEMENT *e, const char *key)
 {
   KEY_PAIR *k = lookup_extra (e, key);
   if (!k)
