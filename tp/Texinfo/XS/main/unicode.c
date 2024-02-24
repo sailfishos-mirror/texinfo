@@ -415,7 +415,8 @@ encoded_accents (CONVERTER *self, const char *text, const ELEMENT_STACK *stack,
 /* UNICODE_POINT is a string describing an hexadecimal number with
    letters in upper case */
 /* returns the index in unicode_to_eight_bit +1 if > 0 */
-int unicode_point_decoded_in_encoding (const char *encoding, char *codepoint)
+int unicode_point_decoded_in_encoding (const char *encoding,
+                                       const char *codepoint)
 {
   if (encoding)
     {

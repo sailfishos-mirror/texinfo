@@ -129,10 +129,10 @@ typedef struct TARGET_FILENAME {
 
 typedef struct FILE_SOURCE_INFO {
     char *filename;
-    char *type;
-    char *name;
+    const char *type;
+    const char *name;
     const ELEMENT *element;
-    char *path;
+    const char *path;
 } FILE_SOURCE_INFO;
 
 typedef struct FILE_SOURCE_INFO_LIST {

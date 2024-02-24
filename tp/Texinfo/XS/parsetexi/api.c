@@ -131,7 +131,7 @@ reset_parser (int local_debug_output)
    tree and document obtained by parsing FILENAME.
    Used for parse_texi_file. */
 int
-parse_file (char *filename, const char *input_file_name,
+parse_file (const char *filename, const char *input_file_name,
             const char *input_directory)
 {
   int document_descriptor;

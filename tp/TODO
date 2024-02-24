@@ -740,6 +740,7 @@ for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppre
 
 With memory leaks
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=./texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
+for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 
 For tests in tp/tests, a way to have valgrind call prependend is to add,
 in tp/defs:

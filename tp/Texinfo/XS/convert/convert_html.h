@@ -40,7 +40,7 @@ void html_format_init (void);
 
 void html_converter_initialize (CONVERTER *self);
 
-void html_initialize_output_state (CONVERTER *self, char *context);
+void html_initialize_output_state (CONVERTER *self, const char *context);
 void html_conversion_finalization (CONVERTER *self);
 
 void html_converter_prepare_output (CONVERTER* self);
@@ -91,13 +91,14 @@ int html_get_file_information (CONVERTER *self, const char *key,
                                const char *filename, int *status);
 
 int html_special_unit_variety_direction_index (CONVERTER *self,
-                                        char *special_unit_variety);
+                                        const char *special_unit_variety);
 
-HTML_TARGET *html_get_target (CONVERTER *self, const ELEMENT *element);
-const char *html_command_id (CONVERTER *self, const ELEMENT *command);
+HTML_TARGET *html_get_target (const CONVERTER *self, const ELEMENT *element);
+const char *html_command_id (const CONVERTER *self, const ELEMENT *command);
 char *html_command_contents_target (CONVERTER *self, const ELEMENT *command,
                                     enum command_id contents_or_shortcontents);
-char *html_footnote_location_target (CONVERTER *self, const ELEMENT *command);
+const char *html_footnote_location_target (const CONVERTER *self,
+                                           const ELEMENT *command);
 FILE_NUMBER_NAME *html_command_filename (CONVERTER *self,
                                          const ELEMENT *command);
 const ELEMENT *html_command_root_element_command (CONVERTER *self,
@@ -119,7 +120,7 @@ char *html_internal_command_text (CONVERTER *self, const ELEMENT *command,
                                   const enum html_text_type type);
 
 EXPLAINED_COMMAND_TYPE *find_explained_command_string
-                           (EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
+                      (const EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
                                const enum command_id cmd, const char *type);
 void register_explained_command_string (
                EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
@@ -139,7 +140,7 @@ STRING_LIST *html_get_css_elements_classes (CONVERTER *self,
                                             const char *filename);
 void html_css_add_info (CONVERTER *self, enum css_info_type type,
                         const char *css_info);
-STRING_LIST *html_css_get_info (CONVERTER *self, enum css_info_type type);
+const STRING_LIST *html_css_get_info (CONVERTER *self, enum css_info_type type);
 void html_css_set_selector_style (CONVERTER* self, const char *css_info,
                                   const char *css_style);
 const char *html_css_get_selector_style (CONVERTER* self, const char *css_info);
@@ -182,8 +183,8 @@ void html_prepare_conversion_units_targets (CONVERTER *self,
 FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
           int output_units_descriptor,
           int special_units_descriptor, int associated_special_units_descriptor,
-          char *output_file, char *destination_directory, char *output_filename,
-          char *document_name);
+          const char *output_file, const char *destination_directory,
+          const char *output_filename, const char *document_name);
 
 void html_prepare_output_units_global_targets (CONVERTER *self,
                                         int output_units_descriptor,
@@ -202,7 +203,7 @@ char *html_convert_convert (CONVERTER *self, const ELEMENT *root,
                             int output_units_descriptor,
                             int special_units_descriptor);
 char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,
-                         char *explanation);
+                         const char *explanation);
 
 char *html_convert_output (CONVERTER *self, const ELEMENT *root,
                            int output_units_descriptor,

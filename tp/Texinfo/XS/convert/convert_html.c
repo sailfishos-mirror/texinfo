@@ -277,7 +277,7 @@ static COMMAND_ARGS_SPECIFICATION command_args_flags[BUILTIN_CMD_NUMBER];
 
 
 static void convert_to_html_internal (CONVERTER *self, const ELEMENT *e,
-                                      TEXT *result, char *explanation);
+                                      TEXT *result, const char *explanation);
 
 /*
  if OUTPUT_UNITS is defined, the first output unit is used if a proper
@@ -309,7 +309,7 @@ unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
 int
 html_special_unit_variety_direction_index (CONVERTER *self,
-                                      char *special_unit_variety)
+                                      const char *special_unit_variety)
 {
   /* number is index +1 */
   size_t number = find_string (&self->special_unit_varieties,
@@ -535,7 +535,8 @@ find_element_target (const HTML_TARGET_LIST *targets, const ELEMENT *element)
   return 0;
   */
 }
-
+/* the target may not be known already, so the caller may fill the
+   HTML_TARGET in some cases */
 HTML_TARGET *
 find_element_special_target (const HTML_TARGET_LIST *targets,
                              const ELEMENT *element)
@@ -556,30 +557,32 @@ format_translate_message (CONVERTER *self,
                                   const char *message, const char *lang,
                                   const char *message_context)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_translate_message];
 
-  return call_formatting_function_format_translate_message(self,
+  return call_formatting_function_format_translate_message (self,
                                             formatting_reference,
                                     message, lang, message_context);
 }
 
+/* return string to be freed by the caller */
 char *
 html_translate_string (CONVERTER *self, const char *string,
                        const char *lang,
                        const char *translation_context)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
     = &self->formatting_references[FR_format_translate_message];
 
   /* there is no place where FRS_status_ignore could be set, but
      it does not hurt to consider it possible */
   if (formatting_reference->status
       && formatting_reference->status != FRS_status_ignored
+     /* this function may not be defined in Perl, thus this condition */
       && formatting_reference->sv_reference)
     {
       char *translated_string
-       = format_translate_message(self, string, lang, translation_context);
+       = format_translate_message (self, string, lang, translation_context);
 
       if (translated_string)
         return translated_string;
@@ -595,7 +598,7 @@ html_gdt (const char *string, CONVERTER *self, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      const char *translation_context)
 {
-  OPTIONS *options = self->conf;
+  const OPTIONS *options = self->conf;
   int debug_level = 0;
   int document_descriptor;
 
@@ -674,7 +677,7 @@ translate_convert_to_html_internal (const char *string,
                CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context,
-               TEXT *result, char *explanation)
+               TEXT *result, const char *explanation)
 {
   ELEMENT *translation_tree = html_cdt_tree (string, self,
                            replaced_substrings, translation_context);
@@ -1033,7 +1036,7 @@ special_unit_info_tree (CONVERTER *self, const enum special_unit_info_tree type,
 
 char *
 special_unit_info (CONVERTER *self, enum special_unit_info_type type,
-                   char *special_unit_variety)
+                   const char *special_unit_variety)
 {
   /* number is index +1 */
   size_t number = find_string (&self->special_unit_varieties,
@@ -1627,7 +1630,7 @@ void register_pre_class_command (enum command_id cmd, enum command_id main_cmd)
   elements, contents elements... */
 static HTML_TARGET *
 add_element_target_to_list (HTML_TARGET_LIST *targets,
-                            const ELEMENT *element, char *target)
+                            const ELEMENT *element, const char *target)
 {
   HTML_TARGET *element_target;
 
@@ -1650,7 +1653,8 @@ add_element_target_to_list (HTML_TARGET_LIST *targets,
    without cmd are all associated to 0.  This is the case for the special
    units associated elements with type ET_special_unit_element and cmd 0 */
 static HTML_TARGET *
-add_element_target (CONVERTER *self, const ELEMENT *element, char *target)
+add_element_target (CONVERTER *self, const ELEMENT *element,
+                    const char *target)
 {
   enum command_id cmd = element_builtin_cmd (element);
   HTML_TARGET_LIST *targets = &self->html_targets[cmd];
@@ -1659,7 +1663,7 @@ add_element_target (CONVERTER *self, const ELEMENT *element, char *target)
 
 static HTML_TARGET *
 add_special_target (CONVERTER *self, enum special_target_type type,
-                    const ELEMENT *element, char *target)
+                    const ELEMENT *element, const char *target)
 {
   HTML_TARGET_LIST *targets = &self->html_special_targets[type];
   return add_element_target_to_list (targets, element, target);
@@ -1730,11 +1734,11 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
       char *default_filename = 0;
       char *filename = 0;
       OUTPUT_UNIT *special_unit = special_units->list[i];
-      char *special_unit_variety = special_unit->special_unit_variety;
+      const char *special_unit_variety = special_unit->special_unit_variety;
 
-      /* not to be freed, refers to self->special_unit_info */
-      char *target = special_unit_info (self, SUI_type_target,
-                                        special_unit_variety);
+      /* refers to self->special_unit_info */
+      const char *target = special_unit_info (self, SUI_type_target,
+                                              special_unit_variety);
 
       if (!target)
         continue;
@@ -1745,7 +1749,7 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
           && document_name)
         {
           TEXT text_name;
-          char *special_unit_file_string
+          const char *special_unit_file_string
             = special_unit_info (self, SUI_type_file_string,
                                  special_unit_variety);
           text_init (&text_name);
@@ -1780,7 +1784,7 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
 
       if (self->conf->DEBUG.integer > 0)
         {
-          char *fileout = filename;
+          const char *fileout = filename;
           if (!fileout)
             fileout = "UNDEF";
           fprintf (stderr, "Add special %s: target %s,\n    filename %s\n",
@@ -2777,8 +2781,10 @@ html_pop_document_context (CONVERTER *self)
   stack->top--;
 }
 
+/* returned string to be freed by the caller */
 char *
-html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
+html_convert_tree (CONVERTER *self, const ELEMENT *tree,
+                   const char *explanation)
 {
   TEXT result;
   text_init (&result);
@@ -2792,12 +2798,13 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree, char *explanation)
  */
 char *
 convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
-                              const char *context_string, char *multiple_pass,
+                              const char *context_string,
+                              const char *multiple_pass,
                               const char *document_global_context,
                               enum command_id block_cmd)
 {
+  const char *multiple_pass_str = "";
   char *result;
-  char *multiple_pass_str = "";
   char *explanation;
   char *context_string_str;
 
@@ -2836,7 +2843,7 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 }
 
 void
-clear_direction_string_type (CONVERTER *self, char ***type_directions_strings)
+clear_direction_string_type (const CONVERTER *self, char ***type_directions_strings)
 {
   int i;
   int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
@@ -2955,7 +2962,7 @@ direction_string (CONVERTER *self, int direction,
    is reallocated.  Callers should make sure that the html target is
    used before a reallocation is possible */
 HTML_TARGET *
-html_get_target (CONVERTER *self, const ELEMENT *element)
+html_get_target (const CONVERTER *self, const ELEMENT *element)
 {
   HTML_TARGET *result
    = find_element_target (self->html_targets, element);
@@ -2964,7 +2971,7 @@ html_get_target (CONVERTER *self, const ELEMENT *element)
 }
 
 const char *
-html_command_id (CONVERTER *self, const ELEMENT *command)
+html_command_id (const CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *target_info = html_get_target (self, command);
   if (target_info)
@@ -3601,7 +3608,7 @@ html_command_contents_target (CONVERTER *self, const ELEMENT *command,
 }
 
 static HTML_TARGET *
-get_footnote_location_target (CONVERTER *self, const ELEMENT *command)
+get_footnote_location_target (const CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *result
    = find_element_special_target
@@ -3610,10 +3617,10 @@ get_footnote_location_target (CONVERTER *self, const ELEMENT *command)
   return result;
 }
 
-char *
-html_footnote_location_target (CONVERTER *self, const ELEMENT *command)
+const char *
+html_footnote_location_target (const CONVERTER *self, const ELEMENT *command)
 {
-  HTML_TARGET *footnote_location_special_target_info
+  const HTML_TARGET *footnote_location_special_target_info
     = get_footnote_location_target (self, command);
   if (footnote_location_special_target_info)
     return footnote_location_special_target_info->target;
@@ -3629,7 +3636,7 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
 {
   int j;
   const char *filename_from;
-  char *target = html_command_contents_target (self, command,
+  const char *target = html_command_contents_target (self, command,
                                                contents_or_shortcontents);
 
   if (source_filename)
@@ -3685,6 +3692,7 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
 /*
  SPECIFIED_TARGET can be set to specify explicitly the target.
  TARGET_FILENAME_IN can be set to specify explicitly the file.
+ Returned string to be freed by the caller.
  */
 char *
 html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
@@ -3703,7 +3711,7 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
   else
     filename_from = self->current_filename.filename;
 
-  footnote_location_target_info = get_footnote_location_target(self, command);
+  footnote_location_target_info = get_footnote_location_target (self, command);
 
   if (specified_target)
     target = specified_target;
@@ -4209,6 +4217,7 @@ sort_css_element_class_styles (CONVERTER* self)
          sizeof (CSS_SELECTOR_STYLE), compare_selector_style);
 }
 
+/* can be modified if called by html_css_set_selector_style */
 CSS_SELECTOR_STYLE *
 find_css_selector_style
      (const CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
@@ -4268,7 +4277,7 @@ html_css_set_selector_style (CONVERTER* self, const char *css_info,
 const char *
 html_css_get_selector_style (CONVERTER* self, const char *css_info)
 {
-  CSS_SELECTOR_STYLE *selector_style
+  const CSS_SELECTOR_STYLE *selector_style
    = find_css_selector_style (&self->css_element_class_styles, css_info);
 
   if (selector_style)
@@ -4297,7 +4306,7 @@ add_new_css_page (PAGES_CSS_LIST *css_pages, const char *page_name)
 static void
 collect_css_element_class (CONVERTER *self, const char *selector)
 {
-  CSS_SELECTOR_STYLE *selector_style
+  const CSS_SELECTOR_STYLE *selector_style
     = find_css_selector_style (&self->css_element_class_styles, selector);
   if (selector_style)
     {
@@ -4380,7 +4389,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
   if (self->page_css.number <= 0)
     return 0;
 
-  CSS_LIST *global_context_css_list = &self->page_css.list[0];
+  const CSS_LIST *global_context_css_list = &self->page_css.list[0];
 
   if (filename)
     {
@@ -4390,7 +4399,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
         {
           if (self->page_css.number > 1)
             {
-              CSS_LIST *last_css_page
+              const CSS_LIST *last_css_page
                = &self->page_css.list[self->page_css.number -1];
               if (last_css_page->page_name
                   && !strcmp (filename, last_css_page->page_name))
@@ -4415,7 +4424,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
         }
       if (page_number)
         {
-          CSS_LIST *css_list;
+          const CSS_LIST *css_list;
           css_list = &self->page_css.list[page_number];
           if (css_list->number)
             {
@@ -4502,7 +4511,7 @@ html_css_add_info (CONVERTER *self, enum css_info_type type,
     add_string (css_info, &self->css_import_lines);
 }
 
-STRING_LIST *
+const STRING_LIST *
 html_css_get_info (CONVERTER *self, enum css_info_type type)
 {
   if (type == CI_css_info_rules)
@@ -4518,7 +4527,7 @@ html_css_get_info (CONVERTER *self, enum css_info_type type)
             {
               for (i = 0; i < self->css_element_class_styles.number; i++)
                 {
-                  CSS_SELECTOR_STYLE *selector_style
+                  const CSS_SELECTOR_STYLE *selector_style
                     = &self->css_element_class_styles.list[i];
                   if (selector_style->selector)
                     add_string (selector_style->selector,
@@ -4531,7 +4540,7 @@ html_css_get_info (CONVERTER *self, enum css_info_type type)
 }
 
 void
-close_html_lone_element (CONVERTER *self, TEXT *result)
+close_html_lone_element (const CONVERTER *self, TEXT *result)
 {
   if (self->conf->USE_XML_SYNTAX.integer > 0)
     text_append_n (result, "/>", 2);
@@ -4605,7 +4614,7 @@ html_attribute_class (CONVERTER *self, const char *element,
         {
           const char *style_class = classes->list[i];
           char *selector;
-          CSS_SELECTOR_STYLE *selector_style;
+          const CSS_SELECTOR_STYLE *selector_style;
 
           xasprintf (&selector, "%s.%s", element, style_class);
           selector_style
@@ -5171,8 +5180,8 @@ html_prepare_output_units_global_targets (CONVERTER *self,
 
 static void
 set_file_source_info (FILE_SOURCE_INFO *file_source_info,
-                          char *file_info_type, char *file_info_name,
-                          const ELEMENT *file_info_element, char *filepath)
+                          const char *file_info_type, const char *file_info_name,
+                          const ELEMENT *file_info_element, const char *filepath)
 {
   file_source_info->type = file_info_type;
   file_source_info->name = file_info_name;
@@ -5182,9 +5191,9 @@ set_file_source_info (FILE_SOURCE_INFO *file_source_info,
 
 static FILE_SOURCE_INFO *
 add_to_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
-                          char *filename,
-                          char *file_info_type, char *file_info_name,
-                          const ELEMENT *file_info_element, char *filepath)
+                          const char *filename,
+                          const char *file_info_type, const char *file_info_name,
+                          const ELEMENT *file_info_element, const char *filepath)
 {
   FILE_SOURCE_INFO *new_file_source_info;
   if (files_source_info->number == files_source_info->space)
@@ -5209,7 +5218,7 @@ add_to_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
 
 static FILE_SOURCE_INFO *
 find_file_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
-                            char *filename)
+                            const char *filename)
 {
   int i;
   for (i = 0; i < files_source_info->number; i++)
@@ -5235,20 +5244,22 @@ html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 
 static char *
 add_to_unit_file_name_paths (char **unit_file_name_paths,
-                             char *filename, OUTPUT_UNIT *output_unit)
+                             const char *filename,
+                             const OUTPUT_UNIT *output_unit)
 {
   unit_file_name_paths[output_unit->index] = strdup (filename);
 
   return unit_file_name_paths[output_unit->index];
 }
 
+/* Return structure to be freed by the caller */
 static FILE_SOURCE_INFO_LIST *
-html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
-                      OUTPUT_UNIT_LIST *special_units,
-                      OUTPUT_UNIT_LIST *associated_special_units,
-                      char *output_file,
-                      char *destination_directory, char *output_filename,
-                      char *document_name)
+html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
+                      const OUTPUT_UNIT_LIST *special_units,
+                      const OUTPUT_UNIT_LIST *associated_special_units,
+                      const char *output_file,
+                      const char *destination_directory, const char *output_filename,
+                      const char *document_name)
 {
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
   char **unit_file_name_paths;
@@ -5281,8 +5292,8 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
   else
     {
       char *top_node_filename_str;
-      OUTPUT_UNIT *node_top_output_unit = 0;
-      char *extension = 0;
+      const OUTPUT_UNIT *node_top_output_unit = 0;
+      const char *extension = 0;
       const ELEMENT *node_top = 0;
       int file_nr = 0;
       int i;
@@ -5313,9 +5324,9 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
 
       for (i = 0; i < output_units->number; i++)
         {
-          OUTPUT_UNIT *output_unit = output_units->list[i];
-          OUTPUT_UNIT *file_output_unit;
-          char *output_unit_file_name;
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          const OUTPUT_UNIT *file_output_unit;
+          const char *output_unit_file_name;
           /* For Top node. */
           if (node_top_output_unit && node_top_output_unit == output_unit)
             continue;
@@ -5325,7 +5336,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
            = unit_file_name_paths[file_output_unit->index];
           if (!output_unit_file_name)
             {
-              char *node_filename = 0;
+              const char *node_filename = 0;
               int j;
               for (j = 0; j < file_output_unit->unit_contents.number; j++)
                 {
@@ -5334,8 +5345,8 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                   if (root_command->cmd == CM_node)
                     {
                       const ELEMENT *node_target = 0;
-                      char *normalized = lookup_extra_string (root_command,
-                                                              "normalized");
+                      const char *normalized = lookup_extra_string (root_command,
+                                                                    "normalized");
                       if (normalized)
                         node_target
                          = find_identifier_target (
@@ -5436,10 +5447,10 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
                         }
                       else
                         {
-                          HTML_TARGET *section_target
+                          const HTML_TARGET *section_target
                             = find_element_target (self->html_targets,
                                                    command);
-                          char *section_filename
+                          const char *section_filename
                             = section_target->section_filename;
 
                           FILE_SOURCE_INFO *file_source_info
@@ -5539,7 +5550,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
       char *filename = unit_file_name_paths[i];
       FILE_SOURCE_INFO *file_source_info
         = find_file_source_info (files_source_info, filename);
-      char *filepath = file_source_info->path;
+      const char *filepath = file_source_info->path;
 
       FILE_NAME_PATH *file_name_path
         = call_file_id_setting_unit_file_name (self, output_unit,
@@ -5551,6 +5562,8 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
               FILE_SOURCE_INFO *file_source_info
                = find_file_source_info (files_source_info,
                                         file_name_path->filename);
+              /* FIXME to check, but seems like if file_name_path->filepath
+                 is set, it will not be freed */
               if (file_source_info)
                 {
                   if (file_source_info->path && file_name_path->filepath
@@ -5603,7 +5616,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           const ELEMENT *unit_command = special_unit->unit_command;
           const HTML_TARGET *special_unit_target
             = find_element_target (self->html_targets, unit_command);
-          char *filename = special_unit_target->special_unit_filename;
+          const char *filename = special_unit_target->special_unit_filename;
 
         /* Associate the special elements that have no page with the main page.
            This may only happen if not split. */
@@ -5658,7 +5671,7 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
       int i;
       for (i = 0; i < associated_special_units->number; i++)
         {
-          char *filename = 0;
+          const char *filename = 0;
           OUTPUT_UNIT *special_unit = associated_special_units->list[i];
           const OUTPUT_UNIT *associated_output_unit
             = special_unit->associated_document_unit;
@@ -5666,14 +5679,14 @@ html_set_pages_files (CONVERTER *self, OUTPUT_UNIT_LIST *output_units,
           HTML_TARGET *element_target
             = find_element_target (self->html_targets, unit_command);
 
-          if (element_target->special_unit_filename)
-            filename = element_target->special_unit_filename;
-          else
+          if (!element_target->special_unit_filename)
             {
+              char *unit_filename = 0;
               if (associated_output_unit)
-                filename = strdup (associated_output_unit->unit_filename);
-              element_target->special_unit_filename = filename;
+                unit_filename = strdup (associated_output_unit->unit_filename);
+              element_target->special_unit_filename = unit_filename;
             }
+          filename = element_target->special_unit_filename;
 
    /* set here the file name, but do not increment the counter as it is
       already set for the output unit the special output unit is in. */
@@ -5744,12 +5757,13 @@ prepare_special_units_directions (CONVERTER *self,
     }
 }
 
+/* Return structure to be freed by the caller */
 FILE_SOURCE_INFO_LIST *
 html_prepare_units_directions_files (CONVERTER *self,
           int output_units_descriptor,
           int special_units_descriptor, int associated_special_units_descriptor,
-          char *output_file, char *destination_directory, char *output_filename,
-          char *document_name)
+          const char *output_file, const char *destination_directory,
+          const char *output_filename, const char *document_name)
 {
   int i;
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
@@ -6441,7 +6455,7 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
   char *attribute_class;
   char *class;
   STRING_LIST *classes;
-  ELEMENT *footnote_heading_tree;
+  const ELEMENT *footnote_heading_tree;
   char *footnote_heading;
   int level;
   TEXT foot_lines;
@@ -6751,10 +6765,10 @@ void
 html_default_format_css_lines (CONVERTER *self, const char *filename,
                                TEXT *result)
 {
-  STRING_LIST *css_refs;
+  const STRING_LIST *css_refs;
+  const STRING_LIST *css_import_lines;
+  const STRING_LIST *css_rule_lines;
   STRING_LIST *css_element_classes;
-  STRING_LIST *css_import_lines;
-  STRING_LIST *css_rule_lines;
   size_t i;
 
   if (self->conf->NO_CSS.integer > 0)
@@ -6791,7 +6805,7 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
           for (i = 0; i < css_element_classes->number; i++)
             {
               const char *selector = css_element_classes->list[i];
-              CSS_SELECTOR_STYLE *selector_style
+              const CSS_SELECTOR_STYLE *selector_style
                = find_css_selector_style (&self->css_element_class_styles,
                                           selector);
               if (selector_style->style)
@@ -8634,7 +8648,8 @@ convert_email_command (CONVERTER *self, const enum command_id cmd,
 }
 
 EXPLAINED_COMMAND_TYPE *
-find_explained_command_string (EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
+find_explained_command_string (
+                      const EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
                                const enum command_id cmd, const char *type)
 {
   size_t i;
@@ -8668,6 +8683,7 @@ register_explained_command_string (
       type_explanation->cmd = cmd;
       type_explanation->type = strdup (type);
 
+      type_explanation = &type_explanations->list[type_explanations->number];
       type_explanations->number++;
     }
   else
@@ -8684,10 +8700,10 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
 {
   TEXT explained_string;
   TEXT *text_result;
-  char *explained_arg = 0;
+  const char *explained_arg = 0;
   char *normalized_type = 0;
-  char *explanation_string = 0;
-  char *explanation_result = 0;
+  const char *explanation_string = 0;
+  const char *explanation_result = 0;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
     = &self->shared_conversion_state.explained_commands;
 
@@ -8944,12 +8960,13 @@ convert_uref_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
+  const char *url = 0;
+  const char *url_string = 0;
+  const char *text = 0;
+  const char *replacement;
+  char *protected_url;
   char *attribute_class;
   STRING_LIST *classes;
-  char *url = 0;
-  char *url_string = 0;
-  char *text = 0;
-  char *protected_url;
 
   if (args_formatted->number > 0
       && args_formatted->args[0].formatted[AFT_type_url]
@@ -8966,7 +8983,8 @@ convert_uref_command (CONVERTER *self, const enum command_id cmd,
   if (args_formatted->number > 2
       && args_formatted->args[2].formatted[AFT_type_normal])
     {
-      char *replacement = args_formatted->args[2].formatted[AFT_type_normal];
+      replacement
+        = args_formatted->args[2].formatted[AFT_type_normal];
       if (strlen (replacement))
         text = replacement;
     }
@@ -9139,9 +9157,9 @@ convert_image_command (CONVERTER *self, const enum command_id cmd,
       && strlen (args_formatted->args[0].formatted[AFT_type_filenametext]))
     {
       IMAGE_FILE_LOCATION_INFO *image_path_info;
-      char *image_basefile
+      const char *image_basefile
         = args_formatted->args[0].formatted[AFT_type_filenametext];
-      char *basefile_string = 0;
+      const char *basefile_string = 0;
       char *image_file;
       char *attribute_class;
       char *protected_image_file;
@@ -9220,7 +9238,7 @@ convert_math_command (CONVERTER *self, const enum command_id cmd,
 {
   char *attribute_class;
   STRING_LIST *classes;
-  char *arg;
+  const char *arg;
 
   if (!args_formatted || args_formatted->number <= 0
       || !args_formatted->args[0].formatted[AFT_type_normal])
@@ -9694,7 +9712,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
               char *class;
               char *attribute_class;
 
-              char *special_unit_variety
+              const char *special_unit_variety
                 = self->special_unit_varieties.list[cmd_variety_index.index];
               int special_unit_direction_index
                     = html_special_unit_variety_direction_index (self,
@@ -11364,7 +11382,7 @@ convert_cartouche_command (CONVERTER *self, const enum command_id cmd,
    functions or the formatting/conversion functions for HTML will be used. */
 char *
 html_convert_css_string (CONVERTER *self, const ELEMENT *element,
-                         char *context_str)
+                         const char *context_str)
 {
   char *css_string_context_str;
   char *context_string_str;
@@ -11433,7 +11451,7 @@ static SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD
 
 char *
 html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
-                                       char *explanation)
+                                       const char *explanation)
 {
   char *result;
   int i;
@@ -14179,14 +14197,14 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                   const ELEMENT *element, const char *content,
                   TEXT *result)
 {
-  ELEMENT *name_entry = 0;
-  ELEMENT *menu_description = 0;
+  const ELEMENT *name_entry = 0;
+  const ELEMENT *menu_description = 0;
   ELEMENT *menu_entry_node = 0;
-  ELEMENT *menu_entry_leading_text = 0;
-  ELEMENT *menu_entry_separators[2];
-  ELEMENT *manual_content;
-  ELEMENT *node_description = 0;
-  ELEMENT *section = 0;
+  const ELEMENT *menu_entry_leading_text = 0;
+  const ELEMENT *menu_entry_separators[2];
+  const ELEMENT *manual_content;
+  const ELEMENT *node_description = 0;
+  const ELEMENT *section = 0;
   size_t i;
   int entry_separators_nr = 0;
   int entry_separators_idx = 0;
@@ -14196,7 +14214,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
   int in_string = html_in_string (self);
   int html_menu_entry_index;
 
-  memset (menu_entry_separators, 0, 2 * sizeof (ELEMENT *));
+  memset (menu_entry_separators, 0, 2 * sizeof (const ELEMENT *));
 
   for (i = 0; i < element->contents.number; i++)
     {
@@ -14223,10 +14241,10 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
   else
     {
   /* may not be defined in case of menu entry node consisting only of spaces */
-      char *normalized = lookup_extra_string (menu_entry_node, "normalized");
+      const char *normalized = lookup_extra_string (menu_entry_node, "normalized");
       if (normalized)
         {
-          ELEMENT *node
+          const ELEMENT *node
            = find_identifier_target (self->document->identifiers_target,
                                      normalized);
           if (node)
@@ -14239,7 +14257,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
       the node is the element command */
               if (self->conf->NODE_NAME_IN_MENU.integer <= 0)
                 {
-                  ELEMENT *associated_section = lookup_extra_element (node,
+                  const ELEMENT *associated_section = lookup_extra_element (node,
                                                        "associated_section");
                   if (associated_section)
                     {
@@ -14290,7 +14308,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
   if (html_inside_preformatted (self) || in_string)
     {
       const char *leading_text = menu_entry_leading_text->text.text;
-      char *menu_symbol;
+      const char *menu_symbol;
       if (!in_string)
         {
           char *pre_class = preformatted_class (self);
@@ -14458,10 +14476,12 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
             }
           if (!name)
             {
-              ELEMENT *manual_content = lookup_extra_element (menu_entry_node,
-                                                            "manual_content");
-              ELEMENT *node_content = lookup_extra_element (menu_entry_node,
-                                                             "node_content");
+              const ELEMENT *manual_content
+                           = lookup_extra_element (menu_entry_node,
+                                                   "manual_content");
+              ELEMENT *node_content
+                         = lookup_extra_element (menu_entry_node,
+                                                 "node_content");
               if (manual_content)
                 {
                   name = html_command_text (self, menu_entry_node, 0);
@@ -14721,6 +14741,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       char *text;
       text = convert_to_text (element, self->convert_text_options);
       format_protect_text (self, text, result);
+      free (text);
     }
 
   index_id = html_command_id (self, element);
@@ -15104,7 +15125,7 @@ convert_table_definition_type (CONVERTER *self, const enum element_type type,
 }
 
 /* associate type to the C function implementing the conversion */
-static TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
+static const TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_balanced_braces, &convert_balanced_braces_type},
   {ET_before_item, convert_before_item_type},
   {ET_def_item, &convert_def_item_type},
@@ -16516,10 +16537,10 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
 /* called very early in conversion functions, before updating
    customization, before calling user-defined functions...  */
 void
-html_initialize_output_state (CONVERTER *self, char *context)
+html_initialize_output_state (CONVERTER *self, const char *context)
 {
   int i;
-  char *output_encoding;
+  const char *output_encoding;
   char *line_break_element;
 
   if (!self->document && self->conf->DEBUG.integer > 0)
@@ -16531,11 +16552,11 @@ html_initialize_output_state (CONVERTER *self, char *context)
 
   for (i = 0; i < SC_non_breaking_space+1; i++)
     {
-      char *unicode_point = special_characters_formatting[i][2];
-      char *entity = special_characters_formatting[i][0];
-      char *encoded_string = special_characters_formatting[i][1];
-      char *numeric_entity = special_characters_formatting[i][3];
-      char *special_character_string;
+      const char *unicode_point = special_characters_formatting[i][2];
+      const char *entity = special_characters_formatting[i][0];
+      const char *encoded_string = special_characters_formatting[i][1];
+      const char *numeric_entity = special_characters_formatting[i][3];
+      const char *special_character_string;
 
       if (self->conf->OUTPUT_CHARACTERS.integer > 0
           && unicode_point_decoded_in_encoding (output_encoding,
@@ -16597,7 +16618,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
       INDEX **i, *idx;
       size_t j;
       INDEX **index_names = self->document->index_names;
-      INDEX **sorted_index_names;
+      const INDEX **sorted_index_names;
       size_t index_nr = 0;
       size_t non_empty_index_nr = 0;
       size_t idx_non_empty = 0;
@@ -16609,7 +16630,7 @@ html_initialize_output_state (CONVERTER *self, char *context)
             non_empty_index_nr++;
         }
 
-      sorted_index_names = (INDEX **) malloc (index_nr * sizeof (INDEX *));
+      sorted_index_names = (const INDEX **) malloc (index_nr * sizeof (INDEX *));
 
       memcpy (sorted_index_names, index_names, index_nr * sizeof (INDEX *));
       qsort (sorted_index_names, index_nr, sizeof (INDEX *),
@@ -16633,7 +16654,8 @@ html_initialize_output_state (CONVERTER *self, char *context)
 
   if (self->document)
     {
-      LISTOFFLOATS_TYPE_LIST *listoffloats = self->document->listoffloats;
+      const LISTOFFLOATS_TYPE_LIST *listoffloats
+         = self->document->listoffloats;
 
       if (listoffloats && listoffloats->number)
         {
@@ -17200,7 +17222,7 @@ void
 html_translate_names (CONVERTER *self)
 {
   int j;
-  STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
+  const STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
 
   if (self->conf->DEBUG.integer > 0)
     {
@@ -17224,7 +17246,7 @@ html_translate_names (CONVERTER *self)
      such that they are redone with the new tree when needed. */
   for (j = 0; j < special_unit_varieties->number; j++)
     {
-      char *special_unit_variety = special_unit_varieties->list[j];
+      const char *special_unit_variety = special_unit_varieties->list[j];
       int special_unit_direction_index
        = html_special_unit_variety_direction_index (self, special_unit_variety);
       if (special_unit_direction_index >= 0)
@@ -17645,7 +17667,7 @@ debug_print_html_contexts (CONVERTER *self)
 /* EXPLANATION is used for debugging */
 void
 convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
-                          TEXT *result, char *explanation)
+                          TEXT *result, const char *explanation)
 {
   /* for debugging, for explanations */
   TEXT command_type;
@@ -17664,7 +17686,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     {
       TEXT debug_str;
       char *contexts_str = debug_print_html_contexts (self);
-      char *explanation_str = explanation;
+      const char *explanation_str = explanation;
       if (!explanation)
         explanation_str = "NO EXPLANATION";
       text_init (&debug_str);

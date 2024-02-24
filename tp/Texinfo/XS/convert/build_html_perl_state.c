@@ -92,7 +92,7 @@ build_html_target (HTML_TARGET *html_target)
 }
 
 SV *
-build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
+build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
 {
   int i;
   HV *hv;
@@ -106,10 +106,10 @@ build_html_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 #define STORE(key, sv) hv_store (file_source_info_hv, key, strlen (key), sv, 0)
       for (i = 0; i < files_source_info->number; i++)
         {
-          FILE_SOURCE_INFO * file_source_info = &files_source_info->list[i];
+          const FILE_SOURCE_INFO * file_source_info = &files_source_info->list[i];
           HV *file_source_info_hv;
           SV *file_source_info_sv;
-          char *filename = file_source_info->filename;
+          const char *filename = file_source_info->filename;
           SV *filename_sv = newSVpv_utf8 (filename, 0);
 
           file_source_info_hv = newHV ();

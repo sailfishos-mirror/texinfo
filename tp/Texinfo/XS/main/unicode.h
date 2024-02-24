@@ -82,7 +82,8 @@ extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
 uint8_t *utf8_from_string (const char *text);
 char *string_from_utf8 (const uint8_t *encoded_u8);
 
-int unicode_point_decoded_in_encoding (const char *encoding, char *codepoint);
+int unicode_point_decoded_in_encoding (const char *encoding,
+                                       const char *codepoint);
 
 char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);

@@ -104,7 +104,7 @@ TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
                                                    const ELEMENT *command);
 
 char *convert_accents (CONVERTER *self, const ELEMENT *accent,
- char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree, char *explanation),
+ char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree, const char *explanation),
  char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
                         int set_case),
   int output_encoded_characters,
@@ -118,7 +118,7 @@ INDEX_SORTED_BY_INDEX *get_converter_indices_sorted_by_index (CONVERTER *self);
 INDEX_SORTED_BY_LETTER *get_converter_indices_sorted_by_letter
                                                  (CONVERTER *self);
 
-char *top_node_filename (CONVERTER *self, char *document_name);
+char *top_node_filename (const CONVERTER *self, const char *document_name);
 
 ELEMENT *float_type_number (CONVERTER *self, const ELEMENT *float_e);
 FLOAT_CAPTION_PREPENDED_ELEMENT *float_name_caption (CONVERTER *self,
@@ -126,9 +126,9 @@ FLOAT_CAPTION_PREPENDED_ELEMENT *float_name_caption (CONVERTER *self,
 
 void initialize_output_units_files (CONVERTER *self);
 size_t set_output_unit_file (CONVERTER *self, OUTPUT_UNIT *output_unit,
-                                    char *filename, int set_counter);
-void set_file_path (CONVERTER *self, char *filename, char *filepath,
-                    char *destination_directory);
+                                    const char *filename, int set_counter);
+void set_file_path (CONVERTER *self, const char *filename, const char *filepath,
+                    const char *destination_directory);
 void clear_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 void free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 

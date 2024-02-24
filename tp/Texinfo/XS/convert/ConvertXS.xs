@@ -1003,7 +1003,7 @@ SV *
 html_footnote_location_target (SV *converter_in, SV *element_sv)
      PREINIT:
          CONVERTER *self;
-         char *id = 0;
+         const char *id = 0;
          const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
@@ -1468,7 +1468,7 @@ html_css_get_info (SV *converter_in, char *spec)
                                   "html_css_add_info");
          if (self)
            {
-             STRING_LIST *result;
+             const STRING_LIST *result;
              enum css_info_type type = html_get_css_info_spec (spec);
              result = html_css_get_info (self, type);
              if (result)
