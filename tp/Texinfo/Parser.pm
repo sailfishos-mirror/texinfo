@@ -25,16 +25,16 @@ our $VERSION = '7.1dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  my $xs_package = "Texinfo::Parser";
+  my $shared_library_name = "Parsetexi";
   if (defined $ENV{TEXINFO_XS_PARSER}
       and $ENV{TEXINFO_XS_PARSER} eq '0') {
-    undef $xs_package;
+    undef $shared_library_name;
   }
 
   my $package = Texinfo::XSLoader::init (
-      $xs_package,
+      "Texinfo::Parser",
       "Texinfo::ParserNonXS",
-      "Parsetexi",
+      $shared_library_name,
       "Texinfo::XS::parsetexi::Parsetexi",
       0,
   );

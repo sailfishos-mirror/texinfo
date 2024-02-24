@@ -1,3 +1,14 @@
+2024-02-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Parser.pm: Always call Texinfo::XSLoader::init with
+	"Texinfo::Parser" as the first argument.  This is needed to call
+	the import function loaded from Texinfo/ParserNonXS.pm.  Undef
+	the "Parsetexi" argument if TEXINFO_XS_PARSER is 0.
+	* tp/Texinfo/XSLoader.pm (init): Check if argument giving the name
+	of the Libtool file is undefined.
+
+	Running with TEXINFO_XS_PARSER=0 was broken.
+
 2024-02-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/input.c (input_push_file): use save_string

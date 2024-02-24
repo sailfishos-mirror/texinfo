@@ -70,10 +70,9 @@ sub _find_file($) {
   return undef;
 }
 
-# Load either from XS implementation in $MODULE along with Perl file
-# $PERL_EXTRA_FILE, or non-XS implementation $FALLBACK_MODULE.
-# $MODULE_NAME is the name of a Libtool file used for
-# loading the XS subroutines.
+# Load module $module, either from XS implementation in
+# Libtool file $MODULE_NAME and Perl file $PERL_EXTRA_FILE,
+# or non-XS implementation $FALLBACK_MODULE.
 # $INTERFACE_VERSION is a module interface number, to be changed when the XS
 # interface changes.
 # The package loaded is returned or undef if there is no fallback and the
@@ -123,7 +122,7 @@ sub init {
     goto FALLBACK;
   }
 
-  if (!$module) {
+  if (!$module_name) {
     goto FALLBACK;
   }
 
