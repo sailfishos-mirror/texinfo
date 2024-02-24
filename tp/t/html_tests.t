@@ -1148,6 +1148,15 @@ Need 2 elements for separate footnotes.
 
 @anchor{@sansserif{ll} @r{jj}}
 ',],
+['set_unit_file_name_filepath',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+', {'init_files' => ['set_unit_file_name_filepath.pm']},
+   {'SPLIT' => 'node'},
+],
 # NOTE the result is incorrect, the first footnote text is at the
 # end of the file but the link is towards the separate file.
 # The manual states that the footnotestyle should be in the preamble,
