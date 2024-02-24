@@ -513,7 +513,7 @@ units_directions (OPTIONS *customization_information,
       OUTPUT_UNIT *output_unit = output_units->list[i];
       OUTPUT_UNIT **directions = output_unit->directions;
       ELEMENT *node = output_unit_node (output_unit);
-      const ELEMENT *node_directions;
+      const ELEMENT_LIST *node_directions;
       ELEMENT *section = output_unit_section (output_unit);
 
       directions[RUD_type_This] = output_unit;
@@ -535,7 +535,7 @@ units_directions (OPTIONS *customization_information,
             {
               for (d = 0; d < directions_length; d++)
                 {
-                  ELEMENT *node_direction = node_directions->contents.list[d];
+                  ELEMENT *node_direction = node_directions->list[d];
                   if (node_direction)
                     directions[node_unit_directions[d]]
                       = label_target_unit_element (node_direction);
@@ -563,19 +563,19 @@ units_directions (OPTIONS *customization_information,
                    = section_childs->list[0]->associated_unit;
                 }
               else if (node_directions
-                       && node_directions->contents.list[D_next])
+                       && node_directions->list[D_next])
                directions[RUD_type_NodeForward]
                  = label_target_unit_element (
-                         node_directions->contents.list[D_next]);
-              else if (node_directions && node_directions->contents.list[D_up])
+                         node_directions->list[D_next]);
+              else if (node_directions && node_directions->list[D_up])
                 {
-                  ELEMENT *up = node_directions->contents.list[D_up];
+                  ELEMENT *up = node_directions->list[D_up];
                   ELEMENT_LIST up_list;
                   memset (&up_list, 0, sizeof (ELEMENT_LIST));
                   add_to_element_list (&up_list, node);
                   while (1)
                     {
-                      const ELEMENT *up_node_directions;
+                      const ELEMENT_LIST *up_node_directions;
                       int i;
                       int in_up = 0;
                       for (i = 0; i < up_list.number; i++)
@@ -590,17 +590,17 @@ units_directions (OPTIONS *customization_information,
                       up_node_directions = lookup_extra_directions (up,
                                                    "node_directions");
                       if (up_node_directions
-                          && up_node_directions->contents.list[D_next])
+                          && up_node_directions->list[D_next])
                         {
                            directions[RUD_type_NodeForward]
                              = label_target_unit_element (
-                              up_node_directions->contents.list[D_next]);
+                              up_node_directions->list[D_next]);
                            break;
                         }
                       add_to_element_list (&up_list, up);
                       if (up_node_directions
-                          && up_node_directions->contents.list[D_up])
-                        up = up_node_directions->contents.list[D_up];
+                          && up_node_directions->list[D_up])
+                        up = up_node_directions->list[D_up];
                       else
                         break;
                     }
@@ -656,7 +656,8 @@ units_directions (OPTIONS *customization_information,
           int up_section_level;
           int status;
           enum directions d;
-          const ELEMENT *section_directions = lookup_extra_directions (section,
+          const ELEMENT_LIST *section_directions
+                        = lookup_extra_directions (section,
                                                    "section_directions");
           if (section_directions)
             {
@@ -670,13 +671,13 @@ units_directions (OPTIONS *customization_information,
                @part part
                @chapter chapter
              in that cas the direction is not set up */
-                  if (section_directions->contents.list[d]
-                      && section_directions->contents.list[d]->associated_unit
+                  if (section_directions->list[d]
+                      && section_directions->list[d]->associated_unit
                       && (!section->associated_unit
                           || section->associated_unit
-                     != section_directions->contents.list[d]->associated_unit))
+                     != section_directions->list[d]->associated_unit))
                   directions[section_unit_directions[d]]
-                    = section_directions->contents.list[d]->associated_unit;
+                    = section_directions->list[d]->associated_unit;
                 }
             }
 
@@ -687,12 +688,13 @@ units_directions (OPTIONS *customization_information,
               up_section_level
                 = lookup_extra_integer (up, "section_level", &status);
 
-              const ELEMENT *up_section_directions = lookup_extra_directions (up,
+              const ELEMENT_LIST *up_section_directions
+                        = lookup_extra_directions (up,
                                                    "section_directions");
               if (status >= 0 && up_section_level > 1
                   && up_section_directions
-                  && up_section_directions->contents.list[D_up])
-                up = up_section_directions->contents.list[D_up];
+                  && up_section_directions->list[D_up])
+                up = up_section_directions->list[D_up];
               else
                 break;
             }
@@ -707,21 +709,21 @@ units_directions (OPTIONS *customization_information,
             }
           else
             {
-              const ELEMENT *toplevel_directions
+              const ELEMENT_LIST *toplevel_directions
                = lookup_extra_directions (up, "toplevel_directions");
               if (toplevel_directions
-                  && toplevel_directions->contents.list[D_next])
+                  && toplevel_directions->list[D_next])
                 directions[RUD_type_FastForward]
-                  = toplevel_directions->contents.list[D_next]->associated_unit;
+                  = toplevel_directions->list[D_next]->associated_unit;
               else
                 {
-                  const ELEMENT *up_section_directions
+                  const ELEMENT_LIST *up_section_directions
                         = lookup_extra_directions (up,
                                                    "section_directions");
                   if (up_section_directions
-                      && up_section_directions->contents.list[D_next])
+                      && up_section_directions->list[D_next])
                     directions[RUD_type_FastForward]
-                      = up_section_directions->contents.list[D_next]
+                      = up_section_directions->list[D_next]
                                                      ->associated_unit;
                 }
             }
@@ -750,11 +752,11 @@ units_directions (OPTIONS *customization_information,
          Not done in the default case. */
       if (customization_information->USE_UP_NODE_FOR_ELEMENT_UP.integer > 0
           && !directions[RUD_type_Up] && node
-          && node_directions && node_directions->contents.list[D_up]
+          && node_directions && node_directions->list[D_up]
           && (!node_top || node != node_top))
         {
           OUTPUT_UNIT *up_node_unit_element
-           = label_target_unit_element (node_directions->contents.list[D_up]);
+           = label_target_unit_element (node_directions->list[D_up]);
           if (up_node_unit_element)
             directions[RUD_type_Up] = up_node_unit_element;
         }

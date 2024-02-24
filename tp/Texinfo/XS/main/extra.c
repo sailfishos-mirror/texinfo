@@ -120,15 +120,15 @@ add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value)
    In other elements, in general, all the pointer elements are non
    NULL in contents for the first contents.number elements.
 */
-ELEMENT *
-add_extra_directions (ELEMENT *e, const char *key, ELEMENT *value)
+ELEMENT_LIST *
+add_extra_directions (ELEMENT *e, const char *key, ELEMENT_LIST *value)
 {
   if (!value)
-    value = new_element (ET_NONE);
-  element_set_empty_contents (value, directions_length);
+    value = new_list ();
+  list_set_empty_contents (value, directions_length);
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_directions);
-  k->element = value;
+  k->list = value;
   return value;
 }
 
@@ -293,7 +293,7 @@ lookup_extra_contents (const ELEMENT *e, const char *key)
   return k->list;
 }
 
-const ELEMENT *
+const ELEMENT_LIST *
 lookup_extra_directions (const ELEMENT *e, const char *key)
 {
   KEY_PAIR *k = lookup_extra (e, key);
@@ -307,7 +307,7 @@ lookup_extra_directions (const ELEMENT *e, const char *key)
       fatal (msg);
       free (msg);
     }
-  return k->element;
+  return k->list;
 }
 
 ELEMENT *

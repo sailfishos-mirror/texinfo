@@ -315,8 +315,7 @@ build_additional_info (HV *extra, ASSOCIATED_INFO *a, int avoid_recursion,
               }
             case extra_directions:
               {
-              if (f)
-                STORE(build_perl_directions (&f->contents, avoid_recursion));
+              STORE(build_perl_directions (k->list, avoid_recursion));
               break;
               }
             case extra_string:

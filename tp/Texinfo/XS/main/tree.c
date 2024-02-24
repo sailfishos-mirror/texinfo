@@ -148,10 +148,10 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           destroy_element_and_children (a->info[i].element);
           break;
         case extra_contents:
+        case extra_directions:
           destroy_list (a->info[i].list);
           break;
         case extra_container:
-        case extra_directions:
           if (a->info[i].element)
             destroy_element (a->info[i].element);
           break;
@@ -375,19 +375,26 @@ insert_list_slice_into_contents (ELEMENT *to, int where, ELEMENT_LIST *from,
 
 /* ensure that there are n slots, and void them */
 void
-element_set_empty_contents (ELEMENT *parent, int n)
+list_set_empty_contents (ELEMENT_LIST *e_list, int n)
 {
   int i;
   if (n <= 0)
     return;
 
-  if (parent->contents.number < n)
+  if (e_list->number < n)
     {
-      reallocate_list_for (n - parent->contents.number, &parent->contents);
-      parent->contents.number = n;
+      reallocate_list_for (n - e_list->number, e_list);
+      e_list->number = n;
     }
   for (i = 0; i < n; i++)
-    parent->contents.list[i] = 0;
+    e_list->list[i] = 0;
+}
+
+
+void
+element_set_empty_contents (ELEMENT *parent, int n)
+{
+  list_set_empty_contents (&parent->contents, n);
 }
 
 ELEMENT *
