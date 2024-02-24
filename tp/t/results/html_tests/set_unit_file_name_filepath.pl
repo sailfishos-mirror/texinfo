@@ -257,7 +257,7 @@ $result_menus{'set_unit_file_name_filepath'} = [
   }
 ];
 
-$result_errors{'set_unit_file_name_filepath'} = undef;
+$result_errors{'set_unit_file_name_filepath'} = [];
 
 
 $result_floats{'set_unit_file_name_filepath'} = {};

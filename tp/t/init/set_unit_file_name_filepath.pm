@@ -1,7 +1,7 @@
 use strict;
 
 texinfo_register_file_id_setting_function('unit_file_name',
-                                          \&test_set_unit_file_name_filepath_file_name);
+                            \&test_set_unit_file_name_filepath_file_name);
 
 sub test_set_unit_file_name_filepath_file_name($$$$)
 {

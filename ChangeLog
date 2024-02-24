@@ -1,5 +1,13 @@
 2024-02-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (set_file_source_info)
+	(html_destroy_files_source_info, html_set_pages_files),
+	tp/Texinfo/XS/main/utils.h (FILE_SOURCE_INFO): free filepath coming
+	from user-defined file_id_setting unit_file_name function.
+	Copy filepath in FILE_SOURCE_INFO.
+
+2024-02-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files),
 	tp/t/init/set_unit_file_name_filepath.pm, tp/Makefile.tres,
 	tp/t/html_tests.t (set_unit_file_name_filepath): add test of

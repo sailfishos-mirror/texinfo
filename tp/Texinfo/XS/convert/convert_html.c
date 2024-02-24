@@ -5186,7 +5186,10 @@ set_file_source_info (FILE_SOURCE_INFO *file_source_info,
   file_source_info->type = file_info_type;
   file_source_info->name = file_info_name;
   file_source_info->element = file_info_element;
-  file_source_info->path = filepath;
+  if (filepath)
+    file_source_info->path = strdup (filepath);
+  else
+    file_source_info->path = 0;
 }
 
 static FILE_SOURCE_INFO *
@@ -5237,6 +5240,7 @@ html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
   for (i = 0; i < files_source_info->number; i++)
     {
       free (files_source_info->list[i].filename);
+      free (files_source_info->list[i].path);
     }
   free (files_source_info->list);
   free (files_source_info);
@@ -5562,8 +5566,6 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
               FILE_SOURCE_INFO *file_source_info
                = find_file_source_info (files_source_info,
                                         file_name_path->filename);
-              /* FIXME to check, but seems like if file_name_path->filepath
-                 is set, it will not be freed */
               if (file_source_info)
                 {
                   if (file_source_info->path && file_name_path->filepath
@@ -5588,6 +5590,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
               free (filename);
               filename = file_name_path->filename;
             }
+          free (file_name_path->filepath);
           free (file_name_path);
         }
       output_unit_file_idx

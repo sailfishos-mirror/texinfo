@@ -132,7 +132,7 @@ typedef struct FILE_SOURCE_INFO {
     const char *type;
     const char *name;
     const ELEMENT *element;
-    const char *path;
+    char *path;
 } FILE_SOURCE_INFO;
 
 typedef struct FILE_SOURCE_INFO_LIST {
