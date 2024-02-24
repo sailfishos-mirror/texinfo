@@ -130,7 +130,7 @@ sectioning_structure (DOCUMENT *document)
           /* new command is below */
             {
               const ELEMENT_LIST *section_directions
-                  = add_extra_directions (content, "section_directions", 0);
+                  = add_extra_directions (content, "section_directions");
               ELEMENT_LIST *section_childs = new_list ();
               if (level - prev_section_level > 1)
                 {
@@ -243,8 +243,8 @@ sectioning_structure (DOCUMENT *document)
                     = up_section_childs->list[up_section_childs->number -1];
                   const ELEMENT_LIST *prev_section_directions
                     = lookup_extra_directions (prev, "section_directions");
-                  ELEMENT_LIST *section_directions
-                    = add_extra_directions (content, "section_directions", 0);
+                  const ELEMENT_LIST *section_directions
+                    = add_extra_directions (content, "section_directions");
               /* do not set sec_root as up, but always put in section_childs */
                   if (up != sec_root)
                     section_directions->list[D_up] = up;
@@ -252,7 +252,7 @@ sectioning_structure (DOCUMENT *document)
 
                   if (!prev_section_directions)
                     prev_section_directions = add_extra_directions (prev,
-                                                     "section_directions", 0);
+                                                     "section_directions");
                   prev_section_directions->list[D_next] = content;
                   add_to_element_list (up_section_childs, content);
                 }
@@ -354,7 +354,7 @@ sectioning_structure (DOCUMENT *document)
           if (previous_toplevel || (section_top && section_top != content))
             {
               const ELEMENT_LIST *toplevel_directions
-                = add_extra_directions (content, "toplevel_directions", 0);
+                = add_extra_directions (content, "toplevel_directions");
 
               if (previous_toplevel)
                 {
@@ -364,7 +364,7 @@ sectioning_structure (DOCUMENT *document)
                   if (!prev_toplvl_directions)
                     prev_toplvl_directions
                       = add_extra_directions (previous_toplevel,
-                                              "toplevel_directions", 0);
+                                              "toplevel_directions");
  
                   prev_toplvl_directions->list[D_next] = content;
                   toplevel_directions->list[D_prev] = previous_toplevel;
@@ -891,7 +891,7 @@ set_menus_node_directions (DOCUMENT *document)
                                       if (!menu_directions)
                                         menu_directions
                                           = add_extra_directions (menu_node,
-                                                           "menu_directions", 0);
+                                                           "menu_directions");
                                       menu_directions->list[D_up]
                                         = node;
                                     }
@@ -921,7 +921,7 @@ set_menus_node_directions (DOCUMENT *document)
                               if (!menu_directions)
                                 menu_directions
                                   = add_extra_directions (menu_node,
-                                                      "menu_directions", 0);
+                                                      "menu_directions");
                               menu_directions->list[D_prev]
                                  = previous_node;
                             }
@@ -933,7 +933,7 @@ set_menus_node_directions (DOCUMENT *document)
                               if (!menu_directions)
                                 menu_directions
                                   = add_extra_directions (previous_node,
-                                                      "menu_directions", 0);
+                                                      "menu_directions");
                               menu_directions->list[D_next]
                                  = menu_node;
                             }
@@ -1150,7 +1150,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                       "node_directions");
                           if (!node_directions)
                             node_directions = add_extra_directions (node,
-                                                    "node_directions", 0);
+                                                    "node_directions");
                           node_directions->list[d]
                              = elt_menu_direction;
                         }
@@ -1168,7 +1168,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                 "node_directions");
                   if (!node_directions)
                     node_directions = add_extra_directions (node,
-                                                  "node_directions", 0);
+                                                  "node_directions");
 
                   node_directions->list[D_next] = menu_child;
                   const ELEMENT *menu_child_manual_content
@@ -1181,7 +1181,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       if (!child_node_directions)
                         child_node_directions
                           = add_extra_directions (menu_child,
-                                                   "node_directions", 0);
+                                                   "node_directions");
                       if (!child_node_directions->list[D_prev])
                         child_node_directions->list[D_prev] = node;
                     }
@@ -1200,7 +1200,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                       "node_directions");
                           if (!node_directions)
                             node_directions = add_extra_directions (node,
-                                                      "node_directions", 0);
+                                                      "node_directions");
                           node_directions->list[D_next]
                               = first_non_top_node;
                           int first_non_top_node_automatic
@@ -1213,7 +1213,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               if (!non_top_node_directions)
                                 non_top_node_directions
                                   = add_extra_directions (first_non_top_node,
-                                                      "node_directions", 0);
+                                                      "node_directions");
                               non_top_node_directions->list[D_prev]
                                = node;
                             }
@@ -1408,7 +1408,7 @@ nodes_tree (DOCUMENT *document)
                                                     "node_directions");
                         if (!node_directions)
                           node_directions = add_extra_directions (node,
-                                                      "node_directions", 0);
+                                                      "node_directions");
                         node_directions->list[d]
                            = direction_associated_node;
                       }
@@ -1435,7 +1435,7 @@ nodes_tree (DOCUMENT *document)
                                                     "node_directions");
                         if (!top_directions)
                           top_directions = add_extra_directions (node,
-                                                      "node_directions", 0);
+                                                      "node_directions");
                         top_directions->list[D_next]
                           = top_node_section_child;
                         if (top_node_section_child->args.number <= 1)
@@ -1446,7 +1446,7 @@ nodes_tree (DOCUMENT *document)
                             if (!top_section_child_directions)
                               top_section_child_directions
                                 = add_extra_directions (top_node_section_child,
-                                                      "node_directions", 0);
+                                                      "node_directions");
                             top_section_child_directions->list[D_prev]
                               = node;
                           }
@@ -1471,7 +1471,7 @@ nodes_tree (DOCUMENT *document)
                                                     "node_directions");
                   if (!node_directions)
                     node_directions = add_extra_directions (node,
-                                                      "node_directions", 0);
+                                                      "node_directions");
                   node_directions->list[direction]
                       = direction_element;
                 }
@@ -1491,7 +1491,7 @@ nodes_tree (DOCUMENT *document)
                                                     "node_directions");
                           if (!node_directions)
                             node_directions = add_extra_directions (node,
-                                                      "node_directions", 0);
+                                                      "node_directions");
                           node_directions->list[direction]
                             = node_target;
                           if ((!options)

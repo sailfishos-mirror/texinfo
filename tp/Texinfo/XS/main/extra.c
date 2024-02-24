@@ -113,18 +113,16 @@ add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value)
   return value;
 }
 
-/* similar to extra_contents, but holds 3 elements corresponding to
-   directions in enum directions.  Another difference, more
-   generally with other elements, is that a pointer to the element
-   in the list set to 0 is ok, it means that there is no such direction
-   In other elements, in general, all the pointer elements are non
-   NULL in contents for the first contents.number elements.
+/* Holds 3 elements corresponding to directions in enum directions.
+   A general difference other element lists, is that an element
+   pointer set to 0 is ok, it means that there is no such direction
+   In general, all the pointer elements are non NULL in element lists
+   for the first number elements.
 */
-ELEMENT_LIST *
-add_extra_directions (ELEMENT *e, const char *key, ELEMENT_LIST *value)
+const ELEMENT_LIST *
+add_extra_directions (ELEMENT *e, const char *key)
 {
-  if (!value)
-    value = new_list ();
+  ELEMENT_LIST *value = new_list ();
   list_set_empty_contents (value, directions_length);
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_directions);
