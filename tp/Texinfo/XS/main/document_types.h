@@ -182,7 +182,7 @@ typedef struct DOCUMENT {
 } DOCUMENT;
 
 /* not in document, but used in parser */
-typedef struct expanded_format {
+typedef struct EXPANDED_FORMAT {
     char *format;
     int expandedp;
 } EXPANDED_FORMAT;

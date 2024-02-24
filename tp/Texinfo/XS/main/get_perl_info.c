@@ -231,7 +231,8 @@ get_sv_output_units (SV *output_units_in, char *warn_string)
 }
 
 void
-add_svav_to_string_list (SV *sv, STRING_LIST *string_list, enum sv_string_type type)
+add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
+                         enum sv_string_type type)
 {
   int i;
   SSize_t strings_nr;
@@ -248,7 +249,7 @@ add_svav_to_string_list (SV *sv, STRING_LIST *string_list, enum sv_string_type t
       SV** string_sv = av_fetch (av, i, 0);
       if (string_sv)
         {
-          char *string;
+          const char *string;
           if (type == svt_char)
             string = SvPVutf8_nolen (*string_sv);
           else
@@ -1003,8 +1004,8 @@ copy_sv_options_for_convert_text (SV *sv_in)
 }
 #undef FETCH
 
-int
-html_get_direction_index (CONVERTER *converter, const char *direction)
+static int
+html_get_direction_index (const CONVERTER *converter, const char *direction)
 {
   int i;
   if (converter && converter->direction_unit_direction_name)
@@ -1015,18 +1016,6 @@ html_get_direction_index (CONVERTER *converter, const char *direction)
             return i;
         }
     }
-   /* we could do the following, but there is no point in getting the
-      buttons if not all can be determined */
-   /*
-  else
-    {
-      for (i = 0; i < NON_SPECIAL_DIRECTIONS_NR; i++)
-        {
-          if (!strcmp (direction, html_button_direction_names[i]))
-            return i;
-        }
-    }
-    */
   return -1;
 }
 
@@ -1041,7 +1030,8 @@ static const char *button_function_type_string[] = {
 
 /* HTML specific, but needs to be there for options_get_perl.c */
 BUTTON_SPECIFICATION_LIST *
-html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
+html_get_button_specification_list (const CONVERTER *converter,
+                                    const SV *buttons_sv)
 {
   BUTTON_SPECIFICATION_LIST *result;
   AV *buttons_av;
@@ -1183,9 +1173,9 @@ html_get_button_specification_list (CONVERTER *converter, SV *buttons_sv)
 
 /* HTML specific, but needs to be there for options_get_perl.c */
 void
-html_get_direction_icons_sv (CONVERTER *converter,
+html_get_direction_icons_sv (const CONVERTER *converter,
                              DIRECTION_ICON_LIST *direction_icons,
-                             SV *icons_sv)
+                             const SV *icons_sv)
 {
   HV *icons_hv;
   int i;

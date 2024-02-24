@@ -17,11 +17,8 @@
 
 #include "tree_types.h"
 #include "tree.h"
-#include "errors_parser.h"
-/* for item_line_parent */
-#include "utils.h"
-#include "builtin_commands.h"
 #include "commands.h"
+#include "errors_parser.h"
 /* check_no_text */
 #include "handle_commands.h"
 
@@ -67,7 +64,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       && last_contents_child(current)->type == ET_before_item)
     {
       if (next_command == CM_itemx)
-        line_error ("@itemx should not begin @%s", command_name(current->cmd));
+        line_error ("@itemx should not begin @%s", command_name (current->cmd));
       return;
     }
 

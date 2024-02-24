@@ -131,7 +131,8 @@ reset_parser (int local_debug_output)
    tree and document obtained by parsing FILENAME.
    Used for parse_texi_file. */
 int
-parse_file (char *filename, char *input_file_name, char *input_directory)
+parse_file (char *filename, const char *input_file_name,
+            const char *input_directory)
 {
   int document_descriptor;
   char *p, *q;
@@ -172,7 +173,7 @@ parse_file (char *filename, char *input_file_name, char *input_directory)
 
 /* Used for parse_texi_text.  STRING should be a UTF-8 buffer. */
 int
-parse_text (char *string, int line_nr)
+parse_text (const char *string, int line_nr)
 {
   int document_descriptor;
 
@@ -186,7 +187,7 @@ parse_text (char *string, int line_nr)
    obtained by parsing the Texinfo code in STRING.
    STRING should be a UTF-8 buffer.  Used for parse_texi_line. */
 int
-parse_string (char *string, int line_nr)
+parse_string (const char *string, int line_nr)
 {
   ELEMENT *root_elt;
   int document_descriptor;
@@ -200,7 +201,7 @@ parse_string (char *string, int line_nr)
 
 /* Used for parse_texi_piece.  STRING should be a UTF-8 buffer. */
 int
-parse_piece (char *string, int line_nr)
+parse_piece (const char *string, int line_nr)
 {
   int document_descriptor;
   ELEMENT *before_node_section, *document_root;
@@ -222,7 +223,7 @@ parser_set_debug (int value)
 }
 
 void
-parser_set_documentlanguage_override (char *value)
+parser_set_documentlanguage_override (const char *value)
 {
   set_documentlanguage_override (value);
 }
@@ -234,19 +235,19 @@ parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 }
 
 void
-parser_set_input_file_name_encoding (char *value)
+parser_set_input_file_name_encoding (const char *value)
 {
   set_input_file_name_encoding (value);
 }
 
 void
-parser_set_locale_encoding (char *value)
+parser_set_locale_encoding (const char *value)
 {
   set_locale_encoding (value);
 }
 
 void
-parser_store_value (char *name, char *value)
+parser_store_value (const char *name, const char *value)
 {
   store_value (name, value);
 }
@@ -258,7 +259,7 @@ parser_clear_expanded_formats (void)
 }
 
 void
-parser_add_expanded_format (char *format)
+parser_add_expanded_format (const char *format)
 {
   add_parser_expanded_format (format);
 }

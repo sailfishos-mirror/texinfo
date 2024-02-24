@@ -327,7 +327,7 @@ set_documentlanguage (char *value)
 }
 
 void
-set_documentlanguage_override (char *value)
+set_documentlanguage_override (const char *value)
 {
   free (global_documentlanguage);
   global_documentlanguage = value ? strdup (value) : 0;

@@ -44,8 +44,8 @@
 #include "extra.h"
 
 /* Return a containing @itemize or @enumerate if inside it. */
-ELEMENT *
-item_container_parent (ELEMENT *current)
+static ELEMENT *
+item_container_parent (const ELEMENT *current)
 {
   if ((current->cmd == CM_item
        || current->type == ET_before_item)
@@ -61,7 +61,7 @@ item_container_parent (ELEMENT *current)
 /* Check that there are no text holding environments (currently
    checking only paragraphs and preformatted) in contents. */
 int
-check_no_text (ELEMENT *current)
+check_no_text (const ELEMENT *current)
 {
   int after_paragraph = 0;
   int i, j;
@@ -992,7 +992,7 @@ clear_parser_expanded_formats (void)
 }
 
 void
-add_parser_expanded_format (char *format)
+add_parser_expanded_format (const char *format)
 {
   add_expanded_format (parser_expanded_formats, format);
 }

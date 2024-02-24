@@ -178,17 +178,18 @@ size_t index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
 char *read_flag_name (char **ptr);
 int section_level (const ELEMENT *section);
 enum command_id section_level_adjusted_command_name (const ELEMENT *element);
-char *collapse_spaces (char *text);
+char *collapse_spaces (const char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
-int is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries);
+int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
 
 void clear_strings_list (STRING_LIST *strings);
 void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
 char *add_string (const char *string, STRING_LIST *strings_list);
-void merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings);
-void copy_strings (STRING_LIST *dest_list, STRING_LIST *source_list);
-size_t find_string (STRING_LIST *strings_list, const char *string);
+void merge_strings (STRING_LIST *strings_list,
+                    const STRING_LIST *merged_strings);
+void copy_strings (STRING_LIST *dest_list, const STRING_LIST *source_list);
+size_t find_string (const STRING_LIST *strings_list, const char *string);
 
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
@@ -205,8 +206,10 @@ void set_output_encoding (OPTIONS *customization_information,
                           DOCUMENT *document);
 OPTION *get_command_option (OPTIONS *options, enum command_id cmd);
 
-void add_include_directory (char *filename, STRING_LIST *include_dirs_list);
-char *locate_include_file (char *filename, STRING_LIST *include_dirs_list);
+void add_include_directory (const char *filename,
+                            STRING_LIST *include_dirs_list);
+char *locate_include_file (const char *filename,
+                           const STRING_LIST *include_dirs_list);
 
 ENCODING_CONVERSION *get_encoding_conversion (const char *encoding,
                                     ENCODING_CONVERSION_LIST *encodings_list);

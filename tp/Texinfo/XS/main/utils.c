@@ -670,10 +670,10 @@ read_flag_name (char **ptr)
 
 /* s/\s+/ /g with re => '/a' in perl */
 char *
-collapse_spaces (char *text)
+collapse_spaces (const char *text)
 {
   TEXT result;
-  char *p = text;
+  const char *p = text;
 
   if (!text)
     return 0;
@@ -706,11 +706,16 @@ collapse_spaces (char *text)
    The filename of the line directive is returned.
    The line number value is in OUT_LINE_NO.
    RETVAL value is 1 for valid line directive, 0 otherwise.
+
+   TODO would be good to have line const, but it is not possible
+   because of strtoul and because of the transient modification to
+   have a \0.
 */
 char *
 parse_line_directive (char *line, int *retval, int *out_line_no)
 {
-  char *p = line, *q;
+  char *p = line;
+  char *q;
   char *filename = 0;
   int line_no = 0;
 
@@ -824,7 +829,8 @@ wipe_index_names (INDEX **index_names)
 /* include directories and include file */
 
 void
-add_include_directory (char *input_filename, STRING_LIST *include_dirs_list)
+add_include_directory (const char *input_filename,
+                       STRING_LIST *include_dirs_list)
 {
   int len;
   char *filename = strdup (input_filename);
@@ -851,7 +857,7 @@ add_string (const char *string, STRING_LIST *strings_list)
 }
 
 void
-merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings)
+merge_strings (STRING_LIST *strings_list, const STRING_LIST *merged_strings)
 {
   int i;
   if (strings_list->number + merged_strings->number > strings_list->space)
@@ -868,7 +874,7 @@ merge_strings (STRING_LIST *strings_list, STRING_LIST *merged_strings)
 }
 
 void
-copy_strings (STRING_LIST *dest_list, STRING_LIST *source_list)
+copy_strings (STRING_LIST *dest_list, const STRING_LIST *source_list)
 {
   int i;
   if (dest_list->number + source_list->number > dest_list->space)
@@ -885,7 +891,7 @@ copy_strings (STRING_LIST *dest_list, STRING_LIST *source_list)
 
 /* return the index +1, to return 0 if not found */
 size_t
-find_string (STRING_LIST *strings_list, const char *target)
+find_string (const STRING_LIST *strings_list, const char *target)
 {
   size_t j;
   for (j = 0; j < strings_list->number; j++)
@@ -902,7 +908,7 @@ find_string (STRING_LIST *strings_list, const char *target)
 /* try to locate a file called FILENAME, looking for it in the list of include
    directories. */
 char *
-locate_include_file (char *filename, STRING_LIST *include_dirs_list)
+locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
 {
   char *fullpath;
   struct stat dummy;
@@ -1320,7 +1326,7 @@ section_level_adjusted_command_name (const ELEMENT *element)
 
 /* corresponding perl function in Common.pm */
 int
-is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
+is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
 {
   int i;
   if (!tree || !tree->contents.number)
@@ -1328,7 +1334,7 @@ is_content_empty (ELEMENT *tree, int do_not_ignore_index_entries)
 
   for (i = 0; i < tree->contents.number; i++)
     {
-      ELEMENT *content = tree->contents.list[i];
+      const ELEMENT *content = tree->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
 
       if (data_cmd)

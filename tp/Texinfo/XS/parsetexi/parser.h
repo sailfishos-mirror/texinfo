@@ -79,7 +79,7 @@ typedef struct {
 ELEMENT *setup_document_root_and_before_node_section (void);
 int parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 int parse_texi_document (void);
-void set_documentlanguage_override (char *value);
+void set_documentlanguage_override (const char *value);
 void set_accept_internalvalue (int value);
 void set_restricted (int value);
 

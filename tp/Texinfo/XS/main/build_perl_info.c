@@ -167,7 +167,7 @@ build_perl_container (ELEMENT *e, int avoid_recursion)
 }
 
 static SV *
-build_perl_directions (ELEMENT_LIST *e, int avoid_recursion)
+build_perl_directions (const ELEMENT_LIST *e, int avoid_recursion)
 {
   SV *sv;
   HV *hv;
@@ -888,7 +888,7 @@ build_index_data (INDEX **index_names_in)
 
 
 AV *
-build_string_list (STRING_LIST *strings_list, enum sv_string_type type)
+build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
 {
   AV *av;
   int i;
@@ -899,7 +899,7 @@ build_string_list (STRING_LIST *strings_list, enum sv_string_type type)
 
   for (i = 0; i < strings_list->number; i++)
     {
-      char *value = strings_list->list[i];
+      const char *value = strings_list->list[i];
       if (!value)
         av_push (av, newSV (0));
       else if (type == svt_char)
@@ -1382,7 +1382,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
     {
       if (output_unit->directions[i])
         {
-          char *direction_name = relative_unit_direction_name[i];
+          const char *direction_name = relative_unit_direction_name[i];
           OUTPUT_UNIT *direction_unit = output_unit->directions[i];
           SV *unit_sv;
           /* should ony happen for reference to external nodes that have
@@ -1407,21 +1407,21 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
   if (output_unit->unit_command)
     {
-      ELEMENT *command = output_unit->unit_command;
-      if (!command->hv)
+      const ELEMENT *command;
+      if (!output_unit->unit_command->hv
+          && output_unit->unit_command->type == ET_special_unit_element)
         {
-          if (command->type == ET_special_unit_element)
-            {
-              SV *unit_sv;
+          SV *unit_sv;
 
-              /* a virtual out of tree element, add it to perl */
-              element_to_perl_hash (command, 0);
+          /* a virtual out of tree element, add it to perl */
+          element_to_perl_hash (output_unit->unit_command, 0);
 
-              unit_sv = newRV_inc ((SV *) output_unit->hv);
-              hv_store (command->hv, "associated_unit",
-                        strlen ("associated_unit"), unit_sv, 0);
-            }
+          unit_sv = newRV_inc ((SV *) output_unit->hv);
+          hv_store (output_unit->unit_command->hv, "associated_unit",
+                    strlen ("associated_unit"), unit_sv, 0);
         }
+
+      command = output_unit->unit_command;
 
       if (!command->hv)
         fatal ("Missing output unit unit_command hv");
@@ -1518,7 +1518,7 @@ static int
 fill_output_units_descriptor_av (AV *av_output_units,
                                  size_t output_units_descriptor)
 {
-  OUTPUT_UNIT_LIST *output_units;
+  const OUTPUT_UNIT_LIST *output_units;
   size_t i;
 
   dTHX;
@@ -1575,7 +1575,7 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
 
   if (!SvOK (output_units_sv))
     {
-      OUTPUT_UNIT_LIST *output_units
+      const OUTPUT_UNIT_LIST *output_units
          = retrieve_output_units (output_units_descriptor);
       if (output_units && output_units->number)
         fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
@@ -1680,7 +1680,7 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
 }
 
 AV *
-build_integer_stack (INTEGER_STACK *integer_stack)
+build_integer_stack (const INTEGER_STACK *integer_stack)
 {
   AV *av;
   int i;

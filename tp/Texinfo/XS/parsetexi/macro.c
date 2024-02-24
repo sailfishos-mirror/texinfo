@@ -1026,7 +1026,7 @@ wipe_values (void)
 }
 
 void
-store_value (char *name, char *value)
+store_value (const char *name, const char *value)
 {
   int i;
   VALUE *v = 0;

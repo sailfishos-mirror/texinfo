@@ -288,7 +288,7 @@ print GET '#include "get_perl_info.h"'."\n";
 print GET '#include "build_perl_info.h"'."\n\n";
 
 print GET 'void
-get_sv_option (OPTIONS *options, const char *key, SV *value, int force, CONVERTER *converter)
+get_sv_option (OPTIONS *options, const char *key, SV *value, int force, const CONVERTER *converter)
 {
   dTHX;
 

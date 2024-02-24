@@ -43,7 +43,7 @@ void expand_macro_body (MACRO *macro_record, ELEMENT *arguments,
 MACRO *lookup_macro (enum command_id cmd);
 void wipe_macros (void);
 
-void store_value (char *name, char *value);
+void store_value (const char *name, const char *value);
 char *fetch_value (char *name);
 void clear_value (char *name);
 void wipe_values (void);
