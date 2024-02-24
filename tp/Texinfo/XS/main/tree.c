@@ -390,13 +390,6 @@ list_set_empty_contents (ELEMENT_LIST *e_list, int n)
     e_list->list[i] = 0;
 }
 
-
-void
-element_set_empty_contents (ELEMENT *parent, int n)
-{
-  list_set_empty_contents (&parent->contents, n);
-}
-
 ELEMENT *
 remove_from_element_list (ELEMENT_LIST *list, int where)
 {

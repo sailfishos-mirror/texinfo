@@ -27,7 +27,6 @@ void insert_list_slice_into_contents (ELEMENT *to, int idx, ELEMENT_LIST *from,
 void insert_list_slice_into_args (ELEMENT *to, int where, ELEMENT_LIST *from,
                                       int start, int end);
 void list_set_empty_contents (ELEMENT_LIST *e_list, int n);
-void element_set_empty_contents (ELEMENT *parent, int n);
 ELEMENT *remove_from_element_list (ELEMENT_LIST *list, int where);
 ELEMENT *remove_from_contents (ELEMENT *parent, int where);
 ELEMENT *remove_from_args (ELEMENT *parent, int where);
