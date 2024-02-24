@@ -170,7 +170,7 @@ sectioning_structure (DOCUMENT *document)
               while (1)
                 {
                   ELEMENT *up_section_directions
-                    = lookup_extra_element (up, "section_directions");
+                    = lookup_extra_directions (up, "section_directions");
                   up_level = lookup_extra_integer (up, "section_level",
                                                    &status);
                   if (up_section_directions
@@ -229,7 +229,7 @@ sectioning_structure (DOCUMENT *document)
                   first 'part' just appeared, no direction to set.
                    */
                   ELEMENT_LIST *sec_root_childs
-                    = lookup_extra_contents (sec_root, "section_childs", 0);
+                    = lookup_extra_contents (sec_root, "section_childs");
                   add_extra_integer (sec_root, "section_level", level -1);
                   add_to_element_list (sec_root_childs, content);
                   number_top_level = level;
@@ -240,11 +240,11 @@ sectioning_structure (DOCUMENT *document)
                 {
                   ELEMENT *section_directions = new_element (ET_NONE);
                   ELEMENT_LIST *up_section_childs
-                    = lookup_extra_contents (up, "section_childs", 0);
+                    = lookup_extra_contents (up, "section_childs");
                   ELEMENT *prev
                     = up_section_childs->list[up_section_childs->number -1];
                   ELEMENT *prev_section_directions
-                    = lookup_extra_directions (prev, "section_directions", 1);
+                    = lookup_extra_directions (prev, "section_directions");
                   add_extra_directions (content, "section_directions",
                                         section_directions);
               /* do not set sec_root as up, but always put in section_childs */
@@ -252,6 +252,9 @@ sectioning_structure (DOCUMENT *document)
                     section_directions->contents.list[D_up] = up;
                   section_directions->contents.list[D_prev] = prev;
 
+                  if (!prev_section_directions)
+                    prev_section_directions = add_extra_directions (prev,
+                                                     "section_directions", 0);
                   prev_section_directions->contents.list[D_next] = content;
                   add_to_element_list (up_section_childs, content);
                 }
@@ -360,7 +363,12 @@ sectioning_structure (DOCUMENT *document)
                 {
                   ELEMENT *prev_toplvl_directions
                    = lookup_extra_directions (previous_toplevel,
-                                              "toplevel_directions", 1);
+                                              "toplevel_directions");
+                  if (!prev_toplvl_directions)
+                    prev_toplvl_directions
+                      = add_extra_directions (previous_toplevel,
+                                              "toplevel_directions", 0);
+ 
                   prev_toplvl_directions->contents.list[D_next] = content;
                   toplevel_directions->contents.list[D_prev] = previous_toplevel;
                 }
@@ -460,7 +468,7 @@ get_node_node_childs_from_sectioning (ELEMENT *node)
   if (associated_section)
     {
       ELEMENT_LIST *section_childs = lookup_extra_contents (associated_section,
-                                                          "section_childs", 0);
+                                                          "section_childs");
       if (section_childs)
         {
           int i;
@@ -480,7 +488,7 @@ get_node_node_childs_from_sectioning (ELEMENT *node)
           ELEMENT *current = associated_section;
           while (1)
             {
-              ELEMENT *section_directions = lookup_extra_element (current,
+              ELEMENT *section_directions = lookup_extra_directions (current,
                                                         "section_directions");
               if (section_directions
                   && section_directions->contents.list[D_next])
@@ -489,7 +497,7 @@ get_node_node_childs_from_sectioning (ELEMENT *node)
                   if (current->cmd == CM_part)
                     {
                       ELEMENT_LIST *section_childs
-                       = lookup_extra_contents (current, "section_childs", 0);
+                       = lookup_extra_contents (current, "section_childs");
                       if (section_childs)
                         {
                           int i;
@@ -608,9 +616,9 @@ check_nodes_are_referenced (DOCUMENT *document)
       int status;
       ELEMENT *node = nodes_list->list[i];
       int is_target = lookup_extra_integer (node, "is_target", &status);
-      ELEMENT *node_directions = lookup_extra_element (node,
+      ELEMENT *node_directions = lookup_extra_directions (node,
                                                     "node_directions");
-      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
+      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
 
       if (is_target)
         nr_nodes_to_find++;
@@ -827,7 +835,7 @@ set_menus_node_directions (DOCUMENT *document)
     {
       int j;
       ELEMENT *node = nodes_list->list[i];
-      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
+      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
 
       if (!menus)
         continue;
@@ -879,7 +887,11 @@ set_menus_node_directions (DOCUMENT *document)
                                     {
                                       ELEMENT *menu_directions
                                        = lookup_extra_directions (menu_node,
-                                                          "menu_directions", 1);
+                                                          "menu_directions");
+                                      if (!menu_directions)
+                                        menu_directions
+                                          = add_extra_directions (menu_node,
+                                                           "menu_directions", 0);
                                       menu_directions->contents.list[D_up]
                                         = node;
                                     }
@@ -905,15 +917,23 @@ set_menus_node_directions (DOCUMENT *document)
                             {
                               ELEMENT *menu_directions
                                 = lookup_extra_directions (menu_node,
-                                                    "menu_directions", 1);
-                               menu_directions->contents.list[D_prev]
+                                                      "menu_directions");
+                              if (!menu_directions)
+                                menu_directions
+                                  = add_extra_directions (menu_node,
+                                                      "menu_directions", 0);
+                              menu_directions->contents.list[D_prev]
                                  = previous_node;
                             }
                           if (!prev_manual_content)
                             {
                               ELEMENT *menu_directions
                                 = lookup_extra_directions (previous_node,
-                                                    "menu_directions", 1);
+                                                       "menu_directions");
+                              if (!menu_directions)
+                                menu_directions
+                                  = add_extra_directions (previous_node,
+                                                      "menu_directions", 0);
                               menu_directions->contents.list[D_next]
                                  = menu_node;
                             }
@@ -969,7 +989,7 @@ section_direction_associated_node (ELEMENT *section, enum directions direction)
   for (i = 0; i < sizeof (direction_bases) / sizeof (direction_bases[0]);
        i++)
     {
-      ELEMENT *directions = lookup_extra_element (section, direction_bases[i]);
+      ELEMENT *directions = lookup_extra_directions (section, direction_bases[i]);
       if (directions && directions->contents.list[direction])
         {
           ELEMENT *section_to = directions->contents.list[direction];
@@ -1009,13 +1029,13 @@ complete_node_tree_with_menus (DOCUMENT *document)
     {
       ELEMENT *node = nodes_list->list[i];
       char *normalized = lookup_extra_string (node, "normalized");
-      ELEMENT *menu_directions = lookup_extra_element (node,
+      ELEMENT *menu_directions = lookup_extra_directions (node,
                                                       "menu_directions");
       int automatic_directions = (node->args.number <= 1);
 
       if (automatic_directions)
         {
-          ELEMENT *node_directions = lookup_extra_element (node,
+          ELEMENT *node_directions = lookup_extra_directions (node,
                                                           "node_directions");
           if (strcmp (normalized, "Top"))
             {
@@ -1055,8 +1075,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                         {
                           ELEMENT_LIST *menus = 0;
                           ELEMENT *section_directions
-                            = lookup_extra_element (node_direction_section,
-                                                    "section_directions");
+                            = lookup_extra_directions (node_direction_section,
+                                                       "section_directions");
                           if (section_directions
                               && section_directions->contents.list[D_up])
                             {
@@ -1066,7 +1086,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                             "associated_node");
                               if (up_node)
                                 menus
-                                  = lookup_extra_contents (up_node, "menus", 0);
+                                  = lookup_extra_contents (up_node, "menus");
                             }
 
                           if (menus
@@ -1124,7 +1144,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
                             }
 
                           node_directions = lookup_extra_directions (node,
-                                                      "node_directions", 1);
+                                                      "node_directions");
+                          if (!node_directions)
+                            node_directions = add_extra_directions (node,
+                                                    "node_directions", 0);
                           node_directions->contents.list[d]
                              = elt_menu_direction;
                         }
@@ -1139,7 +1162,11 @@ complete_node_tree_with_menus (DOCUMENT *document)
               if (menu_child)
                 {
                   node_directions = lookup_extra_directions (node,
-                                                "node_directions", 1);
+                                                "node_directions");
+                  if (!node_directions)
+                    node_directions = add_extra_directions (node,
+                                                  "node_directions", 0);
+
                   node_directions->contents.list[D_next] = menu_child;
                   ELEMENT *menu_child_manual_content
                     = lookup_extra_element (menu_child, "manual_content");
@@ -1147,7 +1174,11 @@ complete_node_tree_with_menus (DOCUMENT *document)
                     {
                       ELEMENT *child_node_directions
                         = lookup_extra_directions (menu_child,
-                                                   "node_directions", 1);
+                                                   "node_directions");
+                      if (!child_node_directions)
+                        child_node_directions
+                          = add_extra_directions (menu_child,
+                                                   "node_directions", 0);
                       if (!child_node_directions->contents.list[D_prev])
                         child_node_directions->contents.list[D_prev] = node;
                     }
@@ -1163,7 +1194,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       if (first_non_top_node != node)
                         {
                           node_directions = lookup_extra_directions (node,
-                                                      "node_directions", 1);
+                                                      "node_directions");
+                          if (!node_directions)
+                            node_directions = add_extra_directions (node,
+                                                      "node_directions", 0);
                           node_directions->contents.list[D_next]
                               = first_non_top_node;
                           int first_non_top_node_automatic
@@ -1172,7 +1206,11 @@ complete_node_tree_with_menus (DOCUMENT *document)
                             {
                               ELEMENT *non_top_node_directions
                                = lookup_extra_directions (first_non_top_node,
-                                                        "node_directions", 1);
+                                                        "node_directions");
+                              if (!non_top_node_directions)
+                                non_top_node_directions
+                                  = add_extra_directions (first_non_top_node,
+                                                      "node_directions", 0);
                               non_top_node_directions->contents.list[D_prev]
                                = node;
                             }
@@ -1187,7 +1225,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
            || options->CHECK_NORMAL_MENU_STRUCTURE.integer > 0)
           && strcmp (normalized, "Top"))
         {
-          ELEMENT *node_directions = lookup_extra_element (node,
+          ELEMENT *node_directions = lookup_extra_directions (node,
                                                            "node_directions");
           if (node_directions && menu_directions)
             {
@@ -1228,7 +1266,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
       if ((!options)
           || options->CHECK_MISSING_MENU_ENTRY.integer > 0)
         {
-          ELEMENT *node_directions = lookup_extra_element (node,
+          ELEMENT *node_directions = lookup_extra_directions (node,
                                                            "node_directions");
           ELEMENT *up_node = 0;
           if (node_directions && node_directions->contents.list[D_up])
@@ -1241,7 +1279,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
               int is_target = lookup_extra_integer (node, "is_target",
                                                     &status);
               ELEMENT_LIST *menus
-                   = lookup_extra_contents (up_node, "menus", 0);
+                   = lookup_extra_contents (up_node, "menus");
 
               /* No check if node up is an external manual */
               if (!manual_content
@@ -1331,7 +1369,7 @@ nodes_tree (DOCUMENT *document)
         if (!top_node || node != top_node)
           {
             enum directions d;
-            ELEMENT *node_directions = lookup_extra_element (node,
+            ELEMENT *node_directions = lookup_extra_directions (node,
                                                    "node_directions");
             for (d = 0; d < directions_length; d++)
               {
@@ -1364,7 +1402,10 @@ nodes_tree (DOCUMENT *document)
                     if (direction_associated_node)
                       {
                         node_directions = lookup_extra_directions (node,
-                                                    "node_directions", 1);
+                                                    "node_directions");
+                        if (!node_directions)
+                          node_directions = add_extra_directions (node,
+                                                      "node_directions", 0);
                         node_directions->contents.list[d]
                            = direction_associated_node;
                       }
@@ -1378,7 +1419,7 @@ nodes_tree (DOCUMENT *document)
             if (section)
               {
                 ELEMENT_LIST *section_childs
-                  = lookup_extra_contents (section, "section_childs", 0);
+                  = lookup_extra_contents (section, "section_childs");
                 if (section_childs && section_childs->number > 0)
                   {
                     ELEMENT *first_sec = section_childs->list[0];
@@ -1387,14 +1428,21 @@ nodes_tree (DOCUMENT *document)
                     if (top_node_section_child)
                       {
                         ELEMENT *top_directions = lookup_extra_directions (node,
-                                                    "node_directions", 1);
+                                                    "node_directions");
+                        if (!top_directions)
+                          top_directions = add_extra_directions (node,
+                                                      "node_directions", 0);
                         top_directions->contents.list[D_next]
                           = top_node_section_child;
                         if (top_node_section_child->args.number <= 1)
                           {
                             ELEMENT *top_section_child_directions
                              = lookup_extra_directions (top_node_section_child,
-                                                         "node_directions", 1);
+                                                         "node_directions");
+                            if (!top_section_child_directions)
+                              top_section_child_directions
+                                = add_extra_directions (top_node_section_child,
+                                                      "node_directions", 0);
                             top_section_child_directions->contents.list[D_prev]
                               = node;
                           }
@@ -1415,7 +1463,10 @@ nodes_tree (DOCUMENT *document)
               if (manual_content)
                 {
                   ELEMENT *node_directions = lookup_extra_directions (node,
-                                                    "node_directions", 1);
+                                                    "node_directions");
+                  if (!node_directions)
+                    node_directions = add_extra_directions (node,
+                                                      "node_directions", 0);
                   node_directions->contents.list[direction]
                       = direction_element;
                 }
@@ -1432,7 +1483,10 @@ nodes_tree (DOCUMENT *document)
                         {
                           ELEMENT *node_directions
                             = lookup_extra_directions (node,
-                                                    "node_directions", 1);
+                                                    "node_directions");
+                          if (!node_directions)
+                            node_directions = add_extra_directions (node,
+                                                      "node_directions", 0);
                           node_directions->contents.list[direction]
                             = node_target;
                           if ((!options)
@@ -1615,7 +1669,7 @@ number_floats (DOCUMENT *document)
               while (1)
                 {
                   ELEMENT *section_directions
-                    = lookup_extra_element (up, "section_directions");
+                    = lookup_extra_directions (up, "section_directions");
                   if (section_directions
                       && section_directions->contents.list[D_up])
                     {
@@ -1926,7 +1980,7 @@ print_down_menus (ELEMENT *node, LABEL_LIST *identifiers_target,
 {
   ELEMENT_LIST *master_menu_contents = new_list ();
   ELEMENT_LIST *menus;
-  ELEMENT_LIST *node_menus = lookup_extra_contents (node, "menus", 0);
+  ELEMENT_LIST *node_menus = lookup_extra_contents (node, "menus");
   ELEMENT_LIST *node_children;
   ELEMENT *new_current_menu = 0;
   int i;

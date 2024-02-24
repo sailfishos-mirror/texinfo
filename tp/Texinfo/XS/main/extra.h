@@ -21,9 +21,10 @@
 
 void add_extra_element (ELEMENT *e, const char *key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value);
+ELEMENT_LIST *add_extra_contents (ELEMENT *e, const char *key,
+                                  ELEMENT_LIST *value);
 void add_extra_container (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_directions (ELEMENT *e, const char *key, ELEMENT *value);
+ELEMENT *add_extra_directions (ELEMENT *e, const char *key, ELEMENT *value);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_string (ELEMENT *e, const char *key, char *value);
@@ -40,8 +41,8 @@ KEY_PAIR *lookup_extra (const ELEMENT *e, const char *key);
 KEY_PAIR *lookup_info (const ELEMENT *e, const char *key);
 ELEMENT *lookup_extra_element (const ELEMENT *e, const char *key);
 ELEMENT *lookup_info_element (const ELEMENT *e, const char *key);
-ELEMENT_LIST *lookup_extra_contents (ELEMENT *e, const char *key, int create);
-ELEMENT *lookup_extra_directions (ELEMENT *e, const char *key, int create);
+ELEMENT_LIST *lookup_extra_contents (const ELEMENT *e, const char *key);
+ELEMENT *lookup_extra_directions (ELEMENT *e, const char *key);
 int lookup_extra_integer (const ELEMENT *e, const char *key, int *ret);
 char *lookup_extra_string (const ELEMENT *e, const char *key);
 char *lookup_info_string (const ELEMENT *e, const char *key);

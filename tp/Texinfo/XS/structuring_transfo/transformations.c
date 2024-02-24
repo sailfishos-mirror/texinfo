@@ -690,7 +690,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
       if (previous_node)
         {
           ELEMENT_LIST *menus
-            = lookup_extra_contents (previous_node, "menus", 0);
+            = lookup_extra_contents (previous_node, "menus");
           int previous_idx = -1;
           if (menus)
             {
@@ -720,7 +720,9 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
                 }
             }
         }
-      added_node_menus = lookup_extra_contents (added_node, "menus", 1);
+      added_node_menus = lookup_extra_contents (added_node, "menus");
+      if (!added_node_menus)
+        added_node_menus = add_extra_contents (added_node, "menus", 0);
       add_to_element_list (added_node_menus, current);
     }
   else
@@ -906,7 +908,9 @@ prepend_new_menu_in_node_section (ELEMENT * node, ELEMENT *section,
                                   ELEMENT *current_menu)
 {
   ELEMENT *empty_line = new_element (ET_empty_line);
-  ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 1);
+  ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
+  if (!menus)
+    menus = add_extra_contents (node, "menus", 0);
 
   add_to_element_contents (section, current_menu);
   text_append (&empty_line->text, "\n");
@@ -936,7 +940,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
       ELEMENT *current_menu = 0;
 
       int i;
-      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
+      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
 
       if (menus)
         {
@@ -1106,7 +1110,7 @@ complete_tree_nodes_missing_menu (ELEMENT *root, DOCUMENT *document,
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
       ELEMENT *node = non_automatic_nodes->list[i];
-      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
+      ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
       if (!(menus && menus->number > 0))
         {
           ELEMENT *section = lookup_extra_element (node, "associated_section");
@@ -1139,7 +1143,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   if (top_node)
     {
-      menus = lookup_extra_contents (top_node, "menus", 0);
+      menus = lookup_extra_contents (top_node, "menus");
       if (!menus || (menus->number <= 0))
         return 0;
     }

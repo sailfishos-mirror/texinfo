@@ -5086,7 +5086,8 @@ html_prepare_output_units_global_targets (CONVERTER *self,
                     break;
 
                   const ELEMENT *up_section_directions
-                    = lookup_extra_element (root_command, "section_directions");
+                    = lookup_extra_directions (root_command,
+                                               "section_directions");
                   if (up_section_directions
                       && up_section_directions->contents.list[D_up]
                       && up_section_directions->contents.list[D_up]
@@ -6056,7 +6057,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   else
     return result.text;
 
-  root_children = lookup_extra_contents (section_root, "section_childs", 0);
+  root_children = lookup_extra_contents (section_root, "section_childs");
   min_root_level = lookup_extra_integer (root_children->list[0], "section_level",
                                          &status);
   max_root_level = min_root_level;
@@ -6126,7 +6127,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
          int section_level = lookup_extra_integer (section, "section_level",
                                                    &status);
          ELEMENT_LIST *section_childs
-           = lookup_extra_contents (section, "section_childs", 0);
+           = lookup_extra_contents (section, "section_childs");
          if (section->cmd != CM_top)
             {
               char *text;
@@ -6206,8 +6207,9 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
           else
             {
               ELEMENT *section_directions
-               = lookup_extra_element (section, "section_directions");
-              if (section_directions && section_directions->contents.list[D_next]
+               = lookup_extra_directions (section, "section_directions");
+              if (section_directions
+                  && section_directions->contents.list[D_next]
                   && section->cmd != CM_top)
                 {
                   text_append_n (&result, "</li>\n", 6);
@@ -6230,7 +6232,8 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       int i;
 
                       ELEMENT *section_directions
-                       = lookup_extra_element (section, "section_directions");
+                        = lookup_extra_directions (section,
+                                                   "section_directions");
                       if (!section_directions
                           || !section_directions->contents.list[D_up])
                         break;
@@ -6252,7 +6255,8 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                           break;
                         }
                       section_directions
-                        = lookup_extra_element (section, "section_directions");
+                        = lookup_extra_directions (section,
+                                                   "section_directions");
                       if (section_directions
                           && section_directions->contents.list[D_next])
                         {
@@ -9762,7 +9766,7 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
   /* drop the const with a cast, but we know that it is not modified, with
      0 as the third argument */
   ELEMENT_LIST *section_childs = lookup_extra_contents ((ELEMENT *) element,
-                                                        "section_childs", 0);
+                                                        "section_childs");
   if (section_childs && section_childs->number > 0)
     {
       char *attribute_class;
@@ -9933,7 +9937,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
           if (node)
             {
               int automatic_directions = (node->args.number <= 1);
-              ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
+              ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
               if (!menus && automatic_directions)
                 {
                   ELEMENT *menu_node
@@ -11278,7 +11282,7 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
     }
 
   /* the cast is here to discard const */
-  authors = lookup_extra_contents ((ELEMENT *) element, "authors", 0);
+  authors = lookup_extra_contents ((ELEMENT *) element, "authors");
   if (authors)
     {
       int i;

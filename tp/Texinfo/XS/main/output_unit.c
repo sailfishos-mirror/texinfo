@@ -530,7 +530,7 @@ units_directions (OPTIONS *customization_information,
         {
           ELEMENT *menu_child = first_menu_node(node, identifiers_target);
           enum directions d;
-          node_directions = lookup_extra_element (node, "node_directions");
+          node_directions = lookup_extra_directions (node, "node_directions");
           if (node_directions)
             {
               for (d = 0; d < directions_length; d++)
@@ -555,7 +555,7 @@ units_directions (OPTIONS *customization_information,
               ELEMENT_LIST *section_childs = 0;
               if (associated_section)
                 section_childs = lookup_extra_contents (associated_section,
-                                                        "section_childs", 0);
+                                                        "section_childs");
               if (automatic_directions
                   && section_childs && section_childs->number > 0)
                 {
@@ -587,7 +587,7 @@ units_directions (OPTIONS *customization_information,
                       if (in_up || (node_top && node_top == up))
                         break;
 
-                      up_node_directions = lookup_extra_element (up,
+                      up_node_directions = lookup_extra_directions (up,
                                                    "node_directions");
                       if (up_node_directions
                           && up_node_directions->contents.list[D_next])
@@ -656,7 +656,7 @@ units_directions (OPTIONS *customization_information,
           int up_section_level;
           int status;
           enum directions d;
-          ELEMENT *section_directions = lookup_extra_element (section,
+          ELEMENT *section_directions = lookup_extra_directions (section,
                                                    "section_directions");
           if (section_directions)
             {
@@ -687,7 +687,7 @@ units_directions (OPTIONS *customization_information,
               up_section_level
                 = lookup_extra_integer (up, "section_level", &status);
 
-              ELEMENT *up_section_directions = lookup_extra_element (up,
+              ELEMENT *up_section_directions = lookup_extra_directions (up,
                                                    "section_directions");
               if (status >= 0 && up_section_level > 1
                   && up_section_directions
@@ -697,7 +697,7 @@ units_directions (OPTIONS *customization_information,
                 break;
             }
 
-          up_section_childs = lookup_extra_contents (up, "section_childs", 0);
+          up_section_childs = lookup_extra_contents (up, "section_childs");
           if (status >= 0 && up_section_level < 1
               && up->cmd == CM_top && up_section_childs
               && up_section_childs->number > 0)
@@ -708,14 +708,14 @@ units_directions (OPTIONS *customization_information,
           else
             {
               ELEMENT *toplevel_directions
-               = lookup_extra_element (up, "toplevel_directions");
+               = lookup_extra_directions (up, "toplevel_directions");
               if (toplevel_directions
                   && toplevel_directions->contents.list[D_next])
                 directions[RUD_type_FastForward]
                   = toplevel_directions->contents.list[D_next]->associated_unit;
               else
                 {
-                  ELEMENT *up_section_directions = lookup_extra_element (up,
+                  ELEMENT *up_section_directions = lookup_extra_directions (up,
                                                    "section_directions");
                   if (up_section_directions
                       && up_section_directions->contents.list[D_next])

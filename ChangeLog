@@ -1,5 +1,21 @@
 2024-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/extra.c (add_extra_contents)
+	(lookup_extra_contents): remove create argument of
+	lookup_extra_contents.  If value is 0, create a list in
+	add_extra_contents.  Return the list from add_extra_contents.
+	Update callers.
+
+	* tp/Texinfo/XS/main/extra.c (add_extra_directions)
+	(lookup_extra_directions, lookup_extra_element): remove create
+	argument of lookup_extra_directions.  If value is 0, create an
+	element in add_extra_directions.  Do not accept extra_directions as a
+	possible type for lookup_extra_element.  Update callers and replace
+	calls to lookup_extra_element for directions by calls to
+	lookup_extra_directions.
+
+2024-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c: replace G_ARRAY by
 	G_LIST and use ppport.h which should provide compatibility.  ppport.h
 	do not proposes to include ppport.h, but it is likely that it is

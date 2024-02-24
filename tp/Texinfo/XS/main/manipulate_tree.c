@@ -1011,7 +1011,7 @@ normalized_entry_associated_internal_node (ELEMENT *entry,
 ELEMENT *
 first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
 {
-  ELEMENT_LIST *menus = lookup_extra_contents (node, "menus", 0);
+  ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
   if (menus)
     {
       int i;

@@ -102,12 +102,15 @@ add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 
 /* Add an extra key that is a reference to an array of other
    elements (for example, 'section_childs'). */
-void
+ELEMENT_LIST *
 add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value)
 {
+  if (!value)
+    value = new_list ();
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_contents);
   k->list = value;
+  return value;
 }
 
 /* similar to extra_contents, but holds 3 elements corresponding to
@@ -117,13 +120,16 @@ add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value)
    In other elements, in general, all the pointer elements are non
    NULL in contents for the first contents.number elements.
 */
-void
+ELEMENT *
 add_extra_directions (ELEMENT *e, const char *key, ELEMENT *value)
 {
+  if (!value)
+    value = new_element (ET_NONE);
   element_set_empty_contents (value, directions_length);
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_directions);
   k->element = value;
+  return value;
 }
 
 void
@@ -207,7 +213,7 @@ lookup_extra_element (const ELEMENT *e, const char *key)
   if (!k)
     return 0;
   else if (k->type == extra_string || k->type == extra_integer
-      || k->type == extra_contents)
+           || k->type == extra_contents || k->type == extra_directions)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_element: %s: %d",
@@ -270,44 +276,39 @@ lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
   return k->integer;
 }
 
-/* if CREATE is true, create an extra contents element if there is none */
 ELEMENT_LIST *
-lookup_extra_contents (ELEMENT *e, const char *key, int create)
+lookup_extra_contents (const ELEMENT *e, const char *key)
 {
   ELEMENT_LIST *e_list = 0;
   KEY_PAIR *k = lookup_extra (e, key);
-  if (k)
+  if (!k)
+    return 0;
+  else if (k->type != extra_contents)
     {
-      if (k->type != extra_contents)
-        {
-          char *msg;
-          xasprintf (&msg, "Bad type for lookup_extra_contents: %s: %d",
-                     key, k->type);
-          fatal (msg);
-          free (msg);
-        }
-      e_list = k->list;
+      char *msg;
+      xasprintf (&msg, "Bad type for lookup_extra_contents: %s: %d",
+                 key, k->type);
+      fatal (msg);
+      free (msg);
     }
-  else if (create)
-    {
-      e_list = new_list ();
-      add_extra_contents (e, key, e_list);
-    }
-  return e_list;
+  return k->list;
 }
 
-/* if CREATE is true, create an extra directions element if there is none */
 ELEMENT *
-lookup_extra_directions (ELEMENT *e, const char *key, int create)
+lookup_extra_directions (ELEMENT *e, const char *key)
 {
-  ELEMENT *contents_e;
-  contents_e = lookup_extra_element (e, key);
-  if (!contents_e && create)
+  KEY_PAIR *k = lookup_extra (e, key);
+  if (!k)
+    return 0;
+  else if (k->type != extra_directions)
     {
-      contents_e = new_element (ET_NONE);
-      add_extra_directions (e, key, contents_e);
+      char *msg;
+      xasprintf (&msg, "Bad type for lookup_extra_directions: %s: %d",
+                 key, k->type);
+      fatal (msg);
+      free (msg);
     }
-  return contents_e;
+  return k->element;
 }
 
 ELEMENT *
