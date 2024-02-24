@@ -122,12 +122,18 @@ add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value)
 const ELEMENT_LIST *
 add_extra_directions (ELEMENT *e, const char *key)
 {
-  ELEMENT_LIST *value = new_list ();
-  list_set_empty_contents (value, directions_length);
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
-                                         extra_directions);
-  k->list = value;
-  return value;
+  const ELEMENT_LIST *e_list = lookup_extra_directions (e, key);
+  if (e_list)
+    return e_list;
+  else
+    {
+      ELEMENT_LIST *n_list = new_list ();
+      list_set_empty_contents (n_list, directions_length);
+      KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+                                             extra_directions);
+      k->list = n_list;
+      return n_list;
+    }
 }
 
 void

@@ -242,17 +242,13 @@ sectioning_structure (DOCUMENT *document)
                   ELEMENT *prev
                     = up_section_childs->list[up_section_childs->number -1];
                   const ELEMENT_LIST *prev_section_directions
-                    = lookup_extra_directions (prev, "section_directions");
+                    = add_extra_directions (prev, "section_directions");
                   const ELEMENT_LIST *section_directions
                     = add_extra_directions (content, "section_directions");
               /* do not set sec_root as up, but always put in section_childs */
                   if (up != sec_root)
                     section_directions->list[D_up] = up;
                   section_directions->list[D_prev] = prev;
-
-                  if (!prev_section_directions)
-                    prev_section_directions = add_extra_directions (prev,
-                                                     "section_directions");
                   prev_section_directions->list[D_next] = content;
                   add_to_element_list (up_section_childs, content);
                 }
@@ -359,11 +355,7 @@ sectioning_structure (DOCUMENT *document)
               if (previous_toplevel)
                 {
                   const ELEMENT_LIST *prev_toplvl_directions
-                   = lookup_extra_directions (previous_toplevel,
-                                              "toplevel_directions");
-                  if (!prev_toplvl_directions)
-                    prev_toplvl_directions
-                      = add_extra_directions (previous_toplevel,
+                   = add_extra_directions (previous_toplevel,
                                               "toplevel_directions");
  
                   prev_toplvl_directions->list[D_next] = content;
@@ -886,14 +878,9 @@ set_menus_node_directions (DOCUMENT *document)
                                   if (menu_node)
                                     {
                                       const ELEMENT_LIST *menu_directions
-                                       = lookup_extra_directions (menu_node,
+                                       = add_extra_directions (menu_node,
                                                           "menu_directions");
-                                      if (!menu_directions)
-                                        menu_directions
-                                          = add_extra_directions (menu_node,
-                                                           "menu_directions");
-                                      menu_directions->list[D_up]
-                                        = node;
+                                      menu_directions->list[D_up] = node;
                                     }
                                 }
                             }
@@ -916,26 +903,16 @@ set_menus_node_directions (DOCUMENT *document)
                           if (!manual_content)
                             {
                               const ELEMENT_LIST *menu_directions
-                                = lookup_extra_directions (menu_node,
+                                = add_extra_directions (menu_node,
                                                       "menu_directions");
-                              if (!menu_directions)
-                                menu_directions
-                                  = add_extra_directions (menu_node,
-                                                      "menu_directions");
-                              menu_directions->list[D_prev]
-                                 = previous_node;
+                              menu_directions->list[D_prev] = previous_node;
                             }
                           if (!prev_manual_content)
                             {
                               const ELEMENT_LIST *menu_directions
-                                = lookup_extra_directions (previous_node,
+                                = add_extra_directions (previous_node,
                                                        "menu_directions");
-                              if (!menu_directions)
-                                menu_directions
-                                  = add_extra_directions (previous_node,
-                                                      "menu_directions");
-                              menu_directions->list[D_next]
-                                 = menu_node;
+                              menu_directions->list[D_next] = menu_node;
                             }
                         }
                       previous_node = menu_node;
@@ -1146,11 +1123,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               free (entry_texi);
                             }
 
-                          node_directions = lookup_extra_directions (node,
+                          node_directions = add_extra_directions (node,
                                                       "node_directions");
-                          if (!node_directions)
-                            node_directions = add_extra_directions (node,
-                                                    "node_directions");
                           node_directions->list[d]
                              = elt_menu_direction;
                         }
@@ -1164,11 +1138,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
               ELEMENT *menu_child = first_menu_node(node, identifiers_target);
               if (menu_child)
                 {
-                  node_directions = lookup_extra_directions (node,
+                  node_directions = add_extra_directions (node,
                                                 "node_directions");
-                  if (!node_directions)
-                    node_directions = add_extra_directions (node,
-                                                  "node_directions");
 
                   node_directions->list[D_next] = menu_child;
                   const ELEMENT *menu_child_manual_content
@@ -1196,10 +1167,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                         = nodes_list->list[j];
                       if (first_non_top_node != node)
                         {
-                          node_directions = lookup_extra_directions (node,
-                                                      "node_directions");
-                          if (!node_directions)
-                            node_directions = add_extra_directions (node,
+                          node_directions = add_extra_directions (node,
                                                       "node_directions");
                           node_directions->list[D_next]
                               = first_non_top_node;
@@ -1208,12 +1176,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                           if (first_non_top_node_automatic)
                             {
                               const ELEMENT_LIST *non_top_node_directions
-                               = lookup_extra_directions (first_non_top_node,
+                               = add_extra_directions (first_non_top_node,
                                                         "node_directions");
-                              if (!non_top_node_directions)
-                                non_top_node_directions
-                                  = add_extra_directions (first_non_top_node,
-                                                      "node_directions");
                               non_top_node_directions->list[D_prev]
                                = node;
                             }
@@ -1404,11 +1368,8 @@ nodes_tree (DOCUMENT *document)
                       = section_direction_associated_node(section, d);
                     if (direction_associated_node)
                       {
-                        node_directions = lookup_extra_directions (node,
+                        node_directions = add_extra_directions (node,
                                                     "node_directions");
-                        if (!node_directions)
-                          node_directions = add_extra_directions (node,
-                                                      "node_directions");
                         node_directions->list[d]
                            = direction_associated_node;
                       }
@@ -1431,24 +1392,15 @@ nodes_tree (DOCUMENT *document)
                     if (top_node_section_child)
                       {
                         const ELEMENT_LIST *top_directions
-                         = lookup_extra_directions (node,
-                                                    "node_directions");
-                        if (!top_directions)
-                          top_directions = add_extra_directions (node,
-                                                      "node_directions");
+                         = add_extra_directions (node, "node_directions");
                         top_directions->list[D_next]
                           = top_node_section_child;
                         if (top_node_section_child->args.number <= 1)
                           {
                             const ELEMENT_LIST *top_section_child_directions
-                             = lookup_extra_directions (top_node_section_child,
+                             = add_extra_directions (top_node_section_child,
                                                          "node_directions");
-                            if (!top_section_child_directions)
-                              top_section_child_directions
-                                = add_extra_directions (top_node_section_child,
-                                                      "node_directions");
-                            top_section_child_directions->list[D_prev]
-                              = node;
+                            top_section_child_directions->list[D_prev] = node;
                           }
                       }
                   }
@@ -1467,13 +1419,8 @@ nodes_tree (DOCUMENT *document)
               if (manual_content)
                 {
                   const ELEMENT_LIST *node_directions
-                         = lookup_extra_directions (node,
-                                                    "node_directions");
-                  if (!node_directions)
-                    node_directions = add_extra_directions (node,
-                                                      "node_directions");
-                  node_directions->list[direction]
-                      = direction_element;
+                         = add_extra_directions (node, "node_directions");
+                  node_directions->list[direction] = direction_element;
                 }
               else
                 {
@@ -1487,13 +1434,8 @@ nodes_tree (DOCUMENT *document)
                       if (node_target)
                         {
                           const ELEMENT_LIST *node_directions
-                            = lookup_extra_directions (node,
-                                                    "node_directions");
-                          if (!node_directions)
-                            node_directions = add_extra_directions (node,
-                                                      "node_directions");
-                          node_directions->list[direction]
-                            = node_target;
+                            = add_extra_directions (node, "node_directions");
+                          node_directions->list[direction] = node_target;
                           if ((!options)
                                || options->novalidate.integer <= 0)
                             {
