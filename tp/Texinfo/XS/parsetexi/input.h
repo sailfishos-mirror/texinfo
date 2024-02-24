@@ -12,8 +12,8 @@ char *next_text (ELEMENT *current);
 void save_line_directive (int line_nr, char *filename);
 
 void input_push_text (char *text, int line_number, const char *macro_name,
-                      char *value_flag);
-int input_push_file (char *filename);
+                      const char *value_flag);
+int input_push_file (const char *filename);
 void input_pushback (char *line);
 void set_input_source_mark (SOURCE_MARK *source_mark);
 void input_reset_input_stack (void);

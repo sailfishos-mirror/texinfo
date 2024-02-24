@@ -16,6 +16,14 @@
 
 2024-02-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/input.c (input_push_text): call strdup in
+	input_push_text for the value_flag instead of having it called by the
+	caller.  Make value_flag const.
+
+	* tp/Texinfo/XS/parsetexi/input.c (input_push_file): add const.
+
+2024-02-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/input.c (input_push_file): use save_string
 	if needed on input filename to store the path in input_file_path.
 

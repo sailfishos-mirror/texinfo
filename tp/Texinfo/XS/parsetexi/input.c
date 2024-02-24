@@ -453,12 +453,14 @@ next_text (ELEMENT *current)
    If already within a macro expansion, but not from a macro expansion
    (from a value expansion, for instance), the macro name will be taken
    from the input stack.
-   VALUE_FLAG is the name of the value flag expanded as text.
-   VALUE_FLAG will be later free'd, but not MACRO_NAME.
+   VALUE_FLAG is the name of the value flag expanded as text.  It is
+   copied, and the copy will be later free'd, but the argument is never
+   free'd.  MACRO_NAME is copied and the copy is saved using save_string,
+   the argument is not free'd.
  */
 void
 input_push_text (char *text, int line_number, const char *macro_name,
-                 char *value_flag)
+                 const char *value_flag)
 {
   char *filename = 0;
   const char *in_macro = 0;
@@ -496,7 +498,8 @@ input_push_text (char *text, int line_number, const char *macro_name,
   input_stack[input_number].source_info.file_name = save_string (filename);
   input_stack[input_number].source_info.macro = save_string (in_macro);
   input_stack[input_number].macro_name = save_string (macro_name);
-  input_stack[input_number].value_flag = value_flag;
+  input_stack[input_number].value_flag
+     = value_flag ? strdup (value_flag) : 0;
   input_stack[input_number].input_source_mark = 0;
   input_number++;
 }
@@ -618,7 +621,7 @@ parser_locate_include_file (const char *filename)
 
 /* Try to open a file called FILENAME */
 int
-input_push_file (char *filename)
+input_push_file (const char *filename)
 {
   FILE *stream = 0;
   char *p, *q;

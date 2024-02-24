@@ -1859,8 +1859,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                       input_push_text (strdup (remaining_line),
                                        current_source_info.line_nr, 0, 0);
                       input_push_text (strdup (value),
-                                       current_source_info.line_nr, 0,
-                                       strdup (flag));
+                                       current_source_info.line_nr, 0, flag);
 
                       value_source_mark
                           = new_source_mark (SM_type_value_expansion);
