@@ -77,15 +77,12 @@ sub _find_file($) {
 # interface changes.
 # The package loaded is returned or undef if there is no fallback and the
 # XS package was not loaded.
-# TODO remove $warning_message and $fatal_message?
 sub init {
   my ($module,
      $fallback_module,
      $module_name,
      $perl_extra_file,
      $interface_version,
-     $warning_message,
-     $fatal_message
    ) = @_;
 
   # Possible values for TEXINFO_XS environment variable:
@@ -110,15 +107,6 @@ sub init {
 
   if ($disable_XS) {
     _fatal "use of XS modules was disabled when Texinfo was built";
-    goto FALLBACK;
-  }
-
-  if ($warning_message) {
-    _debug $warning_message;
-  }
-
-  if ($fatal_message) {
-    _fatal $fatal_message;
     goto FALLBACK;
   }
 

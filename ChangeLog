@@ -1,5 +1,10 @@
 2024-02-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XSLoader.pm (init): Remove $warning_message and
+	$fatal_message arguments.
+
+2024-02-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Parser.pm: Always call Texinfo::XSLoader::init with
 	"Texinfo::Parser" as the first argument.  This is needed to call
 	the import function loaded from Texinfo/ParserNonXS.pm.  Undef
