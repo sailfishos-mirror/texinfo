@@ -720,9 +720,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
                 }
             }
         }
-      added_node_menus = lookup_extra_contents (added_node, "menus");
-      if (!added_node_menus)
-        added_node_menus = add_extra_contents (added_node, "menus", 0);
+      added_node_menus = add_extra_contents (added_node, "menus", 0);
       add_to_element_list (added_node_menus, current);
     }
   else
@@ -908,9 +906,7 @@ prepend_new_menu_in_node_section (ELEMENT * node, ELEMENT *section,
                                   ELEMENT *current_menu)
 {
   ELEMENT *empty_line = new_element (ET_empty_line);
-  ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
-  if (!menus)
-    menus = add_extra_contents (node, "menus", 0);
+  ELEMENT_LIST *menus = add_extra_contents (node, "menus", 0);
 
   add_to_element_contents (section, current_menu);
   text_append (&empty_line->text, "\n");

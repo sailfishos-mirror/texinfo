@@ -131,7 +131,8 @@ sectioning_structure (DOCUMENT *document)
             {
               const ELEMENT_LIST *section_directions
                   = add_extra_directions (content, "section_directions");
-              ELEMENT_LIST *section_childs = new_list ();
+              ELEMENT_LIST *section_childs
+                = add_extra_contents (previous_section, "section_childs", 1);
               if (level - prev_section_level > 1)
                 {
                   message_list_command_error (error_messages, options, content,
@@ -140,8 +141,6 @@ sectioning_structure (DOCUMENT *document)
                   level = prev_section_level + 1;
                 }
               add_to_element_list (section_childs, content);
-              add_extra_contents (previous_section, "section_childs",
-                                  section_childs);
               section_directions->list[D_up] = previous_section;
                /*
                 if the up is unnumbered, the number information has to be kept,
@@ -265,13 +264,13 @@ sectioning_structure (DOCUMENT *document)
         }
       else
         {
-          ELEMENT_LIST *sec_root_childs = new_list ();
           sec_root = new_element (ET_NONE);
+          ELEMENT_LIST *sec_root_childs
+            = add_extra_contents (sec_root, "section_childs", 1);
            /* first section determines the level of the root.  It is
               typically -1 when there is a @top. */
           add_extra_integer (sec_root, "section_level", level -1);
           add_to_element_list (sec_root_childs, content);
-          add_extra_contents (sec_root, "section_childs", sec_root_childs);
            /*
             in the tree as an out of tree element in extra */
           add_extra_element_oot (content, "sectioning_root", sec_root);

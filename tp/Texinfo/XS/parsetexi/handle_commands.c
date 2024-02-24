@@ -940,9 +940,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
               else if (parent->cmd == CM_quotation
                        || parent->cmd == CM_smallquotation)
                 {
-                  ELEMENT_LIST *l = lookup_extra_contents (parent, "authors");
-                  if (!l)
-                    l = add_extra_contents (parent, "authors", 0);
+                  ELEMENT_LIST *l = add_extra_contents (parent, "authors", 0);
                   add_to_element_list (l, current);
                   add_extra_element (current, "quotation", parent);
                   found = 1; break;
@@ -1120,9 +1118,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
                   else
                     {
                       ELEMENT_LIST *l
-                        = lookup_extra_contents (current_node, "menus");
-                      if (!l)
-                        l = add_extra_contents (current_node, "menus", 0);
+                        = add_extra_contents (current_node, "menus", 0);
                       add_to_element_list (l, block);
                     }
                 }

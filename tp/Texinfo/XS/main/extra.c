@@ -101,16 +101,27 @@ add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 }
 
 /* Add an extra key that is a reference to an array of other
-   elements (for example, 'section_childs'). */
+   elements (for example, 'section_childs').
+   Check if it already exists, unless NO_LOOKUP is set
+   if the caller knows that the array has not been set
+   already.
+*/
 ELEMENT_LIST *
-add_extra_contents (ELEMENT *e, const char *key, ELEMENT_LIST *value)
+add_extra_contents (ELEMENT *e, const char *key, int no_lookup)
 {
-  if (!value)
-    value = new_list ();
+  ELEMENT_LIST *n_list;
+  if (!no_lookup)
+    {
+      ELEMENT_LIST *e_list = lookup_extra_contents (e, key);
+      if (e_list)
+        return e_list;
+    }
+
+  n_list = new_list ();
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_contents);
-  k->list = value;
-  return value;
+  k->list = n_list;
+  return n_list;
 }
 
 /* Holds 3 elements corresponding to directions in enum directions.

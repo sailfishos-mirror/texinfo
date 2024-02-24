@@ -22,7 +22,7 @@
 void add_extra_element (ELEMENT *e, const char *key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 ELEMENT_LIST *add_extra_contents (ELEMENT *e, const char *key,
-                                  ELEMENT_LIST *value);
+                                  int no_lookup);
 void add_extra_container (ELEMENT *e, char *key, ELEMENT *value);
 const ELEMENT_LIST *add_extra_directions (ELEMENT *e, const char *key);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
