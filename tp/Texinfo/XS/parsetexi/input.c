@@ -623,6 +623,7 @@ input_push_file (char *filename)
   FILE *stream = 0;
   char *p, *q;
   char *base_filename;
+  char *stored_file_path;
 
   if (!strcmp (filename, "-"))
     stream = stdin;
@@ -649,13 +650,19 @@ input_push_file (char *filename)
       q = strchr (q + 1, '/');
     }
   if (p)
-    base_filename = save_string (p+1);
+    {
+      base_filename = save_string (p+1);
+      stored_file_path = save_string (filename);
+    }
   else
-    base_filename = save_string (filename);
+    {
+      base_filename = save_string (filename);
+      stored_file_path = base_filename;
+    }
 
   input_stack[input_number].type = IN_file;
   input_stack[input_number].file = stream;
-  input_stack[input_number].input_file_path = filename;
+  input_stack[input_number].input_file_path = stored_file_path;
   input_stack[input_number].source_info.file_name = base_filename;
   input_stack[input_number].source_info.line_nr = 0;
   input_stack[input_number].source_info.macro = 0;

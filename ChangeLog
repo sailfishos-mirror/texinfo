@@ -1,5 +1,10 @@
 2024-02-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/input.c (input_push_file): use save_string
+	if needed on input filename to store the path in input_file_path.
+
+2024-02-24  Patrice Dumas  <pertusus@free.fr>
+
 	Add const.
 
 2024-02-24  Patrice Dumas  <pertusus@free.fr>
