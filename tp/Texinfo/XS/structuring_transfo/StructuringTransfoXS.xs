@@ -170,7 +170,7 @@ sectioning_structure (SV *tree_in, ...)
 
 void
 warn_non_empty_parts (SV *document_in, ...)
-   PROTOTYPE: $$$
+   PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:

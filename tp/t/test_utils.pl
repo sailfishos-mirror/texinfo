@@ -1085,8 +1085,7 @@ sub test($$)
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);
   }
-  Texinfo::Structuring::warn_non_empty_parts($document, $registrar,
-                                             $main_configuration);
+  Texinfo::Structuring::warn_non_empty_parts($document, $main_configuration);
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
     Texinfo::Transformations::complete_tree_nodes_menus($tree);

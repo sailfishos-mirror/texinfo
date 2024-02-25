@@ -396,10 +396,9 @@ sub _print_sectioning_tree($)
   return $result;
 }
 
-sub warn_non_empty_parts($$$)
+sub warn_non_empty_parts($$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   my $global_commands = $document->global_commands_information();
@@ -407,7 +406,7 @@ sub warn_non_empty_parts($$$)
   if ($global_commands->{'part'}) {
     foreach my $part (@{$global_commands->{'part'}}) {
       if (!Texinfo::Common::is_content_empty($part)) {
-        $registrar->line_warn($customization_information,
+        $document->{'registrar'}->line_warn($customization_information,
                sprintf(__("\@%s not empty"),
                        $part->{'cmdname'}), $part->{'source_info'});
       }
