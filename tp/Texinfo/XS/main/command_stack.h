@@ -25,21 +25,21 @@
 void reset_command_stack (COMMAND_STACK *stack);
 void push_command (COMMAND_STACK *stack, enum command_id cmd);
 enum command_id pop_command (COMMAND_STACK *stack);
-enum command_id top_command (COMMAND_STACK *stack);
+enum command_id top_command (const COMMAND_STACK *stack);
 
 void push_command_or_type (COMMAND_OR_TYPE_STACK *stack, enum command_id cmd,
                            enum element_type type);
 void pop_command_or_type (COMMAND_OR_TYPE_STACK *stack);
-COMMAND_OR_TYPE *top_command_or_type (COMMAND_OR_TYPE_STACK *stack);
+COMMAND_OR_TYPE *top_command_or_type (const COMMAND_OR_TYPE_STACK *stack);
 
 void push_string_stack_string (STRING_STACK *stack, const char *string);
 void pop_string_stack (STRING_STACK *stack);
-const char *top_string_stack (STRING_STACK *stack);
+const char *top_string_stack (const STRING_STACK *stack);
 void clear_string_stack (STRING_STACK *stack);
 
 void push_integer_stack_integer (INTEGER_STACK *stack, int value);
 int pop_integer_stack (INTEGER_STACK *stack);
-int top_integer_stack (INTEGER_STACK *stack);
+int top_integer_stack (const INTEGER_STACK *stack);
 
 void push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e);
 const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);
@@ -47,11 +47,11 @@ const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);
 void push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
                                       const ELEMENT *e, const void *hv);
 void pop_element_reference_stack (ELEMENT_REFERENCE_STACK *stack);
-int command_is_in_referred_command_stack (ELEMENT_REFERENCE_STACK *stack,
+int command_is_in_referred_command_stack (const ELEMENT_REFERENCE_STACK *stack,
                                       const ELEMENT *e, const void *hv);
 
-HTML_DOCUMENT_CONTEXT *html_top_document_context (CONVERTER *self);
+HTML_DOCUMENT_CONTEXT *html_top_document_context (const CONVERTER *self);
 
 HTML_FORMATTING_CONTEXT *html_top_formatting_context
-                         (HTML_FORMATTING_CONTEXT_STACK *stack);
+                         (const HTML_FORMATTING_CONTEXT_STACK *stack);
 #endif

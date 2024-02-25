@@ -57,7 +57,7 @@ pop_command (COMMAND_STACK *stack)
 }
 
 enum command_id
-top_command (COMMAND_STACK *stack)
+top_command (const COMMAND_STACK *stack)
 {
   if (stack->top == 0)
     fatal ("command stack empty for top");
@@ -107,7 +107,7 @@ pop_command_or_type (COMMAND_OR_TYPE_STACK *stack)
 }
 
 COMMAND_OR_TYPE *
-top_command_or_type (COMMAND_OR_TYPE_STACK *stack)
+top_command_or_type (const COMMAND_OR_TYPE_STACK *stack)
 {
   if (stack->top == 0)
     fatal ("command or type stack empty for top");
@@ -143,7 +143,7 @@ pop_string_stack (STRING_STACK *stack)
 }
 
 const char *
-top_string_stack (STRING_STACK *stack)
+top_string_stack (const STRING_STACK *stack)
 {
   if (stack->top == 0)
     fatal ("string stack empty for top");
@@ -184,7 +184,7 @@ pop_integer_stack (INTEGER_STACK *stack)
 }
 
 int
-top_integer_stack (INTEGER_STACK *stack)
+top_integer_stack (const INTEGER_STACK *stack)
 {
   if (stack->top == 0)
     fatal ("integer stack empty for top");
@@ -252,7 +252,7 @@ pop_element_reference_stack (ELEMENT_REFERENCE_STACK *stack)
 }
 
 int
-command_is_in_referred_command_stack (ELEMENT_REFERENCE_STACK *stack,
+command_is_in_referred_command_stack (const ELEMENT_REFERENCE_STACK *stack,
                                       const ELEMENT *e, const void *hv)
 {
   size_t i;
@@ -271,9 +271,9 @@ command_is_in_referred_command_stack (ELEMENT_REFERENCE_STACK *stack,
 
 /* HTML specific but also used to build perl */
 HTML_DOCUMENT_CONTEXT *
-html_top_document_context (CONVERTER *self)
+html_top_document_context (const CONVERTER *self)
 {
-  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
+  const HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
 
   if (stack->top == 0)
     fatal ("HTML document context stack empty for top");
@@ -282,7 +282,7 @@ html_top_document_context (CONVERTER *self)
 }
 
 HTML_FORMATTING_CONTEXT *
-html_top_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
+html_top_formatting_context (const HTML_FORMATTING_CONTEXT_STACK *stack)
 {
   if (stack->top == 0)
     fatal ("HTML formatting context stack empty for top");

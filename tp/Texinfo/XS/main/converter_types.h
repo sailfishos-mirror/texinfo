@@ -413,7 +413,7 @@ typedef struct OUTPUT_FILES_INFORMATION {
 
 typedef struct SPECIAL_UNIT_DIRECTION {
     const OUTPUT_UNIT *output_unit;
-    char *direction;
+    const char *direction;
 } SPECIAL_UNIT_DIRECTION;
 
 typedef struct FORMATTING_REFERENCE {

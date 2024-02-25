@@ -691,7 +691,7 @@ translate_convert_to_html_internal (const char *string,
 
 
 int
-html_in_code (CONVERTER *self)
+html_in_code (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -699,7 +699,7 @@ html_in_code (CONVERTER *self)
 }
 
 int
-html_in_math (CONVERTER *self)
+html_in_math (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -707,7 +707,7 @@ html_in_math (CONVERTER *self)
 }
 
 int
-html_in_preformatted_context (CONVERTER *self)
+html_in_preformatted_context (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -715,7 +715,7 @@ html_in_preformatted_context (CONVERTER *self)
 }
 
 int
-html_inside_preformatted (CONVERTER *self)
+html_inside_preformatted (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -723,7 +723,7 @@ html_inside_preformatted (CONVERTER *self)
 }
 
 int
-html_in_non_breakable_space (CONVERTER *self)
+html_in_non_breakable_space (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
@@ -734,7 +734,7 @@ html_in_non_breakable_space (CONVERTER *self)
 }
 
 int
-html_in_raw (CONVERTER *self)
+html_in_raw (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -742,7 +742,7 @@ html_in_raw (CONVERTER *self)
 }
 
 int
-html_in_space_protected (CONVERTER *self)
+html_in_space_protected (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
@@ -753,7 +753,7 @@ html_in_space_protected (CONVERTER *self)
 }
 
 int
-html_in_string (CONVERTER *self)
+html_in_string (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -761,7 +761,7 @@ html_in_string (CONVERTER *self)
 }
 
 int
-html_in_upper_case (CONVERTER *self)
+html_in_upper_case (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
@@ -772,7 +772,7 @@ html_in_upper_case (CONVERTER *self)
 }
 
 int
-html_in_verbatim (CONVERTER *self)
+html_in_verbatim (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -780,7 +780,7 @@ html_in_verbatim (CONVERTER *self)
 }
 
 int
-html_paragraph_number (CONVERTER *self)
+html_paragraph_number (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
@@ -791,7 +791,7 @@ html_paragraph_number (CONVERTER *self)
 }
 
 int
-html_preformatted_number (CONVERTER *self)
+html_preformatted_number (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
@@ -802,7 +802,7 @@ html_preformatted_number (CONVERTER *self)
 }
 
 enum command_id
-html_top_block_command (CONVERTER *self)
+html_top_block_command (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -812,7 +812,7 @@ html_top_block_command (CONVERTER *self)
 }
 
 COMMAND_OR_TYPE_STACK *
-html_preformatted_classes_stack (CONVERTER *self)
+html_preformatted_classes_stack (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
@@ -820,7 +820,7 @@ html_preformatted_classes_stack (CONVERTER *self)
 }
 
 enum command_id
-html_in_align (CONVERTER *self)
+html_in_align (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   COMMAND_OR_TYPE *context;
@@ -1034,8 +1034,8 @@ special_unit_info_tree (CONVERTER *self, const enum special_unit_info_tree type,
   return 0;
 }
 
-char *
-special_unit_info (CONVERTER *self, enum special_unit_info_type type,
+const char *
+special_unit_info (const CONVERTER *self, enum special_unit_info_type type,
                    const char *special_unit_variety)
 {
   /* number is index +1 */
@@ -1401,8 +1401,8 @@ register_special_unit (CONVERTER *self, char *special_unit_variety)
 }
 
 typedef struct SPECIAL_UNIT_ORDER {
-    char *order;
-    char *variety;
+    const char *order;
+    const char *variety;
 } SPECIAL_UNIT_ORDER;
 
 int
@@ -1825,7 +1825,7 @@ prepare_associated_special_units_targets (CONVERTER *self,
           char *special_unit_variety = special_unit->special_unit_variety;
 
           /* it may be undef'ined in user customization code */
-          char *target = special_unit_info (self, SUI_type_target,
+          const char *target = special_unit_info (self, SUI_type_target,
                                                  special_unit_variety);
           target_filename
             = call_file_id_setting_special_unit_target_file_name (
@@ -1840,8 +1840,8 @@ prepare_associated_special_units_targets (CONVERTER *self,
 
           if (self->conf->DEBUG.integer > 0)
             {
-              char *str_filename;
-              char *str_target;
+              const char *str_filename;
+              const char *str_target;
               if (filename)
                 str_filename = filename;
               else
@@ -4377,6 +4377,7 @@ compare_strings (const void *a, const void *b)
   return strcmp (*str_a, *str_b);
 }
 
+/* return list to be freed by caller */
 STRING_LIST *
 html_get_css_elements_classes (CONVERTER *self, const char *filename)
 {
@@ -4808,7 +4809,7 @@ compare_footnote_id (const void *a, const void *b)
 }
 
 FOOTNOTE_ID_NUMBER *
-find_footnote_id_number (CONVERTER *self, const char *footnote_id)
+find_footnote_id_number (const CONVERTER *self, const char *footnote_id)
 {
   const ELEMENT_LIST *global_footnotes
     = &self->document->global_commands->footnotes;
@@ -4847,7 +4848,7 @@ prepare_footnotes_targets (CONVERTER *self)
                                          sizeof (FOOTNOTE_ID_NUMBER));
       for (i = 0; i < global_footnotes->number; i++)
         {
-          HTML_TARGET *element_target;
+          const HTML_TARGET *element_target;
           const ELEMENT *footnote = global_footnotes->list[i];
           TEXT footid;
           TEXT docid;
@@ -4901,7 +4902,7 @@ prepare_footnotes_targets (CONVERTER *self)
 }
 
 /* keep the command names sorted alphabetically to match order in perl */
-static enum command_id heading_commands_list[] = {
+static const enum command_id heading_commands_list[] = {
   CM_chapheading, CM_heading, CM_majorheading, CM_subheading, CM_subsubheading,
   0,
 };
@@ -5359,7 +5360,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                    /* double node are not normalized, they are handled here */
                       if (!node_target)
                         {
-                          FILE_SOURCE_INFO *file_source_info = 0;
+                          const FILE_SOURCE_INFO *file_source_info = 0;
 
                           TEXT file_name_text;
                           text_init (&file_name_text);
@@ -5486,7 +5487,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                       if (file_nr == 0 && !node_top
                           && top_node_filename_str)
                         {
-                          FILE_SOURCE_INFO *file_source_info
+                          const FILE_SOURCE_INFO *file_source_info
                             = find_file_source_info (files_source_info,
                                                   top_node_filename_str);
                           if (!file_source_info)
@@ -5503,7 +5504,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                         }
                       else
                         {
-                          FILE_SOURCE_INFO *file_source_info;
+                          const FILE_SOURCE_INFO *file_source_info;
 
                           TEXT file_name_text;
                           text_init (&file_name_text);
@@ -6170,7 +6171,8 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                   text_append_n (&result, "<li>", 4);
                   if ((toc_id && strlen (toc_id)) || href)
                     {
-                      ELEMENT *associated_node = lookup_extra_element (section,
+                      const ELEMENT *associated_node
+                          = lookup_extra_element (section,
                                                   "associated_node");
                       text_append_n (&result, "<a", 2);
                       if (toc_id && strlen (toc_id))
@@ -6309,7 +6311,7 @@ format_contents (CONVERTER *self,
                  const enum command_id cmd, const ELEMENT *element,
                  const char *filename)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_contents];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -6329,7 +6331,7 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
                      int level, const char *id, const ELEMENT *element,
                      const char *target, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_heading_text];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -6435,7 +6437,7 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 void
 format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_footnotes_sequence];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -6454,7 +6456,7 @@ format_footnotes_sequence (CONVERTER *self, TEXT *result)
 void
 default_format_footnotes_segment (CONVERTER *self, TEXT *result)
 {
-  char *class_base;
+  const char *class_base;
   char *attribute_class;
   char *class;
   STRING_LIST *classes;
@@ -6531,7 +6533,7 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
 void
 format_footnotes_segment (CONVERTER *self, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_footnotes_segment];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -6574,10 +6576,7 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
                             "using @uref{{program_homepage}, @emph{{program}}}.",
                             self, substrings, 0);
       destroy_named_string_element_list (substrings);
-      /* destroyed with the tree
-      destroy_element (program);
-      destroy_element (program_homepage);
-       */
+      /* program and program_homepage are destroyed with the tree */
     }
   else
     {
@@ -6593,7 +6592,7 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
 void
 format_program_string (CONVERTER *self, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_program_string];
 
   if (formatting_reference->status == FRS_status_default_set)
@@ -6656,7 +6655,7 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
       int status;
       for (i = 0; i < self->jslicenses.number; i++)
         {
-          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+          const JSLICENSE_FILE_INFO_LIST *jslicences_files_info
             = &self->jslicenses.list[i];
           if (!strcmp (jslicences_files_info->category, "infojs"))
             infojs_jslicenses_file_nr = jslicences_files_info->number;
@@ -6704,7 +6703,7 @@ char *
 format_end_file (CONVERTER *self, const char *filename,
                  const OUTPUT_UNIT *output_unit)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_end_file];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -6744,10 +6743,10 @@ destroy_begin_file_information (BEGIN_FILE_INFORMATION *begin_info)
   free (begin_info);
 }
 
+/* return string to be freed by the caller */
 static char *
-convert_string_tree_new_formatting_context (CONVERTER *self,
-                                            ELEMENT *tree,
-                              const char *context_string, char *multiple_pass)
+convert_string_tree_new_formatting_context (CONVERTER *self, ELEMENT *tree,
+                      const char *context_string, const char *multiple_pass)
 {
   ELEMENT *tree_root_string = new_element (ET__string);
   char *result;
@@ -6848,7 +6847,7 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
 void
 format_css_lines (CONVERTER *self, const char *filename, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_css_lines];
 
   if (formatting_reference->status == FRS_status_default_set)
@@ -6865,7 +6864,9 @@ format_css_lines (CONVERTER *self, const char *filename, TEXT *result)
     }
 }
 
-static char *root_html_element_attributes_string (CONVERTER *self)
+/* return string to be freed by the caller */
+static
+char *root_html_element_attributes_string (CONVERTER *self)
 {
   if (self->conf->HTML_ROOT_ELEMENT_ATTRIBUTES.string
       && strlen (self->conf->HTML_ROOT_ELEMENT_ATTRIBUTES.string))
@@ -6880,14 +6881,17 @@ static char *root_html_element_attributes_string (CONVERTER *self)
 
 /* This is used for normal output files and other files, like
    redirection file headers.  $COMMAND is the tree element for
-   a @node that is being output in the file. */
+   a @node that is being output in the file.
+
+   Returned structure to be freed by the caller.
+*/
 static BEGIN_FILE_INFORMATION *
 file_header_information (CONVERTER *self, const ELEMENT *command,
                          const char *filename)
 {
   BEGIN_FILE_INFORMATION *begin_info = (BEGIN_FILE_INFORMATION *)
                           malloc (sizeof (BEGIN_FILE_INFORMATION));
-  char *description = self->documentdescription_string;
+  const char *description = self->documentdescription_string;
   int status;
   TEXT text;
   char *root_html_element_attributes
@@ -7110,7 +7114,7 @@ get_links (CONVERTER* self, const char *filename,
   if (self->conf->USE_LINKS.integer > 0)
     {
       int i;
-      BUTTON_SPECIFICATION_LIST *link_buttons
+      const BUTTON_SPECIFICATION_LIST *link_buttons
           = self->conf->LINKS_BUTTONS.buttons;
       for (i = 0; i < link_buttons->number; i++)
         {
@@ -7151,9 +7155,9 @@ char *
 html_default_format_begin_file (CONVERTER *self, const char *filename,
                                 const OUTPUT_UNIT *output_unit)
 {
-  ELEMENT *element_command = 0;
-  ELEMENT *node_command = 0;
-  ELEMENT *command_for_title = 0;
+  const ELEMENT *element_command = 0;
+  const ELEMENT *node_command = 0;
+  const ELEMENT *command_for_title = 0;
   BEGIN_FILE_INFORMATION *begin_info;
   TEXT result;
 
@@ -7227,11 +7231,12 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   return result.text;
 }
 
+/* return string to be freed by the caller */
 char *
 format_begin_file (CONVERTER *self, const char *filename,
                  const OUTPUT_UNIT *output_unit)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_begin_file];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -7245,6 +7250,7 @@ format_begin_file (CONVERTER *self, const char *filename,
     }
 }
 
+/* return string to be freed by the caller */
 char *
 html_default_format_button_icon_img (CONVERTER *self,
                         const char *button_name,
@@ -7280,12 +7286,13 @@ html_default_format_button_icon_img (CONVERTER *self,
   return result.text;
 }
 
+/* return string to be freed by the caller */
 char *
 format_button_icon_img (CONVERTER *self,
                         const char *button_name,
                         const char *icon, const char *name)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_button_icon_img];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -7446,6 +7453,7 @@ html_default_format_button (CONVERTER *self,
                       formatted_button->active
                         = direction_a (self, direction, href, text, 0);
                       free (href);
+                      free (text);
                     }
                   else
                     {
@@ -7480,10 +7488,10 @@ html_default_format_button (CONVERTER *self,
                       formatted_button->active
                         = direction_a (self, direction, href,
                                        text_formatted, 0);
+                      free (text_formatted);
                     }
                   else
-                    formatted_button->passive = strdup (text_formatted);
-                  free (text_formatted);
+                    formatted_button->passive = text_formatted;
                 }
               free (href);
             }
@@ -7524,7 +7532,7 @@ html_default_format_button (CONVERTER *self,
             {
               /* button is active */
               TEXT active_text;
-              char *active_icon = 0;
+              const char *active_icon = 0;
               const char *description
                = direction_string (self, button->direction,
                                    TDS_type_description, TDS_context_string);
@@ -7598,7 +7606,7 @@ html_default_format_button (CONVERTER *self,
           else
             {
               TEXT passive_text;
-              char *passive_icon = 0;
+              const char *passive_icon = 0;
 
               text_init (&passive_text);
 
@@ -7652,7 +7660,7 @@ format_button (CONVERTER *self,
                const BUTTON_SPECIFICATION *button,
                const ELEMENT *element)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_button];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -7789,7 +7797,7 @@ format_navigation_panel (CONVERTER *self,
                          const char *cmdname, const ELEMENT *element,
                          int vertical, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_navigation_panel];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -7838,7 +7846,7 @@ format_navigation_header (CONVERTER *self,
                           const char *cmdname,
                           const ELEMENT *element, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_navigation_header];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -7967,7 +7975,7 @@ format_element_header (CONVERTER *self,
                        const char *cmdname, const ELEMENT *element,
                        const OUTPUT_UNIT *output_unit, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_element_header];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -7997,7 +8005,7 @@ word_number_more_than_level (const char *text, int level, int *count)
 
   while (*p)
     {
-      int n = strspn (p, whitespace_chars);
+      size_t n = strspn (p, whitespace_chars);
       if (n)
         {
           p += n;
@@ -8143,7 +8151,7 @@ html_default_format_element_footer (CONVERTER *self,
 
   if (buttons || !end_page || self->conf->PROGRAM_NAME_IN_FOOTER.integer > 0)
     {
-      char *rule = 0;
+      const char *rule = 0;
 
       if (!end_page && (is_top || next_is_top || (next_is_special
                                        && unit_type != OU_special_unit)))
@@ -8184,7 +8192,7 @@ format_element_footer (CONVERTER *self,
                               const char *content, const ELEMENT *element,
                               TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_element_footer];
 
   if (formatting_reference->status == FRS_status_default_set)
@@ -8229,6 +8237,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   translate_convert_to_html_internal (
           "The node you are looking for is at {href}.",
            self, substrings, 0, &body, 0);
+  destroy_named_string_element_list (substrings);
 
   begin_info = file_header_information (self, element, filename);
 
@@ -8276,6 +8285,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
   close_html_lone_element (self, &result);
   text_append_n (&result, "\n", 1);
 
+  free (href);
+
   if (begin_info->extra_head)
     text_append (&result, begin_info->extra_head);
   text_append_n (&result, "\n</head>\n\n", 10);
@@ -8288,9 +8299,6 @@ html_default_format_node_redirection_page (CONVERTER *self,
   free (body.text);
   text_append_n (&result, "</p>\n</body>\n", 13);
 
-  destroy_named_string_element_list (substrings);
-  free (href);
-
   destroy_begin_file_information (begin_info);
 
   return result.text;
@@ -8299,7 +8307,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
 char *format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
                                    const char *filename)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_node_redirection_page];
 
   if (formatting_reference->status == FRS_status_default_set)
@@ -8370,7 +8378,7 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
 {
   enum command_id formatted_cmd = cmd;
   enum conversion_context context;
-  HTML_COMMAND_CONVERSION *specification;
+  const HTML_COMMAND_CONVERSION *specification;
 
   if (html_in_preformatted_context (self) || html_in_math (self))
     context = HCC_type_preformatted;
@@ -8382,14 +8390,14 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
   if (cmd == CM_click)
     {
       enum command_id click_cmd = 0;
-      char *click_cmdname = lookup_extra_string (element, "clickstyle");
+      const char *click_cmdname = lookup_extra_string (element, "clickstyle");
       if (click_cmdname)
         {
           click_cmd = lookup_builtin_command (click_cmdname);
         }
       if (click_cmd)
         {
-          HTML_COMMAND_CONVERSION *conv_context
+          const HTML_COMMAND_CONVERSION *conv_context
             = self->html_command_conversion[click_cmd];
           if (conv_context[context].text || conv_context[context].element)
             {
@@ -8421,7 +8429,7 @@ css_string_convert_no_arg_command (CONVERTER *self,
   if (cmd == CM_click)
     {
       enum command_id click_cmd = 0;
-      char *click_cmdname = lookup_extra_string (element, "clickstyle");
+      const char *click_cmdname = lookup_extra_string (element, "clickstyle");
       if (click_cmdname)
         {
           click_cmd = lookup_builtin_command (click_cmdname);
@@ -8465,7 +8473,7 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
                     const char *content, TEXT *result)
 {
   enum command_id style_cmd = cmd;
-  HTML_COMMAND_CONVERSION *formatting_spec;
+  const HTML_COMMAND_CONVERSION *formatting_spec;
 
   /* happens with bogus @-commands without argument, like @strong something */
   if (!args_formatted || args_formatted->number <= 0
@@ -8596,9 +8604,9 @@ convert_email_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  char *mail = 0;
-  char *mail_string = 0;
-  char *text = 0;
+  const char *mail = 0;
+  const char *mail_string = 0;
+  const char *text = 0;
 
   if (args_formatted->number > 0)
     {
@@ -9083,7 +9091,7 @@ html_image_file_location_name (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted)
 {
   char *image_file = 0;
-  char *extension = 0;
+  const char *extension = 0;
 
   IMAGE_FILE_LOCATION_INFO *result = (IMAGE_FILE_LOCATION_INFO *)
     malloc (sizeof (IMAGE_FILE_LOCATION_INFO));
@@ -9277,6 +9285,7 @@ convert_math_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
 }
 
+/* return string to be freed by caller */
 static char *
 set_case_if_only_word_characters (const char *text, int set_case)
 {
@@ -9715,7 +9724,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
               char *heading = 0;
               TEXT result;
               STRING_LIST *classes;
-              char *class_base;
+              const char *class_base;
               char *class;
               char *attribute_class;
 
@@ -15223,12 +15232,12 @@ convert_special_unit_type (CONVERTER *self,
   TEXT special_unit_body;
   ELEMENT *unit_command;
   const char *id;
-  char *class_base;
+  const char *class_base;
   char *attribute_class;
   char *class;
   STRING_LIST *classes;
 
-  char *special_unit_variety;
+  const char *special_unit_variety;
   STRING_LIST *closed_strings;
   size_t count_in_file = 0;
   int level;
@@ -15327,7 +15336,7 @@ convert_special_unit_type (CONVERTER *self,
                          result);
 }
 
-static OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] = {
+static const OUTPUT_UNIT_INTERNAL_CONVERSION output_units_internal_conversion_table[] = {
   {OU_special_unit, &convert_special_unit_type},
   {OU_unit, &convert_unit_type},
   {0, 0},
@@ -17619,22 +17628,22 @@ html_convert_type_update_context (CONVERTER *self, enum element_type type)
 #define ADD(x) text_append (result, x)
 
 char *
-debug_print_html_contexts (CONVERTER *self)
+debug_print_html_contexts (const CONVERTER *self)
 {
   int i;
   TEXT contexts_str;
   text_init (&contexts_str);
   text_append (&contexts_str, "[");
-  HTML_DOCUMENT_CONTEXT_STACK *document_context_stack
+  const HTML_DOCUMENT_CONTEXT_STACK *document_context_stack
     = &self->html_document_context;
-  HTML_DOCUMENT_CONTEXT *top_document_ctx
+  const HTML_DOCUMENT_CONTEXT *top_document_ctx
     = html_top_document_context (self);
-  HTML_FORMATTING_CONTEXT_STACK *formatting_context_stack
+  const HTML_FORMATTING_CONTEXT_STACK *formatting_context_stack
     = &top_document_ctx->formatting_context;
 
   for (i = 0; i < document_context_stack->top; i++)
     {
-      HTML_DOCUMENT_CONTEXT *document_context
+      const HTML_DOCUMENT_CONTEXT *document_context
         = &document_context_stack->stack[i];
       if (i != 0)
         text_append (&contexts_str, "|");
@@ -17647,7 +17656,7 @@ debug_print_html_contexts (CONVERTER *self)
 
   for (i = 0; i < formatting_context_stack->top; i++)
     {
-      HTML_FORMATTING_CONTEXT *formatting_context
+      const HTML_FORMATTING_CONTEXT *formatting_context
        = &formatting_context_stack->stack[i];
       if (i != 0)
         text_append (&contexts_str, "|");
@@ -17746,7 +17755,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         text_append (&text_result, element->text.text);
       else if (element->type == ET_untranslated)
         {
-          char *translation_context
+          const char *translation_context
             = lookup_extra_string (element, "translation_context");
           ELEMENT *translated = html_cdt_tree (element->text.text,
                                            self, 0, translation_context);

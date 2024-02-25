@@ -63,23 +63,23 @@ void html_unset_string_context (CONVERTER *self);
 void html_set_raw_context (CONVERTER *self);
 void html_unset_raw_context (CONVERTER *self);
 
-int html_in_math (CONVERTER *self);
-int html_in_preformatted_context (CONVERTER *self);
-int html_inside_preformatted (CONVERTER *self);
-int html_in_upper_case (CONVERTER *self);
-int html_in_non_breakable_space (CONVERTER *self);
-int html_in_space_protected (CONVERTER *self);
-int html_in_code (CONVERTER *self);
-int html_in_string (CONVERTER *self);
-int html_in_verbatim (CONVERTER *self);
-int html_in_raw (CONVERTER *self);
-int html_paragraph_number (CONVERTER *self);
-int html_preformatted_number (CONVERTER *self);
-enum command_id html_top_block_command (CONVERTER *self);
-COMMAND_OR_TYPE_STACK *html_preformatted_classes_stack (CONVERTER *self);
-enum command_id html_in_align (CONVERTER *self);
+int html_in_math (const CONVERTER *self);
+int html_in_preformatted_context (const CONVERTER *self);
+int html_inside_preformatted (const CONVERTER *self);
+int html_in_upper_case (const CONVERTER *self);
+int html_in_non_breakable_space (const CONVERTER *self);
+int html_in_space_protected (const CONVERTER *self);
+int html_in_code (const CONVERTER *self);
+int html_in_string (const CONVERTER *self);
+int html_in_verbatim (const CONVERTER *self);
+int html_in_raw (const CONVERTER *self);
+int html_paragraph_number (const CONVERTER *self);
+int html_preformatted_number (const CONVERTER *self);
+enum command_id html_top_block_command (const CONVERTER *self);
+COMMAND_OR_TYPE_STACK *html_preformatted_classes_stack (const CONVERTER *self);
+enum command_id html_in_align (const CONVERTER *self);
 
-char *debug_print_html_contexts (CONVERTER *self);
+char *debug_print_html_contexts (const CONVERTER *self);
 
 size_t html_count_elements_in_filename (CONVERTER *self,
                  enum count_elements_in_filename_type type,
@@ -127,7 +127,8 @@ void register_explained_command_string (
                EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
                     const enum command_id cmd,
                     const char *type, const char *explanation);
-FOOTNOTE_ID_NUMBER *find_footnote_id_number (CONVERTER *self,
+
+FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
                                            const char *footnote_id);
 
 void html_register_opened_section_level (CONVERTER *self, int level,

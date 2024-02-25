@@ -1538,8 +1538,8 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     return newSViv(converter->shared_conversion_state.footnote_number);
   else if (!strcmp (state_name, "footnote_id_numbers"))
     {
-      char *footnote_id = (char *)SvPVutf8_nolen(args_sv[0]);
-      FOOTNOTE_ID_NUMBER *footnote_id_number
+      const char *footnote_id = (char *)SvPVutf8_nolen(args_sv[0]);
+      const FOOTNOTE_ID_NUMBER *footnote_id_number
        = find_footnote_id_number (converter, footnote_id);
       if (footnote_id_number->number > 0)
         return newSViv(footnote_id_number->number);
