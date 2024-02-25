@@ -2,6 +2,17 @@
 
 	Reset parsetexi counters
 
+	* tp/Texinfo/XS/parsetexi/parser.c (reset_parser_counters): New.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf): Call it.
+
+	There were intermittent failures in the t/03coverage_braces.t
+	definfoenclose_texinfo_commands test due to one of the counters
+	not being reset.
+
+2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Reset parsetexi counters
+
 	* tp/Texinfo/XS/parsetexi/counter.c (counter_reset): New function.
 	* tp/Texinfo/XS/parsetexi/macro.c: Call it on 'count_toplevel_braces'.
 

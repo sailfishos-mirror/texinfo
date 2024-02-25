@@ -302,6 +302,14 @@ COUNTER count_remaining_args;
 COUNTER count_items;
 COUNTER count_cells;
 
+void
+reset_parser_counters (void)
+{
+  counter_reset (&count_remaining_args);
+  counter_reset (&count_items);
+  counter_reset (&count_cells);
+}
+
 
 /* Information that is not local to where it is set in the Texinfo input,
    for example document language and encoding. */

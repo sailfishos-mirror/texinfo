@@ -82,6 +82,7 @@ reset_parser_except_conf (void)
   reset_command_stack (&nesting_context.basic_inline_stack_block);
   reset_command_stack (&nesting_context.regions_stack);
   memset (&nesting_context, 0, sizeof (nesting_context));
+  reset_parser_counters ();
   /* it is not totally obvious that is it better to reset the
      list to avoid memory leaks rather than reuse the iconv
      opened handlers */

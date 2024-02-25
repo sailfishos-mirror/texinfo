@@ -142,6 +142,7 @@ int register_global_command (ELEMENT *current);
 void wipe_parser_global_info (void);
 
 extern COUNTER count_remaining_args, count_items, count_cells;
+void reset_parser_counters (void);
 
 /* In multitable.c */
 ELEMENT *item_multitable_parent (ELEMENT *current);
