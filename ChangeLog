@@ -1,5 +1,18 @@
 2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove separate error registrar arguments
+
+	* tp/Texinfo/Document.pm, tp/Texinfo/XS/main/DocumentXS.xs
+	(indices_sort_strings):
+	* tp/Texinfo/Structuring.pm,
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(check_nodes_are_referenced, set_menus_node_directions)
+	(complete_node_tree_with_menus, nodes_tree):
+	Remove separate Texinfo::Report 'registrar' arguments, and access
+	errors through 'registrar' key on Texinfo::Document arguments.
+
+2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove separate error registrar argument
 
 	* tp/Texinfo/Structuring.pm (warn_non_empty_parts),

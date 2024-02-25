@@ -50,8 +50,7 @@ my $main_configuration = Texinfo::MainConfig::new({});
 # Texinfo::Document::indices_sort_strings is more natural, but we want
 # to test direct call of Texinfo::Indices::setup_index_entries_sort_strings.
 # my $indices_sort_strings
-#   = Texinfo::Document::indices_sort_strings($document, $registrar,
-#                                            $main_configuration);
+#   = Texinfo::Document::indices_sort_strings($document, $main_configuration);
 my $indices_information = $document->indices_information();
 my $index_entries = $document->merged_indices();
 $main_configuration->{'document_descriptor'}
@@ -138,8 +137,7 @@ $document = $parser->parse_texi_text('@node Top
 
 $registrar = $parser->registered_errors();
 $indices_sort_strings
-  = Texinfo::Document::indices_sort_strings($document, $registrar,
-                                            $main_configuration);
+  = Texinfo::Document::indices_sort_strings($document, $main_configuration);
 $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 

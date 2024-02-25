@@ -181,7 +181,7 @@ warn_non_empty_parts (SV *document_in, ...)
 
 void
 set_menus_node_directions (SV *document_in, ...)
-  PROTOTYPE: $$$
+  PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -192,7 +192,7 @@ set_menus_node_directions (SV *document_in, ...)
 
 void
 complete_node_tree_with_menus (SV *document_in, ...)
-  PROTOTYPE: $$$
+  PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -203,7 +203,7 @@ complete_node_tree_with_menus (SV *document_in, ...)
 
 void
 check_nodes_are_referenced (SV *document_in, ...)
-  PROTOTYPE: $$$
+  PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -291,7 +291,7 @@ insert_nodes_for_sectioning_commands (SV *document_in, ...)
 # value for a return status, if it becomes needed.
 void
 nodes_tree (SV *document_in, ...)
-   PROTOTYPE: $$$
+   PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:

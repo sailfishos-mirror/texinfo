@@ -558,9 +558,9 @@ sub get_node_node_childs_from_sectioning
 
 # In general should be called only after complete_node_tree_with_menus
 # to try to generate menus automatically before checking.
-sub check_nodes_are_referenced($$$)
+sub check_nodes_are_referenced($$)
 {
-  my ($document, $registrar, $customization_information) = @_;
+  my ($document, $customization_information) = @_;
 
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
@@ -625,7 +625,7 @@ sub check_nodes_are_referenced($$$)
     # it is normal that a redundant node is not referenced
     if ($node->{'extra'}->{'is_target'}
         and not exists($referenced_nodes{$node})) {
-      $registrar->line_warn($customization_information,
+      $document->{'registrar'}->line_warn($customization_information,
                             sprintf(__("node `%s' unreferenced"),
                                     target_element_to_texi_label($node)),
                             $node->{'source_info'});
@@ -668,15 +668,15 @@ sub _first_menu_node($$)
 }
 
 # set menu_directions
-sub set_menus_node_directions($$$)
+sub set_menus_node_directions($$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   my $global_commands = $document->global_commands_information();
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
+  my $registrar = $document->{'registrar'};
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -803,14 +803,14 @@ sub _section_direction_associated_node($$)
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
-sub complete_node_tree_with_menus($$$)
+sub complete_node_tree_with_menus($$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
+  my $registrar = $document->{'registrar'};
 
   return unless ($nodes_list and @{$nodes_list});
 
@@ -1016,10 +1016,9 @@ sub complete_node_tree_with_menus($$$)
 }
 
 # set node directions based on sectioning and @node explicit directions
-sub nodes_tree($$$)
+sub nodes_tree($$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   my $root = $document->tree();
@@ -1132,7 +1131,7 @@ sub nodes_tree($$$)
                 and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
                                  $node_target,
                                  $direction_element->{'extra'}->{'node_content'})) {
-              $registrar->line_warn($customization_information,
+              $document->{'registrar'}->line_warn($customization_information,
                 sprintf(
              __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
                   $direction_texts{$direction},
@@ -1144,7 +1143,7 @@ sub nodes_tree($$$)
             }
           } else {
             if (!$customization_information->get_conf('novalidate')) {
-              $registrar->line_error($customization_information,
+              $document->{'registrar'}->line_error($customization_information,
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
                       link_element_to_texi($direction_element)),
@@ -2246,11 +2245,11 @@ Texinfo::Structuring - information on Texinfo::Document tree
   my $sections_list = sectioning_structure($tree, $registrar, $config);
   my $identifier_target = $document->labels_information();
   my $global_commands = $document->global_commands_information();
-  my $nodes_list = nodes_tree($document, $registrar, $config);
-  set_menus_node_directions($document, $registrar, $config);
-  complete_node_tree_with_menus($document, $registrar, $config);
+  my $nodes_list = nodes_tree($document, $config);
+  set_menus_node_directions($document, $config);
+  complete_node_tree_with_menus($document, $config);
   my $refs = $document->internal_references_information();
-  check_nodes_are_referenced($document, $registrar, $config);
+  check_nodes_are_referenced($document, $config);
   associate_internal_references($document, $config);
   number_floats($document->floats_information());
   my $output_units;
@@ -2322,21 +2321,19 @@ Set the I<normalized> key in the C<extra> hash of C<menu_entry_node> container
 for menu entries and in the first argument C<extra> hash for internal
 references C<@ref> and similar @-commands.
 
-=item check_nodes_are_referenced($document, $registrar, $customization_information)
+=item check_nodes_are_referenced($document, $customization_information)
 X<C<check_nodes_are_referenced>>
 
 Check that all the nodes are referenced (in menu, @*ref or node direction).
-Register errors in I<$registrar>.
 
 Should be called after C<complete_node_tree_with_menus> in order to
 have the autogenerated menus available.
 
-=item complete_node_tree_with_menus($document, $registrar, $customization_information)
+=item complete_node_tree_with_menus($document, $customization_information)
 X<C<complete_node_tree_with_menus>>
 
 Complete nodes directions with menu directions.  Check consistency
 of menus, sectionning and nodes direction structures.
-Register errors in I<$registrar>.
 
 =item units_directions($customization_information, $identifier_target, $output_units)
 X<C<units_directions>>
@@ -2452,7 +2449,7 @@ Returns the texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
-=item $nodes_list = nodes_tree($document, $registrar, $customization_information)
+=item $nodes_list = nodes_tree($document, $customization_information)
 X<C<nodes_tree>>
 
 Goes through nodes in I<$document> tree and set directions.  Returns the
@@ -2527,10 +2524,10 @@ This element is associated to the C<extra> I<sectioning_root> key of the first
 section element of the sections list.  It is also at the top of the tree when
 following the I<up> I<section_directions>.
 
-=item set_menus_node_directions($document, $registrar, $customization_information);
+=item set_menus_node_directions($document, $customization_information);
 X<C<set_menus_node_directions>>
 
-Goes through menu and set directions.  Register errors in I<$registrar>.
+Goes through menu and set directions.
 
 This functions sets, in the C<extra> node element hash reference:
 

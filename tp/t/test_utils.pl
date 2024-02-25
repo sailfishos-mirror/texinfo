@@ -1100,21 +1100,20 @@ sub test($$)
   }
 
   my $nodes_tree_nodes_list
-          = Texinfo::Structuring::nodes_tree($document, $registrar,
-                                             $main_configuration);
+          = Texinfo::Structuring::nodes_tree($document, $main_configuration);
 
   Texinfo::Document::register_document_nodes_list($document,
                                                   $nodes_tree_nodes_list);
 
-  Texinfo::Structuring::set_menus_node_directions($document, $registrar,
+  Texinfo::Structuring::set_menus_node_directions($document,
                                                   $main_configuration);
 
   if (not defined($main_configuration->get_conf('FORMAT_MENU'))
       or $main_configuration->get_conf('FORMAT_MENU') eq 'menu') {
-    Texinfo::Structuring::complete_node_tree_with_menus($document, $registrar,
+    Texinfo::Structuring::complete_node_tree_with_menus($document,
                                                         $main_configuration);
 
-    Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
+    Texinfo::Structuring::check_nodes_are_referenced($document,
                                                      $main_configuration);
   }
 
@@ -1136,8 +1135,7 @@ sub test($$)
   # If $XS_structuring is set, the Perl structure cannot be
   # built yet from XS as the document index information have not
   # been rebuilt yet, but it is not needed at that point.
-  Texinfo::Document::indices_sort_strings($document, $registrar,
-                                          $main_configuration);
+  Texinfo::Document::indices_sort_strings($document, $main_configuration);
 
   # could be in a if !$XS_structuring, but the function should not be
   # overriden already in that case
@@ -1171,8 +1169,7 @@ sub test($$)
     }
 
     my $indices_sort_strings
-      = Texinfo::Document::indices_sort_strings($document, $registrar,
-                                                $main_configuration);
+      = Texinfo::Document::indices_sort_strings($document, $main_configuration);
 
     $index_entries_sort_strings
      = Texinfo::Indices::format_index_entries_sort_strings(

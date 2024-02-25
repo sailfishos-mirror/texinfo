@@ -212,19 +212,18 @@ sub merged_indices($)
 # In general, it is not needed to call that function directly,
 # as it is called by Texinfo::Indices::sort_indices_by_*.  It may
 # be called in advance, however, if errors need to be collected early.
-sub indices_sort_strings($$$;$)
+sub indices_sort_strings($$;$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
   my $prefer_reference_element = shift;
 
   if (!$document->{'index_entries_sort_strings'}) {
     my $indices_sort_strings
-      = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
-             $customization_information, $document->merged_indices(),
-                          $document->indices_information(),
-                           $prefer_reference_element);
+      = Texinfo::Indices::setup_index_entries_sort_strings
+             ($document->{'registrar'}, $customization_information,
+              $document->merged_indices(), $document->indices_information(),
+              $prefer_reference_element);
     $document->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
 
@@ -608,7 +607,7 @@ to the same document with @-commands that refer to node, anchors or floats.
 =item $nodes_list = nodes_list($document)
 
 Returns an array reference containing the document nodes.  In general set to
-the nodes list returned by L<Texinfo::Structuring nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document, $registrar, $customization_information)>,
+the nodes list returned by L<Texinfo::Structuring nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document, $customization_information)>,
 by a call to L<register_document_nodes_list|/register_document_nodes_list ($document, $nodes_list)>.
 
 =item $sections_list = sections_list($document)

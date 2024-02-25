@@ -1666,11 +1666,9 @@ while(@input_files) {
   }
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
-    my $nodes_list
-        = Texinfo::Structuring::nodes_tree($document, $registrar,
-                                            $main_configuration);
-    Texinfo::Document::register_document_nodes_list($document,
-                                                    $nodes_list);
+    my $nodes_list = Texinfo::Structuring::nodes_tree($document,
+                                                      $main_configuration);
+    Texinfo::Document::register_document_nodes_list($document, $nodes_list);
 
     # With this condition, menu is the default for 'FORMAT_MENU'.
     # However, this can only happen if
@@ -1682,14 +1680,13 @@ while(@input_files) {
     # is never used.
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($document, $registrar,
+      Texinfo::Structuring::set_menus_node_directions($document,
                                                       $main_configuration);
 
       Texinfo::Structuring::complete_node_tree_with_menus($document,
-                                                          $registrar,
                                                           $main_configuration);
 
-      Texinfo::Structuring::check_nodes_are_referenced($document, $registrar,
+      Texinfo::Structuring::check_nodes_are_referenced($document,
                                                        $main_configuration);
     }
   }
@@ -1698,8 +1695,7 @@ while(@input_files) {
   }
 
   if ($formats_table{$converted_format}->{'setup_index_entries_sort_strings'}) {
-    Texinfo::Document::indices_sort_strings($document, $registrar,
-                                            $main_configuration);
+    Texinfo::Document::indices_sort_strings($document, $main_configuration);
   }
 
   Texinfo::Document::rebuild_document($document);
