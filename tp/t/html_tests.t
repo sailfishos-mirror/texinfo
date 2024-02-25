@@ -1184,6 +1184,32 @@ $itemize_arguments_text
 $itemize_arguments_text
 , {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 ],
+['itemize_tieaccent',
+'@itemize @tieaccent{ab}
+@item item @tieaccent{ab}
+@end itemize
+
+@itemize @tieaccent{@aa{}@^e}
+@item item @tieaccent{@aa{}@^e}
+@end itemize
+
+@itemize @tieaccent{@aa{}d}
+@item item @tieaccent{@aa{}d}
+@end itemize
+
+@itemize @tieaccent{x@^e}
+@item item @tieaccent{x@^e}
+@end itemize
+
+@itemize @tieaccent{g}
+@item item @tieaccent{g}
+@end itemize
+
+@itemize @tieaccent{@^e}
+@item item @tieaccent{@^e}
+@end itemize
+',
+],
 ['check_htmlxref_no_use_nodes',
 $check_htmlxref_text
 , {}, {'CHECK_HTMLXREF' => 1, 'USE_NODES', 0}],

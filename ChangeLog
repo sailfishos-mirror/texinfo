@@ -1,5 +1,18 @@
 2024-02-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Utils.pm (find_innermost_accent_contents),
+	tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents):
+	take everything and do not nest if current accent command is
+	tieaccent.
+
+	* tp/Texinfo/XS/convert/convert_html.c (css_string_accent): call
+	text_init early and once.  Fixes in tieaccent code.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (itemize_tieaccent): add test of
+	tieaccent in itemize argument.
+
+2024-02-25  Patrice Dumas  <pertusus@free.fr>
+
 	Add const.
 
 2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>

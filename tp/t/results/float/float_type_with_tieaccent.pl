@@ -286,7 +286,7 @@ inside
 ';
 
 
-$result_texts{'float_type_with_tieaccent'} = 'A 1a[ 第H[ e^[, label
+$result_texts{'float_type_with_tieaccent'} = 'A 1a[ 第H[ e^一 and text[, label
 inside
 
 ';
@@ -311,11 +311,11 @@ $result_floats{'float_type_with_tieaccent'} = {
 
 $result_converted{'plaintext'}->{'float_type_with_tieaccent'} = 'inside
 
-A 1͡a 第͡H ê͡ 1
+A 1͡a 第͡H ê͡一 and text 1
 
 * Menu:
 
-* A 1͡a 第͡H ê͡ 1: label.                   
+* A 1͡a 第͡H ê͡一 and text 1: label.        
 
 ';
 
@@ -340,9 +340,9 @@ $result_converted{'html'}->{'float_type_with_tieaccent'} = '<!DOCTYPE html>
 <body lang="en">
 <div class="float" id="label">
 <p>inside
-</p><div class="type-number-float"><p><strong class="strong">A 1&#865;a 第&#865;H &ecirc;&#865; 1</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">A 1&#865;a 第&#865;H &ecirc;&#865;一 and text 1</strong></p></div></div>
 <dl class="listoffloats">
-<dt><a href="#label">A 1&#865;a 第&#865;H &ecirc;&#865; 1</a></dt><dd></dd>
+<dt><a href="#label">A 1&#865;a 第&#865;H &ecirc;&#865;一 and text 1</a></dt><dd></dd>
 </dl>
 
 

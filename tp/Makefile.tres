@@ -671,6 +671,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/itemize_arguments/res_html \
   t/results/html_tests/itemize_arguments_enable_encoding.pl \
   t/results/html_tests/itemize_arguments_enable_encoding/res_html \
+  t/results/html_tests/itemize_tieaccent.pl \
+  t/results/html_tests/itemize_tieaccent/res_html \
   t/results/html_tests/letter_command_in_index.pl \
   t/results/html_tests/mathjax_with_texinfo.pl \
   t/results/html_tests/mathjax_with_texinfo_enable_encoding.pl \

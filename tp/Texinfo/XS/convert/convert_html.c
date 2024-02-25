@@ -9465,6 +9465,7 @@ css_string_accent (CONVERTER *self, const char *text,
       char *accent_and_diacritic;
       char *normalized_accent_text;
       static TEXT accented_text;
+      text_init (&accented_text);
       if (element->cmd == CM_tieaccent)
         {
           /* tieaccent diacritic is naturally and correctly composed
@@ -9504,8 +9505,8 @@ css_string_accent (CONVERTER *self, const char *text,
                 {
                   const uint8_t *remaining;
                   if (!next)
-                    {
-                      encoded_u8 = utf8_from_string (text);
+                    {/* next_text should be equal to p */
+                      encoded_u8 = utf8_from_string (p);
                       next = encoded_u8;
                     }
                   remaining = u8_next (&second_char, next);
@@ -9518,13 +9519,16 @@ css_string_accent (CONVERTER *self, const char *text,
                          the diacritic */
                     }
                   else
-                    next_text = 0;
+                    {
+                      if (!p)
+                        free (next_text);
+                      next_text = 0;
+                    }
                 }
 
               if (next_text)
                 {
                   /* add the first character or escaped text */
-                  text_init (&accented_text);
                   if (!p)
                     {
                       char *first_char_text;
@@ -9540,7 +9544,7 @@ css_string_accent (CONVERTER *self, const char *text,
                       free (first_char_text);
                     }
                   else
-                    text_append_n (&accented_text, p, p - text_set);
+                    text_append_n (&accented_text, text_set, p - text_set);
 
                   /* add the tie accent */
                   text_printf (&accented_text, "\\%s ",
@@ -9549,18 +9553,20 @@ css_string_accent (CONVERTER *self, const char *text,
                      and everything else after (which is in general invalid
                      but we do not care) */
                   text_append (&accented_text, next_text);
-                  if (!p)
-                    free (next_text);
                 }
             }
           free (encoded_u8);
-          if (next_text)
-            return accented_text.text;
+          if (!p)
+            free (next_text);
+          if (accented_text.end > 0)
+            {
+              free (text_set);
+              return accented_text.text;
+            }
         }
 
       /* case of text and diacritic (including fallback for invalid tie
          accent) */
-      text_init (&accented_text);
       /* check if the normalization leads to merging text and diacritic,
          if yes use the merged character, if not output text and diacitic
          to be set up for composition */

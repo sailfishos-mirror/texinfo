@@ -239,7 +239,10 @@ sub find_innermost_accent_contents($)
     foreach my $content (@{$arg->{'contents'}}) {
       if (!($content->{'cmdname'} and ($content->{'cmdname'} eq 'c'
                                        or $content->{'cmdname'} eq 'comment'))) {
-        if ($content->{'cmdname'}
+        # if accent is tieaccent, keep everything and do not try to
+        # nest more
+        if ($current->{'cmdname'} ne 'tieaccent'
+            and $content->{'cmdname'}
             and $Texinfo::Commands::accent_commands{$content->{'cmdname'}}) {
           $current = $content;
           next ACCENT;

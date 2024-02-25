@@ -149,7 +149,10 @@ find_innermost_accent_contents (const ELEMENT *element)
           if (!(content_data_cmd && (content_data_cmd == CM_c
                                      || content_data_cmd == CM_comment)))
             {
-              if (content_data_cmd && content_flags & CF_accent)
+         /* if accent is tieaccent, keep everything and do not try to
+            nest more */
+              if (current->cmd != CM_tieaccent
+                  && content_data_cmd && content_flags & CF_accent)
                 {
                   current = content;
                   if (argument)
