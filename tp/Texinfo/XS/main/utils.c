@@ -539,7 +539,7 @@ new_expanded_formats (void)
 }
 
 int
-format_expanded_p (EXPANDED_FORMAT *formats, const char *format)
+format_expanded_p (const EXPANDED_FORMAT *formats, const char *format)
 {
   int i;
   for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);

@@ -839,9 +839,9 @@ output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
   fprintf (stderr, "BUG: %s not opened\n", file_path);
 }
 
-ELEMENT *
+const ELEMENT *
 find_root_command_next_heading_command (const ELEMENT *root,
-                                  EXPANDED_FORMAT *formats,
+                                  const EXPANDED_FORMAT *formats,
                                   int do_not_ignore_contents,
                                   int do_not_ignore_index_entries)
 {
@@ -852,7 +852,7 @@ find_root_command_next_heading_command (const ELEMENT *root,
 
   for (i = 0; i < root->contents.number; i++)
     {
-      ELEMENT *content = root->contents.list[i];
+      const ELEMENT *content = root->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
 
       if (data_cmd)
@@ -913,7 +913,7 @@ find_root_command_next_heading_command (const ELEMENT *root,
         return 0;
       if (content->text.end > 0)
         {
-          char *text = element_text (content);
+          const char *text = element_text (content);
           /* only whitespace characters */
           if (! text[strspn (text, whitespace_chars)] == '\0')
             return 0;

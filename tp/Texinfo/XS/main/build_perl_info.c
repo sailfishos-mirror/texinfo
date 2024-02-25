@@ -2263,3 +2263,18 @@ html_build_direction_icons (CONVERTER *converter,
     }
   return newRV_noinc ((SV *)icons_hv);
 }
+
+void
+build_tree_to_build (ELEMENT_LIST *tree_to_build)
+{
+  if (tree_to_build->number > 0)
+    {
+      int i;
+      for (i = 0; i < tree_to_build->number; i++)
+        {
+          build_texinfo_tree (tree_to_build->list[i], 1);
+        }
+      tree_to_build->number = 0;
+    }
+}
+

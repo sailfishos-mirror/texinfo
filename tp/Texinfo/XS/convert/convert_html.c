@@ -9818,7 +9818,7 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
 
       for (i = 0; i < section_childs->number; i++)
         {
-          ELEMENT *section = section_childs->list[i];
+          const ELEMENT *section = section_childs->list[i];
      /* using command_text leads to the same HTML formatting, but does not give
         the same result for the other files, as the formatting is done in a
         global context, while taking the tree first and calling convert_tree
@@ -9879,7 +9879,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                     const char *content, TEXT *result)
 {
   const char *element_id;
-  OUTPUT_UNIT *output_unit = 0;
+  const OUTPUT_UNIT *output_unit = 0;
   TEXT element_header;
   /* could use only one, but this is more similar to perl code */
   TEXT tables_of_contents;
@@ -9943,7 +9943,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
         {
           int contents_set = 0;
           enum command_id cmd = contents_cmds[i];
-          OPTION *contents_option_ref = get_command_option (self->conf, cmd);
+          const OPTION *contents_option_ref = get_command_option (self->conf, cmd);
           if (contents_option_ref->integer > 0)
             contents_set = 1;
           if (contents_set)
@@ -10008,7 +10008,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
         node_element = element;
       else if (cmd == CM_part)
         {
-          ELEMENT *part_following_node
+          const ELEMENT *part_following_node
             = lookup_extra_element (element, "part_following_node");
           if (part_following_node)
             node_element = part_following_node;
@@ -10018,8 +10018,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
           int node_is_top = 0;
           if (node_element)
             {
-              char *normalized = lookup_extra_string (node_element,
-                                                      "normalized");
+              const char *normalized = lookup_extra_string (node_element,
+                                                            "normalized");
               if (normalized && !strcmp (normalized, "Top"))
                 {
                   node_is_top = 1;
@@ -10076,7 +10076,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
     }
   else
     {
-      ELEMENT *associated_node
+      const ELEMENT *associated_node
         = lookup_extra_element (element, "associated_node");
 
        /* if there is an associated node, it is not a section opening
@@ -10103,9 +10103,9 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   /* node is used as heading if there is nothing else. */
   if (cmd == CM_node)
     {
-      ELEMENT *associated_section
+      const ELEMENT *associated_section
         = lookup_extra_element (element, "associated_section");
-      char *normalized = lookup_extra_string (element, "normalized");
+      const char *normalized = lookup_extra_string (element, "normalized");
       /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
          output_unit->unit_command is NUL (and not equal to elemen). */
       if (output_unit->unit_command == element
@@ -10119,7 +10119,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
               int use_next_heading = 0;
               if (self->conf->USE_NEXT_HEADING_FOR_LONE_NODE.integer > 0)
                 {
-                  ELEMENT *next_heading
+                  const ELEMENT *next_heading
                     = find_root_command_next_heading_command (element,
                                                         self->expanded_formats,
                     (!strcmp (
@@ -10312,7 +10312,6 @@ convert_raw_command (CONVERTER *self, const enum command_id cmd,
 
   noticed_line_warn (self, element, "raw format %s is not converted",
                      element_command_name (element));
-                //builtin_command_name (cmd));
 
   format_protect_text (self, content, result);
 }
@@ -10323,7 +10322,7 @@ convert_inline_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  char *format;
+  const char *format;
   int arg_index = 0;
 
   if (args_formatted && args_formatted->number > 0
@@ -10362,11 +10361,11 @@ convert_inline_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
-/* strings in extra_classes strings are free'd, but not extra_classes
-   themselves */
+/* strings in extra_classes strings are transferred and later on
+   free'd, but not extra_classes themselves */
 static void
 indent_with_table (CONVERTER *self, const enum command_id cmd,
-                   const char *content, STRING_LIST *extra_classes,
+                   const char *content, const STRING_LIST *extra_classes,
                    TEXT *result)
 {
   char *attribute_class;
@@ -10433,10 +10432,10 @@ convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
     {
       if (element->args.number > 0)
         {
-          int i;
+          size_t i;
           for (i = 0; i < element->args.number; i++)
             {
-              ELEMENT *example_arg = element->args.list[i];
+              const ELEMENT *example_arg = element->args.list[i];
        /* convert or remove all @-commands, using simple ascii and unicode
           characters */
               char *converted_arg = convert_to_normalized (example_arg);
@@ -10666,11 +10665,11 @@ convert_sp_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
+  const ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
   if (misc_args && misc_args->contents.number > 0)
     {
       int i;
-      ELEMENT *element_with_number = misc_args->contents.list[0];
+      const ELEMENT *element_with_number = misc_args->contents.list[0];
       unsigned int sp_nr = strtoul (element_with_number->text.text, NULL, 10);
 
       if (html_in_preformatted_context (self) || html_in_string (self))
@@ -10697,7 +10696,7 @@ convert_exdent_command (CONVERTER *self, const enum command_id cmd,
                     const char *content, TEXT *result)
 {
   char *pending_formatted = html_get_pending_formatted_inline_content (self);
-  char *arg = 0;
+  const char *arg = 0;
   char *attribute_class;
   STRING_LIST *classes;
 
@@ -10792,11 +10791,11 @@ convert_author_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  char *arg = 0;
+  const char *arg = 0;
   char *attribute_class;
   STRING_LIST *classes;
 
-  ELEMENT *titlepage = lookup_extra_element (element, "titlepage");
+  const ELEMENT *titlepage = lookup_extra_element (element, "titlepage");
 
   if (!titlepage)
     return;
@@ -10838,7 +10837,7 @@ convert_title_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  char *arg = 0;
+  const char *arg = 0;
   char *attribute_class;
   STRING_LIST *classes;
 
@@ -10876,7 +10875,7 @@ convert_subtitle_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  char *arg = 0;
+  const char *arg = 0;
   char *attribute_class;
   STRING_LIST *classes;
 
@@ -10938,9 +10937,9 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  LISTOFFLOATS_TYPE_LIST *listoffloats;
-  char *listoffloats_name;
-  int i;
+  const LISTOFFLOATS_TYPE_LIST *listoffloats;
+  const char *listoffloats_name;
+  size_t i;
 
   if (html_in_string (self))
     return;
@@ -10954,7 +10953,7 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
 
   for (i = 0; i < listoffloats->number; i++)
     {
-      LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+      const LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
       if (!strcmp (float_types->type, listoffloats_name))
         {
           char *attribute_class;
@@ -10986,9 +10985,9 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
           for (j = 0; j < float_types->float_list.number; j++)
             {
               char *caption_attribute_class;
-              ELEMENT *caption_element;
+              const ELEMENT *caption_element;
               const STRING_LIST *caption_classes = 0;
-              ELEMENT *float_elt = float_types->float_list.list[j];
+              const ELEMENT *float_elt = float_types->float_list.list[j];
               char *float_href = html_command_href (self, float_elt, 0, 0, 0);
               char *float_text;
 
@@ -11117,7 +11116,7 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
   char *caption_text = 0;
   char *caption_command_name = 0;
 
-  ELEMENT *caption_element;
+  const ELEMENT *caption_element;
   ELEMENT *prepended;
   FLOAT_CAPTION_PREPENDED_ELEMENT *caption_prepended
     = float_name_caption (self, element);
@@ -11325,7 +11324,7 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
       int i;
       for (i = 0; i < authors->number; i++)
         {
-          ELEMENT *author = authors->list[i];
+          const ELEMENT *author = authors->list[i];
           if (author->args.number > 0
               && author->args.list[0]->contents.number > 0)
             {
@@ -11505,12 +11504,12 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  ELEMENT *command_as_argument;
+  const ELEMENT *command_as_argument;
   const char *command_as_argument_name = 0;
   const char *mark_class_name = 0;
   STRING_LIST *classes;
   char *attribute_class;
-  CSS_SELECTOR_STYLE *selector_style = 0;
+  const CSS_SELECTOR_STYLE *selector_style = 0;
 
   if (html_in_string (self))
     {
@@ -11774,7 +11773,7 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
           TREE_ADDED_ELEMENTS *tree;
           char *anchor = 0;
           const char *index_entry_id;
-          char *pre_class_close = 0;
+          const char *pre_class_close = 0;
 
           if (cmd != CM_item)
             text_append_n (result, "<dt>", 4);
@@ -11885,9 +11884,9 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
   char *trimmed_content;
   int cell_nr;
   int status;
-  ELEMENT *row;
-  ELEMENT *multitable;
-  ELEMENT *columnfractions;
+  const ELEMENT *row;
+  const ELEMENT *multitable;
+  const ELEMENT *columnfractions;
   enum command_id first_row_cmd;
   const char *html_element = "td";
 
@@ -11922,11 +11921,11 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
 
   if (columnfractions)
     {
-      ELEMENT *cf_misc_args = lookup_extra_element (columnfractions,
-                                                     "misc_args");
+      const ELEMENT *cf_misc_args = lookup_extra_element (columnfractions,
+                                                          "misc_args");
       if (cf_misc_args->contents.number >= cell_nr)
         {
-          char *fraction_str
+          const char *fraction_str
             = cf_misc_args->contents.list[cell_nr -1]->text.text;
           double fraction = strtod (fraction_str, NULL);
           text_printf (result, " width=\"%0.f%%\"", 100 * fraction);
@@ -12139,7 +12138,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
           node_content = lookup_extra_element (arg_node, "node_content");
           if (node_content)
             {
-              char *normalized = lookup_extra_string (arg_node, "normalized");
+              const char *normalized = lookup_extra_string (arg_node, "normalized");
               label_element = new_element (ET_NONE);
               add_extra_element (label_element, "node_content", node_content);
               if (normalized)
@@ -12492,10 +12491,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  ELEMENT *misc_args;
+  const ELEMENT *misc_args;
   const char *index_name;
-  INDEX_SORTED_BY_LETTER *idx;
-  INDEX_SORTED_BY_LETTER *index_sorted = 0;
+  const INDEX_SORTED_BY_LETTER *idx;
+  const INDEX_SORTED_BY_LETTER *index_sorted = 0;
   const char *index_element_id = 0;
   char **letter_id;
   char **alpha;
@@ -12577,7 +12576,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
   for (i = 0; i < index_sorted->letter_number; i++)
     {
-      char *letter = index_sorted->letter_entries[i].letter;
+      const char *letter = index_sorted->letter_entries[i].letter;
       uint8_t *encoded_u8 = utf8_from_string (letter);
       ucs4_t next_char;
       u8_next (&next_char, encoded_u8);
@@ -12592,7 +12591,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         }
       else
         {
-          char *normalized_letter = letter;
+          char *normalized_letter;
           ELEMENT *letter_text = new_element (ET_NONE);
           text_append (&letter_text->text, letter);
           normalized_letter = normalize_transliterate_texinfo (letter_text,
@@ -12644,9 +12643,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   /* Next do the entries to determine the letters that are not empty */
   for (i = 0; i < index_sorted->letter_number; i++)
     {
-      INDEX_ENTRY *first_entry = 0;
-      LETTER_INDEX_ENTRIES *letter_entry = &index_sorted->letter_entries[i];
-      char *letter = letter_entry->letter;
+      const INDEX_ENTRY *first_entry = 0;
+      const LETTER_INDEX_ENTRIES *letter_entry
+         = &index_sorted->letter_entries[i];
+      const char *letter = letter_entry->letter;
       size_t entry_nr = 0;
     /* since we normalize, a different formatting will not trigger a new
        formatting of the main entry or a subentry level.  This is the
@@ -13252,7 +13252,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
       if (entries_text.end > 0)
         {
           char *formatted_letter;
-          ELEMENT *letter_command = 0;
+          const ELEMENT *letter_command = 0;
           enum command_id letter_cmd = 0;
 
           if (first_entry)
@@ -13279,7 +13279,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                if as a command, while it is done correctly in letter */
               && letter_cmd != CM_ss)
             {
-              ELEMENT *formatted_command;
+              ELEMENT *formatted_command = 0;
               char *explanation;
               if (html_commands_data[letter_cmd].upper_case_cmd)
                 {
@@ -13287,17 +13287,20 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                    formatted_command->cmd
                       = html_commands_data[letter_cmd].upper_case_cmd;
                 }
-              else
-                formatted_command = letter_command;
 
               xasprintf (&explanation, "index letter %s command", letter);
-              add_to_element_list (&self->tree_to_build, formatted_command);
-              formatted_letter
-                = html_convert_tree (self, formatted_command, explanation);
-              remove_element_from_list (&self->tree_to_build,
-                                        formatted_command);
-              if (formatted_command != letter_command)
-                destroy_element (formatted_command);
+              if (formatted_command)
+                {
+                  add_to_element_list (&self->tree_to_build, formatted_command);
+                  formatted_letter
+                    = html_convert_tree (self, formatted_command, explanation);
+                  remove_element_from_list (&self->tree_to_build,
+                                           formatted_command);
+                  destroy_element (formatted_command);
+                }
+              else
+                formatted_letter
+                  = html_convert_tree (self, letter_command, explanation);
               free (explanation);
             }
           else
@@ -13634,7 +13637,7 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
 
 
 /* associate command to the C function implementing the conversion */
-static COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
+static const COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = {
   {CM_w, &convert_w_command},
   {CM_today, &convert_today_command},
   {CM_value, &convert_value_command},
@@ -13791,14 +13794,14 @@ open_inline_container_type (CONVERTER *self, const enum element_type type,
 }
 
 /* associate command to the C function implementing the opening */
-static COMMAND_INTERNAL_OPEN commands_internal_open_table[] = {
+static const COMMAND_INTERNAL_OPEN commands_internal_open_table[] = {
   {CM_quotation, &open_quotation_command},
   {CM_smallquotation, &open_quotation_command},
   {0, 0},
 };
 
 /* associate type to the C function implementing the opening */
-static TYPE_INTERNAL_OPEN types_internal_open_table[] = {
+static const TYPE_INTERNAL_OPEN types_internal_open_table[] = {
   {ET_paragraph, &open_inline_container_type},
   {ET_preformatted, &open_inline_container_type},
   {0, 0},
@@ -13892,15 +13895,15 @@ convert_paragraph_type (CONVERTER *self, const enum element_type type,
 }
 
 static char *
-preformatted_class (CONVERTER *self)
+preformatted_class (const CONVERTER *self)
 {
-  COMMAND_OR_TYPE *cur_pre_class = 0;
-  COMMAND_OR_TYPE_STACK *pre_classes
+  const COMMAND_OR_TYPE *cur_pre_class = 0;
+  const COMMAND_OR_TYPE_STACK *pre_classes
         = html_preformatted_classes_stack (self);
   size_t i;
   for (i = 0; i < pre_classes->top; i++)
     {
-      COMMAND_OR_TYPE *cmd_or_type = &pre_classes->stack[i];
+      const COMMAND_OR_TYPE *cmd_or_type = &pre_classes->stack[i];
       if (!(cur_pre_class
             && (cur_pre_class->variety == CTV_type_command
                 && builtin_command_data[cur_pre_class->cmd].flags
@@ -13928,7 +13931,7 @@ preformatted_class (CONVERTER *self)
       if (pre_class)
         return pre_class;
     }
-  /* shold not happen */
+  /* should not happen */
   return 0;
 }
 
@@ -14082,8 +14085,8 @@ convert_definfoenclose_type (CONVERTER *self, const enum element_type type,
   /* TODO add a span to mark the original command as a class?
      Not to be done as long as definfoenclose is deprecated. */
 
-  char *begin = lookup_extra_string (element, "begin");
-  char *end = lookup_extra_string (element, "end");
+  const char *begin = lookup_extra_string (element, "begin");
+  const char *end = lookup_extra_string (element, "end");
 
   if (begin)
     format_protect_text (self, begin, result);
@@ -14173,7 +14176,7 @@ static const STRING_LIST menu_entry_description_classes
   = {menu_entry_description_array, 1, 1};
 
 static void
-menu_entry_a (CONVERTER *self, char *href, int isindex,
+menu_entry_a (const CONVERTER *self, const char *href, int isindex,
               int html_menu_entry_index, TEXT *result)
 {
   text_printf (result, "<a href=\"%s\"", href);
@@ -14536,7 +14539,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
           if (name)
             {
-              int n = strspn (name, whitespace_chars);
+              size_t n = strspn (name, whitespace_chars);
               if (n)
                 {
                   name_no_number = strdup (name + n);
@@ -15175,7 +15178,7 @@ convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
                    TEXT *result)
 {
   STRING_LIST *closed_strings;
-  ELEMENT *unit_command;
+  const ELEMENT *unit_command;
 
   if (html_in_string (self))
     return;
@@ -15236,7 +15239,7 @@ convert_special_unit_type (CONVERTER *self,
   char *heading;
   size_t number;
   TEXT special_unit_body;
-  ELEMENT *unit_command;
+  const ELEMENT *unit_command;
   const char *id;
   const char *class_base;
   char *attribute_class;
@@ -15259,7 +15262,7 @@ convert_special_unit_type (CONVERTER *self,
 
   if (closed_strings->number)
     {
-      int i;
+      size_t i;
       for (i = 0; i < closed_strings->number; i++)
         {
           text_append (result, closed_strings->list[i]);
@@ -15361,7 +15364,7 @@ contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
         {
           int contents_set = 0;
           enum command_id cmd = contents_cmds[i];
-          OPTION *contents_option_ref = get_command_option (self->conf, cmd);
+          const OPTION *contents_option_ref = get_command_option (self->conf, cmd);
           if (contents_option_ref->integer > 0)
             contents_set = 1;
           if (contents_set)
@@ -15436,7 +15439,7 @@ html_default_format_titlepage (CONVERTER *self)
 char *
 format_titlepage (CONVERTER *self)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_titlepage];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -15477,7 +15480,7 @@ html_default_format_title_titlepage (CONVERTER *self)
 char *
 format_title_titlepage (CONVERTER *self)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_title_titlepage];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -15693,7 +15696,7 @@ default_format_special_body_about (CONVERTER *self,
   text_append (result, "</li>\n    </ul>\n  </li>\n</ul>\n");
 }
 
-static SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
+static const SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
    special_unit_body_internal_formatting_table[] = {
   {"contents", &default_format_special_body_contents},
   {"shortcontents", &default_format_special_body_shortcontents},
@@ -15715,7 +15718,7 @@ command_conversion_external (CONVERTER *self, const enum command_id cmd,
              builtin_command_data[cmd].cmdname, content);
    */
 
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
     = self->current_commands_conversion_function[cmd].formatting_reference;
 
   if (formatting_reference->status > 0)
@@ -15737,7 +15740,7 @@ type_conversion_external (CONVERTER *self, const enum element_type type,
                           const ELEMENT *element, const char *content,
                           TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
     = self->current_types_conversion_function[type].formatting_reference;
   if (formatting_reference->status > 0)
     call_types_conversion (self, type, formatting_reference,
@@ -15786,7 +15789,7 @@ html_prepare_simpletitle (CONVERTER *self)
   for (i = 0; simpletitle_cmds[i]; i++)
     {
       enum command_id cmd = simpletitle_cmds[i];
-      ELEMENT *command
+      const ELEMENT *command
         = get_cmd_global_uniq_command (self->document->global_commands, cmd);
       if (command && command->args.number > 0
           && command->args.list[0]->contents.number > 0)
@@ -15819,7 +15822,7 @@ html_prepare_converted_output_info (CONVERTER *self)
   for (i = 0; fulltitle_cmds[i]; i++)
     {
       enum command_id cmd = fulltitle_cmds[i];
-      ELEMENT *command
+      const ELEMENT *command
         = get_cmd_global_uniq_command (self->document->global_commands, cmd);
       if (command && command->args.number > 0
           && command->args.list[0]->contents.number > 0)
@@ -15933,7 +15936,7 @@ reset_translated_special_unit_info_tree (CONVERTER *self)
   int j;
   for (j = 0; translated_special_unit_info[j].tree_type != SUIT_type_none; j++)
     {
-      int i;
+      size_t i;
       enum special_unit_info_tree tree_type
         = translated_special_unit_info[j].tree_type;
       for (i = 0; i < special_unit_varieties->number; i++)
@@ -16486,7 +16489,7 @@ html_converter_initialize (CONVERTER *self)
   for (i = 0;
     special_unit_body_internal_formatting_table[i].special_unit_variety; i++)
     {
-      SPECIAL_UNIT_BODY_INTERNAL_CONVERSION *internal_conversion
+      const SPECIAL_UNIT_BODY_INTERNAL_CONVERSION *internal_conversion
         = &special_unit_body_internal_formatting_table[i];
       /* number is index +1 */
       size_t number = find_string (&self->special_unit_varieties,
@@ -16564,7 +16567,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 {
   int i;
   const char *output_encoding;
-  char *line_break_element;
+  const char *line_break_element;
 
   if (!self->document && self->conf->DEBUG.integer > 0)
     {
@@ -16947,7 +16950,7 @@ html_free_converter (CONVERTER *self)
                        self->error_messages.number);
       for (i = 0; i < self->error_messages.number; i++)
         {
-          ERROR_MESSAGE *error_message = &self->error_messages.list[i];
+          const ERROR_MESSAGE *error_message = &self->error_messages.list[i];
           fprintf (stderr, " %d: %s", i, error_message->error_line);
         }
     }
@@ -17278,7 +17281,7 @@ html_translate_names (CONVERTER *self)
            = self->global_units_directions[special_unit_direction_index];
           if (special_unit)
             {
-              ELEMENT *command = special_unit->unit_command;
+              const ELEMENT *command = special_unit->unit_command;
               if (command)
                 {
                   HTML_TARGET *target_info
@@ -17305,7 +17308,8 @@ html_translate_names (CONVERTER *self)
   if (self->no_arg_formatted_cmd.number)
     {
       int translated_nr = 0;
-      COMMAND_ID_LIST *translated_cmds = &self->no_arg_formatted_cmd_translated;
+      COMMAND_ID_LIST *translated_cmds
+        = &self->no_arg_formatted_cmd_translated;
       /* in general this is done in build_html_translated_names.  Still need
          to do it here if build_html_translated_names is never called */
       if (translated_cmds->number)
@@ -17836,9 +17840,11 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                   ELEMENT *tmp = new_element (ET_NONE);
                   char *latex_content;
 
+                  add_to_element_list (&self->tree_to_build, tmp);
                   tmp->contents = element->contents;
                   latex_content = call_latex_convert_to_latex_math (self,
                                                                     tmp);
+                  remove_element_from_list (&self->tree_to_build, tmp);
                   tmp->contents.list = 0;
                   destroy_element (tmp);
 
@@ -17897,7 +17903,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                       /* actually const, but cannot be marked as such because
                          the argument of call_latex_convert_to_latex_math
                          cannot be const in case perl element has to be built */
-                      ELEMENT *arg = element->args.list[arg_idx];
+                      const ELEMENT *arg = element->args.list[arg_idx];
                       HTML_ARG_FORMATTED *arg_formatted
                          = &args_formatted->args[arg_idx];
 

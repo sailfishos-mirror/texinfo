@@ -1338,7 +1338,7 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
    To be freed by caller.
 */
 INDEX_ENTRY_TEXT_OR_COMMAND *
-index_entry_first_letter_text_or_command (INDEX_ENTRY *index_entry)
+index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
 {
   ELEMENT *index_entry_element = index_entry->entry_element;
   char *sortas = lookup_extra_string (index_entry_element, "sortas");

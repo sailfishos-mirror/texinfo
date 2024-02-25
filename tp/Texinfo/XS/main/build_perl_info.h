@@ -68,4 +68,6 @@ SV *html_build_direction_icons (CONVERTER *converter,
                             DIRECTION_ICON_LIST *direction_icons);
 SV *get_conf (CONVERTER *converter, const char *option_name);
 
+void build_tree_to_build (ELEMENT_LIST *tree_to_build);
+
 #endif

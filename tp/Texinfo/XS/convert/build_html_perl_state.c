@@ -554,17 +554,3 @@ build_simpletitle (CONVERTER *converter, HV *converter_hv)
             newSVpv (builtin_command_name (converter->simpletitle_cmd), 0), 0);
 }
 
-void
-build_tree_to_build (ELEMENT_LIST *tree_to_build)
-{
-  if (tree_to_build->number > 0)
-    {
-      int i;
-      for (i = 0; i < tree_to_build->number; i++)
-        {
-          build_texinfo_tree (tree_to_build->list[i], 1);
-        }
-      tree_to_build->number = 0;
-    }
-}
-

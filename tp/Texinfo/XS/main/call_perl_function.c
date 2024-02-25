@@ -44,7 +44,7 @@
   */
 
 char *
-call_nodenamenormalization_unicode_to_transliterate (char *text)
+call_nodenamenormalization_unicode_to_transliterate (const char *text)
 {
   int count;
   char *result;
@@ -87,7 +87,7 @@ call_nodenamenormalization_unicode_to_transliterate (char *text)
 }
 
 char *
-call_latex_convert_to_latex_math (CONVERTER *self, ELEMENT *element)
+call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
 {
   int count;
   char *result;
@@ -102,12 +102,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, ELEMENT *element)
   if (!self->hv)
     return 0;
 
-  /* in case of @displaymath an element containing the contents
-     of the displaymath element is passed, it is not registered in perl */
-  if (!element->hv)
-    {
-      element_to_perl_hash (element, 1);
-    }
+  build_tree_to_build (&self->tree_to_build);
 
   dSP;
 

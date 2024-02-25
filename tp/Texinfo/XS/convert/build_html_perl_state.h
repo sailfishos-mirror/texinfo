@@ -33,6 +33,4 @@ void build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack);
 
 void build_simpletitle (CONVERTER *converter, HV *converter_hv);
 
-void build_tree_to_build (ELEMENT_LIST *tree_to_build);
-
 #endif

@@ -69,7 +69,7 @@
           break;
 
 typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
-    ELEMENT *caption;
+    const ELEMENT *caption;
     ELEMENT *prepended;
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 

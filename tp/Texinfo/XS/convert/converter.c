@@ -365,10 +365,10 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
   NAMED_STRING_ELEMENT_LIST *replaced_substrings
      = new_named_string_element_list ();
 
-  char *float_type = lookup_extra_string (float_e, "float_type");
-  char *float_number = lookup_extra_string (float_e, "float_number");
+  const char *float_type = lookup_extra_string (float_e, "float_type");
+  const char *float_number = lookup_extra_string (float_e, "float_number");
 
-  ELEMENT *caption_element = lookup_extra_element (float_e, "caption");
+  const ELEMENT *caption_element = lookup_extra_element (float_e, "caption");
   if (!caption_element)
     caption_element = lookup_extra_element (float_e, "shortcaption");
 

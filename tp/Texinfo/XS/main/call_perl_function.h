@@ -6,9 +6,10 @@
 #include "document_types.h"
 #include "converter_types.h"
 
-char *call_nodenamenormalization_unicode_to_transliterate (char *text);
+char *call_nodenamenormalization_unicode_to_transliterate (const char *text);
 
-char *call_latex_convert_to_latex_math (CONVERTER *self, ELEMENT *element);
+char *call_latex_convert_to_latex_math (CONVERTER *self,
+                                        const ELEMENT *element);
 
 const void *call_setup_collator (int use_unicode_collation,
                                  const char *locale_lang);
