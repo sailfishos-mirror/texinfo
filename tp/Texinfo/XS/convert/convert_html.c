@@ -2867,7 +2867,7 @@ static const char *direction_type_translation_context[] =
   "button label", "description", "string"
 };
 
-char *
+const char *
 direction_string (CONVERTER *self, int direction,
                   enum direction_string_type string_type,
                   enum direction_string_context context)
@@ -2973,7 +2973,7 @@ html_get_target (const CONVERTER *self, const ELEMENT *element)
 const char *
 html_command_id (const CONVERTER *self, const ELEMENT *command)
 {
-  HTML_TARGET *target_info = html_get_target (self, command);
+  const HTML_TARGET *target_info = html_get_target (self, command);
   if (target_info)
     return target_info->target;
   else
@@ -3339,7 +3339,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   return result.text;
 }
 
-FILE_NUMBER_NAME *
+const FILE_NUMBER_NAME *
 html_command_filename (CONVERTER *self, const ELEMENT *command)
 {
   HTML_TARGET *target_info;
@@ -3464,12 +3464,12 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
                             const char *source_filename,
                             const char *specified_target)
 {
-  HTML_TARGET *target_info;
+  const HTML_TARGET *target_info;
   TEXT href;
   const char *filename_from;
   const char *target = 0;
-  FILE_NUMBER_NAME *target_filename;
-  int target_filename_to_be_freed = 0;
+  const FILE_NUMBER_NAME *target_filename;
+  FILE_NUMBER_NAME *set_target_filename = 0;
 
   if (source_filename)
     filename_from = source_filename;
@@ -3506,13 +3506,13 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
          = retrieve_output_units (self->document_units_descriptor);
       if (output_units->list[0]->unit_filename)
         { /* In that case use the first page. */
-          target_filename = (FILE_NUMBER_NAME *)
+          set_target_filename = (FILE_NUMBER_NAME *)
             malloc (sizeof (FILE_NUMBER_NAME));
-          target_filename->filename = output_units->list[0]->unit_filename;
-          target_filename->file_number
+          set_target_filename->filename = output_units->list[0]->unit_filename;
+          set_target_filename->file_number
               = self->output_unit_file_indices[0] +1;
-          target_filename_to_be_freed = 1;
         }
+      target_filename = set_target_filename;
     }
 
   if (target_filename && target_filename->filename)
@@ -3527,7 +3527,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
         one element in file and there is a file in the href */
           if (filename_from && command_root_element)
             {
-              ELEMENT *associated_section
+              const ELEMENT *associated_section
                 = lookup_extra_element (command_root_element,
                                         "associated_section");
               if (command_root_element == command
@@ -3553,8 +3553,8 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
       text_append (&href, target);
     }
 
-  if (target_filename_to_be_freed)
-    free (target_filename);
+  if (set_target_filename)
+    free (set_target_filename);
 
   if (href.end <= 0)
     {
@@ -3576,7 +3576,7 @@ html_command_href (CONVERTER *self, const ELEMENT *command,
                    const ELEMENT *source_command,
                    const char *specified_target)
 {
-  ELEMENT *manual_content = lookup_extra_element (command,
+  const ELEMENT *manual_content = lookup_extra_element (command,
                                                   "manual_content");
   if (manual_content)
     {
@@ -3587,11 +3587,11 @@ html_command_href (CONVERTER *self, const ELEMENT *command,
                                      specified_target);
 }
 
-char *
+const char *
 html_command_contents_target (CONVERTER *self, const ELEMENT *command,
                               enum command_id contents_or_shortcontents)
 {
-  HTML_TARGET *target_info;
+  const HTML_TARGET *target_info;
 
   if (contents_or_shortcontents == CM_summarycontents)
     contents_or_shortcontents = CM_shortcontents;
@@ -3646,13 +3646,13 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
 
   for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
     {
-      COMMAND_ID_INDEX cmd_variety_index
+      const COMMAND_ID_INDEX cmd_variety_index
             = self->command_special_variety_name_index[j];
       if (cmd_variety_index.cmd == contents_or_shortcontents)
         {
           TEXT href;
-          FILE_NUMBER_NAME *target_filename = 0;
-          char *special_unit_variety
+          const FILE_NUMBER_NAME *target_filename = 0;
+          const char *special_unit_variety
             = self->special_unit_varieties.list[cmd_variety_index.index];
           int special_unit_direction_index
                 = html_special_unit_variety_direction_index (self,
@@ -3819,7 +3819,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
             }
           else
             {
-              char *section_number
+              const char *section_number
                 = lookup_extra_string (command, "section_number");
               if (section_number && !self->conf->NUMBER_SECTIONS.integer == 0)
                 {
@@ -5153,15 +5153,15 @@ html_prepare_output_units_global_targets (CONVERTER *self,
   for (i = 0; i < 2; i++)
     {
       int special_units_descriptor = special_output_units_lists[i];
-      OUTPUT_UNIT_LIST *units_list
-       = retrieve_output_units (special_units_descriptor);
+      const OUTPUT_UNIT_LIST *units_list
+        = retrieve_output_units (special_units_descriptor);
       if (units_list && units_list->number)
         {
           int j;
           for (j = 0; j < units_list->number; j++)
             {
               const OUTPUT_UNIT *special_unit = units_list->list[j];
-              char *special_unit_variety = special_unit->special_unit_variety;
+              const char *special_unit_variety = special_unit->special_unit_variety;
               int special_unit_direction_index
                 = html_special_unit_variety_direction_index (self,
                                                 special_unit_variety);
@@ -5549,10 +5549,10 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
   for (i = 0; i < output_units->number; i++)
     {
       size_t output_unit_file_idx = 0;
-      FILE_NAME_PATH_COUNTER *output_unit_file;
+      const FILE_NAME_PATH_COUNTER *output_unit_file;
       OUTPUT_UNIT *output_unit = output_units->list[i];
       char *filename = unit_file_name_paths[i];
-      FILE_SOURCE_INFO *file_source_info
+      const FILE_SOURCE_INFO *file_source_info
         = find_file_source_info (files_source_info, filename);
       const char *filepath = file_source_info->path;
 
@@ -5614,7 +5614,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
       for (i = 0; i < special_units->number; i++)
         {
           size_t special_unit_file_idx = 0;
-          FILE_NAME_PATH_COUNTER *special_unit_file;
+          const FILE_NAME_PATH_COUNTER *special_unit_file;
           OUTPUT_UNIT *special_unit = special_units->list[i];
           const ELEMENT *unit_command = special_unit->unit_command;
           const HTML_TARGET *special_unit_target
@@ -5683,7 +5683,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
             = find_element_target (self->html_targets, unit_command);
 
           if (!element_target->special_unit_filename)
-            {
+            {/* set the file if not already set */
               char *unit_filename = 0;
               if (associated_output_unit)
                 unit_filename = strdup (associated_output_unit->unit_filename);
@@ -5859,7 +5859,7 @@ convert_text (CONVERTER *self, const enum element_type type,
       contents_used_to_be_freed = 1;
     }
   else
-    /* cast needed to avoid a compiler warning */
+    /* cast needed to drop const to avoid a compiler warning */
     content_used = (char *) content;
 
   if (html_in_preformatted_context (self))
@@ -5907,7 +5907,7 @@ void
 format_separate_anchor (CONVERTER *self, const char *id,
                         const char *class, TEXT *result)
 {
-  FORMATTING_REFERENCE *formatting_reference
+  const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_separate_anchor];
   if (formatting_reference->status == FRS_status_default_set)
     {
@@ -5928,7 +5928,7 @@ direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
 {
   if (self->conf->USE_ACCESSKEY.integer > 0)
     {
-      char *accesskey
+      const char *accesskey
         = direction_string (self, direction, TDS_type_accesskey,
                                     TDS_context_string);
       if (accesskey && strlen (accesskey))
@@ -5937,7 +5937,7 @@ direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
 
   if (self->conf->USE_REL_REV.integer)
     {
-      char *button_rel
+      const char *button_rel
         = direction_string (self, direction, TDS_type_rel,
                                     TDS_context_string);
       if (button_rel && strlen (button_rel))
@@ -6068,7 +6068,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   if (self->document->sections_list
       && self->document->sections_list->number >= 0)
     {
-      ELEMENT *first = self->document->sections_list->list[0];
+      const ELEMENT *first = self->document->sections_list->list[0];
       section_root = lookup_extra_element (first, "sectioning_root");
     }
   else
@@ -6081,7 +6081,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
 
   for (i = 0; i < root_children->number; i++)
     {
-      ELEMENT *top_section = root_children->list[i];
+      const ELEMENT *top_section = root_children->list[i];
       int section_level = lookup_extra_integer (top_section, "section_level",
                                       &status);
       if (section_level < min_root_level)
@@ -6137,8 +6137,8 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
 
   for (i = 0; i < root_children->number; i++)
     {
-      ELEMENT *top_section = root_children->list[i];
-      ELEMENT *section = top_section;
+      const ELEMENT *top_section = root_children->list[i];
+      const ELEMENT *section = top_section;
       while (section)
        {
          int section_level = lookup_extra_integer (section, "section_level",
@@ -6149,7 +6149,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
             {
               char *text;
               char *href;
-              char *toc_id = html_command_contents_target (self, section, cmd);
+              const char *toc_id = html_command_contents_target (self, section, cmd);
 
               text = html_command_text (self, section, 0);
 
@@ -7126,7 +7126,7 @@ get_links (CONVERTER* self, const char *filename,
               char *link_string
                 = from_element_direction (self, link->direction, HTT_string,
                                           output_unit, 0, 0);
-              char *button_rel
+              const char *button_rel
                 = direction_string (self, link->direction, TDS_type_rel,
                                     TDS_context_string);
               text_printf (result, "<link href=\"%s\"", link_href);
@@ -7499,7 +7499,7 @@ html_default_format_button (CONVERTER *self,
               && strlen
                   (self->conf->ACTIVE_ICONS.icons->list[button->direction]))
             {
-              char *button_name_string = direction_string (self,
+              const char *button_name_string = direction_string (self,
                                      button->direction, TDS_type_button,
                                                       TDS_context_string);
               formatted_button->active
@@ -7525,7 +7525,8 @@ html_default_format_button (CONVERTER *self,
               /* button is active */
               TEXT active_text;
               char *active_icon = 0;
-              char *description = direction_string (self, button->direction,
+              const char *description
+               = direction_string (self, button->direction,
                                    TDS_type_description, TDS_context_string);
 
               if (self->conf->ICONS.integer > 0
@@ -7546,15 +7547,17 @@ html_default_format_button (CONVERTER *self,
                 text_printf (&active_text, " title=\"%s\"", description);
               if (self->conf->USE_ACCESSKEY.integer > 0)
                 {
-                  char *accesskey = direction_string (self, button->direction,
-                                      TDS_type_accesskey, TDS_context_string);
+                  const char *accesskey
+                    = direction_string (self, button->direction,
+                                        TDS_type_accesskey, TDS_context_string);
                   if (accesskey && strlen (accesskey))
                     text_printf (&active_text, " accesskey=\"%s\"", accesskey);
                 }
               if (self->conf->USE_REL_REV.integer > 0)
                 {
-                  char *button_rel = direction_string (self, button->direction,
-                                     TDS_type_rel, TDS_context_string);
+                  const char *button_rel
+                    = direction_string (self, button->direction,
+                                        TDS_type_rel, TDS_context_string);
                   if (button_rel && strlen (button_rel))
                     text_printf (&active_text, " rel=\"%s\"", button_rel);
                 }
@@ -7610,9 +7613,9 @@ html_default_format_button (CONVERTER *self,
                 }
               if (passive_icon)
                 {
-                  char *button_name_string = direction_string (self,
-                                     button->direction, TDS_type_button,
-                                                      TDS_context_string);
+                  const char *button_name_string
+                    = direction_string (self, button->direction,
+                                        TDS_type_button, TDS_context_string);
                   char *icon_name = from_element_direction (self,
                                                         button->direction,
                                                                HTT_string,
@@ -7627,8 +7630,9 @@ html_default_format_button (CONVERTER *self,
                 }
               else
                 {
-                  const char *button_text_string = direction_string (self,
-                                     button->direction, TDS_type_text, 0);
+                  const char *button_text_string
+                    = direction_string (self, button->direction,
+                                        TDS_type_text, 0);
                   text_append_n (&passive_text, "[", 1);
                   if (button_text_string)
                     text_append (&passive_text, button_text_string);
@@ -15581,7 +15585,8 @@ default_format_special_body_about (CONVERTER *self,
               && self->conf->ACTIVE_ICONS.icons->list[direction]
               && strlen (self->conf->ACTIVE_ICONS.icons->list[direction]))
             {
-              char *button_name_string = direction_string (self, direction,
+              const char *button_name_string
+                   = direction_string (self, direction,
                                        TDS_type_button, TDS_context_string);
               char *button = format_button_icon_img (self, button_name_string,
                         self->conf->ACTIVE_ICONS.icons->list[direction], 0);

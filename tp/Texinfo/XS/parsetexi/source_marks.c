@@ -31,10 +31,7 @@ static int name##_counter = 0;
  SM_TYPES_LIST
 #undef sm_type
 
-/* it isn't much readable to use here the SM_TYPES_LIST macro defined
-   in a header file, but the table should be allocated in files using
-   it only if static (or in only one file if extern) */
-static char *source_marks_names[SM_type_expanded_conditional_command + 1] =
+static const char *source_marks_names[SM_type_expanded_conditional_command + 1] =
 {
   #define sm_type(name) #name,
     SM_TYPES_LIST
@@ -61,7 +58,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 {
   ELEMENT *mark_element;
   /* for debug string */
-  char *add_element_string = "no-add";
+  const char *add_element_string = "no-add";
 
   source_mark->position = 0;
   if (e->contents.number > 0)
@@ -124,10 +121,10 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 void
 transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
 {
-  SOURCE_MARK_LIST *source_mark_list = &(from_e->source_mark_list);
+  SOURCE_MARK_LIST *source_mark_list = &from_e->source_mark_list;
   if (source_mark_list->number)
     {
-      int i;
+      size_t i;
       for (i = 0; i < source_mark_list->number; i++)
         {
           add_source_mark (source_mark_list->list[i], e);

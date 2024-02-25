@@ -149,7 +149,7 @@ vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
-                                         OPTIONS *conf,
+                                         const OPTIONS *conf,
                                          enum error_type type, int continuation,
                                          char *message)
 {
@@ -214,7 +214,7 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
 
 static void
 message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
-                                      OPTIONS *conf,
+                                      const OPTIONS *conf,
                                       enum error_type type, int continuation,
                                       const char *format, va_list v)
 {
@@ -233,7 +233,7 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
-                             OPTIONS *conf,
+                             const OPTIONS *conf,
                              enum error_type type, int continuation,
               const SOURCE_INFO *cmd_source_info, const char *format, ...)
 {
@@ -247,7 +247,7 @@ message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                           OPTIONS *conf,
+                           const OPTIONS *conf,
                            const ELEMENT *e, const char *format, ...)
 {
   va_list v;
@@ -262,7 +262,7 @@ message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
    function already has a variable argument */
 void
 vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                            OPTIONS *conf,
+                            const OPTIONS *conf,
                             const ELEMENT *e, const char *format, va_list v)
 {
   vmessage_list_line_error (error_messages, MSG_warning, 0,
@@ -272,7 +272,7 @@ vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
-                            OPTIONS *conf,
+                            const OPTIONS *conf,
                             const ELEMENT *e, const char *format, ...)
 {
   va_list v;
@@ -285,7 +285,7 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
-                             OPTIONS *conf, int continuation,
+                             const OPTIONS *conf, int continuation,
                              const char *format, ...)
 {
   va_list v;
@@ -299,7 +299,7 @@ message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
-                            OPTIONS *conf, int continuation,
+                            const OPTIONS *conf, int continuation,
                             const char *format, ...)
 {
   va_list v;

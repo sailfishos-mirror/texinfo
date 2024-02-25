@@ -980,7 +980,7 @@ html_command_contents_target (SV *converter_in, SV *element_sv, cmdname)
          char *cmdname = (char *)SvPVutf8_nolen($arg);
      PREINIT:
          CONVERTER *self;
-         char *id = 0;
+         const char *id = 0;
          const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
@@ -1031,7 +1031,7 @@ html_command_filename (SV *converter_in, SV *element_sv)
                                               &self);
          if (element)
            {
-             FILE_NUMBER_NAME *file_number_name
+             const FILE_NUMBER_NAME *file_number_name
                = html_command_filename (self, element);
              if (file_number_name)
                {

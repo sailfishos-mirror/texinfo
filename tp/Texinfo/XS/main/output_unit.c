@@ -35,7 +35,7 @@
 #include "convert_to_texinfo.h"
 #include "output_unit.h"
 
-char *relative_unit_direction_name[] = {
+const char *relative_unit_direction_name[] = {
   #define rud_type(name) #name,
    RUD_DIRECTIONS_TYPES_LIST
    RUD_FILE_DIRECTIONS_TYPES
@@ -135,7 +135,7 @@ add_to_output_unit_list (OUTPUT_UNIT_LIST *list, OUTPUT_UNIT *output_unit)
 
 /* in addition to splitting, register the output_units list */
 int
-split_by_node (ELEMENT *root)
+split_by_node (const ELEMENT *root)
 {
   int output_units_descriptor = new_output_units_descriptor ();
   OUTPUT_UNIT_LIST *output_units
@@ -204,7 +204,7 @@ split_by_node (ELEMENT *root)
 
 /* in addition to splitting, register the output_units list */
 int
-split_by_section (ELEMENT *root)
+split_by_section (const ELEMENT *root)
 {
   int output_units_descriptor = new_output_units_descriptor ();
   OUTPUT_UNIT_LIST *output_units
@@ -263,7 +263,7 @@ split_by_section (ELEMENT *root)
 }
 
 int
-unsplit (ELEMENT *root)
+unsplit (const ELEMENT *root)
 {
   int unsplit_needed = 0;
   int i;
@@ -346,7 +346,7 @@ static LEVEL_SPLIT_STRING split_level_table[3] = {
  that is the first in the output page.
  */
 void
-split_pages (OUTPUT_UNIT_LIST *output_units, char *split)
+split_pages (OUTPUT_UNIT_LIST *output_units, const char *split)
 {
   int split_level = -2;
   int i;

@@ -393,7 +393,7 @@ copy_contents (ELEMENT *element, enum element_type type)
 void
 add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
 {
-  SOURCE_MARK_LIST *s_mark_list = &(e->source_mark_list);
+  SOURCE_MARK_LIST *s_mark_list = &e->source_mark_list;
   if (s_mark_list->number == s_mark_list->space)
     {
       s_mark_list->space++;
@@ -407,8 +407,8 @@ add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
   s_mark_list->number++;
 }
 
-SOURCE_MARK *
-remove_from_source_mark_list (SOURCE_MARK_LIST *list, int where)
+static SOURCE_MARK *
+remove_from_source_mark_list (SOURCE_MARK_LIST *list, size_t where)
 {
   SOURCE_MARK *removed;
 
@@ -434,10 +434,10 @@ size_t
 relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
                        size_t begin_position, size_t len)
 {
-  int i = 0;
-  int j;
-  int list_number = source_mark_list->number;
-  int *indices_to_remove;
+  size_t i = 0;
+  size_t j;
+  size_t list_number = source_mark_list->number;
+  size_t *indices_to_remove;
   size_t end_position;
 
   if (list_number == 0)
@@ -445,8 +445,8 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 
   end_position = begin_position + len;
 
-  indices_to_remove = malloc (sizeof (int) * list_number);
-  memset (indices_to_remove, 0, sizeof (int) * list_number);
+  indices_to_remove = malloc (sizeof (size_t) * list_number);
+  memset (indices_to_remove, 0, sizeof (size_t) * list_number);
 
   while (i < list_number)
     {
@@ -484,10 +484,12 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
     }
   /* i is past the last index with a potential source mark to remove
      (to be ready for the next pass in the loop above).  So remove one */
-  for (j = i - 1; j >= 0; j--)
+  for (j = i - 1; ; j--)
     {
       if (indices_to_remove[j] == 1)
         remove_from_source_mark_list (source_mark_list, j);
+      if (j == 0)
+        break;
     }
 
   free (indices_to_remove);
@@ -847,7 +849,8 @@ modify_tree (ELEMENT *tree,
 }
 
 ELEMENT *
-new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
+new_asis_command_with_text (const char *text, ELEMENT *parent,
+                            enum element_type type)
 {
   ELEMENT *new_command = new_element (ET_NONE);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
@@ -861,7 +864,7 @@ new_asis_command_with_text (char *text, ELEMENT *parent, enum element_type type)
 }
 
 ELEMENT_LIST *
-protect_text (ELEMENT *current, char *to_protect)
+protect_text (ELEMENT *current, const char *to_protect)
 {
   if (current->text.end > 0 && !(current->type == ET_raw
                                  || current->type == ET_rawline_arg)
@@ -872,7 +875,7 @@ protect_text (ELEMENT *current, char *to_protect)
       /* count UTF-8 encoded Unicode characters for source marks locations */
       uint8_t *u8_text = 0;
       size_t current_position;
-      uint8_t *u8_p = 0;
+      const uint8_t *u8_p = 0;
       size_t u8_len;
 
       if (current->source_mark_list.number)
@@ -885,7 +888,7 @@ protect_text (ELEMENT *current, char *to_protect)
 
       while (*p)
         {
-          int leading_nr = strcspn (p, to_protect);
+          size_t leading_nr = strcspn (p, to_protect);
           ELEMENT *text_elt = new_element (current->type);
           text_elt->parent = current->parent;
           if (leading_nr)
@@ -904,7 +907,7 @@ protect_text (ELEMENT *current, char *to_protect)
               u8_p += u8_len;
 
               current_position
-                = relocate_source_marks (&(current->source_mark_list),
+                = relocate_source_marks (&current->source_mark_list,
                                         text_elt,
                                         current_position, u8_len);
             }
@@ -916,10 +919,10 @@ protect_text (ELEMENT *current, char *to_protect)
 
           if (*p)
             {
-              int to_protect_nr = strspn (p, to_protect);
+              size_t to_protect_nr = strspn (p, to_protect);
               if (!strcmp (to_protect, ","))
                 {
-                  int i;
+                  size_t i;
                   for (i = 0; i < to_protect_nr; i++)
                     {
                       ELEMENT *comma = new_element (ET_NONE);
@@ -935,7 +938,7 @@ protect_text (ELEMENT *current, char *to_protect)
                           u8_p += u8_len;
 
                         current_position
-                          = relocate_source_marks (&(current->source_mark_list),
+                          = relocate_source_marks (&current->source_mark_list,
                                                    comma,
                                                    current_position, u8_len);
                         }
@@ -956,7 +959,7 @@ protect_text (ELEMENT *current, char *to_protect)
                       u8_p += u8_len;
 
                       current_position
-                       = relocate_source_marks (&(current->source_mark_list),
+                       = relocate_source_marks (&current->source_mark_list,
                                 new_command->args.list[0]->contents.list[0],
                                               current_position, u8_len);
                     }
@@ -975,13 +978,13 @@ protect_text (ELEMENT *current, char *to_protect)
 
 
 
-char *
+const char *
 normalized_menu_entry_internal_node (const ELEMENT *entry)
 {
   int i;
   for (i = 0; i < entry->contents.number; i++)
     {
-      ELEMENT *content = entry->contents.list[i];
+      const ELEMENT *content = entry->contents.list[i];
       if (content->type == ET_menu_entry_node)
         {
           if (!lookup_extra_element (content, "manual_content"))

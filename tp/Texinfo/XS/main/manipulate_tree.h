@@ -37,17 +37,17 @@ NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 
 ELEMENT *modify_tree (ELEMENT *tree,
- ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
+ ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void *argument),
                       void *argument);
 
-ELEMENT *new_asis_command_with_text (char *text, ELEMENT *parent,
+ELEMENT *new_asis_command_with_text (const char *text, ELEMENT *parent,
                                      enum element_type type);
 
-ELEMENT_LIST *protect_text (ELEMENT *current, char *to_protect);
+ELEMENT_LIST *protect_text (ELEMENT *current, const char *to_protect);
 
 
 
-char *normalized_menu_entry_internal_node (const ELEMENT *entry);
+const char *normalized_menu_entry_internal_node (const ELEMENT *entry);
 ELEMENT *normalized_entry_associated_internal_node (const ELEMENT *entry,
                                                     const LABEL_LIST *identifiers_target);
 ELEMENT *first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target);

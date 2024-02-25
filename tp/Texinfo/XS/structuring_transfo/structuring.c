@@ -1657,7 +1657,7 @@ number_floats (DOCUMENT *document)
   to NODE.
   if USE_SECTIONS is set, use the section name as menu entry name. */
 ELEMENT *
-new_node_menu_entry (ELEMENT *node, int use_sections)
+new_node_menu_entry (const ELEMENT *node, int use_sections)
 {
   ELEMENT *node_name_element = 0;
   ELEMENT *menu_entry_name;

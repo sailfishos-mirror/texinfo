@@ -916,7 +916,7 @@ prepend_new_menu_in_node_section (ELEMENT * node, ELEMENT *section,
 }
 
 typedef struct EXISTING_ENTRY {
-    char *normalized;
+    const char *normalized;
     ELEMENT *menu;
     ELEMENT *entry;
 } EXISTING_ENTRY;
@@ -952,7 +952,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
                   ELEMENT *entry = menu->contents.list[j];
                   if (entry->type == ET_menu_entry)
                     {
-                      char *normalized_entry_node
+                      const char *normalized_entry_node
                         = normalized_menu_entry_internal_node (entry);
                       if (normalized_entry_node)
                         {
@@ -975,8 +975,8 @@ complete_node_menu (ELEMENT *node, int use_sections)
 
       for (i = 0; i < node_childs->number; i++)
         {
-          ELEMENT *node_entry = node_childs->list[i];
-          char *normalized = lookup_extra_string (node_entry, "normalized");
+          const ELEMENT *node_entry = node_childs->list[i];
+          const char *normalized = lookup_extra_string (node_entry, "normalized");
           if (normalized)
             {
               int j;
@@ -1040,7 +1040,8 @@ complete_node_menu (ELEMENT *node, int use_sections)
           else
             {
               int offset_at_end = -1;
-              ELEMENT *last_menu_content = last_contents_child (current_menu);
+              const ELEMENT *last_menu_content
+                = last_contents_child (current_menu);
 
               if (last_menu_content->cmd != CM_end)
                 offset_at_end = 0;
@@ -1061,7 +1062,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
 }
 
 static ELEMENT_LIST *
-get_non_automatic_nodes_with_sections (ELEMENT *root)
+get_non_automatic_nodes_with_sections (const ELEMENT *root)
 {
   ELEMENT_LIST *non_automatic_nodes = new_list ();
   int i;
@@ -1072,7 +1073,7 @@ get_non_automatic_nodes_with_sections (ELEMENT *root)
       if (content->cmd && content->cmd == CM_node
           && content->args.number <= 1)
         {
-          ELEMENT *associated_section
+          const ELEMENT *associated_section
             = lookup_extra_element (content, "associated_section");
           if (associated_section)
             add_to_element_list (non_automatic_nodes, content);
@@ -1083,7 +1084,7 @@ get_non_automatic_nodes_with_sections (ELEMENT *root)
 
 /* This should be called after structuring.c sectioning_structure */
 void
-complete_tree_nodes_menus (ELEMENT *root, int use_sections)
+complete_tree_nodes_menus (const ELEMENT *root, int use_sections)
 {
   ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (root);
@@ -1097,7 +1098,7 @@ complete_tree_nodes_menus (ELEMENT *root, int use_sections)
 }
 
 void
-complete_tree_nodes_missing_menu (ELEMENT *root, DOCUMENT *document,
+complete_tree_nodes_missing_menu (const ELEMENT *root, DOCUMENT *document,
                                   OPTIONS *options, int use_sections)
 {
   ELEMENT_LIST *non_automatic_nodes
@@ -1127,13 +1128,13 @@ Here we use the document.
 int
 regenerate_master_menu (DOCUMENT *document, int use_sections)
 {
-  LABEL_LIST *identifiers_target = document->identifiers_target;
+  const LABEL_LIST *identifiers_target = document->identifiers_target;
 
-  ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
+  const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   const ELEMENT_LIST *menus;
   ELEMENT *master_menu;
   ELEMENT *last_menu;
-  ELEMENT *last_content;
+  const ELEMENT *last_content;
   int i;
   int index;
 
@@ -1160,10 +1161,10 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
       for (detailmenu_index = 0; detailmenu_index < menu->contents.number;
            detailmenu_index++)
         {
-          ELEMENT *entry = menu->contents.list[detailmenu_index];
+          const ELEMENT *entry = menu->contents.list[detailmenu_index];
           if (entry->cmd == CM_detailmenu)
             {
-              int j;
+              size_t j;
               ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
               replace_element_in_list (
                  &document->global_commands->detailmenu, removed, master_menu);
@@ -1175,17 +1176,17 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
               /* remove internal refs of removed entries */
               for (j = 0; j < removed->contents.number; j++)
                 {
-                  ELEMENT *content = removed->contents.list[j];
+                  const ELEMENT *content = removed->contents.list[j];
                   if (content->type == ET_menu_entry)
                     {
-                      int k;
+                      size_t k;
                       for (k = 0; k < content->contents.number; k++)
                         {
-                          ELEMENT *entry_content = content->contents.list[k];
+                          const ELEMENT *entry_content = content->contents.list[k];
                           if (entry_content->type == ET_menu_entry_node)
                             {
-                              ELEMENT *removed_internal_ref =
-                              remove_element_from_list (
+                              const ELEMENT *removed_internal_ref =
+                                remove_element_from_list (
                                         document->internal_references,
                                                         entry_content);
                               if (!removed_internal_ref)
@@ -1195,6 +1196,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                                   fprintf (stderr,
                                     "BUG: %s: not found in internal refs\n", 
                                       removed_internal_texi);
+                                  free (removed_internal_texi);
                                 }
                             }
                         }
@@ -1217,7 +1219,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   if (index)
     {
-      ELEMENT *last_element = last_menu->contents.list[index-1];
+      const ELEMENT *last_element = last_menu->contents.list[index-1];
       ELEMENT *preformatted = 0;
       if (last_element->type == ET_menu_comment
           && last_element->contents.number > 0)
@@ -1258,7 +1260,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 ELEMENT_LIST *
 protect_comma (const char *type, ELEMENT *current, void *argument)
 {
-  return protect_text(current, ",");
+  return protect_text (current, ",");
 }
 
 ELEMENT *
@@ -1270,7 +1272,7 @@ protect_comma_in_tree (ELEMENT *tree)
 ELEMENT_LIST *
 protect_node_after_label (const char *type, ELEMENT *current, void *argument)
 {
-  return protect_text(current, ".\t,");
+  return protect_text (current, ".\t,");
 }
 
 ELEMENT *
@@ -1288,7 +1290,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
 {
   DOCUMENT *document = (DOCUMENT *) argument;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
-  OPTIONS *options = document->options;
+  const OPTIONS *options = document->options;
 
   if (current->text.end > 0)
     {
@@ -1353,7 +1355,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           ELEMENT_LIST *container = new_list ();
                           char *current_text = strdup (current->text.text);
                           char *p = current_text;
-                          int leading_spaces_nr;
+                          size_t leading_spaces_nr;
                           ELEMENT *leading_spaces = new_element (ET_NONE);
                           ELEMENT *hashchar = new_element (ET_NONE);
                           ELEMENT *arg = new_element (ET_brace_command_arg);
@@ -1361,7 +1363,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                              source marks locations */
                           uint8_t *u8_text = 0;
                           size_t current_position;
-                          uint8_t *u8_p;
+                          const uint8_t *u8_p;
                           size_t u8_len;
                           SOURCE_MARK_LIST source_mark_list;
 

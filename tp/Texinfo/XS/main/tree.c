@@ -424,7 +424,7 @@ remove_from_args (ELEMENT *parent, int where)
 }
 
 ELEMENT *
-remove_element_from_list (ELEMENT_LIST *list, ELEMENT *e)
+remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e)
 {
   int i;
   int index = -1;

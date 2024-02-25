@@ -95,11 +95,12 @@ int html_special_unit_variety_direction_index (CONVERTER *self,
 
 HTML_TARGET *html_get_target (const CONVERTER *self, const ELEMENT *element);
 const char *html_command_id (const CONVERTER *self, const ELEMENT *command);
-char *html_command_contents_target (CONVERTER *self, const ELEMENT *command,
+const char *html_command_contents_target (CONVERTER *self,
+                                    const ELEMENT *command,
                                     enum command_id contents_or_shortcontents);
 const char *html_footnote_location_target (const CONVERTER *self,
                                            const ELEMENT *command);
-FILE_NUMBER_NAME *html_command_filename (CONVERTER *self,
+const FILE_NUMBER_NAME *html_command_filename (CONVERTER *self,
                                          const ELEMENT *command);
 const ELEMENT *html_command_root_element_command (CONVERTER *self,
                                             const ELEMENT *command);
