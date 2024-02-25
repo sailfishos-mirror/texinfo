@@ -1161,10 +1161,9 @@ sub nodes_tree($$$)
 
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
-sub associate_internal_references($$$)
+sub associate_internal_references($$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   my $identifier_target = $document->labels_information();
@@ -1196,7 +1195,7 @@ sub associate_internal_references($$$)
       if (!defined($normalized)
           or !defined($identifier_target->{$normalized})) {
         if (!$customization_information->get_conf('novalidate')) {
-          $registrar->line_error($customization_information,
+          $document->{'registrar'}->line_error($customization_information,
                      sprintf(__("\@%s reference to nonexistent node `%s'"),
                              $ref->{'cmdname'},
                              link_element_to_texi($label_element)),
@@ -1208,7 +1207,7 @@ sub associate_internal_references($$$)
             and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
                                $node_target,
                                $label_element->{'extra'}->{'node_content'})) {
-          $registrar->line_warn($customization_information,
+          $document->{'registrar'}->line_warn($customization_information,
              sprintf(__("\@%s to `%s', different from %s name `%s'"),
                      $ref->{'cmdname'},
                      link_element_to_texi($label_element),
@@ -2253,7 +2252,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   complete_node_tree_with_menus($document, $registrar, $config);
   my $refs = $document->internal_references_information();
   check_nodes_are_referenced($document, $registrar, $config);
-  associate_internal_references($document, $registrar, $config);
+  associate_internal_references($document, $config);
   number_floats($document->floats_information());
   my $output_units;
   if ($split_at_nodes) {
@@ -2315,14 +2314,14 @@ L<Texinfo::Document>.
 
 =over
 
-=item associate_internal_references($document, $registrar, $customization_information)
+=item associate_internal_references($document, $customization_information)
 X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of
 fifth argument and menu entries) have an associated node, anchor or float.
 Set the I<normalized> key in the C<extra> hash of C<menu_entry_node> container
 for menu entries and in the first argument C<extra> hash for internal
-references C<@ref> and similar @-commands.  Register errors in I<$registrar>.
+references C<@ref> and similar @-commands.
 
 =item check_nodes_are_referenced($document, $registrar, $customization_information)
 X<C<check_nodes_are_referenced>>

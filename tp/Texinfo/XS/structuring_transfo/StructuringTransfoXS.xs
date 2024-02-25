@@ -142,7 +142,7 @@ reference_to_arg_in_tree (SV *tree_in)
 
 void
 associate_internal_references (SV *document_in, ...)
-    PROTOTYPE: $$$
+    PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:

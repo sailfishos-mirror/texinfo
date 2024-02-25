@@ -1076,7 +1076,7 @@ sub test($$)
                              $document, $registrar, $main_configuration);
   }
 
-  Texinfo::Structuring::associate_internal_references($document, $registrar,
+  Texinfo::Structuring::associate_internal_references($document,
                                                       $main_configuration);
   my $sections_list
         = Texinfo::Structuring::sectioning_structure($tree, $registrar,

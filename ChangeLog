@@ -2,6 +2,16 @@
 
 	Remove separate error registrar argument
 
+	* tp/Texinfo/Structuring.pm (associate_internal_references),
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs,
+	(associate_internal_references):
+	Remove separate Texinfo::Report 'registrar' argument, and access
+	errors through 'registrar' key on Texinfo::Document argument.
+
+2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove separate error registrar argument
+
 	* tp/Texinfo/Transformations.pm
 	(insert_nodes_for_sectioning_commands, _new_node),
 	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
