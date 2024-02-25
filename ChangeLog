@@ -1,3 +1,17 @@
+2024-02-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/errors.c (message_list_line_formatted_message)
+	(message_list_document_formatted_message)
+	(vmessage_list_line_error, message_list_document_error_internal):
+	call strdup in message_list_line_formatted_message and
+	message_list_document_formatted_message directly when registering the
+	message, and set const on the argument.  Free the messages in
+	vmessage_list_line_error and message_list_document_error_internal
+	after registering them.  This is so directly calling
+	message_list_*_formatted_message does not require calling strdup.
+
+	Add const.
+
 2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Reset parsetexi counters

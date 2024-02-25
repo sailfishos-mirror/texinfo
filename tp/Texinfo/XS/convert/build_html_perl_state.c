@@ -60,7 +60,7 @@
 
 #define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
 HV *
-build_html_target (HTML_TARGET *html_target)
+build_html_target (const HTML_TARGET *html_target)
 {
   HV *html_target_hv;
   SV *target_sv;
@@ -155,7 +155,7 @@ build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
     {
       if (global_units_directions[i])
         {
-          char *direction_name = html_global_unit_direction_names[i];
+          const char *direction_name = html_global_unit_direction_names[i];
           hv_store (hv, direction_name, strlen (direction_name),
                     newRV_inc ((SV *) global_units_directions[i]->hv), 0);
         }
@@ -319,7 +319,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
               HTML_COMMAND_CONVERSION *no_arg_cmd_context
                   = &conversion_contexts[k];
 
-              char *context_name = html_conversion_context_type_names[k];
+              const char *context_name = html_conversion_context_type_names[k];
               SV **context_sv = hv_fetch (no_arg_command_hv,
                                  context_name, strlen (context_name), 0);
               HV *context_hv = (HV *) SvRV (*context_sv);

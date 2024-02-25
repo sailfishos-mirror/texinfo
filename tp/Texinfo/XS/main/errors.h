@@ -13,7 +13,7 @@ void clear_error_message_list (ERROR_MESSAGE_LIST *error_messages);
 void message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                            enum error_type type, int continuation,
                            const SOURCE_INFO *cmd_source_info,
-                           char *message, int warn);
+                           const char *message, int warn);
 void vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
                           enum error_type type, int continuation,
                           int warn,
@@ -33,7 +33,7 @@ void message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 void message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                                          const OPTIONS *conf,
                                          enum error_type type, int continuation,
-                                         char *message);
+                                         const char *message);
 void message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
                                   const OPTIONS *conf, int continuation,
                                   const char *format, ...);

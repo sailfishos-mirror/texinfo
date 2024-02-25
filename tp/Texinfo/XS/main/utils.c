@@ -400,7 +400,8 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 }
 
 char *
-encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info)
+encode_with_iconv (iconv_t our_iconv, char *s,
+                   const SOURCE_INFO *source_info)
 {
   static TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;

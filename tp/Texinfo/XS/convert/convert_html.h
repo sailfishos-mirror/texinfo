@@ -20,12 +20,12 @@ enum css_info_type {
    CI_css_info_rules,
 };
 
-extern char *html_conversion_context_type_names[];
-extern char *html_global_unit_direction_names[];
+extern const char *html_conversion_context_type_names[];
+extern const char *html_global_unit_direction_names[];
 
-extern char *html_formatting_reference_names[];
+extern const char *html_formatting_reference_names[];
 
-extern TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
+extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
@@ -34,7 +34,7 @@ extern const char *css_info_type_names[];
 extern const char *direction_string_type_names[];
 extern const char *direction_string_context_names[];
 
-extern char *count_elements_in_filename_type_names[];
+extern const char *count_elements_in_filename_type_names[];
 
 void html_format_init (void);
 
@@ -76,21 +76,22 @@ int html_in_raw (const CONVERTER *self);
 int html_paragraph_number (const CONVERTER *self);
 int html_preformatted_number (const CONVERTER *self);
 enum command_id html_top_block_command (const CONVERTER *self);
-COMMAND_OR_TYPE_STACK *html_preformatted_classes_stack (const CONVERTER *self);
+const COMMAND_OR_TYPE_STACK *html_preformatted_classes_stack
+                                    (const CONVERTER *self);
 enum command_id html_in_align (const CONVERTER *self);
 
 char *debug_print_html_contexts (const CONVERTER *self);
 
-size_t html_count_elements_in_filename (CONVERTER *self,
+size_t html_count_elements_in_filename (const CONVERTER *self,
                  enum count_elements_in_filename_type type,
                  const char *filename);
 
 void html_register_file_information (CONVERTER *self, const char *key,
                                      int value);
-int html_get_file_information (CONVERTER *self, const char *key,
+int html_get_file_information (const CONVERTER *self, const char *key,
                                const char *filename, int *status);
 
-int html_special_unit_variety_direction_index (CONVERTER *self,
+int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);
 
 HTML_TARGET *html_get_target (const CONVERTER *self, const ELEMENT *element);
@@ -165,7 +166,7 @@ void html_associate_pending_formatted_inline_content (CONVERTER *self,
                                             const char *inline_content);
 char *html_get_associated_formatted_inline_content (CONVERTER *self,
                                               const ELEMENT *element,
-                                              void *hv);
+                                              const void *hv);
 
 size_t html_check_htmlxref_already_warned (CONVERTER *self,
                                            const char *manual_name,
@@ -210,8 +211,10 @@ char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,
 char *html_convert_output (CONVERTER *self, const ELEMENT *root,
                            int output_units_descriptor,
                            int special_units_descriptor,
-                           char *output_file, char *destination_directory,
-                           char *output_filename, char *document_name);
+                           const char *output_file,
+                           const char *destination_directory,
+                           const char *output_filename,
+                           const char *document_name);
 
 char *html_prepare_node_redirection_page (CONVERTER *self,
                                           const ELEMENT *element,

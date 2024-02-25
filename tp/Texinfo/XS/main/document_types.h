@@ -35,7 +35,7 @@ struct TEXT_OPTIONS;
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };
 
-typedef struct {
+typedef struct ERROR_MESSAGE {
     char *message;
     char *error_line;
     enum error_type type;
@@ -43,7 +43,7 @@ typedef struct {
     SOURCE_INFO source_info;
 } ERROR_MESSAGE;
 
-typedef struct {
+typedef struct ERROR_MESSAGE_LIST {
     ERROR_MESSAGE *list;
     size_t number;
     size_t space;

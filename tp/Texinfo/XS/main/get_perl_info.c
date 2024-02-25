@@ -53,6 +53,9 @@
 
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
 
+/* used for debugging only */
+/* This function mixes Perl and gnulib allocation functions, but since it is
+   only used for debugging it is ok */
 static void
 debug_print_element_hv (HV *element_hv)
 {
@@ -91,6 +94,7 @@ debug_print_element_hv (HV *element_hv)
   free (msg.text);
 }
 
+/* used for debugging only */
 void
 debug_print_element_sv (SV *element_sv)
 {
@@ -305,7 +309,7 @@ get_source_info (SV *source_info_sv)
 
 void
 get_line_message (CONVERTER *self, enum error_type type, int continuation,
-                  SV *error_location_info, char *message)
+                  SV *error_location_info, const char *message)
 {
   int do_warn = (self->conf->DEBUG.integer > 1);
   SOURCE_INFO *source_info = get_source_info (error_location_info);

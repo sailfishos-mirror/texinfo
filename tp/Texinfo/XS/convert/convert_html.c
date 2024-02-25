@@ -58,9 +58,6 @@
 #include "api_to_perl.h"
 #include "convert_html.h"
 
-char *count_elements_in_filename_type_names[] = {
- "total", "remaining", "current"};
-
 typedef struct ROOT_AND_UNIT {
     const OUTPUT_UNIT *output_unit;
     const ELEMENT *root;
@@ -116,20 +113,23 @@ typedef struct SPECIAL_UNIT_BODY_INTERNAL_CONVERSION {
                                TEXT *result);
 } SPECIAL_UNIT_BODY_INTERNAL_CONVERSION;
 
-char *html_global_unit_direction_names[] = {
+const char *count_elements_in_filename_type_names[] = {
+ "total", "remaining", "current"};
+
+const char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
    HTML_GLOBAL_DIRECTIONS_LIST
   #undef hgdt_name
    " ",
 };
 
-char *html_conversion_context_type_names[] = {
+const char *html_conversion_context_type_names[] = {
   #define cctx_type(name) #name,
    HCC_CONTEXT_TYPES_LIST
   #undef cctx_type
 };
 
-char *html_formatting_reference_names[] = {
+const char *html_formatting_reference_names[] = {
   #define html_fr_reference(name) #name,
    HTML_FORMATTING_REFERENCES_LIST
   #undef html_fr_reference
@@ -171,7 +171,7 @@ const char *css_info_type_names[] =
   "element_classes", "imports", "rules"
 };
 
-enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1][htmlxref_split_type_chapter + 1] = {
+const enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1][htmlxref_split_type_chapter + 1] = {
  { htmlxref_split_type_mono, htmlxref_split_type_chapter, htmlxref_split_type_section, htmlxref_split_type_node },
  { htmlxref_split_type_node, htmlxref_split_type_section, htmlxref_split_type_chapter, htmlxref_split_type_mono },
  { htmlxref_split_type_section, htmlxref_split_type_chapter, htmlxref_split_type_node, htmlxref_split_type_mono },
@@ -179,7 +179,7 @@ enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1][htmlx
 };
 
 
-TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
+const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
   {SUIT_type_heading, SUI_type_heading},
   /* these special types end the list */
   {SUIT_type_none, SUI_type_none},
@@ -308,7 +308,7 @@ unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 }
 
 int
-html_special_unit_variety_direction_index (CONVERTER *self,
+html_special_unit_variety_direction_index (const CONVERTER *self,
                                       const char *special_unit_variety)
 {
   /* number is index +1 */
@@ -811,7 +811,7 @@ html_top_block_command (const CONVERTER *self)
   return top_command (&top_document_ctx->block_commands);
 }
 
-COMMAND_OR_TYPE_STACK *
+const COMMAND_OR_TYPE_STACK *
 html_preformatted_classes_stack (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
@@ -903,7 +903,7 @@ compare_page_name_number (const void *a, const void *b)
 
 size_t
 find_page_name_number
-     (const PAGE_NAME_NUMBER_LIST *page_name_number,
+            (const PAGE_NAME_NUMBER_LIST *page_name_number,
                                           const char *page_name)
 {
   PAGE_NAME_NUMBER *result = 0;
@@ -928,12 +928,12 @@ find_page_name_number
 }
 
 size_t
-count_elements_in_file_number (CONVERTER *self,
+count_elements_in_file_number (const CONVERTER *self,
                  enum count_elements_in_filename_type type,
                  size_t file_number)
 {
   size_t i = file_number - 1;
-  FILE_NAME_PATH_COUNTER *file_counter
+  const FILE_NAME_PATH_COUNTER *file_counter
             = &self->output_unit_files.list[i];
 
   if (type == CEFT_total)
@@ -946,7 +946,7 @@ count_elements_in_file_number (CONVERTER *self,
 
 /* called from perl */
 size_t
-html_count_elements_in_filename (CONVERTER *self,
+html_count_elements_in_filename (const CONVERTER *self,
                  enum count_elements_in_filename_type type,
                  const char *filename)
 {
@@ -1193,13 +1193,13 @@ html_get_pending_formatted_inline_content (CONVERTER *self)
 
 static size_t
 get_associated_inline_content_number (
-     HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list,
+     const HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list,
      const ELEMENT *element, const void *hv)
 {
   size_t i;
   for (i = 0; i < associated_content_list->number; i++)
     {
-      HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content
+      const HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content
         = &associated_content_list->list[i];
       if ((element && (element_associated_content->element == element
                        || (element->hv
@@ -1280,7 +1280,7 @@ html_associate_pending_formatted_inline_content (CONVERTER *self,
 char *
 html_get_associated_formatted_inline_content (CONVERTER *self,
                                               const ELEMENT *element,
-                                              void *hv)
+                                              const void *hv)
 {
   HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
     = &self->associated_inline_content;
@@ -1322,11 +1322,11 @@ html_register_file_information (CONVERTER *self, const char *key,
 }
 
 int
-html_get_file_information (CONVERTER *self, const char *key,
+html_get_file_information (const CONVERTER *self, const char *key,
                            const char *filename, int *status)
 {
   size_t page_number;
-  ASSOCIATED_INFO *associated_info;
+  const ASSOCIATED_INFO *associated_info;
   const KEY_PAIR *k;
 
   *status = 0;
@@ -3135,12 +3135,13 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
 
       if (htmlxref_manual)
         {
-          enum htmlxref_split_type *ordered_split_types
+          const enum htmlxref_split_type *ordered_split_types
              = htmlxref_entries[self->document_htmlxref_split_type];
           int i;
           for (i = 0; i < htmlxref_split_type_chapter +1; i++)
             {
-              enum htmlxref_split_type split_ordered = ordered_split_types[i];
+              const enum htmlxref_split_type split_ordered
+                = ordered_split_types[i];
               if (htmlxref_manual->urlprefix[split_ordered])
                 {
                   split_found = split_ordered;
@@ -4483,11 +4484,11 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
   for (j = 0; j < selector_nr; j++)
     {
       if (!strcmp ("a.copiable-link", selectors[j]))
-         {
-           selectors[selector_nr] = "span:hover a.copiable-link";
-           selector_nr++;
-           break;
-         }
+        {
+          selectors[selector_nr] = "span:hover a.copiable-link";
+          selector_nr++;
+          break;
+        }
     }
 
   qsort (selectors, selector_nr, sizeof (char *), compare_strings);
@@ -11790,12 +11791,12 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
 
           if (html_in_preformatted_context (self))
             {
-              COMMAND_OR_TYPE_STACK *pre_classes
+              const COMMAND_OR_TYPE_STACK *pre_classes
                 = html_preformatted_classes_stack (self);
               size_t i;
               for (i = 0; i < pre_classes->top; i++)
                 {
-                  COMMAND_OR_TYPE *cmd_or_type
+                  const COMMAND_OR_TYPE *cmd_or_type
                    = &pre_classes->stack[i];
                   if (cmd_or_type->variety == CTV_type_command)
                     {
@@ -17900,9 +17901,6 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                     {
                       char *explanation;
                       unsigned long arg_flags = 0;
-                      /* actually const, but cannot be marked as such because
-                         the argument of call_latex_convert_to_latex_math
-                         cannot be const in case perl element has to be built */
                       const ELEMENT *arg = element->args.list[arg_idx];
                       HTML_ARG_FORMATTED *arg_formatted
                          = &args_formatted->args[arg_idx];
@@ -18239,7 +18237,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
 void
 convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
-                     char *explanation, TEXT *result)
+                     const char *explanation, TEXT *result)
 {
   TEXT content_formatted;
   /* store this to be able to show only what was added in debug message */
@@ -18277,12 +18275,12 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
            content_idx++)
        {
          const ELEMENT *content = output_unit->unit_contents.list[content_idx];
-         char *explanation;
-         xasprintf (&explanation, "%s c[%d]",
+         char *content_explanation;
+         xasprintf (&content_explanation, "%s c[%d]",
                     output_unit_type_names[unit_type], content_idx);
          convert_to_html_internal (self, content, &content_formatted,
-                                   explanation);
-         free (explanation);
+                                   content_explanation);
+         free (content_explanation);
        }
     }
 
@@ -18310,7 +18308,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
 void
 convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
                                    const OUTPUT_UNIT *output_unit, int unit_nr,
-                                   char *debug_str, char *explanation_str)
+                                   const char *debug_str, const char *explanation_str)
 {
   char *explanation;
 
@@ -18366,7 +18364,7 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root,
 
 int
 convert_output_output_unit_internal (CONVERTER *self,
-                                     ENCODING_CONVERSION *conversion,
+                                     const ENCODING_CONVERSION *conversion,
                                      TEXT *text,
                                      const OUTPUT_UNIT *output_unit,
                                      int unit_nr)
@@ -18384,7 +18382,7 @@ convert_output_output_unit_internal (CONVERTER *self,
   if (output_unit->unit_type == OU_special_unit)
     {
       char *debug_str;
-      char *special_unit_variety = output_unit->special_unit_variety;
+      const char *special_unit_variety = output_unit->special_unit_variety;
 
       file_index = self->special_unit_file_indices[output_unit->index];
       self->current_filename.file_number = file_index +1;
@@ -18526,7 +18524,7 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
                               const char *output_file,
                               const char *output_filename)
 {
-  OUTPUT_UNIT_LIST *output_units
+  const OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
 
   if (strlen (output_file))
@@ -18552,8 +18550,8 @@ char *
 html_convert_output (CONVERTER *self, const ELEMENT *root,
                      int output_units_descriptor,
                      int special_units_descriptor,
-                     char *output_file, char *destination_directory,
-                     char *output_filename, char *document_name)
+                     const char *output_file, const char *destination_directory,
+                     const char *output_filename, const char *document_name)
 {
   int status = 1;
   TEXT result;
@@ -18646,7 +18644,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
     {
       int unit_nr = 0;
       int i;
-      ENCODING_CONVERSION *conversion = 0;
+      const ENCODING_CONVERSION *conversion = 0;
 
       if (self->conf->OUTPUT_ENCODING_NAME.string
           && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "utf-8"))

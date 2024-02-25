@@ -235,7 +235,7 @@ html_converter_initialize_sv (SV *converter_sv,
 
   for (i = 0; i < FR_format_translate_message+1; i++)
     {
-      char *ref_name = html_formatting_reference_names[i];
+      const char *ref_name = html_formatting_reference_names[i];
       FORMATTING_REFERENCE *formatting_reference
         = &converter->formatting_references[i];
       SV **default_formatting_reference_sv
@@ -273,7 +273,7 @@ html_converter_initialize_sv (SV *converter_sv,
 
   for (i = 0; i < FR_format_translate_message+1; i++)
     {
-      char *ref_name = html_formatting_reference_names[i];
+      const char *ref_name = html_formatting_reference_names[i];
       SV **default_formatting_reference_sv
         = hv_fetch (default_css_string_formatting_references_hv, ref_name,
                     strlen (ref_name), 0);

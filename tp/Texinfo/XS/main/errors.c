@@ -57,14 +57,14 @@ void
 message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                            enum error_type type, int continuation,
                            const SOURCE_INFO *cmd_source_info,
-                           char *message, int warn)
+                           const char *message, int warn)
 {
   TEXT error_line;
   ERROR_MESSAGE *error_message;
 
   error_message = reallocate_error_messages (error_messages);
 
-  error_message->message = message;
+  error_message->message = strdup (message);
   error_message->type = type;
   error_message->continuation = continuation;
 
@@ -145,20 +145,21 @@ vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
   message_list_line_formatted_message (error_messages,
                              type, continuation,
                              cmd_source_info, message, warn);
+  free (message);
 }
 
 void
 message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                                          const OPTIONS *conf,
                                          enum error_type type, int continuation,
-                                         char *message)
+                                         const char *message)
 {
   TEXT error_line;
   ERROR_MESSAGE *error_message;
 
   error_message = reallocate_error_messages (error_messages);
 
-  error_message->message = message;
+  error_message->message = strdup (message);
   error_message->type = type;
   error_message->continuation = continuation;
 
@@ -228,7 +229,9 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
   if (!message) fatal ("vasprintf failed");
 
   message_list_document_formatted_message (error_messages, conf, type,
-                                            continuation, message);
+                                           continuation, message);
+
+  free (message);
 }
 
 void

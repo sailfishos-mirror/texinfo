@@ -270,9 +270,9 @@ convert_to_utf8_verbatiminclude (char *s, ENCODING_CONVERSION *conversion,
   The caller should free the return value and FILE_NAME_ENCODING.
 */
 char *
-encoded_input_file_name (OPTIONS *options,
-                         GLOBAL_INFO *global_information,
-                         char *file_name, char *input_file_encoding,
+encoded_input_file_name (const OPTIONS *options,
+                         const GLOBAL_INFO *global_information,
+                         char *file_name, const char *input_file_encoding,
                          char **file_name_encoding,
                          const SOURCE_INFO *source_info)
 {
@@ -302,13 +302,16 @@ encoded_input_file_name (OPTIONS *options,
   return result;
 }
 
+/* NOTE it would have been better to have FILE_NAME const, but iconv
+   argument may not be const, so no const here either */
 char *
-encoded_output_file_name (OPTIONS *options, GLOBAL_INFO *global_information,
+encoded_output_file_name (const OPTIONS *options,
+                          const GLOBAL_INFO *global_information,
                           char *file_name, char **file_name_encoding,
-                          SOURCE_INFO *source_info)
+                          const SOURCE_INFO *source_info)
 {
   char *result;
-  char *encoding = 0;
+  const char *encoding = 0;
   int status;
 
   if (options && options->OUTPUT_FILE_NAME_ENCODING.string)

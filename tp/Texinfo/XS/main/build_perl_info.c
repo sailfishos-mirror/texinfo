@@ -135,6 +135,8 @@ build_perl_array (ELEMENT_LIST *e, int avoid_recursion)
               text_init (&message);
               text_printf (&message,
                 "BUG: build_perl_array oot %d: %s\n", i, debug_str);
+      /* Calling free in this file on data possibly allocated with gnulib
+         is not ok in general, but ok here, as it should never be called */
               free (debug_str);
               fprintf (stderr, "%s", message.text);
               free (message.text);
@@ -196,6 +198,8 @@ build_perl_directions (const ELEMENT_LIST *e, int avoid_recursion)
                   text_init (&message);
                   text_printf (&message,
                     "BUG: build_perl_directions oot %s: %s\n", key, debug_str);
+      /* Calling free in this file on data possibly allocated with gnulib
+         is not ok in general, but ok here, as it should never be called */
                   free (debug_str);
                   fprintf (stderr, "%s", message.text);
                   free (message.text);
@@ -550,8 +554,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           text_init (&message);
           text_printf (&message, "parent %p hv not set in %s '%s'\n",
                             e->parent, debug_str, convert_to_texinfo (e));
-          free (debug_str);
           fatal (message.text);
+          free (debug_str);
         }
       sv = newRV_inc ((SV *) e->parent->hv);
       hv_store (e->hv, "parent", strlen ("parent"), sv, HSH_parent);

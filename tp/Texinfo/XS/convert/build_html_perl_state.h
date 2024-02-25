@@ -12,7 +12,7 @@
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
 
-HV *build_html_target (HTML_TARGET *html_target);
+HV *build_html_target (const HTML_TARGET *html_target);
 void build_html_translated_names (HV *hv, CONVERTER *converter);
 
 SV *build_html_files_source_info
