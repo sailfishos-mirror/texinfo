@@ -72,3 +72,9 @@ counter_value (COUNTER *c, ELEMENT *elt)
   else
     return -1;
 }
+
+void
+counter_reset (COUNTER *c)
+{
+  c->nvalues = 0;
+}

@@ -33,6 +33,7 @@ void counter_pop (COUNTER *c);
 void counter_inc (COUNTER *c);
 void counter_dec (COUNTER *c);
 int counter_value (COUNTER *c, ELEMENT *e);
+void counter_reset (COUNTER *c);
 
 /* A large positive number used to represent an unlimited number of remaining
    arguments. */

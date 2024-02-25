@@ -1,5 +1,12 @@
 2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Reset parsetexi counters
+
+	* tp/Texinfo/XS/parsetexi/counter.c (counter_reset): New function.
+	* tp/Texinfo/XS/parsetexi/macro.c: Call it on 'count_toplevel_braces'.
+
+2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Document.pm
 	(sorted_indices_by_letter, sorted_indices_by_index):
 	Remove "registrar" argument.
