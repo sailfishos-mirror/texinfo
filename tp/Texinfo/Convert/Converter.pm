@@ -1574,8 +1574,7 @@ sub get_converter_indices_sorted_by_letter($)
       }
 
       return Texinfo::Document::sorted_indices_by_letter($self->{'document'},
-                                                 undef, $self,
-                                   $use_unicode_collation, $locale_lang);
+                            $self, $use_unicode_collation, $locale_lang);
     }
   }
   return undef;
@@ -1602,8 +1601,7 @@ sub get_converter_indices_sorted_by_index($)
       }
 
       return Texinfo::Document::sorted_indices_by_index($self->{'document'},
-                                               undef, $self,
-                                 $use_unicode_collation, $locale_lang);
+                            $self, $use_unicode_collation, $locale_lang);
     }
   }
   return undef;
@@ -2579,8 +2577,8 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The functions call L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
-or L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
+The functions call L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang) >>
+or L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang) >>
 with arguments based on C<USE_UNICODE_COLLATION>, C<COLLATION_LANGUAGE> and
 C<DOCUMENTLANGUAGE_COLLATION> customization options, and, if relevant, current
 C<@documentlanguage>.

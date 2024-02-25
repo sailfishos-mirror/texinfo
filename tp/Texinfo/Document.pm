@@ -231,10 +231,9 @@ sub indices_sort_strings($$;$)
 }
 
 # call Texinfo::Indices::sort_indices_by_letter and cache the result
-sub sorted_indices_by_letter($$$$$)
+sub sorted_indices_by_letter($$$$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
@@ -256,18 +255,17 @@ sub sorted_indices_by_letter($$$$$)
   if (!$document->{'sorted_indices_by_letter'}->{$lang_key}) {
     $document->merged_indices();
     $document->{'sorted_indices_by_letter'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_letter($document,
-                          $registrar, $customization_information,
-                           $use_unicode_collation, $locale_lang);
+      = Texinfo::Indices::sort_indices_by_letter
+          ($document, $document->{'registrar'}, $customization_information,
+           $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
 }
 
 # call Texinfo::Indices::sort_indices_by_index and cache the result
-sub sorted_indices_by_index($$$$$)
+sub sorted_indices_by_index($$$$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
@@ -289,9 +287,9 @@ sub sorted_indices_by_index($$$$$)
   if (!$document->{'sorted_indices_by_index'}->{$lang_key}) {
     $document->merged_indices();
     $document->{'sorted_indices_by_index'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_index($document,
-                       $registrar, $customization_information,
-                        $use_unicode_collation, $locale_lang);
+      = Texinfo::Indices::sort_indices_by_index
+          ($document, $document->{'registrar'}, $customization_information,
+           $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
 }
@@ -711,9 +709,9 @@ of index entry structures described in L</index_entries>.
 L<< C<Texinfo::Indices::merge_indices>|Texinfo::Indices/$merged_indices = merge_indices($indices_information) >>
 is used to merge the indices.
 
-=item $sorted_indices = $document->sorted_indices_by_index($registrar, $customization_information, $use_unicode_collation, $locale_lang)
+=item $sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang)
 
-=item $sorted_indices = $document->sorted_indices_by_letter($registrar, $customization_information, $use_unicode_collation, $locale_lang)
+=item $sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang)
 X<C<sorted_indices_by_index>> X<C<sorted_indices_by_letter>>
 
 C<sorted_indices_by_letter> returns the indices sorted by index and letter,
@@ -737,8 +735,6 @@ the best to use for output.
 
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
-
-Register errors in I<$registrar> or through I<$customization_information>.
 
 L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
 and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
