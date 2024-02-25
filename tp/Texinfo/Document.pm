@@ -304,12 +304,13 @@ sub document_descriptor($)
   return $self->{'document_descriptor'};
 }
 
-sub _existing_label_error($$;$$)
+sub _existing_label_error($$;$)
 {
   my $self = shift;
   my $element = shift;
-  my $registrar = shift;
   my $customization_information = shift;
+
+  my $registrar = $self->{'registrar'};
 
   if ($element->{'extra'}
       and defined($element->{'extra'}->{'normalized'})) {
@@ -331,11 +332,10 @@ sub _existing_label_error($$;$$)
   }
 }
 
-sub _add_element_to_identifiers_target($$;$$)
+sub _add_element_to_identifiers_target($$;$)
 {
   my $self = shift;
   my $element = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   if ($element->{'extra'}
@@ -365,8 +365,7 @@ sub set_labels_identifiers_target($$$)
   $self->{'identifiers_target'} = {};
   if (defined $self->{'labels_list'}) {
     foreach my $element (@{$self->{'labels_list'}}) {
-      my $retval = _add_element_to_identifiers_target($self,
-                                         $element, $registrar,
+      my $retval = _add_element_to_identifiers_target($self, $element,
                                          $customization_information);
       if (!$retval and $element->{'extra'}
           and defined($element->{'extra'}->{'normalized'})) {
@@ -380,25 +379,22 @@ sub set_labels_identifiers_target($$$)
      = sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
         @elements_with_error;
     foreach my $element (@sorted) {
-      _existing_label_error($self, $element, $registrar,
-                            $customization_information);
+      _existing_label_error($self, $element, $customization_information);
     }
   }
 }
 
 # TODO document when stabilized
-sub register_label_element($$;$$)
+sub register_label_element($$;$)
 {
   my $self = shift;
   my $element = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
-  my $retval = _add_element_to_identifiers_target($self, $element, $registrar,
+  my $retval = _add_element_to_identifiers_target($self, $element,
                                          $customization_information);
   if (!$retval) {
-    _existing_label_error($self, $element, $registrar,
-                                         $customization_information);
+    _existing_label_error($self, $element, $customization_information);
   }
   # FIXME do not push at the end but have the caller give an information
   # on the element it should be after or before in the list?

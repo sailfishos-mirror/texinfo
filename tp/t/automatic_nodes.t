@@ -176,7 +176,7 @@ $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
-                                                          $registrar, $parser);
+                                                          $parser);
 Texinfo::Document::rebuild_document($document);
 $tree = $document->tree();
 my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -199,7 +199,7 @@ $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $registrar,
                                                     $parser);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
-                                                          $registrar, $parser);
+                                                          $parser);
 
 Texinfo::Document::rebuild_document($document);
 

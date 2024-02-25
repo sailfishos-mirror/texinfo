@@ -1,3 +1,16 @@
+2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove separate error registrar argument
+
+	* tp/Texinfo/Transformations.pm
+	(insert_nodes_for_sectioning_commands, _new_node),
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(insert_nodes_for_sectioning_commands),
+	* tp/Texinfo/Document.pm (_existing_label_error)
+	(_add_element_to_identifiers_target, register_label_element):
+	Remove "registrar" argument and access errors through 'registrar'
+	key on Texinfo::Document argument.
+
 2024-02-24  Patrice Dumas  <pertusus@free.fr>
 
 	Add const.  Replace some int by size_t.

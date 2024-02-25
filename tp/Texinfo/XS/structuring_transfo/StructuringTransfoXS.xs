@@ -273,7 +273,7 @@ regenerate_master_menu (SV *document_in, SV *customization_information, SV *use_
 # The perl function returns the list of added nodes.
 void
 insert_nodes_for_sectioning_commands (SV *document_in, ...)
-   PROTOTYPE: $;$$
+   PROTOTYPE: $;$
     PREINIT:
         DOCUMENT *document = 0;
     CODE:

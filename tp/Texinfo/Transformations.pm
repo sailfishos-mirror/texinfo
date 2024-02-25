@@ -281,14 +281,14 @@ sub reference_to_arg_in_tree($)
 
 # prepare and add a new node as a possible cross reference targets
 # modifies $document
-# $REGISTRAR and $CUSTOMIZATION_INFORMATION are used for error
-# reporting, but they may not be useful, as the code checks that
-# the new node target label does not exist already.
-sub _new_node($$;$$)
+
+# $CUSTOMIZATION_INFORMATION is used for error reporting, but it may
+# not be useful, as the code checks that the new node target label does
+# not exist already.
+sub _new_node($$;$)
 {
   my $node_tree = shift;
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   if ($XS_structuring and $Texinfo::StructTransfXS::XS_package) {
@@ -388,7 +388,7 @@ sub _new_node($$;$$)
   }
   $node->{'extra'}->{'normalized'} = $normalized;
 
-  Texinfo::Document::register_label_element($document, $node, $registrar,
+  Texinfo::Document::register_label_element($document, $node,
                                             $customization_information);
 
   return $node;
@@ -432,10 +432,9 @@ sub _reassociate_to_node($$$)
   return undef;
 }
 
-sub insert_nodes_for_sectioning_commands($;$$)
+sub insert_nodes_for_sectioning_commands($;$)
 {
   my $document = shift;
-  my $registrar = shift;
   my $customization_information = shift;
 
   my $root = $document->tree();
@@ -457,7 +456,7 @@ sub insert_nodes_for_sectioning_commands($;$$)
         $new_node_tree
            = Texinfo::Common::copy_contentsNonXS($content->{'args'}->[0]);
       }
-      my $new_node = _new_node($new_node_tree, $document, $registrar,
+      my $new_node = _new_node($new_node_tree, $document,
                                $customization_information);
       if (defined($new_node)) {
         # insert before $content
