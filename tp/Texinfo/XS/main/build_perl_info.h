@@ -3,6 +3,7 @@
 #define BUILD_PERL_INFO_H
 
 #include <stddef.h>
+#include <stdarg.h>
 
 #include "EXTERN.h"
 #include "perl.h"
@@ -12,6 +13,13 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "options_types.h"
+
+void perl_only_free (void *ptr);
+void *perl_only_malloc (size_t size);
+char *perl_only_strdup (const char *s);
+char *perl_only_strndup (const char *s, size_t n);
+int perl_only_xvasprintf (char **ptr, const char *template, va_list ap);
+int perl_only_xasprintf (char **ptr, const char *template, ...);
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 

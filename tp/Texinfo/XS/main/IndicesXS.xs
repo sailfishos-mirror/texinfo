@@ -27,9 +27,10 @@
 
 #include "tree_types.h"
 #include "document_types.h"
+/* non_perl_* */
+#include "utils.h"
 /*
 #include "tree.h"
-#include "utils.h"
  */
 #include "document.h"
 #include "manipulate_indices.h"
@@ -144,7 +145,7 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
        else
          {
            RETVAL = newSVpv_utf8 (sort_string, 0);
-           free (sort_string);
+           non_perl_free (sort_string);
          }
     OUTPUT:
          RETVAL

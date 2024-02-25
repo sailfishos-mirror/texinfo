@@ -5,27 +5,10 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
-/* for TARGET_FILENAME */
+/* for TARGET_FILENAME TARGET_CONTENTS_FILENAME FILE_NAME_PATH
+   TARGET_DIRECTORY_FILENAME */
 #include "utils.h"
 #include "translations.h"
-
-typedef struct FILE_NAME_PATH {
-    char *filename;
-    char *filepath;
-} FILE_NAME_PATH;
-
-typedef struct TARGET_DIRECTORY_FILENAME {
-    char *filename;
-    char *directory;
-    char *target;
-} TARGET_DIRECTORY_FILENAME;
-
-typedef struct TARGET_CONTENTS_FILENAME {
-    char *target;
-    char *filename;
-    char *target_contents;
-    char *target_shortcontents;
-} TARGET_CONTENTS_FILENAME;
 
 TARGET_FILENAME *call_file_id_setting_special_unit_target_file_name
                             (CONVERTER *self,

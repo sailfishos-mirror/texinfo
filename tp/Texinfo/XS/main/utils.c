@@ -137,6 +137,25 @@ char *html_command_text_type_name[] = {
   "href", "node", "section",
 };
 
+/* wrappers to be sure to use non-Perl defined functions */
+void
+non_perl_free (void *ptr)
+{
+  free (ptr);
+}
+
+char *
+non_perl_strdup (const char *s)
+{
+  return strdup (s);
+}
+
+char *
+non_perl_strndup (const char *s, size_t n)
+{
+  return strndup (s, n);
+}
+
 /* wrapper for asprintf */
 int
 xasprintf (char **ptr, const char *template, ...)
@@ -827,6 +846,16 @@ wipe_index_names (INDEX **index_names)
 
 
 /* string lists */
+
+STRING_LIST *
+new_string_list (void)
+{
+  STRING_LIST *result = (STRING_LIST *) malloc (sizeof (STRING_LIST));
+  memset (result, 0, sizeof (STRING_LIST));
+
+  return result;
+}
+
 /* include directories and include file */
 
 void
@@ -1614,4 +1643,57 @@ initialize_option (OPTION *option, enum global_option_type type)
 
       default:
     }
+}
+
+
+/* constructors in particular called from files including perl headers */
+
+TARGET_FILENAME *
+new_target_filename (void)
+{
+  TARGET_FILENAME *result
+    = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
+
+  result->filename = 0;
+
+  return result;
+}
+
+TARGET_CONTENTS_FILENAME *
+new_target_contents_filename (void)
+{
+  TARGET_CONTENTS_FILENAME *result = (TARGET_CONTENTS_FILENAME *)
+                         malloc (sizeof (TARGET_CONTENTS_FILENAME));
+
+  return result;
+}
+
+FILE_NAME_PATH *
+new_file_name_path (void)
+{
+  FILE_NAME_PATH *result
+   = (FILE_NAME_PATH *) malloc (sizeof (FILE_NAME_PATH));
+  memset (result, 0, sizeof (FILE_NAME_PATH));
+
+  return result;
+}
+
+TARGET_DIRECTORY_FILENAME *
+new_target_directory_filename (void)
+{
+  TARGET_DIRECTORY_FILENAME *result = (TARGET_DIRECTORY_FILENAME *)
+              malloc (sizeof (TARGET_DIRECTORY_FILENAME));
+  memset (result, 0, sizeof (TARGET_DIRECTORY_FILENAME));
+
+  return result;
+}
+
+FORMATTED_BUTTON_INFO *
+new_formatted_button_info (void)
+{
+  FORMATTED_BUTTON_INFO *result
+   = (FORMATTED_BUTTON_INFO *) malloc (sizeof (FORMATTED_BUTTON_INFO));
+  memset (result, 0, sizeof (FORMATTED_BUTTON_INFO));
+
+  return result;
 }

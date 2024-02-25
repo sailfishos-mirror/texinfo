@@ -40,6 +40,7 @@
 #include "convert_to_texinfo.h"
 #include "output_unit.h"
 #include "command_stack.h"
+/* also for perl_only_* wrappers */
 #include "build_perl_info.h"
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
@@ -286,11 +287,10 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
       const char *type_name = special_unit_info_type_names[string_type];
       char *key;
       HV *special_unit_hv = newHV ();
-      /* TODO do not call xasprintf/free?  See NOTE at the beginning */
-      xasprintf (&key, "%s_tree", type_name);
+      perl_only_xasprintf (&key, "%s_tree", type_name);
       hv_store (special_unit_info_hv, key, strlen (key),
                 newRV_noinc ((SV *) special_unit_hv), 0);
-      free (key);
+      perl_only_free (key);
     }
 
   /* pass all the information for each context for translated commands */

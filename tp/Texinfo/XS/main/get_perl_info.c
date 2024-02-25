@@ -41,6 +41,8 @@
 #include "output_unit.h"
 #include "convert_to_text.h"
 #include "converter.h"
+/* for perl_only_* */
+#include "build_perl_info.h"
 #include "get_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -282,7 +284,7 @@ get_source_info (SV *source_info_sv)
   if (macro_sv)
     {
       char *macro = (char *) SvPVutf8_nolen (*macro_sv);
-      source_info->macro = strdup (macro);
+      source_info->macro = non_perl_strdup (macro);
     }
 
   FETCH(file_name)
@@ -290,7 +292,7 @@ get_source_info (SV *source_info_sv)
   if (file_name_sv && SvOK (*file_name_sv))
     {
       char *file_name = (char *) SvPVbyte_nolen (*file_name_sv);
-      source_info->file_name = strdup (file_name);
+      source_info->file_name = non_perl_strdup (file_name);
     }
 
   FETCH(line_nr)
@@ -312,7 +314,7 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
     {
       char *saved_string = add_string (source_info->file_name,
                                        &self->small_strings);
-      free (source_info->file_name);
+      non_perl_free (source_info->file_name);
       source_info->file_name = saved_string;
     }
 
@@ -320,7 +322,7 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
     {
       char *saved_string = add_string (source_info->macro,
                                        &self->small_strings);
-      free (source_info->macro);
+      non_perl_free (source_info->macro);
       source_info->macro = saved_string;
     }
 
@@ -328,7 +330,7 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
                                        type, continuation, source_info,
                                        message, do_warn);
 
-  free (source_info);
+  non_perl_free (source_info);
 }
 
 void
@@ -497,7 +499,7 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
                   char *tmp_spec = (char *) SvPVutf8_nolen (translation_sv);
                   TRANSLATED_COMMAND *translated_command
                     = &converter->translated_commands[i];
-                  translated_command->translation = strdup (tmp_spec);
+                  translated_command->translation = non_perl_strdup (tmp_spec);
                   translated_command->cmd = cmd;
                 }
             }
@@ -578,7 +580,7 @@ converter_initialize (SV *converter_sv)
   if (output_format_sv && SvOK (*output_format_sv))
     {
       converter->output_format
-         = strdup (SvPVutf8_nolen (*output_format_sv));
+         = non_perl_strdup (SvPVutf8_nolen (*output_format_sv));
     }
 
    /*
@@ -805,7 +807,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
       letter_entries_nr = av_top_index (av) +1;
 
       index_index_letters = &indices_entries_by_letter[j];
-      index_index_letters->name = strdup (idx_name);
+      index_index_letters->name = non_perl_strdup (idx_name);
       index_index_letters->letter_number = letter_entries_nr;
       index_index_letters->letter_entries
         = (LETTER_INDEX_ENTRIES *)
@@ -836,7 +838,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                   fatal (msg);
                 }
               letter_string = (char *) SvPVutf8_nolen (*letter_sv);
-              letter_entries->letter = strdup (letter_string);
+              letter_entries->letter = non_perl_strdup (letter_string);
 
               entries_av = (AV *) SvRV (*entries_sv);
               entries_nr = av_top_index (entries_av) +1;
@@ -859,13 +861,13 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                              idx_name, i, letter_entries->letter, k);
                       fatal (msg);
                     }
-                  xasprintf (&warn_string,
+                  perl_only_xasprintf (&warn_string,
                          "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d",
                          idx_name, i, letter_entries->letter, k);
                   index_entry = find_index_entry_sv (*index_entry_sv, index_names,
                                                      warn_string, &entry_idx,
                                                      &entry_number);
-                  free (warn_string);
+                  perl_only_free (warn_string);
 
                   letter_entries->entries[k] = index_entry;
 
@@ -957,7 +959,8 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   FETCH(enabled_encoding)
   if (enabled_encoding_sv)
-    text_options->encoding = strdup (SvPVutf8_nolen (*enabled_encoding_sv));
+    text_options->encoding
+      = non_perl_strdup (SvPVutf8_nolen (*enabled_encoding_sv));
 
   FETCH(set_case)
   if (set_case_sv)
@@ -1210,7 +1213,7 @@ html_get_direction_icons_sv (const CONVERTER *converter,
       if (direction_icon_sv && SvOK (*direction_icon_sv))
         {
           direction_icons->list[i]
-            = strdup (SvPVutf8_nolen (*direction_icon_sv));
+            = non_perl_strdup (SvPVutf8_nolen (*direction_icon_sv));
         }
       else
         direction_icons->list[i] = 0;

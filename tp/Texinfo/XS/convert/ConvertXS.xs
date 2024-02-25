@@ -363,7 +363,7 @@ plain_texinfo_convert_tree (SV *tree_in)
           {
             char *result = convert_to_texinfo (document->tree);
             RETVAL = newSVpv_utf8 (result, 0);
-            free (result);
+            non_perl_free (result);
           }
         else
           RETVAL = newSV(0);
@@ -393,7 +393,7 @@ text_convert_tree (SV *options_in, SV *tree_in)
 
             destroy_text_options (text_options);
             RETVAL = newSVpv_utf8 (result, 0);
-            free (result);
+            non_perl_free (result);
           }
         else
           {
@@ -625,7 +625,7 @@ html_debug_print_html_contexts (SV *converter_in)
            {
              char *result = debug_print_html_contexts (self);
              RETVAL = newSVpv_utf8 (result, 0);
-             free (result);
+             non_perl_free (result);
            }
          else
            RETVAL = newSVpv_utf8 ("", 0);
@@ -1113,7 +1113,7 @@ html_internal_command_href (SV *converter_in, SV *element_sv, SV *source_filenam
          if (href)
            {
              RETVAL = newSVpv_utf8 (href, 0);
-             free (href);
+             non_perl_free (href);
            }
          else
            RETVAL = newSV (0);
@@ -1144,7 +1144,7 @@ html_command_contents_href (SV *converter_in, SV *element_sv, cmdname, SV *sourc
          if (href)
            {
              RETVAL = newSVpv_utf8 (href, 0);
-             free (href);
+             non_perl_free (href);
            }
          else
            RETVAL = newSV (0);
@@ -1179,7 +1179,7 @@ html_footnote_location_href (SV *converter_in, SV *element_sv, SV *source_filena
          if (href)
            {
              RETVAL = newSVpv_utf8 (href, 0);
-             free (href);
+             non_perl_free (href);
            }
          else
            RETVAL = newSV (0);
@@ -1250,7 +1250,7 @@ html_internal_command_text (SV *converter_in, SV *element_sv, const char *type)
          if (text)
            {
              RETVAL = newSVpv_utf8 (text, 0);
-             free (text);
+             non_perl_free (text);
            }
          else
            RETVAL = newSV (0);
@@ -1272,7 +1272,7 @@ html_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
          if (args_nr > 0)
            {
              int i;
-             args_sv = (SV **) malloc (args_nr * sizeof (SV *));
+             args_sv = (SV **) perl_only_malloc (args_nr * sizeof (SV *));
              for (i = 0; i < args_nr; i++)
                {
                  args_sv[i] = ST(i+3);
@@ -1280,7 +1280,7 @@ html_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
            }
          html_set_shared_conversion_state (self, converter_in,
                                 cmdname, state_name, args_nr, args_sv);
-         free (args_sv);
+         perl_only_free (args_sv);
 
 SV *
 html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
@@ -1297,7 +1297,7 @@ html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
          if (args_nr > 0)
            {
              int i;
-             args_sv = (SV **) malloc (args_nr * sizeof (SV *));
+             args_sv = (SV **) perl_only_malloc (args_nr * sizeof (SV *));
              for (i = 0; i < args_nr; i++)
                {
                  args_sv[i] = ST(i+3);
@@ -1305,7 +1305,7 @@ html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
            }
          RETVAL = html_get_shared_conversion_state (self, converter_in,
                                      cmdname, state_name, args_nr, args_sv);
-         free (args_sv);
+         perl_only_free (args_sv);
     OUTPUT:
          RETVAL
 
@@ -1371,8 +1371,7 @@ html_attribute_class (SV *converter_in, element, ...)
              char *result;
              if (classes_sv)
                {
-                 classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-                 memset (classes, 0, sizeof (STRING_LIST));
+                 classes = new_string_list ();
                  add_svav_to_string_list (classes_sv, classes, svt_char);
                }
              result = html_attribute_class (self, element, classes);

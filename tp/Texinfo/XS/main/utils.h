@@ -45,12 +45,12 @@ extern const char *command_location_names[];
 extern const char *html_button_direction_names[];
 extern char *html_command_text_type_name[];
 
-typedef struct {
+typedef struct ENCODING_CONVERSION {
     char *encoding_name;
     iconv_t iconv;
 } ENCODING_CONVERSION;
 
-typedef struct {
+typedef struct ENCODING_CONVERSION_LIST {
     ENCODING_CONVERSION *list;
     size_t number;
     size_t space;
@@ -60,7 +60,7 @@ typedef struct {
 extern ENCODING_CONVERSION_LIST output_conversions;
 extern ENCODING_CONVERSION_LIST input_conversions;
 
-typedef struct {
+typedef struct DEF_ALIAS {
     enum command_id alias;
     enum command_id command;
     char *category;
@@ -148,6 +148,27 @@ typedef struct ACCENTS_STACK {
     ELEMENT *argument;
 } ACCENTS_STACK;
 
+typedef struct TARGET_CONTENTS_FILENAME {
+    char *target;
+    char *filename;
+    char *target_contents;
+    char *target_shortcontents;
+} TARGET_CONTENTS_FILENAME;
+
+typedef struct FILE_NAME_PATH {
+    char *filename;
+    char *filepath;
+} FILE_NAME_PATH;
+
+typedef struct TARGET_DIRECTORY_FILENAME {
+    char *filename;
+    char *directory;
+    char *target;
+} TARGET_DIRECTORY_FILENAME;
+
+void non_perl_free (void *ptr);
+char *non_perl_strdup (const char *s);
+char *non_perl_strndup (const char *s, size_t n);
 
 int xasprintf (char **ptr, const char *template, ...);
 
@@ -182,6 +203,7 @@ char *collapse_spaces (const char *text);
 char *parse_line_directive (char *line, int *retval, int *out_line_no);
 int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
 
+STRING_LIST *new_string_list (void);
 void clear_strings_list (STRING_LIST *strings);
 void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
@@ -251,5 +273,11 @@ void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void initialize_option (OPTION *option, enum global_option_type type);
 void clear_option (OPTION *option);
 void free_option (OPTION *option);
+
+TARGET_FILENAME *new_target_filename (void);
+TARGET_CONTENTS_FILENAME *new_target_contents_filename (void);
+FILE_NAME_PATH *new_file_name_path (void);
+TARGET_DIRECTORY_FILENAME *new_target_directory_filename (void);
+FORMATTED_BUTTON_INFO *new_formatted_button_info (void);
 
 #endif

@@ -84,9 +84,7 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
           SV *target_ret_sv;
           SV *filename_sv;
           STRLEN len;
-          TARGET_FILENAME *result
-            = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
-          result->filename = 0;
+          TARGET_FILENAME *result = new_target_filename ();
 
           dSP;
 
@@ -114,12 +112,12 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
             {
               STRLEN len;
               filename = SvPVutf8 (filename_sv, len);
-              result->filename = strndup (filename, len);
+              result->filename = non_perl_strndup (filename, len);
             }
 
           target_ret_sv = POPs;
           target_ret = SvPVutf8 (target_ret_sv, len);
-          result->target = strndup (target_ret, len);
+          result->target = non_perl_strndup (target_ret, len);
 
           PUTBACK;
 
@@ -195,7 +193,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
 
           target_ret_sv = POPs;
           target_ret = SvPVutf8 (target_ret_sv, len);
-          result = strndup (target_ret, len);
+          result = non_perl_strndup (target_ret, len);
 
           PUTBACK;
 
@@ -270,7 +268,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
               char *node_filename_ret;
               STRLEN len;
               node_filename_ret = SvPVutf8 (node_filename_ret_sv, len);
-              result = strndup (node_filename_ret, len);
+              result = non_perl_strndup (node_filename_ret, len);
             }
           else
             result = 0;
@@ -324,8 +322,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
           char *target_contents_ret;
           char *target_shortcontents_ret;
           char *filename_ret;
-          TARGET_CONTENTS_FILENAME *result = (TARGET_CONTENTS_FILENAME *)
-                                malloc (sizeof (TARGET_CONTENTS_FILENAME));
+          TARGET_CONTENTS_FILENAME *result = new_target_contents_filename ();
 
           dSP;
 
@@ -352,18 +349,18 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
 
           filename_ret_sv = POPs;
           filename_ret = SvPVutf8 (filename_ret_sv, len);
-          result->filename = strndup (filename_ret, len);
+          result->filename = non_perl_strndup (filename_ret, len);
           target_shortcontents_ret_sv = POPs;
           target_shortcontents_ret = SvPVutf8 (target_shortcontents_ret_sv,
                                                len);
-          result->target_shortcontents = strndup (target_shortcontents_ret,
-                                                   len);
+          result->target_shortcontents
+            = non_perl_strndup (target_shortcontents_ret, len);
           target_contents_ret_sv = POPs;
           target_contents_ret = SvPVutf8 (target_contents_ret_sv, len);
-          result->target_contents = strndup (target_contents_ret, len);
+          result->target_contents = non_perl_strndup (target_contents_ret, len);
           target_ret_sv = POPs;
           target_ret = SvPVutf8 (target_ret_sv, len);
-          result->target = strndup (target_ret, len);
+          result->target = non_perl_strndup (target_ret, len);
 
           PUTBACK;
 
@@ -406,9 +403,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
           int count;
           SV *filepath_ret_sv;
           SV *filename_ret_sv;
-          FILE_NAME_PATH *result
-            = (FILE_NAME_PATH *) malloc (sizeof (FILE_NAME_PATH));
-          memset (result, 0, sizeof (FILE_NAME_PATH));
+          FILE_NAME_PATH *result = new_file_name_path ();
 
           dSP;
 
@@ -436,7 +431,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
             {
               STRLEN len;
               char *filepath_ret = SvPVutf8 (filepath_ret_sv, len);
-              result->filepath = strndup (filepath_ret, len);
+              result->filepath = non_perl_strndup (filepath_ret, len);
             }
 
           filename_ret_sv = POPs;
@@ -444,7 +439,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
             {
               STRLEN len;
               char *filename_ret = SvPVutf8 (filename_ret_sv, len);
-              result->filename = strndup (filename_ret, len);
+              result->filename = non_perl_strndup (filename_ret, len);
             }
 
           PUTBACK;
@@ -487,9 +482,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
           SV *target_sv;
           SV *filename_sv;
           SV *directory_sv;
-          TARGET_DIRECTORY_FILENAME *result = (TARGET_DIRECTORY_FILENAME *)
-              malloc (sizeof (TARGET_DIRECTORY_FILENAME));
-          memset (result, 0, sizeof (TARGET_DIRECTORY_FILENAME));
+          TARGET_DIRECTORY_FILENAME *result = new_target_directory_filename ();
 
           dSP;
 
@@ -519,30 +512,30 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
             {
               STRLEN len;
               char *filename_ret = SvPVutf8 (filename_sv, len);
-              result->filename = strndup (filename_ret, len);
+              result->filename = non_perl_strndup (filename_ret, len);
             }
           else
-            result->filename = strdup ("");
+            result->filename = non_perl_strdup ("");
 
           directory_sv = POPs;
           if (SvOK (directory_sv))
             {
               STRLEN len;
               char *directory_ret = SvPVutf8 (directory_sv, len);
-              result->directory = strndup (directory_ret, len);
+              result->directory = non_perl_strndup (directory_ret, len);
             }
           else
-            result->directory = strdup ("");
+            result->directory = non_perl_strdup ("");
 
           target_sv = POPs;
           if (SvOK (target_sv))
             {
               STRLEN len;
               char *target_ret = SvPVutf8 (target_sv, len);
-              result->target = strndup (target_ret, len);
+              result->target = non_perl_strndup (target_ret, len);
             }
           else
-            result->target = strdup ("");
+            result->target = non_perl_strdup ("");
 
           PUTBACK;
 
@@ -582,9 +575,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
           int count;
           SV *target_sv;
           SV *file_sv;
-          TARGET_FILENAME *result
-            = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
-          result->filename = 0;
+          TARGET_FILENAME *result = new_target_filename ();
 
           dSP;
 
@@ -612,16 +603,16 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
           if (SvOK (file_sv))
             {
               STRLEN len;
-              char *file_ret = SvPVutf8 (file_sv, len);
-              result->filename = strndup (file_ret, len);
+              const char *file_ret = SvPVutf8 (file_sv, len);
+              result->filename = non_perl_strndup (file_ret, len);
             }
 
           target_sv = POPs;
           if (SvOK (target_sv))
             {
               STRLEN len;
-              char *target_ret = SvPVutf8 (target_sv, len);
-              result->target = strndup (target_ret, len);
+              const char *target_ret = SvPVutf8 (target_sv, len);
+              result->target = non_perl_strndup (target_ret, len);
             }
 
           PUTBACK;
@@ -645,7 +636,7 @@ call_formatting_function_format_comment (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -685,7 +676,7 @@ call_formatting_function_format_comment (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -701,7 +692,7 @@ call_formatting_function_format_program_string (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -740,7 +731,7 @@ call_formatting_function_format_program_string (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -756,7 +747,7 @@ call_formatting_function_format_titlepage (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -795,7 +786,7 @@ call_formatting_function_format_titlepage (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -811,7 +802,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -850,7 +841,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -867,7 +858,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -907,7 +898,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -923,7 +914,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -962,7 +953,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -978,7 +969,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1017,7 +1008,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1034,7 +1025,7 @@ call_formatting_function_format_css_lines (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1074,7 +1065,7 @@ call_formatting_function_format_css_lines (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1091,7 +1082,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1138,7 +1129,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1156,7 +1147,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 {
   int count;
   char *result;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1203,7 +1194,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1221,7 +1212,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1265,7 +1256,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   if (SvOK (result_sv))
     {
       result_ret = SvPVutf8 (result_sv, len);
-      result = strndup (result_ret, len);
+      result = non_perl_strndup (result_ret, len);
     }
 
   PUTBACK;
@@ -1286,7 +1277,7 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
   int count;
   SV *name_sv;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1335,7 +1326,7 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1372,9 +1363,7 @@ call_formatting_function_format_button (CONVERTER *self,
 
   build_tree_to_build (&self->tree_to_build);
 
-  FORMATTED_BUTTON_INFO *result
-   = (FORMATTED_BUTTON_INFO *) malloc (sizeof (FORMATTED_BUTTON_INFO));
-  memset (result, 0, sizeof (FORMATTED_BUTTON_INFO));
+  FORMATTED_BUTTON_INFO *result = new_formatted_button_info ();
 
   dSP;
 
@@ -1409,16 +1398,16 @@ call_formatting_function_format_button (CONVERTER *self,
   if (SvOK (passive_sv))
     {
       STRLEN len;
-      char *passive_ret = SvPVutf8 (passive_sv, len);
-      result->passive = strdup (passive_ret);
+      const char *passive_ret = SvPVutf8 (passive_sv, len);
+      result->passive = non_perl_strndup (passive_ret, len);
     }
 
   active_sv = POPs;
   if (SvOK (active_sv))
     {
       STRLEN len;
-      char *active_ret = SvPVutf8 (active_sv, len);
-      result->active = strdup (active_ret);
+      const char *active_ret = SvPVutf8 (active_sv, len);
+      result->active = non_perl_strndup (active_ret, len);
     }
 
   PUTBACK;
@@ -1438,7 +1427,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1483,7 +1472,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1502,7 +1491,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1546,7 +1535,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1567,7 +1556,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1637,7 +1626,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1655,7 +1644,7 @@ call_formatting_function_format_contents (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *command_sv;
   SV *result_sv;
@@ -1705,7 +1694,7 @@ call_formatting_function_format_contents (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1722,7 +1711,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1765,7 +1754,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1783,7 +1772,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1827,7 +1816,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1846,7 +1835,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1893,7 +1882,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1910,7 +1899,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
 {
   int count;
   char *result = 0;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -1953,7 +1942,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -1973,7 +1962,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
                        TEXT *result)
 {
   int count;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -2043,7 +2032,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
                  const ELEMENT *element, TEXT *result)
 {
   int count;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -2105,7 +2094,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
                           const char *content, TEXT *result)
 {
   int count;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -2175,7 +2164,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element, TEXT *result)
 {
   int count;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -2240,7 +2229,7 @@ call_output_units_conversion (CONVERTER *self,
                               const char *content, TEXT *result)
 {
   int count;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -2307,7 +2296,7 @@ call_special_unit_body_formatting (CONVERTER *self,
                               TEXT *result)
 {
   int count;
-  char *result_ret;
+  const char *result_ret;
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
@@ -2387,9 +2376,7 @@ call_button_simple_function (CONVERTER *self,
       self->modified_state = 0;
     }
 
-  result
-   = (FORMATTED_BUTTON_INFO *) malloc (sizeof (FORMATTED_BUTTON_INFO));
-  memset (result, 0, sizeof (FORMATTED_BUTTON_INFO));
+  result = new_formatted_button_info ();
 
   dSP;
 
@@ -2421,7 +2408,7 @@ call_button_simple_function (CONVERTER *self,
     {
       STRLEN len;
       char *active_ret = SvPVutf8 (active_sv, len);
-      result->active = strndup (active_ret, len);
+      result->active = non_perl_strndup (active_ret, len);
     }
 
   PUTBACK;
@@ -2455,9 +2442,7 @@ call_button_direction_function (CONVERTER *self,
       self->modified_state = 0;
     }
 
-  result
-   = (FORMATTED_BUTTON_INFO *) malloc (sizeof (FORMATTED_BUTTON_INFO));
-  memset (result, 0, sizeof (FORMATTED_BUTTON_INFO));
+  result = new_formatted_button_info ();
 
   dSP;
 
@@ -2493,7 +2478,7 @@ call_button_direction_function (CONVERTER *self,
     {
       STRLEN len;
       char *active_ret = SvPVutf8 (active_sv, len);
-      result->active = strndup (active_ret, len);
+      result->active = non_perl_strndup (active_ret, len);
     }
 
   PUTBACK;

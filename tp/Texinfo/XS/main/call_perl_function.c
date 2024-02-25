@@ -30,6 +30,8 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "document_types.h"
+/* for non_perl_strndup and similar */
+#include "utils.h"
 #include "build_perl_info.h"
 #include "call_perl_function.h"
 
@@ -69,7 +71,7 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 
@@ -135,7 +137,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = strndup (result_ret, len);
+  result = non_perl_strndup (result_ret, len);
 
   PUTBACK;
 

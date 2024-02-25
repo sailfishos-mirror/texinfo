@@ -204,11 +204,11 @@ html_converter_initialize_sv (SV *converter_sv,
               HTMLXREF_MANUAL *htmlxref_manual = &converter->htmlxref.list[i];
               HE *next = hv_iternext (htmlxref_hv);
               SV *selector_sv = hv_iterkeysv (next);
-              char *selector = (char *) SvPVutf8_nolen (selector_sv);
+              const char *selector = (char *) SvPVutf8_nolen (selector_sv);
               SV *split_type_sv = HeVAL(next);
               HV *split_type_hv = (HV *) SvRV (split_type_sv);
 
-              htmlxref_manual->manual = strdup (selector);
+              htmlxref_manual->manual = non_perl_strdup (selector);
 
               for (j = 0; j < htmlxref_split_type_chapter +1; j++)
                 {
@@ -220,8 +220,9 @@ html_converter_initialize_sv (SV *converter_sv,
                      it is ignored later on when checking an external href */
                   if (urlprefix_sv && SvOK (*urlprefix_sv))
                     {
-                      char *urlprefix = SvPVutf8_nolen (*urlprefix_sv);
-                      htmlxref_manual->urlprefix[j] = strdup (urlprefix);
+                      const char *urlprefix = SvPVutf8_nolen (*urlprefix_sv);
+                      htmlxref_manual->urlprefix[j]
+                        = non_perl_strdup (urlprefix);
                     }
                 }
             }
@@ -523,7 +524,7 @@ html_converter_initialize_sv (SV *converter_sv,
                         {
                           char *value
                             = (char *) SvPVutf8_nolen (*info_type_variety_sv);
-                          converter->special_unit_info[j][k] = strdup (value);
+                          converter->special_unit_info[j][k] = non_perl_strdup (value);
                         }
                       else
                         converter->special_unit_info[j][k] = 0;
@@ -621,7 +622,7 @@ html_converter_initialize_sv (SV *converter_sv,
                                             &type_name, &retlen);
           if (SvOK (pre_class_sv))
             {
-              char *pre_class = SvPV_nolen (pre_class_sv);
+              const char *pre_class = SvPV_nolen (pre_class_sv);
               enum element_type type = find_element_type (type_name);
 
               if (type == ET_NONE)
@@ -630,7 +631,7 @@ html_converter_initialize_sv (SV *converter_sv,
                            type_name);
                 }
               else
-                converter->pre_class_types[type] = strdup (pre_class);
+                converter->pre_class_types[type] = non_perl_strdup (pre_class);
             }
         }
     }
@@ -698,7 +699,7 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (entity_sv)
                     {
                       char *entity = (char *) SvPVutf8_nolen (*entity_sv);
-                      accent_info->entity = strdup (entity);
+                      accent_info->entity = non_perl_strdup (entity);
                     }
 
                   if (characters_sv && SvOK (*characters_sv))
@@ -706,7 +707,7 @@ html_converter_initialize_sv (SV *converter_sv,
                       char *characters
                         = (char *) SvPVutf8_nolen (*characters_sv);
                       if (strlen (characters))
-                        accent_info->characters = strdup (characters);
+                        accent_info->characters = non_perl_strdup (characters);
                     }
                 }
             }
@@ -797,9 +798,10 @@ html_converter_initialize_sv (SV *converter_sv,
                                                            &key, &retlen);
                               if (!strcmp (key, "element"))
                                 {
-                                  char *tmp_spec
+                                  const char *tmp_spec
                                     = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->element = strdup (tmp_spec);
+                                  format_spec->element
+                                    = non_perl_strdup (tmp_spec);
                                 }
                               else if (!strcmp (key, "quote"))
                                 format_spec->quote = SvIV (spec_sv);

@@ -34,6 +34,8 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
+/* non_perl_* */
+#include "utils.h"
 
 /* to be called when a tree element is destroyed, to remove the reference
    of the association with the C tree */
@@ -62,7 +64,8 @@ get_perl_scalar_reference_value (const void *sv_string)
 {
   dTHX;
 
-  char *value = strdup ((char *) SvPVutf8_nolen (SvRV ((SV *) sv_string)));
+  const char *value_tmp = (char *) SvPVutf8_nolen (SvRV ((SV *) sv_string));
+  char *value = non_perl_strdup (value_tmp);
   return value;
 }
 

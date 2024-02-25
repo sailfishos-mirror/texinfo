@@ -14,6 +14,8 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+#include <stdio.h>
+#include <stdarg.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -67,8 +69,61 @@
       free or allocate in files using Gnulib definitions.
 
       TODO say something about wrappers.
+
+      To be sure to use Perl defined functions, wrappers
+      can be used, from build_perl_info.h:
+       perl_only_free, perl_only_strdup, perl_only_strndup.
+
+
+      To be sure to use non Perl defined functions, wrappers
+      can be used, from utils.h:
+       non_perl_free, non_perl_strdup, non_perl_strndup.
     */
 
+/* wrappers to be sure to use Perl defined functions */
+void
+perl_only_free (void *ptr)
+{
+  free (ptr);
+}
+
+void *
+perl_only_malloc (size_t size)
+{
+  return malloc (size);
+}
+
+char *
+perl_only_strdup (const char *s)
+{
+  return strdup (s);
+}
+
+char *
+perl_only_strndup (const char *s, size_t n)
+{
+  return strndup (s, n);
+}
+
+/* wrapper for vasprintf */
+int
+perl_only_xvasprintf (char **ptr, const char *template, va_list ap)
+{
+  int ret;
+  ret = vasprintf (ptr, template, ap);
+  if (ret < 0)
+    abort (); /* out of memory */
+  return ret;
+}
+
+/* wrapper for asprintf */
+int
+perl_only_xasprintf (char **ptr, const char *template, ...)
+{
+  va_list v;
+  va_start (v, template);
+  return perl_only_xvasprintf (ptr, template, v);
+}
 
 int
 init (int texinfo_uninstalled, char *builddir)
