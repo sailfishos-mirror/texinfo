@@ -23,8 +23,6 @@
 
 2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
 
-2024-02-25  Gavin Smith <gavinsmith0123@gmail.com>
-
 	Remove separate error registrar argument
 
 	* tp/Texinfo/Structuring.pm (associate_internal_references),
