@@ -1633,7 +1633,7 @@ while(@input_files) {
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
-                                               $registrar, $main_configuration);
+                                               $main_configuration);
   }
 
   Texinfo::Structuring::associate_internal_references($document,
