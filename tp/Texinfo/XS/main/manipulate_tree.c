@@ -396,9 +396,10 @@ add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
   SOURCE_MARK_LIST *s_mark_list = &(e->source_mark_list);
   if (s_mark_list->number == s_mark_list->space)
     {
-      s_mark_list->space++;  s_mark_list->space *= 1.5;
-      s_mark_list->list = realloc (s_mark_list->list,
-                          s_mark_list->space * sizeof (SOURCE_MARK));
+      s_mark_list->space++;
+      s_mark_list->list
+          = realloc (s_mark_list->list,
+                     s_mark_list->space * sizeof (SOURCE_MARK *));
       if (!s_mark_list->list)
         fatal ("realloc failed");
     }
