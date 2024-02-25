@@ -21,11 +21,6 @@
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-/* Avoid warnings about Perl headers redefining symbols that gnulib
-   redefined already. */
-#if defined _WIN32 && !defined __CYGWIN__
-  #undef free
-#endif
 #include "XSUB.h"
 
 #undef context
@@ -57,21 +52,23 @@
 
 #define LOCALEDIR DATADIR "/locale"
 
-  /* TODO the following NOTE could be obsolete, as this code is now part
-     of a library that is not linked against Gnulib.  However, XS dynamic
-     shared object link against both the library this code is part of and
-     another library that does not use perl headers and do not link against
-     perl libraries but links against Gnulib. */
+  /* NOTE This file includes the Perl headers, therefore we get the Perl
+     redefinitions of functions related to memory allocation, such as
+     'free', 'malloc', 'strdup' or 'asprintf'. In other files, the Gnulib
+     redefinition of those functions are used. It is wrong to mix functions
+     from Perl and Gnulib. If memory is allocated with Gnulib defined malloc,
+     and then freed with Perl defined free (or vice versa), then an error
+     can occur like "Free to wrong pool".
+    https://lists.gnu.org/archive/html/bug-texinfo/2016-01/msg00016.html
+   */
 
-  /* NOTE: Do not call 'malloc' or 'free' in any function called in this file.
-     Since this file (build_perl_info.c) includes the Perl headers,
-     we get the Perl redefinitions, which we do not want, as we don't use
-     them throughout the rest of the program. */
+   /* Functions defined in files with Gnulib definition should therefore
+      be used to allocate or free to match with the functions used to
+      free or allocate in files using Gnulib definitions.
 
-  /* Can't use asprintf here, because it might come from Gnulib, and
-     will then use malloc that is different from Perl's malloc, whereas
-     free below is redirected to Perl's implementation.  This could
-     cause crashes if the two malloc/free implementations were different.  */
+      TODO say something about wrappers.
+    */
+
 
 int
 init (int texinfo_uninstalled, char *builddir)

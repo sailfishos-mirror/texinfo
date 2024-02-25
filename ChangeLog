@@ -1,5 +1,22 @@
 2024-02-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/DocumentXS.xs, tp/Texinfo/XS/main/IndicesXS.xs,
+	tp/Texinfo/XS/main/build_perl_info.c,
+	tp/Texinfo/XS/main/call_perl_function.c,
+	tp/Texinfo/XS/main/get_perl_info.c,
+	tp/maintain/regenerate_C_options_info.pl: remove code avoiding
+	redefinition by gnulib as gnulib headers are not included.  Update
+	comments.
+
+	* tp/Texinfo/XS/Makefile.am (DocumentXS_la_L*, ConvertXS_la_LIBADD):
+	add libgnu.la and $(LTLIBICONV) $(LTLIBUNISTRING) is not there for
+	XS that are likely to use code related to those libraries.
+
+	* tp/Texinfo/XS/Makefile.am (IndicesXS_la_CPPFLAGS): remove gnulib
+	includes, they are not needed.
+
+2024-02-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/errors.c (message_list_line_formatted_message)
 	(message_list_document_formatted_message)
 	(vmessage_list_line_error, message_list_document_error_internal):

@@ -21,9 +21,6 @@
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-# undef free
-#endif
 #include "XSUB.h"
 
 #undef context

@@ -21,11 +21,6 @@
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-/* Avoid warnings about Perl headers redefining symbols that gnulib
-   redefined already. */
-#if defined _WIN32 && !defined __CYGWIN__
-  #undef free
-#endif
 #include "XSUB.h"
 
 #undef context
@@ -38,10 +33,8 @@
 #include "build_perl_info.h"
 #include "call_perl_function.h"
 
- /* The NOTE in build_perl_info.c about not using malloc/free should
-    be relevant for this file
-    TODO there are calls to strndup.  Is it ok?
-  */
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
 
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text)
