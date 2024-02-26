@@ -1,3 +1,16 @@
+2024-02-26  Patrice Dumas  <pertusus@free.fr>
+
+	Wrappers around functions to avoid mixing Perl and non-Perl
+
+	* tp/Texinfo/XS/convert/convert_html.c (initialize_cmd_list)
+	(new_htmlxref_manual_list, initialize_js_categories_list)
+	(initialize_jslicense_files, initialize_css_selector_style_list)
+	(new_directions_strings_translated_type, new_directions_strings_type)
+	(new_special_unit_formatting_references)
+	(initialize_special_unit_info_type),
+	tp/Texinfo/XS/convert/get_html_perl_info.c: add and use initialization
+	functions, and use more wrappers.
+
 2024-02-25  Patrice Dumas  <pertusus@free.fr>
 
 	Homogenize the reference to the NOTE in build_perl_info.c

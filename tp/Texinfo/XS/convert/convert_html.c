@@ -16150,6 +16150,117 @@ register_special_unit_body_formatting_function
     }
 }
 
+/* these constructors/initialization allow to use malloc from this
+   file and not from a file including Perl headers */
+
+/* NOTE relatively generic */
+void
+initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size, size_t number)
+{
+  cmd_list->list = (enum command_id *) malloc
+    (size * sizeof (enum command_id));
+  cmd_list->number = number;
+  if (number)
+    {
+      memset (cmd_list->list, 0, number * sizeof (enum command_id));
+    }
+}
+
+HTMLXREF_MANUAL *
+new_htmlxref_manual_list (size_t size)
+{
+  HTMLXREF_MANUAL *result = (HTMLXREF_MANUAL *)
+        malloc (size * sizeof (HTMLXREF_MANUAL));
+  memset (result, 0, size * sizeof (HTMLXREF_MANUAL));
+
+  return result;
+}
+
+void
+initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
+                              size_t size)
+{
+  js_files_info->list = (JSLICENSE_FILE_INFO_LIST *)
+           malloc (size * sizeof (JSLICENSE_FILE_INFO_LIST));
+  memset (js_files_info->list, 0,
+                  size * sizeof (JSLICENSE_FILE_INFO_LIST));
+  js_files_info->number = size;
+}
+
+void
+initialize_jslicense_files (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
+                            const char *category, size_t size)
+{
+  jslicences_files_info->category = strdup (category);
+  jslicences_files_info->list = (JSLICENSE_FILE_INFO *)
+              malloc (size * sizeof (JSLICENSE_FILE_INFO));
+  memset (jslicences_files_info->list, 0,
+          size * sizeof (JSLICENSE_FILE_INFO));
+  jslicences_files_info->number = size;
+}
+
+void
+initialize_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles,
+                                    size_t size)
+{
+  selector_styles->list = (CSS_SELECTOR_STYLE *)
+        malloc (size * sizeof (CSS_SELECTOR_STYLE));
+  selector_styles->space = size;
+  selector_styles->number = size;
+}
+
+HTML_DIRECTION_STRING_TRANSLATED *
+new_directions_strings_translated_type (int nr_string_directions)
+{
+  HTML_DIRECTION_STRING_TRANSLATED *result
+    = (HTML_DIRECTION_STRING_TRANSLATED *) malloc
+        (nr_string_directions * sizeof (HTML_DIRECTION_STRING_TRANSLATED));
+  memset (result, 0,
+          nr_string_directions * sizeof (HTML_DIRECTION_STRING_TRANSLATED));
+  return result;
+}
+
+char ***
+new_directions_strings_type (int nr_string_directions,
+                             int nr_dir_str_contexts)
+{
+  int i;
+  char ***result = (char ***)
+        malloc (nr_string_directions * sizeof (char **));
+  memset (result, 0,
+          nr_string_directions * sizeof (char **));
+
+  for (i = 0; i < nr_string_directions; i++)
+    {
+      result[i] = (char **)
+         malloc (nr_dir_str_contexts * sizeof (char *));
+      memset (result[i], 0,
+              nr_dir_str_contexts * sizeof (char *));
+    }
+
+  return result;
+}
+
+FORMATTING_REFERENCE *
+new_special_unit_formatting_references (int special_units_varieties_nr)
+{
+  FORMATTING_REFERENCE *formatting_references = (FORMATTING_REFERENCE *)
+    malloc (special_units_varieties_nr * sizeof (FORMATTING_REFERENCE));
+  memset (formatting_references, 0,
+          special_units_varieties_nr * sizeof (FORMATTING_REFERENCE));
+  return formatting_references;
+}
+
+void
+initialize_special_unit_info_type (char **special_unit_info,
+                                   int special_units_varieties_nr)
+{
+  special_unit_info = (char **)
+        malloc ((special_units_varieties_nr +1) * sizeof (char *));
+  memset (special_unit_info, 0,
+          (special_units_varieties_nr +1) * sizeof (char *));
+}
+
 /* most of the initialization is done by html_converter_initialize_sv
    in get_perl_info, the initialization that do not require information
    directly from perl data is done here.  This is called after information
