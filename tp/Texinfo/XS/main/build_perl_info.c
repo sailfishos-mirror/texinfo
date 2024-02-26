@@ -68,14 +68,12 @@
       be used to allocate or free to match with the functions used to
       free or allocate in files using Gnulib definitions.
 
-      TODO say something about wrappers.
-
       To be sure to use Perl defined functions, wrappers
       can be used, from build_perl_info.h:
-       perl_only_free, perl_only_strdup, perl_only_strndup.
+       perl_only_free, perl_only_strdup, perl_only_strndup, perl_only_malloc,
+       perl_only_xvasprintf, perl_only_xasprintf.
 
-
-      To be sure to use non Perl defined functions, wrappers
+      To be sure to use non Perl defined functions, constructors and wrappers
       can be used, from utils.h:
        non_perl_free, non_perl_strdup, non_perl_strndup.
     */

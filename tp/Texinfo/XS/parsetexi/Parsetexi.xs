@@ -35,6 +35,9 @@
 /* for clear_document_errors */
 #include "document.h"
 
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
+
 MODULE = Texinfo::Parser	PACKAGE = Texinfo::Parser
 
 PROTOTYPES: ENABLE

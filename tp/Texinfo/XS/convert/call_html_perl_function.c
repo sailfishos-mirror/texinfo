@@ -44,8 +44,8 @@
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
- /* TODO the NOTE in build_perl_info.c about not using malloc/free should
-    be relevant for this file */
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
 
 /* NOTE newSVpv_utf8 is used for file names because extensions may be supplied
    by the user, the base file name may be ASCII, the extension may not.  Also,

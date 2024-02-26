@@ -34,6 +34,7 @@
 
 #include "command_ids.h"
 #include "converter_types.h"
+/* also for non_perl_* */
 #include "utils.h"
 #include "builtin_commands.h"
 #include "debug.h"
@@ -46,8 +47,8 @@
 #include "build_perl_info.h"
 #include "get_html_perl_info.h"
 
- /* TODO the NOTE in build_perl_info.c about not using malloc/free should
-    be relevant for this file */
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
 
 /* Following is HTML specific */
 static SV **

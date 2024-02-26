@@ -49,15 +49,8 @@
 
 #define LOCALEDIR DATADIR "/locale"
 
-  /* NOTE: Do not call 'malloc' or 'free' in any function called in this file.
-     Since this file (build_html_perl_state.c) includes the Perl headers,
-     we get the Perl redefinitions, which we do not want, as we don't use
-     them throughout the rest of the program. */
-
-  /* Can't use asprintf here, because it might come from Gnulib, and
-     will then use malloc that is different from Perl's malloc, whereas
-     free below is redirected to Perl's implementation.  This could
-     cause crashes if the two malloc/free implementations were different.  */
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
 
 #define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
 HV *

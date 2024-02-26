@@ -47,6 +47,9 @@
 #include "convert_html.h"
 #include "get_html_perl_info.h"
 
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
+
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 
 # there is always a check on prototypes in XSLoader.  So it is simpler if

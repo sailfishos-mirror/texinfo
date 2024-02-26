@@ -37,6 +37,9 @@
 /* non_perl_* */
 #include "utils.h"
 
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
+
 /* to be called when a tree element is destroyed, to remove the reference
    of the association with the C tree */
 void

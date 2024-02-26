@@ -1,5 +1,9 @@
 2024-02-25  Patrice Dumas  <pertusus@free.fr>
 
+	Homogenize the reference to the NOTE in build_perl_info.c
+
+2024-02-25  Patrice Dumas  <pertusus@free.fr>
+
 	Add wrappers around functions to avoid mixing Perl and non-Perl
 
 	* tp/Texinfo/XS/convert/call_html_perl_function.h,

@@ -36,6 +36,9 @@
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
+
 
 MODULE = Texinfo::DocumentXS		PACKAGE = Texinfo::DocumentXS
 
