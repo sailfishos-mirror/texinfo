@@ -302,6 +302,8 @@ COUNTER count_remaining_args;
 COUNTER count_items;
 COUNTER count_cells;
 
+/* TODO there should be debug messages for those counters to check if
+   them being set at the end of parsing is because of bugs or not */
 void
 reset_parser_counters (void)
 {

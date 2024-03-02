@@ -11,10 +11,6 @@ Before next release
 ===================
 
 
-Add a TODO FIXME near reset_parser_counters in parsetexi/parser.c to
-remember that there should be debug messages for counters that were
-reset but should not have to be and there is a likely bug..
-
 Bugs
 ====
 
