@@ -32,6 +32,7 @@
 #include "EXTERN.h"
 #include "perl.h"
 #if defined _WIN32 && !defined __CYGWIN__
+/* See comment in XSParagraph.xs for why we #undef free. */
 # undef free
 #endif
 #include "XSUB.h"

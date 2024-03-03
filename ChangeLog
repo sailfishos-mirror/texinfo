@@ -1,3 +1,21 @@
+2024-03-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Consolidate "#undef free" comment.
+
+	* tp/Texinfo/XS/XSParagraph.xs,
+	* tp/Texinfo/XS/MiscXS.xs,
+	* tp/Texinfo/XS/convert/ConvertXS.xs,
+	* tp/Texinfo/XS/convert/build_html_perl_state.c,
+	* tp/Texinfo/XS/convert/call_html_perl_function.c,
+	* tp/Texinfo/XS/convert/get_html_perl_info.c,
+	* tp/Texinfo/XS/main/api_to_perl.c,
+	* tp/Texinfo/XS/misc.c,
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs,
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs,
+	* tp/Texinfo/XS/xspara.c:
+	Refer to comment in XSParagraph.xs for why we "#undef free" and
+	expand on this comment.
+
 2024-03-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.h (initialize_cmd_list): fix
