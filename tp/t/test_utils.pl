@@ -1034,17 +1034,17 @@ sub test($$)
     $document = $parser->parse_texi_file($test_file, $XS_structuring);
   }
   my $tree = $document->tree();
-  my $registrar = $parser->registered_errors();
+  my $parser_registrar = $parser->registered_errors();
 
   if (not defined($tree)) {
     print STDERR "ERROR: parsing result undef\n";
-    my ($parser_errors, $parser_error_count) = $registrar->errors();
+    my ($parser_errors, $parser_error_count) = $parser_registrar->errors();
     foreach my $error_message (@$parser_errors) {
       warn $error_message->{'error_line'}
         if ($error_message->{'type'} eq 'error');
     }
   }
-  my ($errors, $error_nrs) = $registrar->errors();
+  my ($errors, $error_nrs) = $parser_registrar->errors();
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
@@ -1124,8 +1124,8 @@ sub test($$)
     foreach my $transformation (@$additional_tree_transformations) {
       my $tree_transformation_sub = $tested_transformations{$transformation};
       if ($transformation eq 'protect_hashchar_at_line_beginning') {
-        &$tree_transformation_sub($document->tree(), $registrar,
-                                         $main_configuration);
+        &$tree_transformation_sub($document->tree(), $document->registrar(),
+                                  $main_configuration);
       } else {
         &$tree_transformation_sub($document->tree());
       }
