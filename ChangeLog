@@ -1,3 +1,16 @@
+2024-03-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.h (initialize_cmd_list): fix
+	definition.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/convert/convert_html.c
+	(new_special_unit_info_type): replace
+	initialize_special_unit_info_type by new_special_unit_info_type.
+
+	* tp/Texinfo/XS/convert/convert_html.c, tp/Texinfo/XS/main/utils.c:
+	use new_string_list.
+
 2024-02-26  Patrice Dumas  <pertusus@free.fr>
 
 	Wrappers around functions to avoid mixing Perl and non-Perl

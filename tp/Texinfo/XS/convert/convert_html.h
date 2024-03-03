@@ -45,7 +45,8 @@ void html_conversion_finalization (CONVERTER *self);
 
 void html_converter_prepare_output (CONVERTER* self);
 
-void initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size);
+void initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size,
+                          size_t number);
 
 HTMLXREF_MANUAL *new_htmlxref_manual_list (size_t size);
 void initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
@@ -62,8 +63,7 @@ char ***new_directions_strings_type (int nr_string_directions,
                                      int nr_dir_str_contexts);
 FORMATTING_REFERENCE *new_special_unit_formatting_references
                                       (int special_units_varieties_nr);
-void initialize_special_unit_info_type (char **special_unit_info,
-                                   int special_units_varieties_nr);
+char **new_special_unit_info_type (int special_units_varieties_nr);
 
 int html_open_command_update_context (CONVERTER *self,
                                       enum command_id data_cmd);

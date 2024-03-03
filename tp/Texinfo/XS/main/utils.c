@@ -1622,8 +1622,7 @@ initialize_option (OPTION *option, enum global_option_type type)
       case GO_bytes_string_list:
       case GO_file_string_list:
       case GO_char_string_list:
-        option->strlist = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-        memset (option->strlist, 0, sizeof (STRING_LIST));
+        option->strlist = new_string_list ();
         break;
 
       case GO_char:

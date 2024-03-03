@@ -499,9 +499,8 @@ html_converter_initialize_sv (SV *converter_sv,
               special_unit_info_type_hv
                    = (HV *) SvRV(*special_unit_info_type_sv);
 
-              initialize_special_unit_info_type
-                       (converter->special_unit_info[j],
-                        special_unit_varieties->number);
+              converter->special_unit_info[j]
+                = new_special_unit_info_type (special_unit_varieties->number);
 
               for (k = 0; k < special_unit_varieties->number; k++)
                 {

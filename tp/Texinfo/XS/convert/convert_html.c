@@ -1369,10 +1369,8 @@ html_register_opened_section_level (CONVERTER *self, int level,
 STRING_LIST *
 html_close_registered_sections_level (CONVERTER *self, int level)
 {
-  STRING_LIST *closed_elements = (STRING_LIST *) malloc (sizeof (STRING_LIST));
   STRING_STACK *pending_closes = &self->pending_closes;
-
-  memset (closed_elements, 0, sizeof (STRING_LIST));
+  STRING_LIST *closed_elements = new_string_list ();
 
   while (pending_closes->top > level)
     {
@@ -1442,8 +1440,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
     = retrieve_output_units (output_units_descriptor);
 
   /* for separate special output units */
-  STRING_LIST *do_special = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (do_special, 0, sizeof (STRING_LIST));
+  STRING_LIST *do_special = new_string_list ();
 
   *special_units_descriptor_ref = special_units_descriptor;
   *associated_special_units_descriptor_ref
@@ -4493,8 +4490,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
 
   qsort (selectors, selector_nr, sizeof (char *), compare_strings);
 
-  result = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (result, 0, sizeof (STRING_LIST));
+  result = new_string_list ();
   for (j = 0; j < selector_nr; j++)
     add_string (selectors[j], result);
 
@@ -5889,15 +5885,13 @@ void
 html_default_format_separate_anchor (CONVERTER *self, const char *id,
                                      const char *class, TEXT *result)
 {
- /*  html_attribute_class would not work with span, so if span is
-     used, html_attribute_class should not be used */
-  STRING_LIST *classes;
   char *attribute_class;
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  STRING_LIST *classes = new_string_list ();
   add_string (class, classes);
 
+ /*  html_attribute_class would not work with span, so if span is
+     used, html_attribute_class should not be used */
   attribute_class = html_attribute_class (self, "a", classes);
   text_append (result, attribute_class);
   text_printf (result, " id=\"%s\"></a>", id);
@@ -6101,10 +6095,9 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   if ((is_contents && !self->conf->BEFORE_TOC_LINES.string)
       || (!is_contents && !self->conf->BEFORE_SHORT_TOC_LINES.string))
     {
-      STRING_LIST *classes;
       char *attribute_class;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
 
       attribute_class = html_attribute_class (self, "div", classes);
@@ -6475,8 +6468,7 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
 
   class_base = special_unit_info (self, SUI_type_class,
                                   "footnotes");
@@ -8348,10 +8340,9 @@ text_element_conversion (CONVERTER *self,
 {
   if (specification->element)
     {
-      STRING_LIST *classes;
       char *attribute_class;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
 
       attribute_class
@@ -8504,11 +8495,10 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
 
   if (formatting_spec->element)
     {
-      STRING_LIST *classes;
       char *open;
       size_t open_len;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (style_cmd), classes);
 
       if (style_cmd != cmd)
@@ -8644,9 +8634,8 @@ convert_email_command (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
       char *protected_mailto;
       char *mailto;
-      STRING_LIST *classes;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
 
       attribute_class = html_attribute_class (self, "a", classes);
@@ -8779,9 +8768,8 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
   if (!html_in_string (self))
     {
       char *attribute_class;
-      STRING_LIST *classes;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
 
       attribute_class = html_attribute_class (self, "abbr", classes);
@@ -8946,8 +8934,7 @@ convert_footnote_command (CONVERTER *self, const enum command_id cmd,
                           self->current_filename.filename,
                           multi_expanded_region);
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "a", classes);
@@ -9020,8 +9007,7 @@ convert_uref_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "a", classes);
@@ -9217,8 +9203,7 @@ convert_image_command (CONVERTER *self, const enum command_id cmd,
           image_file = tmp;
         }
 
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+      classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
 
       attribute_class = html_attribute_class (self, "img", classes);
@@ -9262,8 +9247,7 @@ convert_math_command (CONVERTER *self, const enum command_id cmd,
 
   arg = args_formatted->args[0].formatted[AFT_type_normal];
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   if (self->conf->HTML_MATH.string
@@ -9650,9 +9634,8 @@ convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
   if (!html_in_string (self))
     {
       char *attribute_class;
-      STRING_LIST *classes;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
 
       attribute_class = html_attribute_class (self, "code", classes);
@@ -9681,9 +9664,7 @@ convert_titlefont_command (CONVERTER *self, const enum command_id cmd,
       && args_formatted->args[0].formatted[AFT_type_normal]
       && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
     {
-      STRING_LIST *classes;
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
       format_heading_text (self, cmd, classes,
                    args_formatted->args[0].formatted[AFT_type_normal],
@@ -9746,9 +9727,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
 
               text_init (&result);
 
-              classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-              memset (classes, 0, sizeof (STRING_LIST));
-
+              classes = new_string_list ();
               class_base = special_unit_info (self, SUI_type_class,
                                               special_unit_variety);
               xasprintf (&class, "region-%s", class_base);
@@ -10180,8 +10159,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
     /* use a specific class name to mark that this is the start of
        the section extent. It is not necessary where the section is. */
 
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+      classes = new_string_list ();
 
       xasprintf (&class, "%s-level-extent",
                  builtin_command_name (level_corrected_opening_section_cmd));
@@ -10246,8 +10224,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
             }
         }
 
-      heading_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (heading_classes, 0, sizeof (STRING_LIST));
+      heading_classes = new_string_list ();
       add_string (builtin_command_name (level_corrected_cmd), heading_classes);
       if (level_set_class)
         add_string (level_set_class, heading_classes);
@@ -10370,9 +10347,8 @@ indent_with_table (CONVERTER *self, const enum command_id cmd,
                    TEXT *result)
 {
   char *attribute_class;
-  STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
 
-  memset (classes, 0, sizeof (STRING_LIST));
+  STRING_LIST *classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   if (extra_classes)
@@ -10409,8 +10385,7 @@ convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  additional_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (additional_classes, 0, sizeof (STRING_LIST));
+  additional_classes = new_string_list ();
 
   if (html_commands_data[cmd].flags & HF_small_block_command)
     {
@@ -10466,10 +10441,11 @@ convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
   else
     {
       char *attribute_class;
-      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (main_cmd), classes);
       merge_strings (classes, additional_classes);
+
       attribute_class = html_attribute_class (self, "div", classes);
       text_append (result, attribute_class);
       text_printf (result, ">\n%s</div>\n", content);
@@ -10499,8 +10475,7 @@ convert_indented_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  additional_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (additional_classes, 0, sizeof (STRING_LIST));
+  additional_classes = new_string_list ();
 
   if (html_commands_data[cmd].flags & HF_small_block_command)
     {
@@ -10527,10 +10502,11 @@ convert_indented_command (CONVERTER *self, const enum command_id cmd,
   else
     {
       char *attribute_class;
-      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (main_cmd), classes);
       merge_strings (classes, additional_classes);
+
       attribute_class = html_attribute_class (self, "blockquote", classes);
       text_append (result, attribute_class);
       text_printf (result, ">\n%s</blockquote>\n", content);
@@ -10556,9 +10532,10 @@ convert_verbatim_command (CONVERTER *self, const enum command_id cmd,
   else
     {
       char *attribute_class;
-      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+
+      STRING_LIST *classes = new_string_list ();
       add_string (builtin_command_name (cmd), classes);
+
       attribute_class = html_attribute_class (self, "pre", classes);
       text_append (result, attribute_class);
       text_append_n (result, ">", 1);
@@ -10585,8 +10562,7 @@ convert_displaymath_command (CONVERTER *self, const enum command_id cmd,
         text_append (result, content);
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
   attribute_class = html_attribute_class (self, "div", classes);
   text_append (result, attribute_class);
@@ -10644,13 +10620,15 @@ convert_command_simple_block (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
+  char *attribute_class;
+  STRING_LIST *classes;
+
   if (!content)
     return;
 
-  char *attribute_class;
-  STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
+
   attribute_class = html_attribute_class (self, "div", classes);
   text_append (result, attribute_class);
   text_append_n (result, ">", 1);
@@ -10719,8 +10697,7 @@ convert_exdent_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   if (html_in_preformatted_context (self))
@@ -10771,8 +10748,7 @@ convert_center_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "div", classes);
@@ -10815,8 +10791,7 @@ convert_author_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "strong", classes);
@@ -10855,8 +10830,7 @@ convert_title_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "h1", classes);
@@ -10893,8 +10867,7 @@ convert_subtitle_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "h3", classes);
@@ -10975,8 +10948,7 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
           else
             multiple_pass_str = "listoffloats";
 
-          classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-          memset (classes, 0, sizeof (STRING_LIST));
+          classes = new_string_list ();
           add_string (builtin_command_name (cmd), classes);
 
           attribute_class = html_attribute_class (self, "dl", classes);
@@ -11080,8 +11052,7 @@ convert_menu_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "table", classes);
@@ -11165,8 +11136,7 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
   if (caption_element)
     caption_command_name = builtin_command_name (caption_element->cmd);
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "div", classes);
@@ -11284,11 +11254,10 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
 
   if (!html_in_string (self))
     {
-      STRING_LIST *classes;
       char *attribute_class;
 
-      classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+      STRING_LIST *classes = new_string_list ();
+
       if (html_commands_data[cmd].flags & HF_small_block_command)
         {
           int i;
@@ -11373,8 +11342,7 @@ convert_cartouche_command (CONVERTER *self, const enum command_id cmd,
   if (!do_title && !do_content)
     return;
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
 
   attribute_class = html_attribute_class (self, "table", classes);
@@ -11536,8 +11504,7 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
         mark_class_name = command_as_argument_name;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name(cmd), classes);
 
   if (mark_class_name)
@@ -11601,8 +11568,7 @@ convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name(cmd), classes);
 
   attribute_class = html_attribute_class (self, "ol", classes);
@@ -11687,8 +11653,7 @@ convert_multitable_command (CONVERTER *self, const enum command_id cmd,
       text_append (result, content);
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name(cmd), classes);
 
   attribute_class = html_attribute_class (self, "table", classes);
@@ -11717,8 +11682,7 @@ convert_xtable_command (CONVERTER *self, const enum command_id cmd,
       text_append (result, content);
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   add_string (builtin_command_name(cmd), classes);
 
   attribute_class = html_attribute_class (self, "dl", classes);
@@ -12081,8 +12045,8 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       if (href && !html_in_string (self))
         {
           char *attribute_class;
-          classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-          memset (classes, 0, sizeof (STRING_LIST));
+
+          classes = new_string_list ();
           add_string (builtin_command_name (cmd), classes);
 
           attribute_class = html_attribute_class (self, "a", classes);
@@ -12618,12 +12582,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
   html_new_document_context (self, builtin_command_name (cmd), 0, 0);
 
-  STRING_LIST *entry_classes;
-  STRING_LIST *section_classes;
-  entry_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (entry_classes, 0, sizeof (STRING_LIST));
-  section_classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (section_classes, 0, sizeof (STRING_LIST));
+  STRING_LIST *entry_classes = new_string_list ();
+  STRING_LIST *section_classes  = new_string_list ();
 
   xasprintf (&entry_class_seeentry, "%s-index-see-entry",
                                     builtin_command_name (cmd));
@@ -13585,8 +13545,7 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
 
   if (builtin_command_data[cmd].flags & CF_def_alias)
     {
@@ -13873,8 +13832,7 @@ convert_paragraph_type (CONVERTER *self, const enum element_type type,
     {
       char *attribute_class;
       char *class;
-      STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-      memset (classes, 0, sizeof (STRING_LIST));
+      STRING_LIST *classes = new_string_list ();
 
       xasprintf (&class, "%s-paragraph", builtin_command_name (align_cmd));
       add_string (class, classes);
@@ -14024,8 +13982,7 @@ convert_preformatted_type (CONVERTER *self, const enum element_type type,
         }
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
   if (pre_class)
     {
       add_string (pre_class, classes);
@@ -14339,8 +14296,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
         {
           char *pre_class = preformatted_class (self);
           char *attribute_class;
-          STRING_LIST *classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-          memset (classes, 0, sizeof (STRING_LIST));
+          STRING_LIST *classes = new_string_list ();
           if (pre_class)
             {
               add_string (pre_class, classes);
@@ -14820,8 +14776,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
   else
     base_cmd = def_cmd;
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
 
   add_string (builtin_command_name(original_cmd), classes);
   if (alias_class)
@@ -15287,8 +15242,7 @@ convert_special_unit_type (CONVERTER *self,
       return;
     }
 
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+  classes = new_string_list ();
 
   unit_command = output_unit->unit_command;
   id = html_command_id (self, unit_command);
@@ -15389,11 +15343,11 @@ format_simpletitle (CONVERTER *self, TEXT *result)
 {
   char *title_text;
   char *context_str;
-  STRING_LIST *classes;
   enum command_id cmd = self->simpletitle_cmd;
-  classes = (STRING_LIST *) malloc (sizeof (STRING_LIST));
-  memset (classes, 0, sizeof (STRING_LIST));
+
+  STRING_LIST *classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
+
   xasprintf (&context_str, "%s simpletitle",
              builtin_command_name (cmd));
   title_text
@@ -16251,14 +16205,14 @@ new_special_unit_formatting_references (int special_units_varieties_nr)
   return formatting_references;
 }
 
-void
-initialize_special_unit_info_type (char **special_unit_info,
-                                   int special_units_varieties_nr)
+char **
+new_special_unit_info_type (int special_units_varieties_nr)
 {
-  special_unit_info = (char **)
+  char **special_unit_info = (char **)
         malloc ((special_units_varieties_nr +1) * sizeof (char *));
   memset (special_unit_info, 0,
           (special_units_varieties_nr +1) * sizeof (char *));
+  return special_unit_info;
 }
 
 /* most of the initialization is done by html_converter_initialize_sv
