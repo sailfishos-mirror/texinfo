@@ -441,9 +441,8 @@ sub clear_document_errors($)
 {
 }
 
-# NOTE could also add a parser_errors method to get the parser_registrar
-# errors.  Something along those lines is done in XS, with a direct access
-# to document internal information.
+# NOTE similar code is used in the perl code associated to the XS parser to
+# get the errors from parser_errors.
 sub errors($)
 {
   my $document = shift;
