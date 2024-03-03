@@ -1080,7 +1080,7 @@ sub test($$)
   Texinfo::Structuring::associate_internal_references($document,
                                                       $main_configuration);
   my $sections_list
-        = Texinfo::Structuring::sectioning_structure($tree, $registrar,
+        = Texinfo::Structuring::sectioning_structure($document,
                                                    $main_configuration);
   if ($sections_list) {
     Texinfo::Document::register_document_sections_list($document,
@@ -1178,8 +1178,8 @@ sub test($$)
                                                      $indices_sort_strings);
 
     $sorted_index_entries
-      = Texinfo::Indices::sort_indices_by_index($document, $registrar,
-                                                $main_configuration,
+      = Texinfo::Document::sorted_indices_by_index($document,
+                                          $main_configuration,
                                  $use_unicode_collation, $locale_lang);
     $indices_sorted_sort_strings = {};
     foreach my $index_name (keys(%$sorted_index_entries)) {

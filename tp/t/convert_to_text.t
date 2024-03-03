@@ -76,7 +76,7 @@ my $registrar = $parser->registered_errors();
 my $main_configuration = Texinfo::MainConfig::new();
 # Setup sectioning commands numbers
 my $sections_list
-            = Texinfo::Structuring::sectioning_structure($tree, $registrar,
+            = Texinfo::Structuring::sectioning_structure($document,
                                                        $main_configuration);
 if ($sections_list) {
   Texinfo::Document::register_document_sections_list($document,

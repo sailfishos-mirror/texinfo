@@ -163,11 +163,13 @@ my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 # 'section_childs'
 # 'section_directions'
 # 'toplevel_directions'
-sub sectioning_structure($$$)
+sub sectioning_structure($$)
 {
-  my $root = shift;
-  my $registrar = shift;
+  my $document = shift;
   my $customization_information = shift;
+
+  my $root = $document->tree();
+  my $registrar = $document->{'registrar'};
 
   my $sec_root;
   my $previous_section;
@@ -2239,10 +2241,9 @@ Texinfo::Structuring - information on Texinfo::Document tree
     units_directions units_file_directions);
 
   # $document is a parsed Texinfo::Document document, $tree is the
-  # associated Texinfo document tree.  $parser is a Texinfo::Parser
-  # object. $config is an object implementing the get_conf() method.
-  my $registrar = $parser->registered_errors();
-  my $sections_list = sectioning_structure($tree, $registrar, $config);
+  # associated Texinfo document tree. $config is an object implementing
+  # the get_conf() method.
+  my $sections_list = sectioning_structure($document, $config);
   my $identifier_target = $document->labels_information();
   my $global_commands = $document->global_commands_information();
   my $nodes_list = nodes_tree($document, $config);
@@ -2480,12 +2481,12 @@ Return the sectioning command name corresponding to the sectioning
 element I<$element>, adjusted in order to take into account raised
 and lowered sections, when needed.
 
-=item $sections_list = sectioning_structure($tree, $registrar, $customization_information)
+=item $sections_list = sectioning_structure($document, $customization_information)
 X<C<sectioning_structure>>
 
-This function goes through the tree and gather information on the document
-structure for sectioning commands.  It returns a reference on the sections
-elements list.  Errors are registered in I<$registrar>.
+This function goes through the parsed document tree and gather information
+on the document structure for sectioning commands.  It returns a reference
+on the sections elements list.
 
 It sets section elements C<extra> hash values:
 

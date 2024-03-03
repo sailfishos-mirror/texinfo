@@ -160,12 +160,13 @@ associate_internal_references (SV *document_in, ...)
 # to register in the document.  It is better to reserve the return
 # value for a return status, if it becomes needed.
 void
-sectioning_structure (SV *tree_in, ...)
-    PROTOTYPE: $$$
+sectioning_structure (SV *document_in, ...)
+    PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in, "sectioning_structure");
+        document = get_sv_document_document (document_in,
+                                             "sectioning_structure");
         if (document)
           {
             ELEMENT_LIST *sections_list = sectioning_structure (document);
