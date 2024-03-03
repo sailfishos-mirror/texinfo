@@ -1,5 +1,27 @@
 2024-03-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove some perl_only_* wrappers
+
+	* tp/Texinfo/XS/main/build_perl_info.c
+	(perl_only_xasprintf, perl_only_xvasprintf): Remove as wrappers,
+	as it is likely that Perl does not define its own versions
+	of these.  It's not worth implementing them ourselves as this is
+	not trivial to do, and they are not currently needed.
+
+	* tp/Texinfo/XS/main/utils.c
+	(non_perl_xasprintf, non_perl_xvasprintf): Add.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(get_sv_index_entries_sorted_by_letter): Replace calls to
+	perl_only_xasprintf and perl_only_free with calls to non_perl_xasprintf
+	and non_perl_free.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_translated_names): Replace call to perl_only_xasprintf
+	with calls to perl_only_malloc and sprintf.
+
+2024-03-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Reimplement perl_only_* wrappers
 
 	* tp/Texinfo/XS/main/build_perl_info.c

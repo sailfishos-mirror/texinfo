@@ -279,7 +279,8 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
       const char *type_name = special_unit_info_type_names[string_type];
       char *key;
       HV *special_unit_hv = newHV ();
-      perl_only_xasprintf (&key, "%s_tree", type_name);
+      key = perl_only_malloc (strlen (type_name) + strlen ("_tree") + 1);
+      sprintf (key, "%s_tree", type_name);
       hv_store (special_unit_info_hv, key, strlen (key),
                 newRV_noinc ((SV *) special_unit_hv), 0);
       perl_only_free (key);

@@ -169,6 +169,8 @@ typedef struct TARGET_DIRECTORY_FILENAME {
 void non_perl_free (void *ptr);
 char *non_perl_strdup (const char *s);
 char *non_perl_strndup (const char *s, size_t n);
+int non_perl_xvasprintf (char **ptr, const char *template, va_list ap);
+int non_perl_xasprintf (char **ptr, const char *template, ...);
 
 int xasprintf (char **ptr, const char *template, ...);
 

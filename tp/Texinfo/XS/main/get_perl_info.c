@@ -861,13 +861,13 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
                              idx_name, i, letter_entries->letter, k);
                       fatal (msg);
                     }
-                  perl_only_xasprintf (&warn_string,
+                  non_perl_xasprintf (&warn_string,
                          "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d",
                          idx_name, i, letter_entries->letter, k);
                   index_entry = find_index_entry_sv (*index_entry_sv, index_names,
                                                      warn_string, &entry_idx,
                                                      &entry_number);
-                  perl_only_free (warn_string);
+                  non_perl_free (warn_string);
 
                   letter_entries->entries[k] = index_entry;
 

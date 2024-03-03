@@ -70,12 +70,12 @@
 
       To be sure to use Perl defined functions, wrappers
       can be used, from build_perl_info.h:
-       perl_only_free, perl_only_strdup, perl_only_strndup, perl_only_malloc,
-       perl_only_xvasprintf, perl_only_xasprintf.
+       perl_only_free, perl_only_strdup, perl_only_strndup, perl_only_malloc.
 
       To be sure to use non Perl defined functions, constructors and wrappers
       can be used, from utils.h:
-       non_perl_free, non_perl_strdup, non_perl_strndup.
+       non_perl_free, non_perl_strdup, non_perl_strndup,
+       non_perl_xvasprintf, non_perl_xasprintf.
     */
 
 /* wrappers to be sure to use Perl defined functions */
@@ -117,26 +117,6 @@ perl_only_strndup (const char *s, size_t n)
   memcpy (ret, s, len);
   ret[len] = '\0';
   return ret;
-}
-
-/* wrapper for vasprintf */
-int
-perl_only_xvasprintf (char **ptr, const char *template, va_list ap)
-{
-  int ret;
-  ret = vasprintf (ptr, template, ap);
-  if (ret < 0)
-    abort (); /* out of memory */
-  return ret;
-}
-
-/* wrapper for asprintf */
-int
-perl_only_xasprintf (char **ptr, const char *template, ...)
-{
-  va_list v;
-  va_start (v, template);
-  return perl_only_xvasprintf (ptr, template, v);
 }
 
 int
