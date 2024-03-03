@@ -861,8 +861,8 @@ error reporting uses converters error messages reporting functions
 (L<Texinfo::Convert::Converter/Registering error and warning messages>).
 
 In general, those methods should not be called directly, instead
-L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
-or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
+L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang) >>
+or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang) >>
 should be called on a document. These functions calls C<sort_indices_by_index> or
 C<sort_indices_by_letter> if needed and associate the sorted indices to
 the document.

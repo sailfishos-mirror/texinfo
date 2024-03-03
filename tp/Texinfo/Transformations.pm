@@ -974,7 +974,7 @@ Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document, $customization_information)>.
 
 =item complete_tree_nodes_missing_menu($tree, $customization_information, $use_section_names_in_entries)
 X<C<complete_tree_nodes_missing_menu>>
@@ -986,7 +986,7 @@ needed for translations.  Translations are only needed when generating the
 top node menu.
 If the optional I<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document, $customization_information)>.
 
 =item fill_gaps_in_sectioning($tree, $commands_heading_tree)
 X<C<fill_gaps_in_sectioning>>
@@ -1003,13 +1003,12 @@ If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
 
-=item insert_nodes_for_sectioning_commands($document, $registrar, $customization_information)
+=item insert_nodes_for_sectioning_commands($document, $customization_information)
 X<C<insert_nodes_for_sectioning_commands>>
 
 Insert nodes for sectioning commands without node in C<$document>
-tree.  If both I<$registrar> and I<$customization_information> are
-defined they are used for error reporting, though there should not
-be any errors as the node names are adapted such as not to clash with
+tree.  I<$customization_information> is used for error reporting, though there
+should not be any errors as the node names are adapted such as not to clash with
 existing label targets.
 
 =item menu_to_simple_menu($menu)

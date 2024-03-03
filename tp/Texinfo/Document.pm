@@ -441,6 +441,10 @@ sub clear_document_errors($)
 {
 }
 
+# In general, this method should be called after calling rebuild_document
+# on the document, such that the XS code builds the 'errors' list before
+# this method is called.  Also note that if XS code was not used, all
+# the errors should already be registered in the document registrar.
 # NOTE similar code is used in the perl code associated to the XS parser to
 # get the errors from parser_errors.
 sub errors($)
@@ -626,7 +630,7 @@ by a call to L<register_document_nodes_list|/register_document_nodes_list ($docu
 =item $sections_list = sections_list($document)
 
 Returns an array reference containing the document sections.  In general set to the
-sections list returned by L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($tree, $registrar, $customization_information)>,
+sections list returned by L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document, $customization_information)>,
 by a call to L<register_document_sections_list|/register_document_sections_list ($document, $sections_list)>.
 
 =back
@@ -706,6 +710,8 @@ If C<name> is not set, it is set to the index name.
 
 =back
 
+=head2 Merging and sorting indices
+
 Merged and sorted document indices are also available.  Parsed indices
 are not merged nor sorted, L<Texinfo::Indices> functions are
 called to merge or sort the indices the first time the following
@@ -757,6 +763,41 @@ are used to sort the indices, if needed.
 
 =back
 
+=head2 Getting errors and error registering object
+
+A document has a L<Texinfo::Report> objet associated, that is used to
+register errors and warning messages in.  To get the errors registered
+in the document, the C<errors> method should be called.
+It is also possible to get the document associated C<Texinfo::Report> objet
+by calling the C<registrar> accessor method.
+
+=over
+
+=item $registrar = registrar($document)
+
+Returns the C<Texinfo::Report> object associated with the I<$document>.
+
+In general, this is not needed as most functions use the document associated
+C<Texinfo::Report> object automatically.  However, for some functions a
+C<Texinfo::Report> object is passed in argument, being able to
+get the document registrar object is interesting in those cases.
+
+=item ($error warnings list, $error count) = errors($document)
+
+This function returns as I<$error_count> the count of errors since setting
+up the I<$document> (or calling the function). The returned
+I<$error_warnings_list> is an array of hash references
+one for each error, warning or error line continuation.  The format of
+these hash references is described
+in L<C<Texinfo::Report::errors>|Texinfo::Report/($error_warnings_list, $error_count) = errors($registrar)>.
+
+Note that, in general, C<error> should
+be called after L<C<rebuild_document>|/$rebuilt_document = rebuild_document($document, $no_store)>,
+such that errors registered in C are passed to Perl.
+
+=back
+
+
 =head2 Registering document and information in document
 
 The setup of a document is described next, it should only be used in
@@ -764,7 +805,7 @@ parsers codes.
 
 =over
 
-=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list, $registrar)
+=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list, $parser_registrar)
 
 Setup a document. There is no reason to call this method out of parsers, as
 it is already done by the Texinfo parsers.  The arguments are gathered
@@ -851,6 +892,15 @@ tree I<$tree> if C<rebuild_tree> is called.
 
 If the optional I<$no_store> argument is set, remove the C data.
 
+This method also sets the errors list in the Perl I<$rebuilt_document> based on
+errors and warnings associated to I<$document> stored in C, and should
+therefore be called before calling
+L<C<errors>|/($error warnings list, $error count) = errors($document)>.
+
+B<the document errors should be in C<< $document->{'errors'} >>, but this is not
+documented anywhere, and maybe do not need to be documented as
+L<C<errors>|/($error warnings list, $error count) = errors($document)> can be used to get the errors.>
+
 =back
 
 Some methods allow to release the memory or remove error messages held
@@ -863,12 +913,13 @@ X<C<clear_document_errors>>
 
 Remove the document errors and warnings held in C data.
 
-The method can be called on pure Perl modules but does nothing as the errors
-and warnings are already in a L<Texinfo::Report> object and not associated to a
-document.
+Note that L<C<errors>|/($error warnings list, $error count) = errors($document)>
+already calls C<clear_document_errors>, so calling this function directly
+is usually not needed.
 
-B<the document errors may be in C<< $document->{'errors'} >>, but this is not
-documented anywhere.>
+The method can be called on pure Perl modules and does nothing in that case
+as the errors and warnings are already in the L<Texinfo::Report> object
+associated to a document.
 
 =item remove_document($document)
 X<C<remove_document>>

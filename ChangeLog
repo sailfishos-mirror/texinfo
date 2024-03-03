@@ -4,6 +4,10 @@
 
 2024-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	Update POD documentation.
+
+2024-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): update calls
 	to Texinfo::Transformations and Texinfo::Structuring methods by
 	removing registrar and using document when needed.
