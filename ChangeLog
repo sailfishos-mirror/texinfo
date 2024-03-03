@@ -4,6 +4,12 @@
 
 2024-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_protect_hashchar_at_line_beginning.t (run_test): store
+	tree transformation error messags in document registrar.  Use document
+	error function to get errors and merge with parser registrar errors.
+
+2024-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	Change name of registrar variables to clarify the type of registrar
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_error_registrar):
