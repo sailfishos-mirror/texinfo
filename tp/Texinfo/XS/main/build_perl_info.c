@@ -56,11 +56,11 @@
 
   /* NOTE This file includes the Perl headers, therefore we get the Perl
      redefinitions of functions related to memory allocation, such as
-     'free', 'malloc', 'strdup' or 'asprintf'. In other files, the Gnulib
-     redefinition of those functions are used. It is wrong to mix functions
-     from Perl and Gnulib. If memory is allocated with Gnulib defined malloc,
-     and then freed with Perl defined free (or vice versa), then an error
-     can occur like "Free to wrong pool".
+     'free' or 'malloc'.  In other files, the Gnulib redefinition of
+     those functions are used.  It is wrong to mix functions from Perl
+     and Gnulib.  If memory is allocated with Gnulib defined malloc,
+     and then freed with Perl defined free (or vice versa), then an
+     error can occur like "Free to wrong pool".
     https://lists.gnu.org/archive/html/bug-texinfo/2016-01/msg00016.html
    */
 
@@ -91,16 +91,32 @@ perl_only_malloc (size_t size)
   return malloc (size);
 }
 
+/* Implement as we are not sure that Perl will define a version of this
+   function. */
+/* NB this function does not appear to be used currently. */
 char *
 perl_only_strdup (const char *s)
 {
-  return strdup (s);
+  size_t len = strlen (s);
+  char *ret = perl_only_malloc (len+1);
+  memcpy (ret, s, len+1);
+  return ret;
 }
 
+/* Implement as we are not sure that Perl will define a version of this
+   function. */
+/* NB this function does not appear to be used currently. */
 char *
 perl_only_strndup (const char *s, size_t n)
 {
-  return strndup (s, n);
+  size_t len = strlen (s);
+  if (len > n)
+    len = n;
+
+  char *ret = perl_only_malloc (len+1);
+  memcpy (ret, s, len);
+  ret[len] = '\0';
+  return ret;
 }
 
 /* wrapper for vasprintf */

@@ -1,5 +1,13 @@
 2024-03-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Reimplement perl_only_* wrappers
+
+	* tp/Texinfo/XS/main/build_perl_info.c
+	(perl_only_strdup, perl_only_strndup): Reimplement as it is
+	likely that Perl does not define its own versions of these.
+
+2024-03-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Consolidate "#undef free" comment.
 
 	* tp/Texinfo/XS/XSParagraph.xs,
