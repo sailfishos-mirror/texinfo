@@ -169,7 +169,7 @@ sub sectioning_structure($$)
   my $customization_information = shift;
 
   my $root = $document->tree();
-  my $registrar = $document->{'registrar'};
+  my $registrar = $document->registrar();
 
   my $sec_root;
   my $previous_section;
@@ -404,11 +404,12 @@ sub warn_non_empty_parts($$)
   my $customization_information = shift;
 
   my $global_commands = $document->global_commands_information();
+  my $registrar = $document->registrar();
 
   if ($global_commands->{'part'}) {
     foreach my $part (@{$global_commands->{'part'}}) {
       if (!Texinfo::Common::is_content_empty($part)) {
-        $document->{'registrar'}->line_warn($customization_information,
+        $registrar->line_warn($customization_information,
                sprintf(__("\@%s not empty"),
                        $part->{'cmdname'}), $part->{'source_info'});
       }
@@ -567,6 +568,7 @@ sub check_nodes_are_referenced($$)
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
   my $refs = $document->internal_references_information();
+  my $registrar = $document->registrar();
 
   return unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -627,7 +629,7 @@ sub check_nodes_are_referenced($$)
     # it is normal that a redundant node is not referenced
     if ($node->{'extra'}->{'is_target'}
         and not exists($referenced_nodes{$node})) {
-      $document->{'registrar'}->line_warn($customization_information,
+      $registrar->line_warn($customization_information,
                             sprintf(__("node `%s' unreferenced"),
                                     target_element_to_texi_label($node)),
                             $node->{'source_info'});
@@ -678,7 +680,7 @@ sub set_menus_node_directions($$)
   my $global_commands = $document->global_commands_information();
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
-  my $registrar = $document->{'registrar'};
+  my $registrar = $document->registrar();
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
@@ -812,7 +814,7 @@ sub complete_node_tree_with_menus($$)
 
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
-  my $registrar = $document->{'registrar'};
+  my $registrar = $document->registrar();
 
   return unless ($nodes_list and @{$nodes_list});
 
@@ -1025,6 +1027,7 @@ sub nodes_tree($$)
 
   my $root = $document->tree();
   my $identifier_target = $document->labels_information();
+  my $registrar = $document->registrar();
 
   my $top_node;
   my @nodes_list = ();
@@ -1133,7 +1136,7 @@ sub nodes_tree($$)
                 and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
                                  $node_target,
                                  $direction_element->{'extra'}->{'node_content'})) {
-              $document->{'registrar'}->line_warn($customization_information,
+              $registrar->line_warn($customization_information,
                 sprintf(
              __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
                   $direction_texts{$direction},
@@ -1145,7 +1148,7 @@ sub nodes_tree($$)
             }
           } else {
             if (!$customization_information->get_conf('novalidate')) {
-              $document->{'registrar'}->line_error($customization_information,
+              $registrar->line_error($customization_information,
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
                       link_element_to_texi($direction_element)),
@@ -1170,6 +1173,9 @@ sub associate_internal_references($$)
   my $refs = $document->internal_references_information();
 
   return if (!defined($refs));
+
+  my $registrar = $document->registrar();
+
   foreach my $ref (@$refs) {
     my $label_element;
     if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
@@ -1195,7 +1201,7 @@ sub associate_internal_references($$)
       if (!defined($normalized)
           or !defined($identifier_target->{$normalized})) {
         if (!$customization_information->get_conf('novalidate')) {
-          $document->{'registrar'}->line_error($customization_information,
+          $registrar->line_error($customization_information,
                      sprintf(__("\@%s reference to nonexistent node `%s'"),
                              $ref->{'cmdname'},
                              link_element_to_texi($label_element)),
@@ -1207,7 +1213,7 @@ sub associate_internal_references($$)
             and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
                                $node_target,
                                $label_element->{'extra'}->{'node_content'})) {
-          $document->{'registrar'}->line_warn($customization_information,
+          $registrar->line_warn($customization_information,
              sprintf(__("\@%s to `%s', different from %s name `%s'"),
                      $ref->{'cmdname'},
                      link_element_to_texi($label_element),

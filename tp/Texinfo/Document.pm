@@ -106,6 +106,7 @@ sub register
     'global_info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,
+    # Parser errors registrar
     'parser_registrar' => $parser_registrar,
     # New error registrar for the document
     'registrar' => Texinfo::Report::new(),
@@ -197,6 +198,12 @@ sub sections_list($)
 {
   my $self = shift;
   return $self->{'sections_list'};
+}
+
+sub registrar($)
+{
+  my $self = shift;
+  return $self->{'registrar'};
 }
 
 sub merged_indices($)

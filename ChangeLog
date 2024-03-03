@@ -1,5 +1,10 @@
 2024-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (registrar), tp/Texinfo/Structuring.pm: add 
+	accessor for registrar.
+
+2024-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (sectioning_structure),
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
 	(sectioning_structure): use a document in argument, to avoid the
