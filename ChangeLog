@@ -4,6 +4,12 @@
 
 2024-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): update calls
+	to Texinfo::Transformations and Texinfo::Structuring methods by
+	removing registrar and using document when needed.
+
+2024-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_protect_hashchar_at_line_beginning.t (run_test): store
 	tree transformation error messags in document registrar.  Use document
 	error function to get errors and merge with parser registrar errors.

@@ -287,7 +287,6 @@ sub _parsed_manual_tree($$$$$)
   my $texi_parser = Texinfo::Parser::parser();
   my $document = $texi_parser->parse_texi_text($manual_texi);
   my $tree = $document->tree();
-  my $registrar = $texi_parser->registered_errors();
   
   my $identifier_target = $document->labels_information();
 
@@ -300,18 +299,18 @@ sub _parsed_manual_tree($$$$$)
         = Texinfo::Parser::parse_texi_line(undef, $manual_texi);
     }
     Texinfo::Transformations::fill_gaps_in_sectioning($tree,
-                                                      $commands_heading_content);
+                                              $commands_heading_content);
     if ($section_nodes) {
       Texinfo::Transformations::insert_nodes_for_sectioning_commands(
-                                           $document, $registrar, $texi_parser);
+                                           $document, $texi_parser);
       Texinfo::Document::rebuild_document($document);
     }
   }
-  Texinfo::Structuring::sectioning_structure($tree, $registrar, $texi_parser);
+  Texinfo::Structuring::sectioning_structure($document, $texi_parser);
   my $refs = $document->internal_references_information();
   # this is needed to set 'normalized' for menu entries, they are
   # used in complete_tree_nodes_menus.
-  Texinfo::Structuring::associate_internal_references($document, $registrar,
+  Texinfo::Structuring::associate_internal_references($document,
                                                       $texi_parser);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes and $do_node_menus);
