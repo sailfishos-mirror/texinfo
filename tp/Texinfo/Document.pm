@@ -32,6 +32,8 @@ use Texinfo::XSLoader;
 
 use Texinfo::Common;
 
+use Texinfo::Report;
+
 our $VERSION = '7.1dev';
 
 my $XS_parser = ((not defined($ENV{TEXINFO_XS})
@@ -93,7 +95,7 @@ sub register
   my $global_commands_information = shift;
   my $identifier_target = shift;
   my $labels_list = shift;
-  my $registrar = shift;
+  my $parser_registrar = shift;
 
   my $document = {
     'tree' => $tree,
@@ -104,7 +106,9 @@ sub register
     'global_info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,
-    'registrar' => $registrar,
+    'parser_registrar' => $parser_registrar,
+    # New error registrar for the document
+    'registrar' => Texinfo::Report::new(),
   };
 
   bless $document;
@@ -428,6 +432,9 @@ sub clear_document_errors($)
 {
 }
 
+# NOTE could also add a parser_errors method to get the parser_registrar
+# errors.  Something along those lines is done in XS, with a direct access
+# to document internal information.
 sub errors($)
 {
   my $document = shift;

@@ -173,6 +173,7 @@ typedef struct DOCUMENT {
     ELEMENT_LIST *nodes_list;
     ELEMENT_LIST *sections_list;
     ERROR_MESSAGE_LIST *error_messages;
+    ERROR_MESSAGE_LIST *parser_error_messages;
     struct OPTIONS *options; /* for options used in structuring */
     struct TEXT_OPTIONS *convert_index_text_options; /* for index
                                        sorting without converter */

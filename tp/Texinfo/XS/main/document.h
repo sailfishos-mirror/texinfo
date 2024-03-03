@@ -21,7 +21,7 @@ size_t register_document (ELEMENT *root, INDEX **index_names,
                           GLOBAL_INFO *global_info,
                           GLOBAL_COMMANDS *global_commands,
                           STRING_LIST *small_strings,
-                          ERROR_MESSAGE_LIST *error_messages);
+                          ERROR_MESSAGE_LIST *parser_error_messages);
 void register_document_nodes_list (DOCUMENT *document,
                                    ELEMENT_LIST *nodes_list);
 void register_document_sections_list (DOCUMENT *document,
@@ -50,6 +50,7 @@ INDEX_SORTED_BY_LETTER *sorted_indices_by_letter (DOCUMENT *document,
 void remove_document_descriptor (int document_descriptor);
 ELEMENT *unregister_document_merge_with_document (int document_descriptor,
                                                   DOCUMENT *document);
+void clear_document_parser_errors (int document_descriptor);
 void clear_document_errors (int document_descriptor);
 
 #endif

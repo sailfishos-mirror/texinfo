@@ -1,3 +1,19 @@
+2024-03-03  Patrice Dumas  <pertusus@free.fr>
+
+	Separate Parser and Document errors and registrars
+
+	* tp/Texinfo/Document.pm (register),
+	tp/Texinfo/XS/main/build_perl_info.c (get_document, fill_document_hv),
+	tp/Texinfo/XS/main/document.c (register_document)
+	(clear_document_parser_errors), tp/Texinfo/XS/main/document_types.h
+	(DOCUMENT), tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info),
+	tp/t/test_parser_registrar.t, tp/t/test_utils.pl (test),
+	tp/texi2any.pl: add a separate Texinfo::Report error registrar in
+	perl, and separate parser_error_messages ERROR_MESSAGE_LIST in C.
+	Merge parser and document errors in texi2any.pl and test_utils.pl.
+	Remove handle_document_errors in texi2any.pl as the code is inlined
+	for the merging of errors in the main loop.
+
 2024-03-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove some perl_only_* wrappers

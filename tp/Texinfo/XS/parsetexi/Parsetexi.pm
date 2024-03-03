@@ -213,15 +213,15 @@ sub _get_parser_info($$;$$) {
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());
 
-  # Copy the errors into the error list in Texinfo::Report.
-  foreach my $error (@{$document->{'errors'}}) {
+  # Copy the errors into the error list in parser Texinfo::Report.
+  foreach my $error (@{$document->{'parser_errors'}}) {
     $registrar->add_formatted_message($error);
   }
-  @{$document->{'errors'}} = ();
-  clear_document_errors($document_descriptor);
+  @{$document->{'parser_errors'}} = ();
+  clear_document_parser_errors($document_descriptor);
 
-  # Reference the same Texinfo::Report object
-  $document->{'registrar'} = $registrar;
+  # New error registrar for document
+  $document->{'registrar'} = Texinfo::Report::new();
 
   # additional info relevant in perl only.
   my $perl_encoding

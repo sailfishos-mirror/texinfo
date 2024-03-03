@@ -1218,6 +1218,7 @@ get_document (size_t document_descriptor)
   HV *hv_tree;
   HV *hv_info;
   AV *av_errors_list;
+  AV *av_parser_errors_list;
 
   dTHX;
 
@@ -1231,10 +1232,16 @@ get_document (size_t document_descriptor)
   av_errors_list = build_errors (document->error_messages->list,
                                  document->error_messages->number);
 
+  av_parser_errors_list
+    = build_errors (document->parser_error_messages->list,
+                    document->parser_error_messages->number);
+
+
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   STORE("tree", hv_tree);
   STORE("global_info", hv_info);
   STORE("errors", av_errors_list);
+  STORE("parser_errors", av_parser_errors_list);
 #undef STORE
 
   hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
@@ -1264,6 +1271,7 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   HV *hv_identifiers_target;
   AV *av_labels_list;
   AV *av_errors_list;
+  AV *av_parser_errors_list;
   AV *av_nodes_list = 0;
   AV *av_sections_list = 0;
 
@@ -1301,6 +1309,10 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   av_errors_list = build_errors (document->error_messages->list,
                                  document->error_messages->number);
+  av_parser_errors_list
+    = build_errors (document->parser_error_messages->list,
+                    document->parser_error_messages->number);
+
 
   if (document->nodes_list)
     av_nodes_list = build_elements_list (document->nodes_list);
@@ -1325,6 +1337,7 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   STORE("identifiers_target", hv_identifiers_target);
   STORE("labels_list", av_labels_list);
   STORE("errors", av_errors_list);
+  STORE("parser_errors", av_parser_errors_list);
 
   if (av_nodes_list)
     STORE("nodes_list", av_nodes_list);
@@ -1388,6 +1401,9 @@ rebuild_document (SV *document_in, int no_store)
   document_descriptor_sv = hv_fetch (hv, descriptor_key,
                                      strlen (descriptor_key), 0);
 
+  /* Note that we could also keep the parser_registrar, however at that
+     point it should not be useful anymore, so it is better to let it
+     be cleared */
   SV **registrar_svp, *registrar_sv = 0;
   registrar_svp = hv_fetch (hv, registrar_key, strlen (registrar_key), 0);
   if (registrar_svp)

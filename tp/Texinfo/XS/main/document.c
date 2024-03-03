@@ -60,7 +60,7 @@ register_document (ELEMENT *root, INDEX **index_names,
                    GLOBAL_INFO *global_info,
                    GLOBAL_COMMANDS *global_commands,
                    STRING_LIST *small_strings,
-                   ERROR_MESSAGE_LIST *error_messages)
+                   ERROR_MESSAGE_LIST *parser_error_messages)
 {
   size_t document_index;
   int slot_found = 0;
@@ -104,7 +104,9 @@ register_document (ELEMENT *root, INDEX **index_names,
   document->global_info = global_info;
   document->global_commands = global_commands;
   document->small_strings = small_strings;
-  document->error_messages = error_messages;
+  document->parser_error_messages = parser_error_messages;
+  document->error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
+  memset (document->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
 
   document->listoffloats = float_list_to_listoffloats_list (floats_list);
 
@@ -544,4 +546,12 @@ clear_document_errors (int document_descriptor)
   DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
     wipe_error_message_list (document->error_messages);
+}
+
+void
+clear_document_parser_errors (int document_descriptor)
+{
+  DOCUMENT *document = retrieve_document (document_descriptor);
+  if (document)
+    wipe_error_message_list (document->parser_error_messages);
 }

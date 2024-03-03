@@ -30,7 +30,7 @@ my $document = $parser->parse_texi_piece("\@end format\n");
 my $parser_registrar = $parser->registered_errors();
 ok ($parser_registrar eq $registrar, 'reused registrar');
 
-my ($error_warnings_list, $error_count) = $document->errors();
+my ($error_warnings_list, $error_count) = $parser_registrar->errors();
 
 ok ($error_count == 2, 'error count');
 

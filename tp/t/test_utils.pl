@@ -1044,6 +1044,7 @@ sub test($$)
         if ($error_message->{'type'} eq 'error');
     }
   }
+  my ($errors, $error_nrs) = $registrar->errors();
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
@@ -1143,7 +1144,8 @@ sub test($$)
   # should not actually be useful, as the same element should be reused.
   $tree = $document->tree();
 
-  my ($errors, $error_nrs) = $document->errors();
+  my ($document_errors, $document_error_nrs) = $document->errors();
+  push @$errors, @$document_errors;
   my $indices_information = $document->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries = $document->merged_indices();
@@ -1191,7 +1193,6 @@ sub test($$)
       }
     }
   }
-
 
   # use the parser expanded formats to be similar to the main program,
   # and also to avoid having @inline* and raw output format @-commands

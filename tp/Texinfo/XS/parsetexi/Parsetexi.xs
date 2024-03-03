@@ -106,6 +106,9 @@ void
 clear_document_errors (int document_descriptor)
 
 void
+clear_document_parser_errors (int document_descriptor)
+
+void
 parser_store_value (name, value)
         char *name = (char *)SvPVbyte_nolen($arg);
         char *value = (char *)SvPVbyte_nolen($arg);

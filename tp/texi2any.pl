@@ -1229,22 +1229,6 @@ sub _exit($$)
      or $error_count > get_conf('ERROR_LIMIT')));
 }
 
-sub handle_document_errors($$$)
-{
-  my $document = shift;
-  my $error_count = shift;
-  my $opened_files = shift;
-
-  die if ref($document) ne 'Texinfo::Document';
-
-  my ($errors, $new_error_count) = $document->errors();
-  $error_count += $new_error_count if ($new_error_count);
-  _handle_errors($errors);
-
-  _exit($error_count, $opened_files);
-  return $error_count;
-}
-
 sub handle_errors($$$)
 {
   my $self = shift;
@@ -1699,8 +1683,17 @@ while(@input_files) {
   }
 
   Texinfo::Document::rebuild_document($document);
-  $error_count = handle_document_errors($document,
-                                        $error_count, \@opened_files);
+
+  # parser errors
+  my ($errors, $new_error_count) = $registrar->errors();
+  $error_count += $new_error_count if ($new_error_count);
+  # document/structuring errors
+  my ($document_errors, $document_error_count) = $document->errors();
+  $error_count += $document_error_count if ($document_error_count);
+  push @$errors, @$document_errors;
+
+  _handle_errors($errors);
+  _exit($error_count, \@opened_files);
 
   if ($format eq 'structure') {
     goto NEXT;
