@@ -285,6 +285,9 @@ sub reference_to_arg_in_tree($)
 # $CUSTOMIZATION_INFORMATION is used for error reporting, but it may
 # not be useful, as the code checks that the new node target label does
 # not exist already.
+# Right now the $DOCUMENT error messages registrar is used to register
+# error messages, instead it could be given as argument.  Does not matter
+# much, see just above.
 sub _new_node($$;$)
 {
   my $node_tree = shift;
@@ -389,6 +392,7 @@ sub _new_node($$;$)
   $node->{'extra'}->{'normalized'} = $normalized;
 
   Texinfo::Document::register_label_element($document, $node,
+                                            $document->registrar(),
                                             $customization_information);
 
   return $node;
