@@ -907,9 +907,9 @@ end_line_starting_block (ELEMENT *current)
         }
       else if (command_data(command).data == BLOCK_item_line)
         {
-          KEY_PAIR *k_command_as_argument;
-          k_command_as_argument = lookup_extra (current, "command_as_argument");
-          if (!k_command_as_argument)
+          KEY_PAIR *k_command_as_arg;
+          k_command_as_arg = lookup_extra (current, "command_as_argument");
+          if (!k_command_as_arg)
             {
               if (current->args.number > 0
                   && current->args.list[0]->contents.number > 0)
@@ -930,7 +930,7 @@ end_line_starting_block (ELEMENT *current)
             }
           else
             {
-              ELEMENT *e = k_command_as_argument->element;
+              ELEMENT *e = k_command_as_arg->element;
               if (!(command_flags(e) & CF_brace)
                   || (command_data(e->cmd).data == BRACE_noarg))
                 {
@@ -939,19 +939,18 @@ end_line_starting_block (ELEMENT *current)
                                  "should not be on @%s line",
                                  command_name(e->cmd),
                                  command_name(command));
-                  k_command_as_argument->key = "";
-                  k_command_as_argument->type = extra_deleted;
+                  k_command_as_arg->key = "";
+                  k_command_as_arg->type = extra_deleted;
                 }
             }
         }
-
-      /* check that command_as_argument of the @itemize is alone on the line,
-         otherwise it is not a command_as_argument */
       else if (command == CM_itemize)
         {
-          KEY_PAIR *k_command_as_argument;
-          k_command_as_argument = lookup_extra (current, "command_as_argument");
-          if (k_command_as_argument)
+          KEY_PAIR *k_command_as_arg;
+          k_command_as_arg = lookup_extra (current, "command_as_argument");
+      /* check that command_as_argument of the @itemize is alone on the line,
+         otherwise it is not a command_as_argument */
+          if (k_command_as_arg)
             {
               int i;
               ELEMENT *e = args_child_by_index (current, 0);
@@ -959,7 +958,7 @@ end_line_starting_block (ELEMENT *current)
               for (i = 0; i < e->contents.number; i++)
                 {
                   if (contents_child_by_index (e, i)
-                             == k_command_as_argument->element)
+                             == k_command_as_arg->element)
                     {
                       i++;
                       break;
@@ -974,11 +973,30 @@ end_line_starting_block (ELEMENT *current)
                            && !*(f->text.text
                                  + strspn (f->text.text, whitespace_chars))))
                     {
-                      k_command_as_argument->element->type = ET_NONE;
-                      k_command_as_argument->key = "";
-                      k_command_as_argument->type = extra_deleted;
+                      k_command_as_arg->element->type = ET_NONE;
+                      k_command_as_arg->key = "";
+                      k_command_as_arg->type = extra_deleted;
+                      k_command_as_arg = 0;
                       break;
                     }
+                }
+            }
+
+          /* if the command as argument does not have braces but it is
+             a brace command and not a mark (noarg) command, warn */
+          if (k_command_as_arg
+              && (k_command_as_arg->element->args.number <= 0
+                  || k_command_as_arg->element->args.list[0]->type
+                       != ET_brace_command_arg))
+            {
+              enum command_id as_argument_cmd = k_command_as_arg->element->cmd;
+              if ((builtin_command_data[as_argument_cmd].flags & CF_brace)
+                  && builtin_command_data[as_argument_cmd].data != BRACE_noarg)
+                {
+                  command_warn (current,
+       "non-mark brace command `@%s' as @%s argument should have braces",
+                            command_name(as_argument_cmd),
+                            command_name(command));
                 }
             }
         }

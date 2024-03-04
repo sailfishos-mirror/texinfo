@@ -595,7 +595,15 @@ with m--n
 in an itemize line
 ';
 
-$result_errors{'itemize_in_example'} = [];
+$result_errors{'itemize_in_example'} = [
+  {
+    'error_line' => 'warning: non-mark brace command `@asis\' as @itemize argument should have braces
+',
+    'line_nr' => 8,
+    'text' => 'non-mark brace command `@asis\' as @itemize argument should have braces',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'itemize_in_example'} = {};

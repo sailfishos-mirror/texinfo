@@ -4531,7 +4531,15 @@ item fr error error--> a
 
 ';
 
-$result_errors{'itemize_arguments'} = [];
+$result_errors{'itemize_arguments'} = [
+  {
+    'error_line' => 'warning: non-mark brace command `@asis\' as @itemize argument should have braces
+',
+    'line_nr' => 94,
+    'text' => 'non-mark brace command `@asis\' as @itemize argument should have braces',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'itemize_arguments'} = {};

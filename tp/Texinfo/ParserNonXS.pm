@@ -4126,6 +4126,7 @@ sub _end_line_starting_block($$$)
     } elsif ($command eq 'itemize'
              and $current->{'extra'}
              and $current->{'extra'}->{'command_as_argument'}) {
+      my $command_as_argument = $current->{'extra'}->{'command_as_argument'};
       # This code checks that the command_as_argument of the @itemize
       # is alone on the line, otherwise it is not a command_as_argument.
       my @args = @{$current->{'args'}->[0]->{'contents'}};
@@ -4144,7 +4145,24 @@ sub _end_line_starting_block($$$)
           if (scalar(keys(%{$current->{'extra'}})) == 0) {
             delete $current->{'extra'};
           }
+          $command_as_argument = undef;
           last;
+        }
+      }
+      # if the command as argument does not have braces but it is
+      # a brace command and not a mark (noarg) command, warn
+      if (defined($command_as_argument)
+          and (!$command_as_argument->{'args'}
+               or !scalar(@{$command_as_argument->{'args'}})
+               or !$command_as_argument->{'args'}->[0]->{'type'}
+               or $command_as_argument->{'args'}->[0]->{'type'}
+                     ne 'brace_command_arg')) {
+        my $cmdname = $command_as_argument->{'cmdname'};
+        if (defined($brace_commands{$cmdname})
+            and $brace_commands{$cmdname} ne 'noarg') {
+          $self->_command_warn($current,
+       __("non-mark brace command `\@%s' as \@%s argument should have braces"),
+            $cmdname, $command);
         }
       }
     }

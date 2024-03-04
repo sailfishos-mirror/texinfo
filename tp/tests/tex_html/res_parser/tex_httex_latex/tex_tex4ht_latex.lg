@@ -59,6 +59,7 @@ Css: .framebox-l {text-align:left;}
 Css: .framebox-r {text-align:right;}
 Css: span.thank-mark{ vertical-align: super }
 Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: code.verb{font-family:monospace,monospace;}
 Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
 Css: table.tabular td p{margin-top:0em;}
 Css: table.tabular {margin-left: auto; margin-right: auto;}

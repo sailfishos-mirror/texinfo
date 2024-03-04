@@ -116,7 +116,15 @@ $result_texis{'asis_as_itemize_argument'} = '@itemize @asis
 $result_texts{'asis_as_itemize_argument'} = 'as is
 ';
 
-$result_errors{'asis_as_itemize_argument'} = [];
+$result_errors{'asis_as_itemize_argument'} = [
+  {
+    'error_line' => 'warning: non-mark brace command `@asis\' as @itemize argument should have braces
+',
+    'line_nr' => 1,
+    'text' => 'non-mark brace command `@asis\' as @itemize argument should have braces',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'asis_as_itemize_argument'} = {};

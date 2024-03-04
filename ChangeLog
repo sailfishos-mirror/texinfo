@@ -1,3 +1,10 @@
+2024-03-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): add a
+	warning when a command as @itemize argument is a brace command, do not
+	have braces and is not a mark (noarg) command.
+
 2024-03-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/main/get_perl_info.c: Remove unnecessary #include.
