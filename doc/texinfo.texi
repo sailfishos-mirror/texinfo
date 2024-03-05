@@ -18674,7 +18674,7 @@ Set @var{text} in a @b{bold} font, if possible.  @xref{Fonts}.
 
 @item @@bullet@{@}
 Generate a large round dot, @bullet{}, or the closest possible thing to one.
-Often used with @code{@@table}.  @xref{@code{@@bullet}}.
+Often used with @code{@@itemize}.  @xref{@code{@@bullet}}.
 
 @item @@bsixpaper
 Change page dimensions for the B6 paper size.  @xref{A4 Paper}.
