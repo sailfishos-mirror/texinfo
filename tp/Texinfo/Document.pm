@@ -50,8 +50,8 @@ my $XS_structuring = ($XS_parser
 our %XS_overrides = (
   "Texinfo::Document::remove_document"
     => "Texinfo::DocumentXS::remove_document",
-  "Texinfo::Document::clear_document_errors"
-    => "Texinfo::DocumentXS::clear_document_errors",
+  "Texinfo::Document::_XS_pass_document_errors"
+    => "Texinfo::DocumentXS::pass_document_errors",
   "Texinfo::Document::_XS_set_document_global_info",
     => "Texinfo::DocumentXS::set_document_global_info",
 );
@@ -95,7 +95,6 @@ sub register
   my $global_commands_information = shift;
   my $identifier_target = shift;
   my $labels_list = shift;
-  my $parser_registrar = shift;
 
   my $document = {
     'tree' => $tree,
@@ -106,8 +105,6 @@ sub register
     'global_info' => $global_information,
     'identifiers_target' => $identifier_target,
     'labels_list' => $labels_list,
-    # Parser errors registrar
-    'parser_registrar' => $parser_registrar,
     # New error registrar for the document
     'registrar' => Texinfo::Report::new(),
   };
@@ -436,17 +433,14 @@ sub rebuild_tree($;$)
   return $tree;
 }
 
-# this method does nothing, but the XS override clears the document errors
-sub clear_document_errors($)
+# this method does nothing, but the XS override pass the document errors
+sub _XS_pass_document_errors($)
 {
 }
 
-# In general, this method should be called after calling rebuild_document
-# on the document, such that the XS code builds the 'errors' list before
-# this method is called.  Also note that if XS code was not used, all
-# the errors should already be registered in the document registrar.
-# NOTE similar code is used in the perl code associated to the XS parser to
-# get the errors from parser_errors.
+
+# Note that if XS code was not used, all the errors should already be
+# registered in the document registrar.
 sub errors($)
 {
   my $document = shift;
@@ -454,12 +448,13 @@ sub errors($)
   my $registrar = $document->{'registrar'};
   return if !defined($registrar);
 
-  foreach my $error (@{$document->{'errors'}}) {
-    $registrar->add_formatted_message($error);
+  # get errors from XS data
+  my $XS_document_errors = _XS_pass_document_errors($document);
+  if ($XS_document_errors) {
+    foreach my $error (@{$XS_document_errors}) {
+      $registrar->add_formatted_message($error);
+    }
   }
-  @{$document->{'errors'}} = ();
-  Texinfo::Document::clear_document_errors(
-                                      $document->document_descriptor());
 
   return $registrar->errors();
 }
@@ -791,10 +786,6 @@ one for each error, warning or error line continuation.  The format of
 these hash references is described
 in L<C<Texinfo::Report::errors>|Texinfo::Report/($error_warnings_list, $error_count) = errors($registrar)>.
 
-Note that, in general, C<error> should
-be called after L<C<rebuild_document>|/$rebuilt_document = rebuild_document($document, $no_store)>,
-such that errors registered in C are passed to Perl.
-
 =back
 
 
@@ -892,34 +883,12 @@ tree I<$tree> if C<rebuild_tree> is called.
 
 If the optional I<$no_store> argument is set, remove the C data.
 
-This method also sets the errors list in the Perl I<$rebuilt_document> based on
-errors and warnings associated to I<$document> stored in C, and should
-therefore be called before calling
-L<C<errors>|/($error warnings list, $error count) = errors($document)>.
-
-B<the document errors should be in C<< $document->{'errors'} >>, but this is not
-documented anywhere, and maybe do not need to be documented as
-L<C<errors>|/($error warnings list, $error count) = errors($document)> can be used to get the errors.>
-
 =back
 
-Some methods allow to release the memory or remove error messages held
-by C data associated to a Texinfo parsed document:
+Some methods allow to release the memory held by C data associated
+to a Texinfo parsed document:
 
 =over
-
-=item clear_document_errors($document)
-X<C<clear_document_errors>>
-
-Remove the document errors and warnings held in C data.
-
-Note that L<C<errors>|/($error warnings list, $error count) = errors($document)>
-already calls C<clear_document_errors>, so calling this function directly
-is usually not needed.
-
-The method can be called on pure Perl modules and does nothing in that case
-as the errors and warnings are already in the L<Texinfo::Report> object
-associated to a document.
 
 =item remove_document($document)
 X<C<remove_document>>

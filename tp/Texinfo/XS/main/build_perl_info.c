@@ -1203,6 +1203,51 @@ build_errors (ERROR_MESSAGE* error_list, size_t error_number)
   return av;
 }
 
+/* build perl errors list and clear XS document parser errors */
+SV *
+pass_document_parser_errors (size_t document_descriptor)
+{
+  DOCUMENT *document;
+  AV *av_parser_errors_list;
+
+  dTHX;
+
+  document = retrieve_document (document_descriptor);
+
+  if (!document)
+    return newSV (0);
+
+  av_parser_errors_list
+    = build_errors (document->parser_error_messages->list,
+                    document->parser_error_messages->number);
+
+  clear_document_parser_errors (document_descriptor);
+
+  return newRV_inc ((SV *) av_parser_errors_list);
+}
+
+/* build perl errors list and clear XS document errors */
+SV *
+pass_document_errors (size_t document_descriptor)
+{
+  AV *av_document_errors_list;
+  DOCUMENT *document = 0;
+
+  dTHX;
+
+  document = retrieve_document (document_descriptor);
+
+  if (!document)
+    return newSV (0);
+
+  av_document_errors_list = build_errors (document->error_messages->list,
+                                          document->error_messages->number);
+
+  clear_document_errors (document->descriptor);
+
+  return newRV_inc ((SV *) av_document_errors_list);
+}
+
 
 
 /* build a minimal document, without tree/global commands/indices, only
@@ -1217,8 +1262,6 @@ get_document (size_t document_descriptor)
   SV *sv;
   HV *hv_tree;
   HV *hv_info;
-  AV *av_errors_list;
-  AV *av_parser_errors_list;
 
   dTHX;
 
@@ -1229,19 +1272,9 @@ get_document (size_t document_descriptor)
 
   hv_info = build_global_info (document->global_info, document->global_commands);
 
-  av_errors_list = build_errors (document->error_messages->list,
-                                 document->error_messages->number);
-
-  av_parser_errors_list
-    = build_errors (document->parser_error_messages->list,
-                    document->parser_error_messages->number);
-
-
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   STORE("tree", hv_tree);
   STORE("global_info", hv_info);
-  STORE("errors", av_errors_list);
-  STORE("parser_errors", av_parser_errors_list);
 #undef STORE
 
   hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
@@ -1270,8 +1303,6 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   AV *av_internal_xref;
   HV *hv_identifiers_target;
   AV *av_labels_list;
-  AV *av_errors_list;
-  AV *av_parser_errors_list;
   AV *av_nodes_list = 0;
   AV *av_sections_list = 0;
 
@@ -1307,13 +1338,6 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   av_labels_list = build_target_elements_list (document->labels_list->list,
                                                document->labels_list->number);
 
-  av_errors_list = build_errors (document->error_messages->list,
-                                 document->error_messages->number);
-  av_parser_errors_list
-    = build_errors (document->parser_error_messages->list,
-                    document->parser_error_messages->number);
-
-
   if (document->nodes_list)
     av_nodes_list = build_elements_list (document->nodes_list);
 
@@ -1336,8 +1360,6 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   STORE("global_info", hv_info);
   STORE("identifiers_target", hv_identifiers_target);
   STORE("labels_list", av_labels_list);
-  STORE("errors", av_errors_list);
-  STORE("parser_errors", av_parser_errors_list);
 
   if (av_nodes_list)
     STORE("nodes_list", av_nodes_list);
@@ -1401,9 +1423,6 @@ rebuild_document (SV *document_in, int no_store)
   document_descriptor_sv = hv_fetch (hv, descriptor_key,
                                      strlen (descriptor_key), 0);
 
-  /* Note that we could also keep the parser_registrar, however at that
-     point it should not be useful anymore, so it is better to let it
-     be cleared */
   SV **registrar_svp, *registrar_sv = 0;
   registrar_svp = hv_fetch (hv, registrar_key, strlen (registrar_key), 0);
   if (registrar_svp)

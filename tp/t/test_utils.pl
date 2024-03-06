@@ -1132,20 +1132,12 @@ sub test($$)
     }
   }
 
-  # Here the sort strings are generated, both in Perl and XS.
-  # If $XS_structuring is set, the Perl structure cannot be
-  # built yet from XS as the document index information have not
-  # been rebuilt yet, but it is not needed at that point.
-  Texinfo::Document::indices_sort_strings($document, $main_configuration);
-
   # could be in a if !$XS_structuring, but the function should not be
   # overriden already in that case
   Texinfo::Document::rebuild_document($document);
   # should not actually be useful, as the same element should be reused.
   $tree = $document->tree();
 
-  my ($document_errors, $document_error_nrs) = $document->errors();
-  push @$errors, @$document_errors;
   my $indices_information = $document->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries = $document->merged_indices();
@@ -1193,6 +1185,9 @@ sub test($$)
       }
     }
   }
+
+  my ($document_errors, $document_error_nrs) = $document->errors();
+  push @$errors, @$document_errors;
 
   # use the parser expanded formats to be similar to the main program,
   # and also to avoid having @inline* and raw output format @-commands

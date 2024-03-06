@@ -203,6 +203,14 @@ sub _get_parser_info($$;$$) {
   my ($parser_registrar, $configuration_information)
      = _get_parser_error_registrar($self);
 
+  # get hold of errors before calling build_document, as if $no_store is set
+  # they will be destroyed.
+  my $parser_errors = pass_document_parser_errors($document_descriptor);
+  # Copy the errors into the parser Texinfo::Report error list.
+  foreach my $error (@$parser_errors) {
+    $parser_registrar->add_formatted_message($error);
+  }
+
   my $document;
   if ($no_build) {
     $document = get_document ($document_descriptor);
@@ -212,13 +220,6 @@ sub _get_parser_info($$;$$) {
 
   #Texinfo::Translations::complete_indices ($self,
   #                                 $document->indices_information());
-
-  # Copy the errors into the error list in parser Texinfo::Report.
-  foreach my $error (@{$document->{'parser_errors'}}) {
-    $parser_registrar->add_formatted_message($error);
-  }
-  @{$document->{'parser_errors'}} = ();
-  clear_document_parser_errors($document_descriptor);
 
   # additional info relevant in perl only.
   my $perl_encoding
