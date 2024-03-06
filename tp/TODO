@@ -78,8 +78,16 @@ Gavin and Patrice
 
 2) Represent the info ASSOCIATED_INFO hash information completly differently as
   there are only a few possibilities and they are only relevant for some
-  specific commands/types.
-  For instance a union of an ELEMENT pointer and a string?
+  commands/types.
+
+ One possibility.  It requires some testing as it should allow for
+ faster code, but it is not clear that memory use would be smaller.
+char *alias_of
+char *string_info (for arg_line or command_name or delimiter)
+ELEMENT *elements[3]
+ spaces_after_cmd_before_arg (brace comands) or comment_at_end (line/block commands)
+ spaces_before_argument
+ spaces_after_argument
 
 3) make building "source marks" optional.
   With 8 byte pointers and integers, the 24 byte section of ELEMENT relating
