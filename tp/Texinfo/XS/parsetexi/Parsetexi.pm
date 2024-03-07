@@ -200,6 +200,7 @@ sub _get_parser_info($$;$$) {
   my $no_build = shift;
   my $no_store = shift;
 
+  # make sure that the parser Texinfo::Report registrar is setup
   my ($parser_registrar, $configuration_information)
      = _get_parser_error_registrar($self);
 
@@ -213,9 +214,6 @@ sub _get_parser_info($$;$$) {
   } else {
     $document = build_document ($document_descriptor, $no_store);
   }
-
-  #Texinfo::Translations::complete_indices ($self,
-  #                                 $document->indices_information());
 
   # additional info relevant in perl only.
   my $perl_encoding

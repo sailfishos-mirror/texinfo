@@ -102,23 +102,6 @@ remove_document (SV *document_in)
         if (document)
           remove_document_descriptor (document->descriptor);
 
-# Currently unused
-SV *
-pass_document_errors (SV *document_in)
-    PREINIT:
-        HV *document_hv;
-        const char *key = "document_descriptor";
-        SV** document_descriptor_sv;
-     CODE:
-        document_hv = (HV *) SvRV (document_in);
-        document_descriptor_sv = hv_fetch (document_hv, key, strlen (key), 0);
-        if (document_descriptor_sv && SvOK (*document_descriptor_sv))
-          RETVAL = pass_document_errors (SvIV (*document_descriptor_sv));
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
 void
 document_errors (SV *document_in)
     PREINIT:
