@@ -49,6 +49,9 @@ HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 SV *pass_document_parser_errors (size_t document_descriptor);
 SV *pass_document_errors (size_t document_descriptor);
+SV *pass_errors_to_registrar (ERROR_MESSAGE_LIST *error_messages,
+                              SV *object_sv,
+                              SV **errors_warnings_out, SV **error_nrs_out);
 
 SV *build_output_units_list (size_t output_units_descriptor);
 void rebuild_output_units_list (SV *output_units_sv,

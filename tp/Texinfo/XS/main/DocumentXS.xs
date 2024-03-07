@@ -102,6 +102,7 @@ remove_document (SV *document_in)
         if (document)
           remove_document_descriptor (document->descriptor);
 
+# Currently unused
 SV *
 pass_document_errors (SV *document_in)
     PREINIT:
@@ -119,7 +120,34 @@ pass_document_errors (SV *document_in)
         RETVAL
 
 void
-clear_document_errors (int document_descriptor)
+document_errors (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+        SV *errors_warnings_sv = 0;
+        SV *error_nrs_sv = 0;
+        ERROR_MESSAGE_LIST *error_messages = 0;
+     PPCODE:
+        document = get_sv_document_document (document_in, 0);
+        if (document)
+          error_messages = document->error_messages;
+
+        pass_errors_to_registrar (error_messages, document_in,
+                                  &errors_warnings_sv,
+                                  &error_nrs_sv);
+
+        if (!errors_warnings_sv)
+          errors_warnings_sv = newSV (0);
+        else
+          SvREFCNT_inc (errors_warnings_sv);
+        if (!error_nrs_sv)
+          error_nrs_sv = newSV (0);
+        else
+          SvREFCNT_inc (error_nrs_sv);
+
+        EXTEND(SP, 2);
+        PUSHs(sv_2mortal(errors_warnings_sv));
+        PUSHs(sv_2mortal(error_nrs_sv));
+
 
 void
 set_document_options (SV *sv_options_in, SV *document_in)
@@ -256,7 +284,7 @@ gdt (string, ...)
                    SV *value = hv_iternextsv(hv_replaced_substrings,
                                              &key, &retlen);
                    DOCUMENT *document = get_sv_tree_document (value, 0);
-                   /* TODO should warn/error if not found or return 
+                   /* TODO should warn/error if not found or return
                       a list of missing string identifiers?  Or check
                       in caller?  In any case, it cannot be good to
                       ignore a replaced substring */

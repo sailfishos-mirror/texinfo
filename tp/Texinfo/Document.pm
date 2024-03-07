@@ -50,10 +50,10 @@ my $XS_structuring = ($XS_parser
 our %XS_overrides = (
   "Texinfo::Document::remove_document"
     => "Texinfo::DocumentXS::remove_document",
-  "Texinfo::Document::_XS_pass_document_errors"
-    => "Texinfo::DocumentXS::pass_document_errors",
   "Texinfo::Document::_XS_set_document_global_info",
     => "Texinfo::DocumentXS::set_document_global_info",
+  "Texinfo::Document::errors"
+    => "Texinfo::DocumentXS::document_errors",
 );
 
 # needed by structure code
@@ -433,28 +433,14 @@ sub rebuild_tree($;$)
   return $tree;
 }
 
-# this method does nothing, but the XS override pass the document errors
-sub _XS_pass_document_errors($)
-{
-}
-
-
-# Note that if XS code was not used, all the errors should already be
-# registered in the document registrar.
+# The XS override pass C error messages to the document registrar and destroys
+# C associated data.
 sub errors($)
 {
   my $document = shift;
 
   my $registrar = $document->{'registrar'};
   return if !defined($registrar);
-
-  # get errors from XS data
-  my $XS_document_errors = _XS_pass_document_errors($document);
-  if ($XS_document_errors) {
-    foreach my $error (@{$XS_document_errors}) {
-      $registrar->add_formatted_message($error);
-    }
-  }
 
   return $registrar->errors();
 }

@@ -1,5 +1,15 @@
 2024-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (%XS_overrides, errors),
+	tp/Texinfo/XS/main/DocumentXS.xs (document_errors),
+	tp/Texinfo/XS/main/build_perl_info.c (add_formatted_error_messages)
+	(pass_errors_to_registrar): override directly
+	Texinfo::Document::errors.  Rename pass_converter_errors as
+	add_formatted_error_messages and return error_nrs and errors_warnings
+	Perl references too.
+
+2024-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): change
 	warning message based on mailing list feedback.  Use command_data in C.

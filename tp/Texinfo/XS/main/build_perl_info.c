@@ -1185,7 +1185,7 @@ convert_error (ERROR_MESSAGE e)
 
 /* Errors */
 AV *
-build_errors (ERROR_MESSAGE* error_list, size_t error_number)
+build_errors (ERROR_MESSAGE *error_list, size_t error_number)
 {
   AV *av;
   int i;
@@ -1227,6 +1227,7 @@ pass_document_parser_errors (size_t document_descriptor)
 }
 
 /* build perl errors list and clear XS document errors */
+/* Currently unused */
 SV *
 pass_document_errors (size_t document_descriptor)
 {
@@ -1698,31 +1699,32 @@ get_conf (CONVERTER *converter, const char *option_name)
 
 /* add C messages to a Texinfo::Report object, like
    Texinfo::Report::add_formatted_message does.
-   TODO currently unused. It could replace the calls to add_formatted_message
-   in perl code, if it is found relevant.  For converters, this is unlikely,
-   as errors need to be passed explicitely both from Perl and XS.  For
-   errors registered in document, it may be useful to avoid the need to
-   rebuild the document prior to passing error messages.
+   NOTE probably not useful for converters as errors need to be passed
+   explicitely both from Perl and XS.
+
+   Also return $report->{'errors_warnings'} in ERRORS_WARNINGS_OUT and
+   $report->{'error_nrs'} in ERRORS_NRS_OUT, even if ERROR_MESSAGES is
+   0, to avoid the need to fetch them from report_hv if calling code
+   is interested in those SV.
  */
-void
-pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
-                       HV *report_hv)
+static void
+add_formatted_error_messages (ERROR_MESSAGE_LIST *error_messages,
+                              HV *report_hv, SV **errors_warnings_out,
+                              SV **error_nrs_out)
 {
-  int i;
   SV **errors_warnings_sv;
   SV **error_nrs_sv;
+  int i;
 
   dTHX;
 
-  if (!error_messages)
-    {
-      fprintf (stderr, "pass_converter_errors: NOTE: no error_messages\n");
-      return;
-    }
+
+  *errors_warnings_out = 0;
+  *error_nrs_out = 0;
 
   if (!report_hv)
     {
-      fprintf (stderr, "pass_converter_errors: BUG: no perl report\n");
+      fprintf (stderr, "add_formatted_error_messages: BUG: no perl report\n");
       return;
     }
 
@@ -1732,25 +1734,54 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
   error_nrs_sv = hv_fetch (report_hv, "error_nrs",
                                       strlen ("error_nrs"), 0);
 
-  if (errors_warnings_sv && SvOK(*errors_warnings_sv))
+  if (errors_warnings_sv && SvOK (*errors_warnings_sv))
     {
-      AV *av = (AV *)SvRV (*errors_warnings_sv);
       int error_nrs = 0;
-      if (error_nrs_sv)
-        error_nrs = SvIV (*error_nrs_sv);
-
-      for (i = 0; i < error_messages->number; i++)
+      if (error_nrs_sv && SvOK (*error_nrs_sv))
         {
-          ERROR_MESSAGE error_msg = error_messages->list[i];
-          SV *sv = convert_error (error_msg);
-
-          if (error_msg.type == MSG_error && !error_msg.continuation)
-            error_nrs++;
-          av_push (av, sv);
+          error_nrs = SvIV (*error_nrs_sv);
+          *error_nrs_out = *error_nrs_sv;
         }
-      if (error_nrs)
-        hv_store (report_hv, "error_nrs",
-                  strlen ("error_nrs"), newSViv (error_nrs), 0);
+      *errors_warnings_out = *errors_warnings_sv;
+
+      if (!error_messages)
+        {
+          /* TODO if this message appears in output, it should probably
+             be removed, as this situation is allowed from DocumentXS.xs
+             document_errors */
+          fprintf (stderr,
+               "add_formatted_error_messages: NOTE: no error_messages\n");
+          return;
+        }
+      else
+        {
+          AV *av = (AV *)SvRV (*errors_warnings_sv);
+
+          for (i = 0; i < error_messages->number; i++)
+            {
+              ERROR_MESSAGE error_msg = error_messages->list[i];
+              SV *sv = convert_error (error_msg);
+
+              if (error_msg.type == MSG_error && !error_msg.continuation)
+                error_nrs++;
+              av_push (av, sv);
+            }
+
+          if (error_nrs)
+            {
+              if (error_nrs_sv && SvOK (*error_nrs_sv))
+                {
+                  sv_setiv(*error_nrs_sv, error_nrs);
+                }
+              else
+                {
+                  SV *new_error_nrs_sv = newSViv (error_nrs);
+                  hv_store (report_hv, "error_nrs",
+                       strlen ("error_nrs"), new_error_nrs_sv, 0);
+                  *error_nrs_out = new_error_nrs_sv;
+                }
+            }
+        }
     }
   else
     {
@@ -1760,6 +1791,34 @@ pass_converter_errors (ERROR_MESSAGE_LIST *error_messages,
     }
 
   clear_error_message_list (error_messages);
+}
+
+/* ERROR_MESSAGES can be 0, in that case the function is used to get
+   the perl references but they are not modified */
+SV *
+pass_errors_to_registrar (ERROR_MESSAGE_LIST *error_messages, SV *object_sv,
+                          SV **errors_warnings_out, SV **error_nrs_out)
+{
+  HV *object_hv;
+  SV **registrar_sv;
+  const char *registrar_key = "registrar";
+
+  dTHX;
+
+  object_hv = (HV *) SvRV (object_sv);
+
+  registrar_sv = hv_fetch (object_hv, registrar_key,
+                           strlen (registrar_key), 0);
+  if (registrar_sv && SvOK (*registrar_sv))
+    {
+      HV *report_hv = (HV *) SvRV (*registrar_sv);
+      add_formatted_error_messages (error_messages, report_hv,
+                                    errors_warnings_out, error_nrs_out);
+      return newRV_inc ((SV *) report_hv);
+    }
+  *errors_warnings_out = 0;
+  *error_nrs_out = 0;
+  return newSV (0);
 }
 
 AV *
