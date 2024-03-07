@@ -43,7 +43,6 @@ my $document = $parser->parse_texi_text('@node Top
 @cindex @l{}
 ');
 
-my $registrar = $parser->registered_errors();
 my $main_configuration = Texinfo::MainConfig::new({});
 
 # To set $indices_sort_strings, calling
@@ -57,7 +56,7 @@ $main_configuration->{'document_descriptor'}
   = $document->document_descriptor();
 
 my $indices_sort_strings
-  = Texinfo::Indices::setup_index_entries_sort_strings($registrar,
+  = Texinfo::Indices::setup_index_entries_sort_strings($document->registrar(),
                                               $main_configuration,
                                       $index_entries, $indices_information);
 
@@ -65,7 +64,7 @@ my $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 my $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $registrar,
+  = Texinfo::Indices::sort_indices_by_index($document, $document->registrar(),
                                             $main_configuration);
 
 my @entries = ();
@@ -81,7 +80,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter
- = Texinfo::Indices::sort_indices_by_letter($document, $registrar,
+ = Texinfo::Indices::sort_indices_by_letter($document, $document->registrar(),
                                             $main_configuration);
 
 my @letter_entries_ref = (
@@ -135,14 +134,13 @@ $document = $parser->parse_texi_text('@node Top
 @cindex hhh @subentry jjj @subentry lll @sortas{A}
 ');
 
-$registrar = $parser->registered_errors();
 $indices_sort_strings
   = Texinfo::Document::indices_sort_strings($document, $main_configuration);
 $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $registrar,
+  = Texinfo::Indices::sort_indices_by_index($document, $document->registrar(),
                                             $main_configuration);
 
 @entries = ();

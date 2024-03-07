@@ -27,7 +27,7 @@ my $parser = Texinfo::Parser::parser({'registrar' => $registrar});
 # this also tests errors with line_errors not defined
 my $document = $parser->parse_texi_piece("\@end format\n");
 
-my $parser_registrar = $parser->registered_errors();
+my $parser_registrar = $parser->registrar();
 ok ($parser_registrar eq $registrar, 'reused registrar');
 
 my ($error_warnings_list, $error_count) = $parser_registrar->errors();

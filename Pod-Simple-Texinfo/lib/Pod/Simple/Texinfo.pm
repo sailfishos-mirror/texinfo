@@ -434,8 +434,7 @@ sub _normalize_texinfo_name($$)
     my $texinfo_text_str = $texinfo_text;
     chomp($texinfo_text_str);
     warn "ERROR: Texinfo parsing failed for: $texinfo_text_str\n";
-    my $registrar = $parser->registered_errors();
-    my ($parser_errors, $parser_error_count) = $registrar->errors();
+    my ($parser_errors, $parser_error_count) = $parser->errors();
     foreach my $error_message (@$parser_errors) {
       if ($error_message->{'type'} eq 'error') {
         warn "ERROR: $error_message->{'error_line'}";

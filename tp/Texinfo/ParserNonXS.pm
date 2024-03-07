@@ -972,10 +972,20 @@ sub _parse_texi_document($)
   return $document;
 }
 
-sub registered_errors($)
+# Only used in a test, not documented, there for symmetry with document
+sub registrar($)
+{
+  return $self->{'registrar'};
+}
+
+sub errors($)
 {
   my $self = shift;
-  return $self->{'registrar'};
+  my $registrar = $self->{'registrar'};
+  if (!$registrar) {
+    return undef;
+  }
+  return $registrar->errors();
 }
 
 sub _setup_conf($$)
@@ -7993,10 +8003,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   use Texinfo::Parser;
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_file("somefile.texi");
-  # a Texinfo::Report object in which the errors and warnings
-  # encountered while parsing are registered.
-  my $registrar = $parser->registered_errors();
-  my ($errors, $errors_count) = $registrar->errors();
+  my ($errors, $errors_count) = $parser->errors();
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
@@ -8070,10 +8077,6 @@ Maximal number of nested user-defined macro calls.  Default is 100000.
 A string corresponding to a document language set by C<@documentlanguage>.
 It overrides the document C<@documentlanguage> information, if present.
 
-=item registrar
-
-L<Texinfo::Report> object reused by the parser to register errors.
-
 =item values
 
 A hash reference.  Keys are names, values are the corresponding values.
@@ -8134,21 +8137,19 @@ undef is returned if the file couldn't be read.
 
 =back
 
-The errors collected during the tree parsing are registered in a
-L<Texinfo::Report> object.  This object is available with
-C<registered_errors>.  The errors registered in the C<Texinfo::Report>
-object are available through the C<errors> method.  This method is
-described in L<Texinfo::Report::errors|Texinfo::Report/($error_warnings_list, $error_count) = errors($registrar)>.
+The errors collected during the tree parsing are available with
+C<errors>.  These errors are internally registered in a C<Texinfo::Report>
+object.
 
 =over
 
-=item $registrar = registered_errors($parser)
-X<C<registered_errors>>
+=item ($error_warnings_list, $error_count) = $parser->errors()
+X<C<errors>>
 
-I<$registrar> is a L<Texinfo::Report> object in which the errors
-and warnings encountered while parsing are registered.  If a I<registrar>
-is passed to the parser initialization options, it is reused, otherwise
-a new one is created.
+This function returns as I<$error_count> the count of parsing errors.
+The I<$error_warnings_list> is an array of hash references
+one for each error, warning or error line continuation.
+They are described in detail in L<Texinfo::Report::errors|Texinfo::Report/($error_warnings_list, $error_count) = errors($registrar)>.
 
 =back
 

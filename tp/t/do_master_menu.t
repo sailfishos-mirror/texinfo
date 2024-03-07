@@ -125,7 +125,6 @@ my $no_detailmenu = _get_in('');
 
 my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_piece($in_detailmenu);
-my $registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $parser);
 Texinfo::Document::rebuild_document($document);
 my $identifier_target = $document->labels_information();
@@ -173,7 +172,6 @@ is ($out, $reference, 'master menu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
-$registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $parser);
 Texinfo::Document::rebuild_document($document);
 $identifier_target = $document->labels_information();
@@ -187,7 +185,6 @@ is ($out, $reference, 'master menu no detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($in_detailmenu);
-$registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
 Texinfo::Document::rebuild_document($document);
@@ -200,7 +197,6 @@ is ($out, _get_in($reference), 'regenerate with existing detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
-$registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $parser);
 Texinfo::Transformations::regenerate_master_menu($document, $parser);
 Texinfo::Document::rebuild_document($document);

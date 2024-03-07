@@ -331,11 +331,22 @@ sub parse_texi_line($$;$$$)
   return $document->tree();
 }
 
-sub registered_errors($)
+# Only used in a test, not documented, there for symmetry with document
+sub registrar($)
 {
-  my $self = shift;
   return $self->{'registrar'};
 }
+
+sub errors($)
+{
+  my $self = shift;
+  my $registrar = $self->{'registrar'};
+  if (!$registrar) {
+    return undef;
+  }
+  return $registrar->errors();
+}
+
 
 1;
 __END__

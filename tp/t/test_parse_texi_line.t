@@ -34,8 +34,7 @@ sub test_line($$$$)
   my $check_texinfo = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   is ($texinfo_line, $check_texinfo, $test_explanation);
 
-  my $parser_registrar = $parser->registered_errors();
-  my ($error_warnings_list, $error_count) = $parser_registrar->errors();
+  my ($error_warnings_list, $error_count) = $parser->errors();
   if (defined($errors_references)) {
     is (scalar(@$error_warnings_list), scalar(@$errors_references),
         "warning/errors nr $test_explanation");

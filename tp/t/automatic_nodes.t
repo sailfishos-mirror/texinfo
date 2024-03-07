@@ -35,7 +35,6 @@ sub test_new_node($$$$)
 
   my $parser = Texinfo::Parser::parser();
   my $node_tree = $parser->parse_texi_line ($in);
-  my $registrar = $parser->registered_errors();
   my $document = $parser->parse_texi_text ('');
   my $identifier_target = $document->labels_information();
   Texinfo::Structuring::associate_internal_references($document, $parser);
@@ -91,7 +90,6 @@ my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_text('@node a node
 ');
 my $tree = $document->tree();
-my $registrar = $parser->registered_errors();
 my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 
 SKIP:
@@ -170,7 +168,6 @@ Text.
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_text($sections_text);
-$registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $parser);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $parser);
@@ -192,7 +189,6 @@ $document = $parser->parse_texi_text('@node Top
 * (some_manual)::
 @end menu
 ');
-$registrar = $parser->registered_errors();
 Texinfo::Structuring::associate_internal_references($document, $parser);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $parser);

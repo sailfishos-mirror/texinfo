@@ -72,7 +72,6 @@ my $tree = $document->tree();
 #use Texinfo::DebugTree;
 #print STDERR Texinfo::DebugTree->convert_tree ($tree);
 
-my $registrar = $parser->registered_errors();
 my $main_configuration = Texinfo::MainConfig::new();
 # Setup sectioning commands numbers
 my $sections_list

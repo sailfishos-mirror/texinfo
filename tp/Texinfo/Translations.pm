@@ -323,8 +323,7 @@ sub _replace_convert_substrings($;$$)
   }
 
   my $tree = $parser->parse_texi_line($texinfo_line, undef, 0, 1);
-  my $parser_registrar = $parser->registered_errors();
-  my ($errors, $errors_count) = $parser_registrar->errors();
+  my ($errors, $errors_count) = $parser->errors();
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
     warn "translated string: $translated_string\n";

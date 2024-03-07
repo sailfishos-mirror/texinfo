@@ -1,5 +1,17 @@
 2024-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (errors),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (errors): add errors as the main
+	way to get parser errors.  Remove registered_errors.  Update callers
+	of registered_errors to call directly errors.
+
+	* tp/Texinfo/ParserNonXS.pm (registrar),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (registrar): add Texinfo::Report
+	registrar accessors to have the same interface as document, only
+	currently used in a test.
+
+2024-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (%XS_overrides, errors),
 	tp/Texinfo/XS/main/DocumentXS.xs (document_errors),
 	tp/Texinfo/XS/main/build_perl_info.c (add_formatted_error_messages)
