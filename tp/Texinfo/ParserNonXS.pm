@@ -4160,9 +4160,8 @@ sub _end_line_starting_block($$$)
         my $cmdname = $command_as_argument->{'cmdname'};
         if (defined($brace_commands{$cmdname})
             and $brace_commands{$cmdname} ne 'noarg') {
-          $self->_command_warn($current,
-       __("non-mark brace command `\@%s' as \@%s argument should have braces"),
-            $cmdname, $command);
+          $self->_command_warn($current, __("\@%s expected braces"),
+                               $cmdname);
         }
       }
     }

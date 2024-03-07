@@ -597,10 +597,10 @@ in an itemize line
 
 $result_errors{'itemize_in_example'} = [
   {
-    'error_line' => 'warning: non-mark brace command `@asis\' as @itemize argument should have braces
+    'error_line' => 'warning: @asis expected braces
 ',
     'line_nr' => 8,
-    'text' => 'non-mark brace command `@asis\' as @itemize argument should have braces',
+    'text' => '@asis expected braces',
     'type' => 'warning'
   }
 ];

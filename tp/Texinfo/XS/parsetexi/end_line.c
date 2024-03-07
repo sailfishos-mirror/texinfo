@@ -990,13 +990,11 @@ end_line_starting_block (ELEMENT *current)
                        != ET_brace_command_arg))
             {
               enum command_id as_argument_cmd = k_command_as_arg->element->cmd;
-              if ((builtin_command_data[as_argument_cmd].flags & CF_brace)
-                  && builtin_command_data[as_argument_cmd].data != BRACE_noarg)
+              if ((command_data(as_argument_cmd).flags & CF_brace)
+                  && command_data(as_argument_cmd).data != BRACE_noarg)
                 {
-                  command_warn (current,
-       "non-mark brace command `@%s' as @%s argument should have braces",
-                            command_name(as_argument_cmd),
-                            command_name(command));
+                  command_warn (current, "@%s expected braces",
+                                command_name(as_argument_cmd));
                 }
             }
         }

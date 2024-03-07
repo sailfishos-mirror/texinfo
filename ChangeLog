@@ -1,5 +1,11 @@
 2024-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): change
+	warning message based on mailing list feedback.  Use command_data in C.
+
+2024-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (rebuild_document): do not
 	clear the existing document HV.
 
