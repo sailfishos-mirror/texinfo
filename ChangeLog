@@ -1,3 +1,8 @@
+2024-03-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/build_perl_info.c (rebuild_document): do not
+	clear the existing document HV.
+
 2024-03-06  Patrice Dumas  <pertusus@free.fr>
 
 	Get errors from XS independently of document build/rebuild
