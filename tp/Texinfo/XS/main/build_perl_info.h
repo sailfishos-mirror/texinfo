@@ -47,7 +47,8 @@ HV *build_global_info (GLOBAL_INFO *global_info_ref,
                        GLOBAL_COMMANDS *global_commands_ref);
 HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
-SV *pass_document_parser_errors (size_t document_descriptor);
+void pass_document_parser_errors_to_registrar (int document_descriptor,
+                                               SV *parser_sv);
 SV *pass_document_errors (size_t document_descriptor);
 SV *pass_errors_to_registrar (ERROR_MESSAGE_LIST *error_messages,
                               SV *object_sv,

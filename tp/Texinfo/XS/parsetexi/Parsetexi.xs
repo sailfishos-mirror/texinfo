@@ -102,8 +102,8 @@ build_document (int document_descriptor, ...)
 SV *
 get_document (int document_descriptor)
 
-SV *
-pass_document_parser_errors (int document_descriptor)
+void
+pass_document_parser_errors_to_registrar (int document_descriptor, SV *parser_sv)
 
 void
 parser_store_value (name, value)

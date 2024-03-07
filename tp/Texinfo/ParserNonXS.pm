@@ -975,6 +975,7 @@ sub _parse_texi_document($)
 # Only used in a test, not documented, there for symmetry with document
 sub registrar($)
 {
+  my $self = shift;
   return $self->{'registrar'};
 }
 

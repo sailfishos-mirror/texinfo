@@ -1203,29 +1203,6 @@ build_errors (ERROR_MESSAGE *error_list, size_t error_number)
   return av;
 }
 
-/* build perl errors list and clear XS document parser errors */
-SV *
-pass_document_parser_errors (size_t document_descriptor)
-{
-  DOCUMENT *document;
-  AV *av_parser_errors_list;
-
-  dTHX;
-
-  document = retrieve_document (document_descriptor);
-
-  if (!document)
-    return newSV (0);
-
-  av_parser_errors_list
-    = build_errors (document->parser_error_messages->list,
-                    document->parser_error_messages->number);
-
-  clear_document_parser_errors (document_descriptor);
-
-  return newRV_inc ((SV *) av_parser_errors_list);
-}
-
 /* build perl errors list and clear XS document errors */
 /* Currently unused */
 SV *
@@ -1819,6 +1796,25 @@ pass_errors_to_registrar (ERROR_MESSAGE_LIST *error_messages, SV *object_sv,
   *errors_warnings_out = 0;
   *error_nrs_out = 0;
   return newSV (0);
+}
+
+void
+pass_document_parser_errors_to_registrar (int document_descriptor,
+                                          SV *parser_sv)
+{
+  DOCUMENT *document;
+  SV *errors_warnings_sv = 0;
+  SV *error_nrs_sv = 0;
+
+  dTHX;
+
+  document = retrieve_document (document_descriptor);
+
+  if (!document)
+    return;
+
+  pass_errors_to_registrar (document->parser_error_messages, parser_sv,
+                            &errors_warnings_sv, &error_nrs_sv);
 }
 
 AV *

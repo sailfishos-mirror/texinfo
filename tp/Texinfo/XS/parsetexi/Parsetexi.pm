@@ -4,12 +4,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -205,11 +205,7 @@ sub _get_parser_info($$;$$) {
 
   # get hold of errors before calling build_document, as if $no_store is set
   # they will be destroyed.
-  my $parser_errors = pass_document_parser_errors($document_descriptor);
-  # Copy the errors into the parser Texinfo::Report error list.
-  foreach my $error (@$parser_errors) {
-    $parser_registrar->add_formatted_message($error);
-  }
+  pass_document_parser_errors_to_registrar($document_descriptor, $self);
 
   my $document;
   if ($no_build) {
@@ -334,6 +330,7 @@ sub parse_texi_line($$;$$$)
 # Only used in a test, not documented, there for symmetry with document
 sub registrar($)
 {
+  my $self = shift;
   return $self->{'registrar'};
 }
 
