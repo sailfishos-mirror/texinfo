@@ -1069,9 +1069,9 @@ Texinfo::Convert::Text - Convert Texinfo tree to simple text
   # Texinfo::Convert::Converter
   my $text_options = $converter->{'convert_text_options'};
 
-  set_options_code($text options);
+  set_options_code($text_options);
   my $result_with_converter = convert_to_text($tree, $text_options);
-  reset_options_code($text options);
+  reset_options_code($text_options);
 
 =head1 NOTES
 

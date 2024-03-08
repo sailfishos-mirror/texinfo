@@ -3211,7 +3211,7 @@ An index entry reference as appearing in index data structures.
 New shared infomation is defined with @code{define_shared_conversion_state}:
 
 @defun @var{$converter}->define_shared_conversion_state ($cmdname, $name, \@@specification)
-@var{$cmdname} is an @@-command name, with leading @@. @var{name} is the name
+@var{$cmdname} is an @@-command name, without leading @@. @var{name} is the name
 associated to the data.  The @code{top} command name is conventionally used if
 there is no natural association with another @@-command.
 @var{\@@specification} array reference specifies the types of the selectors
@@ -3225,7 +3225,7 @@ future changes.}.
 For example, @code{['integer', 'element', 'string']} specifies a @samp{string}
 type for the value, and two selectors, the first with @samp{integer} type,
 and the second with @samp{element} type.  @code{['integer']} specifies
-and integer for the value and no selector.
+an integer for the value and no selector.
 @end defun
 
 For example, the following defines a @samp{color} shared conversion state
@@ -3259,7 +3259,7 @@ my $number = $converter->get_shared_conversion_state('quotation',
 The function @code{set_shared_conversion_state} is used to set
 shared information:
 
-@defun @var{$converter}->define_shared_conversion_state (@var{$cmmdname}, @var{$name}, [@var{$selector} @dots{}], @var{$value})
+@defun @var{$converter}->define_shared_conversion_state (@var{$cmdname}, @var{$name}, [@var{$selector} @dots{}], @var{$value})
 Sets @var{$value} associated with @var{$cmdname}
 and @var{$name}. The number of selectors given in argument should match
 the number of selectors in the definition (possible none).
