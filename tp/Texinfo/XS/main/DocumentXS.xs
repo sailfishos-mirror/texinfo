@@ -183,27 +183,23 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
               }
           }
 
-# customization_information, prefer_reference_element
+# customization_information
 SV *
 indices_sort_strings (SV *document_in, ...)
-    PROTOTYPE: $$;$
+    PROTOTYPE: $$
     PREINIT:
         DOCUMENT *document = 0;
         const INDICES_SORT_STRINGS *indices_sort_strings = 0;
         HV *document_hv;
-        int prefer_reference_element = 0;
         SV *result_sv = 0;
         const char *sort_strings_key = "index_entries_sort_strings";
      CODE:
         document = get_sv_document_document (document_in,
                                              "indices_sort_strings");
-        if (items > 2 && SvOK(ST(2)))
-          prefer_reference_element = SvIV (ST(2));
-
         if (document)
           indices_sort_strings
            = document_indices_sort_strings (document, document->error_messages,
-                                  document->options, prefer_reference_element);
+                                             document->options);
 
         document_hv = (HV *) SvRV (document_in);
 

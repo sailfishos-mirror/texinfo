@@ -220,18 +220,17 @@ sub merged_indices($)
 # In general, it is not needed to call that function directly,
 # as it is called by Texinfo::Indices::sort_indices_by_*.  It may
 # be called in advance, however, if errors need to be collected early.
-sub indices_sort_strings($$;$)
+sub indices_sort_strings($$)
 {
   my $document = shift;
   my $customization_information = shift;
-  my $prefer_reference_element = shift;
 
   if (!$document->{'index_entries_sort_strings'}) {
     my $indices_sort_strings
       = Texinfo::Indices::setup_index_entries_sort_strings
              ($document->{'registrar'}, $customization_information,
-              $document->merged_indices(), $document->indices_information(),
-              $prefer_reference_element);
+              $document->merged_indices(),
+              $document->indices_information(), 0);
     $document->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
 

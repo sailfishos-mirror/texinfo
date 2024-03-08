@@ -1,5 +1,15 @@
 2024-03-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (indices_sort_strings),
+	tp/Texinfo/XS/main/DocumentXS.xs (indices_sort_strings),
+	tp/Texinfo/XS/main/document.c (document_indices_sort_strings): remove
+	prefer_reference_element argument, as the result is cached, therefore
+	the first call prefer_reference_element argument only would be
+	used.  Also the possibility associated to that argument probably do
+	not make much sense when doing a document indices_sort_strings.
+
+2024-03-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_units)
 	(_html_convert_convert, run_stage_handlers, _html_convert_output),
 	tp/Texinfo/Structuring.pm (split_by_node, split_by_section)

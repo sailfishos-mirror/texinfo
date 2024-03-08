@@ -162,7 +162,7 @@ register_document_convert_index_text_options (DOCUMENT *document,
 const INDICES_SORT_STRINGS *
 document_indices_sort_strings (DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options, int prefer_reference_element)
+                               OPTIONS *options)
 {
   if (!document->indices_sort_strings)
     {
@@ -171,8 +171,7 @@ document_indices_sort_strings (DOCUMENT *document,
 
       document->indices_sort_strings
        = setup_index_entries_sort_strings (error_messages, options,
-                               merged_indices, document->index_names,
-                               prefer_reference_element);
+                               merged_indices, document->index_names, 0);
 
       document->modified_information |= F_DOCM_indices_sort_strings;
     }

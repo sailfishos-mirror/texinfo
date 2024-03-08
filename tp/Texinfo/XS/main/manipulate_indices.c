@@ -700,7 +700,7 @@ setup_sort_sortable_strings_collator (DOCUMENT *document,
   INDICES_SORTABLE_ENTRIES *index_sortable_index_entries;
 
   indices_sort_strings = document_indices_sort_strings (document,
-                                                error_messages, options, 0);
+                                                error_messages, options);
 
   *collator = setup_collator (use_unicode_collation, collation_language,
                               collation_locale, error_messages, options);

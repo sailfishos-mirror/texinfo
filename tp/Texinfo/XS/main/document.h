@@ -34,7 +34,7 @@ const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
 const INDICES_SORT_STRINGS *document_indices_sort_strings (
                                DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options, int prefer_reference_element);
+                               OPTIONS *options);
 
 INDEX_SORTED_BY_INDEX *sorted_indices_by_index (DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
