@@ -1361,7 +1361,7 @@ sub test($$)
   # on conversion should be fairly well tested.  See above the comment
   # near test_split with more explanation on why previous splitting should
   # not interfere with conversion.
-  my $unsplit_needed = Texinfo::Structuring::unsplit($tree);
+  my $unsplit_needed = Texinfo::Structuring::unsplit($document);
   print STDERR "  UNSPLIT: $test_name\n"
     if ($self->{'DEBUG'} and $unsplit_needed);
 
@@ -1374,9 +1374,9 @@ sub test($$)
   # output units.
   my $output_units;
   if ($test_split eq 'node') {
-    $output_units = Texinfo::Structuring::split_by_node($tree);
+    $output_units = Texinfo::Structuring::split_by_node($document);
   } elsif ($test_split eq 'section') {
-    $output_units = Texinfo::Structuring::split_by_section($tree);
+    $output_units = Texinfo::Structuring::split_by_section($document);
   }
   if ($test_split) {
     my $identifier_target = $document->labels_information();

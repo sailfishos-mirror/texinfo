@@ -652,11 +652,9 @@ sub convert($$)
   $self->conversion_initialization($document);
   $self->{'encoding_disabled'} = 1;
 
-  my $root = $document->tree();
-
   my $result = '';
 
-  my $output_units = Texinfo::Structuring::split_by_node($root);
+  my $output_units = Texinfo::Structuring::split_by_node($document);
 
   foreach my $output_unit (@$output_units) {
     my $node_text = convert_output_unit($self, $output_unit);
@@ -675,8 +673,6 @@ sub output($$)
   my $document = shift;
 
   $self->conversion_initialization($document);
-
-  my $root = $document->tree();
 
   my $output_units;
 
@@ -709,9 +705,9 @@ sub output($$)
   }
 
   if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::Structuring::split_by_node($root);
+    $output_units = Texinfo::Structuring::split_by_node($document);
   } else {
-    $output_units = Texinfo::Structuring::split_by_section($root);
+    $output_units = Texinfo::Structuring::split_by_section($document);
   }
 
   Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));

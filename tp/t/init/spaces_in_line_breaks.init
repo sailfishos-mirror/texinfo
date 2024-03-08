@@ -5,7 +5,7 @@ texinfo_register_handler('setup', \&_texi2any_tests_set_line_break_element);
 
 sub _texi2any_tests_set_line_break_element
 {
-  my ($self, $tree, $stage) = @_;
+  my ($self, $document, $stage) = @_;
 
   $self->{'line_break_element'} = '<br >';
   return 0;

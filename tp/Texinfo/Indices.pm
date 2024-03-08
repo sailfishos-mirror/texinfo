@@ -688,7 +688,7 @@ sub sort_indices_by_letter($$$;$$)
   return $sorted_index_entries;
 }
 
-# Norally called through Texinfo::Document::merged_indices only
+# Normally called through Texinfo::Document::merged_indices only
 sub merge_indices($)
 {
   my $indices_information = shift;

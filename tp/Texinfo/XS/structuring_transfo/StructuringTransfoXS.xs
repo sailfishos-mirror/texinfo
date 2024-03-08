@@ -364,14 +364,14 @@ protect_first_parenthesis_in_targets (SV *tree_in)
           protect_first_parenthesis_in_targets (document->tree);
 
 SV *
-split_by_node (SV *tree_in)
+split_by_node (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in, "split_by_node");
+        document = get_sv_document_document (document_in, "split_by_node");
         if (document)
           {
-            int output_units_descriptor = split_by_node (document->tree);
+            int output_units_descriptor = split_by_node (document);
             RETVAL = build_output_units_list (output_units_descriptor);
           }
         else
@@ -380,14 +380,14 @@ split_by_node (SV *tree_in)
         RETVAL
 
 SV *
-split_by_section (SV *tree_in)
+split_by_section (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in, "split_by_section");
+        document = get_sv_document_document (document_in, "split_by_section");
         if (document)
           {
-            int output_units_descriptor = split_by_section (document->tree);
+            int output_units_descriptor = split_by_section (document);
             RETVAL = build_output_units_list (output_units_descriptor);
           }
         else
@@ -396,14 +396,14 @@ split_by_section (SV *tree_in)
         RETVAL
 
 int
-unsplit (SV *tree_in)
+unsplit (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
         /* this is called even if there is no XS tree, so no error */
-        document = get_sv_tree_document (tree_in, 0);
+        document = get_sv_document_document (document_in, 0);
         if (document)
-          RETVAL = unsplit (document->tree);
+          RETVAL = unsplit (document);
         else
           RETVAL = -1;
     OUTPUT:

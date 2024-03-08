@@ -1682,9 +1682,9 @@ html_prepare_conversion_units (CONVERTER *self,
   int output_units_descriptor;
 
   if (self->conf->USE_NODES.integer > 0)
-    output_units_descriptor = split_by_node (self->document->tree);
+    output_units_descriptor = split_by_node (self->document);
   else
-    output_units_descriptor = split_by_section (self->document->tree);
+    output_units_descriptor = split_by_section (self->document);
   *output_units_descriptor_ref = output_units_descriptor;
 
   /* Needs to be set early in case it would be needed to find some region

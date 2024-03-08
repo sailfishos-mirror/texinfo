@@ -168,7 +168,10 @@ my @l2h_from_html;
 sub l2h_process($$)
 {
   my $self = shift;
-  my $document_root = shift;
+  my $document = shift;
+
+  my $document_root = $document->tree();
+
   @latex_texts = ();           # array used to associate the index with
                                # a latex text.
   $latex_commands_count = undef;

@@ -11,9 +11,9 @@ extern const char *relative_unit_direction_name[];
 OUTPUT_UNIT_LIST *retrieve_output_units (int output_units_descriptor);
 size_t new_output_units_descriptor (void);
 
-int split_by_node (const ELEMENT *root);
-int split_by_section (const ELEMENT *root);
-int unsplit (const ELEMENT *root);
+int split_by_node (const DOCUMENT *document);
+int split_by_section (const DOCUMENT *document);
+int unsplit (const DOCUMENT *document);
 void split_pages (OUTPUT_UNIT_LIST *output_units, const char *split);
 
 OUTPUT_UNIT *new_output_unit (enum output_unit_type unit_type);

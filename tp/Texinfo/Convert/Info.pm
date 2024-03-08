@@ -69,8 +69,6 @@ sub output($$)
 
   $self->conversion_initialization($document);
 
-  my $root = $document->tree();
-
   my $result;
 
   my ($output_file, $destination_directory, $output_filename,
@@ -117,7 +115,7 @@ sub output($$)
 
   my $header_bytes = length($header);
   my $complete_header_bytes = $header_bytes;
-  my $output_units = Texinfo::Structuring::split_by_node($root);
+  my $output_units = Texinfo::Structuring::split_by_node($document);
 
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
 
@@ -142,6 +140,8 @@ sub output($$)
       {'lines' => $old_context->{'lines'}, 'bytes' => $old_context->{'bytes'},
        'locations' => [], 'result' => '' };
     push @{$self->{'count_context'}}, $new_context;
+
+    my $root = $document->tree();
     $self->_convert($root);
     $self->process_footnotes();
     my $output = $self->_stream_result();

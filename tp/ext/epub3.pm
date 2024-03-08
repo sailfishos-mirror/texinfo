@@ -566,7 +566,9 @@ texinfo_register_handler('setup', \&epub_setup);
 sub epub_finish($$)
 {
   my $self = shift;
-  my $document_root = shift;
+  my $document = shift;
+
+  my $document_root = $document->tree();
 
   my @epub_output_filenames = (@epub_output_units_filenames,
                                @epub_special_elements_filenames);

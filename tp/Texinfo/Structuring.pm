@@ -1671,7 +1671,8 @@ sub _print_down_menus($$;$)
 # depend on the previous association (if any).
 sub split_by_node($)
 {
-  my $root = shift;
+  my $document = shift;
+  my $root = $document->tree();
 
   my $output_units;
 
@@ -1726,7 +1727,8 @@ sub split_by_node($)
 # association (if any).
 sub split_by_section($)
 {
-  my $root = shift;
+  my $document = shift;
+  my $root = $document->tree();
 
   my $output_units;
 
@@ -1770,7 +1772,7 @@ sub split_by_section($)
 
 sub _XS_unsplit($)
 {
-  my $root = shift;
+  my $document = shift;
   return -3;
 }
 
@@ -1780,10 +1782,11 @@ sub _XS_unsplit($)
 # always better to do it both for XS and perl.
 sub unsplit($)
 {
-  my $root = shift;
+  my $document = shift;
 
-  my $XS_unsplit_needed = _XS_unsplit($root);
+  my $XS_unsplit_needed = _XS_unsplit($document);
 
+  my $root = $document->tree();
   if (!$root->{'type'} or $root->{'type'} ne 'document_root'
       or !$root->{'contents'}) {
     return 0;
@@ -2261,9 +2264,9 @@ Texinfo::Structuring - information on Texinfo::Document tree
   number_floats($document->floats_information());
   my $output_units;
   if ($split_at_nodes) {
-    $output_units = split_by_node($tree);
+    $output_units = split_by_node($document);
   } else {
-    $output_units = split_by_section($tree);
+    $output_units = split_by_section($document);
   }
   split_pages($output_units, $split);
   units_directions($config, $identifier_target, $output_units);
@@ -2547,7 +2550,7 @@ elements corresponding to menu directions.
 
 =back
 
-=item $output_units = split_by_node($tree)
+=item $output_units = split_by_node($document)
 X<C<split_by_node>>
 
 Returns a reference array of output units where a node is associated to
@@ -2565,7 +2568,7 @@ Output units also have directions in the C<tree_unit_directions>
 hash reference, namely I<next> and I<prev> pointing to the
 previous and the next output unit.
 
-=item $output_units = split_by_section($tree)
+=item $output_units = split_by_section($document)
 X<C<split_by_section>>
 
 Similarly with C<split_by_node>, returns an array of output units.  This

@@ -325,8 +325,6 @@ sub output_ixin($$)
 
   $self->conversion_initialization($document);
 
-  my $root = $document->tree();
-
   my ($output_file, $destination_directory, $output_filename)
     = $self->determine_files_and_directory($self->{'output_format'});
 
@@ -419,7 +417,7 @@ sub output_ixin($$)
 
   # FIXME vars: wait for Thien-Thi answer.
 
-  my $output_units = Texinfo::Structuring::split_by_node($root);
+  my $output_units = Texinfo::Structuring::split_by_node($document);
   # setting_commands is for @-commands appearing before the first node,
   # while end_of_nodes_setting_commands holds, for @-commands names, the
   # last @-command element.
@@ -903,6 +901,9 @@ sub output_ixin($$)
   my $blobs = '';
   my $blobs_index = '';
   my $blob_nr = 0;
+
+  my $root = $document->tree();
+
   my $collected_image_commands = Texinfo::Common::collect_commands_list_in_tree(
                                                                 $root, ['image']);
   if (scalar(@{$collected_image_commands})) {

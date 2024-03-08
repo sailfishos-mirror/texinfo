@@ -66,7 +66,9 @@ texinfo_register_command_opening('example',
 sub highlight_setup($$)
 {
   my $self = shift;
-  my $document_root = shift;
+  my $document = shift;
+
+  my $document_root = $document->tree();
 
   %highlighted_languages_list = ();
 
@@ -277,7 +279,9 @@ my %commands;
 sub highlight_process($$)
 {
   my $self = shift;
-  my $document_root = shift;
+  my $document = shift;
+
+  my $document_root = $document->tree();
 
   # initialization, important in case multiple manuals are processed
   %commands = ();              # associates a command name and element to the resulting

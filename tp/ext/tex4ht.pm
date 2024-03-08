@@ -92,7 +92,9 @@ sub tex4ht_prepare($$)
 {
   # set file names
   my $self = shift;
-  my $document_root = shift;
+  my $document = shift;
+
+  my $document_root = $document->tree();
 
   # this initialization may not be needed, but it is cleaner anyway,
   # in case there is more than one texinfo file processed.

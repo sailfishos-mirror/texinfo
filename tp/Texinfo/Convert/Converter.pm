@@ -1631,22 +1631,11 @@ sub sort_element_counts($$;$$)
 
   $converter->conversion_initialization($document);
 
-  my $tree = $document->tree();
-
   my $output_units;
   if ($use_sections) {
-    $output_units = Texinfo::Structuring::split_by_section($tree);
+    $output_units = Texinfo::Structuring::split_by_section($document);
   } else {
-    $output_units = Texinfo::Structuring::split_by_node($tree);
-  }
-
-  # cannot happen for now, but could in the past and could in the future.
-  if (!$output_units) {
-    my $name = 'NOT an output unit';
-    my $converted_text = $converter->convert($document);
-    my $count = _count_converted_text($converted_text, $count_words);
-    my $result = "$count  $name\n";
-    return ([[$count, $name]], $result);
+    $output_units = Texinfo::Structuring::split_by_node($document);
   }
 
   my $max_count = 0;
@@ -2113,9 +2102,9 @@ C<convert_output_unit> takes a I<$converter> and an output unit
 I<$output_unit> as argument.  The implementation of
 C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
 many cases.  Output units are typically returned by L<Texinfo::Structuring
-split_by_section|Texinfo::Structuring/$output_units = split_by_section($tree)>
+split_by_section|Texinfo::Structuring/$output_units = split_by_section($document)>
 or L<Texinfo::Structuring split_by_node|Texinfo::Structuring/$output_units =
-split_by_node($tree)>.
+split_by_node($document)>.
 
 Output units are not relevant for all the formats, the Texinfo tree can also be
 converted directly, in general by using C<output_tree>.

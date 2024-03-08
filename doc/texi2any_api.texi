@@ -2222,9 +2222,9 @@ within a priority class the order is the order of calling
 The call of the user defined functions is:
 
 @deftypefn {Function Reference} @var{$status} stage_handler @
-           (@var{$converter}, @var{\%tree}, @var{$stage})
-@var{$converter} is a converter object. @var{\%tree} is the Texinfo
-tree root element. @var{$stage} is the current stage.
+           (@var{$converter}, @var{$document}, @var{$stage})
+@var{$converter} is a converter object. @var{$document} is the Texinfo
+parsed @code{Texinfo::Document} document. @var{$stage} is the current stage.
 
 If @var{$status} is not 0 it means that an error occured.
 If @var{$status} is positive, the user defined functions should

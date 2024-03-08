@@ -22,6 +22,7 @@
 #include <stdio.h>
 
 #include "tree_types.h"
+#include "document_types.h"
 /* for fatal */
 #include "utils.h"
 #include "tree.h"
@@ -135,8 +136,9 @@ add_to_output_unit_list (OUTPUT_UNIT_LIST *list, OUTPUT_UNIT *output_unit)
 
 /* in addition to splitting, register the output_units list */
 int
-split_by_node (const ELEMENT *root)
+split_by_node (const DOCUMENT *document)
 {
+  const ELEMENT *root = document->tree;
   int output_units_descriptor = new_output_units_descriptor ();
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
@@ -204,8 +206,9 @@ split_by_node (const ELEMENT *root)
 
 /* in addition to splitting, register the output_units list */
 int
-split_by_section (const ELEMENT *root)
+split_by_section (const DOCUMENT *document)
 {
+  const ELEMENT *root = document->tree;
   int output_units_descriptor = new_output_units_descriptor ();
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (output_units_descriptor);
@@ -263,8 +266,9 @@ split_by_section (const ELEMENT *root)
 }
 
 int
-unsplit (const ELEMENT *root)
+unsplit (const DOCUMENT *document)
 {
+  const ELEMENT *root = document->tree;
   int unsplit_needed = 0;
   int i;
 

@@ -58,7 +58,7 @@ texinfo_register_formatting_function('format_translate_message',
 my $button_added;
 sub _texi2any_tests_translate_add_button
 {
-  my ($self, $tree, $stage) = @_;
+  my ($self, $document, $stage) = @_;
 
   if (!$button_added) {
 

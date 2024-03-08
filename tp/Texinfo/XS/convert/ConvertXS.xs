@@ -1788,7 +1788,7 @@ void
 reset_output_init_conf (SV *sv_in)
 
 #  my ($output_units, $special_units, $associated_special_units)
-#    = $self->_prepare_conversion_units($root, $document_name);
+#    = $self->_prepare_conversion_units($document, $document_name);
 void
 html_prepare_conversion_units (SV *converter_in, ...)
       PROTOTYPE: $$$
@@ -2042,7 +2042,7 @@ html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file
            }
 
 SV *
-html_convert_convert (SV *converter_in, SV *tree_in, SV *output_units_in, SV *special_units_in)
+html_convert_convert (SV *converter_in, SV *document_in, SV *output_units_in, SV *special_units_in)
   PREINIT:
          CONVERTER *self = 0;
          DOCUMENT *document = 0;
@@ -2053,7 +2053,8 @@ html_convert_convert (SV *converter_in, SV *tree_in, SV *output_units_in, SV *sp
          self = get_sv_converter (converter_in, "html_convert_convert");
          /* there could be strange results if the document and the converter document
             do not match.  There is no reason why it would happen, though */
-         document = get_sv_tree_document (tree_in, "html_convert_convert");
+         document = get_sv_document_document (document_in,
+                                              "html_convert_convert");
          if (SvOK (output_units_in))
            output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in,
@@ -2105,7 +2106,7 @@ html_convert_tree (SV *converter_in, SV *tree_in, explanation)
         RETVAL
 
 SV *
-html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *special_units_in, output_file, destination_directory, output_filename, document_name)
+html_convert_output (SV *converter_in, SV *document_in, SV *output_units_in, SV *special_units_in, output_file, destination_directory, output_filename, document_name)
          const char *output_file = (char *)SvPVutf8_nolen($arg);
          const char *destination_directory = (char *)SvPVutf8_nolen($arg);
          const char *output_filename = (char *)SvPVutf8_nolen($arg);
@@ -2119,7 +2120,8 @@ html_convert_output (SV *converter_in, SV *tree_in, SV *output_units_in, SV *spe
    CODE:
          /* add warn string? */
          self = get_sv_converter (converter_in, "html_convert_output");
-         document = get_sv_tree_document (tree_in, "html_convert_output");
+         document = get_sv_document_document (document_in,
+                                              "html_convert_output");
          if (SvOK (output_units_in))
            output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in,

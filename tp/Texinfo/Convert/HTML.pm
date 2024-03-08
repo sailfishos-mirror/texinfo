@@ -9947,15 +9947,15 @@ sub _html_set_pages_files($$$$$$$$$)
 sub _prepare_conversion_units($$$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
   my $document_name = shift;
 
   my ($output_units, $special_units, $associated_special_units);
 
   if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::Structuring::split_by_node($root);
+    $output_units = Texinfo::Structuring::split_by_node($document);
   } else {
-    $output_units = Texinfo::Structuring::split_by_section($root);
+    $output_units = Texinfo::Structuring::split_by_section($document);
   }
 
   # Needs to be set early in case it would be needed to find some region
@@ -11947,7 +11947,7 @@ sub _prepare_title_titlepage($$$$)
 sub _html_convert_convert($$$$)
 {
   my $self = shift;
-  my $root = shift;
+  my $document = shift;
   my $output_units = shift;
   my $special_units = shift;
 
@@ -12002,7 +12002,6 @@ sub convert($$)
   $self->conversion_initialization($document);
 
   my $converter_info;
-  my $root = $document->tree();
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
@@ -12023,7 +12022,7 @@ sub convert($$)
   }
 
   my ($output_units, $special_units, $associated_special_units)
-    = $self->_prepare_conversion_units($root, undef);
+    = $self->_prepare_conversion_units($document, undef);
 
   # setup global targets.  It is not clearly relevant to have those
   # global targets when called as convert, but the Top global
@@ -12056,7 +12055,7 @@ sub convert($$)
   $self->_reset_info();
 
   # main conversion here
-  my $result = $self->_html_convert_convert($root, $output_units,
+  my $result = $self->_html_convert_convert($document, $output_units,
                                             $special_units);
 
   $self->conversion_finalization();
@@ -12203,7 +12202,7 @@ sub output_internal_links($)
 sub run_stage_handlers($$$)
 {
   my $converter = shift;
-  my $root = shift;
+  my $document = shift;
   my $stage = shift;
 
   my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
@@ -12216,7 +12215,7 @@ sub run_stage_handlers($$$)
       if ($converter->get_conf('DEBUG')) {
         print STDERR "RUN handler $handler_idx: stage $stage, priority $priority\n";
       }
-      my $status = &{$handler}($converter, $root, $stage);
+      my $status = &{$handler}($converter, $document, $stage);
       if ($status != 0) {
         if ($status < 0) {
           $converter->converter_document_error(
@@ -12428,7 +12427,7 @@ sub _prepare_converted_output_info($)
 # units or root conversion
 sub _html_convert_output($$$$$$$$)
 {
-  my ($self, $root, $output_units, $special_units, $output_file,
+  my ($self, $document, $output_units, $special_units, $output_file,
       $destination_directory, $output_filename, $document_name) = @_;
 
   my $text_output = '';
@@ -12588,8 +12587,6 @@ sub output($$)
     $identifiers_target = $document->labels_information();
   }
 
-  my $root = $document->tree();
-
   # set here early even though actual values are only set later on.  It is
   # therefore set in converter_info early too (using the reference).
   $self->{'current_filename'} = undef;
@@ -12654,7 +12651,7 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  my $setup_status = $self->run_stage_handlers($root, 'setup');
+  my $setup_status = $self->run_stage_handlers($document, 'setup');
   unless ($setup_status < $handler_fatal_error_level
           and $setup_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
@@ -12743,7 +12740,7 @@ sub output($$)
   # Get the list of output units to be processed.
   # Customization information in $self->{'conf'} is passed to XS code too.
   my ($output_units, $special_units, $associated_special_units)
-    = $self->_prepare_conversion_units($root, $document_name);
+    = $self->_prepare_conversion_units($document, $document_name);
 
   # setup untranslated strings
   $self->_translate_names();
@@ -12760,7 +12757,7 @@ sub output($$)
   # formatting.  Some information is not available yet.
   $self->_reset_info();
 
-  my $structure_status = $self->run_stage_handlers($root, 'structure');
+  my $structure_status = $self->run_stage_handlers($document, 'structure');
   unless ($structure_status < $handler_fatal_error_level
           and $structure_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
@@ -12785,7 +12782,7 @@ sub output($$)
 
   # TODO document that this stage handler is called with end of
   # preamble documentlanguage.
-  my $init_status = $self->run_stage_handlers($root, 'init');
+  my $init_status = $self->run_stage_handlers($document, 'init');
   unless ($init_status < $handler_fatal_error_level
           and $init_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
@@ -12806,7 +12803,7 @@ sub output($$)
   $self->_reset_info();
 
   # conversion
-  my $text_output = $self->_html_convert_output($root, $output_units,
+  my $text_output = $self->_html_convert_output($document, $output_units,
                        $special_units, $output_file, $destination_directory,
                        $output_filename, $document_name);
 
@@ -12830,7 +12827,7 @@ sub output($$)
 
   $self->_do_js_files($destination_directory);
 
-  my $finish_status = $self->run_stage_handlers($root, 'finish');
+  my $finish_status = $self->run_stage_handlers($document, 'finish');
   unless ($finish_status < $handler_fatal_error_level
           and $finish_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
