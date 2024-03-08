@@ -170,7 +170,7 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
             else if (!strcmp (key, "input_perl_encoding"))
               {
                 /* should not be needed, but in case global information
-                   is reused, it will be ok */
+                   is reused, it will avoid memory leaks */
                 non_perl_free (document->global_info->input_perl_encoding);
                 document->global_info->input_perl_encoding
                    = non_perl_strdup ((char *)SvPVbyte_nolen(value_sv));
@@ -183,39 +183,73 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
               }
           }
 
-# main_configuration, prefer_reference_element
+# customization_information, prefer_reference_element
 SV *
 indices_sort_strings (SV *document_in, ...)
     PROTOTYPE: $$;$
     PREINIT:
         DOCUMENT *document = 0;
         const INDICES_SORT_STRINGS *indices_sort_strings = 0;
-        SV **indices_information_sv;
         HV *document_hv;
         int prefer_reference_element = 0;
+        SV *result_sv = 0;
+        const char *sort_strings_key = "index_entries_sort_strings";
      CODE:
         document = get_sv_document_document (document_in,
                                              "indices_sort_strings");
         if (items > 2 && SvOK(ST(2)))
           prefer_reference_element = SvIV (ST(2));
+
         if (document)
           indices_sort_strings
            = document_indices_sort_strings (document, document->error_messages,
                                   document->options, prefer_reference_element);
 
         document_hv = (HV *) SvRV (document_in);
-        indices_information_sv
-          = hv_fetch (document_hv, "indices", strlen ("indices"), 0);
 
-        if (indices_sort_strings && indices_information_sv)
+        if (indices_sort_strings)
           {
-            HV *indices_information_hv = (HV *) SvRV (*indices_information_sv);
-            HV *indices_sort_strings_hv
-              = build_indices_sort_strings (indices_sort_strings,
-                                            indices_information_hv);
+            /* build Perl data only if needed and cache the built Perl
+               data in the same hash as done in overriden Perl code */
+            if (document->modified_information & F_DOCM_indices_sort_strings)
+              {
+    /* TODO maybe would be better to call $document->indices_information()
+       or build_indices_information function to pass to Perl if needed */
+                SV **indices_information_sv
+                  = hv_fetch (document_hv, "indices", strlen ("indices"), 0);
+                if (indices_information_sv)
+                  {
+                    HV *indices_information_hv
+                        = (HV *) SvRV (*indices_information_sv);
+                    HV *indices_sort_strings_hv
+                     = build_indices_sort_strings (indices_sort_strings,
+                                                   indices_information_hv);
 
-            RETVAL = newRV_inc ((SV *) indices_sort_strings_hv);
+                    result_sv = newRV_inc ((SV *) indices_sort_strings_hv);
+                    SvREFCNT_inc (result_sv);
+                    hv_store (document_hv, sort_strings_key,
+                              strlen (sort_strings_key), result_sv, 0);
+                    document->modified_information
+                                &= ~F_DOCM_indices_sort_strings;
+                  }
+                /* warn if not found? */
+              }
+            else
+              { /* retrieve previously stored result */
+                SV **index_entries_sort_strings_sv
+                  = hv_fetch (document_hv, sort_strings_key,
+                              strlen (sort_strings_key), 0);
+                if (index_entries_sort_strings_sv
+                    && SvOK (*index_entries_sort_strings_sv))
+                  {
+                    result_sv = *index_entries_sort_strings_sv;
+                    SvREFCNT_inc (result_sv);
+                  }
+                /* error out if not found?  Or rebuild? */
+              }
           }
+        if (result_sv)
+          RETVAL = result_sv;
         else
           RETVAL = newSV (0);
     OUTPUT:

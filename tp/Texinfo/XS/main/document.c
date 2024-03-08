@@ -173,8 +173,9 @@ document_indices_sort_strings (DOCUMENT *document,
        = setup_index_entries_sort_strings (error_messages, options,
                                merged_indices, document->index_names,
                                prefer_reference_element);
-    }
 
+      document->modified_information |= F_DOCM_indices_sort_strings;
+    }
   return document->indices_sort_strings;
 }
 

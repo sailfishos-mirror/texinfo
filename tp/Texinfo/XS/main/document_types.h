@@ -32,6 +32,8 @@ struct OPTIONS;
 /* same with convert_to_text.h */
 struct TEXT_OPTIONS;
 
+#define F_DOCM_indices_sort_strings      0x0001
+
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };
 
@@ -180,6 +182,9 @@ typedef struct DOCUMENT {
     INDICES_SORT_STRINGS *indices_sort_strings;
     COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
+
+    /* flags for modified information not already passed to Perl */
+    unsigned long modified_information;
 } DOCUMENT;
 
 /* not in document, but used in parser */
