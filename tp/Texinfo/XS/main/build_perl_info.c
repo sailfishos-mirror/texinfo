@@ -1690,8 +1690,11 @@ BUILD_PERL_DOCUMENT_LIST(labels_list,labels_list,labels_list,build_target_elemen
 
 #undef BUILD_PERL_DOCUMENT_LIST
 
+/* if SIMPLE_INFO is set, do not return information that requires buildin
+   the Perl tree and add information on few commands such that commands
+   information needs not to be called */
 SV *
-document_global_information (SV *document_in)
+document_global_information (SV *document_in, int simple_info)
 {
   HV *document_hv;
   SV *result_sv = 0;
@@ -1703,6 +1706,20 @@ document_global_information (SV *document_in)
 
   DOCUMENT *document = get_sv_document_document (document_in,
                                      "document_global_information");
+  if (simple_info)
+    { /* no caching in that case, but no need of building the
+         full document.  Should only be called with this argument
+         from the main program */
+      if (document)
+        {
+          HV *result_hv = build_global_info (document->global_info,
+                                             document->global_commands);
+          return newRV_inc ((SV *) result_hv);
+        }
+      else
+        return newSV (0);
+    }
+
   if (document)
     {
       store_texinfo_tree (document, document_hv);

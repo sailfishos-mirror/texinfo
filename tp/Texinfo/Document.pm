@@ -195,7 +195,7 @@ sub global_commands_information($)
   return $self->{'commands_info'};
 }
 
-sub global_information($)
+sub global_information($;$)
 {
   my $self = shift;
   return $self->{'global_info'};

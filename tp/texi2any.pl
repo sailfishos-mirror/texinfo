@@ -1511,7 +1511,7 @@ while(@input_files) {
     goto NEXT;
   }
 
-  my $document_information = $document->global_information();
+  my $document_information = $document->global_information(1);
   if (get_conf('TRACE_INCLUDES')) {
     handle_errors($parser->errors(), $error_count, \@opened_files);
     my $included_file_paths = $document_information->{'included_files'};
@@ -1527,8 +1527,6 @@ while(@input_files) {
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   }
-
-  my $identifier_target = $document->labels_information();
 
   # setup a configuration object which defines get_conf and gives the same as
   # get_conf() in main program.  It is for Structuring/Transformations methods
@@ -1554,10 +1552,10 @@ while(@input_files) {
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
-    # no need to rebuild the tree here if convert_to_texinfo is XS code.
+    # if convert_to_texinfo is not XS code get Perl tree.
     if (not (defined $ENV{TEXINFO_XS_CONVERT}
              and $ENV{TEXINFO_XS_CONVERT} eq '1')) {
-      Texinfo::Document::rebuild_document($document);
+      #Texinfo::Document::rebuild_document($document);
       $tree = $document->tree();
     }
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -1681,7 +1679,7 @@ while(@input_files) {
                                                   $main_configuration);
   }
 
-  Texinfo::Document::rebuild_document($document);
+  #Texinfo::Document::rebuild_document($document);
 
   # parser errors
   my ($errors, $new_error_count) = $parser->errors();

@@ -12,6 +12,10 @@ Before next release
 
 Check if LABEL identifier should be const
 
+Add setfilename
+$global_commands->{'setfilename'}->{'extra'}->{'text_arg'}
+to global_info / build_global_info
+
 Bugs
 ====
 

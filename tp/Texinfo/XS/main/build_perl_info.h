@@ -59,7 +59,7 @@ SV *document_floats_information (SV *document_in);
 SV *document_internal_references_information (SV *document_in);
 SV *document_labels_list (SV *document_in);
 
-SV *document_global_information (SV *document_in);
+SV *document_global_information (SV *document_in, int simple_info);
 
 void pass_document_parser_errors_to_registrar (int document_descriptor,
                                                SV *parser_sv);

@@ -1049,12 +1049,11 @@ sub test($$)
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   }
 
-  my $document_information = $document->global_information();
+  my $document_information = $document->global_information(1);
 
   Texinfo::Common::set_output_encodings($main_configuration,
                                         $document);
 
-  my $global_commands = $document->global_commands_information();
   if ($document_information->{'novalidate'}) {
     $main_configuration->set_conf('novalidate', 1);
   }
@@ -1133,7 +1132,7 @@ sub test($$)
 
   # could be in a if !$XS_structuring, but the function should not be
   # overriden already in that case
-  Texinfo::Document::rebuild_document($document);
+  #Texinfo::Document::rebuild_document($document);
   $tree = $document->tree();
 
   my $indices_information = $document->indices_information();
