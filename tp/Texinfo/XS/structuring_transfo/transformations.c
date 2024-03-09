@@ -771,12 +771,15 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
       if (data_cmd && data_cmd != CM_node && data_cmd != CM_part
           && flags & CF_root)
         {
-          ELEMENT *associated_node = lookup_extra_element (content,
-                                                 "associated_node");
+          const ELEMENT *associated_node = lookup_extra_element (content,
+                                                       "associated_node");
           if (!associated_node)
             {
               ELEMENT *added_node;
               ELEMENT *new_node_tree;
+
+              document->modified_information |= F_DOCM_tree;
+
               if (content->cmd == CM_top)
                 {
                   ELEMENT *top_node_text = new_element (ET_NONE);
@@ -885,7 +888,10 @@ reference_to_arg_internal (const char *type,
           && document->internal_references->number > 0)
         {
           remove_element_from_list (document->internal_references, e);
+          document->modified_information |= F_DOCM_labels_list;
         }
+      if (document)
+        document->modified_information |= F_DOCM_tree;
       destroy_element_and_children (e);
       if (new->contents.number == 0)
         text_append (&new->text, "");
@@ -902,7 +908,7 @@ reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document)
 }
 
 void
-prepend_new_menu_in_node_section (ELEMENT * node, ELEMENT *section,
+prepend_new_menu_in_node_section (ELEMENT *node, ELEMENT *section,
                                   ELEMENT *current_menu)
 {
   ELEMENT *empty_line = new_element (ET_empty_line);
@@ -1114,7 +1120,10 @@ complete_tree_nodes_missing_menu (const ELEMENT *root, DOCUMENT *document,
           ELEMENT *current_menu = new_complete_node_menu (node, document,
                                                       options, use_sections);
           if (current_menu)
-            prepend_new_menu_in_node_section (node, section, current_menu);
+            {
+              prepend_new_menu_in_node_section (node, section, current_menu);
+              document->modified_information |= F_DOCM_tree;
+            }
         }
     }
   destroy_list (non_automatic_nodes);
@@ -1153,6 +1162,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   /* no need for a master menu */
   if (!master_menu)
     return 0;
+
+  document->modified_information |= F_DOCM_tree;
 
   for (i = 0; i < menus->number; i++)
     {
@@ -1194,7 +1205,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                                   char *removed_internal_texi
                                      = convert_to_texinfo (entry_content);
                                   fprintf (stderr,
-                                    "BUG: %s: not found in internal refs\n", 
+                                    "BUG: %s: not found in internal refs\n",
                                       removed_internal_texi);
                                   free (removed_internal_texi);
                                 }

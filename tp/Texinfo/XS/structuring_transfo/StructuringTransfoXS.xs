@@ -69,6 +69,8 @@ fill_gaps_in_sectioning (SV *tree_in, ...)
               }
             added_sections = fill_gaps_in_sectioning (document->tree,
                                                    commands_heading_content);
+            if (added_sections && added_sections->number > 0)
+              document->modified_information |= F_DOCM_tree;
             /* cannot easily be used as it does not match with perl tree.
                Also the return would not be usable as error status */
             destroy_list (added_sections);
@@ -118,8 +120,12 @@ relate_index_entries_to_table_items_in_tree (SV *document_in)
                                           document->descriptor);
               }
             else
-              relate_index_entries_to_table_items_in_tree (document->tree,
+              {
+                relate_index_entries_to_table_items_in_tree (document->tree,
                                                       document->index_names);
+                document->modified_information |= F_DOCM_tree
+                                                 | F_DOCM_index_names;
+              }
           }
 
 void
@@ -130,7 +136,10 @@ move_index_entries_after_items_in_tree (SV *tree_in)
         document = get_sv_tree_document (tree_in,
                                         "move_index_entries_after_items_in_tree");
         if (document)
-          move_index_entries_after_items_in_tree (document->tree);
+          {
+            move_index_entries_after_items_in_tree (document->tree);
+            document->modified_information |= F_DOCM_tree;
+          }
 
 # The perl function returns a tree, as the
 # argument could be modified.  Here, tree_in is always a container
@@ -238,7 +247,10 @@ complete_tree_nodes_menus (SV *tree_in, SV *use_sections_in=0)
             use_sections = SvIV (use_sections_in);
           }
         if (document)
-          complete_tree_nodes_menus (document->tree, use_sections);
+          {
+            complete_tree_nodes_menus (document->tree, use_sections);
+            document->modified_information |= F_DOCM_tree;
+          }
 
 # We use the options of the document, so we ignore
 # customization_information, which should contain the same information
@@ -318,7 +330,10 @@ protect_colon_in_tree (SV *tree_in)
         document = get_sv_tree_document (tree_in, "protect_colon_in_tree");
         /* there is no need to replace the root of the tree */
         if (document)
-          protect_colon_in_tree (document->tree);
+          {
+            protect_colon_in_tree (document->tree);
+            document->modified_information |= F_DOCM_tree;
+          }
 
 void
 protect_comma_in_tree (SV *tree_in)
@@ -328,7 +343,10 @@ protect_comma_in_tree (SV *tree_in)
         document = get_sv_tree_document (tree_in, "protect_comma_in_tree");
         /* there is no need to replace the root of the tree */
         if (document)
-          protect_comma_in_tree (document->tree);
+          {
+            protect_comma_in_tree (document->tree);
+            document->modified_information |= F_DOCM_tree;
+          }
 
 void
 protect_node_after_label_in_tree (SV *tree_in)
@@ -339,7 +357,10 @@ protect_node_after_label_in_tree (SV *tree_in)
                               "protect_node_after_label_in_tree");
         /* there is no need to replace the root of the tree */
         if (document)
-          protect_node_after_label_in_tree (document->tree);
+          {
+            protect_node_after_label_in_tree (document->tree);
+            document->modified_information |= F_DOCM_tree;
+          }
 
 void
 protect_hashchar_at_line_beginning (SV *tree_in, ...)
@@ -351,7 +372,10 @@ protect_hashchar_at_line_beginning (SV *tree_in, ...)
                                          "protect_hashchar_at_line_beginning");
         /* there is no need to replace the root of the tree */
         if (document)
-          protect_hashchar_at_line_beginning (document);
+          {
+            protect_hashchar_at_line_beginning (document);
+            document->modified_information |= F_DOCM_tree;
+          }
 
 void
 protect_first_parenthesis_in_targets (SV *tree_in)
@@ -361,7 +385,10 @@ protect_first_parenthesis_in_targets (SV *tree_in)
         document = get_sv_tree_document (tree_in,
                               "protect_first_parenthesis_in_targets");
         if (document)
-          protect_first_parenthesis_in_targets (document->tree);
+          {
+            protect_first_parenthesis_in_targets (document->tree);
+            document->modified_information |= F_DOCM_tree;
+          }
 
 SV *
 split_by_node (SV *document_in)

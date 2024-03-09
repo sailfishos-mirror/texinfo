@@ -106,6 +106,8 @@ sectioning_structure (DOCUMENT *document)
           || content->cmd == CM_bye)
         continue;
 
+      document->modified_information |= F_DOCM_tree;
+
       add_to_element_list (sections_list, content);
 
       if (content->cmd == CM_top && !section_top)
@@ -831,6 +833,8 @@ set_menus_node_directions (DOCUMENT *document)
       if (!menus)
         continue;
 
+      document->modified_information |= F_DOCM_tree;
+
       if (menus->number > 1)
         {
           for (j = 1; j < menus->number; j++)
@@ -1000,6 +1004,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
   if (!nodes_list || nodes_list->number <= 0)
     return;
+
+  document->modified_information |= F_DOCM_tree;
 
   /* Go through all the nodes */
 
@@ -1324,6 +1330,8 @@ nodes_tree (DOCUMENT *document)
       if (!normalized)
         continue;
 
+      document->modified_information |= F_DOCM_tree;
+
       add_to_element_list (nodes_list, node);
       is_target = lookup_extra_integer (node, "is_target", &status);
       if (is_target && !strcmp (normalized, "Top"))
@@ -1499,6 +1507,8 @@ associate_internal_references (DOCUMENT *document)
   if (!refs || !refs->number)
     return;
 
+  document->modified_information |= F_DOCM_tree;
+
   for (i = 0; i < refs->number; i++)
     {
       ELEMENT *ref = refs->list[i];
@@ -1589,6 +1599,8 @@ number_floats (DOCUMENT *document)
 
   if (!listoffloats_list)
     return;
+
+  document->modified_information |= F_DOCM_tree;
 
   for (i = 0; i < listoffloats_list->number; i++)
     {
@@ -1845,7 +1857,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 
   if (section && section->cmd == CM_top && options)
     {
-      char *normalized = lookup_extra_string (node, "normalized");
+      const char *normalized = lookup_extra_string (node, "normalized");
       if (normalized && !strcmp (normalized, "Top"))
         {
           int content_index = 0;

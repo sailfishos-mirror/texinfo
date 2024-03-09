@@ -153,6 +153,8 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
         document = get_sv_document_document (document_in, 0);
         if (document)
           {
+            document->modified_information |= F_DOCM_global_info;
+
             if (!strcmp (key, "input_file_name"))
               {
                 char *value = (char *)SvPVbyte_nolen(value_sv);

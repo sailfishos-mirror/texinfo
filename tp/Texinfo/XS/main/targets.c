@@ -234,6 +234,8 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
           destroy_label_list (identifiers_target);
           document->identifiers_target = sorted_identifiers_target;
           *status = 0;
+          document->modified_information |= F_DOCM_labels_list
+                                   | F_DOCM_identifiers_target;
           return normalized;
         }
       *status = 1;

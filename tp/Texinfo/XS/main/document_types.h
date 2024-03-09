@@ -32,7 +32,20 @@ struct OPTIONS;
 /* same with convert_to_text.h */
 struct TEXT_OPTIONS;
 
-#define F_DOCM_indices_sort_strings      0x0001
+#define F_DOCM_tree                      0x0001
+#define F_DOCM_index_names               0x0002
+#define F_DOCM_floats                    0x0004
+#define F_DOCM_internal_references       0x0008
+#define F_DOCM_labels_list               0x0010
+#define F_DOCM_identifiers_target        0x0020
+#define F_DOCM_global_info               0x0040
+#define F_DOCM_global_commands           0x0080
+#define F_DOCM_nodes_list                0x0100
+#define F_DOCM_sections_list             0x0200
+#define F_DOCM_merged_indices            0x0400
+#define F_DOCM_indices_sort_strings      0x0800
+#define F_DOCM_sorted_indices_by_index   0x1000
+#define F_DOCM_sorted_indices_by_letter  0x2000
 
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };

@@ -24,6 +24,8 @@ Texinfo/ParserNonXS.pm
 handle on tree:
 t/test_utils.pl all over
 
+Check if LABEL identifier should be const
+
 Bugs
 ====
 

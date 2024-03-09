@@ -1373,6 +1373,8 @@ get_document (size_t document_descriptor)
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   STORE("tree", hv_tree);
   STORE("global_info", hv_info);
+
+  document->modified_information &= ~F_DOCM_global_info;
 #undef STORE
 
   hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
@@ -1451,22 +1453,39 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   /* must be kept in sync with Texinfo::Document register keys */
   STORE("tree", hv_tree);
+  document->modified_information &= ~F_DOCM_tree;
   STORE("indices", hv_index_names);
+  document->modified_information &= ~F_DOCM_index_names;
   STORE("listoffloats_list", hv_listoffloats_list);
+  document->modified_information &= ~F_DOCM_floats;
   STORE("internal_references", av_internal_xref);
+  document->modified_information &= ~F_DOCM_internal_references;
   STORE("commands_info", hv_commands_info);
+  document->modified_information &= ~F_DOCM_global_commands;
   STORE("global_info", hv_info);
+  document->modified_information &= ~F_DOCM_global_info;
   STORE("identifiers_target", hv_identifiers_target);
+  document->modified_information &= ~F_DOCM_identifiers_target;
   STORE("labels_list", av_labels_list);
+  document->modified_information &= ~F_DOCM_labels_list;
 
   if (av_nodes_list)
-    STORE("nodes_list", av_nodes_list);
+    {
+      STORE("nodes_list", av_nodes_list);
+      document->modified_information &= ~F_DOCM_nodes_list;
+    }
 
   if (av_sections_list)
-    STORE("sections_list", av_sections_list);
+    {
+      STORE("sections_list", av_sections_list);
+      document->modified_information &= ~F_DOCM_sections_list;
+    }
 
   if (hv_indices_sort_strings)
-    STORE("index_entries_sort_strings", hv_indices_sort_strings);
+    {
+      STORE("index_entries_sort_strings", hv_indices_sort_strings);
+      document->modified_information &= ~F_DOCM_indices_sort_strings;
+    }
 #undef STORE
 
   if (no_store)
