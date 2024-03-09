@@ -1,5 +1,14 @@
 2024-03-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (%XS_structure_overrides)
+	(setup_indices_sort_strings, indices_sort_strings),
+	tp/Texinfo/XS/main/DocumentXS.xs (setup_indices_sort_strings),
+	tp/texi2any.pl: add setup_indices_sort_strings that does the same as
+	indices_sort_strings but does not return anything, to avoid building
+	Perl data in XS if not needed.
+
+2024-03-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash): store
 	associated_unit in element.
 

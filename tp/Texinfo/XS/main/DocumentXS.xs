@@ -248,6 +248,19 @@ SV *
 document_labels_list (SV *document_in)
 
 # customization_information
+void
+setup_indices_sort_strings (SV *document_in, ...)
+    PROTOTYPE: $$
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "setup_indices_sort_strings");
+        if (document)
+          document_indices_sort_strings (document, document->error_messages,
+                                         document->options);
+
+# customization_information
 SV *
 indices_sort_strings (SV *document_in, ...)
     PROTOTYPE: $$

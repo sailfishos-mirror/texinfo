@@ -82,6 +82,8 @@ our %XS_structure_overrides = (
     => "Texinfo::DocumentXS::document_floats_information",
   "Texinfo::Document::internal_references_information"
     => "Texinfo::DocumentXS::document_internal_references_information",
+  "Texinfo::Document::setup_indices_sort_strings"
+    => "Texinfo::DocumentXS::setup_indices_sort_strings",
   "Texinfo::Document::indices_sort_strings"
     => "Texinfo::DocumentXS::indices_sort_strings",
 );
@@ -246,7 +248,7 @@ sub merged_indices($)
 # In general, it is not needed to call that function directly,
 # as it is called by Texinfo::Indices::sort_indices_by_*.  It may
 # be called in advance, however, if errors need to be collected early.
-sub indices_sort_strings($$)
+sub setup_indices_sort_strings($$)
 {
   my $document = shift;
   my $customization_information = shift;
@@ -259,7 +261,17 @@ sub indices_sort_strings($$)
               $document->indices_information(), 0);
     $document->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
+}
 
+# similar to setup_indices_sort_strings, but returns the sort strings too.
+# A different function such that Perl data is only built for that function
+# in the XS override.
+sub indices_sort_strings($$)
+{
+  my $document = shift;
+  my $customization_information = shift;
+
+  setup_indices_sort_strings($document, $customization_information);
   return $document->{'index_entries_sort_strings'};
 }
 
