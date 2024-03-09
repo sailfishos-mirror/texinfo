@@ -202,15 +202,14 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
         RETVAL = 0;
         if (document_sv)
           {
-            SV **indices_information_sv;
-            HV *document_hv = (HV *) SvRV (*document_sv);
-            indices_information_sv
-              = hv_fetch (document_hv, "indices", strlen ("indices"), 0);
+            SV *indices_information_sv
+              = document_indices_information (*document_sv);
 
-            if (index_entries_by_index && indices_information_sv)
+            if (index_entries_by_index && indices_information_sv
+                && SvOK (indices_information_sv))
               {
                 HV *indices_information_hv
-                   = (HV *) SvRV (*indices_information_sv);
+                   = (HV *) SvRV (indices_information_sv);
                 HV *index_entries_by_index_hv
                    = build_sorted_indices_by_index (index_entries_by_index,
                                                     indices_information_hv);
@@ -243,15 +242,14 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
         RETVAL = 0;
         if (document_sv)
           {
-            SV **indices_information_sv;
-            HV *document_hv = (HV *) SvRV (*document_sv);
-            indices_information_sv
-              = hv_fetch (document_hv, "indices", strlen ("indices"), 0);
+            SV *indices_information_sv
+              = document_indices_information (*document_sv);
 
-            if (index_entries_by_letter && indices_information_sv)
+            if (index_entries_by_letter && indices_information_sv
+                && SvOK (indices_information_sv))
               {
                 HV *indices_information_hv
-                   = (HV *) SvRV (*indices_information_sv);
+                   = (HV *) SvRV (indices_information_sv);
                 HV *index_entries_by_letter_hv
                    = build_sorted_indices_by_letter (index_entries_by_letter,
                                                      indices_information_hv);

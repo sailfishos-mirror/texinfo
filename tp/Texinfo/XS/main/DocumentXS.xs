@@ -196,25 +196,18 @@ document_tree (SV *document_in, int handler_only=0)
 
         if (!handler_only)
           {
-            DOCUMENT *document = get_sv_document_document (document_in,
-                                                           "document_tree");
+            DOCUMENT *document = get_sv_document_document (document_in, 0);
             if (document)
               {
-                if (document->modified_information & F_DOCM_tree)
-                  {
-                    HV *hv_tree = build_texinfo_tree (document->tree, 0);
-                    result_sv = newRV_inc ((SV *) hv_tree);
-                    hv_store (document_hv, key, strlen (key), result_sv, 0);
-                    document->modified_information &= ~F_DOCM_tree;
-                  }
+                result_sv = store_texinfo_tree (document, document_hv);
               }
           }
 
         if (!result_sv)
           {
-            SV **tree_sv = hv_fetch (document_hv, key, strlen (key), 0);
-            if (tree_sv)
-              result_sv = *tree_sv;
+            SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);
+            if (sv_ref && SvOK (*sv_ref))
+              result_sv = *sv_ref;
           }
 
         if (result_sv)
@@ -227,6 +220,32 @@ document_tree (SV *document_in, int handler_only=0)
     OUTPUT:
         RETVAL
 
+SV *
+document_global_information (SV *document_in)
+
+SV *
+document_indices_information (SV *document_in)
+
+SV *
+document_global_commands_information (SV *document_in)
+
+SV *
+document_labels_information (SV *document_in)
+
+SV *
+document_nodes_list (SV *document_in)
+
+SV *
+document_sections_list (SV *document_in)
+
+SV *
+document_floats_information (SV *document_in)
+
+SV *
+document_internal_references_information (SV *document_in)
+
+SV *
+document_labels_list (SV *document_in)
 
 # customization_information
 SV *
@@ -235,7 +254,6 @@ indices_sort_strings (SV *document_in, ...)
     PREINIT:
         DOCUMENT *document = 0;
         const INDICES_SORT_STRINGS *indices_sort_strings = 0;
-        HV *document_hv;
         SV *result_sv = 0;
         const char *key = "index_entries_sort_strings";
      CODE:
@@ -246,22 +264,19 @@ indices_sort_strings (SV *document_in, ...)
            = document_indices_sort_strings (document, document->error_messages,
                                              document->options);
 
-        document_hv = (HV *) SvRV (document_in);
-
         if (indices_sort_strings)
           {
+            HV *document_hv = (HV *) SvRV (document_in);
             /* build Perl data only if needed and cache the built Perl
                data in the same hash as done in overriden Perl code */
             if (document->modified_information & F_DOCM_indices_sort_strings)
               {
-    /* TODO maybe would be better to call $document->indices_information()
-       or build_indices_information function to pass to Perl if needed */
-                SV **indices_information_sv
-                  = hv_fetch (document_hv, "indices", strlen ("indices"), 0);
+                SV *indices_information_sv
+                 = document_indices_information (document_in);
                 if (indices_information_sv)
                   {
                     HV *indices_information_hv
-                        = (HV *) SvRV (*indices_information_sv);
+                        = (HV *) SvRV (indices_information_sv);
                     HV *indices_sort_strings_hv
                      = build_indices_sort_strings (indices_sort_strings,
                                                    indices_information_hv);
@@ -275,11 +290,9 @@ indices_sort_strings (SV *document_in, ...)
               }
             else
               { /* retrieve previously stored result */
-                SV **index_entries_sort_strings_sv
-                  = hv_fetch (document_hv, key, strlen (key), 0);
-                if (index_entries_sort_strings_sv
-                    && SvOK (*index_entries_sort_strings_sv))
-                  result_sv = *index_entries_sort_strings_sv;
+                SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);
+                if (sv_ref && SvOK (*sv_ref))
+                  result_sv = *sv_ref;
                 /* error out if not found?  Or rebuild? */
               }
           }

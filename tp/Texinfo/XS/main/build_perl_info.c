@@ -50,6 +50,7 @@
 #include "output_unit.h"
 /* for clear_error_message_list */
 #include "errors.h"
+#include "get_perl_info.h"
 #include "build_perl_info.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -674,6 +675,12 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   store_additional_info (e, &e->extra_info, "extra", avoid_recursion);
   store_additional_info (e, &e->info_info, "info", avoid_recursion);
+
+  if (e->associated_unit)
+    {
+      hv_store (e->hv, "associated_unit", strlen ("associated_unit"),
+                newRV_inc ((SV *) e->associated_unit->hv), 0);
+    }
 
   store_source_mark_list (e);
 
@@ -1547,6 +1554,184 @@ rebuild_document (SV *document_in, int no_store)
     {
       fprintf (stderr, "ERROR: document rebuild: no %s\n", descriptor_key);
     }
+}
+
+SV *
+store_texinfo_tree (DOCUMENT *document, HV *document_hv)
+{
+  SV *result_sv = 0;
+  const char *key = "tree";
+
+  dTHX;
+
+  if (document->modified_information & F_DOCM_tree)
+    {
+      HV *result_hv = build_texinfo_tree (document->tree, 0);
+      hv_store (result_hv, "tree_document_descriptor",
+                strlen ("tree_document_descriptor"),
+                newSViv (document->descriptor), 0);
+      result_sv = newRV_inc ((SV *) result_hv);
+      hv_store (document_hv, key, strlen (key), result_sv, 0);
+      document->modified_information &= ~F_DOCM_tree;
+    }
+  return result_sv;
+}
+
+#define BUILD_PERL_DOCUMENT_ITEM(fieldname,keyname,funcname,buildname,HVAV) \
+SV * \
+document_##funcname (SV *document_in) \
+{ \
+  HV *document_hv; \
+  SV *result_sv = 0; \
+  const char *key = #keyname; \
+\
+  dTHX;\
+\
+  document_hv = (HV *) SvRV (document_in); \
+  DOCUMENT *document = get_sv_document_document (document_in, "document_" #funcname); \
+\
+  if (document && document->fieldname)\
+    {\
+      store_texinfo_tree (document, document_hv);\
+      if (document->modified_information & F_DOCM_##fieldname)\
+        {\
+          HVAV *result_av_hv = buildname (document->fieldname);\
+          result_sv = newRV_inc ((SV *) result_av_hv);\
+          hv_store (document_hv, key, strlen (key), result_sv, 0);\
+          document->modified_information &= ~F_DOCM_##fieldname;\
+        }\
+    }\
+\
+  if (!result_sv)\
+    {\
+      SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);\
+      if (sv_ref && SvOK (*sv_ref))\
+        result_sv = *sv_ref;\
+    }\
+\
+  if (result_sv)\
+    {\
+      SvREFCNT_inc (result_sv);\
+    }\
+  else\
+    result_sv = newSV (0);\
+\
+  return result_sv;\
+}
+
+/*
+BUILD_PERL_DOCUMENT_ITEM(fieldname,keyname,funcname,buildname,HVAV)
+ */
+
+BUILD_PERL_DOCUMENT_ITEM(index_names,indices,indices_information,build_index_data,HV)
+
+BUILD_PERL_DOCUMENT_ITEM(global_commands,commands_info,global_commands_information,build_global_commands,HV)
+
+BUILD_PERL_DOCUMENT_ITEM(identifiers_target,identifiers_target,labels_information,build_identifiers_target,HV)
+
+BUILD_PERL_DOCUMENT_ITEM(nodes_list,nodes_list,nodes_list,build_elements_list,AV)
+
+BUILD_PERL_DOCUMENT_ITEM(sections_list,sections_list,sections_list,build_elements_list,AV)
+
+#undef BUILD_PERL_DOCUMENT_ITEM
+
+#define BUILD_PERL_DOCUMENT_LIST(fieldname,keyname,funcname,buildname,HVAV) \
+SV * \
+document_##funcname (SV *document_in) \
+{ \
+  HV *document_hv; \
+  SV *result_sv = 0; \
+  const char *key = #keyname; \
+\
+  dTHX;\
+\
+  document_hv = (HV *) SvRV (document_in); \
+  DOCUMENT *document = get_sv_document_document (document_in, "document_" #funcname); \
+\
+  if (document && document->fieldname)\
+    {\
+      store_texinfo_tree (document, document_hv);\
+      if (document->modified_information & F_DOCM_##fieldname)\
+        {\
+          HVAV *result_av_hv = buildname (document->fieldname->list,\
+                                     document->fieldname->number);\
+          result_sv = newRV_inc ((SV *) result_av_hv);\
+          hv_store (document_hv, key, strlen (key), result_sv, 0);\
+          document->modified_information &= ~F_DOCM_##fieldname;\
+        }\
+    }\
+\
+  if (!result_sv)\
+    {\
+      SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);\
+      if (sv_ref && SvOK (*sv_ref))\
+        result_sv = *sv_ref;\
+    }\
+\
+  if (result_sv)\
+    {\
+      SvREFCNT_inc (result_sv);\
+    }\
+  else\
+    result_sv = newSV (0);\
+\
+  return result_sv;\
+}
+
+/*
+BUILD_PERL_DOCUMENT_LIST(fieldname,keyname,funcname,buildname,HVAV)
+*/
+
+BUILD_PERL_DOCUMENT_LIST(floats,listoffloats_list,floats_information,build_float_types_list,HV)
+
+BUILD_PERL_DOCUMENT_LIST(internal_references,internal_references,internal_references_information,build_internal_xref_list,AV)
+
+BUILD_PERL_DOCUMENT_LIST(labels_list,labels_list,labels_list,build_target_elements_list,AV)
+
+#undef BUILD_PERL_DOCUMENT_LIST
+
+SV *
+document_global_information (SV *document_in)
+{
+  HV *document_hv;
+  SV *result_sv = 0;
+  const char *key = "global_info";
+
+  dTHX;
+
+  document_hv = (HV *) SvRV (document_in);
+
+  DOCUMENT *document = get_sv_document_document (document_in,
+                                     "document_global_information");
+  if (document)
+    {
+      store_texinfo_tree (document, document_hv);
+      if (document->modified_information & F_DOCM_global_info)
+        {
+          HV *result_hv = build_global_info (document->global_info,
+                                             document->global_commands);
+          build_global_info_tree_info (result_hv, document->global_info);
+          result_sv = newRV_inc ((SV *) result_hv);
+          hv_store (document_hv, key, strlen (key), result_sv, 0);
+          document->modified_information &= ~F_DOCM_global_info;
+        }
+    }
+
+  if (!result_sv)
+    {
+      SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);
+      if (sv_ref && SvOK (*sv_ref))
+        result_sv = *sv_ref;
+    }
+
+  if (result_sv)
+    {
+      SvREFCNT_inc (result_sv);
+    }
+  else
+    result_sv = newSV (0);
+
+  return result_sv;
 }
 
 

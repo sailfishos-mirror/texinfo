@@ -63,7 +63,25 @@ our %XS_structure_overrides = (
   "Texinfo::Document::rebuild_tree"
     => "Texinfo::DocumentXS::rebuild_tree",
   "Texinfo::Document::tree"
-    => "Texinfo::DocumentXS::tree",
+    => "Texinfo::DocumentXS::document_tree",
+  "Texinfo::Document::global_information"
+    => "Texinfo::DocumentXS::document_global_information",
+  "Texinfo::Document::indices_information"
+    => "Texinfo::DocumentXS::document_indices_information",
+  "Texinfo::Document::global_commands_information"
+    => "Texinfo::DocumentXS::document_global_commands_information",
+  "Texinfo::Document::labels_information"
+    => "Texinfo::DocumentXS::document_labels_information",
+  "Texinfo::Document::labels_list"
+    => "Texinfo::DocumentXS::document_labels_list",
+  "Texinfo::Document::nodes_list"
+    => "Texinfo::DocumentXS::document_nodes_list",
+  "Texinfo::Document::sections_list"
+    => "Texinfo::DocumentXS::document_sections_list",
+  "Texinfo::Document::floats_information"
+    => "Texinfo::DocumentXS::document_floats_information",
+  "Texinfo::Document::internal_references_information"
+    => "Texinfo::DocumentXS::document_internal_references_information",
   "Texinfo::Document::indices_sort_strings"
     => "Texinfo::DocumentXS::indices_sort_strings",
 );
@@ -185,6 +203,12 @@ sub labels_information($)
 {
   my $self = shift;
   return $self->{'identifiers_target'};
+}
+
+sub labels_list($)
+{
+  my $self = shift;
+  return $self->{'labels_list'};
 }
 
 sub nodes_list($)
@@ -580,6 +604,12 @@ X<C<labels_information>>
 
 I<$identifier_target> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
+
+=item $labels_list = labels_list ($document)
+X<C<labels_list>>
+
+I<$labels_list> is a list of Texinfo tree command elements that
+could be the target of cross references.
 
 =back
 

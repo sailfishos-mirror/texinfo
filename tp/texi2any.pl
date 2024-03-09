@@ -1675,6 +1675,7 @@ while(@input_files) {
     Texinfo::Structuring::number_floats($document);
   }
 
+  # do it now to get error messages here
   if ($formats_table{$converted_format}->{'setup_index_entries_sort_strings'}) {
     Texinfo::Document::indices_sort_strings($document, $main_configuration);
   }

@@ -9484,19 +9484,19 @@ sub _set_root_commands_targets_node_files($)
   my $self = shift;
 
   my $sections_list;
-  my $identifiers_target;
+  my $labels_list;
   if ($self->{'document'}) {
     $sections_list = $self->{'document'}->sections_list();
-    $identifiers_target = $self->{'document'}->labels_information();
+    $labels_list = $self->{'document'}->labels_list();
   }
 
-  if ($identifiers_target) {
+  if ($labels_list) {
     my $extension = '';
     $extension = '.'.$self->get_conf('EXTENSION')
                 if (defined($self->get_conf('EXTENSION'))
                     and $self->get_conf('EXTENSION') ne '');
 
-    foreach my $target_element (@{$self->{'document'}->{'labels_list'}}) {
+    foreach my $target_element (@$labels_list) {
       next if (not $target_element->{'extra'}
                or not $target_element->{'extra'}->{'is_target'});
       my $label_element = Texinfo::Common::get_label_element($target_element);
