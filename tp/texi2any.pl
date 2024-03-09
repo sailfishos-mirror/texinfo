@@ -1491,14 +1491,11 @@ while(@input_files) {
 
   my $parser = Texinfo::Parser::parser($parser_file_options);
   my $document = $parser->parse_texi_file($input_file_name, $XS_structuring);
-  my $tree;
-  if (defined($document)) {
-    $tree = $document->tree();
-  }
 
-  if (defined($tree)
+  if (defined($document)
       and (defined(get_conf('DUMP_TREE'))
            or (get_conf('DEBUG') and get_conf('DEBUG') >= 10))) {
+    my $tree = $document->tree();
     # this is very wrong, but a way to avoid a spurious warning.
     no warnings 'once';
     local $Data::Dumper::Purity = 1;
@@ -1509,7 +1506,7 @@ while(@input_files) {
     print STDERR Data::Dumper->Dump([$tree]);
   }
   # object registering errors and warnings
-  if (!defined($tree) or $format eq 'parse') {
+  if (!defined($document) or $format eq 'parse') {
     handle_errors($parser->errors(), $error_count, \@opened_files);
     goto NEXT;
   }
@@ -1526,6 +1523,7 @@ while(@input_files) {
     goto NEXT;
   }
 
+  my $tree = $document->tree(1);
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   }

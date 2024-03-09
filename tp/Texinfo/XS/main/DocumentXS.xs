@@ -185,6 +185,49 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
               }
           }
 
+SV *
+document_tree (SV *document_in, int handler_only=0)
+    PREINIT:
+        HV *document_hv;
+        SV *result_sv = 0;
+        const char *key = "tree";
+     CODE:
+        document_hv = (HV *) SvRV (document_in);
+
+        if (!handler_only)
+          {
+            DOCUMENT *document = get_sv_document_document (document_in,
+                                                           "document_tree");
+            if (document)
+              {
+                if (document->modified_information & F_DOCM_tree)
+                  {
+                    HV *hv_tree = build_texinfo_tree (document->tree, 0);
+                    result_sv = newRV_inc ((SV *) hv_tree);
+                    hv_store (document_hv, key, strlen (key), result_sv, 0);
+                    document->modified_information &= ~F_DOCM_tree;
+                  }
+              }
+          }
+
+        if (!result_sv)
+          {
+            SV **tree_sv = hv_fetch (document_hv, key, strlen (key), 0);
+            if (tree_sv)
+              result_sv = *tree_sv;
+          }
+
+        if (result_sv)
+          {
+            RETVAL = result_sv;
+            SvREFCNT_inc (result_sv);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+
 # customization_information
 SV *
 indices_sort_strings (SV *document_in, ...)
@@ -194,7 +237,7 @@ indices_sort_strings (SV *document_in, ...)
         const INDICES_SORT_STRINGS *indices_sort_strings = 0;
         HV *document_hv;
         SV *result_sv = 0;
-        const char *sort_strings_key = "index_entries_sort_strings";
+        const char *key = "index_entries_sort_strings";
      CODE:
         document = get_sv_document_document (document_in,
                                              "indices_sort_strings");
@@ -224,9 +267,7 @@ indices_sort_strings (SV *document_in, ...)
                                                    indices_information_hv);
 
                     result_sv = newRV_inc ((SV *) indices_sort_strings_hv);
-                    SvREFCNT_inc (result_sv);
-                    hv_store (document_hv, sort_strings_key,
-                              strlen (sort_strings_key), result_sv, 0);
+                    hv_store (document_hv, key, strlen (key), result_sv, 0);
                     document->modified_information
                                 &= ~F_DOCM_indices_sort_strings;
                   }
@@ -235,19 +276,18 @@ indices_sort_strings (SV *document_in, ...)
             else
               { /* retrieve previously stored result */
                 SV **index_entries_sort_strings_sv
-                  = hv_fetch (document_hv, sort_strings_key,
-                              strlen (sort_strings_key), 0);
+                  = hv_fetch (document_hv, key, strlen (key), 0);
                 if (index_entries_sort_strings_sv
                     && SvOK (*index_entries_sort_strings_sv))
-                  {
-                    result_sv = *index_entries_sort_strings_sv;
-                    SvREFCNT_inc (result_sv);
-                  }
+                  result_sv = *index_entries_sort_strings_sv;
                 /* error out if not found?  Or rebuild? */
               }
           }
         if (result_sv)
-          RETVAL = result_sv;
+          {
+            SvREFCNT_inc (result_sv);
+            RETVAL = result_sv;
+          }
         else
           RETVAL = newSV (0);
     OUTPUT:

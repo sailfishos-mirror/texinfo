@@ -62,6 +62,8 @@ our %XS_structure_overrides = (
     => "Texinfo::DocumentXS::rebuild_document",
   "Texinfo::Document::rebuild_tree"
     => "Texinfo::DocumentXS::rebuild_tree",
+  "Texinfo::Document::tree"
+    => "Texinfo::DocumentXS::tree",
   "Texinfo::Document::indices_sort_strings"
     => "Texinfo::DocumentXS::indices_sort_strings",
 );
@@ -142,7 +144,7 @@ sub set_document_global_info($$$)
   $document->{'global_info'}->{$key} = $value;
 }
 
-sub tree($)
+sub tree($;$)
 {
   my $self = shift;
   return $self->{'tree'};
@@ -494,11 +496,17 @@ C<tree>:
 
 =over
 
-=item $tree = tree($document)
+=item $tree = tree($document, $handler_only)
 X<C<tree>>
 
 The I<$tree> is a hash reference.  It is described in
 L<Texinfo::Parser/TEXINFO TREE>.
+
+If I<$handler_only> is set and XS extensions are used, the returned
+tree holds a reference to the C Texinfo tree data only, but no actual
+Perl Texinfo tree.  This avoids building the Perl tree if all the
+functions called with the tree as argument have XS interfaces and
+directly use the C data and do not use the Perl tree.
 
 =back
 

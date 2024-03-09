@@ -1033,7 +1033,7 @@ sub test($$)
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
     $document = $parser->parse_texi_file($test_file, $XS_structuring);
   }
-  my $tree = $document->tree();
+  my $tree = $document->tree(1);
 
   if (not defined($tree)) {
     print STDERR "ERROR: parsing result undef\n";
@@ -1123,10 +1123,10 @@ sub test($$)
     foreach my $transformation (@$additional_tree_transformations) {
       my $tree_transformation_sub = $tested_transformations{$transformation};
       if ($transformation eq 'protect_hashchar_at_line_beginning') {
-        &$tree_transformation_sub($document->tree(), $document->registrar(),
+        &$tree_transformation_sub($tree, $document->registrar(),
                                   $main_configuration);
       } else {
-        &$tree_transformation_sub($document->tree());
+        &$tree_transformation_sub($tree);
       }
     }
   }

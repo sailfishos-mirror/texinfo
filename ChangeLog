@@ -1,5 +1,18 @@
 2024-03-09  Patrice Dumas  <pertusus@free.fr>
 
+	XS override for Texinfo::Document tree
+
+	* tp/Texinfo/XS/main/DocumentXS.xs (document_tree),
+	tp/Texinfo/Document.pm (%XS_structure_overrides, tree): add an XS
+	override for Texinfo::Document tree.  Add an optional argument to
+	tree() to avoid building the Perl tree if only a handler on XS data is
+	needed.
+
+	* tp/texi2any.pl, tp/t/test_utils.pl (test): set the new argument of
+	tree() when tree handler only is needed.
+
+2024-03-09  Patrice Dumas  <pertusus@free.fr>
+
 	Set document->modified_information when modified, unset when passed to
 	Perl
 
