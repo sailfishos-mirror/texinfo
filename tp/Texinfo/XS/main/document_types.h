@@ -69,7 +69,6 @@ typedef struct GLOBAL_INFO {
     char *input_directory;
     char *input_encoding_name;
     int sections_level_modifier;
-    ELEMENT_LIST dircategory_direntry; /* an array of elements */
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
     STRING_LIST included_files;

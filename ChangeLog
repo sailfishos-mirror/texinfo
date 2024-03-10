@@ -1,5 +1,26 @@
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	Put dircategory_direntry in global_commands
+
+	* tp/Texinfo/ParserNonXS.pm (_register_global_command)
+	(_handle_block_command), tp/Texinfo/XS/main/document_types.h,
+	tp/Texinfo/XS/main/utils.c (delete_global_info)
+	(delete_global_commands), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command, handle_block_command),
+	tp/Texinfo/XS/parsetexi/parser.c (store_document),
+	tp/Texinfo/XS/main/command_data.awk, tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/Info.pm (_info_header): put dircategory_direntry
+	in global_commands.
+
+	* tp/Texinfo/XS/main/DocumentXS.xs (document_global_information),
+	tp/Texinfo/Document.pm (global_information),
+	tp/Texinfo/XS/main/build_perl_info.c (build_global_commands)
+	(document_global_information): remove optional argument of
+	global_information.  Remove build_global_info_tree_info.  Update
+	callers.
+
+2024-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	Add setfilename value to global_info
 
 	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory),

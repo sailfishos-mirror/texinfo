@@ -221,7 +221,7 @@ document_tree (SV *document_in, int handler_only=0)
         RETVAL
 
 SV *
-document_global_information (SV *document_in, int simple_info=0)
+document_global_information (SV *document_in)
 
 SV *
 document_indices_information (SV *document_in)

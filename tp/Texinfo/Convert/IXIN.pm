@@ -383,18 +383,20 @@ sub output_ixin($$)
   my $sections_list;
   my $identifiers_target;
   my $indices_information;
+  my $global_commands;
   if ($self->{'document'}) {
     $document_info = $self->{'document'}->global_information();
     $floats = $self->{'document'}->floats_information();
     $sections_list = $self->{'document'}->sections_list();
     $identifiers_target = $self->{'document'}->labels_information();
     $indices_information = $self->{'document'}->indices_information();
+    $global_commands = $self->{'document'}->global_commands_information();
   }
 
-  if ($document_info and $document_info->{'dircategory_direntry'}) {
+  if ($global_commands and $global_commands->{'dircategory_direntry'}) {
     my $current_category;
     foreach my $dircategory_direntry
-                  (@{$document_info->{'dircategory_direntry'}}) {
+                  (@{$global_commands->{'dircategory_direntry'}}) {
       if ($dircategory_direntry->{'cmdname'}
           and $dircategory_direntry->{'cmdname'} eq 'dircategory') {
         if ($current_category) {
@@ -426,10 +428,6 @@ sub output_ixin($$)
   my %setting_commands_defaults;
   # FIXME this code is unclear and probably needs to be fixed if developemnt
   # resumes.  Maybe could be replaced by set_global_document_commands.
-  my $global_commands;
-  if ($self->{'document'}) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
   foreach my $global_command (keys(%{$global_commands})) {
     if ((($Texinfo::Commands::line_commands{$global_command}
           and $Texinfo::Commands::line_commands{$global_command} eq 'specific')

@@ -433,10 +433,8 @@ sub _info_header($$$)
   $self->_stream_output($result, $paragraph);
 
   my $global_commands;
-  my $document_info;
   if ($self->{'document'}) {
     $global_commands = $self->{'document'}->global_commands_information();
-    $document_info = $self->{'document'}->global_information();
   }
   # format @copying using the last value of the preamble.
   my @informative_global_commands = $self->get_informative_global_commands();
@@ -451,9 +449,9 @@ sub _info_header($$$)
   }
   $self->set_global_document_commands('before', \@informative_global_commands);
 
-  if ($document_info->{'dircategory_direntry'}) {
+  if ($global_commands->{'dircategory_direntry'}) {
     $self->{'ignored_commands'}->{'direntry'} = 0;
-    foreach my $command (@{$document_info->{'dircategory_direntry'}}) {
+    foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if ($command->{'args'} and @{$command->{'args'}}
             and defined($command->{'args'}->[0]->{'contents'})) {

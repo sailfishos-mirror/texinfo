@@ -195,7 +195,7 @@ sub global_commands_information($)
   return $self->{'commands_info'};
 }
 
-sub global_information($;$)
+sub global_information($)
 {
   my $self = shift;
   return $self->{'global_info'};
@@ -503,10 +503,11 @@ Texinfo::Document - Texinfo document tree and information
   my $identifier_target = $document->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
+  # Also contains dircategory and direntry list.
   my $global_commands_information
                  = $document->global_commands_information();
   # a hash reference on document information (encodings,
-  # input file name, dircategory and direntry list, for example).
+  # input file name, for example).
   my $global_information = $document->global_information();
 
 =head1 NOTES
@@ -557,11 +558,6 @@ The I<$info> returned is a hash reference.  The possible keys are
 
 =over
 
-=item dircategory_direntry
-
-An array of successive C<@dircategory> and C<@direntry> as they appear
-in the document.
-
 =item included_files
 
 An array of included file paths as they appear in the document.  Binary
@@ -600,6 +596,17 @@ X<C<global_commands_information>>
 I<$commands> is an hash reference.  The keys are @-command names.  The
 associated values are array references containing all the corresponding
 tree elements.
+
+The following list of commands is also available as a key:
+
+=over
+
+=item dircategory_direntry
+
+An array of successive C<@dircategory> and C<@direntry> as they appear
+in the document.
+
+=back
 
 =back
 

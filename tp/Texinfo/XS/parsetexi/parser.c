@@ -2569,9 +2569,9 @@ store_document (ELEMENT *root)
           add_to_element_list (&doc_global_##type->cmd, e);        \
         }                                                               \
     }
-  COPY_GLOBAL_ARRAY(info,dircategory_direntry);
-
   memcpy (doc_global_commands, &global_commands, sizeof (GLOBAL_COMMANDS));
+
+  COPY_GLOBAL_ARRAY(commands,dircategory_direntry);
 
   #define GLOBAL_CASE(cmd) \
    COPY_GLOBAL_ARRAY(commands,cmd)

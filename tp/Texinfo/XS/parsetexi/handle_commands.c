@@ -967,7 +967,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
   if (command_e)
     register_global_command (command_e);
   if (cmd == CM_dircategory)
-    add_to_element_list (&global_info.dircategory_direntry, command_e);
+    add_to_element_list (&global_commands.dircategory_direntry, command_e);
 
 funexit:
   *line_inout = line;
@@ -1102,7 +1102,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
           push_context (ct_preformatted, cmd);
 
           if (cmd == CM_direntry)
-            add_to_element_list (&global_info.dircategory_direntry,
+            add_to_element_list (&global_commands.dircategory_direntry,
                                  block);
 
           if (current_node)

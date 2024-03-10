@@ -1033,30 +1033,6 @@ build_global_info (GLOBAL_INFO *global_info_ref,
   return hv;
 }
 
-/* global info that requires a built tree */
-void
-build_global_info_tree_info (HV *hv, GLOBAL_INFO *global_info_ref)
-{
-  int i;
-  ELEMENT *e;
-  GLOBAL_INFO global_info = *global_info_ref;
-
-  dTHX;
-
-  if (global_info.dircategory_direntry.number > 0)
-    {
-      AV *av = newAV ();
-      hv_store (hv, "dircategory_direntry", strlen ("dircategory_direntry"),
-                newRV_noinc ((SV *) av), 0);
-      for (i = 0; i < global_info.dircategory_direntry.number; i++)
-        {
-          e = global_info.dircategory_direntry.list[i];
-          if (e->hv)
-            av_push (av, newRV_inc ((SV *) e->hv));
-        }
-    }
-}
-
 /* Return object to be used as 'commands_info', which holds references
    to tree elements. */
 HV *
@@ -1086,6 +1062,20 @@ build_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 #include "main/global_unique_commands_case.c"
 
 #undef GLOBAL_UNIQUE_CASE
+
+  /* list of direntry and dircategory */
+  if (global_commands.dircategory_direntry.number > 0)
+    {
+      AV *av = newAV ();
+      hv_store (hv, "dircategory_direntry", strlen ("dircategory_direntry"),
+                newRV_noinc ((SV *) av), 0);
+      for (i = 0; i < global_commands.dircategory_direntry.number; i++)
+        {
+          e = global_commands.dircategory_direntry.list[i];
+          if (e->hv)
+            av_push (av, newRV_inc ((SV *) e->hv));
+        }
+    }
 
   /* The following are arrays of elements. */
 
@@ -1430,7 +1420,6 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   hv_info = build_global_info (document->global_info,
                                document->global_commands);
-  build_global_info_tree_info (hv_info, document->global_info);
 
   hv_commands_info = build_global_commands (document->global_commands);
 
@@ -1699,11 +1688,8 @@ BUILD_PERL_DOCUMENT_LIST(labels_list,labels_list,labels_list,build_target_elemen
 
 #undef BUILD_PERL_DOCUMENT_LIST
 
-/* if SIMPLE_INFO is set, do not return information that requires buildin
-   the Perl tree and add information on few commands such that commands
-   information needs not to be called */
 SV *
-document_global_information (SV *document_in, int simple_info)
+document_global_information (SV *document_in)
 {
   HV *document_hv;
   SV *result_sv = 0;
@@ -1715,28 +1701,12 @@ document_global_information (SV *document_in, int simple_info)
 
   DOCUMENT *document = get_sv_document_document (document_in,
                                      "document_global_information");
-  if (simple_info)
-    { /* no caching in that case, but no need of building the
-         full document.  Should only be called with this argument
-         from the main program */
-      if (document)
-        {
-          HV *result_hv = build_global_info (document->global_info,
-                                             document->global_commands);
-          return newRV_inc ((SV *) result_hv);
-        }
-      else
-        return newSV (0);
-    }
-
   if (document)
     {
-      store_texinfo_tree (document, document_hv);
       if (document->modified_information & F_DOCM_global_info)
         {
           HV *result_hv = build_global_info (document->global_info,
                                              document->global_commands);
-          build_global_info_tree_info (result_hv, document->global_info);
           result_sv = newRV_inc ((SV *) result_hv);
           hv_store (document_hv, key, strlen (key), result_sv, 0);
           document->modified_information &= ~F_DOCM_global_info;

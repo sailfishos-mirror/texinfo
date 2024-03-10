@@ -1511,7 +1511,7 @@ while(@input_files) {
     goto NEXT;
   }
 
-  my $document_information = $document->global_information(1);
+  my $document_information = $document->global_information();
   if (get_conf('TRACE_INCLUDES')) {
     handle_errors($parser->errors(), $error_count, \@opened_files);
     my $included_file_paths = $document_information->{'included_files'};

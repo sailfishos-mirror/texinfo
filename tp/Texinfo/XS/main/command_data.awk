@@ -267,6 +267,7 @@ END {
 
     print global_unique_commands_struct_str   > GCT
     print "   /* Arrays of elements */"       > GCT
+    print "   ELEMENT_LIST dircategory_direntry;\n" > GCT
     print "   ELEMENT_LIST floats;"                > GCT
     print "   ELEMENT_LIST footnotes;\n"           > GCT
     print global_multi_commands_struct_str    > GCT

@@ -1049,7 +1049,7 @@ sub test($$)
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   }
 
-  my $document_information = $document->global_information(1);
+  my $document_information = $document->global_information();
 
   Texinfo::Common::set_output_encodings($main_configuration,
                                         $document);
