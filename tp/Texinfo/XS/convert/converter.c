@@ -135,7 +135,10 @@ copy_option (OPTION *destination, OPTION *source)
      case GO_char:
      case GO_bytes:
        free (destination->string);
-       destination->string = strdup (source->string);
+       if (!source->string)
+         destination->string = 0;
+       else
+         destination->string = strdup (source->string);
        break;
 
      default:
