@@ -5797,7 +5797,7 @@ sub _handle_line_command($$$$$$)
   _register_global_command($self, $command_e, $source_info)
     if $command_e;
   if ($command eq 'dircategory') {
-    push @{$self->{'global_commands'}->{'dircategory_direntry'}}, $command_e;
+    push @{$self->{'commands_info'}->{'dircategory_direntry'}}, $command_e;
   }
   return ($current, $line, $retval, $command_e);
 }
@@ -5885,7 +5885,7 @@ sub _handle_block_command($$$$$)
     }
     if ($block_commands{$command} eq 'menu') {
       $self->_push_context('ct_preformatted', $command);
-      push @{$self->{'global_commands'}->{'dircategory_direntry'}}, $block
+      push @{$self->{'commands_info'}->{'dircategory_direntry'}}, $block
         if ($command eq 'direntry');
       if ($self->{'current_node'}) {
         if ($command eq 'direntry') {

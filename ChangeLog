@@ -1,5 +1,10 @@
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_line_command)
+	(_handle_block_command): fix global commands state key.
+
+2024-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	XS interface for Texinfo::Convert::Converter::set_global_document_commands
 
 	* tp/Texinfo/Convert/Converter.pm (%XS_overrides),
