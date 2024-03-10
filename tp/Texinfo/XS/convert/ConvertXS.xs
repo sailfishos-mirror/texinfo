@@ -182,6 +182,66 @@ converter_document_warn (SV *converter_in, text, ...)
                       self->conf, MSG_document_warning, continuation, text);
            }
 
+void
+converter_set_global_document_commands (SV *converter_in, char *commands_location_string, SV *selected_commands)
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in, 0);
+         if (self)
+           {
+             int command_location = -1;
+             int i;
+             AV *selected_commands_av = (AV *) SvRV (selected_commands);
+             SSize_t in_commands_nr = av_top_index (selected_commands_av) +1;
+             enum command_id *cmd_list = (enum command_id *) malloc
+                           ((in_commands_nr+1) * sizeof (enum command_id));
+             /* actual command index/number without unknown commands */
+             int command_nr = 0;
+
+             for (i = 0; command_location_names[i]; i++)
+               {
+                 if (!strcmp (commands_location_string,
+                              command_location_names[i]))
+                   {
+                     command_location = i;
+                     break;
+                   }
+               }
+             if (command_location < 0)
+               {
+                 fprintf (stderr,
+                          "ERROR: unknown command location: %s\n",
+                          commands_location_string);
+                 return;
+               }
+
+             for (i = 0; i < in_commands_nr; i++)
+               {
+                 SV** command_sv = av_fetch (selected_commands_av, i, 0);
+                 if (command_sv)
+                   {
+                     const char *command_name = SvPV_nolen (*command_sv);
+                     enum command_id cmd
+                        = lookup_builtin_command (command_name);
+                     if (cmd <= 0)
+                       {
+                         fprintf (stderr,
+                                  "ERROR: unknown command (%d): %s\n",
+                                  i, command_name);
+                       }
+                     else
+                       {
+                         cmd_list[command_nr] = cmd;
+                         command_nr++;
+                       }
+                   }
+               }
+             cmd_list[command_nr] = 0;
+             set_global_document_commands (self, command_location, cmd_list);
+             free (cmd_list);
+           }
+
 SV *
 get_converter_indices_sorted_by_index (SV *converter_sv)
      PREINIT:

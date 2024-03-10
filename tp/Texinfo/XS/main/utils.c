@@ -102,7 +102,7 @@ ENCODING_CONVERSION_LIST input_conversions = {0, 0, 0, 1};
 
 /* to keep synchronized with enum command_location */
 const char *command_location_names[]
-  = {"before", "last", "preamble", "preamble_or_first"};
+  = {"before", "last", "preamble", "preamble_or_first", 0};
 
 /* duplicated when creating a new expanded_formats */
 EXPANDED_FORMAT expanded_formats[] = {

@@ -112,6 +112,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_letter",
   "Texinfo::Convert::Converter::get_converter_indices_sorted_by_index"
    => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_index",
+  "Texinfo::Convert::Converter::set_global_document_commands"
+   => "Texinfo::Convert::ConvertXS::converter_set_global_document_commands",
 
   # XS only
   "Texinfo::Convert::Converter::reset_converter"
