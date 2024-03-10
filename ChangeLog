@@ -1,5 +1,11 @@
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory),
+	tp/Texinfo/Convert/Text.pm (output): remove useless calls to
+	global_commands_information.
+
+2024-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_node_redirections): move code related
 	to node files redirections to a function, in particular to prepare for
 	XS overriding.

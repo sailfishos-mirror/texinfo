@@ -871,10 +871,8 @@ sub output($$)
   my $document = shift;
 
   my $document_info;
-  my $global_commands;
   if ($document) {
     $document_info = $document->global_information();
-    $global_commands = $document->global_commands_information();
   }
 
   Texinfo::Common::set_output_encodings($self, $document);

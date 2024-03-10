@@ -689,11 +689,6 @@ sub determine_files_and_directory($$)
     $input_basename =~ s/\.te?x(i|info)?$//;
   }
 
-  my $global_commands;
-  if ($self->{'document'}) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
-
   my $setfilename;
   if (defined($self->get_conf('setfilename'))) {
     $setfilename = $self->get_conf('setfilename');
