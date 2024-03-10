@@ -887,7 +887,21 @@ sub get_parser_info($)
   } else {
     $self->{'global_info'}->{'input_encoding_name'} = 'utf-8';
   }
+
   my $global_commands = $self->{'commands_info'};
+
+  # information based on commands commonly needed.
+  if ($global_commands->{'novalidate'}) {
+    $self->{'global_info'}->{'novalidate'} = 1;
+  }
+
+  if ($global_commands->{'setfilename'}
+      and $global_commands->{'setfilename'}->{'extra'}
+      and defined($global_commands->{'setfilename'}->{'extra'}->{'text_arg'})) {
+    $self->{'global_info'}->{'setfilename'}
+      = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'};
+  }
+
   my $document_language
     = Texinfo::Common::get_global_document_command($global_commands,
                                                    'documentlanguage',
@@ -895,9 +909,6 @@ sub get_parser_info($)
   if ($document_language) {
     $self->{'global_info'}->{'documentlanguage'}
       = Texinfo::Common::informative_command_value($document_language);
-  }
-  if ($global_commands->{'novalidate'}) {
-    $self->{'global_info'}->{'novalidate'} = 1;
   }
 }
 

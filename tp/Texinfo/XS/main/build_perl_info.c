@@ -1012,6 +1012,15 @@ build_global_info (GLOBAL_INFO *global_info_ref,
     hv_store (hv, "novalidate", strlen ("novalidate"),
               newSViv (1), 0);
 
+  if (global_commands.setfilename)
+    {
+      char *setfilename_text
+        = informative_command_value (global_commands.setfilename);
+      if (setfilename_text)
+      hv_store (hv, "setfilename", strlen ("setfilename"),
+                newSVpv_utf8 (setfilename_text, 0), 0);
+    }
+
   document_language = get_global_document_command (global_commands_ref,
                                        CM_documentlanguage, CL_preamble);
   if (document_language)

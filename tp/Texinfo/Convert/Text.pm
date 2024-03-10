@@ -911,13 +911,9 @@ sub output($$)
   $input_basename =~ s/\.te?x(i|info)?$//;
 
   my $setfilename;
-  $setfilename
-   = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'}
-    if ($global_commands
-        and $global_commands->{'setfilename'}
-        and $global_commands->{'setfilename'}->{'extra'}
-        and defined($global_commands->{'setfilename'}
-                                              ->{'extra'}->{'text_arg'}));
+  if ($document_info and defined($document_info->{'setfilename'})) {
+    $setfilename = $document_info->{'setfilename'};
+  }
   my $outfile;
   if (!defined($self->{'OUTFILE'})) {
     if (defined($setfilename)) {

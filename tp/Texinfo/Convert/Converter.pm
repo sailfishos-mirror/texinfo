@@ -695,12 +695,8 @@ sub determine_files_and_directory($$)
   my $setfilename;
   if (defined($self->get_conf('setfilename'))) {
     $setfilename = $self->get_conf('setfilename');
-  } elsif ($global_commands
-           and $global_commands->{'setfilename'}
-           and $global_commands->{'setfilename'}->{'extra'}
-           and defined($global_commands->{'setfilename'}->{'extra'}->{'text_arg'})) {
-    $setfilename
-      = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'};
+  } elsif ($document_info and defined($document_info->{'setfilename'})) {
+    $setfilename = $document_info->{'setfilename'};
   }
 
   my $input_basename_for_outfile = $input_basename;
