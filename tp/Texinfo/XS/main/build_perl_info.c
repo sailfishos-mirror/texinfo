@@ -678,8 +678,16 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (e->associated_unit)
     {
-      hv_store (e->hv, "associated_unit", strlen ("associated_unit"),
-                newRV_inc ((SV *) e->associated_unit->hv), 0);
+      /* output_unit_to_perl_hash uses the unit_contents elements hv,
+         so we may want to setup the tree hv before building the output
+         units.  In that case, the output unit hv is not ready, so here
+         we do not error out if the hv is not set.
+          */
+      if (e->associated_unit->hv)
+        {
+          hv_store (e->hv, "associated_unit", strlen ("associated_unit"),
+                    newRV_inc ((SV *) e->associated_unit->hv), 0);
+        }
     }
 
   store_source_mark_list (e);

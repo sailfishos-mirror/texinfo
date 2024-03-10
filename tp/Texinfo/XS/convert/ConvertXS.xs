@@ -1861,6 +1861,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          SV *special_units_sv;
          SV *associated_special_units_sv;
          HV *output_units_hv;
+         SV **document_sv;
       PPCODE:
          if (items > 2 && SvOK(ST(2)))
            document_name = SvPVutf8_nolen (ST(2));
@@ -1878,12 +1879,22 @@ html_prepare_conversion_units (SV *converter_in, ...)
               &output_units_descriptor, &special_units_descriptor,
               &associated_special_units_descriptor);
 
+         /* need to setup the Perl tree before rebuilding the output units as
+            they refer to Perl root command elements */
+         converter_hv = (HV *) SvRV (converter_in);
+         document_sv
+           = hv_fetch (converter_hv, "document", strlen ("document"), 0);
+         if (document_sv)
+           {
+             HV *document_hv = (HV *) SvRV (*document_sv);
+             store_texinfo_tree (self->document, document_hv);
+           }
+
          output_units_sv = build_output_units_list (output_units_descriptor);
          special_units_sv = build_output_units_list (special_units_descriptor);
          associated_special_units_sv
            = build_output_units_list (associated_special_units_descriptor);
 
-         converter_hv = (HV *) SvRV (converter_in);
          output_units_hv = (HV *) SvRV (output_units_sv);
          hv_store (converter_hv, "document_units", strlen ("document_units"),
                    newRV_inc ((SV *) output_units_hv), 0);

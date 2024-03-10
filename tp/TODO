@@ -12,6 +12,16 @@ Before next release
 
 Check if LABEL identifier should be const
 
+Remove the need for Texinfo::Structuring::rebuild_output_units, currently seems
+to be called in t/test_utils.pl only.
+
+output units building in C is also called in convert/ConvertXS.xs, with output
+units built in html_prepare_conversion_units and rebuilt afterwards in 2 other
+functions.  Building output units requires a call to store_texinfo_tree, it
+would be better to hold only a reference to C output units data instead of
+building perl structures.  Perl structures would still need to be built if
+output units are actually accessed.
+
 Bugs
 ====
 
