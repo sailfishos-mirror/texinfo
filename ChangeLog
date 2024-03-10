@@ -1,5 +1,13 @@
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree)
+	(_fix_texinfo_tree): comment out calls to
+	Texinfo::Document::rebuild_document.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs: comments for unused overrides.
+
+2024-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS), tp/Texinfo/XS/main/errors.c
 	(vmessage_list_line_error, message_list_command_warn)
 	(pmessage_list_command_warn): add a translation context to

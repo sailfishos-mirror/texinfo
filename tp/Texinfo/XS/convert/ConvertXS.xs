@@ -985,8 +985,8 @@ html_get_file_information (SV *converter_in, key, ...)
          PUSHs(sv_2mortal(result_sv));
 
 # Note that the target information returned is partial, no tree in particular,
-# but it is not an issue as this override is called only in a specific case
-# directly, in general it is only called through the *command* functions below.
+# but it is not an issue as this override should not be called, as the
+# Perl function only appears in overriden functions.
 SV *
 html_get_target (SV *converter_in, SV *element_sv)
      PREINIT:
@@ -2225,6 +2225,8 @@ html_convert_output (SV *converter_in, SV *document_in, SV *output_units_in, SV 
     OUTPUT:
         RETVAL
 
+# Note that this override is never called as the Perl function is only
+# called in an overriden function
 SV *
 html_prepare_node_redirection_page (SV *converter_in, SV *element_sv, redirection_filename)
          const char *redirection_filename = (char *)SvPVutf8_nolen($arg);
