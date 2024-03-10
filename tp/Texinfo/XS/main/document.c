@@ -433,6 +433,8 @@ destroy_document_information_except_tree (DOCUMENT *document)
       wipe_index_names (document->index_names);
       wipe_error_message_list (document->error_messages);
       free (document->error_messages);
+      wipe_error_message_list (document->parser_error_messages);
+      free (document->parser_error_messages);
       if (document->nodes_list)
         destroy_list (document->nodes_list);
       if (document->sections_list)

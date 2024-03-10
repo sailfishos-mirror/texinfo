@@ -33,8 +33,6 @@
 #include "conf.h"
 #include "build_perl_info.h"
 #include "input.h"
-/* for clear_document_errors */
-#include "document.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */

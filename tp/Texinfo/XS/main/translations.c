@@ -481,9 +481,9 @@ replace_convert_substrings (char *translated_string,
     fprintf (stderr, "XS|IN TR PARSER '%s'\n", texinfo_line);
 
   document = retrieve_document (document_descriptor);
-  if (document->error_messages->number > 0)
+  if (document->parser_error_messages->number > 0)
     {
-      ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+      ERROR_MESSAGE_LIST *error_messages = document->parser_error_messages;
       fprintf (stderr, "translation %zu error(s)\n",
                error_messages->number);
       fprintf (stderr, "translated string: %s\n", translated_string);
@@ -491,7 +491,7 @@ replace_convert_substrings (char *translated_string,
       for (i = 0; i < error_messages->number; i++)
         fprintf (stderr, "%s", error_messages->list[i].error_line);
     }
-  clear_document_errors (document_descriptor);
+  clear_document_parser_errors (document_descriptor);
 
   parser_set_accept_internalvalue (0);
 
