@@ -12572,6 +12572,176 @@ sub _prepare_node_redirection_page($$$)
   return $redirection_page;
 }
 
+sub _node_redirections($$$$)
+{
+  my $self = shift;
+  my $output_file = shift;
+  my $destination_directory = shift;
+  my $files_source_info = shift;
+
+  my $identifiers_target;
+  if ($self->{'document'}) {
+    $identifiers_target = $self->{'document'}->labels_information();
+  }
+
+  my $extension = '';
+  $extension = '.'.$self->get_conf('EXTENSION')
+            if (defined($self->get_conf('EXTENSION'))
+                and $self->get_conf('EXTENSION') ne '');
+  my $redirection_files_done = 0;
+  # do node redirection pages
+  $self->{'current_filename'} = undef;
+  if ($self->get_conf('NODE_FILES')
+      and $identifiers_target and $output_file ne '') {
+    my %redirection_filenames;
+    foreach my $label (sort(keys (%{$identifiers_target}))) {
+      my $target_element = $identifiers_target->{$label};
+      my $label_element = Texinfo::Common::get_label_element($target_element);
+      # filename may not be defined in case of an @anchor or similar in
+      # @titlepage, and @titlepage is not used.
+      my $filename = $self->command_filename($target_element);
+      my $node_filename;
+      # NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
+      # is.  The other manual must use the same convention to get it
+      # right.  We do not do 'node_filename' as a redirection file
+      # either.
+      if ($target_element->{'extra'}
+          and $target_element->{'extra'}->{'normalized'}
+          and $target_element->{'extra'}->{'normalized'} eq 'Top'
+          and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
+        $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
+      } else {
+        my $target = $self->_get_target($target_element);
+        $node_filename = $target->{'node_filename'};
+      }
+
+      if (defined($filename) and $node_filename ne $filename) {
+        my $redirection_filename
+          = $self->register_normalize_case_filename($node_filename);
+        # first condition finds conflict with tree elements
+        if ($self->count_elements_in_filename('total', $redirection_filename)
+            or $redirection_filenames{$redirection_filename}) {
+          $self->converter_line_warn(
+             sprintf(__("\@%s `%s' file %s for redirection exists"),
+               $target_element->{'cmdname'},
+               Texinfo::Convert::Texinfo::convert_to_texinfo(
+                       {'contents' => $label_element->{'contents'}}),
+               $redirection_filename),
+            $target_element->{'source_info'});
+          my $file_source = $files_source_info->{$redirection_filename};
+          my $file_info_type = $file_source->{'file_info_type'};
+          if ($file_info_type eq 'special_file'
+              or $file_info_type eq 'stand_in_file') {
+            my $name = $file_source->{'file_info_name'};
+            if ($name eq 'non_split') {
+              # This cannot actually happen, as the @anchor/@node/@float
+              # with potentially conflicting name will also be in the
+              # non-split output document and therefore does not need
+              # a redirection.
+              $self->converter_document_warn(
+                            __("conflict with whole document file"), 1);
+            } elsif ($name eq 'Top') {
+              $self->converter_document_warn(
+                           __("conflict with Top file"), 1);
+            } elsif ($name eq 'user_defined') {
+              $self->converter_document_warn(
+                            __("conflict with user-defined file"), 1);
+           } elsif ($name eq 'unknown_node') {
+              $self->converter_document_warn(
+                           __("conflict with unknown node file"), 1);
+            } elsif ($name eq 'unknown') {
+              $self->converter_document_warn(
+                            __("conflict with file without known source"), 1);
+            }
+          } elsif ($file_info_type eq 'node') {
+            my $conflicting_node = $file_source->{'file_info_element'};
+            $self->converter_line_warn(
+         sprintf(__p('conflict of redirection file with file based on node name',
+                     "conflict with \@%s `%s' file"),
+                 $conflicting_node->{'cmdname'},
+                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                   => $conflicting_node->{'args'}->[0]->{'contents'}}),
+                 ),
+              $conflicting_node->{'source_info'}, 1);
+          } elsif ($file_info_type eq 'redirection') {
+            my $conflicting_node = $file_source->{'file_info_element'};
+            my $conflicting_label_element
+                 = $file_source->{'file_info_label_element'};
+            $self->converter_line_warn(
+               sprintf(__("conflict with \@%s `%s' redirection file"),
+                 $conflicting_node->{'cmdname'},
+                 Texinfo::Convert::Texinfo::convert_to_texinfo(
+                  {'contents' => $conflicting_label_element->{'contents'}})
+                 ),
+              $conflicting_node->{'source_info'}, 1);
+          } elsif ($file_info_type eq 'section') {
+            my $conflicting_section = $file_source->{'file_info_element'};
+            $self->converter_line_warn(
+         sprintf(__p('conflict of redirection file with file based on section name',
+                     "conflict with \@%s `%s' file"),
+                 $conflicting_section->{'cmdname'},
+                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                   => $conflicting_section->{'args'}->[0]->{'contents'}}),
+                 ),
+              $conflicting_section->{'source_info'}, 1);
+          } elsif ($file_info_type eq 'special_unit') {
+            my $unit_command = $file_source->{'file_info_element'};
+            my $special_unit = $unit_command->{'associated_unit'};
+            my $output_unit_variety
+              = $special_unit->{'special_unit_variety'};
+            $self->converter_document_warn(
+               sprintf(__("conflict with %s special element"),
+                       $output_unit_variety), 1);
+          }
+          next;
+        }
+        $redirection_filenames{$redirection_filename} = $target_element;
+        $files_source_info->{$redirection_filename}
+          = {'file_info_type' => 'redirection',
+             'file_info_element' => $target_element,
+             'file_info_path' => undef,
+             'file_info_label_element' => $label_element};
+
+        my $redirection_page
+          = _prepare_node_redirection_page ($self, $target_element,
+                                           $redirection_filename);
+
+        my $out_filename;
+        if ($destination_directory ne '') {
+          $out_filename = File::Spec->catfile($destination_directory,
+                                              $redirection_filename);
+        } else {
+          $out_filename = $redirection_filename;
+        }
+        my ($encoded_out_filename, $path_encoding)
+          = $self->encoded_output_file_name($out_filename);
+        my ($file_fh, $error_message)
+               = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                             $encoded_out_filename);
+        if (!$file_fh) {
+         $self->converter_document_error(sprintf(__(
+                                    "could not open %s for writing: %s"),
+                                    $out_filename, $error_message));
+        } else {
+          print $file_fh $redirection_page;
+          Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $encoded_out_filename);
+          if (!close ($file_fh)) {
+            $self->converter_document_error(sprintf(__(
+                             "error on closing redirection node file %s: %s"),
+                                    $out_filename, $!));
+            $self->conversion_finalization();
+            return undef;
+          }
+          $redirection_files_done++;
+        }
+      }
+    }
+  }
+  return $redirection_files_done;
+}
+
 # Main function for outputting a manual in HTML.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
 # module), and $DOCUMENT is the parsed document from the parser and structuring
@@ -12581,11 +12751,6 @@ sub output($$)
   my $document = shift;
 
   $self->conversion_initialization($document);
-
-  my $identifiers_target;
-  if ($document) {
-    $identifiers_target = $document->labels_information();
-  }
 
   # set here early even though actual values are only set later on.  It is
   # therefore set in converter_info early too (using the reference).
@@ -12834,159 +12999,10 @@ sub output($$)
     return undef;
   }
 
-  my $extension = '';
-  $extension = '.'.$self->get_conf('EXTENSION')
-            if (defined($self->get_conf('EXTENSION'))
-                and $self->get_conf('EXTENSION') ne '');
-  # do node redirection pages
-  $self->{'current_filename'} = undef;
-  if ($self->get_conf('NODE_FILES')
-      and $identifiers_target and $output_file ne '') {
-    my %redirection_filenames;
-    foreach my $label (sort(keys (%{$identifiers_target}))) {
-      my $target_element = $identifiers_target->{$label};
-      my $label_element = Texinfo::Common::get_label_element($target_element);
-      # filename may not be defined in case of an @anchor or similar in
-      # @titlepage, and @titlepage is not used.
-      my $filename = $self->command_filename($target_element);
-      my $node_filename;
-      # NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
-      # is.  The other manual must use the same convention to get it
-      # right.  We do not do 'node_filename' as a redirection file
-      # either.
-      if ($target_element->{'extra'}
-          and $target_element->{'extra'}->{'normalized'}
-          and $target_element->{'extra'}->{'normalized'} eq 'Top'
-          and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
-        $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
-      } else {
-        my $target = $self->_get_target($target_element);
-        $node_filename = $target->{'node_filename'};
-      }
-
-      if (defined($filename) and $node_filename ne $filename) {
-        my $redirection_filename
-          = $self->register_normalize_case_filename($node_filename);
-        # first condition finds conflict with tree elements
-        if ($self->count_elements_in_filename('total', $redirection_filename)
-            or $redirection_filenames{$redirection_filename}) {
-          $self->converter_line_warn(
-             sprintf(__("\@%s `%s' file %s for redirection exists"),
-               $target_element->{'cmdname'},
-               Texinfo::Convert::Texinfo::convert_to_texinfo(
-                       {'contents' => $label_element->{'contents'}}),
-               $redirection_filename),
-            $target_element->{'source_info'});
-          my $file_source = $files_source_info->{$redirection_filename};
-          my $file_info_type = $file_source->{'file_info_type'};
-          if ($file_info_type eq 'special_file'
-              or $file_info_type eq 'stand_in_file') {
-            my $name = $file_source->{'file_info_name'};
-            if ($name eq 'non_split') {
-              # This cannot actually happen, as the @anchor/@node/@float
-              # with potentially conflicting name will also be in the
-              # non-split output document and therefore does not need
-              # a redirection.
-              $self->converter_document_warn(
-                            __("conflict with whole document file"), 1);
-            } elsif ($name eq 'Top') {
-              $self->converter_document_warn(
-                           __("conflict with Top file"), 1);
-            } elsif ($name eq 'user_defined') {
-              $self->converter_document_warn(
-                            __("conflict with user-defined file"), 1);
-           } elsif ($name eq 'unknown_node') {
-              $self->converter_document_warn(
-                           __("conflict with unknown node file"), 1);
-            } elsif ($name eq 'unknown') {
-              $self->converter_document_warn(
-                            __("conflict with file without known source"), 1);
-            }
-          } elsif ($file_info_type eq 'node') {
-            my $conflicting_node = $file_source->{'file_info_element'};
-            $self->converter_line_warn(
-         sprintf(__p('conflict of redirection file with file based on node name',
-                     "conflict with \@%s `%s' file"),
-                 $conflicting_node->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_node->{'args'}->[0]->{'contents'}}),
-                 ),
-              $conflicting_node->{'source_info'}, 1);
-          } elsif ($file_info_type eq 'redirection') {
-            my $conflicting_node = $file_source->{'file_info_element'};
-            my $conflicting_label_element
-                 = $file_source->{'file_info_label_element'};
-            $self->converter_line_warn(
-               sprintf(__("conflict with \@%s `%s' redirection file"),
-                 $conflicting_node->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo(
-                  {'contents' => $conflicting_label_element->{'contents'}})
-                 ),
-              $conflicting_node->{'source_info'}, 1);
-          } elsif ($file_info_type eq 'section') {
-            my $conflicting_section = $file_source->{'file_info_element'};
-            $self->converter_line_warn(
-         sprintf(__p('conflict of redirection file with file based on section name',
-                     "conflict with \@%s `%s' file"),
-                 $conflicting_section->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_section->{'args'}->[0]->{'contents'}}),
-                 ),
-              $conflicting_section->{'source_info'}, 1);
-          } elsif ($file_info_type eq 'special_unit') {
-            my $unit_command = $file_source->{'file_info_element'};
-            my $special_unit = $unit_command->{'associated_unit'};
-            my $output_unit_variety
-              = $special_unit->{'special_unit_variety'};
-            $self->converter_document_warn(
-               sprintf(__("conflict with %s special element"),
-                       $output_unit_variety), 1);
-          }
-          next;
-        }
-        $redirection_filenames{$redirection_filename} = $target_element;
-        $files_source_info->{$redirection_filename}
-          = {'file_info_type' => 'redirection',
-             'file_info_element' => $target_element,
-             'file_info_path' => undef,
-             'file_info_label_element' => $label_element};
-
-        my $redirection_page
-          = _prepare_node_redirection_page ($self, $target_element,
-                                           $redirection_filename);
-
-        my $out_filename;
-        if ($destination_directory ne '') {
-          $out_filename = File::Spec->catfile($destination_directory,
-                                              $redirection_filename);
-        } else {
-          $out_filename = $redirection_filename;
-        }
-        my ($encoded_out_filename, $path_encoding)
-          = $self->encoded_output_file_name($out_filename);
-        my ($file_fh, $error_message)
-               = Texinfo::Common::output_files_open_out(
-                             $self->output_files_information(), $self,
-                             $encoded_out_filename);
-        if (!$file_fh) {
-         $self->converter_document_error(sprintf(__(
-                                    "could not open %s for writing: %s"),
-                                    $out_filename, $error_message));
-        } else {
-          print $file_fh $redirection_page;
-          Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $encoded_out_filename);
-          if (!close ($file_fh)) {
-            $self->converter_document_error(sprintf(__(
-                             "error on closing redirection node file %s: %s"),
-                                    $out_filename, $!));
-            $self->conversion_finalization();
-            return undef;
-          }
-        }
-      }
-    }
-  }
+  # undef status means an error occured, we should return immediately after
+  # calling $self->conversion_finalization() in that case.
+  my $node_redirections_status = _node_redirections($self, $output_file,
+                               $destination_directory, $files_source_info);
   $self->conversion_finalization();
   return undef;
 }

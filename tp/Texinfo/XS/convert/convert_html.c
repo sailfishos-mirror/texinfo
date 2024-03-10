@@ -18630,6 +18630,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
   text_init (&result);
   text_init (&text);
 
+  /* set self->date_in_header to format it only once */
   if (self->conf->DATE_IN_HEADER.integer > 0)
     {
       ELEMENT *today_element = new_element (ET_NONE);

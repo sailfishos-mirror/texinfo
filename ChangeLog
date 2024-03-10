@@ -1,5 +1,11 @@
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_node_redirections): move code related
+	to node files redirections to a function, in particular to prepare for
+	XS overriding.
+
+2024-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (copy_option): handle NULL source
 	string.
 
