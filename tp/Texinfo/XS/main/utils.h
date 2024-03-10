@@ -127,20 +127,6 @@ typedef struct TARGET_FILENAME {
     char *filename;
 } TARGET_FILENAME;
 
-typedef struct FILE_SOURCE_INFO {
-    char *filename;
-    const char *type;
-    const char *name;
-    const ELEMENT *element;
-    char *path;
-} FILE_SOURCE_INFO;
-
-typedef struct FILE_SOURCE_INFO_LIST {
-    size_t number;
-    size_t space;
-    FILE_SOURCE_INFO *list;
-} FILE_SOURCE_INFO_LIST;
-
 extern const char *html_argument_formatting_type_names[];
 
 typedef struct ACCENTS_STACK {

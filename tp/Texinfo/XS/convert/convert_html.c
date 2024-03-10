@@ -2070,7 +2070,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
 
   if (self->document->identifiers_target)
     {
-      char *extension = 0;
+      const char *extension = 0;
 
       if (self->conf->EXTENSION.string)
         extension = self->conf->EXTENSION.string;
@@ -3063,7 +3063,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   char *file = 0;
   /* used if target_split */
   char *directory = 0;
-  char *extension = 0;
+  const char *extension = 0;
   int target_split = 0;
   char *normalized = lookup_extra_string (external_node, "normalized");
   ELEMENT *node_contents = lookup_extra_element (external_node, "node_content");
@@ -5232,7 +5232,7 @@ find_file_source_info (FILE_SOURCE_INFO_LIST *files_source_info,
 }
 
 void
-html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
+html_reset_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 {
   int i;
   for (i = 0; i < files_source_info->number; i++)
@@ -5240,7 +5240,22 @@ html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
       free (files_source_info->list[i].filename);
       free (files_source_info->list[i].path);
     }
+  files_source_info->number = 0;
+}
+
+void
+html_free_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
+{
+  html_reset_files_source_info (files_source_info);
   free (files_source_info->list);
+  files_source_info->list = 0;
+  files_source_info->space = 0;
+}
+
+void
+html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
+{
+  html_free_files_source_info (files_source_info);
   free (files_source_info);
 }
 
@@ -5254,7 +5269,6 @@ add_to_unit_file_name_paths (char **unit_file_name_paths,
   return unit_file_name_paths[output_unit->index];
 }
 
-/* Return structure to be freed by the caller */
 static FILE_SOURCE_INFO_LIST *
 html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                       const OUTPUT_UNIT_LIST *special_units,
@@ -5263,15 +5277,13 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                       const char *destination_directory, const char *output_filename,
                       const char *document_name)
 {
-  FILE_SOURCE_INFO_LIST *files_source_info = 0;
+  FILE_SOURCE_INFO_LIST *files_source_info;
   char **unit_file_name_paths;
   int i;
 
   initialize_output_units_files (self);
 
-  files_source_info = (FILE_SOURCE_INFO_LIST *)
-    malloc (sizeof (FILE_SOURCE_INFO_LIST));
-  memset (files_source_info, 0, sizeof (FILE_SOURCE_INFO_LIST));
+  files_source_info = &self->files_source_info;
 
   unit_file_name_paths = (char **)
    malloc (output_units->number * sizeof (char *));
@@ -16900,6 +16912,8 @@ html_reset_converter (CONVERTER *self)
       self->added_title_tree = 0;
     }
 
+  html_reset_files_source_info (&self->files_source_info);
+
   if (self->jslicenses.number)
     {
       int i;
@@ -17033,6 +17047,8 @@ html_free_converter (CONVERTER *self)
   free (self->html_target_cmds.stack);
 
   free_strings_list (&self->seen_ids);
+
+  html_free_files_source_info (&self->files_source_info);
 
   free_strings_list (&self->check_htmlxref_already_warned);
 
@@ -18764,3 +18780,23 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
       return 0;
     }
 }
+
+/*
+int
+html_node_redirections (CONVERTER *self,
+                     const char *output_file, const char *destination_directory)
+{
+  FILE_SOURCE_INFO_LIST *files_source_info = &self->files_source_info;
+  int redirection_files_done = 0;
+  if (self->document->identifiers_target && self->conf->NODE_FILES.integer > 0
+      && strlen(output_file) > 0)
+    {
+      const char *extension = 0;
+
+      if (self->conf->EXTENSION.string)
+      extension = self->conf->EXTENSION.string;
+    }
+
+  return redirection_files_done;
+}
+*/

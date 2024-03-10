@@ -12579,23 +12579,25 @@ sub _node_redirections($$$$)
   my $destination_directory = shift;
   my $files_source_info = shift;
 
-  my $identifiers_target;
+  my $labels_list;
   if ($self->{'document'}) {
-    $identifiers_target = $self->{'document'}->labels_information();
+    $labels_list = $self->{'document'}->labels_list();
   }
 
-  my $extension = '';
-  $extension = '.'.$self->get_conf('EXTENSION')
-            if (defined($self->get_conf('EXTENSION'))
-                and $self->get_conf('EXTENSION') ne '');
   my $redirection_files_done = 0;
   # do node redirection pages
   $self->{'current_filename'} = undef;
   if ($self->get_conf('NODE_FILES')
-      and $identifiers_target and $output_file ne '') {
+      and $labels_list and $output_file ne '') {
+    my $extension = '';
+    $extension = '.'.$self->get_conf('EXTENSION')
+                if (defined($self->get_conf('EXTENSION'))
+                    and $self->get_conf('EXTENSION') ne '');
+
     my %redirection_filenames;
-    foreach my $label (sort(keys (%{$identifiers_target}))) {
-      my $target_element = $identifiers_target->{$label};
+    foreach my $target_element (@$labels_list) {
+      next if (not $target_element->{'extra'}
+               or not $target_element->{'extra'}->{'is_target'});
       my $label_element = Texinfo::Common::get_label_element($target_element);
       # filename may not be defined in case of an @anchor or similar in
       # @titlepage, and @titlepage is not used.

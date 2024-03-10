@@ -1086,11 +1086,11 @@ output unit: @node Other node
 
 $result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [
   {
-    'error_line' => "warning: \@float `Pr\x{e8}s' file Pres.html for redirection exists
+    'error_line' => "warning: \@anchor `Pr\x{ea}s' file Pres.html for redirection exists
 ",
     'file_name' => 'transliterated_names_conflicts.texi',
-    'line_nr' => 14,
-    'text' => "\@float `Pr\x{e8}s' file Pres.html for redirection exists",
+    'line_nr' => 12,
+    'text' => "\@anchor `Pr\x{ea}s' file Pres.html for redirection exists",
     'type' => 'warning'
   },
   {
@@ -1103,11 +1103,11 @@ $result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => "warning: \@anchor `Pr\x{ea}s' file Pres.html for redirection exists
+    'error_line' => "warning: \@float `Pr\x{e8}s' file Pres.html for redirection exists
 ",
     'file_name' => 'transliterated_names_conflicts.texi',
-    'line_nr' => 12,
-    'text' => "\@anchor `Pr\x{ea}s' file Pres.html for redirection exists",
+    'line_nr' => 14,
+    'text' => "\@float `Pr\x{e8}s' file Pres.html for redirection exists",
     'type' => 'warning'
   },
   {

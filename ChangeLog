@@ -1,5 +1,24 @@
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_node_redirections): use labels_list
+	instead of labels_information.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/convert_html.c (html_reset_files_source_info)
+	(html_free_files_source_info, html_destroy_files_source_info)
+	(html_set_pages_files, html_reset_converter, html_free_converter),
+	tp/Texinfo/XS/main/converter_types.h (FILE_SOURCE_INFO)
+	(FILE_SOURCE_INFO_LIST, CONVERTER), tp/Texinfo/XS/main/utils.h:
+	add files_source_info to converter, move FILE_SOURCE_INFO and
+	FILE_SOURCE_INFO_LIST definition to converter_types.h.  Use converter
+	files_source_info in html_set_pages_files, add functions to reset and
+	free FILE_SOURCE_INFO_LIST and use those functions in converter reset
+	and free, instead of destroying the files_source_info in
+	html_prepare_units_directions_files.
+
+2024-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/automatic_nodes.t, tp/t/do_master_menu.t,
 	tp/t/protect_character_in_texinfo.t,
 	tp/t/test_protect_hashchar_at_line_beginning.t: comment out

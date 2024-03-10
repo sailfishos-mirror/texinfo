@@ -1600,21 +1600,6 @@ output unit: @chapter circumflex
 
 $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
   {
-    'error_line' => 'warning: @node `@"i\' file i.html for redirection exists
-',
-    'line_nr' => 20,
-    'text' => '@node `@"i\' file i.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with @node `@^i\' redirection file
-',
-    'line_nr' => 31,
-    'text' => 'conflict with @node `@^i\' redirection file',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @node `@~{@dotless{i}}\' file i.html for redirection exists
 ',
     'line_nr' => 22,
@@ -1623,10 +1608,25 @@ $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
   },
   {
     'continuation' => 1,
-    'error_line' => 'warning: conflict with @node `@^i\' redirection file
+    'error_line' => 'warning: conflict with @node `@"i\' redirection file
+',
+    'line_nr' => 20,
+    'text' => 'conflict with @node `@"i\' redirection file',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @node `@^i\' file i.html for redirection exists
 ',
     'line_nr' => 31,
-    'text' => 'conflict with @node `@^i\' redirection file',
+    'text' => '@node `@^i\' file i.html for redirection exists',
+    'type' => 'warning'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => 'warning: conflict with @node `@"i\' redirection file
+',
+    'line_nr' => 20,
+    'text' => 'conflict with @node `@"i\' redirection file',
     'type' => 'warning'
   }
 ];

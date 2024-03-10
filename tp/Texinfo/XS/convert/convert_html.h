@@ -5,8 +5,6 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "converter_types.h"
-/* for FILE_SOURCE_INFO_LIST */
-#include "utils.h"
 
 enum count_elements_in_filename_type {
   CEFT_total,

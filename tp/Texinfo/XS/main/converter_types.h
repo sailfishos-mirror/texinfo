@@ -411,6 +411,20 @@ typedef struct OUTPUT_FILES_INFORMATION {
     FILE_STREAM_LIST unclosed_files;
 } OUTPUT_FILES_INFORMATION;
 
+typedef struct FILE_SOURCE_INFO {
+    char *filename;
+    const char *type;
+    const char *name;
+    const ELEMENT *element;
+    char *path;
+} FILE_SOURCE_INFO;
+
+typedef struct FILE_SOURCE_INFO_LIST {
+    size_t number;
+    size_t space;
+    FILE_SOURCE_INFO *list;
+} FILE_SOURCE_INFO_LIST;
+
 typedef struct SPECIAL_UNIT_DIRECTION {
     const OUTPUT_UNIT *output_unit;
     const char *direction;
@@ -739,6 +753,7 @@ typedef struct CONVERTER {
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
     COMMAND_STACK html_target_cmds; /* list of cmd with targets */
+    FILE_SOURCE_INFO_LIST files_source_info;
     JSLICENSE_CATEGORY_LIST jslicenses;
     /* associate cmd and index in special_unit_varieties STRING_LIST */
     /* number in sync with command_special_unit_variety, +1 for trailing 0 */

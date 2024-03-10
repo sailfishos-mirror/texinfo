@@ -1961,11 +1961,6 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          /* file names API */
          pass_output_unit_files (converter_in, &self->output_unit_files);
 
-         if (files_source_info)
-           {
-             html_destroy_files_source_info (files_source_info);
-           }
-
          RETVAL = files_source_info_sv;
     OUTPUT:
          RETVAL
