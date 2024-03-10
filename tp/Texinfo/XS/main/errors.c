@@ -127,15 +127,20 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
 
 void
 vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
-                          enum error_type type, int continuation,
+                          enum error_type type,
+                          int continuation,
                           int warn,
                           const SOURCE_INFO *cmd_source_info,
+                          const char *translation_context,
                           const char *format, va_list v)
 {
   char *message;
 
 #ifdef ENABLE_NLS
-  xvasprintf (&message, gettext(format), v);
+  if (translation_context)
+    xvasprintf (&message, pgettext_expr (translation_context, format), v);
+  else
+    xvasprintf (&message, gettext(format), v);
 #else
   xvasprintf (&message, format, v);
 #endif
@@ -245,20 +250,37 @@ message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
   va_start (v, format);
   vmessage_list_line_error (error_messages, type, continuation,
                             (conf && conf->DEBUG.integer > 0),
-                            cmd_source_info, format, v);
+                            cmd_source_info, 0, format, v);
 }
 
 void
 message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                            const OPTIONS *conf,
-                           const ELEMENT *e, const char *format, ...)
+                           const ELEMENT *e, int continuation,
+                           const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
-  vmessage_list_line_error (error_messages, MSG_warning, 0,
+  vmessage_list_line_error (error_messages, MSG_warning, continuation,
                             (conf && conf->DEBUG.integer > 0),
-                             &e->source_info, format, v);
+                             &e->source_info, 0, format, v);
+}
+
+void
+pmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
+                            const OPTIONS *conf,
+                            const ELEMENT *e,
+                            int continuation,
+                            const char *translation_context,
+                            const char *format, ...)
+{
+  va_list v;
+
+  va_start (v, format);
+  vmessage_list_line_error (error_messages, MSG_warning, continuation,
+                            (conf && conf->DEBUG.integer > 0),
+                             &e->source_info, translation_context, format, v);
 }
 
 /* similar as message_list_command_warn, to be used only when the calling
@@ -270,7 +292,7 @@ vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 {
   vmessage_list_line_error (error_messages, MSG_warning, 0,
                             (conf && conf->DEBUG.integer > 0),
-                            &e->source_info, format, v);
+                            &e->source_info, 0, format, v);
 }
 
 void
@@ -283,7 +305,7 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_error, 0,
                            (conf && conf->DEBUG.integer > 0),
-                           &e->source_info, format, v);
+                           &e->source_info, 0, format, v);
 }
 
 void

@@ -237,6 +237,8 @@ char *html_convert_output (CONVERTER *self, const ELEMENT *root,
 char *html_prepare_node_redirection_page (CONVERTER *self,
                                           const ELEMENT *element,
                                           const char *filename);
+int html_node_redirections (CONVERTER *self,
+            const char *output_file, const char *destination_directory);
 
 void html_check_transfer_state_finalization (CONVERTER *self);
 void html_free_converter (CONVERTER *self);

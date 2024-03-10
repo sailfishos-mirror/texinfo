@@ -2250,4 +2250,24 @@ html_prepare_node_redirection_page (SV *converter_in, SV *element_sv, redirectio
     OUTPUT:
          RETVAL
 
-
+SV *
+html_node_redirections (SV *converter_in, output_file, destination_directory, ...)
+         const char *output_file = (char *)SvPVutf8_nolen($arg);
+         const char *destination_directory = (char *)SvPVutf8_nolen($arg);
+  PROTOTYPE: $$$$
+     PREINIT:
+         CONVERTER *self;
+         int status = -1;
+     CODE:
+         self = get_sv_converter (converter_in, "html_node_redirections");
+         if (self)
+           {
+             status = html_node_redirections (self, output_file,
+                                              destination_directory);
+           }
+         if (status >= 0)
+           RETVAL = newSViv (status);
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL

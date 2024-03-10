@@ -287,6 +287,8 @@ my %XS_conversion_overrides = (
   # => "Texinfo::Convert::ConvertXS::html_convert_tree",
   "Texinfo::Convert::HTML::_prepare_node_redirection_page"
    => "Texinfo::Convert::ConvertXS::html_prepare_node_redirection_page",
+  "Texinfo::Convert::HTML::_node_redirections"
+   => "Texinfo::Convert::ConvertXS::html_node_redirections",
 );
 
 # XS initialization independent of customization
@@ -12589,10 +12591,6 @@ sub _node_redirections($$$$)
   $self->{'current_filename'} = undef;
   if ($self->get_conf('NODE_FILES')
       and $labels_list and $output_file ne '') {
-    my $extension = '';
-    $extension = '.'.$self->get_conf('EXTENSION')
-                if (defined($self->get_conf('EXTENSION'))
-                    and $self->get_conf('EXTENSION') ne '');
 
     my %redirection_filenames;
     foreach my $target_element (@$labels_list) {
@@ -12708,31 +12706,31 @@ sub _node_redirections($$$$)
           = _prepare_node_redirection_page ($self, $target_element,
                                            $redirection_filename);
 
-        my $out_filename;
+        my $out_filepath;
         if ($destination_directory ne '') {
-          $out_filename = File::Spec->catfile($destination_directory,
+          $out_filepath = File::Spec->catfile($destination_directory,
                                               $redirection_filename);
         } else {
-          $out_filename = $redirection_filename;
+          $out_filepath = $redirection_filename;
         }
-        my ($encoded_out_filename, $path_encoding)
-          = $self->encoded_output_file_name($out_filename);
+        my ($encoded_out_filepath, $path_encoding)
+          = $self->encoded_output_file_name($out_filepath);
         my ($file_fh, $error_message)
                = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $encoded_out_filename);
+                             $encoded_out_filepath);
         if (!$file_fh) {
          $self->converter_document_error(sprintf(__(
                                     "could not open %s for writing: %s"),
-                                    $out_filename, $error_message));
+                                    $out_filepath, $error_message));
         } else {
           print $file_fh $redirection_page;
           Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $encoded_out_filename);
+                  $self->output_files_information(), $encoded_out_filepath);
           if (!close ($file_fh)) {
             $self->converter_document_error(sprintf(__(
                              "error on closing redirection node file %s: %s"),
-                                    $out_filename, $!));
+                                    $out_filepath, $!));
             $self->conversion_finalization();
             return undef;
           }

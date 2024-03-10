@@ -455,7 +455,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     }
 
                   message_list_command_warn (error_messages, options,
-                                             main_entry_element,
+                                             main_entry_element, 0,
                                       "empty index key in @%s", entry_cmdname);
                 }
               else
@@ -508,7 +508,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                         }
 
                       message_list_command_warn (error_messages, options,
-                                             main_entry_element,
+                                             main_entry_element, 0,
                                "empty index sub entry %zu key in @%s",
                                entry_sort_string.subentries_number -1,
                                 entry_cmdname);

@@ -767,7 +767,7 @@ add_output_units_file (CONVERTER *self, const char *filename,
   If CASE_INSENSITIVE_FILENAMES is set, reuse the first
   filename with the same name insensitive to the case.
  */
-static size_t
+size_t
 register_normalize_case_filename (CONVERTER *self, const char *filename)
 {
   size_t output_unit_file_idx;

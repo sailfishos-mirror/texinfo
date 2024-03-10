@@ -1,5 +1,22 @@
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* po/Makevars (XGETTEXT_OPTIONS), tp/Texinfo/XS/main/errors.c
+	(vmessage_list_line_error, message_list_command_warn)
+	(pmessage_list_command_warn): add a translation context to
+	vmessage_list_line_error.  Add the pmessage_list_command_warn function
+	with a translation context and continuation.  Add a continuation
+	argument for message_list_command_warn.  Update callers.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_node_redirections),
+	tp/Texinfo/XS/convert/convert_html.c (html_node_redirections):
+	implement html_node_redirections and add an XS override.
+
+	* tp/Texinfo/Convert/HTML.pm (_node_redirections): remove extension
+	related ocde, it is not used.  Rename $out_filename as $out_filepath.
+
+2024-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c
 	(destroy_document_information_except_tree): free
 	document->parser_error_messages.

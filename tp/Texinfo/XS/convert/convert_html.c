@@ -3167,7 +3167,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                     {
                       message_list_command_warn (&self->error_messages,
                                                  self->conf,
-                                                 source_command,
+                                                 source_command, 0,
                              "no htmlxref.cnf entry found for `%s'",
                                                  manual_name);
                     }
@@ -8217,6 +8217,7 @@ format_element_footer (CONVERTER *self,
    }
 }
 
+/* return string to be freed by the caller */
 char *
 html_default_format_node_redirection_page (CONVERTER *self,
                                            const ELEMENT *element,
@@ -8309,6 +8310,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   return result.text;
 }
 
+/* return string to be freed by the caller */
 char *format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
                                    const char *filename)
 {
@@ -8328,6 +8330,7 @@ char *format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
    }
 }
 
+/* return string to be freed by the caller */
 char *
 html_prepare_node_redirection_page (CONVERTER *self, const ELEMENT *element,
                                     const char *filename)
@@ -13119,7 +13122,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         but the error message is printed only for the first entry formatting. */
                               message_list_command_warn (&self->error_messages,
                                       self->conf,
-                                      main_entry_element,
+                                      main_entry_element, 0,
                 "entry for index `%s' for @printindex %s outside of any node",
                                   entry_index->name, index_name);
                             }
@@ -13159,7 +13162,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
          NOTE the index entry may be associated to a node in that case. */
                               message_list_command_warn (&self->error_messages,
                                       self->conf,
-                                      main_entry_element,
+                                      main_entry_element, 0,
              "entry for index `%s' for @printindex %s outside of any section",
                                   entry_index->name, index_name);
                                 }
@@ -18781,22 +18784,259 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
     }
 }
 
-/*
 int
 html_node_redirections (CONVERTER *self,
-                     const char *output_file, const char *destination_directory)
+            const char *output_file, const char *destination_directory)
 {
   FILE_SOURCE_INFO_LIST *files_source_info = &self->files_source_info;
   int redirection_files_done = 0;
   if (self->document->identifiers_target && self->conf->NODE_FILES.integer > 0
       && strlen(output_file) > 0)
     {
-      const char *extension = 0;
+      const LABEL_LIST *label_targets = self->document->labels_list;
+      int i;
+      const ENCODING_CONVERSION *conversion = 0;
 
-      if (self->conf->EXTENSION.string)
-      extension = self->conf->EXTENSION.string;
+      if (self->conf->OUTPUT_ENCODING_NAME.string
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "utf-8"))
+        {
+          conversion
+          = get_encoding_conversion (self->conf->OUTPUT_ENCODING_NAME.string,
+                                              &output_conversions);
+        }
+
+      for (i = 0; i < label_targets->number; i++)
+        {
+          const FILE_NUMBER_NAME *target_filename;
+          const ELEMENT *label_element;
+          const ELEMENT *target_element;
+          const char *node_filename;
+          LABEL *label = &label_targets->list[i];
+          const char *normalized;
+
+          if (!label->identifier || label->reference)
+            continue;
+
+          target_element = label->element;
+          label_element = get_label_element (target_element);
+
+          /* filename may not be defined in case of an @anchor or similar in
+             @titlepage, and @titlepage is not used. */
+          target_filename = html_command_filename (self, target_element);
+
+     /* NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
+        is.  The other manual must use the same convention to get it
+        right.  We do not do 'node_filename' as a redirection file
+        either. */
+          normalized = lookup_extra_string (target_element, "normalized");
+          if (normalized && !strcmp (normalized, "Top")
+              && self->conf->TOP_NODE_FILE_TARGET.string)
+            {
+              node_filename = self->conf->TOP_NODE_FILE_TARGET.string;
+            }
+          else
+            {
+              const HTML_TARGET *node_target
+                = html_get_target (self, target_element);
+              node_filename = node_target->node_filename;
+            }
+          if (target_filename && target_filename->filename
+              && strcmp (target_filename->filename, node_filename))
+            {
+              size_t file_idx
+                = register_normalize_case_filename (self, node_filename);
+              const FILE_NAME_PATH_COUNTER *output_unit_file
+                 = &self->output_unit_files.list[file_idx];
+              char *redirection_filename = output_unit_file->filename;
+              int redirection_filename_total_count
+                = output_unit_file->elements_in_file_count;
+
+              FILE_SOURCE_INFO *file_source_info
+                 = find_file_source_info (files_source_info,
+                                          redirection_filename);
+              if (file_source_info
+               /* first condition finds conflict with tree elements */
+                  && (redirection_filename_total_count > 0
+                      || !strcmp (file_source_info->type, "redirection")))
+                {
+                  const char *file_info_type = file_source_info->type;
+                  char *label_texi
+                    = convert_contents_to_texinfo (label_element);
+                  message_list_command_warn (&self->error_messages,
+                                    self->conf, target_element, 0,
+                             "@%s `%s' file %s for redirection exists",
+                               element_command_name (target_element),
+                               label_texi, redirection_filename);
+                  free (label_texi);
+
+                  if (!strcmp (file_info_type, "special_file")
+                      || !strcmp (file_info_type, "stand_in_file"))
+                    {
+                      const char *name = file_source_info->name;
+                      if (!strcmp (name, "non_split"))
+             /* This cannot actually happen, as the @anchor/@node/@float
+                with potentially conflicting name will also be in the
+                non-split output document and therefore does not need
+                a redirection. */
+                        message_list_document_warn (&self->error_messages,
+                          self->conf, 1, "conflict with whole document file");
+                      else if (!strcmp (name, "Top"))
+                        message_list_document_warn (&self->error_messages,
+                          self->conf, 1, "conflict with Top file");
+                      else if (!strcmp (name, "user_defined"))
+                        message_list_document_warn (&self->error_messages,
+                          self->conf, 1, "conflict with user-defined file");
+                      else if (!strcmp (name, "unknown_node"))
+                        message_list_document_warn (&self->error_messages,
+                          self->conf, 1, "conflict with unknown node file");
+                      else if (!strcmp (name, "unknown"))
+                        message_list_document_warn (&self->error_messages,
+                            self->conf, 1,
+                                "conflict with file without known source");
+                    }
+                  else if (!strcmp (file_info_type, "node"))
+                    {
+                      const ELEMENT *conflicting_node
+                        = file_source_info->element;
+                      char *node_texi
+                        = convert_contents_to_texinfo
+                                        (conflicting_node->args.list[0]);
+                      pmessage_list_command_warn (&self->error_messages,
+                                        self->conf, conflicting_node, 1,
+                "conflict of redirection file with file based on node name",
+                             "conflict with @%s `%s' file",
+                               element_command_name (conflicting_node),
+                               node_texi);
+                      free (node_texi);
+                    }
+                  else if (!strcmp (file_info_type, "redirection"))
+                    {
+                      const ELEMENT *conflicting_node
+                        = file_source_info->element;
+                      char *node_texi
+                        = convert_contents_to_texinfo
+                                        (conflicting_node->args.list[0]);
+                      message_list_command_warn (&self->error_messages,
+                                        self->conf, conflicting_node, 1,
+                             "conflict with @%s `%s' redirection file",
+                               element_command_name (conflicting_node),
+                               node_texi);
+                      free (node_texi);
+                    }
+                  else if (!strcmp (file_info_type, "section"))
+                    {
+                      const ELEMENT *conflicting_section
+                        = file_source_info->element;
+                      char *section_texi
+                        = convert_contents_to_texinfo
+                                    (conflicting_section->args.list[0]);
+                     pmessage_list_command_warn (&self->error_messages,
+                                    self->conf, conflicting_section, 1,
+           "conflict of redirection file with file based on section name",
+                             "conflict with @%s `%s' file",
+                             element_command_name (conflicting_section),
+                             section_texi);
+                      free (section_texi);
+                    }
+                  else if (!strcmp (file_info_type, "special_unit"))
+                    {
+                      const ELEMENT *unit_command
+                        = file_source_info->element;
+                      const OUTPUT_UNIT *special_unit
+                        = unit_command->associated_unit;
+                      message_list_document_warn (&self->error_messages,
+                                    self->conf, 1,
+                             "conflict with %s special element",
+                             special_unit->special_unit_variety);
+                    }
+                }
+              else
+                {
+                  char *redirection_page;
+                  char *out_filepath;
+                  char *path_encoding;
+                  char *open_error_message;
+
+                  add_to_files_source_info (files_source_info,
+                                 redirection_filename, "redirection", 0,
+                                                       target_element, 0);
+
+                  redirection_page
+                    = html_prepare_node_redirection_page (self, target_element,
+                                                         redirection_filename);
+                  if (destination_directory && strlen (destination_directory))
+                    {
+                      xasprintf (&out_filepath, "%s/%s", destination_directory,
+                                 redirection_filename);
+                    }
+                  else
+                    out_filepath = strdup (redirection_filename);
+
+                  char *encoded_out_filepath
+                     = encoded_output_file_name (self->conf,
+                                   self->document->global_info, out_filepath,
+                                                           &path_encoding, 0);
+                  FILE *file_fh
+                    = output_files_open_out (&self->output_files_information,
+                               encoded_out_filepath, &open_error_message, 0);
+                  free (path_encoding);
+                  if (!file_fh)
+                    {
+                      message_list_document_error (&self->error_messages,
+                                self->conf, 0,
+                                "could not open %s for writing: %s",
+                                 out_filepath, open_error_message);
+                    }
+                  else
+                    {
+                      char *result;
+                      size_t res_len;
+                      size_t write_len;
+
+                      if (conversion)
+                        {
+                          result = encode_with_iconv (conversion->iconv,
+                                                      redirection_page, 0);
+                          res_len = strlen (result);
+                        }
+                      else
+                        {
+                          result = redirection_page;
+                          res_len = strlen (redirection_page);
+                        }
+                      write_len = fwrite (result, sizeof (char),
+                                          res_len, file_fh);
+                      if (conversion)
+                        free (result);
+                      if (write_len != res_len)
+                        { /* register error message instead? */
+                          fprintf (stderr,
+                                   "ERROR: write to %s failed (%zu/%zu)\n",
+                                   encoded_out_filepath, write_len, res_len);
+                          free (encoded_out_filepath);
+                          return -1;
+                        }
+                      output_files_register_closed
+                                         (&self->output_files_information,
+                                          encoded_out_filepath);
+                      if (fclose (file_fh))
+                        {
+                          message_list_document_error (
+                             &self->error_messages, self->conf, 0,
+                             "error on closing %s: %s",
+                             out_filepath, strerror (errno));
+                          free (encoded_out_filepath);
+                          return -1;
+                        }
+                      redirection_files_done++;
+                    }
+                  free (encoded_out_filepath);
+                  free (out_filepath);
+                  free (redirection_page);
+                }
+            }
+        }
     }
 
   return redirection_files_done;
 }
-*/

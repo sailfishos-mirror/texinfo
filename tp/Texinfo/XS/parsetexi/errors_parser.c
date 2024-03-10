@@ -46,7 +46,7 @@ line_error_internal (enum error_type type, int continuation,
 {
   vmessage_list_line_error (&error_messages_list,
                       type, continuation, debug_output, cmd_source_info,
-                      format, v);
+                      0, format, v);
 }
 
 void
