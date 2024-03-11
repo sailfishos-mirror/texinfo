@@ -186,6 +186,10 @@ $direction_strings_test_text,
 {'init_files' => ['directions_string_undef.pm']},
 {'TEXI2HTML' => 1},
 ],
+['redefined_buttons_functions',
+$direction_strings_test_text,
+{'init_files' => ['redefined_buttons.pm']},
+],
 );
 
 foreach my $test (@test_cases) {

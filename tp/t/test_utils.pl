@@ -975,6 +975,7 @@ sub test($$)
 
   # reset Texinfo::Config informations to have isolated tests
   Texinfo::Config::GNUT_reinitialize_init_files();
+  my $init_files_options = {};
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
   # the init file names are supposed to be binary strings.  Since they
   # are not encoded anywhere, probably only non ascii file names should
@@ -986,7 +987,8 @@ sub test($$)
       $conf->{'COMMAND_LINE_ENCODING'} = $locale_encoding;
       $conf->{'MESSAGE_ENCODING'} = $locale_encoding;
     }
-    Texinfo::Config::GNUT_initialize_config('', $conf, {});
+    $init_files_options
+      = Texinfo::Config::GNUT_initialize_config('', $conf, {});
     foreach my $filename (@{$parser_options->{'init_files'}}) {
       my $file = Texinfo::Common::locate_init_file($filename,
                                                $init_file_directories, 0);
@@ -1205,7 +1207,8 @@ sub test($$)
 
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
-      my $format_converter_options = {%$converter_options};
+      my $format_converter_options = {%$converter_options,
+                                      %$init_files_options};
       my $format_type = $format;
       if ($format_type =~ s/^file_//) {
         # the information that the results is a file is passed

@@ -1,5 +1,16 @@
 2024-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): collect
+	Texinfo::Config::GNUT_initialize_config init files customization
+	variables information return value and use it in converter options.
+
+	* tp/t/init_files_tests.t (redefined_buttons_functions),
+	t/init/redefined_buttons.pm, tp/Makefile.am (test_files),
+	tp/Makefile.tres: add a test of redefinition of button formatting
+	functions in init file.
+
+2024-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
 	tp/t/automatic_menus.t, tp/t/convert_to_text.t,
 	tp/t/index_before_item.t, tp/t/reference_to_text_in_tree.t,

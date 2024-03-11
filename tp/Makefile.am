@@ -185,6 +185,7 @@ test_files = \
  t/init/misc_file_collision.init \
  t/init/only_toc_out.init \
  t/init/redefine_need.init \
+ t/init/redefined_buttons.pm \
  t/init/redirection_file_collision_with_special.init \
  t/init/redirection_file_collision_with_user_def.init \
  t/init/set_unit_file_name_filepath.pm \
