@@ -27,7 +27,8 @@ sub run_test($$$)
   #print STDERR Texinfo::DebugTree::convert_tree(undef, $tree)."\n";
 
   move_index_entries_after_items_in_tree($tree);
-  $tree = Texinfo::Document::rebuild_tree($tree);
+  # rebuild tree
+  $tree = $document->tree();
 
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

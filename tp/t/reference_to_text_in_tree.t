@@ -25,7 +25,8 @@ sub run_test($$$)
   my $tree = $document->tree();
 
   Texinfo::Transformations::reference_to_arg_in_tree($tree);
-  $tree = Texinfo::Document::rebuild_tree($tree);
+  # rebuild tree
+  $tree = $document->tree();
 
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

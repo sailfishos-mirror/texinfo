@@ -49,7 +49,7 @@ use Pod::Simple::PullParser ();
 #use Pod::ParseLink;
 
 use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier);
-use Texinfo::Parser qw(parse_texi_line parse_texi_text);
+use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::TextContent;
 use Texinfo::Common qw(protect_colon_in_tree protect_comma_in_tree
@@ -354,7 +354,7 @@ sub _protect_comma($)
 {
   my $texinfo = shift;
   my $tree = parse_texi_line(undef, $texinfo);
-  $tree = protect_comma_in_tree($tree);
+  protect_comma_in_tree($tree);
   $tree = Texinfo::Document::rebuild_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
@@ -363,7 +363,7 @@ sub _protect_colon($)
 {
   my $texinfo = shift;
   my $tree = parse_texi_line(undef, $texinfo);
-  $tree = protect_colon_in_tree($tree);
+  protect_colon_in_tree($tree);
   $tree = Texinfo::Document::rebuild_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
@@ -373,11 +373,11 @@ sub _protect_hashchar($)
   my $texinfo = shift;
   # protect # first in line
   if ($texinfo =~ /#/) {
-    # FIXME use parse_texi_piece?
-    my $document = parse_texi_text(undef, $texinfo);
+    my $document = parse_texi_piece(undef, $texinfo);
     my $tree = $document->tree();
     protect_hashchar_at_line_beginning($tree);
-    $tree = Texinfo::Document::rebuild_tree($tree);
+    # rebuild the tree
+    $tree = $document->tree();
     return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   } else {
     return $texinfo;
@@ -387,11 +387,11 @@ sub _protect_hashchar($)
 sub _reference_to_text_in_texi($)
 {
   my $texinfo = shift;
-  # FIXME use parse_texi_piece?
-  my $document = parse_texi_text(undef, $texinfo);
+  my $document = parse_texi_piece(undef, $texinfo);
   my $tree = $document->tree();
   reference_to_arg_in_tree($tree);
-  $tree = Texinfo::Document::rebuild_tree($tree);
+  # rebuild the tree
+  $tree = $document->tree();
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
@@ -448,7 +448,8 @@ sub _normalize_texinfo_name($$)
   my $tree = $document->tree();
   if ($command eq 'anchor') {
     Texinfo::Transformations::protect_first_parenthesis_in_targets($tree);
-    $tree = Texinfo::Document::rebuild_tree($tree);
+    # rebuild the tree
+    $tree = $document->tree();
   }
   my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   my $result = $fixed_text;
@@ -499,8 +500,8 @@ sub _prepare_anchor($$)
     $texinfo_node_name = "$node $number_appended";
     $node_tree = parse_texi_line(undef, $texinfo_node_name);
   }
-  $node_tree = protect_comma_in_tree($node_tree);
-  $node_tree = protect_colon_in_tree($node_tree);
+  protect_comma_in_tree($node_tree);
+  protect_colon_in_tree($node_tree);
   $node_tree = Texinfo::Document::rebuild_tree($node_tree);
   $self->{'texinfo_nodes'}->{$normalized} = $node_tree;
   my $final_node_name = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree);

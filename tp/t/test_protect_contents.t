@@ -29,7 +29,8 @@ sub run_test($$$$)
   if ($do->{'protect_first_parenthesis'}) {
     Texinfo::Transformations::protect_first_parenthesis_in_targets($tree);
 
-    $tree = Texinfo::Document::rebuild_tree($tree);
+    # rebuild tree
+    $tree = $document->tree();
 
     $texi_result
         = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

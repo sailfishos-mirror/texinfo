@@ -1,3 +1,16 @@
+2024-03-11  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
+	tp/t/automatic_menus.t, tp/t/convert_to_text.t,
+	tp/t/index_before_item.t, tp/t/reference_to_text_in_tree.t,
+	tp/t/test_fill_gaps_in_sectioning.t, tp/t/test_tree_copy.t: call
+	tree() to rebuild the tree from a document instead of using
+	Texinfo::Document::rebuild_tree.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm: do not return the tree
+	when its root is a container and is not modified by transformations.
+	Use parse_texi_piece instead of parse_texi_text for pieces of Texinfo.
+
 2024-03-10  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree)

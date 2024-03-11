@@ -41,7 +41,8 @@ sub test_correction($$$;$)
                                              $test_correct_level);
   }
 
-  $tree = Texinfo::Document::rebuild_tree($tree);
+  # rebuild the tree
+  $tree = $document->tree();
   {
   local $Data::Dumper::Purity = 1;
   #local $Data::Dumper::Maxdepth = 2;

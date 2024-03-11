@@ -39,7 +39,8 @@ sub test($$$;$$)
     Texinfo::Transformations::complete_tree_nodes_menus($tree, $use_sections);
   }
 
-  $tree = Texinfo::Document::rebuild_tree($tree);
+  # rebuild the tree
+  $tree = $document->tree();
 
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
