@@ -129,6 +129,9 @@ typedef struct BUTTON_SPECIFICATION_LIST {
     void *av; /* reference to perl data that can be used instead of
                  the list */
     size_t number;
+    /* number of BIT_function button_information_type functions that
+       are user-defined and not functions defined by default */
+    size_t BIT_user_function_number;
     BUTTON_SPECIFICATION *list;
 } BUTTON_SPECIFICATION_LIST;
 

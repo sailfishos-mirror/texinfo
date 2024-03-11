@@ -113,6 +113,7 @@ print HEADER "#undef PACKAGE_URL\n";
 print HEADER "#undef PACKAGE_VERSION\n\n";
 
 print HEADER "typedef struct OPTIONS {\n";
+print HEADER "    size_t BIT_user_function_number;\n";
 
 foreach my $category (sort(keys(%option_categories))) {
   print HEADER "\n/* ${category} */\n\n";
@@ -141,12 +142,13 @@ print CODE '#include "converter_types.h"'."\n";
 print CODE '#include "utils.h"'."\n\n";
 
 print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";
+print CODE "  options->BIT_user_function_number = 0;\n";
 
 foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    print CODE " initialize_option (&options->$option, GO_$type);\n";
+    print CODE "  initialize_option (&options->$option, GO_$type);\n";
   }
 }
 print CODE "};\n\n";
@@ -162,6 +164,7 @@ foreach my $category (sort(keys(%option_categories))) {
 print CODE "};\n\n";
 
 print CODE "void\nclear_options (OPTIONS *options)\n{\n";
+print CODE "  options->BIT_user_function_number = 0;\n";
 foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
@@ -332,8 +335,14 @@ foreach my $category (sort(keys(%option_categories))) {
       add_svav_to_string_list (value, options->$option.strlist, $dir_string_arg);
     }\n";
     } elsif ($type eq 'buttons') {
-      print GET "      html_free_button_specification_list (options->$option.buttons);
+      print GET "      if (options->$option.buttons)
+        {
+          options->BIT_user_function_number -= options->$option.buttons->BIT_user_function_number;
+          html_free_button_specification_list (options->$option.buttons);
+        }
+
       options->$option.buttons = html_get_button_specification_list (converter, value);
+      options->BIT_user_function_number += options->$option.buttons->BIT_user_function_number;
     }\n";
     } elsif ($type eq 'icons') {
       print GET "      html_free_direction_icons (options->$option.icons);

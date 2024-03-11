@@ -1,5 +1,27 @@
 2024-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	Count Perl functions used
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(register_type_conversion_function, register_type_open_function)
+	(register_command_conversion_function, register_command_open_function)
+	(register_output_unit_conversion_function)
+	(register_special_unit_body_formatting_function)
+	(html_converter_initialize): register_* return 1 if a function was
+	registered.  Setup counters of perl functions registerd and not
+	replaced by C functions.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list),
+	tp/Texinfo/XS/main/option_types.h (BUTTON_SPECIFICATION_LIST),
+	tp/maintain/regenerate_C_options_info.pl: add and set counters of the
+	number of functions used in buttons for directions, of type
+	BIT_function, that are not default functions.  Count for a
+	BUTTON_SPECIFICATION_LIST and for all BUTTON_SPECIFICATION_LIST
+	OPTIONS.
+
+2024-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): collect
 	Texinfo::Config::GNUT_initialize_config init files customization
 	variables information return value and use it in converter options.

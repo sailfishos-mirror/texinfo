@@ -16020,7 +16020,7 @@ html_format_init (void)
   html_commands_data[CM_float].flags |= HF_composition_context;
 }
 
-void
+static int
 register_type_conversion_function (TYPE_CONVERSION_FUNCTION *result,
                                    enum element_type type,
                                    FORMATTING_REFERENCE *formatting_reference)
@@ -16032,11 +16032,13 @@ register_type_conversion_function (TYPE_CONVERSION_FUNCTION *result,
         {
           result->type_conversion = &type_conversion_external;
           result->formatting_reference = formatting_reference;
+          return 1;
         }
     }
+  return 0;
 }
 
-void
+static int
 register_type_open_function (TYPE_OPEN_FUNCTION *result,
                              enum element_type type,
                              FORMATTING_REFERENCE *formatting_reference)
@@ -16048,11 +16050,13 @@ register_type_open_function (TYPE_OPEN_FUNCTION *result,
         {
           result->type_open = &type_open_external;
           result->formatting_reference = formatting_reference;
+          return 1;
         }
     }
+  return 0;
 }
 
-void
+static int
 register_command_conversion_function (COMMAND_CONVERSION_FUNCTION *result,
                          enum command_id cmd,
                          FORMATTING_REFERENCE *formatting_reference)
@@ -16064,11 +16068,13 @@ register_command_conversion_function (COMMAND_CONVERSION_FUNCTION *result,
         {
           result->command_conversion = &command_conversion_external;
           result->formatting_reference = formatting_reference;
+          return 1;
         }
     }
+  return 0;
 }
 
-void
+static int
 register_command_open_function (COMMAND_OPEN_FUNCTION *result,
                                 enum command_id cmd,
                                 FORMATTING_REFERENCE *formatting_reference)
@@ -16080,11 +16086,13 @@ register_command_open_function (COMMAND_OPEN_FUNCTION *result,
         {
           result->command_open = &command_open_external;
           result->formatting_reference = formatting_reference;
+          return 1;
         }
     }
+  return 0;
 }
 
-void
+static int
 register_output_unit_conversion_function
                                   (OUTPUT_UNIT_CONVERSION_FUNCTION *result,
                                    enum output_unit_type type,
@@ -16097,11 +16105,13 @@ register_output_unit_conversion_function
         {
           result->output_unit_conversion = &output_unit_conversion_external;
           result->formatting_reference = formatting_reference;
+          return 1;
         }
     }
+  return 0;
 }
 
-void
+static int
 register_special_unit_body_formatting_function
                                   (SPECIAL_UNIT_BODY_FORMATTING *result,
                                    const char *special_unit_variety,
@@ -16115,8 +16125,10 @@ register_special_unit_body_formatting_function
           result->special_unit_body_formatting
                = &special_unit_body_formatting_external;
           result->formatting_reference = formatting_reference;
+          return 1;
         }
     }
+  return 0;
 }
 
 /* these constructors/initialization allow to use malloc from this
@@ -16239,6 +16251,16 @@ html_converter_initialize (CONVERTER *self)
 {
   int i;
   int nr_special_units;
+
+  /* counters of external formatting functions */
+  int external_special_unit_body_formatting_function = 0;
+  int external_output_unit_conversion_function = 0;
+  int external_command_conversion_function = 0;
+  int external_command_open_function = 0;
+  int external_type_conversion_function = 0;
+  int external_type_open_function = 0;
+  int external_formatting_function = 0;
+
   /* initialization needing some information from perl */
 
   nr_special_units = self->special_unit_varieties.number;
@@ -16297,10 +16319,15 @@ html_converter_initialize (CONVERTER *self)
 
   for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
-      register_type_conversion_function (&self->type_conversion_function[i],
+      int status = register_type_conversion_function (
+                                        &self->type_conversion_function[i],
                                         i, &self->types_conversion[i]);
-      register_type_open_function (&self->type_open_function[i],
+      external_type_conversion_function += status;
+
+      status = register_type_open_function (&self->type_open_function[i],
                                    i, &self->types_open[i]);
+      external_type_open_function += status;
+
       register_type_conversion_function (
              &self->css_string_type_conversion_function[i], i,
              &self->css_string_types_conversion[i]);
@@ -16308,12 +16335,16 @@ html_converter_initialize (CONVERTER *self)
 
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
-      register_command_conversion_function (
-           &self->command_conversion_function[i],
-           i, &self->commands_conversion[i]);
-      register_command_open_function (
-           &self->command_open_function[i],
-           i, &self->commands_open[i]);
+      int status = register_command_conversion_function (
+                            &self->command_conversion_function[i],
+                            i, &self->commands_conversion[i]);
+      external_command_conversion_function += status;
+
+      status = register_command_open_function (
+                            &self->command_open_function[i],
+                            i, &self->commands_open[i]);
+      external_command_open_function += status;
+
       register_command_conversion_function (
             &self->css_string_command_conversion_function[i], i,
              &self->css_string_commands_conversion[i]);
@@ -16321,9 +16352,10 @@ html_converter_initialize (CONVERTER *self)
 
   for (i = 0; i < OU_special_unit+1; i++)
     {
-      register_output_unit_conversion_function
+      int status = register_output_unit_conversion_function
                                   (&self->output_unit_conversion_function[i],
                                         i, &self->output_units_conversion[i]);
+      external_output_unit_conversion_function += status;
     }
 
   self->special_unit_body_formatting = (SPECIAL_UNIT_BODY_FORMATTING *)
@@ -16331,9 +16363,10 @@ html_converter_initialize (CONVERTER *self)
 
   for (i = 0; i < nr_special_units; i++)
     {
-      register_special_unit_body_formatting_function
+      int status = register_special_unit_body_formatting_function
                                   (&self->special_unit_body_formatting[i],
           self->special_unit_varieties.list[i], &self->special_unit_body[i]);
+      external_special_unit_body_formatting_function += status;
     }
 
   qsort (self->htmlxref.list, self->htmlxref.number,
@@ -16344,7 +16377,18 @@ html_converter_initialize (CONVERTER *self)
     {
       for (i = 0; i < FR_format_translate_message+1; i++)
         if (self->formatting_references[i].status == FRS_status_default_set)
-          self->formatting_references[i].status = FRS_status_customization_set;
+          {
+            self->formatting_references[i].status
+                                   = FRS_status_customization_set;
+            external_formatting_function++;
+          }
+    }
+  else
+    { /* count the functions implemented in perl */
+      for (i = 0; i < FR_format_translate_message+1; i++)
+        if (self->formatting_references[i].status
+                  == FRS_status_customization_set)
+          external_formatting_function++;
     }
 
   /* remaining of the file is for the replacement of call to external
@@ -16366,6 +16410,7 @@ html_converter_initialize (CONVERTER *self)
           type_conversion->status = FRS_status_internal;
           type_conversion->type_conversion
               = types_internal_conversion_table[i].type_conversion;
+          external_type_conversion_function--;
         }
       css_string_type_conversion->formatting_reference = 0;
       css_string_type_conversion->status = FRS_status_internal;
@@ -16387,6 +16432,7 @@ html_converter_initialize (CONVERTER *self)
           type_open->status = FRS_status_internal;
           type_open->type_open
               = types_internal_open_table[i].type_open;
+          external_type_open_function--;
         }
     }
 
@@ -16403,6 +16449,7 @@ html_converter_initialize (CONVERTER *self)
           command_conversion->status = FRS_status_internal;
           command_conversion->command_conversion
               = commands_internal_conversion_table[i].command_conversion;
+          external_command_conversion_function--;
         }
       css_string_command_conversion->formatting_reference = 0;
       css_string_command_conversion->status = FRS_status_internal;
@@ -16426,6 +16473,7 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_no_arg_command;
+              external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -16451,6 +16499,7 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_accent_command;
+              external_command_conversion_function--;
             }
           css_string_command_conversion->formatting_reference = 0;
           css_string_command_conversion->status = FRS_status_internal;
@@ -16478,6 +16527,7 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_style_command;
+              external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -16504,6 +16554,7 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_preformatted_command;
+              external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -16529,6 +16580,7 @@ html_converter_initialize (CONVERTER *self)
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_def_command;
+              external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -16548,6 +16600,7 @@ html_converter_initialize (CONVERTER *self)
           command_open->status = FRS_status_internal;
           command_open->command_open
               = commands_internal_open_table[i].command_open;
+          external_command_open_function--;
         }
     }
 
@@ -16564,6 +16617,7 @@ html_converter_initialize (CONVERTER *self)
           output_unit_conversion->status = FRS_status_internal;
           output_unit_conversion->output_unit_conversion
            = output_units_internal_conversion_table[i].output_unit_conversion;
+          external_output_unit_conversion_function--;
         }
     }
 
@@ -16586,9 +16640,20 @@ html_converter_initialize (CONVERTER *self)
               body_formatting->status = FRS_status_internal;
               body_formatting->special_unit_body_formatting
                 = internal_conversion->special_unit_body_formatting;
+              external_special_unit_body_formatting_function--;
             }
         }
     }
+   /*
+  fprintf (stderr, "sbf %d ouc %d cc %d co %d tc %d to %d f %d\n",
+           external_special_unit_body_formatting_function,
+           external_output_unit_conversion_function,
+           external_command_conversion_function,
+           external_command_open_function,
+           external_type_conversion_function,
+           external_type_open_function,
+           external_formatting_function);
+    */
 }
 
 /* called in the end of html_converter_prepare_output_sv, just before

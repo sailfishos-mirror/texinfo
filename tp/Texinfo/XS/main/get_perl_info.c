@@ -1055,6 +1055,7 @@ html_get_button_specification_list (const CONVERTER *converter,
 
   buttons_nr = av_top_index (buttons_av) +1;
 
+  result->BIT_user_function_number = 0;
   result->number = (size_t) buttons_nr;
   result->list = (BUTTON_SPECIFICATION *)
     malloc (result->number * sizeof (BUTTON_SPECIFICATION));
@@ -1114,7 +1115,10 @@ html_get_button_specification_list (const CONVERTER *converter,
                             button_fun_type = j;
                             break;
                           }
-                      button_spec->button_function.type = button_fun_type;
+                      if (button_fun_type)
+                        button_spec->button_function.type = button_fun_type;
+                      else
+                        result->BIT_user_function_number++;
                     }
                   else
                     {
