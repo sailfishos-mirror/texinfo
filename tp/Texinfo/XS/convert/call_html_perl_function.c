@@ -59,9 +59,6 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
 
   dTHX;
 
-  if (!special_unit->hv)
-    return 0;
-
   if (!self->hv)
     return 0;
 
@@ -84,6 +81,12 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
           SV *filename_sv;
           STRLEN len;
           TARGET_FILENAME *result = new_target_filename ();
+
+          if (!special_unit->hv)
+            {
+              /* TODO rebuild output units */
+              return 0;
+            }
 
           dSP;
 
@@ -217,9 +220,6 @@ call_file_id_setting_node_file_name (CONVERTER *self,
 
   *called = 0;
 
-  if (!target_element->hv)
-    return 0;
-
   if (!self->hv)
     return 0;
 
@@ -239,6 +239,12 @@ call_file_id_setting_node_file_name (CONVERTER *self,
           char *result;
           SV *node_filename_ret_sv;
           *called = 1;
+
+          if (!target_element->hv)
+            {
+              /* TODO rebuild */
+              return 0;
+            }
 
           dSP;
 
@@ -293,9 +299,6 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
 
   dTHX;
 
-  if (!command->hv)
-    return 0;
-
   if (!self->hv)
     return 0;
 
@@ -322,6 +325,11 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
           char *target_shortcontents_ret;
           char *filename_ret;
           TARGET_CONTENTS_FILENAME *result = new_target_contents_filename ();
+
+          if (!command->hv)
+            {/* TODO rebuild */
+              return 0;
+            }
 
           dSP;
 
@@ -381,9 +389,6 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
 
   dTHX;
 
-  if (!output_unit->hv)
-    return 0;
-
   if (!self->hv)
     return 0;
 
@@ -403,6 +408,11 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
           SV *filepath_ret_sv;
           SV *filename_ret_sv;
           FILE_NAME_PATH *result = new_file_name_path ();
+
+          if (!output_unit->hv)
+            { /* TODO rebuild */
+              return 0;
+            }
 
           dSP;
 
