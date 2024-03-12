@@ -6742,42 +6742,19 @@ The @code{@@itemize} command produces a sequence of ``items'', each
 starting with a bullet or other mark inside the left margin, and
 generally indented.
 
-@cindex @code{@@w}, for blank items
 Begin an itemized list by writing @code{@@itemize} at the beginning of
-a line.  Follow the command, on the same line, with a character or a
-Texinfo command that generates a mark.  Usually, you will use
-@code{@@bullet} after @code{@@itemize}, but you can use
-@code{@@minus}, or any command or character that results in a single
-character in the Info file.  (When you write the mark command such as
-@code{@@bullet} after an @code{@@itemize} command, you may omit the
-@samp{@{@}}.)  If you don't specify a mark command, the default is
-@code{@@bullet}.  If you don't want any mark at all, but still want
-logical items, use @code{@@w@{@}} (in this case the braces are
-required).
+a line.  Follow the command, on the same line, with a Texinfo command
+or character to generate a mark.  Usually, you will use @code{@@bullet}
+after @code{@@itemize}, but you can use @code{@@minus}, or any other
+Texinfo command or character.  If you don't specify a mark command,
+the default is @code{@@bullet}.
 
 @findex item @r{in @code{@@itemize}}
 After the @code{@@itemize}, write your items, each starting with
 @code{@@item}.  Text can follow on the same line as the @code{@@item}.
 The text of an item can continue for more than one paragraph.
 
-There should be at least one @code{@@item} inside the @code{@@itemize}
-environment.  If none are present, @code{texi2any} gives a warning.
-If you just want indented text and not a list of items, use
-@code{@@indentedblock}; @pxref{@code{@@indentedblock}}.
-
-Index entries and comments that are given before an @code{@@item}
-including the first, are automatically moved (internally) to after the
-@code{@@item}, so the output is as expected.  Historically this has
-been a common practice.
-
-Usually, you should put a blank line between items.  This puts a blank
-line in the Info file. (@TeX{} inserts the proper vertical space in
-any case.)  Except when the entries are very brief, these blank lines
-make the list look better.
-
-Here is an example of the use of @code{@@itemize}, followed by the
-output it produces.  @code{@@bullet} produces an @samp{*} in Info and
-a round dot in other output formats.
+Here is an example of the use of @code{@@itemize}:
 
 @example
 @group
@@ -6805,6 +6782,29 @@ Some text
 for bar.
 @end itemize
 @end quotation
+
+As you can see from this example, when you give a mark command such as
+@code{@@bullet} as the argument to @code{@@itemize} command, you may
+omit the @samp{@{@}} that would normally follow the command.
+
+@cindex @code{@@w}, for blank items
+If you don't want any mark at all, but still want logical items, use
+@code{@@w@{@}} (in this case the braces are required).
+
+There should be at least one @code{@@item} inside the @code{@@itemize}
+environment.  If none are present, @code{texi2any} gives a warning.
+If you just want indented text and not a list of items, use
+@code{@@indentedblock}; @pxref{@code{@@indentedblock}}.
+
+Index entries and comments that are given before an @code{@@item}
+including the first, are automatically moved (internally) to after the
+@code{@@item}, so the output is as expected.  Historically this has
+been a common practice.
+
+Usually, you should put a blank line between items.  This puts a blank
+line in the Info file. (@TeX{} inserts the proper vertical space in
+any case.)  Except when the entries are very brief, these blank lines
+make the list look better.
 
 Itemized lists may be embedded within other itemized lists.  Here is a
 list marked with dashes embedded in a list marked with bullets:

@@ -1,3 +1,13 @@
+2024-03-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (@itemize):
+	Do not say that the argument has to "result in a single character
+	in the Info file", as multiple characters do work fine as an argument.
+	Remove description of what @bullet outputs in different output
+	formats, for brevity.  Move discussion of optional braces after
+	the example.  Move discussion of having at least one @item, index
+	entries and comments, and blank lines after the example usage.
+
 2024-03-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
