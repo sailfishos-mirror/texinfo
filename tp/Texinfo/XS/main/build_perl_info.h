@@ -70,6 +70,7 @@ SV *pass_errors_to_registrar (ERROR_MESSAGE_LIST *error_messages,
 SV *build_output_units_list (size_t output_units_descriptor);
 void rebuild_output_units_list (SV *output_units_sv,
                                 size_t output_units_descriptor);
+SV *setup_output_units_handler (size_t output_units_descriptor);
 
 AV *build_integer_stack (const INTEGER_STACK *integer_stack);
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);

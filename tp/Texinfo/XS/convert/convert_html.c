@@ -16371,7 +16371,7 @@ html_converter_initialize (CONVERTER *self)
      functions by internal functions in C.
    */
   if (self->conf->XS_EXTERNAL_CONVERSION.integer > 0)
-    return;
+    goto out;
 
   for (i = 0; types_internal_conversion_table[i].type_conversion; i++)
     {
@@ -16620,6 +16620,18 @@ html_converter_initialize (CONVERTER *self)
             }
         }
     }
+
+ out:
+  self->external_references_number = self->conf->BIT_user_function_number
+        + self->file_id_setting_ref_number
+        + external_special_unit_body_formatting_function
+        + external_output_unit_conversion_function
+        + external_command_conversion_function
+        + external_command_open_function
+        + external_type_conversion_function
+        + external_type_open_function
+        + external_formatting_function;
+
    /*
   fprintf (stderr, "sbf %d ouc %d cc %d co %d tc %d to %d f %d\n",
            external_special_unit_body_formatting_function,
@@ -17429,8 +17441,8 @@ html_translate_names (CONVERTER *self)
     }
 
   /* self->no_arg_formatted_cmd_translated is used here to hold the translated
-     commands, and the information is kept as it is also used to pass
-     translated commands results to perl */
+     commands, and the information is kept if it is also used to pass
+     translated commands results to Perl */
   if (self->no_arg_formatted_cmd.number)
     {
       int translated_nr = 0;
@@ -17467,7 +17479,7 @@ html_translate_names (CONVERTER *self)
                   ELEMENT *translated_tree = 0;
                   if (format_spec->translated_to_convert)
                     {/* it is very unlikely to have small strings to add,
-                        but in case there are is should be ok */
+                        but in case there are it should be ok */
                       translated_tree =
                         html_cdt_tree (format_spec->translated_to_convert,
                                        self, 0, 0);
@@ -17497,6 +17509,15 @@ html_translate_names (CONVERTER *self)
         {
           enum command_id cmd = translated_cmds->list[j];
           complete_no_arg_commands_formatting (self, cmd, 1);
+        }
+
+      /* not passed to Perl in that case, unset to avoid spurious error
+         messages */
+      if (self->external_references_number <= 0)
+        {
+          memset (translated_cmds->list, 0, translated_cmds->number
+                * sizeof (enum command_id));
+          translated_cmds->number = 0;
         }
     }
 
@@ -18446,18 +18467,16 @@ convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
 }
 
 char *
-html_convert_convert (CONVERTER *self, const ELEMENT *root,
-                      int output_units_descriptor,
-                      int special_units_descriptor)
+html_convert_convert (CONVERTER *self, const ELEMENT *root)
 {
   TEXT result;
   int unit_nr = 0;
   int i;
 
-  const OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
-  const OUTPUT_UNIT_LIST *special_units
-    = retrieve_output_units (special_units_descriptor);
+  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_units]);
+  const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_special_units]);
 
   text_init (&result);
 
@@ -18645,12 +18664,11 @@ convert_output_output_unit_internal (CONVERTER *self,
 }
 
 void
-html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
-                              const char *output_file,
+html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                               const char *output_filename)
 {
-  const OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
+  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_units]);
 
   if (strlen (output_file))
     {
@@ -18673,8 +18691,6 @@ html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
 
 char *
 html_convert_output (CONVERTER *self, const ELEMENT *root,
-                     int output_units_descriptor,
-                     int special_units_descriptor,
                      const char *output_file, const char *destination_directory,
                      const char *output_filename, const char *document_name)
 {
@@ -18682,10 +18698,10 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
   TEXT result;
   TEXT text; /* reused for all the output units */
 
-  const OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
-  const OUTPUT_UNIT_LIST *special_units
-    = retrieve_output_units (special_units_descriptor);
+  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_units]);
+  const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_special_units]);
 
   text_init (&result);
   text_init (&text);

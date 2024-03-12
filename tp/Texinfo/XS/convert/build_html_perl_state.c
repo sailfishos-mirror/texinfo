@@ -364,6 +364,9 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
   if (!converter->hv)
     return;
 
+  if (converter->external_references_number <= 0)
+    return;
+
   hv = converter->hv;
 
 #define FETCH(key) key##_sv = hv_fetch (hv, #key, strlen (#key), 0);

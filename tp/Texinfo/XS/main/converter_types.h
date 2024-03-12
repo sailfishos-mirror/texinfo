@@ -719,6 +719,8 @@ typedef struct CONVERTER {
 
   /* HTML specific */
     /* set for a converter */
+    int external_references_number; /* total number of external references
+                                       that could be called */
     COMMAND_ID_LIST no_arg_formatted_cmd;
     COMMAND_ID_LIST style_formatted_cmd;
     COMMAND_ID_LIST accent_cmd;

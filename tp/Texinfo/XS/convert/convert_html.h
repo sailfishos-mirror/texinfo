@@ -205,19 +205,14 @@ void html_translate_names (CONVERTER *self);
 
 void html_prepare_simpletitle (CONVERTER *self);
 void html_prepare_converted_output_info (CONVERTER *self);
-void html_prepare_title_titlepage (CONVERTER *self, int output_units_descriptor,
-                                   const char *output_file,
+void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                                    const char *output_filename);
 
-char *html_convert_convert (CONVERTER *self, const ELEMENT *root,
-                            int output_units_descriptor,
-                            int special_units_descriptor);
+char *html_convert_convert (CONVERTER *self, const ELEMENT *root);
 char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,
                          const char *explanation);
 
 char *html_convert_output (CONVERTER *self, const ELEMENT *root,
-                           int output_units_descriptor,
-                           int special_units_descriptor,
                            const char *output_file,
                            const char *destination_directory,
                            const char *output_filename,

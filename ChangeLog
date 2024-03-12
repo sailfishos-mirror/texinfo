@@ -10,6 +10,31 @@
 
 2024-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	No information to Perl if no Perl functions are potentially called
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_title_titlepage)
+	(html_convert_convert, html_convert_output),
+	tp/Texinfo/XS/convert/convert_html.c (html_convert_convert)
+	(html_prepare_title_titlepage, html_convert_output): get output units
+	descriptors from converter.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
+	tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): set a counter based
+	on total Perl function references potentially called.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units)
+	(html_prepare_units_directions_files)
+	(html_prepare_output_units_global_targets)
+	(html_prepare_converted_output_info, html_prepare_title_titlepage),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state),
+	tp/Texinfo/XS/convert/convert_html.c (html_translate_names),
+	tp/Texinfo/XS/main/build_perl_info.c (setup_output_units_handler):
+	do not pass information to Perl if Perl functions are not called.
+
+2024-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs
 	(html_prepare_units_directions_files),
 	tp/Texinfo/XS/convert/convert_html.c

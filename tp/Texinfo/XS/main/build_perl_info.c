@@ -1783,7 +1783,8 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
               if (direction_unit->unit_type != OU_external_node_unit)
                 {
                   char *msg;
-                  xasprintf (&msg, "BUG: not external node but no perl ref %s",
+                  xasprintf (&msg, "BUG: not external node but no"
+                                   " output unit Perl ref: %s",
                                    output_unit_texi (direction_unit));
                   fatal (msg);
                   free (msg);
@@ -1951,10 +1952,41 @@ build_output_units_list (size_t output_units_descriptor)
                                         output_units_descriptor))
     {/* no output unit */
       av_undef (av_output_units);
-      return newSV(0);
+      return newSV (0);
     }
   else
     return newRV_noinc ((SV *) av_output_units);
+}
+
+/* a fake output units list that only holds a descriptor allowing
+   to retrieve the C data */
+SV *
+setup_output_units_handler (size_t output_units_descriptor)
+{
+  AV *av_output_units;
+  HV *dummy_output_unit;
+  SV *sv;
+  const OUTPUT_UNIT_LIST *output_units;
+
+  dTHX;
+
+  output_units = retrieve_output_units (output_units_descriptor);
+
+  if (!output_units || !output_units->number)
+    return newSV (0);
+
+  av_output_units = newAV ();
+
+  dummy_output_unit = newHV ();
+
+  hv_store (dummy_output_unit, "output_units_descriptor",
+            strlen ("output_units_descriptor"),
+            newSViv (output_units_descriptor), 0);
+
+  sv = newRV_inc ((SV *) dummy_output_unit);
+  av_push (av_output_units, sv);
+
+  return newRV_noinc ((SV *) av_output_units);
 }
 
 void
@@ -1967,9 +1999,9 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
   if (!SvOK (output_units_sv))
     {
       const OUTPUT_UNIT_LIST *output_units
-         = retrieve_output_units (output_units_descriptor);
+        = retrieve_output_units (output_units_descriptor);
       if (output_units && output_units->number)
-        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)",
+        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)\n",
                  output_units->number, output_units_descriptor);
       return;
     }
@@ -1989,7 +2021,7 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
     is better to have more debug messages.
   */
       fprintf (stderr, "BUG: rebuild_output_units_list: output unit"
-                       "descriptor not found: %zu\n", output_units_descriptor);
+                  " descriptor not found: %zu\n", output_units_descriptor);
       return;
     }
 }

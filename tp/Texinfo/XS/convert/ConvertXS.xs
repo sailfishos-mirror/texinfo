@@ -1858,7 +1858,6 @@ html_prepare_conversion_units (SV *converter_in, ...)
          SV *special_units_sv;
          SV *associated_special_units_sv;
          HV *output_units_hv;
-         SV **document_sv;
       PPCODE:
          if (items > 2 && SvOK(ST(2)))
            document_name = SvPVutf8_nolen (ST(2));
@@ -1873,24 +1872,43 @@ html_prepare_conversion_units (SV *converter_in, ...)
            self->use_unicode_text = 1;
 
          html_prepare_conversion_units (self);
+         converter_hv = (HV *) SvRV (converter_in);
 
+         /* internal links code is in Perl */
+         if (self->conf->INTERNAL_LINKS.string)
+           self->external_references_number++;
+         /* Conversion to LaTeX is in Perl */
+         if (self->conf->CONVERT_TO_LATEX_IN_MATH.integer > 0)
+           self->external_references_number++;
+
+         if (self->external_references_number > 0)
+           {
          /* need to setup the Perl tree before rebuilding the output units as
             they refer to Perl root command elements */
-         converter_hv = (HV *) SvRV (converter_in);
-         document_sv
-           = hv_fetch (converter_hv, "document", strlen ("document"), 0);
-         if (document_sv)
-           {
-             HV *document_hv = (HV *) SvRV (*document_sv);
-             store_texinfo_tree (self->document, document_hv);
-           }
+             SV **document_sv
+               = hv_fetch (converter_hv, "document", strlen ("document"), 0);
+             if (document_sv)
+               {
+                 HV *document_hv = (HV *) SvRV (*document_sv);
+                 store_texinfo_tree (self->document, document_hv);
+               }
 
-         output_units_sv = build_output_units_list
-              (self->output_units_descriptors[OUDT_units]);
-         special_units_sv = build_output_units_list
-              (self->output_units_descriptors[OUDT_special_units]);
-         associated_special_units_sv = build_output_units_list
-              (self->output_units_descriptors[OUDT_associated_special_units]);
+             output_units_sv = build_output_units_list
+               (self->output_units_descriptors[OUDT_units]);
+             special_units_sv = build_output_units_list
+               (self->output_units_descriptors[OUDT_special_units]);
+             associated_special_units_sv = build_output_units_list
+               (self->output_units_descriptors[OUDT_associated_special_units]);
+           }
+         else
+           {
+             output_units_sv = setup_output_units_handler
+               (self->output_units_descriptors[OUDT_units]);
+             special_units_sv = setup_output_units_handler
+               (self->output_units_descriptors[OUDT_special_units]);
+             associated_special_units_sv = setup_output_units_handler
+               (self->output_units_descriptors[OUDT_associated_special_units]);
+           }
 
          output_units_hv = (HV *) SvRV (output_units_sv);
          hv_store (converter_hv, "document_units", strlen ("document_units"),
@@ -1915,7 +1933,7 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
   PREINIT:
          CONVERTER *self = 0;
          FILE_SOURCE_INFO_LIST *files_source_info = 0;
-         SV *files_source_info_sv;
+         SV *files_source_info_sv = 0;
      CODE:
          self = get_sv_converter (converter_in,
                                   "html_prepare_units_directions_files");
@@ -1923,23 +1941,26 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
                     output_file, destination_directory, output_filename,
                                  document_name);
 
-         rebuild_output_units_list (output_units_in,
+         if (self->external_references_number > 0)
+           {
+             rebuild_output_units_list (output_units_in,
                            self->output_units_descriptors[OUDT_units]);
-         rebuild_output_units_list (special_units_in,
+             rebuild_output_units_list (special_units_in,
                       self->output_units_descriptors[OUDT_special_units]);
-         rebuild_output_units_list (associated_special_units_in,
-             self->output_units_descriptors[OUDT_associated_special_units]);
+             rebuild_output_units_list (associated_special_units_in,
+                self->output_units_descriptors[OUDT_associated_special_units]);
 
-         files_source_info_sv
-           = build_html_files_source_info (files_source_info);
-         pass_html_global_units_directions (converter_in,
+             files_source_info_sv
+               = build_html_files_source_info (files_source_info);
+             pass_html_global_units_directions (converter_in,
                                             self->global_units_directions,
                                             self->special_units_direction_name);
-         pass_html_elements_in_file_count (converter_in,
-                                           &self->output_unit_files);
+             pass_html_elements_in_file_count (converter_in,
+                                               &self->output_unit_files);
 
-         /* file names API */
-         pass_output_unit_files (converter_in, &self->output_unit_files);
+             /* file names API */
+             pass_output_unit_files (converter_in, &self->output_unit_files);
+           }
 
          RETVAL = files_source_info_sv;
     OUTPUT:
@@ -1954,16 +1975,19 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
                                   "html_prepare_output_units_global_targets");
          html_prepare_output_units_global_targets (self);
 
-         rebuild_output_units_list (output_units_in,
+         if (self->external_references_number > 0)
+           {
+             rebuild_output_units_list (output_units_in,
                                 self->output_units_descriptors[OUDT_units]);
-         rebuild_output_units_list (special_units_in,
+             rebuild_output_units_list (special_units_in,
                         self->output_units_descriptors[OUDT_special_units]);
-         rebuild_output_units_list (associated_special_units_in,
-             self->output_units_descriptors[OUDT_associated_special_units]);
+             rebuild_output_units_list (associated_special_units_in,
+               self->output_units_descriptors[OUDT_associated_special_units]);
 
-         pass_html_global_units_directions (converter_in,
+             pass_html_global_units_directions (converter_in,
                                             self->global_units_directions,
                                             self->special_units_direction_name);
+           }
 
 
 void
@@ -2012,25 +2036,30 @@ html_prepare_converted_output_info (SV *converter_in)
              HV *converter_hv = (HV *) SvRV (converter_in);
 
              html_prepare_converted_output_info (self);
-             if (self->added_title_tree)
-               build_texinfo_tree (self->title_tree, 1);
 
-             if (self->simpletitle_tree)
-               build_simpletitle (self, converter_hv);
+             if (self->external_references_number > 0)
+               {
+                 if (self->added_title_tree)
+                   build_texinfo_tree (self->title_tree, 1);
 
-             hv_store (converter_hv, "title_tree", strlen ("title_tree"),
-                       newRV_inc ((SV *) self->title_tree->hv), 0);
-             hv_store (converter_hv, "title_string", strlen ("title_string"),
-                       newSVpv_utf8 (self->title_string, 0), 0);
+                 if (self->simpletitle_tree)
+                   build_simpletitle (self, converter_hv);
 
-             if (self->copying_comment)
-               hv_store (converter_hv, "copying_comment",
-                         strlen ("copying_comment"),
-                         newSVpv_utf8 (self->copying_comment, 0), 0);
-             if (self->documentdescription_string)
-               hv_store (converter_hv, "documentdescription_string",
-                         strlen ("documentdescription_string"),
-                         newSVpv_utf8 (self->documentdescription_string, 0), 0);
+                 hv_store (converter_hv, "title_tree", strlen ("title_tree"),
+                           newRV_inc ((SV *) self->title_tree->hv), 0);
+                 hv_store (converter_hv, "title_string",
+                           strlen ("title_string"),
+                           newSVpv_utf8 (self->title_string, 0), 0);
+
+                 if (self->copying_comment)
+                   hv_store (converter_hv, "copying_comment",
+                             strlen ("copying_comment"),
+                             newSVpv_utf8 (self->copying_comment, 0), 0);
+                 if (self->documentdescription_string)
+                   hv_store (converter_hv, "documentdescription_string",
+                             strlen ("documentdescription_string"),
+                      newSVpv_utf8 (self->documentdescription_string, 0), 0);
+               }
            }
 
 void
@@ -2039,27 +2068,20 @@ html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file
          const char *output_filename = (char *)SvPVutf8_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
-         int output_units_descriptor = 0;
      CODE:
          self = get_sv_converter (converter_in, "html_prepare_title_titlepage");
-         if (SvOK (output_units_in))
-           output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in,
-                         "html_prepare_title_titlepage output units");
-
          if (self)
            {
              html_converter_prepare_output_sv (converter_in, self);
 
-             html_prepare_title_titlepage (self, output_units_descriptor,
-                                           output_file, output_filename);
+             html_prepare_title_titlepage (self, output_file, output_filename);
              if (self->modified_state)
                {
                  build_html_formatting_state (self, self->modified_state);
                  self->modified_state = 0;
                }
  /* should always happen as a string is always returned, possibly empty */
-             if (self->title_titlepage)
+             if (self->title_titlepage && self->external_references_number > 0)
                {
                  HV *converter_hv = (HV *) SvRV (converter_in);
                  SV *title_titlepage_sv
@@ -2074,8 +2096,6 @@ html_convert_convert (SV *converter_in, SV *document_in, SV *output_units_in, SV
   PREINIT:
          CONVERTER *self = 0;
          DOCUMENT *document = 0;
-         int output_units_descriptor = 0;
-         int special_units_descriptor = 0;
          char *result;
      CODE:
          self = get_sv_converter (converter_in, "html_convert_convert");
@@ -2083,17 +2103,7 @@ html_convert_convert (SV *converter_in, SV *document_in, SV *output_units_in, SV
             do not match.  There is no reason why it would happen, though */
          document = get_sv_document_document (document_in,
                                               "html_convert_convert");
-         if (SvOK (output_units_in))
-           output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in,
-                         "html_convert_convert output units");
-         if (SvOK (special_units_in))
-           special_units_descriptor
-             = get_sv_output_units_descriptor (special_units_in,
-                        "html_convert_convert special units");
-         result = html_convert_convert (self, document->tree,
-                                        output_units_descriptor,
-                                        special_units_descriptor);
+         result = html_convert_convert (self, document->tree);
          if (self->modified_state)
            {
              build_html_formatting_state (self, self->modified_state);
@@ -2142,27 +2152,15 @@ html_convert_output (SV *converter_in, SV *document_in, SV *output_units_in, SV 
   PREINIT:
          CONVERTER *self = 0;
          DOCUMENT *document = 0;
-         int output_units_descriptor = 0;
-         int special_units_descriptor = 0;
          SV *result_sv = 0;
    CODE:
          /* add warn string? */
          self = get_sv_converter (converter_in, "html_convert_output");
          document = get_sv_document_document (document_in,
                                               "html_convert_output");
-         if (SvOK (output_units_in))
-           output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in,
-                         "html_convert_output output units");
-         if (SvOK (special_units_in))
-           special_units_descriptor
-             = get_sv_output_units_descriptor (special_units_in,
-                        "html_convert_output special units");
-
          if (self && document)
            {
              char *result = html_convert_output (self, document->tree,
-                        output_units_descriptor, special_units_descriptor,
                         output_file, destination_directory, output_filename,
                         document_name);
 
