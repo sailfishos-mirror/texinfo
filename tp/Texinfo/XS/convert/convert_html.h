@@ -196,8 +196,6 @@ void html_prepare_conversion_units_targets (CONVERTER *self,
                                      const char *document_name);
 
 FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
-          int output_units_descriptor,
-          int special_units_descriptor, int associated_special_units_descriptor,
           const char *output_file, const char *destination_directory,
           const char *output_filename, const char *document_name);
 

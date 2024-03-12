@@ -5753,19 +5753,17 @@ prepare_special_units_directions (CONVERTER *self,
 /* Return structure to be freed by the caller */
 FILE_SOURCE_INFO_LIST *
 html_prepare_units_directions_files (CONVERTER *self,
-          int output_units_descriptor,
-          int special_units_descriptor, int associated_special_units_descriptor,
           const char *output_file, const char *destination_directory,
           const char *output_filename, const char *document_name)
 {
   int i;
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
-  OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
-  OUTPUT_UNIT_LIST *special_units
-    = retrieve_output_units (special_units_descriptor);
-  OUTPUT_UNIT_LIST *associated_special_units
-    = retrieve_output_units (associated_special_units_descriptor);
+  OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_units]);
+  OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_special_units]);
+  OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_associated_special_units]);
 
   html_prepare_output_units_global_targets (self);
 

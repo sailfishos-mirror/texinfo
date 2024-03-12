@@ -1914,36 +1914,21 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          const char *document_name = (char *)SvPVutf8_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
-         int output_units_descriptor = 0;
-         int special_units_descriptor = 0;
-         int associated_special_units_descriptor = 0;
          FILE_SOURCE_INFO_LIST *files_source_info = 0;
          SV *files_source_info_sv;
      CODE:
          self = get_sv_converter (converter_in,
                                   "html_prepare_units_directions_files");
-         if (SvOK (output_units_in))
-           output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in,
-                         "html_prepare_units_directions_files output units");
-         if (SvOK (special_units_in))
-           special_units_descriptor
-             = get_sv_output_units_descriptor (special_units_in,
-                        "html_prepare_units_directions_files special units");
-         if (SvOK (associated_special_units_in))
-           associated_special_units_descriptor
-             = get_sv_output_units_descriptor (associated_special_units_in,
-             "html_prepare_units_directions_files associated special units");
-
          files_source_info = html_prepare_units_directions_files (self,
-                    output_units_descriptor, special_units_descriptor,
-                    associated_special_units_descriptor, output_file,
-                    destination_directory, output_filename, document_name);
+                    output_file, destination_directory, output_filename,
+                                 document_name);
 
-         rebuild_output_units_list (output_units_in, output_units_descriptor);
-         rebuild_output_units_list (special_units_in, special_units_descriptor);
+         rebuild_output_units_list (output_units_in,
+                           self->output_units_descriptors[OUDT_units]);
+         rebuild_output_units_list (special_units_in,
+                      self->output_units_descriptors[OUDT_special_units]);
          rebuild_output_units_list (associated_special_units_in,
-                                    associated_special_units_descriptor);
+             self->output_units_descriptors[OUDT_associated_special_units]);
 
          files_source_info_sv
            = build_html_files_source_info (files_source_info);
