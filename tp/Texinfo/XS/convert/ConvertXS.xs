@@ -1854,9 +1854,6 @@ html_prepare_conversion_units (SV *converter_in, ...)
          HV *converter_hv;
          const char *document_name = 0;
          CONVERTER *self;
-         int output_units_descriptor = 0;
-         int special_units_descriptor = 0;
-         int associated_special_units_descriptor = 0;
          SV *output_units_sv;
          SV *special_units_sv;
          SV *associated_special_units_sv;
@@ -1875,9 +1872,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
              && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME.string, "utf-8"))
            self->use_unicode_text = 1;
 
-         html_prepare_conversion_units (self,
-              &output_units_descriptor, &special_units_descriptor,
-              &associated_special_units_descriptor);
+         html_prepare_conversion_units (self);
 
          /* need to setup the Perl tree before rebuilding the output units as
             they refer to Perl root command elements */
@@ -1890,10 +1885,12 @@ html_prepare_conversion_units (SV *converter_in, ...)
              store_texinfo_tree (self->document, document_hv);
            }
 
-         output_units_sv = build_output_units_list (output_units_descriptor);
-         special_units_sv = build_output_units_list (special_units_descriptor);
-         associated_special_units_sv
-           = build_output_units_list (associated_special_units_descriptor);
+         output_units_sv = build_output_units_list
+              (self->output_units_descriptors[OUDT_units]);
+         special_units_sv = build_output_units_list
+              (self->output_units_descriptors[OUDT_special_units]);
+         associated_special_units_sv = build_output_units_list
+              (self->output_units_descriptors[OUDT_associated_special_units]);
 
          output_units_hv = (HV *) SvRV (output_units_sv);
          hv_store (converter_hv, "document_units", strlen ("document_units"),
@@ -1902,9 +1899,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          /* calls perl customization functions, so need to be done after
             build_output_units_list calls to be able to retrieve Perl
             output units references */
-         html_prepare_conversion_units_targets (self, document_name,
-              output_units_descriptor, special_units_descriptor,
-              associated_special_units_descriptor);
+         html_prepare_conversion_units_targets (self, document_name);
 
          EXTEND(SP, 3);
          PUSHs(sv_2mortal(output_units_sv));
@@ -1969,33 +1964,17 @@ void
 html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in)
   PREINIT:
          CONVERTER *self = 0;
-         int output_units_descriptor = 0;
-         int special_units_descriptor = 0;
-         int associated_special_units_descriptor = 0;
      CODE:
          self = get_sv_converter (converter_in,
                                   "html_prepare_output_units_global_targets");
-         if (SvOK (output_units_in))
-           output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in,
-                         "html_prepare_output_units_global_targets output units");
-         if (SvOK (special_units_in))
-           special_units_descriptor
-             = get_sv_output_units_descriptor (special_units_in,
-                        "html_prepare_output_units_global_targets special units");
-         if (SvOK (associated_special_units_in))
-           associated_special_units_descriptor
-             = get_sv_output_units_descriptor (associated_special_units_in,
-             "html_prepare_output_units_global_targets associated special units");
+         html_prepare_output_units_global_targets (self);
 
-         html_prepare_output_units_global_targets (self,
-                output_units_descriptor, special_units_descriptor,
-                associated_special_units_descriptor);
-
-         rebuild_output_units_list (output_units_in, output_units_descriptor);
-         rebuild_output_units_list (special_units_in, special_units_descriptor);
+         rebuild_output_units_list (output_units_in,
+                                self->output_units_descriptors[OUDT_units]);
+         rebuild_output_units_list (special_units_in,
+                        self->output_units_descriptors[OUDT_special_units]);
          rebuild_output_units_list (associated_special_units_in,
-                                    associated_special_units_descriptor);
+             self->output_units_descriptors[OUDT_associated_special_units]);
 
          pass_html_global_units_directions (converter_in,
                                             self->global_units_directions,

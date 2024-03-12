@@ -354,7 +354,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                && builtin_command_data[data_cmd].data == BLOCK_region)
         {
           const OUTPUT_UNIT_LIST *output_units
-             = retrieve_output_units (self->document_units_descriptor);
+         = retrieve_output_units (self->output_units_descriptors[OUDT_units]);
           if (data_cmd == CM_copying
               && self->document->global_commands->insertcopying.number > 0)
             {
@@ -1416,9 +1416,7 @@ compare_special_units (const void *a, const void *b)
 }
 
 void
-prepare_special_units (CONVERTER *self, int output_units_descriptor,
-                               int *special_units_descriptor_ref,
-                               int *associated_special_units_descriptor_ref)
+prepare_special_units (CONVERTER *self, int output_units_descriptor)
 {
   int i;
   STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
@@ -1442,8 +1440,8 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor,
   /* for separate special output units */
   STRING_LIST *do_special = new_string_list ();
 
-  *special_units_descriptor_ref = special_units_descriptor;
-  *associated_special_units_descriptor_ref
+  self->output_units_descriptors[OUDT_special_units] = special_units_descriptor;
+  self->output_units_descriptors[OUDT_associated_special_units]
      = associated_special_units_descriptor;
 
   if (self->document->sections_list
@@ -1674,10 +1672,7 @@ static const enum command_id conf_for_special_units[]
                           = {CM_footnotestyle, 0};
 
 void
-html_prepare_conversion_units (CONVERTER *self,
-                               int *output_units_descriptor_ref,
-                               int *special_units_descriptor_ref,
-                               int *associated_special_units_descriptor_ref)
+html_prepare_conversion_units (CONVERTER *self)
 {
   int output_units_descriptor;
 
@@ -1685,11 +1680,7 @@ html_prepare_conversion_units (CONVERTER *self,
     output_units_descriptor = split_by_node (self->document);
   else
     output_units_descriptor = split_by_section (self->document);
-  *output_units_descriptor_ref = output_units_descriptor;
-
-  /* Needs to be set early in case it would be needed to find some region
-     command associated root command. */
-  self->document_units_descriptor = output_units_descriptor;
+  self->output_units_descriptors[OUDT_units] = output_units_descriptor;
 
   /* the presence of contents elements in the document is used in diverse
      places, set it once for all here */
@@ -1705,21 +1696,18 @@ html_prepare_conversion_units (CONVERTER *self,
     @footnotestyle should only appear in the preamble, and it makes sense
     to have something consistent in the whole document for footnotes position.
    */
-  prepare_special_units (self, output_units_descriptor,
-                         special_units_descriptor_ref,
-                         associated_special_units_descriptor_ref);
+  prepare_special_units (self, output_units_descriptor);
 
   /* reset to the default */
   set_global_document_commands (self, CL_before, conf_for_special_units);
 }
 
 void
-set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
-                                 const char *document_name)
+set_special_units_targets_files (CONVERTER *self, const char *document_name)
 {
   int i;
-  OUTPUT_UNIT_LIST *special_units
-    = retrieve_output_units (special_units_descriptor);
+  OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->output_units_descriptors[OUDT_special_units]);
 
   char *extension = "";
   if (self->conf->EXTENSION.string)
@@ -1804,11 +1792,10 @@ set_special_units_targets_files (CONVERTER *self, int special_units_descriptor,
 }
 
 static void
-prepare_associated_special_units_targets (CONVERTER *self,
-                                 int associated_special_units_descriptor)
+prepare_associated_special_units_targets (CONVERTER *self)
 {
-  OUTPUT_UNIT_LIST *associated_special_units
-    = retrieve_output_units (associated_special_units_descriptor);
+  OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
+   (self->output_units_descriptors[OUDT_associated_special_units]);
 
   if (associated_special_units && associated_special_units->number > 0)
     {
@@ -3501,7 +3488,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
       as in the test cases.  Also for things in @titlepage when
       titlepage is not output. */
       const OUTPUT_UNIT_LIST *output_units
-         = retrieve_output_units (self->document_units_descriptor);
+         = retrieve_output_units (self->output_units_descriptors[OUDT_units]);
       if (output_units->list[0]->unit_filename)
         { /* In that case use the first page. */
           set_target_filename = (FILE_NUMBER_NAME *)
@@ -5008,20 +4995,15 @@ sort_cmd_targets (CONVERTER *self)
    files for document units to be set */
 void
 html_prepare_conversion_units_targets (CONVERTER *self,
-                                       const char *document_name,
-                                       int output_units_descriptor,
-                                       int special_units_descriptor,
-                                       int associated_special_units_descriptor)
+                                       const char *document_name)
 {
   /*
    Do that before the other elements, to be sure that special page ids
    are registered before elements id are.
    */
-  set_special_units_targets_files (self, special_units_descriptor,
-                                   document_name);
+  set_special_units_targets_files (self, document_name);
 
-  prepare_associated_special_units_targets (self,
-                                  associated_special_units_descriptor);
+  prepare_associated_special_units_targets (self);
 
   set_root_commands_targets_node_files (self);
 
@@ -5036,22 +5018,20 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 /* Associate output units to the global targets, First, Last, Top, Index.
    and special output units */
 void
-html_prepare_output_units_global_targets (CONVERTER *self,
-                                        int output_units_descriptor,
-                                        int special_units_descriptor,
-                                        int associated_special_units_descriptor)
+html_prepare_output_units_global_targets (CONVERTER *self)
 {
   int i;
   int all_special_units_nr = 0;
   int s;
-  const OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
+  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+   (self->output_units_descriptors[OUDT_units]);
 
   const OUTPUT_UNIT *top_output_unit = get_top_unit (self->document,
                                                      output_units);
 
-  int special_output_units_lists[2] = {special_units_descriptor,
-                                       associated_special_units_descriptor};
+  int special_output_units_lists[2] = {
+    self->output_units_descriptors[OUDT_special_units],
+    self->output_units_descriptors[OUDT_associated_special_units]};
 
   self->global_units_directions[D_First] = output_units->list[0];
   self->global_units_directions[D_Last]
@@ -5787,9 +5767,7 @@ html_prepare_units_directions_files (CONVERTER *self,
   OUTPUT_UNIT_LIST *associated_special_units
     = retrieve_output_units (associated_special_units_descriptor);
 
-  html_prepare_output_units_global_targets (self, output_units_descriptor,
-                                             special_units_descriptor,
-                                       associated_special_units_descriptor);
+  html_prepare_output_units_global_targets (self);
 
   split_pages (output_units, self->conf->SPLIT.string);
 

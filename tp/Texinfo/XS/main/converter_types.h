@@ -35,6 +35,12 @@ enum sv_string_type {
   svt_char,
 };
 
+enum output_units_descriptor_type {
+   OUDT_units,
+   OUDT_special_units,
+   OUDT_associated_special_units,
+};
+
 enum formatting_reference_status {
    FRS_status_none,
    FRS_status_default_set,        /* default is set, no customization (or
@@ -698,7 +704,6 @@ typedef struct CONVERTER {
     STRING_LIST small_strings;
 
     DOCUMENT *document;
-    int document_units_descriptor;
 
     struct TEXT_OPTIONS *convert_text_options;
     struct TEXT_OPTIONS *convert_index_text_options;
@@ -762,6 +767,7 @@ typedef struct CONVERTER {
     const char **direction_unit_direction_name;
 
     /* set for a document */
+    int output_units_descriptors[OUDT_associated_special_units+1];
     enum htmlxref_split_type document_htmlxref_split_type;
     const OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;
