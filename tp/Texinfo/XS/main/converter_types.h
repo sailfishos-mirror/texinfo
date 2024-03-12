@@ -119,6 +119,21 @@ enum direction_string_context {
   TDS_context_string,
 };
 
+#define HTML_FILE_ID_SETTING_NAMES_LIST \
+  html_file_id_setting_name(special_unit_target_file_name) \
+  html_file_id_setting_name(label_target_name) \
+  html_file_id_setting_name(node_file_name)\
+  html_file_id_setting_name(sectioning_command_target_name)\
+  html_file_id_setting_name(unit_file_name)\
+  html_file_id_setting_name(external_target_split_name)\
+  html_file_id_setting_name(external_target_non_split_name)
+
+enum html_file_id_setting {
+  #define html_file_id_setting_name(name) FIS_## name,
+   HTML_FILE_ID_SETTING_NAMES_LIST
+  #undef html_file_id_setting_name
+};
+
 /* %default_formatting_references in Texinfo::HTML */
 #define HTML_FORMATTING_REFERENCES_LIST \
   html_fr_reference(format_begin_file) \
@@ -713,6 +728,9 @@ typedef struct CONVERTER {
     STRING_LIST css_import_lines;
     /* filled based on css_element_class_styles when needed */
     STRING_LIST css_element_class_list;
+  /* perl function references. This should be SV *sv,
+     but we don't want to include the Perl headers everywhere; */
+    const void *file_id_setting_refs[FIS_external_target_non_split_name+1];
     FORMATTING_REFERENCE
        formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE

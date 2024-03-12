@@ -155,6 +155,7 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **commands_open_sv;
   SV **commands_conversion_sv;
   SV **output_units_conversion_sv;
+  SV **file_id_setting_sv;
   SV **code_types_sv;
   SV **upper_case_commands_sv;
   SV **pre_class_types_sv;
@@ -546,6 +547,25 @@ html_converter_initialize_sv (SV *converter_sv,
             default_special_unit_body_hv,
             special_unit_body_hv);
         }
+    }
+
+  FETCH(file_id_setting)
+
+  if (file_id_setting_sv)
+    {
+      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
+      #define html_file_id_setting_name(name) \
+      {\
+        SV **name##_sv = hv_fetch (file_id_setting_hv, #name, \
+                                   strlen (#name), 0);\
+        if (name##_sv)\
+          {\
+            converter->file_id_setting_refs[FIS_##name]\
+              = (const void *) (* name##_sv);\
+          }\
+      }
+       HTML_FILE_ID_SETTING_NAMES_LIST
+      #undef html_file_id_setting_name
     }
 
   FETCH(code_types)

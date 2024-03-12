@@ -55,79 +55,71 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
                          const OUTPUT_UNIT *special_unit, const char *target,
                                                 const char *default_filename)
 {
-  SV **file_id_setting_sv;
+  SV *special_unit_target_file_name_sv;
 
   dTHX;
 
   if (!self->hv)
     return 0;
 
-  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
-                                 strlen ("file_id_setting"), 0);
-  if (file_id_setting_sv)
+  special_unit_target_file_name_sv
+  = (SV *) self->file_id_setting_refs[FIS_special_unit_target_file_name];
+
+  if (special_unit_target_file_name_sv)
     {
-      SV **special_unit_target_file_name_sv;
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      special_unit_target_file_name_sv = hv_fetch (file_id_setting_hv,
-                                   "special_unit_target_file_name",
-                                   strlen ("special_unit_target_file_name"), 0);
+      int count;
+      char *target_ret;
+      char *filename = 0;
+      SV *target_ret_sv;
+      SV *filename_sv;
+      STRLEN len;
+      TARGET_FILENAME *result = new_target_filename ();
 
-      if (special_unit_target_file_name_sv)
+      if (!special_unit->hv)
         {
-          int count;
-          char *target_ret;
-          char *filename = 0;
-          SV *target_ret_sv;
-          SV *filename_sv;
-          STRLEN len;
-          TARGET_FILENAME *result = new_target_filename ();
-
-          if (!special_unit->hv)
-            {
-              /* TODO rebuild output units */
-              return 0;
-            }
-
-          dSP;
-
-          ENTER;
-          SAVETMPS;
-
-          PUSHMARK(SP);
-          EXTEND(SP, 4);
-
-          PUSHs(sv_2mortal (newRV_inc (self->hv)));
-          PUSHs(sv_2mortal (newRV_inc (special_unit->hv)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (target, 0)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (default_filename, 0)));
-          PUTBACK;
-
-          count = call_sv (*special_unit_target_file_name_sv, G_LIST);
-
-          SPAGAIN;
-
-          if (count != 2)
-            croak("special_unit_target_file_name should return 2 items\n");
-
-          filename_sv = POPs;
-          if (SvOK (filename_sv))
-            {
-              STRLEN len;
-              filename = SvPVutf8 (filename_sv, len);
-              result->filename = non_perl_strndup (filename, len);
-            }
-
-          target_ret_sv = POPs;
-          target_ret = SvPVutf8 (target_ret_sv, len);
-          result->target = non_perl_strndup (target_ret, len);
-
-          PUTBACK;
-
-          FREETMPS;
-          LEAVE;
-
-          return result;
+          /* TODO rebuild output units */
+          return 0;
         }
+
+      dSP;
+
+      ENTER;
+      SAVETMPS;
+
+      PUSHMARK(SP);
+      EXTEND(SP, 4);
+
+      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (newRV_inc (special_unit->hv)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (target, 0)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (default_filename, 0)));
+      PUTBACK;
+
+      count = call_sv (special_unit_target_file_name_sv, G_LIST);
+
+      SPAGAIN;
+
+      if (count != 2)
+        croak("special_unit_target_file_name should return 2 items\n");
+
+      filename_sv = POPs;
+      if (SvOK (filename_sv))
+        {
+          STRLEN len;
+          filename = SvPVutf8 (filename_sv, len);
+          result->filename = non_perl_strndup (filename, len);
+        }
+
+      target_ret_sv = POPs;
+      target_ret = SvPVutf8 (target_ret_sv, len);
+      result->target = non_perl_strndup (target_ret, len);
+
+      PUTBACK;
+
+      FREETMPS;
+      LEAVE;
+
+      return result;
     }
   return 0;
 }
@@ -137,7 +129,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
                 const char *normalized, const ELEMENT *label_element,
                 const char *target, int *called)
 {
-  SV **file_id_setting_sv;
+  SV *label_target_name_sv;
 
   dTHX;
 
@@ -146,64 +138,56 @@ call_file_id_setting_label_target_name (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
-                                 strlen ("file_id_setting"), 0);
-  if (file_id_setting_sv)
+  label_target_name_sv
+    = (SV *) self->file_id_setting_refs[FIS_label_target_name];
+
+  if (label_target_name_sv)
     {
-      SV **label_target_name_sv;
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      label_target_name_sv = hv_fetch (file_id_setting_hv,
-                                   "label_target_name",
-                                   strlen ("label_target_name"), 0);
+      int count;
+      char *target_ret;
+      STRLEN len;
+      char *result;
+      SV *target_ret_sv;
+      SV *label_element_sv;
 
-      if (label_target_name_sv)
-        {
-          int count;
-          char *target_ret;
-          STRLEN len;
-          char *result;
-          SV *target_ret_sv;
-          SV *label_element_sv;
+      if (label_element)
+        label_element_sv = newRV_inc (label_element->hv);
+      else
+        label_element_sv = newSV (0);
 
-          if (label_element)
-            label_element_sv = newRV_inc (label_element->hv);
-          else
-            label_element_sv = newSV (0);
+      *called = 1;
 
-          *called = 1;
+      dSP;
 
-          dSP;
+      ENTER;
+      SAVETMPS;
 
-          ENTER;
-          SAVETMPS;
+      PUSHMARK(SP);
+      EXTEND(SP, 4);
 
-          PUSHMARK(SP);
-          EXTEND(SP, 4);
+      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (newSVpv (normalized, 0)));
+      PUSHs(sv_2mortal (label_element_sv));
+      PUSHs(sv_2mortal (newSVpv (target, 0)));
+      PUTBACK;
 
-          PUSHs(sv_2mortal (newRV_inc (self->hv)));
-          PUSHs(sv_2mortal (newSVpv (normalized, 0)));
-          PUSHs(sv_2mortal (label_element_sv));
-          PUSHs(sv_2mortal (newSVpv (target, 0)));
-          PUTBACK;
+      count = call_sv (label_target_name_sv, G_LIST);
 
-          count = call_sv (*label_target_name_sv, G_LIST);
+      SPAGAIN;
 
-          SPAGAIN;
+      if (count != 1)
+        croak("label_target_name should return 1 item\n");
 
-          if (count != 1)
-            croak("label_target_name should return 1 item\n");
+      target_ret_sv = POPs;
+      target_ret = SvPVutf8 (target_ret_sv, len);
+      result = non_perl_strndup (target_ret, len);
 
-          target_ret_sv = POPs;
-          target_ret = SvPVutf8 (target_ret_sv, len);
-          result = non_perl_strndup (target_ret, len);
+      PUTBACK;
 
-          PUTBACK;
+      FREETMPS;
+      LEAVE;
 
-          FREETMPS;
-          LEAVE;
-
-          return result;
-        }
+      return result;
     }
   return 0;
 }
@@ -214,7 +198,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
                    const ELEMENT *target_element, const char *node_filename,
                    int *called)
 {
-  SV **file_id_setting_sv;
+  SV *node_file_name_sv;
 
   dTHX;
 
@@ -223,68 +207,60 @@ call_file_id_setting_node_file_name (CONVERTER *self,
   if (!self->hv)
     return 0;
 
-  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
-                                 strlen ("file_id_setting"), 0);
-  if (file_id_setting_sv)
+  node_file_name_sv
+    = (SV *) self->file_id_setting_refs[FIS_node_file_name];
+
+  if (node_file_name_sv)
     {
-      SV **node_file_name_sv;
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      node_file_name_sv = hv_fetch (file_id_setting_hv,
-                                   "node_file_name",
-                                   strlen ("node_file_name"), 0);
+      int count;
+      char *result;
+      SV *node_filename_ret_sv;
+      *called = 1;
 
-      if (node_file_name_sv)
+      if (!target_element->hv)
         {
-          int count;
-          char *result;
-          SV *node_filename_ret_sv;
-          *called = 1;
-
-          if (!target_element->hv)
-            {
-              /* TODO rebuild */
-              return 0;
-            }
-
-          dSP;
-
-          ENTER;
-          SAVETMPS;
-
-          PUSHMARK(SP);
-          EXTEND(SP, 3);
-
-          PUSHs(sv_2mortal (newRV_inc (self->hv)));
-          PUSHs(sv_2mortal (newRV_inc (target_element->hv)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (node_filename, 0)));
-          PUTBACK;
-
-          count = call_sv (*node_file_name_sv, G_LIST);
-
-          SPAGAIN;
-
-          if (count != 1)
-            croak("node_file_name should return 1 item\n");
-
-          node_filename_ret_sv = POPs;
-          /* user can return undef */
-          if (SvOK (node_filename_ret_sv))
-            {
-              char *node_filename_ret;
-              STRLEN len;
-              node_filename_ret = SvPVutf8 (node_filename_ret_sv, len);
-              result = non_perl_strndup (node_filename_ret, len);
-            }
-          else
-            result = 0;
-
-          PUTBACK;
-
-          FREETMPS;
-          LEAVE;
-
-          return result;
+          /* TODO rebuild */
+          return 0;
         }
+
+      dSP;
+
+      ENTER;
+      SAVETMPS;
+
+      PUSHMARK(SP);
+      EXTEND(SP, 3);
+
+      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (newRV_inc (target_element->hv)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (node_filename, 0)));
+      PUTBACK;
+
+      count = call_sv (node_file_name_sv, G_LIST);
+
+      SPAGAIN;
+
+      if (count != 1)
+        croak("node_file_name should return 1 item\n");
+
+      node_filename_ret_sv = POPs;
+      /* user can return undef */
+      if (SvOK (node_filename_ret_sv))
+        {
+          char *node_filename_ret;
+          STRLEN len;
+          node_filename_ret = SvPVutf8 (node_filename_ret_sv, len);
+          result = non_perl_strndup (node_filename_ret, len);
+        }
+      else
+        result = 0;
+
+      PUTBACK;
+
+      FREETMPS;
+      LEAVE;
+
+      return result;
     }
   return 0;
 }
@@ -295,87 +271,79 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
                       const char *target_contents,
                       const char *target_shortcontents, const char *filename)
 {
-  SV **file_id_setting_sv;
+  SV *sectioning_command_target_name_sv;
 
   dTHX;
 
   if (!self->hv)
     return 0;
 
-  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
-                                 strlen ("file_id_setting"), 0);
-  if (file_id_setting_sv)
+  sectioning_command_target_name_sv
+    = (SV *) self->file_id_setting_refs[FIS_sectioning_command_target_name];
+
+  if (sectioning_command_target_name_sv)
     {
-      SV **sectioning_command_target_name_sv;
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      sectioning_command_target_name_sv = hv_fetch (file_id_setting_hv,
-                                 "sectioning_command_target_name",
-                                 strlen ("sectioning_command_target_name"), 0);
+      int count;
+      STRLEN len;
+      SV *target_ret_sv;
+      SV *target_contents_ret_sv;
+      SV *target_shortcontents_ret_sv;
+      SV *filename_ret_sv;
+      char *target_ret;
+      char *target_contents_ret;
+      char *target_shortcontents_ret;
+      char *filename_ret;
+      TARGET_CONTENTS_FILENAME *result = new_target_contents_filename ();
 
-      if (sectioning_command_target_name_sv)
-        {
-          int count;
-          STRLEN len;
-          SV *target_ret_sv;
-          SV *target_contents_ret_sv;
-          SV *target_shortcontents_ret_sv;
-          SV *filename_ret_sv;
-          char *target_ret;
-          char *target_contents_ret;
-          char *target_shortcontents_ret;
-          char *filename_ret;
-          TARGET_CONTENTS_FILENAME *result = new_target_contents_filename ();
-
-          if (!command->hv)
-            {/* TODO rebuild */
-              return 0;
-            }
-
-          dSP;
-
-          ENTER;
-          SAVETMPS;
-
-          PUSHMARK(SP);
-          EXTEND(SP, 6);
-
-          PUSHs(sv_2mortal (newRV_inc (self->hv)));
-          PUSHs(sv_2mortal (newRV_inc (command->hv)));
-          PUSHs(sv_2mortal (newSVpv (target, 0)));
-          PUSHs(sv_2mortal (newSVpv (target_contents, 0)));
-          PUSHs(sv_2mortal (newSVpv (target_shortcontents, 0)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
-          PUTBACK;
-
-          count = call_sv (*sectioning_command_target_name_sv, G_LIST);
-
-          SPAGAIN;
-
-          if (count != 4)
-            croak("sectioning_command_target_name should return 4 items\n");
-
-          filename_ret_sv = POPs;
-          filename_ret = SvPVutf8 (filename_ret_sv, len);
-          result->filename = non_perl_strndup (filename_ret, len);
-          target_shortcontents_ret_sv = POPs;
-          target_shortcontents_ret = SvPVutf8 (target_shortcontents_ret_sv,
-                                               len);
-          result->target_shortcontents
-            = non_perl_strndup (target_shortcontents_ret, len);
-          target_contents_ret_sv = POPs;
-          target_contents_ret = SvPVutf8 (target_contents_ret_sv, len);
-          result->target_contents = non_perl_strndup (target_contents_ret, len);
-          target_ret_sv = POPs;
-          target_ret = SvPVutf8 (target_ret_sv, len);
-          result->target = non_perl_strndup (target_ret, len);
-
-          PUTBACK;
-
-          FREETMPS;
-          LEAVE;
-
-          return result;
+      if (!command->hv)
+        {/* TODO rebuild */
+          return 0;
         }
+
+      dSP;
+
+      ENTER;
+      SAVETMPS;
+
+      PUSHMARK(SP);
+      EXTEND(SP, 6);
+
+      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (newRV_inc (command->hv)));
+      PUSHs(sv_2mortal (newSVpv (target, 0)));
+      PUSHs(sv_2mortal (newSVpv (target_contents, 0)));
+      PUSHs(sv_2mortal (newSVpv (target_shortcontents, 0)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
+      PUTBACK;
+
+      count = call_sv (sectioning_command_target_name_sv, G_LIST);
+
+      SPAGAIN;
+
+      if (count != 4)
+        croak("sectioning_command_target_name should return 4 items\n");
+
+      filename_ret_sv = POPs;
+      filename_ret = SvPVutf8 (filename_ret_sv, len);
+      result->filename = non_perl_strndup (filename_ret, len);
+      target_shortcontents_ret_sv = POPs;
+      target_shortcontents_ret = SvPVutf8 (target_shortcontents_ret_sv,
+                                           len);
+      result->target_shortcontents
+        = non_perl_strndup (target_shortcontents_ret, len);
+      target_contents_ret_sv = POPs;
+      target_contents_ret = SvPVutf8 (target_contents_ret_sv, len);
+      result->target_contents = non_perl_strndup (target_contents_ret, len);
+      target_ret_sv = POPs;
+      target_ret = SvPVutf8 (target_ret_sv, len);
+      result->target = non_perl_strndup (target_ret, len);
+
+      PUTBACK;
+
+      FREETMPS;
+      LEAVE;
+
+      return result;
     }
   return 0;
 }
@@ -385,79 +353,71 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
                                  const OUTPUT_UNIT *output_unit,
                                  const char *filename, const char *filepath)
 {
-  SV **file_id_setting_sv;
+  SV *unit_file_name_sv;
 
   dTHX;
 
   if (!self->hv)
     return 0;
 
-  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
-                                 strlen ("file_id_setting"), 0);
-  if (file_id_setting_sv)
+  unit_file_name_sv
+    = (SV *) self->file_id_setting_refs[FIS_unit_file_name];
+
+  if (unit_file_name_sv)
     {
-      SV **unit_file_name_sv;
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      unit_file_name_sv = hv_fetch (file_id_setting_hv,
-                                   "unit_file_name",
-                                   strlen ("unit_file_name"), 0);
+      int count;
+      SV *filepath_ret_sv;
+      SV *filename_ret_sv;
+      FILE_NAME_PATH *result = new_file_name_path ();
 
-      if (unit_file_name_sv)
-        {
-          int count;
-          SV *filepath_ret_sv;
-          SV *filename_ret_sv;
-          FILE_NAME_PATH *result = new_file_name_path ();
-
-          if (!output_unit->hv)
-            { /* TODO rebuild */
-              return 0;
-            }
-
-          dSP;
-
-          ENTER;
-          SAVETMPS;
-
-          PUSHMARK(SP);
-          EXTEND(SP, 4);
-
-          PUSHs(sv_2mortal (newRV_inc (self->hv)));
-          PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (filepath, 0)));
-          PUTBACK;
-
-          count = call_sv (*unit_file_name_sv, G_LIST);
-
-          SPAGAIN;
-
-          if (count != 2)
-            croak("unit_file_name should return 2 items\n");
-
-          filepath_ret_sv = POPs;
-          if (SvOK (filepath_ret_sv))
-            {
-              STRLEN len;
-              char *filepath_ret = SvPVutf8 (filepath_ret_sv, len);
-              result->filepath = non_perl_strndup (filepath_ret, len);
-            }
-
-          filename_ret_sv = POPs;
-          if (SvOK (filename_ret_sv))
-            {
-              STRLEN len;
-              char *filename_ret = SvPVutf8 (filename_ret_sv, len);
-              result->filename = non_perl_strndup (filename_ret, len);
-            }
-
-          PUTBACK;
-
-          FREETMPS;
-          LEAVE;
-
-          return result;
+      if (!output_unit->hv)
+        { /* TODO rebuild */
+          return 0;
         }
+
+      dSP;
+
+      ENTER;
+      SAVETMPS;
+
+      PUSHMARK(SP);
+      EXTEND(SP, 4);
+
+      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (filepath, 0)));
+      PUTBACK;
+
+      count = call_sv (unit_file_name_sv, G_LIST);
+
+      SPAGAIN;
+
+      if (count != 2)
+        croak("unit_file_name should return 2 items\n");
+
+      filepath_ret_sv = POPs;
+      if (SvOK (filepath_ret_sv))
+        {
+          STRLEN len;
+          char *filepath_ret = SvPVutf8 (filepath_ret_sv, len);
+          result->filepath = non_perl_strndup (filepath_ret, len);
+        }
+
+      filename_ret_sv = POPs;
+      if (SvOK (filename_ret_sv))
+        {
+          STRLEN len;
+          char *filename_ret = SvPVutf8 (filename_ret_sv, len);
+          result->filename = non_perl_strndup (filename_ret, len);
+        }
+
+      PUTBACK;
+
+      FREETMPS;
+      LEAVE;
+
+      return result;
     }
   return 0;
 }
@@ -468,91 +428,83 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
                      const char *target, const char *directory,
                      const char *file_name)
 {
-  SV **file_id_setting_sv;
+  SV *external_target_split_name_sv;
 
   dTHX;
 
   if (!self->hv)
     return 0;
 
-  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
-                                 strlen ("file_id_setting"), 0);
-  if (file_id_setting_sv)
+  external_target_split_name_sv
+    = (SV *) self->file_id_setting_refs[FIS_external_target_split_name];
+
+  if (external_target_split_name_sv)
     {
-      SV **external_target_split_name_sv;
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      external_target_split_name_sv = hv_fetch (file_id_setting_hv,
-                                   "external_target_split_name",
-                                   strlen ("external_target_split_name"), 0);
+      int count;
+      SV *target_sv;
+      SV *filename_sv;
+      SV *directory_sv;
+      TARGET_DIRECTORY_FILENAME *result = new_target_directory_filename ();
 
-      if (external_target_split_name_sv)
+      dSP;
+
+      ENTER;
+      SAVETMPS;
+
+      PUSHMARK(SP);
+      EXTEND(SP, 6);
+
+      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (newSVpv (normalized, 0)));
+      PUSHs(sv_2mortal (newRV_inc (element->hv)));
+      PUSHs(sv_2mortal (newSVpv (target, 0)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (directory, 0)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (file_name, 0)));
+      PUTBACK;
+
+      count = call_sv (external_target_split_name_sv, G_LIST);
+
+      SPAGAIN;
+
+      if (count != 3)
+        croak("external_target_split_name should return 3 items\n");
+
+      filename_sv = POPs;
+      if (SvOK (filename_sv))
         {
-          int count;
-          SV *target_sv;
-          SV *filename_sv;
-          SV *directory_sv;
-          TARGET_DIRECTORY_FILENAME *result = new_target_directory_filename ();
-
-          dSP;
-
-          ENTER;
-          SAVETMPS;
-
-          PUSHMARK(SP);
-          EXTEND(SP, 6);
-
-          PUSHs(sv_2mortal (newRV_inc (self->hv)));
-          PUSHs(sv_2mortal (newSVpv (normalized, 0)));
-          PUSHs(sv_2mortal (newRV_inc (element->hv)));
-          PUSHs(sv_2mortal (newSVpv (target, 0)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (directory, 0)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (file_name, 0)));
-          PUTBACK;
-
-          count = call_sv (*external_target_split_name_sv, G_LIST);
-
-          SPAGAIN;
-
-          if (count != 3)
-            croak("external_target_split_name should return 3 items\n");
-
-          filename_sv = POPs;
-          if (SvOK (filename_sv))
-            {
-              STRLEN len;
-              char *filename_ret = SvPVutf8 (filename_sv, len);
-              result->filename = non_perl_strndup (filename_ret, len);
-            }
-          else
-            result->filename = non_perl_strdup ("");
-
-          directory_sv = POPs;
-          if (SvOK (directory_sv))
-            {
-              STRLEN len;
-              char *directory_ret = SvPVutf8 (directory_sv, len);
-              result->directory = non_perl_strndup (directory_ret, len);
-            }
-          else
-            result->directory = non_perl_strdup ("");
-
-          target_sv = POPs;
-          if (SvOK (target_sv))
-            {
-              STRLEN len;
-              char *target_ret = SvPVutf8 (target_sv, len);
-              result->target = non_perl_strndup (target_ret, len);
-            }
-          else
-            result->target = non_perl_strdup ("");
-
-          PUTBACK;
-
-          FREETMPS;
-          LEAVE;
-
-          return result;
+          STRLEN len;
+          char *filename_ret = SvPVutf8 (filename_sv, len);
+          result->filename = non_perl_strndup (filename_ret, len);
         }
+      else
+        result->filename = non_perl_strdup ("");
+
+      directory_sv = POPs;
+      if (SvOK (directory_sv))
+        {
+          STRLEN len;
+          char *directory_ret = SvPVutf8 (directory_sv, len);
+          result->directory = non_perl_strndup (directory_ret, len);
+        }
+      else
+        result->directory = non_perl_strdup ("");
+
+      target_sv = POPs;
+      if (SvOK (target_sv))
+        {
+          STRLEN len;
+          char *target_ret = SvPVutf8 (target_sv, len);
+          result->target = non_perl_strndup (target_ret, len);
+        }
+      else
+        result->target = non_perl_strdup ("");
+
+      PUTBACK;
+
+      FREETMPS;
+      LEAVE;
+
+      return result;
     }
   return 0;
 }
@@ -562,75 +514,67 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
                      const char *normalized, const ELEMENT *element,
                      const char *target, const char *file)
 {
-  SV **file_id_setting_sv;
+  SV *external_target_non_split_name_sv;
 
   dTHX;
 
   if (!self->hv)
     return 0;
 
-  file_id_setting_sv = hv_fetch (self->hv, "file_id_setting",
-                                 strlen ("file_id_setting"), 0);
-  if (file_id_setting_sv)
+  external_target_non_split_name_sv
+    = (SV *) self->file_id_setting_refs[FIS_external_target_non_split_name];
+
+  if (external_target_non_split_name_sv)
     {
-      SV **external_target_non_split_name_sv;
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      external_target_non_split_name_sv = hv_fetch (file_id_setting_hv,
-                                   "external_target_non_split_name",
-                                strlen ("external_target_non_split_name"), 0);
+      int count;
+      SV *target_sv;
+      SV *file_sv;
+      TARGET_FILENAME *result = new_target_filename ();
 
-      if (external_target_non_split_name_sv)
+      dSP;
+
+      ENTER;
+      SAVETMPS;
+
+      PUSHMARK(SP);
+      EXTEND(SP, 5);
+
+      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (newSVpv (normalized, 0)));
+      PUSHs(sv_2mortal (newRV_inc (element->hv)));
+      PUSHs(sv_2mortal (newSVpv (target, 0)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (file, 0)));
+      PUTBACK;
+
+      count = call_sv (external_target_non_split_name_sv, G_LIST);
+
+      SPAGAIN;
+
+      if (count != 2)
+        croak("external_target_non_split_name should return 2 items\n");
+
+      file_sv = POPs;
+      if (SvOK (file_sv))
         {
-          int count;
-          SV *target_sv;
-          SV *file_sv;
-          TARGET_FILENAME *result = new_target_filename ();
-
-          dSP;
-
-          ENTER;
-          SAVETMPS;
-
-          PUSHMARK(SP);
-          EXTEND(SP, 5);
-
-          PUSHs(sv_2mortal (newRV_inc (self->hv)));
-          PUSHs(sv_2mortal (newSVpv (normalized, 0)));
-          PUSHs(sv_2mortal (newRV_inc (element->hv)));
-          PUSHs(sv_2mortal (newSVpv (target, 0)));
-          PUSHs(sv_2mortal (newSVpv_utf8 (file, 0)));
-          PUTBACK;
-
-          count = call_sv (*external_target_non_split_name_sv, G_LIST);
-
-          SPAGAIN;
-
-          if (count != 2)
-            croak("external_target_non_split_name should return 2 items\n");
-
-          file_sv = POPs;
-          if (SvOK (file_sv))
-            {
-              STRLEN len;
-              const char *file_ret = SvPVutf8 (file_sv, len);
-              result->filename = non_perl_strndup (file_ret, len);
-            }
-
-          target_sv = POPs;
-          if (SvOK (target_sv))
-            {
-              STRLEN len;
-              const char *target_ret = SvPVutf8 (target_sv, len);
-              result->target = non_perl_strndup (target_ret, len);
-            }
-
-          PUTBACK;
-
-          FREETMPS;
-          LEAVE;
-
-          return result;
+          STRLEN len;
+          const char *file_ret = SvPVutf8 (file_sv, len);
+          result->filename = non_perl_strndup (file_ret, len);
         }
+
+      target_sv = POPs;
+      if (SvOK (target_sv))
+        {
+          STRLEN len;
+          const char *target_ret = SvPVutf8 (target_sv, len);
+          result->target = non_perl_strndup (target_ret, len);
+        }
+
+      PUTBACK;
+
+      FREETMPS;
+      LEAVE;
+
+      return result;
     }
   return 0;
 }
