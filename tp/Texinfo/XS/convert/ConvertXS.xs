@@ -1932,12 +1932,10 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
          const char *document_name = (char *)SvPVutf8_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
-         FILE_SOURCE_INFO_LIST *files_source_info = 0;
-         SV *files_source_info_sv = 0;
      CODE:
          self = get_sv_converter (converter_in,
                                   "html_prepare_units_directions_files");
-         files_source_info = html_prepare_units_directions_files (self,
+         html_prepare_units_directions_files (self,
                     output_file, destination_directory, output_filename,
                                  document_name);
 
@@ -1950,8 +1948,6 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
              rebuild_output_units_list (associated_special_units_in,
                 self->output_units_descriptors[OUDT_associated_special_units]);
 
-             files_source_info_sv
-               = build_html_files_source_info (files_source_info);
              pass_html_global_units_directions (converter_in,
                                             self->global_units_directions,
                                             self->special_units_direction_name);
@@ -1962,7 +1958,7 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
              pass_output_unit_files (converter_in, &self->output_unit_files);
            }
 
-         RETVAL = files_source_info_sv;
+         RETVAL = newSV (0);
     OUTPUT:
          RETVAL
 

@@ -84,6 +84,7 @@ build_html_target (const HTML_TARGET *html_target)
   return html_target_hv;
 }
 
+/* Currently unused */
 SV *
 build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
 {
