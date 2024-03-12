@@ -731,6 +731,7 @@ typedef struct CONVERTER {
   /* perl function references. This should be SV *sv,
      but we don't want to include the Perl headers everywhere; */
     const void *file_id_setting_refs[FIS_external_target_non_split_name+1];
+    int file_id_setting_ref_number; /* number of references actually set */
     FORMATTING_REFERENCE
        formatting_references[FR_format_translate_message+1];
     FORMATTING_REFERENCE

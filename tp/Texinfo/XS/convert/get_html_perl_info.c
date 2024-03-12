@@ -562,6 +562,7 @@ html_converter_initialize_sv (SV *converter_sv,
           {\
             converter->file_id_setting_refs[FIS_##name]\
               = (const void *) (* name##_sv);\
+            converter->file_id_setting_ref_number++; \
           }\
       }
        HTML_FILE_ID_SETTING_NAMES_LIST

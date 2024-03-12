@@ -2,6 +2,12 @@
 
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): count the number of file_id_setting references actually set.
+
+2024-03-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
 	(HTML_FILE_ID_SETTING_NAMES_LIST, enum html_file_id_setting)
 	(CONVERTER), tp/Texinfo/XS/convert/call_html_perl_function.c
 	(call_file_id_setting_*): get the file_id_setting function references
