@@ -219,7 +219,7 @@ pop_stack_element (ELEMENT_STACK *stack)
 }
 
 
-/* elements stack that can also be called from an external language (perl)
+/* elements stack that can also be called from an external language (Perl)
    where there is no reference to C elements */
 void
 push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
@@ -269,7 +269,7 @@ command_is_in_referred_command_stack (const ELEMENT_REFERENCE_STACK *stack,
 }
 
 
-/* HTML specific but also used to build perl */
+/* HTML specific but also used to build Perl data */
 HTML_DOCUMENT_CONTEXT *
 html_top_document_context (const CONVERTER *self)
 {

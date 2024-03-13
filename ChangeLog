@@ -1,5 +1,13 @@
 2024-03-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_convert)
+	(html_convert_output): use directly C document associated to
+	converter.
+
+	Other minor changes.
+
+2024-03-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c: remove conditions
 	on self->hv and special_unit->hv that should never change.
 

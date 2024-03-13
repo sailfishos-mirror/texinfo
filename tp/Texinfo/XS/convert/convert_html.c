@@ -17433,7 +17433,7 @@ html_translate_names (CONVERTER *self)
                   if (target_info)
                     {
        /* the tree is a reference to special_unit_info_tree, so it should
-          not be freed, but need to be reset to trigger the creation of the
+          not be freed, but it needs to be reset to trigger the creation of the
           special_unit_info_tree tree when needed */
                       clear_tree_added_elements (self, &target_info->tree);
                       free (target_info->command_text[HTT_string]);

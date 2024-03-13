@@ -1924,6 +1924,8 @@ html_prepare_conversion_units (SV *converter_in, ...)
          PUSHs(sv_2mortal(special_units_sv));
          PUSHs(sv_2mortal(associated_special_units_sv));
 
+# the return value is not really used with XS, it is passed to another
+# XS function, but the value is ignored there.
 SV *
 html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in, output_file, destination_directory, output_filename, document_name)
          const char *output_file = (char *)SvPVutf8_nolen($arg);
@@ -2076,14 +2078,17 @@ html_prepare_title_titlepage (SV *converter_in, SV *output_units_in, output_file
                  build_html_formatting_state (self, self->modified_state);
                  self->modified_state = 0;
                }
- /* should always happen as a string is always returned, possibly empty */
-             if (self->title_titlepage && self->external_references_number > 0)
+             if (self->external_references_number > 0)
                {
-                 HV *converter_hv = (HV *) SvRV (converter_in);
-                 SV *title_titlepage_sv
-                     = newSVpv_utf8 (self->title_titlepage, 0);
-                 hv_store (converter_hv, "title_titlepage",
+ /* should always happen as a string is always returned, possibly empty */
+                 if (self->title_titlepage)
+                   {
+                     HV *converter_hv = (HV *) SvRV (converter_in);
+                     SV *title_titlepage_sv
+                         = newSVpv_utf8 (self->title_titlepage, 0);
+                     hv_store (converter_hv, "title_titlepage",
                            strlen ("title_titlepage"), title_titlepage_sv, 0);
+                   }
                }
            }
 
@@ -2097,8 +2102,7 @@ html_convert_convert (SV *converter_in, SV *document_in, SV *output_units_in, SV
          self = get_sv_converter (converter_in, "html_convert_convert");
          /* there could be strange results if the document and the converter document
             do not match.  There is no reason why it would happen, though */
-         document = get_sv_document_document (document_in,
-                                              "html_convert_convert");
+         document = self->document;
          result = html_convert_convert (self, document->tree);
          if (self->modified_state)
            {
@@ -2147,16 +2151,12 @@ html_convert_output (SV *converter_in, SV *document_in, SV *output_units_in, SV 
          const char *document_name = (char *)SvPVutf8_nolen($arg);
   PREINIT:
          CONVERTER *self = 0;
-         DOCUMENT *document = 0;
          SV *result_sv = 0;
    CODE:
-         /* add warn string? */
          self = get_sv_converter (converter_in, "html_convert_output");
-         document = get_sv_document_document (document_in,
-                                              "html_convert_output");
-         if (self && document)
+         if (self && self->document)
            {
-             char *result = html_convert_output (self, document->tree,
+             char *result = html_convert_output (self, self->document->tree,
                         output_file, destination_directory, output_filename,
                         document_name);
 

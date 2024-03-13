@@ -1518,7 +1518,7 @@ sub test($$)
       if (defined($converted_errors{$format})) {
         local $Data::Dumper::Sortkeys = 1;
         $out_result .= Data::Dumper->Dump([$converted_errors{$format}],
-             ['$result_converted_errors{\''.$format.'\'}->{\''.$test_name.'\'}'])
+           ['$result_converted_errors{\''.$format.'\'}->{\''.$test_name.'\'}'])
                        ."\n\n";
       }
     }
