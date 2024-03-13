@@ -27,12 +27,12 @@ XGETTEXT_OPTIONS = \
  -kline_warn:1 \
  -kcommand_error:2 \
  -kmessage_list_command_error:4 \
- -kmessage_list_document_error:3 \
+ -kmessage_list_document_error:4 \
  -kcommand_warn:2 \
  -kmessage_list_command_warn:5 \
  -kpmessage_list_command_warn:5c,6 \
  -knoticed_line_warn:3 \
- -kmessage_list_document_warn:3 \
+ -kmessage_list_document_warn:4 \
  -kline_error_ext:3 \
  -kmessage_list_line_error_ext:6 \
  -kpgettext:1c,2 \
