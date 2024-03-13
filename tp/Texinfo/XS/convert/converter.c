@@ -292,7 +292,7 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
 }
 
 char *
-node_information_filename (CONVERTER *self, char *normalized,
+node_information_filename (CONVERTER *self, const char *normalized,
                            const ELEMENT *label_element)
 {
   char *filename;

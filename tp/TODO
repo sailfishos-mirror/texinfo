@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Check if LABEL identifier should be const
-
 Remove the need for Texinfo::Structuring::rebuild_output_units, currently seems
 to be called in t/test_utils.pl only.
 

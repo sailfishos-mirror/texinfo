@@ -142,7 +142,7 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
               size_t n;
               for (n = i+1; n < j + 1; n++)
                 {
-                  ELEMENT *label_element
+                  const ELEMENT *label_element
                      = get_label_element (targets[n].element);
                   char *texi_str = convert_contents_to_texinfo (label_element);
                   line_error_ext (MSG_error, 0, &targets[n].element->source_info,
@@ -255,7 +255,7 @@ existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized,
     {
       ELEMENT *existing_target
         = find_identifier_target (document->identifiers_target, normalized);
-      ELEMENT *label_element = get_label_element (element);
+      const ELEMENT *label_element = get_label_element (element);
       char *label_element_texi = convert_contents_to_texinfo (label_element);
       message_list_command_error (error_messages, document->options,
                      element, "@%s `%s' previously defined",

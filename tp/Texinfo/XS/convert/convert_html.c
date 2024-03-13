@@ -1857,7 +1857,7 @@ prepare_associated_special_units_targets (CONVERTER *self)
 }
 
 static char *
-normalized_to_id (char *id)
+normalized_to_id (const char *id)
 {
   if (isascii_digit (id[0]) || id[0] == '_')
     {
@@ -1869,30 +1869,35 @@ normalized_to_id (char *id)
 }
 
 static TARGET_FILENAME *
-normalized_label_id_file (CONVERTER *self, char *normalized,
+normalized_label_id_file (CONVERTER *self, const char *normalized,
                           const ELEMENT* label_element)
 {
   int called;
-  char *target;
+  char *target = 0;
   char *target_customized;
+  char *normalized_label = 0;
   TARGET_FILENAME *target_filename
     = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
 
-  int normalized_need_to_be_freed = 0;
-  if (!normalized && label_element)
+  if (normalized)
     {
-      normalized = convert_contents_to_identifier (label_element);
-      normalized_need_to_be_freed = 1;
+      normalized_label = strdup (normalized);
+      target = normalized_to_id (normalized);
+    }
+  else if (label_element)
+    {
+      normalized_label
+       = convert_contents_to_identifier (label_element);
+      if (normalized_label)
+        target = normalized_to_id (normalized_label);
     }
 
-  if (normalized)
-    target = normalized_to_id (normalized);
-  else
+  if (!target)
     target = strdup ("");
 
   /* to find out the Top node, one could check $normalized */
   target_customized = call_file_id_setting_label_target_name (self,
-                                  normalized, label_element, target,
+                                  normalized_label, label_element, target,
                                   &called);
 
   if (target_customized)
@@ -1901,18 +1906,17 @@ normalized_label_id_file (CONVERTER *self, char *normalized,
       target = target_customized;
     }
 
-  if (normalized_need_to_be_freed)
-    free (normalized);
-
   target_filename->target = target;
-  target_filename->filename = node_information_filename (self, normalized,
-                                                         label_element);
+  target_filename->filename
+    = node_information_filename (self, normalized_label, label_element);
+
+  free (normalized_label);
 
   return target_filename;
 }
 
-char *
-unique_target (CONVERTER *self, char *target_base)
+static char *
+unique_target (CONVERTER *self, const char *target_base)
 {
   int nr = 1;
   char *target = strdup (target_base);

@@ -78,17 +78,14 @@ lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
 void
 protect_first_parenthesis (ELEMENT *element)
 {
-  ELEMENT *content;
-  char *p;
   int i;
 
   if (element->contents.number <= 0)
     return;
   for (i = 0; i < element->contents.number; i++)
     {
-      content = element->contents.list[i];
-      if (content->text.space == 0)
-        return;
+      ELEMENT *content = element->contents.list[i];
+      const char *p;
       if (content->text.end == 0)
         continue;
       p = content->text.text;

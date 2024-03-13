@@ -1,3 +1,14 @@
+2024-03-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/main/tree_types.h: add const.
+
+	* tp/Texinfo/XS/convert/convert_html.c (normalized_label_id_file):
+	reorganize code, add const.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis): reorganiza code, add const.
+
 2024-03-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs

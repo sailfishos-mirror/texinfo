@@ -83,7 +83,7 @@ void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,
                                   const enum command_id *cmd_list);
 
-char *node_information_filename (CONVERTER *self, char *normalized,
+char *node_information_filename (CONVERTER *self, const char *normalized,
                                  const ELEMENT *label_element);
 
 TREE_ADDED_ELEMENTS *new_tree_added_elements
