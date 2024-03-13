@@ -11926,9 +11926,9 @@ sub conversion_finalization($)
 sub _prepare_title_titlepage($$$$)
 {
   my $self = shift;
-  my $output_units = shift;
   my $output_file = shift;
   my $output_filename = shift;
+  my $output_units = shift;
 
   # set file name to be the first file name for formatting of title page.
   # The title page prepared here is thus only fit to be used in the first
@@ -12051,7 +12051,7 @@ sub convert($$)
   # title.  Not often set in the default case, as convert() is only
   # used in the *.t tests, and a title requires both simpletitle_tree
   # and SHOW_TITLE set, with the default formatting function.
-  $self->_prepare_title_titlepage($output_units, '', '');
+  $self->_prepare_title_titlepage('', '', $output_units);
 
   # complete information should be available.
   $self->_reset_info();
@@ -12429,8 +12429,8 @@ sub _prepare_converted_output_info($)
 # units or root conversion
 sub _html_convert_output($$$$$$$$)
 {
-  my ($self, $document, $output_units, $special_units, $output_file,
-      $destination_directory, $output_filename, $document_name) = @_;
+  my ($self, $output_file, $destination_directory, $output_filename,
+      $document_name, $document, $output_units, $special_units) = @_;
 
   my $text_output = '';
   if ($output_file eq '') {
@@ -12955,8 +12955,8 @@ sub output($$)
   }
 
   # information settable by customization files is passed to XS too
-  $self->_prepare_title_titlepage($output_units, $output_file,
-                                  $output_filename);
+  $self->_prepare_title_titlepage($output_file, $output_filename,
+                                  $output_units);
 
   $self->set_global_document_commands('before', ['documentlanguage']);
 
@@ -12968,9 +12968,9 @@ sub output($$)
   $self->_reset_info();
 
   # conversion
-  my $text_output = $self->_html_convert_output($document, $output_units,
-                       $special_units, $output_file, $destination_directory,
-                       $output_filename, $document_name);
+  my $text_output = $self->_html_convert_output($output_file,
+                       $destination_directory, $output_filename, $document_name,
+                       $document, $output_units, $special_units);
 
   $self->get_output_files_XS_unclosed_streams();
 

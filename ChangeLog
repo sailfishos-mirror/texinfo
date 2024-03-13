@@ -1,5 +1,14 @@
 2024-03-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_title_titlepage)
+	(_html_convert_output, tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_title_titlepage, html_convert_convert)
+	(html_convert_output): change arguments orders if it simplifies
+	ignoring unused arguments in XS.  Ignore unused arguments in XS.
+	Update callers.
+
+2024-03-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_convert)
 	(html_convert_output): use directly C document associated to
 	converter.
