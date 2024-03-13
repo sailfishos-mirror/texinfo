@@ -59,9 +59,6 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   special_unit_target_file_name_sv
   = (SV *) self->file_id_setting_refs[FIS_special_unit_target_file_name];
 
@@ -74,12 +71,6 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
       SV *filename_sv;
       STRLEN len;
       TARGET_FILENAME *result = new_target_filename ();
-
-      if (!special_unit->hv)
-        {
-          /* TODO rebuild output units */
-          return 0;
-        }
 
       dSP;
 
@@ -134,9 +125,6 @@ call_file_id_setting_label_target_name (CONVERTER *self,
   dTHX;
 
   *called = 0;
-
-  if (!self->hv)
-    return 0;
 
   label_target_name_sv
     = (SV *) self->file_id_setting_refs[FIS_label_target_name];
@@ -204,9 +192,6 @@ call_file_id_setting_node_file_name (CONVERTER *self,
 
   *called = 0;
 
-  if (!self->hv)
-    return 0;
-
   node_file_name_sv
     = (SV *) self->file_id_setting_refs[FIS_node_file_name];
 
@@ -216,12 +201,6 @@ call_file_id_setting_node_file_name (CONVERTER *self,
       char *result;
       SV *node_filename_ret_sv;
       *called = 1;
-
-      if (!target_element->hv)
-        {
-          /* TODO rebuild */
-          return 0;
-        }
 
       dSP;
 
@@ -275,9 +254,6 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   sectioning_command_target_name_sv
     = (SV *) self->file_id_setting_refs[FIS_sectioning_command_target_name];
 
@@ -294,11 +270,6 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
       char *target_shortcontents_ret;
       char *filename_ret;
       TARGET_CONTENTS_FILENAME *result = new_target_contents_filename ();
-
-      if (!command->hv)
-        {/* TODO rebuild */
-          return 0;
-        }
 
       dSP;
 
@@ -357,9 +328,6 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   unit_file_name_sv
     = (SV *) self->file_id_setting_refs[FIS_unit_file_name];
 
@@ -369,11 +337,6 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
       SV *filepath_ret_sv;
       SV *filename_ret_sv;
       FILE_NAME_PATH *result = new_file_name_path ();
-
-      if (!output_unit->hv)
-        { /* TODO rebuild */
-          return 0;
-        }
 
       dSP;
 
@@ -431,9 +394,6 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
   SV *external_target_split_name_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   external_target_split_name_sv
     = (SV *) self->file_id_setting_refs[FIS_external_target_split_name];
@@ -518,9 +478,6 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   external_target_non_split_name_sv
     = (SV *) self->file_id_setting_refs[FIS_external_target_non_split_name];
 
@@ -596,9 +553,6 @@ call_formatting_function_format_comment (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -652,9 +606,6 @@ call_formatting_function_format_program_string (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -707,9 +658,6 @@ call_formatting_function_format_titlepage (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -761,9 +709,6 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -818,9 +763,6 @@ call_formatting_function_format_protect_text (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -874,9 +816,6 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -928,9 +867,6 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -984,9 +920,6 @@ call_formatting_function_format_css_lines (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1042,9 +975,6 @@ call_formatting_function_format_end_file (CONVERTER *self,
   SV *output_unit_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1108,9 +1038,6 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -1171,9 +1098,6 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1237,9 +1161,6 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -1302,9 +1223,6 @@ call_formatting_function_format_button (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1387,9 +1305,6 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -1450,9 +1365,6 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1517,9 +1429,6 @@ call_formatting_function_format_heading_text (CONVERTER *self,
   SV *element_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1605,9 +1514,6 @@ call_formatting_function_format_contents (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -1671,9 +1577,6 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -1731,9 +1634,6 @@ call_formatting_function_format_element_header (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1794,9 +1694,6 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1859,9 +1756,6 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return 0;
-
   formatting_reference_sv = formatting_reference->sv_reference;
 
   if (self->modified_state)
@@ -1921,9 +1815,6 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return;
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1992,9 +1883,6 @@ call_types_open (CONVERTER *self, const enum element_type type,
 
   dTHX;
 
-  if (!self->hv)
-    return;
-
   build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv = self->types_open[type].sv_reference;
@@ -2055,9 +1943,6 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   const char *command_name;
 
   dTHX;
-
-  if (!self->hv)
-    return;
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -2125,9 +2010,6 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
 
   dTHX;
 
-  if (!self->hv)
-    return;
-
   build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv = self->commands_open[cmd].sv_reference;
@@ -2188,9 +2070,6 @@ call_output_units_conversion (CONVERTER *self,
   SV *formatting_reference_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return;
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -2256,9 +2135,6 @@ call_special_unit_body_formatting (CONVERTER *self,
 
   dTHX;
 
-  if (!self->hv)
-    return;
-
   build_tree_to_build (&self->tree_to_build);
 
   formatting_reference_sv
@@ -2317,9 +2193,6 @@ call_button_simple_function (CONVERTER *self,
   SV *active_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -2383,9 +2256,6 @@ call_button_direction_function (CONVERTER *self,
   SV *active_sv;
 
   dTHX;
-
-  if (!self->hv)
-    return 0;
 
   build_tree_to_build (&self->tree_to_build);
 
