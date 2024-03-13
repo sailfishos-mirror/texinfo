@@ -1,5 +1,12 @@
 2024-03-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (add_tree_to_build)
+	(remove_tree_to_build): add functions to add/remove an element to
+	self->tree_to_build.  add/remove to tree_to_build only if
+	self->external_references_number > 0.
+
+2024-03-13  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS): fix message_list_document_* options.
 
 	Update po files.
