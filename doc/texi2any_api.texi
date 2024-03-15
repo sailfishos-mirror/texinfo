@@ -736,6 +736,17 @@ description of container types.
 @node Simple headers customizations
 @chapter Simple headers customizations
 
+@vindex HEADERS
+Headers with a navigation panel are output in the default case.  if
+@option{--no-headers} is used or the customization variable @code{HEADERS}
+is unset, the navigation bar is only inserted at the beginning of
+split files (@pxref{HTML Translation,,, texinfo, Texinfo}).
+
+When output is split at nodes (@pxref{HTML Splitting,,, texinfo, Texinfo}),
+the @code{WORDS_IN_PAGE} customization variable value specifies the approximate
+minimum page length at which a navigation panel is placed at the bottom of a
+page.
+
 Some customization of navigation panels appearing in header and footers in
 output can be specified with simple code.  To explain how navigation
 panels are customized, we first describe how the document is organized
@@ -815,7 +826,7 @@ More details:
 @code{shortcontents} may be set to trigger the output of the
 respective output units.
 
-@vindex CONTENTS_OUTPUT_LOCATION@r{, Elements}
+@vindex CONTENTS_OUTPUT_LOCATION @subentry Output unit
 @item If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{separate_element}, the
 @emph{Table of contents} and @emph{Short table of contents} output units are
 separate (@pxref{Contents and Short Table of Contents Customization}).
@@ -828,6 +839,7 @@ be present if the footnotes appear on a separate page (@pxref{Footnote
 Styles,,, texinfo, Texinfo}).  However, a footnote output unit is present
 if the document is not split.
 
+@vindex DO_ABOUT
 @item The @emph{About page} shouldn't be present for documents
 consisting of only one sectioning element, or for monolithic documents
 without navigation information, or if @code{DO_ABOUT} is not set.
@@ -1058,7 +1070,10 @@ with the same strings as @code{NodeNext}.
 @node Direction Strings Customization
 @section Direction Strings Customization
 
-The direction strings can be customized with
+The direction strings are used in the default case in navigation panel
+formatting, therefore replacing their values is a way to customize headers.
+They are also used in the About special unit formatting (@pxref{About Special
+Output Unit Customization}).  The direction strings can be customized with
 @code{texinfo_register_direction_string_info}:
 
 @defun texinfo_register_direction_string_info ($direction, @
@@ -1098,12 +1113,18 @@ typically appears at the top of each node, so that users can easily
 get to the next node, the table of contents, and so on.  It can be
 customized extensively.
 
-The customization variables
-@code{VERTICAL_HEAD_NAVIGATION}, @code{ICONS}, @code{HEADERS},
-@code{HEADER_IN_TABLE}, @code{USE_ACCESSKEY}, @code{USE_REL_REV} and
-@code{WORDS_IN_PAGE}
-may be used to change the navigation panel formatting.
-@xref{HTML Customization Variables,,, texinfo, Texinfo}.
+The appearance of the navigation panel is affected by the following
+customization variables, false in the default case:
+@vtable @code
+@item HEADER_IN_TABLE
+Use tables for header formatting rather than a simple @samp{<div>}.
+
+@item ICONS
+If set, use icons for the navigation panel.
+
+@item VERTICAL_HEAD_NAVIGATION
+If set, a vertical navigation panel is used.
+@end vtable
 
 Setting @code{ICONS} is necessary but not sufficient to get icons for direction
 buttons since no button image is specified in the default case.
@@ -1227,6 +1248,7 @@ based on the name of the node associated with the next section output unit.
 
 @end table
 
+@vindex USE_ACCESSKEY
 @anchor{Accesskey and @code{rel} Navigation}
 @cindex @code{accesskey} navigation
 If the customization variable @code{USE_ACCESSKEY} is set, the
@@ -1234,6 +1256,7 @@ If the customization variable @code{USE_ACCESSKEY} is set, the
 direction string is then used for the @code{accesskey} attributes
 (@pxref{Direction Strings}).
 
+@vindex USE_REL_REV
 @cindex @code{rel} navigation
 Similarly, if the @code{USE_REL_REV} customization variable is set,
 the @code{rel} attribute is used in navigation.  In that case the
@@ -1508,27 +1531,34 @@ For special units only. @xref{Special Units Varieties}.
 @node Encoding File Path Strings
 @subsection Encoding File Path Strings
 
-In general, the strings in the customization functions are character strings.  For most purposes,
-this is right, and the encoding in output files is taken care of by the converter.
-Operations on directories and file names, however, such as the creation of a directory
-or the opening of a file require binary strings.
+In general, the strings in the customization functions are character strings.
+For most purposes, this is right, and the encoding in output files is taken
+care of by the converter.  Operations on directories and file names, however,
+such as the creation of a directory or the opening of a file require binary
+strings.
 
-To encode file names consistently with file name encoding used in the conversion to
-HTML, there is a function @code{encoded_output_file_name}:
+To encode file names consistently with file name encoding used in the
+conversion to HTML, there is a function @code{encoded_output_file_name}:
 
+@vindex DOC_ENCODING_FOR_OUTPUT_FILE_NAME
+@vindex LOCALE_OUTPUT_FILE_NAME_ENCODING
 @deftypefun {(@var{$encoded_name}, @var{$encoding}) =} @var{$converter}->encoded_output_file_name (@var{$character_string_name})
 Encode @var{$character_string_name} in the same way as other file name are
-encoded in the converter, based on @code{DOC_ENCODING_FOR_OUTPUT_FILE_NAME},
-and @code{LOCALE_OUTPUT_FILE_NAME_ENCODING} or on input file encoding
-(@pxref{Other Customization Variables,,, texinfo, Texinfo}).  Return the
-encoded name and the encoding used to encode the name.
+encoded in the converter. Use @code{OUTPUT_FILE_NAME_ENCODING} value for the
+file name encoding if set.  Otherwise, if
+@code{DOC_ENCODING_FOR_OUTPUT_FILE_NAME} is set the input Texinfo document
+encoding is used, if unset, the default, files names are encoded using the
+current locale (@pxref{Other Customization Variables,,, texinfo, Texinfo}).
+Return the encoded name and the encoding used to encode the name.
 @end deftypefun
 
+@vindex INPUT_FILE_NAME_ENCODING
+@vindex DOC_ENCODING_FOR_INPUT_FILE_NAME
 There is also a similar function for the input file names encoding,
-@code{encoded_input_file_name}, which uses
-@code{DOC_ENCODING_FOR_INPUT_FILE_NAME} and
-@code{LOCALE_INPUT_FILE_NAME_ENCODING} and is less likely to be useful.
+@code{encoded_input_file_name}, which uses @code{INPUT_FILE_NAME_ENCODING}
+and @code{DOC_ENCODING_FOR_INPUT_FILE_NAME} and is less likely to be useful.
 
+@vindex MESSAGE_ENCODING
 When calling external commands, the command line arguments should also
 be encoded.  To do similarly with other codes, the customization variable
 @code{MESSAGE_ENCODING} should be used.  Already encoded file
@@ -1566,6 +1596,7 @@ if (system($encoded_call)) @{
 @node Decoding File Path Strings
 @subsection Decoding File Path Strings
 
+@vindex COMMAND_LINE_ENCODING
 The binary strings that could be accessed correspond to the customization
 variables strings or arrays @code{INCLUDE_DIRECTORIES}, @code{CSS_FILES},
 @code{MACRO_EXPAND} and @code{INTERNAL_LINKS}.  If they need to be decoded into
@@ -2583,6 +2614,8 @@ more attributes.
 If the HTML element is @code{span}, an empty string is returned if there
 is also no attribute.
 
+@vindex NO_CSS
+@vindex INLINE_CSS_STYLE
 If @code{NO_CSS} is set, no attribute is set for the element.  Otherwise
 a @code{class} attribute is set based on @var{\@@classes }. If
 @code{INLINE_CSS_STYLE} is set, a CSS style attribute based on
@@ -3823,9 +3856,13 @@ for @samp{heading_tree}.
 @node Customizing Footnotes
 @section Customizing Footnotes
 
-@code{NUMBER_FOOTNOTES} and @code{NO_NUMBER_FOOTNOTE_SYMBOL} customization
-variables can be used to change the footnotes formatting.  Redefinition
-of @code{@@footnote} conversion reference and footnote formatting
+@vindex NUMBER_FOOTNOTES
+@vindex NO_NUMBER_FOOTNOTE_SYMBOL
+In the default case footnotes are numbered.  If @code{NUMBER_FOOTNOTES}
+is set to 0, a @samp{*} is used instead, or the @code{NO_NUMBER_FOOTNOTE_SYMBOL}
+customization variable value, if set.
+
+Redefinition of @code{@@footnote} conversion reference and footnote formatting
 references is needed for further customization.
 
 @code{@@footnote} @@-commands appearing in the Texinfo elements tree
@@ -3929,7 +3966,7 @@ content are output where the corresponding @@-command, for example
 @command{texi2dvi}.
 
 If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{separate_element},
-the tables of contents are output in separate elements, either at
+the tables of contents are output in separate output units, either at
 the end of the document if the output is unsplit or in separate files if not.
 This makes sense when menus are used for navigation with @code{FORMAT_MENU} set
 to @samp{menu}.
@@ -3993,13 +4030,13 @@ of heading @@-command, in title page formatting, and in @code{@@contents}
 conversion function, depending on the @code{CONTENTS_OUTPUT_LOCATION} value.
 
 
-@node About Element Customization
-@section About Element Customization
+@node About Special Output Unit Customization
+@section About Special Output Unit Customization
 
-@cindex Customization of about element
-@cindex About element, customizing
+@cindex Customization of About special output unit
+@cindex About special output unit, customizing
 
-The default About element has an explanation of the buttons used in
+The default About output unit has an explanation of the buttons used in
 the document, controlled by @code{SECTION_BUTTONS}.
 The formatting of this is influenced by
 the @code{text}, @code{description} and @code{example}
@@ -4008,11 +4045,12 @@ direction strings (@pxref{Direction Strings}) and by @code{ACTIVE_ICONS}
 
 @vindex PROGRAM_NAME_IN_ABOUT
 @code{PROGRAM_NAME_IN_ABOUT} can also be used to change the beginning of
-the About element formatting.
+the About output unit formatting.
 
 If the above is not enough and you want to control exactly the
-formatting of the about unit, the @code{about} special output unit body reference
-function may be overridden (@pxref{Special Unit Body Formatting Functions}).
+formatting of the about unit, the @code{about} special output unit body
+reference function may be overridden
+(@pxref{Special Unit Body Formatting Functions}).
 
 
 @node Special Unit Body Formatting Functions
@@ -4218,7 +4256,7 @@ In the default code, the function reference select a buttons list
 The navigation header can then be formatted with a call
 to @code{&@{$self->formatting_function('format_navigation_header')@}}.
 
-Many customization variables may be interesting for the footer
+Many customization variables have an effect on the footer
 formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
 @code{BIG_RULE}, @code{WORDS_IN_PAGE} or @code{PROGRAM_NAME_IN_FOOTER}.
 @end deftypefn
@@ -4282,9 +4320,9 @@ These variables are empty by default.
 The @code{<body>} element attributes may be set by defining the
 customization variable @code{BODYTEXT}.
 
-@vindex ENCODING_NAME
+@vindex OUTPUT_ENCODING_NAME
 @cindex Encoding, in HTML output
-By default, the encoding name from @code{ENCODING_NAME} is used.  If
+By default, the encoding name from @code{OUTPUT_ENCODING_NAME} is used.  If
 this variable is not defined, it is automatically determined.
 
 @vindex DATE_IN_HEADER
@@ -4296,25 +4334,27 @@ The description from @code{@@documentdescription} (or a value set as a
 customization variable) is used in the header
 (@pxref{@code{@@documentdescription},,, texinfo, Texinfo}).
 
-@c @vindex LINKS_BUTTONS@r{, in customization}
-@c @vindex BUTTONS_REL@r{, in customization}
-@vindex LINKS_BUTTONS@r{, in file beginning}
-@vindex BUTTONS_REL@r{, in file beginning}
+@vindex USE_LINKS
+@vindex LINKS_BUTTONS @subentry In file beginning
+@vindex BUTTONS_REL @subentry In file beginning
 @code{<link>} elements are used in the header if @code{USE_LINKS} is
 set, in which case @code{LINKS_BUTTONS} determines which links are
 used and @code{BUTTONS_REL} determines the link type associated with
 the @code{rel} attribute.  @xref{Simple Navigation Panel Customization}.
 
-@c @vindex HTML_ROOT_ELEMENT_ATTRIBUTES@r{, in customization}
 @vindex HTML_ROOT_ELEMENT_ATTRIBUTES
 You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to
 the @code{<html>} element.
 
+@vindex SECTION_NAME_IN_TITLE
+If @code{SECTION_NAME_IN_TITLE} is set, the sectioning command argument
+is used in the @code{<title>} HTML element instead of the @code{@@node}
+argument.
+
 The customization variables
-@code{SECTION_NAME_IN_TITLE},
 @code{PACKAGE_AND_VERSION}, @code{PACKAGE_URL} and other similar variables,
 @code{HTML_MATH} and @code{INFO_JS_DIR}
-may also be used to change the page header formatting.
+may also change the page header formatting.
 @xref{HTML Customization Variables,,, texinfo, Texinfo}.
 
 The following function references give full control over the
@@ -4337,10 +4377,9 @@ including the @code{<body>} element.
 @cindex Footer, customizing for HTML
 
 @vindex PRE_BODY_CLOSE
+@vindex PROGRAM_NAME_IN_FOOTER
 You can define the variable @code{PRE_BODY_CLOSE} to add text just
 before the HTML @code{</body>} element.  Nothing is added by default.
-
-@vindex PROGRAM_NAME_IN_FOOTER
 If @code{PROGRAM_NAME_IN_FOOTER} is set, the date and name of the
 program that generated the output are output in the footer.
 
@@ -4369,11 +4408,15 @@ the @code{</body>} element.
 
 @cindex Title page, customization
 
-If @code{SHOW_TITLE} is not set, no title is output.  @code{SHOW_TITLE} is @samp{undef}
-in the default case.  If @samp{undef}, @code{SHOW_TITLE} is set if @code{NO_TOP_NODE_OUTPUT}
-is set.  The ``title page'' is used to format the HTML title if @code{USE_TITLEPAGE_FOR_TITLE}
-is set, otherwise the @code{simpletitle} is used.  @code{USE_TITLEPAGE_FOR_TITLE}
-is set in the default case.  @xref{HTML Customization Variables,,, texinfo, Texinfo}.
+@vindex SHOW_TITLE
+@vindex NO_TOP_NODE_OUTPUT
+@vindex USE_TITLEPAGE_FOR_TITLE
+If @code{SHOW_TITLE} is not set, no title is output.  @code{SHOW_TITLE} is
+@samp{undef} in the default case.  If @samp{undef}, @code{SHOW_TITLE} is set if
+@code{NO_TOP_NODE_OUTPUT} is set.  The ``title page'' is used to format the
+HTML title if @code{USE_TITLEPAGE_FOR_TITLE} is set, otherwise the
+@code{simpletitle} is used.  @code{USE_TITLEPAGE_FOR_TITLE} is set in the
+default case.  @xref{HTML Customization Variables,,, texinfo, Texinfo}.
 
 The following functions references provides full control on the title and
 ``title page'' formatting:
@@ -4397,6 +4440,12 @@ otherwise @code{simpletitle} is used (@pxref{Conversion General Information}).
 @node CSS Customization
 @section CSS Customization
 
+CSS in HTML output can already be modified with command line options
+(@pxref{HTML CSS,,, texinfo, Texinfo}).  If the @code{NO_CSS} customization
+variable is set, CSS is not used.  If @code{INLINE_CSS_STYLE} is set, CSS rules
+are directly put in HTML elements rather than at the beginning of the output.
+More control of the generated CSS is available through functions.
+
 
 @node Customization of CSS Rules Imports and Selectors
 @subsection Customization of CSS Rules, Imports and Selectors
@@ -4406,12 +4455,9 @@ otherwise @code{simpletitle} is used (@pxref{Conversion General Information}).
 @cindex Customizing CSS @subentry Selectors
 @cindex CSS customization
 
-CSS in HTML output can already be modified with command line options
-(@pxref{HTML CSS,,, texinfo, Texinfo}) and customization options such as
-@code{NO_CSS} and @code{INLINE_CSS_STYLE}.
-
-Information on static CSS data used in conversion and some control over the CSS
-output is possible.  The information is about CSS rules lines and CSS import
+Information on static CSS data used in conversion and more direct
+control over rules, CSS imports and selectors is available through
+functions.  The information is about CSS rules lines and CSS import
 lines obtained from parsing @option{--css-include=@var{file}} files, as
 described in @ref{HTML CSS,,, texinfo, Texinfo}, and CSS style rules associated
 with HTML elements and class attributes used in the conversion to HTML.  The

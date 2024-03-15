@@ -1,5 +1,10 @@
 2024-03-15  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi: explain better the effect of some
+	customization variables.  Use @subentry.  Other changes.
+
+2024-03-15  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (CSS Customization, Customization of CSS Rules
 	Imports and Selectors, Customizing the CSS Lines): move all the
 	information related to CSS Customization to the same place, in the CSS
