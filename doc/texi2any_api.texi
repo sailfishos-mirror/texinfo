@@ -4117,8 +4117,8 @@ described in this manual.
 @xref{Customizing Footnotes} for more on footnotes
 formatting.  @xref{Contents and Short Table of Contents Customization}
 for more on the @code{contents} and @code{shortcontents} formatting.
-@xref{About Element Customization} for more on the @code{about} special
-element body formatting.
+@xref{About Special Output Unit Customization} for more on the @code{about}
+special output unit body formatting.
 
 
 @node Customizing HTML Footers@comma{} Headers and Navigation Panels
