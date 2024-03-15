@@ -271,10 +271,10 @@ The basic operations on customization variables are to set and
 retrieve their values.  New variables can also be added.
 
 The customization variables also valid in the main program out of the HTML
-converter are handled differently if they are strings or
+converter are handled differently if their associated values are strings or
 arrays.  Conversely, customization variables only relevant for the conversion
-phase set in the main program are always set like string variables, in
-particular by associating array or hash references to customization variables.
+phase set in the main program are always set by associating a string, an array
+reference or a hash references to customization variables in the same way.
 
 This section describes customization variables set in the main program.  These
 variables are in general passed to converters.  It is also possible to set
@@ -412,7 +412,7 @@ if (texinfo_get_conf('footnotestyle') eq 'separate') @{ ... @}
 Trying to set a customization variable that is not known as a valid
 customization variable in @command{texi2any} is an error.  It is possible, however,
 to add new customization variables from init files.  To add a customization
-variable, the function is @code{texinfo_add_valid_customization_option}:
+variable, call @code{texinfo_add_valid_customization_option}:
 
 @defun texinfo_add_valid_customization_option ($variable_name)
 @var{$variable_name} is added as a valid customization variable name.
@@ -456,7 +456,9 @@ not very different from simple textual configuration information.
 @cindex Expansion contexts, for init files
 @cindex Contexts for expansion in init files
 
-There are five expansion contexts of interest:
+Output formatting simple customization need to be specified especially
+for different formatting contexts. There are five expansion contexts of
+interest:
 
 @table @emph
 @item normal context
@@ -948,16 +950,15 @@ Directions}).
 
 @cindex Output unit directions
 @cindex Links information
-@cindex Element directions
 @cindex Directions
 
-A variety of data items, called @dfn{element directions}, are associated
+A variety of data items, called @dfn{output units directions}, are associated
 with output units.  They may be used in the formatting functions, and/or
 associated with a button (@pxref{Simple Navigation Panel Customization}).
 
 @c FIXME check if the links are to output units only or also to elements
 @c such as sections or nodes
-Each element direction has a name and a reference to the unit they
+Each output unit direction has a name and a reference to the unit they
 point to, when such an unit exists.  The unit is either a
 global unit (for example, the Top output unit) or relative to the
 current output unit (for example, the next output unit).  Such relative
@@ -1014,7 +1015,8 @@ Previous output unit in reading order.
 Next chapter output unit.
 
 @item FastBack
-Beginning of this chapter, or previous chapter if the element is a chapter.
+Beginning of this chapter, or previous chapter if the output unit corresponds
+to a chapter.
 
 @item Next
 Next section output unit at the same level.
@@ -1053,19 +1055,19 @@ Up node output unit.
 
 @cindex @code{FirstInFile} direction variant
 @anchor{@code{FirstInFile} direction variant}
-Relative direction elements are each associated to a variant, with
+Relative direction are each associated to a variant, with
 @samp{FirstInFile} prepended, which points to the direction relative
-to the first element in file.  For example, @code{FirstInFileNodeNext}
-is the next node element relative to the first element in file.  The
-@samp{FirstInFile} directions are usually used in footers.
+to the first output unit in file.  For example, @code{FirstInFileNodeNext}
+is the next node output unit relative to the first output unit in file.
+The @samp{FirstInFile} directions are usually used in footers.
 
 
-@node Element Direction Information Type
-@subsection Element Direction Information Type
+@node Output Unit Direction Information Type
+@subsection Output Unit Direction Information Type
 
 @cindex Direction information type
 @cindex Type, of direction information
-The element directions also have types of information associated,
+The output unit directions also have types of information associated,
 which are in general set dynamically depending on the current output
 unit, for instance on the output unit whose navigation panel is being
 formatted:
@@ -1087,11 +1089,11 @@ with HTML elements (preformatted and normal contexts).
 
 @item node
 Same as @code{text}, but selecting the node associated with the
-element direction in priority.
+output unit direction in priority.
 
 @item section
 Same as @code{text}, but selecting the sectioning command
-associated with the element direction in priority.
+associated with the output unit direction in priority.
 
 @end table
 
@@ -1197,10 +1199,10 @@ variables need to be set in addition:
 @vtable @code
 @item ACTIVE_ICONS
 @itemx PASSIVE_ICONS
-Hash references with element directions as key (@pxref{Directions}) and button
-image icons as values.  @code{ACTIVE_ICONS} is used for directions actually
-linking to an output unit, and @code{PASSIVE_ICONS} are used if there is no
-output unit to link to.  The button images are interpreted as URLs.
+Hash references with output unit directions as key (@pxref{Directions}) and
+button image icons as values.  @code{ACTIVE_ICONS} is used for directions
+actually linking to an output unit, and @code{PASSIVE_ICONS} are used if there
+is no output unit to link to.  The button images are interpreted as URLs.
 @end vtable
 
 @cindex Navigation panel button specification
@@ -1250,18 +1252,18 @@ values is the following:
 @anchor{Buttons Display}
 
 @table @emph
-@item string with an element direction
+@item string with an output unit direction
 If icons are not used, the button is a link to the corresponding
 output unit whose text is the @code{text} direction string
 (@pxref{Direction Strings}), surrounded by @samp{[} and
-@samp{]}. If the element direction is @samp{ }, the @samp{[} and @samp{]}
+@samp{]}. If the direction is @samp{ }, the @samp{[} and @samp{]}
 are omitted.
 
 @vindex ACTIVE_ICONS
 @vindex PASSIVE_ICONS
 @cindex Icons, in navigation buttons
 If icons are used, the button is an image whose file is determined by
-the value associated with the element direction in the
+the value associated with the output unit direction in the
 @code{ACTIVE_ICONS} variable hash if the link leads to an output unit, or in the
 @code{PASSIVE_ICONS} variable hash if there is no output unit to link to.  If
 there is a link to the output unit, the icon links to that output unit.  The
@@ -1280,8 +1282,8 @@ button text.
 The scalar value is printed.
 
 @item array reference of length 2
-Here, the first array item should be a an element direction.
-A link to the output unit associated with the element direction
+Here, the first array item should be a an output unit direction.
+A link to the output unit associated with the output unit direction
 is generated.  The text of the link depends on the second array item.
 
 @table @emph
@@ -1290,13 +1292,13 @@ In that case, the corresponding text is used.
 
 @item reference to a function
 The functions is called with two arguments, the converter object and the
-element direction and should return two scalars, the link href and text and a boolean
-set if a delimiter is needed after that button.
+output unit direction and should return two scalars, the link href and text and
+a boolean set if a delimiter is needed after that button.
 
 @item text string
-The text string is interpreted as an element direction information type
+The text string is interpreted as an output unit direction information type
 and the corresponding text is used for the link.
-@xref{Element Direction Information Type}.
+@xref{Output Unit Direction Information Type}.
 
 For example, if the button array item is
 @example
@@ -1391,7 +1393,7 @@ converter can be used for error reporting by using
 @code{Texinfo::Convert::Converter} methods. @xref{Error
 Reporting in User Defined Functions} on error reporting.
 The converter can also be used for in-document strings translation.
-@xref{Translations Output and Customization} on translated strings in output.
+@xref{Translations in Output and Customization} on translated strings in output.
 
 
 @node Texinfo Tree Conversion Functions
@@ -1493,7 +1495,7 @@ errors and warning messages registration.
 Many user defined functions used for formatting have Texinfo tree elements
 as arguments.  The user defined code should never modify the tree elements.
 It is possible to reuse Texinfo tree elements information, but with
-a copy.  For example, the following is ok:
+a copy.  For example, the following is correct:
 
 @example
 my @@contents = @@@{$element->@{'contents'@}@};
@@ -1502,7 +1504,7 @@ my $result = $converter->convert_tree(@{'cmdname' => 'strong',
                                   'contents' => \@@contents @});
 @end example
 
-The following is not ok:
+The following is incorrect:
 
 @example
 push @@@{$element->@{'contents'@}@}, @{'text' => ' my added text'@};
@@ -3319,8 +3321,8 @@ Associate a @code{@@nodedescription} tree element to the number of time
 it was formatted.
 @end vtable
 
-@node Translations Output and Customization
-@chapter Translations Output and Customization
+@node Translations in Output and Customization
+@chapter Translations in Output and Customization
 
 Translated strings can be specified in customization functions, for
 @@-commands without arguments (@pxref{Simple Customization for Commands
@@ -3766,7 +3768,7 @@ directions, use @code{from_element_direction}:
 Return a string for linking to @var{$direction}, or the information
 to be used for a hyperlink to @var{$direction}, depending on @var{$type}.
 The possible values for @var{$type} are described in
-@ref{Element Direction Information Type}.
+@ref{Output Unit Direction Information Type}.
 
 @var{$source_element} is the output unit the link comes from. If not set,
 the current output unit is used.  @var{$source_filename} is the file the
