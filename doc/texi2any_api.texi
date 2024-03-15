@@ -733,92 +733,6 @@ texinfo_register_type_format_info('menu_comment', 1, 'menu-between');
 description of container types.
 
 
-@node Simple Customization of CSS
-@section Simple Customization of CSS Rules and Imports
-
-@cindex Customizing CSS
-@cindex CSS customization
-
-CSS in HTML output can already be modified with command line options
-(@pxref{HTML CSS,,, texinfo, Texinfo}) and customization options such as
-@code{NO_CSS} and @code{INLINE_CSS_STYLE}.
-
-Information on static CSS data used in conversion and some control over the CSS
-output is possible.  The information is about CSS rules lines and CSS import
-lines obtained from parsing @option{--css-include=@var{file}} files, as
-described in @ref{HTML CSS,,, texinfo, Texinfo}, and CSS style rules associated with HTML
-elements and class attributes used in the conversion to HTML.  The CSS style
-rules selectors are, classically, @code{@var{element}.@var{class}} strings with
-@var{element} an HTML element and @var{class} an attribute class associated to
-that element.
-
-The function used are @code{css_get_info} and @code{css_get_selector_style}
-to get information and @code{css_add_info} and @code{css_set_selector_style}
-to modify:
-
-@defun @var{$converter}->css_get_info ($specification)
-@defunx @var{$converter}->css_get_selector_style ($selector)
-@defunx @var{$converter}->css_add_info ($specification, $css_info)
-@defunx @var{$converter}->css_set_selector_style ($selector, $css_style)
-
-Those functions can only be used on a converter @var{$converter}, from
-functions registered and called with a converter.  @var{$specification} is
-@code{'rules'} to get information on or set information for CSS rules lines and
-@code{'imports'} to get information on or set information for CSS import lines.
-Any other value for @var{$specification} corresponds to HTML elements and
-class attributes selectors, and can be used to get the list of selectors.
-
-With @code{css_get_info}, array references corresponding to @var{$specification}
-are returned.
-
-@code{css_get_selector_style} returns the CSS style corresponding to the HTML
-element and class attribute selector @var{$selector}, or @code{undef} if not
-found.
-
-With @code{css_add_info}, @var{$css_info} is an additional entry added to
-CSS rules lines if @var{$specification} is set to @code{'rules'} or an additional
-entry added to CSS import lines if @var{$specification} is set to @code{'imports'}.
-
-With @code{css_set_selector_style}, @var{$selector} is a CSS rule selector and the
-associated style rule is set to @var{$css_style}.
-@end defun
-
-Some examples of use:
-
-@example
-my @@all_included_rules = $converter->css_get_info('rules');
-my $all_default_selector_styles = $converter->css_get_info('styles');
-my $titlefont_header_style = $converter->css_get_selector_style('h1.titlefont');
-
-$converter->css_set_selector_style('h1.titlefont', 'text-align:center');
-$converter->css_add_info('imports', "\@@import \"special.css\";\n");
-@end example
-
-Note that the CSS selectors and associated style rules that can be accessed and
-modified will not necessarily end up in the HTML output. They are output
-only if the HTML element and class corresponding to a selector is seen in the
-document. @xref{Customizing CSS}.
-
-How to run code during the conversion process is described later
-(@pxref{Init File Calling at Different Stages}). The simplest way to
-modify CSS rules would be to use a function
-registered for the @samp{structure} stage:
-
-@example
-sub my_function_set_some_css @{
-  my $converter = shift;
-
-  $converter->css_set_selector_style('h1.titlefont',
-                                     'text-align:center');
-  # ... calls to  $converter->css_add_info();
-@}
-
-texinfo_register_handler('structure', \&my_function_set_some_css);
-@end example
-
-@xref{Customizing CSS} for even more control on CSS lines output.
-
-
 @node Simple headers customizations
 @chapter Simple headers customizations
 
@@ -1923,8 +1837,8 @@ and @code{USE_TITLEPAGE_FOR_TITLE} customization variables in the default case.
 
 @end table
 
-@xref{Simple Customization of CSS} for an explanation on getting
-information on CSS.
+@xref{Customization of CSS Rules Imports and Selectors} for an explanation on
+getting information on CSS.
 
 
 @node Customizing Output-Related Names
@@ -4479,10 +4393,101 @@ In the default case, the @code{@@titlepage} is used if found in global informati
 otherwise @code{simpletitle} is used (@pxref{Conversion General Information}).
 @end deftypefn
 
-@node Customizing CSS
-@section Customizing the CSS lines
 
-@xref{Simple Customization of CSS} for information on CSS customization.
+@node CSS Customization
+@section CSS Customization
+
+
+@node Customization of CSS Rules Imports and Selectors
+@subsection Customization of CSS Rules, Imports and Selectors
+
+@cindex Customizing CSS @subentry Rules
+@cindex Customizing CSS @subentry Imports
+@cindex Customizing CSS @subentry Selectors
+@cindex CSS customization
+
+CSS in HTML output can already be modified with command line options
+(@pxref{HTML CSS,,, texinfo, Texinfo}) and customization options such as
+@code{NO_CSS} and @code{INLINE_CSS_STYLE}.
+
+Information on static CSS data used in conversion and some control over the CSS
+output is possible.  The information is about CSS rules lines and CSS import
+lines obtained from parsing @option{--css-include=@var{file}} files, as
+described in @ref{HTML CSS,,, texinfo, Texinfo}, and CSS style rules associated
+with HTML elements and class attributes used in the conversion to HTML.  The
+CSS style rules selectors are, classically, @code{@var{element}.@var{class}}
+strings with @var{element} an HTML element and @var{class} an attribute class
+associated to that element.
+
+The function used are @code{css_get_info} and @code{css_get_selector_style}
+to get information and @code{css_add_info} and @code{css_set_selector_style}
+to modify:
+
+@defun @var{$converter}->css_get_info ($specification)
+@defunx @var{$converter}->css_get_selector_style ($selector)
+@defunx @var{$converter}->css_add_info ($specification, $css_info)
+@defunx @var{$converter}->css_set_selector_style ($selector, $css_style)
+
+Those functions can only be used on a converter @var{$converter}, from
+functions registered and called with a converter.  @var{$specification} is
+@code{'rules'} to get information on or set information for CSS rules lines and
+@code{'imports'} to get information on or set information for CSS import lines.
+Any other value for @var{$specification} corresponds to HTML elements and
+class attributes selectors, and can be used to get the list of selectors.
+
+With @code{css_get_info}, array references corresponding to @var{$specification}
+are returned.
+
+@code{css_get_selector_style} returns the CSS style corresponding to the HTML
+element and class attribute selector @var{$selector}, or @code{undef} if not
+found.
+
+With @code{css_add_info}, @var{$css_info} is an additional entry added to CSS
+rules lines if @var{$specification} is set to @code{'rules'} or an additional
+entry added to CSS import lines if @var{$specification} is set to
+@code{'imports'}.
+
+With @code{css_set_selector_style}, @var{$selector} is a CSS rule selector and
+the associated style rule is set to @var{$css_style}.
+@end defun
+
+Some examples of use:
+
+@example
+my @@all_included_rules = $converter->css_get_info('rules');
+my $all_default_selector_styles = $converter->css_get_info('styles');
+my $titlefont_header_style = $converter->css_get_selector_style('h1.titlefont');
+
+$converter->css_set_selector_style('h1.titlefont', 'text-align:center');
+$converter->css_add_info('imports', "\@@import \"special.css\";\n");
+@end example
+
+Note that the CSS selectors and associated style rules that can be accessed and
+modified will not necessarily end up in the HTML output. They are output
+only if the HTML element and class corresponding to a selector is seen in the
+document. @xref{Customizing the CSS Lines}.
+
+The simplest way to modify CSS rules would be to use a function
+registered for the @samp{structure} stage:
+
+@example
+sub my_function_set_some_css @{
+  my $converter = shift;
+
+  $converter->css_set_selector_style('h1.titlefont',
+                                     'text-align:center');
+  # ... calls to  $converter->css_add_info();
+@}
+
+texinfo_register_handler('structure', \&my_function_set_some_css);
+@end example
+
+
+@node Customizing the CSS Lines
+@subsection Customizing the CSS Lines
+
+@cindex Customizing CSS @subentry Lines output
+@cindex CSS customization
 
 The CSS @var{element}.@var{class} that appeared in a file, gathered through
 @code{html_attribute_class} calls (@pxref{Formatting HTML Element with
@@ -4506,8 +4511,8 @@ for @var{$file_name}.
 In the default case, the function reference uses @code{CSS_REFS} corresponding
 to command-line @option{--css-ref}, @code{html_get_css_elements_classes},
 @code{css_get_info} and @code{css_element_class_rule}
-(@pxref{Simple Customization of CSS}) to determine the CSS
-lines.
+(@pxref{Customization of CSS Rules Imports and Selectors}) to determine the
+CSS lines.
 @end deftypefn
 
 
