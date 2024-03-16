@@ -335,6 +335,7 @@ XS_STRXFRM_COLLATION_LOCALE        converter_customization undef   char
 # Not strings
 LINKS_BUTTONS                      converter_other undef   buttons
 TOP_BUTTONS                        converter_other undef   buttons
+TOP_FOOTER_BUTTONS                 converter_other undef   buttons
 SECTION_BUTTONS                    converter_other undef   buttons
 CHAPTER_FOOTER_BUTTONS             converter_other undef   buttons
 SECTION_FOOTER_BUTTONS             converter_other undef   buttons

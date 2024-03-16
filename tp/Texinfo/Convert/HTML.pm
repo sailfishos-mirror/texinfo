@@ -897,7 +897,7 @@ sub _get_target($$)
   my $self = shift;
   my $command = shift;
   if (!defined($command)) {
-    cluck("_get_target command not defined");
+    cluck("_get_target command argument not defined");
   }
 
   if ($self->{'targets'}->{$command}) {
@@ -2495,7 +2495,7 @@ foreach my $buttons ('CHAPTER_BUTTONS', 'MISC_BUTTONS', 'TOP_BUTTONS') {
   $defaults{$buttons} = [@{$defaults{'SECTION_BUTTONS'}}];
 }
 
-foreach my $buttons ('CHAPTER_FOOTER_BUTTONS') {
+foreach my $buttons ('CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
   $defaults{$buttons} = [@{$defaults{'SECTION_FOOTER_BUTTONS'}}];
 }
 
@@ -8179,7 +8179,7 @@ sub _default_format_element_footer($$$$;$)
               or ($self->get_conf('SPLIT')
                   and $self->get_conf('SPLIT') ne 'node')))) {
       if ($is_top) {
-        $buttons = $self->get_conf('TOP_BUTTONS');
+        $buttons = $self->get_conf('TOP_FOOTER_BUTTONS');
       } else {
         $buttons = $self->get_conf('MISC_BUTTONS');
       }
@@ -13565,6 +13565,8 @@ sub _set_variables_texi2html($)
                              ' ', ' ', ' ', ' ',
                              'Top', 'Contents', 'Index', 'About' ]],
   ['TOP_BUTTONS', ['Back', 'Forward', ' ',
+                             'Contents', 'Index', 'About']],
+  ['TOP_FOOTER_BUTTONS', ['Back', 'Forward', ' ',
                              'Contents', 'Index', 'About']],
 
   ['MISC_BUTTONS', [ 'Top', 'Contents', 'Index', 'About' ]],

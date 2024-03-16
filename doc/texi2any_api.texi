@@ -1173,10 +1173,13 @@ Specifies the buttons appearing at the beginning of special output units
 and, if the output is split, at the end of such units.
 
 @item LINKS_BUTTONS
-Used for @code{<link>} elements if they are output in the headers.
+Used for @code{<link>} elements if they are output in the HTML @code{<head>}.
 
 @item TOP_BUTTONS
+@itemx TOP_FOOTER_BUTTONS
 Specifies the buttons used in the top output unit (@pxref{Output Units}).
+@code{TOP_BUTTONS} buttons are used for the header and @code{TOP_FOOTER_BUTTONS}
+are used for the footer.
 @end vtable
 
 Each array specifies which buttons are included, and how they are

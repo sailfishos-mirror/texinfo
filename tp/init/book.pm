@@ -43,7 +43,7 @@ foreach my $buttons ('SECTION_BUTTONS', 'CHAPTER_BUTTONS', 'TOP_BUTTONS') {
 
 my @book_footer_buttons = ('Contents', 'Index', 'About');
 foreach my $buttons ('MISC_BUTTONS', 'SECTION_FOOTER_BUTTONS',
-                     'CHAPTER_FOOTER_BUTTONS') {
+                     'CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
   texinfo_set_from_init_file($buttons, \@book_footer_buttons);
 }
 

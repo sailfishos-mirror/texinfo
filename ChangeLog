@@ -1,5 +1,15 @@
 2024-03-16  Patrice Dumas  <pertusus@free.fr>
 
+	Add TOP_FOOTER_BUTTONS customization variable
+
+	* doc/texi2any_api.texi (Simple Navigation Panel Customization),
+	tp/Texinfo/Convert/HTML.pm (%defaults, _default_format_element_footer)
+	(_set_variables_texi2html), tp/Texinfo/options_data.txt,
+	tp/init/book.pm: add a TOP_FOOTER_BUTTONS to be able to specify
+	seprately the Top node/@top header and footer.
+
+2024-03-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel),
 	tp/Texinfo/XS/convert/convert_html.c
 	(html_default_format_navigation_panel),
