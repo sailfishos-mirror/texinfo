@@ -17668,8 +17668,6 @@ produces:
 
 
 $result_converted{'html_text'}->{'definition_commands'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -17677,8 +17675,6 @@ $result_converted{'html_text'}->{'definition_commands'} = '<div class="top-level
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="chapter-1"><span>1 chapter<a class="copiable-link" href="#chapter-1"> &para;</a></span></h2>
 
 <dl class="first-deffn">

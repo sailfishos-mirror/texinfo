@@ -672,16 +672,12 @@ xrefautomaticsectiontitle off
 
 
 $result_converted{'html_text'}->{'link'} = '<div class="chapter-level-extent" id="One">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="ONEX"><span>1 ONEX<a class="copiable-link" href="#ONEX"> &para;</a></span></h2>
 
 <p>target node
 </p>
 <hr>
-<a class="node-id" id="Two"></a><div class="nav-panel">
-</div>
-<h4 class="node"><span>Two<a class="copiable-link" href="#Two"> &para;</a></span></h4>
+<h4 class="node" id="Two"><span>Two<a class="copiable-link" href="#Two"> &para;</a></span></h4>
 
 <p>xrefautomaticsectiontitle off
 </p>

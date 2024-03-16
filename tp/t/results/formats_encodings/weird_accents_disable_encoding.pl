@@ -614,8 +614,6 @@ i~=
 
 $result_converted{'html_text'}->{'weird_accents_disable_encoding'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -623,8 +621,6 @@ $result_converted{'html_text'}->{'weird_accents_disable_encoding'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <p>&#297;&#772;

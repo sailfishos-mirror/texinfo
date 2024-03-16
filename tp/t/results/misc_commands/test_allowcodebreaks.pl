@@ -2266,13 +2266,9 @@ Out of code -- out-of-code.  ‘1aaa’ ‘2aaa-’ ‘-3bbb’ ‘4aaa-bbb’ �
 ';
 
 
-$result_converted{'html_text'}->{'test_allowcodebreaks'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
-</div>
-<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+$result_converted{'html_text'}->{'test_allowcodebreaks'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <hr>
-<a class="node-id" id="chap"></a><div class="nav-panel">
-</div>
-<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
+<h4 class="node" id="chap"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 
 

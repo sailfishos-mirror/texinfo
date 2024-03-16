@@ -1538,8 +1538,6 @@ _second item_
 
 
 $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="Element"><span>Element<a class="copiable-link" href="#Element"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -1547,8 +1545,6 @@ $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top-l
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <dl class="table">

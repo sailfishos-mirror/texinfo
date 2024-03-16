@@ -823,8 +823,6 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_itemize'} = 'top
 
 
 $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -832,8 +830,6 @@ $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '<div class
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <ul class="itemize mark-minus">

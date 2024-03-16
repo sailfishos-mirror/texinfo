@@ -2766,8 +2766,6 @@ $result_converted{'plaintext'}->{'test_deftypefnnewline'} = 'top
 $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -2775,8 +2773,6 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">

@@ -850,9 +850,7 @@ th.menu-comment {text-align:left}
 
 <body lang="en">
 
-<a class="node-id" id="first"></a><div class="nav-panel">
-</div>
-<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
+<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#node" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><small class="sc">DESCRIP TION</small>

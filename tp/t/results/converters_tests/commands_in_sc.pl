@@ -840,8 +840,6 @@ $result_converted_errors{'plaintext'}->{'commands_in_sc'} = [
 
 
 $result_converted{'html_text'}->{'commands_in_sc'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="commands-in-sc"><span>commands in sc<a class="copiable-link" href="#commands-in-sc"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -849,8 +847,6 @@ $result_converted{'html_text'}->{'commands_in_sc'} = '<div class="top-level-exte
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
 <p><small class="sc">A &Ntilde; &Aring; TeX <img class="image" src="myimage.jpg" alt="myimage"> <a class="ref" href="#chap">chap</a> SEE <a data-manual="F" href="f.html#node">(f)node</a>

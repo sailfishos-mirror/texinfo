@@ -342,7 +342,8 @@ foreach my $category (sort(keys(%option_categories))) {
         }
 
       options->$option.buttons = html_get_button_specification_list (converter, value);
-      options->BIT_user_function_number += options->$option.buttons->BIT_user_function_number;
+      if (options->$option.buttons)
+        options->BIT_user_function_number += options->$option.buttons->BIT_user_function_number;
     }\n";
     } elsif ($type eq 'icons') {
       print GET "      html_free_direction_icons (options->$option.icons);

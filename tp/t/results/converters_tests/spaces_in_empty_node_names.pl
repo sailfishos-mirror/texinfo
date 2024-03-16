@@ -701,22 +701,14 @@ $result_converted{'plaintext'}->{'spaces_in_empty_node_names'} = '*note   ::
 ';
 
 
-$result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
-</div>
-<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+$result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 
 <hr>
-<div class="nav-panel">
-</div>
 
 <hr>
-<div class="nav-panel">
-</div>
 
 <hr>
-<div class="nav-panel">
-</div>
 
 <p>&lsquo;&nbsp;&nbsp;&rsquo;
 </p>

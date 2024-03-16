@@ -356,9 +356,7 @@ $result_floats{'ref_in_preformatted'} = {};
 
 
 
-$result_converted{'html_text'}->{'ref_in_preformatted'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
-</div>
-<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+$result_converted{'html_text'}->{'ref_in_preformatted'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 
 <div class="example">
@@ -367,9 +365,7 @@ node name</a>
 </pre></div>
 
 <hr>
-<a class="node-id" id="chap-nnn-the-node-name"></a><div class="nav-panel">
-</div>
-<h4 class="node"><span>chap nnn the node name<a class="copiable-link" href="#chap-nnn-the-node-name"> &para;</a></span></h4>
+<h4 class="node" id="chap-nnn-the-node-name"><span>chap nnn the node name<a class="copiable-link" href="#chap-nnn-the-node-name"> &para;</a></span></h4>
 ';
 
 1;

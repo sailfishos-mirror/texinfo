@@ -1292,6 +1292,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/layout/navigation_section_vertical/res_html \
   t/results/layout/navigation_test_misc_file_collision.pl \
   t/results/layout/navigation_test_misc_file_collision/res_html \
+  t/results/layout/navigation_test_undef_top_buttons.pl \
+  t/results/layout/navigation_test_undef_top_buttons/res_html \
+  t/results/layout/navigation_test_zero_top_buttons.pl \
+  t/results/layout/navigation_test_zero_top_buttons/res_html \
   t/results/layout/navigation_vertical.pl \
   t/results/layout/navigation_vertical/res_html \
   t/results/layout/no_monolithic.pl \

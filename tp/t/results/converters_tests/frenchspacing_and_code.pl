@@ -2015,8 +2015,6 @@ In text w: z?  n; p.  fn
 $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -2025,8 +2023,6 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-frenchspacing">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="Chap-frenchspacing"><span>1 Chap frenchspacing<a class="copiable-link" href="#Chap-frenchspacing"> &para;</a></span></h2>
 
 <p>In text w: z? n; p. f
@@ -2050,8 +2046,6 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 <hr>
 </div>
 <div class="chapter-level-extent" id="chap-no">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="Chap-no"><span>2 Chap no<a class="copiable-link" href="#Chap-no"> &para;</a></span></h2>
 
 <p>In text w: z? n; p. fn 

@@ -365,8 +365,6 @@ Para(*) (*note chap-Footnote-1::).
 
 
 $result_converted{'html_text'}->{'footnote_no_number_separate'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -374,8 +372,6 @@ $result_converted{'html_text'}->{'footnote_no_number_separate'} = '<div class="t
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <p>Para<a class="footnote" id="DOCF1" href="#FOOT1"><sup>*</sup></a>.
@@ -385,8 +381,6 @@ $result_converted{'html_text'}->{'footnote_no_number_separate'} = '<div class="t
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
-<div class="nav-panel">
-</div>
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(*)</a></h5>

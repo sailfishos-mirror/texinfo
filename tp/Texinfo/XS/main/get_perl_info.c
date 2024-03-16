@@ -1040,7 +1040,10 @@ html_get_button_specification_list (const CONVERTER *converter,
 
   dTHX;
 
-  if (!SvOK (buttons_sv))
+  /* a string may be passed, for instance through command line, therefore
+     it is useful to test that buttons_sv is an array reference */
+  if (!SvOK (buttons_sv) || !SvROK (buttons_sv)
+      || SvTYPE (SvRV (buttons_sv)) != SVt_PVAV)
     return 0;
 
   result = (BUTTON_SPECIFICATION_LIST *)

@@ -1,3 +1,27 @@
+2024-03-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_navigation_panel),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list),
+	tp/maintain/regenerate_C_options_info.pl: handle a string passed for a
+	buttons list customization variable.  Handle an undef buttons list in
+	C.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel)
+	(_default_format_navigation_header),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_navigation_panel)
+	(html_default_format_navigation_header): return an empty string instead
+	of an empty <div> for navigation panel when the panel buttons is an
+	empty string.  Do not output an horizontal rule if there is no
+	navigation panel.
+
+	* tp/Makefile.tres, tp/t/layout.t (navigation_test_undef_top_buttons)
+	(navigation_test_zero_top_buttons): tests of TOP_BUTTONS set to undef
+	and set to '0'.
+
 2024-03-15  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Special Unit Body Formatting Functions): fix

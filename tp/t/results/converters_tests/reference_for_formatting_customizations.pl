@@ -355,8 +355,6 @@ $result_converted{'plaintext'}->{'reference_for_formatting_customizations'} = 't
 
 
 $result_converted{'html_text'}->{'reference_for_formatting_customizations'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -364,8 +362,6 @@ $result_converted{'html_text'}->{'reference_for_formatting_customizations'} = '<
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapt">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <p>&Aring; &equiv; @ &copy;

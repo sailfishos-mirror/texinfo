@@ -1297,8 +1297,6 @@ $result_floats{'test_accents_sc_enable_encoding_to_utf8_usascii'} = {};
 
 $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> ¶</a></span></h1>
 
 <ul class="mini-toc">
@@ -1306,8 +1304,6 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_to_utf8_usasci
 </ul>
 <hr>
 <div class="chapter-level-extent" id="node-chap">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> ¶</a></span></h2>
 
 <p>“in double q”. ‘in simple q’.

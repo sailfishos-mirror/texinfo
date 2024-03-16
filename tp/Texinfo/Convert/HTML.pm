@@ -4504,6 +4504,13 @@ sub _default_format_navigation_panel($$$$;$)
   my $source_command = shift;
   my $vertical = shift;
 
+  # a string may be passed, for instance through command line, therefore
+  # it is useful to test that $buttons is an array reference to avoid
+  # a Perl error message
+  if (ref($buttons) ne 'ARRAY') {
+    return '';
+  }
+
   # do the buttons first in case they are formatted as an empty string
   my $nr_of_buttons_shown = 0;
   my $result_buttons = '';
@@ -4526,7 +4533,7 @@ sub _default_format_navigation_panel($$$$;$)
       #  = &{$self->formatting_function('format_button')}($self, $button,
       #                                                   $source_command);
        = &{$self->{'formatting_function'}->{'format_button'}}($self, $button,
-                                                              $source_command);
+                                                            $source_command);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       $result_buttons .= '<tr>'."\n" if $vertical;
       $result_buttons .= '<td>';
@@ -4551,6 +4558,10 @@ sub _default_format_navigation_panel($$$$;$)
     }
   }
 
+  if ($result_buttons eq '') {
+    return '';
+  }
+
   my $result = '';
 
   # if $vertical/VERTICAL_HEAD_NAVIGATION, the buttons are in a vertical
@@ -4563,9 +4574,7 @@ sub _default_format_navigation_panel($$$$;$)
     $result .= "<tr>" unless $vertical;
   } else {
     $result .= $self->html_attribute_class('div', ['nav-panel']).">\n";
-    if ($result_buttons ne '') {
-      $result .= "<p>\n";
-    }
+    $result .= "<p>\n";
   }
 
   $result .= $result_buttons;
@@ -4574,9 +4583,7 @@ sub _default_format_navigation_panel($$$$;$)
     $result .= "</tr>" unless $vertical;
     $result .= "</table>\n";
   } else {
-    if ($result_buttons ne '') {
-      $result .= "</p>\n";
-    }
+    $result .= "</p>\n";
     $result .= "</div>\n";
   }
   return $result;
@@ -4603,7 +4610,7 @@ sub _default_format_navigation_header($$$$)
     $result .= '</td>
 <td>
 ';
-  } elsif ($self->get_conf('SPLIT') eq 'node') {
+  } elsif ($self->get_conf('SPLIT') eq 'node' and $result ne '') {
     $result .= $self->get_conf('DEFAULT_RULE')."\n";
   }
   return $result;

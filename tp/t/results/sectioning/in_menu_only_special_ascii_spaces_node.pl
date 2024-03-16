@@ -572,8 +572,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 <hr>
 </div>
 <div class="chapter-level-extent">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c"><span>2 CHARACTER TABULATION|	| FORM FEED|&#12;|<a class="copiable-link" href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c"> &para;</a></span></h2>
 
 </div>

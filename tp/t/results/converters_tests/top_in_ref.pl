@@ -3063,14 +3063,10 @@ name)Top::
 ';
 
 
-$result_converted{'html_text'}->{'top_in_ref'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
-</div>
-<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+$result_converted{'html_text'}->{'top_in_ref'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
-<a class="node-id" id="chap-refs-node"></a><div class="nav-panel">
-</div>
-<h4 class="node"><span>chap refs node<a class="copiable-link" href="#chap-refs-node"> &para;</a></span></h4>
+<h4 class="node" id="chap-refs-node"><span>chap refs node<a class="copiable-link" href="#chap-refs-node"> &para;</a></span></h4>
 
 <p><code class="code">@ref{Top,cross ref name}</code> <a class="ref" href="#Top">cross ref name</a>
 <code class="code">@ref{Top,,title}</code> <a class="ref" href="#Top">title</a>

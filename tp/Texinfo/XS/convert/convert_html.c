@@ -7689,6 +7689,9 @@ html_default_format_navigation_panel (CONVERTER *self,
   text_init (&result_buttons);
   text_append (&result_buttons, "");
 
+  if (!buttons)
+    return;
+
   for (i = 0; i < buttons->number; i++)
     {
       const BUTTON_SPECIFICATION *button = &buttons->list[i];
@@ -7747,6 +7750,12 @@ html_default_format_navigation_panel (CONVERTER *self,
       free (passive);
     }
 
+  if (result_buttons.end <= 0)
+    {
+      free (result_buttons.text);
+      return;
+    }
+
   if (self->conf->HEADER_IN_TABLE.integer > 0)
     {
       attribute_class = html_attribute_class (self, "table",
@@ -7766,8 +7775,7 @@ html_default_format_navigation_panel (CONVERTER *self,
       text_append_n (result, ">\n", 2);
       free (attribute_class);
 
-      if (result_buttons.end > 0)
-        text_append_n (result, "<p>\n", 4);
+      text_append_n (result, "<p>\n", 4);
     }
 
   text_append (result, result_buttons.text);
@@ -7780,9 +7788,7 @@ html_default_format_navigation_panel (CONVERTER *self,
     }
   else
     {
-      if (result_buttons.end > 0)
-        text_append_n (result, "</p>\n", 5);
-
+      text_append_n (result, "</p>\n", 5);
       text_append_n (result, "</div>\n", 7);
     }
   free (result_buttons.text);
@@ -7819,6 +7825,7 @@ html_default_format_navigation_header (CONVERTER *self,
                           const ELEMENT *element, TEXT *result)
 {
   int vertical = 0;
+  size_t result_text_index;
   if (self->conf->VERTICAL_HEAD_NAVIGATION.integer > 0)
     vertical = 1;
   if (vertical)
@@ -7826,11 +7833,15 @@ html_default_format_navigation_header (CONVERTER *self,
      "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n"
      "<tr>\n<td>\n");
 
+  /* keep the current index in result to be able to determine if text was
+     added by format_navigation_panel */
+  result_text_index = result->end;
   format_navigation_panel (self, buttons, cmdname, element, vertical, result);
 
   if (vertical)
     text_append (result, "</td>\n<td>\n");
-  else if (!strcmp (self->conf->SPLIT.string, "node"))
+  else if (!strcmp (self->conf->SPLIT.string, "node")
+           && result->end > result_text_index)
     {
       text_append (result, self->conf->DEFAULT_RULE.string);
       text_append_n (result, "\n", 1);

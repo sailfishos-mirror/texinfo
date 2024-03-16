@@ -585,22 +585,16 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body lang="en">
-<a class="node-id" id="Top"></a><div class="nav-panel">
-</div>
-<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <p>Top node
 </p>
 <hr>
-<a class="node-id" id="second-node"></a><div class="nav-panel">
-</div>
-<h4 class="node"><span>second node<a class="copiable-link" href="#second-node"> &para;</a></span></h4>
+<h4 class="node" id="second-node"><span>second node<a class="copiable-link" href="#second-node"> &para;</a></span></h4>
 
 <p>second node
 </p>
 <hr>
 <div class="chapter-level-extent" id="third-node">
-<div class="nav-panel">
-</div>
 <h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h2>
 </div>
 

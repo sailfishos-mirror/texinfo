@@ -499,8 +499,6 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-</div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <ul class="mini-toc">
 <li><a href="#Main" accesskey="1">Main</a></li>
