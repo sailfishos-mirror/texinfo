@@ -6685,7 +6685,7 @@ command.
 @noindent
 Here is an itemized list of the different kinds of table and lists:
 
-@itemize @bullet
+@itemize @bullet{}
 @item
 Itemized lists with and without bullets.
 
@@ -6758,7 +6758,7 @@ Here is an example of the use of @code{@@itemize}:
 
 @example
 @group
-@@itemize @@bullet
+@@itemize @@bullet@{@}
 @@item
 Some text for foo.
 
@@ -6773,7 +6773,7 @@ for bar.
 This produces:
 
 @quotation
-@itemize @bullet
+@itemize @bullet{}
 @item
 Some text for foo.
 
@@ -6783,9 +6783,9 @@ for bar.
 @end itemize
 @end quotation
 
-As you can see from this example, when you give a mark command such as
-@code{@@bullet} as the argument to @code{@@itemize} command, you may
-omit the @samp{@{@}} that would normally follow the command.
+When you give a mark command such as @code{@@bullet} as the argument
+to @code{@@itemize} command, you may omit the @samp{@{@}} that would
+normally follow the command.
 
 @cindex @code{@@w}, for blank items
 If you don't want any mark at all, but still want logical items, use
@@ -6811,11 +6811,11 @@ list marked with dashes embedded in a list marked with bullets:
 
 @example
 @group
-@@itemize @@bullet
+@@itemize @@bullet@{@}
 @@item
 First item.
 
-@@itemize @@minus
+@@itemize @@minus@{@}
 @@item
 Inner item.
 
@@ -6833,11 +6833,11 @@ Second outer item.
 This produces:
 
 @quotation
-@itemize @bullet
+@itemize @bullet{}
 @item
 First item.
 
-@itemize @minus
+@itemize @minus{}
 @item
 Inner item.
 
@@ -9647,10 +9647,6 @@ Use the @code{@@bullet@{@}} command to generate a large round dot, or
 the closest possible thing to one.  An asterisk can also be used.
 Here is a bullet: @bullet{}
 
-When you use @code{@@bullet} in @code{@@itemize}, you do not need to
-type the braces, because @code{@@itemize} supplies them.
-(@pxref{@code{@@itemize}}).
-
 
 @node @code{@@euro}
 @nodedescription How to insert the euro currency symbol.
@@ -10098,8 +10094,7 @@ glyph is also available independently via the command
 @findex clickstyle
 You can change the glyph produced by @code{@@click} with the command
 @code{@@clickstyle}, which takes a command name as its single argument
-on the rest of the line, much like @code{@@itemize} and friends
-(@pxref{@code{@@itemize}}).  The command should produce a glyph, and
+on the rest of the line.  The command should produce a glyph, and
 the usual empty braces @samp{@{@}} are omitted.  Here's an example:
 
 @example
