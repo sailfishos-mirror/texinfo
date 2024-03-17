@@ -1,5 +1,32 @@
 2024-03-17  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi: use $converter instead of $self.
+
+	* doc/texi2any_api.texi (Formatting HTML Output): add and additional
+	section level structure in the node.  Move some information
+	from "Dynamic Conversion Information" on "Alignment and Multiple
+	Expansion Contexts" and "Dynamic Converter Formatting
+	Information".  Remove "Dynamic Conversion Information".
+
+	* doc/texi2any_api.texi (Customization and Use of Formatting Functions),
+	(Tree Element Conversion Customization, Output Units Conversion
+	Functions): reorganize, add information previously in "Dynamic
+	Conversion Information" and "Heading Commands Formatting", move
+	"Opening and Closing Sectioning Commands Extent" content to "Heading
+	Commands Formatting".
+
+	* doc/texi2any_api.texi (Shared Conversion State): make it a chapter.
+
+	* doc/texi2any_api.texi (Associating Information to an Output File):
+	move to "Beginning and Ending Files".
+
+	* doc/texi2any_api.texi (Conversion to Plain Text): new node based on
+	the expansion of information in "Setting the Context for Conversion".
+
+	* doc/texi2any_api.texi: some rewriting, add more examples.
+
+2024-03-17  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi: reorganize, by adding "Formatting HTML
 	Output" and "Error Reporting, Customization Variables and
 	Paths Manipulation in User Defined Functions" and moving there

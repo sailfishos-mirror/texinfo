@@ -1542,8 +1542,8 @@ encoding name to mimic how the decoding of these strings from the command line
 is done in the main program and in the converters.  For example:
 
 @example
-my $macro_expand_fname = $self->get_conf('MACRO_EXPAND');
-my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+my $macro_expand_fname = $converter->get_conf('MACRO_EXPAND');
+my $encoding = $converter->get_conf('COMMAND_LINE_ENCODING');
 if (defined($encoding)) @{
   $macro_expand_fname = Encode::decode($encoding, $macro_expand_fname);
 @}
@@ -1584,8 +1584,8 @@ URL argument.
 
 for example
 @example
-return $self->html_attribute_class('a', [$cmdname])
-     .' href="'.$self->url_protect_url_text($url)."\">$text</a>";
+return $converter->html_attribute_class('a', [$cmdname])
+ .' href="'.$converter->url_protect_url_text($url)."\">$text</a>";
 @end example
 @end deftypefun
 
@@ -1602,8 +1602,8 @@ image file path in @code{@@image}.
 
 For example
 @example
-$self->html_attribute_class('img', [$cmdname])
-   . ' src="'.$self->url_protect_file_text($image_file)."\");
+$converter->html_attribute_class('img', [$cmdname])
+   . ' src="'.$converter->url_protect_file_text($image_file)."\");
 @end example
 @end deftypefun
 
@@ -1925,16 +1925,33 @@ is 100.
 @node Formatting HTML Output
 @chapter Formatting HTML Output
 
-HTML output formatting conversion is eased by functions related to HTML
-output, Texinfo tree elements conversion and general information.  There are
-also several conventions and constraints that user defined code should abide
-to, in order to comply with customization option values, avoid modifying
-structures that should not be modified, and also to have information correctly
-registered in the converter.
+HTML output formatting in user-defined code should take into account the
+conversion context, can access converter information and use converter functions
+to convert Perl Texinfo trees.  There are also several conventions and
+constraints that user defined code should abide to when formatting HTML, in
+order to comply with customization option values, avoid modifying structures
+that should not be modified, and also to have information correctly registered
+in the converter.
+
+Formatting of HTML output should be used in formatting functions
+(@pxref{Customization and Use of Formatting Functions}), tree elements
+conversion functions (@pxref{Tree Element Conversion Customization}) and output
+units conversion functions (@pxref{Output Units Conversion Functions})
+described later on.  Tree elements and output units conversion functions can
+also be used to output HTML, how to retrieve the corresponding function
+references and call those functions is also described with the functions
+customization.
+
+
+@node Specific HTML Constructs Formatting Functions
+@section Specific HTML Constructs Formatting Functions
+
+A few specific HTML constructs should be formatted using particular functions:
+elements with classes, ``void elements'' without end tag and non breaking spaces.
 
 
 @node Formatting HTML Element with Classes
-@section Formatting HTML Element with Classes
+@subsection Formatting HTML Element with Classes
 
 Opening an HTML element with one or more classes should always be done through
 @code{html_attribute_class}:
@@ -1970,11 +1987,11 @@ my $result = $converter->html_attribute_class('em', [$cmdname, 'jax_p'])
 
 
 @node Closing Lone HTML Element
-@section Closing Lone HTML Element
+@subsection Closing Lone HTML Element
 
 HTML elements with an opening element, but no closing element,
-such as @code{<img>} or @code{<link>} should be closed by calling
-@code{close_html_lone_element}:
+such as @code{<img>} or @code{<link>}, also called @dfn{void elements} should
+be closed by calling @code{close_html_lone_element}:
 
 @deftypefun {@var{$html_element} =} @var{$converter}->close_html_lone_element @
                                                      (@var{$unclosed_element})
@@ -1991,9 +2008,18 @@ $description = $converter->close_html_lone_element(
 
 
 @node Substituting Non Breaking Space
-@section Substituting Non Breaking Space
+@subsection Substituting Non Breaking Space
 
-If a @code{&nbsp;} can appear in formatted code,
+A non-breaking code should be inserted using the @code{non_breaking_space}
+information, taken from the general information (@pxref{Conversion General
+Information}), using @code{get_info}:
+@example
+my $non_breaking_space = $self->get_info('non_breaking_space');
+my $result = '<tr><td>' .$non_breaking_space. '</tr></td>'."\n";
+@end example
+In that case, there is nothing more to do.
+
+If a @code{&nbsp;} can directly appear in formatted code, however,
 the corresponding text should be in a call to @code{substitute_html_non_breaking_space},
 to take into account @code{OUTPUT_CHARACTERS} and @code{USE_NUMERIC_ENTITY}
 customization variables:
@@ -2003,12 +2029,16 @@ customization variables:
 Substitute @code{&nbsp;} according to customization variables values.
 @end deftypefun
 
-This is not needed if the @code{non_breaking_space} information is taken from
-the general information (@pxref{Conversion General Information}).
+
+@node Getting Conversion Context and Other Information
+@section Getting Conversion Context and Other Information
+
+Conversion to HTML often requires knowing the formating context (@pxref{Init
+File Expansion Contexts}) and benefits from general information on conversion.
 
 
 @node Conversion in String Context
-@section Conversion in String Context
+@subsection Conversion in String Context
 
 Conversion and formatting functions should check if in string
 context to avoid using HTML elements in formatting when in string context.
@@ -2033,7 +2063,7 @@ if ($converter->in_string()) @{
 
 
 @node Conversion in Preformatted Context
-@section Conversion in Preformatted Context
+@subsection Conversion in Preformatted Context
 
 Conversion and formatting functions should test if in preformatted
 context to convert accordingly. @xref{Init File Expansion Contexts}.
@@ -2083,8 +2113,27 @@ foreach my $pre_class (@@$pre_classes) @{
 preformatted class.
 
 
+@node Alignment and Multiple Expansion Contexts
+@subsection Alignment and Multiple Expansion Contexts
+
+To get the text filling and alignement context, determined by @code{@@flushleft}
+or @code{@@center}, use @code{in_align}:
+
+@deftypefun {@var{$align_context} =} @var{$converter}->in_align ()
+If the alignment context is the default alignement context, return @code{undef}.
+Otherwise, returns the command name of the alignment context.
+@end deftypefun
+
+To determine if the conversion is in a context converted multiple times,
+use @code{in_multi_expanded}:
+@deftypefun {@var{$multi_expanded_context_information} =} @var{$converter}->in_multi_expanded ()
+Return a string representing the multiple expanded context, or @code{undef} if
+not in a multiple expanded context.
+@end deftypefun
+
+
 @node Text Formatting Context
-@section Text Formatting Context
+@subsection Text Formatting Context
 
 Formatting of text requires to use additional informative functions on specific
 contexts only relevant for text.  User defined functions should convert the text
@@ -2143,7 +2192,7 @@ corresponding to @code{@@verb}.
 
 
 @node Conversion General Information
-@section Conversion General Information
+@subsection Conversion General Information
 
 Some general information is available from the converter.  This information
 should not change during conversion.
@@ -2275,14 +2324,61 @@ and @code{USE_TITLEPAGE_FOR_TITLE} customization variables in the default case.
 getting information on CSS.
 
 
-@node Texinfo Tree Conversion Functions
-@section Texinfo Tree Conversion Functions
+@node Dynamic Converter Formatting Information
+@subsection Dynamic Converter Formatting Information
 
-One important converter method that can be used in user defined functions
-is @code{convert_tree} that convert a Texinfo tree rooted at any element.
-There is no reason to use that function often, as the converter
-already goes through the tree calling functions to convert
-the elements, but it can be interesting in some cases.
+To get the current output unit being converted, use @code{current_output_unit}:
+@deftypefun {@var{$output_unit} =} @var{$converter}->current_output_unit ()
+Return the output unit being converted, or @code{undef} if there is no
+output unit.
+@end deftypefun
+
+To get the file name of the current output unit being converted,
+use @code{current_filename}:
+@deftypefun {@var{$filename} =} @var{$converter}->current_filename ()
+Return the file name of the current output unit being converted.
+@end deftypefun
+
+To get the current paragraph and preformatted number, use @code{paragraph_number}
+or @code{preformatted_number}:
+
+@deftypefun {@var{$number} =} @var{$converter}->paragraph_number ()
+@deftypefunx {@var{$number} =} @var{$converter}->preformatted_number ()
+Return the current paragraph or preformatted container number in the
+current formatting context.
+@end deftypefun
+
+To get the topmost block @@-command being converted, use @code{top_block_command}:
+@deftypefun {@var{$command_name} =} @var{$converter}->top_block_command ()
+Return the most recent block @@-command seen in the current formatting
+context.
+@end deftypefun
+
+
+@node Converting Texinfo Trees
+@section Converting Texinfo Trees
+
+In some cases, it may be needed to convert a Texinfo tree rooted at any
+element.  There is no reason to do that often, as the converter already goes
+through the tree calling functions to convert the elements, but it can be
+interesting in some cases.
+
+This is, for example, often needed if a translated Texinfo tree is setup
+(@pxref{Internationalization of Strings Function}).
+For example, here a Texinfo tree is returned by the @code{cdt} call,
+based on the translation of the @samp{No value for @@strong@{@{item@}@}}
+string, and converted to HTML with @code{convert_tree}:
+@example
+my $tree = $converter->cdt('No value for @@strong@{@{item@}@}',
+                           @{'item' => $text_element@});
+my $no_value_converted_output = $converter->convert_tree($tree);
+@end example
+
+
+@node Texinfo Tree Conversion Functions
+@subsection Texinfo Tree Conversion Functions
+
+The @code{convert_tree} function converts a Texinfo tree rooted at any element:
 
 @deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree (@var{\%element}, @var{$explanation})
 @var{\%element} is a Texinfo tree element. @var{$explanation} is
@@ -2327,20 +2423,19 @@ a Texinfo tree conversion.
 
 
 @node Setting the Context for Conversion
-@section Setting the Context for Conversion
+@subsection Setting the Context for Conversion
 
 Special container types are recognized by the converter and can
 be used to convert a Texinfo tree in a specific context.  Those
-types cannot appear in a regular Texinfo tree.  They can be the
-type directly associated with a text element, or the type of a tree
-root element.
+types cannot appear in a regular Texinfo tree.  In general they
+should be the type of tree root elements setup by the user.
 
 The types are:
 
 @table @code
 @item _code
 In this container, the conversion is done in a code context
-@xref{Init File Expansion Contexts}.
+@xref{Init File Expansion Contexts}.  For a container tree element.
 
 @item _converted
 In this container, the texts are considered to be already formatted.
@@ -2348,12 +2443,12 @@ This is more likely to be relevant as the type of a text element.
 
 @item _string
 In this container, the conversion is done in a string context.
-@xref{Init File Expansion Contexts}.
+@xref{Init File Expansion Contexts}.  For a container tree element.
 
 @end table
 
 These contexts are typically used together with converter conversion
-functions (@pxref{Converter Object and Conversion Functions}).
+functions (@pxref{Texinfo Tree Conversion Functions}).
 For example:
 
 @example
@@ -2364,19 +2459,61 @@ my $result = $converter->convert_tree(@{'type' => '_code',
                                   'contents' => \@@contents @});
 @end example
 
-There is no context for plain text, but the conversion to plain
-text can be achieved by using the @code{Texinfo::Text} converter
-(@pxref{Texinfo::Convert::Text,,,texi2any_internals}).  For example,
-to convert the Texinfo tree element @var{$element} to plain text:
 
+@node Conversion to Plain Text
+@subsection Conversion to Plain Text
+
+The conversion to plain text can be achieved by using the @code{Texinfo::Text}
+converter @code{convert_to_text} function
+(@pxref{Texinfo::Convert::Text,,,texi2any_internals}).
+
+@code{convert_to_text} requires a conversion options argument to determine
+how the conversion to text should be done, specifying, for
+instance, the encoding or the formatting context.  Such options are
+available in @code{$converter->@{'convert_text_options'@}}.
+
+For example,
+to convert the Texinfo tree element @var{$element} to plain text:
 @example
 my $plaintext = Texinfo::Convert::Text::convert_to_text($element,
-  Texinfo::Convert::Text::copy_options_for_convert_text($converter, 1));
+                                  $converter->@{'convert_text_options'@});
+@end example
+
+Conversion to plaintext is often used for strings that are
+to be formatted in code context.  Code context can be set and reset
+by using @code{Texinfo::Convert::Text::set_options_code} and
+@code{Texinfo::Convert::Text::reset_options_code}:
+@example
+Texinfo::Convert::Text::set_options_code(
+               $converter->@{'convert_text_options'@});
+my $code_string = Texinfo::Convert::Text::convert_to_text($element,
+                            $converter->@{'convert_text_options'@});
+Texinfo::Convert::Text::reset_options_code(
+               $converter->@{'convert_text_options'@});
+@end example
+
+If encoded characters should be used irrespective of the specified document
+encoding, a possibility relevant, in general, for file names,
+@code{Texinfo::Convert::Text::set_options_encoding_if_not_ascii}
+should be called before the conversion and the original options should be reset
+afterwards by calling @code{Texinfo::Convert::Text::reset_options_encoding}:
+@example
+Texinfo::Convert::Text::set_options_code(
+               $converter->@{'convert_text_options'@});
+Texinfo::Convert::Text::set_options_encoding_if_not_ascii($converter,
+                             $converter->@{'convert_text_options'@});
+my $file_name = Texinfo::Convert::Text::convert_to_text($element,
+                            $converter->@{'convert_text_options'@});
+Texinfo::Convert::Text::reset_options_code(
+               $converter->@{'convert_text_options'@});
+Texinfo::Convert::Text::reset_options_encoding(
+               $converter->@{'convert_text_options'@});
 @end example
 
 
+
 @node Texinfo Tree Elements in User Defined Functions
-@section Texinfo Tree Elements in User Defined Functions
+@subsection Texinfo Tree Elements in User Defined Functions
 
 Many user defined functions used for formatting have Texinfo tree elements
 as arguments.  The user defined code should never modify the tree elements.
@@ -2422,7 +2559,7 @@ documentation, in particular a list of types and of information in the elements
 
 
 @node Output Units in User Defined Functions
-@section Output Units in User Defined Functions
+@subsection Output Units in User Defined Functions
 
 Both normal output units and special units are formatted (@pxref{Output
 Units}).  The output units hold information on the document
@@ -2472,8 +2609,8 @@ For special units only. @xref{Special Units Varieties}.
 @end table
 
 
-@node User Defined Functions in Conversion
-@chapter User Defined Functions in Conversion
+@node Customization and Use of Formatting Functions
+@chapter Customization and Use of Formatting Functions
 
 Full customization of output is achieved with replacing default
 formatting functions with user defined functions.  There
@@ -2481,28 +2618,214 @@ are two broad classes of functions, the @dfn{conversion} functions used
 for output units and elements of the Texinfo tree, and other @dfn{formatting}
 functions with diverse purposes, including formatting that are not based on
 tree elements (for example beginning and end of file formatting).
+@dfn{Conversion} functions are described in the next chapters.
+
+This chapter describes how @dfn{formatting} functions are registered and
+basic formatting functions that can be used in diverse situations.
+More specific formatting functions are described later on together
+with information on specific output customization.
+
+Most formatting functions are specific, with specific arguments,
+and a specific item formatted.  They can be called for HTML
+formatting and may also be customized.
+
+User defined functions associated with
+the formatting of special output units body (@pxref{Output Units})
+are handled separately (@pxref{Customizing Footnotes, Tables of Contents and
+About}).
+
+The formatting functions are often called from functions that can be
+replaced by user-defined functions, therefore these functions may
+not be called if the replacement functions do not keep a similar
+operation.
 
 
-@node Tree Element Conversion Functions
-@section Tree Element Conversion Functions
+@node Registering Specific Formating Functions
+@section Registering Specific Formating Functions
+
+User defined formatting functions are registered with
+@code{texinfo_register_formatting_function}:
+
+@defun texinfo_register_formatting_function ($formatted, @
+                            \@ampchar{}handler)
+@var{$formatted} is a string describing the formatting
+function. @var{\&handler} is the user defined function reference.
+@end defun
+
+To call a formatting function from user defined code, the
+function reference should first be retrieved using @code{formatting_function}:
+
+@deftypefun {@var{\&formatting_function} =} @var{$converter}->formatting_function (@var{$formatted})
+@var{$formatted} is a string describing the formatting
+function. Returns the associated formatting function reference.
+@end deftypefun
+
+It is possible to have access to the default formatting function reference.
+The function used is:
+
+@deftypefun {@var{\&default_formatting_function} =} @var{$converter}->default_formatting_function (@var{$formatted})
+@var{$formatted} is a string describing the formatting
+function. Returns the default formatting function reference.
+@end deftypefun
+
+The string that should be used to register or call each of the formatting functions
+and the call of the formatting functions are documented in the following sections of
+the manual, depending on where they are relevant.
+
+
+@node Basic Formatting Customization
+@section Basic Formatting Customization
+
+The following formatting functions references handle basic formatting
+and are called from diverse formatting and conversion functions.
+@xref{Registering Specific Formating Functions} for information on how to
+register and get the functions references.
+
+All the functions take a converter object as their first argument.
+
+@table @code
+@item format_button_icon_img
+
+Called for an active direction, if @code{ICONS} is set, when formatting
+the navigation panel (@pxref{Simple Navigation Panel Customization}).
+
+@deftypefn {Function Reference} @var{$text} format_button_icon_img @
+                  (@var{$converter}, @var{$button}, @var{$icon}, @var{$name})
+@var{$button} is a button name, typically obtained from the @code{button}
+direction string (@pxref{Direction Strings}).
+@var{$icon} is an image file name to be used as icon.  @var{$name} is the
+direction heading, typically formatted in string context.  @xref{Init File
+Expansion Contexts}.
+
+Returns a formatted icon image.
+@end deftypefn
+
+@item format_comment
+
+@deftypefn {Function Reference} @var{$text} format_comment  @
+                                       (@var{$converter}, @var{$input_text})
+Return @var{$input_text} in a comment.
+@end deftypefn
+
+@xref{Texinfo::Convert::Converter $comment = $converter->xml_comment($text),,
+Texinfo::Convert::Converter::xml_comment,texi2any_internals}.
+
+@item format_heading_text
+
+@deftypefn {Function Reference} @var{$text} format_heading_text @
+  (@var{$converter}, @var{$command_name}, @var{\@@classes}, @var{$input_text}, @var{$level}, @var{$id}, @var{\%element}, @var{$target})
+Returns a heading formatted using @var{$input_text} as heading text, @var{$level}
+as heading level, @var{\@@classes} for a class attribute.  @var{$command_name}
+gives an information on the @@-command the heading is associated to and can be
+@code{undef}, for instance for special output units headings.
+
+@var{$id} is an optional identifier, and @var{\%element} is an optional
+Texinfo tree element associated with the heading.  @var{$target} is the
+id of the element this heading is referring to.
+
+In the default case, if the @var{$target} or @var{$id} are specified, a
+copiable anchor will be generated and injected into the heading.  In the case
+both are specified, @var{$id} is preferred over @var{$target}, as it is closer
+to the element the user sees the anchor on.
+@end deftypefn
+
+This function reference can be called for @code{@@node} and sectioning
+commands, heading commands, normal output units, special output units and
+title @@-commands.
+
+A formatted headings is, in the default case, like @code{<h2>@var{$input_text}</h2>}
+for a @var{$level} 2 heading.
+
+@item format_program_string
+
+@deftypefn {Function Reference} @var{$text} format_program_string (@var{$converter})
+This function reference should return the formatted program
+string.
+@end deftypefn
+
+@item format_protect_text
+@deftypefn {Function Reference} @var{$text} format_protect_text  @
+                                        (@var{$converter}, @var{$input_text})
+Return @var{$input_text} with HTML reserved characters and form feeds
+protected.
+
+For performance reasons, this function reference may not be called everywhere
+text is protected.  For those cases, the calling function should also be
+redefined to call @code{&@{$converter->formatting_function('format_protect_text')@}(...)}
+instead of another function@footnote{The function called is actually the
+function referenced as @code{$converter->formatting_function('format_protect_text')}
+in the default case, but it is called directly to avoid an indirection}.
+@end deftypefn
+
+@xref{Texinfo::Convert::Converter $protected_text = $converter->xml_protect_text($text),,
+Texinfo::Convert::Converter::xml_protect_text,texi2any_internals}.
+@item format_separate_anchor
+
+This function reference is called if there is not another HTML element to
+add an identifier attribute to.
+
+@deftypefn {Function Reference} @var{$text} format_separate_anchor @
+                               (@var{$converter}, @var{$id}, @var{$class})
+@var{id} is the identifier.
+@var{$class} is an optional class to be used in an HTML class attribute.
+
+Return an anchor with identifier @var{$id}.
+@end deftypefn
+
+@end table
+
+For example, a separate anchor with an id built from a counter
+could be obtained with:
+@example
+$counter++;
+my $anchor_id = 'anchor_id_' . $counter;
+my $anchor_with_counter
+  = &@{$converter->formatting_function('format_separate_anchor')@}
+                             $converter, $anchor_id, 'myanchor_class');
+@end example
+
+The default function used for separate anchors can be replaced by a user-defined
+anchor formatting function using a @code{<p>} element with:
+@example
+@group
+sub my_format_separate_anchor($$;$)
+@{
+  my $self = shift;
+  my $id = shift;
+  my $class = shift;
+
+  return $self->html_attribute_class('p', [$class])." id=\"$id\"></p>";
+@}
+
+texinfo_register_formatting_function('format_separate_anchor',
+                                     \&my_format_separate_anchor);
+@end group
+@end example
+
+
+@node Tree Element Conversion Customization
+@chapter Tree Element Conversion Customization
 
 Functions used for tree elements associated with @@-commands are
 considered separately from functions used for tree elements not
 associated with @@-commands, which includes containers with a type
-and text.  There are two functions for each element command or
+and text.  There are two main functions for each element command or
 type, one called when the element is first encountered, and the other
 called after formatting the contents of the element.  The actual
 conversion is usually done after formatting the contents of the element,
 but it may sometime be necessary to have some code run when
 the element is first encountered.
 
-For tree elements that contain text, a @code{text} type is used
-to select the formatting functions, irrespective of the actual type of
-such a tree element.  The @code{text} type is not used for tree elements.
-
 For @@-commands with both a command name and a type, the type is used
 as selector for the formating function for @code{def_line},
 @code{definfoenclose_command} and @code{index_entry_command} types.
+
+
+@node Command Tree Element Conversion
+@section Command Tree Element Conversion
+
+All the command elements can have an opening function and a conversion
+function registered and used.  Some commands require more specific functions.
 
 
 @node Command Tree Element Opening Functions
@@ -2575,7 +2898,7 @@ Same as monospace, but in addition in string context. @xref{Init File Expansion 
 
 @item monospacetext
 Same as monospace, but in addition the argument is converted to plain
-text.  @xref{Converter Object and Conversion Functions}.
+text.
 
 @item filenametext
 Same as monospacetext, but in addition the document encoding is used
@@ -2642,6 +2965,127 @@ The function used is:
 default conversion function reference for @var{$command_name}, or @samp{undef} if there is none,
 which should only be the case for @@-commands ignored in HTML.
 @end deftypefun
+
+
+@node Heading Commands Formatting
+@subsection Heading Commands Formatting
+
+The customization variables
+@code{CONTENTS_OUTPUT_LOCATION},
+@code{CHAPTER_HEADER_LEVEL}, @code{TOC_LINKS},
+@code{USE_NEXT_HEADING_FOR_LONE_NODE} and @code{FORMAT_MENU}
+may be used to change the sectioning commands conversion.
+@xref{HTML Customization Variables,,, texinfo, Texinfo}.
+
+@code{@@node} and sectioning default conversion function call
+@code{format_heading_text} (@pxref{Basic Formatting Customization})
+and @code{format_element_header} (@pxref{Element Header and Footer
+Formatting}).  The @code{@@node} and sectioning elements are formatted like any
+other elements associated with @@-commands.  The corresponding function
+references can therefore be replaced by user defined functions for a precise
+control of conversion (@xref{Command Tree Element Conversion Functions}).
+
+In the default formatting, when a sectioning command is encountered, a
+@code{<div>} element is opened for the extent of the sectioning command
+including its children sectioning commands.  This extent need to be closed
+at different places, for instance when another sectioning command
+is reached, at the end of a file, or at the end of the document.
+
+The user defined formatting function should take care of
+registering and closing opened section levels.  In the default code, registering is
+done in the sectioning commands conversion function only.
+
+The function for registering opened section extent is
+@code{register_opened_section_level}:
+
+@defun @var{$converter}->register_opened_section_level ($level, $closing_text)
+@var{$level} is the sectioning command level.  It is typically
+obtained with @code{section->@{'extra'@}->@{'section_level'@}}
+(@pxref{Texinfo Tree Elements in User Defined Functions}).
+@var{$closing_text} is the text that should be output when the
+section level @var{$level} is closed.
+@end defun
+
+The function for closing registered section extents is
+@code{close_registered_sections_level}:
+
+@deftypefun {@var{\@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$level})
+@var{$level} is the sectioning command level.  Opened section are closed
+down to section level @var{$level}.  The closing texts are returned in the
+@var{\@@closing_texts} array reference in order.
+@end deftypefun
+
+Example of use:
+@example
+@group
+my $level = $opening_section->@{'extra'@}->@{'section_level'@};
+my $closed_strings
+   = $converter->close_registered_sections_level($level);
+$result .= join('', @@@{$closed_strings@});
+
+# ....
+
+$converter->register_opened_section_level($level, "</div>\n");
+@end group
+@end example
+
+
+@node Index Formatting
+@subsection Index Formatting
+
+Index formatting customization is achieved through registering a conversion
+function for @code{@@printindex} (@pxref{Command Tree Element Conversion
+Functions}).  Sorted index entries, which are usually used for index formatting
+are available through @code{get_converter_indices_sorted_by_letter}:
+
+@deftypefun {@var{$sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
+Returns index entries sorted by index and letter.
+This function should be called each time sorted indices are needed,
+in case the sorting depends on the @code{@@documentlanguage} value.
+@xref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),,Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter,texi2any_internals}.
+@end deftypefun
+
+
+@node Image Formatting
+@subsection Image Formatting
+
+Image @code{@@image} command formatting is customized by registering a
+conversion function for @code{@@image} (@pxref{Command Tree Element Conversion
+Functions}).  To get the location of an image file, it could be useful to use
+@code{html_image_file_location_name}:
+
+@deftypefun {(@var{$image_file}, @var{$image_basefile}, @var{$image_extension}, @var{$image_path}, @var{$image_path_encoding}) =} @
+ @var{$converter}->html_image_file_location_name (@var{$command_name}, @var{\%element}, @var{\@@args})
+@var{$command_name}, @var{\%element} and @var{\@@args} should be the arguments
+of an @code{@@image} @@-command formatting (@pxref{Command Tree Element
+Conversion Functions}).
+
+The return values gives information on the image file if found, or fallback values.
+@var{$image_file} is the relative image file name.  It is the file name used in
+formatting of the @code{@@image} command in the default case.  @var{$image_basefile}
+is the base file name of the image, without extension, corresponding to the
+@code{@@image} @@-command first argument.  @var{$image_extension} is the image
+file extension (without a leading dot).  @var{$image_path} is the path to the
+actual image file, @code{undef} if no file was found.  @var{$image_path} is
+returned as a binary string, the other strings returned are character strings.
+@var{$image_path_encoding} is the encoding used to encode the image path to a
+binary string.
+@end deftypefun
+
+
+@node Type Tree Element Conversion
+@section Type Tree Element Conversion
+
+All the containers and text Texinfo tree elements
+not handled with command tree elements have a @dfn{type} associated.
+As for commands tree elements, they can have an opening function and a
+conversion function registered for a type and used.
+Some types may need more specific information too.
+
+For tree elements that contain text, a @code{text} type is used
+to select the formatting functions, irrespective of the actual type of
+such a tree element.  The @code{text} type does not exist in actual
+Texinfo tree elements.
 
 
 @node Type Tree Element Opening Functions
@@ -2720,8 +3164,118 @@ which should only be the case for types ignored in HTML.
 @end deftypefun
 
 
+@node Inline Text Containers Formatting
+@subsection Inline Text Containers Paragraph and Preformatted Formatting
+
+Text is mainly output in two @dfn{inline} text containers, @code{paragraph} for
+text in paragraph and @code{preformatted} for text in preformatted
+environments.  The Texinfo code parsing makes sure that it is the case, to
+simplify conversion to formats which allow text only in specific environments
+such as HTML.
+
+Formatted text may also be prepared based on information from Texinfo
+elements tree while out of the inline containers.  For example, @code{@@quotation}
+argument should in general be prepended to the first paragraph in @code{@@quotation},
+caption number is also typically prependended to the caption.
+For that case, functions allow to register pending inline formatted content,
+and get the content to be prepended in inline text containers.
+
+Pending formatted content text is registered with
+@code{register_pending_formatted_inline_content}:
+
+@defun @var{$converter}->register_pending_formatted_inline_content ($category, $content)
+@var{$content} is the formatted content to be registered and output
+in the next inline container.  @var{$category} is a indicator of the source
+of the formatted inline content, mostly used to cancel registered content
+if no inline container was seen.
+@end defun
+
+For example
+@example
+my $quotation_arg_to_prepend
+  = $converter->convert_text($quotation_arg_element);
+$self->register_pending_formatted_inline_content('quotation',
+                                 $formatted_quotation_arg_to_prepend);
+@end example
+
+Pending formatted content can (and should) be cancelled when it is known that
+there is no suitable inline container to be used to output the text.  The
+function is @code{cancel_pending_formatted_inline_content}:
+
+@deftypefun {@var{$cancelled_content} =} @var{$converter}->cancel_pending_formatted_inline_content (@var{$category})
+Cancel the first @var{$category} pending formatted content text found.
+Returns @code{undef} if nothing was cancelled, and the cancelled
+content otherwise.
+@end deftypefun
+
+Pending formatted content is gathered by calling @code{get_pending_formatted_inline_content}.
+In the default case, this is done in inline containers opening
+code (@pxref{Type Tree Element Opening Functions}).
+
+@deftypefun {@var{$content} =} @var{$converter}->get_pending_formatted_inline_content ()
+Returns the concatenated pending content.
+@end deftypefun
+
+The inline containers get the content when they are opened, but are
+converted after the formatting of their contents.  Two additional functions
+allow to associate pending content to an element,
+@code{associate_pending_formatted_inline_content}, and get the associated
+content, @code{get_associated_formatted_inline_content}.
+@code{associate_pending_formatted_inline_content} is normally called in inline
+container opening code, right after
+@code{get_pending_formatted_inline_content}, while
+@code{get_associated_formatted_inline_content} is called in the inline
+container conversion function (@pxref{Type Tree Element Conversion Functions}).
+
+@defun @var{$converter}->associate_pending_formatted_inline_content (\%element, $content)
+Associate @var{$content} to the Texinfo tree element @var{\%element}.
+@end defun
+
+@deftypefun {@var{$content} =} @var{$converter}->get_associated_formatted_inline_content (@var{\%element})
+Get @var{$content} associated to the Texinfo tree element @var{\%element}.
+@end deftypefun
+
+Here is the inline container formatting codes showing how those functions
+are used:
+@example
+@group
+sub _open_inline_container_type($$$)
+@{
+  my $self = shift;
+  my $type = shift;
+  my $element = shift;
+
+  my $pending_formatted = $self->get_pending_formatted_inline_content();
+
+  if (defined($pending_formatted)) @{
+    $self->associate_pending_formatted_inline_content($element,
+                                                    $pending_formatted);
+  @}
+  return '';
+@}
+@end group
+
+@group
+sub _convert_paragraph_type($$$$)
+@{
+  my $self = shift;
+  my $type = shift;
+  my $element = shift;
+  my $content = shift;
+
+  $content = '' if (!defined($content));
+
+  $content
+    = $self->get_associated_formatted_inline_content($element).$content;
+
+  # ....
+@}
+@end group
+@end example
+
+
 @node Output Units Conversion Functions
-@section Output Units Conversion Functions
+@chapter Output Units Conversion Functions
 
 Output units formatting function are setup and used similarly as
 for tree container types (@pxref{Type Tree Element Conversion Functions}).
@@ -2777,165 +3331,11 @@ Formatting Customization}) and @code{format_element_footer} (@pxref{Element
 Header and Footer Formatting}).  Special units type is @code{special_unit}.
 
 
-@node Formatting Functions
-@section Formatting Functions
+@c TODO where to put that?
+@node Shared Conversion State
+@chapter Shared Conversion State
 
-Most formatting functions are specific, with specific arguments,
-and a specific item formatted.
-
-User defined functions associated with
-the formatting of special output units body (@pxref{Output Units})
-are handled separately.
-
-The formatting functions are often called from function that can be
-replaced by a user defined function, therefore these functions may
-not be called if the replacement functions do not keep a similar
-operation.
-
-
-@node Specific formating Functions
-@subsection Specific formating Functions
-
-User defined formatting functions are registered with
-@code{texinfo_register_formatting_function}:
-
-@defun texinfo_register_formatting_function ($formatted, @
-                            \@ampchar{}handler)
-@var{$formatted} is a string describing the formatting
-function. @var{\&handler} is the user defined function reference.
-@end defun
-
-To call a formatting function from user defined code, the
-function reference should first be retrieved using @code{formatting_function}:
-
-@deftypefun {@var{\&formatting_function} =} @var{$converter}->formatting_function (@var{$formatted})
-@var{$formatted} is a string describing the formatting
-function. Returns the associated formatting function reference.
-@end deftypefun
-
-It is possible to have access to the default formatting function reference.
-The function used is:
-
-@deftypefun {@var{\&default_formatting_function} =} @var{$converter}->default_formatting_function (@var{$formatted})
-@var{$formatted} is a string describing the formatting
-function. Returns the default formatting function reference.
-@end deftypefun
-
-The string that should be used to register or call each of the formatting functions
-and the call of the formatting functions are documented in the following sections of
-the manual, depending on where they are relevant.
-
-
-@node Basic Formatting Customization
-@chapter Basic Formatting Customization
-
-The following formatting functions references handle basic formatting
-and are called from diverse formatting and conversion functions. @xref{Specific
-formating Functions} for information on how to register and get the functions
-references.
-
-All the functions take a converter object as their first argument.
-
-@table @code
-@item format_button_icon_img
-
-Called for an active direction, if @code{ICONS} is set, when formatting
-the navigation panel (@pxref{Simple Navigation Panel Customization}).
-
-@deftypefn {Function Reference} @var{$text} format_button_icon_img @
-                  (@var{$converter}, @var{$button}, @var{$icon}, @var{$name})
-@var{$button} is a button name, typically obtained from the @code{button}
-direction string (@pxref{Direction Strings}).
-@var{$icon} is an image file name to be used as icon.  @var{$name} is the
-direction heading, typically formatted in string context.  @xref{Init File
-Expansion Contexts}.
-
-Returns a formatted icon image.
-@end deftypefn
-
-@item format_comment
-
-@deftypefn {Function Reference} @var{$text} format_comment  @
-                                       (@var{$converter}, @var{$input_text})
-Return @var{$input_text} in a comment.
-@end deftypefn
-
-@xref{Texinfo::Convert::Converter $comment = $converter->xml_comment($text),,
-Texinfo::Convert::Converter::xml_comment,texi2any_internals}.
-
-@item format_heading_text
-
-@deftypefn {Function Reference} @var{$text} format_heading_text @
-  (@var{$converter}, @var{$command_name}, @var{\@@classes}, @var{$input_text}, @var{$level}, @var{$id}, @var{\%element}, @var{$target})
-Returns a heading formatted using @var{$input_text} as heading text, @var{$level}
-as heading level, @var{\@@classes} for a class attribute.  @var{$command_name}
-gives an information on the @@-command the heading is associated to and can be
-@code{undef}, for instance for special output units headings.
-
-@var{$id} is an optional identifier, and @var{\%element} is an optional
-Texinfo tree element associated with the heading.  @var{$target} is the
-id of the element this heading is referring to.
-
-In the default case, if the @var{$target} or @var{$id} are specified, a
-copiable anchor will be generated and injected into the heading.  In the case
-both are specified, @var{$id} is preferred over @var{$target}, as it is closer
-to the element the user sees the anchor on.
-@end deftypefn
-
-This function reference can be called for @code{@@node} and sectioning
-commands, heading commands, normal output units, special output units and
-title @@-commands.
-
-A formatted headings is, in the default case, like @code{<h2>@var{$input_text}</h2>}
-for a @var{$level} 2 heading.
-
-@item format_program_string
-
-@deftypefn {Function Reference} @var{$text} format_program_string (@var{$converter})
-This function reference should return the formatted program
-string.
-@end deftypefn
-
-@item format_protect_text
-@deftypefn {Function Reference} @var{$text} format_protect_text  @
-                                        (@var{$converter}, @var{$input_text})
-Return @var{$input_text} with HTML reserved characters and form feeds
-protected.
-
-For performance reasons, this function reference may not be called everywhere
-text is protected.  For those cases, the calling function should also be
-redefined to call @code{&@{$self->formatting_function('format_protect_text')@}(...)}
-instead of another function@footnote{The function called is actually the
-function referenced as @code{$self->formatting_function('format_protect_text')}
-in the default case, but it is called directly to avoid an indirection}.
-@end deftypefn
-
-@xref{Texinfo::Convert::Converter $protected_text = $converter->xml_protect_text($text),,
-Texinfo::Convert::Converter::xml_protect_text,texi2any_internals}.
-@item format_separate_anchor
-
-This function reference is called if there is not another HTML element to
-add an identifier attribute to.
-
-@deftypefn {Function Reference} @var{$text} format_separate_anchor @
-                               (@var{$converter}, @var{$id}, @var{$class})
-@var{id} is the identifier.
-@var{$class} is an optional class to be used in an HTML class attribute.
-
-Return an anchor with identifier @var{$id}.
-@end deftypefn
-
-
-@end table
-
-
-@node Dynamic Conversion Information
-@chapter Dynamic Conversion Information
-
-Dynamic formatting information on the conversion can be obtained from the
-converter.
-
-For advanced customization, it is also often necessary to pass information
+For advanced customization, it is often necessary to pass information
 during conversion between different formatting functions or between
 different calls of the same function.
 
@@ -2943,224 +3343,13 @@ The information is often useful for the formatting of paragraph and
 preformatted containers and @@-commands such as @code{@@abbr}, @code{@@footnote},
 @code{@@node}, sectioning commands, @code{@@quotation} and @code{@@float}.
 
-
-@node Dynamic Converter Formatting Information
-@section Dynamic Converter Formatting Information
-
-To get the current output unit being converted, use @code{current_output_unit}:
-@deftypefun {@var{$output_unit} =} @var{$converter}->current_output_unit ()
-Return the output unit being converted, or @code{undef} if there is no
-output unit.
-@end deftypefun
-
-To get the file name of the current output unit being converted,
-use @code{current_filename}:
-@deftypefun {@var{$filename} =} @var{$converter}->current_filename ()
-Return the file name of the current output unit being converted.
-@end deftypefun
-
-To get the current paragraph and preformatted number, use @code{paragraph_number}
-or @code{preformatted_number}:
-
-@deftypefun {@var{$number} =} @var{$converter}->paragraph_number ()
-@deftypefunx {@var{$number} =} @var{$converter}->preformatted_number ()
-Return the current paragraph or preformatted container number in the
-current formatting context.
-@end deftypefun
-
-To get the topmost block @@-command being converted, use @code{top_block_command}:
-@deftypefun {@var{$command_name} =} @var{$converter}->top_block_command ()
-Return the most recent block @@-command seen in the current formatting
-context.
-@end deftypefun
-
-To get the text filling and alignement context, determined by @code{@@flushleft}
-or @code{@@center}, use @code{in_align}:
-
-@deftypefun {@var{$align_context} =} @var{$converter}->in_align ()
-If the alignment context is the default alignement context, return @code{undef}.
-Otherwise, returns the command name of the alignment context.
-@end deftypefun
-
-To determine if the conversion is in a context converted multiple times,
-use @code{in_multi_expanded}:
-@deftypefun {@var{$multi_expanded_context_information} =} @var{$converter}->in_multi_expanded ()
-Return a string representing the multiple expanded context, or @code{undef} if
-not in a multiple expanded context.
-@end deftypefun
-
-Sorted index entries are available through
-@code{get_converter_indices_sorted_by_letter}:
-
-@deftypefun {@var{$sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
-Returns index entries sorted by index and letter.
-This function should be called each time sorted indices are needed,
-in case the sorting depends on the @code{@@documentlanguage} value.
-@xref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),,Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter,texi2any_internals}.
-@end deftypefun
-
-To get the location of an image file, use @code{html_image_file_location_name}:
-
-@deftypefun {(@var{$image_file}, @var{$image_basefile}, @var{$image_extension}, @var{$image_path}, @var{$image_path_encoding}) =} @
- @var{$converter}->html_image_file_location_name (@var{$command_name}, @var{\%element}, @var{\@@args})
-@var{$command_name}, @var{\%element} and @var{\@@args} should be the arguments
-of an @code{@@image} @@-command formatting (@pxref{Command Tree Element
-Conversion Functions}).
-
-The return values gives information on the image file if found, or fallback values.
-@var{$image_file} is the relative image file name.  It is the file name used in
-formatting of the @code{@@image} command in the default case.  @var{$image_basefile}
-is the base file name of the image, without extension, corresponding to the
-@code{@@image} @@-command first argument.  @var{$image_extension} is the image
-file extension (without a leading dot).  @var{$image_path} is the path to the
-actual image file, @code{undef} if no file was found.  @var{$image_path} is
-returned as a binary string, the other strings returned are character strings.
-@var{$image_path_encoding} is the encoding used to encode the image path to a
-binary string.
-@end deftypefun
-
-@xref{Conversion in Preformatted Context} for information on getting
-preformatted commands and container types nesting information.
-
-
-@node Opening and Closing Sectioning Commands Extent
-@section Opening and Closing Sectioning Commands Extent
-
-In the default formatting, when a sectioning command is encountered, a
-@code{<div>} element is opened for the extent of the sectioning command
-including its children sectioning commands.  This extent need to be closed
-at different places, for instance when another sectioning command
-is reached, at the end of a file, or at the end of the document.
-
-The user defined formatting function should take care of
-registering and closing opened section levels.  In the default code, registering is
-done in the sectioning commands conversion function only.
-
-The function for registering opened section extent is
-@code{register_opened_section_level}:
-
-@defun @var{$converter}->register_opened_section_level ($level, $closing_text)
-@var{$level} is the sectioning command level.  It is typically
-obtained with @code{section->@{'extra'@}->@{'section_level'@}}
-(@pxref{Texinfo Tree Elements in User Defined Functions}).
-@var{$closing_text} is the text that should be output when the
-section level @var{$level} is closed.
-@end defun
-
-The function for closing registered section extents is
-@code{close_registered_sections_level}:
-
-@deftypefun {@var{\@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$level})
-@var{$level} is the sectioning command level.  Opened section are closed
-down to section level @var{$level}.  The closing texts are returned in the
-@var{\@@closing_texts} array reference in order.
-@end deftypefun
-
-Example of use:
-@example
-@group
-my $level = $opening_section->@{'extra'@}->@{'section_level'@};
-my $closed_strings
-   = $converter->close_registered_sections_level($level);
-$result .= join('', @@@{$closed_strings@});
-
-# ....
-
-$converter->register_opened_section_level($level, "</div>\n");
-@end group
-@end example
-
-
-@node Setting Up Content for the Next Text Container
-@section Setting Up Content for the Next Text Container
-
-Text is mainly output in two @dfn{inline} text containers, @code{paragraph} for
-text in paragraph and @code{preformatted} for text in preformatted
-environments.  The Texinfo code parsing makes sure that it is the case, to
-simplify conversion to formats which allow text only in specific environments
-such as HTML.
-
-Formatted text may also be prepared based on information from Texinfo
-elements tree while out of the inline containers.  For that case, functions
-allow to register pending inline formatted content, and get the content to be
-prepended in inline text containers.
-
-Pending formatted content text is registered with
-@code{register_pending_formatted_inline_content}:
-
-@defun @var{$converter}->register_pending_formatted_inline_content ($category, $content)
-@var{$content} is the formatted content to be registered and output
-in the next inline container.  @var{$category} is a indicator of the source
-of the formatted inline content, mostly used to cancel registered content
-if no inline container was seen.
-@end defun
-
-Pending formatted content can (and should) be cancelled when it is known that
-there is no suitable inline container to be used to output the text.  The
-function is @code{cancel_pending_formatted_inline_content}:
-
-@deftypefun {@var{$cancelled_content} =} @var{$converter}->cancel_pending_formatted_inline_content (@var{$category})
-Cancel the first @var{$category} pending formatted content text found.
-Returns @code{undef} if nothing was cancelled, and the cancelled
-content otherwise.
-@end deftypefun
-
-Pending formatted content is gathered by calling @code{get_pending_formatted_inline_content}.
-In the default case, this is done in inline containers opening
-code (@pxref{Type Tree Element Opening Functions}).
-
-@deftypefun {@var{$content} =} @var{$converter}->get_pending_formatted_inline_content ()
-Returns the concatenated pending content.
-@end deftypefun
-
-The inline containers get the content when they are opened, but are
-converted after the formatting of their contents.  Two additional functions
-allow to associate pending content to an element,
-@code{associate_pending_formatted_inline_content}, and get the associated
-content, @code{get_associated_formatted_inline_content}.
-@code{associate_pending_formatted_inline_content} is normally called in inline
-container opening code, right after
-@code{get_pending_formatted_inline_content}, while
-@code{get_associated_formatted_inline_content} is called in the inline
-container conversion function (@pxref{Type Tree Element Conversion Functions}).
-
-@defun @var{$converter}->associate_pending_formatted_inline_content (\%element, $content)
-Associate @var{$content} to the Texinfo tree element @var{\%element}.
-@end defun
-
-@deftypefun {@var{$content} =} @var{$converter}->get_associated_formatted_inline_content (@var{\%element})
-Get @var{$content} associated to the Texinfo tree element @var{\%element}.
-@end deftypefun
-
-
-@node Associating Information to an Output File
-@section Associating Information to an Output File
-
-To be able to retrieve information associated to the current file, in general
-for the file begin or end formatting, @code{register_file_information} can  be
-used to associate integer information, and @code{get_file_information} to
-retrieve that information.
-
-@defun @var{$converter}->register_file_information ($key, $value)
-Associate the current output file name file to the key @var{$key}, itself
-associated to the integer value @var{$value}.
-@end defun
-
-@deftypefun {@var{$value} =} @var{$converter}->get_file_information (@var{$key}, @var{$file_name})
-Return the value associated to the key @var{$key} and file name @var{$file_name}.
-@end deftypefun
-
-
-@node Shared Conversion State
-@section Shared Conversion State
-
 An interface is provided for information shared among formatting functions.
 It is required to use that interface when sharing information with the default
 formatting functions.  Each data piece is associated to an @@-command name, has
 a name, and a list of selectors.
 
 @node Define Get and Set Shared Conversion State
-@subsection Define, Get and Set Shared Conversion State
+@section Define, Get and Set Shared Conversion State
 
 Four types for selectors and value are currently considered:
 
@@ -3242,7 +3431,7 @@ $converter->set_shared_conversion_state('quotation', 'color',
 The converter is used to hold the information, but does not use nor write.
 
 @node Shared Conversion State in Defaut Formatting
-@subsection Shared Conversion State in Defaut Formatting
+@section Shared Conversion State in Defaut Formatting
 
 The following shared conversion state information is defined in the
 default formatting functions:
@@ -3264,7 +3453,7 @@ These shared information data correspond to:
 @vtable @code
 @item explained_commands
 Associate the explanation given in a previous @code{@@abbr} or
-@code{@@acronym} second argument to first @code{@@abbr} or 
+@code{@@acronym} second argument to first @code{@@abbr} or
 @code{@@acronym} arguments.
 @item footnote_number
 The current number of footnotes formatted in document.
@@ -3286,6 +3475,7 @@ Set to 1 in a @code{Top} node being skipped, in case
 Associate a @code{@@nodedescription} tree element to the number of time
 it was formatted.
 @end vtable
+
 
 @node Translations in Output and Customization
 @chapter Translations in Output and Customization
@@ -3401,8 +3591,8 @@ strings translations function arguments.
 This function reference is not set in the default case, in the default case
 @code{translate_string} from the @code{Texinfo::Translations} module is
 called (@pxref{Internationalization of Strings Function}).
-@xref{Specific formating Functions} for information on how to register and get
-the function reference.
+@xref{Registering Specific Formating Functions} for information on how to
+register and get the function reference.
 
 @anchor{New translated strings example}
 Here is an example with new translated strings added and definition
@@ -3922,7 +4112,7 @@ containing the arguments of @code{register_footnote} in the same order.
 
 The formatting of footnotes content is done by the
 @code{format_footnotes_sequence} formatting reference
-(@pxref{Specific formating Functions}):
+(@pxref{Registering Specific Formating Functions}):
 
 @deftypefn {Function Reference} @var{$footnotes_sequence} format_footnotes_sequence @
                                                   (@var{$converter})
@@ -4151,8 +4341,8 @@ unrelated to the headings and ``footings'' produced in @TeX{} output;
 In the event that your needs are not met by changing the navigation buttons
 (@pxref{Simple Navigation Panel Customization}), you can completely control the
 formatting of navigation panels by redefining function references.
-@xref{Specific formating Functions} for information on how to register
-the function references.
+@xref{Registering Specific Formating Functions} for information on how to
+register the function references.
 
 In a nutshell, element header and footer formatting function determines
 the button directions list to use and calls navigation header formatting.  The
@@ -4186,7 +4376,7 @@ for special output units.
 
 Returns the formatted navigation header and panel. The navigation
 panel itself can be formatted with a
-call to @code{&@{$self->formatting_function('format_navigation_panel')@}}.
+call to @code{&@{$converter->formatting_function('format_navigation_panel')@}}.
 
 The customization variable @code{VERTICAL_HEAD_NAVIGATION} should be relevant.
 @end deftypefn
@@ -4203,7 +4393,7 @@ elements.  @var{$vertical} is true if the navigation panel should be vertical.
 
 Returns the formatted navigation panel in @var{$navigation_text}. The buttons
 in the navigation panel can be formatted with a call to
-@code{&@{$self->formatting_function('format_button')@}}.
+@code{&@{$converter->formatting_function('format_button')@}}.
 @end deftypefn
 
 The function reference @code{format_button} does the formatting of
@@ -4251,7 +4441,7 @@ Returns the formatted navigation header and panel.
 In the default code, the function reference select a buttons list
 (@pxref{Simple Navigation Panel Customization}).  The navigation header can
 then be formatted with a call to
-@code{&@{$self->formatting_function('format_navigation_header')@}}.  It is also
+@code{&@{$converter->formatting_function('format_navigation_header')@}}.  It is also
 possible to format directly the navigation panel, depending on customization
 variables values and location in file.
 @end deftypefn
@@ -4273,33 +4463,12 @@ Returns the formatted navigation footer and panel.
 In the default code, the function reference select a buttons list
 (@pxref{Simple Navigation Panel Customization}).
 The navigation header can then be formatted with a call
-to @code{&@{$self->formatting_function('format_navigation_header')@}}.
+to @code{&@{$converter->formatting_function('format_navigation_header')@}}.
 
 Many customization variables have an effect on the footer
 formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
 @code{BIG_RULE}, @code{WORDS_IN_PAGE} or @code{PROGRAM_NAME_IN_FOOTER}.
 @end deftypefn
-
-
-@node Heading Commands Formatting
-@chapter Heading Commands Formatting
-
-The customization variables
-@code{CONTENTS_OUTPUT_LOCATION},
-@code{CHAPTER_HEADER_LEVEL}, @code{TOC_LINKS},
-@code{USE_NEXT_HEADING_FOR_LONE_NODE} and @code{FORMAT_MENU}
-may be used to change the sectioning commands conversion.
-@xref{HTML Customization Variables,,, texinfo, Texinfo}.
-
-@code{@@node} and sectioning default conversion function call
-@code{format_heading_text} (@pxref{Basic Formatting Customization})
-and @code{format_element_header} (@pxref{Element Header and Footer
-Formatting}), as well as functions opening and closing sectioning commands
-extent (@pxref{Opening and Closing Sectioning Commands Extent}).  The
-@code{@@node} and sectioning elements are formatted like any other elements
-associated with @@-commands.  The corresponding function references can
-therefore be replaced by user defined functions for a precise control of
-conversion (@xref{Command Tree Element Conversion Functions}).
 
 
 @node Beginning and Ending Files
@@ -4310,8 +4479,8 @@ after all the output units in the file have been converted.
 The beginning of file (headers) formatting function reference is called right after
 the footers formatting function reference.
 
-@xref{Specific formating Functions} for information on how to register and get
-the functions references.
+@xref{Registering Specific Formating Functions} for information on how to
+register and get the functions references.
 
 
 @node Customizing HTML File Beginning
@@ -4417,6 +4586,24 @@ footer formatting done at the bottom of each HTML output file.
 This function should print the page footer, including
 the @code{</body>} element.
 @end deftypefn
+
+
+@node Associating Information to an Output File
+@section Associating Information to an Output File
+
+To be able to retrieve information associated to the current file, in general
+for the file begin or end formatting, @code{register_file_information} can  be
+used to associate integer information, and @code{get_file_information} to
+retrieve that information.
+
+@defun @var{$converter}->register_file_information ($key, $value)
+Associate the current output file name file to the key @var{$key}, itself
+associated to the integer value @var{$value}.
+@end defun
+
+@deftypefun {@var{$value} =} @var{$converter}->get_file_information (@var{$key}, @var{$file_name})
+Return the value associated to the key @var{$key} and file name @var{$file_name}.
+@end deftypefun
 
 
 @node Titlepage@comma{} CSS and Redirection Files
