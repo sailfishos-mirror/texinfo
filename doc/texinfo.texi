@@ -6796,10 +6796,8 @@ environment.  If none are present, @code{texi2any} gives a warning.
 If you just want indented text and not a list of items, use
 @code{@@indentedblock}; @pxref{@code{@@indentedblock}}.
 
-Index entries and comments that are given before an @code{@@item}
-including the first, are automatically moved (internally) to after the
-@code{@@item}, so the output is as expected.  Historically this has
-been a common practice.
+Index entries that occur immediately before an @code{@@item}
+are associated with the @code{@@item}.
 
 Usually, you should put a blank line between items.  This puts a blank
 line in the Info file. (@TeX{} inserts the proper vertical space in
