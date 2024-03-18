@@ -603,6 +603,36 @@ in <b>html</b> in copying ``
 @top top
 
 '],
+# the output has nested <a> in @printindex formatting for @item
+# with @anchor on the line, which is invalid HTML.  However, it
+# is probably better not to consider this output to be a bug as
+# it corresponds to the Texinfo code intention.
+['anchor_on_vtable_item',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@vtable @code
+
+@item @anchor{label1}label1
+Text1
+
+@item @anchor{label2} label2
+Text2
+
+@item lab3
+
+@end vtable
+
+@node Idx
+@chapter Idx
+
+@printindex vr
+
+@xref{label1}.
+'],
 ['headings_after_lone_nodes',
 '@node Top
 @top top

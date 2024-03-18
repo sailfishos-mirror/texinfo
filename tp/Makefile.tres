@@ -546,6 +546,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/heading/heading_in_quotation.pl \
   t/results/html_tests/U_in_index.pl \
   t/results/html_tests/acronym_in_node_and_section.pl \
+  t/results/html_tests/anchor_on_vtable_item.pl \
   t/results/html_tests/automatic_menus.pl \
   t/results/html_tests/base_for_css_info_in_init_test.pl \
   t/results/html_tests/base_for_css_info_in_init_test/res_html \
