@@ -2132,65 +2132,6 @@ not in a multiple expanded context.
 @end deftypefun
 
 
-@node Text Formatting Context
-@subsection Text Formatting Context
-
-Formatting of text requires to use additional informative functions on specific
-contexts only relevant for text.  User defined functions should convert the text
-according to the context.
-
-Each context is associated with a function:
-
-@table @emph
-@item code
-
-@deftypefun {@var{$in_code} =} @var{$converter}->in_code ()
-Return true if in code context.  @xref{Init File Expansion Contexts}.
-@end deftypefun
-
-@item math
-
-@deftypefun {@var{$in_math} =} @var{$converter}->in_math ()
-Return true if in math context. @xref{Init File Expansion Contexts}.
-@end deftypefun
-
-@item raw
-
-@deftypefun {@var{$in_raw} =} @var{$converter}->in_raw ()
-Return true if in raw format, in @code{@@inlineraw} or in @code{@@html}.
-In such a context, text should be kept as is and special HTML characters should
-not be protected.
-@end deftypefun
-
-@item verbatim
-
-@deftypefun {@var{$in_verbatim} =} @var{$converter}->in_verbatim ()
-Return true if in verbatim context, corresponding to @code{@@verb} and @code{@@verbatim}.
-In general, HTML characters should be protected in this context.
-@end deftypefun
-
-@item upper-case
-
-@deftypefun {@var{$in_upper_case} =} @var{$converter}->in_upper_case ()
-Return true if in upper-case context, corresponding to @code{@@sc}.
-@end deftypefun
-
-@item non-breakable space
-
-@deftypefun {@var{$in_non_breakable_space} =} @var{$converter}->in_non_breakable_space ()
-Return true if in context where line breaks are forbidden, corresponding
-to @code{@@w}.
-@end deftypefun
-
-@item space protected
-
-@deftypefun {@var{$in_space_protected} =} @var{$converter}->in_space_protected ()
-Return true if in context where space and newline characters are kept,
-corresponding to @code{@@verb}.
-@end deftypefun
-@end table
-
-
 @node Conversion General Information
 @subsection Conversion General Information
 
@@ -2809,40 +2750,9 @@ as selector for the formating function for @code{def_line},
 @node Command Tree Element Conversion
 @section Command Tree Element Conversion
 
-All the command elements can have an opening function and a conversion
-function registered and used.  Some commands require more specific functions
-described here.
-
-
-@node Command Tree Element Opening Functions
-@subsection Command Tree Element Opening Functions
-
-User defined functions called when an @@-command element is first encountered are registered
-with @code{texinfo_register_command_opening}:
-
-@defun texinfo_register_command_opening ($command_name, \@ampchar{}handler)
-@var{$command_name} is an @@-command name, with the leading @@.
-@var{\&handler} is the user defined function reference.
-@end defun
-
-The call of the user defined functions is:
-
-@deftypefn {Function Reference} @var{$text} command_open @
-           (@var{$converter}, @var{$command_name}, @var{\%element})
-@var{$converter} is a converter object. @var{$command_name}
-is the @@-command name without the @@. @var{\%element} is the Texinfo
-element.
-
-The @var{$text} returned is prepended to the formatting of the
-@@-command.
-@end deftypefn
-
-It is possible to have access to the default opening function reference.
-The function used is:
-@deftypefun {@var{\&default_command_open} =} @var{$converter}->default_command_open (@var{$command_name})
-@var{$command_name} is the @@-command name without the @@. Returns the
-default opening function reference for @var{$command_name}, or @samp{undef} if there is none.
-@end deftypefun
+All the command elements can have a conversion function and an opening
+function that can be registered to be called by the converter.  Some commands
+also require more specific functions for their formatting.
 
 
 @node Command Tree Element Conversion Functions
@@ -2953,6 +2863,45 @@ which should only be the case for @@-commands ignored in HTML.
 @end deftypefun
 
 
+@node Command Tree Element Opening Functions
+@subsection Command Tree Element Opening Functions
+
+User defined functions called when an @@-command element is first encountered
+are registered with @code{texinfo_register_command_opening}.
+In general the possibility to call code at the @@-command opening is not used
+much, as the HTML formatting is in general done when the content appearing
+in the comand is formatted.  In the default conversion functions, this function
+is used for @code{@@quotation}, to register prependended text to be output
+with the following inline container, usually a paragraph.  This is described in
+detail with the inline containers formatting (@pxref{Inline Text Containers
+Formatting}).
+
+
+@defun texinfo_register_command_opening ($command_name, \@ampchar{}handler)
+@var{$command_name} is an @@-command name, with the leading @@.
+@var{\&handler} is the user defined function reference.
+@end defun
+
+The call of the user defined functions is:
+
+@deftypefn {Function Reference} @var{$text} command_open @
+           (@var{$converter}, @var{$command_name}, @var{\%element})
+@var{$converter} is a converter object. @var{$command_name}
+is the @@-command name without the @@. @var{\%element} is the Texinfo
+element.
+
+The @var{$text} returned is prepended to the formatting of the
+@@-command.
+@end deftypefn
+
+It is possible to have access to the default opening function reference.
+The function used is:
+@deftypefun {@var{\&default_command_open} =} @var{$converter}->default_command_open (@var{$command_name})
+@var{$command_name} is the @@-command name without the @@. Returns the
+default opening function reference for @var{$command_name}, or @samp{undef} if there is none.
+@end deftypefun
+
+
 @node Heading Commands Formatting
 @subsection Heading Commands Formatting
 
@@ -3045,6 +2994,33 @@ For example:
 my $node_element = $converter->label_command('Some-node_003f');
 @end example
 
+Labels are available for target @@-commands and for @@-command referring
+to target elements such as @code{@@xref} or @code{@@menu} entry node argument
+as the extra @samp{normalized} element key.
+
+For example, the first @code{@@xref} argument @samp{normalized} element key
+may be used to get the node or anchor element it points to:
+@example
+my $arg_node = $xref_tree_element->@{'args'@}->[0];
+if ($arg_node and $arg_node->@{'extra'@}
+    and defined($arg_node->@{'extra'@}->@{'normalized'@}) @{
+  my $target_node
+    = $converter->label_command($arg_node->@{'extra'@}->@{'normalized'@});
+@}
+@end example
+
+Tree elements not associated to a label are obtained each differently.
+For example, elements associated to index entries can be obtained using the
+Texinfo parsed document index entries with
+@code{$converter->get_info('document')->indices_information()}
+(@pxref{Conversion General Information}), or through sorted indices
+information (@pxref{Specific Formatting for Indices}).  Footnote elements
+can be obtained through the @code{@@footnote} conversion function,
+and can also be passed to footnote formatting functions
+(@pxref{Customizing Footnotes}).  Floats elements in @code{@@listoffloats}
+can be obtained from @code{$converter->get_info('document')->floats_information()}
+(@pxref{Conversion General Information}).
+
 To get the identifier, file name and href of tree elements that may be used
 as link target, use @code{command_id}, @code{command_filename} and @code{command_href}:
 
@@ -3113,9 +3089,9 @@ The top level element returned is also determined by the customization variable
 otherwise the sectioning command is preferred.
 @end deftypefun
 
-For example to get the root command tree element of a @code{@@node}
-or sectioning command containing a @code{@@printindex} element tree and the
-associated identifier:
+For example to get the @code{@@node} or sectioning root command tree element
+containing a @code{@@printindex} element tree and the associated identifier
+for the formatting of the @code{@@printindex} Texinfo tree element:
 @example
 my ($output_unit, $root_command)
  = $converter->get_element_root_command_element($printindex_element);
@@ -3144,8 +3120,12 @@ Return the node element associated with @var{\%target_element}.
 
 Index formatting customization is achieved through registering a conversion
 function for @code{@@printindex} (@pxref{Command Tree Element Conversion
-Functions}).  Sorted index entries, which are usually used for index formatting
-are available through @code{get_converter_indices_sorted_by_letter}:
+Functions}).  The Texinfo parsed document index entries information directly
+obtained from the Texinfo manual parsing is available through
+@code{$converter->get_info('document')->indices_information()}
+(@pxref{Conversion General Information}).  Sorted index entries, which are
+usually used for index formatting are available through
+@code{get_converter_indices_sorted_by_letter}:
 
 @deftypefun {@var{$sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
 Returns index entries sorted by index and letter.
@@ -3308,9 +3288,99 @@ default opening function reference for @var{$type}, or @samp{undef} if there is 
 
 In the default conversion functions, this function is not often used,
 conversion is in general done after the elements inside of the type
-container have been formatted.  An example of use is inline text container
-elements to get text to prepend to their content
+container have been formatted.  This function is defined for inline
+text container elements to get text to prepend to their content
 (@pxref{Inline Text Containers Formatting}).
+
+
+@node Text Tree Elements Conversion
+@subsection Text Tree Elements Conversion
+
+Tree elements hodling text are converted by the function reference registered
+for the @code{text} type conversion irrespective of the actual tree
+element type.  For example, a tree element with type
+@code{spaces_before_paragraph} and text and a tree element without type but
+with text are both converted by the function reference registered for
+@code{text}.
+
+The definition and registration of a conversion function for all
+the tree elements holding text is along:
+
+@example
+sub my_convert_text($$$)
+@{
+  my $converter = shift;
+  my $type = shift;
+  my $element = shift;
+  my $text = shift;
+
+  # ...
+
+  $text = uc($text) if ($converter->in_upper_case());
+
+  # ...
+@}
+
+texinfo_register_type_formatting ('text', \&my_convert_text);
+@end example
+
+The @var{$type} free conversion function argument allows to know the
+actual type of the converted element.
+
+Formatting of text requires to use informative functions on specific
+contexts only relevant for text.  User defined functions should convert
+the text according to the context.
+
+Each context is associated with a function:
+
+@table @emph
+@item code
+
+@deftypefun {@var{$in_code} =} @var{$converter}->in_code ()
+Return true if in code context.  @xref{Init File Expansion Contexts}.
+@end deftypefun
+
+@item math
+
+@deftypefun {@var{$in_math} =} @var{$converter}->in_math ()
+Return true if in math context. @xref{Init File Expansion Contexts}.
+@end deftypefun
+
+@item raw
+
+@deftypefun {@var{$in_raw} =} @var{$converter}->in_raw ()
+Return true if in raw format, in @code{@@inlineraw} or in @code{@@html}.
+In such a context, text should be kept as is and special HTML characters should
+not be protected.
+@end deftypefun
+
+@item verbatim
+
+@deftypefun {@var{$in_verbatim} =} @var{$converter}->in_verbatim ()
+Return true if in verbatim context, corresponding to @code{@@verb} and @code{@@verbatim}.
+In general, HTML characters should be protected in this context.
+@end deftypefun
+
+@item upper-case
+
+@deftypefun {@var{$in_upper_case} =} @var{$converter}->in_upper_case ()
+Return true if in upper-case context, corresponding to @code{@@sc}.
+@end deftypefun
+
+@item non-breakable space
+
+@deftypefun {@var{$in_non_breakable_space} =} @var{$converter}->in_non_breakable_space ()
+Return true if in context where line breaks are forbidden, corresponding
+to @code{@@w}.
+@end deftypefun
+
+@item space protected
+
+@deftypefun {@var{$in_space_protected} =} @var{$converter}->in_space_protected ()
+Return true if in context where space and newline characters are kept,
+corresponding to @code{@@verb}.
+@end deftypefun
+@end table
 
 
 @node Inline Text Containers Formatting
@@ -3385,8 +3455,7 @@ Get @var{$content} associated to the Texinfo tree element @var{\%element}.
 @end deftypefun
 
 Here is some inline container formatting code showing how those functions
-are used, with the paragraph type element formatting example from above
-completed:
+are used, with the paragraph type element formatting example completed:
 @example
 @group
 sub _open_inline_container_type($$$)
@@ -4327,7 +4396,7 @@ All the formatting functions take a converter object as first argument.
 @section Navigation Panel Button Formatting
 
 The function reference @code{format_button} does the formatting of
-one button:
+one button, corresponding, in general, to a link to a direction:
 
 @deftypefn {Function Reference} @var{$formatted_button} format_button @
            (@var{$converter}, @var{$button}, @var{$source_command})

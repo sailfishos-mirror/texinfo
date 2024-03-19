@@ -1,5 +1,16 @@
 2024-03-19  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi: move "Command Tree Element Opening Functions"
+	after "Command Tree Element Conversion Functions".
+
+	* doc/texi2any_api.texi (Text Tree Elements Conversion): add a
+	subsection for text holding Texinfo tree elements.  Move "Text
+	Formatting Context" to that subsection.
+
+	* doc/texi2any_api.texi: more examples, fixes in text.
+
+2024-03-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi: use $converter instead of $self.
 
 	* doc/texi2any_api.texi: move format_button_icon_img and the whole

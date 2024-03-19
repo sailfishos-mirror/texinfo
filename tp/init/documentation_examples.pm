@@ -116,7 +116,8 @@ sub my_email_formatting_function {
 
 texinfo_register_command_formatting('email', \&my_email_formatting_function);
 
-
+# put here as it is in the documentation, but not used as the
+# final version is used, below.
 sub my_tree_element_convert_paragraph_type($$$$)
 {
   my $converter = shift;
