@@ -116,7 +116,8 @@ sub my_email_formatting_function {
 
 texinfo_register_command_formatting('email', \&my_email_formatting_function);
 
-sub my_convert_paragraph_type($$$$)
+
+sub my_tree_element_convert_paragraph_type($$$$)
 {
   my $converter = shift;
   my $type = shift;
@@ -125,19 +126,43 @@ sub my_convert_paragraph_type($$$$)
 
   $content = '' if (!defined($content));
 
-  $content = $converter->get_associated_formatted_inline_content($element).$content;
-
-  return $content if ($converter->in_string());
+  if ($converter->in_string()) {
+    return $content;
+  }
 
   my @contents = @{$element->{'contents'}};
   push @contents, {'text' => ' <code>HTML</code> text ',
                    'type' => '_converted'};
   my $result = $converter->convert_tree({'type' => '_code',
-                                   'contents' => \@contents });
+                                   'contents' => \@contents});
   return "<p>".$result."</p>";
 }
 
-texinfo_register_type_formatting('paragraph', \&my_convert_paragraph_type);
+
+sub my_final_convert_paragraph_type($$$$)
+{
+  my $converter = shift;
+  my $type = shift;
+  my $element = shift;
+  my $content = shift;
+
+  $content = '' if (!defined($content));
+
+  my $prepended
+    = $converter->get_associated_formatted_inline_content($element);
+  if ($converter->in_string()) {
+    return $prepended.$content;
+  }
+
+  my @contents = @{$element->{'contents'}};
+  push @contents, {'text' => ' <code>HTML</code> text ',
+                   'type' => '_converted'};
+  my $result = $converter->convert_tree({'type' => '_code',
+                                   'contents' => \@contents});
+  return "<p>".$prepended.$result."</p>";
+}
+
+texinfo_register_type_formatting('paragraph', \&my_final_convert_paragraph_type);
 
 sub my_node_file_name($$$) {
   my ($converter, $element, $filename) = @_;

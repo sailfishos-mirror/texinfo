@@ -1533,23 +1533,24 @@ sub get_element_root_command_element($$)
   my $self = shift;
   my $element = shift;
 
-  my ($root_element, $root_command) = _html_get_tree_root_element($self, $element);
+  my ($output_unit, $root_command)
+    = _html_get_tree_root_element($self, $element);
   if (defined($root_command)) {
     if ($self->get_conf('USE_NODES')) {
       if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
-        return ($root_element, $root_command);
+        return ($output_unit, $root_command);
       } elsif ($root_command->{'extra'}
                and $root_command->{'extra'}->{'associated_node'}) {
-        return ($root_element, $root_command->{'extra'}->{'associated_node'});
+        return ($output_unit, $root_command->{'extra'}->{'associated_node'});
       }
     } elsif ($root_command->{'cmdname'}
              and $root_command->{'cmdname'} eq 'node'
              and $root_command->{'extra'}
              and $root_command->{'extra'}->{'associated_section'}) {
-      return ($root_element, $root_command->{'extra'}->{'associated_section'});
+      return ($output_unit, $root_command->{'extra'}->{'associated_section'});
     }
   }
-  return ($root_element, $root_command);
+  return ($output_unit, $root_command);
 }
 
 my %valid_direction_return_type = (
@@ -6316,7 +6317,7 @@ sub _convert_printindex_command($$$$)
      = $self->command_id ($current_output_unit->{'unit_command'});
   }
   if (!defined($index_element_id)) {
-    my ($root_element, $root_command)
+    my ($output_unit, $root_command)
         = $self->get_element_root_command_element($command);
     if ($root_command) {
       $index_element_id = $self->command_id($root_command);
