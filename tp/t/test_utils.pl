@@ -973,6 +973,10 @@ sub test($$)
     delete $parser_options->{'test_formats'};
   }
 
+  # get symbols in Texinfo::Config namespace before calling the init files
+  # such that the added symbols can be removed after running the tests to have
+  # isolated tests and be able to load the same init file multiple times.
+  my $symbols_before_init_file;
   # reset Texinfo::Config informations to have isolated tests
   Texinfo::Config::GNUT_reinitialize_init_files();
   my $init_files_options = {};
@@ -982,6 +986,10 @@ sub test($$)
   # be used.
   # FIXME what if srcdir is non ascii (srcdir is truly a binary string).
   if ($parser_options and $parser_options->{'init_files'}) {
+    $symbols_before_init_file = {};
+    foreach my $symbol (keys(%Texinfo::Config::)) {
+      $symbols_before_init_file->{$symbol} = 1;
+    }
     my $conf = {};
     if (defined($locale_encoding)) {
       $conf->{'COMMAND_LINE_ENCODING'} = $locale_encoding;
@@ -1406,6 +1414,14 @@ sub test($$)
     $split_result = $output_units;
   } else {
     $split_result = $tree;
+  }
+
+  if ($symbols_before_init_file) {
+    foreach my $symbol (keys(%Texinfo::Config::)) {
+      if (!$symbols_before_init_file->{$symbol}) {
+        delete $Texinfo::Config::{$symbol};
+      }
+    }
   }
 
   {

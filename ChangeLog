@@ -1,5 +1,10 @@
 2024-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): remove symbols added in init files
+	at the end of a test.
+
+2024-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi: corrections, add examples, move nodes.
 
 2024-03-19  Patrice Dumas  <pertusus@free.fr>
