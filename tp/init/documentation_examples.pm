@@ -5,6 +5,8 @@
 
 use strict;
 
+use utf8;
+
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
@@ -21,12 +23,18 @@ if (not defined($default_footnotestyle)) {
 my %translations = (
 'fr' => {
 'error--&gt;' => {'' => 'erreur--&gt;',},
+'Higher' => {'Up direction button label' => 'Plus haut',},
 # ...
 },
 'de' => {
 'error--&gt;' => {'' => 'Fehler--&gt;',},
 # ...
-}
+},
+'pl' => {
+'error--&gt;' => {'' => 'błąd--&gt;',},
+'Higher' => {'Up direction button label' => 'Wyższy',},
+# ...
+},
 # ...
 );
 
@@ -49,6 +57,8 @@ texinfo_register_upper_case_command('sc', 0);
 texinfo_register_upper_case_command('var', 1);
 
 texinfo_register_accent_command_formatting('dotless', 'nodot', 'ij');
+
+texinfo_register_direction_string_info('Up', 'button', undef, 'Higher');
 
 my $shown_styles;
 my $footnotestyle;
