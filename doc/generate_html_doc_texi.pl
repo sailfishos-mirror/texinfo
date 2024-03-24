@@ -33,13 +33,13 @@ BEGIN
   # do not load XS code, to avoid both depending on and generating
   # XS code.  Also we do not want to have to find XS object files.
   $ENV{'TEXINFO_XS'} = 'omit';
-  # NOTE we do not use Texinfo::ModulePath as it may not have been
-  # created yet, as tp/Texinfo/XS may be processed before tp.
-  # Also we have less modules to find, only pure perl code.
+  # NOTE we do not use Texinfo::ModulePath, as we only have pure perl
+  # modules to find, we do not need something as complex, and we would
+  # need to find Texinfo::ModulePath anyway, which require similar code.
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
-  # tp director
+  # tp directory
   my $tp_srcdir;
   if (defined($ENV{'srcdir'})) {
     # srcdir is doc/

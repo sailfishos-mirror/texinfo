@@ -3361,7 +3361,7 @@ with text are both converted by the function reference registered for
 @code{text}.
 
 The definition and registration of a conversion function for all
-the tree elements holding text is along:
+the tree elements holding text should be along:
 
 @example
 sub my_convert_text($$$)
@@ -4019,8 +4019,8 @@ are used, as described in
 @caption{Association of special elements names with their special element variety}
 @end float
 
-The variety of special elements is in the special unit
-hash @code{special_unit_variety} key.
+The variety of special elements is the special unit
+hash value associated to the @code{special_unit_variety} key.
 
 To get information on the special output unit variety associated with
 an @@-command command name, use @code{command_name_special_unit_information}:
@@ -4455,6 +4455,7 @@ All the formatting functions take a converter object as first argument.
 The function reference @code{format_button} does the formatting of
 one button, corresponding, in general, to a link to a direction:
 
+@anchor{@code{format_button}}
 @deftypefn {Function Reference} @var{$formatted_button} format_button @
            (@var{$converter}, @var{$button}, @var{$source_command})
 @var{$button} holds the specification of the button (@pxref{Buttons Display}).
@@ -4549,6 +4550,7 @@ Returns a formatted icon image.
 The overall display of navigation panels is controlled via this
 function reference, @code{format_navigation_header}:
 
+@anchor{@code{format_navigation_header}}
 @deftypefn {Function Reference} @var{$navigation_text} format_navigation_header @
    (@var{$converter}, @var{\@@buttons}, @var{$command_name}, @var{\%element})
 @var{\@@buttons} is an array reference holding the specification of
@@ -4559,8 +4561,7 @@ the associated command (sectioning command or @code{@@node}).  It may be @code{u
 for special output units.
 
 Returns the formatted navigation header and panel. The navigation
-panel itself can be formatted with a
-call to @code{&@{$converter->formatting_function('format_navigation_panel')@}}.
+panel itself can be formatted with a call to @code{format_navigation_panel}.
 
 The customization variable @code{VERTICAL_HEAD_NAVIGATION} should be relevant.
 @end deftypefn
@@ -4577,7 +4578,7 @@ elements.  @var{$vertical} is true if the navigation panel should be vertical.
 
 Returns the formatted navigation panel in @var{$navigation_text}. The buttons
 in the navigation panel can be formatted with a call to
-@code{&@{$converter->formatting_function('format_button')@}}.
+@code{format_button} (@pxref{@code{format_button}}).
 @end deftypefn
 
 
@@ -4602,8 +4603,8 @@ Returns the formatted navigation header and panel.
 
 In the default code, the function reference select a buttons list
 (@pxref{Simple Navigation Panel Customization}).  The navigation header can
-then be formatted with a call to
-@code{&@{$converter->formatting_function('format_navigation_header')@}}.  It is also
+then be formatted with a call to @code{format_navigation_header}
+(@pxref{@code{format_navigation_header}}).  It is also
 possible to format directly the navigation panel, depending on customization
 variables values and location in file.
 @end deftypefn
@@ -4624,8 +4625,8 @@ Returns the formatted navigation footer and panel.
 
 In the default code, the function reference select a buttons list
 (@pxref{Simple Navigation Panel Customization}).
-The navigation header can then be formatted with a call
-to @code{&@{$converter->formatting_function('format_navigation_header')@}}.
+The navigation header can then be formatted with a call to
+@code{format_navigation_header} (@pxref{@code{format_navigation_header}}).
 
 Many customization variables have an effect on the footer
 formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},

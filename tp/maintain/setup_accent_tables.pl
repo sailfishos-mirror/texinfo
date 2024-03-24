@@ -32,7 +32,7 @@ BEGIN
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
-  # tp director
+  # tp directory
   my $tp_srcdir;
   if (defined($ENV{'srcdir'})) {
     # srcdir is tp/Texinfo/XS
