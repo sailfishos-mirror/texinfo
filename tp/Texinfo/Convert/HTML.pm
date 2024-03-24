@@ -3035,10 +3035,11 @@ my %default_code_types = (
 );
 
 # specification of arguments formatting
-# to obtain the same order of converting as in C, order for one argument
-# should be normal, monospace, string, monospacestring, monospacetext,
-#           filenametext, url, raw
-my %default_commands_args = (
+# to obtain the same order of conversion as in C, order for one argument
+# should be: normal, monospace, string, monospacestring, monospacetext,
+#            filenametext, url, raw
+# Also used to be converted automatically to Texinfo code for documentation.
+our %html_default_commands_args = (
   'anchor' => [['monospacestring']],
   'email' => [['url', 'monospacestring'], ['normal']],
   'footnote' => [[]],
@@ -3064,7 +3065,7 @@ my %default_commands_args = (
 );
 
 foreach my $explained_command (keys(%explained_commands)) {
-  $default_commands_args{$explained_command}
+  $html_default_commands_args{$explained_command}
      = [['normal'], ['normal', 'string']];
 }
 
@@ -13337,8 +13338,8 @@ sub _convert($$;$)
         if ($element->{'args'}) {
           $args_formatted = [];
           my @args_specification;
-          @args_specification = @{$default_commands_args{$command_name}}
-            if (defined($default_commands_args{$command_name}));
+          @args_specification = @{$html_default_commands_args{$command_name}}
+            if (defined($html_default_commands_args{$command_name}));
           my $spec_nr = scalar(@args_specification);
           my $arg_idx = -1;
           foreach my $arg (@{$element->{'args'}}) {
@@ -13351,8 +13352,8 @@ sub _convert($$;$)
               push @$args_formatted, undef;
               next;
             }
-            # NOTE here commands with empty array reference in
-            # array reference associated to command in default_commands_args
+            # NOTE here commands with empty array reference in array
+            # reference associated to command in html_default_commands_args
             # do not have $arg_spec reset to normal, such that their argument
             # is not converted here
             $arg_spec = ['normal'] if (!defined($arg_spec));

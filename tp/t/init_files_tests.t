@@ -52,6 +52,8 @@ my $direction_strings_test_text = '@node Top
 my $documentation_examples_text = '
 @settitle @email{someone@@example.com, me} @sansserif{in--title} @error{} @equiv{}
 
+@contents
+
 @node Top
 @top top
 
@@ -67,9 +69,21 @@ my $documentation_examples_text = '
 
 @math{@sansserif{in--math} @- a=b @error{} @equiv{}}
 
+@indentedblock
 @example
 @sansserif{in--example} @- c. @error{} @equiv{}
+@email{a@@example}
 @end example
+@end indentedblock
+
+@display
+@email{a@@display}
+@end display
+
+@cindex @file{e1}
+@cindex i2
+
+@vindex    
 
 @documentlanguage fr
 
@@ -77,7 +91,10 @@ my $documentation_examples_text = '
 
 @equiv{}
 
+@contents
+
 @node my node
+@chapter New node
 
 @documentlanguage pl
 
@@ -85,6 +102,10 @@ my $documentation_examples_text = '
 
 @equiv{}
 
+@node Index
+@appendix Index
+
+@printindex cp
 
 ';
 
@@ -153,7 +174,7 @@ $documentation_examples_text,
 ['documentation_examples_texi2html',
 $documentation_examples_text,
 {'init_files' => ['documentation_examples.pm']},
-{'TEXI2HTML' => 1},
+{'TEXI2HTML' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'inline'},
 ],
 ['sc_formatting_with_css',
 '@settitle{In title @sc{my string} NEXT}

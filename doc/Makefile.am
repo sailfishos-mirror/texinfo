@@ -16,7 +16,7 @@ AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 SUBDIRS = tp_api refcard
 
 info_TEXINFOS = texinfo.texi info-stnd.texi texi2any_api.texi
-texinfo_TEXINFOS = pod2texi.texi
+texinfo_TEXINFOS = pod2texi.texi html_default_commands_args.texi
 DISTCLEANFILES = texinfo.info* info-stnd.info* texi2any_api.info*
 
 TEXINFO_TEX = texinfo.tex
@@ -43,6 +43,11 @@ pod2texi.texi: $(pod2texi_pl)
 	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections $(pod2texi_pl) > /dev/null
 endif
 
+TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
+
+html_default_commands_args.texi: $(top_srcdir)/tp/Texinfo/Convert/HTML.pm $(srcdir)/generate_html_doc_texi.pl
+	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/generate_html_doc_texi.pl $(srcdir)/html_default_commands_args.texi
+
 # We'd also like to use something like this, but Automake calls
 # "install-info" directly.
 # INSTALL_INFO = $(top_builddir)/$(native_tools)/util/ginstall-info
@@ -54,10 +59,10 @@ TXI_XLATE = txi-ca.tex txi-cs.tex txi-de.tex txi-en.tex txi-es.tex \
 	    txi-zh.tex
 
 # Include our texinfo.tex, not Automake's.
-EXTRA_DIST = epsf.tex texinfo.tex \
-             fdl.texi \
-	     $(man_MANS) $(TXI_XLATE) \
-	     texinfo-tex-test.texi texinfo-tex-test.WIDOWs \
+EXTRA_DIST = epsf.tex fdl.texi generate_html_doc_texi.pl \
+             texinfo.tex \
+             $(man_MANS) $(TXI_XLATE) \
+             texinfo-tex-test.texi texinfo-tex-test.WIDOWs \
              texinfo-ja.tex short-sample-ja.texi \
              texinfo-zh.tex short-sample-zh.texi
 

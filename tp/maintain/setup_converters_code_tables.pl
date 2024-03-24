@@ -25,7 +25,7 @@ use if $] >= 5.014, re => '/a';
 
 # for file names portability
 use File::Spec;
-# for dirname and fileparse
+# for fileparse
 use File::Basename;
 
 use Encode;

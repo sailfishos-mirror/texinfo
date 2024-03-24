@@ -1101,7 +1101,7 @@ Texinfo @@-commands (@samp{accesskey}, @samp{rel} and @samp{example}).
 for any context.
 @end defun
 
-For example, to set the @samp{Up} button string to be translated
+For example, to set the @samp{Up} @samp{button} to be translated
 as @samp{Higher}, use:
 @example
 texinfo_register_direction_string_info('Up', 'button', undef, 'Higher');
@@ -1343,11 +1343,11 @@ The converter can also be used for in-document strings translation.
 
 
 @node User Defined Functions Common Tasks
-@chapter Error Reporting, Customization Variables and Paths Manipulation in User Defined Functions
+@chapter Error Reporting, Customization and Paths Manipulation with Converter
 
 Some tasks common to all the user-defined functions related
 to error reporting, customization variables handling and paths and
-URL manipulation are described in this section.
+URL manipulation are described in this chapter.
 
 
 @node Error Reporting in User Defined Functions
@@ -1590,7 +1590,7 @@ URL argument.
 
 for example
 @example
-return $converter->html_attribute_class('a', [$cmdname])
+return $converter->html_attribute_class('a', ['myurl'])
  .' href="'.$converter->url_protect_url_text($url)."\">$text</a>";
 @end example
 @end deftypefun
@@ -1983,12 +1983,12 @@ the element class was seen is registered by the converter.
 
 Examples of use:
 @example
-my $open = $converter->html_attribute_class('span', ['category-def']);
-$category_result = $open.'>'.$category_result.'</span>'
+my $open = $converter->html_attribute_class('span', ['math-arg']);
+my $arg_result = $open.'>'.$arg.'</span>'
   if ($open ne '');
 
 my $result = $converter->html_attribute_class('em', [$cmdname, 'jax_p'])
-     . '>' . $content . '</em>';
+   . '>' . $arg_result . '</em>';
 @end example
 
 
@@ -2021,7 +2021,7 @@ information, taken from the general information (@pxref{Converter General
 Information}), using @code{get_info}:
 @example
 my $non_breaking_space = $converter->get_info('non_breaking_space');
-my $result = '<tr><td>' .$non_breaking_space. '</tr></td>'."\n";
+my $result = '<tr><td>' .$non_breaking_space. '</tr></td>';
 @end example
 In that case, there is nothing more to do.
 
@@ -2246,7 +2246,7 @@ texi2any_internals}).
 my $pre_classes = $converter->preformatted_classes_stack();
 foreach my $pre_class (@@$pre_classes) @{
   if ($Texinfo::Commands::preformatted_code_commands@{$pre_class@}) @{
-    $result = '<code>' .$result. '</code>';
+    $result = '<var>' .$result. '</var>';
     last;
   @}
 @}
@@ -2720,7 +2720,7 @@ could be obtained with:
 $counter++;
 my $anchor_id = 'anchor_id_' . $counter;
 my $anchor_with_counter
-  = &@{$converter->formatting_function('format_separate_anchor')@}
+  = &@{$converter->formatting_function('format_separate_anchor')@}(
                              $converter, $anchor_id, 'myanchor_class');
 @end example
 
@@ -2767,7 +2767,7 @@ as selector for the formating function for @code{def_line},
 
 All the command elements can have a conversion function and an opening
 function that can be registered to be called by the converter.  Some commands
-also require more specific functions for their formatting.
+also require more specific information and functions for their formatting.
 
 
 @node Command Tree Element Conversion Functions
@@ -2778,7 +2778,7 @@ arguments and contents have been formatted, are registered with
 @code{texinfo_register_command_formatting}:
 
 @defun texinfo_register_command_formatting ($command_name, \@ampchar{}handler)
-@var{$command_name} is an @@-command name, with the leading @@.
+@var{$command_name} is an @@-command name, without the leading @@.
 @var{\&handler} is the user defined function reference.
 @end defun
 
@@ -2840,9 +2840,14 @@ for @code{@@footnote} argument which is not directly converted where the
 footnote command is, or multiple, for example for the fourth argument of
 @code{@@image} which is both available as @samp{normal} and
 @samp{string}.
+@xref{HTML command arguments formatting}, for the converted arguments
+contexts.  @@-commands not specified in the table have their arguments in
+@samp{normal} context.
 
 For example, @code{$args->[0]->@{'normal'@}} is the first argument converted in
-normal context.
+normal context.  It should be present for most @@-commands with arguments,
+but not for all, for example @code{@@anchor} argument is only available
+as @code{monospacestring}.
 
 @var{$content} is the @@-command formatted contents.  It corresponds to the
 contents of block @@-commands, and to Texinfo code following @code{@@node},
@@ -2851,6 +2856,15 @@ sectioning commands, @code{@@tab} and @code{@@item} in @code{@@enumerate} and
 
 The @var{$text} returned is the result of the @@-command conversion.
 @end deftypefn
+
+
+
+@float Table, HTML command arguments formatting
+@multitable {@code{@@inlinefmtifelse}} {monospacestring} {filenametext} {filenametext} {filenametext} {filenametext}
+@include html_default_commands_args.texi
+@end multitable
+@caption{HTML command arguments formatting contexts in conversion function argument}
+@end float
 
 To call a conversion function from user defined code, the function reference
 should first be retrieved using @code{command_conversion}:
@@ -3018,7 +3032,7 @@ may be used to get the node or anchor element it points to:
 @example
 my $arg_node = $xref_tree_element->@{'args'@}->[0];
 if ($arg_node and $arg_node->@{'extra'@}
-    and defined($arg_node->@{'extra'@}->@{'normalized'@}) @{
+    and defined($arg_node->@{'extra'@}->@{'normalized'@})) @{
   my $target_node
     = $converter->label_command($arg_node->@{'extra'@}->@{'normalized'@});
 @}
@@ -3074,12 +3088,11 @@ Return text in string context.  @xref{Init File Expansion Contexts}.
 @end table
 @end deftypefun
 
-Using those functions, hyperlink using a node element name and associated href
-can be constructed as:
+Using those functions, a target element hyperlink can be constructed as:
 @example
-my $name = $converter->command_text($node_element);
-my $href = $converter->command_href($node_element);
-my $hyperlink = "<a href=\"$href\">$name</a>";
+my $target_text = $converter->command_text($target_element);
+my $target_href = $converter->command_href($target_element);
+my $hyperlink = "<a href=\"$target_href\">$target_text</a>";
 @end example
 
 To get a Texinfo tree of elements that may be used as link description, use
@@ -3105,11 +3118,7 @@ associated sectioning element in addition to linking to the index entry
 location.  For example:
 
 @example
-my $target_element = $index_entry->@{'entry_element'@};
-my $entry_href = $converter->command_href($target_element);
-my $entry_text = $converter->convert_tree($target_element);
-my $entry_link = "<a href=\"$entry_href\">$entry_text</a>";
-
+my $entry_root_link = '';
 my $associated_command
  =  $converter->command_root_element_command($target_element);
 if ($associated_command) @{
@@ -3126,11 +3135,9 @@ if ($associated_command) @{
 @end group
 @} elsif (defined($associated_command_text)) @{
   $entry_root_link = $associated_command_text;
-@} else @{
-  $entry_root_link = '';
 @}
 
-my $formatted_entry = "<td><tr>$entry_link</tr>"
+my $formatted_entry = "<td><tr>$hyperlink</tr>"
                   ."<tr>$entry_root_link</tr></td>\n";
 @end example
 
@@ -3697,7 +3704,8 @@ the number of selectors in the definition (possibly none).
 For example, continuing with the @samp{color} shared information data
 defined above, with one selector variable:
 @example
-my $number = $converter->get_shared_conversion_state('quotation',
+my $color_number
+   = $converter->get_shared_conversion_state('quotation',
                                                'color', 'purple1');
 @end example
 
@@ -3831,7 +3839,7 @@ Texinfo tree elements.
   $converter->cdt('Generated @@emph@{@@today@{@}@} using '
    .'@@uref@{@{homepage@}, @@emph@{@{program@}@}@}.',
       @{ 'homepage' => @{ 'text' => $converter->get_conf('PACKAGE_URL') @},
-        'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@}));
+        'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@});
 @end example
 
 An example of combining conversion with translation:

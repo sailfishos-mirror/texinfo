@@ -3063,7 +3063,7 @@ in that index (1-based) as second element.  In general, the I<$index_entry_info>
 is an L<C<extra> I<index_entry>|Texinfo::Parser/index_entry> associated to an element.
 
 The I<$index_entry> hash is described in L<Texinfo::Document/index_entries>.  The
-I<$index_info> hash is described in LL<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>.
+I<$index_info> hash is described in L<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>.
 
 
 =item move_index_entries_after_items_in_tree($tree)

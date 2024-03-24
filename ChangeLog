@@ -1,3 +1,20 @@
+2024-03-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%html_default_commands_args): rename
+	%default_commands_args as %html_default_commands_args.
+
+	* doc/html_default_commands_args.texi, doc/Makefile.am
+	(texinfo_TEXINFOS, TXI_MODULES_ENV, html_default_commands_args.texi)
+	(EXTRA_DIST), doc/texi2any_api.texi, tp/Texinfo/Convert/HTML.pm,
+	doc/generate_html_doc_texi.pl: generate texinfo table of HTML
+	default commands args based on %html_default_commands_args from
+	Texinfo/Convert/HTML.pm in the doc/html_default_commands_args.texi
+	file and include in texi2any_api.texi.
+
+	* doc/texi2any_api.texi, tp/init/documentation_examples.pm,
+	tp/t/init_files_tests.t ($documentation_examples_text): add more
+	examples, add examples in documentation_examples.pm.
+
 2024-03-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/init/documentation_examples.pm: use pl instead of de, with
