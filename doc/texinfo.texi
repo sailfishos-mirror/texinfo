@@ -2502,8 +2502,8 @@ For example, for GNU the natural place would be
 @url{http://www.gnu.org/manual/} (a web page collecting links to most
 GNU manuals), better specified as just @code{/manual/} if the manual
 will be installed on @code{www.gnu.org}.  This can be specified with
-the @code{TOP_NODE_UP_URL} customization variable (@pxref{HTML
-Customization Variables}), as in
+the @code{TOP_NODE_UP_URL} customization variable (@pxref{File Names
+and Links Customization for HTML}), as in
 
 @example
 $ @kbd{texi2any --html -c TOP_NODE_UP_URL=/manual/} ...
@@ -9466,7 +9466,7 @@ and so on.
 By default, the HTML output is only emphasized.
 @command{texi2any} provides three options for displaying properly
 formatted mathematics for HTML.  You can select these with the
-@code{HTML_MATH} variable (@pxref{HTML Customization Variables}).
+@code{HTML_MATH} variable (@pxref{HTML Customization Variables List}).
 With @code{HTML_MATH} set to @samp{l2h}, @command{texi2any} attempts
 to use the @command{latex2html} program to produce image files for
 mathematical material.  With the @samp{t4h} setting, @command{texi2any}
@@ -15359,7 +15359,10 @@ The sections below give the details for each of these.
 @menu
 * Commands: Customization Variables for @@-Commands.
 * Options:  Customization Variables and Options.
-* HTML:     HTML Customization Variables.
+* HTML Structure: HTML Output Structure Customization.
+* HTML Links:     File Names and Links Customization for HTML.
+@c * HTML Headers:   Customization of Navigation and Headers.
+* HTML:     HTML Customization Variables List.
 * MathJax:  MathJax Customization Variables.
 * latex2html:  @command{latex2html} Customization Variables.
 * tex4ht:      @command{tex4ht} Customization Variables.
@@ -15539,8 +15542,243 @@ exec texi2any -c TEXINPUT_OUTPUT_FORMAT=textcontent "$@@"
 @end table
 
 
-@node HTML Customization Variables
-@subsection HTML Customization Variables
+@node HTML Output Structure Customization
+@subsection HTML Output Structure Customization
+
+In the default case, the HTML output is tailored for online viewing with
+a direct access to the information at the Top node.  For an output more
+similar to a book, set @code{NO_TOP_NODE_OUTPUT} to remove the Top node.
+If @code{SHOW_TITLE} is @samp{undef}, the default,
+setting @code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} to
+output a title at the beginning of the document.  In the default case
+the full @code{@@titlepage} is used for the title, unset
+@code{USE_TITLEPAGE_FOR_TITLE} to get a simple title string.
+If @code{SHOW_TITLE} is set, it is possible to output the table of contents
+at the end of the title by setting @code{CONTENTS_OUTPUT_LOCATION} to
+@samp{after_title}.
+
+In the default case, a list of subordinate sections is output in each node
+for navigation, corresponding to @code{FORMAT_MENU} set to @samp{sectiontoc}.
+The table of contents are output at the end of the @code{@@top}
+section, to have the main location for navigation in the whole document
+early on, corresponding to @code{CONTENTS_OUTPUT_LOCATION} set to
+samp @code{after_top}.  To use menus instead to navigate in the document
+(@pxref{Menus}), set @code{FORMAT_MENU} to @samp{menu}.
+
+If menus are used for navigation, the tables of contents are not
+needed at the end of the @code{@@top} section as
+there should already be a master menu (@pxref{Master Menu Parts}).
+To output the table of contents at the end of the document or to a separate
+file, if output is split, set @code{CONTENTS_OUTPUT_LOCATION}
+to @samp{separate_element}.  It is also possible to set
+@code{CONTENTS_OUTPUT_LOCATION} to @samp{inline}, in that case the
+the tables of content are output where
+the corresponding @@-command, for example @code{@@contents}, is set.
+
+A special @dfn{About} element explaining how to navigate can be added by
+setting @code{DO_ABOUT}, set to 0 in the default case (no About element).
+
+If non-split, in the default case, the special elements such as the About
+element or the tables of contents are output in the same file as the
+manual nodes and sections.  If you prefer such special elements to be separate,
+set @code{MONOLITHIC} to 0 to output special elements to separate files.  As
+already described, the table of contents location may also be tuned with
+@code{CONTENTS_OUTPUT_LOCATION}.
+
+An experimental JavaScript browsing interface to the manual can be added, by
+setting @code{INFO_JS_DIR} value to the directory to place the code for this
+interface as e.g.@: @samp{texi2any --html -c INFO_JS_DIR=js @var{manual}.texi}
+to place files in a @samp{js} directory under the output.  This provides some
+of the functionality of the Info browsers in a web browser, such as keyboard
+navigation and index lookup.  This only works with non-split HTML output.
+
+In the default case, a @dfn{JavaScript license web labels page} is setup
+to give licensing information and source code for any JavaScript used in
+the HTML files for the manual
+(See @uref{https://www.gnu.org/licenses/javascript-labels.html}).  To avoid
+generating a JavaScript license web labels page, set @code{JS_WEBLABELS}
+to @samp{omit}.  With @code{JS_WEBLABELS} set to @samp{generate}, the default,
+generate a labels page at @code{JS_WEBLABELS_FILE}, @file{js_licenses.html}
+in the default case, and link to it in the HTML output files.  With
+@code{JS_WEBLABELS} set to @samp{reference}, link to the labels file given by
+@code{JS_WEBLABELS_FILE} in the output, and do not generate a labels file. This
+setting is useful if you separately maintain a single labels file for a larger
+website that includes your manual.
+@c link to  HTML_MATH set to ‘mathjax’,
+
+The @code{@@node} @@-commands are usually followed by a sectioning command,
+which provides a heading for the node.  In the default case, a node not
+associated to a sectioning command but followed by a command like
+@code{@@heading} has its heading provided by the heading command.  This
+avoids having both the node name and the heading command as headings.  To
+have the node name used as heading in that case, set
+@code{USE_NEXT_HEADING_FOR_LONE_NODE} to 0.
+
+
+@node File Names and Links Customization for HTML
+@subsection File Names and Links Customization for HTML
+
+@c file names
+
+@vindex PREFIX
+@vindex SUBDIR
+@vindex EXTENSION
+It is possible to specify the output file names with more control than
+merely the command line option @option{--output} (@pxref{Invoking
+@command{texi2any}}). The @code{PREFIX} customization
+variable overrides the base name of the file given by @code{@@setfilename} or
+the file name and should not contain any directory components.  To alter
+intermediate directories, use the @code{SUBDIR} customization variable.
+Finally, the extension may also be overriden by the customization variable
+@code{EXTENSION}.  This variable should be @code{undef} if no extension is to
+be added.  If @code{CASE_INSENSITIVE_FILENAMES} is set, file names are
+constructed as if the filesystem were case insensitive.  In that case,
+one file name is used for all files differing only by case.
+
+@vindex TOP_FILE
+Furthermore, the customization variables @code{TOP_FILE} override
+the output file name for the top element.  This is, in general,
+only taken into account when output is split.
+
+If @code{USE_ACCESSKEY} is set, the default, the @code{accesskey} attribute
+is used in navigation.  Keyboards shortcuts are set for selected directions
+only, with @kbd{n} for links to next node or section, @kbd{p} for links to
+previous previous node or section and @kbd{u} for up directions links.
+Similarly, if the @code{USE_REL_REV} customization variable is set, the
+default, the @code{rel} attribute is used in navigation to define the
+relationship between the current page and the linked resource.  For example,
+the @samp{contents} @code{rel} attribute is set for a link to the table of
+contents, the @samp{next} @code{rel} attribute is set for a link to the next
+node or section.
+
+@c internal links
+
+Internal links customization is specific of link type:
+@table @emph
+@item cross-reference command link
+If the second argument of a cross-reference command is set, it is displayed
+as hyperlink text (@pxref{Two Arguments}).  Otherwise the
+@code{XREF_USE_NODE_NAME_ARG} customization variable is used to determine the
+hyperlink text.  If set to@tie{}1, use the node name (first) argument in
+cross-reference @@-commands for the text displayed as the hyperlink.  If set
+to@tie{}0, use the node name if @code{USE_NODES} is set, otherwise the section
+name.  If set to @samp{undef}, use the first argument in preformatted
+environments, otherwise use the node name or section name depending on
+@code{USE_NODES}.  The default is @samp{undef}.
+
+@item link to float
+If @code{XREF_USE_FLOAT_LABEL} is set (default is off), use the float label
+instead of the type followed by the float number (@pxref{@code{@@float}}).
+
+@item link to index entries root commands
+In @code{@@printindex} formatting, two links are output, a link to the index
+entry and a link to the root @@-command containing the index entry.
+The @code{NODE_NAME_IN_INDEX} customization variable specifies whether
+the node or section should be
+used for the link to the root @@-command.  If true, use node names in
+index entries, otherwise prefer section names.  If undefined, use
+@code{USE_NODES} value to determine which root @@-command to prefer.
+Default is undefined.
+
+@item Table of contents links
+If a main Table of contents and a Short table of contents are both present, the
+cross-references in the Short table of contents link to the corresponding
+Table of Contents entries in the default case.  Set
+@code{SHORT_TOC_LINK_TO_TOC} to 0 to link to the sectioning commands instead.
+
+If @code{TOC_LINKS} if set, links from headings to toc entries are created;
+default false.
+
+@item Top node up direction link
+In the default case, no Top node Up reference is generated.  It is possible
+to ignore references to the Top node Up appearing in other cross-references
+by setting @code{IGNORE_REF_TO_TOP_NODE_UP}.  @code{IGNORE_REF_TO_TOP_NODE_UP}
+is not set in the default case.
+
+If the manual is referred to in a web page together with other manuals
+it may be relevant to link to that page.  Set
+@code{TOP_NODE_UP_URL} to the URL used for Top node up references.
+If @code{TOP_NODE_UP_URL} is set, the @code{TOP_NODE_UP} customization
+variable value is used for the hyperlink text, with @samp{(dir)} as default.
+
+For example, for GNU @url{http://www.gnu.org/manual/} collects
+links to most GNU manuals, therefore @code{TOP_NODE_UP_URL} is
+best  specified as  @code{/manual/} if the manual
+will be installed on @code{www.gnu.org}.
+
+@xref{First Node} for more about the Top node pointers.
+
+@item images links
+If @code{IMAGE_LINK_PREFIX} is set, the associated value is prepended to
+the image file links; default unset.  This could be useful if image files are
+in a specific subdirectory.
+@end table
+
+@c Cross references
+
+Cross-references between HTML manuals are specified precisely
+(@pxref{HTML Xref}).  Customization of manual locations is already provided
+through the @file{htmlxref.cnf} file (@pxref{HTML Xref Configuration}).
+In the default case, defaults are used for cross-reference target manual not
+found through HTML Xref Configuration.  If you want a message for each
+external manuals not found, set @code{CHECK_HTMLXREF}.
+
+Customization variables can specify more precisely the HTML Xref Configuration.
+In the default case, the file name used for HTML Xref configuration
+is searched for in directories, and all the files found are used.
+The @code{HTMLXREF_MODE} customization variable can be set to modify how
+cross-references to other manuals information is determined.
+If @code{HTMLXREF_MODE} is set to @samp{file}, the file name is directly used
+as the source of information.  If @code{HTMLXREF_MODE} is set to @samp{none}
+no information is used.  The default case is obtained with @code{HTMLXREF_MODE}
+not defined or set to any other value.  The @code{HTMLXREF_FILE} customization
+variable sets the file used for HTML Xref configuration to another value than
+the default, @file{htmlxref.cnf}.  In the default case, the distant manual
+is considered to be split or monolithic based on the splitting of the manual
+being output.  It is possible to set it explicitely, instead, with
+@code{EXTERNAL_CROSSREF_SPLIT}.
+
+It also is possible to set customization variables to modify how cross-references
+are output in various other ways.  In general,
+this will make cross-manual references ``invalid'', in the sense that
+the generated URL will not link to the external manual, unless this manual
+was itself produced using corresponding customization.  It is therefore,
+in general, better to use HTML Xref Configuration only.
+
+The file name used for the Top node in cross-references is set to
+the @code{TOP_NODE_FILE_TARGET} customization variable value; default is
+@file{index.html}.  A base directory for external manuals is specified
+with @code{EXTERNAL_DIR}, in the default case there is none.  Similarly,
+the file extension for cross-references to other manuals is set with
+@code{EXTERNAL_CROSSREF_EXTENSION}, which, if unset, is based
+on @code{EXTENSION}.  In the default case, the base file names are truncated
+to 245 characters (@pxref{HTML Xref Link Basics}).  The maximum length of a
+base file name is changed by setting @code{BASEFILENAME_LENGTH}.
+
+
+@ignore
+@node Customization of Navigation and Headers
+@subsection Customization of Navigation and Headers
+
+ USE_LINKS
+ SECTION_NAME_IN_TITLE
+ DATE_IN_HEADER
+ PROGRAM_NAME_IN_FOOTER
+
+ HEADER_IN_TABLE
+ WORDS_IN_PAGE
+ VERTICAL_HEAD_NAVIGATION
+ ICONS
+
+ICONS
+ Use icons for the navigation panel; default false.
+
+
+@c PROGRAM_NAME_IN_ABOUT
+@end ignore
+
+@node HTML Customization Variables List
+@subsection HTML Customization Variables List
 
 This table gives the customization variables which apply to HTML
 output only.  A few other customization variables apply to both HTML
@@ -15947,7 +16185,7 @@ A URL of the full source code in its preferred form for modification,
 or instructions for obtaining such source code, for the component file
 named by @code{MATHJAX_SCRIPT}.  `Preferred form for modification'
 means that this should not be in a `minified' form.  Used in the
-license labels page (@pxref{HTML Customization Variables}, under
+license labels page (@pxref{HTML Customization Variables List}, under
 @code{JS_WEBLABELS}).
 
 Again, @command{texi2any} provides a default value for this variable,
@@ -16476,7 +16714,7 @@ Up node for the Top node; default @samp{(dir)}.  This node name is
 supposed to be already formatted for the output format.  In HTML
 can be used in attribute, so should not contain any element.  Used for
 HTML output only if @code{TOP_NODE_UP_URL} is set to override the URL@:,
-see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables}.  
+see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables List}.  
 
 @item TREE_TRANSFORMATIONS
 The associated value is a comma separated list of transformations that
@@ -17871,7 +18109,7 @@ customization variables is unusual; however, the variables reset are
 used internally for the conversion, and should not interact with any
 customization set by the user.
 
-@xref{HTML Customization Variables}.
+@xref{HTML Customization Variables List}.
 
 
 @node Syntax Highlighting
@@ -18340,7 +18578,7 @@ i.e., @file{@var{datadir}/texinfo/htmlxref.cnf}.
 The @code{HTMLXREF_MODE} customization variable can be set to modify how the
 files are found.  For instance, if set to @samp{none}, no external information
 is used.  @code{HTMLXREF_FILE} sets the file name to something else than
-@file{htmlxref.cnf}.  @pxref{HTML Customization Variables}.
+@file{htmlxref.cnf}.  @pxref{HTML Customization Variables List}.
 
 The file is line-oriented.  Lines consisting only of whitespace are
 ignored.  Comments are indicated with a @samp{#} at the beginning of a

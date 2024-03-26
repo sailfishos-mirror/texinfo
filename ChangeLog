@@ -1,3 +1,9 @@
+2024-03-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (HTML Output Structure Customization)
+	(File Names and Links Customization for HTML): more pedagogical
+	presentation of HTML customization through customization variables.
+
 2024-03-24  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi: minor changes.

@@ -2466,7 +2466,7 @@ my %defaults = (
   'USE_REL_REV'           => 1,
   'USE_TITLEPAGE_FOR_TITLE' => 1,
   'WORDS_IN_PAGE'         => 300,
-  'XREF_USE_NODE_NAME_ARG' => undef,
+  'XREF_USE_NODE_NAME_ARG' => undef, # for internal cross references
   'XREF_USE_FLOAT_LABEL'   => 0,
   'xrefautomaticsectiontitle' => 'on',
 
