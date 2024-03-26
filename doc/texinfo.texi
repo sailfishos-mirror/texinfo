@@ -15790,14 +15790,13 @@ If set, and the menu entry and menu description are the
 same, then do not print the menu description; default false.
 
 @item AFTER_BODY_OPEN
-If set, the corresponding text will appear at the
-beginning of each HTML file; default unset.
+Text added at the beginning of each HTML file; default unset.
 
 @item AFTER_SHORT_TOC_LINES
 @itemx AFTER_TOC_LINES
-If set, the corresponding text is output after the short
-table of contents for @code{AFTER_SHORT_TOC_LINES} and after the table of
-contents for @code{AFTER_TOC_LINES}; otherwise, a default string is
+Text output after the short table of contents for
+@code{AFTER_SHORT_TOC_LINES} and after the table of
+contents for @code{AFTER_TOC_LINES} if set; otherwise, a default string is
 used.  At the time of writing, a @code{</div>} element is closed.
 
 In general, you should set @code{BEFORE_SHORT_TOC_LINES} if
@@ -15811,10 +15810,10 @@ names invalid (@pxref{HTML Xref Link Basics}).
 
 @item BEFORE_SHORT_TOC_LINES
 @itemx BEFORE_TOC_LINES
-If set, the corresponding text is output before the short
-table of contents for @code{BEFORE_SHORT_TOC_LINES} and before the table of
-contents for @code{BEFORE_TOC_LINES}, otherwise a default string is
-used.  At the time of writing, a @code{<div ...>} element is opened.
+If set, text output before the short table of contents for
+@code{BEFORE_SHORT_TOC_LINES} and before the table of contents for
+@code{BEFORE_TOC_LINES}, otherwise a default string is used.  At the time of
+writing, a @code{<div ...>} element is opened.
 
 In general you should set @code{AFTER_SHORT_TOC_LINES} if
 @code{BEFORE_SHORT_TOC_LINES} is set, and you should set
@@ -15829,7 +15828,7 @@ special elements, but not for footers and headers; default
 @cindex @code{<body>} text, customizing
 @opindex lang@r{, HTML attribute}
 @item BODYTEXT
-The text appearing in @code{<body>}.  By default, sets the
+The @code{<body>} attributes text.  By default, sets the
 HTML @code{lang} attribute to the document language
 (@pxref{@code{@@documentlanguage}}).
 
