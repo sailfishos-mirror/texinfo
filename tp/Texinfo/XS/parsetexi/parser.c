@@ -2770,6 +2770,9 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   if (input_number > 0)
     fprintf (stderr, "BUG: at end, input_number > 0: %d\n", input_number);
 
+  /* reinitialize */
+  after_end_fetch_nr = -1;
+
   /* update merged_in.  Only needed for merging happening after first
      index merge */
   resolve_indices_merged_in ();

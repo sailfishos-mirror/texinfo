@@ -502,14 +502,15 @@ replace_convert_substrings (char *translated_string,
       free (texinfo_line);
     }
 
+  if (debug_level > 0)
+    {
+      char *result_texi = convert_to_texinfo (document->tree);
+      fprintf (stderr, "XS|RESULT GDT: '%s'\n", result_texi);
+      free (result_texi);
+    }
 /*
-  {
-    char *result_texi = convert_to_texinfo (document->tree);
-    if (debug_level > 0)
-      fprintf (stderr, "XS|RESULT GDT %d: '%s'\n", document_descriptor,
-               result_texi);
-    free (result_texi);
-  }
+  if (debug_level > 0)
+    fprintf (stderr, "GDT doc descriptor: %d\n", document_descriptor);
 */
 
   return document_descriptor;

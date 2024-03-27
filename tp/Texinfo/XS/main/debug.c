@@ -41,7 +41,6 @@ char *
 debug_protect_eol (char *input_string, int *allocated)
 {
   char *end_of_line;
-  char *protected_string = input_string;
   *allocated = 0;
 
   if (!input_string)
@@ -49,17 +48,31 @@ debug_protect_eol (char *input_string, int *allocated)
 
   end_of_line = strchr (input_string, '\n');
 
-  if (end_of_line) {
-    char *p;
-    protected_string = malloc ((strlen(input_string) + 2) * sizeof(char));
-    *allocated = 1;
-    memcpy (protected_string, input_string, strlen(input_string));
-    p = protected_string + (end_of_line - input_string);
-    *p = '\\';
-    *(p+1) = 'n';
-    *(p+2) = '\0';
-  }
-  return protected_string;
+  if (end_of_line)
+    {
+      char *p = input_string;
+      TEXT text;
+      *allocated = 1;
+      text_init (&text);
+      while (end_of_line)
+        {
+          size_t add_len = end_of_line - p;
+          if (add_len)
+            {
+              text_append_n (&text, p, add_len);
+              p += add_len;
+            }
+          text_append_n (&text, "\\n", 2);
+          p += 1;
+          end_of_line = strchr (p, '\n');
+        }
+      if (*p)
+        {
+          text_append (&text, p);
+        }
+      return text.text;
+    }
+  return input_string;
 }
 
 char *

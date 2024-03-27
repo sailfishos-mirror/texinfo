@@ -33,6 +33,7 @@ static int name##_counter = 0;
 
 static const char *source_marks_names[SM_type_expanded_conditional_command + 1] =
 {
+  0,
   #define sm_type(name) #name,
     SM_TYPES_LIST
   #undef sm_type

@@ -38,6 +38,7 @@ void forget_small_strings (void);
 extern int input_number;
 extern int macro_expansion_nr;
 extern int value_expansion_nr;
+extern int after_end_fetch_nr;
 
 void set_input_file_name_encoding (const char *value);
 void set_locale_encoding (const char *value);

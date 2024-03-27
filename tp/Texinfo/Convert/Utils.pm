@@ -175,14 +175,10 @@ sub definition_category_tree($$)
       # in descriptions of object-oriented programming methods or operations.
       return $self->cdt('{category} on @code{{class}}', $substrings);
     } else {
-      return Texinfo::Translations::gdt('{category} on @code{{class}}',
+      my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
                                  $current->{'extra'}->{'documentlanguage'},
                                  $substrings);
-      #my $result = {};
-      #$result->{'contents'}
-      #  = [$arg_category, {'text' => ' on ', 'parent' => $result},
-      #     $arg_class_code];
-      #return $result;
+      return $tree;
     }
   } elsif ($def_command eq 'defivar'
            or $def_command eq 'deftypeivar'

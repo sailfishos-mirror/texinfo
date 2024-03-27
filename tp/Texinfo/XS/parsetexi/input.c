@@ -92,6 +92,11 @@ int input_number = 0;
 int input_space = 0;
 int macro_expansion_nr = 0;
 int value_expansion_nr = 0;
+/* used for debugging only to be able to diagnose cases of text being
+   demanded after having reached once the end of input, see the comment
+   in next_text where after_end_fetch_nr is increased for an explanation
+   of cases where this happens */
+int after_end_fetch_nr = -1;
 
 /* Collect text from the input sources until a newline is found.  This is used 
    instead of next_text when we need to be sure we get an entire line of 
@@ -441,6 +446,23 @@ next_text (ELEMENT *current)
           input->input_source_mark = 0;
         }
       input_number--;
+    }
+
+  if (after_end_fetch_nr < 0)
+    after_end_fetch_nr = 0;
+  else
+    {
+     /* At the end of the input, when some text is demanded, for instance
+        to get new input in case an @include added more input, but there
+        is nothing, we get here.  Also macro arguments ending on the last
+        line will lead to the consumption of the last text, then macro
+        expansion can readd more text, and the end of input will be reached
+        again.  With numerous macros expansions on the last line, this
+        place can be reached more than twice.
+      */
+      after_end_fetch_nr++;
+      if (after_end_fetch_nr > 1)
+        debug ("AFTER END FETCHED INPUT NR: %d", after_end_fetch_nr);
     }
   debug ("INPUT FINISHED");
   return 0;

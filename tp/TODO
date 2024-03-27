@@ -754,7 +754,7 @@ mkdir t/check_debug_differences/
 for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
 export TEXINFO_XS_PARSER=0
 for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/PL_$bfile.err ; done
-for file in t/*.t ; do bfile=`basename $file .t`; diff -u t/check_debug_differences/PL_$bfile.err t/check_debug_differences/XS_$bfile.err > t/check_debug_differences/debug_$bfile.diff; done
+for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^XS|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
 
 Setting flags
 our_CFLAGS='-g -Wformat-security -Wall -Wno-parentheses -Wno-missing-braces'

@@ -116,6 +116,8 @@ sub parser (;$$)
   my $debug = 0;
   $debug = $parser->{'DEBUG'} if ($parser->{'DEBUG'});
   reset_parser ($debug);
+  # (re)set debug in any case, assuming that undef DEBUG is no debug
+  parser_set_debug ($debug);
 
   if (defined($conf)) {
     foreach my $key (keys (%$conf)) {
@@ -156,8 +158,6 @@ sub parser (;$$)
         conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
       } elsif ($key eq 'MAX_MACRO_CALL_NESTING') {
         conf_set_MAX_MACRO_CALL_NESTING($conf->{$key});
-      } elsif ($key eq 'DEBUG') {
-        parser_set_debug($conf->{$key}) if (defined($conf->{$key}));
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
         parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING' and defined($conf->{$key})) {
@@ -170,8 +170,9 @@ sub parser (;$$)
         parser_set_accept_internalvalue(1);
       } elsif ($key eq 'restricted' and $conf->{$key}) {
         parser_set_restricted(1);
-      } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING') {
-        # no action needed, only used in perl code
+      } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING'
+               or $key eq 'DEBUG') {
+        # no action needed, already taken into account or only for Perl code
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
       }

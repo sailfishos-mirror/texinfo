@@ -708,7 +708,7 @@ sub _convert($$)
     }
   }
   if ($element->{'type'} and $element->{'type'} eq 'def_line') {
-    #print STDERR "$element->{'extra'}->{'def_command'}\n";
+    #print STDERR "DEF: $element->{'extra'}->{'def_command'}\n";
     my ($category_element, $class_element,
         $type_element, $name_element, $arguments)
          = Texinfo::Convert::Utils::definition_arguments_content($element);
