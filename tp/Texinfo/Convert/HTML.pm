@@ -2555,7 +2555,8 @@ my %default_special_unit_info = (
    },
 );
 
-my @global_directions = ('First', 'Last', 'Index', 'Top');
+# to be kept in the same order as C code HTML_GLOBAL_DIRECTIONS_LIST.
+my @global_directions = ('First', 'Top', 'Index', 'Last');
 my %global_and_special_directions;
 foreach my $global_direction (@global_directions) {
   $global_and_special_directions{$global_direction} = 1;

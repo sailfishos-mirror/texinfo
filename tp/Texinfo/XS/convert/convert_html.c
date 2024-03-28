@@ -1678,8 +1678,10 @@ add_special_target (CONVERTER *self, enum special_target_type type,
 }
 
 
+/*
 static const enum command_id contents_elements_options[]
              = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
+ */
 
 static const enum command_id conf_for_special_units[]
                           = {CM_footnotestyle, 0};
@@ -1695,9 +1697,8 @@ html_prepare_conversion_units (CONVERTER *self)
     output_units_descriptor = split_by_section (self->document);
   self->output_units_descriptors[OUDT_units] = output_units_descriptor;
 
-  /* the presence of contents elements in the document is used in diverse
-     places, set it once for all here */
-  set_global_document_commands (self, CL_last, contents_elements_options);
+  /* configuration used to determine if a special element is to be done
+     (in addition to contents) */
   set_global_document_commands (self, CL_last, conf_for_special_units);
   /*
     NOTE if the last value of footnotestyle is separate, all the footnotes
