@@ -8117,7 +8117,7 @@ html_default_format_element_footer (CONVERTER *self,
                    && strcmp (self->conf->SPLIT.string, "node"))))
          {
            if (is_top)
-             buttons = self->conf->TOP_BUTTONS.buttons;
+             buttons = self->conf->TOP_FOOTER_BUTTONS.buttons;
            else
              buttons = self->conf->MISC_BUTTONS.buttons;
          }
