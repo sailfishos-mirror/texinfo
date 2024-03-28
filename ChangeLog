@@ -1,5 +1,17 @@
 2024-03-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (html_convert_css_string)
+	(_reset_unset_no_arg_commands_formatting_context),
+	tp/Texinfo/XS/convert/convert_html.c (html_convert_css_string)
+	(reset_unset_no_arg_commands_formatting_context): set the string
+	context directly instead of using a type _string in Perl.  In C, call
+	html_set_string_context.  Call html_open_command_update_context and
+	html_convert_command_update_context in C for
+	reset_unset_no_arg_commands_formatting_context preformatted context,
+	as in Perl.
+
+2024-03-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (@global_directions): use the same order
 	as in C code HTML_GLOBAL_DIRECTIONS_LIST.
 

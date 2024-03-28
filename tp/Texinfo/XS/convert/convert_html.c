@@ -11396,7 +11396,6 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   char *context_string_str;
   char *explanation;
   char *result;
-  HTML_DOCUMENT_CONTEXT *top_document_ctx;
 
   void (* saved_current_format_protect_text) (const char *text, TEXT *result);
   FORMATTING_REFERENCE *saved_formatting_references
@@ -11424,8 +11423,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   xasprintf (&explanation, "new_fmt_ctx %s", context_string_str);
 
   html_new_document_context (self, css_string_context_str, 0, 0);
-  top_document_ctx = html_top_document_context (self);
-  top_document_ctx->string_ctx++;
+  html_set_string_context (self);
 
   result = html_convert_tree (self, element, explanation);
 
@@ -17333,38 +17331,19 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         }
       else if (reset_context == HCC_type_preformatted)
         {
-          enum command_id preformated_cmd = CM_example;
-          HTML_DOCUMENT_CONTEXT *top_document_ctx;
-          html_new_document_context (self, context, 0, 0);
-
-          top_document_ctx = html_top_document_context (self);
-
+          enum command_id preformatted_cmd = CM_example;
           /* there does not seems to be anything simpler... */
-          push_command_or_type (&top_document_ctx->composition_context,
-                                preformated_cmd, 0);
-      /* should not be needed for at commands no brace translation strings */
-          push_command_or_type (&top_document_ctx->preformatted_classes,
-                         html_commands_data[preformated_cmd].pre_class_cmd, 0);
-          push_integer_stack_integer (&top_document_ctx->preformatted_context,
-                                      1);
-          top_document_ctx->inside_preformatted++;
-
+          html_new_document_context (self, context, 0, 0);
+          html_open_command_update_context (self, preformatted_cmd);
           translation_result = html_convert_tree (self, translated_tree,
                                                   explanation);
-          top_document_ctx->inside_preformatted--;
-          pop_integer_stack (&top_document_ctx->preformatted_context);
-          pop_command_or_type (&top_document_ctx->composition_context);
-          pop_command_or_type (&top_document_ctx->preformatted_classes);
+          html_convert_command_update_context (self, preformatted_cmd);
           html_pop_document_context (self);
         }
       else if (reset_context == HCC_type_string)
         {
-          HTML_DOCUMENT_CONTEXT *top_document_ctx;
-
           html_new_document_context (self, context, 0, 0);
-
-          top_document_ctx = html_top_document_context (self);
-          top_document_ctx->string_ctx++;
+          html_set_string_context (self);
 
           translation_result = html_convert_tree (self, translated_tree,
                                                   explanation);

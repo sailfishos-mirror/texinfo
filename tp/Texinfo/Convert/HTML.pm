@@ -651,11 +651,13 @@ sub html_convert_css_string($$$)
     $self->{'formatting_function'}->{$formatting_reference}
       = $default_css_string_formatting_references{$formatting_reference};
   }
-
+  my $css_string_context_str = 'CSS string '.$context_str;
+  $self->_new_document_context($css_string_context_str);
+  _set_string_context($self);
   my $result
-   = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                                 'contents' => [$element]},
-                                                'CSS string '.$context_str);
+   = $self->convert_tree($element, "new_fmt_ctx C($css_string_context_str)");
+  $self->_pop_document_context();
+
   foreach my $cmdname (keys (%default_css_string_commands_conversion)) {
     $self->{'commands_conversion'}->{$cmdname} = $saved_commands->{$cmdname};
   }
@@ -8419,18 +8421,19 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
         = $self->convert_tree($translated_tree, $explanation);
     } elsif ($reset_context eq 'preformatted') {
       # there does not seems to be anything simpler...
-      my $preformatted_command_name = 'example';
+      my $preformatted_cmdname = 'example';
       $self->_new_document_context($context_str);
-      _open_command_update_context($self, 'example');
+      _open_command_update_context($self, $preformatted_cmdname);
       $translation_result
         = $self->convert_tree($translated_tree, $explanation);
-      _convert_command_update_context($self, 'example');
+      _convert_command_update_context($self, $preformatted_cmdname);
       $self->_pop_document_context();
     } elsif ($reset_context eq 'string') {
-      $translation_result
-        = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                          'contents' => [$translated_tree]},
-                                                     $context_str);
+      $self->_new_document_context($context_str);
+      _set_string_context($self);
+      $translation_result = $self->convert_tree($translated_tree,
+                                                $explanation);
+      $self->_pop_document_context();
     } elsif ($reset_context eq 'css_string') {
       $translation_result = $self->html_convert_css_string($translated_tree,
                                                            $context_str);
