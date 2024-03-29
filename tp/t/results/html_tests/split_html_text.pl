@@ -479,19 +479,19 @@ $result_elements{'split_html_text'}[1] = $result_elements{'split_html_text'}[0]{
 
 
 $result_directions_text{'split_html_text'} = 'output unit: @node Top
-  FastForward: @node chap
-  Forward: @node chap
-  NodeForward: @node chap
-  NodeNext: @node chap
   This: @node Top
+  Forward: @node chap
+  FastForward: @node chap
+  NodeNext: @node chap
+  NodeForward: @node chap
 output unit: @node chap
+  This: @node chap
   Back: @node Top
   FastBack: @node Top
-  NodeBack: @node Top
+  Up: @node Top
   NodePrev: @node Top
   NodeUp: @node Top
-  This: @node chap
-  Up: @node Top
+  NodeBack: @node Top
 ';
 
 

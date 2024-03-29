@@ -5086,160 +5086,160 @@ $result_elements{'complex'}[12] = $result_elements{'complex'}[0]{'directions'}{'
 
 
 $result_directions_text{'complex'} = 'output unit: @top
-  FastForward: @chapter first node chapter
+  This: @top
   Forward: @chapter first node chapter
-  NodeForward: @chapter first node chapter
+  FastForward: @chapter first node chapter
   NodeNext: @chapter first node chapter
   NodePrev: (dir)
-  This: @top
+  NodeForward: @chapter first node chapter
 output unit: @chapter first node chapter
-  Back: @top
-  FastBack: @top
-  FastForward: @chapter second node chapter
+  This: @chapter first node chapter
   Forward: @unnumberedsec unnumbered section
+  Back: @top
+  FastForward: @chapter second node chapter
+  FastBack: @top
   Next: @chapter second node chapter
-  NodeBack: @top
-  NodeForward: @unnumberedsec unnumbered section
+  Up: @top
   NodePrev: @top
   NodeUp: @top
-  This: @chapter first node chapter
-  Up: @top
+  NodeForward: @unnumberedsec unnumbered section
+  NodeBack: @top
 output unit: @unnumberedsec unnumbered section
-  Back: @chapter first node chapter
-  FastBack: @chapter first node chapter
-  FastForward: @chapter second node chapter
+  This: @unnumberedsec unnumbered section
   Forward: @unnumberedsubsec unnumbered subsection
+  Back: @chapter first node chapter
+  FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
   Next: @unnumberedsec unnumbered section2
-  NodeBack: @chapter first node chapter
-  NodeForward: @unnumberedsubsec unnumbered subsection
+  Up: @chapter first node chapter
   NodeNext: @unnumberedsec unnumbered section2
   NodeUp: @chapter first node chapter
-  This: @unnumberedsec unnumbered section
-  Up: @chapter first node chapter
+  NodeForward: @unnumberedsubsec unnumbered subsection
+  NodeBack: @chapter first node chapter
 output unit: @unnumberedsubsec unnumbered subsection
-  Back: @unnumberedsec unnumbered section
-  FastBack: @chapter first node chapter
-  FastForward: @chapter second node chapter
+  This: @unnumberedsubsec unnumbered subsection
   Forward: @subsection numbered subsection
+  Back: @unnumberedsec unnumbered section
+  FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
   Next: @subsection numbered subsection
-  NodeBack: @unnumberedsec unnumbered section
-  NodeForward: @subsection numbered subsection
+  Up: @unnumberedsec unnumbered section
   NodeNext: @subsection numbered subsection
   NodeUp: @unnumberedsec unnumbered section
-  This: @unnumberedsubsec unnumbered subsection
-  Up: @unnumberedsec unnumbered section
+  NodeForward: @subsection numbered subsection
+  NodeBack: @unnumberedsec unnumbered section
 output unit: @subsection numbered subsection
-  Back: @unnumberedsubsec unnumbered subsection
-  FastBack: @chapter first node chapter
-  FastForward: @chapter second node chapter
+  This: @subsection numbered subsection
   Forward: @unnumberedsubsec unnumbered subsection2
+  Back: @unnumberedsubsec unnumbered subsection
+  FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
   Next: @unnumberedsubsec unnumbered subsection2
-  NodeBack: @unnumberedsubsec unnumbered subsection
-  NodeForward: @unnumberedsubsec unnumbered subsection2
+  Prev: @unnumberedsubsec unnumbered subsection
+  Up: @unnumberedsec unnumbered section
   NodeNext: @unnumberedsubsec unnumbered subsection2
   NodePrev: @unnumberedsubsec unnumbered subsection
   NodeUp: @unnumberedsec unnumbered section
-  Prev: @unnumberedsubsec unnumbered subsection
-  This: @subsection numbered subsection
-  Up: @unnumberedsec unnumbered section
+  NodeForward: @unnumberedsubsec unnumbered subsection2
+  NodeBack: @unnumberedsubsec unnumbered subsection
 output unit: @unnumberedsubsec unnumbered subsection2
-  Back: @subsection numbered subsection
-  FastBack: @chapter first node chapter
-  FastForward: @chapter second node chapter
+  This: @unnumberedsubsec unnumbered subsection2
   Forward: @subsection numbered subsection2
+  Back: @subsection numbered subsection
+  FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
   Next: @subsection numbered subsection2
-  NodeBack: @subsection numbered subsection
-  NodeForward: @subsection numbered subsection2
+  Prev: @subsection numbered subsection
+  Up: @unnumberedsec unnumbered section
   NodeNext: @subsection numbered subsection2
   NodePrev: @subsection numbered subsection
   NodeUp: @unnumberedsec unnumbered section
-  Prev: @subsection numbered subsection
-  This: @unnumberedsubsec unnumbered subsection2
-  Up: @unnumberedsec unnumbered section
+  NodeForward: @subsection numbered subsection2
+  NodeBack: @subsection numbered subsection
 output unit: @subsection numbered subsection2
-  Back: @unnumberedsubsec unnumbered subsection2
-  FastBack: @chapter first node chapter
-  FastForward: @chapter second node chapter
+  This: @subsection numbered subsection2
   Forward: @unnumberedsec unnumbered section2
-  NodeBack: @unnumberedsubsec unnumbered subsection2
-  NodeForward: @unnumberedsec unnumbered section2
+  Back: @unnumberedsubsec unnumbered subsection2
+  FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
+  Prev: @unnumberedsubsec unnumbered subsection2
+  Up: @unnumberedsec unnumbered section
   NodePrev: @unnumberedsubsec unnumbered subsection2
   NodeUp: @unnumberedsec unnumbered section
-  Prev: @unnumberedsubsec unnumbered subsection2
-  This: @subsection numbered subsection2
-  Up: @unnumberedsec unnumbered section
+  NodeForward: @unnumberedsec unnumbered section2
+  NodeBack: @unnumberedsubsec unnumbered subsection2
 output unit: @unnumberedsec unnumbered section2
-  Back: @subsection numbered subsection2
-  FastBack: @chapter first node chapter
-  FastForward: @chapter second node chapter
+  This: @unnumberedsec unnumbered section2
   Forward: @subsection numbered subsection3
+  Back: @subsection numbered subsection2
+  FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
   Next: @section numbered section
-  NodeBack: @subsection numbered subsection2
-  NodeForward: @subsection numbered subsection3
+  Prev: @unnumberedsec unnumbered section
+  Up: @chapter first node chapter
   NodeNext: @section numbered section
   NodePrev: @unnumberedsec unnumbered section
   NodeUp: @chapter first node chapter
-  Prev: @unnumberedsec unnumbered section
-  This: @unnumberedsec unnumbered section2
-  Up: @chapter first node chapter
+  NodeForward: @subsection numbered subsection3
+  NodeBack: @subsection numbered subsection2
 output unit: @subsection numbered subsection3
-  Back: @unnumberedsec unnumbered section2
-  FastBack: @chapter first node chapter
-  FastForward: @chapter second node chapter
-  Forward: @section numbered section
-  NodeBack: @unnumberedsec unnumbered section2
-  NodeForward: @section numbered section
-  NodeUp: @unnumberedsec unnumbered section2
   This: @subsection numbered subsection3
-  Up: @unnumberedsec unnumbered section2
-output unit: @section numbered section
-  Back: @subsection numbered subsection3
-  FastBack: @chapter first node chapter
+  Forward: @section numbered section
+  Back: @unnumberedsec unnumbered section2
   FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
+  Up: @unnumberedsec unnumbered section2
+  NodeUp: @unnumberedsec unnumbered section2
+  NodeForward: @section numbered section
+  NodeBack: @unnumberedsec unnumbered section2
+output unit: @section numbered section
+  This: @section numbered section
   Forward: @chapter second node chapter
-  NodeBack: @subsection numbered subsection3
+  Back: @subsection numbered subsection3
+  FastForward: @chapter second node chapter
+  FastBack: @chapter first node chapter
+  Prev: @unnumberedsec unnumbered section2
+  Up: @chapter first node chapter
   NodePrev: @unnumberedsec unnumbered section2
   NodeUp: @chapter first node chapter
-  Prev: @unnumberedsec unnumbered section2
-  This: @section numbered section
-  Up: @chapter first node chapter
+  NodeBack: @subsection numbered subsection3
 output unit: @chapter second node chapter
-  Back: @section numbered section
-  FastBack: @chapter first node chapter
-  FastForward: @unnumbered unnumbered chapter
+  This: @chapter second node chapter
   Forward: @unnumbered unnumbered chapter
+  Back: @section numbered section
+  FastForward: @unnumbered unnumbered chapter
+  FastBack: @chapter first node chapter
   Next: @unnumbered unnumbered chapter
-  NodeForward: @unnumbered unnumbered chapter
+  Prev: @chapter first node chapter
+  Up: @top
   NodeNext: @unnumbered unnumbered chapter
   NodeUp: @top
-  Prev: @chapter first node chapter
-  This: @chapter second node chapter
-  Up: @top
+  NodeForward: @unnumbered unnumbered chapter
 output unit: @unnumbered unnumbered chapter
-  Back: @chapter second node chapter
-  FastBack: @chapter second node chapter
-  FastForward: @unnumbered unnumbered continuity
+  This: @unnumbered unnumbered chapter
   Forward: @unnumbered unnumbered continuity
+  Back: @chapter second node chapter
+  FastForward: @unnumbered unnumbered continuity
+  FastBack: @chapter second node chapter
   Next: @unnumbered unnumbered continuity
-  NodeBack: @chapter second node chapter
-  NodeForward: @unnumbered unnumbered continuity
+  Prev: @chapter second node chapter
+  Up: @top
   NodeNext: @unnumbered unnumbered continuity
   NodePrev: @chapter second node chapter
   NodeUp: @top
-  Prev: @chapter second node chapter
-  This: @unnumbered unnumbered chapter
-  Up: @top
+  NodeForward: @unnumbered unnumbered continuity
+  NodeBack: @chapter second node chapter
 output unit: @unnumbered unnumbered continuity
+  This: @unnumbered unnumbered continuity
   Back: @unnumbered unnumbered chapter
   FastBack: @unnumbered unnumbered chapter
-  NodeBack: @unnumbered unnumbered chapter
-  NodeForward: @unnumbered unnumbered chapter
+  Prev: @unnumbered unnumbered chapter
+  Up: @top
   NodeNext: @unnumbered unnumbered chapter
   NodePrev: @unnumbered unnumbered continuity
   NodeUp: @top
-  Prev: @unnumbered unnumbered chapter
-  This: @unnumbered unnumbered continuity
-  Up: @top
+  NodeForward: @unnumbered unnumbered chapter
+  NodeBack: @unnumbered unnumbered chapter
 ';
 
 1;

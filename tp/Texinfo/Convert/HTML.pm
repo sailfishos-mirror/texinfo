@@ -1934,7 +1934,11 @@ sub unit_is_top_output_unit($$)
   my $self = shift;
   my $output_unit = shift;
   my $top_output_unit = _get_top_unit($self);
-  return (defined($top_output_unit) and $top_output_unit eq $output_unit);
+  if (defined($top_output_unit) and $top_output_unit eq $output_unit) {
+    return 1;
+  } else {
+    return 0;
+  }
 }
 
 my %default_formatting_references;
@@ -4648,9 +4652,12 @@ sub _default_format_element_header($$$$)
            and ($output_unit->{'tree_unit_directions'}->{'next'}
                 or $output_unit->{'tree_unit_directions'}->{'prev'}))) {
     my $is_top = $self->unit_is_top_output_unit($output_unit);
-    my $first_in_page = (defined($output_unit->{'unit_filename'})
-           and $self->count_elements_in_filename('current',
-                           $output_unit->{'unit_filename'}) == 1);
+    my $first_in_page = 0;
+    if (defined($output_unit->{'unit_filename'})
+        and $self->count_elements_in_filename('current',
+                           $output_unit->{'unit_filename'}) == 1) {
+      $first_in_page = 1;
+    }
     my $previous_is_top = 0;
     $previous_is_top = 1
       if ($output_unit->{'tree_unit_directions'}->{'prev'}
@@ -6800,15 +6807,16 @@ sub _convert_printindex_command($$$$)
   # now format the index entries
   $result
    .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
-    ." border=\"0\">\n" . '<tr><td></td>'
-    . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
-      # TRANSLATORS: index entries column header in index formatting
-    . $self->convert_tree($self->cdt('Index Entry')) .'</th>'
-    . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'>'
-      # TRANSLATORS: section of index entry column header in index formatting
-    . $self->convert_tree($self->cdt('Section')) . "</th></tr>\n"
-    . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')
-    ."</td></tr>\n";
+   ." border=\"0\">\n" . '<tr><td></td>'
+   . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
+     # TRANSLATORS: index entries column header in index formatting
+   . $self->convert_tree($self->cdt('Index Entry'), 'th idx entries 1') .'</th>'
+   . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'>'
+     # TRANSLATORS: section of index entry column header in index formatting
+   . $self->convert_tree($self->cdt('Section'), 'th idx entries 2')
+   ."</th></tr>\n"
+   . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')
+   ."</td></tr>\n";
   $result .= $result_index_entries;
   $result .= "</table>\n";
 
@@ -7755,16 +7763,19 @@ sub _convert_def_line_type($$$$)
 
   if ($name_element) {
     $def_call .= $self->html_attribute_class('strong', ['def-name']).'>'.
-       $self->convert_tree({'type' => '_code', 'contents' => [$name_element]})
+       $self->convert_tree({'type' => '_code', 'contents' => [$name_element]},
+                           "DEF_NAME $def_command")
        .'</strong>';
   }
 
   if ($arguments) {
+    my $explanation = "DEF_ARGS $def_command";
   # arguments not only metasyntactic variables
   # (deftypefn, deftypevr, deftypeop, deftypecv)
     if ($Texinfo::Common::def_no_var_arg_commands{$base_command_name}) {
-      my $arguments_formatted = $self->convert_tree({'type' => '_code',
-                                                  'contents' => [$arguments]});
+      my $arguments_formatted
+        = $self->convert_tree({'type' => '_code', 'contents' => [$arguments]},
+                              $explanation);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
         $def_call .= $self->html_attribute_class('code',
@@ -7775,7 +7786,7 @@ sub _convert_def_line_type($$$$)
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
       # FIXME not part of the API
       _set_code_context($self, 0);
-      my $arguments_formatted = $self->convert_tree($arguments);
+      my $arguments_formatted = $self->convert_tree($arguments, $explanation);
       _pop_code_context($self);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
@@ -7844,7 +7855,8 @@ sub _convert_def_line_type($$$$)
       if ($open ne '') {
         $result .= $open.'>';
       }
-      $result .= $self->convert_tree($category_tree);
+      my $explanation = "DEF_CATEGORY $def_command";
+      $result .= $self->convert_tree($category_tree, $explanation);
       if ($open ne '') {
         $result .= '</span>';
       }
@@ -13234,6 +13246,7 @@ sub _convert($$;$)
   # cache return value of get_conf for speed
 
   if ($debug) {
+    cluck() if (!defined($explanation));
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
     my $contexts_str = _debug_print_html_contexts($self);
     print STDERR "ELEMENT($explanation) ".$contexts_str.", ->";
@@ -13488,7 +13501,8 @@ sub _convert($$;$)
     my $content_formatted = '';
     if ($type_name eq 'definfoenclose_command') {
       if ($element->{'args'}) {
-        $content_formatted = $self->_convert($element->{'args'}->[0]);
+        $content_formatted = $self->_convert($element->{'args'}->[0],
+                                             "DEFINFOENCLOSE_ARG");
       }
     } elsif ($element->{'contents'}) {
       my $content_idx = 0;

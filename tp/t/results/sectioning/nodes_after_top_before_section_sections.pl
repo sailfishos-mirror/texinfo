@@ -629,9 +629,9 @@ $result_elements{'nodes_after_top_before_section_sections'}[0]{'unit_command'}{'
 
 
 $result_directions_text{'nodes_after_top_before_section_sections'} = 'output unit: @subsection subsection
+  This: @subsection subsection
   NodePrev: @subsection subsection
   NodeUp: @subsection subsection
-  This: @subsection subsection
 ';
 
 

@@ -568,18 +568,18 @@ $result_elements{'part_node_after_top'}[1] = $result_elements{'part_node_after_t
 
 
 $result_directions_text{'part_node_after_top'} = 'output unit: @top top
-  FastForward: @part part
-  Forward: @part part
-  Next: @part part
-  NodeBack: @top top
-  NodeForward: @top top
-  NodeNext: @top top
   This: @top top
+  Forward: @part part
+  FastForward: @part part
+  Next: @part part
+  NodeNext: @top top
+  NodeForward: @top top
+  NodeBack: @top top
 output unit: @part part
+  This: @part part
   Back: @top top
   FastBack: @top top
   Prev: @top top
-  This: @part part
 ';
 
 

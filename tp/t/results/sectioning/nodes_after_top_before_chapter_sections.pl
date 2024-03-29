@@ -629,9 +629,9 @@ $result_elements{'nodes_after_top_before_chapter_sections'}[0]{'unit_command'}{'
 
 
 $result_directions_text{'nodes_after_top_before_chapter_sections'} = 'output unit: @chapter chapter
+  This: @chapter chapter
   NodePrev: @chapter chapter
   NodeUp: @chapter chapter
-  This: @chapter chapter
 ';
 
 

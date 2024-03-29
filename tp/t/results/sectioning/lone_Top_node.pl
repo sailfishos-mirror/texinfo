@@ -406,9 +406,9 @@ $result_elements{'lone_Top_node'}[0]{'unit_command'}{'associated_unit'} = $resul
 
 
 $result_directions_text{'lone_Top_node'} = 'output unit: @chapter chap
+  This: @chapter chap
   NodePrev: @chapter chap
   NodeUp: @chapter chap
-  This: @chapter chap
 ';
 
 

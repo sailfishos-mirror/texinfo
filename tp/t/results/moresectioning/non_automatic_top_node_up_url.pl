@@ -732,19 +732,19 @@ $result_elements{'non_automatic_top_node_up_url'}[1] = $result_elements{'non_aut
 
 
 $result_directions_text{'non_automatic_top_node_up_url'} = 'output unit: @node Top
+  This: @node Top
   Forward: @node chap
-  NodeForward: @node chap
   NodeNext: @node chap
   NodePrev: (dir)
   NodeUp: (dir)
-  This: @node Top
+  NodeForward: @node chap
 output unit: @node chap
+  This: @node chap
   Back: @node Top
   FastBack: @node Top
-  NodeBack: @node Top
   NodePrev: @node Top
   NodeUp: (dir)
-  This: @node chap
+  NodeBack: @node Top
 ';
 
 

@@ -1055,33 +1055,33 @@ $result_elements{'transliterated_names_conflicts'}[2] = $result_elements{'transl
 
 
 $result_directions_text{'transliterated_names_conflicts'} = 'output unit: @node Top
-  FastForward: @node Prés
-  Forward: @node Prés
-  NodeForward: @node Prés
-  NodeNext: @node Prés
   This: @node Top
+  Forward: @node Prés
+  FastForward: @node Prés
+  NodeNext: @node Prés
+  NodeForward: @node Prés
 output unit: @node Prés
-  Back: @node Top
-  FastBack: @node Top
-  FastForward: @node Other node
+  This: @node Prés
   Forward: @node Other node
+  Back: @node Top
+  FastForward: @node Other node
+  FastBack: @node Top
   Next: @node Other node
-  NodeBack: @node Top
-  NodeForward: @node Other node
+  Up: @node Top
   NodeNext: @node Other node
   NodePrev: @node Top
   NodeUp: @node Top
-  This: @node Prés
-  Up: @node Top
+  NodeForward: @node Other node
+  NodeBack: @node Top
 output unit: @node Other node
+  This: @node Other node
   Back: @node Prés
   FastBack: @node Prés
-  NodeBack: @node Prés
+  Prev: @node Prés
+  Up: @node Top
   NodePrev: @node Prés
   NodeUp: @node Top
-  Prev: @node Prés
-  This: @node Other node
-  Up: @node Top
+  NodeBack: @node Prés
 ';
 
 $result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [

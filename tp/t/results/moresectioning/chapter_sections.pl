@@ -903,61 +903,61 @@ $result_elements{'chapter_sections'}[7] = $result_elements{'chapter_sections'}[0
 
 
 $result_directions_text{'chapter_sections'} = 'output unit: @unnumbered unnumbered
-  FastForward: @chapter First chapter
-  Forward: @chapter First chapter
-  Next: @chapter First chapter
   This: @unnumbered unnumbered
+  Forward: @chapter First chapter
+  FastForward: @chapter First chapter
+  Next: @chapter First chapter
 output unit: @chapter First chapter
-  Back: @unnumbered unnumbered
-  FastBack: @unnumbered unnumbered
-  FastForward: @chapter Chapter
+  This: @chapter First chapter
   Forward: @section second
+  Back: @unnumbered unnumbered
+  FastForward: @chapter Chapter
+  FastBack: @unnumbered unnumbered
   Next: @chapter Chapter
   Prev: @unnumbered unnumbered
-  This: @chapter First chapter
 output unit: @section second
-  Back: @chapter First chapter
-  FastBack: @chapter First chapter
-  FastForward: @chapter Chapter
-  Forward: @chapter Chapter
   This: @section second
+  Forward: @chapter Chapter
+  Back: @chapter First chapter
+  FastForward: @chapter Chapter
+  FastBack: @chapter First chapter
   Up: @chapter First chapter
 output unit: @chapter Chapter
-  Back: @section second
-  FastBack: @chapter First chapter
-  FastForward: @chapter Chapter 2
+  This: @chapter Chapter
   Forward: @section Section of chapter
+  Back: @section second
+  FastForward: @chapter Chapter 2
+  FastBack: @chapter First chapter
   Next: @chapter Chapter 2
   Prev: @chapter First chapter
-  This: @chapter Chapter
 output unit: @section Section of chapter
-  Back: @chapter Chapter
-  FastBack: @chapter Chapter
-  FastForward: @chapter Chapter 2
-  Forward: @subsection subsection 1
   This: @section Section of chapter
+  Forward: @subsection subsection 1
+  Back: @chapter Chapter
+  FastForward: @chapter Chapter 2
+  FastBack: @chapter Chapter
   Up: @chapter Chapter
 output unit: @subsection subsection 1
-  Back: @section Section of chapter
-  FastBack: @chapter Chapter
-  FastForward: @chapter Chapter 2
-  Forward: @subsection subsection 2
-  Next: @subsection subsection 2
   This: @subsection subsection 1
+  Forward: @subsection subsection 2
+  Back: @section Section of chapter
+  FastForward: @chapter Chapter 2
+  FastBack: @chapter Chapter
+  Next: @subsection subsection 2
   Up: @section Section of chapter
 output unit: @subsection subsection 2
-  Back: @subsection subsection 1
-  FastBack: @chapter Chapter
-  FastForward: @chapter Chapter 2
-  Forward: @chapter Chapter 2
-  Prev: @subsection subsection 1
   This: @subsection subsection 2
+  Forward: @chapter Chapter 2
+  Back: @subsection subsection 1
+  FastForward: @chapter Chapter 2
+  FastBack: @chapter Chapter
+  Prev: @subsection subsection 1
   Up: @section Section of chapter
 output unit: @chapter Chapter 2
+  This: @chapter Chapter 2
   Back: @subsection subsection 2
   FastBack: @chapter Chapter
   Prev: @chapter Chapter
-  This: @chapter Chapter 2
 ';
 
 

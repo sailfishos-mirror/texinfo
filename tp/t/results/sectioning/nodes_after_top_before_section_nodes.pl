@@ -867,25 +867,25 @@ $result_elements{'nodes_after_top_before_section_nodes'}[2] = $result_elements{'
 
 
 $result_directions_text{'nodes_after_top_before_section_nodes'} = 'output unit: @node Top
-  Forward: @node chap node
-  NodeForward: @node chap node
-  NodeNext: @node chap node
   This: @node Top
+  Forward: @node chap node
+  NodeNext: @node chap node
+  NodeForward: @node chap node
 output unit: @node chap node
-  Back: @node Top
+  This: @node chap node
   Forward: @node third node
-  NodeBack: @node Top
-  NodeForward: @node third node
+  Back: @node Top
   NodeNext: @node third node
   NodePrev: @node Top
   NodeUp: @node Top
-  This: @node chap node
+  NodeForward: @node third node
+  NodeBack: @node Top
 output unit: @node third node
+  This: @node third node
   Back: @node chap node
-  NodeBack: @node chap node
   NodePrev: @node chap node
   NodeUp: @node Top
-  This: @node third node
+  NodeBack: @node chap node
 ';
 
 

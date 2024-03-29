@@ -320,7 +320,10 @@ sub text_accents($;$$)
   my $options = {};
   $options->{'enabled_encoding'} = $encoding if (defined($encoding));
   $options->{'set_case'} = $set_case if (defined($set_case));
-  my $text = convert_to_text($contents_element, $options);
+  my $text = '';
+  if (defined($contents_element)) {
+    $text = convert_to_text($contents_element, $options);
+  }
 
   my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
                      $stack, $encoding, \&ascii_accent_fallback, $set_case);

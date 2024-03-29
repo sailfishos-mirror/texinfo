@@ -310,13 +310,13 @@ $result_elements{'chapter_before_and_after_part'}[1] = $result_elements{'chapter
 
 
 $result_directions_text{'chapter_before_and_after_part'} = 'output unit: @chapter chapter
-  FastForward: @chapter chapter 2
-  Forward: @chapter chapter 2
   This: @chapter chapter
+  Forward: @chapter chapter 2
+  FastForward: @chapter chapter 2
 output unit: @chapter chapter 2
+  This: @chapter chapter 2
   Back: @chapter chapter
   FastBack: @chapter chapter
-  This: @chapter chapter 2
 ';
 
 

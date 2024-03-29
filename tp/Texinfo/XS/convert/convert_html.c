@@ -2918,9 +2918,9 @@ direction_string (CONVERTER *self, int direction,
           else
             converted_tree = translated_tree;
 
-          xasprintf (&context_str, "DIRECTION %s %s/%s",
+          xasprintf (&context_str, "DIRECTION %s (%s/%s)", direction_name,
                     direction_string_type_names[string_type],
-                    direction_string_context_names[context], direction_name);
+                    direction_string_context_names[context]);
 
           add_tree_to_build (self, converted_tree);
           result_string
@@ -7894,6 +7894,8 @@ html_default_format_element_header (CONVERTER *self,
           free (elt_str);
         }
       text_printf (&debug_txt, ") %s\n", output_unit_texi (output_unit));
+      fprintf (stderr, "%s", debug_txt.text);
+      free (debug_txt.text);
     }
 
   /* Do the heading if the command is the first command in the element */
@@ -8826,7 +8828,7 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
                              self, substrings, 0);
       destroy_named_string_element_list (substrings);
 
-      xasprintf (&context_str, "convert explained  %s",
+      xasprintf (&context_str, "convert explained %s",
                  builtin_command_name (cmd));
       add_tree_to_build (self, tree);
       convert_to_html_internal (self, tree, result, context_str);
@@ -13446,7 +13448,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
   text_append_n (result, ">", 1);
   /* TRANSLATORS: index entries column header in index formatting */
-  translate_convert_to_html_internal ("Index Entry", self, 0, 0, result, 0);
+  translate_convert_to_html_internal ("Index Entry", self, 0, 0, result,
+                                      "th idx entries 1");
   text_append_n (result, "</th>", 5);
 
   xasprintf (&index_name_cmd_class, "sections-header-%s",
@@ -13459,7 +13462,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
   text_append_n (result, ">", 1);
   /* TRANSLATORS: section of index entry column header in index formatting */
-  translate_convert_to_html_internal ("Section", self, 0, 0, result, 0);
+  translate_convert_to_html_internal ("Section", self, 0, 0, result,
+                                      "th idx entries 2");
   text_append_n (result, "</th></tr>\n", 11);
   text_append_n (result, "<tr><td colspan=\"3\">", 20);
   text_append (result, self->conf->DEFAULT_RULE.string);
@@ -14844,6 +14848,9 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
     {
       char *attribute_class = html_attribute_class (self, "strong",
                                                     &def_name_classes);
+      char *explanation;
+      xasprintf (&explanation, "DEF_NAME %s", builtin_command_name(def_cmd));
+
       ELEMENT *root_code = new_element (ET__code);
 
       add_to_contents_as_array (root_code, parsed_def->name);
@@ -14854,17 +14861,20 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       free (attribute_class);
       text_append_n (&def_call, ">", 1);
 
-      convert_to_html_internal (self, root_code, &def_call, 0);
+      convert_to_html_internal (self, root_code, &def_call, explanation);
 
       remove_tree_to_build (self, root_code);
       destroy_element (root_code);
 
       text_append_n (&def_call, "</strong>", 9);
+      free (explanation);
     }
 
   if (parsed_def->args)
     {
       char *args_formatted;
+      char *explanation;
+      xasprintf (&explanation, "DEF_ARGS %s", builtin_command_name(def_cmd));
    /* arguments not only metasyntactic variables
       (deftypefn, deftypevr, deftypeop, deftypecv) */
       /* Texinfo::Common::def_no_var_arg_commands{$base_command_name} */
@@ -14877,7 +14887,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
 
           add_tree_to_build (self, root_code);
 
-          args_formatted = html_convert_tree (self, root_code, 0);
+          args_formatted = html_convert_tree (self, root_code, explanation);
 
           remove_tree_to_build (self, root_code);
           destroy_element (root_code);
@@ -14901,7 +14911,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       else
         {
           html_set_code_context (self, 0);
-          args_formatted = html_convert_tree (self, parsed_def->args, 0);
+          args_formatted = html_convert_tree (self, parsed_def->args,
+                                              explanation);
           html_pop_code_context (self);
           if (args_formatted[strspn (args_formatted, whitespace_chars)] != '\0')
             {
@@ -14919,6 +14930,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
               text_append_n (&def_call, "</var>", 6);
             }
         }
+      free (explanation);
       free (args_formatted);
     }
 
@@ -15030,6 +15042,11 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
           char *attribute_open = html_attribute_class (self, "span",
                                              &category_def_classes);
           size_t open_len = strlen (attribute_open);
+          char *explanation;
+
+          xasprintf (&explanation, "DEF_CATEGORY %s",
+                     builtin_command_name(def_cmd));
+
           if (open_len)
             {
               text_append_n (result, attribute_open, open_len);
@@ -15037,11 +15054,12 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
             }
           free (attribute_open);
           add_tree_to_build (self, category_tree);
-          convert_to_html_internal (self, category_tree, result, 0);
+          convert_to_html_internal (self, category_tree, result, explanation);
           remove_tree_to_build (self, category_tree);
           destroy_element_and_children (category_tree);
           if (open_len)
             text_append_n (result, "</span>", 7);
+          free (explanation);
         }
     }
 
@@ -18287,7 +18305,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           if (element->args.number > 0)
             {
               convert_to_html_internal (self, element->args.list[0],
-                                        &content_formatted, 0);
+                                        &content_formatted,
+                                        "DEFINFOENCLOSE_ARG");
             }
         }
       else if (element->contents.number > 0)

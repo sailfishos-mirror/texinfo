@@ -912,26 +912,26 @@ $result_elements{'double_part'}[2] = $result_elements{'double_part'}[0]{'directi
 
 
 $result_directions_text{'double_part'} = 'output unit: @top top
-  FastForward: @chapter chapter after 2 parts
-  Forward: @part part first
-  Next: @part part first
-  NodeForward: @chapter chapter after 2 parts
-  NodeNext: @chapter chapter after 2 parts
   This: @top top
+  Forward: @part part first
+  FastForward: @chapter chapter after 2 parts
+  Next: @part part first
+  NodeNext: @chapter chapter after 2 parts
+  NodeForward: @chapter chapter after 2 parts
 output unit: @part part first
+  This: @part part first
+  Forward: @chapter chapter after 2 parts
   Back: @top top
   FastForward: @chapter chapter after 2 parts
-  Forward: @chapter chapter after 2 parts
   Next: @chapter chapter after 2 parts
   Prev: @top top
-  This: @part part first
 output unit: @chapter chapter after 2 parts
+  This: @chapter chapter after 2 parts
   Back: @part part first
   FastBack: @part part first
-  NodeBack: @top top
   NodePrev: @top top
   NodeUp: @top top
-  This: @chapter chapter after 2 parts
+  NodeBack: @top top
 ';
 
 

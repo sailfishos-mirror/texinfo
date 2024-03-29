@@ -800,25 +800,25 @@ $result_elements{'unnumbered_top_without_node_sections'}[2] = $result_elements{'
 
 
 $result_directions_text{'unnumbered_top_without_node_sections'} = 'output unit: @unnumbered unnumbered
-  FastForward: @top top section
+  This: @unnumbered unnumbered
   Forward: @top top section
+  FastForward: @top top section
   Next: @top top section
   NodeUp: (dir)
-  This: @unnumbered unnumbered
 output unit: @top top section
-  Back: @unnumbered unnumbered
-  FastBack: @unnumbered unnumbered
-  FastForward: @chapter Chapter
+  This: @top top section
   Forward: @chapter Chapter
+  Back: @unnumbered unnumbered
+  FastForward: @chapter Chapter
+  FastBack: @unnumbered unnumbered
   Next: @chapter Chapter
   Prev: @unnumbered unnumbered
-  This: @top top section
 output unit: @chapter Chapter
+  This: @chapter Chapter
   Back: @top top section
   FastBack: @top top section
-  NodeUp: (dir)
   Prev: @top top section
-  This: @chapter Chapter
+  NodeUp: (dir)
 ';
 
 

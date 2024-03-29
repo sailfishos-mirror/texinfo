@@ -1196,72 +1196,72 @@ $result_elements{'sectioning_part_appendix'}[9] = $result_elements{'sectioning_p
 
 
 $result_directions_text{'sectioning_part_appendix'} = 'output unit: @top top
-  FastForward: @chapter chapter
-  Forward: @chapter chapter
-  Next: @chapter chapter in part
   This: @top top
+  Forward: @chapter chapter
+  FastForward: @chapter chapter
+  Next: @chapter chapter in part
 output unit: @chapter chapter
-  Back: @top top
-  FastBack: @top top
-  FastForward: @chapter chapter in part
-  Forward: @section section
   This: @chapter chapter
+  Forward: @section section
+  Back: @top top
+  FastForward: @chapter chapter in part
+  FastBack: @top top
   Up: @top top
 output unit: @section section
-  Back: @chapter chapter
-  FastBack: @chapter chapter
-  FastForward: @chapter chapter in part
-  Forward: @subsection subsection
   This: @section section
+  Forward: @subsection subsection
+  Back: @chapter chapter
+  FastForward: @chapter chapter in part
+  FastBack: @chapter chapter
   Up: @chapter chapter
 output unit: @subsection subsection
-  Back: @section section
-  FastBack: @chapter chapter
-  FastForward: @chapter chapter in part
-  Forward: @subsubsection subsubsection
   This: @subsection subsection
+  Forward: @subsubsection subsubsection
+  Back: @section section
+  FastForward: @chapter chapter in part
+  FastBack: @chapter chapter
   Up: @section section
 output unit: @subsubsection subsubsection
-  Back: @subsection subsection
-  FastBack: @chapter chapter
-  FastForward: @chapter chapter in part
-  Forward: @chapter chapter in part
   This: @subsubsection subsubsection
+  Forward: @chapter chapter in part
+  Back: @subsection subsection
+  FastForward: @chapter chapter in part
+  FastBack: @chapter chapter
   Up: @subsection subsection
 output unit: @chapter chapter in part
-  Back: @subsubsection subsubsection
-  FastBack: @chapter chapter
-  FastForward: @chapter second chapter in part
-  Forward: @chapter second chapter in part
-  Next: @chapter second chapter in part
   This: @chapter chapter in part
+  Forward: @chapter second chapter in part
+  Back: @subsubsection subsubsection
+  FastForward: @chapter second chapter in part
+  FastBack: @chapter chapter
+  Next: @chapter second chapter in part
 output unit: @chapter second chapter in part
-  Back: @chapter chapter in part
-  FastBack: @chapter chapter in part
-  FastForward: @unnumbered unnumbered
+  This: @chapter second chapter in part
   Forward: @unnumbered unnumbered
+  Back: @chapter chapter in part
+  FastForward: @unnumbered unnumbered
+  FastBack: @chapter chapter in part
   Next: @unnumbered unnumbered
   Prev: @chapter chapter in part
-  This: @chapter second chapter in part
   Up: @chapter chapter in part
 output unit: @unnumbered unnumbered
-  Back: @chapter second chapter in part
-  FastBack: @chapter second chapter in part
-  FastForward: @appendix appendix
-  Forward: @appendix appendix
-  Prev: @chapter second chapter in part
   This: @unnumbered unnumbered
+  Forward: @appendix appendix
+  Back: @chapter second chapter in part
+  FastForward: @appendix appendix
+  FastBack: @chapter second chapter in part
+  Prev: @chapter second chapter in part
   Up: @chapter chapter in part
 output unit: @appendix appendix
+  This: @appendix appendix
+  Forward: @appendixsec appendixsec
   Back: @unnumbered unnumbered
   FastBack: @unnumbered unnumbered
-  Forward: @appendixsec appendixsec
   Prev: @chapter chapter in part
-  This: @appendix appendix
 output unit: @appendixsec appendixsec
+  This: @appendixsec appendixsec
   Back: @appendix appendix
   FastBack: @appendix appendix
-  This: @appendixsec appendixsec
   Up: @appendix appendix
 ';
 

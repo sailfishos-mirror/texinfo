@@ -1083,36 +1083,36 @@ $result_elements{'transliterated_split_equivalent_nodes'}[3] = $result_elements{
 
 
 $result_directions_text{'transliterated_split_equivalent_nodes'} = 'output unit: @node top
-  Forward: @node @~a
-  NodeForward: @node @~a
-  NodeNext: @node @~a
   This: @node top
+  Forward: @node @~a
+  NodeNext: @node @~a
+  NodeForward: @node @~a
 output unit: @node @~a
-  Back: @node top
+  This: @node @~a
   Forward: @node n
-  NodeBack: @node top
-  NodeForward: @node n
+  Back: @node top
   NodeNext: @node n
   NodePrev: @node top
   NodeUp: @node top
-  This: @node @~a
+  NodeForward: @node n
+  NodeBack: @node top
 output unit: @node n
+  This: @node n
+  Forward: @node @^a
   Back: @node @~a
   FastBack: @node @~a
-  Forward: @node @^a
-  NodeBack: @node @~a
-  NodeForward: @node @^a
   NodeNext: @node @^a
   NodePrev: @node @~a
   NodeUp: @node top
-  This: @node n
+  NodeForward: @node @^a
+  NodeBack: @node @~a
 output unit: @node @^a
+  This: @node @^a
   Back: @node n
   FastBack: @node @~a
-  NodeBack: @node n
   NodePrev: @node n
   NodeUp: @node top
-  This: @node @^a
+  NodeBack: @node n
 ';
 
 $result_converted_errors{'file_html'}->{'transliterated_split_equivalent_nodes'} = [

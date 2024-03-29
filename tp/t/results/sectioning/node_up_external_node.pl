@@ -568,18 +568,18 @@ $result_elements{'node_up_external_node'}[1] = $result_elements{'node_up_externa
 
 
 $result_directions_text{'node_up_external_node'} = 'output unit: @node Top
-  Forward: @node chap first
-  NodeForward: @node chap first
-  NodeNext: @node chap first
   This: @node Top
+  Forward: @node chap first
+  NodeNext: @node chap first
+  NodeForward: @node chap first
 output unit: @node chap first
+  This: @node chap first
   Back: @node Top
-  NodeBack: @node Top
-  NodeForward: (manual1)
   NodeNext: (manual1)
   NodePrev: (manual2)
   NodeUp: (manual3)
-  This: @node chap first
+  NodeForward: (manual1)
+  NodeBack: @node Top
 ';
 
 

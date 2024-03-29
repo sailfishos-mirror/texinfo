@@ -839,26 +839,26 @@ $result_elements{'part_node_chapter_appendix'}[2] = $result_elements{'part_node_
 
 
 $result_directions_text{'part_node_chapter_appendix'} = 'output unit: @top top
-  FastForward: @chapter chapter
-  Forward: @chapter chapter
-  Next: @chapter chapter
-  NodeForward: @chapter chapter
-  NodeNext: @chapter chapter
   This: @top top
+  Forward: @chapter chapter
+  FastForward: @chapter chapter
+  Next: @chapter chapter
+  NodeNext: @chapter chapter
+  NodeForward: @chapter chapter
 output unit: @chapter chapter
-  Back: @top top
-  FastBack: @top top
-  FastForward: @appendix Appendix
+  This: @chapter chapter
   Forward: @appendix Appendix
-  NodeBack: @top top
+  Back: @top top
+  FastForward: @appendix Appendix
+  FastBack: @top top
   NodePrev: @top top
   NodeUp: @top top
-  This: @chapter chapter
+  NodeBack: @top top
 output unit: @appendix Appendix
+  This: @appendix Appendix
   Back: @chapter chapter
   FastBack: @chapter chapter
   Prev: @chapter chapter
-  This: @appendix Appendix
 ';
 
 

@@ -44,7 +44,12 @@ sub test_accent_stack ($)
   my $accent_tree = _find_accent($root);
   my ($contents_element, $commands_stack) =
     Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
-  my $text = Texinfo::Convert::Text::convert_to_text($contents_element);
+  my $text;
+  if (defined($contents_element)) {
+    $text = Texinfo::Convert::Text::convert_to_text($contents_element);
+  } else {
+    $text = "";
+  }
   my @stack = map {$_->{'cmdname'}} @$commands_stack;
   if (defined($reference)) {
     ok ($reference eq join('|',($text, @stack)), 'innermost '.$name);
@@ -89,6 +94,7 @@ sub test_enable_encoding ($)
   my $reference_xml = $test->[3];
   my $reference_xml_numeric_entity = $test->[4];
   my $reference_unicode = $test->[5];
+
   my $parser = Texinfo::Parser::parser();
   my $root = $parser->parse_texi_line($texi);
   my $accent_tree = _find_accent($root);

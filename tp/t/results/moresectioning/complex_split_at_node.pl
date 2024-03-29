@@ -5359,173 +5359,173 @@ $result_elements{'complex_split_at_node'}[14] = $result_elements{'complex_split_
 
 
 $result_directions_text{'complex_split_at_node'} = 'output unit: @node Top
-  FastForward: @node First node
+  This: @node Top
   Forward: @node First node
-  NodeForward: @node First node
+  FastForward: @node First node
   NodeNext: @node First node
   NodePrev: (dir)
-  This: @node Top
+  NodeForward: @node First node
 output unit: @node First node
-  Back: @node Top
-  FastBack: @node Top
-  FastForward: @node Second node
+  This: @node First node
   Forward: @node unnumbered
+  Back: @node Top
+  FastForward: @node Second node
+  FastBack: @node Top
   Next: @node Second node
-  NodeBack: @node Top
-  NodeForward: @node unnumbered
+  Up: @node Top
   NodePrev: @node Top
   NodeUp: @node Top
-  This: @node First node
-  Up: @node Top
+  NodeForward: @node unnumbered
+  NodeBack: @node Top
 output unit: @node unnumbered
-  Back: @node First node
-  FastBack: @node First node
-  FastForward: @node Second node
+  This: @node unnumbered
   Forward: @node unnumbered sub
+  Back: @node First node
+  FastForward: @node Second node
+  FastBack: @node First node
   Next: @node unnumbered2
-  NodeBack: @node First node
-  NodeForward: @node unnumbered sub
+  Up: @node First node
   NodeNext: @node unnumbered2
   NodeUp: @node First node
-  This: @node unnumbered
-  Up: @node First node
+  NodeForward: @node unnumbered sub
+  NodeBack: @node First node
 output unit: @node unnumbered sub
-  Back: @node unnumbered
-  FastBack: @node First node
-  FastForward: @node Second node
+  This: @node unnumbered sub
   Forward: @node numbered sub
+  Back: @node unnumbered
+  FastForward: @node Second node
+  FastBack: @node First node
   Next: @node numbered sub
-  NodeBack: @node unnumbered
-  NodeForward: @node numbered sub
+  Up: @node unnumbered
   NodeNext: @node numbered sub
   NodeUp: @node unnumbered
-  This: @node unnumbered sub
-  Up: @node unnumbered
+  NodeForward: @node numbered sub
+  NodeBack: @node unnumbered
 output unit: @node numbered sub
-  Back: @node unnumbered sub
-  FastBack: @node First node
-  FastForward: @node Second node
+  This: @node numbered sub
   Forward: @node unnumbered sub2
+  Back: @node unnumbered sub
+  FastForward: @node Second node
+  FastBack: @node First node
   Next: @node unnumbered sub2
-  NodeBack: @node unnumbered sub
-  NodeForward: @node unnumbered sub2
+  Prev: @node unnumbered sub
+  Up: @node unnumbered
   NodeNext: @node unnumbered sub2
   NodePrev: @node unnumbered sub
   NodeUp: @node unnumbered
-  Prev: @node unnumbered sub
-  This: @node numbered sub
-  Up: @node unnumbered
+  NodeForward: @node unnumbered sub2
+  NodeBack: @node unnumbered sub
 output unit: @node unnumbered sub2
-  Back: @node numbered sub
-  FastBack: @node First node
-  FastForward: @node Second node
+  This: @node unnumbered sub2
   Forward: @node numbered sub2
+  Back: @node numbered sub
+  FastForward: @node Second node
+  FastBack: @node First node
   Next: @node numbered sub2
-  NodeBack: @node numbered sub
-  NodeForward: @node numbered sub2
+  Prev: @node numbered sub
+  Up: @node unnumbered
   NodeNext: @node numbered sub2
   NodePrev: @node numbered sub
   NodeUp: @node unnumbered
-  Prev: @node numbered sub
-  This: @node unnumbered sub2
-  Up: @node unnumbered
+  NodeForward: @node numbered sub2
+  NodeBack: @node numbered sub
 output unit: @node numbered sub2
-  Back: @node unnumbered sub2
-  FastBack: @node First node
-  FastForward: @node Second node
+  This: @node numbered sub2
   Forward: @node unnumbered2
-  NodeBack: @node unnumbered sub2
-  NodeForward: @node unnumbered2
+  Back: @node unnumbered sub2
+  FastForward: @node Second node
+  FastBack: @node First node
+  Prev: @node unnumbered sub2
+  Up: @node unnumbered
   NodePrev: @node unnumbered sub2
   NodeUp: @node unnumbered
-  Prev: @node unnumbered sub2
-  This: @node numbered sub2
-  Up: @node unnumbered
+  NodeForward: @node unnumbered2
+  NodeBack: @node unnumbered sub2
 output unit: @node unnumbered2
-  Back: @node numbered sub2
-  FastBack: @node First node
-  FastForward: @node Second node
+  This: @node unnumbered2
   Forward: @node numbered sub3
+  Back: @node numbered sub2
+  FastForward: @node Second node
+  FastBack: @node First node
   Next: @node numbered
-  NodeBack: @node numbered sub2
-  NodeForward: @node numbered sub3
+  Prev: @node unnumbered
+  Up: @node First node
   NodeNext: @node numbered
   NodePrev: @node unnumbered
   NodeUp: @node First node
-  Prev: @node unnumbered
-  This: @node unnumbered2
-  Up: @node First node
+  NodeForward: @node numbered sub3
+  NodeBack: @node numbered sub2
 output unit: @node numbered sub3
-  Back: @node unnumbered2
-  FastBack: @node First node
-  FastForward: @node Second node
-  Forward: @node numbered
-  NodeBack: @node unnumbered2
-  NodeForward: @node numbered
-  NodeUp: @node unnumbered2
   This: @node numbered sub3
-  Up: @node unnumbered2
-output unit: @node numbered
-  Back: @node numbered sub3
-  FastBack: @node First node
+  Forward: @node numbered
+  Back: @node unnumbered2
   FastForward: @node Second node
+  FastBack: @node First node
+  Up: @node unnumbered2
+  NodeUp: @node unnumbered2
+  NodeForward: @node numbered
+  NodeBack: @node unnumbered2
+output unit: @node numbered
+  This: @node numbered
   Forward: @node between node
-  NodeBack: @node numbered sub3
+  Back: @node numbered sub3
+  FastForward: @node Second node
+  FastBack: @node First node
+  Prev: @node unnumbered2
+  Up: @node First node
   NodePrev: @node unnumbered2
   NodeUp: @node First node
-  Prev: @node unnumbered2
-  This: @node numbered
-  Up: @node First node
+  NodeBack: @node numbered sub3
 output unit: @node between node
+  This: @node between node
+  Forward: @node Second node
   Back: @node numbered
   FastForward: @node Second node
-  Forward: @node Second node
   NodeUp: @node Top
-  This: @node between node
 output unit: @node Second node
-  Back: @node between node
-  FastBack: @node First node
-  FastForward: @node Third node unnumbered
+  This: @node Second node
   Forward: @node Third node unnumbered
+  Back: @node between node
+  FastForward: @node Third node unnumbered
+  FastBack: @node First node
   Next: @node Third node unnumbered
-  NodeForward: @node Third node unnumbered
+  Prev: @node First node
+  Up: @node Top
   NodeNext: @node Third node unnumbered
   NodeUp: @node Top
-  Prev: @node First node
-  This: @node Second node
-  Up: @node Top
+  NodeForward: @node Third node unnumbered
 output unit: @node Third node unnumbered
-  Back: @node Second node
-  FastBack: @node Second node
-  FastForward: @node continuity
+  This: @node Third node unnumbered
   Forward: @node continuity
+  Back: @node Second node
+  FastForward: @node continuity
+  FastBack: @node Second node
   Next: @node continuity
-  NodeBack: @node Second node
-  NodeForward: @node continuity
+  Prev: @node Second node
+  Up: @node Top
   NodeNext: @node continuity
   NodePrev: @node Second node
   NodeUp: @node Top
-  Prev: @node Second node
-  This: @node Third node unnumbered
-  Up: @node Top
+  NodeForward: @node continuity
+  NodeBack: @node Second node
 output unit: @node continuity
+  This: @node continuity
+  Forward: @node Last node no description
   Back: @node Third node unnumbered
   FastBack: @node Third node unnumbered
-  Forward: @node Last node no description
-  NodeBack: @node Third node unnumbered
-  NodeForward: @node Third node unnumbered
+  Prev: @node Third node unnumbered
+  Up: @node Top
   NodeNext: @node Third node unnumbered
   NodePrev: @node Last node no description
   NodeUp: @node Top
-  Prev: @node Third node unnumbered
-  This: @node continuity
-  Up: @node Top
+  NodeForward: @node Third node unnumbered
+  NodeBack: @node Third node unnumbered
 output unit: @node Last node no description
+  This: @node Last node no description
   Back: @node continuity
   FastBack: @node continuity
   NodePrev: @node continuity
   NodeUp: @node Top
-  This: @node Last node no description
 ';
 
 1;

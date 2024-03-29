@@ -884,33 +884,33 @@ $result_elements{'footnotestyle_separate_late'}[2] = $result_elements{'footnotes
 
 
 $result_directions_text{'footnotestyle_separate_late'} = 'output unit: @node Top
-  FastForward: @node chap f
-  Forward: @node chap f
-  NodeForward: @node chap f
-  NodeNext: @node chap f
   This: @node Top
+  Forward: @node chap f
+  FastForward: @node chap f
+  NodeNext: @node chap f
+  NodeForward: @node chap f
 output unit: @node chap f
-  Back: @node Top
-  FastBack: @node Top
-  FastForward: @node chap s
+  This: @node chap f
   Forward: @node chap s
+  Back: @node Top
+  FastForward: @node chap s
+  FastBack: @node Top
   Next: @node chap s
-  NodeBack: @node Top
-  NodeForward: @node chap s
+  Up: @node Top
   NodeNext: @node chap s
   NodePrev: @node Top
   NodeUp: @node Top
-  This: @node chap f
-  Up: @node Top
+  NodeForward: @node chap s
+  NodeBack: @node Top
 output unit: @node chap s
+  This: @node chap s
   Back: @node chap f
   FastBack: @node chap f
-  NodeBack: @node chap f
+  Prev: @node chap f
+  Up: @node Top
   NodePrev: @node chap f
   NodeUp: @node Top
-  Prev: @node chap f
-  This: @node chap s
-  Up: @node Top
+  NodeBack: @node chap f
 ';
 
 1;

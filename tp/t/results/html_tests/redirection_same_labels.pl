@@ -1568,34 +1568,34 @@ $result_elements{'redirection_same_labels'}[2] = $result_elements{'redirection_s
 
 
 $result_directions_text{'redirection_same_labels'} = 'output unit: @top the top
-  FastForward: @chapter umlaut
-  Forward: @chapter umlaut
-  NodeForward: @chapter umlaut
-  NodeNext: @chapter umlaut
   This: @top the top
-output unit: @chapter umlaut
-  Back: @top the top
-  FastBack: @top the top
-  FastForward: @chapter circumflex
-  Forward: @chapter circumflex
-  Next: @chapter circumflex
-  NodeBack: @top the top
+  Forward: @chapter umlaut
+  FastForward: @chapter umlaut
+  NodeNext: @chapter umlaut
   NodeForward: @chapter umlaut
+output unit: @chapter umlaut
+  This: @chapter umlaut
+  Forward: @chapter circumflex
+  Back: @top the top
+  FastForward: @chapter circumflex
+  FastBack: @top the top
+  Next: @chapter circumflex
+  Up: @top the top
   NodeNext: @chapter circumflex
   NodePrev: @top the top
   NodeUp: @top the top
-  This: @chapter umlaut
-  Up: @top the top
+  NodeForward: @chapter umlaut
+  NodeBack: @top the top
 output unit: @chapter circumflex
+  This: @chapter circumflex
   Back: @chapter umlaut
   FastBack: @chapter umlaut
-  NodeBack: @chapter circumflex
-  NodeForward: @chapter circumflex
+  Prev: @chapter umlaut
+  Up: @top the top
   NodePrev: @chapter umlaut
   NodeUp: @top the top
-  Prev: @chapter umlaut
-  This: @chapter circumflex
-  Up: @top the top
+  NodeForward: @chapter circumflex
+  NodeBack: @chapter circumflex
 ';
 
 $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [

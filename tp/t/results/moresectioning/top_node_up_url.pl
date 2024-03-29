@@ -505,17 +505,17 @@ $result_elements{'top_node_up_url'}[1] = $result_elements{'top_node_up_url'}[0]{
 
 
 $result_directions_text{'top_node_up_url'} = 'output unit: @node Top
-  Forward: @node chap
-  NodeForward: @node chap
-  NodeNext: @node chap
   This: @node Top
+  Forward: @node chap
+  NodeNext: @node chap
+  NodeForward: @node chap
 output unit: @node chap
+  This: @node chap
   Back: @node Top
   FastBack: @node Top
-  NodeBack: @node Top
   NodePrev: @node Top
   NodeUp: @node Top
-  This: @node chap
+  NodeBack: @node Top
 ';
 
 

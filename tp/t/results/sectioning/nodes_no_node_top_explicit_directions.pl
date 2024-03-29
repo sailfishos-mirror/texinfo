@@ -505,16 +505,16 @@ $result_elements{'nodes_no_node_top_explicit_directions'}[1] = $result_elements{
 
 
 $result_directions_text{'nodes_no_node_top_explicit_directions'} = 'output unit: @node first
-  Forward: @node second node
-  NodeForward: @node second node
-  NodeUp: (dir)
   This: @node first
+  Forward: @node second node
+  NodeUp: (dir)
+  NodeForward: @node second node
 output unit: @node second node
+  This: @node second node
   Back: @node first
-  NodeBack: @node first
   NodePrev: @node first
   NodeUp: @node first
-  This: @node second node
+  NodeBack: @node first
 ';
 
 

@@ -1509,7 +1509,14 @@ sub convert_accents($$$;$$)
 
   my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
-  my $arg_text = $self->convert_tree($contents_element);
+  my $arg_text = '';
+  if (defined($contents_element)) {
+    # NOTE the explanation argument is HTML specific, it may theoretically
+    # be used for something else in other formats.  The type (string) should
+    # be fixed to the type used in C/XS.
+    $arg_text = $self->convert_tree($contents_element,
+                                    "ACCENT ARG ".$accent->{'cmdname'});
+  }
 
   if ($output_encoded_characters) {
     my $encoded = Texinfo::Convert::Unicode::encoded_accents($self,

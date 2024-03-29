@@ -219,16 +219,16 @@ sub find_innermost_accent_contents($)
       cluck "BUG: Not an accent command in accent\n";
       #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
       #print STDERR Data::Dumper->Dump([$current]);
-      return ({}, \@accent_commands);
+      return (undef, \@accent_commands);
     }
     push @accent_commands, $current;
     # A bogus accent, that may happen
     if (!$current->{'args'}) {
-      return ({}, \@accent_commands);
+      return (undef, \@accent_commands);
     }
     my $arg = $current->{'args'}->[0];
     if (!$arg->{'contents'}) {
-      return ({}, \@accent_commands);
+      return (undef, \@accent_commands);
     }
     # inside the argument of an accent
     my $text_contents = [];
@@ -655,7 +655,8 @@ I<$element> should be an accent command Texinfo tree element.  Returns
 an element containing the innermost accent @-command contents,
 normally a text element with one or two letter, and an array reference
 containing the accent commands nested in I<$element> (including
-I<$element>).
+I<$element>).  If there is no argument at all for the accent command,
+I<$contents_element> is C<undef>.
 
 =item $heading_element = find_root_command_next_heading_command($element, $expanded_format_raw, $do_not_ignore_contents, $do_not_ignore_index_entries)
 

@@ -669,16 +669,16 @@ $result_elements{'unnumbered_top_without_node_nodes'}[1] = $result_elements{'unn
 
 
 $result_directions_text{'unnumbered_top_without_node_nodes'} = 'output unit: @node a node
-  FastBack: @node a node
-  FastForward: @node a node
-  Forward: @node second
-  NodeUp: (dir)
   This: @node a node
-output unit: @node second
-  Back: @node a node
+  Forward: @node second
+  FastForward: @node a node
+  FastBack: @node a node
   NodeUp: (dir)
-  Prev: @node a node
+output unit: @node second
   This: @node second
+  Back: @node a node
+  Prev: @node a node
+  NodeUp: (dir)
 ';
 
 

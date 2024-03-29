@@ -1784,14 +1784,17 @@ sub unsplit($)
 {
   my $document = shift;
 
+  my $unsplit_needed = 0;
   my $XS_unsplit_needed = _XS_unsplit($document);
+  if ($XS_unsplit_needed > 0) {
+    $unsplit_needed = 1;
+  }
 
   my $root = $document->tree();
   if (!$root->{'type'} or $root->{'type'} ne 'document_root'
       or !$root->{'contents'}) {
     return 0;
   }
-  my $unsplit_needed = 0;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'associated_unit'}) {
       delete $content->{'associated_unit'};
@@ -2216,6 +2219,16 @@ sub output_unit_texi($)
                                                           $unit_command);
 }
 
+# Should be in the same order as relative_unit_direction_name
+# in main/output_unit.c
+my @relative_directions_order = ('This', 'Forward', 'Back', 'FastForward',
+ 'FastBack', 'Next', 'Prev', 'Up', 'SectionNext', 'SectionPrev',
+ 'SectionUp', 'NodeNext', 'NodePrev', 'NodeUp', 'NodeForward', 'NodeBack');
+my @file_directions_order = ('PrevFile', 'NextFile');
+my @all_directions_order
+    = (@relative_directions_order, @file_directions_order,
+       map {'FirstInFile'.$_} @relative_directions_order);
+
 # Used for debugging and in test suite, but not generally useful. Not
 # documented in pod section and not exportable as it should not, in
 # general, be used.
@@ -2225,9 +2238,12 @@ sub print_output_unit_directions($)
   my $result = 'output unit: '.output_unit_texi($output_unit)."\n";
 
   if ($output_unit->{'directions'}) {
-    foreach my $direction (sort(keys(%{$output_unit->{'directions'}}))) {
-      $result .= "  $direction: ".
-       output_unit_texi($output_unit->{'directions'}->{$direction})."\n";
+    #foreach my $direction (sort(keys(%{$output_unit->{'directions'}}))) {
+    foreach my $direction (@all_directions_order) {
+      if (defined($output_unit->{'directions'}->{$direction})) {
+        $result .= "  $direction: ".
+         output_unit_texi($output_unit->{'directions'}->{$direction})."\n";
+      }
     }
   } else {
     $result .= "  NO DIRECTION\n";

@@ -464,15 +464,15 @@ $result_elements{'top_without_node_sections'}[1] = $result_elements{'top_without
 
 
 $result_directions_text{'top_without_node_sections'} = 'output unit: @top top section
-  FastForward: @chapter Chapter
-  Forward: @chapter Chapter
   This: @top top section
+  Forward: @chapter Chapter
+  FastForward: @chapter Chapter
 output unit: @chapter Chapter
+  This: @chapter Chapter
   Back: @top top section
   FastBack: @top top section
-  NodeUp: (dir)
-  This: @chapter Chapter
   Up: @top top section
+  NodeUp: (dir)
 ';
 
 

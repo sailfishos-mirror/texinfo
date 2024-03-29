@@ -1399,10 +1399,12 @@ sub _eight_bit_and_unicode_point($$)
 sub _format_unicode_accents_stack($$$$;$)
 {
   my $converter = shift;
-  my $result = shift;
+  my $inner_text = shift;
   my $stack = shift;
   my $format_accent = shift;
   my $set_case = shift;
+
+  my $result = $inner_text;
 
   while (@$stack) {
     my $formatted_result = unicode_accent($result, $stack->[-1]);
@@ -1413,9 +1415,9 @@ sub _format_unicode_accents_stack($$$$;$)
   }
   if ($set_case) {
     if ($set_case > 0) {
-      $result = uc ($result);
+      $result = uc($result);
     } else {
-      $result = lc ($result);
+      $result = lc($result);
     }
   }
   while (@$stack) {

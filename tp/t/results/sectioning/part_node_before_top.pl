@@ -528,10 +528,10 @@ $result_elements{'part_node_before_top'}[0]{'unit_command'}{'extra'}{'associated
 
 
 $result_directions_text{'part_node_before_top'} = 'output unit: @top top
-  NodeBack: @top top
-  NodeForward: @top top
-  NodeNext: @top top
   This: @top top
+  NodeNext: @top top
+  NodeForward: @top top
+  NodeBack: @top top
 ';
 
 

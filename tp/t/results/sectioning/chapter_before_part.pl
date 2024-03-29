@@ -210,11 +210,11 @@ $result_elements{'chapter_before_part'}[1] = $result_elements{'chapter_before_pa
 
 
 $result_directions_text{'chapter_before_part'} = 'output unit: @chapter chapter
-  Forward: @part part
   This: @chapter chapter
+  Forward: @part part
 output unit: @part part
-  Back: @chapter chapter
   This: @part part
+  Back: @chapter chapter
 ';
 
 

@@ -919,20 +919,20 @@ $result_elements{'part_node_chapter_after_top'}[1] = $result_elements{'part_node
 
 
 $result_directions_text{'part_node_chapter_after_top'} = 'output unit: @top top
-  FastForward: @chapter chapter
-  Forward: @chapter chapter
-  Next: @chapter chapter
-  NodeForward: @chapter chapter
-  NodeNext: @chapter chapter
   This: @top top
+  Forward: @chapter chapter
+  FastForward: @chapter chapter
+  Next: @chapter chapter
+  NodeNext: @chapter chapter
+  NodeForward: @chapter chapter
 output unit: @chapter chapter
+  This: @chapter chapter
   Back: @top top
   FastBack: @top top
-  NodeBack: @top top
-  NodeForward: @chapter chapter
   NodeNext: @chapter chapter
   NodeUp: @top top
-  This: @chapter chapter
+  NodeForward: @chapter chapter
+  NodeBack: @top top
 ';
 
 

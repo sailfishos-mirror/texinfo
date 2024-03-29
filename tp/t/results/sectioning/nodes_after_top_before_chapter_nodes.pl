@@ -867,25 +867,25 @@ $result_elements{'nodes_after_top_before_chapter_nodes'}[2] = $result_elements{'
 
 
 $result_directions_text{'nodes_after_top_before_chapter_nodes'} = 'output unit: @node Top
-  Forward: @node second node
-  NodeForward: @node second node
-  NodeNext: @node second node
   This: @node Top
+  Forward: @node second node
+  NodeNext: @node second node
+  NodeForward: @node second node
 output unit: @node second node
-  Back: @node Top
+  This: @node second node
   Forward: @node third node
-  NodeBack: @node Top
-  NodeForward: @node third node
+  Back: @node Top
   NodeNext: @node third node
   NodePrev: @node Top
   NodeUp: @node Top
-  This: @node second node
+  NodeForward: @node third node
+  NodeBack: @node Top
 output unit: @node third node
+  This: @node third node
   Back: @node second node
-  NodeBack: @node second node
   NodePrev: @node second node
   NodeUp: @node Top
-  This: @node third node
+  NodeBack: @node second node
 ';
 
 
