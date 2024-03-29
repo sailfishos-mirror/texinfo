@@ -15848,12 +15848,23 @@ html_prepare_converted_output_info (CONVERTER *self)
 
       self->added_title_tree = 1;
 
-      /* setup a source info with file only */
-      memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
-      cmd_source_info.file_name = self->document->global_info->input_file_name;
-      message_list_line_error_ext(&self->error_messages, self->conf,
+      if (self->document->global_info->input_file_name)
+        {
+          /* setup a source info with file only */
+          memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
+          cmd_source_info.file_name
+           = self->document->global_info->input_file_name;
+          /* this is more in line with the Perl function used, as DEBUG is
+             checked in the called function */
+          message_list_line_error_ext (&self->error_messages, self->conf,
                                   MSG_warning, 0, &cmd_source_info,
                       "must specify a title with a title command or @top");
+        }
+      else
+        {
+          message_list_document_warn (&self->error_messages, self->conf, 0,
+                      "must specify a title with a title command or @top");
+        }
     }
 
   self->title_string = html_title_string;
@@ -17887,13 +17898,18 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       if (element->type)
         text_printf (&debug_str, " type: %s",
                      element_type_names[element->type]);
-      if (element->text.end > 0)
+      if (element->text.space > 0)
         {
-          int allocated;
-          char *text = debug_protect_eol (element->text.text, &allocated);
-          text_printf (&debug_str, " text: %s", text);
-          if (allocated)
-            free (text);
+          if (element->text.end > 0)
+            {
+              int allocated;
+              char *text = debug_protect_eol (element->text.text, &allocated);
+              text_printf (&debug_str, " text: %s", text);
+              if (allocated)
+                free (text);
+            }
+          else
+            text_append_n (&debug_str, " text(EMPTY)", 12);
         }
       text_append (&debug_str, "\n");
       fprintf (stderr, "%s", debug_str.text);

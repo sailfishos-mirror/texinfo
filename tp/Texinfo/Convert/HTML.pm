@@ -12370,8 +12370,6 @@ sub _prepare_converted_output_info($)
         next if (!$command->{'args'} or !$command->{'args'}->[0]
                  or !$command->{'args'}->[0]->{'contents'}
                  or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-        print STDERR "Using $fulltitle_command as title\n"
-          if ($self->get_conf('DEBUG'));
         $fulltitle_tree = $command->{'args'}->[0];
         last;
       }
@@ -13254,8 +13252,12 @@ sub _convert($$;$)
     print STDERR " type: $element->{'type'}" if ($element->{'type'});
     my $text = $element->{'text'};
     if (defined($text)) {
-      $text =~ s/\n/\\n/;
-      print STDERR " text: $text";
+      if ($text ne '') {
+        $text =~ s/\n/\\n/;
+        print STDERR " text: $text";
+      } else {
+        print STDERR ' text(EMPTY)';
+      }
     }
     print STDERR "\n";
   }

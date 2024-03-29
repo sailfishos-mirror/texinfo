@@ -67,7 +67,11 @@ lookup_builtin_command (const char *cmdname)
 const char *
 element_command_name (const ELEMENT *e)
 {
-  if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)
+  if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER
+    /* this can happen if a tree portion is copied and to simplify
+       following code the generic command is used in the copy */
+      && e->cmd != CM_index_entry_command
+      && e->cmd != CM_definfoenclose_command)
     return builtin_command_data[e->cmd].cmdname;
   else
     {

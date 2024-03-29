@@ -1,5 +1,33 @@
 2024-03-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_converted_output_info): call message_list_document_warn
+	if the input_file_name is not set for missing title message as in
+	Perl.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info): remove
+	debug message of little use.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert),
+	tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	distinguish undefined text and empty text in debug message.
+
+	* tp/Texinfo/XS/convert/converter.c (table_item_content_tree): keep
+	information on definfoenclose original command name.
+
+	* tp/Texinfo/XS/main/builtin_commands.c (element_command_name): treat
+	especially internal commands corresponding to command classes,
+	CM_index_entry_command and CM_definfoenclose_command.
+
+	* tp/Texinfo/XS/main/errors.c
+	(message_list_document_formatted_message): no warning with debug
+	message as in Perl.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_line_message): fix condition
+	to issue a warning.
+
+2024-03-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Utils.pm (find_innermost_accent_contents): return
 	undef for the inner accent command text element if there is no
 	argument at all.  Update callers.

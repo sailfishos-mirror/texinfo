@@ -214,8 +214,10 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
 
   error_message->error_line = error_line.text;
 
+  /*
   if (conf && conf->DEBUG.integer > 0)
     fprintf (stderr, "%s", error_message->error_line);
+   */
 }
 
 static void

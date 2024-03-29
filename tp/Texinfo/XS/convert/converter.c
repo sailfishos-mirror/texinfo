@@ -532,11 +532,15 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
         {
           char *begin = lookup_extra_string (command_as_argument, "begin");
           char *end = lookup_extra_string (command_as_argument, "end");
+          char *command_name = lookup_info_string (command_as_argument,
+                                                   "command_name");
           command->type = command_as_argument->type;
           if (begin)
             add_extra_string_dup (command, "begin", begin);
           if (end)
             add_extra_string_dup (command, "end", end);
+          if (command_name)
+            add_info_string_dup (command, "command_name", command_name);
         }
       add_to_element_args (command, arg);
       add_to_contents_as_array (arg, element->args.list[0]);
