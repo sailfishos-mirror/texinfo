@@ -1,5 +1,14 @@
 2024-03-30  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Customization of Navigation and Headers)
+	(General Customization of HTML Code): add nodes describing HTML
+	customization in a more pedagoical way.
+
+	* doc/texinfo.texi (HTML CSS): add the information on CSS related
+	customization variables directly in the 'HTML CSS' node.
+
+2024-03-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info): avoid
 	having _string the type of a container containing directly the content
 	of another tree element.

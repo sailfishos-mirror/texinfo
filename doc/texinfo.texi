@@ -15361,7 +15361,8 @@ The sections below give the details for each of these.
 * Options:  Customization Variables and Options.
 * HTML Structure: HTML Output Structure Customization.
 * HTML Links:     File Names and Links Customization for HTML.
-@c * HTML Headers:   Customization of Navigation and Headers.
+* HTML Headers:   Customization of Navigation and Headers.
+* HTML code:      General Customization of HTML Code
 * HTML:     HTML Customization Variables List.
 * MathJax:  MathJax Customization Variables.
 * latex2html:  @command{latex2html} Customization Variables.
@@ -15756,25 +15757,179 @@ to 245 characters (@pxref{HTML Xref Link Basics}).  The maximum length of a
 base file name is changed by setting @code{BASEFILENAME_LENGTH}.
 
 
-@ignore
 @node Customization of Navigation and Headers
 @subsection Customization of Navigation and Headers
 
- USE_LINKS
- SECTION_NAME_IN_TITLE
- DATE_IN_HEADER
- PROGRAM_NAME_IN_FOOTER
+Headers with a navigation panel are output in the default case.  if
+@option{--no-headers} is used or the customization variable @code{HEADERS}
+is unset, the navigation bar is only inserted at the beginning of
+split files.
 
- HEADER_IN_TABLE
- WORDS_IN_PAGE
- VERTICAL_HEAD_NAVIGATION
- ICONS
+In the default case, @code{<link>} elements are generated in the
+HTML @code{<head>} to specify relationships between the HTML page
+and other resources, for example the Top node, the next node or
+the table of contents.  Unset @code{USE_LINKS} to avoid those elements.
 
-ICONS
- Use icons for the navigation panel; default false.
+The @code{<title>} and the document description in @code{<head>}
+are based on @code{@@settitle} (@pxref{@code{@@settitle}}).
+If the manual is split, the node name is also added to this HTML title.
+If @code{SECTION_NAME_IN_TITLE} is set, the argument of the chapter
+structuring command is used instead of the node name.
+
+When output is split at nodes (@pxref{HTML Splitting}), the
+@code{WORDS_IN_PAGE} customization variable value specifies the approximate
+minimum page length at which a navigation panel is placed at the bottom of a
+page.
+
+The appearance of the navigation panel is affected by the following
+customization variables, false in the default case:
+
+@vtable @code
+@item DATE_IN_HEADER
+Put the document generation date in the header.
+
+@item HEADER_IN_TABLE
+Use tables for header formatting rather than a simple @samp{<div>}.
+
+@item ICONS
+Use icons for the navigation panel.
+
+@item PROGRAM_NAME_IN_FOOTER
+If set, output the program name and miscellaneous related information in the
+page footers.
+
+@item VERTICAL_HEAD_NAVIGATION
+If set, a vertical navigation panel is used.
+@end vtable
+
+Setting @code{ICONS} is necessary but not sufficient to get icons for direction
+buttons since no button image is specified in the default case.
+The @code{ACTIVE_ICONS} and @code{PASSIVE_ICONS} customization
+variables need to be set in addition.  This requires using an
+initialization file (@pxref{Invoking @command{texi2any}}).
+@xref{,,, texi2any_api, GNU Texinfo @command{texi2any} Output Customization}.
 
 
+@node General Customization of HTML Code
+@subsection General Customization of HTML Code
+
+The generated HTML code may be modified in two way.  Firstly by specifying
+broad features of the generated HTML and secondly by inserting
+some HTML code in a few specific places.
+
+In the default case, HTML is generated, but it is also possible to
+generate XML compatible code, by setting @code{USE_XML_SYNTAX}.  The main
+difference is that @samp{/>} instead of @samp{>} closes elements with an
+opening element, but no closing element, such as @code{<img>} or @code{<link>}
+(also called @dfn{void elements}).
+In the default case, textual entities are used when possible.  Set
+@code{USE_NUMERIC_ENTITY} to use numeric entities only.
+To set the @dfn{DOCTYPE}, set the @code{DOCTYPE} customization variable.
+The default is the HTML5 DTD-less simple DOCTYPE.
+
+In the default case, a custom attribute, as allowed by the standard, is
+used to provide the target manual name in cross-references.
+If it is not desirable, for example to generate strict XHTML, it is
+possible to set @code{NO_CUSTOM_HTML_ATTRIBUTE} to prevent custom attributes to
+be output.
+
+To change the HTML code for breaks (horizontal rule) inserted in various
+contexts, set @code{DEFAULT_RULE},
+used for most horizontal separators output in the resulting HTML,
+and set @code{BIG_RULE} for the wider separator sometime used.
+
+@c Arguments are HTML content to be inserted at certain points in the output.
+
+@vindex HTML_ROOT_ELEMENT_ATTRIBUTES
+@vindex EXTRA_HEAD
+@vindex AFTER_BODY_OPEN
+@cindex @code{<head>} block, adding to
+@vindex BODYTEXT
+You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to
+the @code{<html>} element.
+You can define the variable @code{EXTRA_HEAD} to add text within the
+@code{<head>} HTML element.  Similarly, the value of
+@code{AFTER_BODY_OPEN} is added just after @code{<body>} is output.
+These variables are empty by default.
+@cindex @code{<body>} tag, attributes of
+The @code{<body>} element attributes may be set by defining the
+customization variable @code{BODYTEXT}.
+
+@vindex PRE_BODY_CLOSE
+You can define the variable @code{PRE_BODY_CLOSE} to add text just
+before the HTML @code{</body>} element.  Nothing is added by default.
+
+Similarly, the following variables allow for some useful control of the
+formatting of table of contents and short table of contents:
+
+@vtable @code
+@item BEFORE_TOC_LINES
+Inserted before the table of contents text.
+
+@item AFTER_TOC_LINES
+Inserted after the table of contents text.
+
+@item BEFORE_SHORT_TOC_LINES
+Inserted before the short table of contents text.
+
+@item AFTER_SHORT_TOC_LINES
+Inserted after the short table of contents text.
+
+@end vtable
+At the time of writing, these variables values are set to
+@code{<div>} elements opening and closing for tables of contents.
+
+@ignore
+Could be an example, but would need either to specify as command-line
+arguments, which would be cumbersome, or requires knowing about init
+files
+@c output valid XHTML XML 1.0 Document
+@example
+texinfo_set_from_init_file('HTML_ROOT_ELEMENT_ATTRIBUTES',
+                           'xmlns="http://www.w3.org/1999/xhtml"');
+texinfo_set_from_init_file('NO_CUSTOM_HTML_ATTRIBUTE', 1);
+texinfo_set_from_init_file('USE_XML_SYNTAX', 1);
+texinfo_set_from_init_file('DOCTYPE', '<?xml version="1.0" encoding="UTF-8"?>'."\n"
+                                      .'<!DOCTYPE html>');
+texinfo_set_from_init_file('USE_NUMERIC_ENTITY', 1);
+texinfo_set_from_init_file('OUTPUT_ENCODING_NAME', 'utf-8');
+@end example
+
+@end ignore
+
+@ignore
+@subsection Specific Customization of HTML Formatting
+
+Header levels
+
+ CHAPTER_HEADER_LEVEL
+ FOOTNOTE_END_HEADER_LEVEL
+ FOOTNOTE_SEPARATE_HEADER_LEVEL
+ MAX_HEADER_LEVEL
+
+Menu
+ Options for the output of @menu, as well as indices.
+
+ AVOID_MENU_REDUNDANCY
+ MENU_ENTRY_COLON
+ MENU_SYMBOL
+ INDEX_ENTRY_COLON
+
+Output of other constructs
+
+ These only affect the output "locally" at the place where the construct
+ in question is used.
+
+ COMPLEX_FORMAT_IN_TABLE
+ DEF_TABLE
+ CONVERT_TO_LATEX_IN_MATH
+ HTML_MATH
+ COPIABLE_LINKS
+ NO_NUMBER_FOOTNOTE_SYMBOL
+ USE_ISO
 @c PROGRAM_NAME_IN_ABOUT
+
+
 @end ignore
 
 @node HTML Customization Variables List
@@ -16055,7 +16210,7 @@ If set, output the program name and miscellaneous related
 information in the page footers; default false.
 
 @item SECTION_NAME_IN_TITLE
-If set,  when output is split, use the argument of the chapter 
+If set,  when output is split, use the argument of the chapter
 structuring command (e.g., @code{@@chapter} or @code{@@section})
 in the @code{<title>} instead of the argument to @code{@@node}.
 
@@ -17966,9 +18121,22 @@ any way; the special @samp{@@} and @samp{;} characters are looked for
 the text is blindly copied into the output.  Comments in the CSS
 file may or may not be included in the output.
 
-In addition to the possibilities offered by CSS, @command{texi2any}
-has many user-definable customization variables with which you can
-influence the HTML output.  @xref{Customization Variables}.
+In the default case, classes are added to the HTML elements and CSS rules
+associated to these classes are output at the beginning of each HTML file.  Set
+the @code{NO_CSS} customization variable to prevent classes to be added and CSS
+to be used. Set @code{INLINE_CSS_STYLE} to have CSS code put in HTML
+elements in the @code{style} attribute rather than at the beginning of
+the output.
+
+Since @command{texi2any} only inserts CSS code needed by the HTML
+actually output, the full list of CSS code potentially inserted is
+not visible in the output document.  To get the full list of CSS rules, call
+@command{texi2any} with the @code{SHOW_BUILTIN_CSS_RULES} customization
+variable set to output the built-in default CSS rules on the standard output
+and exit, like:
+@example
+texi2any -c SHOW_BUILTIN_CSS_RULES=1
+@end example
 
 
 @node @code{@@documentdescription}
