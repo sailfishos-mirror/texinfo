@@ -1,5 +1,29 @@
 2024-03-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(new_complete_node_menu): call copy_contents instead of copy_tree on
+	part argument.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): call
+	convert_tree instead of convert_tree_new_formatting_context for the
+	reference part of seealso when there is no need for multiple pass.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_value_command)
+	(_default_format_program_string, _default_format_special_body_about),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_program_string, html_default_format_end_file)
+	(convert_value_command, default_format_special_body_about): add/fix
+	explanation argument for tree conversion functions.
+
+	* tp/Texinfo/Convert/HTML.pm (_html_convert_output): add unit number
+	in debug message, as in C.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_get_css_elements_classes): simplify and comment out C specific
+	debug message.
+
+2024-03-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command),
 	tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command): do not
 	setup a subentry tree for conversion with empty contents.

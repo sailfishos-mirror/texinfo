@@ -3562,7 +3562,8 @@ sub _convert_value_command($$$$)
   my $args = shift;
 
   return $self->convert_tree($self->cdt('@{No value for `{value}\'@}',
-                 {'value' => {'text' => $args->[0]->{'monospacestring'}}}));
+                 {'value' => {'text' => $args->[0]->{'monospacestring'}}}),
+                             'Tr missing value');
 }
 
 $default_commands_conversion{'value'} = \&_convert_value_command;
@@ -6586,9 +6587,8 @@ sub _convert_printindex_command($$$$)
           } else {
             $entry = $self->convert_tree($entry_tree,
                                          $conv_str_entry);
-            $reference
-               = $self->convert_tree_new_formatting_context($reference_tree,
-                                                          $conv_str_reference);
+            $reference = $self->convert_tree($reference_tree,
+                                             $conv_str_reference);
           }
           $entry = '<code>' .$entry .'</code>' if ($in_code);
           $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
@@ -10961,10 +10961,12 @@ sub _default_format_program_string($)
       $self->cdt('This document was generated on @emph{@today{}} using @uref{{program_homepage}, @emph{{program}}}.',
          { 'program_homepage' => {'text'
                            => $self->get_conf('PACKAGE_URL')},
-           'program' => {'text' => $self->get_conf('PROGRAM')} }));
+           'program' => {'text' => $self->get_conf('PROGRAM')} }),
+                              'Tr program string program');
   } else {
     return $self->convert_tree(
-      $self->cdt('This document was generated on @emph{@today{}}.'));
+      $self->cdt('This document was generated on @emph{@today{}}.'),
+                               'Tr program string date');
   }
 }
 
@@ -11405,7 +11407,8 @@ sub _default_format_special_body_about($$$)
   }
   $about .= "<p>\n";
   $about .= $self->convert_tree(
-    $self->cdt('  The buttons in the navigation panels have the following meaning:'))
+    $self->cdt('  The buttons in the navigation panels have the following meaning:'),
+                               'ABOUT')
             . "\n";
   $about .= <<EOT;
 </p>
@@ -11413,14 +11416,17 @@ sub _default_format_special_body_about($$$)
   <tr>
 EOT
    # TRANSLATORS: direction column header in the navigation help
-  $about .= '    <th> '. $self->convert_tree($self->cdt('Button'))." </th>\n".
+  $about .= '    <th> '. $self->convert_tree($self->cdt('Button'), 'ABOUT')
+   ." </th>\n".
    # TRANSLATORS: button label column header in the navigation help
-   '    <th> ' . $self->convert_tree($self->cdt('Name')) . " </th>\n" .
+   '    <th> ' . $self->convert_tree($self->cdt('Name'), 'ABOUT')
+   . " </th>\n" .
    # TRANSLATORS: direction description column header in the navigation help
-   '    <th> ' . $self->convert_tree($self->cdt('Go to')) . " </th>\n" .
+   '    <th> ' . $self->convert_tree($self->cdt('Go to'), 'ABOUT')
+   . " </th>\n" .
    # TRANSLATORS: section reached column header in the navigation help
-   '    <th> ' . $self->convert_tree($self->cdt('From 1.2.3 go to'))."</th>\n"
-   . "  </tr>\n";
+   '    <th> ' . $self->convert_tree($self->cdt('From 1.2.3 go to'), 'ABOUT')
+   ."</th>\n". "  </tr>\n";
 
   my $active_icons;
   if ($self->get_conf('ICONS')) {
@@ -11477,7 +11483,9 @@ EOT
 
 <p>
 EOT
-  $about .= $self->convert_tree($self->cdt('  where the @strong{ Example } assumes that the current position is at @strong{ Subsubsection One-Two-Three } of a document of the following structure:')) . "\n";
+  $about .= $self->convert_tree(
+    $self->cdt('  where the @strong{ Example } assumes that the current position is at @strong{ Subsubsection One-Two-Three } of a document of the following structure:'),
+                                'ABOUT') . "\n";
 
 #  where the <strong> Example </strong> assumes that the current position
 #  is at <strong> Subsubsection One-Two-Three </strong> of a document of
@@ -11489,10 +11497,12 @@ EOT
 EOT
   my $non_breaking_space = $self->get_info('non_breaking_space');
   # TRANSLATORS: example name of section for section 1
-  $about .= '  <li> 1. ' . $self->convert_tree($self->cdt('Section One')) . "\n" .
+  $about .= '  <li> 1. ' . $self->convert_tree($self->cdt('Section One'),
+                                               'ABOUT') . "\n" .
 "    <ul>\n" .
        # TRANSLATORS: example name of section for section 1.1
-'      <li>1.1 ' . $self->convert_tree($self->cdt('Subsection One-One')) . "\n";
+'      <li>1.1 ' . $self->convert_tree($self->cdt('Subsection One-One'),
+                                       'ABOUT') . "\n";
   $about .= <<EOT;
         <ul>
           <li>...</li>
@@ -11501,29 +11511,36 @@ EOT
 EOT
   $about .= '      <li>1.2 ' .
                  # TRANSLATORS: example name of section for section 1.2
-            $self->convert_tree($self->cdt('Subsection One-Two')) . "\n" .
+            $self->convert_tree($self->cdt('Subsection One-Two'), 'ABOUT')
+                                                                    . "\n" .
 "        <ul>\n" .
 '          <li>1.2.1 ' .
                  # TRANSLATORS: example name of section for section 1.2.1
-    $self->convert_tree($self->cdt('Subsubsection One-Two-One')) . "</li>\n" .
+    $self->convert_tree($self->cdt('Subsubsection One-Two-One'), 'ABOUT')
+                                                              . "</li>\n" .
 '          <li>1.2.2 ' .
                  # TRANSLATORS: example name of section for section 1.2.2
-    $self->convert_tree($self->cdt('Subsubsection One-Two-Two')) . "</li>\n" .
+    $self->convert_tree($self->cdt('Subsubsection One-Two-Two'), 'ABOUT')
+                                                              . "</li>\n" .
 '          <li>1.2.3 ' .
                  # TRANSLATORS: example name of section for section 1.2.3
-        $self->convert_tree($self->cdt('Subsubsection One-Two-Three'))
+        $self->convert_tree($self->cdt('Subsubsection One-Two-Three'),
+                            'ABOUT')
                   . " $non_breaking_space $non_breaking_space\n"
 .
 '            <strong>&lt;== ' .
-   $self->convert_tree($self->cdt('Current Position')) . " </strong></li>\n" .
+   $self->convert_tree($self->cdt('Current Position'), 'ABOUT')
+                                                 . " </strong></li>\n" .
 '          <li>1.2.4 ' .
                  # TRANSLATORS: example name of section for section 1.2.4
-  $self->convert_tree($self->cdt('Subsubsection One-Two-Four')) . "</li>\n" .
+  $self->convert_tree($self->cdt('Subsubsection One-Two-Four'), 'ABOUT')
+                                                                . "</li>\n" .
 "        </ul>\n" .
 "      </li>\n" .
 '      <li>1.3 ' .
                  # TRANSLATORS: example name of section for section 1.3
-          $self->convert_tree($self->cdt('Subsection One-Three')) . "\n";
+          $self->convert_tree($self->cdt('Subsection One-Three'), 'ABOUT')
+                                                                    . "\n";
   $about .= <<EOT;
         <ul>
           <li>...</li>
@@ -11532,7 +11549,8 @@ EOT
 EOT
   $about .= '      <li>1.4 ' .
                  # TRANSLATORS: example name of section for section 1.4
-         $self->convert_tree($self->cdt('Subsection One-Four')) . "</li>\n";
+         $self->convert_tree($self->cdt('Subsection One-Four'), 'ABOUT')
+                                                                 . "</li>\n";
 
   $about .= <<EOT;
     </ul>
@@ -12525,8 +12543,9 @@ sub _html_convert_output($$$$$$$$)
       # and, for special output unit, to avoid outputting anything if empty.
       my $body;
       if ($output_unit->{'unit_type'} eq 'special_unit') {
-        print STDERR "\nUNIT SPECIAL $output_unit->{'special_unit_variety'}\n"
-           if ($self->get_conf('DEBUG'));
+        print STDERR "\nUNIT SPECIAL "
+           ."$output_unit->{'special_unit_variety'} $unit_nr\n"
+          if ($self->get_conf('DEBUG'));
         $body = $self->convert_output_unit($output_unit,
                                            "output s-unit $unit_nr");
         if ($body eq '') {
@@ -13265,7 +13284,7 @@ sub _convert($$;$)
   # cache return value of get_conf for speed
 
   if ($debug) {
-    cluck() if (!defined($explanation));
+    #cluck() if (!defined($explanation));
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
     my $contexts_str = _debug_print_html_contexts($self);
     print STDERR "ELEMENT($explanation) ".$contexts_str.", ->";

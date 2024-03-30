@@ -4417,12 +4417,13 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
                 any CSS selector.  Also the formatting of the node or
                 similar command is in general done in global context
                 so no file is added */
-              char *msg;
-              xasprintf (&msg, "%s: get CSS could not find page number",
-                         filename);
+              /* This debug message is C specific
               if (self->conf->DEBUG.integer > 0)
-                fprintf (stderr, "XS|css: %s\n", msg);
-              free (msg);
+                {
+                  fprintf (stderr, "XS|css: REMARK: %s: get_css no page found\n",
+                                    filename);
+                }
+               */
             }
         }
       if (page_number)
@@ -6554,6 +6555,7 @@ void
 html_default_format_program_string (CONVERTER *self, TEXT *result)
 {
   ELEMENT *tree;
+  const char *explanation;
   if (self->conf->PROGRAM.string && strlen (self->conf->PROGRAM.string)
       && self->conf->PACKAGE_URL.string)
     {
@@ -6575,14 +6577,16 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
                             self, substrings, 0);
       destroy_named_string_element_list (substrings);
       /* program and program_homepage are destroyed with the tree */
+      explanation = "Tr program string program";
     }
   else
     {
       tree = html_cdt_tree ("This document was generated on @emph{@today{}}.",
                             self, 0, 0);
+      explanation = "Tr program string date";
     }
   add_tree_to_build (self, tree);
-  convert_to_html_internal (self, tree, result, 0);
+  convert_to_html_internal (self, tree, result, explanation);
   remove_tree_to_build (self, tree);
   destroy_element_and_children (tree);
 }
@@ -6682,9 +6686,10 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
               text_append_n (&result, "\" rel=\"jslicense\"><small>", 25);
 
               tree = html_cdt_tree ("JavaScript license information",
-                                     self, 0, "Tr JS license header");
+                                     self, 0, 0);
               add_tree_to_build (self, tree);
-              convert_to_html_internal (self, tree, &result, 0);
+              convert_to_html_internal (self, tree, &result,
+                                        "Tr JS license header");
               remove_tree_to_build (self, tree);
 
               destroy_element_and_children (tree);
@@ -8599,7 +8604,7 @@ convert_value_command (CONVERTER *self, const enum command_id cmd,
                                             "value", value_text);
 
   tree = html_cdt_tree ("@{No value for `{value}'@}",
-                        self, substrings, 0);
+                        self, substrings, "Tr missing value");
 
   add_tree_to_build (self, tree);
   convert_to_html_internal (self, tree, result, 0);
@@ -15561,16 +15566,16 @@ default_format_special_body_about (CONVERTER *self,
   text_append_n (result, "<p>\n", 4);
   translate_convert_to_html_internal (
    "  The buttons in the navigation panels have the following meaning:",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "\n</p>\n<table border=\"1\">\n  <tr>\n    <th> ");
-  translate_convert_to_html_internal ("Button", self, 0, 0, result, 0);
+  translate_convert_to_html_internal ("Button", self, 0, 0, result, "ABOUT");
   text_append (result, " </th>\n    <th> ");
-  translate_convert_to_html_internal ("Name", self, 0, 0, result, 0);
+  translate_convert_to_html_internal ("Name", self, 0, 0, result, "ABOUT");
   text_append (result, " </th>\n    <th> ");
-  translate_convert_to_html_internal ("Go to", self, 0, 0, result, 0);
+  translate_convert_to_html_internal ("Go to", self, 0, 0, result, "ABOUT");
   text_append (result, " </th>\n    <th> ");
   translate_convert_to_html_internal ("From 1.2.3 go to", self, 0, 0,
-                                      result, 0);
+                                      result, "ABOUT");
   text_append (result, "</th>\n  </tr>\n");
 
   for (i = 0; i < buttons->number; i++)
@@ -15653,28 +15658,28 @@ default_format_special_body_about (CONVERTER *self,
   translate_convert_to_html_internal (
  "  where the @strong{ Example } assumes that the current position is at "
  "@strong{ Subsubsection One-Two-Three } of a document of the following "
- "structure:", self, 0, 0, result, 0);
+ "structure:", self, 0, 0, result, "ABOUT");
 
   text_append_n (result, "\n</p>\n\n<ul>\n", 12);
   text_append (result, "  <li> 1. ");
   translate_convert_to_html_internal ("Section One",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "\n    <ul>\n      <li>1.1 ");
   translate_convert_to_html_internal ("Subsection One-One",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "\n        <ul>\n          <li>...</li>\n"
      "        </ul>\n      </li>\n      <li>1.2 ");
   translate_convert_to_html_internal ("Subsection One-Two",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "\n        <ul>\n          <li>1.2.1 ");
   translate_convert_to_html_internal ("Subsubsection One-Two-One",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n          <li>1.2.2 ");
   translate_convert_to_html_internal ("Subsubsection One-Two-Two",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n          <li>1.2.3 ");
   translate_convert_to_html_internal ("Subsubsection One-Two-Three",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append_n (result, " ", 1);
   text_append_n (result,
                 self->special_character[SC_non_breaking_space].string,
@@ -15687,17 +15692,17 @@ default_format_special_body_about (CONVERTER *self,
 
   text_append (result, "            <strong>&lt;== ");
   translate_convert_to_html_internal ("Current Position",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, " </strong></li>\n          <li>1.2.4 ");
   translate_convert_to_html_internal ("Subsubsection One-Two-Four",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n        </ul>\n      </li>\n      <li>1.3 ");
   translate_convert_to_html_internal ("Subsection One-Three",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "\n        <ul>\n          <li>...</li>\n"
   "        </ul>\n      </li>\n      <li>1.4 ");
   translate_convert_to_html_internal ("Subsection One-Four",
-                                      self, 0, 0, result, 0);
+                                      self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n    </ul>\n  </li>\n</ul>\n");
 }
 

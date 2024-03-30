@@ -1885,7 +1885,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                   if (associated_part && associated_part->args.number > 0)
                     {
                       ELEMENT *part_title_copy
-                        = copy_tree (associated_part->args.list[0]);
+                       = copy_contents (associated_part->args.list[0], ET_NONE);
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                       ELEMENT *part_title;
