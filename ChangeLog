@@ -1,5 +1,11 @@
 2024-03-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about):
+	reorder code to be in the same order as C code, to get the same debug
+	output.
+
+2024-03-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (units_directions): fix getting
 	associated_section for NodeForward.  Fix one case of FastBack setting.
 

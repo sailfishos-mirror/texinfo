@@ -11448,10 +11448,10 @@ EOT
     # if the button spec is an array we do not know what the button
     # looks like, so we do not show the button but still show explanations.
     if (ref($button_spec) ne 'ARRAY') {
-      my $button_name_string
-          = $self->direction_string($direction, 'button', 'string');
       # FIXME strip FirstInFile from $button to get active icon file?
       if ($active_icons and $active_icons->{$direction}) {
+        my $button_name_string
+          = $self->direction_string($direction, 'button', 'string');
         $about
          .= &{$self->formatting_function('format_button_icon_img')}($self,
                          $button_name_string, $active_icons->{$direction})
@@ -11462,13 +11462,14 @@ EOT
       }
     }
     $about .= "</td>\n";
+    # same order for getting the direction strings as in C code
+    my $button_name = $self->direction_string($direction, 'button');
+    $button_name = '' if (!defined($button_name));
     my $direction_description
       = $self->direction_string($direction, 'description');
     $direction_description = '' if (!defined($direction_description));
     my $direction_example = $self->direction_string($direction, 'example');
     $direction_example = '' if (!defined($direction_example));
-    my $button_name = $self->direction_string($direction, 'button');
-    $button_name = '' if (!defined($button_name));
     $about .=
 '    '.$self->html_attribute_class('td', ['name-direction-about']).'>'
     ."$button_name</td>
