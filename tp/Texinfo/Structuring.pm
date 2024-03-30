@@ -1949,17 +1949,22 @@ sub units_directions($$$)
                 and $node->{'extra'}->{'node_directions'}->{$direction->[1]});
       }
       # Now do NodeForward which is something like the following node.
+      my $associated_section;
       my $automatic_directions
         = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
+      if ($automatic_directions and $node->{'extra'}
+          and $node->{'extra'}->{'associated_section'}) {
+        $associated_section = $node->{'extra'}->{'associated_section'};
+      }
       my $menu_child = _first_menu_node($node, $identifier_target);
       if ($menu_child) {
         $directions->{'NodeForward'}
           = _label_target_unit_element($menu_child);
-      } elsif ($automatic_directions and $node->{'associated_section'}
-       and $node->{'associated_section'}->{'extra'}->{'section_childs'}
-       and $node->{'associated_section'}->{'extra'}->{'section_childs'}->[0]) {
+      } elsif ($associated_section
+               and $associated_section->{'extra'}->{'section_childs'}
+               and $associated_section->{'extra'}->{'section_childs'}->[0]) {
         $directions->{'NodeForward'}
-          = $node->{'associated_section'}->{'extra'}
+          = $associated_section->{'extra'}
                   ->{'section_childs'}->[0]->{'associated_unit'};
       } elsif ($node->{'extra'}->{'node_directions'}
                and $node->{'extra'}->{'node_directions'}->{'next'}) {
@@ -2022,9 +2027,9 @@ sub units_directions($$$)
         }
         if ($section->{'extra'}->{'section_level'} <= 1) {
           $directions->{'FastBack'} = $section_output_unit;
-        } elsif ($section_output_unit->{'directions'}->{'Fastback'}) {
+        } elsif ($section_output_unit->{'directions'}->{'FastBack'}) {
           $directions->{'FastBack'}
-            = $section_output_unit->{'directions'}->{'Fastback'};
+            = $section_output_unit->{'directions'}->{'FastBack'};
         }
       }
     } else {
