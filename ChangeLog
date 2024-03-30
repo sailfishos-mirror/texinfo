@@ -1,3 +1,24 @@
+2024-03-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command): do not
+	setup a subentry tree for conversion with empty contents.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command)
+	(_convert_printindex_command, _convert_def_line_type)
+	(_default_format_end_file, _default_format_node_redirection_page),
+	tp/Texinfo/XS/convert/convert_html.c (html_default_format_end_file)
+	(html_default_format_node_redirection_page, convert_heading_command)
+	(printindex_letters_head_foot_internal, convert_printindex_command)
+	(convert_def_line_type): add explanation argument to tree conversion.
+
+	* tp/Texinfo/XS/convert/converter.c
+	(register_normalize_case_filename): same debug message as in Perl.
+
+	* tp/Texinfo/XS/main/convert_to_texinfo.c
+	(root_heading_command_to_texinfo): also check that there are contents
+	to set a tree for output.
+
 2024-03-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c

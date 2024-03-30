@@ -3539,7 +3539,7 @@ sub _end_line_misc_line($$$)
   my $arg_spec = $self->{'line_commands'}->{$data_cmdname};
 
   print STDERR "MISC END $command\n" #: $arg_spec"
-     if ($self->{'DEBUG'});
+    if ($self->{'DEBUG'});
 
   if ($arg_spec eq 'specific') {
     my $args = _parse_line_command_args($self, $current, $source_info);

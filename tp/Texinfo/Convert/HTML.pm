@@ -4854,7 +4854,8 @@ sub _convert_heading_command($$$$$)
             = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                                  $identifiers_target, $node);
           if ($menu_node) {
-            $mini_toc_or_auto_menu = $self->convert_tree($menu_node);
+            $mini_toc_or_auto_menu = $self->convert_tree($menu_node,
+                                                         'master menu');
           }
         }
       }
@@ -6436,19 +6437,27 @@ sub _convert_printindex_command($$$$)
       while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}
              and $subentry_level <= $subentries_max_level) {
         $subentry = $subentry->{'extra'}->{'subentry'};
-        my $subentry_tree = {'contents' => []};
-        $subentry_tree->{'type'} = '_code' if ($in_code);
+        my $subentry_tree;
         if ($subentry->{'args'} and $subentry->{'args'}->[0]
             and $subentry->{'args'}->[0]->{'contents'}) {
-          push @{$subentry_tree->{'contents'}}, $subentry->{'args'}->[0];
+          $subentry_tree = {'contents' => [$subentry->{'args'}->[0]]};
+          $subentry_tree->{'type'} = '_code' if ($in_code);
         }
         if ($subentry_level >= $subentries_max_level) {
           # at the max, concatenate the remaining subentries
-          my $other_subentries_tree = $self->comma_index_subentries_tree($subentry);
-          push @{$subentry_tree->{'contents'}},
-             @{$other_subentries_tree->{'contents'}}
-                if defined($other_subentries_tree);
-        } else {
+          my $other_subentries_tree
+            = $self->comma_index_subentries_tree($subentry);
+          if ($other_subentries_tree) {
+            if ($subentry_tree) {
+              push @{$subentry_tree->{'contents'}},
+                @{$other_subentries_tree->{'contents'}};
+            } else {
+              $subentry_tree
+                = {'contents' => [@{$other_subentries_tree->{'contents'}}]};
+              $subentry_tree->{'type'} = '_code' if ($in_code);
+            }
+          }
+        } elsif ($subentry_tree) {
           push @new_normalized_entry_levels,
             uc(Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
               $subentry_tree));
@@ -6603,14 +6612,20 @@ sub _convert_printindex_command($$$$)
         @prev_normalized_entry_levels = @new_normalized_entry_levels;
       } else {
         my $entry;
-        my $convert_info = "index $index_name l $letter index entry $entry_nr";
-        if ($formatted_index_entry_nr > 1) {
-          # call with multiple_pass argument
-          $entry = $self->convert_tree_new_formatting_context($entry_tree,
+        if (!defined($entry_tree)) {
+          # can happen at least with an empty subentry
+          $entry = '';
+        } else {
+          my $convert_info
+            = "index $index_name l $letter index entry $entry_nr";
+          if ($formatted_index_entry_nr > 1) {
+            # call with multiple_pass argument
+            $entry = $self->convert_tree_new_formatting_context($entry_tree,
                                                             $convert_info,
                                "index-formatted-$formatted_index_entry_nr");
-        } else {
-          $entry = $self->convert_tree($entry_tree, $convert_info);
+          } else {
+            $entry = $self->convert_tree($entry_tree, $convert_info);
+          }
         }
 
         next if ($entry !~ /\S/ and $last_entry_level == 0);
@@ -6798,7 +6813,8 @@ sub _convert_printindex_command($$$$)
     my $summary_header = $self->html_attribute_class('table',
             ["$index_name-letters-header-$cmdname"]).'><tr><th>'
         # TRANSLATORS: before list of letters and symbols grouping index entries
-      . $self->convert_tree($self->cdt('Jump to')) .": $non_breaking_space </th><td>" .
+      . $self->convert_tree($self->cdt('Jump to'), 'Tr letters header text')
+      . ": $non_breaking_space </th><td>" .
       $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
 
     $result .= $summary_header;
@@ -6810,10 +6826,11 @@ sub _convert_printindex_command($$$$)
    ." border=\"0\">\n" . '<tr><td></td>'
    . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
      # TRANSLATORS: index entries column header in index formatting
-   . $self->convert_tree($self->cdt('Index Entry'), 'th idx entries 1') .'</th>'
+   . $self->convert_tree($self->cdt('Index Entry'), 'Tr th idx entries 1')
+   .'</th>'
    . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'>'
      # TRANSLATORS: section of index entry column header in index formatting
-   . $self->convert_tree($self->cdt('Section'), 'th idx entries 2')
+   . $self->convert_tree($self->cdt('Section'), 'Tr th idx entries 2')
    ."</th></tr>\n"
    . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')
    ."</td></tr>\n";
@@ -6826,7 +6843,7 @@ sub _convert_printindex_command($$$$)
     my $summary_footer = $self->html_attribute_class('table',
                  ["$index_name-letters-footer-$cmdname"]).'><tr><th>'
         # TRANSLATORS: before list of letters and symbols grouping index entries
-      . $self->convert_tree($self->cdt('Jump to'))
+      . $self->convert_tree($self->cdt('Jump to'), 'Tr letters footer text')
       . ": $non_breaking_space </th><td>"
       . $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
     $result .= $summary_footer
@@ -7746,8 +7763,10 @@ sub _convert_def_line_type($$$$)
 
   my $def_call = '';
   if ($type_element) {
+    my $explanation = "DEF_TYPE $def_command";
     my $type_text = $self->convert_tree({'type' => '_code',
-                                         'contents' => [$type_element]});
+                                         'contents' => [$type_element]},
+                                        $explanation);
     if ($type_text ne '') {
       $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
           $type_text .'</code>';
@@ -10987,7 +11006,8 @@ sub _default_format_end_file($$$)
         and ($js_setting eq 'generate' or $js_setting eq 'reference')) {
       $result .=
         '<a href="'.$self->url_protect_url_text($js_path).'" rel="jslicense"><small>'
-        .$self->convert_tree($self->cdt('JavaScript license information'))
+        .$self->convert_tree($self->cdt('JavaScript license information'),
+                             'Tr JS license header')
         .'</small></a>';
     }
   }
@@ -11260,7 +11280,8 @@ sub _default_format_node_redirection_page($$;$)
   my $direction = "<a href=\"$href\">$name</a>";
   my $string = $self->convert_tree(
     $self->cdt('The node you are looking for is at {href}.',
-      { 'href' => {'type' => '_converted', 'text' => $direction }}));
+      { 'href' => {'type' => '_converted', 'text' => $direction }}),
+      'Tr redirection sentence');
 
   my ($title, $description, $encoding, $date, $css_lines,
           $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
@@ -13529,6 +13550,11 @@ sub _convert($$;$)
     return $result;
     # no type, no cmdname, but contents.
   } elsif ($element->{'contents'}) {
+    # empty contents should be a bug, but it should not have consequences
+    if ($self->get_conf('TEST')
+        and !scalar(@{$element->{'contents'}})) {
+      cluck("Empty contents in UNNAMED HOLDER");
+    }
     # this happens inside accents, for section/node names, for @images.
     my $content_formatted = '';
     my $content_idx = 0;

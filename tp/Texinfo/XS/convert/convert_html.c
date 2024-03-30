@@ -6682,7 +6682,7 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
               text_append_n (&result, "\" rel=\"jslicense\"><small>", 25);
 
               tree = html_cdt_tree ("JavaScript license information",
-                                     self, 0, 0);
+                                     self, 0, "Tr JS license header");
               add_tree_to_build (self, tree);
               convert_to_html_internal (self, tree, &result, 0);
               remove_tree_to_build (self, tree);
@@ -8248,7 +8248,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   text_init (&body);
   translate_convert_to_html_internal (
           "The node you are looking for is at {href}.",
-           self, substrings, 0, &body, 0);
+           self, substrings, 0, &body, "Tr redirection sentence");
   destroy_named_string_element_list (substrings);
 
   begin_info = file_header_information (self, element, filename);
@@ -9987,7 +9987,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                     {
                       add_tree_to_build (self, menu_node);
                       convert_to_html_internal (self, menu_node,
-                                                &mini_toc_or_auto_menu, 0);
+                                                &mini_toc_or_auto_menu,
+                                                "master menu");
                       remove_tree_to_build (self, menu_node);
                       /* there are only new or copied elements in the menu */
                       destroy_element_and_children (menu_node);
@@ -12426,7 +12427,9 @@ static void
 printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
                            const enum command_id cmd,
                            STRING_LIST *entry_classes,
-                           const char *head_or_foot, const char *alpha_text,
+                           const char *head_or_foot,
+                           const char *letters_header_explanation,
+                           const char *alpha_text,
                            const char *non_alpha_text, TEXT *result)
 {
   char *index_name_cmd_class;
@@ -12443,7 +12446,8 @@ printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
   text_append_n (result, "><tr><th>", 9);
 
   /* TRANSLATORS: before list of letters and symbols grouping index entries */
-  translate_convert_to_html_internal ("Jump to", self, 0, 0, result, 0);
+  translate_convert_to_html_internal ("Jump to", self, 0, 0, result,
+                                      letters_header_explanation);
   text_append_n (result, ": ", 2);
   text_append_n (result,
                  self->special_character[SC_non_breaking_space].string,
@@ -12651,7 +12655,6 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           char *new_normalized_entry_levels[SUBENTRIES_MAX_LEVEL +1];
           ELEMENT *entry_trees[SUBENTRIES_MAX_LEVEL +1];
           int last_entry_level;
-          char *entry;
           char *convert_info;
           ELEMENT *target_element;
           const ELEMENT *associated_command = 0;
@@ -12732,21 +12735,23 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
             {
               ELEMENT *new_subentry = lookup_extra_element (subentry,
                                                             "subentry");
-              ELEMENT *subentry_tree;
+              ELEMENT *subentry_tree = 0;
               if (!new_subentry)
                 break;
 
               subentry = new_subentry;
 
-              if (in_code)
-                subentry_tree = new_element (ET__code);
-              else
-                subentry_tree = new_element (ET_NONE);
-
               if (subentry->args.number > 0
                   && subentry->args.list[0]->contents.number > 0)
-                add_to_contents_as_array (subentry_tree,
-                                          subentry->args.list[0]);
+                {
+                  if (in_code)
+                    subentry_tree = new_element (ET__code);
+                  else
+                    subentry_tree = new_element (ET_NONE);
+
+                  add_to_contents_as_array (subentry_tree,
+                                            subentry->args.list[0]);
+                }
 
               if (subentry_level >= SUBENTRIES_MAX_LEVEL)
                 {
@@ -12754,12 +12759,21 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   other_subentries_tree
                     = comma_index_subentries_tree (subentry, 0);
                   if (other_subentries_tree)
-                    insert_list_slice_into_contents (subentry_tree,
+                    {
+                      if (!subentry_tree)
+                        {
+                          if (in_code)
+                            subentry_tree = new_element (ET__code);
+                          else
+                            subentry_tree = new_element (ET_NONE);
+                        }
+                      insert_list_slice_into_contents (subentry_tree,
                            subentry_tree->contents.number,
                            other_subentries_tree, 0,
                            other_subentries_tree->number);
+                    }
                 }
-              else
+              else if (subentry_tree)
                 {
                   new_normalized_entry_levels[subentry_level]
                     = normalized_upper_case (subentry_tree);
@@ -13021,26 +13035,30 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
             }
           else
             {
-              xasprintf (&convert_info, "index %s l %s index entry %zu",
-                         index_name, letter, entry_nr -1);
+              char *entry = 0;
+              if (entry_tree)
+                {
+                  xasprintf (&convert_info, "index %s l %s index entry %zu",
+                             index_name, letter, entry_nr -1);
 
-              if (last_entry_level > 0)
-                add_tree_to_build (self, entry_tree);
-              if (*formatted_index_entry_nr > 1)
-                {
-                  /* call with multiple_pass argument */
-                  entry = convert_tree_new_formatting_context (self,
-                                       entry_tree, convert_info,
-                                       multiple_pass_str, 0, 0);
+                  if (last_entry_level > 0)
+                    add_tree_to_build (self, entry_tree);
+                  if (*formatted_index_entry_nr > 1)
+                    {
+                      /* call with multiple_pass argument */
+                      entry = convert_tree_new_formatting_context (self,
+                                           entry_tree, convert_info,
+                                           multiple_pass_str, 0, 0);
+                    }
+                  else
+                    {
+                      entry = html_convert_tree (self, entry_tree,
+                                                 convert_info);
+                    }
+                  if (last_entry_level > 0)
+                    remove_tree_to_build (self, entry_tree);
+                  free (convert_info);
                 }
-              else
-                {
-                  entry = html_convert_tree (self, entry_tree,
-                                             convert_info);
-                }
-              if (last_entry_level > 0)
-                remove_tree_to_build (self, entry_tree);
-              free (convert_info);
 
               if (last_entry_level == 0
                   && (!entry
@@ -13209,7 +13227,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 }
             }
 
-          if (last_entry_level > 0)
+          if (last_entry_level > 0 && entry_tree)
             destroy_element (entry_tree);
 
           if (other_subentries_tree)
@@ -13410,6 +13428,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
       /* format the summary */
       printindex_letters_head_foot_internal (self, index_name, cmd,
                                              entry_classes, "header",
+                                             "Tr letters header text",
                                          alpha_text, non_alpha_text, result);
     }
 
@@ -13449,7 +13468,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   text_append_n (result, ">", 1);
   /* TRANSLATORS: index entries column header in index formatting */
   translate_convert_to_html_internal ("Index Entry", self, 0, 0, result,
-                                      "th idx entries 1");
+                                      "Tr th idx entries 1");
   text_append_n (result, "</th>", 5);
 
   xasprintf (&index_name_cmd_class, "sections-header-%s",
@@ -13463,7 +13482,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   text_append_n (result, ">", 1);
   /* TRANSLATORS: section of index entry column header in index formatting */
   translate_convert_to_html_internal ("Section", self, 0, 0, result,
-                                      "th idx entries 2");
+                                      "Tr th idx entries 2");
   text_append_n (result, "</th></tr>\n", 11);
   text_append_n (result, "<tr><td colspan=\"3\">", 20);
   text_append (result, self->conf->DEFAULT_RULE.string);
@@ -13478,6 +13497,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
     {
       printindex_letters_head_foot_internal (self, index_name, cmd,
                                              entry_classes, "footer",
+                                             "Tr letters footer text",
                                          alpha_text, non_alpha_text, result);
 
       if (non_alpha_nr > 0)
@@ -14810,16 +14830,21 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       char *type_text;
       size_t type_text_len;
       ELEMENT *root_code = new_element (ET__code);
+      char *explanation;
+
+      xasprintf (&explanation, "DEF_TYPE %s", builtin_command_name(def_cmd));
 
       add_to_contents_as_array (root_code, parsed_def->type);
 
       add_tree_to_build (self, root_code);
 
-      type_text = html_convert_tree (self, root_code, 0);
+      type_text = html_convert_tree (self, root_code, explanation);
 
       remove_tree_to_build (self, root_code);
 
       destroy_element (root_code);
+      free (explanation);
+
       type_text_len = strlen (type_text);
 
       if (type_text_len > 0)

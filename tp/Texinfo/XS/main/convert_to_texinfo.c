@@ -315,7 +315,8 @@ root_heading_command_to_texinfo (const ELEMENT *element)
     {
       if ((data_cmd == CM_node
            || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
-          && element->args.number > 0)
+          && element->args.number > 0
+          && element->args.list[0]->contents.number > 0)
         tree = element->args.list[0];
     }
   else

@@ -792,9 +792,13 @@ register_normalize_case_filename (CONVERTER *self, const char *filename)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
+              fprintf (stderr, "Reusing case-insensitive %s for %s\n",
+                       output_unit_file->filename, filename);
+              /*
               fprintf (stderr, "Reusing case-insensitive %s(%zu) for %s\n",
                        output_unit_file->filename, output_unit_file_idx,
                        filename);
+               */
             }
           free (lc_filename);
         }
@@ -815,9 +819,13 @@ register_normalize_case_filename (CONVERTER *self, const char *filename)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
+              fprintf (stderr, "Reusing %s for %s\n",
+                       output_unit_file->filename, filename);
+              /*
               fprintf (stderr, "Reusing %s(%zu) for %s\n",
                        output_unit_file->filename, output_unit_file_idx,
                        filename);
+               */
             }
         }
       else
