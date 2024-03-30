@@ -12480,10 +12480,11 @@ sub _prepare_converted_output_info($)
     $self->{'documentdescription_string'}
       = $self->get_conf('documentdescription');
   } elsif ($global_commands and $global_commands->{'documentdescription'}) {
+    my $tmp = {'contents'
+               => $global_commands->{'documentdescription'}->{'contents'}};
     $self->{'documentdescription_string'}
       = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                                    'contents' =>
-                     $global_commands->{'documentdescription'}->{'contents'}},
+                                                    'contents' => [$tmp],},
                                                    'documentdescription');
     chomp($self->{'documentdescription_string'});
   }

@@ -8604,10 +8604,10 @@ convert_value_command (CONVERTER *self, const enum command_id cmd,
                                             "value", value_text);
 
   tree = html_cdt_tree ("@{No value for `{value}'@}",
-                        self, substrings, "Tr missing value");
+                        self, substrings, 0);
 
   add_tree_to_build (self, tree);
-  convert_to_html_internal (self, tree, result, 0);
+  convert_to_html_internal (self, tree, result, "Tr missing value");
   remove_tree_to_build (self, tree);
 
   destroy_element_and_children (tree);

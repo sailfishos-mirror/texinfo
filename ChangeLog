@@ -1,5 +1,14 @@
 2024-03-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info): avoid
+	having _string the type of a container containing directly the content
+	of another tree element.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_value_command): fix
+	explanation argument.
+
+2024-03-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about):
 	reorder code to be in the same order as C code, to get the same debug
 	output.
