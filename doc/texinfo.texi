@@ -15720,9 +15720,13 @@ in a specific subdirectory.
 Cross-references between HTML manuals are specified precisely
 (@pxref{HTML Xref}).  Customization of manual locations is already provided
 through the @file{htmlxref.cnf} file (@pxref{HTML Xref Configuration}).
-In the default case, defaults are used for cross-reference target manual not
-found through HTML Xref Configuration.  If you want a message for each
-external manuals not found, set @code{CHECK_HTMLXREF}.
+
+Defaults are used for cross-reference target manual not
+found through HTML Xref Configuration (@pxref{HTML Xref Link Basics}).  If
+you want to add all the manuals referred to to an HTML Xref configuration file,
+set @code{CHECK_HTMLXREF} to get a message for each external manual not in the
+HTML Xref configuration files.  This could be relevant, for example, if you
+know that no manual is installed locally.
 
 Customization variables can specify more precisely the HTML Xref Configuration.
 In the default case, the file name used for HTML Xref configuration
@@ -15773,8 +15777,8 @@ the table of contents.  Unset @code{USE_LINKS} to avoid those elements.
 The @code{<title>} and the document description in @code{<head>}
 are based on @code{@@settitle} (@pxref{@code{@@settitle}}).
 If the manual is split, the node name is also added to this HTML title.
-If @code{SECTION_NAME_IN_TITLE} is set, the argument of the chapter
-structuring command is used instead of the node name.
+If @code{SECTION_NAME_IN_TITLE} is set, the argument of the associated
+chapter structuring command is used instead of the node name.
 
 When output is split at nodes (@pxref{HTML Splitting}), the
 @code{WORDS_IN_PAGE} customization variable value specifies the approximate
@@ -15822,10 +15826,15 @@ generate XML compatible code, by setting @code{USE_XML_SYNTAX}.  The main
 difference is that @samp{/>} instead of @samp{>} closes elements with an
 opening element, but no closing element, such as @code{<img>} or @code{<link>}
 (also called @dfn{void elements}).
-In the default case, textual entities are used when possible.  Set
-@code{USE_NUMERIC_ENTITY} to use numeric entities only.
 To set the @dfn{DOCTYPE}, set the @code{DOCTYPE} customization variable.
 The default is the HTML5 DTD-less simple DOCTYPE.
+
+In the default case, entities are used for doubled single-quote characters
+(@pxref{Inserting Quotation Marks}), and @samp{---} and @samp{--}
+(@pxref{Conventions}).  Set @code{USE_ISO} to @samp{0} in the unlikely case
+that you want a simpler formatting.
+In the default case, textual entities are used when possible.  Set
+@code{USE_NUMERIC_ENTITY} to use numeric entities only.
 
 In the default case, a custom attribute, as allowed by the standard, is
 used to provide the target manual name in cross-references.
@@ -15837,6 +15846,14 @@ To change the HTML code for breaks (horizontal rule) inserted in various
 contexts, set @code{DEFAULT_RULE},
 used for most horizontal separators output in the resulting HTML,
 and set @code{BIG_RULE} for the wider separator sometime used.
+
+Copiable links are output for link targets for the definition commands
+(@pxref{Definition Commands}), table commands (@pxref{Two-column
+Tables}) where an index entry is defined and headings.  A link appears
+as a `@U{00B6}'
+@c pilcrow sign
+sign that appears when you hover the mouse pointer over the heading text.
+Unset @code{COPIABLE_LINKS} to prevent copiable links output.
 
 @c Arguments are HTML content to be inserted at certain points in the output.
 
@@ -15876,7 +15893,7 @@ Inserted before the short table of contents text.
 Inserted after the short table of contents text.
 
 @end vtable
-At the time of writing, these variables values are set to
+At the time of writing, these variables default values are set to
 @code{<div>} elements opening and closing for tables of contents.
 
 @ignore
@@ -15898,6 +15915,7 @@ texinfo_set_from_init_file('OUTPUT_ENCODING_NAME', 'utf-8');
 @end ignore
 
 @ignore
+@node Specific Customization of HTML Formatting
 @subsection Specific Customization of HTML Formatting
 
 Header levels
@@ -15924,9 +15942,7 @@ Output of other constructs
  DEF_TABLE
  CONVERT_TO_LATEX_IN_MATH
  HTML_MATH
- COPIABLE_LINKS
  NO_NUMBER_FOOTNOTE_SYMBOL
- USE_ISO
 @c PROGRAM_NAME_IN_ABOUT
 
 
@@ -16021,8 +16037,9 @@ set if @code{HTML_MATH} is set.
 
 @item COPIABLE_LINKS
 If set, output copiable links for the definition commands
-(@pxref{Definition Commands}) and table commands (@pxref{Two-column
-Tables}) where an index entry is defined.  A link appears as a `@U{00B6}'
+(@pxref{Definition Commands}), table commands (@pxref{Two-column
+Tables}) where an index entry is defined and headings.  A link appears
+as a `@U{00B6}'
 @c pilcrow sign
 sign that appears when you hover the mouse pointer over the heading text.
 
