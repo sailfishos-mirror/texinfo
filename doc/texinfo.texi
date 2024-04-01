@@ -18452,7 +18452,7 @@ usual.  You can get the latest version from
 
 You can use many user-definable customization variables to influence
 the HTML output.  @xref{HTML Customization Variables List} for the full list.
-The possibility offered by the customization variables, ranging from
+The possibilities offered by the customization variables, ranging from
 overall document structure or HTML language variant to specific
 constructs formatting should cover most needs not already satisfied
 by CSS customization (@pxref{HTML CSS}).
@@ -18460,6 +18460,15 @@ by CSS customization (@pxref{HTML CSS}).
 If more control is ever needed, it needs to be achieved through the use of
 initialization files, which are described in a separate manual (@pxref{,,,
 texi2any_api, GNU Texinfo @command{texi2any} Output Customization}).
+
+@vindex TEXI2HTML
+If the @code{TEXI2HTML} customization variable is set, the generated HTML is as
+compatible as possible with @command{texi2html} (@pxref{@command{texi2html}}).
+The effect of this variable is quite unusual, as it does not directly modify
+the output, but sets a lot of other customization variables, some that are
+described next, some that may only be set in initialization files and are
+described in the @command{texi2any} Output Customization separate manual.
+Unset in the default case.
 
 
 @node HTML Output Structure Customization

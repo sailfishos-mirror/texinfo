@@ -14,6 +14,11 @@
 
 2024-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (HTML Output Advanced Customization): add
+	TEXI2HTML customization variable description.
+
+2024-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Info and Plaintext Customization Variables)
 	(Other Customization Variables): new node for Info and plaintext
 	specific customization variables.
