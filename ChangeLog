@@ -14,6 +14,15 @@
 
 2024-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Other Customization Variables): fix
+	OPEN_QUOTE_SYMBOL numeric entity for HTML.
+
+	* doc/texinfo.texi (General Customization of HTML Code): add
+	CLOSE_QUOTE_SYMBOL and OPEN_QUOTE_SYMBOL for HTML customization
+	description.
+
+2024-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi: update internal references to use more the new
 	HTML customization nodes.
 

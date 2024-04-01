@@ -16375,7 +16375,7 @@ default true.
 When an opening quote is needed, e.g., for @samp{@@samp} output, use
 the specified character; default @code{&#8216;} for DocBook.
 Undefined in the default case in HTML and set to @code{&lsquo;}
-if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
+if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8216;} if set, and
 to a quote character if @code{OUTPUT_CHARACTERS} is set and the output
 encoding includes that character.
 
@@ -18825,6 +18825,17 @@ used to provide the target manual name in cross-references.
 If it is not desirable, for example to generate strict XHTML, you can
 set @code{NO_CUSTOM_HTML_ATTRIBUTE} to prevent custom attributes being
 output.
+
+@vindex CLOSE_QUOTE_SYMBOL
+@vindex OPEN_QUOTE_SYMBOL
+In the default case, opening quote and closing quotes needed, e.g.  for
+@code{@@samp} output are set to @code{&lsquo;} and @code{&rsquo;} if
+@code{USE_NUMERIC_ENTITY} is not set, to @code{&#8216;} and @code{&#8217;} if
+set, and to a quote character if @code{OUTPUT_CHARACTERS} is set and the output
+encoding includes that character.  This default case corresponds to
+@code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL} undefined.  Set those
+variables to the opening quote and to the closing quote respectively to
+override the default behaviour.
 
 @vindex DEFAULT_RULE
 @vindex BIG_RULE
