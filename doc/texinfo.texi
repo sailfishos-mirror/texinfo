@@ -15359,10 +15359,11 @@ The sections below give the details for each of these.
 @menu
 * Commands: Customization Variables for @@-Commands.
 * Options:  Customization Variables and Options.
-* HTML Structure: HTML Output Structure Customization.
-* HTML Links:     File Names and Links Customization for HTML.
-* HTML Headers:   Customization of Navigation and Headers.
-* HTML code:      General Customization of HTML Code
+* HTML Structure:   HTML Output Structure Customization.
+* HTML Links:       File Names and Links Customization for HTML.
+* HTML Headers:     Customization of Navigation and Headers.
+* HTML code:        General Customization of HTML Code.
+* HTML constructs:  Specific Customization of HTML Formatting.
 * HTML:     HTML Customization Variables List.
 * MathJax:  MathJax Customization Variables.
 * latex2html:  @command{latex2html} Customization Variables.
@@ -15657,6 +15658,7 @@ node or section.
 Internal links customization is specific of link type:
 @table @emph
 @item cross-reference command link
+@vindex XREF_USE_NODE_NAME_ARG
 If the second argument of a cross-reference command is set, it is displayed
 as hyperlink text (@pxref{Two Arguments}).  Otherwise the
 @code{XREF_USE_NODE_NAME_ARG} customization variable is used to determine the
@@ -15668,10 +15670,12 @@ environments, otherwise use the node name or section name depending on
 @code{USE_NODES}.  The default is @samp{undef}.
 
 @item link to float
+@vindex XREF_USE_FLOAT_LABEL
 If @code{XREF_USE_FLOAT_LABEL} is set (default is off), use the float label
 instead of the type followed by the float number (@pxref{@code{@@float}}).
 
 @item link to index entries root commands
+@vindex NODE_NAME_IN_INDEX
 In @code{@@printindex} formatting, two links are output, a link to the index
 entry and a link to the root @@-command containing the index entry.
 The @code{NODE_NAME_IN_INDEX} customization variable specifies whether
@@ -15681,21 +15685,31 @@ index entries, otherwise prefer section names.  If undefined, use
 @code{USE_NODES} value to determine which root @@-command to prefer.
 Default is undefined.
 
+@item menu links
+@vindex NODE_NAME_IN_MENU
+In the default case, node names are used in menu entries links.  Set
+@code{NODE_NAME_IN_MENU} to false to use section names instead.
+
 @item Table of contents links
+@vindex SHORT_TOC_LINK_TO_TOC
 If a main Table of contents and a Short table of contents are both present, the
 cross-references in the Short table of contents link to the corresponding
 Table of Contents entries in the default case.  Set
 @code{SHORT_TOC_LINK_TO_TOC} to 0 to link to the sectioning commands instead.
 
+@vindex TOC_LINKS
 If @code{TOC_LINKS} if set, links from headings to toc entries are created;
 default false.
 
 @item Top node up direction link
+@vindex IGNORE_REF_TO_TOP_NODE_UP
 In the default case, no Top node Up reference is generated.  It is possible
 to ignore references to the Top node Up appearing in other cross-references
 by setting @code{IGNORE_REF_TO_TOP_NODE_UP}.  @code{IGNORE_REF_TO_TOP_NODE_UP}
 is not set in the default case.
 
+@vindex TOP_NODE_UP_URL
+@vindex TOP_NODE_UP
 If the manual is referred to in a web page together with other manuals
 it may be relevant to link to that page.  Set
 @code{TOP_NODE_UP_URL} to the URL used for Top node up references.
@@ -15710,6 +15724,7 @@ will be installed on @code{www.gnu.org}.
 @xref{First Node} for more about the Top node pointers.
 
 @item images links
+@vindex IMAGE_LINK_PREFIX
 If @code{IMAGE_LINK_PREFIX} is set, the associated value is prepended to
 the image file links; default unset.  This could be useful if image files are
 in a specific subdirectory.
@@ -15721,6 +15736,7 @@ Cross-references between HTML manuals are specified precisely
 (@pxref{HTML Xref}).  Customization of manual locations is already provided
 through the @file{htmlxref.cnf} file (@pxref{HTML Xref Configuration}).
 
+@vindex CHECK_HTMLXREF
 Defaults are used for cross-reference target manual not
 found through HTML Xref Configuration (@pxref{HTML Xref Link Basics}).  If
 you want to add all the manuals referred to to an HTML Xref configuration file,
@@ -15728,6 +15744,9 @@ set @code{CHECK_HTMLXREF} to get a message for each external manual not in the
 HTML Xref configuration files.  This could be relevant, for example, if you
 know that no manual is installed locally.
 
+@vindex HTMLXREF_MODE
+@vindex HTMLXREF_FILE
+@vindex EXTERNAL_CROSSREF_SPLIT
 Customization variables can specify more precisely the HTML Xref Configuration.
 In the default case, the file name used for HTML Xref configuration
 is searched for in directories, and all the files found are used.
@@ -15743,12 +15762,12 @@ is considered to be split or monolithic based on the splitting of the manual
 being output.  It is possible to set it explicitely, instead, with
 @code{EXTERNAL_CROSSREF_SPLIT}.
 
-It also is possible to set customization variables to modify how cross-references
-are output in various other ways.  In general,
-this will make cross-manual references ``invalid'', in the sense that
-the generated URL will not link to the external manual, unless this manual
-was itself produced using corresponding customization.  It is therefore,
-in general, better to use HTML Xref Configuration only.
+It also is possible to set customization variables to modify how
+cross-references are output in various other ways.  In general, this will make
+cross-manual references ``invalid'', in the sense that the generated URL will
+not link to the external manual, unless this manual was itself produced using
+corresponding customization.  It is therefore, in general, better to use HTML
+Xref Configuration only.
 
 The file name used for the Top node in cross-references is set to
 the @code{TOP_NODE_FILE_TARGET} customization variable value; default is
@@ -15835,6 +15854,8 @@ In the default case, entities are used for doubled single-quote characters
 that you want a simpler formatting.
 In the default case, textual entities are used when possible.  Set
 @code{USE_NUMERIC_ENTITY} to use numeric entities only.
+Set @code{OUTPUT_CHARACTERS} to output accented characters based on
+the output encoding instead of entities.
 
 In the default case, a custom attribute, as allowed by the standard, is
 used to provide the target manual name in cross-references.
@@ -15914,39 +15935,84 @@ texinfo_set_from_init_file('OUTPUT_ENCODING_NAME', 'utf-8');
 
 @end ignore
 
-@ignore
 @node Specific Customization of HTML Formatting
 @subsection Specific Customization of HTML Formatting
 
-Header levels
+@c The appearance of specific construct is customizable.
 
- CHAPTER_HEADER_LEVEL
- FOOTNOTE_END_HEADER_LEVEL
- FOOTNOTE_SEPARATE_HEADER_LEVEL
- MAX_HEADER_LEVEL
+@c Header levels
 
-Menu
- Options for the output of @menu, as well as indices.
+In HTML, heading levels translate to @samp{<h@var{n}>} elements
+where @var{n} is the heading level.  The following header levels are
+customizable:
 
- AVOID_MENU_REDUNDANCY
- MENU_ENTRY_COLON
- MENU_SYMBOL
- INDEX_ENTRY_COLON
+@vtable @code
+@item CHAPTER_HEADER_LEVEL
+Header formatting level used for chapter level sectioning
+commands; default @samp{2}.
 
-Output of other constructs
+@item COMPLEX_FORMAT_IN_TABLE
+If set, use tables for indentation of complex formats; default
+false.
 
- These only affect the output "locally" at the place where the construct
- in question is used.
+@item FOOTNOTE_END_HEADER_LEVEL
+@itemx FOOTNOTE_SEPARATE_HEADER_LEVEL
+Header formatting level used for the footnotes header with
+the `end' footnotestyle or for the `separate' footnotestyle; default @samp{4}.
+@xref{Footnote Styles}.
 
- COMPLEX_FORMAT_IN_TABLE
- DEF_TABLE
- CONVERT_TO_LATEX_IN_MATH
- HTML_MATH
- NO_NUMBER_FOOTNOTE_SYMBOL
-@c PROGRAM_NAME_IN_ABOUT
+@item MAX_HEADER_LEVEL
+Maximum header formatting level used (higher header
+formatting level numbers correspond to lower sectioning levels);
+default @samp{4}.
+
+@end vtable
 
 
-@end ignore
+@c Menu  Options for the output of @@menu, as well as indices.
+@c Output of other constructs
+
+The appearance of various constructs may be modified by setting:
+@vtable @code
+@item DEF_TABLE
+If set, a @code{<table>} construction for @code{@@deffn}
+and similar @@-commands is used (looking more like the @TeX{} output),
+instead of definition lists; default false.
+
+@item INDEX_ENTRY_COLON
+Symbol used between the index entry and the associated node or section;
+default is an empty string.
+
+@item MENU_ENTRY_COLON
+Symbol used between the menu entry and the description; default
+@samp{:}.
+
+@item MENU_SYMBOL
+Symbol used in front of menu entries when node names are used
+for menu entries formatting; default is undefined and set to
+@code{&bull;} if @code{USE_NUMERIC_ENTITY} is not set, and to
+@code{&#8217;} if set.
+
+@item NUMBER_FOOTNOTES
+@itemx NO_NUMBER_FOOTNOTE_SYMBOL
+In the default case footnotes are numbered.  With
+@option{--no-number-footnotes} or if @code{NUMBER_FOOTNOTES} is set to 0, a
+@samp{*} is used instead, or the @code{NO_NUMBER_FOOTNOTE_SYMBOL} customization
+variable value, if set.
+
+@item PROGRAM_NAME_IN_ABOUT
+Used when an About element is output.  If set, output the program
+name and miscellaneous related information in About special element;
+default false.
+@end vtable
+
+@c proposal to be removed
+@c AVOID_MENU_REDUNDANCY
+
+
+@c CONVERT_TO_LATEX_IN_MATH
+@c HTML_MATH
+
 
 @node HTML Customization Variables List
 @subsection HTML Customization Variables List
@@ -16135,7 +16201,7 @@ links; default unset.
 
 @item INDEX_ENTRY_COLON
 Symbol used between the index entry and the associated node or section;
-default @samp{:}.
+default is an empty string.
 
 @item INFO_JS_DIR
 (Experimental.)  Add a JavaScript browsing interface to the manual.
