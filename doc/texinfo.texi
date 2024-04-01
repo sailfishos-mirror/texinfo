@@ -15657,6 +15657,16 @@ if set to 1 always do an About special element;
 default 0.
 @c @xref{Output Elements Defined}.
 
+@item EPUB_CREATE_CONTAINER_FILE
+If set to 0, do not generate the EPUB output file.  Default is set
+to 1.
+
+@item EPUB_KEEP_CONTAINER_FOLDER
+If set, keep the directory containing the directories and files
+needed for EPUB@.   The EPUB output file is a ZIP archive of this
+directory.  Default is not defined.  Set if not defined and @code{TEST} or
+@code{DEBUG} is set. @xref{EPUB Output File and Directory}.
+
 @item EXTERNAL_CROSSREF_SPLIT
 For cross-references to other manuals, this determines if the other
 manual is considered to be split or monolithic.  By default, it is set
@@ -15687,6 +15697,19 @@ Styles}.
 @item HEADER_IN_TABLE
 Use tables for header formatting rather than a simple
 @code{<div>} element; default false.
+
+@item HIGHLIGHT_SYNTAX
+If set, @code{@@example} blocks with language information as first
+argument are highlighted in the HTML output.  It is also possible to specify a
+default for the language with @code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE}.  Syntax
+highlighting requires an external program to generate the highlighted HTML.
+The @code{HIGHLIGHT_SYNTAX} value allows to select a specific program.  The
+possibilities are @code{highlight}, @code{pygments}, any other value standing
+for @code{source-highlight} (@pxref{Syntax Highlighting}).
+
+@item HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE
+The default language used for syntax highlighting when there is no
+language information.
 
 @item HTML_MATH
 Method to use to render @code{@@math} (@pxref{HTML Customization for Math}).
@@ -16245,16 +16268,6 @@ source is also expanded to the corresponding file.  Default false.
 For debugging.  If set, the tree constructed upon parsing a Texinfo
 document is output to standard error; default false.
 
-@item EPUB_CREATE_CONTAINER_FILE
-If set to 0, do not generate the EPUB output file.  Default is set
-to 1.
-
-@item EPUB_KEEP_CONTAINER_FOLDER
-If set, keep the directory containing the directories and files
-needed for EPUB@.   The EPUB output file is a ZIP archive of this
-directory.  Default is not defined.  Set if not defined and @code{TEST} or
-@code{DEBUG} is set. @xref{EPUB Output File and Directory}.
-
 @item EXTENSION
 The extension added to the output file name.  The default is different
 for each output format.
@@ -16277,19 +16290,6 @@ user defined functions registered to be called at different stages
 are considered to be fatal errors.  You should not need to change this
 value.  Default 100.
 @end ignore
-
-@item HIGHLIGHT_SYNTAX
-If set, @code{@@example} blocks with language information as first
-argument are highlighted in the HTML output.  It is also possible to specify a
-default for the language with @code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE}.  Syntax
-highlighting requires an external program to generate the highlighted HTML.
-The @code{HIGHLIGHT_SYNTAX} value allows to select a specific program.  The
-possibilities are @code{highlight}, @code{pygments}, any other value standing
-for @code{source-highlight} (@pxref{Syntax Highlighting}).
-
-@item HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE
-The default language used for syntax highlighting when there is no
-language information.
 
 @item IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
 If set, spaces are ignored after an @@-command that takes braces.
@@ -17920,8 +17920,6 @@ Use @command{pygmentize} from @url{https://pygments.org/};
 @item anything else
 Use @command{source-highlight} (@pxref{,,,source-highlight, GNU Source-highlight}).
 @end table
-
-@xref{Other Customization Variables}.
 
 
 @node HTML Xref
