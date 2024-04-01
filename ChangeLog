@@ -1,5 +1,16 @@
 2024-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi: update internal references to use more the new
+	HTML customization nodes.
+
+	* doc/texinfo.texi (Customization of Navigation and Headers): add
+	OUTPUT_ENCODING_NAME use description in the section.
+
+	* doc/texinfo.texi (HTML Output Structure Customization)
+	(File Names and Links Customization for HTML): minor corrections.
+
+2024-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Menus): HTML menus are also automatically
 	generated.
 

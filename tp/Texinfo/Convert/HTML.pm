@@ -1636,7 +1636,7 @@ sub from_element_direction($$$;$$$)
                                                 or $type eq 'section') {
       return $self->get_conf('TOP_NODE_UP');
     } else {
-      cluck("type $type not available for TOP_NODE_UP\n");
+      cluck("BUG: type $type not available for TOP_NODE_UP\n");
       return '';
     }
   } elsif (not $target_unit and $source_unit

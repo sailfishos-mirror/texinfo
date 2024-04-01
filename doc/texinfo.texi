@@ -9467,7 +9467,7 @@ and so on.
 By default, the HTML output is only emphasized.
 @command{texi2any} provides three options for displaying properly
 formatted mathematics for HTML.  You can select these with the
-@code{HTML_MATH} variable (@pxref{HTML Customization Variables List}).
+@code{HTML_MATH} variable (@pxref{HTML Customization for Math}).
 With @code{HTML_MATH} set to @samp{l2h}, @command{texi2any} attempts
 to use the @command{latex2html} program to produce image files for
 mathematical material.  With the @samp{t4h} setting, @command{texi2any}
@@ -15543,6 +15543,9 @@ exec texi2any -c TEXINPUT_OUTPUT_FORMAT=textcontent "$@@"
 @node HTML Customization Variables List
 @subsection HTML Customization Variables List
 
+@c old name
+@anchor{HTML Customization Variables}
+
 This table gives the customization variables which apply to HTML
 output only.  A few other customization variables apply to both HTML
 and other output formats; see @ref{Other Customization Variables}.
@@ -15854,10 +15857,10 @@ default is @code{index.html}.
 @item TOP_NODE_UP_URL
 A URL used for Top node up references; the default is
 @code{undef}, in that case no Top node Up reference is generated.
-For more about the Top node pointers, @pxref{First Node}.  For 
-overriding the Up pointer name in case @code{TOP_NODE_UP_URL} is set
-and for other formats, see @code{TOP_NODE_UP} in 
-@ref{Other Customization Variables}.
+For overriding the Up pointer name in case @code{TOP_NODE_UP_URL} is set and
+for other formats, see @code{TOP_NODE_UP} in @ref{Other Customization
+Variables}.  @xref{File Names and Links Customization for HTML}.  For more
+about the Top node pointers, @pxref{First Node}.
 
 @cindex @code{accesskey} @subentry customization variable for
 @item USE_ACCESSKEY
@@ -15949,8 +15952,7 @@ A URL of the full source code in its preferred form for modification,
 or instructions for obtaining such source code, for the component file
 named by @code{MATHJAX_SCRIPT}.  `Preferred form for modification'
 means that this should not be in a `minified' form.  Used in the
-license labels page (@pxref{HTML Customization Variables List}, under
-@code{JS_WEBLABELS}).
+license labels page (@pxref{JavaScript license web labels}).
 
 Again, @command{texi2any} provides a default value for this variable,
 but you are encouraged to host the source code for MathJax and its
@@ -16474,11 +16476,12 @@ For stripped text content output (i.e., when
 also output comments.  Default false.
 
 @item TOP_NODE_UP
-Up node for the Top node; default @samp{(dir)}.  This node name is 
+Up node for the Top node; default @samp{(dir)}.  This node name is
 supposed to be already formatted for the output format.  In HTML
 can be used in attribute, so should not contain any element.  Used for
 HTML output only if @code{TOP_NODE_UP_URL} is set to override the URL@:,
-see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables List}.  
+see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables List}.
+@xref{File Names and Links Customization for HTML}.
 
 @item TREE_TRANSFORMATIONS
 The associated value is a comma separated list of transformations that
@@ -17876,6 +17879,7 @@ Most of these features are enabled with customization variables, such as
 features of printed output are used in EPUB@.  In particular, the Top node does
 not appear in the EPUB output, while a title page is generated.  This is
 obtained by setting @code{NO_TOP_NODE_OUTPUT}.
+@xref{HTML Output Advanced Customization}.
 
 The @code{OUTFILE} and @code{SUBDIR} customization variables values
 correspond initially to the EPUB directory container and/or the
@@ -17886,8 +17890,6 @@ for the HTML generation.  It is mentioned here because resetting
 customization variables is unusual; however, the variables reset are
 used internally for the conversion, and should not interact with any
 customization set by the user.
-
-@xref{HTML Customization Variables List}.
 
 
 @node Syntax Highlighting
@@ -18356,7 +18358,7 @@ i.e., @file{@var{datadir}/texinfo/htmlxref.cnf}.
 The @code{HTMLXREF_MODE} customization variable can be set to modify how the
 files are found.  For instance, if set to @samp{none}, no external information
 is used.  @code{HTMLXREF_FILE} sets the file name to something else than
-@file{htmlxref.cnf}.  @pxref{HTML Customization Variables List}.
+@file{htmlxref.cnf}.  @xref{HTML Xref Configuration Customization}.
 
 The file is line-oriented.  Lines consisting only of whitespace are
 ignored.  Comments are indicated with a @samp{#} at the beginning of a
@@ -18442,12 +18444,13 @@ usual.  You can get the latest version from
 Many user-definable customization variables can influence
 the HTML output.  @xref{HTML Customization Variables List} for the full list.
 The possibility offered by the customization variables, ranging from
-overall document structure and type for HTML language used to specific
+overall document structure or HTML language variant to specific
 constructs formatting should cover most needs not already satisfied
-by CSS customization (@pxref{HTML CSS}).  If more control is ever needed,
-it needs to be achieved through the use of initialization files and
-is described in a separate manual (@pxref{,,, texi2any_api, GNU
-Texinfo @command{texi2any} Output Customization}).
+by CSS customization (@pxref{HTML CSS}).
+
+If more control is ever needed, it needs to be achieved through the use of
+initialization files, which is described in a separate manual (@pxref{,,,
+texi2any_api, GNU Texinfo @command{texi2any} Output Customization}).
 
 
 @node HTML Output Structure Customization
@@ -18529,7 +18532,7 @@ in the default case, and link to it in the HTML output files.  With
 setting is useful if you separately maintain a single labels file for a larger
 website that includes your manual.
 Labels files are generated for @code{INFO_JS_DIR} and with @code{HTML_MATH}
-set to @samp{mathjax} (@pxref{MathJax scripts}).
+set to @samp{mathjax} for @code{MATHJAX_SOURCE} (@pxref{MathJax scripts}).
 
 @vindex USE_NEXT_HEADING_FOR_LONE_NODE
 The @code{@@node} @@-commands are usually followed by a sectioning command,
@@ -18642,6 +18645,7 @@ it may be relevant to link to that page.  Set
 @code{TOP_NODE_UP_URL} to the URL used for Top node up references.
 If @code{TOP_NODE_UP_URL} is set, the @code{TOP_NODE_UP} customization
 variable value is used for the hyperlink text, with @samp{(dir)} as default.
+@code{TOP_NODE_UP} can be used in attribute, so should not contain any element.
 
 For example, for GNU @url{http://www.gnu.org/manual/} collects
 links to most GNU manuals, therefore @code{TOP_NODE_UP_URL} is
@@ -18659,17 +18663,18 @@ in a specific subdirectory.
 
 @c Cross references
 
+@anchor{HTML Xref Configuration Customization}
 Cross-references between HTML manuals are specified precisely
-(@pxref{HTML Xref}).  Customization of manual locations is already provided
+(@pxref{HTML Xref}).  Customization of manual locations is provided
 through the @file{htmlxref.cnf} file (@pxref{HTML Xref Configuration}).
 
 @vindex CHECK_HTMLXREF
-Defaults are used for cross-reference target manual not
-found through HTML Xref Configuration (@pxref{HTML Xref Link Basics}).  If
-you want to add all the manuals referred to to an HTML Xref configuration file,
-set @code{CHECK_HTMLXREF} to get a message for each external manual not in the
-HTML Xref configuration files.  This could be relevant, for example, if you
-know that no manual is installed locally.
+Defaults directories and file names are used for cross-reference target manual
+not found through HTML Xref Configuration (@pxref{HTML Xref Link Basics}).  If
+you want to make sure that all the manuals referred to are found in an HTML
+Xref configuration file, you should set @code{CHECK_HTMLXREF} to get a message
+for each external manual not in the HTML Xref configuration files.  This could
+be relevant, for example, if you know that no manual is installed locally.
 
 @vindex HTMLXREF_MODE
 @vindex HTMLXREF_FILE
@@ -18734,6 +18739,16 @@ are based on @code{@@settitle} (@pxref{@code{@@settitle}}).
 If the manual is split, the node name is also added to this HTML title.
 If @code{SECTION_NAME_IN_TITLE} is set, the argument of the associated
 chapter structuring command is used instead of the node name.
+
+@vindex OUTPUT_ENCODING_NAME
+By default, if an input encoding is set (typically through
+@code{@@documentencoding}), this information is used to set the output
+encoding name, otherwise the output encoding is based on the default encoding.
+A @samp{<meta>} tag is output, in the @samp{<head>} section of the HTML, to
+specify the output encoding.  @xref{@code{@@documentencoding}}.  To set
+explicitely the output encoding, set @code{OUTPUT_ENCODING_NAME}.  The
+specified encoding should be a normalized charset name usable in HTML,
+typically one of the preferred IANA encoding names.
 
 @vindex WORDS_IN_PAGE
 When output is split at nodes (@pxref{HTML Splitting}), the
