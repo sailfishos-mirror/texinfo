@@ -1,5 +1,19 @@
 2024-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Menus): HTML menus are also automatically
+	generated.
+
+	* doc/texinfo.texi (EPUB HTML): minor change on customization
+	variables used.
+
+	* doc/texinfo.texi (HTML Output Structure Customization): add
+	FORMAT_MENU nomenu to explanations.
+
+	* doc/texinfo.texi: add index entries in HTML Customization nodes and
+	references to those nodes.
+
+2024-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Customization Variables)
 	(HTML Output Advanced Customization): add the 'HTML Output Advanced
 	Customization' node in 'Generating HTML' for the description of HTML
