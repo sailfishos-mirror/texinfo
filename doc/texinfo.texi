@@ -15364,6 +15364,7 @@ The sections below give the details for each of these.
 * HTML Headers:     Customization of Navigation and Headers.
 * HTML code:        General Customization of HTML Code.
 * HTML constructs:  Specific Customization of HTML Formatting.
+* HTML Math:        HTML Customization for Math.
 * HTML:     HTML Customization Variables List.
 * MathJax:  MathJax Customization Variables.
 * latex2html:  @command{latex2html} Customization Variables.
@@ -15594,6 +15595,10 @@ to place files in a @samp{js} directory under the output.  This provides some
 of the functionality of the Info browsers in a web browser, such as keyboard
 navigation and index lookup.  This only works with non-split HTML output.
 
+@anchor{JavaScript license web labels}
+@cindex JavaScript license web labels page
+@vindex JS_WEBLABELS
+@vindex JS_WEBLABELS_FILE
 In the default case, a @dfn{JavaScript license web labels page} is setup
 to give licensing information and source code for any JavaScript used in
 the HTML files for the manual
@@ -15606,7 +15611,8 @@ in the default case, and link to it in the HTML output files.  With
 @code{JS_WEBLABELS_FILE} in the output, and do not generate a labels file. This
 setting is useful if you separately maintain a single labels file for a larger
 website that includes your manual.
-@c link to  HTML_MATH set to ‘mathjax’,
+Labels files are generated for @code{INFO_JS_DIR} and with @code{HTML_MATH}
+set to @samp{mathjax} (@pxref{MathJax scripts}).
 
 The @code{@@node} @@-commands are usually followed by a sectioning command,
 which provides a heading for the node.  In the default case, a node not
@@ -16010,8 +16016,73 @@ default false.
 @c AVOID_MENU_REDUNDANCY
 
 
-@c CONVERT_TO_LATEX_IN_MATH
-@c HTML_MATH
+@node HTML Customization for Math
+@subsection HTML Customization for Math
+
+Diverse methods can be used to render math in HTML (@pxref{Inserting Math}).
+The is controlled by the @code{HTML_MATH} customization variable
+value.  In the default case, the customization variable is unset
+and the HTML output is only emphasized.  Better options for
+displaying properly formatted mathematics may be selected.  Some of
+these options also translate @code{@@tex} if @option{--iftex} is set,
+and @code{@@latex} sections if @option{--iflatex} is set.
+
+@table @code
+@item l2h
+Use the @command{latex2html} program to produce
+image files for mathematical material.
+
+@command{latex2html} will process @LaTeX{} math in math commands,
+including @TeX{} math compatible with @LaTeX{}.
+@command{latex2html} is used to translates @code{@@tex}
+and @code{@@latex} sections to HTML if the corresponding sections
+are not ignored.  Note that @command{latex2html} can only process @LaTeX{},
+including when processing @code{@@tex} sections.
+
+Processing with @command{latex2html} should leave files in the
+output directory, with @samp{-l2h} in their name, in particular
+a cache file to avoid redoing translation HTML if already done.
+
+@xref{@command{latex2html} Customization Variables}.
+
+@item mathjax
+@anchor{MathJax scripts}
+Inserts references in the output files to MathJax scripts to format the
+material.  The MathJax option requires JavaScript
+to be enabled in the browser to work.
+
+MathJax handles @LaTeX{} math, including @TeX{}
+math compatible with @LaTeX{} commonly used.  Some specific constructs
+(for example some uses of @code{\text}) are not supported, but this should
+not be a practical issue.
+
+If math commands are actually processed, a JavaScript license web label is
+generated for MathJax scripts (@pxref{JavaScript license web labels}).
+
+@xref{MathJax Customization Variables}.
+
+@item t4h
+Use the @command{tex4ht} to produce HTML for mathematical material.
+
+@command{tex4ht} will process @LaTeX{} math in math commands,
+including @TeX{} math compatible with @LaTeX{}.
+@command{tex4ht} is used to translates @code{@@tex} and @code{@@latex}
+sections to HTML if the sections are not ignored.  The @code{@@tex} sections
+are processed in @TeX{} mode, while the @code{@@latex} sections are
+processed as @LaTeX{}.
+
+Processing with @command{tex4ht} should leave files in the
+output directory, with @samp{_tex4ht} in their name.
+
+@xref{@command{tex4ht} Customization Variables}.
+
+@end table
+
+In the default case, with @code{CONVERT_TO_LATEX_IN_MATH} undefined,
+setting @code{HTML_MATH} also sets @code{CONVERT_TO_LATEX_IN_MATH}.
+In that case Texinfo @@-commands inside @code{@@math} and @code{@@displaymath}
+are converted to @LaTeX{}, before converting the @code{@@math} or
+@code{@@displaymath} to HTML.
 
 
 @node HTML Customization Variables List
