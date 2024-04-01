@@ -1,5 +1,12 @@
 2024-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Customization Variables)
+	(HTML Output Advanced Customization): add the 'HTML Output Advanced
+	Customization' node in 'Generating HTML' for the description of HTML
+	customization variables use.
+
+2024-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (HTML Customization for Math): add a node for HTML
 	customization for Math with more details.
 
