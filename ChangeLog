@@ -1,3 +1,17 @@
+2024-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Edits to manual
+
+	* doc/texinfo.texi (HTML Output Advanced Customization)
+	(HTML Output Structure Customization)
+	(File Names and Links Customization for HTML)
+	(Customization of Navigation and Headers)
+	(General Customization of HTML Code)
+	(Specific Customization of HTML Formatting):
+
+	Refer to the user of the program as "you" in many places in order
+	to be clearer as to semantic agency.
+
 2024-04-01  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi: update internal references to use more the new
