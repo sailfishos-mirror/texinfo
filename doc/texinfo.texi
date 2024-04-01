@@ -15365,6 +15365,7 @@ The sections below give the details for each of these.
 * latex2html:  @command{latex2html} Customization Variables.
 * tex4ht:      @command{tex4ht} Customization Variables.
 * LaTeX:    @LaTeX{} Customization Variables.
+* Info:     Info and Plaintext Customization Variables.
 * Other:    Other Customization Variables.
 @end menu
 
@@ -15863,6 +15864,11 @@ If set, output the title at the beginning of the document;
 default @samp{undef}.  If set to @samp{undef}, setting
 @code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} for HTML.
 
+@cindex compatibility, with @command{texi2html}
+@item TEXI2HTML
+Generate HTML and try to be as compatible as possible with
+@command{texi2html}; default false.
+
 @item TOC_LINKS
 If set, links from headings to toc entries are created;
 default false.
@@ -16116,12 +16122,11 @@ lists, and @code{@@float}:
 @end vtable
 
 
-@node Other Customization Variables
-@subsection Other Customization Variables
+@node Info and Plaintext Customization Variables
+@subsection Info and Plaintext Customization Variables
 
-This table gives the remaining customization variables, which apply to
-multiple formats, or affect global behavior, or otherwise don't fit
-into the categories of the previous sections.
+This table gives the customization variables which apply to Info
+and Plaintext formats only.
 
 @vtable @code
 @item ASCII_DASHES_AND_QUOTES
@@ -16155,6 +16160,49 @@ description from @code{@@nodedescription} or @code{@@nodedescriptionblock}.
 Undefined by default, in which case 10% more than the fill column value
 is used (@pxref{Invoking @command{texi2any}}).
 
+@item CLOSE_DOUBLE_QUOTE_SYMBOL
+When a closing double quote is needed, for @samp{@@dfn} in Info, use this
+character.  The default for Info is set the same as for
+@code{OPEN_DOUBLE_QUOTE_SYMBOL}, except that the Unicode code is a closing
+double quote (see below).
+
+@item INDEX_SPECIAL_CHARS_WARNING
+If set, warn about @samp{:} in index entry, as not all Info readers may
+be able to process these.  For Info and plaintext only.  Default false,
+because parsing problems there don't prevent navigation; readers can still
+relatively easily find their way to the node in question.
+
+@item INFO_SPECIAL_CHARS_QUOTE
+If set, whenever there are problematic characters for Info output in
+places such as node names or menu items, surround the part of the
+construct where they appear with quoting characters, as described in
+@ref{Info Format Specification}.  Default is set for Info and unset
+for plaintext.  @xref{Node Line Requirements}.
+
+@item INFO_SPECIAL_CHARS_WARNING
+If set, warn about problematic constructs for Info output (such as the
+string @samp{::}) in node names, menu items, and cross-references.
+If not defined, set unless @code{INFO_SPECIAL_CHARS_QUOTE} is set.
+Default is set for Info and not defined for plaintext. Similar warnings in
+index entries are covered by @code{INDEX_SPECIAL_CHARS_WARNING}.
+
+@item OPEN_DOUBLE_QUOTE_SYMBOL
+When an opening double quote is needed, for @samp{@@dfn} output in Info, use
+the specified character.  If @option{--disable-encoding} is set or the document
+encoding is not UTF-8, @samp{"} is used.  Otherwise, the Info output uses a
+Unicode left double quote.
+
+@end vtable
+
+
+@node Other Customization Variables
+@subsection Other Customization Variables
+
+This table gives the remaining customization variables, which apply to
+multiple formats, or affect global behavior, or otherwise don't fit
+into the categories of the previous sections.
+
+@vtable @code
 @item CHECK_MISSING_MENU_ENTRY
 When a @code{@@menu} block occurs in a node, check if there is a menu
 entry for all subordinate nodes in the document sectioning structure.  On
@@ -16176,12 +16224,6 @@ encoding includes that character.
 
 The default for Info is set the same as for @code{OPEN_QUOTE_SYMBOL},
 except that the Unicode code is a closing quote (see below).
-
-@item CLOSE_DOUBLE_QUOTE_SYMBOL
-When a closing double quote is needed, for @samp{@@dfn} in Info, use this
-character.  The default for Info is set the same as for
-@code{OPEN_DOUBLE_QUOTE_SYMBOL}, except that the Unicode code is a closing
-double quote (see below).
 
 @item COLLATION_LANGUAGE
 By default, @command{texi2any} sorts document indices according to the
@@ -16295,26 +16337,6 @@ value.  Default 100.
 If set, spaces are ignored after an @@-command that takes braces.
 Default true, matching the @TeX{} behavior.
 
-@item INDEX_SPECIAL_CHARS_WARNING
-If set, warn about @samp{:} in index entry, as not all Info readers may
-be able to process these.  For Info and plaintext only.  Default false,
-because parsing problems there don't prevent navigation; readers can still
-relatively easily find their way to the node in question.
-
-@item INFO_SPECIAL_CHARS_QUOTE
-If set, whenever there are problematic characters for Info output in
-places such as node names or menu items, surround the part of the
-construct where they appear with quoting characters, as described in
-@ref{Info Format Specification}.  Default is set for Info and unset
-for plaintext.  @xref{Node Line Requirements}.
-
-@item INFO_SPECIAL_CHARS_WARNING
-If set, warn about problematic constructs for Info output (such as the
-string @samp{::}) in node names, menu items, and cross-references.
-If not defined, set unless @code{INFO_SPECIAL_CHARS_QUOTE} is set.
-Default is set for Info and not defined for plaintext. Similar warnings in
-index entries are covered by @code{INDEX_SPECIAL_CHARS_WARNING}.
-
 @cindex Encoding @subentry input file names
 @item INPUT_FILE_NAME_ENCODING
 Encoding used for input file names.  This variable overrides
@@ -16385,12 +16407,6 @@ For Info, the default depends on the enabled document encoding.  If
 as an undirected single quote on modern systems.  Otherwise, the Info
 output uses a Unicode left quote.
 
-@item OPEN_DOUBLE_QUOTE_SYMBOL
-When an opening double quote is needed, for @samp{@@dfn} output in Info, use
-the specified character.  If @option{--disable-encoding} is set or the document
-encoding is not UTF-8, @samp{"} is used.  Otherwise, the Info output uses a
-Unicode left double quote.
-
 @item OUTPUT_CHARACTERS
 If not set, the default, output accented and special characters in HTML, XML
 and DocBook using XML entities, and in @LaTeX{} using macros.  If set, output
@@ -16460,11 +16476,6 @@ reference file, as is done for the tests.  The default is false.
 @item TEXI2DVI
 Name of the command used to produce PostScript, PDF, and DVI; default
 @samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.
-
-@cindex compatibility, with @command{texi2html}
-@item TEXI2HTML
-Generate HTML and try to be as compatible as possible with
-@command{texi2html}; default false.
 
 @item TEXINFO_DTD_VERSION
 For XML@.  Version of the DTD used in the XML output preamble.  The

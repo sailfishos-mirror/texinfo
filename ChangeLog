@@ -14,6 +14,15 @@
 
 2024-04-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Info and Plaintext Customization Variables)
+	(Other Customization Variables): new node for Info and plaintext
+	specific customization variables.
+
+	* doc/texinfo.texi (HTML Customization Variables List): move
+	TEXI2HTML to the 'HTML Customization Variables List' node.
+
+2024-04-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (HTML Customization Variables List): move
 	EPUB_CREATE_CONTAINER_FILE, EPUB_KEEP_CONTAINER_FOLDER,
 	HIGHLIGHT_SYNTAX and HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE to the 'HTML
