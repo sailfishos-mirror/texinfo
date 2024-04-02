@@ -18058,7 +18058,7 @@ the file name and should not contain any directory components.  To alter
 intermediate directories, use the @code{SUBDIR} customization variable.
 Finally, you may also override the extension with the customization variable
 @code{EXTENSION}.  This variable should be @code{undef} if no extension is to
-be added.  If @code{CASE_INSENSITIVE_FILENAMES} is set, file names are
+be added.  If you set @code{CASE_INSENSITIVE_FILENAMES}, file names are
 constructed as if the filesystem were case insensitive.  In that case,
 one file name is used for all files differing only by case.
 
@@ -18098,19 +18098,19 @@ environments, otherwise use the node name or section name depending on
 
 @item link to float
 @vindex XREF_USE_FLOAT_LABEL
-If @code{XREF_USE_FLOAT_LABEL} is set (default is off), use the float label
-instead of the type followed by the float number (@pxref{@code{@@float}}).
+If you set @code{XREF_USE_FLOAT_LABEL} (default is off), the float label
+is used instead of the type followed by the float number
+(@pxref{@code{@@float}}).
 
 @item link to index entries root commands
 @vindex NODE_NAME_IN_INDEX
 In @code{@@printindex} formatting, two links are output, a link to the index
-entry and a link to the root @@-command containing the index entry.
-The @code{NODE_NAME_IN_INDEX} customization variable specifies whether
-the node or section should be
-used for the link to the root @@-command.  If true, use node names in
-index entries, otherwise prefer section names.  If undefined, use
-@code{USE_NODES} value to determine which root @@-command to prefer.
-Default is undefined.
+entry and a link to the root @@-command containing the index entry.  The
+@code{NODE_NAME_IN_INDEX} customization variable specifies whether the node or
+section should be used for the link to the root @@-command.  If true, use node
+names in index entries, otherwise prefer section names.  If undefined, use
+@code{USE_NODES} value to determine which root @@-command to prefer.  Default
+is undefined.
 
 @item menu links
 @vindex NODE_NAME_IN_MENU
@@ -18125,15 +18125,15 @@ Table of Contents entries in the default case.  Set
 @code{SHORT_TOC_LINK_TO_TOC} to 0 to link to the sectioning commands instead.
 
 @vindex TOC_LINKS
-If @code{TOC_LINKS} if set, links from headings to toc entries are created;
+If you set @code{TOC_LINKS}, links from headings to toc entries are created;
 default false.
 
 @item Top node up direction link
 @vindex IGNORE_REF_TO_TOP_NODE_UP
-By default no Top node Up reference is generated.  It is possible
-to ignore references to the Top node Up appearing in other cross-references
-by setting @code{IGNORE_REF_TO_TOP_NODE_UP}.  @code{IGNORE_REF_TO_TOP_NODE_UP}
-is not set in the default case.
+By default no Top node Up reference is generated.  You can set
+@code{IGNORE_REF_TO_TOP_NODE_UP} so that references to the Top Up node
+appearing in other cross-references are also ignored.
+@code{IGNORE_REF_TO_TOP_NODE_UP} is not set in the default case.
 
 @vindex TOP_NODE_UP_URL
 @vindex TOP_NODE_UP
@@ -18235,8 +18235,8 @@ the table of contents.  Unset @code{USE_LINKS} to avoid those elements.
 The @code{<title>} and the document description in @code{<head>}
 are based on @code{@@settitle} (@pxref{@code{@@settitle}}).
 If the manual is split, the node name is also added to this HTML title.
-If @code{SECTION_NAME_IN_TITLE} is set, the argument of the associated
-chapter structuring command is used instead of the node name.
+Set @code{SECTION_NAME_IN_TITLE} to use the argument of the associated
+chapter structuring command instead of the node name.
 
 @vindex OUTPUT_ENCODING_NAME
 By default, if an input encoding is set (typically through

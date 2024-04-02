@@ -3,6 +3,14 @@
 	* doc/texinfo.texi (File Names and Links Customization for HTML):
 	Refer to the user of the program as "you".
 
+	* doc/texinfo.texi (Customization of Navigation and Headers): use
+	active voice.
+
+2024-04-02  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (File Names and Links Customization for HTML):
+	Refer to the user of the program as "you".
+
 2024-04-02  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (HTML Output Structure Customization)
