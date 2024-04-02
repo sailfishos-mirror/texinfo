@@ -17387,6 +17387,7 @@ customization set by the user.
 
 
 @node Syntax Highlighting
+@nodedescription Using external programs.
 @section Code Examples Syntax Highlighting in HTML
 @cindex @command{source-highlight}
 
@@ -17419,6 +17420,7 @@ Use @command{source-highlight} (@pxref{,,,source-highlight, GNU Source-highlight
 
 
 @node HTML Xref
+@nodedescription Standard algorithm for interoperability.
 @section HTML Cross-references
 @cindex HTML cross-references
 @cindex Cross-references, in HTML output

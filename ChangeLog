@@ -1,3 +1,9 @@
+2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Syntax Highlighting, HTML Xref):
+	Add @nodedescriptions.  (The content of these is not particularly
+	important, but it looks consistent in the menu in the parent node.)
+
 2024-04-03  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (HTML CSS, EPUB Output File and Directory)
