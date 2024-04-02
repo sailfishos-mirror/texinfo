@@ -1,5 +1,14 @@
 2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Customization of Navigation and Headers):
+	Remove index entries for ACTIVE_ICONS and PASSIVE_ICONS.  This
+	stops them being reported by "make vcheck" under doc/refcard.
+	(They are reported because they are not listed in the main
+	hashes in Texinfo/Options.pm that util/txicustomvars checks.)
+	(HTML Output Customization): Add a @nodedescription.
+
+2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/refcard/txivarcheck: Search more of the manual for
 	customization variables.
 

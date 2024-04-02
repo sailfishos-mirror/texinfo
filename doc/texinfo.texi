@@ -17922,6 +17922,7 @@ usual.  You can get the latest version from
 
 
 @node HTML Output Customization
+@nodedescription Using customization variables.
 @section HTML Output Customization
 
 You can use many user-definable customization variables to influence
@@ -18276,8 +18277,6 @@ If set, a vertical navigation panel is used.
 @end vtable
 
 @cindex Initialization file, HTML icon direction buttons
-@vindex ACTIVE_ICONS
-@vindex PASSIVE_ICONS
 Setting @code{ICONS} is necessary but not sufficient to get icons
 for direction buttons, since no button image is specified in the
 default case.  In addition, you need to set the @code{ACTIVE_ICONS}
