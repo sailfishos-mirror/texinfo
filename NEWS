@@ -27,6 +27,7 @@ See the manual for detailed information.
    use of Unicode collation when sorting indices
  . remove SIMPLE_MENU customization option and tree transformation.
  . remove FRAMES and FRAMESET_DOCTYPE customization options.
+ . remove AVOID_MENU_REDUNDANCY customization option.
  . set CHECK_NORMAL_MENU_STRUCTURE in the default case.
  . some unused translation files have been removed for the
    "texinfo_document" domain

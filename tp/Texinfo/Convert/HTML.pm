@@ -2420,7 +2420,6 @@ my %defaults = (
   'converted_format'   => 'html',
 
   # Customization option variables
-  'AVOID_MENU_REDUNDANCY' => 0,
   'BIG_RULE'              => '<hr>',
   'BODYTEXT'              => undef,
   'CHAPTER_HEADER_LEVEL'  => 2,
@@ -7634,12 +7633,6 @@ sub _convert_menu_entry_type($$$)
   } elsif ($menu_description) {
     $description = $self->convert_tree($menu_description,
                                          'menu_arg description');
-  }
-  if ($description ne ''
-      and $self->get_conf('AVOID_MENU_REDUNDANCY')
-      and _simplify_text_for_comparison($name_no_number)
-            eq _simplify_text_for_comparison($description)) {
-    $description = '';
   }
   my $non_breaking_space = $self->get_info('non_breaking_space');
   return '<tr>'
@@ -13610,7 +13603,6 @@ sub _set_variables_texi2html($)
   ['footnotestyle', 'separate'],
   ['CONTENTS_OUTPUT_LOCATION', 'separate_element'],
   ['FORCE', 1],
-  ['AVOID_MENU_REDUNDANCY', 1],
   ['USE_ACCESSKEY', 0],
   ['NODE_NAME_IN_MENU', 0],
   ['SHORT_TOC_LINK_TO_TOC', 0],

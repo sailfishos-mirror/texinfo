@@ -14183,36 +14183,6 @@ menu_entry_a (const CONVERTER *self, const char *href, int isindex,
   text_append_n (result, ">", 1);
 }
 
-static char *
-simplify_text_for_comparison (const char *text)
-{
-  TEXT result;
-  text_init (&result);
-  text_append (&result, "");
-
-  const char *p = text;
-
-  while (*p)
-    {
-      int w_len = word_bytes_len_multibyte (p);
-      if (w_len)
-        {
-          text_append_n (&result, p, w_len);
-          p += w_len;
-        }
-      else if (*p)
-        {
-          /* skip a character */
-          int char_len = 1;
-          while ((p[char_len] & 0xC0) == 0x80)
-            char_len++;
-          p += char_len;
-        }
-    }
-
-  return result.text;
-}
-
 void
 convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                   const ELEMENT *element, const char *content,
@@ -14607,26 +14577,8 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
       if (description)
         {
-          if (strlen (description)
-              && self->conf->AVOID_MENU_REDUNDANCY.integer > 0)
-            {
-              char *simplified_name_no_number
-               = simplify_text_for_comparison (name_no_number);
-              char *simplified_description
-               = simplify_text_for_comparison (description);
-              if (!strcmp (simplified_name_no_number, simplified_description))
-                {
-                  free (description);
-                  description = 0;
-                }
-              free (simplified_name_no_number);
-              free (simplified_description);
-            }
-          if (description)
-            {
-              text_append (result, description);
-              free (description);
-            }
+          text_append (result, description);
+          free (description);
         }
 
       free (name_no_number);

@@ -201,7 +201,6 @@ ASCII_GLYPH                        converter_customization undef   integer
 ASCII_PUNCTUATION                  converter_customization undef   integer
 AUTO_MENU_DESCRIPTION_ALIGN_COLUMN converter_customization undef   integer
 AUTO_MENU_MAX_WIDTH                converter_customization undef   integer
-AVOID_MENU_REDUNDANCY              converter_customization undef   integer
 BEFORE_SHORT_TOC_LINES             converter_customization undef   char
 BEFORE_TOC_LINES                   converter_customization undef   char
 BIG_RULE                           converter_customization undef   char

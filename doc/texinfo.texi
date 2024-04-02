@@ -18505,9 +18505,6 @@ name and miscellaneous related information in About special element;
 default false.
 @end vtable
 
-@c proposal to be removed
-@c AVOID_MENU_REDUNDANCY
-
 
 @node HTML Customization for Math
 @subsection HTML Customization for Math
@@ -18692,10 +18689,6 @@ defined.
 This table lists the customization variables which apply to HTML output.
 
 @vtable @code
-@item AVOID_MENU_REDUNDANCY
-If set, and the menu entry and menu description are the
-same, then do not print the menu description; default false.
-
 @item AFTER_BODY_OPEN
 Text added at the beginning of each HTML file; default unset.
 

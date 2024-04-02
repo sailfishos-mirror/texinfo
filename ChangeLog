@@ -1,3 +1,15 @@
+2024-04-02  Patrice Dumas  <pertusus@free.fr>
+
+	Remove AVOID_MENU_REDUNDANCY customization option
+
+	* NEWS, doc/texinfo.texi (HTML Customization Variables List),
+	tp/Texinfo/Convert/HTML.pm (%defaults, _convert_menu_entry_type),
+	tp/Texinfo/XS/convert/convert_html.c (simplify_text_for_comparison)
+	(convert_menu_entry_type), tp/Texinfo/options_data.txt: remove
+	AVOID_MENU_REDUNDANCY customization variable.  The associated
+	case is unlikely to happen, not important, and the user can easily
+	avoid the need for the variable by leaving the menu description blank.
+
 2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (EPUB HTML): Add a @nodedescription.  Make
