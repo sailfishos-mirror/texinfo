@@ -108,7 +108,7 @@ sub read_refman {
 
   while (<FILE>) {
     if (/^\@node Customization Variables for \@\@/) {
-      # in this node we have a bare of bare @-commands which have cust.vars.
+      # in this node we have a list of @-commands which have cust.vars.
       while (<FILE>) {
         last if /^\@example/;
       }
@@ -124,8 +124,16 @@ sub read_refman {
       next;
     }
 
+    if (/^\@node Internationalization of Document Strings/) {
+      # Skip to next node
+      while (<FILE>) {
+        last if /^\@section HTML Output Customization/;
+      }
+    }
+
+
     # Stop looking for cust.var names after those nodes are done.
-    last if /^\@node Internationalization of Document Strings/;
+    last if /^\@node Command Syntax/;
 
     # Otherwise, we're looking at a line in one of the cust.var
     # documentation nodes.
