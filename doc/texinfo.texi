@@ -15361,9 +15361,6 @@ The sections below give the details for each of these.
 * Commands: Customization Variables for @@-Commands.
 * Options:  Customization Variables and Options.
 * HTML:     HTML Customization Variables List.
-* MathJax:  MathJax Customization Variables.
-* latex2html:  @command{latex2html} Customization Variables.
-* tex4ht:      @command{tex4ht} Customization Variables.
 * LaTeX:    @LaTeX{} Customization Variables.
 * Info:     Info and Plaintext Customization Variables.
 * Other:    Other Customization Variables.
@@ -15959,108 +15956,6 @@ as the hyperlink.  If set to@tie{}0, use the node name if
 otherwise use the node name or section name depending on
 @code{USE_NODES}.  The default is @samp{undef}.
 
-@end vtable
-
-
-@node MathJax Customization Variables
-@subsection MathJax Customization Variables
-
-This table lists the customization variables which can be used when 
-MathJax is being used, which will be the case when @code{HTML_MATH}
-is set to @samp{mathjax}.
-
-@vtable @code
-@item MATHJAX_SCRIPT
-URL of the MathJax component file (e.g.@: @file{tex-svg.js}) you are using.
-@command{texi2any} provides a default value for this variable, but you
-are encouraged to host this file yourself on your website so that you are
-not dependent on others' hosting.
-
-@item MATHJAX_SOURCE
-A URL of the full source code in its preferred form for modification,
-or instructions for obtaining such source code, for the component file
-named by @code{MATHJAX_SCRIPT}.  `Preferred form for modification'
-means that this should not be in a `minified' form.  Used in the
-license labels page (@pxref{JavaScript license web labels}).
-
-Again, @command{texi2any} provides a default value for this variable,
-but you are encouraged to host the source code for MathJax and its
-dependencies yourself.  This is in order to make the source code
-available reliably, and to reduce you and your users' dependence on
-others' distribution systems.
-@end vtable
-
-
-@node @command{latex2html} Customization Variables
-@subsection @command{latex2html} Customization Variables
-
-This table lists the customization variables which can be used when 
-@command{latex2html} is being used to convert @code{@@math},
-@code{@@displaymath}, @code{@@latex} and @code{@@tex} sections for HTML@.
-These customization variables are relevant only if @code{HTML_MATH} is set to
-@samp{l2h}.
-
-To actually convert @code{@@tex} sections, @option{--iftex} should be used,
-and to actually convert @code{@@latex} sections, @option{--iflatex} should be
-used.
-
-@vtable @code
-@item L2H_CLEAN
-If set, the intermediate files generated in relation with @command{latex2html}
-are removed; default true.
-
-@item L2H_FILE
-If set, the given file is used as @command{latex2html}'s init file; default
-unset.
-
-@item L2H_HTML_VERSION
-The HTML version used in the @command{latex2html} call; default unset.
-
-@item L2H_L2H
-The program invoked as @command{latex2html}; default is @code{latex2html}.
-
-@item L2H_SKIP
-If set to a true value, the actual call to @command{latex2html} is skipped;
-previously generated content is reused instead.  If set to 0, the cache is not
-used at all.  If set to @samp{undef}, the cache is used for as many @TeX{}
-fragments as possible and for any remaining the command is run.  The default is
-@samp{undef}.
-
-@item L2H_TMP
-Set the directory used for temporary files.  None of the file name components
-in this directory name may start with @samp{.}; otherwise, @command{latex2html}
-will fail (because of @command{dvips}).  The default is the empty string, which
-means the current directory.
-@end vtable
-
-
-@node @command{tex4ht} Customization Variables
-@subsection @command{tex4ht} Customization Variables
-
-This table lists the customization variables which can be used when
-@command{tex4ht} is being used to convert @code{@@math}, @code{@@displaymath},
-@code{@@tex} and @code{@@latex} sections for HTML@.  These customization
-variables are relevant only if @code{HTML_MATH} is set to @samp{t4h}.
-
-To actually convert @code{@@tex} sections, @option{--iftex} should be used,
-and to actually convert @code{@@latex} sections, @option{--iflatex} should be
-used.
-
-@vtable @code
-@item T4H_LATEX_CONVERSION
-If set, the conversion type used for @code{@@latex} sections.  Possibilities
-are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{latex} if not
-defined.
-
-@item T4H_MATH_CONVERSION
-If set, the conversion type used for @code{@@math} and @code{@@displymath}.
-Possibilities are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{tex}
-if not defined.
-
-@item T4H_TEX_CONVERSION
-If set, the conversion type used for @code{@@tex} sections.  Possibilities
-are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{tex} if not
-defined.
 @end vtable
 
 
@@ -17533,7 +17428,7 @@ other programs.  This chapter gives some details on such HTML output.
 
 @command{texi2any} has many user-definable customization variables
 with which you can influence the HTML output.  @xref{HTML Output
-Advanced Customization}.  In particular, there is support for syntax
+Customization}.  In particular, there is support for syntax
 highlighting in @code{@@example} (@pxref{Syntax Highlighting}). You can also
 write so-called @dfn{initialization files}, or @dfn{init files} for short, to
 modify almost every aspect of HTML output formatting.  Initialization files
@@ -17890,7 +17785,7 @@ Most of these features are enabled with customization variables, such as
 features of printed output are used in EPUB@.  In particular, the Top node does
 not appear in the EPUB output, while a title page is generated.  This is
 obtained by setting @code{NO_TOP_NODE_OUTPUT}.
-@xref{HTML Output Advanced Customization}.
+@xref{HTML Output Customization}.
 
 The @code{OUTFILE} and @code{SUBDIR} customization variables values
 correspond initially to the EPUB directory container and/or the
@@ -18447,8 +18342,8 @@ usual.  You can get the latest version from
 @url{http://ftpmirror.gnu.org/@/texinfo/@/htmlxref.cnf}.
 
 
-@node HTML Output Advanced Customization
-@section HTML Output Advanced Customization
+@node HTML Output Customization
+@section HTML Output Customization
 
 You can use many user-definable customization variables to influence
 the HTML output.  @xref{HTML Customization Variables List} for the full list.
@@ -19075,6 +18970,108 @@ setting @code{HTML_MATH} also sets @code{CONVERT_TO_LATEX_IN_MATH}.
 In that case Texinfo @@-commands inside @code{@@math} and @code{@@displaymath}
 are converted to @LaTeX{}, before converting the @code{@@math} or
 @code{@@displaymath} to HTML.
+
+
+@node MathJax Customization Variables
+@subsubsection MathJax Customization Variables
+
+This table lists the customization variables which can be used when 
+MathJax is being used, which will be the case when @code{HTML_MATH}
+is set to @samp{mathjax}.
+
+@vtable @code
+@item MATHJAX_SCRIPT
+URL of the MathJax component file (e.g.@: @file{tex-svg.js}) you are using.
+@command{texi2any} provides a default value for this variable, but you
+are encouraged to host this file yourself on your website so that you are
+not dependent on others' hosting.
+
+@item MATHJAX_SOURCE
+A URL of the full source code in its preferred form for modification,
+or instructions for obtaining such source code, for the component file
+named by @code{MATHJAX_SCRIPT}.  `Preferred form for modification'
+means that this should not be in a `minified' form.  Used in the
+license labels page (@pxref{JavaScript license web labels}).
+
+Again, @command{texi2any} provides a default value for this variable,
+but you are encouraged to host the source code for MathJax and its
+dependencies yourself.  This is in order to make the source code
+available reliably, and to reduce you and your users' dependence on
+others' distribution systems.
+@end vtable
+
+
+@node @command{latex2html} Customization Variables
+@subsubsection @command{latex2html} Customization Variables
+
+This table lists the customization variables which can be used when 
+@command{latex2html} is being used to convert @code{@@math},
+@code{@@displaymath}, @code{@@latex} and @code{@@tex} sections for HTML@.
+These customization variables are relevant only if @code{HTML_MATH} is set to
+@samp{l2h}.
+
+To actually convert @code{@@tex} sections, @option{--iftex} should be used,
+and to actually convert @code{@@latex} sections, @option{--iflatex} should be
+used.
+
+@vtable @code
+@item L2H_CLEAN
+If set, the intermediate files generated in relation with @command{latex2html}
+are removed; default true.
+
+@item L2H_FILE
+If set, the given file is used as @command{latex2html}'s init file; default
+unset.
+
+@item L2H_HTML_VERSION
+The HTML version used in the @command{latex2html} call; default unset.
+
+@item L2H_L2H
+The program invoked as @command{latex2html}; default is @code{latex2html}.
+
+@item L2H_SKIP
+If set to a true value, the actual call to @command{latex2html} is skipped;
+previously generated content is reused instead.  If set to 0, the cache is not
+used at all.  If set to @samp{undef}, the cache is used for as many @TeX{}
+fragments as possible and for any remaining the command is run.  The default is
+@samp{undef}.
+
+@item L2H_TMP
+Set the directory used for temporary files.  None of the file name components
+in this directory name may start with @samp{.}; otherwise, @command{latex2html}
+will fail (because of @command{dvips}).  The default is the empty string, which
+means the current directory.
+@end vtable
+
+
+@node @command{tex4ht} Customization Variables
+@subsubsection @command{tex4ht} Customization Variables
+
+This table lists the customization variables which can be used when
+@command{tex4ht} is being used to convert @code{@@math}, @code{@@displaymath},
+@code{@@tex} and @code{@@latex} sections for HTML@.  These customization
+variables are relevant only if @code{HTML_MATH} is set to @samp{t4h}.
+
+To actually convert @code{@@tex} sections, @option{--iftex} should be used,
+and to actually convert @code{@@latex} sections, @option{--iflatex} should be
+used.
+
+@vtable @code
+@item T4H_LATEX_CONVERSION
+If set, the conversion type used for @code{@@latex} sections.  Possibilities
+are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{latex} if not
+defined.
+
+@item T4H_MATH_CONVERSION
+If set, the conversion type used for @code{@@math} and @code{@@displymath}.
+Possibilities are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{tex}
+if not defined.
+
+@item T4H_TEX_CONVERSION
+If set, the conversion type used for @code{@@tex} sections.  Possibilities
+are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{tex} if not
+defined.
+@end vtable
 
 
 @node @@-Command Details

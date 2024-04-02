@@ -1,3 +1,14 @@
+2024-04-01  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (HTML Output Customization): rename
+	'HTML Output Advanced Customization' as 'HTML Output Customization'.
+	Gavin idea.
+
+	* doc/texinfo.texi (HTML Customization Variables List)
+	(HTML Customization for Math): move 'MathJax Customization Variables',
+	'@command{latex2html} Customization Variables' and '@command{tex4ht}
+	Customization Variables' to 'HTML Customization for Math'.
+
 2024-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Edits to manual
