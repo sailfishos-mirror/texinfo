@@ -18351,9 +18351,10 @@ overall document structure or HTML language variant to specific
 constructs formatting should cover most needs not already satisfied
 by CSS customization (@pxref{HTML CSS}).
 
-If more control is ever needed, it needs to be achieved through the use of
-initialization files, which are described in a separate manual (@pxref{,,,
-texi2any_api, GNU Texinfo @command{texi2any} Output Customization}).
+If you ever need more control, you may be able to achieve this through
+the use of initialization files, which are described in a separate
+manual (@pxref{,,, texi2any_api, GNU Texinfo @command{texi2any} Output
+Customization}).
 
 @vindex TEXI2HTML
 If the @code{TEXI2HTML} customization variable is set, the generated HTML is as
