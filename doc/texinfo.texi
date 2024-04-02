@@ -17355,25 +17355,29 @@ set @code{CHECK_HTMLXREF} to 0.
 
 
 @node EPUB HTML
+@nodedescription Variables set internally.
 @subsection HTML Generated for EPUB
 
 The HTML generated for EPUB is XHTML conformant, UTF-8 encoded, and
 formatted without the usual HTML navigation headers and footers.
-Most of these features are enabled with customization variables, such as
-@code{USE_XML_SYNTAX}, @code{HEADERS} or @code{OUTPUT_ENCODING_NAME}.  Some
-features of printed output are used in EPUB@.  In particular, the Top node does
-not appear in the EPUB output, while a title page is generated.  This is
-obtained by setting @code{NO_TOP_NODE_OUTPUT}.
-@xref{HTML Output Customization}.
+
+@command{texi2any} achieves this internally by setting customization
+variables, such as @code{USE_XML_SYNTAX}, @code{HEADERS} or
+@code{OUTPUT_ENCODING_NAME}.  Some features of printed output are used
+in EPUB@.  In particular, the Top node does not appear in the EPUB
+output, while a title page is generated.  This is obtained by setting
+@code{NO_TOP_NODE_OUTPUT}.  @xref{HTML Output Customization}.
 
 The @code{OUTFILE} and @code{SUBDIR} customization variables values
 correspond initially to the EPUB directory container and/or the
 EPUB output file (@pxref{EPUB Output File and Directory}).  These
 customization variables values are undefined or reset to the
 locations in the container directory where the XHTML files are output
-for the HTML generation.  It is mentioned here because resetting
-customization variables is unusual; however, the variables reset are
-used internally for the conversion, and should not interact with any
+for the HTML generation.
+
+This use of customization variables by @command{texi2any} is mentioned here
+because resetting such variables is unusual; however, the variables reset
+are used internally for the conversion, and should not interact with any
 customization set by the user.
 
 

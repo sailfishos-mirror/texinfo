@@ -1,5 +1,11 @@
 2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (EPUB HTML): Add a @nodedescription.  Make
+	explicit that it is texi2any setting variables internally, not
+	anything that the user needs to or can do.
+
+2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Customization of Navigation and Headers):
 	Remove index entries for ACTIVE_ICONS and PASSIVE_ICONS.  This
 	stops them being reported by "make vcheck" under doc/refcard.
