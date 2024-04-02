@@ -2544,7 +2544,8 @@ sub _convert($$)
                        {'text' => ')'},]};
           } elsif (defined($args[4])) {
             # add a () such that the node is considered to be external,
-            # even though the manual name is not known.
+            # even though the manual name is not known.  This should only
+            # happen if a book argument is given, but no manual name.
             $file = {'text' => '()'};
           }
 
@@ -2613,6 +2614,16 @@ sub _convert($$)
                                           {'suppress_styles' => 1,
                                             'no_added_eol' => 1});
             $self->{'silent'}--;
+          }
+          if (defined($file) and $node_name !~ /\S/) {
+            # Some Info reader versions, at least the Info reader from
+            # Texinfo 6.8 and 7.1 cannot follow a cross-reference
+            # consisting only of a manual name, such as *Note (manual)::.
+            # The Emacs Info reader does not seem to have this problem.
+            # Add a Top node to have a node name.
+            # Should probably be removed about 10-15 years after Info
+            # reader have been fixed.
+            $label_element = {'text' => 'Top'};
           }
 
           my $check_chars;

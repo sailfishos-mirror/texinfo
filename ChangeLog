@@ -1,5 +1,12 @@
 2024-04-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): add a Top node in
+	cross-ref when there is a file but no node, as the Texinfo Info reader
+	cannot follow a cross-reference with a file but no node name.  Gavin
+	report.
+
+2024-04-02  Patrice Dumas  <pertusus@free.fr>
+
 	Remove AVOID_MENU_REDUNDANCY customization option
 
 	* NEWS, doc/texinfo.texi (HTML Customization Variables List),

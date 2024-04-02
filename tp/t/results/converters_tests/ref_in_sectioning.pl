@@ -2173,13 +2173,13 @@ $result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example *note node:
   2.4 *note (file name)node:: code node, file name
   2.5 *note ()node:: node and manual
   2.6 *note ()Top:: Top and manual
-  2.7 *note ():: no node just manual
-  2.8 *note (file name):: no node just file name
+  2.7 *note ()Top:: no node just manual
+  2.8 *note (file name)Top:: no node just file name
   2.9 *note b: (c)a. inforef a b c
   2.10 (*note (file name)Top::) pxref Top file name, spaces
-  2.11 (*note (file name)::) pxref file name only, spaces
+  2.11 (*note (file name)Top::) pxref file name only, spaces
   2.12 *Note (filename)Top::, xref Top filename only, no spaces
-  2.13 *Note (filename)::. xref filename only, no spaces
+  2.13 *Note (filename)Top::. xref filename only, no spaces
 
 for example *note node:: (*note node::) (*note (file)Top::)
 ***********************************************************
@@ -2208,11 +2208,11 @@ for example *note node:: (*note node::) (*note (file)Top::)
 2.6 *note ()Top:: Top and manual
 ================================
 
-2.7 *note ():: no node just manual
-==================================
+2.7 *note ()Top:: no node just manual
+=====================================
 
-2.8 *note (file name):: no node just file name
-==============================================
+2.8 *note (file name)Top:: no node just file name
+=================================================
 
 2.9 *note b: (c)a. inforef a b c
 ================================
@@ -2220,14 +2220,14 @@ for example *note node:: (*note node::) (*note (file)Top::)
 2.10 (*note (file name)Top::) pxref Top file name, spaces
 =========================================================
 
-2.11 (*note (file name)::) pxref file name only, spaces
-=======================================================
+2.11 (*note (file name)Top::) pxref file name only, spaces
+==========================================================
 
 2.12 *Note (filename)Top::, xref Top filename only, no spaces
 =============================================================
 
-2.13 *Note (filename)::. xref filename only, no spaces
-======================================================
+2.13 *Note (filename)Top::. xref filename only, no spaces
+=========================================================
 
 ';
 
