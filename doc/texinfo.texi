@@ -13,7 +13,6 @@
 @c Put everything except function (command, in this case) names in one
 @c index (arbitrarily chosen to be the concept index).
 @syncodeindex op cp
-@syncodeindex vr cp
 @syncodeindex pg cp
 
 @c finalout
@@ -24437,14 +24436,22 @@ and the fifth example shows a period being quoted in a node name.
 @include fdl.texi
 
 
-@node Command and Variable Index
-@unnumbered Command and Variable Index
+@node Command Index
+@unnumbered Command Index
 
-This is an alphabetical list of all the @@-commands, assorted Emacs Lisp
-functions, and several variables.  To make the list easier to use, the
-commands are listed without their preceding @samp{@@}.
+This is an alphabetical list of all the @@-commands and assorted Emacs Lisp
+functions.  To make the list easier to use, the commands are listed without
+their preceding @samp{@@}.
 
 @printindex fn
+
+
+@node Variables Index
+@unnumbered Variables Index
+
+This is an alphabetical list of all variables, mainly customization variables.
+
+@printindex vr
 
 
 @node General Index

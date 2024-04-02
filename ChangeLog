@@ -1,4 +1,11 @@
-2024-04-01  Patrice Dumas  <pertusus@free.fr>
+2024-04-02  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Command Index, Variables Index): do not
+	merge variable index in general index, there are now many
+	customization variables, a separate index is relevant.  Add 'Variables
+	Index' node.
+
+2024-04-02  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (HTML Output Customization): rename
 	'HTML Output Advanced Customization' as 'HTML Output Customization'.
