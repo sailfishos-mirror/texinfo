@@ -11861,7 +11861,7 @@ the official web site for ISO@tie{}3166 can be found via
 @cindex Character set, declaring
 @cindex Document input encoding
 
-In the default case, the input and output document encoding are assumed
+By default, the input and output document encoding are assumed
 to be UTF-8, the vast global character encoding, expressed in 8-bit bytes.
 UTF-8 is compatible with 7-bit ASCII.  It is recommended to use UTF-8
 encoding for Texinfo manuals.
@@ -17220,7 +17220,7 @@ any way; the special @samp{@@} and @samp{;} characters are looked for
 the text is blindly copied into the output.  Comments in the CSS
 file may or may not be included in the output.
 
-In the default case, classes are added to the HTML elements and CSS rules
+By default, classes are added to the HTML elements and CSS rules
 for these classes are output at the beginning of each HTML file.  Set
 the @code{NO_CSS} customization variable to prevent classes being added and CSS
 being used. Set @code{INLINE_CSS_STYLE} to have CSS code put in HTML
@@ -17288,7 +17288,7 @@ well as the manual rendered in HTML.
 @vindex EPUB_CREATE_CONTAINER_FILE @subentry @r{avoiding} @code{Archive::Zip} @r{dependency}
 The generation of the EPUB file depends on the @code{Archive::Zip}
 Perl module being installed.  This dependency is checked at runtime.
-In the default case, trying to output EPUB without this dependency raises an
+By default, trying to output EPUB without this dependency raises an
 error.  However, if the EPUB output file is not generated, with the
 customization variable @code{EPUB_CREATE_CONTAINER_FILE} set to 0, it is
 not an error if @code{Archive::Zip} is not installed.
@@ -17952,12 +17952,12 @@ Unset in the default case.
 @vindex NO_TOP_NODE_OUTPUT
 @vindex SHOW_TITLE
 @vindex USE_TITLEPAGE_FOR_TITLE
-In the default case, the HTML output is tailored for online viewing with
+By default the HTML output is tailored for online viewing with
 a direct access to the information at the Top node.  For an output more
 similar to a book, set @code{NO_TOP_NODE_OUTPUT} to remove the Top node.
 If @code{SHOW_TITLE} is @samp{undef}, the default,
 setting @code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} to
-output a title at the beginning of the document.  In the default case
+output a title at the beginning of the document.  By default
 the full @code{@@titlepage} is used for the title, unset
 @code{USE_TITLEPAGE_FOR_TITLE} to get a simple title string.
 If @code{SHOW_TITLE} is set, you can have the table of contents
@@ -17966,7 +17966,7 @@ output after the title by setting @code{CONTENTS_OUTPUT_LOCATION} to
 
 @vindex CONTENTS_OUTPUT_LOCATION
 @vindex FORMAT_MENU
-In the default case, a list of subordinate sections is output in each node
+By default, a list of subordinate sections is output in each node
 for navigation, corresponding to @code{FORMAT_MENU} set to @samp{sectiontoc}.
 The table of contents are output at the end of the @code{@@top}
 section, to have the main location for navigation in the whole document
@@ -18012,7 +18012,7 @@ navigation and index lookup.  This only works with non-split HTML output.
 @cindex JavaScript license web labels page
 @vindex JS_WEBLABELS
 @vindex JS_WEBLABELS_FILE
-In the default case, a @dfn{JavaScript license web labels page} is setup
+By default, a @dfn{JavaScript license web labels page} is setup
 to give licensing information and source code for any JavaScript used in
 the HTML files for the manual
 (See @uref{https://www.gnu.org/licenses/javascript-labels.html}).  To avoid
@@ -18110,7 +18110,7 @@ Default is undefined.
 
 @item menu links
 @vindex NODE_NAME_IN_MENU
-In the default case, node names are used in menu entries links.  Set
+Node names are used in menu entries links by default.  Set
 @code{NODE_NAME_IN_MENU} to false to use section names instead.
 
 @item Table of contents links
@@ -18126,7 +18126,7 @@ default false.
 
 @item Top node up direction link
 @vindex IGNORE_REF_TO_TOP_NODE_UP
-In the default case, no Top node Up reference is generated.  It is possible
+By default no Top node Up reference is generated.  It is possible
 to ignore references to the Top node Up appearing in other cross-references
 by setting @code{IGNORE_REF_TO_TOP_NODE_UP}.  @code{IGNORE_REF_TO_TOP_NODE_UP}
 is not set in the default case.
@@ -18175,7 +18175,7 @@ be relevant, for example, if you know that no manual is installed locally.
 @cindex HTML cross-references @subentry configuration customization
 You can use customization variables to specify the HTML Xref
 Configuration more precisely.
-In the default case, the file name used for HTML Xref configuration
+By default, the file name used for HTML Xref configuration
 is searched for in directories, and all the files found are used.
 You can set the @code{HTMLXREF_MODE} customization variable to modify how
 cross-references to other manuals information is determined.
@@ -18184,7 +18184,7 @@ as the source of information.  If @code{HTMLXREF_MODE} is set to @samp{none}
 no information is used.  The default case is obtained with @code{HTMLXREF_MODE}
 not defined or set to any other value.  The @code{HTMLXREF_FILE} customization
 variable sets the file used for HTML Xref configuration to another value than
-the default, @file{htmlxref.cnf}.  In the default case, the distant manual
+the default, @file{htmlxref.cnf}.  By default, the distant manual
 is considered to be split or monolithic based on the splitting of the manual
 being output.  It is possible to set it explicitely, instead, with
 @code{EXTERNAL_CROSSREF_SPLIT}.
@@ -18207,7 +18207,7 @@ the @code{TOP_NODE_FILE_TARGET} customization variable value; default is
 with @code{EXTERNAL_DIR}, in the default case there is none.  Similarly,
 the file extension for cross-references to other manuals is set with
 @code{EXTERNAL_CROSSREF_EXTENSION}, which, if unset, is based
-on @code{EXTENSION}.  In the default case, the base file names are truncated
+on @code{EXTENSION}.  By default, the base file names are truncated
 to 245 characters (@pxref{HTML Xref Link Basics}).  The maximum length of a
 base file name is changed by setting @code{BASEFILENAME_LENGTH}.
 
@@ -18222,7 +18222,7 @@ is unset, the navigation bar is only inserted at the beginning of
 split files.
 
 @vindex USE_LINKS
-In the default case, @code{<link>} elements are generated in the
+By default, @code{<link>} elements are generated in the
 HTML @code{<head>} to specify relationships between the HTML page
 and other resources, for example the Top node, the next node or
 the table of contents.  Unset @code{USE_LINKS} to avoid those elements.
@@ -18292,7 +18292,7 @@ to be inserted in specific places in the output.
 @vindex USE_XML_SYNTAX
 @cindex DOCTYPE customization
 @vindex DOCTYPE
-In the default case, HTML is generated, but you can set
+By default HTML is generated, but you can set
 @code{USE_XML_SYNTAX} in order to generate XML compatible code.  The main
 difference is that @samp{/>} instead of @samp{>} closes elements with an
 opening element, but no closing element, such as @code{<img>} or @code{<link>}
@@ -18303,17 +18303,17 @@ The default is the HTML5 DTD-less simple DOCTYPE.
 @vindex USE_ISO
 @vindex USE_NUMERIC_ENTITY
 @vindex OUTPUT_CHARACTERS
-In the default case, entities are used for doubled single-quote characters
+By default, entities are used for doubled single-quote characters
 (@pxref{Inserting Quotation Marks}), and @samp{---} and @samp{--}
 (@pxref{Conventions}).  Set @code{USE_ISO} to @samp{0} in the unlikely case
 that you want a simpler formatting.
-In the default case, textual entities are used when possible.  Set
+By default textual entities are used when possible.  Set
 @code{USE_NUMERIC_ENTITY} to use numeric entities only.
 Set @code{OUTPUT_CHARACTERS} to output accented characters based on
 the output encoding instead of entities.
 
 @vindex NO_CUSTOM_HTML_ATTRIBUTE
-In the default case, a custom attribute, as allowed by the standard, is
+By default a custom attribute, as allowed by the standard, is
 used to provide the target manual name in cross-references.
 If it is not desirable, for example to generate strict XHTML, you can
 set @code{NO_CUSTOM_HTML_ATTRIBUTE} to prevent custom attributes being
@@ -18321,7 +18321,7 @@ output.
 
 @vindex CLOSE_QUOTE_SYMBOL
 @vindex OPEN_QUOTE_SYMBOL
-In the default case, opening quote and closing quotes needed, e.g.  for
+By default opening quote and closing quotes needed, e.g.  for
 @code{@@samp} output are set to @code{&lsquo;} and @code{&rsquo;} if
 @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8216;} and @code{&#8217;} if
 set, and to a quote character if @code{OUTPUT_CHARACTERS} is set and the output
@@ -18465,10 +18465,9 @@ for menu entries formatting; default is undefined and set to
 
 @item NUMBER_FOOTNOTES
 @itemx NO_NUMBER_FOOTNOTE_SYMBOL
-In the default case footnotes are numbered.  With
-@option{--no-number-footnotes} or if @code{NUMBER_FOOTNOTES} is set to 0, a
-@samp{*} is used instead, or the @code{NO_NUMBER_FOOTNOTE_SYMBOL} customization
-variable value, if set.
+By default footnotes are numbered.  With @option{--no-number-footnotes} or if
+@code{NUMBER_FOOTNOTES} is set to 0, a @samp{*} is used instead, or the
+@code{NO_NUMBER_FOOTNOTE_SYMBOL} customization variable value, if set.
 
 @item PROGRAM_NAME_IN_ABOUT
 Used when an About element is output.  If set, output the program
@@ -18485,13 +18484,13 @@ default false.
 
 @vindex HTML_MATH
 @cindex HTML output @subentry math @subentry customization
-Diverse methods can be used to render math in HTML (@pxref{Inserting Math}).
-The is controlled by the @code{HTML_MATH} customization variable
-value.  In the default case, the customization variable is unset
-and the HTML output is only emphasized.  Better options for
-displaying properly formatted mathematics may be selected.  Some of
-these options also translate @code{@@tex} if @option{--iftex} is set,
-and @code{@@latex} sections if @option{--iflatex} is set.
+You can select diverse methods to render math in HTML (@pxref{Inserting Math}).
+This is controlled by the @code{HTML_MATH} customization variable
+value.  By default, the customization variable is unset
+and the HTML output is only emphasized.  You may select better options for
+displaying properly formatted mathematics.  For some of those options, if you
+set @option{--iftex}, @code{@@tex} sections are converted to HTML, and if you
+set @option{--iflatex} @code{@@latex} sections are converted to HTML.
 
 @table @code
 @item l2h
@@ -18545,7 +18544,7 @@ output directory, with @samp{_tex4ht} in their name.
 @end table
 
 @vindex CONVERT_TO_LATEX_IN_MATH
-In the default case, with @code{CONVERT_TO_LATEX_IN_MATH} undefined,
+By default, with @code{CONVERT_TO_LATEX_IN_MATH} undefined,
 setting @code{HTML_MATH} also sets @code{CONVERT_TO_LATEX_IN_MATH}.
 In that case Texinfo @@-commands inside @code{@@math} and @code{@@displaymath}
 are converted to @LaTeX{}, before converting the @code{@@math} or
@@ -18830,7 +18829,7 @@ This can be unset, set to
 set to @samp{l2h}, which uses @command{latex2html}
 (@pxref{@command{latex2html} Customization Variables}), or set to
 @samp{t4h}, which uses @command{tex4ht}
-(@pxref{@command{tex4ht} Customization Variables}).  In the default case,
+(@pxref{@command{tex4ht} Customization Variables}).  By default,
 setting @code{HTML_MATH} also sets @code{CONVERT_TO_LATEX_IN_MATH}.
 
 @item HTML_ROOT_ELEMENT_ATTRIBUTES
