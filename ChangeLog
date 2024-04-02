@@ -1,5 +1,11 @@
 2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Customization Variables List):
+	Move to a subsection of "HTML Output Customization".
+	(Customization Variables): Reference node in new location.
+
+2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Customization Variables List)
 	(HTML CSS, HTML Output Structure Customization): Eliminate uses
 	of "associate to", which is not correct English.
