@@ -18190,7 +18190,7 @@ not defined or set to any other value.  The @code{HTMLXREF_FILE} customization
 variable sets the file used for HTML Xref configuration to another value than
 the default, @file{htmlxref.cnf}.  By default, the distant manual
 is considered to be split or monolithic based on the splitting of the manual
-being output.  It is possible to set it explicitely, instead, with
+being output.  You can set it explicitely, instead, by setting
 @code{EXTERNAL_CROSSREF_SPLIT}.
 
 @cindex Cross-references customization, in HTML
@@ -18205,15 +18205,15 @@ Xref Configuration only.
 @vindex EXTERNAL_DIR
 @vindex EXTERNAL_CROSSREF_EXTENSION
 @vindex BASEFILENAME_LENGTH
-The file name used for the Top node in cross-references is set to
-the @code{TOP_NODE_FILE_TARGET} customization variable value; default is
-@file{index.html}.  A base directory for external manuals is specified
-with @code{EXTERNAL_DIR}, in the default case there is none.  Similarly,
-the file extension for cross-references to other manuals is set with
-@code{EXTERNAL_CROSSREF_EXTENSION}, which, if unset, is based
-on @code{EXTENSION}.  By default, the base file names are truncated
-to 245 characters (@pxref{HTML Xref Link Basics}).  The maximum length of a
-base file name is changed by setting @code{BASEFILENAME_LENGTH}.
+You can set the file name used for the Top node in cross-references by
+setting the @code{TOP_NODE_FILE_TARGET} customization variable value;
+default is @file{index.html}.  You specify a base directory for external
+manuals with @code{EXTERNAL_DIR}, in the default case there is none.
+Similarly, you set the file extension for cross-references to other manuals
+with @code{EXTERNAL_CROSSREF_EXTENSION}, which, if unset, is based on
+@code{EXTENSION}.  By default, the base file names are truncated to 245
+characters (@pxref{HTML Xref Link Basics}).  Change the maximum length of
+a base file name by setting @code{BASEFILENAME_LENGTH}.
 
 
 @node Customization of Navigation and Headers
