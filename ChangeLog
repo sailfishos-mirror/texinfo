@@ -1,6 +1,26 @@
 2024-04-02  Patrice Dumas  <pertusus@free.fr>
 
-	* doc/texinfo.texi (HTML Customization for Math):  Refer to the user
+	* doc/texinfo.texi (HTML Output Structure Customization)
+	(JavaScript Interface and Licenses): add the 'JavaScript Interface and
+	Licenses' node from content formerly in 'HTML Output Structure
+	Customization'.  Leave USE_NEXT_HEADING_FOR_LONE_NODE description in
+	'HTML Output Structure Customization'.
+
+	* doc/texinfo.texi (HTML Features Customization)
+	(Customization of HTML Code Inserted): split 'General Customization of
+	HTML Code' in two, with 'HTML Features Customization', containing the
+	beginning of th eremoved node and COPIABLE_LINKS description and
+	'Customization of HTML Code Inserted'.
+
+	* doc/texinfo.texi (HTML Features Customization): add examples of
+	DOCTYPE setting. Refer to the user of the program as "you". 
+
+	* doc/texinfo.texi (Customization of HTML Code Inserted): explain how
+	opening and closing quotes are formatted by using a @table.
+
+2024-04-02  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (HTML Customization for Math): Refer to the user
 	of the program as "you".
 
 	* doc/texinfo.texi: replace 'In the default case' by 'By default'.

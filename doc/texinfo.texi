@@ -17999,6 +17999,19 @@ set @code{MONOLITHIC} to 0 to output special elements to separate files.  As
 already described, the table of contents location may also be tuned with
 @code{CONTENTS_OUTPUT_LOCATION}.
 
+@vindex USE_NEXT_HEADING_FOR_LONE_NODE
+In Texinfo code, a @code{@@node} command is usually followed by a
+sectioning command, providing a heading for the node.  By default, a
+node with no following sectioning command, but followed by a command like
+@code{@@heading}, has its heading provided by the heading command.  This
+avoids having both the node name and the heading command as headings.  To
+have the node name used as heading in that case, set
+@code{USE_NEXT_HEADING_FOR_LONE_NODE} to 0.
+
+
+@node JavaScript Interface and Licenses
+@subsection JavaScript Interface and Licenses
+
 @vindex INFO_JS_DIR
 @cindex JavaScript browsing interface for HTML
 You can add an experimental JavaScript browsing interface to the manual by
@@ -18026,15 +18039,6 @@ setting is useful if you separately maintain a single labels file for a larger
 website that includes your manual.
 Labels files are generated for @code{INFO_JS_DIR} and with @code{HTML_MATH}
 set to @samp{mathjax} for @code{MATHJAX_SOURCE} (@pxref{MathJax scripts}).
-
-@vindex USE_NEXT_HEADING_FOR_LONE_NODE
-In Texinfo code, a @code{@@node} command is usually followed by a
-sectioning command, providing a heading for the node.  By default, a
-node with no following sectioning command, but followed by a command like
-@code{@@heading}, has its heading provided by the heading command.  This
-avoids having both the node name and the heading command as headings.  To
-have the node name used as heading in that case, set
-@code{USE_NEXT_HEADING_FOR_LONE_NODE} to 0.
 
 
 @node File Names and Links Customization for HTML
@@ -18282,12 +18286,8 @@ using an initialization file (@pxref{Invoking @command{texi2any}}).
 @xref{,,, texi2any_api, GNU Texinfo @command{texi2any} Output Customization}.
 
 
-@node General Customization of HTML Code
-@subsection General Customization of HTML Code
-
-You can modify the generated HTML code in two ways.  Firstly by specifying
-broad features of the generated HTML, and secondly by specifying HTML code
-to be inserted in specific places in the output.
+@node HTML Features Customization
+@subsection HTML Features Customization
 
 @vindex USE_XML_SYNTAX
 @cindex DOCTYPE customization
@@ -18299,6 +18299,20 @@ opening element, but no closing element, such as @code{<img>} or @code{<link>}
 (also called @dfn{void elements}).
 To set the @dfn{DOCTYPE}, set the @code{DOCTYPE} customization variable.
 The default is the HTML5 DTD-less simple DOCTYPE.
+
+You can set an XML compatible file beginning instead:
+@example
+@command{texi2any} --html my_manual.texi -c USE_XML_SYNTAX \
+   -c DOCTYPE='<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>'
+@end example
+
+You could also set the DOCTYPE to HTML 4.01 Transitional:
+@example
+@command{texi2any} --html my_manual.texi -c DOCTYPE=\
+'<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">'
+@end example
 
 @vindex USE_ISO
 @vindex USE_NUMERIC_ENTITY
@@ -18319,24 +18333,6 @@ If it is not desirable, for example to generate strict XHTML, you can
 set @code{NO_CUSTOM_HTML_ATTRIBUTE} to prevent custom attributes being
 output.
 
-@vindex CLOSE_QUOTE_SYMBOL
-@vindex OPEN_QUOTE_SYMBOL
-By default opening quote and closing quotes needed, e.g.  for
-@code{@@samp} output are set to @code{&lsquo;} and @code{&rsquo;} if
-@code{USE_NUMERIC_ENTITY} is not set, to @code{&#8216;} and @code{&#8217;} if
-set, and to a quote character if @code{OUTPUT_CHARACTERS} is set and the output
-encoding includes that character.  This default case corresponds to
-@code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL} undefined.  Set those
-variables to the opening quote and to the closing quote respectively to
-override the default behaviour.
-
-@vindex DEFAULT_RULE
-@vindex BIG_RULE
-To change the HTML code for breaks (horizontal rule) inserted in various
-contexts, set @code{DEFAULT_RULE},
-used for most horizontal separators output in the resulting HTML,
-and set @code{BIG_RULE} for the wider separator sometime used.
-
 @vindex COPIABLE_LINKS
 Copiable links are output for link targets for the definition commands
 (@pxref{Definition Commands}), table commands (@pxref{Two-column
@@ -18346,8 +18342,39 @@ as a `@U{00B6}'
 sign that appears when you hover the mouse pointer over the heading text.
 Unset @code{COPIABLE_LINKS} to prevent copiable links output.
 
-@c Arguments are HTML content to be inserted at certain points in the output.
 
+@node Customization of HTML Code Inserted
+@subsection Customization of HTML Code Inserted
+
+@vindex CLOSE_QUOTE_SYMBOL
+@vindex OPEN_QUOTE_SYMBOL
+Opening quote and closing quotes needed, e.g. for @code{@@samp} output
+are set to:
+
+@table @asis
+@item @code{&lsquo;} and @code{&rsquo;}
+By default, with @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL}
+undefined.
+
+@item @code{&#8216;} and @code{&#8217;}
+If you set @code{USE_NUMERIC_ENTITY}.
+
+@item An opening and closing quote character
+If you set @code{OUTPUT_CHARACTERS} and the output
+encoding includes that character.
+
+@item @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL}
+If you set those customization variables.
+@end table
+
+@vindex DEFAULT_RULE
+@vindex BIG_RULE
+To change the HTML code for breaks (horizontal rule) inserted in various
+contexts, set @code{DEFAULT_RULE},
+used for most horizontal separators output in the resulting HTML,
+and set @code{BIG_RULE} for the wider separator sometime used.
+
+@c Arguments are HTML content to be inserted at certain points in the output.
 @vindex HTML_ROOT_ELEMENT_ATTRIBUTES
 @vindex EXTRA_HEAD
 @vindex AFTER_BODY_OPEN
