@@ -18660,9 +18660,7 @@ defined.
 @c old name
 @anchor{HTML Customization Variables}
 
-This table gives the customization variables which apply to HTML
-output only.  A few other customization variables apply to both HTML
-and other output formats; see @ref{Other Customization Variables}.
+This table lists the customization variables which apply to HTML output.
 
 @vtable @code
 @item AVOID_MENU_REDUNDANCY
