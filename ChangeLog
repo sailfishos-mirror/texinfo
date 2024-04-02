@@ -1,3 +1,9 @@
+2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (HTML Customization Variables List)
+	(HTML CSS, HTML Output Structure Customization): Eliminate uses
+	of "associate to", which is not correct English.
+
 2024-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (HTML Output Customization):

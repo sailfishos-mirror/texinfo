@@ -15903,10 +15903,10 @@ Generate @code{<link>} elements in the HTML @code{<head>}
 output; default true.
 
 @item USE_NEXT_HEADING_FOR_LONE_NODE
-If set, a node not associated to a sectioning command but
-followed by a heading command not usually associated to node
-such as @code{@@heading} before other formatted contents
-do not have its name output as a heading, under the assumption
+If set, a node not associated with a sectioning command but
+followed by a leading command not usually associated with a node,
+such as @code{@@heading}, before other formatted contents
+does not have its name output as a heading, under the assumption
 that the command found provides the heading.  Default true.
 
 @item USE_NODE_DIRECTIONS
@@ -17641,9 +17641,9 @@ the text is blindly copied into the output.  Comments in the CSS
 file may or may not be included in the output.
 
 In the default case, classes are added to the HTML elements and CSS rules
-associated to these classes are output at the beginning of each HTML file.  Set
-the @code{NO_CSS} customization variable to prevent classes to be added and CSS
-to be used. Set @code{INLINE_CSS_STYLE} to have CSS code put in HTML
+for these classes are output at the beginning of each HTML file.  Set
+the @code{NO_CSS} customization variable to prevent classes being added and CSS
+being used. Set @code{INLINE_CSS_STYLE} to have CSS code put in HTML
 elements in the @code{style} attribute rather than at the beginning of
 the output.
 
@@ -18448,10 +18448,10 @@ Labels files are generated for @code{INFO_JS_DIR} and with @code{HTML_MATH}
 set to @samp{mathjax} for @code{MATHJAX_SOURCE} (@pxref{MathJax scripts}).
 
 @vindex USE_NEXT_HEADING_FOR_LONE_NODE
-The @code{@@node} @@-commands are usually followed by a sectioning command,
-which provides a heading for the node.  In the default case, a node not
-associated to a sectioning command but followed by a command like
-@code{@@heading} has its heading provided by the heading command.  This
+In Texinfo code, a @code{@@node} command is usually followed by a
+sectioning command, providing a heading for the node.  By default, a
+node with no following sectioning command, but followed by a command like
+@code{@@heading}, has its heading provided by the heading command.  This
 avoids having both the node name and the heading command as headings.  To
 have the node name used as heading in that case, set
 @code{USE_NEXT_HEADING_FOR_LONE_NODE} to 0.
