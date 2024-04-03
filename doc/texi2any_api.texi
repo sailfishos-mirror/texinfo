@@ -981,7 +981,7 @@ Up node output unit.
 
 @cindex @code{FirstInFile} direction variant
 @anchor{@code{FirstInFile} direction variant}
-Relative direction are each associated to a variant, with
+Relative direction are each associated with a variant, with
 @samp{FirstInFile} prepended, which points to the direction relative
 to the first output unit in file.  For example, @code{FirstInFileNodeNext}
 is the next node output unit relative to the first output unit in file.
@@ -1716,7 +1716,7 @@ The information on tree elements may be interesting for those functions
 key @code{associated_section} of a node element and @code{associated_node}
 of a sectioning command element may also be useful.
 
-The file name associated to a sectioning command is set together with
+The file name associated with a sectioning command is set together with
 the target, and is described in the next section.
 
 @node Customizing Output Target Names
@@ -2509,7 +2509,7 @@ documentation, in particular a list of types and of information in the elements
 @subsection Output Units in User Defined Functions
 
 Some information is available only in output units.  Finding an output unit
-and using the information associated to the output unit hash reference keys
+and using the information associated with the output unit hash reference keys
 may be needed in user-defined conversion functions.
 
 Both normal and special output units (@pxref{Output Units}) can be obtained as
@@ -2519,7 +2519,8 @@ Functions}).  The current output unit being processed is also available as
 Root command (@code{@@node} or sectioning command) @code{associated_unit} key
 value points to the associated output unit.  Lastly
 @code{get_element_root_command_element} may be used to get the the output
-unit associated to an element (@pxref{@code{get_element_root_command_element}}).
+unit associated with an element
+(@pxref{@code{get_element_root_command_element}}).
 
 The following keys of output unit hashes can be interesting:
 
@@ -2541,16 +2542,16 @@ directly in their hash that points to the associated output unit.
 @cindex @code{associated_unit} output unit
 
 For special units, points to a ``virtual'' tree element with type
-@code{special_unit_element} associated to the special element, that does not
-appear in the Texinfo tree but can be used as a target for directions
-to the special unit.  This element has an @code{associated_unit} key
-that points to the associated output unit.
+@code{special_unit_element} associated with the special element, that does
+not appear in the Texinfo tree but can be used as a target for directions
+to the special unit.  This element has an @code{associated_unit} key that
+points to the associated output unit.
 
 for references to external manuals virtual units, points to the tree
 element corresponding to the external manual and node label.
 
 @item unit_contents
-Array reference on tree elements associated to the output unit.
+Array reference on tree elements associated with the output unit.
 
 @item unit_filename
 The associated file name.
@@ -2655,10 +2656,11 @@ Texinfo::Convert::Converter::xml_comment,texi2any_internals}.
 
 @deftypefn {Function Reference} @var{$text} format_heading_text @
   (@var{$converter}, @var{$command_name}, @var{\@@classes}, @var{$input_text}, @var{$level}, @var{$id}, @var{\%element}, @var{$target})
-Returns a heading formatted using @var{$input_text} as heading text, @var{$level}
-as heading level, @var{\@@classes} for a class attribute.  @var{$command_name}
-gives an information on the @@-command the heading is associated to and can be
-@code{undef}, for instance for special output units headings.
+Returns a heading formatted using @var{$input_text} as heading text,
+@var{$level} as heading level, @var{\@@classes} for a class attribute.
+@var{$command_name} gives an information on the @@-command the heading is
+associated with and can be @code{undef}, for instance for special output units
+headings.
 
 @var{$id} is an optional identifier, and @var{\%element} is an optional
 Texinfo tree element associated with the heading.  @var{$target} is the
@@ -3006,9 +3008,9 @@ requires links, labels and files information, mainly to output hyperlinks to
 Target @@-commands are @@-commands that are associated with an identifier
 and can be linked to.  They corresponds first to @@-commands with unique identifier
 used as labels, @code{@@node}, @code{@@anchor} and @code{@@float}.  Sectioning
-commands, index entries, footnotes are also associated to targets.  The
-``virtual'' elements associated to special output units are also
-associated to targets leading to each special unit
+commands, index entries, footnotes are also associated with targets.  The
+``virtual'' elements associated with special output units are also
+associated with targets leading to each special unit
 (@pxref{Output Units in User Defined Functions}).
 
 To get the unique Texinfo tree element corresponding to a label, use
@@ -3038,8 +3040,8 @@ if ($arg_node and $arg_node->@{'extra'@}
 @}
 @end example
 
-Tree elements not associated to a label are obtained each differently.
-For example, elements associated to index entries can be obtained using the
+Tree elements not associated with a label are obtained each differently.
+For example, elements associated with index entries can be obtained using the
 Texinfo parsed document index entries with
 @code{$converter->get_info('document')->indices_information()}
 (@pxref{Converter General Information}), or through sorted indices
@@ -3508,7 +3510,7 @@ Associate @var{$content} to the Texinfo tree element @var{\%element}.
 @end defun
 
 @deftypefun {@var{$content} =} @var{$converter}->get_associated_formatted_inline_content (@var{\%element})
-Get @var{$content} associated to the Texinfo tree element @var{\%element}.
+Get @var{$content} associated with the Texinfo tree element @var{\%element}.
 @end deftypefun
 
 Here is some inline container formatting code showing how those functions
@@ -3629,7 +3631,7 @@ during conversion between different formatting functions or between
 different calls of the same function.
 An interface is provided for information shared among formatting functions,
 called @dfn{shared conversion state}.
-Each data piece in the @dfn{shared conversion state} is associated to an
+Each data piece in the @dfn{shared conversion state} is associated with an
 @@-command name, has a name, and a list of selectors.
 
 This interface is often useful for the formatting of paragraph and
@@ -3664,7 +3666,7 @@ New shared infomation is defined with @code{define_shared_conversion_state}:
 
 @defun @var{$converter}->define_shared_conversion_state ($cmdname, $name, \@@specification)
 @var{$cmdname} is an @@-command name, without leading @@. @var{name} is the name
-associated to the data.  The @code{top} command name is conventionally used if
+associated with the data.  The @code{top} command name is conventionally used if
 there is no natural association with another @@-command.
 @var{\@@specification} array reference specifies the types of the selectors
 and the type of the value as strings.  The last string of the array specifies
@@ -3681,7 +3683,7 @@ an integer for the value and no selector.
 @end defun
 
 For example, the following defines a @samp{color} shared conversion state
-formally associated to @code{@@quotation}, with an integer value and
+formally associated with @code{@@quotation}, with an integer value and
 a string selector.
 @example
 $converter->define_shared_conversion_state ('quotation', 'color',
@@ -3691,7 +3693,7 @@ $converter->define_shared_conversion_state ('quotation', 'color',
 The association with an @@-command is provided for a semantic classification of
 shared conversion information, but has no practical effect.  In
 particular, nothing prevents using shared conversion state information
-associated to an @@-command in the formatting of another @@-command.
+associated with an @@-command in the formatting of another @@-command.
 
 The function @code{get_shared_conversion_state} is used to get information:
 
@@ -4020,7 +4022,7 @@ are used, as described in
 @end float
 
 The variety of special elements is the special unit
-hash value associated to the @code{special_unit_variety} key.
+hash value associated with the @code{special_unit_variety} key.
 
 To get information on the special output unit variety associated with
 an @@-command command name, use @code{command_name_special_unit_information}:
@@ -4044,7 +4046,7 @@ In the current setup, special output units are associated with @code{@@contents}
 @section Special Units Information Customization
 
 To customize special output units formatting, a simple possibility is to
-change the information associated to the special output units.
+change the information associated with the special output units.
 
 The following items common to all the special units may be customized:
 
@@ -4635,8 +4637,8 @@ formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
 
 To select the list of buttons for header and footer formatting, it
 may be handy to be able to determine if the output unit being formatted
-is the Top output unit.  To determine if a output unit is associated to the top
-output unit, use @code{unit_is_top_output_unit}:
+is the Top output unit.  To determine if a output unit is associated with the
+top output unit, use @code{unit_is_top_output_unit}:
 
 @deftypefun {@var{$is_top_output_unit} =} @var{$converter}->unit_is_top_output_unit (@var{\%output_unit})
 Returns true if the @var{\%output_unit} output unit is the Top output unit
@@ -4674,7 +4676,7 @@ Return the total number of output units associated with the file.
 @end table
 @end deftypefun
 
-For example, to get the total number of output units associated to
+For example, to get the total number of output units associated with
 the file of a node element:
 @example
 my $file_name = $converter->command_filename($node_element);
@@ -4803,18 +4805,19 @@ the @code{</body>} element.
 @node Associating Information to an Output File
 @section Associating Information to an Output File
 
-To be able to retrieve information associated to the current file, in general
-for the file begin or end formatting, @code{register_file_information} can  be
+To be able to retrieve information associated with the current file, in general
+for the file begin or end formatting, @code{register_file_information} can be
 used to associate integer information, and @code{get_file_information} to
 retrieve that information.
 
 @defun @var{$converter}->register_file_information ($key, $value)
 Associate the current output file name file to the key @var{$key}, itself
-associated to the integer value @var{$value}.
+associated with the integer value @var{$value}.
 @end defun
 
 @deftypefun {@var{$value} =} @var{$converter}->get_file_information (@var{$key}, @var{$file_name})
-Return the value associated to the key @var{$key} and file name @var{$file_name}.
+Return the value associated with the key @var{$key} and file name
+@var{$file_name}.
 @end deftypefun
 
 
@@ -4881,7 +4884,7 @@ described in @ref{HTML CSS,,, texinfo, Texinfo}, and CSS style rules associated
 with HTML elements and class attributes used in the conversion to HTML.  The
 CSS style rules selectors are, classically, @code{@var{element}.@var{class}}
 strings with @var{element} an HTML element and @var{class} an attribute class
-associated to that element.
+associated with that element.
 
 The function used are @code{css_get_info} and @code{css_get_selector_style}
 to get information and @code{css_add_info} and @code{css_set_selector_style}

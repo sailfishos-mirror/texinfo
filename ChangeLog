@@ -1,5 +1,9 @@
 2024-04-03  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi: replace associated to with associated with.
+
+2024-04-03  Patrice Dumas  <pertusus@free.fr>
+
 	Rename COMPLEX_FORMAT_IN_TABLE as INDENTED_BLOCK_COMMANDS_IN_TABLE
 
 	* NEWS, doc/texinfo.texi (Specific Customization of HTML Formatting)
