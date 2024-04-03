@@ -10458,7 +10458,7 @@ convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
       main_cmd = CM_example;
     }
 
-  if (self->conf->COMPLEX_FORMAT_IN_TABLE.integer > 0
+  if (self->conf->INDENTED_BLOCK_COMMANDS_IN_TABLE.integer > 0
       && html_commands_data[cmd].flags & HF_indented_preformatted)
     {
       indent_with_table (self, cmd, content,
@@ -10520,7 +10520,7 @@ convert_indented_command (CONVERTER *self, const enum command_id cmd,
   else
     main_cmd = cmd;
 
-  if (self->conf->COMPLEX_FORMAT_IN_TABLE.integer > 0)
+  if (self->conf->INDENTED_BLOCK_COMMANDS_IN_TABLE.integer > 0)
     {
       indent_with_table (self, main_cmd, content,
                          additional_classes, result);

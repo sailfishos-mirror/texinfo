@@ -18482,14 +18482,14 @@ default @samp{4}.
 
 You may modify the appearance of various constructs by setting:
 @vtable @code
-@item COMPLEX_FORMAT_IN_TABLE
-If set, use tables for indentation of complex formats; default
-false.
-
 @item DEF_TABLE
 If set, a @code{<table>} construction for @code{@@deffn}
 and similar @@-commands is used (looking more like the @TeX{} output),
 instead of definition lists; default false.
+
+@item INDENTED_BLOCK_COMMANDS_IN_TABLE
+If set, use tables for indentation of indented block commands; default
+false.
 
 @item INDEX_ENTRY_COLON
 Symbol used between the index entry and the associated node or section;
@@ -18757,10 +18757,6 @@ Check that manuals which are the target of external
 cross-references (@pxref{Four and Five Arguments}) are present in
 @file{htmlxref.cnf} (@pxref{HTML Xref Configuration}); default false.
 
-@item COMPLEX_FORMAT_IN_TABLE
-If set, use tables for indentation of complex formats; default
-false.
-
 @item CONTENTS_OUTPUT_LOCATION
 If set to @samp{after_top}, output the contents at the end of the @code{@@top}
 section.  If set to @samp{inline}, output the contents where the
@@ -18897,6 +18893,10 @@ Use icons for the navigation panel; default false.
 @item IMAGE_LINK_PREFIX
 If set, the associated value is prepended to the image file
 links; default unset.
+
+@item INDENTED_BLOCK_COMMANDS_IN_TABLE
+If set, use tables for indentation of indented block commands; default
+false.
 
 @item INDEX_ENTRY_COLON
 Symbol used between the index entry and the associated node or section;

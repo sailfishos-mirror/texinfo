@@ -214,7 +214,7 @@ CLOSE_DOUBLE_QUOTE_SYMBOL          converter_customization undef   char
 CLOSE_QUOTE_SYMBOL                 converter_customization undef   char
 COLLATION_LANGUAGE                 converter_customization undef   char
 COMMAND_LINE_ENCODING              converter_customization undef   char
-COMPLEX_FORMAT_IN_TABLE            converter_customization undef   integer
+INDENTED_BLOCK_COMMANDS_IN_TABLE   converter_customization undef   integer
 CONTENTS_OUTPUT_LOCATION           converter_customization undef   char
 CONVERT_TO_LATEX_IN_MATH           converter_customization undef   integer
 DATE_IN_HEADER                     converter_customization undef   integer

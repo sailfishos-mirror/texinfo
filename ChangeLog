@@ -1,3 +1,15 @@
+2024-04-03  Patrice Dumas  <pertusus@free.fr>
+
+	Rename COMPLEX_FORMAT_IN_TABLE as INDENTED_BLOCK_COMMANDS_IN_TABLE
+
+	* NEWS, doc/texinfo.texi (Specific Customization of HTML Formatting)
+	(HTML Customization Variables List), tp/Texinfo/Convert/HTML.pm
+	(%defaults, _convert_indented_command, _convert_preformatted_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_preformatted_command)
+	(convert_indented_command), tp/Texinfo/options_data.txt,
+	tp/init/html32.pm: rename COMPLEX_FORMAT_IN_TABLE customization
+	variable as INDENTED_BLOCK_COMMANDS_IN_TABLE.
+
 2024-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Customization of HTML Code Inserted) <BODYTEXT>:

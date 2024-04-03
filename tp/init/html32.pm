@@ -40,7 +40,7 @@ use Texinfo::Commands;
 use Texinfo::Common;
 
 
-texinfo_set_from_init_file('COMPLEX_FORMAT_IN_TABLE', 1);
+texinfo_set_from_init_file('INDENTED_BLOCK_COMMANDS_IN_TABLE', 1);
 
 texinfo_set_from_init_file('DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN" "http://www.w3.org/TR/html32/loose.dtd">');
 

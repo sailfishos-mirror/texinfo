@@ -2426,7 +2426,7 @@ my %defaults = (
   'CLOSE_QUOTE_SYMBOL'    => undef,
   'CONTENTS_OUTPUT_LOCATION' => 'after_top',
   'CONVERT_TO_LATEX_IN_MATH' => undef,
-  'COMPLEX_FORMAT_IN_TABLE' => 0,
+  'INDENTED_BLOCK_COMMANDS_IN_TABLE' => 0,
   'COPIABLE_LINKS'        => 1,
   'DATE_IN_HEADER'        => 0,
   'DEFAULT_RULE'          => '<hr>',
@@ -5186,7 +5186,7 @@ sub _convert_preformatted_command($$$$$)
     $main_cmdname = 'example';
   }
 
-  if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')
+  if ($self->get_conf('INDENTED_BLOCK_COMMANDS_IN_TABLE')
       and $indented_preformatted_commands{$cmdname}) {
     return _indent_with_table($self, $cmdname, $content, \@classes);
   } else {
@@ -5227,7 +5227,7 @@ sub _convert_indented_command($$$$$)
     $main_cmdname = $cmdname;
   }
 
-  if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
+  if ($self->get_conf('INDENTED_BLOCK_COMMANDS_IN_TABLE')) {
     return _indent_with_table($self, $main_cmdname, $content, \@classes);
   } else {
     unshift @classes, $main_cmdname;
