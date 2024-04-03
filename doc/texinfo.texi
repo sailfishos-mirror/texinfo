@@ -16035,11 +16035,6 @@ are separated.  The default is true.
 For HTML, XML and DocBook@.  If set, use numeric entities instead of named
 entities.  By default, set to true for DocBook output.
 
-@item USE_UP_NODE_FOR_ELEMENT_UP
-Fill in up sectioning direction with node direction when there is no
-sectioning up direction.  In practice this can only happen when there
-is no @@top section.  Not set by default.
-
 @item USE_SETFILENAME_EXTENSION
 Default is on for Info, off for other output.  If set, use exactly
 what @code{@@setfilename} gives for the output file name, including

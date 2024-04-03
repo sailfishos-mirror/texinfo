@@ -13606,7 +13606,6 @@ sub _set_variables_texi2html($)
   ['NODE_NAME_IN_MENU', 0],
   ['SHORT_TOC_LINK_TO_TOC', 0],
   ['SHOW_TITLE', 1],
-  ['USE_UP_NODE_FOR_ELEMENT_UP', 1],
   ['USE_REL_REV', 0],
   ['USE_LINKS', 0],
   ['USE_NODES', 0],

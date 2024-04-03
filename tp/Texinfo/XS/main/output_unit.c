@@ -761,19 +761,6 @@ units_directions (OPTIONS *customization_information,
 
             }
         }
-
-      /* Use node up for Up if there is no section up.
-         Not done in the default case. */
-      if (customization_information->USE_UP_NODE_FOR_ELEMENT_UP.integer > 0
-          && !directions[RUD_type_Up] && node
-          && node_directions && node_directions->list[D_up]
-          && (!node_top || node != node_top))
-        {
-          OUTPUT_UNIT *up_node_unit_element
-           = label_target_unit_element (node_directions->list[D_up]);
-          if (up_node_unit_element)
-            directions[RUD_type_Up] = up_node_unit_element;
-        }
     }
   if (customization_information->DEBUG.integer > 0)
     {

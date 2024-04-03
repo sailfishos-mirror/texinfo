@@ -315,7 +315,6 @@ USE_REL_REV                        converter_customization undef   integer
 USE_SETFILENAME_EXTENSION          converter_customization undef   integer
 USE_TITLEPAGE_FOR_TITLE            converter_customization undef   integer
 USE_UNIDECODE                      converter_customization undef   integer
-USE_UP_NODE_FOR_ELEMENT_UP         converter_customization undef   integer
 USE_XML_SYNTAX                     converter_customization undef   integer
 VERTICAL_HEAD_NAVIGATION           converter_customization undef   integer
 WORDS_IN_PAGE                      converter_customization undef   integer

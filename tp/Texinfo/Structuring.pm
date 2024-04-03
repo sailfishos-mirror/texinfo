@@ -2097,19 +2097,6 @@ sub units_directions($$$)
           = $output_unit;
       }
     }
-    # Use node up for Up if there is no section up.
-    # Not done in the default case.
-    if ($customization_information->get_conf('USE_UP_NODE_FOR_ELEMENT_UP')
-        and !$directions->{'Up'} and defined($node)
-        and $node->{'extra'}->{'node_directions'}
-        and $node->{'extra'}->{'node_directions'}->{'up'}
-        and (!$node_top or ($node ne $node_top))) {
-      #print STDERR "Node for up: ".output_unit_texi($output_unit)."\n";
-      my $up_node_unit_element
-        = _label_target_unit_element(
-               $node->{'extra'}->{'node_directions'}->{'up'});
-      $directions->{'Up'} = $up_node_unit_element if ($up_node_unit_element);
-    }
     if ($output_unit->{'directions'}) {
       %{$output_unit->{'directions'}}
         = (%{$output_unit->{'directions'}}, %$directions);

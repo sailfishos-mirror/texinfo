@@ -1,5 +1,19 @@
 2024-04-03  Patrice Dumas  <pertusus@free.fr>
 
+	Remove USE_UP_NODE_FOR_ELEMENT_UP customization variable
+
+	* NEWS, doc/texinfo.texi (Other Customization Variables),
+	tp/Texinfo/Convert/HTML.pm (_set_variables_texi2html),
+	tp/Texinfo/Structuring.pm (units_directions),
+	tp/Texinfo/XS/main/output_unit.c (units_directions),
+	tp/Texinfo/options_data.txt: remove USE_UP_NODE_FOR_ELEMENT_UP
+	customization variable.  It would only be relevant if @top is not
+	present, which should never be the case and is quite confusing as
+	it does the reverse as the usual determination of direction based on
+	chapter structuring commands.
+
+2024-04-03  Patrice Dumas  <pertusus@free.fr>
+
 	Remove NO_USE_SETFILENAME customization variable
 
 	* NEWS, doc/texinfo.texi (Other Customization Variables),
