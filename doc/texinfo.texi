@@ -18380,7 +18380,7 @@ and set @code{BIG_RULE} for the wider separator sometime used.
 @vindex EXTRA_HEAD
 @vindex AFTER_BODY_OPEN
 @cindex @code{<head>} block, adding to
-@vindex BODYTEXT
+@vindex BODY_ELEMENT_ATTRIBUTES
 You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to
 the @code{<html>} element.
 You can define the variable @code{EXTRA_HEAD} to add text within the
@@ -18390,7 +18390,7 @@ These variables are empty by default.
 
 @cindex @code{<body>} tag, attributes of
 You can set the attributes of the @code{<body>} element by defining the
-customization variable @code{BODYTEXT}.
+customization variable @code{BODY_ELEMENT_ATTRIBUTES}.
 By default, the @samp{lang} attribute is set to the document language
 (@pxref{@code{@@documentlanguage}}).
 
@@ -18728,7 +18728,7 @@ special elements, but not for footers and headers; default
 
 @cindex @code{<body>} text, customizing
 @opindex lang@r{, HTML attribute}
-@item BODYTEXT
+@item BODY_ELEMENT_ATTRIBUTES
 The @code{<body>} attributes text.  By default, sets the
 HTML @code{lang} attribute to the document language
 (@pxref{@code{@@documentlanguage}}).

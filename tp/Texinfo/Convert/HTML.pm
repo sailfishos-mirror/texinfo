@@ -2421,7 +2421,7 @@ my %defaults = (
 
   # Customization option variables
   'BIG_RULE'              => '<hr>',
-  'BODYTEXT'              => undef,
+  'BODY_ELEMENT_ATTRIBUTES' => undef,
   'CHAPTER_HEADER_LEVEL'  => 2,
   'CLOSE_QUOTE_SYMBOL'    => undef,
   'CONTENTS_OUTPUT_LOCATION' => 'after_top',
@@ -11100,10 +11100,10 @@ sub _file_header_information($$;$)
 
   my $doctype = $self->get_conf('DOCTYPE');
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
-  my $bodytext = $self->get_conf('BODYTEXT');
+  my $body_attributes = $self->get_conf('BODY_ELEMENT_ATTRIBUTES');
   if ($self->get_conf('HTML_MATH') and $self->get_conf('HTML_MATH') eq 'mathjax'
       and $self->get_file_information('mathjax', $filename)) {
-    $bodytext .= ' class="tex2jax_ignore"';
+    $body_attributes .= ' class="tex2jax_ignore"';
   }
   my $copying_comment = $self->get_info('copying_comment');
   $copying_comment = ''
@@ -11170,8 +11170,8 @@ MathJax = {
 
   }
 
-  return ($title, $description, $encoding, $date, $css_lines,
-          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
+  return ($title, $description, $encoding, $date, $css_lines, $doctype,
+          $root_html_element_attributes, $body_attributes, $copying_comment,
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
           $program, $generator);
 }
@@ -11228,11 +11228,11 @@ sub _default_format_begin_file($$$)
     }
   }
 
-  my ($title, $description, $encoding, $date, $css_lines,
-          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
-          $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator) = $self->_file_header_information($command_for_title,
-                                                                  $filename);
+  my ($title, $description, $encoding, $date, $css_lines, $doctype,
+      $root_html_element_attributes, $body_attributes, $copying_comment,
+      $after_body_open, $extra_head, $program_and_version, $program_homepage,
+      $program, $generator)
+        = $self->_file_header_information($command_for_title, $filename);
 
   my $links = $self->_get_links($filename, $output_unit, $node_command);
 
@@ -11258,7 +11258,7 @@ ${links}$css_lines
 $extra_head
 </head>
 
-<body $bodytext>
+<body $body_attributes>
 $after_body_open";
 
   return $result;
@@ -11278,11 +11278,11 @@ sub _default_format_node_redirection_page($$;$)
       { 'href' => {'type' => '_converted', 'text' => $direction }}),
       'Tr redirection sentence');
 
-  my ($title, $description, $encoding, $date, $css_lines,
-          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
-          $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator) = $self->_file_header_information($command,
-                                                                  $filename);
+  my ($title, $description, $encoding, $date, $css_lines, $doctype,
+      $root_html_element_attributes, $body_attributes, $copying_comment,
+      $after_body_open, $extra_head, $program_and_version, $program_homepage,
+      $program, $generator) = $self->_file_header_information($command,
+                                                              $filename);
 
   my $result = "$doctype
 <html${root_html_element_attributes}>
@@ -11307,7 +11307,7 @@ $description\n".
 "$extra_head
 </head>
 
-<body $bodytext>
+<body $body_attributes>
 $after_body_open
 <p>$string</p>
 </body>
@@ -12888,10 +12888,10 @@ sub output($$)
   # pass to XS.
   _XS_reset_output_init_conf($self);
 
-  # set BODYTEXT
+  # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $structure_preamble_document_language = $self->get_conf('documentlanguage');
-  $self->set_conf('BODYTEXT',
+  $self->set_conf('BODY_ELEMENT_ATTRIBUTES',
                   'lang="' . $structure_preamble_document_language . '"');
   $self->set_global_document_commands('before', ['documentlanguage']);
 

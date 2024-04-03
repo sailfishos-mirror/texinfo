@@ -4716,11 +4716,11 @@ You can define the variable @code{EXTRA_HEAD} to add text within the
 @code{AFTER_BODY_OPEN} is added just after @code{<body>} is output.
 These variables are empty by default.
 
-@c @vindex BODYTEXT@r{, in customization}
-@vindex BODYTEXT
+@c @vindex BODY_ELEMENT_ATTRIBUTES@r{, in customization}
+@vindex BODY_ELEMENT_ATTRIBUTES
 @cindex @code{<body>} tag, attributes of
 The @code{<body>} element attributes may be set by defining the
-customization variable @code{BODYTEXT}.
+customization variable @code{BODY_ELEMENT_ATTRIBUTES}.
 
 @vindex OUTPUT_ENCODING_NAME
 @cindex Encoding, in HTML output

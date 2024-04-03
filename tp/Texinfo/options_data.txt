@@ -204,7 +204,7 @@ AUTO_MENU_MAX_WIDTH                converter_customization undef   integer
 BEFORE_SHORT_TOC_LINES             converter_customization undef   char
 BEFORE_TOC_LINES                   converter_customization undef   char
 BIG_RULE                           converter_customization undef   char
-BODYTEXT                           converter_customization undef   char
+BODY_ELEMENT_ATTRIBUTES            converter_customization undef   char
 # for LaTeX
 CLASS_BEGIN_USEPACKAGE             converter_customization undef   char
 COPIABLE_LINKS                     converter_customization undef   integer

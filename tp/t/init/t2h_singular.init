@@ -35,7 +35,8 @@ texinfo_set_from_init_file('VERBOSE', 1);
 my $T2H_SING_base_images = '../singular_images/';
 
 # inside <BODY ..>
-texinfo_set_from_init_file('BODYTEXT','lang="en"  background="'.${T2H_SING_base_images}.'Mybg.png"');
+texinfo_set_from_init_file('BODY_ELEMENT_ATTRIBUTES','lang="en"  background="'
+                                    .${T2H_SING_base_images}.'Mybg.png"');
 
 # after <BODY>
 texinfo_set_from_init_file('AFTER_BODY_OPEN', "\n");

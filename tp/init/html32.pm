@@ -44,7 +44,8 @@ texinfo_set_from_init_file('INDENTED_BLOCK_COMMANDS_IN_TABLE', 1);
 
 texinfo_set_from_init_file('DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN" "http://www.w3.org/TR/html32/loose.dtd">');
 
-texinfo_set_from_init_file('BODYTEXT', 'bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000"');
+texinfo_set_from_init_file('BODY_ELEMENT_ATTRIBUTES',
+  'bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000"');
 
 texinfo_set_from_init_file('BEFORE_SHORT_TOC_LINES', '');
 texinfo_set_from_init_file('AFTER_SHORT_TOC_LINES', '');

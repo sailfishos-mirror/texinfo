@@ -6726,7 +6726,7 @@ typedef struct BEGIN_FILE_INFORMATION {
     char *encoding;
     char *css_lines;
     char *root_html_element_attributes;
-    char *bodytext;
+    char *body_attributes;
     char *generator;
     char *extra_head;
 } BEGIN_FILE_INFORMATION;
@@ -6739,7 +6739,7 @@ destroy_begin_file_information (BEGIN_FILE_INFORMATION *begin_info)
   free (begin_info->encoding);
   free (begin_info->css_lines);
   free (begin_info->root_html_element_attributes);
-  free (begin_info->bodytext);
+  free (begin_info->body_attributes);
   free (begin_info->generator);
   free (begin_info->extra_head);
 
@@ -7011,7 +7011,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
     begin_info->root_html_element_attributes = strdup ("");
 
   text_reset (&text);
-  text_append (&text, self->conf->BODYTEXT.string);
+  text_append (&text, self->conf->BODY_ELEMENT_ATTRIBUTES.string);
   if (self->conf->HTML_MATH.string
       && !strcmp (self->conf->HTML_MATH.string, "mathjax")
       && html_get_file_information (self, "mathjax", filename, &status) > 0)
@@ -7019,7 +7019,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
       text_append_n (&text, " class=\"tex2jax_ignore\"", 23);
     }
 
-  begin_info->bodytext = strdup (text.text);
+  begin_info->body_attributes = strdup (text.text);
 
   text_reset (&text);
   if (self->conf->PROGRAM.string && strlen (self->conf->PROGRAM.string))
@@ -7225,7 +7225,7 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   if (begin_info->extra_head)
     text_append (&result, begin_info->extra_head);
   text_append_n (&result, "\n</head>\n\n", 10);
-  text_printf (&result, "<body %s>\n", begin_info->bodytext);
+  text_printf (&result, "<body %s>\n", begin_info->body_attributes);
   if (self->conf->AFTER_BODY_OPEN.string)
     text_append (&result, self->conf->AFTER_BODY_OPEN.string);
 
@@ -8307,7 +8307,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   if (begin_info->extra_head)
     text_append (&result, begin_info->extra_head);
   text_append_n (&result, "\n</head>\n\n", 10);
-  text_printf (&result, "<body %s>\n", begin_info->bodytext);
+  text_printf (&result, "<body %s>\n", begin_info->body_attributes);
   if (self->conf->AFTER_BODY_OPEN.string)
     text_append (&result, self->conf->AFTER_BODY_OPEN.string);
 
