@@ -15857,11 +15857,6 @@ the title and copying informations are always output.  This option
 is kept for DocBook for compatibility, as before 2022 the Top node was output
 in DocBook.  It could be removed in the future.
 
-@item NO_USE_SETFILENAME
-If set, do not use @code{@@setfilename} to set the document name;
-instead, base the output document name only on the input file name.
-The default is false.
-
 @item NODE_NAME_IN_MENU
 If set, use node names in menu entries, otherwise prefer section names;
 default true.

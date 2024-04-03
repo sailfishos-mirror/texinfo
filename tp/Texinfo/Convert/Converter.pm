@@ -710,8 +710,7 @@ sub determine_files_and_directory($$)
   # determine output file and output file name
   my $output_file;
   if (!defined($self->get_conf('OUTFILE'))) {
-    if (defined($setfilename_for_outfile)
-        and !$self->get_conf('NO_USE_SETFILENAME')) {
+    if (defined($setfilename_for_outfile)) {
       $output_file = $setfilename_for_outfile;
       $document_path = $setfilename_for_outfile;
       $document_path =~ s/\.[^\.]*$//;
@@ -747,8 +746,7 @@ sub determine_files_and_directory($$)
   # in this case one wants to get the result in a string and there
   # is a setfilename.  The setfilename is used to get something.
   # This happens in the test suite.
-  if ($output_file eq '' and defined($setfilename_for_outfile)
-      and !$self->get_conf('NO_USE_SETFILENAME')) {
+  if ($output_file eq '' and defined($setfilename_for_outfile)) {
     $output_filepath = $setfilename_for_outfile;
     $document_path = $setfilename_for_outfile;
     $document_path =~ s/\.[^\.]*$//;

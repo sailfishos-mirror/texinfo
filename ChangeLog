@@ -1,5 +1,16 @@
 2024-04-03  Patrice Dumas  <pertusus@free.fr>
 
+	Remove NO_USE_SETFILENAME customization variable
+
+	* NEWS, doc/texinfo.texi (Other Customization Variables),
+	tp/Texinfo/Convert/Converter.pm (determine_files_and_directory),
+	tp/Texinfo/options_data.txt, tp/Texinfo/Convert/HTML.pm
+	(_set_variables_texi2html): remove NO_USE_SETFILENAME customization
+	variable.  There are other ways to set setfilename or output file name
+	and the @setfilename can be removed from document.
+
+2024-04-03  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi: update cross-references to customization variables
 	nodes.
 

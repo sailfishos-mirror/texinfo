@@ -27,7 +27,7 @@ See the manual for detailed information.
    use of Unicode collation when sorting indices
  . remove SIMPLE_MENU customization option and tree transformation.
  . remove FRAMES and FRAMESET_DOCTYPE customization options.
- . remove AVOID_MENU_REDUNDANCY customization option.
+ . remove AVOID_MENU_REDUNDANCY and NO_USE_SETFILENAME customization options.
  . set CHECK_NORMAL_MENU_STRUCTURE in the default case.
  . rename COMPLEX_FORMAT_IN_TABLE customization option as
    INDENTED_BLOCK_COMMANDS_IN_TABLE.

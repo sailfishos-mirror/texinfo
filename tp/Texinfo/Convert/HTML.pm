@@ -13598,7 +13598,6 @@ sub _set_variables_texi2html($)
   #['DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">'],
   #['DOCTYPE', '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">'],
   ['FORMAT_MENU', 'menu'],
-  ['NO_USE_SETFILENAME', 1],
   ['USE_SETFILENAME_EXTENSION', 0],
   ['footnotestyle', 'separate'],
   ['CONTENTS_OUTPUT_LOCATION', 'separate_element'],
