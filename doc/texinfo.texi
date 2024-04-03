@@ -17220,6 +17220,8 @@ any way; the special @samp{@@} and @samp{;} characters are looked for
 the text is blindly copied into the output.  Comments in the CSS
 file may or may not be included in the output.
 
+@vindex NO_CSS
+@vindex INLINE_CSS_STYLE
 By default, classes are added to the HTML elements and CSS rules
 for these classes are output at the beginning of each HTML file.  Set
 the @code{NO_CSS} customization variable to prevent classes being added and CSS
@@ -17227,6 +17229,7 @@ being used. Set @code{INLINE_CSS_STYLE} to have CSS code put in HTML
 elements in the @code{style} attribute rather than at the beginning of
 the output.
 
+@vindex SHOW_BUILTIN_CSS_RULES
 Since @command{texi2any} only inserts CSS code needed by the HTML
 actually output, the full list of CSS code potentially inserted is
 not visible in the output document.  To get the full list of CSS rules, call
@@ -17331,6 +17334,8 @@ this file name is used instead.  The output EPUB file is never placed
 in the directory specified by @option{--output} or @code{SUBDIR};
 only the container directory is placed there, as explained just above.
 
+@vindex EPUB_CREATE_CONTAINER_FILE
+@vindex EPUB_KEEP_CONTAINER_FOLDER
 The EPUB output file is not generated if the customization variable
 @code{EPUB_CREATE_CONTAINER_FILE} is set to 0.  The container directory
 is left after the final EPUB file has been generated if
@@ -17391,6 +17396,8 @@ Source highlighting is experimental, feedback is welcomed.
 @end quotation
 @end cartouche
 
+@vindex HIGHLIGHT_SYNTAX
+@vindex HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE
 Support for source code syntax highlighting is available in
 @command{texi2any} for the HTML output, with the help of external software.
 This feature is turned on by setting @code{HIGHLIGHT_SYNTAX}.  Source code
