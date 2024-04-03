@@ -18460,10 +18460,6 @@ customizable:
 Header formatting level used for chapter level sectioning
 commands; default @samp{2}.
 
-@item COMPLEX_FORMAT_IN_TABLE
-If set, use tables for indentation of complex formats; default
-false.
-
 @item FOOTNOTE_END_HEADER_LEVEL
 @itemx FOOTNOTE_SEPARATE_HEADER_LEVEL
 Header formatting level used for the footnotes header with
@@ -18483,6 +18479,10 @@ default @samp{4}.
 
 You may modify the appearance of various constructs by setting:
 @vtable @code
+@item COMPLEX_FORMAT_IN_TABLE
+If set, use tables for indentation of complex formats; default
+false.
+
 @item DEF_TABLE
 If set, a @code{<table>} construction for @code{@@deffn}
 and similar @@-commands is used (looking more like the @TeX{} output),
