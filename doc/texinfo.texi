@@ -18398,9 +18398,12 @@ You can define the variable @code{EXTRA_HEAD} to add text within the
 @code{<head>} HTML element.  Similarly, the value of
 @code{AFTER_BODY_OPEN} is added just after @code{<body>} is output.
 These variables are empty by default.
+
 @cindex @code{<body>} tag, attributes of
-You can set the @code{<body>} element attributes by defining the
+You can set the attributes of the @code{<body>} element by defining the
 customization variable @code{BODYTEXT}.
+By default, the @samp{lang} attribute is set to the document language
+(@pxref{@code{@@documentlanguage}}).
 
 @vindex PRE_BODY_CLOSE
 You can define the variable @code{PRE_BODY_CLOSE} to add text just

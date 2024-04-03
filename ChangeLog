@@ -1,5 +1,10 @@
 2024-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Customization of HTML Code Inserted) <BODYTEXT>:
+	Add information about "lang" attribute.
+
+2024-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Specific Customization of HTML Formatting):
 	Move COMPLEX_FORMAT_IN_TABLE to the right place.
 
