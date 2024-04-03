@@ -1,3 +1,9 @@
+2024-04-03  Patrice Dumas  <pertusus@free.fr>
+
+	* info/scan.c (scan_reference_marker): If a file name component
+	was read, allow what follows to be blank.  This supports cross
+	references like '*note (manual)::'.
+
 2024-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Syntax Highlighting, HTML Xref):
