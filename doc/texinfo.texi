@@ -2399,13 +2399,13 @@ but some Info readers do not recognize this syntax.  Node name and label
 quoting causes @code{DEL} characters (@samp{CTRL-?}, character number 127,
 often rendered as @samp{^?}) to appear around the name.  To remove
 node names and labels quoting, you can set the customization variable
-@code{INFO_SPECIAL_CHARS_QUOTE} to @samp{0} (@pxref{Other
+@code{INFO_SPECIAL_CHARS_QUOTE} to @samp{0} (@pxref{Info and Plaintext
 Customization Variables}).
 
 @command{texi2any} warns about such problematic usage in node names,
 menu items, and cross-references.  If you don't want to see the
 warnings, you can set the customization variable
-@code{INFO_SPECIAL_CHARS_WARNING} to @samp{0} (@pxref{Other
+@code{INFO_SPECIAL_CHARS_WARNING} to @samp{0} (@pxref{Info and Plaintext
 Customization Variables}).
 
 If you insist on using these characters in node names, in order not
@@ -3258,7 +3258,7 @@ same level.  For instance, it is the same for the chapter-level commands
 
 In HTML, the chapter-level commands produce an @code{<h2>}-level
 header by default (controlled by the @code{CHAPTER_HEADER_LEVEL}
-customization variable, @pxref{Other Customization Variables}).
+customization variable, @pxref{Specific Customization of HTML Formatting}).
 The heading element level is adjusted for the other commands.
 
 In the DocBook output, the appropriate level of element is used.
@@ -4921,7 +4921,6 @@ To control which quoting characters are inserted by
 @command{texi2any} in the output of @samp{@@code}, etc., see the
 @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL} customization
 variables (@pxref{Other Customization Variables}).
-
 
 
 @node @code{@@kbd}
@@ -17035,7 +17034,7 @@ output.  The output is intentionally quite plain for maximum portability
 and accessibility.
 
 You can customize the output via CSS (@pxref{HTML CSS}) or other
-means (@pxref{Customization Variables}).  If you cannot accomplish
+means (@pxref{HTML Output Customization}).  If you cannot accomplish
 a reasonable customization, feel free to report that.
 
 @cindex Navigation bar, in HTML output
@@ -17508,10 +17507,10 @@ the directory is @file{./} (or just the empty string), and the file is
 Another rule, that only holds for file names, is that base file names
 are truncated to 245 characters, to allow for an extension to be
 appended and still comply with the 255-character limit which is common
-to many filesystems.  Although technically this can be changed with
-the @code{BASEFILENAME_LENGTH} customization variable (@pxref{Other
-Customization Variables}), doing so would make cross-manual references
-to such nodes invalid.
+to many filesystems.  Although technically this can be changed with the
+@code{BASEFILENAME_LENGTH} customization variable (@pxref{File Names and Links
+Customization for HTML}), doing so would make cross-manual references to such
+nodes invalid.
 
 Any directory part in the file name argument of the source cross
 reference command is ignored.  Thus, @code{@@xref@{,,,../foo@}} and
