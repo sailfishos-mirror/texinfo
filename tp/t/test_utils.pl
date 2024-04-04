@@ -1031,9 +1031,7 @@ sub test($$)
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
     $document = $parser->parse_texi_file($test_file, $XS_structuring);
   }
-  my $tree = $document->tree(1);
-
-  if (not defined($tree)) {
+  if (not defined($document)) {
     print STDERR "ERROR: parsing result undef\n";
     my ($parser_errors, $parser_error_count) = $parser->errors();
     foreach my $error_message (@$parser_errors) {
@@ -1041,6 +1039,8 @@ sub test($$)
         if ($error_message->{'type'} eq 'error');
     }
   }
+  my $tree = $document->tree(1);
+
   my ($errors, $error_nrs) = $parser->errors();
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
@@ -1482,11 +1482,14 @@ sub test($$)
     }
     {
       local $Data::Dumper::Sortkeys = 1;
-      # NOTE file names in error messages are bytes, there could be a
-      # need to decode them if there were file names with non ascii
-      # characters.
-      # FIXME remove the NOTE if file names in error messages are not bytes
-      # anymore
+      # NOTE file names in error messages are bytes.  Since strings written
+      # to the test reference output file (with generate) are encoded to
+      # utf-8, the file names with non ascii characters will have the non ascii
+      # characters encoded twice to utf-8 (in 'file_name' hash keys values).
+      # The bytes would need to be decoded first to character strings to be
+      # correctly encoded to utf-8.  Note that having doubly encoded strings
+      # should not prevent the tests to pass, as both the reference and the
+      # results to check are doubly encoded.
       $out_result .= Data::Dumper->Dump([$errors],
                            ['$result_errors{\''.$test_name.'\'}']) ."\n\n";
       $out_result .= Data::Dumper->Dump([$indices],
