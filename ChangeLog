@@ -1,5 +1,12 @@
 2024-04-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/formats_encodings.t
+	(accented_character_in_file_name): add to the t/*.t test suite a file
+	that is already tested in tp/tests/encoded/ and has an accented letter
+	in the Texinfo input file name.
+
+2024-04-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): test if $document is undef to determine
 	if the parsing failed.
 

@@ -1,5 +1,7 @@
 use strict;
 
+use Encode;
+
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
@@ -394,6 +396,16 @@ undef, {'test_file' => 'manual_simple_latin1_with_error.texi'}
 undef, {'test_file' => 'multiple_include_encodings.texi',
         'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
                    ? 'No conversion from EUC-CN' : undef, }
+],
+# This tests is also (and maybe more) a test for the test code.
+# In particular it shows that the file names in error messages
+# are doubly encoded to utf-8.  It does not prevent tests to succeed as
+# both the reference and the checked result are doubly encoded.
+# A similar test is also used in tests/encoded, but here we have the
+# tree in addition.
+['accented_character_in_file_name',
+undef, {'test_file' => Encode::encode('utf-8',
+                            "../../tests/encoded/os\x{e9}_utf8.texi")},
 ],
 ['at_commands_in_refs_utf8',
 '@setfilename at_commands_in_refs_utf8.info
