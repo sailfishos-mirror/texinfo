@@ -757,7 +757,7 @@ b!}
 $indices_text
 ],
 ['indices_disable_encoding',
-$indices_text, {ENABLE_ENCODING => 0,}, {ENABLE_ENCODING => 0,}
+$indices_text, {}, {ENABLE_ENCODING => 0,}
 ],
 ['error_in_sectioning_command',
 '@contents

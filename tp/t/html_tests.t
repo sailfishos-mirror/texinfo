@@ -841,12 +841,12 @@ AA @^e --- -- \'` \'\' ``'],
 ['utf8_enable_encoding',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}],
+AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}],
 ['utf8_enable_encoding_no_use_iso',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1},
-                            {'OUTPUT_CHARACTERS' => 1, 'USE_ISO' => 0}],
+AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1,
+                            'OUTPUT_CHARACTERS' => 1, 'USE_ISO' => 0}],
 ['utf8_use_numeric_entity',
 '@documentencoding utf-8
 
@@ -854,8 +854,8 @@ AA @^e --- -- \'` \'\' ``', {}, {'USE_NUMERIC_ENTITY' => 1}],
 ['utf8_enable_encoding_use_numeric_entity',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1,
-                                                       'USE_NUMERIC_ENTITY' => 1}],
+AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1,
+                    'OUTPUT_CHARACTERS' => 1, 'USE_NUMERIC_ENTITY' => 1}],
 ['ref_in_preformatted',
 '@node Top
 
@@ -935,18 +935,18 @@ my @test_cases_file_text = (
 ['test_accents_sc_default',
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'}],
 ['test_accents_sc_enable_encoding',
-undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi',
-        'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}],
+undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi',},
+       {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}],
 ['test_accents_sc_default_latin1',
 undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'}],
 ['test_accents_sc_enable_encoding_latin1',
-undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',
-        'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}],
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',},
+       {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}],
 ['test_accents_sc_default_usascii',
 undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi'}],
 ['test_accents_sc_enable_encoding_usascii',
-undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
-        'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}],
+undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',},
+        {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}],
 ['test_accents_sc_use_numeric_entity',
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'},
        {'USE_NUMERIC_ENTITY' => 1}],
@@ -955,13 +955,13 @@ undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'},
 undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'},
         {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 ['test_accents_sc_enable_encoding_to_utf8_latin1',
-undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',
-         'ENABLE_ENCODING' => 1},
-        {'OUTPUT_CHARACTERS' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',},
+       {'ENABLE_ENCODING' => 1,
+       'OUTPUT_CHARACTERS' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 ['test_accents_sc_enable_encoding_to_utf8_usascii',
-undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
-         'ENABLE_ENCODING' => 1},
-        {'OUTPUT_CHARACTERS' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',},
+        {'ENABLE_ENCODING' => 1,
+         'OUTPUT_CHARACTERS' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 );
 
 my $css_init_file_texinfo = '@node Top
@@ -1212,7 +1212,7 @@ $itemize_arguments_text
 ],
 ['itemize_arguments_enable_encoding',
 $itemize_arguments_text
-, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
+, {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 ['itemize_tieaccent',
 '@itemize @tieaccent{ab}

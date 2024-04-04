@@ -922,18 +922,6 @@ sub test($$)
   my $added_main_configurations = {'FORMAT_MENU' => 'menu',
                                    'CHECK_MISSING_MENU_ENTRY' => 1};
 
-  # FIXME this has changed
-  # this is only used for index keys sorting in structuring
-  foreach my $structuring_and_converter_option ('ENABLE_ENCODING') {
-    if (defined($parser_options->{$structuring_and_converter_option})) {
-      $added_main_configurations->{$structuring_and_converter_option}
-        = $parser_options->{$structuring_and_converter_option};
-      $converter_options->{$structuring_and_converter_option}
-        = $parser_options->{$structuring_and_converter_option};
-      delete $parser_options->{$structuring_and_converter_option};
-    }
-  }
-
   foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
                                   'FORMAT_MENU', 'USE_UNICODE_COLLATION',
                                   'COLLATION_LANGUAGE') {
@@ -982,7 +970,7 @@ sub test($$)
   my $init_files_options = {};
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
   # the init file names are supposed to be binary strings.  Since they
-  # are not encoded anywhere, probably only non ascii file names should
+  # are not encoded anywhere, probably only ascii file names should
   # be used.
   # FIXME what if srcdir is non ascii (srcdir is truly a binary string).
   if ($parser_options and $parser_options->{'init_files'}) {
@@ -1068,7 +1056,7 @@ sub test($$)
     $main_configuration->set_conf('novalidate', 1);
   }
 
-  # Now that all the configuration has been set, associate it to the
+  # Now that all the configuration has been set, associate it with the
   # document XS
   $main_configuration->register_XS_document_main_configuration($document);
 
@@ -1146,7 +1134,7 @@ sub test($$)
   $tree = $document->tree();
 
   my $indices_information = $document->indices_information();
-  # FIXME maybe it would be good to compare $merged_index_entries?
+  # TODO maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries = $document->merged_indices();
 
   # only print indices information if it differs from the default

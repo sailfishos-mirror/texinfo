@@ -138,6 +138,7 @@ sub _sort_index_entries($$)
   return $res;
 }
 
+# Only called from converters
 sub setup_index_entry_keys_formatting($)
 {
   my $customization_information = shift;
