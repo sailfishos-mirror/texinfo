@@ -2787,6 +2787,10 @@ my @kept_keys_output_unit = ('unit_contents');
 foreach my $key (@kept_keys_output_unit) {
   $kept_keys{$key} = 1;
 }
+my @kept_keys_handle = ('tree_document_descriptor');
+foreach my $key (@kept_keys_handle) {
+  $kept_keys{$key} = 1;
+}
 sub _filter_print_keys { [grep {$kept_keys{$_}} ( sort keys %{$_[0]} )] };
 sub debug_print_tree($)
 {
