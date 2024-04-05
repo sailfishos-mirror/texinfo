@@ -195,10 +195,9 @@ sub _get_parser_error_registrar($)
   return $registrar, $configuration_information;
 }
 
-sub _get_parser_info($$;$$) {
+sub _get_parser_info($$;$) {
   my $self = shift;
   my $document_descriptor = shift;
-  my $no_build = shift;
   my $no_store = shift;
 
   # make sure that the parser Texinfo::Report registrar is setup
@@ -210,10 +209,10 @@ sub _get_parser_info($$;$$) {
   pass_document_parser_errors_to_registrar($document_descriptor, $self);
 
   my $document;
-  if ($no_build) {
+  if (!$no_store) {
     $document = get_document ($document_descriptor);
   } else {
-    $document = build_document ($document_descriptor, $no_store);
+    $document = build_document ($document_descriptor, 1);
   }
 
   # additional info relevant in perl only.
@@ -258,7 +257,7 @@ sub parse_texi_file ($$)
     return undef;
   }
 
-  my $document = _get_parser_info($self, $document_descriptor, 1);
+  my $document = _get_parser_info($self, $document_descriptor);
 
   return $document;
 }
@@ -279,7 +278,7 @@ sub parse_texi_piece($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_piece($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor, 1, $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, $no_store);
 
   return $document;
 }
@@ -299,7 +298,7 @@ sub parse_texi_text($$;$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_text($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor, 1);
+  my $document = _get_parser_info($self, $document_descriptor);
 
   return $document;
 }
@@ -318,7 +317,7 @@ sub parse_texi_line($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_string($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor, 0, $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, $no_store);
 
   return $document->tree();
 }
