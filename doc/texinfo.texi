@@ -11801,7 +11801,7 @@ This command changes the translation of various @dfn{document strings}
 such as ``see'' in cross-references (@pxref{Cross References}),
 ``Function'' in defuns (@pxref{Definition Commands}), and so on.
 Optionally, this command may also affect how @command{texi2any}
-sorts indices (@pxref{Other Customization Variables}, under
+sorts indices (@pxref{Global Customization Variables}, under
 @code{DOCUMENTLANGUAGE_COLLATION}).
 
 Note that in Info output, some strings, such as ``Node:'', ``Next:'',
@@ -13651,7 +13651,7 @@ such lines.
 The @command{texi2any} program recognizes these lines by default,
 except within @code{@@verbatim} blocks (@pxref{@code{@@verbatim}}).
 Their recognition can be turned off completely with
-@code{CPP_LINE_DIRECTIVES} (@pxref{Other Customization Variables}),
+@code{CPP_LINE_DIRECTIVES} (@pxref{Global Customization Variables}),
 though there is normally no reason to do so.
 
 For those few programs (M4, CPP, Texinfo) which need to document
@@ -15360,6 +15360,7 @@ The sections below give the details for each of these.
 @menu
 * Commands: Customization Variables for @@-Commands.
 * Options:  Customization Variables and Options.
+* Global:   Global Customization Variables.
 * LaTeX:    @LaTeX{} Customization Variables.
 * Info:     Info and Plaintext Customization Variables.
 * Other:    Other Customization Variables.
@@ -15537,6 +15538,315 @@ exec texi2any -c TEXINPUT_OUTPUT_FORMAT=textcontent "$@@"
 @end table
 
 
+@node Global Customization Variables
+@subsection Global Customization Variables
+
+This table gives the customization variables which affect the global behavior
+of @command{texi2any}.
+
+@vtable @code
+@item CHECK_MISSING_MENU_ENTRY
+When a @code{@@menu} block occurs in a node, check if there is a menu
+entry for all subordinate nodes in the document sectioning structure.  On
+by default.
+
+@item CHECK_NORMAL_MENU_STRUCTURE
+Warn if the node pointers (either explicitly or automatically set)
+are not consistent with the order of node menu entries.  This is a more
+thorough structure check than that provided by
+@code{CHECK_MISSING_MENU_ENTRY}.  Off by default.
+
+@item COLLATION_LANGUAGE
+By default, @command{texi2any} sorts document indices according to the
+@dfn{Unicode Collation Algorithm} (defined in
+@uref{http://www.unicode.org/reports/tr10/, Unicode Technical Standard #10}),
+without language-specific collation tailoring.  If set, use the language
+for linguistic tailoring of index sorting.
+
+Currently, @command{texi2any} gives no warning if there is no support
+for linguistic tailoring due to either missing software or missing
+support for the specified language.
+
+In Perl, the @code{Unicode::Collate::Locale} module is used for linguistic
+tailoring; therefore if this module is not installed, the variable will be
+silently ignored.
+
+If @code{USE_UNICODE_COLLATION} is set to @samp{0}, there is no Unicode
+collation and so no linguistic tailoring either.
+
+See also the @code{DOCUMENTLANGUAGE_COLLATION} variable, described below.
+
+@item COMMAND_LINE_ENCODING
+Encoding used to decode command-line arguments.  Default is based on the locale
+encoding.  This may affect file names inserted into output files or error
+messages printed by the program.
+
+Note that some file and directory names from the command line may
+not be decoded immediately, and may not be decoded at all.
+
+@item CPP_LINE_DIRECTIVES
+Recognize @code{#line} directives in a ``preprocessing'' pass
+(@pxref{External Macro Processors}); on by default.
+
+@item DEBUG
+If set, debugging output is generated; default is off (zero).
+@c The integer value specifies what kinds of debugging output are
+@c generated.  It is a bitmask.  Setting it to 255 ensures having all
+@c available debugging output.
+
+@item DOC_ENCODING_FOR_INPUT_FILE_NAME
+If set, use the input Texinfo document encoding information for
+the encoding of input file names, such as file names specified as
+@code{@@include} or @code{@@verbatiminclude} arguments.  If unset, use
+the locale encoding instead.  Default is set, except on MS-Windows where
+the locale encoding is used by default.
+
+Note that this is for file names only; the default encoding or
+@code{@@documentencoding} is always used for the encoding of file
+content (@pxref{@code{@@documentencoding}}).
+
+The @code{INPUT_FILE_NAME_ENCODING} variable overrides this variable.
+
+@item DOC_ENCODING_FOR_OUTPUT_FILE_NAME
+If set, use the input Texinfo document encoding information for the
+encoding of output file names, such as files specified with @option{--output}.
+If unset, use the locale encoding instead.  Default is unset, so files
+names are encoded using the current locale.
+
+Note that this is for file names only; @code{OUTPUT_ENCODING_NAME}
+is used for the encoding of file content.
+
+The @code{OUTPUT_FILE_NAME_ENCODING} variable overrides this variable.
+
+@item DOCUMENTLANGUAGE_COLLATION
+If set, try to use the language specified in a @code{@@documentlanguage}
+directive for language-specific tailoring of index sorting.
+See also the @code{COLLATION_LANGUAGE} variable, described above.
+(@xref{@code{@@documentlanguage}}.)
+
+@item DUMP_TEXI
+For debugging.  If set, no conversion is done, only parsing and macro
+expansion.  If the option @option{--macro-expand} is set, the Texinfo
+source is also expanded to the corresponding file.  Default false.
+
+@item DUMP_TREE
+For debugging.  If set, the tree constructed upon parsing a Texinfo
+document is output to standard error; default false.
+
+@item FORMAT_MENU
+If set to @samp{menu}, output Texinfo menus.  This is the default for
+Info.  @samp{sectiontoc} is the default setting for HTML, where instead
+of the contents of @code{@@menu} blocks being output, a list of subordinate
+sections is output in each node.  If set to @samp{nomenu}, do not output
+menus.
+
+This variable is set to @samp{nomenu} when generating DocBook, or when
+@option{--no-headers} is specified.
+
+@c document?
+@ignore
+@item HANDLER_FATAL_ERROR_LEVEL
+This variable sets the error level above which errors returned by
+user defined functions registered to be called at different stages
+are considered to be fatal errors.  You should not need to change this
+value.  Default 100.
+@end ignore
+
+@item IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
+If set, spaces are ignored after an @@-command that takes braces.
+Default true, matching the @TeX{} behavior.
+
+@cindex Encoding @subentry input file names
+@item INPUT_FILE_NAME_ENCODING
+Encoding used for input file names.  This variable overrides
+any encoding from the document or current locale.  Normally, you do
+not need to set this variable, but it can be used if file names are
+in a certain character encoding on a filesystem.  An alternative is to
+set @code{DOC_ENCODING_FOR_INPUT_FILE_NAME} to @samp{0} to use the locale
+encoding.  See also @code{OUTPUT_FILE_NAME_ENCODING}.
+
+@item LOCALE_ENCODING
+Locale encoding obtained from the system.  You should not need to
+explicitly set this variable.
+
+@item MAX_MACRO_CALL_NESTING
+The maximal number of recursive calls of @@-commands defined through
+@code{@@rmacro}; default 100000.  The purpose of this variable is to
+avoid infinite recursions.
+
+@item MESSAGE_ENCODING
+Encoding used to encode messages output by @command{texi2any}.  Default is
+based on the locale encoding.
+
+It is also used for command-line argument passed to commands called from
+@command{texi2any}.  For example, @command{latex2html} will be called from
+@command{texi2any} if @code{HTML_MATH} is set to @samp{l2h}.
+
+@item OUTPUT_ENCODING_NAME
+Normalized encoding name used for output files.  Should be a usable
+charset name in HTML, typically one of the preferred IANA encoding
+names.  By default, if an input encoding is set (typically through
+@code{@@documentencoding}), this information is used to set the output
+encoding name, otherwise the output encoding is based on the
+default encoding.  @xref{@code{@@documentencoding}}.
+
+@cindex Encoding @subentry output file names
+@item OUTPUT_FILE_NAME_ENCODING
+Encoding used for output file names.  This variable overrides
+any encoding from the document or current locale.
+
+Normally, you do not need to set this variable, but it can be used if file
+names should be created in a certain character encoding on a filesystem.
+See also @code{INPUT_FILE_NAME_ENCODING}.
+
+@item PACKAGE
+@itemx PACKAGE_VERSION
+@itemx PACKAGE_AND_VERSION
+@itemx PACKAGE_URL
+@itemx PACKAGE_NAME
+The implementation's short package name, package version, package name
+and version concatenated, package URL@:, and full package name,
+respectively.  By default, these variables are all set through
+Autoconf, Automake, and @code{configure}.
+
+@item PREFIX
+The output file prefix, which is prepended to some output file names.
+By default it is set by @code{@@setfilename} or from the input file
+(@pxref{Setting the Output File Name}).  How this value is used depends on the
+value of other customization variables or command line options, such
+as whether the output is split.  The default is unset.
+
+@item PROGRAM
+Name of the program used.  By default, it is set to the name of the
+program launched, with a trailing @samp{.pl} removed.
+
+@pindex texi-elements-by-size
+@cindex Longest nodes, finding
+@cindex Sorting nodes by size
+@item SORT_ELEMENT_COUNT
+If set, the name of a file to which a list of elements (nodes or
+sections, depending on the output format) is dumped, sorted by the
+number of lines they contain after removal of @@-commands; default
+unset.  This is used by the program @code{texi-elements-by-size} in
+the @file{util/} directory of the Texinfo source distribution
+(@pxref{texi-elements-by-size}).
+
+@item SORT_ELEMENT_COUNT_WORDS
+When dumping the elements-by-size file (see preceding item), use word
+counts instead of line counts; default false.
+
+@item TEST
+If set to true, some variables which are normally dynamically
+generated anew for each run (date, program name, version) are set to
+fixed and given values.  This is useful to compare the output to a
+reference file, as is done for the tests.  The default is false.
+
+@item TEXI2DVI
+Name of the command used to produce PostScript, PDF, and DVI; default
+@samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.
+
+@item TEXTCONTENT_COMMENT
+For stripped text content output (i.e., when
+@code{TEXINFO_OUTPUT_FORMAT} is set to @code{textcontent}).  If set,
+also output comments.  Default false.
+
+@item TREE_TRANSFORMATIONS
+The associated value is a comma separated list of transformations that
+can be applied to the Texinfo tree prior to outputting the result.  If
+more than one is specified, the ordering is irrelevant; each is always
+applied at the necessary point during processing.
+
+By default, the tree transformations @samp{move_index_entries_after_items}
+and @samp{relate_index_entries_to_table_entries} are executed
+for HTML and DocBook output.
+Here's an example of updating the master menu in a document:
+
+@example
+texi2any \
+  -c TREE_TRANSFORMATIONS=regenerate_master_menu \
+  -c TEXINFO_OUTPUT_FORMAT=plaintexinfo \
+  mydoc.texi \
+  -o /tmp/out
+@end example
+
+@noindent (Caveat: Since @samp{plaintexinfo} output expands
+Texinfo macros and conditionals, it's necessary to remove any such
+differences before installing the updates in the original document.
+This may be remedied in a future release.)
+
+The following transformations are currently supported (many are used
+in the @code{pod2texi} utility distributed with Texinfo;
+@pxref{Invoking @command{pod2texi}}):
+
+@ftable @samp
+@item complete_tree_nodes_menus
+Add menu entries or whole menus for nodes associated with sections of
+any level, based on the sectioning tree.
+
+@item complete_tree_nodes_missing_menu
+Add whole menus for nodes associated with sections without menu.  The
+menus are based on the sectioning tree.
+
+@item fill_gaps_in_sectioning
+Adds empty @code{@@unnumbered...} sections in a tree to fill gaps in
+sectioning.  For example, an @code{@@unnumberedsec} will be inserted
+if a @code{@@chapter} is followed by a @code{@@subsection}.
+
+@item insert_nodes_for_sectioning_commands
+Insert nodes for sectioning commands lacking a corresponding node.
+
+@item move_index_entries_after_items
+In @code{@@enumerate} and @code{@@itemize}, move index entries
+appearing just before an @code{@@item} to just after the
+@code{@@item}.  Comment lines between index entries are moved too.  As
+mentioned, this is always done for HTML and DocBook output.
+
+@item regenerate_master_menu
+Update the Top node master menu, either replacing the (first)
+@code{@@detailmenu} in the Top node menu, or creating it at the end of
+the Top node menu.
+
+@item relate_index_entries_to_table_entries
+In @code{@@table}, @code{@@vtable} and @code{@@ftable},
+reassociate the index entry information from an index @@-command
+appearing right after an @code{@@item} line with the first element of
+the @code{@@item}.  Remove the index @@-command from the tree.
+
+@end ftable
+
+@item USE_SETFILENAME_EXTENSION
+Default is on for Info, off for other output.  If set, use exactly
+what @code{@@setfilename} gives for the output file name, including
+the extension.  You should not need to explicitly set this variable.
+
+@pindex Unicode::Collate
+@item USE_UNICODE_COLLATION
+By default, @command{texi2any} sorts document indices according to
+the @dfn{Unicode Collation Algorithm} (defined in
+@uref{http://www.unicode.org/reports/tr10/, Unicode Technical Standard #10}),
+which performs a @dfn{multi-level} ordering of strings containing Unicode
+code points.  (To do this, the program uses the @code{Unicode::Collate}
+module, a standard part of Perl installations.)  However, the use of
+this algorithm incurs noticeably longer run times when processing manuals
+with large indices.
+
+Set this variable to @samp{0} to use a simpler, faster sorting algorithm.
+@c which only uses Perl's built-in string comparison or strcmp in C
+
+You may find this useful for speeding up @command{texi2any} if you don't
+have many non-ASCII characters in index entry text, or if you don't care
+about having the indices sorted correctly, especially when working on
+the draft of a manual.
+
+
+@pindex Text::Unidecode
+@item USE_UNIDECODE
+If set to false, do not use the @code{Text::Unidecode} Perl module to
+transliterate more characters; default true.
+
+@end vtable
+
+
 @node @LaTeX{} Customization Variables
 @subsection @LaTeX{} Customization Variables
 
@@ -15671,22 +15981,9 @@ Unicode left double quote.
 @node Other Customization Variables
 @subsection Other Customization Variables
 
-This table gives the remaining customization variables, which apply to
-multiple formats, or affect global behavior, or otherwise don't fit
-into the categories of the previous sections.
+This table gives the customization which apply to multiple formats.
 
 @vtable @code
-@item CHECK_MISSING_MENU_ENTRY
-When a @code{@@menu} block occurs in a node, check if there is a menu
-entry for all subordinate nodes in the document sectioning structure.  On
-by default.
-
-@item CHECK_NORMAL_MENU_STRUCTURE
-Warn if the node pointers (either explicitly or automatically set)
-are not consistent with the order of node menu entries.  This is a more
-thorough structure check than that provided by
-@code{CHECK_MISSING_MENU_ENTRY}.  Off by default.
-
 @item CLOSE_QUOTE_SYMBOL
 When a closing quote is needed, e.g. for @code{@@samp} output, use
 this character; default @code{&#8217;} in DocBook.
@@ -15698,68 +15995,6 @@ encoding includes that character.
 The default for Info is set the same as for @code{OPEN_QUOTE_SYMBOL},
 except that the Unicode code is a closing quote (see below).
 
-@item COLLATION_LANGUAGE
-By default, @command{texi2any} sorts document indices according to the
-@dfn{Unicode Collation Algorithm} (defined in
-@uref{http://www.unicode.org/reports/tr10/, Unicode Technical Standard #10}),
-without language-specific collation tailoring.  If set, use the language
-for linguistic tailoring of index sorting.
-
-Currently, @command{texi2any} gives no warning if there is no support
-for linguistic tailoring due to either missing software or missing
-support for the specified language.
-
-In Perl, the @code{Unicode::Collate::Locale} module is used for linguistic
-tailoring; therefore if this module is not installed, the variable will be
-silently ignored.
-
-If @code{USE_UNICODE_COLLATION} is set to @samp{0}, there is no Unicode
-collation and so no linguistic tailoring either.
-
-See also the @code{DOCUMENTLANGUAGE_COLLATION} variable, described below.
-
-@item COMMAND_LINE_ENCODING
-Encoding used to decode command-line arguments.  Default is based on the locale
-encoding.  This may affect file names inserted into output files or error
-messages printed by the program.
-
-Note that some file and directory names from the command line may
-not be decoded immediately, and may not be decoded at all.
-
-@item CPP_LINE_DIRECTIVES
-Recognize @code{#line} directives in a ``preprocessing'' pass
-(@pxref{External Macro Processors}); on by default.
-
-@item DEBUG
-If set, debugging output is generated; default is off (zero).
-@c The integer value specifies what kinds of debugging output are
-@c generated.  It is a bitmask.  Setting it to 255 ensures having all
-@c available debugging output.
-
-@item DOC_ENCODING_FOR_INPUT_FILE_NAME
-If set, use the input Texinfo document encoding information for
-the encoding of input file names, such as file names specified as
-@code{@@include} or @code{@@verbatiminclude} arguments.  If unset, use
-the locale encoding instead.  Default is set, except on MS-Windows where
-the locale encoding is used by default.
-
-Note that this is for file names only; the default encoding or
-@code{@@documentencoding} is always used for the encoding of file
-content (@pxref{@code{@@documentencoding}}).
-
-The @code{INPUT_FILE_NAME_ENCODING} variable overrides this variable.
-
-@item DOC_ENCODING_FOR_OUTPUT_FILE_NAME
-If set, use the input Texinfo document encoding information for the
-encoding of output file names, such as files specified with @option{--output}.
-If unset, use the locale encoding instead.  Default is unset, so files
-names are encoded using the current locale.
-
-Note that this is for file names only; @code{OUTPUT_ENCODING_NAME}
-is used for the encoding of file content.
-
-The @code{OUTPUT_FILE_NAME_ENCODING} variable overrides this variable.
-
 @vindex SystemLiteral
 @item DOCTYPE
 For DocBook, HTML, XML@.  Specifies the @code{SystemLiteral}, the
@@ -15768,73 +16003,9 @@ retrieve the entity, and identifies the canonical DTD for the
 document.  The default value is different for each of HTML, DocBook
 and XML.
 
-@item DOCUMENTLANGUAGE_COLLATION
-If set, try to use the language specified in a @code{@@documentlanguage}
-directive for language-specific tailoring of index sorting.
-See also the @code{COLLATION_LANGUAGE} variable, described above.
-(@xref{@code{@@documentlanguage}}.)
-
-@item DUMP_TEXI
-For debugging.  If set, no conversion is done, only parsing and macro
-expansion.  If the option @option{--macro-expand} is set, the Texinfo
-source is also expanded to the corresponding file.  Default false.
-
-@item DUMP_TREE
-For debugging.  If set, the tree constructed upon parsing a Texinfo
-document is output to standard error; default false.
-
 @item EXTENSION
 The extension added to the output file name.  The default is different
 for each output format.
-
-@item FORMAT_MENU
-If set to @samp{menu}, output Texinfo menus.  This is the default for
-Info.  @samp{sectiontoc} is the default setting for HTML, where instead
-of the contents of @code{@@menu} blocks being output, a list of subordinate
-sections is output in each node.  If set to @samp{nomenu}, do not output
-menus.
-
-This variable is set to @samp{nomenu} when generating DocBook, or when
-@option{--no-headers} is specified.
-
-@c document?
-@ignore
-@item HANDLER_FATAL_ERROR_LEVEL
-This variable sets the error level above which errors returned by
-user defined functions registered to be called at different stages
-are considered to be fatal errors.  You should not need to change this
-value.  Default 100.
-@end ignore
-
-@item IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
-If set, spaces are ignored after an @@-command that takes braces.
-Default true, matching the @TeX{} behavior.
-
-@cindex Encoding @subentry input file names
-@item INPUT_FILE_NAME_ENCODING
-Encoding used for input file names.  This variable overrides
-any encoding from the document or current locale.  Normally, you do
-not need to set this variable, but it can be used if file names are
-in a certain character encoding on a filesystem.  An alternative is to
-set @code{DOC_ENCODING_FOR_INPUT_FILE_NAME} to @samp{0} to use the locale
-encoding.  See also @code{OUTPUT_FILE_NAME_ENCODING}.
-
-@item LOCALE_ENCODING
-Locale encoding obtained from the system.  You should not need to
-explicitly set this variable.
-
-@item MAX_MACRO_CALL_NESTING
-The maximal number of recursive calls of @@-commands defined through
-@code{@@rmacro}; default 100000.  The purpose of this variable is to
-avoid infinite recursions.
-
-@item MESSAGE_ENCODING
-Encoding used to encode messages output by @command{texi2any}.  Default is
-based on the locale encoding.
-
-It is also used for command-line argument passed to commands called from
-@command{texi2any}.  For example, @command{latex2html} will be called from
-@command{texi2any} if @code{HTML_MATH} is set to @samp{l2h}.
 
 @item NO_TOP_NODE_OUTPUT
 @anchor{@code{NO_TOP_NODE_OUTPUT}}
@@ -15882,77 +16053,9 @@ accented characters in HTML, XML, DocBook and @LaTeX{} output and special
 characters in HTML and @LaTeX{} output based on the document encoding.
 @xref{@code{@@documentencoding}}, and @ref{Inserting Accents}.
 
-@item OUTPUT_ENCODING_NAME
-Normalized encoding name used for output files.  Should be a usable
-charset name in HTML, typically one of the preferred IANA encoding
-names.  By default, if an input encoding is set (typically through
-@code{@@documentencoding}), this information is used to set the output 
-encoding name, otherwise the output encoding is based on the
-default encoding.  @xref{@code{@@documentencoding}}.
-
-@cindex Encoding @subentry output file names
-@item OUTPUT_FILE_NAME_ENCODING
-Encoding used for output file names.  This variable overrides
-any encoding from the document or current locale.
-
-Normally, you do not need to set this variable, but it can be used if file
-names should be created in a certain character encoding on a filesystem.
-See also @code{INPUT_FILE_NAME_ENCODING}.
-
-@item PACKAGE
-@itemx PACKAGE_VERSION
-@itemx PACKAGE_AND_VERSION
-@itemx PACKAGE_URL
-@itemx PACKAGE_NAME
-The implementation's short package name, package version, package name
-and version concatenated, package URL@:, and full package name,
-respectively.  By default, these variables are all set through
-Autoconf, Automake, and @code{configure}.
-
-@item PREFIX
-The output file prefix, which is prepended to some output file names.
-By default it is set by @code{@@setfilename} or from the input file
-(@pxref{Setting the Output File Name}).  How this value is used depends on the
-value of other customization variables or command line options, such
-as whether the output is split.  The default is unset.
-
-@item PROGRAM
-Name of the program used.  By default, it is set to the name of the
-program launched, with a trailing @samp{.pl} removed.
-
-@pindex texi-elements-by-size
-@cindex Longest nodes, finding
-@cindex Sorting nodes by size
-@item SORT_ELEMENT_COUNT
-If set, the name of a file to which a list of elements (nodes or
-sections, depending on the output format) is dumped, sorted by the
-number of lines they contain after removal of @@-commands; default
-unset.  This is used by the program @code{texi-elements-by-size} in
-the @file{util/} directory of the Texinfo source distribution
-(@pxref{texi-elements-by-size}).
-
-@item SORT_ELEMENT_COUNT_WORDS
-When dumping the elements-by-size file (see preceding item), use word
-counts instead of line counts; default false.
-
-@item TEST
-If set to true, some variables which are normally dynamically
-generated anew for each run (date, program name, version) are set to
-fixed and given values.  This is useful to compare the output to a
-reference file, as is done for the tests.  The default is false.
-
-@item TEXI2DVI
-Name of the command used to produce PostScript, PDF, and DVI; default
-@samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.
-
 @item TEXINFO_DTD_VERSION
 For XML@.  Version of the DTD used in the XML output preamble.  The
 default is set based on a variable in @file{configure.ac}.
-
-@item TEXTCONTENT_COMMENT
-For stripped text content output (i.e., when
-@code{TEXINFO_OUTPUT_FORMAT} is set to @code{textcontent}).  If set,
-also output comments.  Default false.
 
 @item TOP_NODE_UP
 Up node for the Top node; default @samp{(dir)}.  This node name is
@@ -15962,70 +16065,6 @@ HTML output only if @code{TOP_NODE_UP_URL} is set to override the URL@:,
 see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables List}.
 @xref{File Names and Links Customization for HTML}.
 
-@item TREE_TRANSFORMATIONS
-The associated value is a comma separated list of transformations that
-can be applied to the Texinfo tree prior to outputting the result.  If
-more than one is specified, the ordering is irrelevant; each is always
-applied at the necessary point during processing.
-
-By default, the tree transformations @samp{move_index_entries_after_items}
-and @samp{relate_index_entries_to_table_entries} are executed
-for HTML and DocBook output.
-Here's an example of updating the master menu in a document:
-
-@example
-texi2any \
-  -c TREE_TRANSFORMATIONS=regenerate_master_menu \
-  -c TEXINFO_OUTPUT_FORMAT=plaintexinfo \
-  mydoc.texi \
-  -o /tmp/out
-@end example
-
-@noindent (Caveat: Since @samp{plaintexinfo} output expands
-Texinfo macros and conditionals, it's necessary to remove any such
-differences before installing the updates in the original document.
-This may be remedied in a future release.)
-
-The following transformations are currently supported (many are used
-in the @code{pod2texi} utility distributed with Texinfo;
-@pxref{Invoking @command{pod2texi}}):
-
-@ftable @samp
-@item complete_tree_nodes_menus
-Add menu entries or whole menus for nodes associated with sections of
-any level, based on the sectioning tree.
-
-@item complete_tree_nodes_missing_menu
-Add whole menus for nodes associated with sections without menu.  The
-menus are based on the sectioning tree.
-
-@item fill_gaps_in_sectioning
-Adds empty @code{@@unnumbered...} sections in a tree to fill gaps in
-sectioning.  For example, an @code{@@unnumberedsec} will be inserted
-if a @code{@@chapter} is followed by a @code{@@subsection}.
-
-@item insert_nodes_for_sectioning_commands
-Insert nodes for sectioning commands lacking a corresponding node.
-
-@item move_index_entries_after_items
-In @code{@@enumerate} and @code{@@itemize}, move index entries
-appearing just before an @code{@@item} to just after the
-@code{@@item}.  Comment lines between index entries are moved too.  As
-mentioned, this is always done for HTML and DocBook output.
-
-@item regenerate_master_menu
-Update the Top node master menu, either replacing the (first)
-@code{@@detailmenu} in the Top node menu, or creating it at the end of
-the Top node menu.
-
-@item relate_index_entries_to_table_entries
-In @code{@@table}, @code{@@vtable} and @code{@@ftable},
-reassociate the index entry information from an index @@-command
-appearing right after an @code{@@item} line with the first element of
-the @code{@@item}.  Remove the index @@-command from the tree.
-
-@end ftable
-
 @item USE_NODES
 Preferentially use nodes to decide where elements are separated.  If
 set to false, preferentially use sectioning to decide where elements
@@ -16034,36 +16073,6 @@ are separated.  The default is true.
 @item USE_NUMERIC_ENTITY
 For HTML, XML and DocBook@.  If set, use numeric entities instead of named
 entities.  By default, set to true for DocBook output.
-
-@item USE_SETFILENAME_EXTENSION
-Default is on for Info, off for other output.  If set, use exactly
-what @code{@@setfilename} gives for the output file name, including
-the extension.  You should not need to explicitly set this variable.
-
-@pindex Unicode::Collate
-@item USE_UNICODE_COLLATION
-By default, @command{texi2any} sorts document indices according to
-the @dfn{Unicode Collation Algorithm} (defined in
-@uref{http://www.unicode.org/reports/tr10/, Unicode Technical Standard #10}),
-which performs a @dfn{multi-level} ordering of strings containing Unicode
-code points.  (To do this, the program uses the @code{Unicode::Collate}
-module, a standard part of Perl installations.)  However, the use of
-this algorithm incurs noticeably longer run times when processing manuals
-with large indices.
-
-Set this variable to @samp{0} to use a simpler, faster sorting algorithm.
-@c which only uses Perl's built-in string comparison or strcmp in C
-
-You may find this useful for speeding up @command{texi2any} if you don't
-have many non-ASCII characters in index entry text, or if you don't care
-about having the indices sorted correctly, especially when working on
-the draft of a manual.
-
-
-@pindex Text::Unidecode
-@item USE_UNIDECODE
-If set to false, do not use the @code{Text::Unidecode} Perl module to
-transliterate more characters; default true.
 
 @end vtable
 
