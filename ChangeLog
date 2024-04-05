@@ -1,5 +1,13 @@
 2024-04-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove optional $no_build argument.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_line)
+	(parse_texi_text): Remove optional $no_build argument.
+	* tp/Texinfo/Translations.pm, tp/t/test_utils.pl: Update calls.
+
+2024-04-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_piece):
 	Remove optional $no_build argument.
 	* tp/t/test_utils.pl: Update call to parse_texi_piece.

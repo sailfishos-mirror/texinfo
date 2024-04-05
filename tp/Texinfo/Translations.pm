@@ -322,7 +322,7 @@ sub _replace_convert_substrings($;$$)
     print STDERR "IN TR PARSER '$texinfo_line'\n";
   }
 
-  my $tree = $parser->parse_texi_line($texinfo_line, undef, 0, 1);
+  my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
   my ($errors, $errors_count) = $parser->errors();
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";

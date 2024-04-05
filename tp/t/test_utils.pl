@@ -1013,10 +1013,10 @@ sub test($$)
   if (!$test_file) {
     if ($full_document) {
       print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
-      $document = $parser->parse_texi_text($test_text, undef, $XS_structuring);
+      $document = $parser->parse_texi_text($test_text);
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-      $document = $parser->parse_texi_piece($test_text, undef);
+      $document = $parser->parse_texi_piece($test_text);
       if (defined($test_input_file_name)) {
         warn "ERROR: $self->{'name'}: $test_name: piece of texi with a file name\n";
       }
