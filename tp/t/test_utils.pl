@@ -1016,7 +1016,7 @@ sub test($$)
       $document = $parser->parse_texi_text($test_text, undef, $XS_structuring);
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-      $document = $parser->parse_texi_piece($test_text, undef, $XS_structuring);
+      $document = $parser->parse_texi_piece($test_text, undef);
       if (defined($test_input_file_name)) {
         warn "ERROR: $self->{'name'}: $test_name: piece of texi with a file name\n";
       }

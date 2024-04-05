@@ -265,9 +265,9 @@ sub parse_texi_file ($$)
 
 
 # Used in tests under tp/t.
-sub parse_texi_piece($$;$$$)
+sub parse_texi_piece($$;$$)
 {
-  my ($self, $text, $line_nr, $no_build, $no_store) = @_;
+  my ($self, $text, $line_nr, $no_store) = @_;
 
   return undef if (!defined($text));
 
@@ -279,8 +279,7 @@ sub parse_texi_piece($$;$$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_piece($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor, $no_build,
-                                  $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, 1, $no_store);
 
   return $document;
 }
