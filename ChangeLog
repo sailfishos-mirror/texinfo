@@ -1,5 +1,11 @@
 2024-04-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_line):
+	Pass false $no_build argument in call to _get_parser_info as
+	otherwise the $no_store argument does nothing.
+
+2024-04-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove optional $no_build argument.
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_line)

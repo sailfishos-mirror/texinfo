@@ -318,7 +318,7 @@ sub parse_texi_line($$;$$)
   my $utf8_bytes = Encode::encode('utf-8', $text);
   my $document_descriptor = parse_string($utf8_bytes, $line_nr);
 
-  my $document = _get_parser_info($self, $document_descriptor, 1, $no_store);
+  my $document = _get_parser_info($self, $document_descriptor, 0, $no_store);
 
   return $document->tree();
 }
