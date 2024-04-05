@@ -13,6 +13,14 @@ use Texinfo::Common qw(protect_comma_in_tree protect_colon_in_tree
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 
+# XS parser and not explicitly unset
+my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
+                        or $ENV{TEXINFO_XS} ne 'omit')
+                       and (not defined($ENV{TEXINFO_XS_PARSER})
+                            or $ENV{TEXINFO_XS_PARSER} eq '1')
+                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+
 ok(1);
 
 #my %avoided_keys_tree;
@@ -55,7 +63,9 @@ sub run_test($$$$)
   # rebuild tree
   $tree_as_text = $document->tree();
 
-  $tree_as_line = Texinfo::Document::rebuild_tree($tree_as_line);
+  if ($XS_structuring) {
+    $tree_as_line = Texinfo::Document::rebuild_tree($tree_as_line);
+  }
 
   my $texi_result_as_text
      = Texinfo::Convert::Texinfo::convert_to_texinfo($tree_as_text);

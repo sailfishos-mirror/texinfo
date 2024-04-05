@@ -112,7 +112,7 @@ Texinfo::Translations::configure($localesdir);
 
 Locale::Messages::bindtextdomain('texinfo', $localesdir);
 
-# XS parser and not explicitely unset
+# XS parser and not explicitly unset
 my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
                         or $ENV{TEXINFO_XS} ne 'omit')
                        and (not defined($ENV{TEXINFO_XS_PARSER})
@@ -1029,8 +1029,9 @@ sub test($$)
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
-    $document = $parser->parse_texi_file($test_file, $XS_structuring);
+    $document = $parser->parse_texi_file($test_file);
   }
+
   if (not defined($document)) {
     print STDERR "ERROR: parsing result undef\n";
     my ($parser_errors, $parser_error_count) = $parser->errors();
@@ -1039,7 +1040,10 @@ sub test($$)
         if ($error_message->{'type'} eq 'error');
     }
   }
-  my $tree = $document->tree(1);
+  # Get the tree object.  Note that if XS structuring in on, the argument
+  # prevents the tree being built as a Perl structure at this stage; only
+  # a "handle" is returned.
+  my $tree = $document->tree($XS_structuring);
 
   my ($errors, $error_nrs) = $parser->errors();
 

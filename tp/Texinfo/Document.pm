@@ -41,12 +41,6 @@ my $XS_parser = ((not defined($ENV{TEXINFO_XS})
                  and (not defined($ENV{TEXINFO_XS_PARSER})
                       or $ENV{TEXINFO_XS_PARSER} eq '1'));
 
-# XS parser and not explicitely unset
-my $XS_structuring = ($XS_parser
-                      and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                           or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
-
-# needed by parser
 our %XS_overrides = (
   "Texinfo::Document::remove_document"
     => "Texinfo::DocumentXS::remove_document",
@@ -54,10 +48,6 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::set_document_global_info",
   "Texinfo::Document::errors"
     => "Texinfo::DocumentXS::document_errors",
-);
-
-# needed by structure code
-our %XS_structure_overrides = (
   "Texinfo::Document::rebuild_document"
     => "Texinfo::DocumentXS::rebuild_document",
   "Texinfo::Document::rebuild_tree"
@@ -94,11 +84,6 @@ sub import {
     if ($XS_parser) {
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
-      }
-      if ($XS_structuring) {
-        for my $sub (keys %XS_structure_overrides) {
-          Texinfo::XSLoader::override ($sub, $XS_structure_overrides{$sub});
-        }
       }
     }
     $module_loaded = 1;

@@ -231,11 +231,10 @@ sub _get_parser_info($$;$$) {
   return $document;
 }
 
-sub parse_texi_file ($$;$)
+sub parse_texi_file ($$)
 {
   my $self = shift;
   my $input_file_path = shift;
-  my $no_build = shift;
   my $tree_stream;
 
   # the file is already a byte string, taken as is from the command
@@ -259,7 +258,7 @@ sub parse_texi_file ($$;$)
     return undef;
   }
 
-  my $document = _get_parser_info($self, $document_descriptor, $no_build);
+  my $document = _get_parser_info($self, $document_descriptor, 1);
 
   return $document;
 }

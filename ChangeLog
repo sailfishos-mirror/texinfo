@@ -1,3 +1,23 @@
+2024-04-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	XS parse_texi_file only returns handle for building tree on-demand
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file): Eliminate
+	optional argument to decide whether to build the Perl information
+	or not.  Always call _get_parser_info with $no_build set.
+
+	* tp/Texinfo/Document.pm (%XS_overrides, %XS_structure_overrides):
+	Eliminate %XS_structure_overrides, and do not depend on the
+	TEXINFO_XS_STRUCTURE variable.
+
+	* tp/texi2any.pl, tp/t/test_utils.pl:
+	Remove extra argument in call to parse_texi_file.
+	Pass argument to Texinfo::Document::tree to control whether tree
+	is built, depending on the setting of TEXINFO_XS_STRUCTURE.
+
+	* tp/t/protect_character_in_texinfo.t:
+	Only call Texinfo::Document::rebuld_tree if TEXINFO_XS_STRUCTURE is on.
+
 2024-04-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/formats_encodings.t

@@ -1422,7 +1422,7 @@ die _encode_message(
    .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name))
      unless (scalar(@input_files) >= 1);
 
-# XS parser and not explicitely unset
+# XS parser and not explicitly unset
 my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
                         or $ENV{TEXINFO_XS} ne 'omit')
                        and (not defined($ENV{TEXINFO_XS_PARSER})
@@ -1490,7 +1490,7 @@ while(@input_files) {
           @prepended_include_directories;
 
   my $parser = Texinfo::Parser::parser($parser_file_options);
-  my $document = $parser->parse_texi_file($input_file_name, $XS_structuring);
+  my $document = $parser->parse_texi_file($input_file_name);
 
   if (defined($document)
       and (defined(get_conf('DUMP_TREE'))
@@ -1523,10 +1523,10 @@ while(@input_files) {
     goto NEXT;
   }
 
-  my $tree = $document->tree(1);
-  if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
-  }
+  # Get the tree object.  Note that if XS structuring in on, the argument
+  # prevents the tree being built as a Perl structure at this stage; only
+  # a "handle" is returned.
+  my $tree = $document->tree($XS_structuring);
 
   # setup a configuration object which defines get_conf and gives the same as
   # get_conf() in main program.  It is for Structuring/Transformations methods
