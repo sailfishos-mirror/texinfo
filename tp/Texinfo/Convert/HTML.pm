@@ -9297,26 +9297,28 @@ sub _prepare_css($)
   my @css_rule_lines;
 
   my $css_files = $self->get_conf('CSS_FILES');
-  foreach my $file (@$css_files) {
+  foreach my $css_file (@$css_files) {
     my $css_file_fh;
-    my $css_file;
-    if ($file eq '-') {
+    my $css_file_path;
+    if ($css_file eq '-') {
       $css_file_fh = \*STDIN;
-      $css_file = '-';
+      $css_file_path = '-';
     } else {
-      $css_file = $self->Texinfo::Common::locate_include_file($file);
-      unless (defined($css_file)) {
-        my $input_file_name = $file;
+      $css_file_path = $self->Texinfo::Common::locate_include_file($css_file);
+      unless (defined($css_file_path)) {
+        my $css_input_file_name;
         my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         if (defined($encoding)) {
-          $input_file_name = decode($encoding, $input_file_name);
+          $css_input_file_name = decode($encoding, $css_file);
+        } else {
+          $css_input_file_name = $css_file;
         }
         $self->converter_document_warn(sprintf(
-               __("CSS file %s not found"), $input_file_name));
+               __("CSS file %s not found"), $css_input_file_name));
         next;
       }
-      unless (open (CSSFILE, $css_file)) {
-        my $css_file_name = $css_file;
+      unless (open (CSSFILE, $css_file_path)) {
+        my $css_file_name = $css_file_path;
         my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         if (defined($encoding)) {
           $css_file_name = decode($encoding, $css_file_name);
@@ -9333,9 +9335,9 @@ sub _prepare_css($)
     # binmode($css_file_fh)
     my ($import_lines, $rules_lines);
     ($import_lines, $rules_lines)
-      = $self->_process_css_file($css_file_fh, $css_file);
+      = $self->_process_css_file($css_file_fh, $css_file_path);
     if (!close($css_file_fh)) {
-      my $css_file_name = $css_file;
+      my $css_file_name = $css_file_path;
       my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
       if (defined($encoding)) {
         $css_file_name = decode($encoding, $css_file_name);

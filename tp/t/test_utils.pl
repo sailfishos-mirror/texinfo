@@ -969,10 +969,9 @@ sub test($$)
   Texinfo::Config::GNUT_reinitialize_init_files();
   my $init_files_options = {};
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
-  # the init file names are supposed to be binary strings.  Since they
-  # are not encoded anywhere, probably only ascii file names should
-  # be used.
-  # FIXME what if srcdir is non ascii (srcdir is truly a binary string).
+  # the init file names should be binary strings.  Since they
+  # are not encoded here, ascii file names should be used or they
+  # should be encoded in test specification files.
   if ($parser_options and $parser_options->{'init_files'}) {
     $symbols_before_init_file = {};
     foreach my $symbol (keys(%Texinfo::Config::)) {
@@ -1022,8 +1021,12 @@ sub test($$)
       }
     }
     if (defined($test_input_file_name)) {
-      # FIXME should we need to encode or do we assume that
-      # $test_input_file_name is already bytes?
+      # argument should be byte strings.  In most if not all cases,
+      # 'test_input_file_name' is based on $test_name.  $test_name should
+      # only consist of ascii characters as it is used both as a
+      # character string and a byte string (see the comment below on that),
+      # so we do not encode, but we could if needed.  If we encode, an
+      # output encoding should be determined.
       $document->set_document_global_info('input_file_name',
                                           $test_input_file_name);
     }
@@ -1436,11 +1439,12 @@ sub test($$)
     print OUT 'use utf8;'."\n\n";
 
     #print STDERR "Generate: ".Data::Dumper->Dump([$tree], ['$res']);
-    # NOTE $test_name is in general used for directories and
-    # file names, here it is used as a text string.  If non ascii, it
+    # NOTE $test_name is in general used for directories, file names,
+    # and in messages.  Here it is used as a text string.  If non ascii, it
     # should be a character string in internal perl codepoints as OUT
-    # is encoded as utf8.  It should also be encoded to be used as file name
-    # in that case.
+    # is encoded as utf8.  In that case, it should be encoded to be
+    # used as a file name for the above cases.  Since this is not the case,
+    # $test_name should consist of ascii characters only.
     my $out_result;
     {
       local $Data::Dumper::Sortkeys = \&filter_tree_keys;
@@ -1577,8 +1581,9 @@ sub test($$)
     ok (Data::Compare::Compare($indices_sorted_sort_strings,
                                $result_indices_sort_strings{$test_name}),
         $test_name.' indices sort');
-    # FIXME use PlainTexinfo converter to test the XS converter until
-    # convert_to_texinfo goes through XS.
+    # NOTE either a PlainTexinfo converter or a direct call to
+    # convert_to_texinfo can be used to test conversion to raw text,
+    # both for pure Perl and XS.
     my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
     my $texi_result = $converter_to_texinfo->convert($document);
     #my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

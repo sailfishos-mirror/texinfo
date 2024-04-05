@@ -667,12 +667,15 @@ sub determine_files_and_directory($$)
     # file which is not decoded either.  We want to return only
     # decoded character strings such that they can easily be mixed
     # with other character strings, so we decode here.
-    my $input_file_name = $document_info->{'input_file_name'};
+    my $input_file_name_bytes = $document_info->{'input_file_name'};
     my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+    my $input_file_name;
     if (defined($encoding)) {
-      $input_file_name = decode($encoding, $input_file_name, sub { '?' });
+      $input_file_name = decode($encoding, $input_file_name_bytes, sub { '?' });
       # use '?' as replacement character rather than U+FFFD in case it
       # is re-encoded to an encoding without this character
+    } else {
+      $input_file_name = $input_file_name_bytes;
     }
     my ($directories, $suffix);
     ($input_basefile, $directories, $suffix) = fileparse($input_file_name);

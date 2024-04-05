@@ -1,3 +1,14 @@
+2024-04-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory),
+	tp/Texinfo/Convert/Text.pm (output), tp/Texinfo/Convert/HTML.pm
+	(_prepare_css): use a different variable for file name string bytes
+	and file name character string.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_css): rename variables.
+
+	* tp/t/test_utils.pl: change in comments.
+
 2024-04-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_line):

@@ -897,10 +897,13 @@ sub output($$)
   #print STDERR "OUTPUT\n";
   my $input_basename;
   if ($document_info and defined($document_info->{'input_file_name'})) {
-    my $input_file_name = $document_info->{'input_file_name'};
+    my $input_file_name_bytes = $document_info->{'input_file_name'};
     my $encoding = $self->{'COMMAND_LINE_ENCODING'};
+    my $input_file_name;
     if (defined($encoding)) {
-      $input_file_name = decode($encoding, $input_file_name);
+      $input_file_name = decode($encoding, $input_file_name_bytes);
+    } else {
+      $input_file_name = $input_file_name_bytes;
     }
     my ($directories, $suffix);
     ($input_basename, $directories, $suffix) = fileparse($input_file_name);
