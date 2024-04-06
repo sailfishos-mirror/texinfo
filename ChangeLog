@@ -1,5 +1,11 @@
 2024-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Customization Variables): move 'Info and Plaintext
+	Customization Variables' before 'LaTeX Customization Variables'.
+	Update overall description of customization variables.
+
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Customization Variables for Multiple Formats):
 	rename 'Other Customization Variables' as 'Customization Variables for
 	Multiple Formats'.

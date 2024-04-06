@@ -15340,12 +15340,16 @@ customization variable @code{SPLIT} is associated with the
 allows specifying the output format.
 
 @item
+Those affecting the global behavior of @command{texi2any}, in particular
+Texinfo code parsing.
+
+@item
 Those associated with particular output formats.
 (Variables only relevant for HTML output are documented in @ref{HTML
 Output Customization}.)
 
 @item
-Other ad hoc variables.
+Those relevant for multiple output formats.
 @end itemize
 
 You may set customization variables on the command line using
@@ -15361,9 +15365,9 @@ The sections below give the details for each of these.
 * Commands: Customization Variables for @@-Commands.
 * Options:  Customization Variables and Options.
 * Global:   Global Customization Variables.
-* LaTeX:    @LaTeX{} Customization Variables.
 * Info:     Info and Plaintext Customization Variables.
-* Other:    Customization Variables for Multiple Formats.
+* LaTeX:    @LaTeX{} Customization Variables.
+* Formats:  Customization Variables for Multiple Formats.
 @end menu
 
 
@@ -15847,64 +15851,6 @@ transliterate more characters; default true.
 @end vtable
 
 
-@node @LaTeX{} Customization Variables
-@subsection @LaTeX{} Customization Variables
-
-@cartouche
-@quotation warning
-@LaTeX{} output customization is experimental.  Nothing is decided,
-everything can change, and we would welcome any feedback.
-@end quotation
-@end cartouche
-
-This table gives the customization variables which apply to @LaTeX{} output
-only.
-
-@vtable @code
-@item CLASS_BEGIN_USEPACKAGE
-If set, the corresponding text will replace the @LaTeX{} @code{\documentclass},
-package imports that are always output and are output right after
-@code{\documentclass}, and package imports that depend on the document encoding
-setting the input and font encoding (@code{inputenc} and @code{fontenc}).
-
-The text replaced is along:
-@example LaTeX
-\documentclass@{book@}
-\usepackage@{amsfonts@}
-\usepackage@{amsmath@}
-\usepackage[gen]@{eurosym@}
-\usepackage@{textcomp@}
-\usepackage@{graphicx@}
-\usepackage@{etoolbox@}
-\usepackage@{titleps@}
-\usepackage[utf8]@{inputenc@}
-\usepackage[T1]@{fontenc@}
-@end example
-
-@item END_USEPACKAGE
-If set, the corresponding text will replace the package imports that depend
-on the Texinfo commands used, and the last packages imports that are always
-output and output after all the other packages imports.  The last package
-imports corresponds to @samp{\usepackage[hidelinks]@{hyperref@}}.
-
-Here is an example of the corresponding text for a document with indices,
-@code{@@need}, @code{@@multitable}, definition commands, @code{@@cartouche},
-lists, and @code{@@float}:
-@example LaTeX
-\usepackage@{imakeidx@}
-\usepackage@{needspace@}
-\usepackage@{array@}
-\usepackage@{embrac@}
-\usepackage@{expl3@}
-\usepackage@{tabularx@}
-\usepackage[framemethod=tikz]@{mdframed@}
-\usepackage@{enumitem@}
-\usepackage@{float@}
-\usepackage[hidelinks]@{hyperref@}
-@end example
-@end vtable
-
-
 @node Info and Plaintext Customization Variables
 @subsection Info and Plaintext Customization Variables
 
@@ -15975,6 +15921,64 @@ the specified character.  If @option{--disable-encoding} is set or the document
 encoding is not UTF-8, @samp{"} is used.  Otherwise, the Info output uses a
 Unicode left double quote.
 
+@end vtable
+
+
+@node @LaTeX{} Customization Variables
+@subsection @LaTeX{} Customization Variables
+
+@cartouche
+@quotation warning
+@LaTeX{} output customization is experimental.  Nothing is decided,
+everything can change, and we would welcome any feedback.
+@end quotation
+@end cartouche
+
+This table gives the customization variables which apply to @LaTeX{} output
+only.
+
+@vtable @code
+@item CLASS_BEGIN_USEPACKAGE
+If set, the corresponding text will replace the @LaTeX{} @code{\documentclass},
+package imports that are always output and are output right after
+@code{\documentclass}, and package imports that depend on the document encoding
+setting the input and font encoding (@code{inputenc} and @code{fontenc}).
+
+The text replaced is along:
+@example LaTeX
+\documentclass@{book@}
+\usepackage@{amsfonts@}
+\usepackage@{amsmath@}
+\usepackage[gen]@{eurosym@}
+\usepackage@{textcomp@}
+\usepackage@{graphicx@}
+\usepackage@{etoolbox@}
+\usepackage@{titleps@}
+\usepackage[utf8]@{inputenc@}
+\usepackage[T1]@{fontenc@}
+@end example
+
+@item END_USEPACKAGE
+If set, the corresponding text will replace the package imports that depend
+on the Texinfo commands used, and the last packages imports that are always
+output and output after all the other packages imports.  The last package
+imports corresponds to @samp{\usepackage[hidelinks]@{hyperref@}}.
+
+Here is an example of the corresponding text for a document with indices,
+@code{@@need}, @code{@@multitable}, definition commands, @code{@@cartouche},
+lists, and @code{@@float}:
+@example LaTeX
+\usepackage@{imakeidx@}
+\usepackage@{needspace@}
+\usepackage@{array@}
+\usepackage@{embrac@}
+\usepackage@{expl3@}
+\usepackage@{tabularx@}
+\usepackage[framemethod=tikz]@{mdframed@}
+\usepackage@{enumitem@}
+\usepackage@{float@}
+\usepackage[hidelinks]@{hyperref@}
+@end example
 @end vtable
 
 
