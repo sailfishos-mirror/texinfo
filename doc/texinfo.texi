@@ -18568,7 +18568,7 @@ a cache file to avoid redoing translation HTML if already done.
 @item mathjax
 @anchor{MathJax scripts}
 Inserts references in the output files to MathJax scripts to format
-mathematcs.  The MathJax option requires JavaScript to be enabled in the
+mathematics.  The MathJax option requires JavaScript to be enabled in the
 browser to work.
 
 MathJax handles @LaTeX{} math, including @TeX{}
@@ -18582,7 +18582,7 @@ generated for MathJax scripts (@pxref{JavaScript license web labels}).
 @xref{MathJax Customization Variables}.
 
 @item t4h
-Use the @command{tex4ht} to produce HTML for mathematical material.
+Use the @command{tex4ht} program to produce HTML for mathematical material.
 
 @command{tex4ht} will process @LaTeX{} math in math commands,
 including @TeX{} math compatible with @LaTeX{}.
