@@ -1,5 +1,17 @@
 2024-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/refcard/txivarcheck (read_refman), util/txicustomvars: get
+	customization variables from "Invoking \@command{texi2any}" node too
+	in txivarcheck, and output program_cmdline_options and
+	converter_cmdline_options in txicustomvars.
+
+	* doc/refcard/txivarcheck (read_tp): filter out the 'SILENT'
+	customization variable that is not interesting to document as it does
+	nothing, and the customization variables starting with XS_ that are
+	not documented on purpose.
+
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Other Formats Customization Variables): add
 	default value of TXI_MARKUP_NO_SECTION_EXTENT.
 

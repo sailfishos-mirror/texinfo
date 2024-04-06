@@ -87,9 +87,9 @@ sub main {
 
 
 
-# Return customization variable names from the section in the reference
-# manual.  We assume their names are all uppercase, to avoid returning
-# numerous non-variables.
+# Return customization variable names from the relevant sections in
+# the reference manual.  We assume their names are all uppercase, to
+# avoid returning numerous non-variables.
 #
 sub read_refman {
   my ($fname) = @_;
@@ -100,10 +100,10 @@ sub read_refman {
   my $FILE = $fname;
   open (FILE, $FILE) || die "open($FILE) failed: $!";
 
-  # since we have to look at generic commands like @item, at least
-  # ignore until right section to reduce chance of false matches.
+  # since we have to look at generic commands like @item, ignore until
+  # the first relevant section to reduce chance of false matches.
   while (<FILE>) {
-    last if /^\@section Customization Variables$/;
+    last if /^\@section Invoking \@command{texi2any} from a Shell$/;
   }
 
   while (<FILE>) {
@@ -124,13 +124,21 @@ sub read_refman {
       next;
     }
 
+    # end of section with command-line customization variables
+    if (/^\@section Environment Variables Recognized by \@command{texi2any}/) {
+      # Skip to next relevant node
+      while (<FILE>) {
+        last if /^\@section Customization Variables$/;
+      }
+    }
+
+    # end of main section on customization variables
     if (/^\@node Internationalization of Document Strings/) {
-      # Skip to next node
+      # Skip to next relevant node
       while (<FILE>) {
         last if /^\@section HTML Output Customization/;
       }
     }
-
 
     # Stop looking for cust.var names after those nodes are done.
     last if /^\@node Command Syntax/;
@@ -163,7 +171,11 @@ sub read_tp {
     chomp;
 
     my $var = $_;
-    next if $var eq "OUTPUT_PERL_ENCODING";  # not for users
+    # not for users
+    next if ($var eq "OUTPUT_PERL_ENCODING"
+             or $var =~ /^XS_/
+             # not interesting to document/classify
+             or $var eq "SILENT");
 
     push (@ret, $var);
   }

@@ -52,5 +52,7 @@ my @parser_string_non_command_customization
 
 print join("\n",
      sort(@parser_string_non_command_customization,
+          keys(%Texinfo::Options::program_cmdline_options),
+          keys(%Texinfo::Options::converter_cmdline_options),
           keys(%Texinfo::Options::program_customization_options),
           keys(%Texinfo::Options::converter_customization_options)));
