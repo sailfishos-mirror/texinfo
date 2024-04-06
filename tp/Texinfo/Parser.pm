@@ -26,8 +26,7 @@ use Texinfo::XSLoader;
 
 BEGIN {
   my $shared_library_name = "Parsetexi";
-  if (defined $ENV{TEXINFO_XS_PARSER}
-      and $ENV{TEXINFO_XS_PARSER} eq '0') {
+  if (!Texinfo::XSLoader::XS_parser_enabled()) {
     undef $shared_library_name;
   }
 

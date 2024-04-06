@@ -33,6 +33,7 @@ use if $] >= 5.014, re => '/a';
 use Carp qw(cluck confess);
 
 use Texinfo::Convert::ConvertXS;
+use Texinfo::XSLoader;
 
 # commands definitions
 use Texinfo::Commands;
@@ -53,18 +54,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 $VERSION = '7.1dev';
 
-# XS parser and not explicitely unset
-my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
-                        or $ENV{TEXINFO_XS} ne 'omit')
-                       and (not defined($ENV{TEXINFO_XS_PARSER})
-                            or $ENV{TEXINFO_XS_PARSER} eq '1')
-                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
-
-my $XS_convert = 0;
-$XS_convert = 1 if ($XS_structuring
-                    and defined $ENV{TEXINFO_XS_CONVERT}
-                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
 our $module_loaded = 0;
 sub import {

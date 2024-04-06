@@ -12,17 +12,14 @@ use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 use Texinfo::Structuring;
+use Texinfo::XSLoader;
 
 use Data::Dumper;
 
 ok(1);
 
-my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
-                        or $ENV{TEXINFO_XS} ne 'omit')
-                       and (not defined($ENV{TEXINFO_XS_PARSER})
-                            or $ENV{TEXINFO_XS_PARSER} eq '1')
-                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+
+my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
 # _new_node cannot be called with XS used for structuring.
 # See comment in the beginning of _new_node.

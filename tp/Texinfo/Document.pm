@@ -36,10 +36,7 @@ use Texinfo::Report;
 
 our $VERSION = '7.1dev';
 
-my $XS_parser = ((not defined($ENV{TEXINFO_XS})
-                  or $ENV{TEXINFO_XS} ne 'omit')
-                 and (not defined($ENV{TEXINFO_XS_PARSER})
-                      or $ENV{TEXINFO_XS_PARSER} eq '1'));
+my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 
 our %XS_overrides = (
   "Texinfo::Document::remove_document"

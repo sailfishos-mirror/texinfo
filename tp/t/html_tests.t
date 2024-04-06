@@ -5,9 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-my $XS_convert = 0;
-$XS_convert = 1 if (defined $ENV{TEXINFO_XS_CONVERT}
-                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
 my $itemize_arguments_text = '
 @itemize ---

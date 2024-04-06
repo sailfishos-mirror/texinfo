@@ -76,18 +76,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 $VERSION = '7.1dev';
 
-# XS parser and not explicitely unset
-my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
-                        or $ENV{TEXINFO_XS} ne 'omit')
-                       and (not defined($ENV{TEXINFO_XS_PARSER})
-                            or $ENV{TEXINFO_XS_PARSER} eq '1')
-                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
-
-my $XS_convert = 0;
-$XS_convert = 1 if ($XS_structuring
-                    and defined $ENV{TEXINFO_XS_CONVERT}
-                    and $ENV{TEXINFO_XS_CONVERT} eq '1');
+my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
 my %XS_overrides = (
   "Texinfo::Structuring::associate_internal_references"
@@ -133,11 +122,11 @@ sub import {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }
     }
-    if ($XS_convert) {
-      for my $sub (keys %XS_convert_overrides) {
-        Texinfo::XSLoader::override ($sub, $XS_convert_overrides{$sub});
-      }
-    }
+    #if ($XS_convert) {
+    #  for my $sub (keys %XS_convert_overrides) {
+    #    Texinfo::XSLoader::override ($sub, $XS_convert_overrides{$sub});
+    #  }
+    #}
     $module_loaded = 1;
   }
   # The usual import method

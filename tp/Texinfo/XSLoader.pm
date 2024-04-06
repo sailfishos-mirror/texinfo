@@ -35,6 +35,26 @@ our $TEXINFO_XS;
 
 our $VERSION = '7.1dev';
 
+sub XS_parser_enabled {
+  return ((not defined($ENV{TEXINFO_XS})
+           or $ENV{TEXINFO_XS} ne 'omit')
+          and (not defined($ENV{TEXINFO_XS_PARSER})
+               or $ENV{TEXINFO_XS_PARSER} eq '1'));
+}
+
+sub XS_structuring_enabled {
+  return (XS_parser_enabled()
+           and (not defined($ENV{TEXINFO_XS_STRUCTURE})
+                or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+}
+
+sub XS_convert_enabled {
+  return (XS_structuring_enabled()
+            and defined $ENV{TEXINFO_XS_CONVERT}
+            and $ENV{TEXINFO_XS_CONVERT} eq '1');
+}
+
+
 our $disable_XS;
 
 # For verbose information about what's being done

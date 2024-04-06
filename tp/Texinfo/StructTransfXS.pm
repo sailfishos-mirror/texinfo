@@ -26,11 +26,7 @@ use Texinfo::XSLoader;
 our $XS_package;
 
 BEGIN {
-  my $XS_structuring = ((not defined($ENV{TEXINFO_XS_PARSER})
-                            or $ENV{TEXINFO_XS_PARSER} eq '1')
-                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
-  if ($XS_structuring) {
+  if (Texinfo::XSLoader::XS_structuring_enabled()) {
     $XS_package = Texinfo::XSLoader::init (
       "Texinfo::StructTransfXS",
       undef,

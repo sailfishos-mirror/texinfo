@@ -12,14 +12,9 @@ use Texinfo::Common qw(protect_comma_in_tree protect_colon_in_tree
       protect_node_after_label_in_tree);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
+use Texinfo::XSLoader;
 
-# XS parser and not explicitly unset
-my $XS_structuring = ((not defined($ENV{TEXINFO_XS})
-                        or $ENV{TEXINFO_XS} ne 'omit')
-                       and (not defined($ENV{TEXINFO_XS_PARSER})
-                            or $ENV{TEXINFO_XS_PARSER} eq '1')
-                       and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                            or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
 ok(1);
 
