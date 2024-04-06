@@ -4920,7 +4920,7 @@ in typewriter-like contexts such as the @code{@@example} environment
 To control which quoting characters are inserted by
 @command{texi2any} in the output of @samp{@@code}, etc., see the
 @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL} customization
-variables (@pxref{Other Customization Variables}).
+variables (@pxref{Customization Variables for Multiple Formats}).
 
 
 @node @code{@@kbd}
@@ -11942,17 +11942,17 @@ this:
 @end example
 
 In HTML and @LaTeX{} output, if @code{OUTPUT_CHARACTERS} is set
-(@pxref{Other Customization Variables}), accent constructs and special
-characters, such as @code{@@'e} or @code{``}, are output as the actual
+(@pxref{Customization Variables for Multiple Formats}), accent constructs and
+special characters, such as @code{@@'e} or @code{``}, are output as the actual
 UTF-8 sequence or 8-bit character in the output encoding where possible.
-Otherwise, HTML entities are used for those characters in HTML, and
-@LaTeX{} macros are used in @LaTeX{}.
+Otherwise, HTML entities are used for those characters in HTML, and @LaTeX{}
+macros are used in @LaTeX{}.
 
 In DocBook output, if the encoding is different from UTF-8,
-an @code{encoding} attribute is added to the XML declaration.
-If @code{OUTPUT_CHARACTERS} is set (@pxref{Other Customization Variables}),
-accent constructs such as @code{@@'e} are output as the actual 8-bit or
-UTF-8 character in the output encoding where possible.  Otherwise XML
+an @code{encoding} attribute is added to the XML declaration.  If
+@code{OUTPUT_CHARACTERS} is set (@pxref{Customization Variables for Multiple
+Formats}), accent constructs such as @code{@@'e} are output as the actual 8-bit
+or UTF-8 character in the output encoding where possible.  Otherwise XML
 entities are used for those constructs.
 
 @cindex Computer Modern fonts
@@ -15307,8 +15307,8 @@ numbered sections.  (Perhaps this could be improved in the future, if
 requests are received.)
 
 The actual name of the command that is invoked is specified by the
-@code{TEXI2DVI} customization variable (@pxref{Other Customization
-Variables}).  As you might guess, the default is @samp{texi2dvi}.
+@code{TEXI2DVI} customization variable (@pxref{Customization Variables for
+Multiple Formats}).  As you might guess, the default is @samp{texi2dvi}.
 
 @command{texi2any} itself does not generate any normal output when it
 invokes @command{texi2dvi}, only diagnostic messages.
@@ -15363,7 +15363,7 @@ The sections below give the details for each of these.
 * Global:   Global Customization Variables.
 * LaTeX:    @LaTeX{} Customization Variables.
 * Info:     Info and Plaintext Customization Variables.
-* Other:    Other Customization Variables.
+* Other:    Customization Variables for Multiple Formats.
 @end menu
 
 
@@ -15978,8 +15978,10 @@ Unicode left double quote.
 @end vtable
 
 
-@node Other Customization Variables
-@subsection Other Customization Variables
+@node Customization Variables for Multiple Formats
+@subsection Customization Variables for Multiple Formats
+
+@anchor{Other Customization Variables} @c old name
 
 This table gives the customization which apply to multiple formats.
 
@@ -19030,9 +19032,9 @@ default is @code{index.html}.
 A URL used for Top node up references; the default is
 @code{undef}, in that case no Top node Up reference is generated.
 For overriding the Up pointer name in case @code{TOP_NODE_UP_URL} is set and
-for other formats, see @code{TOP_NODE_UP} in @ref{Other Customization
-Variables}.  @xref{File Names and Links Customization for HTML}.  For more
-about the Top node pointers, @pxref{First Node}.
+for other formats, see @code{TOP_NODE_UP} in @ref{Customization Variables for
+Multiple Formats}.  @xref{File Names and Links Customization for HTML}.  For
+more about the Top node pointers, @pxref{First Node}.
 
 @cindex @code{accesskey} @subentry customization variable for
 @item USE_ACCESSKEY
