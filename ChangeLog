@@ -1,5 +1,11 @@
 2024-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Other Formats Customization Variables): new node
+	for customization which apply to specific formats only, for formats
+	without separate customization variables description section.
+
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Customization Variables): move 'Info and Plaintext
 	Customization Variables' before 'LaTeX Customization Variables'.
 	Update overall description of customization variables.

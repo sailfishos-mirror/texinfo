@@ -15367,6 +15367,7 @@ The sections below give the details for each of these.
 * Global:   Global Customization Variables.
 * Info:     Info and Plaintext Customization Variables.
 * LaTeX:    @LaTeX{} Customization Variables.
+* Other:    Other Formats Customization Variables.
 * Formats:  Customization Variables for Multiple Formats.
 @end menu
 
@@ -15745,15 +15746,6 @@ generated anew for each run (date, program name, version) are set to
 fixed and given values.  This is useful to compare the output to a
 reference file, as is done for the tests.  The default is false.
 
-@item TEXI2DVI
-Name of the command used to produce PostScript, PDF, and DVI; default
-@samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.
-
-@item TEXTCONTENT_COMMENT
-For stripped text content output (i.e., when
-@code{TEXINFO_OUTPUT_FORMAT} is set to @code{textcontent}).  If set,
-also output comments.  Default false.
-
 @item TREE_TRANSFORMATIONS
 The associated value is a comma separated list of transformations that
 can be applied to the Texinfo tree prior to outputting the result.  If
@@ -15982,6 +15974,29 @@ lists, and @code{@@float}:
 @end vtable
 
 
+@node Other Formats Customization Variables
+@subsection Other Formats Customization Variables
+
+This table gives the customization which apply to specific formats only,
+for formats without separate customization variables description section.
+
+@vtable @code
+@item TEXI2DVI
+Name of the command used to produce PostScript, PDF, and DVI; default
+@samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.
+
+@item TEXTCONTENT_COMMENT
+For stripped text content output (i.e., when
+@code{TEXINFO_OUTPUT_FORMAT} is set to @code{textcontent}).  If set,
+also output comments.  Default false.
+
+@item TEXINFO_DTD_VERSION
+For XML@.  Version of the DTD used in the XML output preamble.  The
+default is set based on a variable in @file{configure.ac}.
+
+@end vtable
+
+
 @node Customization Variables for Multiple Formats
 @subsection Customization Variables for Multiple Formats
 
@@ -16054,10 +16069,6 @@ and DocBook using XML entities, and in @LaTeX{} using macros.  If set, output
 accented characters in HTML, XML, DocBook and @LaTeX{} output and special
 characters in HTML and @LaTeX{} output based on the document encoding.
 @xref{@code{@@documentencoding}}, and @ref{Inserting Accents}.
-
-@item TEXINFO_DTD_VERSION
-For XML@.  Version of the DTD used in the XML output preamble.  The
-default is set based on a variable in @file{configure.ac}.
 
 @item TOP_NODE_UP
 Up node for the Top node; default @samp{(dir)}.  This node name is
