@@ -1,5 +1,11 @@
 2024-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/xml_tests.t ($sectioning_test)
+	(sectioning_test_ref, sectioning_test_no_use_nodes): add test of
+	USE_NODES set in Texinfo XML.
+
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Other Formats Customization Variables): new node
 	for customization which apply to specific formats only, for formats
 	without separate customization variables description section.

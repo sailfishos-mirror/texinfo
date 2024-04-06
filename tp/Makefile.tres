@@ -2069,6 +2069,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/xml_tests/macro_and_args.pl \
   t/results/xml_tests/raw.pl \
   t/results/xml_tests/raw_and_comments.pl \
+  t/results/xml_tests/sectioning_test_no_use_nodes.pl \
+  t/results/xml_tests/sectioning_test_ref.pl \
   t/results/xml_tests/spaces_info_lost.pl \
   t/results/xml_tests/top_node_and_bye.pl \
   t/results/xml_tests/top_node_no_section.pl \
