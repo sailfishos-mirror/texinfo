@@ -1,5 +1,11 @@
 2024-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Customization Variables and Options): add index
+	entries for customization variables in the table associating them with
+	options.
+
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Customization Variables for Multiple Formats):
 	explicit which formats are concerned by USE_NODES.
 

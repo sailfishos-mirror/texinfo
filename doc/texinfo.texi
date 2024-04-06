@@ -15423,51 +15423,52 @@ meaning of the options.
 
 @multitable @columnfractions 0.5 0.5
 @headitem Option @tab Variable
-@item
+@item @vindex ENABLE_ENCODING
 @option{--enable-encoding}   @tab @code{ENABLE_ENCODING}
 @item
 @option{--document-language} @tab @code{documentlanguage}
-@item
+@item @vindex ERROR_LIMIT
 @option{--error-limit}       @tab @code{ERROR_LIMIT}
-@item
+@item @vindex FILLCOLUMN
 @option{--fill-column}       @tab @code{FILLCOLUMN}
 @item
 @option{--footnote-style}    @tab @code{footnotestyle}
-@item
+@item @vindex FORCE
 @option{--force}             @tab @code{FORCE}
-@item
+@item @vindex INTERNAL_LINKS
 @option{--internal-links}    @tab @code{INTERNAL_LINKS}
-@item
+@item @vindex MACRO_EXPAND
 @option{--macro-expand}      @tab @code{MACRO_EXPAND}
-@item
+@item @vindex HEADERS
 @option{--headers}           @tab @code{HEADERS}, @code{FORMAT_MENU}
-@item
+@item @vindex NO_WARN
 @option{--no-warn}           @tab @code{NO_WARN}
 @item
 @vindex novalidate
 @option{--no-validate}       @tab @code{novalidate}
-@item
+@item @vindex NUMBER_FOOTNOTES
 @option{--number-footnotes}  @tab @code{NUMBER_FOOTNOTES}
-@item
+@item @vindex NUMBER_SECTIONS
 @option{--number-sections}   @tab @code{NUMBER_SECTIONS}
-@item
+@item @vindex NODE_FILES
 @option{--node-files}        @tab @code{NODE_FILES}
-@item
+@item @vindex OUTFILE
+@vindex SUBDIR
 @option{--output}            @tab @code{OUTFILE}, @code{SUBDIR}
 @item
 @vindex paragraphindent
 @option{--paragraph-indent}  @tab @code{paragraphindent}
-@item
+@item @vindex SILENT
 @option{--silent}            @tab @code{SILENT}
-@item
+@item @vindex SPLIT
 @option{--split}             @tab @code{SPLIT}
-@item
+@item @vindex SPLIT_SIZE
 @option{--split-size}        @tab @code{SPLIT_SIZE}
-@item
+@item @vindex TRACE_INCLUDES
 @option{--trace-includes}    @tab @code{TRACE_INCLUDES}
-@item
+@item @vindex TRANSLITERATE_FILE_NAMES
 @option{--transliterate-file-names} @tab @code{TRANSLITERATE_FILE_NAMES}
-@item
+@item @vindex VERBOSE
 @option{--verbose}           @tab @code{VERBOSE}
 @end multitable
 
