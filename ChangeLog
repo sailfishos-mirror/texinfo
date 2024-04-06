@@ -1,3 +1,8 @@
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%parser_options): remove 'restricted' as it is
+	an internal parser option.
+
 2024-04-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info):
