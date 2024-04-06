@@ -17118,7 +17118,7 @@ insensitive filesystem by setting the customization variable
 @code{CASE_INSENSITIVE_FILENAMES}.
 
 It is also possible to split at chapters or sections with
-@option{--split} (@pxref{Invoking @command{texi2any}}).  In that case,
+@option{--split} (@pxref{Splitting Output}).  In that case,
 the file names are constructed after the name of the node associated
 with the relevant sectioning command.  Also, unless
 @option{--no-node-files} is specified, a redirection file is output
@@ -17979,7 +17979,7 @@ Unset in the default case.
 @node HTML Output Structure Customization
 @subsection HTML Output Structure Customization
 
-@vindex NO_TOP_NODE_OUTPUT
+@vindex NO_TOP_NODE_OUTPUT @subentry @r{for HTML}
 @vindex SHOW_TITLE
 @vindex USE_TITLEPAGE_FOR_TITLE
 By default the HTML output is tailored for online viewing with
@@ -17995,7 +17995,7 @@ output after the title by setting @code{CONTENTS_OUTPUT_LOCATION} to
 @samp{after_title}.
 
 @vindex CONTENTS_OUTPUT_LOCATION
-@vindex FORMAT_MENU
+@vindex FORMAT_MENU @subentry @r{for HTML}
 By default, a list of subordinate sections is output in each node
 for navigation, corresponding to @code{FORMAT_MENU} set to @samp{sectiontoc}.
 The table of contents are output at the end of the @code{@@top}
@@ -18076,9 +18076,9 @@ set to @samp{mathjax} for @code{MATHJAX_SOURCE} (@pxref{MathJax scripts}).
 
 @c file names
 
-@vindex PREFIX
-@vindex SUBDIR
-@vindex EXTENSION
+@vindex PREFIX @subentry @r{for HTML}
+@vindex SUBDIR @subentry @r{for HTML}
+@vindex EXTENSION @subentry @r{for HTML}
 @vindex CASE_INSENSITIVE_FILENAMES
 You can specify the output file names with more control than
 merely the command line option @option{--output} (@pxref{Invoking
@@ -18166,7 +18166,7 @@ appearing in other cross-references are also ignored.
 @code{IGNORE_REF_TO_TOP_NODE_UP} is not set in the default case.
 
 @vindex TOP_NODE_UP_URL
-@vindex TOP_NODE_UP
+@vindex TOP_NODE_UP @subentry @r{for HTML}
 If the manual is referred to in a web page together with other manuals
 it may be relevant to link to that page.  Set
 @code{TOP_NODE_UP_URL} to the URL used for Top node up references.
@@ -18249,11 +18249,10 @@ a base file name by setting @code{BASEFILENAME_LENGTH}.
 @node Customization of Navigation and Headers
 @subsection Customization of Navigation and Headers
 
-@vindex HEADERS
-Headers with a navigation panel are output in the default case.  If you
-use @option{--no-headers}, or if the customization variable @code{HEADERS}
-is unset, the navigation bar is only inserted at the beginning of
-split files.
+@vindex HEADERS @subentry @r{for HTML}
+Headers and footers with a navigation panel are output in the default case.  If
+you use @option{--no-headers}, or if the customization variable @code{HEADERS}
+is unset, the navigation bar is only inserted at the beginning of split files.
 
 @vindex USE_LINKS
 By default, @code{<link>} elements are generated in the
@@ -18268,7 +18267,7 @@ If the manual is split, the node name is also added to this HTML title.
 Set @code{SECTION_NAME_IN_TITLE} to use the argument of the associated
 chapter structuring command instead of the node name.
 
-@vindex OUTPUT_ENCODING_NAME
+@vindex OUTPUT_ENCODING_NAME @subentry @r{for HTML}
 By default, if an input encoding is set (typically through
 @code{@@documentencoding}), this information is used to set the output
 encoding name, otherwise the output encoding is based on the default encoding.
@@ -18319,7 +18318,7 @@ using an initialization file (@pxref{Invoking @command{texi2any}}).
 
 @vindex USE_XML_SYNTAX
 @cindex DOCTYPE customization
-@vindex DOCTYPE
+@vindex DOCTYPE @subentry @r{for HTML}
 By default HTML is generated, but you can set
 @code{USE_XML_SYNTAX} in order to generate XML compatible code.  The main
 difference is that @samp{/>} instead of @samp{>} closes elements with an
@@ -18343,8 +18342,8 @@ You could also set the DOCTYPE to HTML 4.01 Transitional:
 @end example
 
 @vindex USE_ISO
-@vindex USE_NUMERIC_ENTITY
-@vindex OUTPUT_CHARACTERS
+@vindex USE_NUMERIC_ENTITY @subentry @r{for HTML}
+@vindex OUTPUT_CHARACTERS @subentry @r{for HTML}
 By default, entities are used for doubled single-quote characters
 (@pxref{Inserting Quotation Marks}), and @samp{---} and @samp{--}
 (@pxref{Conventions}).  Set @code{USE_ISO} to @samp{0} in the unlikely case
@@ -18374,8 +18373,8 @@ Unset @code{COPIABLE_LINKS} to prevent copiable links output.
 @node Customization of HTML Code Inserted
 @subsection Customization of HTML Code Inserted
 
-@vindex CLOSE_QUOTE_SYMBOL
-@vindex OPEN_QUOTE_SYMBOL
+@vindex CLOSE_QUOTE_SYMBOL @subentry @r{for HTML}
+@vindex OPEN_QUOTE_SYMBOL @subentry @r{for HTML}
 Opening quote and closing quotes needed, e.g. for @code{@@samp} output
 are set to:
 
@@ -18521,7 +18520,7 @@ for menu entries formatting; default is undefined and set to
 @code{&bull;} if @code{USE_NUMERIC_ENTITY} is not set, and to
 @code{&#8217;} if set.
 
-@item NUMBER_FOOTNOTES
+@item NUMBER_FOOTNOTES @subentry @r{for HTML}
 @itemx NO_NUMBER_FOOTNOTE_SYMBOL
 By default footnotes are numbered.  With @option{--no-number-footnotes} or if
 @code{NUMBER_FOOTNOTES} is set to 0, a @samp{*} is used instead, or the
