@@ -1,5 +1,13 @@
 2024-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Other Formats Customization Variables),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/options_data.txt, tp/t/xml_tests.t: add a new customization
+	variable, TXI_MARKUP_NO_SECTION_EXTENT, to be used in TexinfoMarkup.pm
+	instead of USE_NODES to avoid multiple significations for USE_NODES.
+
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/xml_tests.t ($sectioning_test)
 	(sectioning_test_ref, sectioning_test_no_use_nodes): add test of
 	USE_NODES set in Texinfo XML.

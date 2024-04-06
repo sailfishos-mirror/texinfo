@@ -373,7 +373,7 @@ Again with space @inlineifset{flag, }. After.
 $sectioning_test,
 ],
 ['sectioning_test_no_use_nodes',
-$sectioning_test, {}, {'USE_NODES' => 1,},
+$sectioning_test, {}, {'TXI_MARKUP_NO_SECTION_EXTENT' => 1,},
 ],
 );
 

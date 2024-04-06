@@ -15981,6 +15981,10 @@ This table gives the customization which apply to specific formats only,
 for formats without separate customization variables description section.
 
 @vtable @code
+@item TXI_MARKUP_NO_SECTION_EXTENT
+For XML@.  Do not include lower level sectioning commands inside upper-level
+sectioning command markup.
+
 @item TEXI2DVI
 Name of the command used to produce PostScript, PDF, and DVI; default
 @samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.

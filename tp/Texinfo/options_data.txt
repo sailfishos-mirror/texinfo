@@ -300,6 +300,8 @@ T4H_MATH_CONVERSION                converter_customization undef   char
 T4H_TEX_CONVERSION                 converter_customization undef   char
 TEXI2HTML                          converter_customization undef   integer
 TEXINFO_OUTPUT_FORMAT              converter_customization undef   char
+# for Texinfo Markup/XML
+TXI_MARKUP_NO_SECTION_EXTENT       converter_customization undef   integer
 TOC_LINKS                          converter_customization undef   integer
 TOP_FILE                           converter_customization undef   char
 TOP_NODE_FILE_TARGET               converter_customization undef   char
