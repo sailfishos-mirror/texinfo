@@ -16083,9 +16083,9 @@ see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables List}.
 @xref{File Names and Links Customization for HTML}.
 
 @item USE_NODES
-Preferentially use nodes to decide where elements are separated.  If
-set to false, preferentially use sectioning to decide where elements
-are separated.  The default is true.
+For Plaintext and HTML.  Preferentially use nodes to decide where elements are
+separated.  If set to false, preferentially use sectioning to decide where
+elements are separated.  The default is true.
 
 @item USE_NUMERIC_ENTITY
 For HTML, XML and DocBook@.  If set, use numeric entities instead of named
