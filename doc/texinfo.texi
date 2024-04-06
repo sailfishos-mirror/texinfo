@@ -16028,10 +16028,6 @@ the title and copying informations are always output.  This option
 is kept for DocBook for compatibility, as before 2022 the Top node was output
 in DocBook.  It could be removed in the future.
 
-@item NODE_NAME_IN_MENU
-If set, use node names in menu entries, otherwise prefer section names;
-default true.
-
 @item OPEN_QUOTE_SYMBOL
 When an opening quote is needed, e.g., for @samp{@@samp} output, use
 the specified character; default @code{&#8216;} for DocBook.
@@ -18975,6 +18971,10 @@ Default is @code{*}.
 @item NODE_NAME_IN_INDEX
 If true, use node names in index entries, otherwise prefer section names.
 If undefined, use @code{USE_NODES} value in HTML.  Default is undefined.
+
+@item NODE_NAME_IN_MENU
+If set, use node names in menu entries, otherwise prefer section names;
+default true.
 
 @item PRE_BODY_CLOSE
 If set, the given text will appear at the footer of each
