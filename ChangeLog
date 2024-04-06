@@ -1,5 +1,14 @@
 2024-04-06  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (HTML Output Structure Customization): add
+	a definition of output units and an expanded description of the effect
+	of USE_NODES.
+
+	* doc/texinfo.texi (Customization Variables for Multiple Formats):
+	define output units when describing the effect of setting USE_NODES.
+
+2024-04-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi: add @subentry @r{for HTML} for customization
 	variables index entries for variables that are not only for HTML.
 

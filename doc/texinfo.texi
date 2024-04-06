@@ -16084,9 +16084,13 @@ see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables List}.
 @xref{File Names and Links Customization for HTML}.
 
 @item USE_NODES
-For Plaintext and HTML.  Preferentially use nodes to decide where elements are
-separated.  If set to false, preferentially use sectioning to decide where
-elements are separated.  The default is true.
+The main unit of output documents is an @dfn{output unit}.  Usually a node is
+associated with a following sectioning command, while a sectioning command is
+associated with a previous node; they both together make up the output unit.
+
+For Plaintext and HTML.  Preferentially use nodes to decide where output units
+are separated if @code{USE_NODES} is set.  If set to false, preferentially use
+sectioning to decide where output units are separated.  The default is true.
 
 @item USE_NUMERIC_ENTITY
 For HTML, XML and DocBook@.  If set, use numeric entities instead of named
@@ -18028,6 +18032,27 @@ manual nodes and sections.  If you prefer such special elements to be separate,
 set @code{MONOLITHIC} to 0 to output special elements to separate files.  As
 already described, the table of contents location may also be tuned with
 @code{CONTENTS_OUTPUT_LOCATION}.
+
+@vindex USE_NODES @subentry @r{for HTML}
+The elementary units used for output correspond to a node or a sectioning
+command associated content and is called an @dfn{output units}.
+Usually a node is associated
+with a following sectioning command, while a sectioning command is
+associated with a previous node; they both together make up the
+output unit.  Either the node or the sectioning command is considered to
+be the main element component, depending on the values of the
+customization variables @code{USE_NODES}.
+
+By default, nodes are used as the main component for the separation of
+output units.  You can set @code{USE_NODES} to false to preferentially
+use sectioning to decide where output units are separated.
+When sections are the main components of output units, ``isolated'' nodes
+not directly associated with a sectioning command are associated with
+the following sectioning command, while sectioning commands without
+nodes constitute output units.  Conversely, when nodes are the main
+components of output units, isolated sections not associated with nodes
+are associated with the previous node, and isolated nodes are
+output units.
 
 @vindex USE_NEXT_HEADING_FOR_LONE_NODE
 In Texinfo code, a @code{@@node} command is usually followed by a
