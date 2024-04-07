@@ -18545,7 +18545,7 @@ for menu entries formatting; default is undefined and set to
 @code{&bull;} if @code{USE_NUMERIC_ENTITY} is not set, and to
 @code{&#8217;} if set.
 
-@item NUMBER_FOOTNOTES @subentry @r{for HTML}
+@item NUMBER_FOOTNOTES
 @itemx NO_NUMBER_FOOTNOTE_SYMBOL
 By default footnotes are numbered.  With @option{--no-number-footnotes} or if
 @code{NUMBER_FOOTNOTES} is set to 0, a @samp{*} is used instead, or the
