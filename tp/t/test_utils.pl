@@ -913,21 +913,6 @@ sub test($$)
     delete $parser_options->{'TREE_TRANSFORMATIONS'};
   }
 
-  # set FORMAT_MENU default to menu, which is the default for the parser.
-  # get the same structuring warnings as texi2any.
-  my $added_main_configurations = {'FORMAT_MENU' => 'menu',
-                                   'CHECK_MISSING_MENU_ENTRY' => 1};
-
-  foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
-                                  'FORMAT_MENU', 'USE_UNICODE_COLLATION',
-                                  'COLLATION_LANGUAGE') {
-    if (defined($parser_options->{$structuring_option})) {
-      $added_main_configurations->{$structuring_option}
-        = $parser_options->{$structuring_option};
-      delete $parser_options->{$structuring_option};
-    }
-  }
-
   if ($parser_options->{'skip'}) {
     if (!$self->{'generate'}) {
       SKIP: {
@@ -991,13 +976,29 @@ sub test($$)
     }
     delete $parser_options->{'init_files'};
   }
+
+  # Setup main_configuration_options at this point to remove
+  # structuring options from parser options.
+  # set FORMAT_MENU default to menu.  It is also the default for the parser.
+  # get the same warnings as texi2any for menus.
+  my $main_configuration_options = {'FORMAT_MENU' => 'menu',
+                                   'CHECK_MISSING_MENU_ENTRY' => 1};
+
+  # gather options for structuring.
+  foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
+                                  'USE_UNICODE_COLLATION',
+                                  'COLLATION_LANGUAGE') {
+    if (defined($parser_options->{$structuring_option})) {
+      $main_configuration_options->{$structuring_option}
+        = $parser_options->{$structuring_option};
+      delete $parser_options->{$structuring_option};
+    }
+  }
+
   my $completed_parser_options =
           {'INCLUDE_DIRECTORIES' => [$srcdir.'t/include/'],
            'DEBUG' => $self->{'DEBUG'},
             %$parser_options};
-  my $main_configuration = Texinfo::MainConfig::new({
-                                    %$completed_parser_options,
-                                    %$added_main_configurations });
 
   my $parser = Texinfo::Parser::parser($completed_parser_options);
 
@@ -1046,11 +1047,16 @@ sub test($$)
 
   my ($errors, $error_nrs) = $parser->errors();
 
-  if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
-  }
-
   my $document_information = $document->global_information();
+
+  foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG') {
+    if (defined($parser_options->{$parser_and_structuring_option})) {
+      $main_configuration_options->{$parser_and_structuring_option}
+        = $parser_options->{$parser_and_structuring_option};
+    }
+  }
+  my $main_configuration = Texinfo::MainConfig::new({
+                                    %$main_configuration_options });
 
   Texinfo::Common::set_output_encodings($main_configuration,
                                         $document);
@@ -1062,6 +1068,10 @@ sub test($$)
   # Now that all the configuration has been set, associate it with the
   # document XS
   $main_configuration->register_XS_document_main_configuration($document);
+
+  if ($tree_transformations{'fill_gaps_in_sectioning'}) {
+    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
+  }
 
   if ($tree_transformations{'relate_index_entries_to_items'}) {
     Texinfo::Common::relate_index_entries_to_table_items_in_tree($document);

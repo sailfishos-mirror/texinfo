@@ -1,5 +1,14 @@
 2024-04-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): separate better parser options and main
+	configuration options used for structuring.  Setup main configuration
+	later on.
+
+	* tp/texi2any.pl: add a list of customization options actually
+	used in main_configuration and where they are used in comments.
+
+2024-04-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi: refer more to the reader as you.  Update for
 	changes in the Texinfo manual, to avoid some redundancy, and link to
 	the appropriate section.

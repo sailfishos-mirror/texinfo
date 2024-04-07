@@ -1525,9 +1525,18 @@ while(@input_files) {
   # a "handle" is returned.
   my $tree = $document->tree($XS_structuring);
 
-  # setup a configuration object which defines get_conf and gives the same as
-  # get_conf() in main program.  It is for Structuring/Transformations methods
-  # needing access to the configuration information.
+  # setup a configuration Perl object which defines get_conf and gives the
+  # same as get_conf() in the main program.  It is used by
+  # Structuring/Transformations methods needing access to configuration
+  # information.
+  # OUTPUT_ENCODING_NAME is accessed in set_output_encodings.
+  # OUTPUT_PERL_ENCODING is accessed in set_output_encodings and
+  # in output_files_open_out for the MACRO_EXPAND file name.
+  # The following variables are directly used in Structuring/Transformations:
+  # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
+  # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
+  # documentlanguage is used in Structuring/Transformations for
+  # translations.
   my $main_configuration = Texinfo::MainConfig::new();
 
   # encoding is needed for output files
