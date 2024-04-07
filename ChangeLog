@@ -1,5 +1,14 @@
 2024-04-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): set main_configuration as in the main
+	program, by setting up defaults, calling
+	Texinfo::Config::GNUT_initialize_config before loading init files,
+	calling Texinfo::MainConfig::new without arguments, and calling
+	Texinfo::Config::GNUT_set_from_cmdline for options from test
+	specification (+DEBUG).
+
+2024-04-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): separate better parser options and main
 	configuration options used for structuring.  Setup main configuration
 	later on.

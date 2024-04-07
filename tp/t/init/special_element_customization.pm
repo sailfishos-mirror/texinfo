@@ -11,7 +11,6 @@ texinfo_register_special_unit_info('heading', 'contents',
                                           'The @emph{Table of Contents}');
 texinfo_register_special_unit_info('heading', 'footnotes',
                                               'The @emph{Footnotes}');
-# does not work in the test suite
 texinfo_set_from_init_file('footnotestyle', 'separate');
 
 my %translations = (

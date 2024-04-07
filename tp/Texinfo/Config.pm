@@ -82,6 +82,8 @@ sub GNUT_initialize_config($$$) {
     }
     $options_as_lists{$cmdline_option} = 1;
   }
+  #print STDERR "main_program_default_options: "
+  #            .join('|',keys(%$main_program_default_options))."\n";
   #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
   return $init_files_options;
 }

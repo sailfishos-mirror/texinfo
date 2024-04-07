@@ -150,8 +150,6 @@ my @file_tests = (
 }, {'VERBOSE' => 1}],
 ['customize_special_element',
 '
-@footnotestyle separate
-
 @contents
 @shortcontents
 

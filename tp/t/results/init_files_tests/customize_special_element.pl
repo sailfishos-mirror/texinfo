@@ -24,43 +24,6 @@ $result_trees{'customize_special_element'} = {
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'separate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'footnotestyle',
-              'extra' => {
-                'misc_args' => [
-                  'separate'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
@@ -69,7 +32,7 @@ $result_trees{'customize_special_element'} = {
               'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
-                'line_nr' => 4
+                'line_nr' => 2
               }
             },
             {
@@ -83,7 +46,7 @@ $result_trees{'customize_special_element'} = {
               'cmdname' => 'shortcontents',
               'extra' => {},
               'source_info' => {
-                'line_nr' => 5
+                'line_nr' => 3
               }
             },
             {
@@ -125,7 +88,7 @@ $result_trees{'customize_special_element'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 7
+        'line_nr' => 5
       }
     },
     {
@@ -160,7 +123,7 @@ $result_trees{'customize_special_element'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 8
+        'line_nr' => 6
       }
     },
     {
@@ -191,7 +154,7 @@ $result_trees{'customize_special_element'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 10
+        'line_nr' => 8
       }
     },
     {
@@ -245,7 +208,7 @@ $result_trees{'customize_special_element'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 13
+            'line_nr' => 11
           }
         }
       ],
@@ -258,7 +221,7 @@ $result_trees{'customize_special_element'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 11
+        'line_nr' => 9
       }
     },
     {
@@ -289,7 +252,7 @@ $result_trees{'customize_special_element'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 14
+        'line_nr' => 12
       }
     },
     {
@@ -340,7 +303,7 @@ $result_trees{'customize_special_element'} = {
               'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
-                'line_nr' => 17
+                'line_nr' => 15
               }
             },
             {
@@ -360,7 +323,7 @@ $result_trees{'customize_special_element'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 15
+        'line_nr' => 13
       }
     }
   ],
@@ -368,8 +331,6 @@ $result_trees{'customize_special_element'} = {
 };
 
 $result_texis{'customize_special_element'} = '
-@footnotestyle separate
-
 @contents
 @shortcontents
 
@@ -388,7 +349,6 @@ Text@footnote{In footnote}.
 
 
 $result_texts{'customize_special_element'} = '
-
 top
 ***
 

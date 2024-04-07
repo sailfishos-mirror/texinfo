@@ -942,13 +942,25 @@ sub test($$)
     delete $parser_options->{'test_formats'};
   }
 
+  # Setup default customization options to be ready for init files options
+  # setting.
+
+  # TODO use the same as in texi2any.pl?:
+  #   %Texinfo::Common::default_main_program_customization_options
+  # The main difference would be that
+  # CHECK_NORMAL_MENU_STRUCTURE is set to 1.
+  my $main_configuration_defaults = {'FORMAT_MENU' => 'menu',
+                                   'CHECK_MISSING_MENU_ENTRY' => 1};
+
   # get symbols in Texinfo::Config namespace before calling the init files
   # such that the added symbols can be removed after running the tests to have
   # isolated tests and be able to load the same init file multiple times.
   my $symbols_before_init_file;
   # reset Texinfo::Config informations to have isolated tests
   Texinfo::Config::GNUT_reinitialize_init_files();
-  my $init_files_options = {};
+  my $init_files_options
+      = Texinfo::Config::GNUT_initialize_config('',
+                                   $main_configuration_defaults, {});
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
   # the init file names should be binary strings.  Since they
   # are not encoded here, ascii file names should be used or they
@@ -958,13 +970,6 @@ sub test($$)
     foreach my $symbol (keys(%Texinfo::Config::)) {
       $symbols_before_init_file->{$symbol} = 1;
     }
-    my $conf = {};
-    if (defined($locale_encoding)) {
-      $conf->{'COMMAND_LINE_ENCODING'} = $locale_encoding;
-      $conf->{'MESSAGE_ENCODING'} = $locale_encoding;
-    }
-    $init_files_options
-      = Texinfo::Config::GNUT_initialize_config('', $conf, {});
     foreach my $filename (@{$parser_options->{'init_files'}}) {
       my $file = Texinfo::Common::locate_init_file($filename,
                                                $init_file_directories, 0);
@@ -977,15 +982,13 @@ sub test($$)
     delete $parser_options->{'init_files'};
   }
 
-  # Setup main_configuration_options at this point to remove
+  # Setup main configuration options defaults at this point to remove
   # structuring options from parser options.
-  # set FORMAT_MENU default to menu.  It is also the default for the parser.
-  # get the same warnings as texi2any for menus.
-  my $main_configuration_options = {'FORMAT_MENU' => 'menu',
-                                   'CHECK_MISSING_MENU_ENTRY' => 1};
-
+  my $main_configuration_options = {};
   # gather options for structuring.
   foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
+                                  'CHECK_MISSING_MENU_ENTRY',
+       # Not structuring options, but used for index sorting strings tests
                                   'USE_UNICODE_COLLATION',
                                   'COLLATION_LANGUAGE') {
     if (defined($parser_options->{$structuring_option})) {
@@ -1055,8 +1058,15 @@ sub test($$)
         = $parser_options->{$parser_and_structuring_option};
     }
   }
-  my $main_configuration = Texinfo::MainConfig::new({
-                                    %$main_configuration_options });
+
+  # setup options from test specification (+DEBUG) as if they were
+  # command-line options, with high precedence.
+  foreach my $option (keys(%$main_configuration_options)) {
+    Texinfo::Config::GNUT_set_from_cmdline($option,
+                                 $main_configuration_options->{$option});
+  }
+
+  my $main_configuration = Texinfo::MainConfig::new();
 
   Texinfo::Common::set_output_encodings($main_configuration,
                                         $document);
@@ -1151,7 +1161,7 @@ sub test($$)
   my $merged_index_entries = $document->merged_indices();
 
   # only print indices information if it differs from the default
-  # indices
+  # indices.  Indices information here is everything but the entries.
   my $indices;
   my $trimmed_index_names = remove_keys($indices_information, ['index_entries']);
   $indices = {'index_names' => $trimmed_index_names}
