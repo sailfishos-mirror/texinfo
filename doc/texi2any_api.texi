@@ -73,7 +73,8 @@ The conversion of Texinfo to HTML is done in two steps.  After reading
 command-line options and init files, input Texinfo code is parsed
 into a Texinfo tree and information is gathered on the document
 structure.  This first step can only be customized to a certain extent, by
-using the command-line options and setting customization variables.  The
+using the command-line options and setting customization variables
+(@pxref{Global Customization Variables,,, texinfo, Texinfo}).  The
 Texinfo tree describes a Texinfo document in a structured way which makes
 it easy to go through the tree and format @@-commands and other containers.
 
@@ -268,7 +269,7 @@ the names of the customization options.}.
 @cindex Customization variables, setting and getting
 
 The basic operations on customization variables are to set and
-retrieve their values.  New variables can also be added.
+retrieve their values.  You can also add new variables.
 
 The customization variables also valid in the main program out of the HTML
 converter are handled differently if their associated values are strings or
@@ -323,8 +324,8 @@ overridden by @code{--set-init-variable NO_CSS=1} on the command line.
 Setting the output format cannot be done by setting the customization variable
 @code{TEXINFO_OUTPUT_FORMAT}.  This customization variable sets the output
 format in the main program, but not from init files as additional
-code needs to be run.  Instead, the @code{texinfo_set_format_from_init_file}
-function should be used:
+code needs to be run.  Instead, call the
+@code{texinfo_set_format_from_init_file} function:
 
 @defun texinfo_set_format_from_init_file ($output_format)
 @var{$output_format} is the output format; sets the output format,
@@ -351,10 +352,9 @@ are not documented.
 @end quotation
 
 Customization variables for the main program associated with an array of values
-are handled differently. Two functions can be used in init files,
-@code{texinfo_add_to_option_list} to add values to the array and
-@code{texinfo_remove_from_option_list} to remove values from the array
-associated with the customization variable:
+are handled differently. You can use @code{texinfo_add_to_option_list} to
+add values to the array and @code{texinfo_remove_from_option_list} to
+remove values from the array associated with the customization variable:
 
 @defun texinfo_add_to_option_list ($variable_name, $variable_values_array_reference)
 @defunx texinfo_remove_from_option_list ($variable_name, $variable_values_array_reference)
@@ -372,7 +372,7 @@ Array and hash references customization variables values relevant in converters
 only (not in main program, but in the HTML converter) can be set through the
 main program in init files.  These variables cannot be set on the command-line.
 They are documented in the customization documentation, not in the main Texinfo
-manual.  Such arrays or hashes references can be passed through
+manual.  You set such arrays or hashes references with
 @code{texinfo_set_from_init_file}.  For example:
 
 @example
@@ -612,12 +612,10 @@ texinfo_register_upper_case_command('var', 1);
 @cindex Simple commands, customizing HTML for
 @cindex Style commands, customizing HTML for
 
-The formatting of the output produced by ``indicator'' and font
-commands (e.g., @code{@@code}, @code{@@t}),
-and other simple commands with
-arguments (e.g., @code{@@asis}, @code{@@clicksequence},
-@code{@@sup}, @code{@@verb}) can be changed with
-@code{texinfo_register_style_command_formatting}:
+You can change the formatting of the output produced by ``indicator'' and font
+commands (e.g., @code{@@code}, @code{@@t}), and other simple commands with
+arguments (e.g., @code{@@asis}, @code{@@clicksequence}, @code{@@sup},
+@code{@@verb}) with @code{texinfo_register_style_command_formatting}:
 
 @defun texinfo_register_style_command_formatting ($command_name, @
                                      $html_element, $in_quotes, $context)
@@ -632,7 +630,8 @@ If @var{$html_element} is set, the argument is enclosed between the
 @var{$html_element} is always ignored in @samp{string} context.  If @var{$in_quotes}
 is true, the result is enclosed in quotes
 associated with customization variables @code{OPEN_QUOTE_SYMBOL} and
-@code{CLOSE_QUOTE_SYMBOL}.
+@code{CLOSE_QUOTE_SYMBOL} (@pxref{Customization of HTML Code Inserted,,,
+texinfo, Texinfo}).
 
 If @var{$html_element} is undefined and @var{$in_quotes} is not set, the formatted
 argument is output as is.
@@ -667,9 +666,12 @@ foreach my $context ('normal', 'preformatted', 'string') @{
 @cindex Accent commands, customizing HTML for
 @cindex Accent command named entities
 
-The formatting of accent commands (@code{@@'}, @code{@@ringaccent},
-@code{@@dotless}) can be customized with @code{USE_NUMERIC_ENTITY}.
-It is also possible to change how accented commands are converted
+You can modify the formatting of accent commands such as @code{@@'},
+@code{@@ringaccent} or @code{@@dotless} by selecting HTML general features,
+to output numeric entities or characters (@pxref{HTML Features
+Customization,,, texinfo, Texinfo}).
+
+You can also change how accented commands are converted
 to named entities.  The accent named entities are obtained by combining
 a letter to be accented, such as @samp{e} and a postfix based on the
 accent command name, for example @samp{acute} for the acute accent
@@ -736,22 +738,15 @@ description of container types.
 @node Simple headers customizations
 @chapter Simple headers customizations
 
-@vindex HEADERS
-Headers with a navigation panel are output in the default case.  if
-@option{--no-headers} is used or the customization variable @code{HEADERS}
-is unset, the navigation bar is only inserted at the beginning of
-split files (@pxref{HTML Translation,,, texinfo, Texinfo}).
+Headers and footers with a navigation panel are output in the default case.
+You can already customize the overall formatting and appearance of headers and
+navigation panels with customization variables (@pxref{Customization of
+Navigation and Headers,,, texinfo, Texinfo}).
 
-When output is split at nodes (@pxref{HTML Splitting,,, texinfo, Texinfo}),
-the @code{WORDS_IN_PAGE} customization variable value specifies the approximate
-minimum page length at which a navigation panel is placed at the bottom of a
-page.
-
-Some customization of navigation panels appearing in header and footers in
-output can be specified with simple code.  To explain how navigation
-panels are customized, we first describe how the document is organized
-and which directions are available as the directions is the basis for
-navigation panel customization.
+You can specify more precisely the labels and links output in navigation panels
+with simple code.  To explain how navigation panels are customized, we first
+describe how the document is organized and which directions are available as
+the directions is the basis for navigation panel customization.
 
 
 @node Output Units
@@ -780,7 +775,7 @@ associated with a previous node; they both together make up the
 output unit.  Either the node or the sectioning command is considered to
 be the main element component, depending on the values of the
 customization variables @code{USE_NODES}
-(@pxref{HTML Customization Variables,,, texinfo, Texinfo}).
+(@pxref{HTML Output Structure Customization,,, texinfo, Texinfo}).
 
 For example, when generating Info, the nodes are the main elements; when
 generating HTML, either case may happen (@pxref{Two Paths,,, texinfo,
@@ -803,9 +798,10 @@ a normal output unit.
 @cindex Overview, output unit
 @cindex Footnotes, output unit
 @cindex About page, output unit
-The remaining output units are associated with different files if the
-document is split, and also if @code{MONOLITHIC} is not set.  There
-are four such miscellaneous output units, also called special output units:
+The remaining output units are associated with different files if the document
+is split, and also if @code{MONOLITHIC} is not set (@pxref{HTML Output
+Structure Customization, texinfo,,, Texinfo}).  There are four such
+miscellaneous output units, also called special output units:
 @enumerate
 @item Table of contents
 @item Short table of contents, also called Overview
@@ -831,8 +827,9 @@ respective output units.
 @emph{Table of contents} and @emph{Short table of contents} output units are
 separate (@pxref{Contents and Short Table of Contents Customization}).
 Otherwise the @emph{Table of contents} and @emph{Short table of contents}
-are directly included within the document, at locations depending on
-the specific @code{CONTENTS_OUTPUT_LOCATION} value.
+are directly included within the document, at locations depending on the
+specific @code{CONTENTS_OUTPUT_LOCATION} value (@pxref{HTML Output Structure
+Customization, texinfo,,, Texinfo}.
 
 @item When generating HTML, the @emph{Footnotes page} should only
 be present if the footnotes appear on a separate page (@pxref{Footnote
@@ -849,18 +846,6 @@ without navigation information, or if @code{DO_ABOUT} is not set.
 
 It is common not to have anything but normal output units, especially in
 case of monolithic output.
-
-@vindex USE_NODES
-The main component of output units is sections if @code{USE_NODES} is 0;
-conversely, the main component is nodes if @code{USE_NODES} is set.
-
-When sections are the main components of output units, ``isolated'' nodes
-not directly associated with a sectioning command are associated with
-the following sectioning command, while sectioning commands without
-nodes constitute output units.  Conversely, when nodes are the main
-components of output units, isolated sections not associated with nodes
-are associated with the previous node, and isolated nodes are
-output units.
 
 A last type of output units exist, ``virtual'' output units corresponding to
 directions to external manual nodes.  They are not part of the output, but can
@@ -1119,23 +1104,11 @@ typically appears at the top of each node, so that users can easily
 get to the next node, the table of contents, and so on.  It can be
 customized extensively.
 
-The appearance of the navigation panel is affected by the following
-customization variables, false in the default case:
-@vtable @code
-@item HEADER_IN_TABLE
-Use tables for header formatting rather than a simple @samp{<div>}.
-
-@item ICONS
-If set, use icons for the navigation panel.
-
-@item VERTICAL_HEAD_NAVIGATION
-If set, a vertical navigation panel is used.
-@end vtable
-
-Setting @code{ICONS} is necessary but not sufficient to get icons for direction
-buttons since no button image is specified in the default case.
-The @code{ACTIVE_ICONS} and @code{PASSIVE_ICONS} customization
-variables need to be set in addition:
+You can set the @code{ICONS} customization variable to use icons for the
+navigation panel.  Setting @code{ICONS} is necessary but not sufficient to get
+icons for direction buttons since no button image is specified in the default
+case.  The @code{ACTIVE_ICONS} and @code{PASSIVE_ICONS} customization variables
+need to be set in addition:
 
 @vtable @code
 @item ACTIVE_ICONS
@@ -1490,7 +1463,7 @@ encoded in the converter. Use @code{OUTPUT_FILE_NAME_ENCODING} value for the
 file name encoding if set.  Otherwise, if
 @code{DOC_ENCODING_FOR_OUTPUT_FILE_NAME} is set the input Texinfo document
 encoding is used, if unset, the default, files names are encoded using the
-current locale (@pxref{Other Customization Variables,,, texinfo, Texinfo}).
+current locale (@pxref{Global Customization Variables,,, texinfo, Texinfo}).
 Return the encoded name and the encoding used to encode the name.
 @end deftypefun
 
@@ -1545,8 +1518,10 @@ variables strings or arrays @code{INCLUDE_DIRECTORIES}, @code{CSS_FILES},
 character strings, for example to appear in error messages, it is possible to
 use the @code{COMMAND_LINE_ENCODING} customization variable value as
 encoding name to mimic how the decoding of these strings from the command line
-is done in the main program and in the converters.  For example:
+is done in the main program and in the converters.  @xref{Global Customization
+Variables,,, texinfo, Texinfo}.
 
+For example:
 @example
 my $macro_expand_fname = $converter->get_conf('MACRO_EXPAND');
 my $encoding = $converter->get_conf('COMMAND_LINE_ENCODING');
@@ -1660,26 +1635,13 @@ texinfo_register_file_id_setting_function('node_file_name',
 @cindex Customizing output file names
 @cindex Output file names, customizing
 
-@vindex PREFIX
-@vindex SUBDIR
-@vindex EXTENSION
-It is possible to specify the output file names with more control than
-merely the command line option @option{--output} (@pxref{Invoking
-@command{texi2any},,, texinfo, Texinfo}). The @code{PREFIX} customization
-variable overrides the base name of the file given by @code{@@setfilename} or
-the file name and should not contain any directory components.  To alter
-intermediate directories, use the @code{SUBDIR} customization variable.
-Finally, the extension may also be overriden by the customization variable
-@code{EXTENSION}.  This variable should be @code{undef} if no extension is to
-be added.
+You can specify the output file or directory, intermediate directories and
+file extension with customization variables (@pxref{File Names and Links
+Customization for HTML,,, texinfo, Texinfo}).
 
-@vindex TOP_FILE
-Furthermore, the customization variables @code{TOP_FILE} override
-the output file name for the top element.
-
-Two function references registered with @code{texinfo_register_file_id_setting_function}
-enable further customization.  The first,
-@code{node_file_name} is used to customize the nodes files names.
+Two function references registered with
+@code{texinfo_register_file_id_setting_function} enable further customization.
+The first, @code{node_file_name} is used to customize the nodes files names.
 
 @deftypefn {Function Reference} @var{$node_file} node_file_name (@var{$converter}, @
                                       @var{\%node_element}, @var{$file_name})
@@ -1783,14 +1745,13 @@ the sectioning element (@var{$file}).
 @node Customizing External Node Output Names
 @section Customizing External Node Output Names
 
-In the default case references to external nodes are set as described
-in the Texinfo manual (@pxref{HTML Xref,,, texinfo, Texinfo}).  Some
-customization is already possible for external manuals URLs as explained in
-the Texinfo manual (@pxref{HTML Xref Configuration,,, texinfo, Texinfo}),
-and by setting @code{EXTERNAL_CROSSREF_SPLIT},
-@code{EXTERNAL_CROSSREF_EXTENSION}, @code{EXTERNAL_DIR},
-@code{TOP_NODE_FILE_TARGET} or @code{IGNORE_REF_TO_TOP_NODE_UP}
-(@pxref{HTML Customization Variables,,, texinfo, Texinfo}).
+In the default case references to external nodes are set as described in the
+Texinfo manual (@pxref{HTML Xref,,, texinfo, Texinfo}).  You can specify
+external node manuals URLs in cross-references customization files (@pxref{HTML
+Xref Configuration,,, texinfo, Texinfo}).  You can also set a base directory,
+the Top node file target, the extension and other overall references to
+external nodes formatting with customization variables (@pxref{File Names and
+Links Customization for HTML,,, texinfo, Texinfo}).
 
 If the external reference is not already ignored because of
 @code{IGNORE_REF_TO_TOP_NODE_UP}, two function references give
@@ -1915,6 +1876,7 @@ The call of the user defined functions is:
 @var{$converter} is a converter object. @var{$document} is the Texinfo
 parsed @code{Texinfo::Document} document. @var{$stage} is the current stage.
 
+@vindex HANDLER_FATAL_ERROR_LEVEL
 If @var{$status} is not 0 it means that an error occured.
 If @var{$status} is positive, the user defined functions should
 have registered an error or warning message, for example with
@@ -1977,8 +1939,9 @@ is also no attribute.
 If @code{NO_CSS} is set, no attribute is set for the element.  Otherwise
 a @code{class} attribute is set based on @var{\@@classes }. If
 @code{INLINE_CSS_STYLE} is set, a CSS style attribute based on
-CSS element class rules is also added.  Otherwise the information that
-the element class was seen is registered by the converter.
+CSS element class rules is also added (@pxref{HTML CSS,,, texinfo, Texinfo}).
+Otherwise the information that the element class was seen is registered by
+the converter.
 @end deftypefun
 
 Examples of use:
@@ -2003,7 +1966,7 @@ be closed by calling @code{close_html_lone_element}:
                                                      (@var{$unclosed_element})
 Close the @var{$unclosed_element}, which can contain attributes, by prepending
 @samp{>} or @samp{/>} depending on the @code{USE_XML_SYNTAX} customization
-variable value.
+variable value (@pxref{HTML Features Customization,,, texinfo, Texinfo}).
 @end deftypefun
 
 Examples of use:
@@ -2034,6 +1997,9 @@ customization variables:
                                                     (@var{$formatted_text})
 Substitute @code{&nbsp;} according to customization variables values.
 @end deftypefun
+
+@xref{HTML Features Customization,,, texinfo, Texinfo} for
+@code{OUTPUT_CHARACTERS} and @code{USE_NUMERIC_ENTITY} description.
 
 
 @node Converter General Information
@@ -2145,6 +2111,7 @@ values.  @xref{Substituting Non Breaking Space}.
 Paragraph symbol, can be @samp{&para;}, but also the corresponding numeric entity
 or encoded character based on @code{OUTPUT_CHARACTERS} and
 @code{USE_NUMERIC_ENTITY} customization variables values.
+@xref{HTML Features Customization,,, texinfo, Texinfo}.
 
 @item title_string
 @item title_tree
@@ -2165,7 +2132,8 @@ is the @@-command name used for the simpletitle, without the leading @@.
 @item title_titlepage
 The formatted title, possibly based on @code{@@titlepage}, or on
 @code{simpletitle_tree} and similar information, depending on @code{SHOW_TITLE}
-and @code{USE_TITLEPAGE_FOR_TITLE} customization variables in the default case.
+and @code{USE_TITLEPAGE_FOR_TITLE} customization variables in the default case
+(@pxref{HTML Output Structure Customization,,, texinfo, Texinfo}).
 
 @end table
 
@@ -2936,14 +2904,17 @@ default opening function reference for @var{$command_name}, or @samp{undef} if t
 @node Heading Commands Formatting
 @subsection Heading Commands Formatting
 
-The customization variables
-@code{CONTENTS_OUTPUT_LOCATION},
-@code{CHAPTER_HEADER_LEVEL}, @code{TOC_LINKS},
-@code{USE_NEXT_HEADING_FOR_LONE_NODE} and @code{FORMAT_MENU}
-may be used to change the sectioning commands conversion.
-@xref{HTML Customization Variables,,, texinfo, Texinfo}.
+You can change the heading commands formatting by setting customization
+variables.  In particular, you can change the navigation information output in
+headers associated with heading commands by selecting a different type of
+navigation (@pxref{HTML Output Structure Customization,,, texinfo, Texinfo}),
+by changing the links formatting (@pxref{File Names and Links Customization for
+HTML,,, texinfo, Texinfo}), the navigation panels formatting
+(@pxref{Customization of Navigation and Headers,,, texinfo, Texinfo}) and the
+heading levels (@pxref{Specific Customization of HTML Formatting,,, texinfo,
+Texinfo}).
 
-@code{@@node} and sectioning default conversion function call
+@code{@@node} and sectioning commands default conversion function call
 @code{format_heading_text} (@pxref{Basic Formatting Customization})
 and @code{format_element_header} (@pxref{Element Header and Footer
 Formatting}).  The @code{@@node} and sectioning elements are formatted like any
@@ -4232,54 +4203,42 @@ link information for the location where footnote text is output.
 @c documentation in the Texinfo manual.  Keep it anyway as it is
 @c slightly more informative here?
 
-To begin with, the table of contents and short table of contents can
-be made to appear at different locations in the document.
-
 @vindex CONTENTS_OUTPUT_LOCATION
-By default, the customization variable
-@code{CONTENTS_OUTPUT_LOCATION} is set to @samp{after_top}, specifying
-that the tables of contents are output at the end of the @code{@@top}
+You can set the customization variable @code{CONTENTS_OUTPUT_LOCATION}
+to determine where the table of contents and short table of content
+are output in the document (@pxref{HTML Output Structure Customization,,,
+texinfo, Texinfo}):
+
+@table @samp
+@item after_top
+The tables of contents are output at the end of the @code{@@top}
 section, to have the main location for navigation in the whole document
 early on.  This is in line with @code{FORMAT_MENU} set to @samp{sectiontoc}
 with sectioning command being used in HTML for navigation rather
-than menus.
+than menus.  This is the default.
 
-If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{inline}, the tables of
+@item inline
+The tables of
 content are output where the corresponding @@-command, for example
 @code{@@contents}, is set.  This behavior is consistent with
 @command{texi2dvi}.
 
-If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{separate_element},
-the tables of contents are output in separate output units, either at
+@item separate_element
+The tables of contents are output in separate output units, either at
 the end of the document if the output is unsplit or in separate files if not.
 This makes sense when menus are used for navigation with @code{FORMAT_MENU} set
 to @samp{menu}.
 
-If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{after_title}
-the tables of contents are merged into the title material, which in turn is not
+@item after_title
+The tables of contents are merged into the title material, which in turn is not
 output by default; @pxref{HTML Title Page Customization}.
+@end table
 
-Next, the following variables allow for some useful control of the
-formatting of table of contents and short table of contents:
-
-@vtable @code
-@item BEFORE_TOC_LINES
-Inserted before the table of contents text.
-
-@item AFTER_TOC_LINES
-Inserted after the table of contents text.
-
-@item BEFORE_SHORT_TOC_LINES
-Inserted before the short table of contents text.
-
-@item AFTER_SHORT_TOC_LINES
-Inserted after the short table of contents text.
-
-@end vtable
-
-Additional customization variables @code{SHORT_TOC_LINK_TO_TOC}
-and @code{NUMBER_SECTIONS} can be used to change the formatting
-of table of contents.
+You can set other customization variables to modify table of contents
+links formatting (@pxref{File Names and Links Customization for HTML,,,
+texinfo, Texinfo}) and change the HTML code inserted before and after
+the tables of contents (@pxref{Customization of HTML Code Inserted,,,
+texinfo, Texinfo}).
 
 Finally, the following function reference provides even more control
 over the table of contents and short table of contents formatting
@@ -4436,11 +4395,12 @@ headers, footers, and navigation panel.  (These are
 unrelated to the headings and ``footings'' produced in @TeX{} output;
 @pxref{Headings,, Page Headings, texinfo, Texinfo}.)
 
-In the event that your needs are not met by changing the navigation buttons
-(@pxref{Simple Navigation Panel Customization}), you can completely control the
-formatting of navigation panels by redefining function references.
-@xref{Registering Specific Formating Functions} for information on how to
-register the function references.
+In the event that your needs are not met by setting customization variables
+(@pxref{Customization of Navigation and Headers,,, texinfo, Texinfo}) and
+changing the navigation buttons (@pxref{Simple Navigation Panel
+Customization}), you can completely control the formatting of navigation panels
+by redefining function references.  @xref{Registering Specific Formating
+Functions} for information on how to register the function references.
 
 In a nutshell, element header and footer formatting function determines
 the button directions list to use and calls navigation header formatting.  The
@@ -4468,10 +4428,12 @@ Returns the formatted result in @var{$formatted_button}.
 The buttons images can be formatted with @code{format_button_icon_img}
 (see below).
 
-Customization information described in @ref{Simple Navigation Panel Customization}
-such as @code{BUTTONS_TEXT}, @code{BUTTONS_NAME}, @code{BUTTONS_GOTO},
+Simple navigation panel
+customization (@pxref{Simple Navigation Panel Customization}),
 @code{USE_ACCESSKEY},
-@code{USE_REL_REV} and @code{BUTTONS_REL} can be relevant for the
+@code{USE_REL_REV} and direction strings
+customization (@pxref{Direction Strings Customization})
+can be relevant for the
 formatting of a button.
 @end deftypefn
 
@@ -4565,7 +4527,8 @@ for special output units.
 Returns the formatted navigation header and panel. The navigation
 panel itself can be formatted with a call to @code{format_navigation_panel}.
 
-The customization variable @code{VERTICAL_HEAD_NAVIGATION} should be relevant.
+The customization variable @code{VERTICAL_HEAD_NAVIGATION} should be relevant
+(@pxref{Customization of Navigation and Headers,,, texinfo, Texinfo}).
 @end deftypefn
 
 The navigation panel display is controlled via @code{format_navigation_panel}:
@@ -4631,8 +4594,13 @@ The navigation header can then be formatted with a call to
 @code{format_navigation_header} (@pxref{@code{format_navigation_header}}).
 
 Many customization variables have an effect on the footer
-formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
-@code{BIG_RULE}, @code{WORDS_IN_PAGE} or @code{PROGRAM_NAME_IN_FOOTER}.
+formatting, such as @code{SPLIT} (@pxref{HTML Splitting,,, texinfo, Texinfo}),
+customization variables used for the customization of headers such
+as @code{HEADERS} or @code{WORDS_IN_PAGE}
+(@pxref{Customization of Navigation and Headers,,, texinfo, Texinfo})
+and customization variables setting inserted HTML code such as
+@code{DEFAULT_RULE} (@pxref{Customization of HTML Code Inserted,,, texinfo,
+Texinfo}).
 @end deftypefn
 
 To select the list of buttons for header and footer formatting, it
@@ -4700,8 +4668,10 @@ register and get the functions references.
 @node Customizing HTML File Beginning
 @section Customizing HTML File Beginning
 
-@c FIXME following information is also in the Customization
-@c variables dicumentation in the Texinfo manual
+@c The following information is also in the HTML Customization
+@c variables dicumentation in the Texinfo manual.  We keep it here too,
+@c as the organization is different, here the customization variables
+@c are grouped together because they appear at the file beginning.
 
 @vindex DOCTYPE
 You can set the variable @code{DOCTYPE} to replace the default.
@@ -4741,8 +4711,9 @@ customization variable) is used in the header
 @vindex BUTTONS_REL @subentry In file beginning
 @code{<link>} elements are used in the header if @code{USE_LINKS} is
 set, in which case @code{LINKS_BUTTONS} determines which links are
-used and @code{BUTTONS_REL} determines the link type associated with
-the @code{rel} attribute.  @xref{Simple Navigation Panel Customization}.
+used and the @code{rel} direction string (@pxref{Direction Strings}) determines
+the link type associated with the @code{rel} attribute.  @xref{Simple
+Navigation Panel Customization}.
 
 @vindex HTML_ROOT_ELEMENT_ATTRIBUTES
 You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to
@@ -4753,11 +4724,12 @@ If @code{SECTION_NAME_IN_TITLE} is set, the sectioning command argument
 is used in the @code{<title>} HTML element instead of the @code{@@node}
 argument.
 
-The customization variables
-@code{PACKAGE_AND_VERSION}, @code{PACKAGE_URL} and other similar variables,
-@code{HTML_MATH} and @code{INFO_JS_DIR}
-may also change the page header formatting.
-@xref{HTML Customization Variables,,, texinfo, Texinfo}.
+You can also set a JavaScript browsing interface with customization
+variables (@pxref{JavaScript Interface and Licenses,,, texinfo, Texinfo}).
+@xref{Customization of Navigation and Headers,,, texinfo, Texinfo} for more
+information on customization variables in the main Texinfo manual.
+@xref{Customization of HTML Code Inserted,,, texinfo, Texinfo} for more
+on insertion of HTML code in output.
 
 The following function references give full control over the
 page header formatting done at the top of each HTML output file.
@@ -4785,9 +4757,9 @@ before the HTML @code{</body>} element.  Nothing is added by default.
 If @code{PROGRAM_NAME_IN_FOOTER} is set, the date and name of the
 program that generated the output are output in the footer.
 
-The customization variables @code{JS_WEBLABELS} and @code{JS_WEBLABELS_FILE}
-are also used in the page footer formatting. @xref{HTML Customization
-Variables,,, texinfo, Texinfo}.
+By default, the JavaScript license web labels page is formatted and output at
+the end of file (@pxref{JavaScript Interface and Licenses,,, texinfo,
+Texinfo}).
 
 The @code{format_end_file} function reference give full control over the page
 footer formatting done at the bottom of each HTML output file.
@@ -4820,6 +4792,12 @@ Return the value associated with the key @var{$key} and file name
 @var{$file_name}.
 @end deftypefun
 
+By default, this interface is used to get @samp{mathjax} file information
+registered when converting math @@-commands to insert references to
+MathJax scripts in file beginning (@pxref{MathJax scripts,,, texinfo, Texinfo})
+and license information in end of files (@pxref{JavaScript Interface and
+Licenses,,, texinfo, Texinfo}).
+
 
 @node Titlepage@comma{} CSS and Redirection Files
 @chapter Titlepage, CSS and Redirection Files
@@ -4837,7 +4815,7 @@ If @code{SHOW_TITLE} is not set, no title is output.  @code{SHOW_TITLE} is
 @code{NO_TOP_NODE_OUTPUT} is set.  The ``title page'' is used to format the
 HTML title if @code{USE_TITLEPAGE_FOR_TITLE} is set, otherwise the
 @code{simpletitle} is used.  @code{USE_TITLEPAGE_FOR_TITLE} is set in the
-default case.  @xref{HTML Customization Variables,,, texinfo, Texinfo}.
+default case.  @xref{HTML Output Structure Customization,,, texinfo, Texinfo}.
 
 The following functions references provides full control on the title and
 ``title page'' formatting:
@@ -4862,9 +4840,7 @@ otherwise @code{simpletitle} is used (@pxref{Converter General Information}).
 @section CSS Customization
 
 CSS in HTML output can already be modified with command line options
-(@pxref{HTML CSS,,, texinfo, Texinfo}).  If the @code{NO_CSS} customization
-variable is set, CSS is not used.  If @code{INLINE_CSS_STYLE} is set, CSS rules
-are directly put in HTML elements rather than at the beginning of the output.
+and customization variables (@pxref{HTML CSS,,, texinfo, Texinfo}).
 More control of the generated CSS is available through functions.
 
 

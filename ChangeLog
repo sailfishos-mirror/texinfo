@@ -1,5 +1,11 @@
 2024-04-07  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi: refer more to the reader as you.  Update for
+	changes in the Texinfo manual, to avoid some redundancy, and link to
+	the appropriate section.
+
+2024-04-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Specific Customization of HTML Formatting): remove
 	a @subentry associated to an @item.
 
