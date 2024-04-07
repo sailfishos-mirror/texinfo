@@ -1,5 +1,12 @@
 2024-04-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm Texinfo::MainConfig (new, get_conf, set_conf)
+	(register_XS_document_main_configuration), tp/t/test_sort.t: remove
+	the 'standalone' case, now that it is not used anymore.  Simplify the
+	Texinfo::MainConfig object structure.
+
+2024-04-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): set main_configuration as in the main
 	program, by setting up defaults, calling
 	Texinfo::Config::GNUT_initialize_config before loading init files,

@@ -43,7 +43,7 @@ my $document = $parser->parse_texi_text('@node Top
 @cindex @l{}
 ');
 
-my $main_configuration = Texinfo::MainConfig::new({});
+my $main_configuration = Texinfo::MainConfig::new();
 
 # To set $indices_sort_strings, calling
 # Texinfo::Document::indices_sort_strings is more natural, but we want

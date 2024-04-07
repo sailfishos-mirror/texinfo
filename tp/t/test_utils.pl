@@ -982,7 +982,7 @@ sub test($$)
     delete $parser_options->{'init_files'};
   }
 
-  # Setup main configuration options defaults at this point to remove
+  # Setup main configuration options at this point to remove
   # structuring options from parser options.
   my $main_configuration_options = {};
   # gather options for structuring.
@@ -1050,6 +1050,7 @@ sub test($$)
 
   my ($errors, $error_nrs) = $parser->errors();
 
+  # Setup main configuration options, used for structuring.
   my $document_information = $document->global_information();
 
   foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG') {

@@ -832,31 +832,17 @@ sub GNUT_reinitialize_init_files()
 #####################################################################
 # the objective of this small package is to be in another
 # scope than init files and setup blessed objects that can call
-# get_conf() and set_conf() methods like a parser or a converter.
+# get_conf() and set_conf() methods.
 #
-# For the main program, there is also the need to have
-# access to configuration options in order to have get_conf()
-# return the same as Texinfo::Config::texinfo_get_conf().
-# This is obtained by calling new() without argument.
-#
-# In tests the situation is different as nothing from the
-# Texinfo::Config space is used, it is assumed that the
-# configuration is available as a hash reference key
-# value.  This is obtained by calling new() with an hash
-# reference argument.
+# There is also the need to have access to configuration options
+# in order to have get_conf() return the same as
+# Texinfo::Config::texinfo_get_conf().
 package Texinfo::MainConfig;
 
-sub new(;$)
+sub new()
 {
-  my $options = shift;
-  my $config;
-  if (defined($options)) {
-    # creates a new object based on input hash reference
-    $config = {'standalone' => 1, 'config' => {%$options}};
-  } else {
-    # use Texinfo::Config
-    $config = {'standalone' => 0, 'config' => {}};
-  }
+  # setup additional config to be used with other Texinfo::Config information.
+  my $config = {};
   bless $config;
   return $config;
 }
@@ -866,22 +852,16 @@ sub get_conf($$)
   my $self = shift;
   my $var = shift;
 
-  if ($self->{'standalone'}) {
-    if (defined($self->{'config'}->{$var})) {
-      return $self->{'config'}->{$var};
-    }
-  } else {
-    # as get_conf, but with self having precedence on
-    # main program defaults
-    if (exists($cmdline_options->{$var})) {
-      return $cmdline_options->{$var};
-    } elsif (exists($init_files_options->{$var})) {
-      return $init_files_options->{$var};
-    } elsif (exists($self->{'config'}->{$var})) {
-      return $self->{'config'}->{$var};
-    } elsif (exists($main_program_default_options->{$var})) {
-      return $main_program_default_options->{$var};
-    }
+  # as get_conf, but with self having precedence on
+  # main program defaults
+  if (exists($cmdline_options->{$var})) {
+    return $cmdline_options->{$var};
+  } elsif (exists($init_files_options->{$var})) {
+    return $init_files_options->{$var};
+  } elsif (exists($self->{$var})) {
+    return $self->{$var};
+  } elsif (exists($main_program_default_options->{$var})) {
+    return $main_program_default_options->{$var};
   }
   return undef;
 }
@@ -891,7 +871,7 @@ sub set_conf($$$)
   my $self = shift;
   my $var = shift;
   my $val = shift;
-  $self->{'config'}->{$var} = $val;
+  $self->{$var} = $val;
 
   return 1;
 }
@@ -906,21 +886,15 @@ sub register_XS_document_main_configuration($$)
 
   return if (!$document->document_descriptor());
 
-  my $options;
-  if ($self->{'standalone'}) {
-    #print STDERR "STDALONE: ".join('|', sort(keys(%{$self->{'config'}})))."\n";
-    $options = $self->{'config'};
-  } else {
-    my %options = %{$main_program_default_options};
-    foreach my $config ($self->{'config'}, $init_files_options, $cmdline_options) {
-      foreach my $option (keys(%$config)) {
-        $options{$option} = $config->{$option};
-      }
+  my %options = %{$main_program_default_options};
+  foreach my $config ($self, $init_files_options, $cmdline_options) {
+    foreach my $option (keys(%$config)) {
+      $options{$option} = $config->{$option};
     }
-    #print STDERR "MAIN: ".join('|', sort(keys(%options)))."\n";
-    $options = \%options;
   }
-  Texinfo::Common::set_document_options($options, $document);
+  #print STDERR "MAIN: ".join('|', sort(keys(%options)))."\n";
+
+  Texinfo::Common::set_document_options(\%options, $document);
 }
 
 1;
