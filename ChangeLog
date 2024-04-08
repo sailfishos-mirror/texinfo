@@ -1,5 +1,19 @@
 2024-04-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (%XS_overrides, register_document_options),
+	tp/Texinfo/XS/main/DocumentXS.xs (register_document_options),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: rename register_options as
+	register_document_options.  Pass a hash of customization variables to
+	register_document_options, call get_customization_options_hash in the
+	calling code.  Remove _XS_set_document_options.
+
+	* tp/t/test_utils.pl (test): remove a useless setting of
+	document_descriptor in document.
+
+	Update POD documentation.
+
+2024-04-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): rename $main_configuration* variables as
 	$test_customization*.
 

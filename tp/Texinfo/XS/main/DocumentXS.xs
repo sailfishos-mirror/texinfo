@@ -133,7 +133,7 @@ document_errors (SV *document_in)
 
 
 void
-set_document_options (SV *document_in, SV *sv_options_in)
+register_document_options (SV *document_in, SV *sv_options_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:

@@ -2251,7 +2251,8 @@ Texinfo::Structuring - information on Texinfo::Document tree
     units_directions units_file_directions);
 
   # $document is a parsed Texinfo::Document document, $tree is the
-  # associated Texinfo document tree. $config is an object implementing
+  # associated Texinfo document tree. When customization variables
+  # information is needed, it is obtained from the $document by calling
   # the get_conf() method.
   my $sections_list = sectioning_structure($document);
   my $identifier_target = $document->labels_information();
@@ -2270,7 +2271,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
     $output_units = split_by_section($document);
   }
   split_pages($output_units, $split);
-  units_directions($config, $identifier_target, $output_units);
+  units_directions($document, $identifier_target, $output_units);
   units_file_directions($output_units);
 
 =head1 NOTES
@@ -2312,13 +2313,13 @@ output units by the user.
 
 No method is exported in the default case.
 
-Most methods takes a L<Texinfo::Report> C<$registrar> as argument for
-error reporting.  Most also require Texinfo customization variables
+Most methods use the L<Texinfo::Report> registrar from a parsed document
+for error reporting. Most also require Texinfo customization variables
 information, which means an object implementing the C<get_conf> method, in
-practice the main program configuration or a converter
-(L<Texinfo::Convert::Converter/Getting and setting customization
-variables>).  Other common input arguments such as target elements associated
-to identifiers or refs are obtained from a parsed document, see
+general a parsed document with registered customization, or, sometime,
+a converter (L<Texinfo::Convert::Converter/Getting and setting customization
+variables>).  Other common data needed such as target elements associated to
+identifiers or refs are obtained from a parsed document, see
 L<Texinfo::Document>.
 
 =over

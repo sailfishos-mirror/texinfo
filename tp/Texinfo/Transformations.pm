@@ -967,7 +967,7 @@ Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document, $customization_information)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
 
 =item complete_tree_nodes_missing_menu($document, $use_section_names_in_entries)
 X<C<complete_tree_nodes_missing_menu>>

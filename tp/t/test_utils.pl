@@ -982,7 +982,7 @@ sub test($$)
     delete $parser_options->{'init_files'};
   }
 
-  # Setup main configuration options at this point to remove
+  # Setup test configuration options at this point to remove
   # structuring options from parser options.
   my $test_customization_options = {};
   # gather options for structuring.
@@ -1084,9 +1084,10 @@ sub test($$)
     $test_customization->set_conf('novalidate', 1);
   }
 
-  # Now that all the configuration has been set, associate it with the
+  # Now that all the configuration has been set, register with the
   # document
-  $document->register_options($test_customization);
+  my $document_options = $test_customization->get_customization_options_hash();
+  $document->register_document_options($document_options);
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
@@ -1171,8 +1172,6 @@ sub test($$)
   my ($sorted_index_entries, $index_entries_sort_strings);
   my $indices_sorted_sort_strings;
   if ($merged_index_entries) {
-    $document->{'document_descriptor'}
-      = $document->document_descriptor();
     my $use_unicode_collation
       = $document->get_conf('USE_UNICODE_COLLATION');
     my $locale_lang;

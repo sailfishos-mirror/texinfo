@@ -50,15 +50,6 @@ Other
 For converter writers,
 'output_init_conf' and 'converter_init_conf'.
 
-It may be relevant to document that if conversion is done with XS, and
-there is a MainConfig, the configuration should be registered in the
-document if it is needed in structuring and indices sorting.
-$main_configuration->register_XS_document_main_configuration($document);
-However, there is, somewhat on purpose, no documentation at all for
-MainConfig given that it is considered as some internal implementation
-detail, not to be used in external code.  So probably would need first to
-document MainConfig.
-
 Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 

@@ -51,8 +51,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::rebuild_tree",
   "Texinfo::Document::tree"
     => "Texinfo::DocumentXS::document_tree",
-  "Texinfo::Document::_XS_set_document_options"
-    => "Texinfo::DocumentXS::set_document_options",
+  "Texinfo::Document::register_document_options"
+    => "Texinfo::DocumentXS::register_document_options",
   "Texinfo::Document::get_conf",
     => "Texinfo::DocumentXS::document_get_conf",
   "Texinfo::Document::global_information"
@@ -217,26 +217,13 @@ sub registrar($)
   return $self->{'registrar'};
 }
 
-sub _XS_set_document_options($$)
-{
-  my $self;
-  my $document_options;
-}
-
-# $OPTIONS should be a Texinfo::MainConfig object.
-# For options used in structuring.
-sub register_options($$)
+# Should be for options used in structuring.
+sub register_document_options($$)
 {
   my $self = shift;
   my $options = shift;
 
-  my $document_options = $options->get_customization_options_hash();
-
-  if ($self->document_descriptor()) {
-    _XS_set_document_options($self, $document_options);
-    return;
-  }
-  $self->{'options'} = $document_options;
+  $self->{'options'} = $options;
 }
 
 sub get_conf($$)
@@ -683,13 +670,15 @@ to the same document with @-commands that refer to node, anchors or floats.
 =item $nodes_list = nodes_list($document)
 
 Returns an array reference containing the document nodes.  In general set to
-the nodes list returned by L<Texinfo::Structuring nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document, $customization_information)>,
-by a call to L<register_document_nodes_list|/register_document_nodes_list ($document, $nodes_list)>.
+the nodes list returned by L<Texinfo::Structuring
+nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document)>, by a call
+to L<register_document_nodes_list|/register_document_nodes_list ($document,
+$nodes_list)>.
 
 =item $sections_list = sections_list($document)
 
-Returns an array reference containing the document sections.  In general set to the
-sections list returned by L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document, $customization_information)>,
+Returns an array reference containing the document sections.  In general set to the sections list returned by
+L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>,
 by a call to L<register_document_sections_list|/register_document_sections_list ($document, $sections_list)>.
 
 =back
@@ -852,6 +841,26 @@ in L<C<Texinfo::Report::errors>|Texinfo::Report/($error_warnings_list, $error_co
 
 =back
 
+=head2 Getting customization options values registered in document
+
+By default, customization information is registered in a document object
+after parsing the Texinfo code. This is used by structuring and tree
+transformation methods that find customization variables values in the
+document object they get in argument. The customization variable set by
+default may only be a subset of the possible customization variables,
+selected to be useful for structuring and tree transformation codes.
+
+To retrieve Texinfo customization variables you can call C<get_conf>:
+
+=over
+
+=item $value = $document->get_conf($variable_name)
+
+Returns the value of the Texinfo customization variable I<$variable_name>
+(possibly C<undef>), if the variable value was registered in the document,
+or C<undef>.
+
+=back
 
 =head2 Registering document and information in document
 
@@ -885,6 +894,15 @@ X<C<register_document_sections_list>>
 Register the I<$sections_list> array reference as I<$document> sections
 list.  This method should be called after the processing of document
 structure.
+
+=item register_document_options ($document, $options)
+X<C<register_document_options>>
+
+The I<$options> hash reference holds options for the document. These options
+should be Texinfo customization options.  Usually, the options registered in
+the document are those useful for structuring and tree transformation
+getting place between Texinfo code parsing and conversion to output formats.
+The method should in general be called before the calls to C<get_conf>.
 
 =item set_document_global_info($document, $key, $value)
 X<C<set_document_global_info>>
