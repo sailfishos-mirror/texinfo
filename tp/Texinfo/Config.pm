@@ -18,14 +18,18 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
 # functions that should not be called by user init files codes, but
-# are called by the main program are prefixed by GNUT_ while functions that can
-# be called by user init files codes are prefixed by texinfo_.
+# are called by the main program or tests are prefixed by GNUT_ while
+# functions that can be called by user init files codes are prefixed
+# by texinfo_.
 # Functions prefixed by _GNUT_ are private.
 #
 # This package is documented in the customization_api Texinfo manual.  This
 # package is integrated with the Texinfo main program and the Texinfo
 # HTML converter, such that it does not make sense to document the
 # public interface separately.
+#
+# The main calling context can be the main program or the test suite code,
+# it is distinguished from initialization user-defined files calling context.
 
 package Texinfo::Config;
 
@@ -43,47 +47,56 @@ use Encode;
 use Texinfo::Common;
 
 
-# for error messages, passed from main program through initialization
+# for error messages, passed from main calling context through initialization
 # function.
 my $real_command_name = '';
 
 
 #####################################################################
-# customization API, used from main program and from init files
+# customization API, used from main calling context (main program or
+# t/test_utils.pl) and from init files.
 
 my $cmdline_options;
-my $main_program_default_options;
+my $options_defaults;
 my $init_files_options = {};
 
-# List options that can be set from main program are not
-# handled in the same way than string options.  Indeed, the
-# lists need to be defined in the main program, therefore the main
-# program list options would always take precedence
-# if there is a precedence, and the list options set from
+# List options that can be set at initialization from the main calling context
+# but are not handled in the same way than string options.
+# Indeed, the lists are filled in the main calling context, in high precedence
+# setting, i.e. these lists are filled with command-line
+# options in the main program.  If they were set in the main calling context
+# those lists should be high precedence options, and the list options set from
 # init file would never have any effect.
-# Therefore, for list options, items are added and removed by
+# Therefore, for such list options, items are added and removed by
 # calls to texinfo_add_to_option_list
 # and texinfo_remove_from_option_list, be it from command line
 # or init files, there is no precedence, but the order of calls
 # matter.
 my %options_as_lists;
+# Note that list options not set in the main calling context, but only set
+# from init files are set like string options, with equal precedence
+# (the value set last is used).
 
 # called from texi2any.pl main program and t/test_utils.pl.
+# References on $OPTIONS_DEFAULT and $CMDLINE_OPTIONS are retained in
+# the main calling context, therefore the hash reference should be used
+# directly, not copies.
 sub GNUT_initialize_config($$$) {
   $real_command_name = shift;
-  $main_program_default_options = shift;
+  $options_defaults = shift;
   $cmdline_options = shift;
-  # consider options passed from main program for initialization
-  # as list options
+  # highest precedence options passed for initialization from the main context
+  # should only be list options
   foreach my $cmdline_option (keys(%$cmdline_options)) {
     if (ref($cmdline_options->{$cmdline_option}) eq ''
         or ref($cmdline_options->{$cmdline_option}) ne 'ARRAY') {
-      warn "BUG: $cmdline_option not an ARRAY $cmdline_options->{$cmdline_option}\n";
+      warn "BUG: $cmdline_option not an ARRAY: "
+             ." $cmdline_options->{$cmdline_option}\n";
     }
     $options_as_lists{$cmdline_option} = 1;
   }
-  #print STDERR "main_program_default_options: "
-  #            .join('|',keys(%$main_program_default_options))."\n";
+
+  #print STDERR "options_defaults: ".join('|',keys(%$options_defaults))."\n";
   #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
   return $init_files_options;
 }
@@ -245,7 +258,7 @@ sub texinfo_set_from_init_file($$) {
     return 0;
   }
   return 0 if (defined($cmdline_options->{$var}));
-  delete $main_program_default_options->{$var};
+  delete $options_defaults->{$var};
   $init_files_options->{$var} = $value;
   return 1;
 }
@@ -263,7 +276,7 @@ sub GNUT_set_from_cmdline($$)
   }
 
   delete $init_files_options->{$var};
-  delete $main_program_default_options->{$var};
+  delete $options_defaults->{$var};
   if (!Texinfo::Common::valid_customization_option($var)) {
     _GNUT_document_warn(sprintf(__("unknown variable from command line: %s\n"),
                                $var));
@@ -286,7 +299,7 @@ sub GNUT_set_main_program_default($$)
 
   return 0 if (defined($cmdline_options->{$var})
     or defined($init_files_options->{$var}));
-  $main_program_default_options->{$var} = $value;
+  $options_defaults->{$var} = $value;
   return 1;
 }
 
@@ -340,8 +353,8 @@ sub texinfo_get_conf($)
     return $cmdline_options->{$var};
   } elsif (exists($init_files_options->{$var})) {
     return $init_files_options->{$var};
-  } elsif (exists($main_program_default_options->{$var})) {
-    return $main_program_default_options->{$var};
+  } elsif (exists($options_defaults->{$var})) {
+    return $options_defaults->{$var};
   } else {
     return undef;
   }
@@ -586,9 +599,6 @@ sub _GNUT_initialize_special_unit_info()
 _GNUT_initialize_special_unit_info();
 
 # $translated_converted_string is supposed to be already formatted.
-# It may also be relevant to be able to pass a 'tree'
-# directly (it is actually handled by the converter code in perl, probably
-# not with XS).
 sub texinfo_register_no_arg_command_formatting($$;$$$$)
 {
   my $command = shift;
@@ -625,7 +635,8 @@ sub texinfo_register_no_arg_command_formatting($$;$$$$)
     }
     $specification->{'translated_to_convert'} = $translated_to_convert_string;
   }
-  $GNUT_no_arg_commands_formatting_strings->{$context}->{$command} = $specification;
+  $GNUT_no_arg_commands_formatting_strings->{$context}->{$command}
+    = $specification;
   return 1;
 }
 
@@ -860,8 +871,8 @@ sub get_conf($$)
     return $init_files_options->{$var};
   } elsif (exists($self->{$var})) {
     return $self->{$var};
-  } elsif (exists($main_program_default_options->{$var})) {
-    return $main_program_default_options->{$var};
+  } elsif (exists($options_defaults->{$var})) {
+    return $options_defaults->{$var};
   }
   return undef;
 }
@@ -886,7 +897,7 @@ sub register_XS_document_main_configuration($$)
 
   return if (!$document->document_descriptor());
 
-  my %options = %{$main_program_default_options};
+  my %options = %{$options_defaults};
   foreach my $config ($self, $init_files_options, $cmdline_options) {
     foreach my $option (keys(%$config)) {
       $options{$option} = $config->{$option};
