@@ -1,5 +1,15 @@
 2024-04-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm
+	(insert_nodes_for_sectioning_commands, regenerate_master_menu):
+	use $document argument to get customization options, remove
+	$main_configuration argument.  Update callers and XS interfaces.
+
+	* Pod-Simple-Texinfo/pod2texi.pl: update for change in structuring and
+	transformation interfaces with $main_configuration argument removed.
+
+2024-04-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (warn_non_empty_parts)
 	(check_nodes_are_referenced, set_menus_node_directions)
 	(complete_node_tree_with_menus, nodes_tree): use $document argument to
