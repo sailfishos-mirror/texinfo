@@ -1,5 +1,10 @@
 2024-04-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): rename $main_configuration* variables as
+	$test_customization*.
+
+2024-04-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (%XS_overrides),
 	tp/Texinfo/XS/main/DocumentXS.xs (document_get_conf): add an XS
 	override for Document.pm get_conf.

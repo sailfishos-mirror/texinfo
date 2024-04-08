@@ -949,7 +949,7 @@ sub test($$)
   #   %Texinfo::Common::default_main_program_customization_options
   # The main difference would be that
   # CHECK_NORMAL_MENU_STRUCTURE is set to 1.
-  my $main_configuration_defaults = {'FORMAT_MENU' => 'menu',
+  my $test_customization_defaults = {'FORMAT_MENU' => 'menu',
                                    'CHECK_MISSING_MENU_ENTRY' => 1};
 
   # get symbols in Texinfo::Config namespace before calling the init files
@@ -960,7 +960,7 @@ sub test($$)
   Texinfo::Config::GNUT_reinitialize_init_files();
   my $init_files_options
       = Texinfo::Config::GNUT_initialize_customization('',
-                                   $main_configuration_defaults, {});
+                                   $test_customization_defaults, {});
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
   # the init file names should be binary strings.  Since they
   # are not encoded here, ascii file names should be used or they
@@ -984,7 +984,7 @@ sub test($$)
 
   # Setup main configuration options at this point to remove
   # structuring options from parser options.
-  my $main_configuration_options = {};
+  my $test_customization_options = {};
   # gather options for structuring.
   foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
                                   'CHECK_MISSING_MENU_ENTRY',
@@ -992,7 +992,7 @@ sub test($$)
                                   'USE_UNICODE_COLLATION',
                                   'COLLATION_LANGUAGE') {
     if (defined($parser_options->{$structuring_option})) {
-      $main_configuration_options->{$structuring_option}
+      $test_customization_options->{$structuring_option}
         = $parser_options->{$structuring_option};
       delete $parser_options->{$structuring_option};
     }
@@ -1063,30 +1063,30 @@ sub test($$)
   # information.
   foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG') {
     if (defined($parser_options->{$parser_and_structuring_option})) {
-      $main_configuration_options->{$parser_and_structuring_option}
+      $test_customization_options->{$parser_and_structuring_option}
         = $parser_options->{$parser_and_structuring_option};
     }
   }
 
   # setup options from test specification (+DEBUG) as if they were
   # command-line options, with high precedence.
-  foreach my $option (keys(%$main_configuration_options)) {
+  foreach my $option (keys(%$test_customization_options)) {
     Texinfo::Config::GNUT_set_from_cmdline($option,
-                                 $main_configuration_options->{$option});
+                                 $test_customization_options->{$option});
   }
 
-  my $main_configuration = Texinfo::MainConfig::new();
+  my $test_customization = Texinfo::MainConfig::new();
 
-  Texinfo::Common::set_output_encodings($main_configuration,
+  Texinfo::Common::set_output_encodings($test_customization,
                                         $document);
 
   if ($document_information->{'novalidate'}) {
-    $main_configuration->set_conf('novalidate', 1);
+    $test_customization->set_conf('novalidate', 1);
   }
 
   # Now that all the configuration has been set, associate it with the
   # document
-  $document->register_options($main_configuration);
+  $document->register_options($test_customization);
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
