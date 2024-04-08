@@ -12142,7 +12142,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
             label_element = new_element (ET_NONE);
           /* TODO would be better to have add_extra_element argument const */
           add_extra_element (label_element, "manual_content",
-                             (ELEMENT *)file_arg->tree);
+                             (ELEMENT *)file_arg->arg_tree);
         }
       else
         {
@@ -17546,7 +17546,7 @@ destroy_args_formatted (HTML_ARGS_FORMATTED *args_formatted)
         {
           int j;
           HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
-          if (arg_formatted->tree)
+          if (arg_formatted->arg_tree)
             {
               for (j = 0; j < AFT_type_raw+1; j++)
                 free (arg_formatted->formatted[j]);
@@ -18079,7 +18079,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                       else
                         arg_flags = F_AFT_normal;
 
-                      arg_formatted->tree = arg;
+                      arg_formatted->arg_tree = arg;
 
                       if (arg_flags & F_AFT_normal)
                         {

@@ -6136,7 +6136,7 @@ sub _convert_xref_commands($$$$)
       } elsif (!$label_element->{'extra'}) {
         $label_element->{'extra'} = {};
       }
-      $label_element->{'extra'}->{'manual_content'} = $file_arg->{'tree'};
+      $label_element->{'extra'}->{'manual_content'} = $file_arg->{'arg_tree'};
     } elsif ($arg_node and $arg_node->{'extra'}
              and $arg_node->{'extra'}->{'manual_content'}) {
       my $manual_content = $arg_node->{'extra'}->{'manual_content'};
@@ -13401,7 +13401,7 @@ sub _convert($$;$)
             # do not have $arg_spec reset to normal, such that their argument
             # is not converted here
             $arg_spec = ['normal'] if (!defined($arg_spec));
-            my $arg_formatted = {'tree' => $arg};
+            my $arg_formatted = {'arg_tree' => $arg};
             foreach my $arg_type (@$arg_spec) {
               my $explanation = "$command_type A[$arg_idx]$arg_type";
               if ($arg_type eq 'normal') {

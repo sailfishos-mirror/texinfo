@@ -2793,7 +2793,7 @@ as @code{@@inlineraw} second argument.
 @item string
 In string context. @xref{Init File Expansion Contexts}.
 
-@item tree
+@item arg_tree
 The Texinfo tree element corresponding to the argument.
 @xref{Texinfo Tree Elements in User Defined Functions}.
 

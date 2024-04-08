@@ -444,14 +444,14 @@ build_html_command_formatted_args (const HTML_ARGS_FORMATTED *args_formatted)
   for (i = 0; i < args_formatted->number; i++)
     {
       const HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
-      if (arg_formatted->tree)
+      if (arg_formatted->arg_tree)
         {
           int j;
           HV *arg_formated_hv = newHV ();
           av_push (av, newRV_noinc ((SV *) arg_formated_hv));
 
           hv_store (arg_formated_hv, "tree", strlen ("tree"),
-                    newRV_inc ((SV *) arg_formatted->tree->hv), 0);
+                    newRV_inc ((SV *) arg_formatted->arg_tree->hv), 0);
 
           for (j = 0; j < AFT_type_raw+1; j++)
             {

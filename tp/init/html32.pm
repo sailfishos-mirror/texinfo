@@ -192,8 +192,8 @@ sub html32_convert_explained_command($$$$)
   my $result;
   if ($with_explanation) {
     $result = $self->convert_tree($self->cdt('{explained_string} ({explanation})',
-          {'explained_string' => $args->[0]->{'tree'},
-           'explanation' => $args->[1]->{'tree'} }));
+          {'explained_string' => $args->[0]->{'arg_tree'},
+           'explanation' => $args->[1]->{'arg_tree'} }));
   } else {
     $result = $args->[0]->{'normal'};
   }
