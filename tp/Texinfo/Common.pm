@@ -84,8 +84,6 @@ $VERSION = '7.1dev';
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
 our %XS_overrides = (
-  "Texinfo::Common::set_document_options"
-    => "Texinfo::DocumentXS::set_document_options",
   "Texinfo::Common::copy_tree"
     => "Texinfo::StructTransfXS::copy_tree",
   "Texinfo::Common::relate_index_entries_to_table_items_in_tree"
@@ -2589,17 +2587,6 @@ sub get_label_element($)
     return $current->{'args'}->[1];
   }
   return undef;
-}
-
-# non-XS does nothing and should not be called in most cases as the
-# caller verifies that there is a document descriptor; XS version
-# registers options in XS document.
-# NOTE It would have been more logical for this function to be in
-# Texinfo::Config, but we do not want to load any XS in Texinfo::Config.
-sub set_document_options($$)
-{
-  my $options = shift;
-  my $document = shift;
 }
 
 # functions used for debugging.  May be used in other modules.

@@ -51,6 +51,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::rebuild_tree",
   "Texinfo::Document::tree"
     => "Texinfo::DocumentXS::document_tree",
+  "Texinfo::Document::_XS_set_document_options"
+    => "Texinfo::DocumentXS::set_document_options",
   "Texinfo::Document::global_information"
     => "Texinfo::DocumentXS::document_global_information",
   "Texinfo::Document::indices_information"
@@ -211,6 +213,34 @@ sub registrar($)
 {
   my $self = shift;
   return $self->{'registrar'};
+}
+
+sub _XS_set_document_options($$)
+{
+  my $self;
+  my $document_options;
+}
+
+# $OPTIONS should be a Texinfo::MainConfig object.
+# For options used in structuring.
+sub register_options($$)
+{
+  my $self = shift;
+  my $options = shift;
+
+  my $document_options = $options->get_customization_options_hash();
+
+  if ($self->document_descriptor()) {
+    _XS_set_document_options($self, $document_options);
+    return;
+  }
+  $self->{'options'} = $document_options;
+}
+
+sub options($)
+{
+  my $self = shift;
+  return $self->{'options'};
 }
 
 sub merged_indices($)

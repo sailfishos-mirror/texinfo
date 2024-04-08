@@ -1077,8 +1077,8 @@ sub test($$)
   }
 
   # Now that all the configuration has been set, associate it with the
-  # document XS
-  $main_configuration->register_XS_document_main_configuration($document);
+  # document
+  $document->register_options($main_configuration);
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);

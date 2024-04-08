@@ -1525,13 +1525,14 @@ while(@input_files) {
   # a "handle" is returned.
   my $tree = $document->tree($XS_structuring);
 
-  # setup a configuration Perl object which defines get_conf and gives the
-  # same as get_conf() in the main program.  It is used by
+  # setup a configuration Perl object which defines get_conf, use
+  # the main program customization information for which per-document
+  # customization can be set.  It is used by
   # Structuring/Transformations methods needing access to configuration
   # information.
-  # OUTPUT_ENCODING_NAME is accessed in set_output_encodings.
-  # OUTPUT_PERL_ENCODING is accessed in set_output_encodings and
-  # in output_files_open_out for the MACRO_EXPAND file name.
+  # OUTPUT_ENCODING_NAME is set and accessed in set_output_encodings.
+  # OUTPUT_PERL_ENCODING is set and accessed in set_output_encodings and
+  # accessed in output_files_open_out for the MACRO_EXPAND file name.
   # The following variables are directly used in Structuring/Transformations:
   # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
   # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
@@ -1553,8 +1554,8 @@ while(@input_files) {
   }
 
   # Now that all the configuration has been set, associate it to the
-  # document XS
-  $main_configuration->register_XS_document_main_configuration($document);
+  # document
+  $document->register_options($main_configuration);
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
