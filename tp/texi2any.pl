@@ -1618,8 +1618,7 @@ while(@input_files) {
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
-    Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
-                                               $main_configuration);
+    Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
   }
 
   Texinfo::Structuring::associate_internal_references($document);
@@ -1647,8 +1646,7 @@ while(@input_files) {
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {
-    Texinfo::Transformations::regenerate_master_menu($document,
-                                                     $document);
+    Texinfo::Transformations::regenerate_master_menu($document);
   }
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {

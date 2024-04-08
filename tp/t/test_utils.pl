@@ -1094,7 +1094,7 @@ sub test($$)
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     Texinfo::Transformations::insert_nodes_for_sectioning_commands(
-                             $document, $main_configuration);
+                                                             $document);
   }
 
   Texinfo::Structuring::associate_internal_references($document);
@@ -1116,8 +1116,7 @@ sub test($$)
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {
-    Texinfo::Transformations::regenerate_master_menu($document,
-                                                     $document);
+    Texinfo::Transformations::regenerate_master_menu($document);
   }
 
   my $nodes_tree_nodes_list
@@ -1149,9 +1148,6 @@ sub test($$)
     }
   }
 
-  # could be in a if !$XS_structuring, but the function should not be
-  # overriden already in that case
-  #Texinfo::Document::rebuild_document($document);
   $tree = $document->tree();
 
   my $indices_information = $document->indices_information();

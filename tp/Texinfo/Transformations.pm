@@ -430,11 +430,11 @@ sub _reassociate_to_node($$$)
   return undef;
 }
 
-sub insert_nodes_for_sectioning_commands($;$)
+sub insert_nodes_for_sectioning_commands($)
 {
   my $document = shift;
-  my $customization_information = shift;
 
+  my $customization_information = $document;
   my $root = $document->tree();
 
   my @added_nodes;
@@ -626,12 +626,10 @@ sub complete_tree_nodes_missing_menu($;$$)
   }
 }
 
-# customization_information is used to pass down a translatable object with
-# customization information for the gdt() call.
-sub regenerate_master_menu($$;$)
+# The document is passed as customization information
+sub regenerate_master_menu($;$)
 {
   my $document = shift;
-  my $customization_information = shift;
   my $use_sections = shift;
 
   my $identifier_target = $document->labels_information();
@@ -644,7 +642,7 @@ sub regenerate_master_menu($$;$)
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
   my $new_master_menu
-      = Texinfo::Structuring::new_master_menu($customization_information,
+      = Texinfo::Structuring::new_master_menu($document,
                       $identifier_target, $top_node->{'extra'}->{'menus'},
                       $use_sections);
   return undef if (!defined($new_master_menu));
@@ -997,13 +995,11 @@ If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
 
-=item insert_nodes_for_sectioning_commands($document, $customization_information)
+=item insert_nodes_for_sectioning_commands($document)
 X<C<insert_nodes_for_sectioning_commands>>
 
 Insert nodes for sectioning commands without node in C<$document>
-tree.  I<$customization_information> is used for error reporting, though there
-should not be any errors as the node names are adapted such as not to clash with
-existing label targets.
+tree.
 
 =item menu_to_simple_menu($menu)
 
@@ -1047,13 +1043,14 @@ for the node name tree.
 A I<$modified_tree> is not systematically returned, if the I<$tree> in argument
 is not replaced, undef may also be returned.
 
-=item regenerate_master_menu($customization_information, $identifier_target)
+=item regenerate_master_menu($document, $use_sections)
 X<C<regenerate_master_menu>>
 
-Regenerate the Top node master menu, replacing the first detailmenu
-in Top node menus or appending at the end of the Top node menu.
-I<$translations>, if defined, should be a L<Texinfo::Translations> object and
-should also hold customization information.
+Regenerate the I<$document> Top node master menu, replacing the first
+detailmenu in Top node menus or appending at the end of the Top node menu.
+
+I<$use_sections> is an optional argument.  If set, sections associated with
+nodes are used as labels in the generated master menu.
 
 =back
 

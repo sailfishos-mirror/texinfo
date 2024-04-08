@@ -264,10 +264,8 @@ complete_tree_nodes_missing_menu (SV *tree_in, SV *customization_information=0, 
           complete_tree_nodes_missing_menu (document->tree, document,
                                             document->options, use_sections);
 
-# regenerate_master_menu uses the options of the document, so we ignore
-# customization_information, which should contain the same information
 void
-regenerate_master_menu (SV *document_in, SV *customization_information, SV *use_sections_in=0)
+regenerate_master_menu (SV *document_in, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
         int use_sections = 0;
@@ -283,8 +281,7 @@ regenerate_master_menu (SV *document_in, SV *customization_information, SV *use_
 
 # The perl function returns the list of added nodes.
 void
-insert_nodes_for_sectioning_commands (SV *document_in, ...)
-   PROTOTYPE: $;$
+insert_nodes_for_sectioning_commands (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:

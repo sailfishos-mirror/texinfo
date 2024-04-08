@@ -165,10 +165,10 @@ Text.
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_text($sections_text);
+
 Texinfo::Structuring::associate_internal_references($document);
-Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
-                                                          $parser);
-#Texinfo::Document::rebuild_document($document);
+Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
+
 $tree = $document->tree();
 my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 is ($result, $reference, 'add nodes');
@@ -187,10 +187,7 @@ $document = $parser->parse_texi_text('@node Top
 @end menu
 ');
 Texinfo::Structuring::associate_internal_references($document);
-Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
-                                                          $parser);
-
-#Texinfo::Document::rebuild_document($document);
+Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
 
 my $identifier_target = $document->labels_information();
 my $indices_information = $document->indices_information();
