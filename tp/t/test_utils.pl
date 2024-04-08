@@ -1106,7 +1106,7 @@ sub test($$)
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);
   }
-  Texinfo::Structuring::warn_non_empty_parts($document, $main_configuration);
+  Texinfo::Structuring::warn_non_empty_parts($document);
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
     Texinfo::Transformations::complete_tree_nodes_menus($tree);
@@ -1117,25 +1117,22 @@ sub test($$)
 
   if ($tree_transformations{'regenerate_master_menu'}) {
     Texinfo::Transformations::regenerate_master_menu($document,
-                                                     $main_configuration);
+                                                     $document);
   }
 
   my $nodes_tree_nodes_list
-          = Texinfo::Structuring::nodes_tree($document, $main_configuration);
+          = Texinfo::Structuring::nodes_tree($document);
 
   Texinfo::Document::register_document_nodes_list($document,
                                                   $nodes_tree_nodes_list);
 
-  Texinfo::Structuring::set_menus_node_directions($document,
-                                                  $main_configuration);
+  Texinfo::Structuring::set_menus_node_directions($document);
 
   if (not defined($main_configuration->get_conf('FORMAT_MENU'))
       or $main_configuration->get_conf('FORMAT_MENU') eq 'menu') {
-    Texinfo::Structuring::complete_node_tree_with_menus($document,
-                                                        $main_configuration);
+    Texinfo::Structuring::complete_node_tree_with_menus($document);
 
-    Texinfo::Structuring::check_nodes_are_referenced($document,
-                                                     $main_configuration);
+    Texinfo::Structuring::check_nodes_are_referenced($document);
   }
 
   Texinfo::Structuring::number_floats($document);

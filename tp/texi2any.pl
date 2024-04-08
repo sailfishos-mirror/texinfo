@@ -1636,7 +1636,7 @@ while(@input_files) {
   }
 
   if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
-    Texinfo::Structuring::warn_non_empty_parts($document, $main_configuration);
+    Texinfo::Structuring::warn_non_empty_parts($document);
   }
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
@@ -1648,12 +1648,11 @@ while(@input_files) {
 
   if ($tree_transformations{'regenerate_master_menu'}) {
     Texinfo::Transformations::regenerate_master_menu($document,
-                                                     $main_configuration);
+                                                     $document);
   }
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
-    my $nodes_list = Texinfo::Structuring::nodes_tree($document,
-                                                      $main_configuration);
+    my $nodes_list = Texinfo::Structuring::nodes_tree($document);
     Texinfo::Document::register_document_nodes_list($document, $nodes_list);
 
     # With this condition, menu is the default for 'FORMAT_MENU'.
@@ -1666,14 +1665,11 @@ while(@input_files) {
     # is never used.
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($document,
-                                                      $main_configuration);
+      Texinfo::Structuring::set_menus_node_directions($document);
 
-      Texinfo::Structuring::complete_node_tree_with_menus($document,
-                                                          $main_configuration);
+      Texinfo::Structuring::complete_node_tree_with_menus($document);
 
-      Texinfo::Structuring::check_nodes_are_referenced($document,
-                                                       $main_configuration);
+      Texinfo::Structuring::check_nodes_are_referenced($document);
     }
   }
   if ($formats_table{$converted_format}->{'floats'}) {
