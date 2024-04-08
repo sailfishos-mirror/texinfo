@@ -959,7 +959,7 @@ sub test($$)
   # reset Texinfo::Config informations to have isolated tests
   Texinfo::Config::GNUT_reinitialize_init_files();
   my $init_files_options
-      = Texinfo::Config::GNUT_initialize_config('',
+      = Texinfo::Config::GNUT_initialize_customization('',
                                    $main_configuration_defaults, {});
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
   # the init file names should be binary strings.  Since they

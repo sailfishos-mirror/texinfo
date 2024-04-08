@@ -56,6 +56,11 @@ my $real_command_name = '';
 # customization API, used from main calling context (main program or
 # t/test_utils.pl) and from init files.
 
+# The main calling context may merge $cmdline_options, $options_defaults
+# and $init_files_options.  That's why it is important, in *_set_from_*
+# functions below to also delete keys in other hashes for overriden
+# customization variables, even though it wouldn't change the output of
+# texinfo_get_conf.
 my $cmdline_options;
 my $options_defaults;
 my $init_files_options = {};
@@ -81,7 +86,7 @@ my %options_as_lists;
 # References on $OPTIONS_DEFAULT and $CMDLINE_OPTIONS are retained in
 # the main calling context, therefore the hash reference should be used
 # directly, not copies.
-sub GNUT_initialize_config($$$) {
+sub GNUT_initialize_customization($$$) {
   $real_command_name = shift;
   $options_defaults = shift;
   $cmdline_options = shift;
@@ -287,7 +292,7 @@ sub GNUT_set_from_cmdline($$)
 }
 
 # add default based, for instance, on the format.
-sub GNUT_set_main_program_default($$)
+sub GNUT_set_customization_default($$)
 {
   my $var = shift;
   my $value = shift;
@@ -339,15 +344,16 @@ sub texinfo_remove_from_option_list($$)
 # For conversion customization variables, converter methods
 # should be used instead, the implementation usually used being
 # from Texinfo::Convert::Converter.
-# It is possible to set up an interface similar to those used in
-# converters for the main program configuration with the
-# Texinfo::MainConfig below, but it should not be accessed/used
-# in user defined code (and is therefore undocumented).
+# NOTE It is possible to set up an interface similar to those used in
+# converters for the main program and tests configuration with the
+# Texinfo::MainConfig package below, but it should not be accessed/used
+# in user defined code (and the Texinfo::MainConfig interface
+# is therefore undocumented).
 sub texinfo_get_conf($)
 {
   my $var = shift;
   confess("BUG: texinfo_get_conf: undef \$cmdline_options."
-         ." Call GNUT_initialize_config")
+         ." Call GNUT_initialize_customization")
     if (!$cmdline_options);
   if (exists($cmdline_options->{$var})) {
     return $cmdline_options->{$var};
@@ -864,7 +870,7 @@ sub get_conf($$)
   my $var = shift;
 
   # as get_conf, but with self having precedence on
-  # main program defaults
+  # main calling context defaults
   if (exists($cmdline_options->{$var})) {
     return $cmdline_options->{$var};
   } elsif (exists($init_files_options->{$var})) {
@@ -888,8 +894,8 @@ sub set_conf($$$)
 }
 
 # for structuring and tree transformations XS code uses options registered
-# with the document by that function.  It is not needed in perl where
-# get_conf above is used.
+# with the document by that function.  It is not needed in Perl where
+# get_conf above is used on a separate MainConfig object.
 sub register_XS_document_main_configuration($$)
 {
   my $self = shift;

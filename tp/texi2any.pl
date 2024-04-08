@@ -491,7 +491,7 @@ sub set_from_cmdline($$) {
 }
 
 sub set_main_program_default($$) {
-  return &Texinfo::Config::GNUT_set_main_program_default(@_);
+  return &Texinfo::Config::GNUT_set_customization_default(@_);
 }
 
 sub get_conf($) {
@@ -549,7 +549,7 @@ my $default_expanded_format = [ $format ];
 my @conf_dirs = ();
 my @prepend_dirs = ();
 
-# The $cmdline_options passed to Texinfo::Config::GNUT_initialize_config
+# The $cmdline_options passed to Texinfo::Config::GNUT_initialize_customization
 # are considered to be arrays in which items can be added or deleted both
 # from the command line and from init files.  $cmdline_options text values
 # are set by GNUT_set_from_cmdline (aliased as set_from_cmdline) from the
@@ -563,7 +563,7 @@ my @prepend_dirs = ();
 # they are parser options.
 my $parser_options = {'values' => {'txicommandconditionals' => 1}};
 
-my $init_files_options = Texinfo::Config::GNUT_initialize_config(
+my $init_files_options = Texinfo::Config::GNUT_initialize_customization(
       $real_command_name, $main_program_default_options, $cmdline_options);
 
 # Need to do that early for early messages
@@ -571,7 +571,7 @@ my $translations_encoding = get_conf('COMMAND_LINE_ENCODING');
 set_translations_encoding($translations_encoding);
 
 # read initialization files.  Better to do that after
-# Texinfo::Config::GNUT_initialize_config() in case loaded
+# Texinfo::Config::GNUT_initialize_customization() in case loaded
 # files replace default options.
 foreach my $file (Texinfo::Common::locate_init_file($conf_file_name,
                   [ reverse(@program_config_dirs) ], 1)) {
