@@ -1527,7 +1527,9 @@ while(@input_files) {
 
   # setup a configuration Perl object which defines get_conf, use
   # the main program customization information for which per-document
-  # customization can be set.  It is used by
+  # customization can be set.  This allows to call functions calling
+  # get_conf and set_conf.  After this is done, the customization
+  # information is registered in the document and used by
   # Structuring/Transformations methods needing access to configuration
   # information.
   # OUTPUT_ENCODING_NAME is set and accessed in set_output_encodings.
@@ -1675,8 +1677,7 @@ while(@input_files) {
 
   # do it now to get error messages here
   if ($formats_table{$converted_format}->{'setup_index_entries_sort_strings'}) {
-    Texinfo::Document::setup_indices_sort_strings($document,
-                                                  $main_configuration);
+    Texinfo::Document::setup_indices_sort_strings($document, $document);
   }
 
   #Texinfo::Document::rebuild_document($document);
@@ -1715,9 +1716,10 @@ while(@input_files) {
                             %$file_cmdline_options,
                           };
 
-  # NOTE nothing set in $main_configuration is passed directly, which is
-  # clean, the Converters already have that information in $converter_options,
-  # can determine it themselves or use their defaults.
+  # NOTE nothing set through $main_configuration in customization registered in
+  # document is passed directly, which is clean, the Converters already
+  # have that information in $converter_options, can determine it themselves
+  # or use their defaults.
   # It could be possible to pass some information if it allows
   # for instance to have some consistent information for Structuring
   # and Converters.

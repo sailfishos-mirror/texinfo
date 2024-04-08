@@ -1140,7 +1140,7 @@ sub test($$)
       my $tree_transformation_sub = $tested_transformations{$transformation};
       if ($transformation eq 'protect_hashchar_at_line_beginning') {
         &$tree_transformation_sub($tree, $document->registrar(),
-                                  $main_configuration);
+                                  $document);
       } else {
         &$tree_transformation_sub($tree);
       }

@@ -1,5 +1,10 @@
 2024-04-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test), tp/texi2any.pl: use $document as
+	customization provider.
+
+2024-04-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (complete_tree_nodes_missing_menu)
 	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
 	(complete_tree_nodes_missing_menu),
