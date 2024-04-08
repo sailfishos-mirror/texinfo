@@ -1,5 +1,21 @@
 2024-04-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (get_conf): add to use in pure Perl for the
+	get_conf cutomization getting API useing options registerd in the
+	parser. Remove options().
+
+	* tp/Texinfo/Structuring.pm (sectioning_structure)
+	(associate_internal_references),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(associate_internal_references, sectioning_structure),
+	tp/t/automatic_menus.t, tp/t/automatic_nodes.t,
+	tp/t/convert_to_text.t, tp/t/do_master_menu.t, tp/t/test_tree_copy.t,
+	tp/t/test_utils.pl (test), tp/texi2any.pl: use $document argument to
+	get customization options, remove $main_configuration argument for
+	sectioning_structure and associate_internal_references.
+
+2024-04-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%XS_overrides), tp/Texinfo/Config.pm
 	(get_customization_options_hash), tp/Texinfo/Document.pm
 	(%XS_overrides, register_options, _XS_set_document_options): Replace

@@ -147,8 +147,7 @@ my $texi_copy = Texinfo::Convert::Texinfo::convert_to_texinfo($copy);
 is ($texi_copy, $texi_tree, "tree and copy to texi match");
 
 # set sectioning structure and redo a copy
-Texinfo::Structuring::sectioning_structure($document,
-                                           $test_parser);
+Texinfo::Structuring::sectioning_structure($document);
 # rebuild the tree
 $tree = $document->tree();
 

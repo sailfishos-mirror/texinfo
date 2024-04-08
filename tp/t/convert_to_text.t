@@ -72,11 +72,10 @@ my $tree = $document->tree();
 #use Texinfo::DebugTree;
 #print STDERR Texinfo::DebugTree->convert_tree ($tree);
 
-my $main_configuration = Texinfo::MainConfig::new();
 # Setup sectioning commands numbers
 my $sections_list
-            = Texinfo::Structuring::sectioning_structure($document,
-                                                       $main_configuration);
+     = Texinfo::Structuring::sectioning_structure($document);
+
 if ($sections_list) {
   Texinfo::Document::register_document_sections_list($document,
                                                      $sections_list);

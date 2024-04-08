@@ -237,10 +237,16 @@ sub register_options($$)
   $self->{'options'} = $document_options;
 }
 
-sub options($)
+sub get_conf($$)
 {
   my $self = shift;
-  return $self->{'options'};
+  my $var = shift;
+
+  if (!$self->{'options'}) {
+    print STDERR "WARNING: $var: Document get_conf uninitialized options\n";
+    return undef;
+  }
+  return $self->{'options'}->{$var};
 }
 
 sub merged_indices($)

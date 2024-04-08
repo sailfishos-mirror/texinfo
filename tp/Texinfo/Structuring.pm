@@ -152,10 +152,11 @@ my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 # 'section_childs'
 # 'section_directions'
 # 'toplevel_directions'
-sub sectioning_structure($$)
+sub sectioning_structure($)
 {
   my $document = shift;
-  my $customization_information = shift;
+
+  my $customization_information = $document;
 
   my $root = $document->tree();
   my $registrar = $document->registrar();
@@ -1153,10 +1154,11 @@ sub nodes_tree($$)
 
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
-sub associate_internal_references($$)
+sub associate_internal_references($)
 {
   my $document = shift;
-  my $customization_information = shift;
+
+  my $customization_information = $document;
 
   my $identifier_target = $document->labels_information();
   my $refs = $document->internal_references_information();
@@ -2249,7 +2251,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   # $document is a parsed Texinfo::Document document, $tree is the
   # associated Texinfo document tree. $config is an object implementing
   # the get_conf() method.
-  my $sections_list = sectioning_structure($document, $config);
+  my $sections_list = sectioning_structure($document);
   my $identifier_target = $document->labels_information();
   my $global_commands = $document->global_commands_information();
   my $nodes_list = nodes_tree($document, $config);
@@ -2257,7 +2259,7 @@ Texinfo::Structuring - information on Texinfo::Document tree
   complete_node_tree_with_menus($document, $config);
   my $refs = $document->internal_references_information();
   check_nodes_are_referenced($document, $config);
-  associate_internal_references($document, $config);
+  associate_internal_references($document);
   number_floats($document->floats_information());
   my $output_units;
   if ($split_at_nodes) {
@@ -2319,7 +2321,7 @@ L<Texinfo::Document>.
 
 =over
 
-=item associate_internal_references($document, $customization_information)
+=item associate_internal_references($document)
 X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of
@@ -2487,7 +2489,7 @@ Return the sectioning command name corresponding to the sectioning
 element I<$element>, adjusted in order to take into account raised
 and lowered sections, when needed.
 
-=item $sections_list = sectioning_structure($document, $customization_information)
+=item $sections_list = sectioning_structure($document)
 X<C<sectioning_structure>>
 
 This function goes through the parsed document tree and gather information

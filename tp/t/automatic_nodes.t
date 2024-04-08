@@ -34,13 +34,13 @@ sub test_new_node($$$$)
   my $node_tree = $parser->parse_texi_line ($in);
   my $document = $parser->parse_texi_text ('');
   my $identifier_target = $document->labels_information();
-  Texinfo::Structuring::associate_internal_references($document, $parser);
+  Texinfo::Structuring::associate_internal_references($document);
   my $node = Texinfo::Transformations::_new_node($node_tree, $document);
 
   my ($texi_result, $normalized);
   if (defined($node)) {
     $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($node);
-    Texinfo::Structuring::associate_internal_references($document, $parser);
+    Texinfo::Structuring::associate_internal_references($document);
     $normalized = $node->{'extra'}->{'normalized'};
     my @identifiers = sort(keys(%$identifier_target));
     if (scalar(@identifiers) != 1) {
@@ -165,7 +165,7 @@ Text.
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_text($sections_text);
-Texinfo::Structuring::associate_internal_references($document, $parser);
+Texinfo::Structuring::associate_internal_references($document);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $parser);
 #Texinfo::Document::rebuild_document($document);
@@ -186,7 +186,7 @@ $document = $parser->parse_texi_text('@node Top
 * (some_manual)::
 @end menu
 ');
-Texinfo::Structuring::associate_internal_references($document, $parser);
+Texinfo::Structuring::associate_internal_references($document);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document,
                                                           $parser);
 

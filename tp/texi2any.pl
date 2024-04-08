@@ -1622,14 +1622,14 @@ while(@input_files) {
                                                $main_configuration);
   }
 
-  Texinfo::Structuring::associate_internal_references($document,
-                                                      $main_configuration);
+  Texinfo::Structuring::associate_internal_references($document);
+
   # information obtained through Texinfo::Structuring
   # and useful in converters.
   # every format needs the sectioning structure
   my $sections_list
-            = Texinfo::Structuring::sectioning_structure($document,
-                                                       $main_configuration);
+            = Texinfo::Structuring::sectioning_structure($document);
+
   if ($sections_list) {
     Texinfo::Document::register_document_sections_list($document,
                                                        $sections_list);

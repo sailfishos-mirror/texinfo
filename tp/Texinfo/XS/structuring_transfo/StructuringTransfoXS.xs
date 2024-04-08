@@ -154,8 +154,7 @@ reference_to_arg_in_tree (SV *tree_in)
           reference_to_arg_in_tree (document->tree, document);
 
 void
-associate_internal_references (SV *document_in, ...)
-    PROTOTYPE: $$
+associate_internal_references (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
@@ -169,8 +168,7 @@ associate_internal_references (SV *document_in, ...)
 # to register in the document.  It is better to reserve the return
 # value for a return status, if it becomes needed.
 void
-sectioning_structure (SV *document_in, ...)
-    PROTOTYPE: $$
+sectioning_structure (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
