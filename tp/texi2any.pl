@@ -1641,8 +1641,7 @@ while(@input_files) {
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
     Texinfo::Transformations::complete_tree_nodes_menus($tree);
   } elsif ($tree_transformations{'complete_tree_nodes_missing_menu'}) {
-    Texinfo::Transformations::complete_tree_nodes_missing_menu($tree,
-                                                    $main_configuration);
+    Texinfo::Transformations::complete_tree_nodes_missing_menu($document);
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {

@@ -603,13 +603,14 @@ sub complete_tree_nodes_menus($;$)
 }
 
 # this only complete menus if there was no menu
-# customization_information is used to pass down a translatable object with
-# customization information for the gdt() call.
-sub complete_tree_nodes_missing_menu($;$$)
+# The document is used to pass customization information for the gdt() call.
+sub complete_tree_nodes_missing_menu($;$)
 {
-  my $root = shift;
-  my $customization_information = shift;
+  my $document = shift;
   my $use_sections = shift;
+
+  my $customization_information = $document;
+  my $root = $document->tree();
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
@@ -968,17 +969,14 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document, $customization_information)>.
 
-=item complete_tree_nodes_missing_menu($tree, $customization_information, $use_section_names_in_entries)
+=item complete_tree_nodes_missing_menu($document, $use_section_names_in_entries)
 X<C<complete_tree_nodes_missing_menu>>
 
 Add whole menus for nodes associated with sections and without menu,
-based on the sectioning tree.
-I<$customization_information>, if defined, should hold information
-needed for translations.  Translations are only needed when generating the
-top node menu.
+based on the I<$document> sectioning tree.
 If the optional I<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document, $customization_information)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
 
 =item fill_gaps_in_sectioning($tree, $commands_heading_tree)
 X<C<fill_gaps_in_sectioning>>

@@ -32,7 +32,7 @@ sub test($$$;$$)
 
   Texinfo::Structuring::sectioning_structure($document);
   if ($complete_missing_menus) {
-    Texinfo::Transformations::complete_tree_nodes_missing_menu($tree, undef,
+    Texinfo::Transformations::complete_tree_nodes_missing_menu($document,
                                                                $use_sections);
     #print STDERR "".Texinfo::Common::debug_print_tree($tree)."\n";
   } else {

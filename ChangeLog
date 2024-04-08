@@ -1,5 +1,14 @@
 2024-04-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm (complete_tree_nodes_missing_menu)
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(complete_tree_nodes_missing_menu),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(complete_tree_nodes_missing_menu): use a document in argument and
+	use it to get the customization information and root of Texinfo tree.
+
+2024-04-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm
 	(insert_nodes_for_sectioning_commands, regenerate_master_menu):
 	use $document argument to get customization options, remove

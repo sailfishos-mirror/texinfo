@@ -1101,9 +1101,10 @@ complete_tree_nodes_menus (const ELEMENT *root, int use_sections)
 }
 
 void
-complete_tree_nodes_missing_menu (const ELEMENT *root, DOCUMENT *document,
-                                  OPTIONS *options, int use_sections)
+complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 {
+  const ELEMENT *root = document->tree;
+  OPTIONS *options = document->options;
   ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (root);
   int i;

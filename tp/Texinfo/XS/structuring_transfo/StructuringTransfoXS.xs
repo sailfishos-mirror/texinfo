@@ -246,23 +246,20 @@ complete_tree_nodes_menus (SV *tree_in, SV *use_sections_in=0)
             document->modified_information |= F_DOCM_tree;
           }
 
-# We use the options of the document, so we ignore
-# customization_information, which should contain the same information
 void
-complete_tree_nodes_missing_menu (SV *tree_in, SV *customization_information=0, SV *use_sections_in=0)
+complete_tree_nodes_missing_menu (SV *document_in, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
         int use_sections = 0;
      CODE:
-        document = get_sv_tree_document (tree_in,
+        document = get_sv_document_document (document_in,
                              "complete_tree_nodes_missing_menu");
         if (use_sections_in && SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
         if (document)
-          complete_tree_nodes_missing_menu (document->tree, document,
-                                            document->options, use_sections);
+          complete_tree_nodes_missing_menu (document, use_sections);
 
 void
 regenerate_master_menu (SV *document_in, SV *use_sections_in=0)
