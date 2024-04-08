@@ -2862,8 +2862,8 @@ sub _translate_names($)
             = Texinfo::Convert::Utils::translated_command_tree($self, $command);
         }
         if (defined($translated_tree) and $translated_tree ne '') {
-          $self->{'no_arg_commands_formatting'}->{$command}->{$context}->{'tree'}
-            = $translated_tree;
+          $self->{'no_arg_commands_formatting'}->{$command}
+            ->{$context}->{'translated_tree'} = $translated_tree;
           $translated_commands{$command} = 1;
         }
       }
@@ -8420,10 +8420,10 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
     }
   }
   if ($translate
-      and $no_arg_command_context->{'tree'}
+      and $no_arg_command_context->{'translated_tree'}
       and not defined($no_arg_command_context->{'translated_converted'})) {
     my $translated_tree
-      = $no_arg_command_context->{'tree'};
+      = $no_arg_command_context->{'translated_tree'};
     my $translation_result;
     my $explanation
        = "Translated NO ARG \@$cmdname ctx $reset_context";

@@ -17167,8 +17167,8 @@ html_free_converter (CONVERTER *self)
         {
           HTML_COMMAND_CONVERSION *format_spec
                 = &self->html_command_conversion[cmd][cctx];
-          if (cctx == HCC_type_normal && format_spec->tree)
-            destroy_element_and_children (format_spec->tree);
+          if (cctx == HCC_type_normal && format_spec->translated_tree)
+            destroy_element_and_children (format_spec->translated_tree);
           free (format_spec->element);
           free (format_spec->text);
           free (format_spec->translated_converted);
@@ -17298,8 +17298,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
               free (no_arg_command_context->text);
               no_arg_command_context->text = strdup (no_arg_ref->text);
             }
-          if (no_arg_ref->tree)
-            no_arg_command_context->tree = no_arg_ref->tree;
+          if (no_arg_ref->translated_tree)
+            no_arg_command_context->translated_tree
+              = no_arg_ref->translated_tree;
           if (no_arg_ref->translated_converted)
             {
               free (no_arg_command_context->translated_converted);
@@ -17316,14 +17317,14 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
     }
 
   if (translate
-      && no_arg_command_context->tree
+      && no_arg_command_context->translated_tree
       && !no_arg_command_context->translated_converted)
     {
       char *translation_result = 0;
       char *explanation;
       char *context;
       ELEMENT *tree_built = 0;
-      ELEMENT *translated_tree = no_arg_command_context->tree;
+      ELEMENT *translated_tree = no_arg_command_context->translated_tree;
       if (self->external_references_number > 0 && !translated_tree->hv)
         {
           add_to_element_list (&self->tree_to_build, translated_tree);
@@ -17498,10 +17499,11 @@ html_translate_names (CONVERTER *self)
                   if (translated_tree)
                     {
                       add_cmd = 1;
-                      if (format_spec->tree)
-                        destroy_element_and_children (format_spec->tree);
+                      if (format_spec->translated_tree)
+                        destroy_element_and_children (
+                                                 format_spec->translated_tree);
 
-                      format_spec->tree = translated_tree;
+                      format_spec->translated_tree = translated_tree;
                     }
                 }
             }

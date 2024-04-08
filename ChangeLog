@@ -1,5 +1,19 @@
 2024-04-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_command_formatted_args): set arg_tree in perl hash.
+
+	* tp/Texinfo/Convert/HTML.pm (_translate_names)
+	(_reset_unset_no_arg_commands_formatting_context),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_translated_names), tp/Texinfo/XS/convert/convert_html.c
+	(html_free_converter, reset_unset_no_arg_commands_formatting_context)
+	(html_translate_names), tp/Texinfo/XS/main/converter_types.h
+	(HTML_COMMAND_CONVERSION): rename no arg commands tree structure field
+	as translated_tree.
+
+2024-04-08  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Command Tree Element Conversion Functions),
 	tp/Texinfo/Convert/HTML.pm (_convert_xref_commands, _convert),
 	tp/Texinfo/XS/convert/build_html_perl_state.c

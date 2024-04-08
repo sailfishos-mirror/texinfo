@@ -344,7 +344,7 @@ typedef struct HTML_COMMAND_CONVERSION {
     /* following is only for no arg command formatting */
     int unset;
     char *text;
-    ELEMENT *tree;
+    ELEMENT *translated_tree;
     char *translated_converted;
     char *translated_to_convert;
 } HTML_COMMAND_CONVERSION;

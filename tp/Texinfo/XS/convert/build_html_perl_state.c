@@ -332,15 +332,20 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
               REPLACE_STR(translated_to_convert)
  #undef REPLACE_STR
 
-              if (no_arg_cmd_context->tree)
+              if (no_arg_cmd_context->translated_tree)
                 {
-                  if (!no_arg_cmd_context->tree->hv)
-                    element_to_perl_hash (no_arg_cmd_context->tree, 1);
-                  hv_store (context_hv, "tree", strlen ("tree"),
-                          newRV_inc ((SV *) no_arg_cmd_context->tree->hv), 0);
+                  ELEMENT *translated_tree
+                    = no_arg_cmd_context->translated_tree;
+                  if (!translated_tree->hv)
+                    element_to_perl_hash (translated_tree, 1);
+                  hv_store (context_hv, "translated_tree",
+                            strlen ("translated_tree"),
+                            newRV_inc ((SV *) translated_tree->hv), 0);
                 }
-              else if (hv_exists (context_hv, "tree", strlen ("tree")))
-                hv_delete (context_hv, "tree", strlen ("tree"), G_DISCARD);
+              else if (hv_exists (context_hv, "translated_tree",
+                                  strlen ("translated_tree")))
+                hv_delete (context_hv, "translated_tree",
+                           strlen ("translated_tree"), G_DISCARD);
             }
         }
 
@@ -450,7 +455,7 @@ build_html_command_formatted_args (const HTML_ARGS_FORMATTED *args_formatted)
           HV *arg_formated_hv = newHV ();
           av_push (av, newRV_noinc ((SV *) arg_formated_hv));
 
-          hv_store (arg_formated_hv, "tree", strlen ("tree"),
+          hv_store (arg_formated_hv, "arg_tree", strlen ("arg_tree"),
                     newRV_inc ((SV *) arg_formatted->arg_tree->hv), 0);
 
           for (j = 0; j < AFT_type_raw+1; j++)
