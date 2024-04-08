@@ -1053,6 +1053,14 @@ sub test($$)
   # Setup main configuration options, used for structuring.
   my $document_information = $document->global_information();
 
+  # setup a configuration Perl object which defines get_conf and set_conf,
+  # use the test customization information with per-document
+  # customization.  This allows to use functions calling get_conf and
+  # set_conf to manipulate customization information.
+  # After this is done, the customization information should not
+  # change enymore, and it is registered in the document and used by
+  # Structuring/Transformations methods needing access to configuration
+  # information.
   foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG') {
     if (defined($parser_options->{$parser_and_structuring_option})) {
       $main_configuration_options->{$parser_and_structuring_option}
@@ -1126,8 +1134,8 @@ sub test($$)
 
   Texinfo::Structuring::set_menus_node_directions($document);
 
-  if (not defined($main_configuration->get_conf('FORMAT_MENU'))
-      or $main_configuration->get_conf('FORMAT_MENU') eq 'menu') {
+  if (not defined($document->get_conf('FORMAT_MENU'))
+      or $document->get_conf('FORMAT_MENU') eq 'menu') {
     Texinfo::Structuring::complete_node_tree_with_menus($document);
 
     Texinfo::Structuring::check_nodes_are_referenced($document);
@@ -1163,18 +1171,18 @@ sub test($$)
   my ($sorted_index_entries, $index_entries_sort_strings);
   my $indices_sorted_sort_strings;
   if ($merged_index_entries) {
-    $main_configuration->{'document_descriptor'}
+    $document->{'document_descriptor'}
       = $document->document_descriptor();
     my $use_unicode_collation
-      = $main_configuration->get_conf('USE_UNICODE_COLLATION');
+      = $document->get_conf('USE_UNICODE_COLLATION');
     my $locale_lang;
     if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
       $locale_lang
-       = $main_configuration->get_conf('COLLATION_LANGUAGE');
+       = $document->get_conf('COLLATION_LANGUAGE');
     }
 
     my $indices_sort_strings
-      = Texinfo::Document::indices_sort_strings($document, $main_configuration);
+      = Texinfo::Document::indices_sort_strings($document, $document);
 
     $index_entries_sort_strings
      = Texinfo::Indices::format_index_entries_sort_strings(
@@ -1182,7 +1190,7 @@ sub test($$)
 
     $sorted_index_entries
       = Texinfo::Document::sorted_indices_by_index($document,
-                                          $main_configuration,
+                                                   $document,
                                  $use_unicode_collation, $locale_lang);
     $indices_sorted_sort_strings = {};
     foreach my $index_name (keys(%$sorted_index_entries)) {
@@ -1393,7 +1401,7 @@ sub test($$)
   }
   if ($test_split) {
     my $identifier_target = $document->labels_information();
-    Texinfo::Structuring::units_directions($main_configuration,
+    Texinfo::Structuring::units_directions($document,
                                            $identifier_target,
                                            $output_units);
     $directions_text = '';

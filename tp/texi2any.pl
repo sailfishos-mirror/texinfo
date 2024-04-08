@@ -1525,17 +1525,19 @@ while(@input_files) {
   # a "handle" is returned.
   my $tree = $document->tree($XS_structuring);
 
-  # setup a configuration Perl object which defines get_conf, use
-  # the main program customization information for which per-document
-  # customization can be set.  This allows to call functions calling
-  # get_conf and set_conf.  After this is done, the customization
-  # information is registered in the document and used by
+  # setup a configuration Perl object which defines get_conf and set_conf,
+  # use the main program customization information with per-document
+  # customization.  This allows to use functions calling get_conf and
+  # set_conf to manipulate customization information.
+  # After this is done, the customization information should not
+  # change enymore, and it is registered in the document and used by
   # Structuring/Transformations methods needing access to configuration
   # information.
+  #
   # OUTPUT_ENCODING_NAME is set and accessed in set_output_encodings.
   # OUTPUT_PERL_ENCODING is set and accessed in set_output_encodings and
   # accessed in output_files_open_out for the MACRO_EXPAND file name.
-  # The following variables are directly used in Structuring/Transformations:
+  # The following variables are used in Structuring/Transformations:
   # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
   # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
   # documentlanguage is used in Structuring/Transformations for
@@ -1575,7 +1577,7 @@ while(@input_files) {
           = Texinfo::Common::output_files_initialize();
     my ($macro_expand_fh, $error_message)
           = Texinfo::Common::output_files_open_out(
-                          $macro_expand_files_information, $main_configuration,
+                          $macro_expand_files_information, $document,
                           $encoded_macro_expand_file_name);
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {

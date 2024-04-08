@@ -53,6 +53,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::document_tree",
   "Texinfo::Document::_XS_set_document_options"
     => "Texinfo::DocumentXS::set_document_options",
+  "Texinfo::Document::get_conf",
+    => "Texinfo::DocumentXS::document_get_conf",
   "Texinfo::Document::global_information"
     => "Texinfo::DocumentXS::document_global_information",
   "Texinfo::Document::indices_information"
