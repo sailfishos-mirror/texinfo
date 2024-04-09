@@ -1520,11 +1520,6 @@ while(@input_files) {
     goto NEXT;
   }
 
-  # Get the tree object.  Note that if XS structuring in on, the argument
-  # prevents the tree being built as a Perl structure at this stage; only
-  # a "handle" is returned.
-  my $tree = $document->tree($XS_structuring);
-
   # setup a configuration Perl object which defines get_conf and set_conf,
   # use the main program customization information with per-document
   # customization.  This allows to use functions calling get_conf and
@@ -1562,12 +1557,17 @@ while(@input_files) {
   my $document_options = $main_configuration->get_customization_options_hash();
   $document->register_document_options($document_options);
 
+  # Get the tree object.  Note that if XS structuring in on, the argument
+  # prevents the tree being built as a Perl structure at this stage; only
+  # a "handle" is returned.
+  my $tree = $document->tree($XS_structuring);
+
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
+    Texinfo::Convert::Texinfo->import();
     # if convert_to_texinfo is not XS code get Perl tree.
     if (not (defined $ENV{TEXINFO_XS_CONVERT}
              and $ENV{TEXINFO_XS_CONVERT} eq '1')) {
-      #Texinfo::Document::rebuild_document($document);
       $tree = $document->tree();
     }
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

@@ -844,11 +844,10 @@ in L<C<Texinfo::Report::errors>|Texinfo::Report/($error_warnings_list, $error_co
 =head2 Getting customization options values registered in document
 
 By default, customization information is registered in a document object
-after parsing the Texinfo code. This is used by structuring and tree
-transformation methods that find customization variables values in the
-document object they get in argument. The customization variable set by
-default may only be a subset of the possible customization variables,
-selected to be useful for structuring and tree transformation codes.
+just after parsing the Texinfo code. Structuring and tree transformation
+methods then get customization variables values from the document object
+they have in argument. The customization variables set by default may be a
+subset selected to be useful for structuring and tree transformation codes.
 
 To retrieve Texinfo customization variables you can call C<get_conf>:
 
@@ -888,6 +887,17 @@ Register the I<$nodes_list> array reference as I<$document> nodes
 list.  This method should be called after the processing of document
 structure.
 
+=item register_document_options ($document, $options)
+X<C<register_document_options>>
+
+The I<$options> hash reference holds options for the document. These options
+should be Texinfo customization options.  Usually, the options registered in
+the document contain those useful for structuring and tree transformation
+getting place between Texinfo code parsing and conversion to output formats.
+Indeed, document customization options are mainly accessed by structuring and
+tree transformation methods (by calling L<< C<get_conf>|/$value = $document->get_conf($variable_name) >>). The options should in general be registered before
+the calls to C<get_conf>.
+
 =item register_document_sections_list ($document, $sections_list)
 X<C<register_document_sections_list>>
 
@@ -895,21 +905,12 @@ Register the I<$sections_list> array reference as I<$document> sections
 list.  This method should be called after the processing of document
 structure.
 
-=item register_document_options ($document, $options)
-X<C<register_document_options>>
-
-The I<$options> hash reference holds options for the document. These options
-should be Texinfo customization options.  Usually, the options registered in
-the document are those useful for structuring and tree transformation
-getting place between Texinfo code parsing and conversion to output formats.
-The method should in general be called before the calls to C<get_conf>.
-
 =item set_document_global_info($document, $key, $value)
 X<C<set_document_global_info>>
 
-Add I<$value> I<$key> information to I<$document>.  This method should not be
-generally useful, as document global information is already set by the
-Texinfo parser.  The information set should be available through
+Add I<$value> I<$key> global information to I<$document>.  This method
+should not be generally useful, as document global information is already
+set by the Texinfo parser.  The information set should be available through
 the next calls to L<global_information|/$info = global_information($document)>.
 The method should in general be called before the calls to
 C<global_information>.
