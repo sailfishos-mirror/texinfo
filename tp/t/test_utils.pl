@@ -487,6 +487,8 @@ sub set_converter_option_defaults($$;$)
   return $converter_options;
 }
 
+# NOTE this function is unlikely to be called, as files are closed in
+# converters except for STDOUT, but in the tests the output is not to STDOUT.
 sub close_files($)
 {
   my $converter = shift;
@@ -494,13 +496,15 @@ sub close_files($)
        = Texinfo::Common::output_files_unclosed_files(
                                $converter->output_files_information());
   if ($converter_unclosed_files) {
+    my $close_error_nr = 0;
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
       if (!close($converter_unclosed_files->{$unclosed_file})) {
-        # FIXME or die?
         warn(sprintf("tp_utils.pl: error on closing %s: %s\n",
                     $converter_unclosed_files->{$unclosed_file}, $!));
+        $close_error_nr++;
       }
     }
+    die if ($close_error_nr > 0);
   }
 }
 
