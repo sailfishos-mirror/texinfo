@@ -556,18 +556,13 @@ For C<gdt>, the value is a Texinfo tree that is substituted in the
 resulting texinfo tree. For C<gdt_string>, the value is a string that
 is replaced in the resulting string.
 
-I<$debug_level> is an optional debugging level supplied to gdt, similar to the
-C<DEBUG> customization variable.  If set, the debug level minus one is passed to
-the parser.
+I<$debug_level> is an optional debugging level supplied to C<gdt>, similar to
+the C<DEBUG> customization variable.  If set, the debug level minus one is
+passed to the Texinfo string parser called in C<gdt>.
 
 The I<$translation_context> is optional.  If not C<undef> this is a translation
 context string for I<$string>.  It is the first argument of C<pgettext>
 in the C API of Gettext.
-
-The I<$translate_string_method> is optional.  If not undef it should be a
-reference on a function that is called instead of C<translate_string>.  It
-allows to customize string translation.  The I<$object> is passed as first
-argument of the <$translate_string_method>.
 
 For example, in the following call, the string
 C<See {reference} in @cite{{book}}> is translated, then
@@ -575,13 +570,19 @@ parsed as a Texinfo string, with I<{reference}> substituted by
 I<$tree_reference> in the resulting tree, and I<{book}>
 replaced by the associated texinfo tree text element:
 
-  $tree = gdt('See {reference} in @cite{{book}}',
-              $converter->get_conf('documentlanguage'),
+  $tree = gdt('See {reference} in @cite{{book}}', "ca",
               {'reference' => $tree_reference,
                'book'  => {'text' => $book_name}});
 
-C<gdt> uses a gettext-like infrastructure to retrieve the
-translated strings, using the I<texinfo_document> domain.
+By default, C<gdt> and C<gdt_string> call C<translate_string> to use a
+gettext-like infrastructure to retrieve the translated strings, using the
+I<texinfo_document> domain.  You can change the method used to retrieve the
+translated strings by providing a I<$translate_string_method> argument.  If not
+undef it should be a reference on a function that is called instead of
+C<translate_string>.  The I<$object> is passed as first argument of the
+I<$translate_string_method>, the other arguments are the same as
+L<< C<translate_string>|/$translated_string = translate_string($string, $lang, $translation_context) >>
+arguments.
 
 =item $tree = pgdt($translation_context, $string, $lang, $replaced_substrings, $debug_level)
 X<C<pgdt>>
@@ -590,6 +591,24 @@ Same to C<gdt> except that the I<$translation_context> is not optional.
 Calls C<gdt>.  This function is useful to mark strings with a
 translation context for translation.  This function is similar to pgettext
 in the Gettext C API.
+
+=back
+
+By default, in C<gdt>, C<gdt_string> and C<pgdt> a string is translated with
+C<translate_string>.
+
+=over
+
+=item $translated_string = translate_string($string, $lang, $translation_context)
+X<C<translate_string>>
+
+The I<$string> is a string to be translated.  I<$lang> is the language used for
+the translation.  The I<$translation_context> is optional.  If not C<undef>
+this is a translation context string for I<$string>.  It is the first argument
+of C<pgettext> in the C API of Gettext.
+
+C<translate_string> uses a gettext-like infrastructure to retrieve the
+translated strings, using the I<texinfo_document> domain.
 
 =back
 

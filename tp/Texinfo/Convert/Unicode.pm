@@ -1757,8 +1757,9 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-C<Texinfo::Convert::Unicode> provides methods dealing with Unicode representation
-and conversion of Unicode code points, to be used in converters.
+C<Texinfo::Convert::Unicode> provides methods dealing with Unicode
+representation and conversion of Unicode code points, to be used in Texinfo
+converters.
 
 When an encoding supported in Texinfo is given as argument of a method of the
 module, the accented letters or characters returned by the method should only

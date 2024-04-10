@@ -45,20 +45,11 @@ sub __p($$) {
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-
-
-sub new(;$)
+sub new()
 {
-  my $self = shift;
-  # if there is no argument, setup a separate Texinfo::Report object,
-  # otherwise the structure is added to the converter, nothing is "blessed".
-  if (not defined($self)) {
-    $self = {};
-    bless $self;
-  }
-  $self->{'errors_warnings'} = [];
-  #print STDERR "REPORT NEW $self $self->{'errors_warnings'}\n";
-  $self->{'errors_nrs'} = 0;
+  my $self = {'errors_warnings' => [],
+               'errors_nrs' => 0,};
+  bless $self;
   return $self;
 }
 
@@ -80,6 +71,7 @@ sub add_formatted_message($$)
   push @{$self->{'errors_warnings'}}, $message;
 }
 
+# TODO document?  Or consider that this method is internal?
 sub format_line_message($$$$;$)
 {
   my $type = shift;
@@ -273,37 +265,25 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-The C<Texinfo::Report> module helps with error handling.  It is
-used by the Texinfo modules L<Texinfo::Parser> and
-L<Texinfo::Convert::Converter>.  To use this module, either create
-a new C<Texinfo::Report> object or initialize another object
-such as to be able to call C<Texinfo::Report> methods.  In any
-case, C<Texinfo::Report::new()> is called to setup the module.
-
-Besides the C<new> method, C<errors> is used for reporting errors, and the
-other methods to store errors (and warnings).
+The C<Texinfo::Report> module helps with error handling.  Errors
+and warnings can be setup, stored and retrieved later on.
+This module is used by the Texinfo modules L<Texinfo::Parser> and
+L<Texinfo::Convert::Converter>.
 
 =head1 METHODS
 
 No method is exported in the default case.
 
-The C<new> method initializes C<Texinfo::Report> related fields.
+The C<new> method initializes a C<Texinfo::Report> object.
 The errors collected are available through the C<errors> method, the other
 methods allow registering errors and warnings.
 
 =over
 
 =item my $registrar = Texinfo::Report::new()
-
-=item $object->Texinfo::Report::new()
 X<C<Texinfo::Report::new>>
 
-If called without argument, a C<Texinfo::Report> object is initialized and
-returned.  This is how the module is used in the Texinfo Parsers, as
-a separate object.
-
-If called on an object C<$object>, the C<$object> is initialized itself
-such as to be able to call C<Texinfo::Report> methods.
+Return an initialized  C<Texinfo::Report> object.
 
 =item ($error_warnings_list, $error_count) = errors($registrar)
 X<C<errors>>
@@ -315,30 +295,34 @@ the following keys:
 
 =over
 
-=item type
+=item continuation
 
-May be C<warning>, or C<error>.
-
-=item text
-
-The text of the error.
+If set, the line is a continuation line of a message.
 
 =item error_line
 
 The text of the error formatted with the macro name, as needed.
 
-=item line_nr
-
-The line number of the error or warning.
-
 =item file_name
 
 The file name where the error or warning occurs.
+
+=item line_nr
+
+The line number of the error or warning.
 
 =item macro
 
 The user macro name that is expanded at the location of
 the error or warning.
+
+=item text
+
+The text of the error.
+
+=item type
+
+May be C<warning>, or C<error>.
 
 =back
 

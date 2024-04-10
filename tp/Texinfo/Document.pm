@@ -805,6 +805,13 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
+The optional I<$customization_information> argument is used for
+error reporting, both to find the L<Texinfo::Report> object to use for error
+reporting and Texinfo customization variables information.  In general, it
+should be a converter (L<Texinfo::Convert::Converter/Getting and setting
+customization variables>) or a document L<Texinfo::Document/Getting
+customization options values registered in document>).
+
 L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
 and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
 are used to sort the indices, if needed.

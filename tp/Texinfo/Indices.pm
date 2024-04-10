@@ -761,15 +761,19 @@ X<C<index_entry_element_sort_string>>
 Return a string suitable as a sort string, for index entries.
 I<$document_info> is used by C code to retrieve the document data,
 using the C<document_descriptor> key.  I<$document_info> can be a
-converter based on L<Texinfo::Convert::Converter>, otherwise
-C<document_descriptor> need, in general, to be set up explicitely.
+converter based on L<Texinfo::Convert::Converter>, a L<Texinfo::Document>
+document, otherwise C<document_descriptor> need, in general, to be
+set up explicitely.
+
 The tree element index entry processed is I<$index_entry_element>,
 and can be a C<@subentry>.  I<$main_entry> is the main index entry
-that can be used to gather information.  The I<$options> are options
-used for Texinfo to text conversion for the generation of the sort
-string.  If the sort string is supposed to be output, the I<$options>
-are typically obtained from
+that can be used to gather information.
+
+The I<$options> are options used for Texinfo to text conversion for the
+generation of the sort string.  If the sort string is supposed to be output,
+the I<$options> are typically obtained from
 L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting($customization_information)>.
+
 If I<$prefer_reference_element> is set, prefer an untranslated
 element for the formatting as sort string.
 
@@ -840,14 +844,14 @@ When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
 The I<$registrar> argument can be set to a L<Texinfo::Report> object.
-Error reporting also require Texinfo customization variables
-information, which means an object implementing the C<get_conf> method, in
-practice the main program configuration or a converter
-(L<Texinfo::Convert::Converter/Getting and setting customization
-variables>) as I<$customization_information> argument.
-If the C<$registrar> argument is not set, the object used to
-get customization information is assumed to be a converter, and the
-error reporting uses converters error messages reporting functions
+Error reporting also requires Texinfo customization variables
+information, which means an object implementing the C<get_conf> method, a
+converter (L<Texinfo::Convert::Converter/Getting and setting customization
+variables>) or a document L<Texinfo::Document/Getting customization options
+values registered in document>) as I<$customization_information> argument.  If
+the C<$registrar> argument is not set, the object used to get customization
+information is assumed to be a converter, and the error reporting uses
+converters error messages reporting functions
 (L<Texinfo::Convert::Converter/Registering error and warning messages>).
 
 In general, those methods should not be called directly, instead

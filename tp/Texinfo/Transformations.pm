@@ -939,7 +939,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Transformations - transformations of Texinfo Perl tree
+Texinfo::Transformations - transformations of Texinfo tree
 
 =head1 NOTES
 
@@ -1027,7 +1027,8 @@ errors and warnings encountered while parsing are registered.  If defined,
 I<$customization_information> should give access to customization through
 C<get_conf>.  If both I<$registrar> and I<$customization_information> are
 defined they are used for error reporting in case an hash character could not
-be protected because it appeared in a raw environment.
+be protected because it appeared in a raw formatted environment (C<@tex>,
+C<@html>...).
 
 =item $modified_tree = reference_to_arg_in_tree($tree)
 X<C<reference_to_arg_in_tree>>

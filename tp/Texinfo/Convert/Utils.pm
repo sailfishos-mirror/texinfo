@@ -560,7 +560,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-miscellaneous methods that may be useful for backends converting texinfo
+Miscellaneous methods that may be useful for backends converting Texinfo
 trees.  This module contains the methods that can be used in converters
 which do not inherit from L<Texinfo::Convert::Converter>.
 
@@ -608,8 +608,8 @@ will be C<undef>.
 X<C<definition_category_tree>>
 
 The I<$converter> argument may be undef.  I<$def_line> is a
-C<def_line> texinfo tree container.  This function
-returns a texinfo tree corresponding to the category of the
+C<def_line> Texinfo tree container.  This function
+returns a Texinfo tree corresponding to the category of the
 I<$def_line> taking the class into account, if there is one.
 If I<$converter> is not defined, the resulting string won't be
 translated.
@@ -635,7 +635,7 @@ on the input file encoding where the file name appeared.
 =item $tree = expand_today($converter)
 X<C<expand_today>>
 
-Expand today's date, as a texinfo tree with translations.  The I<$converter>
+Expand today's date, as a Texinfo tree with translations.  The I<$converter>
 argument is not optional and is used both to retrieve customization information
 and to translate strings.
 

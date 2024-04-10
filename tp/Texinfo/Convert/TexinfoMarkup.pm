@@ -1690,7 +1690,7 @@ called by C<Texinfo::Convert::TexinfoMarkup>.
 The Texinfo Markup Language elements and attributes are not documented,
 but the Texinfo XML output by the C<Texinfo::Convert::TexinfoXML> subclass
 (L<Texinfo::Convert::TexinfoXML>) is a straightforward formatting as XML,
-and is described by the texinfo DTD.  Therefore the texinfo DTD can be
+and is described by the Texinfo DTD.  Therefore the Texinfo DTD can be
 used as a description of the structure of both Texinfo XML and of the
 more abstract Texinfo Markup Language.
 
@@ -1741,7 +1741,7 @@ Called to format a header at the beginning of output files.
 =item $result = $converter->txi_markup_protect_text($string)
 
 Protect special character in text for text fragments out of text
-texinfo tree elements.  For example, for spaces at end of line that
+Texinfo tree elements.  For example, for spaces at end of line that
 are ignorable in most output formats, for C<@set> or C<@macro>
 arguments.
 
