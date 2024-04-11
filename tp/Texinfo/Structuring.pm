@@ -1565,6 +1565,7 @@ sub new_master_menu($$$$;$)
 }
 
 # TODO document
+# $SELF should be a converter.
 sub new_complete_menu_master_menu($$$)
 {
   my $self = shift;
@@ -2476,13 +2477,19 @@ I<$customization_information>, if defined, should hold information
 needed for translations.  Translations are only needed when generating the
 top node menu.
 
-=item $detailmenu = new_master_menu($customization_information, $identifier_target, $menus)
+=item $detailmenu = new_master_menu($customization_information, $registrar, $identifier_target, $menus)
 X<C<new_master_menu>>
 
 Returns a detailmenu tree element formatted as a master node.
 I<$menus> is an array reference containing the regular menus of the Top node.
-I<$customization_information>, if defined, should hold information
-needed for translations.
+I<$customization_information> should hold information needed for translations
+and error reporting.
+
+The I<$registrar> argument can be set to a L<Texinfo::Report> object.
+If the I<$registrar> argument is not set, I<$customization_information> is
+assumed to be a converter, and error reporting uses converters error
+messages reporting functions (L<Texinfo::Convert::Converter/Registering error
+and warning messages>).
 
 =item $entry = new_node_menu_entry($node, $use_sections)
 X<C<new_node_menu_entry>>

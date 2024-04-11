@@ -830,7 +830,7 @@ information, which means an object implementing the C<get_conf> method, a
 converter (L<Texinfo::Convert::Converter/Getting and setting customization
 variables>) or a document L<Texinfo::Document/Getting customization options
 values registered in document>) as I<$customization_information> argument.  If
-the C<$registrar> argument is not set, the object used to get customization
+the I<$registrar> argument is not set, the object used to get customization
 information is assumed to be a converter, and the error reporting uses
 converters error messages reporting functions
 (L<Texinfo::Convert::Converter/Registering error and warning messages>).
