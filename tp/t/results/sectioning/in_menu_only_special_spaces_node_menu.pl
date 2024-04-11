@@ -1285,6 +1285,22 @@ $result_errors{'in_menu_only_special_spaces_node_menu'} = [
     'line_nr' => 22,
     'text' => 'empty argument in @node',
     'type' => 'error'
+  },
+  {
+    'error_line' => "warning: node next pointer for `\x{2000}\x{2001}\x{2002}' is `' but next is `\x{85}\x{a0}\x{1680}' in menu
+",
+    'file_name' => 'in_menu_only_special_spaces_node.texi',
+    'line_nr' => 16,
+    'text' => "node next pointer for `\x{2000}\x{2001}\x{2002}' is `' but next is `\x{85}\x{a0}\x{1680}' in menu",
+    'type' => 'warning'
+  },
+  {
+    'error_line' => "warning: node prev pointer for `\x{85}\x{a0}\x{1680}' is `' but prev is `\x{2000}\x{2001}\x{2002}' in menu
+",
+    'file_name' => 'in_menu_only_special_spaces_node.texi',
+    'line_nr' => 25,
+    'text' => "node prev pointer for `\x{85}\x{a0}\x{1680}' is `' but prev is `\x{2000}\x{2001}\x{2002}' in menu",
+    'type' => 'warning'
   }
 ];
 

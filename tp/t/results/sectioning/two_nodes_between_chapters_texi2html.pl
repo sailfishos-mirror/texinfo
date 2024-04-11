@@ -733,7 +733,22 @@ $result_menus{'two_nodes_between_chapters_texi2html'}[1]{'extra'}{'menu_directio
 $result_menus{'two_nodes_between_chapters_texi2html'}[2] = $result_menus{'two_nodes_between_chapters_texi2html'}[1]{'extra'}{'menu_directions'}{'next'};
 $result_menus{'two_nodes_between_chapters_texi2html'}[3] = $result_menus{'two_nodes_between_chapters_texi2html'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
-$result_errors{'two_nodes_between_chapters_texi2html'} = [];
+$result_errors{'two_nodes_between_chapters_texi2html'} = [
+  {
+    'error_line' => 'warning: node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu
+',
+    'line_nr' => 10,
+    'text' => 'node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu
+',
+    'line_nr' => 15,
+    'text' => 'node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'two_nodes_between_chapters_texi2html'} = {};

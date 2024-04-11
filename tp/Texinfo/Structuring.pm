@@ -954,6 +954,8 @@ sub complete_node_tree_with_menus($)
       if ($node_directions and $menu_directions) {
         foreach my $direction (@node_directions_names) {
           if ($node_directions->{$direction}
+              and not $node_directions->{$direction}
+                    ->{'extra'}->{'manual_content'}
               and $menu_directions->{$direction}
               and $menu_directions->{$direction}
                 ne $node_directions->{$direction}

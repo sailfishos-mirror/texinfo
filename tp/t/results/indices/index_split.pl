@@ -3484,7 +3484,16 @@ $result_menus{'index_split'}[8] = $result_menus{'index_split'}[2]{'extra'}{'menu
 $result_menus{'index_split'}[9] = $result_menus{'index_split'}[2]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 $result_menus{'index_split'}[10] = $result_menus{'index_split'}[0]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
-$result_errors{'index_split'} = [];
+$result_errors{'index_split'} = [
+  {
+    'error_line' => 'warning: node `node in section 3\' is next for `section 3\' in menu but not in sectioning
+',
+    'file_name' => 'index_split.texi',
+    'line_nr' => 85,
+    'text' => 'node `node in section 3\' is next for `section 3\' in menu but not in sectioning',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'index_split'} = {};

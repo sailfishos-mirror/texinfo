@@ -945,7 +945,22 @@ $result_menus{'transliterated_split_equivalent_nodes'}[1] = $result_menus{'trans
 $result_menus{'transliterated_split_equivalent_nodes'}[2] = $result_menus{'transliterated_split_equivalent_nodes'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'Forward'}{'directions'}{'Forward'}{'unit_command'}{'extra'}{'menu_directions'}{'prev'};
 $result_menus{'transliterated_split_equivalent_nodes'}[3] = $result_menus{'transliterated_split_equivalent_nodes'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'Forward'}{'directions'}{'Forward'}{'unit_command'};
 
-$result_errors{'transliterated_split_equivalent_nodes'} = [];
+$result_errors{'transliterated_split_equivalent_nodes'} = [
+  {
+    'error_line' => 'warning: node `n\' is next for `@~a\' in menu but not in sectioning
+',
+    'line_nr' => 9,
+    'text' => 'node `n\' is next for `@~a\' in menu but not in sectioning',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `top\' is up for `@~a\' in menu but not in sectioning
+',
+    'line_nr' => 9,
+    'text' => 'node `top\' is up for `@~a\' in menu but not in sectioning',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'transliterated_split_equivalent_nodes'} = {};

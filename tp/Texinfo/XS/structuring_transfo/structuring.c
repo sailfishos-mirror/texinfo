@@ -1214,7 +1214,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
                        = menu_directions->list[d];
                       ELEMENT *menu_dir_manual_content
                        = lookup_extra_element (menu_direction, "manual_content");
-                      if (!menu_dir_manual_content)
+                      ELEMENT *node_dir_manual_content
+                       = lookup_extra_element (node_directions->list[d],
+                                               "manual_content");
+                      if (!menu_dir_manual_content && !node_dir_manual_content)
                         {
                           char *node_texi = target_element_to_texi_label (node);
                           char *dir_texi = target_element_to_texi_label

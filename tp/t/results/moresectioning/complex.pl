@@ -4634,7 +4634,24 @@ $result_menus{'complex'}[12] = $result_menus{'complex'}[1]{'extra'}{'menu_direct
 $result_menus{'complex'}[13] = $result_menus{'complex'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 $result_menus{'complex'}[14] = $result_menus{'complex'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
-$result_errors{'complex'} = [];
+$result_errors{'complex'} = [
+  {
+    'error_line' => 'warning: node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu
+',
+    'file_name' => 'complex_sectioning_case.texi',
+    'line_nr' => 76,
+    'text' => 'node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu
+',
+    'file_name' => 'complex_sectioning_case.texi',
+    'line_nr' => 76,
+    'text' => 'node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'complex'} = {};

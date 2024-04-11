@@ -1111,7 +1111,29 @@ $result_menus{'rec_nodes'}[2] = $result_menus{'rec_nodes'}[1]{'extra'}{'menu_dir
 $result_menus{'rec_nodes'}[3] = $result_menus{'rec_nodes'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'up'};
 $result_menus{'rec_nodes'}[4] = $result_menus{'rec_nodes'}[1]{'extra'}{'menu_directions'}{'next'};
 
-$result_errors{'rec_nodes'} = [];
+$result_errors{'rec_nodes'} = [
+  {
+    'error_line' => 'warning: node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu
+',
+    'line_nr' => 9,
+    'text' => 'node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu
+',
+    'line_nr' => 9,
+    'text' => 'node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node up pointer for `other node\' is `chap node\' but up is `other node\' in menu
+',
+    'line_nr' => 16,
+    'text' => 'node up pointer for `other node\' is `chap node\' but up is `other node\' in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'rec_nodes'} = {};

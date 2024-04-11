@@ -385,6 +385,9 @@ my $top_chapter_sections_text =
 '.$chapter_sections_text;
 
 my @test_cases = (
+# TODO when a node is in multiple menus, the node directions can be consistent
+# with a menu and not another.  This is the case in that test, the node
+# directions are consistent with the first menu a node appears in.
 ['rec_nodes',
 '@node Top
 Top node
@@ -527,7 +530,8 @@ Second chapter
 @contents
 @bye
 ', # use CHECK_NORMAL_MENU_STRUCTURE to check that lowering leads to
-   # inconsistent menu with sectioning
+   # inconsistent menu with sectioning.  To keep even if it is the default
+   # to mark that it is important for the test.
 {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['loweredheading',
 '@lowersections
@@ -613,7 +617,8 @@ undef, {'test_file' => 'character_and_spaces_in_refs_text.texi',
 ['topic_guide',
   undef,
   {'test_file' => 'topic_guide.texi',
-   'test_formats' => ['file_info', 'file_html'],},
+   'test_formats' => ['file_info', 'file_html'],
+   'CHECK_NORMAL_MENU_STRUCTURE' => 0,},
   {'FORMAT_MENU' => 'menu', } # add explicitely for the converter
 ],
 ['anchor_in_footnote_split_node',

@@ -1383,7 +1383,36 @@ $result_menus{'missing_detailmenu_on_subnodes'}[3] = $result_menus{'missing_deta
 $result_menus{'missing_detailmenu_on_subnodes'}[4] = $result_menus{'missing_detailmenu_on_subnodes'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 $result_menus{'missing_detailmenu_on_subnodes'}[5] = $result_menus{'missing_detailmenu_on_subnodes'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
-$result_errors{'missing_detailmenu_on_subnodes'} = [];
+$result_errors{'missing_detailmenu_on_subnodes'} = [
+  {
+    'error_line' => 'warning: node `section chap 2\' is next for `section\' in menu but not in sectioning
+',
+    'line_nr' => 23,
+    'text' => 'node `section chap 2\' is next for `section\' in menu but not in sectioning',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chapter 2\' is prev for `section\' in menu but not in sectioning
+',
+    'line_nr' => 23,
+    'text' => 'node `chapter 2\' is prev for `section\' in menu but not in sectioning',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `section\' is next for `chapter 2\' in menu but not in sectioning
+',
+    'line_nr' => 26,
+    'text' => 'node `section\' is next for `chapter 2\' in menu but not in sectioning',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `section\' is prev for `section chap 2\' in menu but not in sectioning
+',
+    'line_nr' => 34,
+    'text' => 'node `section\' is prev for `section chap 2\' in menu but not in sectioning',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'missing_detailmenu_on_subnodes'} = {};

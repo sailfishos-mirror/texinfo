@@ -792,7 +792,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'node to avoid DocBook or LaTeX ignored'
             }
           ],
           'extra' => {
@@ -801,7 +801,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
                 {}
               ]
             },
-            'normalized' => 'Top'
+            'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1416,7 +1416,7 @@ $result_texis{'character_and_spaces_in_refs'} = '@node Top
 @ref{ Top}
 @ref{  local   node}
 
-@node other nodes, !_"#$%&\'()*+-., Top, Top
+@node other nodes, !_"#$%&\'()*+-., node to avoid DocBook or LaTeX ignored, Top
 @chapter Chapter with nodes
 
 @menu
@@ -1633,7 +1633,7 @@ $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'ne
 $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
-$result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'character_and_spaces_in_refs'}[0];
+$result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'character_and_spaces_in_refs'}[0];
 $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'character_and_spaces_in_refs'}[0];
 $result_nodes{'character_and_spaces_in_refs'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'character_and_spaces_in_refs'}[0];
@@ -1753,7 +1753,7 @@ Testing local nodes
 node::
 
 
-File: ,  Node: other nodes,  Next: !_"#$%&\'()*+-.,  Prev: Top,  Up: Top
+File: ,  Node: other nodes,  Next: !_"#$%&\'()*+-.,  Prev: node to avoid DocBook or LaTeX ignored,  Up: Top
 
 2 Chapter with nodes
 ********************
@@ -1778,9 +1778,9 @@ Tag Table:
 Node: Top65
 Node: node to avoid DocBook or LaTeX ignored236
 Node: other nodes658
-Node: !_"#$%&\'()*+-.839
-Node: /;<=>?[\\]^_`|~933
-Node: local node1026
+Node: !_"#$%&\'()*+-.874
+Node: /;<=>?[\\]^_`|~968
+Node: local node1061
 
 End Tag Table
 
@@ -1868,7 +1868,7 @@ Next: <a href="#other-nodes" accesskey="n" rel="next">Chapter with nodes</a>, Pr
 <div class="chapter-level-extent" id="other-nodes">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="n" rel="next">!_&quot;#$%&amp;\'()*+-.</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Test refs</a>, Up: <a href="#Top" accesskey="u" rel="up">Test refs</a> &nbsp; </p>
+Next: <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="n" rel="next">!_&quot;#$%&amp;\'()*+-.</a>, Previous: <a href="#node-to-avoid-DocBook-or-LaTeX-ignored" accesskey="p" rel="prev">first chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Test refs</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chapter-with-nodes"><span>2 Chapter with nodes<a class="copiable-link" href="#Chapter-with-nodes"> &para;</a></span></h2>
 

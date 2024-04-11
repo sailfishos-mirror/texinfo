@@ -248,6 +248,7 @@ Text part second.
 ', {'test_split' => 'node'}],
 ['two_nodes_between_chapters',
 $two_nodes_between_chapters_text,
+# mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
 {'test_split' => 'section', 'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['two_nodes_at_the_end',
 $two_nodes_at_the_end_text
@@ -797,7 +798,8 @@ Top node
 * chapter node::
 @end menu
 
-', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+', # mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
+{'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['section_node_before_part',
 '
 @node Top
@@ -828,6 +830,7 @@ Top node
 
 @contents
 ', {'test_formats' => ['plaintext'],
+# mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
     'CHECK_NORMAL_MENU_STRUCTURE' => 1},
    {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
 ['top_without_node_sections',
@@ -899,7 +902,8 @@ $unnumbered_top_without_node_text,
 
 @node subsection
 @subsection subsection
-', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+', # mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
+{'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['node_up_direction_for_top_with_manual',
 '@node Top,,,(dir)top
 '],
@@ -1038,7 +1042,8 @@ Dummy section with (manual)node node syntax.
 
 @anchor{(manual)anchor}.
 
-', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+', # mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
+{'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['node_nested_parentheses',
 '@node first
 
@@ -1112,7 +1117,8 @@ second node.
 
 @node Section non auto,, Chap1, Top
 @section Section
-', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+', # mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
+{'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['next_no_prev_to_node',
 '@node Top
 
@@ -1146,7 +1152,8 @@ second node.
 @end menu
 
 @node node down
-', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+', # mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
+{'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['double_top_section',
 '@top First top
 
@@ -1181,7 +1188,8 @@ Second top.
 
 @node First
 @chapter chap
-', {'test_split' => 'section', 'CHECK_NORMAL_MENU_STRUCTURE' => 1}
+', # mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
+{'test_split' => 'section', 'CHECK_NORMAL_MENU_STRUCTURE' => 1}
 ],
 ['menutextorder',
 '@menu
@@ -1220,7 +1228,8 @@ Second top.
 
 @node sub3
 @section Sub3
-', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+', # mark that it is important to test with CHECK_NORMAL_MENU_STRUCTURE set
+{'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['nodes_before_top',
 '@node first, Top, ,(dir)
 

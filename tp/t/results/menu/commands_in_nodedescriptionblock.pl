@@ -829,6 +829,16 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
         {
           'args' => [
             {
+              'text' => ' node1 again to test two nodescription expansions
+',
+              'type' => 'rawline_arg'
+            }
+          ],
+          'cmdname' => 'c'
+        },
+        {
+          'args' => [
+            {
               'info' => {
                 'spaces_after_argument' => {
                   'text' => '
@@ -882,7 +892,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                 }
               ],
               'source_info' => {
-                'line_nr' => 35
+                'line_nr' => 36
               },
               'type' => 'menu_entry'
             },
@@ -913,12 +923,12 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                 }
               },
               'source_info' => {
-                'line_nr' => 36
+                'line_nr' => 37
               }
             }
           ],
           'source_info' => {
-            'line_nr' => 34
+            'line_nr' => 35
           }
         },
         {
@@ -955,7 +965,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 38
+            'line_nr' => 39
           }
         },
         {
@@ -990,7 +1000,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 40
+            'line_nr' => 41
           }
         },
         {
@@ -1028,7 +1038,7 @@ $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[4] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'float_section'};
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'commands_in_nodedescriptionblock'} = '@node Top
 @top test commands in nodedescriptionblock
@@ -1063,6 +1073,7 @@ where the max column could be. @w{in w}.
 
 @ref{in nodescription}, @ref{f1}.
 
+@c node1 again to test two nodescription expansions
 @menu
 * node1::
 @end menu
@@ -1536,6 +1547,7 @@ where the max column could be. <w>in w</w>.
 
 <para><ref label="in-nodescription"><xrefnodename>in nodescription</xrefnodename></ref>, <ref label="f1"><xrefnodename>f1</xrefnodename></ref>.
 </para>
+<!-- c node1 again to test two nodescription expansions -->
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>node1</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>

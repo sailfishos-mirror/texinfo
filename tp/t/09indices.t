@@ -1110,8 +1110,9 @@ my @test_html_file = (
 ],
 ['index_split_split_chapter_no_nodes',
   undef,
-  # we use CHECK_NORMAL_MENU_STRUCTURE as this tests
-  # for a case that may only be tested here (Top before node)
+  # we set CHECK_NORMAL_MENU_STRUCTURE (even if it is the default)
+  # to mark that this tests for a case that may only be tested here
+  # (Top before node).
   # It also tests for node with directions after section which is
   # also in 96moresectioning.t
   {'test_file' => 'index_split.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},

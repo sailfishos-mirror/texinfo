@@ -520,7 +520,7 @@ Text
 
 @node chap @: b
 @chapter Chap
-'],
+', {'CHECK_NORMAL_MENU_STRUCTURE' => 0,}],
 ['nodedescription_descriptions',
 '@node Top
 @top test of nodedescription used in menu
@@ -668,6 +668,7 @@ where the max column could be. @w{in w}.
 
 @ref{in nodescription}, @ref{f1}.
 
+@c node1 again to test two nodescription expansions
 @menu
 * node1::
 @end menu
@@ -676,7 +677,8 @@ where the max column could be. @w{in w}.
 
 @listoffloats tfloat
 
-',{},{'AUTO_MENU_DESCRIPTION_ALIGN_COLUMN' => 16,
+',{'CHECK_NORMAL_MENU_STRUCTURE' => 0,},
+{'AUTO_MENU_DESCRIPTION_ALIGN_COLUMN' => 16,
        'AUTO_MENU_MAX_WIDTH' => 90}],
 # Note that the following tests also test @appendixsec in a chapter
 # (before another chapter) which does not seems to be tested in any other

@@ -1250,24 +1250,26 @@ $check_htmlxref_text
   undef,
   # also tests for node without section command nor directions after
   # a section, and Top without @top and chapter in menu
-  {'test_file' => 'node_footnote.texi'},
+  {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0,},
   {'FORMAT_MENU' => 'menu'}
 ],
 ['node_footnote_end',
   undef,
+  # test with CHECK_NORMAL_MENU_STRUCTURE for node_footnote.texi
+  # only done here, to keep even though it is the default.
   {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
   {'SPLIT' => '', 'USE_NODES' => 0}
 ],
 # actually the same output as node_footnote_end.
 ['node_footnote_separated',
   undef,
-  {'test_file' => 'node_footnote.texi'},
+  {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0},
   {'SPLIT' => '', 'USE_NODES' => 0,
-   'footnotestyle' => 'separate'}
+   'footnotestyle' => 'separate',}
 ],
 ['node_footnote_use_node_separate',
   undef,
-  {'test_file' => 'node_footnote.texi'},
+  {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0},
   {'footnotestyle' => 'separate', 'FORMAT_MENU' => 'menu'}
 ],
 ['simplest_test_date_in_header',
@@ -1281,7 +1283,8 @@ $check_htmlxref_text
   {'SPLIT' => 'chapter', 'footnotestyle' => 'separate'}
 ],
 # FIXME which TEXI2HTML options are really interesting for the test?
-# The CHECK_NORMAL_MENU_STRUCTURE test is relevant and to keep
+# The CHECK_NORMAL_MENU_STRUCTURE setting is relevant and to keep,
+# even though it is set by default, to mark that it is on purpose.
 ['sectioning_check_menu_structure',
   undef,
   # tests for node with directions after section

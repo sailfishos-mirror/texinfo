@@ -247,6 +247,11 @@ char *
 target_element_to_texi_label (const ELEMENT *element)
 {
   const ELEMENT *label_element = get_label_element (element);
+  /* get_label_element does not handle links to external manuals in menus */
+  if (!label_element)
+    {
+      return link_element_to_texi (element);
+    }
   return convert_contents_to_texinfo (label_element);
 }
 

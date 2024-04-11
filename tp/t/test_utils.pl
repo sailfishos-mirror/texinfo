@@ -949,12 +949,9 @@ sub test($$)
   # Setup default customization options to be ready for init files options
   # setting.
 
-  # TODO use the same as in texi2any.pl?:
-  #   %Texinfo::Common::default_main_program_customization_options
-  # The main difference would be that
-  # CHECK_NORMAL_MENU_STRUCTURE is set to 1.
-  my $test_customization_defaults = {'FORMAT_MENU' => 'menu',
-                                   'CHECK_MISSING_MENU_ENTRY' => 1};
+  my $test_customization_defaults = {
+     %Texinfo::Common::default_main_program_customization_options
+    };
 
   # get symbols in Texinfo::Config namespace before calling the init files
   # such that the added symbols can be removed after running the tests to have
