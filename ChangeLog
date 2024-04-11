@@ -1,5 +1,9 @@
 2024-04-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl: change a TODO to a NOTE.
+
+2024-04-11  Patrice Dumas  <pertusus@free.fr>
+
 	Fix master menu generation with node in its own menus
 
 	* tp/Texinfo/Common.pm (converter_or_registrar_line_warn),

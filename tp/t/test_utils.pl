@@ -1160,7 +1160,8 @@ sub test($$)
   $tree = $document->tree();
 
   my $indices_information = $document->indices_information();
-  # TODO maybe it would be good to compare $merged_index_entries?
+  # NOTE we do not compare the merged indices since we compare the sorted
+  # indices already and the tests are already big.
   my $merged_index_entries = $document->merged_indices();
 
   # only print indices information if it differs from the default
