@@ -9985,8 +9985,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
               if (!menus && automatic_directions)
                 {
                   ELEMENT *menu_node
-                   = new_complete_menu_master_menu (self->conf,
-                             self->document->identifiers_target, node);
+                   = new_complete_menu_master_menu (&self->error_messages,
+                         self->conf, self->document->identifiers_target, node);
 
                   if (menu_node)
                     {

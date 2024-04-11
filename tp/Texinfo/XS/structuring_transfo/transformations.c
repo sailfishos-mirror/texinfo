@@ -1149,7 +1149,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   else
     return 0;
 
-  master_menu = new_master_menu (document->options, identifiers_target,
+  master_menu = new_master_menu (document->error_messages,
+                                 document->options, identifiers_target,
                                  menus, use_sections);
 
   /* no need for a master menu */

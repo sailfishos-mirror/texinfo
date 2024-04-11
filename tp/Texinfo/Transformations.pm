@@ -644,6 +644,7 @@ sub regenerate_master_menu($;$)
 
   my $new_master_menu
       = Texinfo::Structuring::new_master_menu($document,
+                      $document->registrar(),
                       $identifier_target, $top_node->{'extra'}->{'menus'},
                       $use_sections);
   return undef if (!defined($new_master_menu));

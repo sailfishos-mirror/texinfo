@@ -211,25 +211,6 @@ sub getSortKey($$) {
 
 package Texinfo::Indices;
 
-# this is needed here, as the code can be called both from the main
-# context, with a registrar and customization information, and from
-# a converter
-sub _converter_or_registrar_line_warn($$$$)
-{
-  my $registrar = shift;
-  my $customization_information = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-
-  if (defined($registrar)) {
-    $registrar->line_warn($customization_information, $text,
-                          $error_location_info);
-  } else {
-    $customization_information->converter_line_warn($text,
-                                                    $error_location_info);
-  }
-}
-
 sub _setup_collator($$)
 {
   my $use_unicode_collation = shift;
@@ -336,7 +317,7 @@ sub setup_index_entries_sort_strings($$$$;$)
         $entry_cmdname
           = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
-        _converter_or_registrar_line_warn($registrar,
+        Texinfo::Common::converter_or_registrar_line_warn($registrar,
                                    $customization_information,
                        sprintf(__("empty index key in \@%s"),
                                   $entry_cmdname),
@@ -359,7 +340,7 @@ sub setup_index_entries_sort_strings($$$$;$)
           $entry_cmdname
             = $main_entry_element->{'extra'}->{'original_def_cmdname'}
               if (!defined($entry_cmdname));
-          _converter_or_registrar_line_warn($registrar,
+          Texinfo::Common::converter_or_registrar_line_warn($registrar,
                                 $customization_information,
                          sprintf(__("empty index sub entry %d key in \@%s"),
                                     $subentry_nr, $entry_cmdname),

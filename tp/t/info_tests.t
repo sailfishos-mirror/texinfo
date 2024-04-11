@@ -989,6 +989,18 @@ Some text.
 
 @printindex cp
 '],
+['recursive_down_menu',
+'@node Top
+@top top
+
+@node chapN
+@chapter Intro
+
+@menu
+* chapN::
+@end menu
+', {'test_formats' => ['html']},
+   {'FORMAT_MENU' => 'menu'}],
 );
 
 my @file_tests = (

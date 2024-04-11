@@ -2589,6 +2589,27 @@ sub get_label_element($)
   return undef;
 }
 
+# For code that can be called both from the main
+# context, with a registrar and customization information, and from
+# a converter
+# NOTE it is considered internal and should not be called in user-defined
+# code.  If this changes, should be documented.
+sub converter_or_registrar_line_warn($$$$)
+{
+  my $registrar = shift;
+  my $customization_information = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+
+  if (defined($registrar)) {
+    $registrar->line_warn($customization_information, $text,
+                          $error_location_info);
+  } else {
+    $customization_information->converter_line_warn($text,
+                                                    $error_location_info);
+  }
+}
+
 # functions used for debugging.  May be used in other modules.
 # Not documented.
 

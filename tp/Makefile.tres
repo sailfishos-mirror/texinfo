@@ -1010,6 +1010,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/pxref_test.pl \
   t/results/info_tests/quote_node_names_info.pl \
   t/results/info_tests/quote_node_names_info/res_info \
+  t/results/info_tests/recursive_down_menu.pl \
   t/results/info_tests/ref_tests.pl \
   t/results/info_tests/space_at_menu_end.pl \
   t/results/info_tests/space_in_menu.pl \

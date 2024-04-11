@@ -1512,9 +1512,10 @@ sub new_complete_node_menu
 }
 
 # used in Plaintext converter and tree transformations
-sub new_master_menu($$$;$)
+sub new_master_menu($$$$;$)
 {
   my $customization_information = shift;
+  my $registrar = shift;
   my $identifier_target = shift;
   my $menus = shift;
   my $use_sections = shift;
@@ -1530,7 +1531,9 @@ sub new_master_menu($$$;$)
                = _normalized_entry_associated_internal_node($entry,
                                                         $identifier_target);
           if ($node) {
-            push @{$master_menu->{'contents'}}, _print_down_menus($node,
+            push @{$master_menu->{'contents'}}, _print_down_menus($node, undef,
+                                           $customization_information,
+                                           $registrar,
                                            $identifier_target, $use_sections);
           }
         }
@@ -1574,7 +1577,7 @@ sub new_complete_menu_master_menu($$$)
       and $node->{'extra'}->{'normalized'} eq 'Top'
       and $node->{'extra'}->{'associated_section'}
       and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
-    my $detailmenu = new_master_menu($self, $labels, [$menu_node]);
+    my $detailmenu = new_master_menu($self, undef, $labels, [$menu_node]);
     if ($detailmenu) {
       # add a blank line before the detailed node listing
       my $menu_comment = {'type' => 'menu_comment',
@@ -1594,10 +1597,13 @@ sub new_complete_menu_master_menu($$$)
   return $menu_node;
 }
 
-sub _print_down_menus($$;$);
-sub _print_down_menus($$;$)
+sub _print_down_menus($$$$$;$);
+sub _print_down_menus($$$$$;$)
 {
   my $node = shift;
+  my $up_nodes = shift;
+  my $customization_information = shift;
+  my $registrar = shift;
   my $identifier_target = shift;
   my $use_sections = shift;
 
@@ -1610,8 +1616,7 @@ sub _print_down_menus($$;$)
     @menus = @{$node->{'extra'}->{'menus'}};
   } else {
     my $current_menu
-      = Texinfo::Structuring::new_complete_node_menu($node, undef,
-                                                     $use_sections);
+      = new_complete_node_menu($node, undef, $use_sections);
     if (defined($current_menu)) {
       @menus = ( $current_menu );
     } else {
@@ -1650,11 +1655,34 @@ sub _print_down_menus($$;$)
     _insert_menu_comment_content(\@master_menu_contents, 0,
                                  $node_title_copy, 0);
 
+    if (!defined($up_nodes)) {
+      $up_nodes = [];
+    }
+    push @$up_nodes, [$node->{'extra'}->{'normalized'}, $node];
     # now recurse in the children
     foreach my $child (@node_children) {
-      push @master_menu_contents, _print_down_menus($child, $identifier_target,
-                                                    $use_sections);
+      my $up_node_in_menu = 0;
+      my $normalized_child = $child->{'extra'}->{'normalized'};
+      foreach my $up_node_normalized (@$up_nodes) {
+        if ($normalized_child eq $up_node_normalized->[0]) {
+          Texinfo::Common::converter_or_registrar_line_warn($registrar,
+                   $customization_information,
+                sprintf(__("node `%s' appears in its own menus"),
+                target_element_to_texi_label($up_node_normalized->[1])),
+                           $up_node_normalized->[1]->{'source_info'});
+          $up_node_in_menu = 1;
+          last;
+        }
+      }
+      if (!$up_node_in_menu) {
+        push @master_menu_contents, _print_down_menus($child,
+                                           $up_nodes,
+                                           $customization_information,
+                                           $registrar,
+                                           $identifier_target, $use_sections);
+      }
     }
+    pop @$up_nodes;
   }
 
   return @master_menu_contents;

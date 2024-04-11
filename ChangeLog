@@ -1,5 +1,27 @@
 2024-04-11  Patrice Dumas  <pertusus@free.fr>
 
+	Fix master menu generation with node in its own menus
+
+	* tp/Texinfo/Common.pm (converter_or_registrar_line_warn),
+	tp/Texinfo/Indices.pm: move _converter_or_registrar_line_warn from
+	Indices.pm to Common.pm and rename as
+	converter_or_registrar_line_warn.
+
+	* tp/Texinfo/Structuring.pm (new_master_menu)
+	(new_complete_menu_master_menu, _print_down_menus),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (print_down_menus)
+	(new_master_menu, new_complete_menu_master_menu),
+	tp/t/do_master_menu.t: add the list of up nodes in print_down_menus
+	arguments and check if a child node is also an up node, to avoid
+	infinite recursion.  Add error reporting arguments to
+	print_down_menus, and to caller, new_master_menu and
+	new_complete_menu_master_menu.  Update callers.
+
+	* tp/Makefile.tres, tp/t/info_tests.t (recursive_down_menu): add a
+	test for a node in its own menu with a master menu generation.
+
+2024-04-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): initialize test customization variables
 	defaults with the same hash as in the main program,
 	%Texinfo::Common::default_main_program_customization_options.
