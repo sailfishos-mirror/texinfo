@@ -7991,9 +7991,10 @@ variables).
 
 @noindent
 Not every manual needs all of these, and most manuals use only two or
-three at most.  The present manual, for example, has two indices: a
-concept index and an @@-command index. (The latter is actually the function
-index but is called a command index in the chapter heading.)
+three at most.  The present manual, for example, has three indices: a
+concept index, a variable index, and an @@-command index.  (The last is
+actually the function index but is called a command index in the chapter
+heading.)
 
 You are not required to use the predefined indices strictly for their
 canonical purposes.  For example, suppose you wish to index some C
