@@ -53,7 +53,7 @@ ok(1);
 
 my $parser = Texinfo::Parser::parser();
 
-my $document = $parser->parse_texi_piece ('
+my $document = $parser->parse_texi_piece('
 @documentlanguage fr
 
 @node top
@@ -70,7 +70,7 @@ my $document = $parser->parse_texi_piece ('
 my $tree = $document->tree();
 
 #use Texinfo::DebugTree;
-#print STDERR Texinfo::DebugTree->convert_tree ($tree);
+#print STDERR Texinfo::DebugTree->convert_tree($tree);
 
 # Setup sectioning commands numbers
 my $sections_list

@@ -50,6 +50,7 @@ test_tap_files_generated_list = \
   t/paragraph.t \
   t/plaintext_tests.t \
   t/protect_character_in_texinfo.t \
+  t/raw_text_converter.t \
   t/reference_to_text_in_tree.t \
   t/test_brace_count.t \
   t/test_fill_gaps_in_sectioning.t \

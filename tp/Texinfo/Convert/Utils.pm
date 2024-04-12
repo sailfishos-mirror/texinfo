@@ -363,6 +363,8 @@ sub add_heading_number($$$;$)
     $result = $text;
     $result = $number.' '.$result if (defined($number));
     if ($current->{'cmdname'} eq 'appendix'
+        # in case structuring code was not called could be undef
+        and defined($current->{'extra'}->{'section_level'})
         and $current->{'extra'}->{'section_level'} == 1) {
       $result = 'Appendix '.$result;
     }
