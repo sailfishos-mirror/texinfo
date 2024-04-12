@@ -126,7 +126,7 @@ with make input_file_names_recoded_stamp.txt.  If the recoding fails,
 for instance if the recoding leads to invalid UTF-8 and the file system does
 not accept invalid UTF-8, input_file_names_recoded_stamp.txt will contain
 FAILED, and the test requiring the files with recoded file names will
-be skipped.
+be skipped.  The recoded files are generated in the built_input/ directory.
 
 
 TeX4ht and LaTeX2HTML tests

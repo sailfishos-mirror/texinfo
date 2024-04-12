@@ -330,14 +330,14 @@ Manual tests
 Some tests are interesting but are not in the test suite for various
 reasons.  It is not really expected to have much regressions with these
 tests.  They are shown here for information.  It was up to date in
-March 2022, it may drift away as tests files names or content change.
+March 2024, it may drift away as tests files names or content change.
 
 
 Tests in non utf8 locale
 ------------------------
 
 In practice these tests were tested in latin1.  They are not
-in the may test suite because a latin1 locale cannot be expected
+in the main test suite because a latin1 locale cannot be expected
 to be present reliably.
 
 Tests with correct or acceptable results
@@ -366,7 +366,7 @@ non ascii output directory, utf8 manual
 
 test of non ascii included file name in utf8 locale is already in formatting:
 formatting/osé_utf8.texi:@include included_akçentêd.texi
-./texi2any.pl --force -I tests/ tests/formatting/os*_utf8.texi
+./texi2any.pl --force -I tests/ tests/encoded/os*_utf8.texi
 The file name is utf-8 encoded in messages, which is expected as we do not
 decode/encode file names from the command line for messages
 osÃ©_utf8.texi:15: warning: undefined flag: vùr
@@ -375,9 +375,9 @@ t/80include.t cpp_line_latin1
 CPP directive with non ascii characters, latin1 manual
 ./texi2any.pl --force ./t/input_files/cpp_line_latin1.texi
 
-Issue to add 'tests/included_lat'$'\356''n1.texi' in make dist
-tests/formatting manual_include_accented_file_name_latin1
-./texi2any.pl --force -I tests/ tests/formatting/manual_include_accented_file_name_latin1.texi
+Need to have recoded file name to latin1 OK, see tests/README
+tests/encoded manual_include_accented_file_name_latin1
+./texi2any.pl --force -I tests/built_input/ tests/encoded/manual_include_accented_file_name_latin1.texi
 
 latin1 encoded and latex2html in latin1 locale
 ./texi2any.pl --html --init ext/latex2html.pm tests/tex_html/tex_encode_latin1.texi
@@ -394,34 +394,34 @@ The file names and file contents looks right, though, with latin1 only
 encoded characters.
 
 epub for utf8 encoded manual in latin1 locale
-./texi2any.pl --force -I tests/ --init ext/epub3.pm tests/formatting/os*_utf8.texi
+./texi2any.pl --force -I tests/ --init ext/epub3.pm tests/encoded/os*_utf8.texi
 
 epub for latin1 encoded manual in latin1 locale
 cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi
 ./texi2any.pl --init ext/epub3.pm tex_encodé_latin1.texi
 
-./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext tests/encoded/os*_utf8.texi
 output file name is in latin1, but the encoding inside is utf8 consistent
 with the document encoding.
 
-./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8_no_setfilename.texi
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext tests/encoded/os*_utf8_no_setfilename.texi
 output file name is utf8 because the utf8 encoded input file name
 is decoded using the locale latin1 encoding keeping the 8bit characters
 from the utf8 encoding, and the encoding inside is utf8
 consistent with the document encoding.
 
-./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
+./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/encoded/os*_utf8.texi
 encodé/raw.txt file name encoded in latin1, and the encoding inside is utf8
 consistent with the document encoding.
 
-./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/formatting/os*_utf8.texi
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/encoded/os*_utf8.texi
 subdîr/osé_utf8.txt file name encoded in latin1, and the encoding inside is utf8
 consistent with the document encoding.
 
-./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
+./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
 résultat/encodé.txt file name encoded in latin1.
 
-./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o char_latin1_latin1_in_refs_tree.txt ./t/input_files/char_latin1_latin1_in_refs.texi
+./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree -o char_latin1_latin1_in_refs_tree.txt ./t/input_files/char_latin1_latin1_in_refs.texi
 char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 
 utf8 encoded manual name and latex2html in latin1 locale
@@ -459,24 +459,28 @@ Tests in utf8 locales
 The archive epub file is not tested in the automated tests.
 
 epub for utf8 encoded manual in utf8 locale
-./texi2any.pl --force -I tests/ --init ext/epub3.pm tests/formatting/osé_utf8.texi
+./texi2any.pl --force -I tests/ --init ext/epub3.pm tests/encoded/osé_utf8.texi
 
 The following tests require latin1 encoded file names.  Note that it
 could be done automatically now with
 tp/maintain/copy_change_file_name_encoding.pl.
 However, there is already a test with an include file in latin1, it
 is enough.
+Create the lain1 encoded from a latin1 console:
+cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi
+Run from an UTF-8 locale console.  The resulting file has a ? in the name
+but result is otherwise ok.
 ./texi2any.pl tex_encod*_latin1.texi
 
 The following tests not important enough to have regression test
-./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
-./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/formatting/os*_utf8.texi
+./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/encoded/os*_utf8.texi
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/encoded/os*_utf8.texi
 
 Test more interesting in non utf8 locale
-./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
+./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
 résultat/encodé.txt file name encoded in utf8
 
-./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o char_latin1_latin1_in_refs_tree.txt ./t/input_files/char_latin1_latin1_in_refs.texi
+./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree -o char_latin1_latin1_in_refs_tree.txt ./t/input_files/char_latin1_latin1_in_refs.texi
 char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 
 
