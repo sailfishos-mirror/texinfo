@@ -90,6 +90,21 @@ ELEMENT *elements[3]
    should not need contents/args/extra.
 
 
+check for comma after @xref{...}, in parser to simplify checking for
+it in Info output module.
+The code checking if punctuation followed the closing brace
+required fiddly checking ahead (see code following comment
+"# Check if punctuation follows the ref command" in Plaintext.pm).
+Gavin wondered if it would be easier to do this in the parser instead so the
+converter could check if the punctuation was present simply by checking
+$current->{'extra'}->{'following_punctuation'} or similar.
+
+
+C code could be checked to see if using an hash map implementation,
+by compiling C code as C++ and using the standard C++ library hash map
+could be interesting (Patrice 2023-10-14).
+
+
 hyphenation: should only appear in toplevel.
 
 
@@ -145,8 +160,9 @@ http://www.unicode.org/reports/tr10/#Variable_Weighting).
 For spaces, the output with Non-Ignorable Variable Weighting looks better for
 index sorting, as it allows to have spaces and punctuation marks sort before
 letters.  Right now, the C code calls Perl to get the sorting
-collation strings with Non-Ignorable Variable Weighting.  There exist an
-undocumented XS_STRXFRM_COLLATION_LOCALE that uses strxfrm_l, but it is only
+collation strings with Non-Ignorable Variable Weighting.  In texi2any, the
+undocumented XS_STRXFRM_COLLATION_LOCALE customization variable can be used
+to specify a locale and use it with strxfrm_l to sort, but it is only
 for testing and should not be kept in the long term, the plan is to replace by
 C code that sets Variable Weighting to Non-ignorable and before that keep
 calling Perl.
