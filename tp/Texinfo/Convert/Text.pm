@@ -146,8 +146,9 @@ sub _initialize_options_encoding($$)
   }
 }
 
-# TODO not documented.  Not generally useful, as it is called
-# in Texinfo::Convert::Converter to setup options that can be reused.
+# NOTE not documented.  In general, it is not useful to call that
+# function, as it the function is already called in Texinfo::Convert::Converter
+# to setup options that can be reused.
 #
 # $SELF is an object implementing get_conf, in general a converter.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text

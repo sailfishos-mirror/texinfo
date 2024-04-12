@@ -1,5 +1,9 @@
 2024-04-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm: change in comments.
+
+2024-04-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (convert_tree, convert): fix
 	implementations.  Use XS for convert similarly as in output.
 
