@@ -493,14 +493,6 @@ my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
 # files.  In general the result of image formatting cannot
 # be used to get an image file name path, as the path is not
 # used in the output.
-# FIXME use filenametext or url?  url is always UTF-8 encoded
-# to fit with percent encoding, filenametext uses the output
-# encoding.  As a file name, filenametext could make sense,
-# although the underlying character obtained with utf-8 may also
-# make sense.  It is also used as the path part of a url.
-# In practice, the user should check that the output encoding
-# and the commands used in file names match, so url or
-# filenametext should be the same.
 sub html_image_file_location_name($$$$$)
 {
   my $self = shift;
@@ -516,6 +508,7 @@ sub html_image_file_location_name($$$$$)
   # this variable is bytes encoded in the filesystem encoding
   my ($image_path, $image_path_encoding);
   my $extension;
+  # NOTE should be consistent with $image_basefile formatting
   if (defined($args->[4]) and defined($args->[4]->{'filenametext'})) {
     $extension = $args->[4]->{'filenametext'};
     unshift @extensions, ("$extension", ".$extension");
@@ -3821,6 +3814,18 @@ sub _convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
+  # NOTE the choice of filenametext or url is somewhat arbitrary here.
+  # url is formatted considering that it would be output as UTF-8 to fit
+  # with percent encoding, filenametext is formatted according to the the
+  # output encoding.  It matter mostly for accent @-commands, @U and symbols
+  # no args @-commands not in the ASCII range.
+  # As a file name, filenametext could make sense, although a path
+  # with all the characters encoded, which happens if UTF-8 is considered
+  # as the output encoding may also make sense.  Note that it is
+  # also used as the path part of a percent encoded url.
+  # In practice, the user should check that the output encoding
+  # and the commands used in file names match, so url or
+  # filenametext should lead to the same path.
   if ($args and defined($args->[0])
       and defined($args->[0]->{'filenametext'})
       and $args->[0]->{'filenametext'} ne '') {
@@ -4425,7 +4430,7 @@ sub _default_format_button($$;$)
         my $active_icon;
         my $active_icons = $self->get_conf('ACTIVE_ICONS');
         if ($active_icons) {
-        # FIXME strip FirstInFile from $button to get $active_icon?
+        # TODO strip FirstInFile from $button to get $active_icon?
           $active_icon = $active_icons->{$button};
         }
         if (defined($active_icon) and $active_icon ne '') {
@@ -4453,7 +4458,7 @@ sub _default_format_button($$;$)
         my $passive_icon;
         my $passive_icons = $self->get_conf('PASSIVE_ICONS');
         if ($passive_icons) {
-        # FIXME strip FirstInFile from $button to get $passive_icon?
+        # TODO strip FirstInFile from $button to get $passive_icon?
           $passive_icon = $passive_icons->{$button};
         }
         if (defined($passive_icon) and $passive_icon ne '') {
@@ -5616,7 +5621,7 @@ sub _convert_float_command($$$$$)
   my $prepended_text;
   my $caption_text;
   if ($prepended) {
-    # FIXME add a span with a class name for the prependend information
+    # TODO add a span with a class name for the prependend information
     # if not empty?
     $prepended_text = $self->convert_tree_new_formatting_context(
                                {'cmdname' => 'strong',
@@ -5683,7 +5688,7 @@ sub _convert_quotation_command($$$$$)
   }
 
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
-    # FIXME there is no easy way to mark with a class the @author
+    # TODO there is no easy way to mark with a class the @author
     # @-command.  Add a span or a div (@center is in a div)?
     foreach my $author (@{$command->{'extra'}->{'authors'}}) {
       if ($author->{'args'}->[0]
@@ -7838,7 +7843,7 @@ sub _convert_def_line_type($$$$)
           and ($base_command_name eq 'deftypefn'
                or $base_command_name eq 'deftypeop')
           and $self->get_conf('deftypefnnewline') eq 'on') {
-        # FIXME if in @def* in @example and with @deftypefnnewline
+        # TODO if in @def* in @example and with @deftypefnnewline
         # on there is no effect of @deftypefnnewline on, as @* in
         # preformatted environment becomes an end of line, but the def*
         # line is not in a preformatted environment.  There should be
@@ -9870,13 +9875,21 @@ sub _html_set_pages_files($$$$$$$$$)
         if (defined($files_source_info{$user_filename})) {
           $user_file_source_info = $files_source_info{$user_filename};
           my $previous_filepath = $user_file_source_info->{'file_info_path'};
-          # TODO could warn if one of $previous_filepath or $user_filepath
-          # is undef and the other is not
+          # It is likely that setting different paths for the same file is
+          # not intended, so we warn.
           if (defined($user_filepath) and defined($previous_filepath)
               and $user_filepath ne $previous_filepath) {
             $self->converter_document_warn(
              sprintf(__("resetting %s file path %s to %s"),
               $user_filename, $previous_filepath, $user_filepath));
+          } elsif (defined($user_filepath) and !defined($previous_filepath)) {
+            $self->converter_document_warn(
+              sprintf(__("resetting %s file path from a relative path to %s"),
+                           $user_filename, $user_filepath));
+          } elsif (!defined($user_filepath) and defined($previous_filepath)) {
+            $self->converter_document_warn(
+              sprintf(__("resetting %s file path from %s to a relative path"),
+                           $user_filename, $previous_filepath));
           }
         }
         $filename = $user_filename;
@@ -11431,7 +11444,7 @@ EOT
     # if the button spec is an array we do not know what the button
     # looks like, so we do not show the button but still show explanations.
     if (ref($button_spec) ne 'ARRAY') {
-      # FIXME strip FirstInFile from $button to get active icon file?
+      # TODO strip FirstInFile from $button to get active icon file?
       if ($active_icons and $active_icons->{$direction}) {
         my $button_name_string
           = $self->direction_string($direction, 'button', 'string');

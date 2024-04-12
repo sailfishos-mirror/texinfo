@@ -5576,6 +5576,8 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                                         file_name_path->filename);
               if (file_source_info)
                 {
+          /*  It is likely that setting different paths for the same file is
+              not intended, so we warn. */
                   if (file_source_info->path && file_name_path->filepath
                       && strcmp (file_source_info->path,
                                  file_name_path->filepath))
@@ -5586,6 +5588,24 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                                            file_name_path->filename,
                                            file_source_info->path,
                                            file_name_path->filepath);
+                    }
+                  else if (file_name_path->filepath
+                           && !file_source_info->path)
+                    {
+                      message_list_document_warn (&self->error_messages,
+                                                  self->conf, 0,
+                        "resetting %s file path from a relative path to %s",
+                                           file_name_path->filename,
+                                           file_name_path->filepath);
+                    }
+                  else if (!file_name_path->filepath
+                           && file_source_info->path)
+                    {
+                      message_list_document_warn (&self->error_messages,
+                                                  self->conf, 0,
+                        "resetting %s file path from %s to a relative path",
+                                           file_name_path->filename,
+                                           file_source_info->path);
                     }
                   set_file_source_info (file_source_info, "special_file",
                                 "user_defined", 0, file_name_path->filepath);

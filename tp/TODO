@@ -24,6 +24,9 @@ Issues
 Some private function used in conversion
  _convert_printindex_command
   _new_document_context
+_convert_def_line_type
+ _set_code_context
+ _pop_code_context
 
 
 Missing documentation

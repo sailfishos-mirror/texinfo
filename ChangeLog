@@ -1,5 +1,14 @@
 2024-04-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files),
+	tp/Texinfo/XS/convert/convert_html.c (html_set_pages_files): add
+	warnings when a paths is reset from or to a relative path for an
+	existing file.
+	
+	Change in comments.
+
+2024-04-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/README, tp/TODO: updates related to manual tests.
 
 2024-04-12  Gavin Smith <gavinsmith0123@gmail.com>
