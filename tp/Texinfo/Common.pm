@@ -593,41 +593,9 @@ foreach my $command (
 }
 
 
-# functions for main program.  Should not be called in user-defined code.
-# FIXME locate_init_file() is also called in HTML Converter for htmlxref files.
-
-# $FILE:        file name to locate. It can be a file path. Binary string.
-# $DIRECTORIES: a reference on a array containing a list of directories to
-#               search the file in. Binary strings.
-# $ALL_FILES:   if true collect all the files with that name, otherwise stop
-#               at first match.
-sub locate_init_file($$$)
-{
-  my $file = shift;
-  my $directories = shift;
-  my $all_files = shift;
-
-  if (File::Spec->file_name_is_absolute($file)) {
-    return $file if (-e $file and -r $file);
-  } else {
-    my @files;
-    foreach my $dir (@$directories) {
-      next unless (-d $dir);
-      my $possible_file = File::Spec->catfile($dir, $file);
-      if ($all_files) {
-        push (@files, $possible_file)
-          if (-e $possible_file and -r $possible_file);
-      } else {
-        return $possible_file if (-e $possible_file and -r $possible_file);
-      }
-    }
-    return @files if ($all_files);
-  }
-  return undef;
-}
-
 
-# API to open, set encoding and register files.
+# API to open, set encoding and register files.  Used in main program
+# and converters.
 # In general $SELF is stored as $converter->{'output_files'}
 # and should be accessed through $converter->output_files_information();
 
@@ -1171,6 +1139,38 @@ sub parse_node_manual($;$)
 
 
 # misc functions used in diverse contexts and useful in converters
+
+# Not documented, used in main program, tests and HML Converter.
+
+# $FILE:        file name to locate. It can be a file path. Binary string.
+# $DIRECTORIES: a reference on a array containing a list of directories to
+#               search the file in. Binary strings.
+# $ALL_FILES:   if true collect all the files with that name, otherwise stop
+#               at first match.
+sub locate_file_in_dirs($$$)
+{
+  my $file = shift;
+  my $directories = shift;
+  my $all_files = shift;
+
+  if (File::Spec->file_name_is_absolute($file)) {
+    return $file if (-e $file and -r $file);
+  } else {
+    my @files;
+    foreach my $dir (@$directories) {
+      next unless (-d $dir);
+      my $possible_file = File::Spec->catfile($dir, $file);
+      if ($all_files) {
+        push (@files, $possible_file)
+          if (-e $possible_file and -r $possible_file);
+      } else {
+        return $possible_file if (-e $possible_file and -r $possible_file);
+      }
+    }
+    return @files if ($all_files);
+  }
+  return undef;
+}
 
 sub element_associated_processing_encoding($)
 {

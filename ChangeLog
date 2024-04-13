@@ -1,5 +1,10 @@
 2024-04-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (locate_file_in_dirs): rename locate_init_file
+	as locate_file_in_dirs.  Update callers.
+
+2024-04-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (output_files_opened_files), tp/texi2any.pl
 	(merge_opened_files): add NOTE in comment to note that paths are not
 	normalized, such that paths with different path names referring to the

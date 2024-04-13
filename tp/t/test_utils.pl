@@ -972,8 +972,8 @@ sub test($$)
       $symbols_before_init_file->{$symbol} = 1;
     }
     foreach my $filename (@{$parser_options->{'init_files'}}) {
-      my $file = Texinfo::Common::locate_init_file($filename,
-                                               $init_file_directories, 0);
+      my $file = Texinfo::Common::locate_file_in_dirs($filename,
+                                            $init_file_directories, 0);
       if (defined($file)) {
         Texinfo::Config::GNUT_load_init_file($file);
       } else {

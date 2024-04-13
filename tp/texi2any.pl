@@ -458,7 +458,7 @@ sub locate_and_load_init_file($$)
   my $filename = shift;
   my $directories = shift;
 
-  my $file = Texinfo::Common::locate_init_file($filename, $directories, 0);
+  my $file = Texinfo::Common::locate_file_in_dirs($filename, $directories, 0);
   if (defined($file)) {
     # evaluate the code in the Texinfo::Config namespace
     Texinfo::Config::GNUT_load_init_file($file);
@@ -476,7 +476,7 @@ sub locate_and_load_extension_file($$)
   my $filename = shift;
   my $directories = shift;
 
-  my $file = Texinfo::Common::locate_init_file($filename, $directories, 0);
+  my $file = Texinfo::Common::locate_file_in_dirs($filename, $directories, 0);
   if (defined($file)) {
     # evaluate the code in the Texinfo::Config namespace
     Texinfo::Config::GNUT_load_init_file($file);
@@ -573,7 +573,7 @@ set_translations_encoding($translations_encoding);
 # read initialization files.  Better to do that after
 # Texinfo::Config::GNUT_initialize_customization() in case loaded
 # files replace default options.
-foreach my $file (Texinfo::Common::locate_init_file($conf_file_name,
+foreach my $file (Texinfo::Common::locate_file_in_dirs($conf_file_name,
                   [ reverse(@program_config_dirs) ], 1)) {
   Texinfo::Config::GNUT_load_init_file($file);
 }

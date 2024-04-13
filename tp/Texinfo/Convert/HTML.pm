@@ -8634,8 +8634,8 @@ sub _load_htmlxref_files {
       my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
         = $self->encoded_output_file_name($htmlxref_file_name);
       @htmlxref_files
-        = Texinfo::Common::locate_init_file($encoded_htmlxref_file_name,
-                                          \@htmlxref_dirs, 1);
+        = Texinfo::Common::locate_file_in_dirs($encoded_htmlxref_file_name,
+                                               \@htmlxref_dirs, 1);
     }
   }
 
