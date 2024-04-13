@@ -16,6 +16,7 @@ use Texinfo::Common;
 use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
+use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 
 my $srcdir = $ENV{'srcdir'};
@@ -57,7 +58,7 @@ $tref->{'contents'}->[1]->{'extra'}->{'thing'}->{'contents'}->[0]->{'extra'}->{'
 
 my $tref_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref);
 
-my $tref_copy = Texinfo::Common::copy_treeNonXS($tref);
+my $tref_copy = Texinfo::ManipulateTree::copy_treeNonXS($tref);
 
 my $tref_copy_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref_copy);
 
@@ -137,7 +138,7 @@ T
 my $test_parser = Texinfo::Parser::parser();
 my $document = Texinfo::Parser::parse_texi_piece($test_parser, $text);
 my $tree = $document->tree();
-my $copy = Texinfo::Common::copy_tree($tree);
+my $copy = Texinfo::ManipulateTree::copy_tree($tree);
 
 my $texi_tree = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -151,7 +152,7 @@ Texinfo::Structuring::sectioning_structure($document);
 # rebuild the tree
 $tree = $document->tree();
 
-my $copy_with_sec = Texinfo::Common::copy_tree($tree);
+my $copy_with_sec = Texinfo::ManipulateTree::copy_tree($tree);
 
 my $texi_tree_with_sec = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 my $texi_copy_with_sec
@@ -182,7 +183,7 @@ foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
     warn "$label: ".$error_message->{'error_line'}
       if ($debug);
   }
-  my $test_tree_copy = Texinfo::Common::copy_tree($texinfo_test_tree);
+  my $test_tree_copy = Texinfo::ManipulateTree::copy_tree($texinfo_test_tree);
 
   my $test_texi
      = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_test_tree);

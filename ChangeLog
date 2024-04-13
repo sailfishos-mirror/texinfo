@@ -1,5 +1,13 @@
 2024-04-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ManipulateTree.pm, tp/Texinfo/Common.pm,
+	tp/Makefile.am (dist_modules_DATA), doc/tp_api/Makefile.am
+	(texi2any_internals_dependencies), : move tree transformation
+	functions depending on modify_tree from Texinfo/Common.pm to the new
+	Texinfo/ManipulateTree.pm module.  Update callers.
+
+2024-04-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/structuring.c: make some functions
 	static.
 

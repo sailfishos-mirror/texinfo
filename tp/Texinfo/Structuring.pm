@@ -26,13 +26,14 @@ use 5.00405;
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
 
-use strict;
-# Can be used to check that there is no incorrect autovivfication
-# no autovivification qw(fetch delete exists store strict);
-
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
 use if $] >= 5.014, re => '/a';
+
+use strict;
+
+# Can be used to check that there is no incorrect autovivfication
+# no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
 
@@ -42,6 +43,7 @@ use Texinfo::XSLoader;
 
 use Texinfo::Commands;
 use Texinfo::Common;
+use Texinfo::ManipulateTree;
 
 # for error messages
 use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
@@ -1307,26 +1309,28 @@ sub new_node_menu_entry
     }
 
     $menu_entry_name
-     = Texinfo::Common::copy_contentsNonXS($name_element, 'menu_entry_name');
+     = Texinfo::ManipulateTree::copy_contentsNonXS($name_element,
+                                                   'menu_entry_name');
     foreach my $content (@{$menu_entry_name->{'contents'}}) {
       $content->{'parent'} = $menu_entry_name;
     }
     # colons could be doubly protected, but it is probably better
     # than not protected at all.
-    Texinfo::Common::protect_colon_in_tree($menu_entry_name);
+    Texinfo::ManipulateTree::protect_colon_in_tree($menu_entry_name);
   }
 
   my $entry = {'type' => 'menu_entry'};
 
   my $menu_entry_node
-   = Texinfo::Common::copy_contentsNonXS($node_name_element, 'menu_entry_node');
+   = Texinfo::ManipulateTree::copy_contentsNonXS($node_name_element,
+                                                 'menu_entry_node');
   foreach my $content (@{$menu_entry_node->{'contents'}}) {
     $content->{'parent'} = $menu_entry_node;
   }
 
   # do not protect here, as it could already be protected, and
   # the menu entry should be the same as the node
-  #Texinfo::Common::protect_colon_in_tree($menu_entry_node);
+  #Texinfo::ManipulateTree::protect_colon_in_tree($menu_entry_node);
 
   my $description = {'type' => 'menu_entry_description',
                      'contents' => []};
@@ -1476,7 +1480,7 @@ sub new_complete_node_menu
         if ($associated_part and $associated_part->{'args'}
             and scalar(@{$associated_part->{'args'}}) > 0) {
           my $part_title_copy
-            = Texinfo::Common::copy_contentsNonXS(
+            = Texinfo::ManipulateTree::copy_contentsNonXS(
                                 $associated_part->{'args'}->[0]);
           my $part_title
            = Texinfo::Translations::gdt('Part: {part_title}',
@@ -1628,7 +1632,8 @@ sub _print_down_menus($$$$$;$)
   foreach my $menu (@menus) {
     foreach my $entry (@{$menu->{'contents'}}) {
       if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-        push @master_menu_contents, Texinfo::Common::copy_treeNonXS($entry);
+        push @master_menu_contents,
+               Texinfo::ManipulateTree::copy_treeNonXS($entry);
         # gather node children to recursively print their menus
         my $node
              = _normalized_entry_associated_internal_node($entry,
@@ -1650,7 +1655,7 @@ sub _print_down_menus($$$$$;$)
     }
 
     my $node_title_copy
-      = Texinfo::Common::copy_contentsNonXS($node_name_element);
+      = Texinfo::ManipulateTree::copy_contentsNonXS($node_name_element);
 
     _insert_menu_comment_content(\@master_menu_contents, 0,
                                  $node_title_copy, 0);

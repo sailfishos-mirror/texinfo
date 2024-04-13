@@ -37,8 +37,9 @@ use Texinfo::XSLoader;
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Translations;
-use Texinfo::Structuring;
 use Texinfo::Document;
+use Texinfo::ManipulateTree;
+use Texinfo::Structuring;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -181,7 +182,8 @@ sub fill_gaps_in_sectioning($;$)
         my $line_content;
         if ($commands_heading_content) {
           $line_content
-            = Texinfo::Common::copy_contentsNonXS($commands_heading_content);
+            = Texinfo::ManipulateTree::copy_contentsNonXS(
+                                               $commands_heading_content);
           $line_content->{'parent'} = $line_arg;
         } else {
           my $asis_command = {'cmdname' => 'asis',
@@ -270,7 +272,7 @@ sub reference_to_arg_in_tree($)
 {
   my $tree = shift;
 
-  return Texinfo::Common::modify_tree($tree, \&_reference_to_arg);
+  return Texinfo::ManipulateTree::modify_tree($tree, \&_reference_to_arg);
 }
 
 # prepare and add a new node as a possible cross reference targets
@@ -315,13 +317,14 @@ sub _new_node($$;$)
   # otherwise, those that are protected with @asis.
   #
   # needed in nodes lines, @*ref and in menus with a label
-  $node_tree = Texinfo::Common::protect_comma_in_tree($node_tree);
+  $node_tree = Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
   # always
-  Texinfo::Common::protect_first_parenthesis($node_tree);
+  Texinfo::ManipulateTree::protect_first_parenthesis($node_tree);
   # in menu entry without label
-  $node_tree = Texinfo::Common::protect_colon_in_tree($node_tree);
+  $node_tree = Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);
   # in menu entry with label
-  $node_tree = Texinfo::Common::protect_node_after_label_in_tree($node_tree);
+  $node_tree
+    = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
   $node_tree = reference_to_arg_in_tree($node_tree);
 
   my $empty_node = 0;
@@ -452,7 +455,7 @@ sub insert_nodes_for_sectioning_commands($)
         $new_node_tree = {'contents' => [{'text' => 'Top'}]};
       } else {
         $new_node_tree
-           = Texinfo::Common::copy_contentsNonXS($content->{'args'}->[0]);
+         = Texinfo::ManipulateTree::copy_contentsNonXS($content->{'args'}->[0]);
       }
       my $new_node = _new_node($new_node_tree, $document,
                                $customization_information);
@@ -467,8 +470,8 @@ sub insert_nodes_for_sectioning_commands($)
         $content->{'extra'}->{'associated_node'} = $new_node;
         $new_node->{'parent'} = $content->{'parent'};
         # reassociate index entries and menus
-        Texinfo::Common::modify_tree($content, \&_reassociate_to_node,
-                                     [$new_node, $previous_node]);
+        Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,
+                                             [$new_node, $previous_node]);
       }
     }
     # check is_target to avoid erroneous nodes, such as duplicates
@@ -909,7 +912,7 @@ sub protect_hashchar_at_line_beginning($;$$)
   my $registrar = shift;
   my $customization_information = shift;
 
-  return Texinfo::Common::modify_tree($tree,
+  return Texinfo::ManipulateTree::modify_tree($tree,
                      \&_protect_hashchar_at_line_beginning,
                       [$registrar, $customization_information]);
 }
@@ -922,7 +925,7 @@ sub _protect_first_parenthesis_in_targets($$$)
 
   my $element_label = Texinfo::Common::get_label_element($current);
   if ($element_label) {
-    Texinfo::Common::protect_first_parenthesis($element_label);
+    Texinfo::ManipulateTree::protect_first_parenthesis($element_label);
   }
   return undef;
 }
@@ -931,7 +934,8 @@ sub protect_first_parenthesis_in_targets($)
 {
   my $tree = shift;
 
-  Texinfo::Common::modify_tree($tree, \&_protect_first_parenthesis_in_targets);
+  Texinfo::ManipulateTree::modify_tree($tree,
+                           \&_protect_first_parenthesis_in_targets);
 }
 
 1;
@@ -954,6 +958,9 @@ C<insert_nodes_for_sectioning_commands> that adds nodes for sectioning commands
 without nodes and C<complete_tree_nodes_menus> and
 C<complete_tree_nodes_missing_menu> that completes the node menus based on the
 sectioning tree.
+
+Methods for copying and modifying the Texinfo tree used for default
+conversion to output formats are in L<Texinfo::ManipulateTree>.
 
 =head1 METHODS
 
@@ -1057,7 +1064,7 @@ nodes are used as labels in the generated master menu.
 =head1 SEE ALSO
 
 L<Texinfo manual|http://www.gnu.org/s/texinfo/manual/texinfo/>,
-L<Texinfo::Parser>.
+L<Texinfo::Parser>, L<Texinfo::ManipulateTree>.
 
 =head1 AUTHOR
 

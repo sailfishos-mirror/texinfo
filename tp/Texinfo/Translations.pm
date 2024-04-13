@@ -47,6 +47,8 @@ use Texinfo::Convert::Unicode;
 # to load a parser
 use Texinfo::Parser;
 
+use Texinfo::ManipulateTree;
+
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.
 Locale::Messages->select_package ('gettext_pp');
@@ -410,7 +412,8 @@ sub complete_indices($;$)
               $name = $arg;
             } elsif ($role eq 'class') {
               $class = $arg;
-            } elsif ($role eq 'arg' or $role eq 'typearg' or $role eq 'delimiter') {
+            } elsif ($role eq 'arg' or $role eq 'typearg'
+                     or $role eq 'delimiter') {
               last;
             }
           }
@@ -422,10 +425,10 @@ sub complete_indices($;$)
 
           my $def_command = $main_entry_element->{'extra'}->{'def_command'};
 
-          my $class_copy = Texinfo::Common::copy_treeNonXS($class);
-          my $name_copy = Texinfo::Common::copy_treeNonXS($name);
-          my $ref_class_copy = Texinfo::Common::copy_treeNonXS($class);
-          my $ref_name_copy = Texinfo::Common::copy_treeNonXS($name);
+          my $class_copy = Texinfo::ManipulateTree::copy_treeNonXS($class);
+          my $name_copy = Texinfo::ManipulateTree::copy_treeNonXS($name);
+          my $ref_class_copy = Texinfo::ManipulateTree::copy_treeNonXS($class);
+          my $ref_name_copy = Texinfo::ManipulateTree::copy_treeNonXS($name);
 
           # Use the document language that was current when the command was
           # used for getting the translation.

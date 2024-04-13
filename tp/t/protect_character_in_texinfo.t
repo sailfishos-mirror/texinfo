@@ -8,10 +8,9 @@ use Test::More;
 BEGIN { plan tests => 7; }
 
 use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
-use Texinfo::Common qw(protect_comma_in_tree protect_colon_in_tree
-      protect_node_after_label_in_tree);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
+use Texinfo::ManipulateTree;
 use Texinfo::XSLoader;
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
@@ -45,13 +44,13 @@ sub run_test($$$$)
 
   foreach my $tree ($tree_as_text, $tree_as_line) {
     if ($do->{'protect_comma'}) {
-      protect_comma_in_tree($tree);
+      Texinfo::ManipulateTree::protect_comma_in_tree($tree);
     }
     if ($do->{'protect_colon'}) {
-      protect_colon_in_tree($tree);
+      Texinfo::ManipulateTree::protect_colon_in_tree($tree);
     }
     if ($do->{'protect_node_after_label'}) {
-      protect_node_after_label_in_tree($tree);
+      Texinfo::ManipulateTree::protect_node_after_label_in_tree($tree);
     }
   }
 

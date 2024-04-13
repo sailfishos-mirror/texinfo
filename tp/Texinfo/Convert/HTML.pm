@@ -71,6 +71,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
+use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 use Texinfo::Indices;
 use Texinfo::Convert::Converter;
@@ -1259,7 +1260,7 @@ sub _internal_command_tree($$$)
           my $substituted_strings
             = {'number' => {'text' => $section_number},
                'section_title'
-             => Texinfo::Common::copy_treeNonXS($command->{'args'}->[0])};
+          => Texinfo::ManipulateTree::copy_treeNonXS($command->{'args'}->[0])};
 
           if ($command->{'cmdname'} eq 'appendix'
               and $command->{'extra'}->{'section_level'} == 1) {

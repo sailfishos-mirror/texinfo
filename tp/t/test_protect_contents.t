@@ -8,7 +8,6 @@ use Test::More;
 BEGIN { plan tests => 2; }
 
 use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
-use Texinfo::Common qw(protect_first_parenthesis);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 use Texinfo::Transformations;

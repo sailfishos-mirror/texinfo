@@ -1643,12 +1643,13 @@ while(@input_files) {
 
   if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
       or $tree_transformations{'relate_index_entries_to_table_items'}) {
-    Texinfo::Common::relate_index_entries_to_table_items_in_tree($document);
+    Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_tree(
+                                                                 $document);
   }
 
   if ($formats_table{$converted_format}->{'move_index_entries_after_items'}
       or $tree_transformations{'move_index_entries_after_items'}) {
-    Texinfo::Common::move_index_entries_after_items_in_tree($tree);
+    Texinfo::ManipulateTree::move_index_entries_after_items_in_tree($tree);
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {

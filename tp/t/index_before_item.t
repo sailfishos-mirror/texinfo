@@ -8,9 +8,9 @@ use Test::More;
 BEGIN { plan tests => 6; }
 
 use Texinfo::Parser qw(parse_texi_piece);
-use Texinfo::Common qw(move_index_entries_after_items_in_tree);
-use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
+use Texinfo::ManipulateTree;
 use Texinfo::DebugTree;
 
 ok(1);
@@ -26,7 +26,7 @@ sub run_test($$$)
 
   #print STDERR Texinfo::DebugTree::convert_tree(undef, $tree)."\n";
 
-  move_index_entries_after_items_in_tree($tree);
+  Texinfo::ManipulateTree::move_index_entries_after_items_in_tree($tree);
   # rebuild tree
   $tree = $document->tree();
 

@@ -70,6 +70,7 @@ use Texinfo::Parser;
 use Texinfo::Convert::Text;
 use Texinfo::Document;
 use Texinfo::Convert::PlainTexinfo;
+use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 use Texinfo::Indices;
 use Texinfo::Translations;
@@ -891,10 +892,10 @@ sub test($$)
     # There are other specific tests for comparison to texinfo, but here
     # we also get the tree.
     %tested_transformations = (
-     'protect_comma' => \&Texinfo::Common::protect_comma_in_tree,
-     'protect_colon' => \&Texinfo::Common::protect_colon_in_tree,
+     'protect_comma' => \&Texinfo::ManipulateTree::protect_comma_in_tree,
+     'protect_colon' => \&Texinfo::ManipulateTree::protect_colon_in_tree,
      'protect_node_after_label'
-        => \&Texinfo::Common::protect_node_after_label_in_tree,
+        => \&Texinfo::ManipulateTree::protect_node_after_label_in_tree,
      'protect_first_parenthesis'
       => \&Texinfo::Transformations::protect_first_parenthesis_in_targets,
      'protect_hashchar_at_line_beginning'
@@ -1095,11 +1096,12 @@ sub test($$)
   }
 
   if ($tree_transformations{'relate_index_entries_to_items'}) {
-    Texinfo::Common::relate_index_entries_to_table_items_in_tree($document);
+    Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_tree(
+                                                                   $document);
   }
 
   if ($tree_transformations{'move_index_entries_after_items'}) {
-    Texinfo::Common::move_index_entries_after_items_in_tree($tree);
+    Texinfo::ManipulateTree::move_index_entries_after_items_in_tree($tree);
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
