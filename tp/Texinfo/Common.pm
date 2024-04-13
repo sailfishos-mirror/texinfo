@@ -741,19 +741,10 @@ sub output_files_register_closed($$)
 # consistency of the API and clarity of the code.
 #
 # see the description of $SELF in comment above output_files_open_out.
-# The $RESULT_OPENED_FILES argument should be an input output hash
-# reference to put opened files in.
-sub output_files_opened_files($$)
+sub output_files_opened_files($)
 {
   my $self = shift;
-  my $result_opened_files = shift;
-
-  if (defined($self->{'opened_files'})) {
-    foreach my $opened_file (keys(%{$self->{'opened_files'}})) {
-    # TODO warn if already exists
-      $result_opened_files->{$opened_file} = 1;
-    }
-  }
+  return $self->{'opened_files'};
 }
 
 # see the description of $SELF in comment above output_files_open_out.

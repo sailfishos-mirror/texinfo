@@ -1273,6 +1273,27 @@ sub _handle_errors($)
   }
 }
 
+# If the file overwritting becomes an error, should increase $ERROR_COUNT.
+sub merge_opened_files($$$)
+{
+  my $error_count = shift;
+  my $opened_files = shift;
+  my $newly_opened_files = shift;
+
+  if ($newly_opened_files) {
+    foreach my $opened_file (sort(keys(%$newly_opened_files))) {
+      if (exists($opened_files->{$opened_file})) {
+        document_warn(sprintf(__('overwritting file: %s'),
+                      $opened_file));
+      } else {
+        $opened_files->{$opened_file} = 1;
+      }
+    }
+  }
+
+  return $error_count;
+}
+
 # Avoid loading these modules until down here to speed up the case
 # when they are not needed.
 
@@ -1598,8 +1619,12 @@ while(@input_files) {
                             $macro_expand_file_name, $error_message));
       $error_macro_expand_file = 1;
     }
-    Texinfo::Common::output_files_opened_files(
-                    $macro_expand_files_information, \%opened_files);
+    my $macro_expand_opened_file =
+      Texinfo::Common::output_files_opened_files(
+                           $macro_expand_files_information);
+    $error_macro_expand_file
+         = merge_opened_files($error_macro_expand_file, \%opened_files,
+                              $macro_expand_opened_file);
 
     # we do not need to go through unclosed files of
     # $macro_expand_files_information as we know that the file is
@@ -1746,10 +1771,11 @@ while(@input_files) {
     }
   }
 
-  # FIXME it is unlikely, but possible that a file registered with
-  # MACRO_EXPAND is registered again in a converter
-  Texinfo::Common::output_files_opened_files(
-       $converter->output_files_information(), \%opened_files);
+  my $converter_opened_files
+    = Texinfo::Common::output_files_opened_files(
+                    $converter->output_files_information());
+  $error_count = merge_opened_files($error_count, \%opened_files,
+                                    $converter_opened_files);
   handle_errors($converter_registrar->errors(), $error_count, \%opened_files);
   my $converter_unclosed_files
        = Texinfo::Common::output_files_unclosed_files(
@@ -1806,8 +1832,12 @@ while(@input_files) {
       $error_internal_links_file = 1;
     }
 
-    Texinfo::Common::output_files_opened_files(
-               $internal_links_files_information, \%opened_files);
+    my $internal_links_opened_file
+        = Texinfo::Common::output_files_opened_files(
+                              $internal_links_files_information);
+    $error_internal_links_file
+           = merge_opened_files($error_internal_links_file,
+                                \%opened_files, $internal_links_opened_file);
     # we do not need to go through unclosed files of
     # $internal_links_files_information as we know that the file is
     # already closed if needed.
@@ -1886,8 +1916,12 @@ while(@input_files) {
       $error_sort_element_count_file = 1;
     }
 
-    Texinfo::Common::output_files_opened_files(
-                    $sort_elem_files_information, \%opened_files);
+    my $sort_element_count_file_opened_file
+      = Texinfo::Common::output_files_opened_files(
+                                $sort_elem_files_information);
+    $error_sort_element_count_file
+           = merge_opened_files($error_sort_element_count_file,
+                      \%opened_files, $sort_element_count_file_opened_file);
 
     $converter_element_count->destroy();
     # we do not need to go through unclosed files of

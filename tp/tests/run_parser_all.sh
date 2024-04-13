@@ -210,8 +210,7 @@ while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy'  -o z"$1" = 'z-dir' ]; do
   fi
   if [ z"$1" = 'z-dir' ]; then
     shift
-    #mydir=`echo "$1" | sed 's:/*$::'`'/'
-    testdir=`echo "$1" | sed 's:/*$::'`'/'
+    testdir=`echo "$1" | sed 's:/*$::'`
     shift
   fi
 done
