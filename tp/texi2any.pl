@@ -1222,9 +1222,9 @@ sub _exit($$)
   my $opened_files = shift;
 
   if ($error_count and $opened_files and !get_conf('FORCE')) {
-    while (@$opened_files) {
-      my $opened_file = shift (@$opened_files);
+    foreach my $opened_file (keys(%$opened_files)) {
       unlink ($opened_file);
+      delete $opened_files->{$opened_file};
     }
   }
   exit (1) if ($error_count and (!get_conf('FORCE')
@@ -1437,7 +1437,7 @@ if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
 }
 
 my $file_number = -1;
-my @opened_files = ();
+my %opened_files;
 my %main_unclosed_files;
 my $error_count = 0;
 # main processing
@@ -1504,13 +1504,13 @@ while(@input_files) {
   }
   # object registering errors and warnings
   if (!defined($document) or $format eq 'parse') {
-    handle_errors($parser->errors(), $error_count, \@opened_files);
+    handle_errors($parser->errors(), $error_count, \%opened_files);
     goto NEXT;
   }
 
   my $document_information = $document->global_information();
   if (get_conf('TRACE_INCLUDES')) {
-    handle_errors($parser->errors(), $error_count, \@opened_files);
+    handle_errors($parser->errors(), $error_count, \%opened_files);
     my $included_file_paths = $document_information->{'included_files'};
     if (defined($included_file_paths)) {
       foreach my $included_file (@$included_file_paths) {
@@ -1596,19 +1596,19 @@ while(@input_files) {
                             $macro_expand_file_name, $error_message));
       $error_macro_expand_file = 1;
     }
-    push @opened_files, Texinfo::Common::output_files_opened_files(
-                                      $macro_expand_files_information);
+    Texinfo::Common::output_files_opened_files(
+                    $macro_expand_files_information, \%opened_files);
 
     # we do not need to go through unclosed files of
     # $macro_expand_files_information as we know that the file is
     # already closed if needed.
     if ($error_macro_expand_file) {
       $error_count++;
-      _exit($error_count, \@opened_files);
+      _exit($error_count, \%opened_files);
     }
   }
   if (get_conf('DUMP_TEXI') or $formats_table{$format}->{'texi2dvi_format'}) {
-    handle_errors($parser->errors(), $error_count, \@opened_files);
+    handle_errors($parser->errors(), $error_count, \%opened_files);
     goto NEXT;
   }
 
@@ -1694,7 +1694,7 @@ while(@input_files) {
   push @$errors, @$document_errors;
 
   _handle_errors($errors);
-  _exit($error_count, \@opened_files);
+  _exit($error_count, \%opened_files);
 
   if ($format eq 'structure') {
     goto NEXT;
@@ -1746,9 +1746,9 @@ while(@input_files) {
 
   # FIXME it is unlikely, but possible that a file registered with
   # MACRO_EXPAND is registered again in a converter
-  push @opened_files, Texinfo::Common::output_files_opened_files(
-                              $converter->output_files_information());
-  handle_errors($converter_registrar->errors(), $error_count, \@opened_files);
+  Texinfo::Common::output_files_opened_files(
+       $converter->output_files_information(), \%opened_files);
+  handle_errors($converter_registrar->errors(), $error_count, \%opened_files);
   my $converter_unclosed_files
        = Texinfo::Common::output_files_unclosed_files(
                                $converter->output_files_information());
@@ -1762,7 +1762,7 @@ while(@input_files) {
           warn(sprintf(__("%s: error on closing %s: %s\n"),
                            $real_command_name, $unclosed_file, $!));
           $error_count++;
-          _exit($error_count, \@opened_files);
+          _exit($error_count, \%opened_files);
         }
       }
     }
@@ -1802,15 +1802,15 @@ while(@input_files) {
       $error_internal_links_file = 1;
     }
 
-    push @opened_files, Texinfo::Common::output_files_opened_files(
-                                      $internal_links_files_information);
+    Texinfo::Common::output_files_opened_files(
+               $internal_links_files_information, \%opened_files);
     # we do not need to go through unclosed files of
     # $internal_links_files_information as we know that the file is
     # already closed if needed.
 
     if ($error_internal_links_file) {
       $error_count++;
-      _exit($error_count, \@opened_files);
+      _exit($error_count, \%opened_files);
     }
   }
 
@@ -1880,8 +1880,8 @@ while(@input_files) {
       $error_sort_element_count_file = 1;
     }
 
-    push @opened_files, Texinfo::Common::output_files_opened_files(
-                                      $sort_elem_files_information);
+    Texinfo::Common::output_files_opened_files(
+                    $sort_elem_files_information, \%opened_files);
 
     $converter_element_count->destroy();
     # we do not need to go through unclosed files of
@@ -1890,7 +1890,7 @@ while(@input_files) {
 
     if ($error_sort_element_count_file) {
       $error_count++;
-      _exit($error_count, \@opened_files);
+      _exit($error_count, \%opened_files);
     }
   }
 
@@ -1904,7 +1904,7 @@ foreach my $unclosed_file (keys(%main_unclosed_files)) {
     warn(sprintf(__("%s: error on closing %s: %s\n"),
                      $real_command_name, $unclosed_file, $!));
     $error_count++;
-    _exit($error_count, \@opened_files);
+    _exit($error_count, \%opened_files);
   }
 }
 

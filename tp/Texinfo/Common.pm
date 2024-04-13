@@ -635,7 +635,7 @@ sub locate_init_file($$$)
 # document both in POD and in HTML Customization API.
 sub output_files_initialize
 {
-  return {'unclosed_files' => {}, 'opened_files' => []};
+  return {'unclosed_files' => {}, 'opened_files' => {}};
 }
 
 sub output_files_disable_output_encoding($$)
@@ -703,14 +703,13 @@ sub output_files_open_out($$$;$$)
       warn "BUG: already open: $file_path\n";
     } else {
       # FIXME check that this file has not already been registered
-      # as opened_file?  If not, it probably has been overwritten and
-      # will be unlink'ed twice if the main program aborts.
+      # as opened_file?  If not, it probably has been overwritten.
       # It is not possible to use the file name twice in converters
       # for regular output as files are only closed when all the output
       # units have been written.  It could be possible in HTML with js
       # scripts licence files set to the same name as an output unit, which
       # is not possible in the default case.
-      push @{$self->{'opened_files'}}, $file_path;
+      $self->{'opened_files'}->{$file_path} = 1;
     }
     $self->{'unclosed_files'}->{$file_path} = $filehandle;
   }
@@ -736,13 +735,18 @@ sub output_files_register_closed($$)
 # consistency of the API and clarity of the code.
 #
 # see the description of $SELF in comment above output_files_open_out.
-sub output_files_opened_files($)
+# The $RESULT_OPENED_FILES argument should be an input output hash
+# reference to put opened files in.
+sub output_files_opened_files($$)
 {
   my $self = shift;
+  my $result_opened_files = shift;
+
   if (defined($self->{'opened_files'})) {
-    return @{$self->{'opened_files'}};
-  } else {
-    return ();
+    foreach my $opened_file (keys(%{$self->{'opened_files'}})) {
+    # TODO warn if already exists
+      $result_opened_files->{$opened_file} = 1;
+    }
   }
 }
 

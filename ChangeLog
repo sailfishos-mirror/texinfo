@@ -1,5 +1,13 @@
 2024-04-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (output_files_initialize)
+	(output_files_open_out, output_files_opened_files), tp/texi2any.pl
+	(_exit, %opened_files, handle_errors): use a hash instead of an array
+	for opened files, to avoid unlinling twice files opened (and closed)
+	twice.
+
+2024-04-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/texi2any.pl: change in comments for a more
 	accurate description of duplicates in opened_files.
 
