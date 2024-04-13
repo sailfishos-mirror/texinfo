@@ -1282,6 +1282,8 @@ sub merge_opened_files($$$)
 
   if ($newly_opened_files) {
     foreach my $opened_file (sort(keys(%$newly_opened_files))) {
+      # NOTE paths are not normalized, therefore different paths names
+      # that refers to the same file will not trigger the message.
       if (exists($opened_files->{$opened_file})) {
         document_warn(sprintf(__('overwritting file: %s'),
                       $opened_file));

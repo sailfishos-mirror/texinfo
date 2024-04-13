@@ -696,6 +696,8 @@ sub output_files_open_out($$$;$$)
   # scripts licence file set by the user to the same name as an output
   # file.
   my $overwritten_file = 0;
+  # NOTE paths are not normalized, therefore different paths names
+  # that refers to the same file will not be found.
   if (exists($self->{'opened_files'}->{$file_path})) {
     $overwritten_file = 1;
   }
