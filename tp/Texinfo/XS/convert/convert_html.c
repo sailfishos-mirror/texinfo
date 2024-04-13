@@ -18618,12 +18618,15 @@ convert_output_output_unit_internal (CONVERTER *self,
       char *out_filepath = unit_file->filepath;
       char *path_encoding;
       char *open_error_message;
+      int overwritten_file;
 
       char *encoded_out_filepath = encoded_output_file_name (self->conf,
                                self->document->global_info, out_filepath,
                                                        &path_encoding, 0);
+      /* overwritten_file being set cannot happen */
       FILE *file_fh = output_files_open_out (&self->output_files_information,
-                               encoded_out_filepath, &open_error_message, 0);
+                               encoded_out_filepath, &open_error_message,
+                               &overwritten_file, 0);
       free (path_encoding);
       if (!file_fh)
         {
@@ -19049,6 +19052,7 @@ html_node_redirections (CONVERTER *self,
                   char *out_filepath;
                   char *path_encoding;
                   char *open_error_message;
+                  int overwritten_file;
 
                   add_to_files_source_info (files_source_info,
                                  redirection_filename, "redirection", 0,
@@ -19069,9 +19073,11 @@ html_node_redirections (CONVERTER *self,
                      = encoded_output_file_name (self->conf,
                                    self->document->global_info, out_filepath,
                                                            &path_encoding, 0);
+                  /* overwritten_file being set cannot happen */
                   FILE *file_fh
                     = output_files_open_out (&self->output_files_information,
-                               encoded_out_filepath, &open_error_message, 0);
+                               encoded_out_filepath, &open_error_message,
+                               &overwritten_file, 0);
                   free (path_encoding);
                   if (!file_fh)
                     {

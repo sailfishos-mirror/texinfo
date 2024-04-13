@@ -55,7 +55,7 @@ char *encoded_output_file_name (const OPTIONS *options,
 
 FILE *output_files_open_out (OUTPUT_FILES_INFORMATION *self,
                              const char *file_path,
-                             char **error_message, int binary);
+                     char **error_message, int *overwritten_file, int binary);
 void output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
                                    const char *file_path);
 void free_output_files_information (OUTPUT_FILES_INFORMATION *self);

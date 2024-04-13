@@ -782,18 +782,25 @@ clear_output_files_information (OUTPUT_FILES_INFORMATION *self)
  Returns
   - as return value, the opened filehandle, or 0 if opening failed,
   - in *error_message, the errno message or 0 if opening succeeded.
+  - in *overwritten_file, 1 if the FILE_PATH was already opened,
+    which means overwritting.
 */
 FILE *
 output_files_open_out (OUTPUT_FILES_INFORMATION *self, const char *file_path,
-                       char **error_message, int binary)
+                       char **error_message, int *overwritten_file, int binary)
 {
   FILE *stream_handle;
   *error_message = 0;
+  *overwritten_file = 0;
   if (!strcmp (file_path, "-"))
     {
       register_unclosed_file (self, file_path, stdout);
       return stdout;
     }
+
+  if (find_string (&self->opened_files, file_path))
+    *overwritten_file = 1;
+
   if (binary)
     stream_handle = fopen (file_path, "wb");
   else
@@ -806,7 +813,8 @@ output_files_open_out (OUTPUT_FILES_INFORMATION *self, const char *file_path,
   else
     {
       register_unclosed_file (self, file_path, stream_handle);
-      add_string (file_path, &self->opened_files);
+      if (!(*overwritten_file))
+        add_string (file_path, &self->opened_files);
     }
   return stream_handle;
 }
