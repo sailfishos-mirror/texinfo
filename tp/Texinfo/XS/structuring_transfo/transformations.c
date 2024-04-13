@@ -1264,17 +1264,19 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   return 1;
 }
 
-/* NOTE in perl there is a customization_information, but here we use the
-   document for error registration and customization */
+/* NOTE in perl there is a separate registrar and customization_information,
+   here we directly use a document from ARGUMENT for error registration and
+   customization.
+   It would be more flexible to pass separately error_messages and
+   options, but would also require a specific structure, and we
+   always have a document in C/XS, so it is simpler to use it.
+   In Perl, the document may actually be used to get the registrar and
+   customization_information. */
 ELEMENT_LIST *
 protect_hashchar_at_line_beginning_internal (const char *type,
                                              ELEMENT *current,
                                              void *argument)
 {
-  DOCUMENT *document = (DOCUMENT *) argument;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
-  const OPTIONS *options = document->options;
-
   if (current->text.end > 0)
     {
       char *filename;
@@ -1322,6 +1324,11 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                               if (parent_for_warn->cmd
                                   && parent_for_warn->source_info.line_nr)
                                 {
+                                  DOCUMENT *document = (DOCUMENT *) argument;
+                                  ERROR_MESSAGE_LIST *error_messages
+                                      = document->error_messages;
+                                  const OPTIONS *options = document->options;
+
                                   message_list_command_warn (
                                     error_messages, options,
                                     parent_for_warn, 0,

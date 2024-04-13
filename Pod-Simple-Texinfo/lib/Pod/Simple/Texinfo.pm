@@ -54,8 +54,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::TextContent;
 use Texinfo::Document;
 use Texinfo::ManipulateTree;
-use Texinfo::Transformations qw(protect_hashchar_at_line_beginning
-                                          reference_to_arg_in_tree);
+use Texinfo::Transformations;
 
 use vars qw(
   @ISA $VERSION
@@ -374,7 +373,7 @@ sub _protect_hashchar($)
   if ($texinfo =~ /#/) {
     my $document = parse_texi_piece(undef, $texinfo);
     my $tree = $document->tree();
-    protect_hashchar_at_line_beginning($tree);
+    Texinfo::Transformations::protect_hashchar_at_line_beginning($tree);
     # rebuild the tree
     $tree = $document->tree();
     return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -388,7 +387,7 @@ sub _reference_to_text_in_texi($)
   my $texinfo = shift;
   my $document = parse_texi_piece(undef, $texinfo);
   my $tree = $document->tree();
-  reference_to_arg_in_tree($tree);
+  Texinfo::Transformations::reference_to_arg_in_tree($tree);
   # rebuild the tree
   $tree = $document->tree();
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
