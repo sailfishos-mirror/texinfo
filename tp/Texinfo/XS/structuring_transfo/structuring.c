@@ -528,7 +528,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
   return node_childs;
 }
 
-char **
+static char **
 register_referenced_node (ELEMENT *node, char **referenced_identifiers,
                           size_t *referenced_identifier_space_ptr,
                           size_t *referenced_identifier_number_ptr)
@@ -964,7 +964,7 @@ set_menus_node_directions (DOCUMENT *document)
 
 static char *direction_bases[] = {"section_directions", "toplevel_directions"};
 
-ELEMENT *
+static ELEMENT *
 section_direction_associated_node (const ELEMENT *section,
                                    enum directions direction)
 {
@@ -1940,7 +1940,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
   return (new_menu);
 }
 
-ELEMENT_LIST *
+static ELEMENT_LIST *
 print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
                   ERROR_MESSAGE_LIST *error_messages,
                   const OPTIONS *options,
@@ -2179,7 +2179,8 @@ new_master_menu (ERROR_MESSAGE_LIST *error_messages,
     }
 }
 
-ELEMENT_LIST *
+/* In Texinfo::Common */
+static ELEMENT_LIST *
 protect_colon (const char *type, ELEMENT *current, void *argument)
 {
   return protect_text(current, ":");

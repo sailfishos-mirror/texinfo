@@ -40,7 +40,6 @@ use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
 
-# for %root_commands
 use Texinfo::Commands;
 use Texinfo::Common;
 
@@ -49,7 +48,7 @@ use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
                                  link_element_to_texi);
 # for internal references and misc uses
 use Texinfo::Convert::NodeNameNormalization;
-# for new_master_menu translations
+# for translations related to new master menu
 use Texinfo::Translations;
 
 require Exporter;
