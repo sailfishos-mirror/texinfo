@@ -2230,7 +2230,7 @@ build_output_files_opened_files (HV *hv,
                     OUTPUT_FILES_INFORMATION *output_files_information)
 {
   SV **opened_files_sv;
-  AV *opened_files_av;
+  HV *opened_files_hv;
 
   STRING_LIST *opened_files;
   int i;
@@ -2241,13 +2241,13 @@ build_output_files_opened_files (HV *hv,
 
   if (!opened_files_sv)
     {
-      opened_files_av = newAV ();
+      opened_files_hv = newHV ();
       hv_store (hv, "opened_files", strlen ("opened_files"),
-                newRV_noinc ((SV *) opened_files_av), 0);
+                newRV_noinc ((SV *) opened_files_hv), 0);
     }
   else
     {
-      opened_files_av = (AV *)SvRV (*opened_files_sv);
+      opened_files_hv = (HV *)SvRV (*opened_files_sv);
     }
 
   opened_files = &output_files_information->opened_files;
@@ -2257,7 +2257,7 @@ build_output_files_opened_files (HV *hv,
         {
           char *file_path = opened_files->list[i];
           SV *file_path_sv = newSVpv_byte (file_path, 0);
-          av_push (opened_files_av, file_path_sv);
+          hv_store_ent (opened_files_hv, file_path_sv, newSViv (1), 0);
         }
     }
 }
