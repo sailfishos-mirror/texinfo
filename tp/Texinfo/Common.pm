@@ -645,7 +645,6 @@ sub output_files_disable_output_encoding($$)
   $self->{'output_encoding_disabled'} = $no_output_encoding;
 }
 
-#
 # All the opened files are registered, except for stdout,
 # and the closing of files should be registered too with
 # output_files_register_closed() below.  This makes possible to
@@ -704,11 +703,13 @@ sub output_files_open_out($$$;$$)
       warn "BUG: already open: $file_path\n";
     } else {
       # FIXME check that this file has not already been registered
-      # as opened_file?  If not, it will be unlink'ed twice if the
-      # main program aborts.  It is not possible to use the file name
-      # twice except with user customization file name set to a file
-      # name also used for a specific purpose such as MACRO_EXPAND
-      # or the like, as output units files are never opened twice.
+      # as opened_file?  If not, it probably has been overwritten and
+      # will be unlink'ed twice if the main program aborts.
+      # It is not possible to use the file name twice in converters
+      # for regular output as files are only closed when all the output
+      # units have been written.  It could be possible in HTML with js
+      # scripts licence files set to the same name as an output unit, which
+      # is not possible in the default case.
       push @{$self->{'opened_files'}}, $file_path;
     }
     $self->{'unclosed_files'}->{$file_path} = $filehandle;

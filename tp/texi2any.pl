@@ -1255,7 +1255,7 @@ sub _handle_errors($)
         my $file = $error_message->{'file_name'};
 
         if (get_conf('TEST')) {
-          # otherwise out of source build fail since the file names
+          # otherwise out of source build fails since the file names
           # are different
           my ($directories, $suffix);
           ($file, $directories, $suffix) = fileparse($file);
@@ -1598,10 +1598,10 @@ while(@input_files) {
     }
     push @opened_files, Texinfo::Common::output_files_opened_files(
                                       $macro_expand_files_information);
+
     # we do not need to go through unclosed files of
     # $macro_expand_files_information as we know that the file is
     # already closed if needed.
-
     if ($error_macro_expand_file) {
       $error_count++;
       _exit($error_count, \@opened_files);
@@ -1744,6 +1744,8 @@ while(@input_files) {
     }
   }
 
+  # FIXME it is unlikely, but possible that a file registered with
+  # MACRO_EXPAND is registered again in a converter
   push @opened_files, Texinfo::Common::output_files_opened_files(
                               $converter->output_files_information());
   handle_errors($converter_registrar->errors(), $error_count, \@opened_files);
