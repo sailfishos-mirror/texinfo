@@ -968,6 +968,8 @@ sub output($$)
     ($encoded_outfile, $outfile_encoding)
       = Texinfo::Convert::Utils::encoded_output_file_name($self, $outfile);
     my $error_message;
+    # the third return information, set if the file has already been used
+    # in this files_information is not checked as this cannot happen.
     ($fh, $error_message) = Texinfo::Common::output_files_open_out(
                              $self->{'output_files'}, $self,
                              $encoded_outfile);

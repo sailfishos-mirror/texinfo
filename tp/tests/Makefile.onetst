@@ -37,6 +37,7 @@ type_base_one_test_files_generated_list =  \
     test_scripts/formatting_formatting_customizations_input_raw_text.sh \
     test_scripts/formatting_index_entries_relate_to_item.sh \
     test_scripts/formatting_info_extension_warning.sh \
+    test_scripts/formatting_js_license_reuse_output_file.sh \
     test_scripts/encoded_non_ascii_command_line.sh \
     test_scripts/encoded_non_ascii_test_epub.sh \
     test_scripts/encoded_non_ascii_test_rawtext.sh \

@@ -657,6 +657,7 @@ sub output_files_disable_output_encoding($$)
 # Returns
 #  - the opened filehandle, or undef if opening failed,
 #  - the $! error message or undef if opening succeeded.
+#  - 1 if the $FILE_PATH was already opened, which means overwritting.
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
@@ -686,10 +687,22 @@ sub output_files_open_out($$$;$$)
     }
     return \*STDOUT, undef;
   }
+
+  # Check that this file has not already been registered
+  # as opened_file.  If yes, it will be overwritten if open succeeds.
+  # It is not possible to use the file name twice in converters
+  # for regular output as files are only closed when all the output
+  # units have been written.  It could be possible in HTML with js
+  # scripts licence file set by the user to the same name as an output
+  # file.
+  my $overwritten_file = 0;
+  if (exists($self->{'opened_files'}->{$file_path})) {
+    $overwritten_file = 1;
+  }
   my $filehandle = do { local *FH };
   if (!open ($filehandle, '>', $file_path)) {
     my $error_message = $!;
-    return undef, $error_message;
+    return undef, $error_message, $overwritten_file;
   }
   # If $use_binmode is true, we run binmode to turn off outputting LF as CR LF
   # under MS-Windows, so that Info tag tables will have correct offsets.  This
@@ -702,18 +715,11 @@ sub output_files_open_out($$$;$$)
     if ($self->{'unclosed_files'}->{$file_path}) {
       warn "BUG: already open: $file_path\n";
     } else {
-      # FIXME check that this file has not already been registered
-      # as opened_file?  If not, it probably has been overwritten.
-      # It is not possible to use the file name twice in converters
-      # for regular output as files are only closed when all the output
-      # units have been written.  It could be possible in HTML with js
-      # scripts licence files set to the same name as an output unit, which
-      # is not possible in the default case.
       $self->{'opened_files'}->{$file_path} = 1;
     }
     $self->{'unclosed_files'}->{$file_path} = $filehandle;
   }
-  return $filehandle, undef;
+  return $filehandle, undef, $overwritten_file;
 }
 
 # see the description of $SELF in comment above output_files_open_out.

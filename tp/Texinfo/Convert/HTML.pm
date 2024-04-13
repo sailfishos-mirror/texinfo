@@ -11625,7 +11625,7 @@ sub _do_jslicenses_file {
 
   if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/) {
     $self->converter_document_warn(sprintf(
-__("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
+ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
     return;
   }
   my $license_file;
@@ -11637,10 +11637,15 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   # sequence of bytes
   my ($licence_file_path, $path_encoding)
      = $self->encoded_output_file_name($license_file);
-  my ($fh, $error_message_licence_file)
+  my ($fh, $error_message_licence_file, $overwritten_file)
          = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
                          $licence_file_path);
+  if ($overwritten_file) {
+    $self->converter_document_warn(
+     sprintf(__("overwritting output file with js licences: %s"),
+             $license_file));
+  }
   if (defined($fh)) {
     print $fh $a;
     Texinfo::Common::output_files_register_closed(
@@ -12576,6 +12581,8 @@ sub _html_convert_output($$$$$$$$)
         my $file_output_unit = $files{$output_unit_filename}->{'first_unit'};
         my ($encoded_out_filepath, $path_encoding)
           = $self->encoded_output_file_name($out_filepath);
+        # the third return information, set if the file has already been used
+        # in this files_information is not checked as this cannot happen.
         my ($file_fh, $error_message)
                 = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
@@ -12776,6 +12783,8 @@ sub _node_redirections($$$$)
         }
         my ($encoded_out_filepath, $path_encoding)
           = $self->encoded_output_file_name($out_filepath);
+        # the third return information, set if the file has already been used
+        # in this files_information is not checked as this cannot happen.
         my ($file_fh, $error_message)
                = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,

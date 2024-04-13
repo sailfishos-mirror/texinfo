@@ -748,6 +748,8 @@ sub output($$)
       ($encoded_outfile_name, $path_encoding)
         = $self->encoded_output_file_name($outfile_name);
       my $error_message;
+      # the third return information, set if the file has already been used
+      # in this files_information is not checked as this cannot happen.
       ($fh, $error_message) = Texinfo::Common::output_files_open_out(
                     $self->output_files_information(), $self,
                     $encoded_outfile_name);

@@ -1576,6 +1576,8 @@ while(@input_files) {
     my $macro_expand_file_name = _decode_input($encoded_macro_expand_file_name);
     my $macro_expand_files_information
           = Texinfo::Common::output_files_initialize();
+    # the third return information, set if the file has already been used
+    # in this files_information is not checked as this cannot happen.
     my ($macro_expand_fh, $error_message)
           = Texinfo::Common::output_files_open_out(
                           $macro_expand_files_information, $document,
@@ -1779,6 +1781,8 @@ while(@input_files) {
         = _decode_input($encoded_internal_links_file_name);
     my $internal_links_files_information
          = Texinfo::Common::output_files_initialize();
+    # the third return information, set if the file has already been used
+    # in this files_information is not checked as this cannot happen.
     my ($internal_links_fh, $error_message)
             = Texinfo::Common::output_files_open_out(
                               $internal_links_files_information, $converter,
@@ -1858,6 +1862,8 @@ while(@input_files) {
                                              $sort_element_count_file_name);
     my $sort_elem_files_information
           = Texinfo::Common::output_files_initialize();
+    # the third return information, set if the file has already been used
+    # in this files_information is not checked as this cannot happen.
     my ($sort_element_count_fh, $error_message)
                 = Texinfo::Common::output_files_open_out(
                        $sort_elem_files_information, $converter_element_count,
