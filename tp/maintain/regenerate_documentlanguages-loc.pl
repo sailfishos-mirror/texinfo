@@ -34,7 +34,7 @@ system ("cd $dir && wget -N https://www.loc.gov/standards/iso639-2/ISO-639-2_utf
 # Use the country code project list instead
 system ("cd $dir && wget -N https://raw.githubusercontent.com/datasets/country-codes/master/data/country-codes.csv");
 
-open (TXT, "$dir/ISO-639-2_utf-8.txt") or die "Open $dir/ISO-639-2_utf-8.txt: $!\n";
+open(TXT, "$dir/ISO-639-2_utf-8.txt") or die "Open $dir/ISO-639-2_utf-8.txt: $!\n";
 binmode(TXT, ":utf8");
 
 my @entries;
@@ -46,7 +46,7 @@ while (<TXT>) {
 }
 
 my $fh;
-open ($fh, "$dir/country-codes.csv") or die "Open $dir/country-codes.csv: $!\n";
+open($fh, "$dir/country-codes.csv") or die "Open $dir/country-codes.csv: $!\n";
 binmode($fh, ":utf8");
 
 my $csv = Text::CSV->new();
@@ -67,7 +67,7 @@ while (my $row = $csv->getline ($fh)) {
   }
 }
 
-open (OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
+open(OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
 
 print OUT "# This file was automatically generated from $0\n\n";
 

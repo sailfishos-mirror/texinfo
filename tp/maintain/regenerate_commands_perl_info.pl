@@ -104,7 +104,7 @@ while (<STDIN>) {
 my $out_file = $ARGV[0];
 die "Need an output file\n" if (!defined($out_file));
 
-open (OUT, ">$out_file") or die "Open $out_file: $!\n";
+open(OUT, ">$out_file") or die "Open $out_file: $!\n";
 
 print OUT "# Automatically generated from $0\n\n";
 

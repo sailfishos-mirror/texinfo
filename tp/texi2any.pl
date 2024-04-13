@@ -233,7 +233,7 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
   # if not configured, and $hardcoded_version is set search for the version
   # in configure.ac
   if (defined($hardcoded_version)) {
-    if (open (CONFIGURE,
+    if (open(CONFIGURE,
               "< ".File::Spec->catfile($Texinfo::ModulePath::top_srcdir,
                                        'configure.ac'))) {
       while (<CONFIGURE>) {
@@ -284,7 +284,7 @@ my $texinfo_dtd_version = '@TEXINFO_DTD_VERSION@';
 if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
   $texinfo_dtd_version = undef;
   if (defined($hardcoded_version)) {
-    if (open (CONFIGURE,
+    if (open(CONFIGURE,
             "< ".File::Spec->catfile($Texinfo::ModulePath::top_srcdir,
                                      'configure.ac'))) {
       while (<CONFIGURE>) {

@@ -95,7 +95,7 @@ die "Need a header file\n" if (!defined($header_file));
 my $get_file = $ARGV[3];
 die "Need an XS code file\n" if (!defined($get_file));
 
-open (HEADER, '>', $header_file)
+open(HEADER, '>', $header_file)
       or die "Open $header_file: $!\n";
 print HEADER "/* Automatically generated from $0 */\n\n";
 
@@ -129,7 +129,7 @@ print HEADER "#endif\n";
 close(HEADER);
 
 
-open (CODE, ">$code_file") or die "Open $code_file: $!\n";
+open(CODE, ">$code_file") or die "Open $code_file: $!\n";
 print CODE "/* Automatically generated from $0 */\n\n";
 
 print CODE '#include <config.h>'."\n\n";
@@ -259,7 +259,7 @@ print CODE "};\n\n";
 close(CODE);
 
 
-open (GET, ">$get_file") or die "Open $get_file: $!\n";
+open(GET, ">$get_file") or die "Open $get_file: $!\n";
 print GET "/* Automatically generated from $0 */\n\n";
 
 print GET '

@@ -952,7 +952,7 @@ sub output_ixin($$)
         my $file = $self->Texinfo::Common::locate_include_file($file_name);
         if (defined($file)) {
           my $filehandle = do { local *FH };
-          if (open ($filehandle, $file)) {
+          if (open($filehandle, $file)) {
             $blob_nr++;
             if ($extension eq 'txt') {
               my $encoding

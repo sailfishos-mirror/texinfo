@@ -73,7 +73,7 @@ my $html_command_args_spec_table_file = $ARGV[0];
 die "Need a file for HTML arguments table\n"
    if (!defined($html_command_args_spec_table_file));
 
-open (OUT, '>', $html_command_args_spec_table_file)
+open(OUT, '>', $html_command_args_spec_table_file)
   or die "Open $html_command_args_spec_table_file: $!\n";
 
 print OUT $result;

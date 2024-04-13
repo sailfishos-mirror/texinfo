@@ -1085,7 +1085,7 @@ sub output_files_open_out($$$;$$)
     $overwritten_file = 1;
   }
   my $filehandle = do { local *FH };
-  if (!open ($filehandle, '>', $file_path)) {
+  if (!open($filehandle, '>', $file_path)) {
     my $error_message = $!;
     return undef, $error_message, $overwritten_file;
   }

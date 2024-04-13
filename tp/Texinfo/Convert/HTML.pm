@@ -9310,7 +9310,7 @@ sub _prepare_css($)
                __("CSS file %s not found"), $css_input_file_name));
         next;
       }
-      unless (open (CSSFILE, $css_file_path)) {
+      unless (open(CSSFILE, $css_file_path)) {
         my $css_file_name = $css_file_path;
         my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         if (defined($encoding)) {
@@ -12367,7 +12367,7 @@ sub _do_js_files($$)
       # create empty files for tests to keep results stable.
         for my $f ('info.js', 'modernizr.js', 'info.css') {
           my $filename = File::Spec->catfile($jsdir, $f);
-          if (!open (FH, '>', $filename)) {
+          if (!open(FH, '>', $filename)) {
             $self->converter_document_error(
               sprintf(__("error on creating empty %s: %s"),
                       $filename, $!));

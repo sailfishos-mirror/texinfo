@@ -431,7 +431,7 @@ foreach my $file (@input_files) {
   if ($outfile eq '-') {
     $fh = *STDOUT;
   } else {
-    open (OUT, ">$outfile")
+    open(OUT, ">$outfile")
                or die sprintf(__("%s: could not open %s for writing: %s\n"),
                                           $real_command_name, $outfile, $!);
     $fh = *OUT;
@@ -468,7 +468,7 @@ foreach my $file (@input_files) {
   if ($section_nodes or $fill_sectioning_gaps) {
     if ($debug > 4) {
       # print to a file
-      open (DBGFILE, ">$outfile-dbg")
+      open(DBGFILE, ">$outfile-dbg")
                              or die sprintf(__("%s: could not open %s: %s\n"),
                                       $real_command_name, "$outfile-dbg", $!);
       binmode(DBGFILE, ':encoding(utf-8)');
@@ -518,7 +518,7 @@ foreach my $file (@input_files) {
 if ($base_level > 0) {
   my $fh;
   if ($output ne '-') {
-    open (OUT, ">$output")
+    open(OUT, ">$output")
               or die sprintf(__("%s: could not open %s for writing: %s\n"),
                                           $real_command_name, $output, $!);
     $fh = *OUT;

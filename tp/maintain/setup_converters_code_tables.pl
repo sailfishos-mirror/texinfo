@@ -141,7 +141,7 @@ my %unicode_character_brace_no_arg_commands
 my %unicode_map = %Texinfo::Convert::Unicode::unicode_map;
 my %extra_unicode_map = %Texinfo::Convert::Unicode::extra_unicode_map;
 
-open (UNIC, '>', $unicode_file) or die "Open $unicode_file: $!\n";
+open(UNIC, '>', $unicode_file) or die "Open $unicode_file: $!\n";
 
 print UNIC '#include "unicode.h"'."\n\n";
 print UNIC "DIACRITIC_UNICODE unicode_diacritics[] = {\n";
@@ -201,7 +201,7 @@ my %command_structuring_level = %Texinfo::Common::command_structuring_level;
 my %level_to_structuring_command
   = %Texinfo::Common::level_to_structuring_command;
 
-open (STRUC, '>', $structuring_file) or die "Open $structuring_file: $!\n";
+open(STRUC, '>', $structuring_file) or die "Open $structuring_file: $!\n";
 
 print STRUC "#include \"command_ids.h\"\n\n";
 print STRUC "int command_structuring_level[] = {\n";
@@ -241,7 +241,7 @@ print STRUC "};\n\n";
 
 close (STRUC);
 
-open (SYMB, '>', $symbol_file) or die "Open $symbol_file: $!\n";
+open(SYMB, '>', $symbol_file) or die "Open $symbol_file: $!\n";
 
 print SYMB "char *nobrace_symbol_text[] = {\n";
 foreach my $command_name (@commands_order) {
@@ -261,7 +261,7 @@ print SYMB "};\n\n";
 
 close(SYMB);
 
-open (TEXT, '>', $text_file) or die "Open $text_file: $!\n";
+open(TEXT, '>', $text_file) or die "Open $text_file: $!\n";
 
 print TEXT "char *text_brace_no_arg_commands[] = {\n";
 foreach my $command_name (@commands_order) {
@@ -297,7 +297,7 @@ print TEXT "};\n\n";
 
 close(TEXT);
 
-open (NORM, '>', $normalization_file) or die "Open $normalization_file: $!\n";
+open(NORM, '>', $normalization_file) or die "Open $normalization_file: $!\n";
 
 print NORM "char * command_normalization_text[] = {\n";
 foreach my $command_name (@commands_order) {

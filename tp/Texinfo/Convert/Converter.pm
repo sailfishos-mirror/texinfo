@@ -1308,7 +1308,7 @@ sub txt_image_text($$$)
     return undef, undef;
   } else {
     my $filehandle = do { local *FH };
-    if (open ($filehandle, $txt_file)) {
+    if (open($filehandle, $txt_file)) {
       my $encoding
           = Texinfo::Common::element_associated_processing_encoding($element);
       if (defined($encoding)) {

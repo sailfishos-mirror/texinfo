@@ -696,7 +696,7 @@ sub _new_text_input($$)
   $text = Encode::encode('utf-8', $text);
   # Could fail with error like
   # Strings with code points over 0xFF may not be mapped into in-memory file handles
-  if (!open ($texthandle, '<', \$text)) {
+  if (!open($texthandle, '<', \$text)) {
     my $error_message = $!;
     # Better die now than later reading on a closed filehandle.
     die "BUG? open on a reference failed: $error_message\n";

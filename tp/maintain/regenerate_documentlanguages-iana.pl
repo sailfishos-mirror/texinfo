@@ -25,7 +25,7 @@ BEGIN
 my $dir = 'maintain';
 system ("cd $dir && wget -N http://www.iana.org/assignments/language-subtag-registry");
 
-open (TXT,"$dir/language-subtag-registry") or die "Open $dir/language-subtag-registry: $!\n";
+open(TXT,"$dir/language-subtag-registry") or die "Open $dir/language-subtag-registry: $!\n";
 
 my $entry;
 my @entries;
@@ -44,7 +44,7 @@ if (!defined($entry->{'Type'})) {
   die "Type not defined for $entry ".join('|', keys(%$entry))."\n";
 }
 
-open (OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
+open(OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
 
 print OUT "# This file was automatically generated from $0\n\n";
 

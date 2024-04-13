@@ -1309,7 +1309,7 @@ sub test($$)
             $output_files{$original_test_outfile} = [$format];
           }
           my $outfile = "$output_files_dir/$test_outfile";
-          if (!open (OUTFILE, ">$outfile")) {
+          if (!open(OUTFILE, ">$outfile")) {
             warn "ERROR: open $outfile: $!\n";
           } else {
             # output() or convert() called in convert_to_* calls set_document,
@@ -1346,7 +1346,7 @@ sub test($$)
         if ($converted_errors{$format}) {
           my $errors_file
             = "$output_files_dir/$self->{'name'}/${test_name}_$format.err";
-          if (!open (ERRFILE, ">$errors_file")) {
+          if (!open(ERRFILE, ">$errors_file")) {
             warn "Open $errors_file: $!\n";
           } else {
             foreach my $error_message (@{$converted_errors{$format}}) {
@@ -1447,7 +1447,7 @@ sub test($$)
     } else {
       $out_file = $srcdir.$file;
     }
-    open (OUT, ">$out_file") or die "Open $out_file: $!\n";
+    open(OUT, ">$out_file") or die "Open $out_file: $!\n";
     binmode (OUT, ":encoding(utf8)");
     print OUT
      'use vars qw(%result_texis %result_texts %result_trees %result_errors '."\n".
@@ -1756,7 +1756,7 @@ sub output_texi_file($)
      unless (-d $dir);
   my $file = "${dir}$test_name.texi";
   print STDERR "texi: $test_name\n" if ($arg_debug);
-  open (OUTFILE, ">$file") or die ("Open $file: $!\n");
+  open(OUTFILE, ">$file") or die ("Open $file: $!\n");
 
   my $encode = 1;
   my $first_line = "\\input texinfo \@c -*-texinfo-*-";
@@ -1770,7 +1770,7 @@ sub output_texi_file($)
     if ($test_options and $test_options->{'test_file'}) {
       $encode = 0;
       $test_file = $input_files_dir . $test_options->{'test_file'};
-      if (open (INFILE, $test_file)) {
+      if (open(INFILE, $test_file)) {
         my $holdTerminator = $/;
         undef $/;
         $test_text = <INFILE>;
