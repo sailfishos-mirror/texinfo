@@ -37,7 +37,8 @@
 #include "debug.h"
 #include "utils.h"
 /* for copy_contents normalized_menu_entry_internal_node modify_tree
-   protect_text new_asis_command_with_text */
+   protect_colon_in_tree new_asis_command_with_text
+   protect_comma_in_tree protect_node_after_label_in_tree */
 #include "manipulate_tree.h"
 #include "structuring.h"
 #include "convert_to_texinfo.h"
@@ -75,6 +76,7 @@ lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
   return result;
 }
 
+/* In Texinfo::ManipulateTree */
 void
 protect_first_parenthesis (ELEMENT *element)
 {
@@ -1260,30 +1262,6 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   insert_into_contents (last_menu, master_menu, index);
   add_to_element_list (&document->global_commands->detailmenu, master_menu);
   return 1;
-}
-
-ELEMENT_LIST *
-protect_comma (const char *type, ELEMENT *current, void *argument)
-{
-  return protect_text (current, ",");
-}
-
-ELEMENT *
-protect_comma_in_tree (ELEMENT *tree)
-{
-  return modify_tree (tree, &protect_comma, 0);
-}
-
-ELEMENT_LIST *
-protect_node_after_label (const char *type, ELEMENT *current, void *argument)
-{
-  return protect_text (current, ".\t,");
-}
-
-ELEMENT *
-protect_node_after_label_in_tree (ELEMENT *tree)
-{
-  return modify_tree (tree, &protect_node_after_label, 0);
 }
 
 /* NOTE in perl there is a customization_information, but here we use the

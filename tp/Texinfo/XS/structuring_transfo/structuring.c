@@ -33,7 +33,8 @@
 /* for get_label_element section_level enumerate_item_representation
    xasprintf */
 #include "utils.h"
-/* for copy_tree copy_contents parse_node_manual modify_tree protect_text */
+/* for copy_tree copy_contents parse_node_manual
+   protect_colon_in_tree */
 #include "manipulate_tree.h"
 #include "command_stack.h"
 #include "node_name_normalization.h"
@@ -2177,19 +2178,6 @@ new_master_menu (ERROR_MESSAGE_LIST *error_messages,
       destroy_element (master_menu);
       return 0;
     }
-}
-
-/* In Texinfo::Common */
-static ELEMENT_LIST *
-protect_colon (const char *type, ELEMENT *current, void *argument)
-{
-  return protect_text(current, ":");
-}
-
-ELEMENT *
-protect_colon_in_tree (ELEMENT *tree)
-{
-  return modify_tree (tree, &protect_colon, 0);
 }
 
 ELEMENT *

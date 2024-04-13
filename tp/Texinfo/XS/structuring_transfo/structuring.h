@@ -29,6 +29,5 @@ ELEMENT *new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
                                const LABEL_LIST *identifiers_target,
                                const ELEMENT *node);
-ELEMENT *protect_colon_in_tree (ELEMENT *tree);
 
 #endif

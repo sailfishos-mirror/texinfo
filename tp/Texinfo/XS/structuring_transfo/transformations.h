@@ -11,8 +11,6 @@ void relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
                                     INDEX **indices_information);
 void move_index_entries_after_items_in_tree (ELEMENT *tree);
 ELEMENT *reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document);
-ELEMENT *protect_comma_in_tree (ELEMENT *tree);
-ELEMENT *protect_node_after_label_in_tree (ELEMENT *tree);
 void complete_tree_nodes_menus (const ELEMENT *root, int use_sections);
 void complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections);
 int regenerate_master_menu (DOCUMENT *document, int use_sections);

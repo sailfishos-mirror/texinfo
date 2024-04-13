@@ -43,7 +43,9 @@ ELEMENT *modify_tree (ELEMENT *tree,
 ELEMENT *new_asis_command_with_text (const char *text, ELEMENT *parent,
                                      enum element_type type);
 
-ELEMENT_LIST *protect_text (ELEMENT *current, const char *to_protect);
+ELEMENT *protect_colon_in_tree (ELEMENT *tree);
+ELEMENT *protect_comma_in_tree (ELEMENT *tree);
+ELEMENT *protect_node_after_label_in_tree (ELEMENT *tree);
 
 
 

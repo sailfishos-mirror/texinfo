@@ -4,6 +4,16 @@
 
 2024-04-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_tree.c (protect_colon)
+	(protect_colon_in_tree, protect_comma, protect_comma_in_tree)
+	(protect_node_after_label, protect_node_after_label_in_tree),
+	tp/Texinfo/XS/structuring_transfo/structuring.c,
+	tp/Texinfo/XS/structuring_transfo/transformations.c: move functions
+	calling protect_text and modify_tree out of structuring.c and
+	transformations.c to manipulate_tree.c.
+
+2024-04-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ManipulateTree.pm, tp/Texinfo/Common.pm,
 	tp/Makefile.am (dist_modules_DATA), doc/tp_api/Makefile.am
 	(texi2any_internals_dependencies), : move tree transformation

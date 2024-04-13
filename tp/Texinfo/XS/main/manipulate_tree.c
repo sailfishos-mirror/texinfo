@@ -13,6 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+/* Corresponding Perl code is mainly in Texinfo::ManipulateTree */
+
 #include <config.h>
 #include <stddef.h>
 #include <string.h>
@@ -32,8 +34,6 @@
 #include "utils.h"
 #include "manipulate_tree.h"
 #include "unicode.h"
-
-/* copy_tree from Texinfo::Common */
 
 ELEMENT *
 copy_tree_internal (ELEMENT* current, ELEMENT *parent);
@@ -425,6 +425,7 @@ remove_from_source_mark_list (SOURCE_MARK_LIST *list, size_t where)
   return removed;
 }
 
+/* In Texinfo::Common */
 /* relocate SOURCE_MARKS source marks with position between
    BEGIN_POSITION and BEGIN_POSITION + LEN to be relative to BEGIN_POSITION,
    and move to element E.
@@ -498,6 +499,7 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 
 
 
+/* In Texinfo::Common */
 /* NODE->contents is the Texinfo for the specification of a node.  This
    function sets two fields on the returned object:
 
@@ -775,7 +777,6 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
 
 
-/* in Common.pm */
 ELEMENT *
 modify_tree (ELEMENT *tree,
              ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
@@ -863,7 +864,7 @@ new_asis_command_with_text (const char *text, ELEMENT *parent,
   return new_command;
 }
 
-ELEMENT_LIST *
+static ELEMENT_LIST *
 protect_text (ELEMENT *current, const char *to_protect)
 {
   if (current->text.end > 0 && !(current->type == ET_raw
@@ -974,6 +975,42 @@ protect_text (ELEMENT *current, const char *to_protect)
     }
   else
     return 0;
+}
+
+static ELEMENT_LIST *
+protect_colon (const char *type, ELEMENT *current, void *argument)
+{
+  return protect_text (current, ":");
+}
+
+ELEMENT *
+protect_colon_in_tree (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_colon, 0);
+}
+
+static ELEMENT_LIST *
+protect_comma (const char *type, ELEMENT *current, void *argument)
+{
+  return protect_text (current, ",");
+}
+
+ELEMENT *
+protect_comma_in_tree (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_comma, 0);
+}
+
+static ELEMENT_LIST *
+protect_node_after_label (const char *type, ELEMENT *current, void *argument)
+{
+  return protect_text (current, ".\t,");
+}
+
+ELEMENT *
+protect_node_after_label_in_tree (ELEMENT *tree)
+{
+  return modify_tree (tree, &protect_node_after_label, 0);
 }
 
 
