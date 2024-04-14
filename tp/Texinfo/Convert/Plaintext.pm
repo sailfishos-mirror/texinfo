@@ -39,7 +39,6 @@ use Encode;
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Structuring;
-use Texinfo::Indices;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;

@@ -31,10 +31,13 @@ use Texinfo::DocumentXS;
 use Texinfo::XSLoader;
 
 use Texinfo::Common;
-
 use Texinfo::Report;
+use Texinfo::Indices;
 
 our $VERSION = '7.1dev';
+
+# Full XS coverage.  See comments before methods definitions for an
+# explanation of why some methods have no XS override.
 
 my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 
@@ -73,6 +76,7 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::document_floats_information",
   "Texinfo::Document::internal_references_information"
     => "Texinfo::DocumentXS::document_internal_references_information",
+
   "Texinfo::Document::setup_indices_sort_strings"
     => "Texinfo::DocumentXS::setup_indices_sort_strings",
   "Texinfo::Document::indices_sort_strings"
@@ -238,6 +242,9 @@ sub get_conf($$)
   return $self->{'options'}->{$var};
 }
 
+# No XS override, as there is no reason to call this function directly,
+# since it is already called by other methods, in particular
+# sorted_indices_by_*.
 sub merged_indices($)
 {
   my $self = shift;
@@ -251,10 +258,11 @@ sub merged_indices($)
   return $self->{'merged_indices'};
 }
 
-# call setup_index_entries_sort_strings and cache the result.
+# calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
+# result.
 # In general, it is not needed to call that function directly,
-# as it is called by Texinfo::Indices::sort_indices_by_*.  It may
-# be called in advance, however, if errors need to be collected early.
+# as it is called by Texinfo::Indices::sort_indices_by_*.  It could
+# be called in advance if errors need to be collected early.
 sub setup_indices_sort_strings($$)
 {
   my $document = shift;
@@ -270,9 +278,9 @@ sub setup_indices_sort_strings($$)
   }
 }
 
-# similar to setup_indices_sort_strings, but returns the sort strings too.
-# A different function such that Perl data is only built for that function
-# in the XS override.
+# index_entries_sort_strings accessor.  A different function from
+# setup_indices_sort_strings such that it is possible to build Perl data
+# only for this function in XS.
 sub indices_sort_strings($$)
 {
   my $document = shift;
@@ -282,7 +290,10 @@ sub indices_sort_strings($$)
   return $document->{'index_entries_sort_strings'};
 }
 
-# call Texinfo::Indices::sort_indices_by_letter and cache the result
+# calls Texinfo::Indices::sort_indices_by_letter and caches the result.
+# No XS override, as there is no reason to call this function directly,
+# Texinfo::Convert::Converter get_converter_indices_sorted_by_letter
+# should be called directly.
 sub sorted_indices_by_letter($$$$)
 {
   my $document = shift;
@@ -314,7 +325,10 @@ sub sorted_indices_by_letter($$$$)
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
 }
 
-# call Texinfo::Indices::sort_indices_by_index and cache the result
+# calls Texinfo::Indices::sort_indices_by_index and caches the result.
+# No XS override, as there is no reason to call this function directly,
+# Texinfo::Convert::Converter get_converter_indices_sorted_by_index
+# should be called directly.
 sub sorted_indices_by_index($$$$)
 {
   my $document = shift;
@@ -766,6 +780,10 @@ called to merge or sort the indices the first time the following
 methods are called.  The results are afterwards associated to the
 document and simply returned.
 
+In general, those methods should not be called directly, instead
+L<Texinfo::Convert::Converter/Index sorting> Converter methods should be
+used, which already call the following functions.
+
 =over
 
 =item $merged_indices = $document->merged_indices()
@@ -777,6 +795,9 @@ of index entry structures described in L</index_entries>.
 
 L<< C<Texinfo::Indices::merge_indices>|Texinfo::Indices/$merged_indices = merge_indices($indices_information) >>
 is used to merge the indices.
+
+In general, it is not useful to call this function directly, as it is already
+called by index sorting functions.
 
 =item $sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang)
 
@@ -815,6 +836,12 @@ customization options values registered in document>).
 L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
 and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
 are used to sort the indices, if needed.
+
+In general, those methods should not be called directly, instead
+L<< C<Texinfo::Convert::Converter::get_converter_indices_sorted_by_index>|Texinfo::Convert::Converter/$sorted_indices = $converter->get_converter_indices_sorted_by_index() >>
+and L<< C<Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter>|Texinfo::Convert::Converter/$sorted_indices = $converter->get_converter_indices_sorted_by_letter() >>
+should be used.  The C<Texinfo::Convert::Converter> methods call
+C<sorted_indices_by_index> and C<sorted_indices_by_letter>.
 
 =back
 

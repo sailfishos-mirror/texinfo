@@ -42,7 +42,6 @@ use Texinfo::Common;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
-use Texinfo::Indices;
 
 texinfo_set_format_from_init_file('html');
 

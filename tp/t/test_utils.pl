@@ -72,6 +72,7 @@ use Texinfo::Document;
 use Texinfo::Convert::PlainTexinfo;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
+# for format_index_entries_sort_strings
 use Texinfo::Indices;
 use Texinfo::Translations;
 use Texinfo::Convert::Plaintext;

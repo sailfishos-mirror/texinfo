@@ -17,6 +17,11 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl.
+#
+# Most methods in that module are called from documents or
+# converters methods that cache the results.  Therefore, the relevant
+# interface is, in the general case, with the document or converter
+# when possible.
 
 package Texinfo::Indices;
 
@@ -25,14 +30,15 @@ use 5.00405;
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
 
-use strict;
-# Can be used to check that there is no incorrect autovivfication
-#no autovivification qw(fetch delete exists store strict);
-
 # Cannot do that because of sort_indices_by_letter, probably for uc().
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
 #use if $] >= 5.014, re => '/a';
+
+use strict;
+
+# Can be used to check that there is no incorrect autovivfication
+#no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
 
@@ -43,28 +49,35 @@ use Texinfo::IndicesXS;
 use Texinfo::XSLoader;
 
 use Texinfo::Common;
-
 use Texinfo::Convert::Text;
 
-require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+# In general, Texinfo::Document depends on this here module, but there
+# is also a dependence to Texinfo::Document through the call to
+# Texinfo::Document::indices_sort_strings call, hence a circular dependency.
+# It is more natural to have Texinfo::Document import the here module,
+# so we do not load Texinfo::Document here.  If we did, there should not be any
+# issue, though, as the modules do not setup data such that their order of
+# loading is not important.
+#use Texinfo::Document;
 
-%EXPORT_TAGS = ( 'all' => [ qw(
-  merge_indices
-  sort_indices_by_index
-  sort_indices_by_letter
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
+use vars qw($VERSION);
 
 $VERSION = '7.1dev';
+
+# The methods that are usefully called directly (outside of tests) are:
+# index_entry_element_sort_string
+# setup_index_entry_keys_formatting
+# index_entry_first_letter_text_or_command
+
+# There is therefore a full XS coverage of the module as
+# index_entry_first_letter_text_or_command has a C implementation, but no
+# XS override, because it is only a helper function, if needed the calling
+# functions should have XS interfaces.
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
 # used in conversion only, and should only be loaded with XS converters
 my %XS_convert_overrides = (
-
   "Texinfo::Indices::index_entry_element_sort_string"
     => "Texinfo::IndicesXS::index_entry_element_sort_string",
   "Texinfo::Indices::setup_index_entry_keys_formatting",
@@ -274,8 +287,8 @@ sub _setup_collator($$)
 }
 
 # Not documented, as, in general, it should not be called directly, but
-# through Texinfo::Document::indices_sort_strings that caches the result
-# in the document, itself, in general, called through sorting functions.
+# through Texinfo::Document::indices_sort_strings that caches the
+# result in the document, itself, in general, called through sorting functions.
 sub setup_index_entries_sort_strings($$$$;$)
 {
   my $registrar = shift;
@@ -456,6 +469,7 @@ sub _setup_sort_sortable_strings_collator($$$$$)
   return ($index_sortable_index_entries, $collator);
 }
 
+# Normally called through Texinfo::Document::sorted_indices_by_index only
 sub sort_indices_by_index($$$;$$)
 {
   my $document = shift;
@@ -599,6 +613,7 @@ sub index_entry_first_letter_text_or_command($;$)
   }
 }
 
+# Normally called through Texinfo::Document::sorted_indices_by_letter only
 sub sort_indices_by_letter($$$;$$)
 {
   my $document = shift;
@@ -693,22 +708,23 @@ Texinfo::Indices - merging and sorting indices from Texinfo
 
 =head1 SYNOPSIS
 
-  use Texinfo::Indices qw(merge_indices sort_indices_by_letter
-                          sort_indices_by_index);
+  use Texinfo::Indices;
 
   # $document is a parsed Texinfo::Document document.
   my $indices_information = $document->indices_information();
   my $merged_index_entries
-     = merge_indices($indices_information);
+     = Texinfo::Indices::merge_indices($indices_information);
 
   # $registrar is a Texinfo::Report object.  $config is an object
   # implementing the get_conf() method.
   my $index_entries_sorted;
   if ($sort_by_letter) {
-    $index_entries_sorted = sort_indices_by_letter($document, $registrar,
+    $index_entries_sorted
+      = Texinfo::Indices::sort_indices_by_letter($document, $registrar,
                                                    $config);
   } else {
-    $index_entries_sorted = sort_indices_by_index($document, $registrar,
+    $index_entries_sorted
+      = Texinfo::Indices::sort_indices_by_index($document, $registrar,
                                                   $config);
   }
 
@@ -728,11 +744,12 @@ index entry.
 Note that, in general, the functions used to merge or sort indices
 should not be called directly, corresponding functions
 in L<Texinfo::Document> already call the functions in this module, and,
-in addition, cache the result with the document.
+in addition, cache the result with the document.  Furthermore, it should
+be even better to call converter functions, which call document functions.
 
 =head1 METHODS
 
-No method is exported in the default case.
+No method is exported.
 
 =over
 
@@ -782,7 +799,7 @@ The I<$merged_indices> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Document/index_entries>.
 
-In general, this method should not be directly called, instead
+In general, this method should not be called directly, instead
 L<< C<Texinfo::Document::merged_indices>|Texinfo::Document/$merged_indices = $document->merged_indices() >>
 should be called on a document, which calls C<merge_indices> if needed and
 associate the merged indices to the document.
@@ -838,9 +855,9 @@ converters error messages reporting functions
 In general, those methods should not be called directly, instead
 L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang) >>
 or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang) >>
-should be called on a document. These functions calls C<sort_indices_by_index> or
-C<sort_indices_by_letter> if needed and associate the sorted indices to
-the document.
+should be called on a document. The C<Texinfo::Document> functions call
+C<sort_indices_by_index> or C<sort_indices_by_letter> if needed and associate
+the sorted indices to the document.
 
 =back
 

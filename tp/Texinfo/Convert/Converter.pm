@@ -2378,6 +2378,40 @@ translation.  This function is similar to pgettext in the Gettext C API.
 
 =back
 
+=head2 Index sorting
+
+You should call the following methods to sort indices in conversion:
+
+=over
+
+=item $sorted_indices = $converter->get_converter_indices_sorted_by_index()
+
+=item $sorted_indices = $converter->get_converter_indices_sorted_by_letter()
+X<C<get_converter_indices_sorted_by_index>>
+X<C<get_converter_indices_sorted_by_letter>>
+
+C<get_converter_indices_sorted_by_letter> returns the indices sorted by index
+and letter, while C<get_converter_indices_sorted_by_index> returns the indices
+with all entries of an index together.
+
+When sorting by letter, an array reference of letter hash references is
+associated with each index name.  Each letter hash reference has two
+keys, a I<letter> key with the letter, and an I<entries> key with an array
+reference of sorted index entries beginning with the letter.  The letter
+is a character string suitable for sorting letters, but is not necessarily
+the best to use for output.
+
+When simply sorting, the array of the sorted index entries is associated
+with the index name.
+
+The functions call L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang) >>
+or L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang) >>
+with arguments based on C<USE_UNICODE_COLLATION>, C<COLLATION_LANGUAGE> and
+C<DOCUMENTLANGUAGE_COLLATION> customization options, and, if relevant, current
+C<@documentlanguage>.
+
+=back
+
 =head2 Conversion to XML
 
 Some C<Texinfo::Convert::Converter> methods target conversion to XML.
@@ -2536,32 +2570,6 @@ the element.  In many cases, converters ignore comments and output is
 better formatted with new lines added independently of the presence
 of newline or comment in the initial Texinfo line, so most converters
 are better off not using this method.
-
-=item $sorted_indices = $converter->get_converter_indices_sorted_by_index()
-
-=item $sorted_indices = $converter->get_converter_indices_sorted_by_letter()
-X<C<get_converter_indices_sorted_by_index>>
-X<C<get_converter_indices_sorted_by_letter>>
-
-C<get_converter_indices_sorted_by_letter> returns the indices sorted by index
-and letter, while C<get_converter_indices_sorted_by_index> returns the indices
-with all entries of an index together.
-
-When sorting by letter, an array reference of letter hash references is
-associated with each index name.  Each letter hash reference has two
-keys, a I<letter> key with the letter, and an I<entries> key with an array
-reference of sorted index entries beginning with the letter.  The letter
-is a character string suitable for sorting letters, but is not necessarily
-the best to use for output.
-
-When simply sorting, the array of the sorted index entries is associated
-with the index name.
-
-The functions call L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang) >>
-or L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang) >>
-with arguments based on C<USE_UNICODE_COLLATION>, C<COLLATION_LANGUAGE> and
-C<DOCUMENTLANGUAGE_COLLATION> customization options, and, if relevant, current
-C<@documentlanguage>.
 
 =item $filename = sub $converter->node_information_filename($normalized, $label_element)
 X<C<node_information_filename>>

@@ -73,6 +73,7 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
+# for index_entry_first_letter_text_or_command
 use Texinfo::Indices;
 use Texinfo::Convert::Converter;
 

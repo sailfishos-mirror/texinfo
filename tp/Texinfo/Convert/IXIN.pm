@@ -77,7 +77,6 @@ use Texinfo::Options;
 use Texinfo::Common;
 
 use Texinfo::Structuring;
-use Texinfo::Indices;
 
 use Texinfo::Convert::TexinfoSXML;
 
