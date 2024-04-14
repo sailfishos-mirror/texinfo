@@ -262,6 +262,16 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
         RETVAL = 0;
         if (document_sv)
           {
+            /* TODO if the locale is not XS_STRXFRM_COLLATION_LOCALE
+               it could be relevant to store the output of
+               build_sorted_indices_by_index in
+                document_sv->{'sorted_indices_by_index'}->{$lang_key}
+               (as in perl) and get it from here instead of rebuilding,
+               such that the perl data is only built once and not for
+               each index/call to get_converter_indices_sorted_by_letter.
+
+               If TEXINFO_XS_CONVERT=1, this is called for Info output.
+             */
             SV *indices_information_sv
               = document_indices_information (*document_sv);
 
@@ -302,6 +312,21 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
         RETVAL = 0;
         if (document_sv)
           {
+            /* TODO if the locale is not XS_STRXFRM_COLLATION_LOCALE
+               it could be relevant to store the output of
+               build_sorted_indices_by_letter in
+                document_sv->{'sorted_indices_by_letter'}->{$lang_key}
+               (as in perl) and get it from here instead of rebuilding,
+               such that the perl data is only built once and not for
+               each index/call to get_converter_indices_sorted_by_letter.
+
+               This XS interface code is unlikely to be called, as it is
+               only for HTML and would correspond to a user calling
+               get_converter_indices_sorted_by_letter from perl, which
+               would be relevant mainly for reimplementing printindex
+               conversion, this is very improbable so there is no much
+               reason to implement something better.
+             */
             SV *indices_information_sv
               = document_indices_information (*document_sv);
 

@@ -44,8 +44,6 @@ struct TEXT_OPTIONS;
 #define F_DOCM_sections_list             0x0200
 #define F_DOCM_merged_indices            0x0400
 #define F_DOCM_indices_sort_strings      0x0800
-#define F_DOCM_sorted_indices_by_index   0x1000
-#define F_DOCM_sorted_indices_by_letter  0x2000
 
 enum error_type { MSG_error, MSG_warning,
                   MSG_document_error, MSG_document_warning };

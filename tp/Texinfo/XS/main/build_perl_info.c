@@ -2495,6 +2495,7 @@ build_sorted_indices_by_index (
           int entry_number = entry->number;
           char *message;
           SV *index_entry_sv;
+
           xasprintf (&message, "BUG: build_sorted_indices_by_index:"
                                " %s: entry %zu", idx->name, j);
           index_entry_sv

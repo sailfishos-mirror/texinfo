@@ -293,8 +293,6 @@ sorted_indices_by_index (DOCUMENT *document,
         = sort_indices_by_index (document, error_messages, options,
                                  use_unicode_collation, collation_language,
                                  collation_locale);
-      /* TODO keep track of the precise sorted index that was modified */
-      document->modified_information |= F_DOCM_sorted_indices_by_index;
     }
   return collation_sorted_indices->sorted_indices;
 }
@@ -406,8 +404,6 @@ sorted_indices_by_letter (DOCUMENT *document,
         = sort_indices_by_letter (document, error_messages, options,
                                   use_unicode_collation, collation_language,
                                   collation_locale);
-      /* TODO keep track of the precise sorted index that was modified */
-      document->modified_information |= F_DOCM_sorted_indices_by_letter;
     }
   return collation_sorted_indices->sorted_indices;
 }
