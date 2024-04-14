@@ -1569,24 +1569,21 @@ html_register_footnote (SV *converter_in, SV *command, footid, docid, int number
       PROTOTYPE: $$$$$$$
       PREINIT:
          CONVERTER *self;
-         const char *multi_expanded_region = 0;
+         ELEMENT *footnote = 0;
       CODE:
          self = get_sv_converter (converter_in,
                                   "html_register_footnote");
-         if (self)
+         if (self && self->document)
            {
-             /* TODO use functions used for other elements? */
-             /* find footnote in XS.  First use index in global commands,
-                then number_in_doc, and if not effective, do a linear search */
-             ELEMENT *footnote = 0;
-             ELEMENT *current;
-             HV *command_hv = (HV *) SvRV (command);
+             /* This code is about the same as get_perl_info.c
+                find_element_from_sv, but simpler as we already know
+                which command we are searching for */
+             /* find footnote in XS using index in global commands */
              ELEMENT_LIST *footnotes
                 = &self->document->global_commands->footnotes;
+             HV *command_hv = (HV *) SvRV (command);
              SV **extra_sv
                  = hv_fetch (command_hv, "extra", strlen ("extra"), 0);
-             int global_command_number = 0;
-
              if (extra_sv)
                {
                  HV *extra_hv = (HV *) SvRV (*extra_sv);
@@ -1594,61 +1591,28 @@ html_register_footnote (SV *converter_in, SV *command, footid, docid, int number
                     = hv_fetch (extra_hv, "global_command_number",
                                 strlen ("global_command_number"), 0);
                  if (global_command_number_sv)
-                   global_command_number = SvIV (*global_command_number_sv);
-               }
-             if (global_command_number > 0
-                 && global_command_number - 1 < footnotes->number)
-               {
-                 ELEMENT *current = footnotes->list[global_command_number - 1];
-                 if (command_hv == current->hv)
-                   footnote = current;
-                 else
-                   fprintf (stderr,
-                         "REMARK: global footnote %d %s not directly found\n",
-                            global_command_number, footid);
-               }
-             /* the next two ways should never be needed */
-             if (!footnote && number_in_doc - 1 < footnotes->number)
-               {
-                 ELEMENT *current = footnotes->list[number_in_doc - 1];
-                 if (command_hv == current->hv)
-                   footnote = current;
-                   /*
-                 else
-                   fprintf (stderr,
-                            "REMARK: footnote %d %s not directly found\n",
-                            number_in_doc, footid);
-                    */
-               }
-             if (!footnote)
-               {
-                 size_t i;
-                 for (i = 0; i < footnotes->number; i++)
                    {
-                     current = footnotes->list[i];
-                     if (current->hv == command_hv)
+                     int global_command_number
+                       = SvIV (*global_command_number_sv);
+                     if (global_command_number > 0
+                         && global_command_number - 1 < footnotes->number)
                        {
-                         footnote = current;
-                         break;
+                         const char *multi_expanded_region = 0;
+
+                         footnote = footnotes->list[global_command_number - 1];
+
+                         if (items > 7 && SvOK(ST(7)))
+                           multi_expanded_region = SvPVutf8_nolen (ST(7));
+
+                         html_register_footnote (self, footnote, footid, docid,
+                                    number_in_doc, footnote_location_filename,
+                                                       multi_expanded_region);
                        }
                    }
                }
-             if (footnote)
-               {
-              /*
-                 fprintf (stderr, "FFF %s\n", convert_to_texinfo (footnote));
-               */
-                  if (items > 7 && SvOK(ST(7)))
-                    multi_expanded_region = SvPVutf8_nolen (ST(7));
-                  html_register_footnote (self, footnote, footid, docid,
-                              number_in_doc, footnote_location_filename,
-                                                  multi_expanded_region);
-               }
-             else
-               {
-                 fprintf (stderr, "ERROR: footnote not found\n");
-               }
            }
+         if (!footnote)
+           fprintf (stderr, "BUG: footnote not found\n");
 
 SV *
 html_get_pending_footnotes (SV *converter_in)
