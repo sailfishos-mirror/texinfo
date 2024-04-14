@@ -645,12 +645,12 @@ sub regenerate_master_menu($;$)
                    or !$top_node->{'extra'}->{'menus'}
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
-  my $new_master_menu
-      = Texinfo::Structuring::new_master_menu($document,
+  my $new_detailmenu
+      = Texinfo::Structuring::new_detailmenu_element($document,
                       $document->registrar(),
                       $identifier_target, $top_node->{'extra'}->{'menus'},
                       $use_sections);
-  return undef if (!defined($new_master_menu));
+  return undef if (!defined($new_detailmenu));
 
   my $global_detailmenu
     = $document->global_commands_information()->{'detailmenu'};
@@ -659,9 +659,9 @@ sub regenerate_master_menu($;$)
     foreach my $entry (@{$menu->{'contents'}}) {
       if ($entry->{'cmdname'} and $entry->{'cmdname'} eq 'detailmenu') {
         # replace existing detailmenu by the master menu
-        $new_master_menu->{'parent'} = $menu;
+        $new_detailmenu->{'parent'} = $menu;
         splice (@{$menu->{'contents'}}, $detailmenu_index, 1,
-                $new_master_menu);
+                $new_detailmenu);
         # also replace in global commands
         my $index = 0;
         my $global_detailmenu_index = -1;
@@ -674,7 +674,7 @@ sub regenerate_master_menu($;$)
         }
         if ($global_detailmenu_index >= 0) {
           splice (@$global_detailmenu, $global_detailmenu_index, 1,
-                  $new_master_menu);
+                  $new_detailmenu);
         }
         # FIXME use an API to register a new internal reference?
         my $internal_references = $document->internal_references_information();
@@ -714,7 +714,7 @@ sub regenerate_master_menu($;$)
     $index --;
   }
 
-  $new_master_menu->{'parent'} = $last_menu;
+  $new_detailmenu->{'parent'} = $last_menu;
   if ($index) {
     my $last_element = $last_menu->{'contents'}->[$index-1];
     if ($last_element->{'type'} and $last_element->{'type'} eq 'menu_comment'
@@ -744,8 +744,8 @@ sub regenerate_master_menu($;$)
     }
   }
   # insert master menu
-  splice (@{$last_menu->{'contents'}}, $index, 0, $new_master_menu);
-  push @$global_detailmenu, $new_master_menu;
+  splice (@{$last_menu->{'contents'}}, $index, 0, $new_detailmenu);
+  push @$global_detailmenu, $new_detailmenu;
 
   return 1;
 }
@@ -930,6 +930,7 @@ sub _protect_first_parenthesis_in_targets($$$)
   return undef;
 }
 
+# TODO not documented
 sub protect_first_parenthesis_in_targets($)
 {
   my $tree = shift;

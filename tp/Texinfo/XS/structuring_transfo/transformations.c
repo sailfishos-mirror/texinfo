@@ -1136,7 +1136,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   const ELEMENT_LIST *menus;
-  ELEMENT *master_menu;
+  ELEMENT *new_detailmenu_e;
   ELEMENT *last_menu;
   const ELEMENT *last_content;
   int i;
@@ -1151,12 +1151,12 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   else
     return 0;
 
-  master_menu = new_master_menu (document->error_messages,
-                                 document->options, identifiers_target,
-                                 menus, use_sections);
+  new_detailmenu_e = new_detailmenu (document->error_messages,
+                                    document->options, identifiers_target,
+                                    menus, use_sections);
 
   /* no need for a master menu */
-  if (!master_menu)
+  if (!new_detailmenu_e)
     return 0;
 
   document->modified_information |= F_DOCM_tree;
@@ -1173,8 +1173,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
             {
               size_t j;
               ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
-              replace_element_in_list (
-                 &document->global_commands->detailmenu, removed, master_menu);
+              replace_element_in_list (&document->global_commands->detailmenu,
+                                       removed, new_detailmenu_e);
               /* TODO are the new entries added to internal refs?
                  Note that if they are not, it is possible that this has
                  no impact as the associated entry in menu may be
@@ -1210,7 +1210,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                     }
                 }
               destroy_element_and_children (removed);
-              insert_into_contents (menu, master_menu, detailmenu_index);
+              insert_into_contents (menu, new_detailmenu_e, detailmenu_index);
               return 1;
             }
         }
@@ -1222,7 +1222,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   if (last_content && last_content->cmd == CM_end)
     index--;
 
-  master_menu->parent = last_menu;
+  new_detailmenu_e->parent = last_menu;
 
   if (index)
     {
@@ -1259,8 +1259,9 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
         }
     }
   /* insert master menu */
-  insert_into_contents (last_menu, master_menu, index);
-  add_to_element_list (&document->global_commands->detailmenu, master_menu);
+  insert_into_contents (last_menu, new_detailmenu_e, index);
+  add_to_element_list (&document->global_commands->detailmenu,
+                       new_detailmenu_e);
   return 1;
 }
 

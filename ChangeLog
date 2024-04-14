@@ -1,5 +1,12 @@
 2024-04-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (new_detailmenu),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_detailmenu):
+	rename new_master_menu as new_detailmenu, change also variables names.
+	Update callers and variables names in callers.
+
+2024-04-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Indices.pm: remove export of functions.
 
 	* tp/Texinfo/*: fix import of modules related to indices.

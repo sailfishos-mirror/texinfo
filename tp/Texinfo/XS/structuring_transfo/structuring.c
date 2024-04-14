@@ -2085,14 +2085,14 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 }
 
 ELEMENT *
-new_master_menu (ERROR_MESSAGE_LIST *error_messages,
-                 const OPTIONS *options,
-                 const LABEL_LIST *identifiers_target,
-                 const ELEMENT_LIST *menus, int use_sections)
+new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
+                const OPTIONS *options,
+                const LABEL_LIST *identifiers_target,
+                const ELEMENT_LIST *menus, int use_sections)
 {
   /*  only holds contents here, will be turned into a proper block
       in new_block_command */
-  ELEMENT *master_menu = new_element (ET_NONE);
+  ELEMENT *new_detailmenu_e = new_element (ET_NONE);
 
   if (menus && menus->number > 0)
     {
@@ -2118,11 +2118,10 @@ new_master_menu (ERROR_MESSAGE_LIST *error_messages,
                         {
                           int k;
                           for (k = 0; k < down_menus->number; k++)
-                            down_menus->list[k]->parent = master_menu;
-                          insert_list_slice_into_contents (master_menu,
-                                                 master_menu->contents.number,
-                                                 down_menus, 0,
-                                                 down_menus->number);
+                            down_menus->list[k]->parent = new_detailmenu_e;
+                          insert_list_slice_into_contents (new_detailmenu_e,
+                                           new_detailmenu_e->contents.number,
+                                           down_menus, 0, down_menus->number);
                           destroy_list (down_menus);
                         }
                     }
@@ -2130,14 +2129,14 @@ new_master_menu (ERROR_MESSAGE_LIST *error_messages,
             }
         }
     }
-  if (master_menu->contents.number > 0)
+  if (new_detailmenu_e->contents.number > 0)
     {
       int i;
       ELEMENT *new_line = new_element (ET_NONE);
     /* There is a menu comment with a preformatted added in front of each
        detailed menu section with the node section name */
       ELEMENT *first_preformatted
-        = master_menu->contents.list[0]->contents.list[0];
+        = new_detailmenu_e->contents.list[0]->contents.list[0];
 
       text_append (&new_line->text, "\n");
       new_line->parent = first_preformatted;
@@ -2170,12 +2169,12 @@ new_master_menu (ERROR_MESSAGE_LIST *error_messages,
         }
 
 
-      new_block_command (master_menu, CM_detailmenu);
-      return master_menu;
+      new_block_command (new_detailmenu_e, CM_detailmenu);
+      return new_detailmenu_e;
     }
   else
     {
-      destroy_element (master_menu);
+      destroy_element (new_detailmenu_e);
       return 0;
     }
 }
@@ -2200,8 +2199,8 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
           ELEMENT *detailmenu;
 
           add_to_element_list (menus, menu_node);
-          detailmenu = new_master_menu (error_messages, options,
-                                        identifiers_target, menus, 0);
+          detailmenu = new_detailmenu (error_messages, options,
+                                       identifiers_target, menus, 0);
           destroy_list (menus);
 
           if (detailmenu)

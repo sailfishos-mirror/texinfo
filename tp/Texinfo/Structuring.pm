@@ -506,6 +506,7 @@ sub _register_menu_node_targets($$$)
   }
 }
 
+# Should be called after sectioning_structure.
 sub get_node_node_childs_from_sectioning
 {
   my ($node) = @_;
@@ -1283,7 +1284,10 @@ sub section_level_adjusted_command_name($)
   return $command;
 }
 
-# returns the texinfo tree corresponding to a single menu entry pointing
+
+# The following code is about menu elements creation
+
+# returns the Texinfo tree corresponding to a single menu entry pointing
 # to $NODE.
 # if $USE_SECTIONS is set, use the section name as menu entry name.
 sub new_node_menu_entry
@@ -1437,7 +1441,8 @@ sub _insert_menu_comment_content($$$;$)
   splice (@$menu_contents, $position, 0, $menu_comment);
 }
 
-# $CUSTOMIZATION_INFORMATION is only used for the top menu
+# Creates a new @menu element based on $NODE sectioning information.
+# $CUSTOMIZATION_INFORMATION is only used for the top menu.
 sub new_complete_node_menu
 {
   my ($node, $customization_information, $use_sections) = @_;
@@ -1449,7 +1454,7 @@ sub new_complete_node_menu
   }
 
   # only holds contents here, will be turned into a proper block
-  # command in new_block_command
+  # command in new_block_command below
   my $section = $node->{'extra'}->{'associated_section'};
   my $new_menu = {'contents' => [], 'parent' => $section};
   foreach my $child (@node_childs) {
@@ -1460,7 +1465,8 @@ sub new_complete_node_menu
     }
   }
 
-  # in top node, insert menu comments for parts and for the first appendix
+  # in top node, additionally insert menu comments for parts and for
+  # the first appendix.
   if ($section and $section->{'cmdname'} eq 'top'
       and $customization_information
       and $node->{'extra'}->{'normalized'}
@@ -1514,8 +1520,10 @@ sub new_complete_node_menu
   return $new_menu;
 }
 
-# used in Plaintext converter and tree transformations
-sub new_master_menu($$$$;$)
+# Create a new @detailmenu element.
+# used in tree transformations.  Used in converters through
+# new_complete_menu_master_menu.
+sub new_detailmenu($$$$;$)
 {
   my $customization_information = shift;
   my $registrar = shift;
@@ -1525,7 +1533,7 @@ sub new_master_menu($$$$;$)
 
   # only holds contents here, will be turned into a proper block
   # command in new_block_command
-  my $master_menu = {'contents' => []};
+  my $new_detailmenu = {'contents' => []};
   if (defined($menus) and scalar(@$menus)) {
     foreach my $menu (@$menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
@@ -1534,7 +1542,7 @@ sub new_master_menu($$$$;$)
                = _normalized_entry_associated_internal_node($entry,
                                                         $identifier_target);
           if ($node) {
-            push @{$master_menu->{'contents'}}, _print_down_menus($node, undef,
+            push @{$new_detailmenu->{'contents'}}, _print_down_menus($node, undef,
                                            $customization_information,
                                            $registrar,
                                            $identifier_target, $use_sections);
@@ -1543,10 +1551,11 @@ sub new_master_menu($$$$;$)
       }
     }
   }
-  if (scalar(@{$master_menu->{'contents'}})) {
+  if (scalar(@{$new_detailmenu->{'contents'}})) {
     # There is a menu comment with a preformatted added in front of each
     # detailed menu section with the node section name
-    my $first_preformatted = $master_menu->{'contents'}->[0]->{'contents'}->[0];
+    my $first_preformatted
+         = $new_detailmenu->{'contents'}->[0]->{'contents'}->[0];
     my $master_menu_title
            = Texinfo::Translations::gdt(' --- The Detailed Node Listing ---',
                     $customization_information->get_conf('documentlanguage'),
@@ -1557,17 +1566,19 @@ sub new_master_menu($$$$;$)
       push @master_menu_title_contents, $content;
     }
     unshift @{$first_preformatted->{'contents'}}, @master_menu_title_contents;
-    foreach my $content (@{$master_menu->{'contents'}}) {
-      $content->{'parent'} = $master_menu;
+    foreach my $content (@{$new_detailmenu->{'contents'}}) {
+      $content->{'parent'} = $new_detailmenu;
     }
-    Texinfo::Structuring::new_block_command($master_menu, 'detailmenu');
-    return $master_menu;
+    Texinfo::Structuring::new_block_command($new_detailmenu, 'detailmenu');
+    return $new_detailmenu;
   } else {
     return undef;
   }
 }
 
 # TODO document
+# Returns a @menu element for $NODE, formatted with a master menu with a
+# @detailmenu if $NODE is the Top node.
 # $SELF should be a converter.
 sub new_complete_menu_master_menu($$$)
 {
@@ -1581,7 +1592,7 @@ sub new_complete_menu_master_menu($$$)
       and $node->{'extra'}->{'normalized'} eq 'Top'
       and $node->{'extra'}->{'associated_section'}
       and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
-    my $detailmenu = new_master_menu($self, undef, $labels, [$menu_node]);
+    my $detailmenu = new_detailmenu($self, undef, $labels, [$menu_node]);
     if ($detailmenu) {
       # add a blank line before the detailed node listing
       my $menu_comment = {'type' => 'menu_comment',
@@ -1692,6 +1703,9 @@ sub _print_down_menus($$$$$;$)
 
   return @master_menu_contents;
 }
+
+
+# Output units code
 
 # Return a list of output units.  Each output unit starts with a @node as its
 # first content (except possibly the first one).  It is important that this
@@ -2474,15 +2488,14 @@ argument and C<@end> to turn the element to a proper block command.
 =item $new_menu = new_complete_node_menu($node, $customization_information, $use_sections)
 X<C<new_complete_node_menu>>
 
-Returns a texinfo tree menu for node I<$node>, pointing to the children
-of the node obtained with the sectioning structure.  If I<$use_sections>
-is set, use section names for the menu entry names.
-I<$customization_information>, if defined, should hold information
-needed for translations.  Translations are only needed when generating the
-top node menu.
+Returns a C<@menu> Texinfo tree element for node I<$node>, pointing to the
+children of the node obtained with the sectioning structure.  If
+I<$use_sections> is set, use section names for the menu entry names.
+I<$customization_information>, if defined, should hold information needed for
+translations.  Translations are only needed when generating the top node menu.
 
-=item $detailmenu = new_master_menu($customization_information, $registrar, $identifier_target, $menus)
-X<C<new_master_menu>>
+=item $detailmenu = new_detailmenu($customization_information, $registrar, $identifier_target, $menus)
+X<C<new_detailmenu>>
 
 Returns a detailmenu tree element formatted as a master node.
 I<$menus> is an array reference containing the regular menus of the Top node.
@@ -2498,7 +2511,7 @@ and warning messages>).
 =item $entry = new_node_menu_entry($node, $use_sections)
 X<C<new_node_menu_entry>>
 
-Returns the texinfo tree corresponding to a single menu entry pointing to
+Returns the Texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 

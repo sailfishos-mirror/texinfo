@@ -461,7 +461,7 @@ sub register_label_element($$;$$)
     _existing_label_error($self, $element, $registrar,
                           $customization_information);
   }
-  # FIXME do not push at the end but have the caller give an information
+  # TODO do not push at the end but have the caller give an information
   # on the element it should be after or before in the list?
   push @{$self->{'labels_list'}}, $element;
   return $retval;
