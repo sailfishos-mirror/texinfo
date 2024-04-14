@@ -15579,7 +15579,7 @@ default_format_special_body_about (CONVERTER *self,
 
       if (button->type == BST_direction)
         {
-         /* FIXME strip FirstInFile from $button to get active icon file? */
+         /* TODO strip FirstInFile from $button to get active icon file? */
           if (self->conf->ICONS.integer > 0
               && self->conf->ACTIVE_ICONS.icons->number > 0
               && self->conf->ACTIVE_ICONS.icons->list[direction]
