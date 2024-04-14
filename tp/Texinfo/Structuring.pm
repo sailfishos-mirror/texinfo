@@ -1610,7 +1610,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Structuring - information on Texinfo::Document tree
+Texinfo::Structuring - information on Texinfo::Document document structure
 
 =head1 SYNOPSIS
 

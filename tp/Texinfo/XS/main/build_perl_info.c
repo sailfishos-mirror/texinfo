@@ -1220,7 +1220,7 @@ build_errors (ERROR_MESSAGE *error_list, size_t error_number)
 /* add C messages to a Texinfo::Report object, like
    Texinfo::Report::add_formatted_message does.
    NOTE probably not useful for converters as errors need to be passed
-   explicitely both from Perl and XS.
+   explicitely both from Perl and XS and are added at that point.
 
    Also return $report->{'errors_warnings'} in ERRORS_WARNINGS_OUT and
    $report->{'error_nrs'} in ERRORS_NRS_OUT, even if ERROR_MESSAGES is
@@ -1538,6 +1538,7 @@ build_document (size_t document_descriptor, int no_store)
   return sv;
 }
 
+/* Currently unused, but could be */
 void
 rebuild_document (SV *document_in, int no_store)
 {

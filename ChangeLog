@@ -1,5 +1,11 @@
 2024-04-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (%XS_overrides),
+	tp/Texinfo/XS/main/DocumentXS.xs: remove rebuild_document, document
+	accessors should be used instead.
+
+2024-04-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ManipulateTree.pm (normalized_menu_entry_internal_node)
 	(normalized_entry_associated_internal_node, first_menu_node),
 	tp/Texinfo/Structuring.pm: move functions, some previously internal,

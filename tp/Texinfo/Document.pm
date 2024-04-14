@@ -48,8 +48,6 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::set_document_global_info",
   "Texinfo::Document::errors"
     => "Texinfo::DocumentXS::document_errors",
-  "Texinfo::Document::rebuild_document"
-    => "Texinfo::DocumentXS::rebuild_document",
   "Texinfo::Document::rebuild_tree"
     => "Texinfo::DocumentXS::rebuild_tree",
   "Texinfo::Document::tree"
@@ -471,16 +469,6 @@ sub register_label_element($$;$$)
 sub remove_document($)
 {
   my $document = shift;
-}
-
-# this method does nothing, but the XS override rebuilds the Perl
-# document based on XS data.
-# Should not need to be used, calling tree() should do about the same,
-# therefore not documented.
-sub rebuild_document($;$)
-{
-  my $document = shift;
-  my $no_store = shift;
 }
 
 # this method does nothing, but the XS override rebuilds the Perl

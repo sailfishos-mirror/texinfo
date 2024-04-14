@@ -44,6 +44,8 @@ MODULE = Texinfo::DocumentXS		PACKAGE = Texinfo::DocumentXS
 
 PROTOTYPES: ENABLE
 
+# More related to translations than to the Texinfo Document, but we do not
+# to add another XS file for only one function.
 void
 configure_output_strings_translations (localesdir, strings_textdomain="texinfo_document")
        char *localesdir = (char *)SvPVbyte_nolen($arg);
@@ -51,12 +53,12 @@ configure_output_strings_translations (localesdir, strings_textdomain="texinfo_d
       CODE:
        configure_output_strings_translations (localesdir, strings_textdomain);
 
-void
-rebuild_document (SV *document_in, int no_store=0)
-
 # Since build_document is called, the underlying document HV is destroyed
-# instead of being reused.  Being able to get the document HV from the
-# XS document or from the Perl tree would be needed to do it differently.
+# instead of being reused, which is somewhat inefficient.  Doing something
+# better would require the possibility to get the document HV from the
+# XS document or from the Perl tree.  This XS interface is rarely used,
+# however, as, in general, a document is available and document_tree
+# can be used instead, therefore it is fine to keep the code as is.
 SV *
 rebuild_tree (SV *tree_in, ...)
       PROTOTYPE: $;$
