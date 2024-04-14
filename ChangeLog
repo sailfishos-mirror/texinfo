@@ -1,5 +1,13 @@
 2024-04-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (BUILD_PERL_DOCUMENT_ITEM)
+	(BUILD_PERL_DOCUMENT_LIST): change macro definition to have the full
+	function name, as first argument, add a flagname argument to have the
+	full flag name and use a string for keyname.  For improved
+	searchability of the code.
+
+2024-04-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_footnote): use
 	code more similar to get_perl_info.c find_element_from_sv, removing
 	useless cases.

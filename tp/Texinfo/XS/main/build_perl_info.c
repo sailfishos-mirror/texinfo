@@ -1584,28 +1584,28 @@ store_texinfo_tree (DOCUMENT *document, HV *document_hv)
   return result_sv;
 }
 
-#define BUILD_PERL_DOCUMENT_ITEM(fieldname,keyname,funcname,buildname,HVAV) \
+#define BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV) \
 SV * \
-document_##funcname (SV *document_in) \
+funcname (SV *document_in) \
 { \
   HV *document_hv; \
   SV *result_sv = 0; \
-  const char *key = #keyname; \
+  const char *key = keyname; \
 \
   dTHX;\
 \
   document_hv = (HV *) SvRV (document_in); \
-  DOCUMENT *document = get_sv_document_document (document_in, "document_" #funcname); \
+  DOCUMENT *document = get_sv_document_document (document_in, #funcname); \
 \
   if (document && document->fieldname)\
     {\
       store_texinfo_tree (document, document_hv);\
-      if (document->modified_information & F_DOCM_##fieldname)\
+      if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (document->fieldname);\
           result_sv = newRV_inc ((SV *) result_av_hv);\
           hv_store (document_hv, key, strlen (key), result_sv, 0);\
-          document->modified_information &= ~F_DOCM_##fieldname;\
+          document->modified_information &= ~flagname;\
         }\
     }\
 \
@@ -1627,44 +1627,44 @@ document_##funcname (SV *document_in) \
 }
 
 /*
-BUILD_PERL_DOCUMENT_ITEM(fieldname,keyname,funcname,buildname,HVAV)
+BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV)
  */
 
-BUILD_PERL_DOCUMENT_ITEM(index_names,indices,indices_information,build_index_data,HV)
+BUILD_PERL_DOCUMENT_ITEM(document_indices_information,index_names,"indices",F_DOCM_index_names,build_index_data,HV)
 
-BUILD_PERL_DOCUMENT_ITEM(global_commands,commands_info,global_commands_information,build_global_commands,HV)
+BUILD_PERL_DOCUMENT_ITEM(document_global_commands_information,global_commands,"commands_info",F_DOCM_global_commands,build_global_commands,HV)
 
-BUILD_PERL_DOCUMENT_ITEM(identifiers_target,identifiers_target,labels_information,build_identifiers_target,HV)
+BUILD_PERL_DOCUMENT_ITEM(document_labels_information,identifiers_target,"identifiers_target",F_DOCM_identifiers_target,build_identifiers_target,HV)
 
-BUILD_PERL_DOCUMENT_ITEM(nodes_list,nodes_list,nodes_list,build_elements_list,AV)
+BUILD_PERL_DOCUMENT_ITEM(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_elements_list,AV)
 
-BUILD_PERL_DOCUMENT_ITEM(sections_list,sections_list,sections_list,build_elements_list,AV)
+BUILD_PERL_DOCUMENT_ITEM(document_sections_list,sections_list,"sections_list",F_DOCM_sections_list,build_elements_list,AV)
 
 #undef BUILD_PERL_DOCUMENT_ITEM
 
-#define BUILD_PERL_DOCUMENT_LIST(fieldname,keyname,funcname,buildname,HVAV) \
+#define BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV) \
 SV * \
-document_##funcname (SV *document_in) \
+funcname (SV *document_in) \
 { \
   HV *document_hv; \
   SV *result_sv = 0; \
-  const char *key = #keyname; \
+  const char *key = keyname; \
 \
   dTHX;\
 \
   document_hv = (HV *) SvRV (document_in); \
-  DOCUMENT *document = get_sv_document_document (document_in, "document_" #funcname); \
+  DOCUMENT *document = get_sv_document_document (document_in, #funcname); \
 \
   if (document && document->fieldname)\
     {\
       store_texinfo_tree (document, document_hv);\
-      if (document->modified_information & F_DOCM_##fieldname)\
+      if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (document->fieldname->list,\
                                      document->fieldname->number);\
           result_sv = newRV_inc ((SV *) result_av_hv);\
           hv_store (document_hv, key, strlen (key), result_sv, 0);\
-          document->modified_information &= ~F_DOCM_##fieldname;\
+          document->modified_information &= ~flagname;\
         }\
     }\
 \
@@ -1686,14 +1686,14 @@ document_##funcname (SV *document_in) \
 }
 
 /*
-BUILD_PERL_DOCUMENT_LIST(fieldname,keyname,funcname,buildname,HVAV)
+BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV)
 */
 
-BUILD_PERL_DOCUMENT_LIST(floats,listoffloats_list,floats_information,build_float_types_list,HV)
+BUILD_PERL_DOCUMENT_LIST(document_floats_information,floats,"listoffloats_list",F_DOCM_floats,build_float_types_list,HV)
 
-BUILD_PERL_DOCUMENT_LIST(internal_references,internal_references,internal_references_information,build_internal_xref_list,AV)
+BUILD_PERL_DOCUMENT_LIST(document_internal_references_information,internal_references,"internal_references",F_DOCM_internal_references,build_internal_xref_list,AV)
 
-BUILD_PERL_DOCUMENT_LIST(labels_list,labels_list,labels_list,build_target_elements_list,AV)
+BUILD_PERL_DOCUMENT_LIST(document_labels_list,labels_list,"labels_list",F_DOCM_labels_list,build_target_elements_list,AV)
 
 #undef BUILD_PERL_DOCUMENT_LIST
 
