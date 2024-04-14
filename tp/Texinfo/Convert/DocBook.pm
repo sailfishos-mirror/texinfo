@@ -31,6 +31,7 @@ use Texinfo::Common;
 # for debugging
 use Texinfo::Convert::Texinfo;
 
+# for section_level_adjusted_command_name
 use Texinfo::Structuring;
 
 use Texinfo::Convert::Unicode;

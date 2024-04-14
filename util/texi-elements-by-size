@@ -41,7 +41,6 @@ BEGIN {
 }
 
 use Texinfo::Parser;
-use Texinfo::Structuring;
 use Texinfo::Convert::TextContent;
 
 my $my_version = "0.1 (TP $Texinfo::Parser::VERSION)";

@@ -77,6 +77,7 @@ dist_modules_DATA = \
  Texinfo/ManipulateTree.pm \
  Texinfo/MiscXS.pm \
  Texinfo/Options.pm \
+ Texinfo/OutputUnits.pm \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
  Texinfo/Report.pm \

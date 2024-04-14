@@ -76,7 +76,9 @@ use Texinfo::Commands;
 use Texinfo::Options;
 use Texinfo::Common;
 
+# for section_level_adjusted_command_name
 use Texinfo::Structuring;
+use Texinfo::OutputUnits;
 
 use Texinfo::Convert::TexinfoSXML;
 
@@ -420,7 +422,7 @@ sub output_ixin($$)
 
   # FIXME vars: wait for Thien-Thi answer.
 
-  my $output_units = Texinfo::Structuring::split_by_node($document);
+  my $output_units = Texinfo::OutputUnits::split_by_node($document);
   # setting_commands is for @-commands appearing before the first node,
   # while end_of_nodes_setting_commands holds, for @-commands names, the
   # last @-command element.

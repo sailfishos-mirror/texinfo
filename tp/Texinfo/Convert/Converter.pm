@@ -49,7 +49,7 @@ use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
-use Texinfo::Structuring;
+use Texinfo::OutputUnits;
 
 use Texinfo::Translations;
 
@@ -1130,7 +1130,7 @@ sub set_output_units_files($$$$$$)
     print STDERR 'Page '
      # uncomment for perl object name
      #."$output_unit "
-     .Texinfo::Structuring::output_unit_texi($output_unit)
+     .Texinfo::OutputUnits::output_unit_texi($output_unit)
      .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
               if ($self->get_conf('DEBUG'));
   }
@@ -1624,9 +1624,9 @@ sub sort_element_counts($$;$$)
 
   my $output_units;
   if ($use_sections) {
-    $output_units = Texinfo::Structuring::split_by_section($document);
+    $output_units = Texinfo::OutputUnits::split_by_section($document);
   } else {
-    $output_units = Texinfo::Structuring::split_by_node($document);
+    $output_units = Texinfo::OutputUnits::split_by_node($document);
   }
 
   my $max_count = 0;
@@ -2092,9 +2092,9 @@ Can be used for the conversion of output units by converters.
 C<convert_output_unit> takes a I<$converter> and an output unit
 I<$output_unit> as argument.  The implementation of
 C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
-many cases.  Output units are typically returned by L<Texinfo::Structuring
-split_by_section|Texinfo::Structuring/$output_units = split_by_section($document)>
-or L<Texinfo::Structuring split_by_node|Texinfo::Structuring/$output_units =
+many cases.  Output units are typically returned by L<Texinfo::OutputUnits
+split_by_section|Texinfo::OutputUnits/$output_units = split_by_section($document)>
+or L<Texinfo::OutputUnits split_by_node|Texinfo::OutputUnits/$output_units =
 split_by_node($document)>.
 
 Output units are not relevant for all the formats, the Texinfo tree can also be

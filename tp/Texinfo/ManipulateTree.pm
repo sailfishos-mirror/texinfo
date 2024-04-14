@@ -805,6 +805,79 @@ sub relate_index_entries_to_table_items_in_tree($)
               $indices_information);
 }
 
+
+# Methods used to get information on menu entries and nodes.  Used in
+# structuring and transformation codes, here because this module is
+# used by all the structuring and transformation modules.
+# Not documented in POD because they are considered to be internal functions.
+
+# return $NORMALIZED_ENTRY_NODE, the identifier corresponding to
+# the internal node referred to by menu entry $ENTRY
+sub normalized_menu_entry_internal_node($)
+{
+  my $entry = shift;
+
+  foreach my $content (@{$entry->{'contents'}}) {
+    if ($content->{'type'} eq 'menu_entry_node') {
+      if ($content->{'extra'}) {
+        if (! $content->{'extra'}->{'manual_content'}) {
+          return $content->{'extra'}->{'normalized'};
+        }
+      }
+      return undef;
+    }
+  }
+  return undef;
+}
+
+# Return $NODE where $NODE is the node referred to by menu entry $ENTRY.
+sub normalized_entry_associated_internal_node($$)
+{
+  my $entry = shift;
+  my $identifier_target = shift;
+
+  my $normalized_entry_node = normalized_menu_entry_internal_node($entry);
+
+  if (defined($normalized_entry_node)) {
+    return $identifier_target->{$normalized_entry_node};
+  }
+  return undef;
+}
+
+# In $NODE, find the first menu entry node in the first menu.  If the
+# node in menu refers to a target element in the document, return that
+# element
+sub first_menu_node($$)
+{
+  my $node = shift;
+  my $identifier_target = shift;
+  if ($node->{'extra'}->{'menus'}) {
+    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
+      foreach my $menu_content (@{$menu->{'contents'}}) {
+        if ($menu_content->{'type'}
+            and $menu_content->{'type'} eq 'menu_entry') {
+          my $menu_node
+            = normalized_entry_associated_internal_node($menu_content,
+                                                        $identifier_target);
+          # an internal node
+          return $menu_node if ($menu_node);
+          foreach my $content (@{$menu_content->{'contents'}}) {
+            if ($content->{'type'} eq 'menu_entry_node') {
+              # a reference to an external manual
+              if ($content->{'extra'}
+                  and $content->{'extra'}->{'manual_content'}) {
+                return $content
+              }
+              last;
+            }
+          }
+        }
+      }
+    }
+  }
+  return undef;
+}
+
 
 1;
 
@@ -825,7 +898,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::ManipulateTree contains methods for copying and modifying the
+C<Texinfo::ManipulateTree> contains methods for copying and modifying the
 Texinfo tree used for default conversion to output formats.
 
 For optional tree transformation, see L<Texinfo::Transformations>.

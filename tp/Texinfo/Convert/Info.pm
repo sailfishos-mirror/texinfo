@@ -22,16 +22,18 @@
 package Texinfo::Convert::Info;
 
 use 5.00405;
-use strict;
 
-use Carp qw(cluck);
+use strict;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+use Carp qw(cluck);
+
 use Texinfo::Common;
-use Texinfo::Convert::Plaintext;
+use Texinfo::OutputUnits;
 use Texinfo::Convert::Text;
+use Texinfo::Convert::Plaintext;
 
 use Texinfo::Convert::Paragraph;
 
@@ -115,7 +117,7 @@ sub output($$)
 
   my $header_bytes = length($header);
   my $complete_header_bytes = $header_bytes;
-  my $output_units = Texinfo::Structuring::split_by_node($document);
+  my $output_units = Texinfo::OutputUnits::split_by_node($document);
 
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
 

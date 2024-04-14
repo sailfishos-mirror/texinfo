@@ -72,6 +72,7 @@ use Texinfo::Document;
 use Texinfo::Convert::PlainTexinfo;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
+use Texinfo::OutputUnits;
 # for format_index_entries_sort_strings
 use Texinfo::Indices;
 use Texinfo::Translations;
@@ -1386,7 +1387,7 @@ sub test($$)
   # on conversion should be fairly well tested.  See above the comment
   # near test_split with more explanation on why previous splitting should
   # not interfere with conversion.
-  my $unsplit_needed = Texinfo::Structuring::unsplit($document);
+  my $unsplit_needed = Texinfo::OutputUnits::unsplit($document);
   print STDERR "  UNSPLIT: $test_name\n"
     if ($self->{'DEBUG'} and $unsplit_needed);
 
@@ -1399,27 +1400,27 @@ sub test($$)
   # output units.
   my $output_units;
   if ($test_split eq 'node') {
-    $output_units = Texinfo::Structuring::split_by_node($document);
+    $output_units = Texinfo::OutputUnits::split_by_node($document);
   } elsif ($test_split eq 'section') {
-    $output_units = Texinfo::Structuring::split_by_section($document);
+    $output_units = Texinfo::OutputUnits::split_by_section($document);
   }
   if ($test_split) {
     my $identifier_target = $document->labels_information();
-    Texinfo::Structuring::units_directions($document,
+    Texinfo::OutputUnits::units_directions($document,
                                            $identifier_target,
                                            $output_units);
     $directions_text = '';
     foreach my $output_unit (@$output_units) {
       $directions_text .=
-          Texinfo::Structuring::print_output_unit_directions($output_unit);
+          Texinfo::OutputUnits::print_output_unit_directions($output_unit);
     }
   }
   if ($split_pages) {
-    Texinfo::Structuring::split_pages($output_units, $split_pages);
+    Texinfo::OutputUnits::split_pages($output_units, $split_pages);
   }
 
   if ($test_split or $split_pages) {
-    Texinfo::Structuring::rebuild_output_units($output_units);
+    Texinfo::OutputUnits::rebuild_output_units($output_units);
   }
 
   my $file = "t/results/$self->{'name'}/$test_name.pl";

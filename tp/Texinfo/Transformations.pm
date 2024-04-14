@@ -516,7 +516,8 @@ sub complete_node_menu($;$)
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
             my $normalized_entry_node
-              = Texinfo::Structuring::normalized_menu_entry_internal_node($entry);
+              = Texinfo::ManipulateTree::normalized_menu_entry_internal_node(
+                                                                       $entry);
             if (defined($normalized_entry_node)) {
               $existing_entries{$normalized_entry_node} = [$menu, $entry];
             }
@@ -646,7 +647,7 @@ sub regenerate_master_menu($;$)
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
   my $new_detailmenu
-      = Texinfo::Structuring::new_detailmenu_element($document,
+      = Texinfo::Structuring::new_detailmenu($document,
                       $document->registrar(),
                       $identifier_target, $top_node->{'extra'}->{'menus'},
                       $use_sections);

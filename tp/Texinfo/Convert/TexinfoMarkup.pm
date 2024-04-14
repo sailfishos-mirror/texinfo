@@ -37,6 +37,7 @@ use strict;
 
 use Texinfo::Commands;
 use Texinfo::Common;
+# for section_level_adjusted_command_name
 use Texinfo::Structuring;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Unicode;

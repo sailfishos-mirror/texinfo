@@ -38,8 +38,9 @@ use Encode;
 
 use Texinfo::Commands;
 use Texinfo::Common;
-use Texinfo::Structuring;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Structuring;
+use Texinfo::OutputUnits;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Utils;
@@ -585,7 +586,7 @@ sub count_context_bug_message($$$)
     my $output_unit_text;
     if ($output_unit) {
       $output_unit_text
-         = Texinfo::Structuring::output_unit_texi($output_unit);
+         = Texinfo::OutputUnits::output_unit_texi($output_unit);
     } else {
       $output_unit_text = '';
     }
@@ -653,7 +654,7 @@ sub convert($$)
 
   my $result = '';
 
-  my $output_units = Texinfo::Structuring::split_by_node($document);
+  my $output_units = Texinfo::OutputUnits::split_by_node($document);
 
   foreach my $output_unit (@$output_units) {
     my $node_text = convert_output_unit($self, $output_unit);
@@ -704,14 +705,14 @@ sub output($$)
   }
 
   if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::Structuring::split_by_node($document);
+    $output_units = Texinfo::OutputUnits::split_by_node($document);
   } else {
-    $output_units = Texinfo::Structuring::split_by_section($document);
+    $output_units = Texinfo::OutputUnits::split_by_section($document);
   }
 
-  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
+  Texinfo::OutputUnits::split_pages($output_units, $self->get_conf('SPLIT'));
 
-  Texinfo::Structuring::rebuild_output_units($output_units);
+  Texinfo::OutputUnits::rebuild_output_units($output_units);
 
   # determine file names associated with the different pages
   if ($output_file ne '') {

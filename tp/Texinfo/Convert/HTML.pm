@@ -73,6 +73,7 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
+use Texinfo::OutputUnits;
 # for index_entry_first_letter_text_or_command
 use Texinfo::Indices;
 use Texinfo::Convert::Converter;
@@ -1635,7 +1636,7 @@ sub from_element_direction($$$;$$$)
       die "No unit type for element_target $direction $target_unit: "
        . Texinfo::Common::debug_print_output_unit($target_unit)
        . "directions :"
-           . Texinfo::Structuring::print_output_unit_directions($source_unit);
+           . Texinfo::OutputUnits::print_output_unit_directions($source_unit);
     }
     ########
     if ($target_unit->{'unit_type'} eq 'external_node_unit') {
@@ -4635,7 +4636,7 @@ sub _default_format_element_header($$$$)
      #."$output_unit (@{$output_unit->{'unit_contents'}}) ".
      . "(".join('|', map{Texinfo::Common::debug_print_element($_)}
              @{$output_unit->{'unit_contents'}}) . ") ".
-     Texinfo::Structuring::output_unit_texi($output_unit) ."\n"
+     Texinfo::OutputUnits::output_unit_texi($output_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
   # Do the heading if the command is the first command in the element
@@ -9910,7 +9911,7 @@ sub _html_set_pages_files($$$$$$$$$)
     print STDERR 'Page '
       # uncomment for perl object name
       #."$output_unit "
-      .Texinfo::Structuring::output_unit_texi($output_unit)
+      .Texinfo::OutputUnits::output_unit_texi($output_unit)
       .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
              if ($self->get_conf('DEBUG'));
   }
@@ -9997,9 +9998,9 @@ sub _prepare_conversion_units($$$)
   my ($output_units, $special_units, $associated_special_units);
 
   if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::Structuring::split_by_node($document);
+    $output_units = Texinfo::OutputUnits::split_by_node($document);
   } else {
-    $output_units = Texinfo::Structuring::split_by_section($document);
+    $output_units = Texinfo::OutputUnits::split_by_section($document);
   }
 
   # Needs to be set early in case it would be needed to find some region
@@ -10059,7 +10060,7 @@ sub _prepare_units_directions_files($$$$$$$$)
   $self->_prepare_output_units_global_targets($output_units, $special_units,
                                               $associated_special_units);
 
-  Texinfo::Structuring::split_pages($output_units, $self->get_conf('SPLIT'));
+  Texinfo::OutputUnits::split_pages($output_units, $self->get_conf('SPLIT'));
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
@@ -10072,14 +10073,14 @@ sub _prepare_units_directions_files($$$$$$$$)
   }
 
   # do output units directions.
-  Texinfo::Structuring::units_directions($self, $identifiers_target,
+  Texinfo::OutputUnits::units_directions($self, $identifiers_target,
                                          $output_units);
 
   _prepare_special_units_directions($self, $special_units);
 
   # do output units directions related to files.
   # Here such that PrevFile and NextFile can be set.
-  Texinfo::Structuring::units_file_directions($output_units);
+  Texinfo::OutputUnits::units_file_directions($output_units);
 
   # elements_in_file_count is only set in HTML, not in
   # Texinfo::Convert::Converter
@@ -10418,7 +10419,7 @@ sub _prepare_output_units_global_targets($$$$)
         print STDERR " $global_direction"
             # uncomment to get the perl object name
             # ."($global_unit)"
-     .': '. Texinfo::Structuring::output_unit_texi($global_unit)."\n";
+     .': '. Texinfo::OutputUnits::output_unit_texi($global_unit)."\n";
       }
     }
     print STDERR "\n";
@@ -12153,7 +12154,7 @@ sub convert_output_unit($$;$)
 
   if ($debug) {
     print STDERR "UNIT($explanation) -> ou: $unit_type_name '"
-        .Texinfo::Structuring::output_unit_texi($output_unit)."'\n";
+        .Texinfo::OutputUnits::output_unit_texi($output_unit)."'\n";
   }
 
   $self->{'current_output_unit'} = $output_unit;

@@ -27,6 +27,7 @@ use strict;
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
+# for section_level_adjusted_command_name
 use Texinfo::Structuring;
 
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
