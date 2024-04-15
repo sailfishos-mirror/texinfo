@@ -24,7 +24,7 @@ sub run_test($$$)
   my $document = $parser->parse_texi_piece($in);
   my $tree = $document->tree();
 
-  Texinfo::Transformations::reference_to_arg_in_tree($tree);
+  Texinfo::Transformations::reference_to_arg_in_tree($tree, $document);
   # rebuild tree
   $tree = $document->tree();
 

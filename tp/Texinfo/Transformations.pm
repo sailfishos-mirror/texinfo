@@ -232,11 +232,18 @@ sub _reference_to_arg($$$)
 {
   my $type = shift;
   my $current = shift;
+  my $document = shift;
 
-  # FIXME remove from internal references list?
   if ($current->{'cmdname'} and
       $Texinfo::Commands::ref_commands{$current->{'cmdname'}}
       and $current->{'args'}) {
+
+    # remove from internal references
+    if ($document) {
+      my $internal_references = $document->internal_references_information();
+      Texinfo::Common::remove_from_array($internal_references, $current);
+    }
+
     my @args_try_order;
     if ($current->{'cmdname'} eq 'inforef'
         or $current->{'cmdname'} eq 'link') {
@@ -268,11 +275,13 @@ sub _reference_to_arg($$$)
   }
 }
 
-sub reference_to_arg_in_tree($)
+sub reference_to_arg_in_tree($;$)
 {
   my $tree = shift;
+  my $document = shift;
 
-  return Texinfo::ManipulateTree::modify_tree($tree, \&_reference_to_arg);
+  return Texinfo::ManipulateTree::modify_tree($tree, \&_reference_to_arg,
+                                              $document);
 }
 
 # prepare and add a new node as a possible cross reference targets
@@ -325,7 +334,7 @@ sub _new_node($$;$)
   # in menu entry with label
   $node_tree
     = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
-  $node_tree = reference_to_arg_in_tree($node_tree);
+  $node_tree = reference_to_arg_in_tree($node_tree, $document);
 
   my $empty_node = 0;
   if (!$node_tree->{'contents'}
@@ -1036,14 +1045,16 @@ defined they are used for error reporting in case an hash character could not
 be protected because it appeared in a raw formatted environment (C<@tex>,
 C<@html>...).
 
-=item $modified_tree = reference_to_arg_in_tree($tree)
+=item $modified_tree = reference_to_arg_in_tree($tree, $document)
 X<C<reference_to_arg_in_tree>>
 
 Modify I<$tree> by converting reference @-commands to simple text using one of
 the arguments.  This transformation can be used, for example, to remove
 reference @-command from constructed node names trees, as node names cannot
 contain reference @-command while there could be some in the tree used in input
-for the node name tree.
+for the node name tree.  The I<$document> argument is optional.  If given,
+the converted reference @-command is removed from the I<$document> internal
+references list.
 
 A I<$modified_tree> is not systematically returned, if the I<$tree> in argument
 is not replaced, undef may also be returned.

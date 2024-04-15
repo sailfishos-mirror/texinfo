@@ -886,8 +886,10 @@ reference_to_arg_internal (const char *type,
       if (document && document->internal_references
           && document->internal_references->number > 0)
         {
-          remove_element_from_list (document->internal_references, e);
-          document->modified_information |= F_DOCM_labels_list;
+          const ELEMENT *removed_internal_ref =
+              remove_element_from_list (document->internal_references, e);
+          if (removed_internal_ref)
+            document->modified_information |= F_DOCM_internal_references;
         }
       if (document)
         document->modified_information |= F_DOCM_tree;
@@ -1191,7 +1193,10 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                                 remove_element_from_list (
                                         document->internal_references,
                                                         entry_content);
-                              if (!removed_internal_ref)
+                              if (removed_internal_ref)
+                                document->modified_information
+                                            |= F_DOCM_internal_references;
+                              else
                                 {
                                   char *removed_internal_texi
                                      = convert_to_texinfo (entry_content);

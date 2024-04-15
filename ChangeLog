@@ -1,5 +1,23 @@
 2024-04-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reference_to_arg_internal): fix flag set for internal reference
+	removal and set it only if an element was actually removed.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(regenerate_master_menu): set the flag corresponding to modified
+	internal references if needed.
+
+	* tp/Texinfo/Transformations.pm (_reference_to_arg)
+	(reference_to_arg_in_tree),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(reference_to_arg_in_tree): add a document argument to
+	reference_to_arg_in_tree and _reference_to_arg.  Remove removed
+	reference command from document internal references.
+	Update callers.
+
+2024-04-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (remove_from_array): add a simple function to
 	remove the first occurence of an element in an array.
 

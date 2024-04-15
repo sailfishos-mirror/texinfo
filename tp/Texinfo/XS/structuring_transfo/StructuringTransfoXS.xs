@@ -145,13 +145,20 @@ move_index_entries_after_items_in_tree (SV *tree_in)
 # argument could be modified.  Here, tree_in is always a container
 # that is not modified, so there is no need to return a tree.
 void
-reference_to_arg_in_tree (SV *tree_in)
+reference_to_arg_in_tree (SV *tree_in, SV *document_in=0)
     PREINIT:
+        DOCUMENT *tree_document = 0;
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in, "reference_to_arg_in_tree");
-        if (document)
-          reference_to_arg_in_tree (document->tree, document);
+        tree_document
+          = get_sv_tree_document (tree_in, "reference_to_arg_in_tree");
+        /* in general will be the same as tree_document, in case it is not,
+           perhaps if the tree_in is a subtree of document_in tree,
+           find independently */
+        if (document_in)
+           document = get_sv_document_document (document_in, 0);
+        if (tree_document)
+          reference_to_arg_in_tree (tree_document->tree, document);
 
 void
 associate_internal_references (SV *document_in)
