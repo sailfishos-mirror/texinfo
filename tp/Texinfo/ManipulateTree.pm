@@ -17,6 +17,15 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
+# functions useful for Texinfo tree transformations
+# and some tree transformations functions, mostly those
+# used in conversion to main output formats.  In general,
+# tree transformations functions are documented in the POD section.
+
+# Some helper functions defined here are used in other
+# modules but are not generally useful in converters
+# and therefore not public.
+
 package Texinfo::ManipulateTree;
 
 use 5.00405;
@@ -87,15 +96,11 @@ sub import {
   goto &Exporter::import;
 }
 
-# functions useful for Texinfo tree transformations
-# and some tree transformations functions, mostly those
-# used in conversion to main output formats.  In general,
-# tree transformations functions are documented in the POD section.
 
-# Some helper functions defined here are used in other
-# modules but are not generally useful in converters
-# and therefore not public.
+
+# copy a Texinfo tree.
 
+# TODO document in POD?
 
 # This implementation of tree copy is designed such as to be
 # implementable easily in XS with reference to copy local to
@@ -375,6 +380,9 @@ sub copy_contentsNonXS($;$)
   }
   return $copy;
 }
+
+
+# Texinfo tree transformations used in main output formats conversion.
 
 sub modify_tree($$;$);
 sub modify_tree($$;$)
