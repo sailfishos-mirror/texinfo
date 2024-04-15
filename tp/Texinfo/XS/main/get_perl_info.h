@@ -62,4 +62,7 @@ void html_get_direction_icons_sv (const CONVERTER *converter,
 const ELEMENT *find_element_from_sv (const CONVERTER *converter,
                                      const DOCUMENT *document_in,
                           const SV *element_sv, int output_units_descriptor);
+
+SV *get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
+                      const char *language, HV **out_sorted_indices_hv);
 #endif

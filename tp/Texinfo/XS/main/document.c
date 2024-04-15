@@ -232,7 +232,7 @@ find_collation_sorted_indices_by_index (
   return 0;
 }
 
-INDEX_SORTED_BY_INDEX *
+COLLATION_INDICES_SORTED_BY_INDEX *
 sorted_indices_by_index (DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
                          OPTIONS *options, int use_unicode_collation,
@@ -294,7 +294,7 @@ sorted_indices_by_index (DOCUMENT *document,
                                  use_unicode_collation, collation_language,
                                  collation_locale);
     }
-  return collation_sorted_indices->sorted_indices;
+  return collation_sorted_indices;
 }
 
 static COLLATION_INDICES_SORTED_BY_LETTER *
@@ -343,7 +343,7 @@ find_collation_sorted_indices_by_letter (
   return 0;
 }
 
-INDEX_SORTED_BY_LETTER *
+COLLATION_INDICES_SORTED_BY_LETTER *
 sorted_indices_by_letter (DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options, int use_unicode_collation,
@@ -405,7 +405,7 @@ sorted_indices_by_letter (DOCUMENT *document,
                                   use_unicode_collation, collation_language,
                                   collation_locale);
     }
-  return collation_sorted_indices->sorted_indices;
+  return collation_sorted_indices;
 }
 
 void

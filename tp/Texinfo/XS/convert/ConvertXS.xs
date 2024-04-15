@@ -249,12 +249,13 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
         const INDEX_SORTED_BY_INDEX *index_entries_by_index = 0;
         HV *converter_hv;
         SV **document_sv;
+        char *language;
      CODE:
         self = get_sv_converter (converter_sv,
                                  "get_converter_indices_sorted_by_index");
         if (self)
           index_entries_by_index
-            = get_converter_indices_sorted_by_index (self);
+            = get_converter_indices_sorted_by_index (self, &language);
 
         converter_hv = (HV *) SvRV (converter_sv);
         document_sv = hv_fetch (converter_hv, "document",
@@ -262,29 +263,51 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
         RETVAL = 0;
         if (document_sv)
           {
-            /* TODO if the locale is not XS_STRXFRM_COLLATION_LOCALE
-               it could be relevant to store the output of
-               build_sorted_indices_by_index in
-                document_sv->{'sorted_indices_by_index'}->{$lang_key}
-               (as in perl) and get it from here instead of rebuilding,
-               such that the perl data is only built once and not for
-               each index/call to get_converter_indices_sorted_by_letter.
-
-               If TEXINFO_XS_CONVERT=1, this is called for Info output.
-             */
-            SV *indices_information_sv
-              = document_indices_information (*document_sv);
-
-            if (index_entries_by_index && indices_information_sv
-                && SvOK (indices_information_sv))
+            /* The sorted indices are cached in the same place as in Perl code.
+               Either Perl code or XS code is used, so this is for consistency
+               not really for interoperability */
+            /* set to document "sorted_indices_by_index" */
+            HV *language_document_sorted_indices_hv;
+            /* try first to get sorted index cached in document
+               "sorted_indices_by_index".
+               Gather the hash to use to cache too in
+               language_document_sorted_indices_hv, for use if sorted index is
+               not found */
+            if (language)
               {
-                HV *indices_information_hv
-                   = (HV *) SvRV (indices_information_sv);
-                HV *index_entries_by_index_hv
-                   = build_sorted_indices_by_index (index_entries_by_index,
-                                                    indices_information_hv);
-                RETVAL
-                 = newRV_inc ((SV *) index_entries_by_index_hv);
+                HV *document_hv = (HV *) SvRV (*document_sv);
+                SV *index_entries_by_index_sv
+                 = get_language_document_hv_sorted_indices (document_hv,
+                                    "sorted_indices_by_index", language,
+                                  &language_document_sorted_indices_hv); 
+                if (index_entries_by_index_sv)
+                  RETVAL = SvREFCNT_inc (index_entries_by_index_sv);
+              }
+            if (!RETVAL)
+              {
+                /* build the sorted indices from C */
+                SV *indices_information_sv
+                  = document_indices_information (*document_sv);
+
+                if (index_entries_by_index && indices_information_sv
+                    && SvOK (indices_information_sv))
+                  {
+                    HV *indices_information_hv
+                      = (HV *) SvRV (indices_information_sv);
+                    HV *index_entries_by_index_hv
+                     = build_sorted_indices_by_index (index_entries_by_index,
+                                                      indices_information_hv);
+                    RETVAL
+                      = newRV_inc ((SV *) index_entries_by_index_hv);
+                    /* the hash for caching was found or created, cache the
+                       sorted indices */
+                    if (language_document_sorted_indices_hv)
+                      {
+                        hv_store (language_document_sorted_indices_hv,
+                              language, strlen(language),
+                              newRV_inc ((SV *) index_entries_by_index_hv), 0);
+                      }
+                  }
               }
           }
         if (!RETVAL)
@@ -299,12 +322,13 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
         const INDEX_SORTED_BY_LETTER *index_entries_by_letter = 0;
         HV *converter_hv;
         SV **document_sv;
+        char *language;
      CODE:
         self = get_sv_converter (converter_sv,
                                  "get_converter_indices_sorted_by_letter");
         if (self)
           index_entries_by_letter
-            = get_converter_indices_sorted_by_letter (self);
+            = get_converter_indices_sorted_by_letter (self, &language);
 
         converter_hv = (HV *) SvRV (converter_sv);
         document_sv = hv_fetch (converter_hv, "document",
@@ -312,34 +336,51 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
         RETVAL = 0;
         if (document_sv)
           {
-            /* TODO if the locale is not XS_STRXFRM_COLLATION_LOCALE
-               it could be relevant to store the output of
-               build_sorted_indices_by_letter in
-                document_sv->{'sorted_indices_by_letter'}->{$lang_key}
-               (as in perl) and get it from here instead of rebuilding,
-               such that the perl data is only built once and not for
-               each index/call to get_converter_indices_sorted_by_letter.
-
-               This XS interface code is unlikely to be called, as it is
-               only for HTML and would correspond to a user calling
-               get_converter_indices_sorted_by_letter from perl, which
-               would be relevant mainly for reimplementing printindex
-               conversion, this is very improbable so there is no much
-               reason to implement something better.
-             */
-            SV *indices_information_sv
-              = document_indices_information (*document_sv);
-
-            if (index_entries_by_letter && indices_information_sv
-                && SvOK (indices_information_sv))
+            /* The sorted indices are cached in the same place as in Perl code.
+               Either Perl code or XS code is used, so this is for consistency
+               not really for interoperability */
+            /* set to document "sorted_indices_by_letter" */
+            HV *language_document_sorted_indices_hv;
+            /* try first to get sorted index cached in document
+               "sorted_indices_by_letter".
+               Gather the hash to use to cache too in
+               language_document_sorted_indices_hv, for use if sorted index is
+               not found */
+            if (language)
               {
-                HV *indices_information_hv
-                   = (HV *) SvRV (indices_information_sv);
-                HV *index_entries_by_letter_hv
-                   = build_sorted_indices_by_letter (index_entries_by_letter,
-                                                     indices_information_hv);
-                RETVAL
-                 = newRV_inc ((SV *) index_entries_by_letter_hv);
+                HV *document_hv = (HV *) SvRV (*document_sv);
+                SV *index_entries_by_index_sv
+                 = get_language_document_hv_sorted_indices (document_hv,
+                                    "sorted_indices_by_letter", language,
+                                  &language_document_sorted_indices_hv); 
+                if (index_entries_by_index_sv)
+                  RETVAL = SvREFCNT_inc (index_entries_by_index_sv);
+              }
+            if (!RETVAL)
+              {
+                /* build the sorted indices from C */
+                SV *indices_information_sv
+                 = document_indices_information (*document_sv);
+
+                if (index_entries_by_letter && indices_information_sv
+                    && SvOK (indices_information_sv))
+                  {
+                    HV *indices_information_hv
+                     = (HV *) SvRV (indices_information_sv);
+                    HV *index_entries_by_letter_hv
+                     = build_sorted_indices_by_letter (index_entries_by_letter,
+                                                       indices_information_hv);
+                    RETVAL
+                     = newRV_inc ((SV *) index_entries_by_letter_hv);
+                    /* the hash for caching was found or created, cache the
+                       sorted indices */
+                    if (language_document_sorted_indices_hv)
+                      {
+                        hv_store (language_document_sorted_indices_hv,
+                              language, strlen(language),
+                              newRV_inc ((SV *) index_entries_by_letter_hv), 0);
+                      }
+                  }
               }
           }
         if (!RETVAL)

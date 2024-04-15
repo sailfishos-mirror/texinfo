@@ -1621,3 +1621,45 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
   return 0;
 }
 #undef FETCH
+
+/* returns the sorted index for a LANGUAGE if found.
+   Also returns the hash containing the sorted index languages,
+   associated to KEY in the DOCUMENT_HV, created if it did not exist */
+SV *
+get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
+                      const char *language, HV **out_sorted_indices_hv)
+{
+  SV **sorted_indices_sv;
+  HV *sorted_indices_hv;
+
+  dTHX;
+
+  sorted_indices_sv = hv_fetch (document_hv, key, strlen (key), 0);
+
+  if (!sorted_indices_sv)
+    {
+      SV *new_sorted_indices_sv;
+
+      sorted_indices_hv = newHV ();
+      new_sorted_indices_sv = newRV_noinc ((SV *) sorted_indices_hv);
+      hv_store (document_hv, key, strlen (key), new_sorted_indices_sv, 0);
+      *out_sorted_indices_hv = sorted_indices_hv;
+    }
+  else
+    {
+      SV **language_sv;
+
+      sorted_indices_hv = (HV *)SvRV (*sorted_indices_sv);
+      *out_sorted_indices_hv = sorted_indices_hv;
+
+      language_sv = hv_fetch (sorted_indices_hv, language,
+                              strlen (language), 0);
+      if (language_sv && SvOK (*language_sv))
+        {
+          return *language_sv;
+        }
+    }
+  return 0;
+}
+
+

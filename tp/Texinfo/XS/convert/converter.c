@@ -650,43 +650,55 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
 }
 
 INDEX_SORTED_BY_INDEX *
-get_converter_indices_sorted_by_index (CONVERTER *self)
+get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
 {
+  *language = 0;
   if (self->document)
     {
       char *collation_language = 0;
+      COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
       if (self->conf->COLLATION_LANGUAGE.string)
         collation_language = self->conf->COLLATION_LANGUAGE.string;
       else if (self->conf->DOCUMENTLANGUAGE_COLLATION.integer > 0
                && self->conf->documentlanguage.string)
         collation_language = self->conf->documentlanguage.string;
 
-      return sorted_indices_by_index (self->document,
-                               &self->error_messages, self->conf,
-                               self->conf->USE_UNICODE_COLLATION.integer,
-                               collation_language,
+      collation_sorted_indices
+        = sorted_indices_by_index (self->document,
+                                   &self->error_messages, self->conf,
+                                   self->conf->USE_UNICODE_COLLATION.integer,
+                                   collation_language,
                                self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
+      if (collation_sorted_indices->type != ctn_locale_collation)
+        *language = collation_sorted_indices->language;
+      return collation_sorted_indices->sorted_indices;
     }
   return 0;
 }
 
 INDEX_SORTED_BY_LETTER *
-get_converter_indices_sorted_by_letter (CONVERTER *self)
+get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
 {
+  *language = 0;
   if (self->document)
     {
       char *collation_language = 0;
+      COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
       if (self->conf->COLLATION_LANGUAGE.string)
         collation_language = self->conf->COLLATION_LANGUAGE.string;
       else if (self->conf->DOCUMENTLANGUAGE_COLLATION.integer > 0
                && self->conf->documentlanguage.string)
         collation_language = self->conf->documentlanguage.string;
 
-      return sorted_indices_by_letter (self->document,
-                               &self->error_messages, self->conf,
-                               self->conf->USE_UNICODE_COLLATION.integer,
-                               collation_language,
+      collation_sorted_indices
+        = sorted_indices_by_letter (self->document,
+                                    &self->error_messages, self->conf,
+                                    self->conf->USE_UNICODE_COLLATION.integer,
+                                    collation_language,
                                self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
+      if (collation_sorted_indices->type != ctn_locale_collation)
+        *language = collation_sorted_indices->language;
+      return collation_sorted_indices->sorted_indices;
     }
   return 0;
 }

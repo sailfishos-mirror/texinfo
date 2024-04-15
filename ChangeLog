@@ -1,5 +1,29 @@
 2024-04-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c
+	(get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter),
+	tp/Texinfo/XS/main/document.c (sorted_indices_by_index)
+	(sorted_indices_by_letter): have sorted_indices_by_* return the
+	full collation indices information, not only the sorted indices, such
+	that the caller may know the language set in collation structure.
+	In get_converter_indices_sorted_by_*, get the language from
+	sorted_indices_by_* collation indices information and pass it through
+	an argument pointer reference.
+	Update callers.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(get_language_document_hv_sorted_indices),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter): cache sorted indices built
+	as Perl data in Perl data, such as to build the perl data only once,
+	not for every index.  The cached data is retrieved with
+	get_language_document_hv_sorted_indices, which also creates the hash
+	where the sorted indices are stored, if needed.
+
+2024-04-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/OutputUnits.pm (units_directions),
 	tp/Texinfo/XS/main/output_unit.c (units_directions): replace the
 	customization options argument by print_debug.  Update callers and set

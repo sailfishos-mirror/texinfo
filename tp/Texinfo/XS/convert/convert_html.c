@@ -12530,8 +12530,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   char *index_name_cmd_class;
   char *alpha_text = 0;
   char *non_alpha_text = 0;
+  char *language;
   INDEX_SORTED_BY_LETTER *index_entries_by_letter
-    = get_converter_indices_sorted_by_letter (self);
+    = get_converter_indices_sorted_by_letter (self, &language);
 
   if (!index_entries_by_letter)
     return;

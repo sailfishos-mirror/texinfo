@@ -114,9 +114,10 @@ ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current_entry,
                                            char *separator);
 void free_comma_index_subentries_tree (ELEMENT_LIST *element);
 
-INDEX_SORTED_BY_INDEX *get_converter_indices_sorted_by_index (CONVERTER *self);
+INDEX_SORTED_BY_INDEX *get_converter_indices_sorted_by_index (CONVERTER *self,
+                                                             char **language);
 INDEX_SORTED_BY_LETTER *get_converter_indices_sorted_by_letter
-                                                 (CONVERTER *self);
+                                           (CONVERTER *self, char **language);
 
 char *top_node_filename (const CONVERTER *self, const char *document_name);
 

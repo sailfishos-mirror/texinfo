@@ -36,12 +36,14 @@ const INDICES_SORT_STRINGS *document_indices_sort_strings (
                                ERROR_MESSAGE_LIST *error_messages,
                                OPTIONS *options);
 
-INDEX_SORTED_BY_INDEX *sorted_indices_by_index (DOCUMENT *document,
+COLLATION_INDICES_SORTED_BY_INDEX *sorted_indices_by_index (
+                         DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
                          OPTIONS *options, int use_unicode_collation,
                          const char *collation_language,
                          const char *collation_locale);
-INDEX_SORTED_BY_LETTER *sorted_indices_by_letter (DOCUMENT *document,
+COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
+                          DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options, int use_unicode_collation,
                           const char *collation_language,
