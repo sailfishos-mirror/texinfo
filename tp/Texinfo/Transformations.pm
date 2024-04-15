@@ -692,18 +692,8 @@ sub regenerate_master_menu($;$)
             foreach my $entry_content (@{$detailmenu_entry->{'contents'}}) {
               if ($entry_content->{'type'}
                   and $entry_content->{'type'} eq 'menu_entry_node') {
-                my $index = 0;
-                my $internal_references_idx = -1;
-                foreach my $internal_ref (@$internal_references) {
-                  if ($internal_ref eq $entry_content) {
-                    $internal_references_idx = $index;
-                    last;
-                  }
-                  $index++;
-                }
-                if ($internal_references_idx >= 0) {
-                  splice (@$internal_references, $internal_references_idx, 1);
-                }
+                Texinfo::Common::remove_from_array($internal_references,
+                                                   $entry_content);
               }
             }
           }

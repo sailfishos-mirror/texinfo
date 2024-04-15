@@ -1,5 +1,14 @@
 2024-04-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (remove_from_array): add a simple function to
+	remove the first occurence of an element in an array.
+
+	* tp/Texinfo/Transformations.pm (regenerate_master_menu): use
+	Texinfo::Common remove_from_array to remove the removed menu entries
+	from the internal references list.
+
+2024-04-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/transformations.t
 	(regenerate_master_menu_with_menu_comment): add test of
 	regenerate_master_menu with a menu comment at the end of the Top node.

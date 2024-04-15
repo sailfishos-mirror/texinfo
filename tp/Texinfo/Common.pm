@@ -1393,6 +1393,21 @@ sub lookup_index_entry($$)
   return (undef, $index_info);
 }
 
+# only used from Perl
+# Remove first $ELEMENT from $ARRAY
+sub remove_from_array($$)
+{
+  my $array = shift;
+  my $element = shift;
+
+  for (my $index = 0; $index < scalar(@$array); $index++) {
+    if ($array->[$index] eq $element) {
+      return splice(@$array, $index, 1);
+    }
+  }
+  return undef;
+}
+
 sub set_output_encodings($$)
 {
   my $customization_information = shift;
@@ -2319,6 +2334,11 @@ X<C<normalize_top_node_name>>
 
 Normalize the node name string given in argument, by normalizing
 Top node case.
+
+=item $result = remove_from_array($array, $element)
+
+Remove first occurence of I<$element> in the array reference I<$array>.
+Return the removed element, or C<undef> if not found.
 
 =item $level = section_level($section)
 X<C<section_level>>
