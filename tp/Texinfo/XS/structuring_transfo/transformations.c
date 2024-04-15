@@ -1175,11 +1175,6 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
               ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
               replace_element_in_list (&document->global_commands->detailmenu,
                                        removed, new_detailmenu_e);
-              /* TODO are the new entries added to internal refs?
-                 Note that if they are not, it is possible that this has
-                 no impact as the associated entry in menu may be
-                 in internal refs, and maybe it is enough.
-               */
               /* remove internal refs of removed entries */
               for (j = 0; j < removed->contents.number; j++)
                 {

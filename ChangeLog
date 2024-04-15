@@ -1,5 +1,13 @@
 2024-04-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/transformations.t
+	(regenerate_master_menu_with_menu_comment): add test of
+	regenerate_master_menu with a menu comment at the end of the Top node.
+
+	Change in comments and spacing.
+
+2024-04-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c
 	(get_converter_indices_sorted_by_index)
 	(get_converter_indices_sorted_by_letter),

@@ -1442,7 +1442,8 @@ sub new_detailmenu($$$$;$)
         = Texinfo::ManipulateTree::normalized_entry_associated_internal_node(
                                                   $entry, $identifier_target);
           if ($node) {
-            push @{$new_detailmenu->{'contents'}}, _print_down_menus($node, undef,
+            push @{$new_detailmenu->{'contents'}},
+                         _print_down_menus($node, undef,
                                            $customization_information,
                                            $registrar,
                                            $identifier_target, $use_sections);

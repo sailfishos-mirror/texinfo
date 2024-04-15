@@ -677,7 +677,14 @@ sub regenerate_master_menu($;$)
           splice (@$global_detailmenu, $global_detailmenu_index, 1,
                   $new_detailmenu);
         }
-        # FIXME use an API to register a new internal reference?
+        # NOTE the menu entries added in @detailmenu are not added as
+        # internal references.  However, this is not an issue, as the
+        # menu entries in @detailmenu are also in regular menus.
+        # As long as internal references are only used to check if all
+        # the nodes are referenced, not having @detailmenu entries
+        # added is not an issue at all.
+
+        # remove internal refs of removed entries
         my $internal_references = $document->internal_references_information();
         foreach my $detailmenu_entry (@{$entry->{'contents'}}) {
           if ($detailmenu_entry->{'type'}
@@ -723,8 +730,7 @@ sub regenerate_master_menu($;$)
         and $last_element->{'contents'}->[-1]->{'type'}
         and $last_element->{'contents'}->[-1]->{'type'} eq 'preformatted') {
       {
-      # there is already a menu comment at the end of the menu, add an empty line
-        # FIXME this case is not covered in tests
+        # already a menu comment at the end of the menu, add an empty line
         my $preformatted = $last_element->{'contents'}->[-1];
         my $empty_line = {'type' => 'empty_line', 'text' => "\n",
                           'parent' => $preformatted};

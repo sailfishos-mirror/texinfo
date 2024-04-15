@@ -63,6 +63,25 @@ undef,
    'FORMAT_MENU' => 'menu'},
   {'FORMAT_MENU' => 'menu'},
 ],
+['regenerate_master_menu_with_menu_comment',
+'@node Top
+@top top
+
+@menu
+* chap::
+
+A MC.
+@end menu
+
+@node chap
+@chapter Chapter
+
+@node sec
+@section Sec
+',{'TREE_TRANSFORMATIONS' => 'regenerate_master_menu',
+   'FORMAT_MENU' => 'menu'},
+  {'FORMAT_MENU' => 'menu'},
+],
 );
 
 
