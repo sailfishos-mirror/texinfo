@@ -5818,8 +5818,8 @@ html_prepare_units_directions_files (CONVERTER *self,
     setup_output_simple_page (self, output_filename);
 
 
-  units_directions (self->conf, self->document->identifiers_target,
-                    output_units);
+  units_directions (self->document->identifiers_target, output_units,
+                    self->conf->DEBUG.integer);
 
   prepare_special_units_directions (self, special_units);
 

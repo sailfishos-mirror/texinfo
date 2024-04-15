@@ -10073,8 +10073,8 @@ sub _prepare_units_directions_files($$$$$$$$)
   }
 
   # do output units directions.
-  Texinfo::OutputUnits::units_directions($self, $identifiers_target,
-                                         $output_units);
+  Texinfo::OutputUnits::units_directions($identifiers_target, $output_units,
+                                         $self->get_conf('DEBUG'));
 
   _prepare_special_units_directions($self, $special_units);
 

@@ -1,3 +1,10 @@
+2024-04-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/OutputUnits.pm (units_directions),
+	tp/Texinfo/XS/main/output_unit.c (units_directions): replace the
+	customization options argument by print_debug.  Update callers and set
+	the print_debug argument from customization options.
+
 2024-04-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/document_types.h, tp/Texinfo/XS/main/document.c

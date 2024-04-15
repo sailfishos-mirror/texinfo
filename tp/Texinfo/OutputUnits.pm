@@ -345,15 +345,15 @@ sub _output_unit_node($)
   }
 }
 
-# Do output units directions (like in texi2html) and store them
-# in 'directions'.
+# Do output units directions and store them in 'directions'.
 # The directions are only created if pointing to other output units.
-sub units_directions($$$)
+sub units_directions($$;$)
 {
-  my $customization_information = shift;
   my $identifier_target = shift;
   my $output_units = shift;
-  return if (!$output_units or !@$output_units);
+  my $print_debug = shift;
+
+  return if (!$output_units or !scalar(@$output_units));
 
   my $node_top = $identifier_target->{'Top'};
   foreach my $output_unit (@$output_units) {
@@ -540,7 +540,7 @@ sub units_directions($$$)
       $output_unit->{'directions'} = $directions;
     }
   }
-  if ($customization_information->get_conf('DEBUG')) {
+  if ($print_debug) {
     foreach my $output_unit (@$output_units) {
       print STDERR 'Directions'
        # uncomment to show the perl object name
@@ -703,7 +703,8 @@ Texinfo::OutputUnits - setup and manage Texinfo document output units
     $output_units = split_by_section($document);
   }
   split_pages($output_units, $split);
-  units_directions($document, $identifier_target, $output_units);
+  units_directions($identifier_target, $output_units,
+                   $document->get_conf('DEBUG'));
   units_file_directions($output_units);
 
 =head1 NOTES
@@ -849,7 +850,7 @@ You can call the following methods to set output units directions:
 
 =over
 
-=item units_directions($customization_information, $identifier_target, $output_units)
+=item units_directions($identifier_target, $output_units, $print_debug)
 X<C<units_directions>>
 
 Directions are set up for the output units in the array reference

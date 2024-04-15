@@ -1406,9 +1406,8 @@ sub test($$)
   }
   if ($test_split) {
     my $identifier_target = $document->labels_information();
-    Texinfo::OutputUnits::units_directions($document,
-                                           $identifier_target,
-                                           $output_units);
+    Texinfo::OutputUnits::units_directions($identifier_target,
+                                           $output_units, $self->{'DEBUG'});
     $directions_text = '';
     foreach my $output_unit (@$output_units) {
       $directions_text .=

@@ -22,9 +22,8 @@ void add_to_output_unit_list (OUTPUT_UNIT_LIST *list,
 
 char *output_unit_texi (const OUTPUT_UNIT *output_unit);
 
-void units_directions (OPTIONS *customization_information,
-                       LABEL_LIST *identifiers_target,
-                       OUTPUT_UNIT_LIST *output_units);
+void units_directions (LABEL_LIST *identifiers_target,
+                       OUTPUT_UNIT_LIST *output_units, int print_debug);
 void units_file_directions (OUTPUT_UNIT_LIST *output_units);
 
 #endif

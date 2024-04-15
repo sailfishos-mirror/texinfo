@@ -510,9 +510,8 @@ static enum relative_unit_direction_type section_unit_directions[]
    The directions are only created if pointing to other output units.
  */
 void
-units_directions (OPTIONS *customization_information,
-                  LABEL_LIST *identifiers_target,
-                  OUTPUT_UNIT_LIST *output_units)
+units_directions (LABEL_LIST *identifiers_target,
+                  OUTPUT_UNIT_LIST *output_units, int print_debug)
 {
   ELEMENT *node_top;
   int i;
@@ -762,7 +761,7 @@ units_directions (OPTIONS *customization_information,
             }
         }
     }
-  if (customization_information->DEBUG.integer > 0)
+  if (print_debug > 0)
     {
       int i;
       for (i = 0; i < output_units->number; i++)
