@@ -253,7 +253,7 @@ sub split_pages($$)
   my $output_units = shift;
   my $split = shift;
 
-  return undef if (!$output_units or !scalar(@$output_units));
+  return if (!$output_units or !scalar(@$output_units));
 
   my $split_level;
   if (!$split) {
@@ -286,7 +286,7 @@ sub split_pages($$)
   }
 }
 
-# Returns something associated to a label that can be used to setup a target
+# Returns something associated with a label that can be used to setup a target
 # to the label.  If the target is an external node, create the output unit here,
 # if it is a node return the output unit that is supposed to be the
 # target for links to the node.  Otherwise there is no such element (yet),
@@ -740,7 +740,7 @@ for more information on conversion of output units in Converters.  Output units
 are not relevant for all the formats, the Texinfo tree can also be converted
 directly, see L<< C<Texinfo::Convert::Converter::output_tree>|Texinfo::Convert::Converter/$result = $converter->output_tree($document) >>.
 
-The output units may be further associated in I<pages>, which are not pages as
+The output units may be further grouped in I<pages>, which are not pages as
 in book pages, but more like web pages, and hold series of output units.
 The output units may have directions to other output units prepared
 by C<units_directions>.  C<units_file_directions> should also
@@ -788,7 +788,7 @@ with nodes and sectioning command Texinfo tree elements:
 =item $output_units = split_by_node($document)
 X<C<split_by_node>>
 
-Returns a reference array of output units where a node is associated to
+Returns a reference array of output units where a node is associated with
 the following sectioning commands.  Sectioning commands without nodes
 are also with the previous node, while nodes without sectioning commands
 are alone in their output units.
@@ -814,7 +814,7 @@ You can call C<split_pages> to group together output units:
 
 =over
 
-=item $pages = split_pages($output_units, $split)
+=item split_pages($output_units, $split)
 X<C<split_pages>>
 
 Add the I<first_in_page> key to each output unit in the array
@@ -824,19 +824,19 @@ The first output unit in the group is based on the value of I<$split>:
 
 =over
 
-=item chapter
+=item C<chapter>
 
 The output units are grouped at chapter or other toplevel sectioning commands.
 
-=item node
+=item C<node>
 
 Each output unit is on its own.
 
-=item section
+=item C<section>
 
 The output units are grouped at sectioning commands below chapter.
 
-=item value evaluating to false
+=item empty string
 
 No splitting, all the output units are together.
 
@@ -853,10 +853,15 @@ You can call the following methods to set output units directions:
 =item units_directions($identifier_target, $output_units, $print_debug)
 X<C<units_directions>>
 
+The I<$identifier_target> argument associates identifiers with target elements
+and is generally obtained from a parsed document,
+L<< C<Texinfo::Document::labels_information>|Texinfo::Document/$identifier_target = labels_information($document) >>.
 Directions are set up for the output units in the array reference
 I<$output_units> given in argument. The corresponding hash is associated
-to the I<directions> key. In this hash, keys correspond to directions
+with the I<directions> key. In this hash, keys correspond to directions
 while values are output units.
+
+I<$print_debug> is optional.  If set, some debugging information is printed.
 
 The following directions are set up:
 
@@ -921,7 +926,7 @@ previous and following files.
 
 It also sets I<FirstInFile*> directions for all the output units by using
 the directions of the first output unit in file.  So, for example,
-I<FirstInFileNodeNext> is the output unit associated to the next node
+I<FirstInFileNodeNext> is the output unit associated with the next node
 of the first output unit node in the file for each output unit in the file.
 
 The API for association of pages/output units to files is not defined yet.
