@@ -235,7 +235,7 @@ if ($base_level > 0) {
     my $manual_name;
     # we don't want to read from STDIN, as the input read would be lost
     # same with named pipe and socket...
-    # FIXME are there other file types that have the same problem?
+    # TODO are there other file types that have the same problem?
     if ($file eq '-' or -p $file or -S $file) {
       # do not read file
     } else {
@@ -287,8 +287,16 @@ sub _parsed_manual_tree($$$$$)
   my $texi_parser = Texinfo::Parser::parser();
   my $document = $texi_parser->parse_texi_text($manual_texi);
   my $tree = $document->tree();
-  
+
   my $identifier_target = $document->labels_information();
+
+  # NOTE the document customization information is not initialized.
+  # The functions called on the document below, and elsewhere in
+  # the code call get_conf for structuring information and menu
+  # generation on the document.
+  # TODO call register_document_options(), maybe with an empty hash?
+  # forward $debug (or $debug - 1)? as DEBUG?  Show parsing and structuring
+  # error messages if $debug > x ?
 
   if ($fill_gaps_in_sectioning) {
     my $commands_heading_content;
@@ -306,7 +314,7 @@ sub _parsed_manual_tree($$$$$)
     }
   }
   Texinfo::Structuring::sectioning_structure($document);
-  my $refs = $document->internal_references_information();
+  $document->internal_references_information();
   # this is needed to set 'normalized' for menu entries, they are
   # used in complete_tree_nodes_menus.
   Texinfo::Structuring::associate_internal_references($document);
@@ -357,7 +365,6 @@ sub _fix_texinfo_tree($$$$;$$)
       }
     }
   }
-  #Texinfo::Document::rebuild_document($document);
   return ($texi_parser, $document);
 }
 

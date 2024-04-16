@@ -1,5 +1,10 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl: minor change in code, change in
+	comments.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm (get_conf): remove warning if options are
 	initialized in get_conf call.  Add a TODO and a comment.
 
