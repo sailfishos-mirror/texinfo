@@ -1400,6 +1400,10 @@ sub remove_from_array($$)
   my $array = shift;
   my $element = shift;
 
+  #if (!defined($array)) {
+  #  cluck();
+  #}
+
   for (my $index = 0; $index < scalar(@$array); $index++) {
     if ($array->[$index] eq $element) {
       return splice(@$array, $index, 1);

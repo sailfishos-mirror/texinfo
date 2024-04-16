@@ -1,5 +1,10 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization): initialize
+	'internal_references'.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_pod_title_to_file_name): remove end of lines.
 

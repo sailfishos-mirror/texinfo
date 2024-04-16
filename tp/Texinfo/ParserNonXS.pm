@@ -144,6 +144,10 @@ my %parser_state_initialization = (
   'identifiers_target' => {}, # keys are normalized label names, as described
                               # in the `HTML Xref' node.  Value should be
                               # a node/anchor or float in the tree.
+  'internal_references' => [], # list of elements source of cross-references,
+                               # commands like @ref without books or external
+                               # manual files, and menu entries without
+                               # external manual.
   'macros' => {},             # the key is the user-defined macro name.  The
                               # value is the reference on a macro element
                               # as obtained by parsing the @macro
