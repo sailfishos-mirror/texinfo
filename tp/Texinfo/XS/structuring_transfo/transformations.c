@@ -905,7 +905,7 @@ reference_to_arg_internal (const char *type,
 ELEMENT *
 reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document)
 {
-  return modify_tree (tree, &reference_to_arg_internal, document);
+  return modify_tree (tree, &reference_to_arg_internal, (void *) document);
 }
 
 void

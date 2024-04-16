@@ -1,5 +1,15 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(reference_to_arg_in_tree): use the tree document as document if no
+	document is given in argument.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reference_to_arg_in_tree): cast the third modify_tree argument to
+	void *.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@LaTeX{} Customization Variables), 
 	tp/Texinfo/Convert/LaTeX.pm (%defaults, _latex_header),
 	tp/Texinfo/options_data.txt: add new customization variable

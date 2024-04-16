@@ -154,9 +154,17 @@ reference_to_arg_in_tree (SV *tree_in, SV *document_in=0)
           = get_sv_tree_document (tree_in, "reference_to_arg_in_tree");
         /* in general will be the same as tree_document, in case it is not,
            perhaps if the tree_in is a subtree of document_in tree,
-           find independently */
+           so here the document is found independently if document_in is set.
+           NOTE if the document is different from tree_document, setting
+           the F_DOCM_tree in reference_to_arg_internal
+           may not lead to a rebuild of the modified tree in Perl.  Getting
+           sure that the right document tree is rebuilt is the caller
+           responsibility.
+        */
         if (document_in)
-           document = get_sv_document_document (document_in, 0);
+          document = get_sv_document_document (document_in, 0);
+        else
+          document = tree_document;
         if (tree_document)
           reference_to_arg_in_tree (tree_document->tree, document);
 
