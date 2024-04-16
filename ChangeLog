@@ -1,5 +1,10 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (get_conf): remove warning if options are
+	initialized in get_conf call.  Add a TODO and a comment.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
 	(reference_to_arg_in_tree): use the tree document as document if no
 	document is given in argument.

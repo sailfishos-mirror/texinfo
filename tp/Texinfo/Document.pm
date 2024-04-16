@@ -26,6 +26,8 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+use Carp qw(cluck);
+
 use Texinfo::DocumentXS;
 
 use Texinfo::XSLoader;
@@ -219,7 +221,7 @@ sub registrar($)
   return $self->{'registrar'};
 }
 
-# Should be for options used in structuring.
+# Useful for options used in structuring/tree transformations.
 sub register_document_options($$)
 {
   my $self = shift;
@@ -234,7 +236,25 @@ sub get_conf($$)
   my $var = shift;
 
   if (!$self->{'options'}) {
-    print STDERR "WARNING: $var: Document get_conf uninitialized options\n";
+    # This may happen if a tree/document is manipulated without having
+    # any configuration set.  This is or was the case for pod2texi.
+    # TODO it is not clear yet whether allowing document options not to be set
+    # at all is right or wrong:
+    # In favor
+    #  * it would be a good thing if the output was correct with undef set
+    #    for each of the structuring options.
+    #  * not having to worry about setting customization information
+    #    at all allows writing simpler code.
+    # Against
+    #  * it guards against having forgotten to setup customization
+    #    variables
+    #  * it forces writers of code using a document object to think about
+    #    which customization should be set or not
+    #  * it is very easy to setup options as an empty hash, which removes
+    #    the warning but has not other effect, once one is confident that
+    #    the result obtained with all the customization variables unset is ok
+    #print STDERR "DEBUG: $var: Document get_conf uninitialized options\n";
+    #cluck();
     return undef;
   }
   return $self->{'options'}->{$var};
