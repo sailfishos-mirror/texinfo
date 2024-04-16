@@ -28,6 +28,6 @@ Th1
 @end detailmenu
 @end menu
 
-@include Th1.texi
+@include out_tests/Th1.texi
 
 @bye

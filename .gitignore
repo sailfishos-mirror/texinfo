@@ -414,6 +414,9 @@ Pod-Simple-Texinfo/pod2texi
 Pod-Simple-Texinfo/*.log
 Pod-Simple-Texinfo/*.tmp
 Pod-Simple-Texinfo/*.trs
+Pod-Simple-Texinfo/test_scripts/*.log
+Pod-Simple-Texinfo/test_scripts/*.tmp
+Pod-Simple-Texinfo/test_scripts/*.trs
 Pod-Simple-Texinfo/blib
 Pod-Simple-Texinfo/pm_to_blib
 Pod-Simple-Texinfo/MYMETA.json

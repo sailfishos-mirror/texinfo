@@ -1,5 +1,11 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/Makefile.am (test_files, EXTRA_DIST),
+	Pod-Simple-Texinfo/test_scripts/*.sh: add tests of pod2texi.pl, based
+	on tests formerly in manual_tests.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/targets.c (add_element_to_identifiers_target):
 	set is_target extra information.
 

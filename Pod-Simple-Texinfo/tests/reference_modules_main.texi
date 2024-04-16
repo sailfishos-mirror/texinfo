@@ -43,7 +43,7 @@ Module2
 @end detailmenu
 @end menu
 
-@include manual_tests/includes/Module1.texi
-@include manual_tests/includes/Module2.texi
+@include out_tests/includes/Module1.texi
+@include out_tests/includes/Module2.texi
 
 @bye
