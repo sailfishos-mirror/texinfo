@@ -256,6 +256,7 @@ INLINE_CSS_STYLE                   converter_customization undef   integer
 INPUT_FILE_NAME_ENCODING           converter_customization undef   char
 JS_WEBLABELS                       converter_customization undef   char
 JS_WEBLABELS_FILE                  converter_customization undef   char
+LATEX_FLOATS_FILE_EXTENSION        converter_customization tfl     char
 LOCALE_ENCODING                    converter_customization undef   char
 L2H_CLEAN                          converter_customization undef   integer
 L2H_FILE                           converter_customization undef   char

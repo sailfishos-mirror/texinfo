@@ -781,15 +781,9 @@ my %defaults = (
   # Not customization option variables
   'converted_format'     => 'latex',
 
-  # FIXME this sets an option that is not a customization variable
-  # and will not be documented anywhere.  It should probably be better
-  # to add and document a customization variable in the Texinfo manual
-  # if needed.
   # For LaTeX in general, it could make sense to have some customization,
   # for example of packages, fonts, document type, to be discussed/though
   # about how to setup this customization.
-  # FIXME any idea what could be used?
-  'floats_extension'     => 'tfl',
 
   # Customization option variables
   'OUTPUT_CHARACTERS'    => 0,
@@ -1362,6 +1356,7 @@ sub _latex_header() {
   }
 
   if ($floats) {
+    my $floats_extension = $self->get_conf('LATEX_FLOATS_FILE_EXTENSION');
     foreach my $normalized_float_type
                            (sort(keys(%{$self->{'normalized_float_latex'}}))) {
       my $latex_float_name
@@ -1374,7 +1369,6 @@ sub _latex_header() {
           my $float_type = _convert($self, $float->{'args'}->[0]);
           _pop_context($self);
         }
-        my $floats_extension = $self->{'floats_extension'};
         $header_code .= "% new float for type `$normalized_float_type'\n";
         $header_code
            .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]

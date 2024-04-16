@@ -15973,6 +15973,11 @@ lists, and @code{@@float}:
 \usepackage@{float@}
 \usepackage[hidelinks]@{hyperref@}
 @end example
+
+@item LATEX_FLOATS_FILE_EXTENSION
+Set new floats definition file extension for @LaTeX{} output.
+Default @samp{tfl}.
+
 @end vtable
 
 
