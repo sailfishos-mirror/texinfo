@@ -3,13 +3,11 @@
 
 #########################
 
-# change 'tests => 1' to 'tests => last_test_to_print';
-
 use Test::More;
 use File::Spec;
 
 BEGIN {
-  plan tests => 22;
+  plan tests => 23;
 
   my $updir = File::Spec->updir();
   # To find Texinfo::ModulePath
@@ -416,6 +414,25 @@ end of C<line>
 end of @code{line},,, Some-Pod-Manual}
 
 ', 'end of line in L');
+
+run_test('=head1 empty head2
+
+=head2
+
+=head2     
+
+=head2 B<Z<>>
+', '@node empty head2
+@chapter empty head2
+
+@section 
+
+@section 
+
+@node @strong{}
+@section @strong{}
+
+', 'empty head2', 1);
 
 1;
 

@@ -284,19 +284,38 @@ sub _parsed_manual_tree($$$$$)
   my $fill_gaps_in_sectioning = shift;
   my $do_node_menus = shift;
 
-  my $texi_parser = Texinfo::Parser::parser();
+  my $parser_options = {};
+  if ($debug > 3) {
+    $parser_options->{'DEBUG'} = $debug - 3;
+  }
+  my $texi_parser = Texinfo::Parser::parser($parser_options);
   my $document = $texi_parser->parse_texi_text($manual_texi);
   my $tree = $document->tree();
 
+  if ($debug > 1) {
+    my ($parser_errors, $parser_error_count) = $texi_parser->errors();
+    foreach my $error_message (@$parser_errors) {
+      if ($error_message->{'type'} eq 'error') {
+        warn "ERROR: _parsed_manual_tree: $error_message->{'error_line'}";
+      } else {
+        warn "WARNING: _parsed_manual_tree: $error_message->{'error_line'}";
+      }
+    }
+  }
+
   my $identifier_target = $document->labels_information();
 
-  # NOTE the document customization information is not initialized.
+  # NOTE the document customization information is not initialized
+  # if debug is not high.
   # The functions called on the document below, and elsewhere in
   # the code call get_conf for structuring information and menu
   # generation on the document.
-  # TODO call register_document_options(), maybe with an empty hash?
-  # forward $debug (or $debug - 1)? as DEBUG?  Show parsing and structuring
-  # error messages if $debug > x ?
+  # TODO always call register_document_options(), maybe with an empty hash?
+  if ($debug > 3) {
+    # there is not much debug output in structuring code used with the
+    # document, but it could still be interesting to debug.
+    $document->register_document_options({'DEBUG' => $debug - 3});
+  }
 
   if ($fill_gaps_in_sectioning) {
     my $commands_heading_content;
@@ -320,6 +339,18 @@ sub _parsed_manual_tree($$$$$)
   Texinfo::Structuring::associate_internal_references($document);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes and $do_node_menus);
+
+  if ($debug > 1) {
+    my ($document_errors, $document_error_count) = $document->errors();
+    foreach my $error_message (@$document_errors) {
+      if ($error_message->{'type'} eq 'error') {
+        warn "ERROR: _parsed_manual_tree document: $error_message->{'error_line'}";
+      } else {
+        warn "WARNING: _parsed_manual_tree document: $error_message->{'error_line'}";
+      }
+    }
+  }
+
   return ($texi_parser, $document, $identifier_target);
 }
 
@@ -338,6 +369,10 @@ sub _fix_texinfo_tree($$$$;$$)
                           $do_node_menus);
   if ($do_master_menu) {
     if ($do_node_menus) {
+      # It could be possible to show document errors if debug > 1
+      # for example, but there should not be any error emitted,
+      # except maybe for errors in translations code, which are very
+      # unlikely.
       Texinfo::Transformations::regenerate_master_menu($document,
                                                        $texi_parser);
     } else {
@@ -408,13 +443,14 @@ foreach my $file (@input_files) {
   my $manual_texi = '';
   my $outfile;
   my $outfile_name;
-  my $manual_name = $file_manual_name{$file};
+  my $manual_name;
   my $manual_title;
   $manual_title = $file_manual_title{$file}
     if (defined($file_manual_title{$file}));
   if ($base_level == 0 and !$file_nr) {
     $outfile = $output;
   } else {
+    $manual_name = $file_manual_name{$file};
     if (defined($manual_title)) {
       $outfile_name = Pod::Simple::Texinfo::_pod_title_to_file_name($manual_title);
     } else {
@@ -469,12 +505,18 @@ foreach my $file (@input_files) {
     $new->texinfo_internal_pod_manuals(\@manuals);
   }
   
-  print STDERR "processing $file -> $outfile ($manual_name)\n" if ($debug);
+  if ($debug) {
+    if ($base_level > 0) {
+      print STDERR "processing $file -> $outfile ($base_level, $manual_name)\n";
+    } else {
+      print STDERR "processing $file -> $outfile\n";
+    }
+  }
   $new->parse_file($file);
 
   if ($section_nodes or $fill_sectioning_gaps) {
     if ($debug > 4) {
-      # print to a file
+      # print the manual obtained before fixing the Texinfo code to a file
       open(DBGFILE, ">$outfile-dbg")
                              or die sprintf(__("%s: could not open %s: %s\n"),
                                       $real_command_name, "$outfile-dbg", $!);
