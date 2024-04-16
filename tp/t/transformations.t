@@ -82,6 +82,33 @@ A MC.
    'FORMAT_MENU' => 'menu'},
   {'FORMAT_MENU' => 'menu'},
 ],
+['insert_nodes_for_sectioning_commands',
+# same as in t/automatic_nodes.t
+'@top top section
+
+@part part
+
+@chapter chap, @code{a chap}
+
+@node a node
+@section section
+
+@section truc
+@subsection sub1
+
+Text.
+
+@subsection sub2 @c comment
+
+@section section
+
+@section section
+
+@unnumbered
+
+@section @asis{}
+
+',{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},],
 );
 
 

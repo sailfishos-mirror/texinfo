@@ -2012,6 +2012,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/transformations/index_entries_relate_to_item_no_transformation/res_html \
   t/results/transformations/index_entries_relate_to_item_transformation.pl \
   t/results/transformations/index_entries_relate_to_item_transformation/res_html \
+  t/results/transformations/insert_nodes_for_sectioning_commands.pl \
   t/results/transformations/master_menu_fr.pl \
   t/results/transformations/master_menu_fr/res_html \
   t/results/transformations/protect_colon_source_mark.pl \

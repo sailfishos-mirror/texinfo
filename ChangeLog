@@ -1,5 +1,18 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/targets.c (add_element_to_identifiers_target):
+	set is_target extra information.
+
+	* tp/Texinfo/XS/main/targets.c (register_label_element): fix existing
+	error label error condition.
+
+	* tp/Makefile.tres, tp/t/transformations.t
+	(insert_nodes_for_sectioning_commands): add the same test of
+	insert_nodes_for_sectioning_commands transformation as in
+	t/automatic_nodes.t, here with tree and error messages too.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_print_texinfo_errors)
 	(_parsed_manual_tree): better formatting of error messages from
 	Texinfo modules.

@@ -225,6 +225,8 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
       if (!target)
         {
           LABEL_LIST *sorted_identifiers_target;
+
+          add_extra_integer (element, "is_target", 1);
           register_label_in_list (identifiers_target, element,
                                   normalized);
           sorted_identifiers_target
@@ -279,7 +281,7 @@ register_label_element (int document_descriptor, ELEMENT *element,
 
   char *normalized = add_element_to_identifiers_target (document, element,
                                                         &status);
-  if (!status)
+  if (status)
     {
       existing_label_error (document, element, normalized, error_messages);
     }
