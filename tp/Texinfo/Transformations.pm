@@ -313,9 +313,17 @@ sub _new_node($$;$)
     # that is used to construct the node.
     # Also protect_first_parenthesis has no XS override, only
     # protect_first_parenthesis_in_targets.
-    # FIXME we could also rebuild the tree, after adding an override
-    # for protect_first_parenthesis?
     confess("BUG: _new_node: XS not supported");
+
+    # It could have been possible to rebuild the tree, after adding
+    # an override for protect_first_parenthesis.
+    # If XS is used, however, it is be much better to override all
+    # the functions calling the current function instead of trying
+    # to have it work through an interface because the function is
+    # mostly internal.  So, it is better to keep failing with XS.
+    #
+    # The issue arise because the current function is used in tests,
+    # this cannot work with XS (and tests are skipped).
   }
 
   # We protect for all the contexts, as the node name should be

@@ -144,7 +144,8 @@ my %defaults = (
 my %common_converters_defaults = (
   # Following are set in the main program
   'language_config_dirs' => undef,
-  'converted_format'     => undef,
+  'converted_format'     => undef, # also in converter defaults, but
+                                   # in general set by the caller
   # can be different from the converted_format, for example, epub3
   # output format converted format is html.
   'output_format'        => undef,
