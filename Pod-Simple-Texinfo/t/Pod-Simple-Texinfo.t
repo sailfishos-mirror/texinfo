@@ -9,7 +9,7 @@ use Test::More;
 use File::Spec;
 
 BEGIN {
-  plan tests => 21;
+  plan tests => 22;
 
   my $updir = File::Spec->updir();
   # To find Texinfo::ModulePath
@@ -403,6 +403,19 @@ L<F<--->|F<-->/C<--->>
 @ref{@code{---},, @file{---}, --}
 
 ', 'protected -');
+
+run_test('=head1 end of line in L
+
+L<< Some::Pod
+::Manual/with
+end of C<line>
+>>','@chapter end of line in L
+@anchor{end of line in L}
+
+@ref{with
+end of @code{line},,, Some-Pod-Manual}
+
+', 'end of line in L');
 
 1;
 

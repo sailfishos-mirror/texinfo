@@ -341,6 +341,7 @@ sub _protect_text($;$$)
 sub _pod_title_to_file_name($)
 {
   my $name = shift;
+  $name =~ s/[\n\r]//g;
   $name =~ s/\s+/_/g;
   $name =~ s/::/-/g;
   $name =~ s/[^\w\.-]//g;
@@ -428,6 +429,9 @@ sub _normalize_texinfo_name($$)
   }
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($texinfo_text);
+  # TODO in general, we are not interested by parsing errors, but it could
+  # be interesting to show errors even if the $document is defined based on
+  # some debugging print argument.
   if (!defined($document)) {
     my $texinfo_text_str = $texinfo_text;
     chomp($texinfo_text_str);
@@ -440,8 +444,7 @@ sub _normalize_texinfo_name($$)
         warn "WARNING: $error_message->{'error_line'}";
       }
     }
-    # FIXME Or undef, and callers check the return to be defined?
-    return '';
+    return undef;
   }
   my $tree = $document->tree();
   if ($command eq 'anchor') {
@@ -481,7 +484,7 @@ sub _prepare_anchor($$)
 
   my $node = _normalize_texinfo_name($texinfo_node_name, 'anchor');
 
-  if ($node !~ /\S/) {
+  if (!defined($node) or $node !~ /\S/) {
     return '';
   }
   # Now we know that we have something.
@@ -697,7 +700,7 @@ sub _texinfo_handle_element_start($$$)
               # it will be the section associated with the node, which is
               # the non informative 'NAME' section name
               $texinfo_section = _normalize_texinfo_name(
-                 _protect_comma($manual_texi), 'section');
+                               _protect_comma($manual_texi), 'section');
             }
           }
           # use plain text string without formatting to match with what should
@@ -724,12 +727,14 @@ sub _texinfo_handle_element_start($$$)
                                 _protect_comma($section_texi), 'section');
           #print STDERR "L: internal: $texinfo_node/$texinfo_section\n";
         }
-        #print STDERR "L: not normalized node: $texinfo_node\n";
+        #print STDERR "L: not normalized node: '$texinfo_node'\n";
         $texinfo_node = _normalize_texinfo_name(
                 _protect_colon(
-                # FIXME remove end of lines?
-                _protect_comma($texinfo_node)), 'anchor');
-        #print STDERR "L: normalized node: $texinfo_node\n";
+                # empty lines are not valid in L<> in POD section, this is the
+                # same constraint as in @anchor
+                 _protect_comma($texinfo_node)), 'anchor');
+        $texinfo_node = '' if (!defined($texinfo_node));
+        #print STDERR "L: normalized node: '$texinfo_node'\n";
 
         # for pod, 'to' is the pod manual name.  Then 'section' is the
         # section.
@@ -844,7 +849,8 @@ sub _texinfo_handle_element_end($$$)
         $result =~ s/\s*$//;
 
         $command_argument = _normalize_texinfo_name($result, $command);
-        if ($result =~ /\S/ and $command_argument !~ /\S/) {
+        if ($result =~ /\S/
+            and (!defined($command_argument) or $command_argument !~ /\S/)) {
           # use some raw text if the expansion lead to empty Texinfo code
           my $tree = parse_texi_line(undef, $result);
           my $converter = Texinfo::Convert::TextContent->converter();

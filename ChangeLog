@@ -1,5 +1,19 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_pod_title_to_file_name): remove end of lines.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name): return undef in case of parsing errors
+	leading to an undefined document.  Update callers.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm: change in comments.
+
+	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (end of line in L): new
+	test.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl: minor change in code, change in
 	comments.
 
