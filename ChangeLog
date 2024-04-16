@@ -1,5 +1,11 @@
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (_print_texinfo_errors)
+	(_parsed_manual_tree): better formatting of error messages from
+	Texinfo modules.
+
+2024-04-16  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): set debugging
 	output and get errors if debug is set.
 
