@@ -238,7 +238,6 @@ sub _preamble($)
     if (defined($self->texinfo_short_title())) {
       $setfilename = pod_title_to_file_name($self->texinfo_short_title());
     } else {
-      # FIXME maybe output filename would be better than source_filename?
       my $source_filename = $self->source_filename();
       if (defined($source_filename) and $source_filename ne '') {
         if ($source_filename eq '-') {
