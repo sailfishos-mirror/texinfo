@@ -19,12 +19,17 @@
 # Parts from L<Pod::Simple::HTML>.
 #
 #
-# The code could easily be used directly as a Pod::Simple subclass
-# by renaming _texinfo_handle_element_start and the two other
-# similar functions as _handle_element_start, or as a
-# Pod::Simple::SimpleTree subclass, using _convert_pod_simple_tree.
-# We prefer a Pod::Simple::PullParser subclassing to be able to use
-# get_short_title().
+# The code is organized such that it is easy to use any Pod::Simple
+# interface:
+# * We mainly use Pod::Simple::PullParser subclassing to be able to use
+#   get_short_title();  _convert_pod_tokens is the main function used to get
+#   PullParser tokens.
+# * The code could also be used directly as a Pod::Simple subclass by renaming
+#   _texinfo_handle_element_start and the two other similar functions as
+#   _handle_element_start ad similar.
+# * The code can also be used as a Pod::Simple::SimpleTree subclass, by
+#   using _convert_pod_simple_tree.  The possibility to convert SimpleTree
+#   is actually used in the code for L<> formatting.
 #
 # bare_output flag described in Pod::Simple::Subclassing is taken into
 # account.
@@ -102,6 +107,7 @@ my @raw_formats = ('html', 'HTML', 'docbook', 'DocBook', 'texinfo',
 # from other Pod::Simple modules.  Creates accessor subroutine.
 __PACKAGE__->_accessorize(
   'texinfo_add_upper_sectioning_command',
+  'texinfo_debug',
   'texinfo_internal_pod_manuals',
   'texinfo_man_url_prefix',
   'texinfo_main_command_sectioning_style',
@@ -122,6 +128,7 @@ sub new
   my $new = $class->SUPER::new(@_);
   $new->accept_targets(@raw_formats);
   $new->preserve_whitespace(1);
+  $new->texinfo_debug(0);
   $new->texinfo_section_nodes(0);
   $new->texinfo_sectioning_base_level($sectioning_base_level);
   $new->texinfo_man_url_prefix($man_url_prefix);
@@ -410,12 +417,45 @@ sub _prepend_internal_section_manual($$$;$$)
   }
 }
 
-sub _normalize_texinfo_name($$)
+# also used in pod2texi.pl, not public.
+sub print_texinfo_errors($;$)
+{
+  my $error_source = shift;
+  my $location = shift;
+
+  my ($error_messages, $error_count) = $error_source->errors();
+  foreach my $error_message (@$error_messages) {
+    my $type_string;
+    if ($error_message->{'type'} eq 'error') {
+      $type_string = 'ERROR';
+    } else {
+      $type_string = 'WARNING';
+    }
+    my $location_string;
+    if (defined($location)) {
+      $location_string = "$location:";
+    } else {
+      $location_string = '';
+    }
+    if (defined($error_message->{'file_name'})) {
+      $location_string .= "$error_message->{'file_name'}:";
+    }
+    if (defined($error_message->{'line_nr'})) {
+      $location_string .= "$error_message->{'line_nr'}:";
+    }
+    $location_string .= ' ' unless ($location_string eq '');
+    warn "$type_string: ${location_string}$error_message->{'error_line'}";
+  }
+}
+
+sub _normalize_texinfo_name($$;$)
 {
   # Pod may be more forgiven than Texinfo, so we go through
   # a normalization, by parsing and converting back to Texinfo
   my $name = shift;
   my $command = shift;
+  my $debug = shift;
+
   my $texinfo_text;
   if ($command eq 'anchor') {
     $texinfo_text = "\@anchor{$name}";
@@ -427,24 +467,26 @@ sub _normalize_texinfo_name($$)
     }
     $texinfo_text = "\@$command $name\n";
   }
-  my $parser = Texinfo::Parser::parser();
+
+  my $parser_options = {};
+  if (defined($debug) and $debug > 4) {
+    $parser_options->{'DEBUG'} = $debug - 4;
+  }
+  my $parser = Texinfo::Parser::parser($parser_options);
   my $document = $parser->parse_texi_piece($texinfo_text);
-  # TODO in general, we are not interested by parsing errors, but it could
-  # be interesting to show errors even if the $document is defined based on
-  # some debugging print argument.
   if (!defined($document)) {
     my $texinfo_text_str = $texinfo_text;
     chomp($texinfo_text_str);
     warn "ERROR: Texinfo parsing failed for: $texinfo_text_str\n";
-    my ($parser_errors, $parser_error_count) = $parser->errors();
-    foreach my $error_message (@$parser_errors) {
-      if ($error_message->{'type'} eq 'error') {
-        warn "ERROR: $error_message->{'error_line'}";
-      } else {
-        warn "WARNING: $error_message->{'error_line'}";
-      }
-    }
+    print_texinfo_errors($parser);
     return undef;
+  # use a high debug number, as the errors and warnings are likely to be
+  # redundant with the warnings and errors emitted when fixing the document
+  # and also because we go through Texinfo parsing and outputing as Texinfo
+  # not only to apply transformations, but also possibly to fix invalid
+  # constructs.
+  } elsif (defined($debug) and $debug > 3) {
+    print_texinfo_errors($parser, '_normalize_texinfo_name');
   }
   my $tree = $document->tree();
   if ($command eq 'anchor') {
@@ -482,7 +524,8 @@ sub _prepare_anchor($$)
   my $self = shift;
   my $texinfo_node_name = shift;
 
-  my $node = _normalize_texinfo_name($texinfo_node_name, 'anchor');
+  my $node = _normalize_texinfo_name($texinfo_node_name, 'anchor',
+                                     $self->texinfo_debug());
 
   if (!defined($node) or $node !~ /\S/) {
     return '';
@@ -573,6 +616,8 @@ sub _texinfo_handle_element_start($$$)
   my $self = shift;
   my $tagname = shift;
   my $attr_hash = shift;
+
+  my $debug = $self->texinfo_debug();
 
   my $fh = $self->{'output_fh'};
 
@@ -700,7 +745,7 @@ sub _texinfo_handle_element_start($$$)
               # it will be the section associated with the node, which is
               # the non informative 'NAME' section name
               $texinfo_section = _normalize_texinfo_name(
-                               _protect_comma($manual_texi), 'section');
+                        _protect_comma($manual_texi), 'section', $debug);
             }
           }
           # use plain text string without formatting to match with what should
@@ -724,7 +769,7 @@ sub _texinfo_handle_element_start($$$)
                                  $self->texinfo_short_title(), $section_texi,
                                  $self->texinfo_sectioning_base_level(), 1, 1);
           $texinfo_section = _normalize_texinfo_name(
-                                _protect_comma($section_texi), 'section');
+                           _protect_comma($section_texi), 'section', $debug);
           #print STDERR "L: internal: $texinfo_node/$texinfo_section\n";
         }
         #print STDERR "L: not normalized node: '$texinfo_node'\n";
@@ -732,7 +777,7 @@ sub _texinfo_handle_element_start($$$)
                 _protect_colon(
                 # empty lines are not valid in L<> in POD section, this is the
                 # same constraint as in @anchor
-                 _protect_comma($texinfo_node)), 'anchor');
+                 _protect_comma($texinfo_node)), 'anchor', $debug);
         $texinfo_node = '' if (!defined($texinfo_node));
         #print STDERR "L: normalized node: '$texinfo_node'\n";
 
@@ -848,7 +893,8 @@ sub _texinfo_handle_element_end($$$)
         $result =~ s/^\s*//;
         $result =~ s/\s*$//;
 
-        $command_argument = _normalize_texinfo_name($result, $command);
+        $command_argument = _normalize_texinfo_name($result, $command,
+                                                    $self->texinfo_debug());
         if ($result =~ /\S/
             and (!defined($command_argument) or $command_argument !~ /\S/)) {
           # use some raw text if the expansion lead to empty Texinfo code
@@ -968,8 +1014,13 @@ sub _texinfo_handle_element_end($$$)
   }
 }
 
-# does not appear as parsed token
+# NOTE does not appear as parsed token
 # E entity/character
+
+# Dispatch PullParser tokens to the formatting functions.  The processing
+# is done in the functions called, and not directly in the function such
+# that it is easy to implement parsing through other Pod::Simple interfaces
+# too.
 sub _convert_pod_tokens($)
 {
   my $self = shift;
@@ -1092,16 +1143,23 @@ a C<@part> if the level is equal to 1, a C<@chapter> if the level is equal
 to 2 and so on and so forth.  If the base level is 0, a C<@top> command is
 output instead.
 
+=item texinfo_debug
+
+Debug level.  Mainly or only used to turn on Texinfo parsing debugging, when
+Texinfo obtained from POD is parsed as Texinfo code to be normalized or
+modified and to report associated Texinfo processing errors.  More information
+output with higher levels.  Default 0, no debugging information output.
+
 =item texinfo_internal_pod_manuals
 
 The argument should be a reference on an array containing the short
 titles (usually the module names) of all the Pod documents that are
 converted together and should be internal in the Texinfo document obtained
 by including all those Pod documents.  References to those documents use
-the internal reference commands formatting in Texinfo.  The formatting commands
-should not be present in the short titles.
+the internal reference commands formatting in Texinfo.  Formatting commands
+should not be present in these short titles.
 
-Corresponds to L</texinfo_sectioning_base_level> set to anything else than 0.
+Relevant if L</texinfo_sectioning_base_level> is not set to 0.
 
 =item texinfo_main_command_sectioning_style
 
@@ -1118,13 +1176,14 @@ is C<http://man.he.net/man>.
 =item texinfo_section_nodes
 
 If set, add C<@node> and not C<@anchor> for each sectioning command.
+Set to 0 in the default case.
 
 =item texinfo_sectioning_base_level
 
 Sets the level of the head1 commands.  1 is for the @chapter/@unnumbered
 level.  If set to 0, the head1 commands level is still 1, but the output
 manual is considered to be a standalone manual.  If not 0, the Pod file is
-rendered as a fragment of a Texinfo manual.
+rendered as a fragment of a Texinfo manual.  Default is 0.
 
 =item texinfo_sectioning_style
 

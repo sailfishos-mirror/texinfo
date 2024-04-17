@@ -275,30 +275,6 @@ if ($base_level > 0) {
   }
 }
 
-sub _print_texinfo_errors($$)
-{
-  my $location = shift;
-  my $error_source = shift;
-
-  my ($error_messages, $error_count) = $error_source->errors();
-  foreach my $error_message (@$error_messages) {
-    my $type_string;
-    if ($error_message->{'type'} eq 'error') {
-      $type_string = 'ERROR';
-    } else {
-      $type_string = 'WARNING';
-    }
-    my $location_string = $location;
-    if (defined($error_message->{'file_name'})) {
-      $location_string .= ":$error_message->{'file_name'}";
-    }
-    if (defined($error_message->{'line_nr'})) {
-      $location_string .= ":$error_message->{'line_nr'}";
-    }
-    warn "$type_string: $location_string: $error_message->{'error_line'}";
-  }
-}
-
 # return a parser and parsed tree
 sub _parsed_manual_tree($$$$$)
 {
@@ -317,7 +293,8 @@ sub _parsed_manual_tree($$$$$)
   my $tree = $document->tree();
 
   if ($debug > 1) {
-    _print_texinfo_errors('_parsed_manual_tree', $texi_parser);
+    Pod::Simple::Texinfo::print_texinfo_errors($texi_parser,
+                                           '_parsed_manual_tree');
   }
 
   my $identifier_target = $document->labels_information();
@@ -358,7 +335,8 @@ sub _parsed_manual_tree($$$$$)
     if ($section_nodes and $do_node_menus);
 
   if ($debug > 1) {
-    _print_texinfo_errors('_parsed_manual_tree document', $document);
+    Pod::Simple::Texinfo::print_texinfo_errors($document,
+                                      '_parsed_manual_tree document');
   }
 
   return ($texi_parser, $document, $identifier_target);
@@ -514,8 +492,9 @@ foreach my $file (@input_files) {
     # names without formatting from Pod::Simple::PullParser->get_short_title
     $new->texinfo_internal_pod_manuals(\@manuals);
   }
-  
+
   if ($debug) {
+    $new->texinfo_debug($debug);
     if ($base_level > 0) {
       print STDERR "processing $file -> $outfile ($base_level, $manual_name)\n";
     } else {

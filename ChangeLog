@@ -1,7 +1,22 @@
 2024-04-17  Patrice Dumas  <pertusus@free.fr>
 
-	* Pod-Simple-Texinfo/test_scripts/*.sh: use $PERL to be sure to use
-	the same perl the XS modules were compiled against.
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (print_texinfo_errors),
+	Pod-Simple-Texinfo/pod2texi.pl: move _print_texinfo_errors to
+	Pod/Simple/Texinfo.pm and improve.  Update callers.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_accessorize, new),
+	Pod-Simple-Texinfo/pod2texi.pl: add a texinfo_debug accessor to the
+	POD parser, and pass it from pod2texi.pl.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name): add debug level argument and use it to
+	set debugging in Texinfo parser used for names normalizations and
+	print errors and warnings.  Update callers.
+
+2024-04-17  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/test_scripts/*.sh: use $PERL to use the same perl
+	the XS modules were compiled against.
 
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
