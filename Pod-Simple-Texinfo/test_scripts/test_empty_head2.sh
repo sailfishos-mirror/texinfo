@@ -21,7 +21,7 @@ return_code=0
 # The manual processed in the test has an empty head.
 # There are errors generated when parsing the manual to fix and add
 # menus, which can be seen with --debug=2.
-${srcdir}/pod2texi.pl ${srcdir}/tests/empty_head2.pod > out_tests_empty_head2/empty_head2.texi
+$PERL -w ${srcdir}/pod2texi.pl ${srcdir}/tests/empty_head2.pod > out_tests_empty_head2/empty_head2.texi
 ret=$?
 if [ $ret != 0 ]; then
   echo "F empty_head2.pod: $ret"

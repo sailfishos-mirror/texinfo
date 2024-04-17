@@ -20,7 +20,7 @@ mkdir -p out_tests
 
 return_code=0
 
-${srcdir}/pod2texi.pl --base-level=2 --subdir=out_tests ${srcdir}/tests/sectioning_gap.pod > out_tests/sectioning_gap.texi
+$PERL -w ${srcdir}/pod2texi.pl --base-level=2 --subdir=out_tests ${srcdir}/tests/sectioning_gap.pod > out_tests/sectioning_gap.texi
 ret=$?
 if [ $ret != 0 ]; then
   echo "F sectioning_gap.pod: $ret"
@@ -42,7 +42,7 @@ elif [ $return_code = 0 ]; then
   rm -f out_tests/Th1.texi
 fi
 
-${srcdir}/pod2texi.pl --base-level=section --subdir=out_tests/includes ${srcdir}/tests/Module1.pod ${srcdir}/tests/Module2.pod > out_tests/modules_main.texi
+$PERL -w ${srcdir}/pod2texi.pl --base-level=section --subdir=out_tests/includes ${srcdir}/tests/Module1.pod ${srcdir}/tests/Module2.pod > out_tests/modules_main.texi
 if [ $ret != 0 ]; then
   echo "F Module1.pod Module2.pod: $ret"
   return_code=1

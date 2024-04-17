@@ -21,7 +21,7 @@ return_code=0
 # The manual processed in the test has a reference that is not resolved.
 # There is an error generated when gathering internal references after
 # parsing the manual to fix and add  menus, which can be seen with --debug=2.
-${srcdir}/pod2texi.pl ${srcdir}/tests/ref_to_unknown.pod > out_tests_ref_to_unknown/ref_to_unknown.texi
+$PERL -w ${srcdir}/pod2texi.pl ${srcdir}/tests/ref_to_unknown.pod > out_tests_ref_to_unknown/ref_to_unknown.texi
 ret=$?
 if [ $ret != 0 ]; then
   echo "F ref_to_unknown.pod: $ret"

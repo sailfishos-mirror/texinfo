@@ -1,3 +1,8 @@
+2024-04-17  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/test_scripts/*.sh: use $PERL to be sure to use
+	the same perl the XS modules were compiled against.
+
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/Makefile.am (test_files, EXTRA_DIST),
