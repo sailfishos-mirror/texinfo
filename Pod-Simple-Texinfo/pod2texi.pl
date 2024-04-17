@@ -135,6 +135,8 @@ and all the \@include is generated.");
     --appendix-sections     use appendix-like sections")."\n";
   $pod2texi_help .= __("    --base-level=NUM|NAME   level of the head1 commands; default 0")."\n";
   $pod2texi_help .= __("    --debug=NUM             set debugging level")."\n";
+  $pod2texi_help .= __("    --generate-setfilename  generate \@setfilename for standalone
+                            manuals")."\n";
   $pod2texi_help .= __("    --headings-as-sections  no structuring command for sections")."\n";
   $pod2texi_help .= __("    --help                  display this help and exit")."\n";
   $pod2texi_help .= __("    --no-fill-section-gaps  do not fill sectioning gaps")."\n";
@@ -162,6 +164,8 @@ my $unnumbered_sections = 0;
 my $appendix_sections = 0;
 my $headings_as_sections = 0;
 my $generate_node_menus = 0;
+# TODO change to 0 when the time has come.
+my $generate_setfilename = 1;
 my $output = '-';
 my $top = 'top';
 my $setfilename = undef;
@@ -191,6 +195,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
    },
   'appendix-sections!' => \$appendix_sections,
   'fill-section-gaps!' => \$fill_sectioning_gaps,
+  'generate-setfilename!' => \$generate_setfilename,
   'headings-as-sections!' => \$headings_as_sections,
   'menus!' => \$generate_node_menus,
   'output|o=s' => \$output,
@@ -477,6 +482,8 @@ foreach my $file (@input_files) {
   # this sets the string that $parser's output will be sent to
   $new->output_string(\$manual_texi);
 
+  $new->texinfo_generate_setfilename($generate_setfilename);
+
   $new->texinfo_sectioning_base_level($base_level);
   if ($section_nodes) {
     $new->texinfo_section_nodes(1);
@@ -684,6 +691,11 @@ with output available at L<http://www.gnu.org/software/perl/manual>.
 
 Set debugging level to I<NUM>.
 
+=item B<--generate-setfilename>
+
+Generate a C<@setfilename> line for standalone manuals.  Can be negated
+with C<--no-generate-setfilename>.  Ignored if C<--base-level> is not 0.
+
 =item B<--headings-as-sections>
 
 Use headings commands (C<@heading>, ...) instead of the
@@ -724,8 +736,10 @@ boilerplate is a minimal beginning for a Texinfo document.
 
 =item B<--setfilename>=I<STR>
 
-Use I<STR> in top boilerplate before menu and includes for C<@setfilename>.
-No C<@setfilename> is output in the default case.
+Use I<STR> in top boilerplate before menu and includes for C<@setfilename>
+for the main manual, if C<--base-level> is not set to 0.  Ignored if
+C<--base-level> is 0.  No C<@setfilename> is output in the default case
+for the main manual.
 
 =item B<--subdir>=I<NAME>
 

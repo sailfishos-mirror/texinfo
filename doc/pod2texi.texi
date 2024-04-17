@@ -58,6 +58,12 @@ see @code{contrib/perldoc-all} in the Texinfo source distribution.
 
 Set debugging level to @emph{NUM}.
 
+@item @strong{@asis{}-@asis{}-@asis{}generate-setfilename}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}generate-setfilename}}
+
+Generate a @code{@@setfilename} line for standalone manuals.  Can be negated
+with @code{--no-generate-setfilename}.  Ignored if @code{--base-level} is not 0.
+
 @item @strong{@asis{}-@asis{}-@asis{}headings-as-sections}
 @anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}headings-as-sections}}
 
@@ -106,8 +112,10 @@ boilerplate is a minimal beginning for a Texinfo document.
 @item @strong{@asis{}-@asis{}-@asis{}setfilename}=@emph{STR}
 @anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}setfilename}=@emph{STR}}
 
-Use @emph{STR} in top boilerplate before menu and includes for @code{@@setfilename}.
-No @code{@@setfilename} is output in the default case.
+Use @emph{STR} in top boilerplate before menu and includes for @code{@@setfilename}
+for the main manual, if @code{--base-level} is not set to 0.  Ignored if
+@code{--base-level} is 0.  No @code{@@setfilename} is output in the default case
+for the main manual.
 
 @item @strong{@asis{}-@asis{}-@asis{}subdir}=@emph{NAME}
 @anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}subdir}=@emph{NAME}}

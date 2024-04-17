@@ -108,6 +108,7 @@ my @raw_formats = ('html', 'HTML', 'docbook', 'DocBook', 'texinfo',
 __PACKAGE__->_accessorize(
   'texinfo_add_upper_sectioning_command',
   'texinfo_debug',
+  'texinfo_generate_setfilename', # for standalone manuals
   'texinfo_internal_pod_manuals',
   'texinfo_man_url_prefix',
   'texinfo_main_command_sectioning_style',
@@ -129,6 +130,8 @@ sub new
   $new->accept_targets(@raw_formats);
   $new->preserve_whitespace(1);
   $new->texinfo_debug(0);
+  # TODO set to 0 when the time has come.
+  #$new->texinfo_generate_setfilename(0);
   $new->texinfo_section_nodes(0);
   $new->texinfo_sectioning_base_level($sectioning_base_level);
   $new->texinfo_man_url_prefix($man_url_prefix);
@@ -234,24 +237,26 @@ sub _preamble($)
   if ($self->texinfo_sectioning_base_level() == 0) {
     #print STDERR "$fh\n";
     print $fh '\input texinfo'."\n";
-    my $setfilename;
-    if (defined($self->texinfo_short_title())) {
-      $setfilename = pod_title_to_file_name($self->texinfo_short_title());
-    } else {
-      my $source_filename = $self->source_filename();
-      if (defined($source_filename) and $source_filename ne '') {
-        if ($source_filename eq '-') {
-          $setfilename = $STDIN_DOCU_NAME;
-        } else {
-          $setfilename = $source_filename;
-          $setfilename =~ s/\.(pod|pm)$//i;
+    if ($self->texinfo_generate_setfilename()) {
+      my $setfilename;
+      if (defined($self->texinfo_short_title())) {
+        $setfilename = pod_title_to_file_name($self->texinfo_short_title());
+      } else {
+        my $source_filename = $self->source_filename();
+        if (defined($source_filename) and $source_filename ne '') {
+          if ($source_filename eq '-') {
+            $setfilename = $STDIN_DOCU_NAME;
+          } else {
+            $setfilename = $source_filename;
+            $setfilename =~ s/\.(pod|pm)$//i;
+          }
         }
       }
-    }
-    if (defined($setfilename) and $setfilename =~ m/\S/) {
-      $setfilename = protect_text($setfilename, 1, 1);
-      $setfilename .= '.info';
-      print $fh "\@setfilename $setfilename\n\n"
+      if (defined($setfilename) and $setfilename =~ m/\S/) {
+        $setfilename = protect_text($setfilename, 1, 1);
+        $setfilename .= '.info';
+        print $fh "\@setfilename $setfilename\n\n"
+      }
     }
 
     my $title = $self->get_title();
@@ -1151,6 +1156,11 @@ Texinfo obtained from POD is parsed as Texinfo code to be normalized or
 modified and to report associated Texinfo processing errors.  More information
 output with higher levels.  Default 0, no debugging information output.
 
+=item texinfo_generate_setfilename
+
+If set, generate a C<@setfilename> line in standalone manuals. Ignored
+unless L</texinfo_sectioning_base_level> is 0.
+
 =item texinfo_internal_pod_manuals
 
 The argument should be a reference on an array containing the short
@@ -1165,9 +1175,9 @@ Relevant if L</texinfo_sectioning_base_level> is not set to 0.
 =item texinfo_main_command_sectioning_style
 
 Sectioning style for the main command appearing at the beginning of the output
-file if L</texinfo_sectioning_base_level> is anything else than 0.  Unset in the
-default case.  If unset, use L</texinfo_sectioning_style>, except for style
-C<heading>, for which the C<numbered> style is used in the default case.
+file if L</texinfo_sectioning_base_level> not 0.  Unset in the default case.
+If unset, use L</texinfo_sectioning_style>, except for style C<heading>, for
+which the C<numbered> style is used in the default case.
 
 =item texinfo_man_url_prefix
 

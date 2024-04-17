@@ -1,5 +1,14 @@
 2024-04-17  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_accessorize),
+	(_preamble): add a texinfo_generate_setfilename accessor to determine
+	if a @setfilename is inserted in standalone manuals.
+
+	* Pod-Simple-Texinfo/pod2texi.pl: add a --generate-setfilename option,
+	pass to the POD parser.
+
+2024-04-17  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(pod_title_to_file_name, protect_text): remove leading _ for functions
 	used in pod2texi.pl.  Update callers.
