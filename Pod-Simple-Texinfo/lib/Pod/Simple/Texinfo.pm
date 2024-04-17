@@ -236,7 +236,7 @@ sub _preamble($)
     print $fh '\input texinfo'."\n";
     my $setfilename;
     if (defined($self->texinfo_short_title())) {
-      $setfilename = _pod_title_to_file_name($self->texinfo_short_title());
+      $setfilename = pod_title_to_file_name($self->texinfo_short_title());
     } else {
       # FIXME maybe output filename would be better than source_filename?
       my $source_filename = $self->source_filename();
@@ -250,23 +250,23 @@ sub _preamble($)
       }
     }
     if (defined($setfilename) and $setfilename =~ m/\S/) {
-      $setfilename = _protect_text($setfilename, 1, 1);
+      $setfilename = protect_text($setfilename, 1, 1);
       $setfilename .= '.info';
       print $fh "\@setfilename $setfilename\n\n"
     }
 
     my $title = $self->get_title();
     if (defined($title) and $title =~ m/\S/) {
-      print $fh "\@settitle "._protect_text($title, 1)."\n\n";
+      print $fh "\@settitle ".protect_text($title, 1)."\n\n";
     }
     print $fh "\@node Top\n";
     if (defined($self->texinfo_short_title())) {
-      print $fh "\@top "._protect_text($self->texinfo_short_title(), 1)."\n\n";
+      print $fh "\@top ".protect_text($self->texinfo_short_title(), 1)."\n\n";
     }
   } elsif (defined($self->texinfo_short_title())
            and $self->texinfo_add_upper_sectioning_command()) {
     my $level = $self->texinfo_sectioning_base_level() - 1;
-    my $name = _protect_text($self->texinfo_short_title(), 1, 1);
+    my $name = protect_text($self->texinfo_short_title(), 1, 1);
     my $node_name = _prepare_anchor($self, $name);
 
     my $anchor = '';
@@ -280,7 +280,7 @@ sub _preamble($)
       }
     }
     print $fh "$node\@$self->{'texinfo_sectioning_main_command'}->[$level] "
-       ._protect_text($self->texinfo_short_title(), 1)."\n$anchor\n";
+       .protect_text($self->texinfo_short_title(), 1)."\n$anchor\n";
   }
 }
 
@@ -318,7 +318,8 @@ sub _end_context($)
   return ($previous_context->{'text'}, $previous_context->{'out'});
 }
 
-sub _protect_text($;$$)
+# Also used in pod2texi.pl but not public.
+sub protect_text($;$$)
 {
   my $text = shift;
   my $remove_new_lines = shift;
@@ -345,7 +346,8 @@ sub _protect_text($;$$)
   return $text;
 }
 
-sub _pod_title_to_file_name($)
+# Used in pod2texi.pl but not public
+sub pod_title_to_file_name($)
 {
   my $name = shift;
   $name =~ s/[\n\r]//g;
@@ -410,7 +412,7 @@ sub _prepend_internal_section_manual($$$;$$)
   my $in_code = shift;
 
   if (defined($manual) and $base_level > 0) {
-    $manual = _protect_text($manual, 1, $in_code) if ($protect_text);
+    $manual = protect_text($manual, 1, $in_code) if ($protect_text);
     return "$manual $section";
   } else {
     return $section;
@@ -659,19 +661,19 @@ sub _texinfo_handle_element_start($$$)
           $section = 1 if (!defined($section));
           # it is unlikely that there is a comma because of _url_escape
           # but to be sure there is still a call to _protect_comma.
-          $url_arg = _protect_comma(_protect_text(
+          $url_arg = _protect_comma(protect_text(
                                      $self->texinfo_man_url_prefix()
                                         ."$section/"._url_escape($page), 0, 1));
         } else {
           $url_arg = '';
         }
-        $replacement_arg = _protect_text($replacement_arg);
+        $replacement_arg = protect_text($replacement_arg);
         _output($fh, $self->{'texinfo_accumulated'},
                                          "\@url{$url_arg,, $replacement_arg}");
       } elsif ($linktype eq 'url') {
         # NOTE: the .'' is here to force the $token->attr to be a real
         # string and not an object.
-        $url_arg = _protect_comma(_protect_text($attr_hash->{'to'}.'', 0, 1));
+        $url_arg = _protect_comma(protect_text($attr_hash->{'to'}.'', 0, 1));
       } elsif ($linktype eq 'pod') {
         # The section is available from $attr_hash->{'section'} as a
         # tree (not a token, a Pod::Simple::SimpleTree), or as a plain text
@@ -755,8 +757,8 @@ sub _texinfo_handle_element_start($$$)
              _prepend_internal_section_manual($manual_texi, $section_texi,
                                  $self->texinfo_sectioning_base_level());
           } else {
-            $texinfo_manual = _protect_text(
-                        _pod_title_to_file_name($manual_text), 0, 1);
+            $texinfo_manual = protect_text(
+                        pod_title_to_file_name($manual_text), 0, 1);
             if (defined($section)) {
               $texinfo_node = $section_texi;
             } else {
@@ -847,11 +849,11 @@ sub _texinfo_handle_text($$)
   } else {
     if (@{$self->{'texinfo_stack'}} and ref($self->{'texinfo_stack'}->[-1]) eq ''
         and ($self->{'texinfo_raw_format_commands'}->{$self->{'texinfo_stack'}->[-1]})) {
-      $result_text = _protect_text($text, 0, 1);
+      $result_text = protect_text($text, 0, 1);
       $result_text
   =~ s/^(\s*)#(\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*)$/$1\@hashchar{}$2/mg;
     } else {
-      $result_text = _protect_text($text, 0,
+      $result_text = protect_text($text, 0,
                            (@{$self->{'texinfo_stack'}}
                             and $self->{'texinfo_stack'}->[-1] eq 'in_code'));
     }
@@ -900,7 +902,7 @@ sub _texinfo_handle_element_end($$$)
           # use some raw text if the expansion lead to empty Texinfo code
           my $tree = parse_texi_line(undef, $result);
           my $converter = Texinfo::Convert::TextContent->converter();
-          $command_argument = _protect_text($converter->convert_tree($tree));
+          $command_argument = protect_text($converter->convert_tree($tree));
         }
 
         if ($pod_head_commands_level{$tagname}

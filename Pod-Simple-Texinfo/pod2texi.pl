@@ -314,7 +314,7 @@ sub _parsed_manual_tree($$$$$)
   if ($fill_gaps_in_sectioning) {
     my $commands_heading_content;
     if ($self->texinfo_sectioning_base_level() > 0) {
-      my $manual_texi = Pod::Simple::Texinfo::_protect_text(
+      my $manual_texi = Pod::Simple::Texinfo::protect_text(
              $self->texinfo_short_title(), 1, 1);
       $commands_heading_content
         = Texinfo::Parser::parse_texi_line(undef, $manual_texi);
@@ -440,7 +440,7 @@ foreach my $file (@input_files) {
   } else {
     $manual_name = $file_manual_name{$file};
     if (defined($manual_title)) {
-      $outfile_name = Pod::Simple::Texinfo::_pod_title_to_file_name($manual_title);
+      $outfile_name = Pod::Simple::Texinfo::pod_title_to_file_name($manual_title);
     } else {
       $outfile_name = $manual_name;
     }
@@ -537,7 +537,7 @@ foreach my $file (@input_files) {
         push @manuals, $short_title;
         pop @included;
         my $new_outfile
-         = Pod::Simple::Texinfo::_pod_title_to_file_name($short_title);
+         = Pod::Simple::Texinfo::pod_title_to_file_name($short_title);
         $new_outfile .= '.texi';
         $new_outfile = File::Spec->catfile($subdir, $new_outfile)
            if (defined($subdir));
@@ -571,7 +571,7 @@ if ($base_level > 0) {
   my $setfilename_string = '';
   if (defined($setfilename)) {
     $setfilename_string = '@setfilename '
-              . Pod::Simple::Texinfo::_protect_text($setfilename)."\n";
+              . Pod::Simple::Texinfo::protect_text($setfilename)."\n";
   }
 
   my $preamble_result;
@@ -601,7 +601,7 @@ if ($base_level > 0) {
   }
   foreach my $include (@included) {
     my $file = $include->[1];
-    print $fh "\@include ".Pod::Simple::Texinfo::_protect_text($file)."\n";
+    print $fh "\@include ".Pod::Simple::Texinfo::protect_text($file)."\n";
   }
   print $fh "\n\@bye\n";
   
