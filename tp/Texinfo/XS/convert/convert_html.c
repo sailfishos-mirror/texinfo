@@ -2818,7 +2818,7 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
     {
       self->multiple_conversions++;
       push_string_stack_string (&self->multiple_pass, multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_multiple_conversions;
+      self->modified_state |= HMSF_multiple_pass;
       multiple_pass_str = "|M";
     }
 
@@ -2835,7 +2835,7 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
     {
       self->multiple_conversions--;
       pop_string_stack (&self->multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_multiple_conversions;
+      self->modified_state |= HMSF_multiple_pass;
     }
 
   free (context_string_str);
@@ -3989,13 +3989,11 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           self->multiple_conversions++;
           push_element_reference_stack_element (&self->referred_command_stack,
                                                 command, command->hv);
-          self->modified_state |= HMSF_multiple_conversions;
           target_info->command_text[type]
             = html_convert_tree (self, tree_root, explanation);
           free (explanation);
           pop_element_reference_stack (&self->referred_command_stack);
           self->multiple_conversions--;
-          self->modified_state |= HMSF_multiple_conversions;
 
           html_pop_document_context (self);
 

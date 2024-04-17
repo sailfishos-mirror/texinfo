@@ -742,6 +742,26 @@ html_unset_raw_context (SV *converter_in)
          if (self)
            html_unset_raw_context (self);
 
+void
+html_set_multiple_conversions (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_set_multiple_conversions");
+         if (self)
+           self->multiple_conversions++;
+
+void
+html_unset_multiple_conversions (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_unset_multiple_conversions");
+         if (self)
+           self->multiple_conversions--;
+
 SV *
 html_debug_print_html_contexts (SV *converter_in)
      PREINIT:
@@ -867,6 +887,17 @@ html_in_raw (SV *converter_in)
          self = get_sv_converter (converter_in,
                                   "html_in_raw");
          RETVAL = html_in_raw (self);
+    OUTPUT:
+         RETVAL
+
+int
+html_in_multiple_conversions (SV *converter_in)
+     PREINIT:
+         const CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_multiple_conversions");
+         RETVAL = self->multiple_conversions;
     OUTPUT:
          RETVAL
 

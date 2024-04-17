@@ -1,5 +1,21 @@
 2024-04-17  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Other Dynamic Information),
+	(in_multiple_conversions, _internal_command_text)
+	(convert_tree_new_formatting_context, _noticed_line_warn)
+	(_set_multiple_conversions, _unset_multiple_conversions): add an API
+	to access to multiple_conversions.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_set_multiple_conversions)
+	(html_unset_multiple_conversions, html_in_multiple_conversions),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(convert_tree_new_formatting_context, html_internal_command_text): XS
+	interface for multiple_conversions.  Remove previous interface.
+
+2024-04-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_internal_command_text)
 	(convert_tree_new_formatting_context, _noticed_line_warn),
 	tp/Texinfo/XS/convert/build_html_perl_state.c

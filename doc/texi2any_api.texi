@@ -2248,10 +2248,27 @@ Otherwise, returns the command name of the alignment context.
 @end deftypefun
 
 To determine if the conversion is in a context converted multiple times,
-use @code{in_multi_expanded}:
+use @code{in_multiple_conversions}:
+@deftypefun {@var{$multiple_conversion} =} @var{$converter}->in_multiple_conversions ()
+Return true if the Texinfo tree being converted is converted multiple
+times and the current conversion is not the main conversion.
+
+For example, return true if a node name is converted as part of a direction
+string formating in a navigation panel, which is not the
+main expansion of the @code{@@node}.  The main @code{@@node} element
+expansion occurs where the @@-command is located.
+@end deftypefun
+
+To determine if the a mutiple expansion context is set, use
+@code{in_multi_expanded}:
 @deftypefun {@var{$multi_expanded_context_information} =} @var{$converter}->in_multi_expanded ()
 Return a string representing the multiple expanded context, or @code{undef} if
 not in a multiple expanded context.
+
+A multiple expanded context implies to be in multiple conversions.  However,
+it is possible to be in multiple conversions without being in a multiple
+expanded context, as a multiple expanded context needs to be set explicitly,
+and is not always needed.
 @end deftypefun
 
 To get the current paragraph and preformatted number, use @code{paragraph_number}

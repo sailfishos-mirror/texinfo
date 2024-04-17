@@ -176,6 +176,10 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_set_raw_context",
   "Texinfo::Convert::HTML::_unset_raw_context"
    => "Texinfo::Convert::ConvertXS::html_unset_raw_context",
+  "Texinfo::Convert::HTML::_set_multiple_conversions"
+   => "Texinfo::Convert::ConvertXS::html_set_multiple_conversions",
+  "Texinfo::Convert::HTML::_unset_multiple_conversions"
+   => "Texinfo::Convert::ConvertXS::html_unset_multiple_conversions",
 
   "Texinfo::Convert::HTML::_debug_print_html_contexts"
    => "Texinfo::Convert::ConvertXS::html_debug_print_html_contexts",
@@ -200,6 +204,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_in_verbatim",
   "Texinfo::Convert::HTML::in_raw"
    => "Texinfo::Convert::ConvertXS::html_in_raw",
+  "Texinfo::Convert::HTML::in_multiple_conversions"
+   => "Texinfo::Convert::ConvertXS::html_in_multiple_conversions",
   "Texinfo::Convert::HTML::paragraph_number"
    => "Texinfo::Convert::ConvertXS::html_paragraph_number",
   "Texinfo::Convert::HTML::preformatted_number"
@@ -752,6 +758,12 @@ sub in_raw($)
 {
   my $self = shift;
   return $self->{'document_context'}->[-1]->{'raw'};
+}
+
+sub in_multiple_conversions($)
+{
+  my $self = shift;
+  return $self->{'multiple_conversions'};
 }
 
 sub paragraph_number($)
@@ -1393,12 +1405,12 @@ sub _internal_command_text($$$)
       $tree_root = $selected_tree;
     }
 
-    $self->{'multiple_conversions'}++;
+    $self->_set_multiple_conversions();
 
     _push_referred_command_stack_command($self, $command);
     $target->{$type} = $self->_convert($tree_root, $explanation);
     _pop_referred_command_stack($self);
-    $self->{'multiple_conversions'}--;
+    $self->_unset_multiple_conversions;
 
     $self->_pop_document_context();
     return $target->{$type};
@@ -2380,7 +2392,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
   my $multiple_pass_str = '';
 
   if ($multiple_pass) {
-    $self->{'multiple_conversions'}++;
+    $self->_set_multiple_conversions();
     push @{$self->{'multiple_pass'}}, $multiple_pass;
     $multiple_pass_str = '|M'
   }
@@ -2390,7 +2402,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
   my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
 
   if ($multiple_pass) {
-    $self->{'multiple_conversions'}--;
+    $self->_unset_multiple_conversions();
     pop @{$self->{'multiple_pass'}};
   }
 
@@ -3059,14 +3071,14 @@ foreach my $explained_command (keys(%explained_commands)) {
      = [['normal'], ['normal', 'string']];
 }
 
-# intercept warning and error messages to take 'multiple_conversions' into
+# intercept warning and error messages to take multiple_conversions into
 # account
 sub _noticed_line_warn($$$)
 {
   my $self = shift;
   my $text = shift;
   my $line_nr = shift;
-  return if ($self->{'multiple_conversions'});
+  return if ($self->in_multiple_conversions());
   $self->converter_line_warn($text, $line_nr);
 }
 
@@ -8353,6 +8365,18 @@ sub _unset_raw_context($)
 {
   my $self = shift;
   $self->{'document_context'}->[-1]->{'raw'}--;
+}
+
+sub _set_multiple_conversions($)
+{
+  my $self = shift;
+  $self->{'multiple_conversions'}++;
+}
+
+sub _unset_multiple_conversions($)
+{
+  my $self = shift;
+  $self->{'multiple_conversions'}--;
 }
 
 # can be set through Texinfo::Config::texinfo_register_file_id_setting_function
