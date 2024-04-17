@@ -1,5 +1,20 @@
 2024-04-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_internal_command_text)
+	(convert_tree_new_formatting_context, _noticed_line_warn),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_formatting_state), tp/Texinfo/XS/convert/convert_html.c
+	(noticed_line_warn, convert_tree_new_formatting_context)
+	(html_internal_command_text, html_conversion_finalization),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): rename ignore_notice
+	as multiple_conversions.
+
+	* tp/ext/epub3.pm (epub_convert_image_command): use
+	converter_line_warn instead of _noticed_line_warn, but note that
+	multiple_conversions should be taken into account.
+
+2024-04-17  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_accessorize),
 	(_preamble): add a texinfo_generate_setfilename accessor to determine
 	if a @setfilename is inserted in standalone manuals.

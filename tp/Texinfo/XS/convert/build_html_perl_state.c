@@ -378,10 +378,10 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 #define FETCH(key) key##_sv = hv_fetch (hv, #key, strlen (#key), 0);
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
 
-  if (flags & HMSF_ignore_notice)
+  if (flags & HMSF_multiple_conversions)
     {
-      STORE("ignore_notice",
-        newSViv (converter->ignore_notice));
+      STORE("multiple_conversions",
+        newSViv (converter->multiple_conversions));
     }
 
   if (flags & HMSF_current_root)

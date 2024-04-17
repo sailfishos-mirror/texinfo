@@ -2169,7 +2169,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
 }
 
 /*
-intercept warning and error messages to take 'ignore_notice' into
+intercept warning and error messages to take 'multiple_conversions' into
 account
  */
 static void
@@ -2178,7 +2178,7 @@ noticed_line_warn (CONVERTER *self, const ELEMENT *element,
 {
   va_list v;
 
-  if (self->ignore_notice)
+  if (self->multiple_conversions)
     return;
 
   va_start (v, format);
@@ -2816,9 +2816,9 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 
   if (multiple_pass)
     {
-      self->ignore_notice++;
+      self->multiple_conversions++;
       push_string_stack_string (&self->multiple_pass, multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_ignore_notice;
+      self->modified_state |= HMSF_multiple_pass | HMSF_multiple_conversions;
       multiple_pass_str = "|M";
     }
 
@@ -2833,9 +2833,9 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 
   if (multiple_pass)
     {
-      self->ignore_notice--;
+      self->multiple_conversions--;
       pop_string_stack (&self->multiple_pass);
-      self->modified_state |= HMSF_multiple_pass | HMSF_ignore_notice;
+      self->modified_state |= HMSF_multiple_pass | HMSF_multiple_conversions;
     }
 
   free (context_string_str);
@@ -3986,16 +3986,16 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           else
             tree_root = selected_tree;
 
-          self->ignore_notice++;
+          self->multiple_conversions++;
           push_element_reference_stack_element (&self->referred_command_stack,
                                                 command, command->hv);
-          self->modified_state |= HMSF_ignore_notice;
+          self->modified_state |= HMSF_multiple_conversions;
           target_info->command_text[type]
             = html_convert_tree (self, tree_root, explanation);
           free (explanation);
           pop_element_reference_stack (&self->referred_command_stack);
-          self->ignore_notice--;
-          self->modified_state |= HMSF_ignore_notice;
+          self->multiple_conversions--;
+          self->modified_state |= HMSF_multiple_conversions;
 
           html_pop_document_context (self);
 
@@ -13159,7 +13159,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                           if (!element_region)
                             {
      /* NOTE _noticed_line_warn is not used as printindex should not
-        happen in multiple tree parsing that lead to ignore_notice being set,
+        happen in multiple tree conversion with multiple_conversions set,
         but the error message is printed only for the first entry formatting. */
                               message_list_command_warn (&self->error_messages,
                                       self->conf,
@@ -13198,8 +13198,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                               if (!element_region)
                                 {
       /* NOTE _noticed_line_warn is not used as printindex should not
-         happen in multiple tree parsing that lead to ignore_notice being set,
-         but the error message is printed only for the first entry formatting.
+         happen in multiple tree conversions and multiple_conversions
+         being set, but the error message is printed only for the first
+         entry formatting.
          NOTE the index entry may be associated to a node in that case. */
                               message_list_command_warn (&self->error_messages,
                                       self->conf,
@@ -16949,9 +16950,9 @@ html_conversion_finalization (CONVERTER *self)
       if (self->document_global_context)
         fprintf (stderr, "BUG: document_global_context: %d\n",
                          self->document_global_context);
-      if (self->ignore_notice)
-        fprintf (stderr, "BUG: ignore_notice: %d\n",
-                         self->ignore_notice);
+      if (self->multiple_conversions)
+        fprintf (stderr, "BUG: multiple_conversions: %d\n",
+                         self->multiple_conversions);
     }
 
 }

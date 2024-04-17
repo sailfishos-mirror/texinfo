@@ -267,10 +267,11 @@ sub epub_convert_image_command($$$$)
     my ($image_file, $image_extension, $image_path, $image_path_encoding)
       = $self->html_image_file_location_name($cmdname, $command,
                                              $image_basefile, $args);
+
+    # FIXME do only if !$self->{'multiple_conversions'}, ie do not do it more than
+    # once
     if (not defined($image_path)) {
-      # FIXME using an internal function.  Also not clear if it is correct to
-      # use it, as it is not used for other messages
-      $self->_noticed_line_warn(sprintf(
+      $self->converter_line_warn(sprintf(
               __("\@image file `%s' (for HTML) not found, using `%s'"),
                  $image_basefile, $image_file), $command->{'source_info'});
     }

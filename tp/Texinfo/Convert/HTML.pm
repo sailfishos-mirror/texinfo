@@ -1393,12 +1393,12 @@ sub _internal_command_text($$$)
       $tree_root = $selected_tree;
     }
 
-    $self->{'ignore_notice'}++;
+    $self->{'multiple_conversions'}++;
 
     _push_referred_command_stack_command($self, $command);
     $target->{$type} = $self->_convert($tree_root, $explanation);
     _pop_referred_command_stack($self);
-    $self->{'ignore_notice'}--;
+    $self->{'multiple_conversions'}--;
 
     $self->_pop_document_context();
     return $target->{$type};
@@ -2380,7 +2380,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
   my $multiple_pass_str = '';
 
   if ($multiple_pass) {
-    $self->{'ignore_notice'}++;
+    $self->{'multiple_conversions'}++;
     push @{$self->{'multiple_pass'}}, $multiple_pass;
     $multiple_pass_str = '|M'
   }
@@ -2390,7 +2390,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
   my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
 
   if ($multiple_pass) {
-    $self->{'ignore_notice'}--;
+    $self->{'multiple_conversions'}--;
     pop @{$self->{'multiple_pass'}};
   }
 
@@ -3059,14 +3059,14 @@ foreach my $explained_command (keys(%explained_commands)) {
      = [['normal'], ['normal', 'string']];
 }
 
-# intercept warning and error messages to take 'ignore_notice' into
+# intercept warning and error messages to take 'multiple_conversions' into
 # account
 sub _noticed_line_warn($$$)
 {
   my $self = shift;
   my $text = shift;
   my $line_nr = shift;
-  return if ($self->{'ignore_notice'});
+  return if ($self->{'multiple_conversions'});
   $self->converter_line_warn($text, $line_nr);
 }
 
@@ -6661,7 +6661,7 @@ sub _convert_printindex_command($$$$)
               and not $main_entry_element->{'extra'}->{'element_region'}
               and $formatted_index_entry_nr == 1) {
          # NOTE _noticed_line_warn is not used as printindex should not
-         # happen in multiple tree parsing that lead to ignore_notice being set,
+         # happen in multiple tree conversion with multiple_conversions set,
          # but the error message is printed only for the first entry formatting.
             $self->converter_line_warn(
                              sprintf(
@@ -6691,8 +6691,9 @@ sub _convert_printindex_command($$$$)
                 and not $main_entry_element->{'extra'}->{'element_region'}
                 and $formatted_index_entry_nr == 1) {
           # NOTE _noticed_line_warn is not used as printindex should not
-          # happen in multiple tree parsing that lead to ignore_notice being set,
-          # but the error message is printed only for the first entry formatting.
+          # happen in multiple tree conversions and multiple_conversions
+          # being set, but the error message is printed only for the first
+          # entry formatting.
           # NOTE the index entry may be associated to a node in that case.
               $self->converter_line_warn(
                                sprintf(
@@ -8740,7 +8741,7 @@ sub _load_htmlxref_files {
 #  document_units
 #  out_filepaths          (partially common with Texinfo::Converter)
 #  seen_ids
-#  ignore_notice
+#  multiple_conversions
 #  options_latex_math
 #  htmlxref
 #  check_htmlxref_already_warned
