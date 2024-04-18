@@ -12057,9 +12057,8 @@ sub _html_convert_convert($$$$)
   $self->{'current_filename'} = '';
 
   my $unit_nr = 0;
-  # TODO there is no rule before the footnotes special element in
-  # case of separate footnotes in the default formatting style.
-  # Not sure if it is an issue.
+  # NOTE there is no rule before the footnotes special element in
+  # case of separate footnotes in this setting.
   foreach my $output_unit (@$output_units, @$special_units) {
     print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
     my $output_unit_text = $self->convert_output_unit($output_unit,
@@ -12535,9 +12534,8 @@ sub _html_convert_output($$$$$$$$)
     $self->{'current_filename'} = $output_filename;
     my $body = '';
     my $unit_nr = 0;
-    # TODO there is no rule before the footnotes special element in
-    # case of separate footnotes in the default formatting style.
-    # Not sure if it is an issue.
+    # NOTE there is no rule before the footnotes special element in
+    # case of separate footnotes in this setting.
     foreach my $output_unit (@$output_units, @$special_units) {
       print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
       my $output_unit_text
@@ -13048,8 +13046,8 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  # TODO document that this stage handler is called with end of
-  # preamble documentlanguage.
+  # TODO document that this stage handler is called with end of preamble
+  # documentlanguage when it is certain that this will not change ever.
   my $init_status = $self->run_stage_handlers($document, 'init');
   unless ($init_status < $handler_fatal_error_level
           and $init_status > -$handler_fatal_error_level) {

@@ -14091,9 +14091,6 @@ convert_definfoenclose_type (CONVERTER *self, const enum element_type type,
                        const ELEMENT *element, const char *content,
                        TEXT *result)
 {
-  /* TODO add a span to mark the original command as a class?
-     Not to be done as long as definfoenclose is deprecated. */
-
   const char *begin = lookup_extra_string (element, "begin");
   const char *end = lookup_extra_string (element, "end");
 
@@ -15572,7 +15569,6 @@ default_format_special_body_about (CONVERTER *self,
 
       if (button->type == BST_direction)
         {
-         /* TODO strip FirstInFile from $button to get active icon file? */
           if (self->conf->ICONS.integer > 0
               && self->conf->ACTIVE_ICONS.icons->number > 0
               && self->conf->ACTIVE_ICONS.icons->list[direction]
@@ -18783,9 +18779,6 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
                          unit_nr, "UNIT NO-PAGE", "no-page output unit");
           unit_nr++;
         }
-      /* TODO there is no rule before the footnotes special element in
-         case of separate footnotes in the default formatting style.
-         Not sure if it is an issue. */
       if (special_units && special_units->number)
         {
           for (i = 0; i < special_units->number; i++)
