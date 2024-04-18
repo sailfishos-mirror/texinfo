@@ -1385,7 +1385,6 @@ sub _compute_spaces_align_line($$$;$)
   return $spaces_prepended;
 }
 
-# TODO $bytes_count return value is not needed anywhere
 sub _align_lines($$$$$$)
 {
   my ($self, $text_encoded, $max_column, $direction,
@@ -1417,7 +1416,6 @@ sub _align_lines($$$$$$)
     }
   }
 
-  my $bytes_count = 0;
   my $delta_bytes = 0;
   my $line_index = 0;
   my $image;
@@ -1454,14 +1452,12 @@ sub _align_lines($$$$$$)
       if ($line_width == 0) {
         $result .= "\n";
         $line_bytes_end += length("\n");
-        $bytes_count += length("\n");
       } else {
         my $spaces_prepended
          = _compute_spaces_align_line($line_width, $max_column, $direction);
         $result .= ' ' x $spaces_prepended . $line ."\n";
         $line_bytes_begin += length(' ' x $spaces_prepended);
         $line_bytes_end += length("\n");
-        $bytes_count += $line_bytes_begin + $line_bytes_end + length($line);
       }
     } else {
       my $line_width = _string_width_encoded($self, $line);
@@ -1477,7 +1473,6 @@ sub _align_lines($$$$$$)
       }
       $result .= ' ' x $prepended_spaces . $line;
       $line_bytes_begin += length(' ' x $prepended_spaces);
-      $bytes_count += $line_bytes_begin + length($line);
       if ($new_image) {
         $image = $new_image;
         $image_prepended_spaces = $new_image_prepended_spaces;
@@ -1498,7 +1493,7 @@ sub _align_lines($$$$$$)
              + $removed_line_bytes_begin + $removed_line_bytes_end;
     $line_index++;
   }
-  return ($result, $bytes_count);
+  return $result;
 }
 
 sub _align_environment($$$$)
@@ -1506,12 +1501,9 @@ sub _align_environment($$$$)
   my ($self, $result, $max, $align) = @_;
 
   my $counts = pop @{$self->{'count_context'}};
-  my $bytes_count;
-  ($result, $bytes_count) = $self->_align_lines($result, $max,
+  $result = $self->_align_lines($result, $max,
                       $align, $counts->{'locations'}, $counts->{'images'});
   $self->_update_locations_counts($counts->{'locations'});
-  # done when $result is output
-  #$self->{'count_context'}->[-1]->{'bytes'} += $bytes_count;
   $self->{'count_context'}->[-1]->{'lines'} += $counts->{'lines'};
   push @{$self->{'count_context'}->[-1]->{'locations'}},
                        @{$counts->{'locations'}};
