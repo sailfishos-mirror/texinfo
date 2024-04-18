@@ -1,5 +1,10 @@
 2024-04-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/html32.pm (html32_convert_center_command): in string
+	context, simply return the argument.
+
+2024-04-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_image_command),
 	tp/Texinfo/XS/convert/convert_html.c (convert_image_command): if image
 	is not found, do not check if in_multiple_conversions, as it should

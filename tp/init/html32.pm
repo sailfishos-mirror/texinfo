@@ -347,9 +347,7 @@ sub html32_convert_center_command($$$$)
   }
 
   if ($self->in_string()) {
-    # FIXME use an API?
-    return $self->{'types_conversion'}->{'preformatted'}($self, $cmdname, $command,
-                                                         $args->[0]->{'normal'}."\n");
+    return $args->[0]->{'normal'}."\n";
   } else {
     return '<div align="center">'.$args->[0]->{'normal'}."\n</div>";
   }
