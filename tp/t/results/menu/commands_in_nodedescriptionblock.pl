@@ -1507,6 +1507,13 @@ $result_converted_errors{'html'}->{'commands_in_nodedescriptionblock'} = [
     'line_nr' => 22,
     'text' => '@image file `float_image\' (for HTML) not found, using `float_image.jpg\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `float_image\' (for HTML) not found, using `float_image.jpg\'
+',
+    'line_nr' => 22,
+    'text' => '@image file `float_image\' (for HTML) not found, using `float_image.jpg\'',
+    'type' => 'warning'
   }
 ];
 

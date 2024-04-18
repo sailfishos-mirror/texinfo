@@ -15677,6 +15677,20 @@ $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
+    'line_nr' => 95,
+    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+',
+    'line_nr' => 93,
+    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+',
     'line_nr' => 93,
     'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
     'type' => 'warning'

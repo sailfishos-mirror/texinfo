@@ -32,8 +32,6 @@ _convert_def_line_type
 Missing documentation
 =====================
 
-HTML API ignore_notice _noticed_line_warn.  Add to API before?
-
 Tree documentation in ParserNonXS.pm
 ------------------------------------
 

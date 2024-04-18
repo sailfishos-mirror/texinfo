@@ -3071,17 +3071,6 @@ foreach my $explained_command (keys(%explained_commands)) {
      = [['normal'], ['normal', 'string']];
 }
 
-# intercept warning and error messages to take multiple_conversions into
-# account
-sub _noticed_line_warn($$$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $line_nr = shift;
-  return if ($self->in_multiple_conversions());
-  $self->converter_line_warn($text, $line_nr);
-}
-
 my %kept_line_commands;
 
 # TODO add the possibility to customize to add more commands to
@@ -3853,9 +3842,18 @@ sub _convert_image_command($$$$)
       = $self->html_image_file_location_name($cmdname, $command,
                                              $image_basefile, $args);
     if (not defined($image_path)) {
-      $self->_noticed_line_warn(sprintf(
+      # it would have been relevant to output the message only if
+      # if not ($self->in_multiple_conversions())
+      # However, @image formatted in multiple conversions context should be
+      # rare out of test suites (and probably always incorrect), so we avoid
+      # complexity and slowdown.  We still check that source_info is set, if
+      # not it should be a copy, therefore there is no need for error
+      # output, especially without line information.
+      if ($command->{'source_info'}) {
+        $self->converter_line_warn(sprintf(
               __("\@image file `%s' (for HTML) not found, using `%s'"),
                  $image_basefile, $image_file), $command->{'source_info'});
+      }
     }
     if (defined($self->get_conf('IMAGE_LINK_PREFIX'))) {
       $image_file = $self->get_conf('IMAGE_LINK_PREFIX') . $image_file;
@@ -5081,8 +5079,14 @@ sub _convert_raw_command($$$$$)
   if ($cmdname eq 'html') {
     return $content;
   }
-  $self->_noticed_line_warn(sprintf(__("raw format %s is not converted"),
-                                   $cmdname), $command->{'source_info'});
+
+  # In multiple conversions should only happen rarely, as in general, format
+  # commands do not happen in inline context where most of the multiple
+  # conversions are.  A possibility is in float caption.
+  if (!$self->in_multiple_conversions()) {
+    $self->converter_line_warn(sprintf(__("raw format %s is not converted"),
+                                     $cmdname), $command->{'source_info'});
+  }
   return &{$self->formatting_function('format_protect_text')}($self, $content);
 }
 
@@ -6672,9 +6676,9 @@ sub _convert_printindex_command($$$$)
               # do not warn if the entry is in a special region, like titlepage
               and not $main_entry_element->{'extra'}->{'element_region'}
               and $formatted_index_entry_nr == 1) {
-         # NOTE _noticed_line_warn is not used as printindex should not
-         # happen in multiple tree conversion with multiple_conversions set,
-         # but the error message is printed only for the first entry formatting.
+         # NOTE $self->in_multiple_conversions() is not checked as printindex
+         # should not happen in multiple tree conversion, but the error message
+         # is printed for the first entry formatting only.
             $self->converter_line_warn(
                              sprintf(
            __("entry for index `%s' for \@printindex %s outside of any node"),
@@ -6702,10 +6706,9 @@ sub _convert_printindex_command($$$$)
               # do not warn if the entry is in a special region, like titlepage
                 and not $main_entry_element->{'extra'}->{'element_region'}
                 and $formatted_index_entry_nr == 1) {
-          # NOTE _noticed_line_warn is not used as printindex should not
-          # happen in multiple tree conversions and multiple_conversions
-          # being set, but the error message is printed only for the first
-          # entry formatting.
+          # NOTE $self->in_multiple_conversions() is not checked as printindex
+          # should not happen in multiple tree conversion, but the error message
+          # is printed for the first entry formatting only.
           # NOTE the index entry may be associated to a node in that case.
               $self->converter_line_warn(
                                sprintf(
@@ -8735,6 +8738,9 @@ sub _load_htmlxref_files {
 #  associated_inline_content
 #
 #    API exists
+#  multiple_conversions
+#
+#    API exists
 #  targets         for directions.  Keys are elements references, values are
 #                  target information hash references described above before
 #                  the API functions used to access this information.
@@ -8765,7 +8771,6 @@ sub _load_htmlxref_files {
 #  document_units
 #  out_filepaths          (partially common with Texinfo::Converter)
 #  seen_ids
-#  multiple_conversions
 #  options_latex_math
 #  htmlxref
 #  check_htmlxref_already_warned

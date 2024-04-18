@@ -1,3 +1,18 @@
+2024-04-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_image_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_image_command): if image
+	is not found, do not check if in_multiple_conversions, as it should
+	happen very rarely, but check that there is some 'source_info'.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_raw_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_raw_command): inline call
+	of _noticed_line_warn and remove the function.
+
+	* tp/t/html_tests.t (tex_expanded_in_caption_multiple_time),
+	tp/Makefile.tres: add test with expanded @teex in HTML in caption,
+	such as to have an expansion of raw format multiple times.
+
 2024-04-17  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Other Dynamic Information),

@@ -565,6 +565,20 @@ aa
 ', {'EXPANDED_FORMATS' => ['tex']},
 {'EXPANDED_FORMATS' => ['tex']}
 ],
+['tex_expanded_in_caption_multiple_time',
+'@float A, B
+My float.
+@caption{
+@tex
+aa
+@end tex
+}
+@end float
+
+@listoffloats A
+', {'EXPANDED_FORMATS' => ['tex']},
+{'EXPANDED_FORMATS' => ['tex']}
+],
 ['titles',
 '
 @settitle @@title @sc{html} @code{test}

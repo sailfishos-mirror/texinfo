@@ -264,13 +264,19 @@ sub epub_convert_image_command($$$$)
         if (defined($args->[0]->{'monospacestring'}));
     return $basefile_string if ($self->in_string());
 
+    # To avoid multiple error messages, it could have been possible
+    # to check $self->in_multiple_conversions() and do not register
+    # error messages if set.  However, @image formatted in multiple
+    # conversions context should be rare (and probably always incorrect).
+    # Another cleaner way to solve this issue would have been to copy
+    # the image file only once and reuse the same $epub_file_nr for a
+    # given $image_basefile, but this would add more complex code for a
+    # case that is probably very uncommon.
+
     my ($image_file, $image_extension, $image_path, $image_path_encoding)
       = $self->html_image_file_location_name($cmdname, $command,
                                              $image_basefile, $args);
-
-    # FIXME do only if !$self->{'multiple_conversions'}, ie do not do it more than
-    # once
-    if (not defined($image_path)) {
+    if (not defined($image_path) and $command->{'source_info'}) {
       $self->converter_line_warn(sprintf(
               __("\@image file `%s' (for HTML) not found, using `%s'"),
                  $image_basefile, $image_file), $command->{'source_info'});

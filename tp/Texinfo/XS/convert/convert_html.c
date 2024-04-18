@@ -2168,25 +2168,6 @@ set_root_commands_targets_node_files (CONVERTER *self)
     }
 }
 
-/*
-intercept warning and error messages to take 'multiple_conversions' into
-account
- */
-static void
-noticed_line_warn (CONVERTER *self, const ELEMENT *element,
-                   const char *format, ...)
-{
-  va_list v;
-
-  if (self->multiple_conversions)
-    return;
-
-  va_start (v, format);
-
-  vmessage_list_command_warn (&self->error_messages, self->conf,
-                              element, format, v);
-}
-
 /* to be inlined in text parsing codes */
 #define OTXI_PROTECT_XML_FORM_FEED_CASES(var) \
         OTXI_PROTECT_XML_CASES(var) \
@@ -9231,9 +9212,19 @@ convert_image_command (CONVERTER *self, const enum command_id cmd,
 
       if (!image_path_info->image_path)
         {
-          noticed_line_warn (self, element,
-                "@image file `%s' (for HTML) not found, using `%s'",
+      /* it would have been relevant to output the message only if
+         if not ($self->in_multiple_conversions())
+         However, @image formatted in multiple conversions context should be
+         rare out of test suites (and probably always incorrect), so we avoid
+         complexity and slowdown.  We still check that source_info is set, if
+         not it should be a copy, therefore there is no need for error
+         output, especially without line information. */
+          if (element->source_info.line_nr)
+            {
+              message_list_command_warn (&self->error_messages, self->conf,
+                element, 0, "@image file `%s' (for HTML) not found, using `%s'",
                      image_basefile, image_file);
+            }
         }
       free_image_file_location_info (image_path_info);
       free (image_path_info);
@@ -10332,9 +10323,12 @@ convert_raw_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  noticed_line_warn (self, element, "raw format %s is not converted",
+  if (!self->multiple_conversions)
+    {
+      message_list_command_warn (&self->error_messages, self->conf,
+                   element, 0, "raw format %s is not converted",
                      element_command_name (element));
-
+    }
   format_protect_text (self, content, result);
 }
 
@@ -13156,9 +13150,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         /* do not warn if the entry is in a special region, like titlepage */
                           if (!element_region)
                             {
-     /* NOTE _noticed_line_warn is not used as printindex should not
-        happen in multiple tree conversion with multiple_conversions set,
-        but the error message is printed only for the first entry formatting. */
+     /* NOTE $self->in_multiple_conversions() is not checked as printindex
+        should not happen in multiple tree conversion, but the error message
+        is printed for the first entry formatting only. */
                               message_list_command_warn (&self->error_messages,
                                       self->conf,
                                       main_entry_element, 0,
@@ -13195,10 +13189,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         /* do not warn if the entry is in a special region, like titlepage */
                               if (!element_region)
                                 {
-      /* NOTE _noticed_line_warn is not used as printindex should not
-         happen in multiple tree conversions and multiple_conversions
-         being set, but the error message is printed only for the first
-         entry formatting.
+      /* NOTE $self->in_multiple_conversions() is not checked as printindex
+         should not happen in multiple tree conversion, but the error message
+         is printed for the first entry formatting only.
          NOTE the index entry may be associated to a node in that case. */
                               message_list_command_warn (&self->error_messages,
                                       self->conf,

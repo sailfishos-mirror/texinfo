@@ -748,6 +748,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/test_separated_contents_shortcontents/res_html \
   t/results/html_tests/test_xrefautomaticsectiontitle.pl \
   t/results/html_tests/test_xrefautomaticsectiontitle_off_first.pl \
+  t/results/html_tests/tex_expanded_in_caption_multiple_time.pl \
   t/results/html_tests/tex_expanded_in_copying.pl \
   t/results/html_tests/text_before_top_and_contents_after_title.pl \
   t/results/html_tests/text_before_top_and_summarycontents_after_title.pl \
