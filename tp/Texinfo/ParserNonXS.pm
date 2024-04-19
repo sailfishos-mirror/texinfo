@@ -1456,7 +1456,7 @@ sub _command_error($$$;@)
 }
 
 # register error messages, but otherwise doesn't do much more than
-# return $_[1]->{'parent'}
+# deleting remaining_args and returning $_[1]->{'parent'}
 sub _close_brace_command($$$;$$$)
 {
   my ($self, $current, $source_info, $closed_block_command,
@@ -1953,7 +1953,6 @@ sub _close_command_cleanup($$) {
         $in_head_or_rows = undef;
       }
     }
-    delete $current->{'rows_count'};
   } elsif ($block_commands{$current->{'cmdname'}}
            and $block_commands{$current->{'cmdname'}} eq 'item_container') {
     delete $current->{'items_count'};
@@ -5421,18 +5420,20 @@ sub _handle_other_command($$$$$)
           }
         } else {
           print STDERR "ROW\n" if ($self->{'DEBUG'});
-          $parent->{'rows_count'}++;
           my $row = { 'type' => 'row', 'contents' => [],
                       'cells_count' => 1,
-                      'extra' => {'row_number' => $parent->{'rows_count'} },
                       'parent' => $parent };
           push @{$parent->{'contents'}}, $row;
+          # Note that the "row_number" extra value
+          # isn't actually used anywhere at present.
+          $row->{'extra'}
+              = {'row_number' => scalar(@{$parent->{'contents'}}) - 1};
           $command_e = { 'cmdname' => $command,
                          'parent' => $row,
                          'contents' => [],
                          'extra' => {'cell_number' => 1}};
           push @{$row->{'contents'}}, $command_e;
-          $current = $row->{'contents'}->[-1];
+          $current = $command_e;
         }
         $current = _begin_preformatted($self, $current);
       } elsif ($command eq 'tab') {
@@ -6222,7 +6223,6 @@ sub _handle_close_brace($$$)
     my $closed_command = $current->{'parent'}->{'cmdname'};
     print STDERR "CLOSING(brace) \@$current->{'parent'}->{'cmdname'}\n"
       if ($self->{'DEBUG'});
-    delete $current->{'parent'}->{'remaining_args'};
     if (defined($brace_commands{$closed_command})
          and $brace_commands{$closed_command} eq 'noarg'
          and $current->{'contents'}

@@ -46,6 +46,8 @@ close_brace_command (ELEMENT *current,
 
   char *delimiter;
 
+  counter_pop (&count_remaining_args);
+
   if (command_data(current->cmd).data == BRACE_context)
     {
       if (current->cmd == CM_math)
@@ -213,11 +215,11 @@ close_command_cleanup (ELEMENT *current)
         {
           ELEMENT *row = old_contents.list[i];
 
-          if (counter_value (&count_cells, row) != -1)
-            counter_pop (&count_cells);
-
           if (row->type == ET_row)
             {
+              int counter_index = counter_remove_element (&count_cells, row);
+              if (counter_index < 0)
+                fprintf (stderr, "BUG: could not remove row counter\n");
               /* Check if we need to open a new container. */
               if (contents_child_by_index (row, 0)->cmd == CM_headitem)
                 {

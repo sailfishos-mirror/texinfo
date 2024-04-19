@@ -15,9 +15,11 @@
 
 #include <config.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "tree_types.h"
 #include "utils.h"
+#include "debug.h"
 #include "counter.h"
 
 void
@@ -43,11 +45,40 @@ void
 counter_pop (COUNTER *c)
 {
   if (!c->nvalues)
-    fatal ("could not realloc");
+    fatal ("empty counter");
 
   c->nvalues--;
   c->values[c->nvalues] = 0;
   c->elts[c->nvalues] = 0;
+}
+
+/* remove element anywhere in the counter elements list */
+int
+counter_remove_element (COUNTER *c, ELEMENT *elt)
+{
+  int i;
+
+  if (c->nvalues > 0)
+    {
+      for (i = 0; i < c->nvalues; i++)
+        {
+          if (c->elts[i] == elt)
+            {
+              if (i < c->nvalues - 1)
+                {
+                  memmove (&c->values[i], &c->values[i+1],
+                           (c->nvalues - (i+1)) * sizeof (int));
+                  memmove (&c->elts[i], &c->elts[i+1],
+                           (c->nvalues - (i+1)) * sizeof (ELEMENT *));
+                  c->nvalues--;
+                }
+              else
+                counter_pop (c);
+              return i;
+            }
+        }
+    }
+  return -1;
 }
 
 void
@@ -73,8 +104,28 @@ counter_value (COUNTER *c, ELEMENT *elt)
     return -1;
 }
 
+/* If NOT_EMPTY_LESSAGE is set, check that the counter values list
+   is empty, if not, show a debugging message */
 void
-counter_reset (COUNTER *c)
+counter_reset (COUNTER *c, const char* not_empty_message)
 {
+  if (not_empty_message && c->nvalues > 0)
+    {
+      int i;
+      fprintf (stderr, "BUG: %s: counter %p not empty: %d remain\n",
+               not_empty_message, c, c->nvalues);
+      for (i = 0; i < c->nvalues; i++)
+        {
+          /* In general elements have been destroyed already
+          ELEMENT *e = c->elts[i];
+          char *element_string = print_element_debug (e, 0);
+           */
+          char *element_string = 0;
+          fprintf (stderr, "  %d: %d, %s\n", i, c->values[i],
+                                             element_string);
+          free (element_string);
+        }
+    }
+
   c->nvalues = 0;
 }

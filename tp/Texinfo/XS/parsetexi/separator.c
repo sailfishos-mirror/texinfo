@@ -307,7 +307,6 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 
       closed_command = current->parent->cmd;
       debug ("CLOSING(brace) @%s", command_data(closed_command).cmdname);
-      counter_pop (&count_remaining_args);
 
       if (current->contents.number > 0
           && command_data(closed_command).data == BRACE_noarg)

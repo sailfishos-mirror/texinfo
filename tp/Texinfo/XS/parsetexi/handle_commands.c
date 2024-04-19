@@ -460,7 +460,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
                   row = new_element (ET_row);
                   add_to_element_contents (parent, row);
 
-                  /* Note that the "row_number" extra value,
+                  /* Note that the "row_number" extra value
                      isn't actually used anywhere at present. */
                   add_extra_integer (row, "row_number",
                                      parent->contents.number - 1);
@@ -470,8 +470,6 @@ handle_other_command (ELEMENT *current, char **line_inout,
                   add_to_element_contents (row, command_e);
                   current = command_e;
 
-                  if (counter_value (&count_cells, parent) != -1)
-                    counter_pop (&count_cells);
                   counter_push (&count_cells, row, 1);
                   add_extra_integer (current, "cell_number",
                                      counter_value (&count_cells, row));
