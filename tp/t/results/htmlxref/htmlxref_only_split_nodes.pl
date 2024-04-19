@@ -2914,4 +2914,16 @@ $result_errors{'htmlxref_only_split_nodes'} = [];
 $result_floats{'htmlxref_only_split_nodes'} = {};
 
 
+$result_converted_errors{'file_html'}->{'htmlxref_only_split_nodes'} = [
+  {
+    'error_line' => 'warning: missing section URL prefix for `manual\'
+',
+    'file_name' => 'htmlxref-split.cnf',
+    'line_nr' => 1,
+    'text' => 'missing section URL prefix for `manual\'',
+    'type' => 'warning'
+  }
+];
+
+
 1;

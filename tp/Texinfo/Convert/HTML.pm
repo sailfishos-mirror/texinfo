@@ -8589,6 +8589,11 @@ sub _parse_htmlxref_files($$)
         next;
       }
       my $href = shift @htmlxref;
+      if (!defined($href)) {
+        $self->converter_line_warn(sprintf(
+             __("missing %s URL prefix for `%s'"), $split_or_mono, $manual),
+                 {'file_name' => $fname, 'line_nr' => $line_nr});
+      }
       next if ($htmlxref->{$manual}
                and exists($htmlxref->{$manual}->{$split_or_mono}));
 
@@ -8599,8 +8604,6 @@ sub _parse_htmlxref_files($$)
         $href =~ s/\/*$// if ($split_or_mono ne 'mono');
       }
       $htmlxref->{$manual} = {} if (!$htmlxref->{$manual});
-      # $href can be undef if the htmlxref part is missing on the line.
-      # TODO warn?
       $htmlxref->{$manual}->{$split_or_mono} = $href;
     }
     if (!close (HTMLXREF)) {
