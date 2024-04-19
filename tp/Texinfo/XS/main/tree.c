@@ -18,8 +18,7 @@
 #include <string.h>
 #include <stdio.h>
 
-/* TODO
- obstack is not used as it requires any code adding element to
+/* TODO obstack is not used as it requires any code adding element to
  be able to access the struct obstack.  The struct obstack could
  be allocated on the heap and be available in the parser.  It could
  also be passed to the parsed document but it seems complicated to

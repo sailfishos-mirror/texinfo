@@ -105,7 +105,6 @@ my %quoted_style_commands = (
   'samp' => 1,
 );
 
-# FIXME allow customization? (as in HTML)
 my %upper_case_style_commands = (
   'sc' => 1,
 );
@@ -215,7 +214,7 @@ my %defcommand_name_type = (
 my %def_argument_types_docbook = (
   'type' => ['returnvalue'],
   'class' => ['ooclass', 'classname'],
-  # FIXME or a simple emphasis?
+  # TODO or a simple emphasis?
   # replaceable is not used here, such that replaceable is only
   # used if there is an explicit @var{}
   'arg' => ['emphasis role="arg"'],

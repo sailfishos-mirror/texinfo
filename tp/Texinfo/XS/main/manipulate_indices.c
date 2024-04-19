@@ -532,7 +532,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 
                       subentry_sort_string
                         = &entry_sort_string.sort_string_subentries[k];
-             /* TODO quite inefficient, only need the first character */
+             /* TODO somewhat inefficient, only need the first character */
                       encoded_u8
                        = utf8_from_string (subentry_sort_string->sort_string);
                       new_len = u8_strmbtouc (&next_char, encoded_u8);

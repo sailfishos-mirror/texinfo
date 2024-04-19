@@ -216,7 +216,6 @@ sub txi_markup_convert_text($$)
   my $element = shift;
   my $result = $self->_protect_text($element->{'text'});
   if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
-    # FIXME API
     if (!$self->in_monospace()) {
       $result =~ s/``/&textldquo;/g;
       $result =~ s/\'\'/&textrdquo;/g;
