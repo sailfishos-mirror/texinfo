@@ -1,3 +1,14 @@
+2024-04-20  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/pod2texi.pl (BEGIN): detect the case of a
+	pod2texi command installed from Makefile.PL and in that case do not
+	set any path.
+
+	* Pod-Simple-Texinfo/README: explain that pod2texi.pl need to me
+	copied before calling perl Makefile.PL.
+
+	* Pod-Simple-Texinfo/test_scripts/*.sh: correct a comment.
+
 2024-04-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files): warn if the

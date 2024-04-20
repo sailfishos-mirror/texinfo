@@ -44,10 +44,24 @@ BEGIN
   my $texinfolibdir;
   my $lib_dir;
 
+  my $in_source = 0;
+  # set if we detect that the command comes from a Perl build with Makefile.PL.
+  # In that case we assume that the modules should be found in directories
+  # already registered in paths.
+  my $keep_paths = 0;
+
+  if (defined($ENV{'TEXINFO_DEV_SOURCE'})
+      and $ENV{'TEXINFO_DEV_SOURCE'} ne '0') {
+    $in_source = 1;
+  } elsif ($datadir eq '@' .'datadir@') {
+    if ($0 =~ /\.pl$/) {
+      $in_source = 1;
+    } else {
+      $keep_paths = 1;
+    }
+  }
   # in-source run
-  if ($datadir eq '@' .'datadir@'
-      or defined($ENV{'TEXINFO_DEV_SOURCE'})
-         and $ENV{'TEXINFO_DEV_SOURCE'} ne '0') {
+  if ($in_source) {
     # To find Texinfo::ModulePath
     if (defined($ENV{'top_builddir'})) {
       unshift @INC, File::Spec->catdir($ENV{'top_builddir'}, 'tp');
@@ -65,7 +79,7 @@ BEGIN
     } else {
       unshift @INC, File::Spec->catdir($command_directory, 'lib');
     }
-  } else {
+  } elsif (!$keep_paths) {
     # Look for modules in their installed locations.
     my $lib_dir = File::Spec->catdir($datadir, $package);
     # look for package data in the installed location.
