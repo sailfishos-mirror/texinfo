@@ -31,9 +31,20 @@ distribute the module using Makefile.PL as described here.
 
 The pod2texi script is usually set up using the Autoconf and Automake
 built environment from pod2texi.pl.  When using Makefile.PL from version
-control sources, pod2texi.pl file should be copied instead, as explained above.
-In that case, the Texinfo::Parser modules will not be searched for as in the
-GNU Texinfo usual case, only in the perl paths, as in other perl modules.
+control sources, the pod2texi.pl file should be copied instead, as explained
+above.  In that case, the Texinfo::Parser modules will not be searched for as
+in the GNU Texinfo usual case, only in the perl paths, as in other perl
+modules.
+
+The test_scripts/*.sh test scripts are setup to work with the Autoconf and
+Automake built environment, they are not distributed when using Makefile.PL.
+To be able to run them manually from version control sources when using
+Makefile.PL, you can do something like the following, with a sed command
+that understands -i to modify the scripts such that they do not need the
+defs file present in the Autoconf and Automake built environment:
+for script in test_scripts/*.sh; do
+  sed -i -e 's;^\. \$testdir/\.\./tp/defs.*;#&\nPERL=perl;' $script;
+done
 
 COPYRIGHT AND LICENCE
 

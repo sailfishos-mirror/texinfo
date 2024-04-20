@@ -1,5 +1,10 @@
 2024-04-20  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/README: explain how test_scripts/*.sh can be
+	modified by a sed one liner to be usable when using Makefile.PL.
+
+2024-04-20  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (BEGIN): detect the case of a
 	pod2texi command installed from Makefile.PL and in that case do not
 	set any path.
