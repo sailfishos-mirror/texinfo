@@ -1192,7 +1192,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     {
       if ((cmd_flags & CF_accent)
           || (cmd_flags & CF_nobrace
-              && command_data(cmd).data == NOBRACE_symbol))
+              && command_data(cmd).data == NOBRACE_symbol
+              && (!cmd_flags & CF_in_heading_spec)))
         ok = 1;
       else if (cmd_flags & CF_brace
                && command_data(cmd).data == BRACE_noarg)
@@ -1243,11 +1244,10 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
         { /* in heading commands can only appear in headings and style
              brace commands */
           ok = 0;
-          if (outer_flags & CF_heading_spec
-              || (outer_flags & CF_brace
-                  && (command_data(outer).data == BRACE_style_other
-                      || command_data(outer).data == BRACE_style_code
-                      || command_data(outer).data == BRACE_style_no_code)))
+          if (outer_flags & CF_brace
+              && (command_data(outer).data == BRACE_style_other
+                  || command_data(outer).data == BRACE_style_code
+                  || command_data(outer).data == BRACE_style_no_code))
               ok = 1;
         }
     }

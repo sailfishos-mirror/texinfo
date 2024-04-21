@@ -330,6 +330,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/formats_titles.pl \
   t/results/coverage/group_beginning_and_end_on_line.pl \
   t/results/coverage/group_not_closed.pl \
+  t/results/coverage/heading_commands_in_center.pl \
+  t/results/coverage/heading_commands_in_documentlanguage.pl \
   t/results/coverage/hyphenation.pl \
   t/results/coverage/indentedblock.pl \
   t/results/coverage/indicateurl_end_lines.pl \

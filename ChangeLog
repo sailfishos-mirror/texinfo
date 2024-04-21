@@ -1,3 +1,23 @@
+2024-04-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (%in_plain_text_commands),
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): remove @| from
+	commands valid in plain text, by adding a check on
+	%in_heading_spec_commands.
+
+	* tp/Texinfo/ParserNonXS.pm (%in_full_text_commands)
+	(%in_basic_inline_commands): do not put in_heading_spec_commands in
+	%in_full_text_commands, only in %in_basic_inline_commands such that
+	they can only appear in selecter @-commands (style brace @-commands).
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): remove an
+	impossible check of outer_flags & CF_heading_spec for a brace command.
+
+	* tp/Makefile.tres, tp/t/02coverage.t (heading_commands_in_center)
+	(heading_commands_in_documentlanguage): add tests of heading commands
+	in non heading nor footing line command and in contain_plain_text
+	command.
+
 2024-04-20  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/README: explain how test_scripts/*.sh can be

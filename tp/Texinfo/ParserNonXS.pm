@@ -420,7 +420,8 @@ foreach my $brace_command(keys(%brace_commands)) {
 }
 my %symbol_nobrace_commands;
 foreach my $no_brace_command (keys(%nobrace_commands)) {
-  if ($nobrace_commands{$no_brace_command} eq 'symbol') {
+  if ($nobrace_commands{$no_brace_command} eq 'symbol'
+      and !$in_heading_spec_commands{$no_brace_command}) {
     $symbol_nobrace_commands{$no_brace_command} = 1;
     $in_plain_text_commands{$no_brace_command} = 1;
   }
@@ -437,8 +438,7 @@ foreach my $command (keys(%brace_commands), keys(%symbol_nobrace_commands)) {
 }
 # selected line commands
 foreach my $in_full_text_command ('c', 'comment', 'refill', 'subentry',
-                         'columnfractions', 'set', 'clear', 'end',
-                         keys(%in_heading_spec_commands)) {
+                         'columnfractions', 'set', 'clear', 'end') {
   $in_full_text_commands{$in_full_text_command} = 1;
 }
 # selected block commands
@@ -512,6 +512,10 @@ foreach my $not_in_basic_inline_commands
                                ('xref', 'ref', 'pxref', 'inforef',
                                 'titlefont', 'anchor', 'footnote', 'verb') {
   delete $in_basic_inline_commands{$not_in_basic_inline_commands};
+}
+
+foreach my $in_heading_spec (keys(%in_heading_spec_commands)) {
+  $in_basic_inline_commands{$in_heading_spec} = 1;
 }
 
 my %contain_basic_inline_with_refs_commands = (%sectioning_heading_commands,
