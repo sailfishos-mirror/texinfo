@@ -1,5 +1,10 @@
 2024-04-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): fix
+	condition on contain_plain_text NOBRACE_symbol and CF_in_heading_spec.
+
+2024-04-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%in_plain_text_commands),
 	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): remove @| from
 	commands valid in plain text, by adding a check on
