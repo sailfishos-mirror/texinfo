@@ -1,3 +1,8 @@
+2024-04-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/command_data.txt (nodedescription): add
+	contain_basic_inline flag.
+
 2024-04-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): fix

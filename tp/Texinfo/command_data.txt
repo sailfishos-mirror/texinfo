@@ -256,7 +256,7 @@ exdent                  line,formatted_line,close_paragraph            LINE_line
 # or nobrace skipspace, depending on the context
 item_LINE               line,formatted_line,close_paragraph    LINE_line
 itemx                   line,formatted_line,close_paragraph    LINE_line
-nodedescription         line,close_paragraph                               LINE_line
+nodedescription         line,close_paragraph,contain_basic_inline          LINE_line
 # in index entries
 subentry                line,in_index,contain_basic_inline          LINE_line
 # for printed output.  @vskip 0pt plus 1filll

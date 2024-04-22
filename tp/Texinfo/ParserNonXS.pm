@@ -5348,6 +5348,14 @@ sub _handle_other_command($$$$$)
       my $top_context_command = $self->_top_context_command();
       if (not defined($top_context_command)
           or not $heading_spec_commands{$top_context_command}) {
+      #my $line_context;
+      #if (defined($self->{'nesting_context'}->{'basic_inline_stack_on_line'})
+      #    and @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}} > 0) {
+      #  $line_context
+      #    = $self->{'nesting_context'}->{'basic_inline_stack_on_line'}->[-1];
+      #}
+      #if (!defined($line_context)
+      #    or !$heading_spec_commands{$line_context}) {
         $self->_line_error(
           sprintf(__("\@%s should only appear in heading or footing"),
                 $command), $source_info);

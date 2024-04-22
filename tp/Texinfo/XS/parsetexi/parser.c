@@ -1253,9 +1253,11 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     }
   else
     {
-      /* Default to valid nesting, for example for commands for which
-         it is not defined which commands can occur within them (e.g.
-         @tab?). */
+      /* Default to valid nesting, for commands for which it is not
+         defined which commands can occur within them (e.g. @tab, the
+         remaining of brace commands (context, arguments, other)
+         that are not treated especially, most line command and block
+         commands that have an argument */
       ok = 1;
     }
 

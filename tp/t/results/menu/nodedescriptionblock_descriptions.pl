@@ -1825,6 +1825,13 @@ $result_menus{'nodedescriptionblock_descriptions'}[5] = $result_menus{'nodedescr
 
 $result_errors{'nodedescriptionblock_descriptions'} = [
   {
+    'error_line' => 'warning: @verb should not appear on @nodedescription line
+',
+    'line_nr' => 16,
+    'text' => '@verb should not appear on @nodedescription line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: multiple node @nodedescriptionblock
 ',
     'line_nr' => 58,

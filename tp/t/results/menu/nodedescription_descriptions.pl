@@ -1864,7 +1864,15 @@ $result_menus{'nodedescription_descriptions'}[5] = $result_menus{'nodedescriptio
 $result_menus{'nodedescription_descriptions'}[6] = $result_menus{'nodedescription_descriptions'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 $result_menus{'nodedescription_descriptions'}[7] = $result_menus{'nodedescription_descriptions'}[1]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
-$result_errors{'nodedescription_descriptions'} = [];
+$result_errors{'nodedescription_descriptions'} = [
+  {
+    'error_line' => 'warning: @verb should not appear on @nodedescription line
+',
+    'line_nr' => 18,
+    'text' => '@verb should not appear on @nodedescription line',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'nodedescription_descriptions'} = {};
