@@ -1,3 +1,20 @@
+2024-04-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_other_command),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command):
+	check that an in_heading_spec command is in an heading_spec command by
+	using the basic_inline_stack_on_line nesting_context.
+
+	* tp/Makefile.tres, tp/t/57invalid_nestings.t
+	(heading_commands_in_center, heading_commands_in_documentlanguage):
+	move two tests from tp/t/02coverage.t.
+
+	* tp/Makefile.tres, tp/t/57invalid_nestings.t
+	(heading_separator_in_accent_command)
+	thischapter_in_footnote_in_evenfooting)
+	(thischapter_in_math_in_evenfooting): new tests of invalid nestings
+	for in heading commands.
+
 2024-04-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/command_data.txt (nodedescription): add

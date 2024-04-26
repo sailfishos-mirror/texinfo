@@ -21,13 +21,13 @@
 
 # Most flags (second column) should be documented (with _commands
 # postpended) in Texinfo/Commands.pod.
-# Some documentation of the flags is in commands.h.
+# Some documentation of the flags is in Texinfo/XS/main/builtin_commands.h.
 
 ##############################################################
 # Internal commands
 # invalid if not accept_internalvalue set in configuration
 txiinternalvalue        internal,brace                  INTERNAL_brace
-# used in parsers for easy access to flags
+# used in converters for easy access to flags
 definfoenclose_command  internal,brace                  INTERNAL_brace
 index_entry_command     internal,line,index_entry_command,contain_basic_inline,no_paragraph      INTERNAL_line
 

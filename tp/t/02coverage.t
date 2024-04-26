@@ -1013,12 +1013,6 @@ undef, {'test_file' => 'delcomment_followed_by_cpp_line.texi'}
 ['delcomment_on_comment', undef,
 {'test_file' => 'delcomment_on_comment.texi'},
 ],
-['heading_commands_in_center',
-'@center @code{aaa @thischapter} @| a @thissection @| b
-'],
-['heading_commands_in_documentlanguage',
-'@documentlanguage @code{aaa @thischapter} @| @thissection @| b
-'],
 );
 
 my %docbooc_doc_tests = (
