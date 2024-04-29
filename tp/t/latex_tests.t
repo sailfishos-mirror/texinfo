@@ -646,6 +646,7 @@ In afourpaper reset
         'frenchspacing' => 'on',
         'microtype' => 'off',
         'firstparagraphindent' => 'insert',
+   # With C/XS, this tests that '11' as a string is accepted as an integer
         'fonttextsize' => '11',
         'paragraphindent' => 4,
         'afivepaper' => ''}],

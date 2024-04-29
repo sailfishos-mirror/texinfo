@@ -280,7 +280,8 @@ print GET '
 
 # FIXME include before or after perl?  Include config.h?
 print GET '#include <string.h>'."\n";
-print GET '#include <stdlib.h>'."\n\n";
+print GET '#include <stdlib.h>'."\n";
+print GET '#include <stdio.h>'."\n\n";
 
 print GET '#include "options_types.h"'."\n";
 print GET '#include "converter_types.h"'."\n";
@@ -320,7 +321,16 @@ foreach my $category (sort(keys(%option_categories))) {
     }\n";
     } elsif ($type eq 'integer') {
       print GET "      if (SvOK (value))
-        options->$option.integer = SvIV (value);
+        {
+          if (looks_like_number (value))
+            options->$option.integer = SvIV (value);
+          else
+            {
+              fprintf (stderr, \"BUG: %s: not an integer: %s\\n\",
+                       \"$option\", SvPVutf8_nolen (value));
+              options->$option.integer = -1;
+            }
+        }
       else
         options->$option.integer = -1;
     }\n";
