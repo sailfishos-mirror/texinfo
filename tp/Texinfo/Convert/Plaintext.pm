@@ -1295,7 +1295,8 @@ sub process_footnotes($;$)
     }
 
     _add_newline_if_needed($self);
-    if ($self->get_conf('footnotestyle') eq 'end'
+    my $footnotestyle = $self->get_conf('footnotestyle');
+    if (!defined($footnotestyle) or $footnotestyle ne 'separate'
         # no node content happens only in very special cases, such as
         # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
         or !$label_element) {
@@ -2873,7 +2874,8 @@ sub _convert($$)
              add_next($formatter->{'container'},
                       "($formatted_footnote_number)", 1),
              $formatter->{'container'});
-        if ($self->get_conf('footnotestyle') eq 'separate'
+        my $footnotestyle = $self->get_conf('footnotestyle');
+        if (defined($footnotestyle) and $footnotestyle eq 'separate'
             and $self->{'current_node'}) {
           _convert($self, {'contents' =>
            [{'text' => ' ('},

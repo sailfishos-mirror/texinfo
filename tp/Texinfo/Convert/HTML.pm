@@ -3740,7 +3740,8 @@ sub _convert_footnote_command($$$$)
     }
   }
   my $footnote_href;
-  if ($self->get_conf('footnotestyle') eq 'end'
+  my $footnotestyle = $self->get_conf('footnotestyle');
+  if ((!defined($footnotestyle) or $footnotestyle ne 'separate')
       and (defined($multi_expanded_region)
            or $multiple_expanded_footnote)) {
     # if the footnote appears multiple times, command_href() will select
@@ -8261,12 +8262,15 @@ sub _default_format_element_footer($$$$;$)
   # NOTE the following condition is almost a duplication of the
   # condition appearing in end_page except that the file counter
   # needs not to be 1
-  if ((!$unit->{'tree_unit_directions'}->{'next'}
-       or (defined($unit->{'unit_filename'})
-           and $unit->{'unit_filename'}
-               ne $unit->{'tree_unit_directions'}->{'next'}->{'unit_filename'}))
-      and $self->get_conf('footnotestyle') eq 'end') {
-    $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
+  if (!$unit->{'tree_unit_directions'}->{'next'}
+      or (defined($unit->{'unit_filename'})
+          and $unit->{'unit_filename'}
+           ne $unit->{'tree_unit_directions'}->{'next'}->{'unit_filename'})) {
+    my $footnotestyle = $self->get_conf('footnotestyle');
+    if (!defined($footnotestyle) or $footnotestyle ne 'separate') {
+      $result
+        .= &{$self->formatting_function('format_footnotes_segment')}($self);
+    }
   }
 
   if ($buttons or !$end_page or $self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
@@ -10217,9 +10221,11 @@ sub _prepare_special_units($$)
   }
 
   if ($global_commands and $global_commands->{'footnote'}
-      and $self->get_conf('footnotestyle') eq 'separate'
       and scalar(@$output_units) > 1) {
-    $do_special{'footnotes'} = 1;
+    my $footnotestyle = $self->get_conf('footnotestyle');
+    if (defined($footnotestyle) and $footnotestyle eq 'separate') {
+      $do_special{'footnotes'} = 1;
+    }
   }
 
   if ((!defined($self->get_conf('DO_ABOUT'))

@@ -1,5 +1,15 @@
 2024-04-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_footnote_command)
+	(_default_format_element_footer, _prepare_special_units),
+	tp/Texinfo/XS/convert/convert_html.c (prepare_special_units)
+	(html_default_format_element_footer, convert_footnote_command),
+	tp/Texinfo/Convert/Plaintext.pm (process_footnotes, _convert):
+	compare footnotestyle customization value to 'separate' only and
+	handle an undef value.
+
+2024-04-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/TODO: notes on possible optimization after looking at callgrind
 	output for HTML output with C.
 

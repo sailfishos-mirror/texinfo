@@ -1547,6 +1547,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor)
     }
 
   if (self->document->global_commands->footnotes.number > 0
+      && self->conf->footnotestyle.string
       && !strcmp(self->conf->footnotestyle.string, "separate")
       && output_units->number > 1)
     add_string ("footnotes", do_special);
@@ -8159,7 +8160,8 @@ html_default_format_element_footer (CONVERTER *self,
        || (output_unit->unit_filename
            && strcmp (output_unit->unit_filename,
               output_unit->tree_unit_directions[D_next]->unit_filename)))
-      && !strcmp (self->conf->footnotestyle.string, "end"))
+      && (!self->conf->footnotestyle.string
+          || strcmp (self->conf->footnotestyle.string, "separate")))
     {
       format_footnotes_segment (self, result);
     }
@@ -8940,7 +8942,8 @@ convert_footnote_command (CONVERTER *self, const enum command_id cmd,
       footnote_id_number->number++;
     }
 
-  if (!strcmp (self->conf->footnotestyle.string, "end")
+  if ((!self->conf->footnotestyle.string
+       || strcmp (self->conf->footnotestyle.string, "separate"))
       && (multi_expanded_region || multiple_expanded_footnote))
     {
    /* if the footnote appears multiple times, command_href() will select
