@@ -1,5 +1,10 @@
 2024-04-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/TODO: notes on possible optimization after looking at callgrind
+	output for HTML output with C.
+
+2024-04-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (GNUT_get_stage_handlers),
 	tp/Texinfo/Convert/HTML.pm (run_stage_handlers, output): sort handlers
 	according to priority in GNUT_get_stage_handlers and return sorted

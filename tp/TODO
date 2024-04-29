@@ -101,9 +101,23 @@ converter could check if the punctuation was present simply by checking
 $current->{'extra'}->{'following_punctuation'} or similar.
 
 
+Using callgrind to find the time used by functions
+
 C code could be checked to see if using an hash map implementation,
 by compiling C code as C++ and using the standard C++ library hash map
 could be interesting (Patrice 2023-10-14).
+Could be interesting for find_string:
+ unique_target -> find_string
+ (and, though much less used output_files_open_out -> find_string)
+
+Other possibility for optimisation, do something similar as in Perl with
+shared index information when parser is called from gdt/convert_substring,
+through simple_parser, to avoid the init_index_command call (in particular
+the call to add_index_command).
+
+Another possibility for optimization would be to call Perl less, as it
+still uses about 40% of the time (for html) even though it should mainly be
+for code called once (and not for Perl functions called from C).
 
 
 hyphenation: should only appear in toplevel.
@@ -167,6 +181,9 @@ to specify a locale and use it with strxfrm_l to sort, but it is only
 for testing and should not be kept in the long term, the plan is to replace by
 C code that sets Variable Weighting to Non-ignorable and before that keep
 calling Perl.
+Related glibc enhancement request:
+ request for Non-Ignorable Variable Weighting Unicode collation
+ https://sourceware.org/bugzilla/show_bug.cgi?id=31658
 
 
 HTML5 validation tidy errors that do not need fixing
