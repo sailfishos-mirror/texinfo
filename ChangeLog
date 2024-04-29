@@ -1,3 +1,11 @@
+2024-04-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Config.pm (GNUT_get_stage_handlers),
+	tp/Texinfo/Convert/HTML.pm (run_stage_handlers, output): sort handlers
+	according to priority in GNUT_get_stage_handlers and return sorted
+	stage handlers.  Pass sorted handlers to run_stage_handlers.  Call
+	Texinfo::Config::GNUT_get_stage_handlers() in output().
+
 2024-04-27  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_handle_other_command),
@@ -35,7 +43,7 @@
 	* tp/Texinfo/ParserNonXS.pm (%in_full_text_commands)
 	(%in_basic_inline_commands): do not put in_heading_spec_commands in
 	%in_full_text_commands, only in %in_basic_inline_commands such that
-	they can only appear in selecter @-commands (style brace @-commands).
+	they can only appear in some @-commands (style brace @-commands).
 
 	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): remove an
 	impossible check of outer_flags & CF_heading_spec for a brace command.

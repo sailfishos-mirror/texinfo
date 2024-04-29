@@ -429,10 +429,22 @@ sub texinfo_register_handler($$;$)
   return 1;
 }
 
-# called from the Converter
+# called from the Converter.  Sort according to priority and return sorted
+# handlers by stage.  (Return actually handler and priority pairs in case the
+# priority name information is interesting).
 sub GNUT_get_stage_handlers()
 {
-  return $GNUT_stage_handlers;
+  my %sorted_stage_handlers;
+  foreach my $stage (keys(%$GNUT_stage_handlers)) {
+    $sorted_stage_handlers{$stage} = [];
+    my @sorted_priorities = sort keys(%{$GNUT_stage_handlers->{$stage}});
+    foreach my $priority (@sorted_priorities) {
+      foreach my $handler (@{$GNUT_stage_handlers->{$stage}->{$priority}}) {
+        push @{$sorted_stage_handlers{$stage}}, [$handler, $priority];
+      }
+    }
+  }
+  return \%sorted_stage_handlers;
 }
 
 #####################################################################

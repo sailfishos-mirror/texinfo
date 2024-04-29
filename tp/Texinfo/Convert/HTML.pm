@@ -9069,7 +9069,8 @@ sub converter_initialize($)
           my $type = $self->{'translated_special_unit_info'}->{$tree_type}->[0];
           my $variety_strings
             = $self->{'translated_special_unit_info'}->{$tree_type}->[1];
-          # we do not need both tree type and string type to pass to XS,
+          # we do not need both tree type $tree_type and $type string
+          # to pass to XS, as they both hold the same information,
           # pass only the string type $type and associated varieties information
           $self->{'simplified_special_unit_info'}->{$type} = $variety_strings;
         }
@@ -12302,40 +12303,38 @@ sub output_internal_links($)
   }
 }
 
-sub run_stage_handlers($$$)
+sub run_stage_handlers($$$$)
 {
   my $converter = shift;
+  my $stage_handlers = shift;
   my $document = shift;
   my $stage = shift;
 
-  my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
   return 0 if (!defined($stage_handlers->{$stage}));
 
-  my @sorted_priorities = sort keys(%{$stage_handlers->{$stage}});
-  foreach my $priority (@sorted_priorities) {
-    my $handler_idx = 1;
-    foreach my $handler (@{$stage_handlers->{$stage}->{$priority}}) {
-      if ($converter->get_conf('DEBUG')) {
-        print STDERR "RUN handler $handler_idx: stage $stage, priority $priority\n";
-      }
-      my $status = &{$handler}($converter, $document, $stage);
-      if ($status != 0) {
-        if ($status < 0) {
-          $converter->converter_document_error(
-             sprintf(__("handler %d of stage %s priority %s failed"),
-                        $handler_idx, $stage, $priority));
-        } else {
-          # the handler is supposed to have output an error message
-          # already if $status > 0
-          if ($converter->get_conf('VERBOSE') or $converter->get_conf('DEBUG')) {
-            print STDERR "FAIL handler $handler_idx: stage $stage, "
-                                       ."priority $priority\n";
-          }
-        }
-        return $status;
-      }
-      $handler_idx++;
+  my $handler_idx = 1;
+  foreach my $handler_and_priority (@{$stage_handlers->{$stage}}) {
+    my ($handler, $priority) = @$handler_and_priority;
+    if ($converter->get_conf('DEBUG')) {
+      print STDERR "RUN handler $handler_idx: stage $stage, priority $priority\n";
     }
+    my $status = &{$handler}($converter, $document, $stage);
+    if ($status != 0) {
+      if ($status < 0) {
+        $converter->converter_document_error(
+           sprintf(__("handler %d of stage %s priority %s failed"),
+                      $handler_idx, $stage, $priority));
+      } else {
+        # the handler is supposed to have output an error message
+        # already if $status > 0
+        if ($converter->get_conf('VERBOSE') or $converter->get_conf('DEBUG')) {
+          print STDERR "FAIL handler $handler_idx: stage $stage, "
+                                     ."priority $priority\n";
+        }
+      }
+      return $status;
+    }
+    $handler_idx++;
   }
   return 0;
 }
@@ -12920,7 +12919,11 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  my $setup_status = $self->run_stage_handlers($document, 'setup');
+  # TODO call in converter_initialize
+  my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
+
+  my $setup_status = $self->run_stage_handlers($stage_handlers,
+                                               $document, 'setup');
   unless ($setup_status < $handler_fatal_error_level
           and $setup_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
@@ -13026,7 +13029,8 @@ sub output($$)
   # formatting.  Some information is not available yet.
   $self->_reset_info();
 
-  my $structure_status = $self->run_stage_handlers($document, 'structure');
+  my $structure_status = $self->run_stage_handlers($stage_handlers,
+                                                   $document, 'structure');
   unless ($structure_status < $handler_fatal_error_level
           and $structure_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
@@ -13051,7 +13055,8 @@ sub output($$)
 
   # TODO document that this stage handler is called with end of preamble
   # documentlanguage when it is certain that this will not change ever.
-  my $init_status = $self->run_stage_handlers($document, 'init');
+  my $init_status = $self->run_stage_handlers($stage_handlers,
+                                              $document, 'init');
   unless ($init_status < $handler_fatal_error_level
           and $init_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
@@ -13096,7 +13101,8 @@ sub output($$)
 
   $self->_do_js_files($destination_directory);
 
-  my $finish_status = $self->run_stage_handlers($document, 'finish');
+  my $finish_status = $self->run_stage_handlers($stage_handlers,
+                                                $document, 'finish');
   unless ($finish_status < $handler_fatal_error_level
           and $finish_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();
