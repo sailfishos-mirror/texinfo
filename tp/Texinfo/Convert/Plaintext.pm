@@ -540,9 +540,11 @@ sub converter_initialize($)
   } else {
     $self->{'ascii_dashes_and_quotes'} = 0;
   }
-  if ($self->get_conf('FILLCOLUMN')) {
+  if (defined($self->get_conf('FILLCOLUMN'))) {
     $self->{'fillcolumn'} = $self->get_conf('FILLCOLUMN');
-    # else it's already set via the defaults
+  } else {
+    $self->{'fillcolumn'}
+      = $Texinfo::Options::converter_cmdline_options{'FILLCOLUMN'};
   }
 
   if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {

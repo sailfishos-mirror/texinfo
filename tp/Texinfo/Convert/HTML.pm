@@ -4389,7 +4389,7 @@ sub _default_format_button($$;$)
         my $href = $self->from_element_direction($direction, 'href',
                                                  undef, undef, $source_command);
         my $text_formatted = $self->from_element_direction($direction, $text);
-        if (defined($href)) {
+        if (defined($href) and defined($text_formatted)) {
           my $anchor_attributes = $self->_direction_href_attributes($direction);
           $active = "<a href=\"$href\"${anchor_attributes}>$text_formatted</a>";
         } else {
@@ -4626,7 +4626,8 @@ sub _default_format_navigation_header($$$$)
     $result .= '</td>
 <td>
 ';
-  } elsif ($self->get_conf('SPLIT') eq 'node' and $result ne '') {
+  } elsif ($self->get_conf('SPLIT')
+           and $self->get_conf('SPLIT') eq 'node' and $result ne '') {
     $result .= $self->get_conf('DEFAULT_RULE')."\n";
   }
   return $result;
@@ -4682,8 +4683,9 @@ sub _default_format_element_header($$$$)
                          $self->get_conf('TOP_BUTTONS'), $cmdname, $command)
            if ($self->get_conf('SPLIT') or $self->get_conf('HEADERS'));
     } else {
+      my $split = $self->get_conf('SPLIT');
       if ($first_in_page and !$self->get_conf('HEADERS')) {
-        if ($self->get_conf('SPLIT') eq 'chapter') {
+        if ($split and $split eq 'chapter') {
           $result
            .= &{$self->formatting_function('format_navigation_header')}($self,
                         $self->get_conf('CHAPTER_BUTTONS'), $cmdname, $command);
@@ -4691,7 +4693,7 @@ sub _default_format_element_header($$$$)
           $result .= $self->get_conf('DEFAULT_RULE') ."\n"
             if (defined($self->get_conf('DEFAULT_RULE'))
                 and !$self->get_conf('VERTICAL_HEAD_NAVIGATION'));
-        } elsif ($self->get_conf('SPLIT') eq 'section') {
+        } elsif ($split and $split eq 'section') {
           $result
             .= &{$self->formatting_function('format_navigation_header')}($self,
                         $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
@@ -4702,7 +4704,7 @@ sub _default_format_element_header($$$$)
         $result
           .= &{$self->formatting_function('format_navigation_header')}($self,
                         $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
-      } elsif($self->get_conf('HEADERS') or $self->get_conf('SPLIT') eq 'node') {
+      } elsif ($self->get_conf('HEADERS') or ($split and $split eq 'node')) {
         # got to do this here, as it isn't done otherwise since
         # navigation_header is not called
         $result
@@ -8199,9 +8201,10 @@ sub _default_format_element_footer($$$$;$)
   my $is_special = (defined($unit->{'unit_type'})
                     and $unit->{'unit_type'} eq 'special_unit');
 
+  my $split = $self->get_conf('SPLIT');
   if (($end_page or $next_is_top or $next_is_special or $is_top)
        and $self->get_conf('VERTICAL_HEAD_NAVIGATION')
-       and ($self->get_conf('SPLIT') ne 'node'
+       and (!$split or $split ne 'node'
             or $self->get_conf('HEADERS') or $is_special or $is_top)) {
    $result .= "</td>
 </tr>
@@ -8214,22 +8217,23 @@ sub _default_format_element_footer($$$$;$)
     my $closed_strings = $self->close_registered_sections_level(0);
     $result .= join('', @{$closed_strings});
 
+    my $split = $self->get_conf('SPLIT');
+
     # setup buttons for navigation footer
     if (($is_top or $is_special)
-        and ($self->get_conf('SPLIT') ne '' or !$self->get_conf('MONOLITHIC'))
+        and ($split or !$self->get_conf('MONOLITHIC'))
         and (($self->get_conf('HEADERS')
-              or ($self->get_conf('SPLIT')
-                  and $self->get_conf('SPLIT') ne 'node')))) {
+              or ($split and $split ne 'node')))) {
       if ($is_top) {
         $buttons = $self->get_conf('TOP_FOOTER_BUTTONS');
       } else {
         $buttons = $self->get_conf('MISC_BUTTONS');
       }
-    } elsif ($self->get_conf('SPLIT') eq 'section') {
+    } elsif ($split and $split eq 'section') {
       $buttons = $self->get_conf('SECTION_FOOTER_BUTTONS');
-    } elsif ($self->get_conf('SPLIT') eq 'chapter') {
+    } elsif ($split and $split eq 'chapter') {
       $buttons = $self->get_conf('CHAPTER_FOOTER_BUTTONS');
-    } elsif ($self->get_conf('SPLIT') eq 'node') {
+    } elsif ($split and $split eq 'node') {
       if ($self->get_conf('HEADERS')) {
         my $no_footer_word_count;
         if ($self->get_conf('WORDS_IN_PAGE')) {
@@ -8275,13 +8279,14 @@ sub _default_format_element_footer($$$$;$)
 
   if ($buttons or !$end_page or $self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     my $rule;
+    my $split = $self->get_conf('SPLIT');
     if (!$end_page and ($is_top or $next_is_top or ($next_is_special
                                                     and !$is_special))) {
       $rule = $self->get_conf('BIG_RULE');
     } elsif (!$buttons or $is_top or $is_special
-             or ($end_page and ($self->get_conf('SPLIT') eq 'chapter'
-                                 or $self->get_conf('SPLIT') eq 'section'))
-             or ($self->get_conf('SPLIT') eq 'node'
+             or ($end_page and $split
+                 and ($split eq 'chapter' or $split eq 'section'))
+             or ($split and $split eq 'node'
                  and $self->get_conf('HEADERS'))) {
       $rule = $self->get_conf('DEFAULT_RULE');
     }
@@ -9052,9 +9057,10 @@ sub converter_initialize($)
   # The main program warns if the specific command line option value is
   # not known.  We could add a warning here to catch mistakes in init
   # files.  Wait for user reports.
-  if ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'chapter'
-      and $self->get_conf('SPLIT') ne 'section'
-      and $self->get_conf('SPLIT') ne 'node') {
+  my $split = $self->get_conf('SPLIT');
+  if ($split and $split ne 'chapter'
+      and $split ne 'section'
+      and $split ne 'node') {
     $self->force_conf('SPLIT', 'node');
   }
 
@@ -10230,8 +10236,8 @@ sub _prepare_special_units($$)
 
   if ((!defined($self->get_conf('DO_ABOUT'))
        and scalar(@$output_units) > 1
-           and ($self->get_conf('SPLIT') or $self->get_conf('HEADERS')))
-       or ($self->get_conf('DO_ABOUT'))) {
+       and ($self->get_conf('SPLIT') or $self->get_conf('HEADERS')))
+      or ($self->get_conf('DO_ABOUT'))) {
     $do_special{'about'} = 1;
   }
 
@@ -10866,7 +10872,7 @@ sub _default_format_contents($$;$$)
   #print STDERR "ROOT_LEVEL Max: $max_root_level, Min: $min_root_level\n";
   my @toc_ul_classes;
   push @toc_ul_classes, 'toc-numbered-mark'
-            if ($self->get_conf('NUMBER_SECTIONS'));
+    if ($self->get_conf('NUMBER_SECTIONS'));
 
   my $result = '';
   if ($is_contents and !defined($self->get_conf('BEFORE_TOC_LINES'))

@@ -1,3 +1,24 @@
+2024-04-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (_id_to_filename), tp/ext/epub3.pm
+	(epub_convert_image_command): handle BASEFILENAME_LENGTH being undef.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_button),
+	tp/Texinfo/XS/convert/convert_html.c (html_default_format_button):
+	handle from_element_direction return being undef.
+
+	* tp/Texinfo/XS/convert/convert_html.c, tp/Texinfo/Convert/HTML.pm:
+	handle undefined SPLIT.
+
+	* tp/Texinfo/XS/convert/convert_html.c (from_element_direction):
+	handle TOP_NODE_UP being undef.
+
+	* tp/Texinfo/Convert/Plaintext.pm (converter_initialize): handle
+	undefined FILLCOLUMN.
+
+	* tp/ext/epub3.pm (epub_setup): use INFO_JS_DIR and JS_WEBLABELS_FILE
+	if defined, enven if the empty string or 0.
+
 2024-04-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/maintain/regenerate_C_options_info.pl: add a better BUG message

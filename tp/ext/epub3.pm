@@ -290,10 +290,20 @@ sub epub_convert_image_command($$$$)
     my $protected_image_extension
       = Texinfo::Convert::NodeNameNormalization::transliterate_protect_file_name(
                                                          $image_extension);
-    # -5 for the extension and -10 for $epub_file_nr
-    my $cropped_image_basefile_name
-     = substr($protected_image_basefile_name, 0,
-              $self->get_conf('BASEFILENAME_LENGTH') - 15);
+    my $basefilename_length = $self->get_conf('BASEFILENAME_LENGTH');
+    my $cropped_image_basefile_name;
+    if (defined($basefilename_length) and $basefilename_length >= 0) {
+      if ($basefilename_length > 2 * 15) {
+      # -5 for the extension and -10 for $epub_file_nr
+        $basefilename_length -= 15;
+      } else {
+        $basefilename_length = $basefilename_length / 2;
+      }
+      $cropped_image_basefile_name
+        = substr($protected_image_basefile_name, 0, $basefilename_length);
+    } else {
+      $cropped_image_basefile_name = $protected_image_basefile_name;
+    }
     my $destination_basefile_name = $epub_file_nr.'-'.$cropped_image_basefile_name
                                     . $protected_image_extension;
     $epub_file_nr += 1;
@@ -469,7 +479,7 @@ sub epub_setup($)
   }
 
   $epub_info_js_dir_name = undef;
-  if ($self->get_conf('INFO_JS_DIR')) {
+  if (defined($self->get_conf('INFO_JS_DIR'))) {
     # re-set INFO_JS_DIR up to have the javascript and
     # css files in a directory rooted at $epub_document_dir_name
     $epub_info_js_dir_name = $self->get_conf('INFO_JS_DIR');
@@ -487,15 +497,16 @@ sub epub_setup($)
     # TODO make sure it is SPLIT and set SPLIT if not?
   }
 
+  my $split = $self->get_conf('SPLIT');
   # determine main epub directory and directory for xhtml files,
   # reset OUTFILE and SUBDIR to match with the epub directory
   # for XHTML output
 
   if (defined($self->get_conf('OUTFILE'))) {
     $epub_outfile = $self->get_conf('OUTFILE');
-    # if not undef, will be used as directory name in
+    # if not undef, OUTFILE will be used as directory name in
     # determine_files_and_directory() which does not make sense
-    if ($self->get_conf('SPLIT')) {
+    if ($split) {
       $self->force_conf('OUTFILE', undef);
     }
   }
@@ -510,7 +521,7 @@ sub epub_setup($)
   if (defined($self->get_conf('SUBDIR'))) {
     $epub_destination_directory = File::Spec->catdir($self->get_conf('SUBDIR'),
                                           $document_name . '_epub_package');
-  } elsif ($self->get_conf('SPLIT')) {
+  } elsif ($split) {
     $epub_destination_directory = $destination_directory;
   } else {
     $epub_destination_directory = $document_name . '_epub_package';
@@ -519,7 +530,7 @@ sub epub_setup($)
              = File::Spec->catdir($epub_destination_directory,
                                   $epub_document_dir_name, $epub_xhtml_dir);
   # set for XHTML conversion
-  if ($self->get_conf('SPLIT')) {
+  if ($split) {
     $self->force_conf('SUBDIR', $epub_document_destination_directory);
     $self->force_conf('OUTFILE', undef);
   } else {
@@ -854,14 +865,14 @@ EOT
   foreach my $output_filename (@epub_output_filenames) {
     $id_count++;
     my $properties_str = '';
-    if ($self->get_conf('INFO_JS_DIR')) {
+    if (defined($self->get_conf('INFO_JS_DIR'))) {
       $properties_str = ' properties="scripted"'
     }
     print $opf_fh "      <item id=\"${spine_uid_str}${id_count}\" "
      . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${output_filename}\"${properties_str}/>\n";
   }
   my $js_weblabels_id;
-  if ($self->get_conf('JS_WEBLABELS_FILE')) {
+  if (defined($self->get_conf('JS_WEBLABELS_FILE'))) {
     my $js_weblabels_file_name = $self->get_conf('JS_WEBLABELS_FILE');
     my $js_licenses_file_path = File::Spec->catfile($epub_document_destination_directory,
                                                     $js_weblabels_file_name);

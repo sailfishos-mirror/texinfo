@@ -20,7 +20,10 @@
 
 # format is:
 # option_name   category    default_value   type
-# undef is special for default_value, it means undefined.
+# undef is special for default_value, it means undefined.  What undefined
+# actually means depends on the variable.  In could mean
+#  * unset/false/empty string
+#  * set to the default value, when an unset value does not make sense
 # By chance, there is no space in default values for now, and therefore
 # no need for quoting/escaping.
 

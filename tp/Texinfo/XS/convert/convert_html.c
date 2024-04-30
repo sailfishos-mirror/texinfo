@@ -4092,7 +4092,12 @@ from_element_direction (CONVERTER *self, int direction,
         return strdup (self->conf->TOP_NODE_UP_URL.string);
       else if (type == HTT_text || type == HTT_node
                || type == HTT_string || type == HTT_section)
-        return strdup (self->conf->TOP_NODE_UP.string);
+        {
+          if (self->conf->TOP_NODE_UP.string)
+            return strdup (self->conf->TOP_NODE_UP.string);
+          else
+            return 0;
+        }
       else
         {
           char *msg;
@@ -7486,7 +7491,7 @@ html_default_format_button (CONVERTER *self,
                                                                  direction,
                             button->button_info->direction_information_type,
                                                                  0, 0, 0);
-                  if (href)
+                  if (href && text_formatted)
                     {
                       formatted_button->active
                         = direction_a (self, direction, href,
@@ -7846,7 +7851,8 @@ html_default_format_navigation_header (CONVERTER *self,
 
   if (vertical)
     text_append (result, "</td>\n<td>\n");
-  else if (!strcmp (self->conf->SPLIT.string, "node")
+  else if (self->conf->SPLIT.string
+           && !strcmp (self->conf->SPLIT.string, "node")
            && result->end > result_text_index)
     {
       text_append (result, self->conf->DEFAULT_RULE.string);
@@ -7948,7 +7954,8 @@ html_default_format_element_header (CONVERTER *self,
         {
           if (first_in_page && self->conf->HEADERS.integer <= 0)
             {
-              if (!strcmp (self->conf->SPLIT.string, "chapter"))
+              if (self->conf->SPLIT.string
+                  && !strcmp (self->conf->SPLIT.string, "chapter"))
                 {
                   format_navigation_header (self,
                      self->conf->CHAPTER_BUTTONS.buttons, cmdname, command,
@@ -7960,7 +7967,8 @@ html_default_format_element_header (CONVERTER *self,
                       text_append_n (result, "\n", 1);
                     }
                 }
-              else if (!strcmp (self->conf->SPLIT.string, "section"))
+              else if (self->conf->SPLIT.string
+                       && !strcmp (self->conf->SPLIT.string, "section"))
                 {
                   format_navigation_header (self,
                      self->conf->SECTION_BUTTONS.buttons, cmdname, command,
@@ -7975,7 +7983,8 @@ html_default_format_element_header (CONVERTER *self,
                  result);
             }
           else if (self->conf->HEADERS.integer > 0
-                   || !strcmp (self->conf->SPLIT.string, "node"))
+                   || (self->conf->SPLIT.string
+                       && !strcmp (self->conf->SPLIT.string, "node")))
             {
           /* got to do this here, as it isn't done otherwise since
              navigation_header is not called */
@@ -8090,7 +8099,8 @@ html_default_format_element_footer (CONVERTER *self,
 
   if ((end_page || next_is_top || next_is_special || is_top)
       && self->conf->VERTICAL_HEAD_NAVIGATION.integer > 0
-      && (strcmp (self->conf->SPLIT.string, "node")
+      && (!self->conf->SPLIT.string || !strlen (self->conf->SPLIT.string)
+          || strcmp (self->conf->SPLIT.string, "node")
           || self->conf->HEADERS.integer > 0 || unit_type == OU_special_unit
           || is_top))
     {

@@ -789,7 +789,12 @@ sub _id_to_filename($$)
 {
   my $self = shift;
   my $id = shift;
-  return substr($id, 0, $self->get_conf('BASEFILENAME_LENGTH'));
+  my $basefilename_length = $self->get_conf('BASEFILENAME_LENGTH');
+  if (defined($basefilename_length) and $basefilename_length >= 0) {
+    return substr($id, 0, $basefilename_length);
+  } else {
+    return $id;
+  }
 }
 
 sub normalized_sectioning_command_filename($$)
@@ -826,7 +831,8 @@ sub node_information_filename($$$)
   my $filename;
   if (defined($normalized)) {
     if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
-      $filename = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+      $filename
+  = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
        {'contents' => $label_element->{'contents'}},
             $no_unidecode);
     } else {
