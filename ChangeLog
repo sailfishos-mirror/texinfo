@@ -1,5 +1,21 @@
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
 
+	Remove parent of @include or @setfilename source mark elements
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): remove parent
+	of @include or @setfilename element removed from the tree and
+	registered as source mark element.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/80include.t
+	(include_in_removed_before_item): add test of @include in @table
+	before_item after a comment that holds the source mark, with
+	before_item removed from the tree.
+
+	Report from Christoph.
+
+2024-05-01  Patrice Dumas  <pertusus@free.fr>
+
 	Change in comments, minor changes in code.
 
 2024-04-30  Patrice Dumas  <pertusus@free.fr>
