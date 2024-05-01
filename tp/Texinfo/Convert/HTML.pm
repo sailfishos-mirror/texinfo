@@ -4386,6 +4386,8 @@ sub _default_format_button($$;$)
         $active = $self->from_element_direction($direction, $text,
                                                 undef, undef, $source_command);
       } else {
+        # NOTE This buttons specification is not used anywhere in code nor
+        # tests, it is certainly not worth maintaining in the long run.
         my $href = $self->from_element_direction($direction, 'href',
                                                  undef, undef, $source_command);
         my $text_formatted = $self->from_element_direction($direction, $text);

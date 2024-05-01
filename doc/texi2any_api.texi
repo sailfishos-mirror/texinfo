@@ -1212,6 +1212,10 @@ The functions is called with two arguments, the converter object and the
 output unit direction and should return two scalars, the link href and text and
 a boolean set if a delimiter is needed after that button.
 
+@c This buttons specification is not used anywhere in code nor
+@c tests, it is certainly not worth maintaining in the long run.
+@c Do not document
+@ignore
 @item text string
 The text string is interpreted as an output unit direction information type
 and the corresponding text is used for the link.
@@ -1225,6 +1229,7 @@ For example, if the button array item is
 @noindent
 Then the button will be a link to the next section with text
 based on the name of the node associated with the next section output unit.
+@end ignore
 
 @end table
 

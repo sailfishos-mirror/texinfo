@@ -1,5 +1,11 @@
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Simple Navigation Panel Customization):
+	comment out documentation of buttons specification that is not used in 
+	code nor tests.
+
+2024-05-01  Patrice Dumas  <pertusus@free.fr>
+
 	Remove skipped test result.
 
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
