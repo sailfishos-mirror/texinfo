@@ -899,8 +899,9 @@ sub _protect_hashchar_at_line_beginning($$$)
               push @result, $e;
             }
 
-            $e = {'cmdname' => 'hashchar', 'parent' => $parent,
-                  'args' => [{'type' => 'brace_command_arg'}]};
+            $e = {'cmdname' => 'hashchar', 'parent' => $parent};
+            my $arg = {'type' => 'brace_command_arg', 'parent' => $e};
+            $e->{'args'} = [$arg];
             $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,
                                           $current_position, 1);

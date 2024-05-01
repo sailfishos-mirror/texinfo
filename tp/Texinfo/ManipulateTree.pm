@@ -509,8 +509,10 @@ sub _protect_text($$)
         }
         if ($to_protect eq quotemeta(',')) {
           for (my $i = 0; $i < length($2); $i++) {
-            my $e = {'cmdname' => 'comma', 'parent' => $current->{'parent'},
-                           'args' => [{'type' => 'brace_command_arg'}]};
+            my $e = {'cmdname' => 'comma', 'parent' => $current->{'parent'}};
+            my $brace_command_arg = {'type' => 'brace_command_arg',
+                                     'parent' => $e};
+            $e->{'args'} = [$brace_command_arg];
             $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,
                                           $current_position, 1);

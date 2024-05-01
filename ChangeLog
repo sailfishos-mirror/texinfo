@@ -1,5 +1,12 @@
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ManipulateTree.pm (_protect_text),
+	tp/Texinfo/Transformations.pm (_protect_hashchar_at_line_beginning):
+	set the parent of brace_command_arg added for added glyph command
+	elements.
+
+2024-05-01  Patrice Dumas  <pertusus@free.fr>
+
 	Remove parent of @include or @setfilename source mark elements
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),

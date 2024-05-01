@@ -413,8 +413,8 @@ my @node_keys = ('node_directions',
 my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
     'float_number', 'tree_unit_directions', 'directions',
-    'associated_unit',
-    'parent', 'global_command_number',
+    'associated_unit', 'global_command_number',
+    'parent',
     # only set with the XS parser
     'tree_document_descriptor', 'output_units_descriptor');
 foreach my $avoided_key(@avoided_keys_tree) {
