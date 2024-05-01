@@ -166,6 +166,7 @@ test_files = \
  t/include/inc_file.texi \
  t/include/incl-incl.txi \
  t/include/macro_included.texi \
+ t/include/only_comment.texi \
  t/include/section_file.texi \
  t/include/section_file_no_node.texi \
  t/include/section_file_no_node_include.texi \
