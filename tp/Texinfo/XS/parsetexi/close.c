@@ -302,12 +302,15 @@ close_command_cleanup (ELEMENT *current)
                                      pop_element_from_contents (before_item));
             }
 
-          /* Now if the ET_before_item is empty, remove it. */
+          /* Now if the ET_before_item is empty, remove it.  Note that the
+             some before_item content could also have been reparented in
+             gather_previous_item */
           if (is_container_empty (before_item)
               && before_item->source_mark_list.number == 0)
             {
-              destroy_element (remove_from_contents (current,
-                                                have_leading_spaces ? 1 : 0));
+              ELEMENT *removed = remove_from_contents (current,
+                                                have_leading_spaces ? 1 : 0);
+              destroy_element (removed);
             }
           else /* Non-empty ET_before_item */
             {

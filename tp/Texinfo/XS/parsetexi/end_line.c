@@ -1713,8 +1713,8 @@ end_line_misc_line (ELEMENT *current)
 
           if (source_mark)
             {
-              /* this is in order to keep source marks that are within a
-                removed element.  For the XS parser it is also easier to
+              /* keep the elements, also keeping source marks that are within
+                removed elements.  For the XS parser it is also easier to
                 manage the source mark memory which can stay associated
                 to the element. */
               source_mark->element = pop_element_from_contents (current);

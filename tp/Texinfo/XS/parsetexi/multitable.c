@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+#include <stdio.h>
 
 #include "tree_types.h"
 #include "tree.h"
@@ -63,6 +64,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   if (last_contents_child(current)
       && last_contents_child(current)->type == ET_before_item)
     {
+      /* before_item before the first @item, nothing to do for now */
       if (next_command == CM_itemx)
         line_error ("@itemx should not begin @%s", command_name (current->cmd));
       return;
@@ -126,6 +128,8 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
            if (e->type == ET_before_item
                || e->type == ET_table_entry)
              {
+          /* register the before_item if we reached it in order to
+             to reparent some before_item content to the first item */
                if (e->type == ET_before_item)
                  before_item = e;
                term_begin = i + 1;
@@ -142,6 +146,9 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       remove_slice_from_contents (current, term_begin, begin);
       if (before_item)
         {
+          /* TODO debug message?
+          fprintf (stderr, "REPARENT before_item content\n");
+           */
           /* Reparent any trailing index entries in the before_item to the
              beginning of table term. */
           while (before_item->contents.number > 0
