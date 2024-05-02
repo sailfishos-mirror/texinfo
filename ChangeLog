@@ -1,3 +1,33 @@
+2024-05-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
+	(conversion_initialization): set FORMAT_MENU, MAX_HEADER_LEVEL,
+	CONTENTS_OUTPUT_LOCATION, INDEX_ENTRY_COLON, MENU_ENTRY_COLON if
+	undef in converter_initialize.  Set OPEN_QUOTE_SYMBOL,
+	CLOSE_QUOTE_SYMBOL and MENU_SYMBOL if undef after setting the default.
+
+	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/XS/convert/convert_html.c:
+	allow documentlanguage, OUTPUT_ENCODING_NAME,
+	NO_NUMBER_FOOTNOTE_SYMBOL, xrefautomaticsectiontitle, DEFAULT_RULE,
+	deftypefnnewline, DOCTYPE, BODY_ELEMENT_ATTRIBUTES, AFTER_BODY_OPEN,
+	PACKAGE_AND_VERSION, PACKAGE_URL, LINKS_BUTTONS, SECTION_BUTTONS in
+	About body, JS_WEBLABELS_FILE, HANDLER_FATAL_ERROR_LEVEL to be undef.
+
+	* tp/Texinfo/Convert/Info.pm (format_node): handle undef TOP_NODE_UP.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about),
+	tp/Texinfo/XS/convert/convert_html.c
+	(default_format_special_body_about): different output for the About
+	page if the SECTION_BUTTONS are undefined.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(set_menus_node_directions), tp/Texinfo/XS/parsetexi/Parsetexi.pm
+	(parser), tp/Texinfo/Convert/Plaintext.pm (_convert): handle undef
+	FORMAT_MENU.
+
+	* tp/Makefile.tres, tp/t/test_utils.pl (test), tp/t/10menu.t
+	(format_menu_undef): add a test with FORMAT_MENU undef.
+
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Navigation Panel Customization):

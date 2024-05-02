@@ -722,7 +722,14 @@ where the max column could be. @w{in w}.
 @node app
 @appendix GGG
 ',],
+['format_menu_undef',
+'@node Top
+@top top
 
+@node chapter
+@chapter Chap
+', {'FORMAT_MENU' => undef}, {'FORMAT_MENU' => undef}
+],
 );
 
 my @test_invalid = (
@@ -810,7 +817,7 @@ my %info_tests = (
 );
 
 foreach my $test (@test_cases) {
-  $test->[3]->{'FORMAT_MENU'} = 'menu' if (!defined($test->[3]->{'FORMAT_MENU'}));
+  $test->[3]->{'FORMAT_MENU'} = 'menu' if (!exists($test->[3]->{'FORMAT_MENU'}));
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html';
   push @{$test->[2]->{'test_formats'}}, 'xml';

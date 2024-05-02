@@ -3065,8 +3065,9 @@ sub _convert($$)
       # remark:
       # cartouche group and raggedright -> nothing on format stack
 
+      my $format_menu = $self->get_conf('FORMAT_MENU');
       if ($menu_commands{$command}
-          and $self->get_conf('FORMAT_MENU') eq 'nomenu') {
+          and (!$format_menu or $format_menu eq 'nomenu')) {
         return '';
       }
       if ($self->{'preformatted_context_commands'}->{$command}

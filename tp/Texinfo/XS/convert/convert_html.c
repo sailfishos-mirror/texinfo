@@ -13,6 +13,12 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+/* NOTE the following customization variables should have a
+   value set (ie not undef in Perl, which would translate to NULL in C):
+ FORMAT_MENU MAX_HEADER_LEVEL CONTENTS_OUTPUT_LOCATION OPEN_QUOTE_SYMBOL
+ CLOSE_QUOTE_SYMBOL MENU_SYMBOL INDEX_ENTRY_COLON MENU_ENTRY_COLON
+ */
+
 #include <config.h>
 
 #include <string.h>
@@ -650,10 +656,7 @@ html_cdt_string (const char *string, CONVERTER *self,
 {
   char *translated_string;
   char *result;
-  const char *lang = 0;
-
-  if (self->conf->documentlanguage.string)
-    lang = self->conf->documentlanguage.string;
+  const char *lang = self->conf->documentlanguage.string;
 
   translated_string = html_translate_string (self, string, lang,
                                              translation_context);
@@ -3059,7 +3062,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   TARGET_FILENAME *target_filename =
     normalized_label_id_file (self, normalized, node_contents);
 
-  /* undef if conversion is called through convert() */
+  /* always undef if conversion is called through convert() */
   if (self->conf->EXTERNAL_CROSSREF_SPLIT.string
       && strlen (self->conf->EXTERNAL_CROSSREF_SPLIT.string))
     /* initialize to EXTERNAL_CROSSREF_SPLIT */
@@ -5942,7 +5945,7 @@ direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
         text_printf (result, " accesskey=\"%s\"", accesskey);
     }
 
-  if (self->conf->USE_REL_REV.integer)
+  if (self->conf->USE_REL_REV.integer > 0)
     {
       const char *button_rel
         = direction_string (self, direction, TDS_type_rel,
@@ -6417,9 +6420,11 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 
           if (self->conf->NUMBER_FOOTNOTES.integer > 0)
             xasprintf (&footnote_mark, "%d", number_in_doc);
-          else
+          else if (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL.string)
             footnote_mark
               = strdup (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL.string);
+          else
+            footnote_mark = strdup ("");
 
           attribute_class = html_attribute_class (self, "h5",
                             &foot_body_heading_classes);
@@ -6677,10 +6682,9 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
               && mathjax_jslicenses_file_nr > 0))
         {
           if (self->conf->JS_WEBLABELS_FILE.string
-              && (self->conf->JS_WEBLABELS.string
-                  && (!strcmp (self->conf->JS_WEBLABELS.string, "generate")
-                      || !strcmp (self->conf->JS_WEBLABELS.string,
-                                  "reference"))))
+              && self->conf->JS_WEBLABELS.string
+              && (!strcmp (self->conf->JS_WEBLABELS.string, "generate")
+                  || !strcmp (self->conf->JS_WEBLABELS.string, "reference")))
             {
               ELEMENT *tree;
               char *js_path = url_protect_url_text (self,
@@ -7016,7 +7020,8 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
     begin_info->root_html_element_attributes = strdup ("");
 
   text_reset (&text);
-  text_append (&text, self->conf->BODY_ELEMENT_ATTRIBUTES.string);
+  if (self->conf->BODY_ELEMENT_ATTRIBUTES.string)
+    text_append (&text, self->conf->BODY_ELEMENT_ATTRIBUTES.string);
   if (self->conf->HTML_MATH.string
       && !strcmp (self->conf->HTML_MATH.string, "mathjax")
       && html_get_file_information (self, "mathjax", filename, &status) > 0)
@@ -7119,7 +7124,7 @@ get_links (CONVERTER* self, const char *filename,
            const OUTPUT_UNIT *output_unit,
            const ELEMENT *node_command, TEXT *result)
 {
-  if (self->conf->USE_LINKS.integer > 0)
+  if (self->conf->USE_LINKS.integer > 0 && self->conf->LINKS_BUTTONS.buttons)
     {
       int i;
       const BUTTON_SPECIFICATION_LIST *link_buttons
@@ -7189,7 +7194,8 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
 
   text_init (&result);
 
-  text_append (&result, self->conf->DOCTYPE.string);
+  if (self->conf->DOCTYPE.string)
+    text_append (&result, self->conf->DOCTYPE.string);
   text_append_n (&result, "\n", 1);
   text_printf (&result, "<html%s>\n", begin_info->root_html_element_attributes);
   text_printf (&result, "<!-- Created by %s, %s -->\n<head>\n",
@@ -7342,7 +7348,8 @@ default_panel_button_dynamic_direction_internal (CONVERTER *self,
 
   href = from_element_direction (self, direction, HTT_href, 0, 0, element);
 
-  if (!strcmp (self->conf->xrefautomaticsectiontitle.string, "on"))
+  if (self->conf->xrefautomaticsectiontitle.string
+      && !strcmp (self->conf->xrefautomaticsectiontitle.string, "on"))
     node = from_element_direction (self, direction, HTT_section, 0, 0, 0);
 
   if (!node)
@@ -7692,16 +7699,16 @@ html_default_format_navigation_panel (CONVERTER *self,
                          int vertical, TEXT *result)
 {
   int i;
-  /* do the buttons first in case they are formatteed as an empty string */
   int nr_of_buttons_shown = 0;
   TEXT result_buttons;
   char *attribute_class;
 
-  text_init (&result_buttons);
-  text_append (&result_buttons, "");
-
   if (!buttons)
     return;
+
+  /* do the buttons first in case they are formatted as an empty string */
+  text_init (&result_buttons);
+  text_append (&result_buttons, "");
 
   for (i = 0; i < buttons->number; i++)
     {
@@ -7853,6 +7860,7 @@ html_default_format_navigation_header (CONVERTER *self,
     text_append (result, "</td>\n<td>\n");
   else if (self->conf->SPLIT.string
            && !strcmp (self->conf->SPLIT.string, "node")
+           && self->conf->DEFAULT_RULE.string
            && result->end > result_text_index)
     {
       text_append (result, self->conf->DEFAULT_RULE.string);
@@ -8271,7 +8279,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
 
   text_init (&result);
 
-  text_append (&result, self->conf->DOCTYPE.string);
+  if (self->conf->DOCTYPE.string)
+    text_append (&result, self->conf->DOCTYPE.string);
   text_append_n (&result, "\n", 1);
   text_printf (&result, "<html%s>\n", begin_info->root_html_element_attributes);
   text_printf (&result, "<!-- Created by %s, %s -->\n"
@@ -8895,8 +8904,10 @@ convert_footnote_command (CONVERTER *self, const enum command_id cmd,
 
   if (self->conf->NUMBER_FOOTNOTES.integer > 0)
     xasprintf (&footnote_mark, "%d", foot_num);
-  else
+  else if (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL.string)
     footnote_mark = strdup (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL.string);
+  else
+    footnote_mark = strdup ("");
 
   if (html_in_string (self))
     {
@@ -12041,7 +12052,8 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
 
       if (!name)
         {
-          if (!strcmp (self->conf->xrefautomaticsectiontitle.string, "on")
+          if (self->conf->xrefautomaticsectiontitle.string
+              && !strcmp (self->conf->xrefautomaticsectiontitle.string, "on")
               && associated_section
         /* this condition avoids infinite recursions, indeed in that case
            the node will be used and not the section.  There should not be
@@ -13341,7 +13353,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           text_append_n (&result_index_entries, "</th></tr>\n", 11);
           text_append (&result_index_entries, entries_text.text);
           text_append_n (&result_index_entries, "<tr><td colspan=\"3\">", 20);
-          text_append (&result_index_entries, self->conf->DEFAULT_RULE.string);
+          if (self->conf->DEFAULT_RULE.string)
+            text_append (&result_index_entries,
+                         self->conf->DEFAULT_RULE.string);
           text_append_n (&result_index_entries, "</td></tr>\n", 11);
         }
       else
@@ -13516,7 +13530,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                                       "Tr th idx entries 2");
   text_append_n (result, "</th></tr>\n", 11);
   text_append_n (result, "<tr><td colspan=\"3\">", 20);
-  text_append (result, self->conf->DEFAULT_RULE.string);
+  if (self->conf->DEFAULT_RULE.string)
+    text_append (result, self->conf->DEFAULT_RULE.string);
   text_append_n (result, "</td></tr>\n", 11);
   text_append (result, result_index_entries.text);
   text_append_n (result, "</table>\n", 9);
@@ -14838,6 +14853,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
           text_append_n (&def_call, "</code>", 7);
         }
       if ((base_cmd == CM_deftypefn || base_cmd == CM_deftypeop)
+          && self->conf->deftypefnnewline.string
           && !strcmp (self->conf->deftypefnnewline.string, "on"))
         {
           text_append_n (&def_call, self->line_break_element.string,
@@ -15004,6 +15020,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
                                             "class", class_copy);
 
           if (base_cmd == CM_deftypeop && parsed_def->type
+              && self->conf->deftypefnnewline.string
               && !strcmp (self->conf->deftypefnnewline.string, "on"))
             {
                category_tree
@@ -15027,6 +15044,7 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
         {
           if ((base_cmd == CM_deftypefn || base_cmd == CM_deftypeop)
               && parsed_def->type
+              && self->conf->deftypefnnewline.string
               && !strcmp (self->conf->deftypefnnewline.string, "on"))
             {
               category_tree
@@ -15359,8 +15377,11 @@ contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
               if (contents_text)
                 {
                   text_append (result, contents_text);
-                  text_append (result, self->conf->DEFAULT_RULE.string);
-                  text_append_n (result, "\n", 1);
+                  if (self->conf->DEFAULT_RULE.string)
+                    {
+                      text_append (result, self->conf->DEFAULT_RULE.string);
+                      text_append_n (result, "\n", 1);
+                    }
                   free (contents_text);
                 }
             }
@@ -15412,7 +15433,7 @@ html_default_format_titlepage (CONVERTER *self)
       format_simpletitle (self, &result);
       titlepage_text = 1;
     }
-  if (titlepage_text)
+  if (titlepage_text && self->conf->DEFAULT_RULE.string)
     {
       text_append (&result, self->conf->DEFAULT_RULE.string);
       text_append_n (&result, "\n", 1);
@@ -15539,6 +15560,16 @@ default_format_special_body_about (CONVERTER *self,
     }
 
   text_append_n (result, "<p>\n", 4);
+
+  if (!buttons)
+    {
+      translate_convert_to_html_internal (
+               "There are no buttons for this document.", self, 0, 0,
+                result, "ABOUT");
+      text_append_n (result, "</p>\n", 5);
+      return;
+    }
+
   translate_convert_to_html_internal (
    "  The buttons in the navigation panels have the following meaning:",
                                       self, 0, 0, result, "ABOUT");

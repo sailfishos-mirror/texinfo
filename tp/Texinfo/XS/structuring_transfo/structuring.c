@@ -815,6 +815,7 @@ set_menus_node_directions (DOCUMENT *document)
     return;
 
   if (options && (options->novalidate.integer > 0
+                  || !options->FORMAT_MENU.string
                   || strcmp (options->FORMAT_MENU.string, "menu")))
     check_menu_entries = 0;
 

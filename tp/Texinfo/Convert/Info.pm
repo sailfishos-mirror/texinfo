@@ -580,7 +580,10 @@ sub format_node($$)
     } elsif ($direction eq 'Up'
              and $node->{'extra'}->{'normalized'} eq 'Top') {
       # add an up direction for Top node
-      $self->_stream_output(",  $direction: ".$self->get_conf('TOP_NODE_UP'));
+      my $top_node_up = $self->get_conf('TOP_NODE_UP');
+      if (defined($top_node_up)) {
+        $self->_stream_output(",  $direction: ".$top_node_up);
+      }
     }
   }
   $self->_stream_output("\n\n");

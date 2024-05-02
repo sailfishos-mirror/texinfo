@@ -234,6 +234,8 @@ EPUB_CREATE_CONTAINER_FILE         converter_customization undef   integer
 EPUB_KEEP_CONTAINER_FOLDER         converter_customization undef   integer
 EXTENSION                          converter_customization undef   char
 EXTERNAL_CROSSREF_EXTENSION        converter_customization undef   char
+# This is used like a boolean, but it is set to a char to match SPLIT, such
+# that the value can be set as a copy of SPLIT value
 EXTERNAL_CROSSREF_SPLIT            converter_customization undef   char
 EXTERNAL_DIR                       converter_customization undef   char
 EXTRA_HEAD                         converter_customization undef   char

@@ -147,7 +147,7 @@ sub parser (;$$)
           parser_set_documentlanguage_override ($utf8_bytes);
         }
       } elsif ($key eq 'FORMAT_MENU') {
-        if ($conf->{$key} eq 'menu') {
+        if ($conf->{$key} and $conf->{$key} eq 'menu') {
           conf_set_show_menu (1);
         } else {
           conf_set_show_menu (0);

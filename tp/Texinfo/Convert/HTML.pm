@@ -2812,10 +2812,14 @@ sub _translate_names($)
 {
   my $self = shift;
 
-  print STDERR "\nTRANSLATE_NAMES encoding_name: "
-    .$self->get_conf('OUTPUT_ENCODING_NAME')
-    ." documentlanguage: ".$self->get_conf('documentlanguage')."\n"
-      if ($self->get_conf('DEBUG'));
+  if ($self->get_conf('DEBUG')) {
+    my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
+    $output_encoding_name = 'UNDEF' if (!defined($output_encoding_name));
+    my $documentlanguage = $self->get_conf('documentlanguage');
+    $documentlanguage = 'UNDEF' if (!defined($documentlanguage));
+    print STDERR "\nTRANSLATE_NAMES encoding_name: $output_encoding_name"
+      ." documentlanguage: $documentlanguage\n";
+  }
 
   # reset strings such that they are translated when needed.
   # could also use the keys of $self->{'translated_direction_strings'}
@@ -3692,6 +3696,7 @@ sub _convert_footnote_command($$$$)
     $footnote_mark = $number_in_doc;
   } else {
     $footnote_mark = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
+    $footnote_mark = '' if (!defined($footnote_mark));
   }
 
   return "($footnote_mark)" if (in_string($self));
@@ -4243,7 +4248,9 @@ sub _default_panel_button_dynamic_direction($$;$$$)
                                            undef, undef, $source_command);
   my $node;
 
-  if ($self->get_conf('xrefautomaticsectiontitle') eq 'on') {
+  my $xrefautomaticsectiontitle = $self->get_conf('xrefautomaticsectiontitle');
+  if (defined($xrefautomaticsectiontitle)
+      and $xrefautomaticsectiontitle eq 'on') {
     $node = $self->from_element_direction($direction, 'section');
   }
 
@@ -4629,7 +4636,8 @@ sub _default_format_navigation_header($$$$)
 <td>
 ';
   } elsif ($self->get_conf('SPLIT')
-           and $self->get_conf('SPLIT') eq 'node' and $result ne '') {
+           and $self->get_conf('SPLIT') eq 'node' and $result ne ''
+           and defined($self->get_conf('DEFAULT_RULE'))) {
     $result .= $self->get_conf('DEFAULT_RULE')."\n";
   }
   return $result;
@@ -6390,6 +6398,9 @@ sub _convert_printindex_command($$$$)
 
   $self->_new_document_context($cmdname);
 
+  my $rule = $self->get_conf('DEFAULT_RULE');
+  $rule = '' if (!defined($rule));
+
   my %formatted_letters;
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
@@ -6779,7 +6790,7 @@ sub _convert_printindex_command($$$$)
       $result_index_entries .= '<tr>' .
         "<th id=\"$letter_id{$letter}\">".$formatted_letter
         . "</th></tr>\n" . $entries_text
-        . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
+        . "<tr><td colspan=\"3\">${rule}</td></tr>\n";
       push @letter_entries, $letter_entry;
     }
   }
@@ -6848,8 +6859,7 @@ sub _convert_printindex_command($$$$)
      # TRANSLATORS: section of index entry column header in index formatting
    . $self->convert_tree($self->cdt('Section'), 'Tr th idx entries 2')
    ."</th></tr>\n"
-   . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')
-   ."</td></tr>\n";
+   . "<tr><td colspan=\"3\">${rule}</td></tr>\n";
   $result .= $result_index_entries;
   $result .= "</table>\n";
 
@@ -7781,9 +7791,10 @@ sub _convert_def_line_type($$$$)
       $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
           $type_text .'</code>';
     }
-    if ($self->get_conf('deftypefnnewline') eq 'on'
-        and ($base_command_name eq 'deftypefn'
-             or $base_command_name eq 'deftypeop')) {
+    if (($base_command_name eq 'deftypefn'
+         or $base_command_name eq 'deftypeop')
+        and $self->get_conf('deftypefnnewline')
+        and $self->get_conf('deftypefnnewline') eq 'on') {
       $def_call .= $self->get_info('line_break_element') . ' ';
     } elsif ($type_text ne '') {
       $def_call .= ' ';
@@ -7849,6 +7860,7 @@ sub _convert_def_line_type($$$$)
                         'class' => $class_element};
       if ($base_command_name eq 'deftypeop'
           and $type_element
+          and $self->get_conf('deftypefnnewline')
           and $self->get_conf('deftypefnnewline') eq 'on') {
         $category_tree = $self->cdt('{category} on @code{{class}}:@* ',
                                     $substrings);
@@ -7866,6 +7878,7 @@ sub _convert_def_line_type($$$$)
       if ($type_element
           and ($base_command_name eq 'deftypefn'
                or $base_command_name eq 'deftypeop')
+          and $self->get_conf('deftypefnnewline')
           and $self->get_conf('deftypefnnewline') eq 'on') {
         # TODO if in @def* in @example and with @deftypefnnewline
         # on there is no effect of @deftypefnnewline on, as @* in
@@ -8099,7 +8112,11 @@ sub _contents_shortcontents_in_title($)
       if ($self->get_conf($cmdname)) {
         my $contents_text = $self->_contents_inline_element($cmdname, undef);
         if ($contents_text ne '') {
-          $result .= $contents_text . $self->get_conf('DEFAULT_RULE')."\n";
+          $result .= $contents_text;
+          my $rule = $self->get_conf('DEFAULT_RULE');
+          if (defined($rule)) {
+            $result .= $rule ."\n";
+          }
         }
       }
     }
@@ -8139,8 +8156,13 @@ sub _default_format_titlepage($)
     }
   }
   my $result = '';
-  $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
-    if (defined($titlepage_text));
+  if (defined($titlepage_text)) {
+    $result .= $titlepage_text;
+    my $rule = $self->get_conf('DEFAULT_RULE');
+    if (defined($rule)) {
+      $result .= $rule."\n";
+    }
+  }
   $result .= $self->_contents_shortcontents_in_title();
   return $result;
 }
@@ -8881,6 +8903,10 @@ sub converter_initialize($)
       = $customized_upper_case_commands->{$command};
   }
 
+  # used just below.  Set if undef
+  if (!defined($self->get_conf('FORMAT_MENU'))) {
+    $self->force_conf('FORMAT_MENU', '');
+  }
 
   $self->{'commands_conversion'} = {};
   my $customized_commands_conversion
@@ -9064,6 +9090,24 @@ sub converter_initialize($)
       and $split ne 'section'
       and $split ne 'node') {
     $self->force_conf('SPLIT', 'node');
+  }
+
+  my $max_header_level = $self->get_conf('MAX_HEADER_LEVEL');
+  if (!defined($max_header_level)) {
+    $self->force_conf('MAX_HEADER_LEVEL', $defaults{'MAX_HEADER_LEVEL'});
+  } elsif ($max_header_level < 1) {
+    $self->force_conf('MAX_HEADER_LEVEL', 1);
+  }
+
+  # For CONTENTS_OUTPUT_LOCATION
+  # should lead to contents not output, but if not, it is not an issue,
+  # the way to set contents to be output or not should be through the
+  # contents and shortcontents @-commands and customization options.
+  foreach my $conf ('CONTENTS_OUTPUT_LOCATION', 'INDEX_ENTRY_COLON',
+                    'MENU_ENTRY_COLON') {
+    if (!defined($self->get_conf($conf))) {
+      $self->force_conf($conf, '');
+    }
   }
 
   # XS parser initialization
@@ -10217,7 +10261,7 @@ sub _prepare_special_units($$)
               next;
             }
           } else {
-            # should not happen
+            # only happens with an unknown CONTENTS_OUTPUT_LOCATION
             next;
           }
           my $special_unit = $self->_register_special_unit($special_unit_variety);
@@ -10640,7 +10684,7 @@ sub _external_node_href($$$)
   my ($target_filebase, $target)
       = $self->_normalized_label_id_file($normalized, $node_contents);
 
-  # undef if conversion is called through convert()
+  # always undef if conversion is called through convert()
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
 
   my $external_file_extension = '';
@@ -11153,8 +11197,10 @@ sub _file_header_information($$;$)
                                                                   $filename);
 
   my $doctype = $self->get_conf('DOCTYPE');
+  $doctype = '' if (!defined($doctype));
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
   my $body_attributes = $self->get_conf('BODY_ELEMENT_ATTRIBUTES');
+  $body_attributes = '' if (!defined($body_attributes));
   if ($self->get_conf('HTML_MATH') and $self->get_conf('HTML_MATH') eq 'mathjax'
       and $self->get_file_information('mathjax', $filename)) {
     $body_attributes .= ' class="tex2jax_ignore"';
@@ -11162,11 +11208,12 @@ sub _file_header_information($$;$)
   my $copying_comment = $self->get_info('copying_comment');
   $copying_comment = ''
        if (not defined($copying_comment));
-  my $after_body_open = '';
-  $after_body_open = $self->get_conf('AFTER_BODY_OPEN')
-    if (defined($self->get_conf('AFTER_BODY_OPEN')));
+  my $after_body_open = $self->get_conf('AFTER_BODY_OPEN');
+  $after_body_open = '' if (!defined($after_body_open));
   my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION');
+  $program_and_version = '' if (!defined($program_and_version));
   my $program_homepage = $self->get_conf('PACKAGE_URL');
+  $program_homepage = '' if (!defined($program_homepage));
   my $program = $self->get_conf('PROGRAM');
   my $generator = '';
   if (defined($program) and $program ne '') {
@@ -11240,6 +11287,7 @@ sub _get_links($$$$)
   my $links = '';
   if ($self->get_conf('USE_LINKS')) {
     my $link_buttons = $self->get_conf('LINKS_BUTTONS');
+    return $links if (!defined($link_buttons));
     foreach my $link (@$link_buttons) {
       my $link_href = $self->from_element_direction($link, 'href', $output_unit,
                                                     $filename, $node_command);
@@ -11402,6 +11450,7 @@ sub _default_format_footnotes_sequence($)
       $footnote_mark = $number_in_doc;
     } else {
       $footnote_mark = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
+      $footnote_mark = '' if (!defined($footnote_mark));
     }
 
     $result .= $self->html_attribute_class('h5', ['footnote-body-heading']) . '>'.
@@ -11452,7 +11501,18 @@ sub _default_format_special_body_about($$$)
     $about .= &{$self->formatting_function('format_program_string')}($self);
     $about .= "\n</p>\n";
   }
+
   $about .= "<p>\n";
+
+  my $buttons = $self->get_conf('SECTION_BUTTONS');
+
+  if (!$buttons) {
+    $about .= $self->convert_tree(
+      $self->cdt('There are no buttons for this document.')). "\n";
+    $about .= "</p>\n";
+    return $about;
+  }
+
   $about .= $self->convert_tree(
     $self->cdt('  The buttons in the navigation panels have the following meaning:'),
                                'ABOUT')
@@ -11480,7 +11540,7 @@ EOT
     $active_icons = $self->get_conf('ACTIVE_ICONS');
   }
 
-  foreach my $button_spec (@{$self->get_conf('SECTION_BUTTONS')}) {
+  foreach my $button_spec (@{$buttons}) {
     next if ($button_spec eq ' ' or ref($button_spec) eq 'CODE'
              or ref($button_spec) eq 'SCALAR'
              or (ref($button_spec) eq 'ARRAY' and scalar(@$button_spec) != 2));
@@ -11647,9 +11707,11 @@ sub _do_jslicenses_file {
   #   'generate' - create file at JS_WEBLABELS_FILE
   #   'reference' - reference file at JS_WEBLABELS_FILE but do not create it
   #   'omit' - do nothing
-  return if (!$setting or $setting ne 'generate');
+  return if (!$setting or $setting ne 'generate' or !defined($path)
+             or $path eq '');
 
   my $doctype = $self->get_conf('DOCTYPE');
+  $doctype = '' if (!defined($doctype));
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
   my $a = $doctype . "\n" ."<html${root_html_element_attributes}>"
    .'<head><title>jslicense labels</title></head>
@@ -11841,14 +11903,22 @@ sub conversion_initialization($;$)
   $self->{'paragraph_symbol'} = $special_characters_set{'paragraph_symbol'};
 
   if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
-    $self->set_conf('OPEN_QUOTE_SYMBOL', $special_characters_set{'left_quote'});
+    my $set = $self->set_conf('OPEN_QUOTE_SYMBOL',
+                      $special_characters_set{'left_quote'});
+    # override undef set in init file/command line
+    $self->force_conf('OPEN_QUOTE_SYMBOL', '') if (!$set);
   }
   if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
-    $self->set_conf('CLOSE_QUOTE_SYMBOL',
-                    $special_characters_set{'right_quote'});
+    my $set = $self->set_conf('CLOSE_QUOTE_SYMBOL',
+                        $special_characters_set{'right_quote'});
+    # override undef set in init file/command line
+    $self->force_conf('CLOSE_QUOTE_SYMBOL', '') if (!$set);
   }
   if (not defined($self->get_conf('MENU_SYMBOL'))) {
-    $self->set_conf('MENU_SYMBOL', $special_characters_set{'bullet'});
+    my $set = $self->set_conf('MENU_SYMBOL',
+                              $special_characters_set{'bullet'});
+    # override undef set in init file/command line
+    $self->force_conf('MENU_SYMBOL', '') if (!$set);
   }
 
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
@@ -12892,6 +12962,10 @@ sub output($$)
   }
 
   my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
+  if (!defined($handler_fatal_error_level)) {
+    $handler_fatal_error_level
+ = $Texinfo::Options::converter_customization_options{'HANDLER_FATAL_ERROR_LEVEL'};
+  }
 
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
@@ -12954,8 +13028,11 @@ sub output($$)
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $structure_preamble_document_language = $self->get_conf('documentlanguage');
-  $self->set_conf('BODY_ELEMENT_ATTRIBUTES',
-                  'lang="' . $structure_preamble_document_language . '"');
+  if (defined($structure_preamble_document_language)
+      and $structure_preamble_document_language ne '') {
+    $self->set_conf('BODY_ELEMENT_ATTRIBUTES',
+                    'lang="' . $structure_preamble_document_language . '"');
+  }
   $self->set_global_document_commands('before', ['documentlanguage']);
 
   # the presence of contents elements in the document is used in diverse
@@ -13057,7 +13134,11 @@ sub output($$)
 
   my $preamble_document_language = $self->get_conf('documentlanguage');
 
-  if ($default_document_language ne $preamble_document_language) {
+  if (not (!defined($default_document_language)
+           and !defined($preamble_document_language))
+      and (!defined($default_document_language)
+           or !defined($preamble_document_language)
+           or $default_document_language ne $preamble_document_language)) {
     $self->_translate_names();
   }
 
@@ -13083,7 +13164,11 @@ sub output($$)
 
   $self->set_global_document_commands('before', ['documentlanguage']);
 
-  if ($default_document_language ne $preamble_document_language) {
+  if (not (!defined($default_document_language)
+           and !defined($preamble_document_language))
+      and (!defined($default_document_language)
+           or !defined($preamble_document_language)
+           or $default_document_language ne $preamble_document_language)) {
     $self->_translate_names();
   }
 

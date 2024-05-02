@@ -1183,7 +1183,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/languages/multiple_lang_chapters_texi2html.pl \
   t/results/languages/multiple_lang_chapters_texi2html/res_html \
   t/results/languages/multiple_lang_chapters_texi2html/res_info \
-  t/results/languages/no_documentlanguage_before_copying.pl \
   t/results/languages/simple_documentlanguage.pl \
   t/results/languages/unknown_language.pl \
   t/results/languages/unknown_region.pl \
@@ -1492,6 +1491,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/menu/entry_after_detailmenu.pl \
   t/results/menu/example_in_menu_comment.pl \
   t/results/menu/example_in_menu_description.pl \
+  t/results/menu/format_menu_undef.pl \
   t/results/menu/formats_in_menu.pl \
   t/results/menu/inlineraw_in_menu_description.pl \
   t/results/menu/invalid_info_menu_entry.pl \
