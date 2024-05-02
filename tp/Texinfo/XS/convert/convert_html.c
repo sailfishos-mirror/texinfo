@@ -7173,6 +7173,8 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   const ELEMENT *command_for_title = 0;
   BEGIN_FILE_INFORMATION *begin_info;
   TEXT result;
+  const char *package_and_version;
+  const char *package_url;
 
   if (output_unit)
     {
@@ -7198,9 +7200,16 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
     text_append (&result, self->conf->DOCTYPE.string);
   text_append_n (&result, "\n", 1);
   text_printf (&result, "<html%s>\n", begin_info->root_html_element_attributes);
+  if (self->conf->PACKAGE_AND_VERSION.string)
+    package_and_version = self->conf->PACKAGE_AND_VERSION.string;
+  else
+    package_and_version = "";
+  if (self->conf->PACKAGE_URL.string)
+    package_url = self->conf->PACKAGE_URL.string;
+  else
+    package_url = "";
   text_printf (&result, "<!-- Created by %s, %s -->\n<head>\n",
-                        self->conf->PACKAGE_AND_VERSION.string,
-                        self->conf->PACKAGE_URL.string);
+                        package_and_version, package_url);
   if (begin_info->encoding)
     text_append (&result, begin_info->encoding);
   text_append_n (&result, "\n", 1);
@@ -8256,6 +8265,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
   TEXT result;
   TEXT body;
   BEGIN_FILE_INFORMATION *begin_info;
+  const char *package_and_version;
+  const char *package_url;
   char *href = html_command_href (self, element, filename, 0, 0);
   char *name = html_command_text (self, element, 0);
   ELEMENT *direction_element = new_element (ET__converted);
@@ -8283,11 +8294,18 @@ html_default_format_node_redirection_page (CONVERTER *self,
     text_append (&result, self->conf->DOCTYPE.string);
   text_append_n (&result, "\n", 1);
   text_printf (&result, "<html%s>\n", begin_info->root_html_element_attributes);
+  if (self->conf->PACKAGE_AND_VERSION.string)
+    package_and_version = self->conf->PACKAGE_AND_VERSION.string;
+  else
+    package_and_version = "";
+  if (self->conf->PACKAGE_URL.string)
+    package_url = self->conf->PACKAGE_URL.string;
+  else
+    package_url = "";
   text_printf (&result, "<!-- Created by %s, %s -->\n"
        "<!-- This file redirects to the location of a node or anchor -->\n"
        "<head>\n",
-                        self->conf->PACKAGE_AND_VERSION.string,
-                        self->conf->PACKAGE_URL.string);
+                        package_and_version, package_url);
   if (begin_info->encoding)
     text_append (&result, begin_info->encoding);
   text_append_n (&result, "\n", 1);
@@ -15566,7 +15584,7 @@ default_format_special_body_about (CONVERTER *self,
       translate_convert_to_html_internal (
                "There are no buttons for this document.", self, 0, 0,
                 result, "ABOUT");
-      text_append_n (result, "</p>\n", 5);
+      text_append_n (result, "\n</p>\n", 6);
       return;
     }
 
