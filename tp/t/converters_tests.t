@@ -1331,6 +1331,14 @@ undef, {'test_file' => '../../tests/formatting/indices_in_begin_tables_lists.tex
 @cite{c--ite in example}
 @end example
 '],
+['extension_undef',
+'node Top
+@top top
+
+@node chapter
+@chapter Chap
+', {'test_input_file_name' => 'extension_undef.texi'}, {'EXTENSION' => undef},
+],
 );
 
 my %info_tests = (

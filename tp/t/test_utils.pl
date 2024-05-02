@@ -1272,7 +1272,7 @@ sub test($$)
                                   $document, $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
-      if ($format =~ /^file_/ and defined ($converted{$format})) {
+      if ($format =~ /^file_/ and defined($converted{$format})) {
         # This is certainly wrong, because the differences are made on
         # the output files which should be empty.  Differences in output
         # will be missed.  It is tempting to use such format to have

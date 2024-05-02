@@ -1,5 +1,10 @@
 2024-05-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/converters_tests.t (extension_undef): add a
+	test with EXTENSION undef.
+
+2024-05-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
 	(conversion_initialization): set FORMAT_MENU, MAX_HEADER_LEVEL,
 	CONTENTS_OUTPUT_LOCATION, INDEX_ENTRY_COLON, MENU_ENTRY_COLON if
