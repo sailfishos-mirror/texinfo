@@ -1499,6 +1499,8 @@ $mathjax_with_texinfo,
 {'HTML_MATH' => 'mathjax'}],
 ['info_js_dir_html_file',
 $info_js_dir_test, {}, {'INFO_JS_DIR' => 'js'}],
+['info_js_dir_html_file_js_weblabels_file_undef',
+$info_js_dir_test, {}, {'INFO_JS_DIR' => 'js', 'JS_WEBLABELS_FILE' => undef}],
 ['css_in_node_redirection_page',
 '@node Top
 @top top

@@ -1,5 +1,11 @@
 2024-05-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/html_tests.t
+	(info_js_dir_html_file_js_weblabels_file_undef): add a test with
+	INFO_JS_DIR set and JS_WEBLABELS_FILE undef.
+
+2024-05-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/html_tests.t (undef_split_and_big_rule): test
 	with SPLIT and BIG_RULE undef.
 

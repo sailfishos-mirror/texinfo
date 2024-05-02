@@ -683,6 +683,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/info_js_dir_html.pl \
   t/results/html_tests/info_js_dir_html_file.pl \
   t/results/html_tests/info_js_dir_html_file/res_html \
+  t/results/html_tests/info_js_dir_html_file_js_weblabels_file_undef.pl \
+  t/results/html_tests/info_js_dir_html_file_js_weblabels_file_undef/res_html \
   t/results/html_tests/info_js_dir_html_text.pl \
   t/results/html_tests/itemize_arguments.pl \
   t/results/html_tests/itemize_arguments/res_html \
