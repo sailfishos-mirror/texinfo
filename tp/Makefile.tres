@@ -173,6 +173,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/contents_at_document_begin_inline/res_html \
   t/results/converters_tests/contents_at_document_begin_separate_element.pl \
   t/results/converters_tests/contents_at_document_begin_separate_element/res_html \
+  t/results/converters_tests/conversion_with_undef_customization.pl \
+  t/results/converters_tests/conversion_with_undef_customization/res_docbook \
+  t/results/converters_tests/conversion_with_undef_customization/res_html \
+  t/results/converters_tests/conversion_with_undef_customization/res_info \
+  t/results/converters_tests/conversion_with_undef_customization/res_latex \
+  t/results/converters_tests/conversion_with_undef_customization/res_xml \
   t/results/converters_tests/definition_commands.pl \
   t/results/converters_tests/definition_commands/res_html \
   t/results/converters_tests/definition_commands/res_latex \

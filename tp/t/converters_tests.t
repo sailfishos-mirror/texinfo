@@ -1339,6 +1339,75 @@ undef, {'test_file' => '../../tests/formatting/indices_in_begin_tables_lists.tex
 @chapter Chap
 ', {'test_input_file_name' => 'extension_undef.texi'}, {'EXTENSION' => undef},
 ],
+['conversion_with_undef_customization',
+'@node Top
+@top top
+
+@contents
+@shortcontents
+
+@node chap@^e
+@chapter Chap@^e
+
+Text@footnote{Go @samp{s}}
+
+@cindex entry
+
+@node sec
+@section Section
+
+@printindex cp
+
+@deftypefn category type name something ( aa )
+A def.
+@end deftypefn
+', {'test_input_file_name' => 'conversion_with_undef_customization.texi',
+    'FORMAT_MENU' => 'menu'},
+# set some features for more interesting tests
+{'PROGRAM_NAME_IN_FOOTER' => 1,
+ 'FORMAT_MENU' => 'menu',
+ 'TOP_NODE_UP_URL' => 'aaa',
+ 'USE_LINKS' => 1,
+ 'DO_ABOUT' => 1,
+# set customization variables to undef
+ 'footnotestyle' => undef,
+ 'xrefautomaticsectiontitle' => undef,
+ 'deftypefnnewline' => undef,
+ 'TRANSLITERATE_FILE_NAMES' => undef,
+ 'HEADERS' => undef,
+ 'TOP_NODE_UP' => undef, # requires TOP_NODE_UP_URL
+ 'BIG_RULE' => undef, # not actually interesting as the corresponding code
+                      # is not called
+ 'DEFAULT_RULE' => undef,
+ 'HANDLER_FATAL_ERROR_LEVEL' => undef,
+ 'BODY_ELEMENT_ATTRIBUTES' => undef,
+ 'DOCTYPE' => undef,
+ 'PACKAGE_AND_VERSION' => undef,
+ 'NO_NUMBER_FOOTNOTE_SYMBOL' => undef,
+ 'MAX_HEADER_LEVEL' => undef,
+ 'AFTER_TOC_LINES' => undef,
+ 'AFTER_SHORT_TOC_LINES' => undef,
+ 'BEFORE_TOC_LINES' => undef,
+ 'BEFORE_SHORT_TOC_LINES' => undef,
+ 'CONTENTS_OUTPUT_LOCATION' => undef,
+ 'HTML_ROOT_ELEMENT_ATTRIBUTES' => undef,
+ 'JS_WEBLABELS_FILE' => undef,
+ 'OUTPUT_ENCODING_NAME' => undef,
+ 'HTML_MATH' => undef,
+ 'INDEX_ENTRY_COLON' => undef,
+ 'MENU_SYMBOL' => undef, # requires FORMAT_MENU menu
+ 'MENU_ENTRY_COLON' => undef, # requires FORMAT_MENU menu
+ 'LINKS_BUTTONS' => undef, # requires USE_LINKS set
+ 'SECTION_BUTTONS' => undef, # more interesting with DO_ABOUT set
+ # next are for Plaintext/Info and HTML
+ 'OPEN_QUOTE_SYMBOL' => undef,
+ 'CLOSE_QUOTE_SYMBOL' => undef,
+ 'NUMBER_FOOTNOTES' => undef,
+ # Plaintext/Info
+ 'FILLCOLUMN' => undef,
+# '' => undef,
+}
+],
 );
 
 my %info_tests = (

@@ -290,6 +290,13 @@ sub converter_initialize($)
     $self->{'context_block_commands'}->{$raw} = 1
          if $self->{'expanded_formats'}->{$raw};
   }
+
+  foreach my $conf ('OPEN_QUOTE_SYMBOL', 'CLOSE_QUOTE_SYMBOL') {
+    if (not defined($self->get_conf($conf))) {
+      # override undef set in init file/command line
+      $self->force_conf($conf, '');
+    }
+  }
 }
 
 sub conversion_initialization($;$)

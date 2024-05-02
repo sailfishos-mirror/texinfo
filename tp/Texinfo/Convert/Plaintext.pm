@@ -3626,7 +3626,8 @@ sub _convert($$)
               'name' => $name,
               'type' => $type,
               'arguments' => $arguments};
-            if ($self->get_conf('deftypefnnewline') eq 'on'
+            if ($self->get_conf('deftypefnnewline')
+                and $self->get_conf('deftypefnnewline') eq 'on'
                 and $command eq 'deftypefn') {
               if ($omit_def_space) {
                 $tree
@@ -3653,7 +3654,8 @@ sub _convert($$)
              'category' => $category,
              'type' => $type,
              'name' => $name};
-            if ($self->get_conf('deftypefnnewline') eq 'on'
+            if ($self->get_conf('deftypefnnewline')
+                and $self->get_conf('deftypefnnewline') eq 'on'
                 and $command eq 'deftypefn') {
               $tree = $self->cdt('@tie{}-- {category}:@*{type}@*{name}',
                                  $strings);
@@ -3718,7 +3720,8 @@ sub _convert($$)
              'class' => $class,
              'type' => $type,
              'arguments' => $arguments};
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
+            if ($self->get_conf('deftypefnnewline')
+                and $self->get_conf('deftypefnnewline') eq 'on') {
               if ($omit_def_space) {
                 $tree
                   = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
@@ -3745,7 +3748,8 @@ sub _convert($$)
              'type' => $type,
              'class' => $class,
              'name' => $name};
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
+            if ($self->get_conf('deftypefnnewline')
+                and $self->get_conf('deftypefnnewline') eq 'on') {
               $tree
                 = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}',
                              $strings);

@@ -1,5 +1,18 @@
 2024-05-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (converter_initialize): set
+	OPEN_QUOTE_SYMBOL and CLOSE_QUOTE_SYMBOL if undef.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert): handle undef
+	deftypefnnewline customization value.
+
+	* tp/Makefile.tres, tp/t/converters_tests.t
+	(conversion_with_undef_customization): add a test with many
+	customization variables undef.
+
+2024-05-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/converters_tests.t (extension_undef): add a
 	test with EXTENSION undef.
 

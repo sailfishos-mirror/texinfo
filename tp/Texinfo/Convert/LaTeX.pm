@@ -4132,7 +4132,8 @@ sub _convert($$)
           $command = $element->{'extra'}->{'def_command'};
         }
 
-        my $deftypefnnewline = ($self->get_conf('deftypefnnewline') eq 'on'
+        my $deftypefnnewline = ($self->get_conf('deftypefnnewline')
+               and $self->get_conf('deftypefnnewline') eq 'on'
                and ($command eq 'deftypefn' or $command eq 'deftypeop'));
 
         my $def_space = ' ';
