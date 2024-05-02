@@ -1001,6 +1001,18 @@ my @file_tests = (
 @node chap
 @chapter
 ', {}, {'SPLIT' => 'chapter'}],
+# A big rule would be between chapter and section if BIG_RULE was not undef
+['undef_split_and_big_rule',
+'node Top
+@top top
+
+@node chap
+@chapter Chapter
+
+@node sec
+@section Sec
+', {}, {'SPLIT' => undef, 'BIG_RULE' => undef}
+],
 # the chapter file is named '.html', which is ok, but no file may be better
 ['empty_chapter_in_html_title_no_node_no_use_nodes',
 '@node Top

@@ -777,6 +777,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/top_node_up_implicit_no_nodes.pl \
   t/results/html_tests/transliterated_names_conflicts.pl \
   t/results/html_tests/transliterated_names_conflicts/res_html \
+  t/results/html_tests/undef_split_and_big_rule.pl \
+  t/results/html_tests/undef_split_and_big_rule/res_html \
   t/results/html_tests/uref_accented_letter.pl \
   t/results/html_tests/uref_accented_letter_ascii.pl \
   t/results/html_tests/uref_accented_letter_latin1.pl \
