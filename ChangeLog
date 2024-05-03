@@ -1,5 +1,12 @@
 2024-05-03  Patrice Dumas  <pertusus@free.fr>
 
+	* util/texinfo.dtd: add defbracketed, defblock, defline and
+	deftypeline.
+
+	* configure.ac (TEXINFO_DTD_VERSION): bump.
+
+2024-05-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): add an element for
 	bracketed_arg not already associated to another element.
 

@@ -32,7 +32,7 @@ AC_CONFIG_SRCDIR([info/info.c])
 # 3. It may be kept as is in case there were no change in the DTD
 #    between releases.  This is rare, but has happened.
 #
-TEXINFO_DTD_VERSION=7.1
+TEXINFO_DTD_VERSION=7.2
 AC_SUBST([TEXINFO_DTD_VERSION])
 
 # Package date.
