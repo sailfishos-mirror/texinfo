@@ -150,8 +150,9 @@ sub setup_index_entry_keys_formatting($)
   my $additional_options = {};
 
   if (not $customization_information->get_conf('ENABLE_ENCODING')
-      or lc($customization_information->get_conf('OUTPUT_ENCODING_NAME'))
-           ne 'utf-8') {
+      or ($customization_information->get_conf('OUTPUT_ENCODING_NAME')
+          and lc($customization_information->get_conf('OUTPUT_ENCODING_NAME'))
+                  ne 'utf-8')) {
     $additional_options->{'sort_string'} = 1;
   }
 
