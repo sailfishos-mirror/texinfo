@@ -86,7 +86,7 @@
                   | cartouche | float | format | smallformat
                   | display | smalldisplay
                   | raggedright | flushleft | flushright
-                  | itemize | enumerate | group
+                  | itemize | enumerate | group | nodedescriptionblock
                   | table | vtable | ftable | multitable | displaymath
                   | %def.cmds; | verbatim">
 
@@ -98,7 +98,7 @@
 <!ENTITY % block  "%block.cmds; | verbatiminclude
                   | %heading.cmds;
                   | %ubiquitous.cmds;
-                  | image | titlefont | center
+                  | image | titlefont | center | nodedescription
                   | insertcopying | page | need | vskip">
 
 <!-- API definition line -->
@@ -689,9 +689,16 @@
 <!ELEMENT displaymath  (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST displaymath
           %spacesblockattr;>
+<!ELEMENT nodedescriptionblock (%block;)*>
+<!ATTLIST nodedescriptionblock
+          %spacesblockattr;>
 
 <!ELEMENT center       (#PCDATA | %Inline.fullline;)*>
 <!ATTLIST center
+          %spacesattr;>
+
+<!ELEMENT nodedescription  (#PCDATA | %Inline.fullline;)*>
+<!ATTLIST nodedescription
           %spacesattr;>
 
 <!ELEMENT image        (imagefile, imagewidth?, imageheight?, alttext?,
@@ -1036,7 +1043,7 @@
 <!ATTLIST deftypemethodx
           %spacesattr;>
 
-<!ELEMENT defblock (((defline | deftypeline), (%indexentry.cmds;)*)+, definitionitem?)>
+<!ELEMENT defblock (((defline | deftypeline), (%indexentry.cmds;)*, definitionitem?)+)>
 <!ATTLIST defblock
           endspaces CDATA #IMPLIED>
 <!ELEMENT defline (definitionterm)>
@@ -1361,6 +1368,8 @@
 <!ATTLIST url
           %spacesafterincmdattr;>
 <!ELEMENT urefurl         (#PCDATA | %Inline.phrase;)*>
+<!ATTLIST urefurl
+          %spacesattr;>
 <!ELEMENT urefdesc        (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST urefdesc
           %spacesattr;>

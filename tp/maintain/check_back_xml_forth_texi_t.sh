@@ -111,4 +111,9 @@ diff -u -r $mdir/backforth_plaintexi/ $mdir/backforth_checktexi/ > $mdir/plain_t
 
 # To find XML parsing errors
 # grep --color 'parser error' check_back_xml_forth_texi/backforth_logs/*
-
+#
+# If document encoding is US-ASCII, it is interpreted in Texinfo as being
+# possibly ISO-8859-1 for backward compatibility as it was the default
+# encoding for Texinfo in the past.  The XML parser, however does not accept
+# ISO-8859-1 characters if the XML encoding is US-ASCII, therefore there are
+# parsing errors if there are ISO-8859-1 characters in US-ASCII generated XML.
