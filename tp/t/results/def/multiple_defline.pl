@@ -443,4 +443,15 @@ description1 description1 description1 description1 description1
 description2 description2 description2 description2 description2
 </para></blockquote>';
 
+
+$result_converted{'xml'}->{'multiple_defline'} = '<defblock endspaces=" ">
+<defline spaces=" "><definitionterm><defcategory>Funoid</defcategory> <defsymbol>foo</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
+<definitionitem><para>description1 description1 description1 description1 description1
+description1 description1 description1 description1 description1
+</para></definitionitem><defline spaces=" "><definitionterm><defcategory>Funnyoid</defcategory> <defsymbol>foo2</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar2</defparam><defdelimiter>,</defdelimiter> <defparam>baz2</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
+<definitionitem><para>description2 description2 description2 description2 description2
+description2 description2 description2 description2 description2
+</para></definitionitem></defblock>
+';
+
 1;

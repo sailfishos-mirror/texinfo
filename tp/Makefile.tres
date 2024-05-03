@@ -442,6 +442,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/all_commands_printindex.pl \
   t/results/def/all_empty_def.pl \
   t/results/def/ampchar.pl \
+  t/results/def/bracketed_arg_no_space.pl \
   t/results/def/code_in_def.pl \
   t/results/def/def_defx_mismatch.pl \
   t/results/def/def_groupings_args.pl \

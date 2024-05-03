@@ -393,4 +393,11 @@ $result_converted{'docbook'}->{'deftypeline'} = '<synopsis><phrase role="categor
 <blockquote><para>&#8230;
 </para></blockquote>';
 
+
+$result_converted{'xml'}->{'deftypeline'} = '<defblock endspaces=" ">
+<deftypeline spaces=" "><definitionterm><defcategory>Function</defcategory> <deftype bracketed="on">long int</deftype> <defsymbol>foo</defsymbol> <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>bar</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>int</defparamtype> <defparam><var>baz</var></defparam><defdelimiter>)</defdelimiter></definitionterm></deftypeline>
+<definitionitem><para>&dots;
+</para></definitionitem></defblock>
+';
+
 1;

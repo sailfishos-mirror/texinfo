@@ -1492,8 +1492,7 @@ sub _convert($$;$)
       $result
         .= $self->txi_markup_open_element($type_elements{$element->{'type'}},
                                           $attribute);
-    }
-    if ($element->{'type'} eq 'def_line') {
+    } elsif ($element->{'type'} eq 'def_line') {
       if ($element->{'cmdname'}) {
         # @def*x command has the command associated with def_line.
         my $attribute = [];
@@ -1562,6 +1561,23 @@ sub _convert($$;$)
       }
       chomp ($result);
       $result .= "\n";
+    # case of bracketed in def line not corresponding to a def* argument
+    # by itself, for example, in the following '{a b}{c d}' is the
+    # argument, it is not a bracketed by itself, but contains two
+    # bracketed_arg.  Similarly '{e f}' is a bracketed_arg but the arg is
+    # 'h{e f}'.
+    # @deffn {a b}{c d} h{e f} g h
+    } elsif ($element->{'type'} eq 'bracketed_arg'
+             and not ($element->{'parent'}->{'parent'}->{'cmdname'}
+                      and $element->{'parent'}->{'parent'}->{'cmdname'}
+                                                           eq 'multitable')
+             and (!$element->{'extra'}
+                  or !defined($element->{'extra'}->{'def_role'}))) {
+      my $attribute = [];
+      push @$attribute, ['bracketed', 'on'];
+      push @$attribute, _leading_trailing_spaces_arg($element);
+      $result .= $self->txi_markup_open_element("defbracketed", $attribute);
+      push @close_format_elements, 'defbracketed';
     }
   }
   if ($element->{'contents'}) {

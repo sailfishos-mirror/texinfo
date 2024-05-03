@@ -192,4 +192,10 @@ misc text inside
 $result_converted{'docbook'}->{'defblock_no_defline'} = '<blockquote><para>misc text inside
 </para></blockquote>';
 
+
+$result_converted{'xml'}->{'defblock_no_defline'} = '<defblock endspaces=" ">
+<definitionitem><para>misc text inside
+</para></definitionitem></defblock>
+';
+
 1;

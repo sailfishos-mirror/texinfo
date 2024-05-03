@@ -428,6 +428,10 @@ my @test_info = (
 @deftp
 @end deftp
 '],
+['bracketed_arg_no_space',
+'@deffn {a b}{c d} {e g}h m{ll } {rest}{and more}
+@end deffn
+'],
 );
 
 my @test_defblock = (
@@ -468,7 +472,8 @@ misc text inside
 );
 
 foreach my $test (@test_defblock) {
-  $test->[2]->{'test_formats'} = ['plaintext', 'html', 'latex', 'docbook'];
+  $test->[2]->{'test_formats'} = ['plaintext', 'html',
+                                  'latex', 'docbook', 'xml'];
 }
 
 my @test_invalid = (

@@ -259,4 +259,11 @@ $result_converted{'docbook'}->{'defline_no_params'} = '<synopsis><phrase role="c
 <blockquote><para>Description of truc
 </para></blockquote>';
 
+
+$result_converted{'xml'}->{'defline_no_params'} = '<defblock endspaces=" ">
+<defline spaces=" "><definitionterm><defcategory>Builtin</defcategory> <defsymbol>truc</defsymbol></definitionterm></defline>
+<definitionitem><para>Description of truc
+</para></definitionitem></defblock>
+';
+
 1;

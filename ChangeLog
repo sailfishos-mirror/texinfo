@@ -1,5 +1,16 @@
 2024-05-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): add an element for
+	bracketed_arg not already associated to another element.
+
+	* tp/Makefile.tres, tp/t/19def.t (bracketed_arg_no_space): add test
+	for bracketed arguments not corresponding to one definition line
+	argument.
+
+	* tp/t/19def.t: convert @test_defblock to xml.
+
+2024-05-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): fix @inline*
 	commands output to include inlinefmtifelse second argument.
 

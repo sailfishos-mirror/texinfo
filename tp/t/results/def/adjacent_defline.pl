@@ -400,4 +400,12 @@ $result_converted{'docbook'}->{'adjacent_defline'} = '<synopsis><phrase role="ca
 <blockquote><para>description
 </para></blockquote>';
 
+
+$result_converted{'xml'}->{'adjacent_defline'} = '<defblock endspaces=" ">
+<defline spaces=" "><definitionterm><defcategory>Funoid</defcategory> <defsymbol>foo</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
+<defline spaces=" "><definitionterm><defcategory>Funnyoid</defcategory> <defsymbol>foo2</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar2</defparam><defdelimiter>,</defdelimiter> <defparam>baz2</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
+<definitionitem><para>description
+</para></definitionitem></defblock>
+';
+
 1;
