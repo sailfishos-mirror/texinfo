@@ -1,5 +1,13 @@
 2024-05-03  Patrice Dumas  <pertusus@free.fr>
 
+	* util/txixml2texi.pl: handle linemacro.
+
+	* util/txixml2texi.pl (_encode): convert upon printing instead of
+	using binmode, which is unreliable if not used right on when opening
+	and never changing the filter.
+
+2024-05-03  Patrice Dumas  <pertusus@free.fr>
+
 	* util/texinfo.dtd: add defbracketed, defblock, defline and
 	deftypeline.
 
