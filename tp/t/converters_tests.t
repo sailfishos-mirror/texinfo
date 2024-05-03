@@ -577,6 +577,8 @@ $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 ',
 {'EXPANDED_FORMATS' => []}
 ],
+# beware that with EXPANDED_FORMATS set to an empty array no
+# format is considered to be expanded in the parser.
 # same as above, show visually that the format being converted
 # text is the first argument and is raw text without @-command
 # expanded, while for the other formats the second argument is
@@ -586,7 +588,7 @@ $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 
 @inlinefmtifelse{plaintext,if @emph{plaintext},else @emph{plaintext}}.
 
-@inlinefmtifelse{xml,if xml @env{empty} second arg, xml @env{else}}.
+@inlinefmtifelse{xml,if xml @env{second} arg, xml @env{else}}.
 
 @inlinefmtifelse{ docbook , if docbook @string{spaces} , else @strong{docbook spaces} }.
 

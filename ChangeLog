@@ -1,5 +1,16 @@
 2024-05-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): fix @inline*
+	commands output to include inlinefmtifelse second argument.
+
+	* tp/t/converters_tests.t (inlinefmtifelse_with_commands): update xml
+	part of the test to have argument text content match the context.
+
+	* tp/Makefile.tres, tp/t/xml_tests.t (inline_commands): add @inline*
+	commands expansion test.
+
+2024-05-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Indices.pm (setup_index_entry_keys_formatting): handle
 	undefined OUTPUT_ENCODING_NAME.
 

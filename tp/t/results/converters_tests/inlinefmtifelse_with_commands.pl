@@ -158,7 +158,7 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'if xml @env{empty} second arg',
+                      'text' => 'if xml @env{second} arg',
                       'type' => 'raw'
                     }
                   ],
@@ -438,7 +438,7 @@ $result_texis{'inlinefmtifelse_with_commands'} = '@inlinefmtifelse{html,if @code
 
 @inlinefmtifelse{plaintext,if @emph{plaintext},else @emph{plaintext}}.
 
-@inlinefmtifelse{xml,if xml @env{empty} second arg, xml @env{else}}.
+@inlinefmtifelse{xml,if xml @env{second} arg, xml @env{else}}.
 
 @inlinefmtifelse{ docbook , if docbook @string{spaces} , else @strong{docbook spaces} }.
 
@@ -500,7 +500,7 @@ $result_converted{'xml'}->{'inlinefmtifelse_with_commands'} = '<para><inlinefmti
 </para>
 <para><inlinefmtifelse><inlinefmtifelseformat>plaintext</inlinefmtifelseformat><inlinefmtifelsecontentif>if @emph{plaintext}</inlinefmtifelsecontentif><inlinefmtifelsecontentelse>else <emph>plaintext</emph></inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>
-<para>.
+<para>if xml @env{second} arg.
 </para>
 <para><inlinefmtifelse><inlinefmtifelseformat spaces=" ">docbook </inlinefmtifelseformat><inlinefmtifelsecontentif> if docbook @string{spaces} </inlinefmtifelsecontentif><inlinefmtifelsecontentelse spaces=" ">else <strong>docbook spaces</strong> </inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>

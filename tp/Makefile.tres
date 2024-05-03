@@ -2091,6 +2091,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/xml_tests/comments_on_block_command_lines.pl \
   t/results/xml_tests/comments_on_misc_command_line.pl \
   t/results/xml_tests/image_inline_or_not.pl \
+  t/results/xml_tests/inline_commands.pl \
   t/results/xml_tests/inlineifset_empty_second_arg.pl \
   t/results/xml_tests/lone_bye.pl \
   t/results/xml_tests/macro_and_args.pl \

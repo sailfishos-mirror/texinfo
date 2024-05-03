@@ -1041,12 +1041,12 @@ sub _convert($$;$)
           $self->{'document_context'}->[-1]->{'raw'} = 1;
         }
         my $command_result = '';
-        if (scalar (@{$element->{'args'}}) == 2
-              and defined($element->{'args'}->[-1])
-              and $element->{'args'}->[-1]->{'contents'}
-              and @{$element->{'args'}->[-1]->{'contents'}}) {
+        if (scalar(@{$element->{'args'}}) >= 2
+              and defined($element->{'args'}->[1])
+              and $element->{'args'}->[1]->{'contents'}
+              and scalar(@{$element->{'args'}->[1]->{'contents'}})) {
           $command_result = $self->_convert({'contents'
-                        => $element->{'args'}->[-1]->{'contents'}});
+                                         => [$element->{'args'}->[1]]});
         }
         if ($element->{'cmdname'} eq 'inlineraw') {
           pop @{$self->{'document_context'}};

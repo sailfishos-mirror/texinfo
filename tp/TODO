@@ -222,7 +222,7 @@ There is a test of translation in parser in a translation in converter, in
   tp/t/init_files_tests.t translation_in_parser_in_translation
 
 It would be nice to also have a translation in parser in a translation
-in parser.  That would meen having a po/gmo file where the string
+in parser.  That would mean having a po/gmo file where the string
 translated in the parser for @def* indices, for instance "{name} of {class}"
 is translated to a string including @def* commands, like
 @deftypeop a b c d e f        
@@ -265,8 +265,6 @@ line by line.
 
 
 See message/thread from Reißner Ernst: Feature request: api docs
-
-Add in_math (for \) as flag in command_data.txt?
 
 Right now VERBOSE is almost not used.
 

@@ -375,6 +375,16 @@ $sectioning_test,
 ['sectioning_test_no_use_nodes',
 $sectioning_test, {}, {'TXI_MARKUP_NO_SECTION_EXTENT' => 1,},
 ],
+['inline_commands',
+'@inlineraw{xml, <sc>xml inlineraw</sc>}
+@inlineraw{html, <code>html</code>}
+
+@inlinefmt{xml, @env{inlinefmt}, xml}
+@inlinefmt{html, @env{inlinefmt}, html}
+
+@inlinefmtifelse{xml, xml @code{inlinefmtifelse}, else xml}
+@inlinefmtifelse{html, html @var{inlinefmtifelse}, else html}
+', {'EXPANDED_FORMATS' => ['xml']}],
 );
 
 foreach my $test (@test_cases) {
