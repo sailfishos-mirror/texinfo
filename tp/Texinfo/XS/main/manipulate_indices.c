@@ -885,6 +885,10 @@ destroy_indices_sortable_entries (
 static void
 destroy_collator (INDEX_COLLATOR *collator)
 {
+  #ifdef HAVE_NEWLOCALE
+  if (collator->type == ctn_locale_collation)
+    freelocale (collator->locale);
+  #endif
   free (collator);
 }
 

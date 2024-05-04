@@ -249,7 +249,7 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
         const INDEX_SORTED_BY_INDEX *index_entries_by_index = 0;
         HV *converter_hv;
         SV **document_sv;
-        char *language;
+        char *language = 0;
      CODE:
         self = get_sv_converter (converter_sv,
                                  "get_converter_indices_sorted_by_index");
@@ -267,7 +267,7 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                Either Perl code or XS code is used, so this is for consistency
                not really for interoperability */
             /* set to document "sorted_indices_by_index" */
-            HV *language_document_sorted_indices_hv;
+            HV *language_document_sorted_indices_hv = 0;
             /* try first to get sorted index cached in document
                "sorted_indices_by_index".
                Gather the hash to use to cache too in

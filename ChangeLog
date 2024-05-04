@@ -1,5 +1,14 @@
 2024-05-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_converter_indices_sorted_by_index): initialize variables.
+
+	* tp/Texinfo/XS/main/manipulate_indices.c (destroy_collator):
+	call freelocale to deallocate resources associated with the locale
+	created with newlocale.
+
+2024-05-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): add a newline after
 	generated menu if needed.
 
