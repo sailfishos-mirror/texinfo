@@ -469,6 +469,36 @@ misc text inside
 @dots{}
 @end defblock
 '],
+['comment_index_before_defline',
+'@defblock
+@c a comment
+@cindex entry
+@comment another
+
+@defline a b c d
+@end defblock
+'],
+['text_block_before_defline',
+'@node Top
+@top top
+
+@node chapt
+@chapter Chap
+
+@defblock
+Some text@footnote{In footnote}.
+
+@example
+an example
+@end example
+
+@menu
+* (other_manual)::
+@end menu
+
+@defline a b c d
+@end defblock
+', {'FORMAT_MENU' => 'menu'}, {'FORMAT_MENU' => 'menu'}],
 );
 
 foreach my $test (@test_defblock) {

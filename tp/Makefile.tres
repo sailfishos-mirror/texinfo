@@ -444,6 +444,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/ampchar.pl \
   t/results/def/bracketed_arg_no_space.pl \
   t/results/def/code_in_def.pl \
+  t/results/def/comment_index_before_defline.pl \
   t/results/def/def_defx_mismatch.pl \
   t/results/def/def_groupings_args.pl \
   t/results/def/defblock_no_defline.pl \
@@ -478,6 +479,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/protected_brace.pl \
   t/results/def/ref_in_def.pl \
   t/results/def/space_in_def_for_index.pl \
+  t/results/def/text_block_before_defline.pl \
   t/results/def/wrong_braces_simple.pl \
   t/results/def/wrong_braces_with_end_of_lines.pl \
   t/results/docbook_tests/between_node_and_section.pl \
