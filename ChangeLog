@@ -1,5 +1,13 @@
 2024-05-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl,
+	tp/Texinfo/XS/main/option_types.h (global_option_type),
+	tp/Texinfo/XS/main/utils.c, tp/Texinfo/XS/convert/converter.c:
+	prefix global_option_type enums with GOT_ instead of GO_ to be able to
+	add other global options enum.
+
+2024-05-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs
 	(get_converter_indices_sorted_by_index): initialize variables.
 

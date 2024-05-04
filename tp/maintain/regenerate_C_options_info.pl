@@ -148,7 +148,7 @@ foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    print CODE "  initialize_option (&options->$option, GO_$type);\n";
+    print CODE "  initialize_option (&options->$option, GOT_$type);\n";
   }
 }
 print CODE "};\n\n";
@@ -248,9 +248,9 @@ foreach my $command_name (@commands_order) {
         $char_value = '"'.$value.'"';
       }
     }
-    print CODE "{GO_$type, $int_value, $char_value},   /* $command ($category) */\n";
+    print CODE "{GOT_$type, $int_value, $char_value},   /* $command ($category) */\n";
   } else {
-    print CODE "{GO_NONE, -2, 0},\n";
+    print CODE "{GOT_NONE, -2, 0},\n";
   }
 }
 

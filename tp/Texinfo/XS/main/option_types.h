@@ -22,15 +22,15 @@
 #include "tree_types.h"
 
 enum global_option_type {
-   GO_NONE,
-   GO_integer,
-   GO_char,
-   GO_bytes,
-   GO_icons,
-   GO_buttons,
-   GO_bytes_string_list,
-   GO_file_string_list,
-   GO_char_string_list,
+   GOT_NONE,
+   GOT_integer,
+   GOT_char,
+   GOT_bytes,
+   GOT_icons,
+   GOT_buttons,
+   GOT_bytes_string_list,
+   GOT_file_string_list,
+   GOT_char_string_list,
 };
 
 /* button directions are not often used as enum, but it can be useful

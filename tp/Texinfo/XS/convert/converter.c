@@ -128,12 +128,12 @@ copy_option (OPTION *destination, OPTION *source)
 {
   switch (source->type)
    {
-     case GO_integer:
+     case GOT_integer:
        destination->integer = source->integer;
        break;
 
-     case GO_char:
-     case GO_bytes:
+     case GOT_char:
+     case GOT_bytes:
        free (destination->string);
        if (!source->string)
          destination->string = 0;
@@ -154,7 +154,7 @@ new_option_value (enum global_option_type type, int int_value, char *char_value)
   OPTION *result = (OPTION *) malloc (sizeof (OPTION));
   memset (result, 0, sizeof (OPTION));
   result->type = type;
-  if (type == GO_integer)
+  if (type == GOT_integer)
     result->integer = int_value;
   else
     result->string = char_value;
@@ -180,15 +180,15 @@ command_init (enum command_id cmd, OPTIONS *init_conf)
         }
     }
   option_default = &command_option_default_table[cmd];
-  if (option_default->type == GO_integer)
+  if (option_default->type == GOT_integer)
     {
       if (option_default->value >= 0)
-        option_value = new_option_value (GO_integer, option_default->value, 0);
+        option_value = new_option_value (GOT_integer, option_default->value, 0);
     }
-  else if (option_default->type == GO_char)
+  else if (option_default->type == GOT_char)
     {
       if (option_default->string)
-        option_value = new_option_value (GO_char, -1, option_default->string);
+        option_value = new_option_value (GOT_char, -1, option_default->string);
     }
   return 0;
 }

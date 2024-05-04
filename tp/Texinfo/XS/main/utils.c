@@ -1028,7 +1028,7 @@ destroy_strings_list (STRING_LIST *strings)
 void
 set_conf_string (OPTION *option, const char *value)
 {
-  if (option->type != GO_char && option->type != GO_bytes)
+  if (option->type != GOT_char && option->type != GOT_bytes)
     fatal ("set_conf_string bad option type\n");
 
   if (option->configured > 0)
@@ -1210,7 +1210,7 @@ set_informative_command_value (OPTIONS *options, const ELEMENT *element)
       option = get_command_option (options, cmd);
       if (option)
         {
-          if (option->type == GO_integer)
+          if (option->type == GOT_integer)
             {
               if (option->configured <= 0)
                 option->integer = strtoul (value, NULL, 10);
@@ -1571,28 +1571,28 @@ clear_option (OPTION *option)
 {
   switch (option->type)
     {
-      case GO_char:
-      case GO_bytes:
+      case GOT_char:
+      case GOT_bytes:
         free (option->string);
         option->string = 0;
         break;
 
-      case GO_bytes_string_list:
-      case GO_file_string_list:
-      case GO_char_string_list:
+      case GOT_bytes_string_list:
+      case GOT_file_string_list:
+      case GOT_char_string_list:
         clear_strings_list (option->strlist);
         break;
 
-      case GO_buttons:
+      case GOT_buttons:
         html_free_button_specification_list (option->buttons);
         option->buttons = 0;
         break;
 
-      case GO_icons:
+      case GOT_icons:
         html_clear_direction_icons (option->icons);
         break;
 
-      case GO_integer:
+      case GOT_integer:
         option->integer = -1;
 
       default:
@@ -1605,27 +1605,27 @@ free_option (OPTION *option)
 {
   switch (option->type)
     {
-      case GO_char:
-      case GO_bytes:
+      case GOT_char:
+      case GOT_bytes:
         free (option->string);
         break;
 
-      case GO_bytes_string_list:
-      case GO_file_string_list:
-      case GO_char_string_list:
+      case GOT_bytes_string_list:
+      case GOT_file_string_list:
+      case GOT_char_string_list:
         destroy_strings_list (option->strlist);
         break;
 
-      case GO_buttons:
+      case GOT_buttons:
         html_free_button_specification_list (option->buttons);
         break;
 
-      case GO_icons:
+      case GOT_icons:
         html_free_direction_icons (option->icons);
         free (option->icons);
         break;
 
-      case GO_integer:
+      case GOT_integer:
       default:
     }
 }
@@ -1636,26 +1636,26 @@ initialize_option (OPTION *option, enum global_option_type type)
   option->type = type;
   switch (type)
     {
-      case GO_integer:
+      case GOT_integer:
         option->integer = -1;
         break;
 
-      case GO_bytes_string_list:
-      case GO_file_string_list:
-      case GO_char_string_list:
+      case GOT_bytes_string_list:
+      case GOT_file_string_list:
+      case GOT_char_string_list:
         option->strlist = new_string_list ();
         break;
 
-      case GO_char:
-      case GO_bytes:
+      case GOT_char:
+      case GOT_bytes:
         option->string = 0;
         break;
 
-      case GO_buttons:
+      case GOT_buttons:
         option->buttons = 0;
         break;
 
-      case GO_icons:
+      case GOT_icons:
         option->icons = (DIRECTION_ICON_LIST *)
                           malloc (sizeof (DIRECTION_ICON_LIST));
         memset (option->icons, 0, sizeof (DIRECTION_ICON_LIST));
