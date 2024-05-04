@@ -626,9 +626,6 @@ sub convert_tree($$)
   return $result;
 }
 
-# the initialization of module specific state is not done in output()
-# as output() is the generic Converter::Convert function, so it needs
-# to be done here by calling _initialize_converter_state.
 sub convert_output_unit($$)
 {
   my ($self, $output_unit) = @_;
@@ -4290,6 +4287,7 @@ sub _convert($$)
                                               $identifiers_target, $node);
         if ($menu_node) {
           $self->_convert($menu_node);
+          _add_newline_if_needed($self);
         }
       }
     }

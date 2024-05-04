@@ -711,12 +711,14 @@ Appendices
 Chap
 
 * sec::
+
 1 Chap
 ******
 
 * Menu:
 
 * sec::
+
 1.1 Sec
 =======
 
