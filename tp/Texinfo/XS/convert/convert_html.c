@@ -13644,30 +13644,36 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
 
   classes = new_string_list ();
 
-  if (builtin_command_data[cmd].flags & CF_def_alias)
+  if (cmd != CM_defblock)
     {
-      int i;
-      for (i = 0; def_aliases[i].alias ; i++)
+      if (builtin_command_data[cmd].flags & CF_def_alias)
         {
-          if (def_aliases[i].alias == cmd)
+          int i;
+          for (i = 0; def_aliases[i].alias ; i++)
             {
-              original_cmd = def_aliases[i].command;
-              break;
+              if (def_aliases[i].alias == cmd)
+                {
+                  original_cmd = def_aliases[i].command;
+                  break;
+                }
             }
         }
-    }
 
-  xasprintf (&class, "first-%s", builtin_command_name (original_cmd));
-  add_string (class, classes);
-  free (class);
-
-  if (cmd != original_cmd)
-    {
-      xasprintf (&class, "first-%s-alias-first-%s", builtin_command_name (cmd),
-                         builtin_command_name (original_cmd));
+      xasprintf (&class, "first-%s", builtin_command_name (original_cmd));
       add_string (class, classes);
       free (class);
+
+      if (cmd != original_cmd)
+        {
+          xasprintf (&class, "first-%s-alias-first-%s",
+                             builtin_command_name (cmd),
+                             builtin_command_name (original_cmd));
+          add_string (class, classes);
+          free (class);
+        }
     }
+  else
+    add_string (builtin_command_name (cmd), classes);
 
   if (self->conf->DEF_TABLE.integer <= 0)
     {

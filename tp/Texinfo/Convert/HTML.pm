@@ -6939,14 +6939,20 @@ sub _convert_def_command($$$$$) {
   return $content if (in_string($self));
 
   my @classes;
-  my $command_name;
-  if ($Texinfo::Common::def_aliases{$cmdname}) {
-    $command_name = $Texinfo::Common::def_aliases{$cmdname};
-    push @classes, "first-$cmdname-alias-first-$command_name";
+  if ($cmdname ne 'defblock') {
+    # The def* class is used for the def line, the first-def* class is
+    # used for the whole block.
+    my $command_name;
+    if ($Texinfo::Common::def_aliases{$cmdname}) {
+      $command_name = $Texinfo::Common::def_aliases{$cmdname};
+      push @classes, "first-$cmdname-alias-first-$command_name";
+    } else {
+      $command_name = $cmdname;
+    }
+    unshift @classes, "first-$command_name";
   } else {
-    $command_name = $cmdname;
+    push @classes, $cmdname;
   }
-  unshift @classes, "first-$command_name";
 
   if (!$self->get_conf('DEF_TABLE')) {
     return $self->html_attribute_class('dl', \@classes).">\n"
