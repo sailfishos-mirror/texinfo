@@ -19,7 +19,7 @@
 
 package Texinfo::Convert::TextContent;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 # To check if there is no erroneous autovivification
@@ -31,10 +31,9 @@ use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 my %ignored_brace_commands;

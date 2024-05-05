@@ -21,7 +21,7 @@
 
 package Texinfo::Convert::Info;
 
-use 5.00405;
+use 5.006;
 
 use strict;
 
@@ -37,10 +37,9 @@ use Texinfo::Convert::Plaintext;
 
 use Texinfo::Convert::Paragraph;
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Plaintext);
+our @ISA = qw(Texinfo::Convert::Plaintext);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 my $STDIN_DOCU_NAME = 'stdin';

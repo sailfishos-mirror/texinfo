@@ -15,7 +15,7 @@
 
 package Texinfo::XSLoader;
 
-use 5.00405;
+use 5.006;
 use strict;
 use warnings;
 

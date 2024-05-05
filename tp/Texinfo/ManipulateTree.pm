@@ -28,7 +28,7 @@
 
 package Texinfo::ManipulateTree;
 
-use 5.00405;
+use 5.006;
 
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
@@ -49,21 +49,18 @@ use Texinfo::XSLoader;
 use Texinfo::Common;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
 move_index_entries_after_items_in_tree
 relate_index_entries_to_table_items_in_tree
 protect_colon_in_tree
 protect_comma_in_tree
 protect_first_parenthesis
 protect_node_after_label_in_tree
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

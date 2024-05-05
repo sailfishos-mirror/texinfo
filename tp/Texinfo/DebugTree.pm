@@ -33,8 +33,7 @@ package Texinfo::DebugTree;
 use Texinfo::Common;
 use Texinfo::Convert::Converter;
 
-use vars qw(@ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
 my %defaults = (
   'EXTENSION' => 'debugtree',

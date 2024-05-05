@@ -16,11 +16,7 @@
 
 use strict;
 
-# emulates -w
-BEGIN
-{
-  $^W = 1;
-}
+use warnings;
 
 my $dir = 'maintain';
 system ("cd $dir && wget -N http://www.iana.org/assignments/language-subtag-registry");

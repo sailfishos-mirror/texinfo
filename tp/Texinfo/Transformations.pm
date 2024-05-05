@@ -20,7 +20,7 @@
 
 package Texinfo::Transformations;
 
-use 5.00405;
+use 5.006;
 
 use strict;
 
@@ -42,17 +42,14 @@ use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
 protect_hashchar_at_line_beginning
 reference_to_arg_in_tree
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

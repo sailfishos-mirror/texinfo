@@ -22,7 +22,7 @@
 
 package Texinfo::Convert::TexinfoXML;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 use Carp qw(cluck);
@@ -32,10 +32,9 @@ use Texinfo::Convert::TexinfoMarkup;
 # for xml formatting methods
 use Texinfo::Convert::Converter;
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::TexinfoMarkup Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::TexinfoMarkup Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 # TexinfoXML specific

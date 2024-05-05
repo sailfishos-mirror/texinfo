@@ -85,12 +85,11 @@ use Texinfo::Convert::Converter;
 # \mathord{\text{}} \textsl{} \copyright{} \mathsterling{}
 use Texinfo::Convert::LaTeX;
 
-
 require Exporter;
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our @ISA = qw(Texinfo::Convert::Converter);
+
+our $VERSION = '7.1dev';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 

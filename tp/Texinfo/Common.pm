@@ -48,25 +48,22 @@ use Texinfo::Commands;
 use Texinfo::Options;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
 collect_commands_in_tree
 collect_commands_list_in_tree
 valid_customization_option
 valid_tree_transformation
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
+);
 
 # This is where the Texinfo modules get access to __( without explicit
 # import.
-@EXPORT = qw(
+our @EXPORT = qw(
 __ __p
 );
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 # i18n
 # For the messages translations.

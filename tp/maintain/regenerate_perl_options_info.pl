@@ -20,11 +20,7 @@
 
 use strict;
 
-# emulates -w
-BEGIN
-{
-  $^W = 1;
-}
+use warnings;
 
 my %option_categories;
 

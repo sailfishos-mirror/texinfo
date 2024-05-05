@@ -63,7 +63,7 @@
 
 package Texinfo::Convert::IXIN;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 # To check if there is no erroneous autovivification
@@ -82,10 +82,9 @@ use Texinfo::OutputUnits;
 
 use Texinfo::Convert::TexinfoSXML;
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 my $ixin_version = 1;

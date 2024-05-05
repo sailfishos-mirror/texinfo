@@ -22,16 +22,15 @@
 
 package Texinfo::Convert::TexinfoSXML;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 use Texinfo::Convert::TexinfoMarkup;
 use Carp qw(cluck);
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::TexinfoMarkup);
+our @ISA = qw(Texinfo::Convert::TexinfoMarkup);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 # SXML specific

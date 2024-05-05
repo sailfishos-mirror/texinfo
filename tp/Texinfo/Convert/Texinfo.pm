@@ -20,7 +20,7 @@
 
 package Texinfo::Convert::Texinfo;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
@@ -41,18 +41,15 @@ use Texinfo::Commands;
 use Texinfo::Common;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
   convert_to_texinfo
   link_element_to_texi
   target_element_to_texi_label
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 

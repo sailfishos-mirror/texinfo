@@ -29,7 +29,7 @@
 
 package Texinfo::Convert::TexinfoMarkup;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 # To check if there is no erroneous autovivification
@@ -46,10 +46,9 @@ use Texinfo::Convert::Texinfo;
 use Data::Dumper;
 use Carp qw(cluck);
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 # our because it is used in the xml to texi translator and subclasses.

@@ -42,7 +42,7 @@
 
 package Pod::Simple::Texinfo;
 
-require 5;
+use 5.006;
 use strict;
 #no autovivification qw(fetch delete exists store strict);
 
@@ -61,12 +61,8 @@ use Texinfo::Document;
 use Texinfo::ManipulateTree;
 use Texinfo::Transformations;
 
-use vars qw(
-  @ISA $VERSION
-);
-
-@ISA = ('Pod::Simple::PullParser');
-$VERSION = '0.01';
+our @ISA = qw(Pod::Simple::PullParser);
+our $VERSION = '0.01';
 
 # Allows being called from the command line as
 # perl -w -MPod::Simple::Texinfo -e Pod::Simple::Texinfo::go thingy.pod

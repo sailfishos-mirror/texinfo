@@ -21,7 +21,7 @@
 
 package Texinfo::Convert::Plaintext;
 
-use 5.00405;
+use 5.006;
 
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => qw(unicode_strings);
@@ -48,8 +48,7 @@ use Texinfo::Convert::Converter;
 use Texinfo::Convert::Paragraph;
 
 require Exporter;
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
 # Some extra initialization for the first time this module is loaded.
 # This could be done in a UNITCHECK block, introduced in Perl 5.10.
@@ -65,7 +64,7 @@ sub import {
   goto &Exporter::import;
 }
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 # commands that are of use for formatting.

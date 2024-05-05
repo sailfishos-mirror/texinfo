@@ -17,6 +17,8 @@
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
+use 5.006;
+
 use strict;
 use Getopt::Long qw(GetOptions);
 # for fileparse.
@@ -122,8 +124,7 @@ use Texinfo::Transformations;
 # any output.
 package Pod::Simple::PullParserRun;
 
-use vars qw(@ISA);
-@ISA = ('Pod::Simple::PullParser');
+our @ISA = qw(Pod::Simple::PullParser);
 sub new
 {
   return shift->SUPER::new(@_);

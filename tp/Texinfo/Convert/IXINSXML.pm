@@ -27,7 +27,7 @@
 
 package Texinfo::Convert::IXINSXML;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 use Texinfo::Convert::TexinfoSXML;
@@ -35,10 +35,9 @@ use Texinfo::Convert::IXIN;
 
 use Carp qw(cluck);
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::TexinfoSXML Texinfo::Convert::IXIN);
+our @ISA = qw(Texinfo::Convert::TexinfoSXML Texinfo::Convert::IXIN);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 my %defaults = (

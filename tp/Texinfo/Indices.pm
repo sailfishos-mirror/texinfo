@@ -25,7 +25,7 @@
 
 package Texinfo::Indices;
 
-use 5.00405;
+use 5.006;
 
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
@@ -60,9 +60,7 @@ use Texinfo::Convert::Text;
 # loading is not important.
 #use Texinfo::Document;
 
-use vars qw($VERSION);
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 # The methods that are usefully called directly (outside of tests) are:
 # index_entry_element_sort_string

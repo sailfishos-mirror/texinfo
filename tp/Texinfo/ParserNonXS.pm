@@ -94,8 +94,7 @@ use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
 our $module_loaded = 0;
 sub import {
@@ -110,17 +109,15 @@ sub import {
   goto &Exporter::import;
 }
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
     parser
     parse_texi_file
     parse_texi_line
     parse_texi_piece
     parse_texi_text
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 # these are the default values for the parser state

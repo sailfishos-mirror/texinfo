@@ -13,11 +13,8 @@
 
 use strict;
 
-# emulates -w
-BEGIN
-{
-  $^W = 1;
-}
+use warnings;
+
 use File::Find;
 use File::Basename;
 use File::Spec;

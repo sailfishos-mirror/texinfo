@@ -19,7 +19,7 @@
 
 package Texinfo::OutputUnits;
 
-use 5.00405;
+use 5.006;
 
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
@@ -44,20 +44,17 @@ use Texinfo::Common;
 use Texinfo::ManipulateTree;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
   units_directions
   units_file_directions
   split_by_node
   split_by_section
   split_pages
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

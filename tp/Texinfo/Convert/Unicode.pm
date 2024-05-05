@@ -54,19 +54,15 @@ sub import {
   goto &Exporter::import;
 }
 
-use vars qw($VERSION @EXPORT_OK %EXPORT_TAGS);
-
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
   unicode_accent
   encoded_accents
   brace_no_arg_command
   unicode_text
   string_width
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 our %unicode_diacritics = (

@@ -20,8 +20,7 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
-# for POSIX::setlocale and File::Spec
-require 5.00405;
+use 5.006;
 
 use strict;
 

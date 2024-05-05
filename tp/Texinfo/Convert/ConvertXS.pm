@@ -17,8 +17,7 @@ package Texinfo::Convert::ConvertXS;
 
 # This package loads XS implementations of converter functions.
 
-# same as texi2any.pl
-use 5.00405;
+use 5.006;
 use strict;
 use warnings;
 

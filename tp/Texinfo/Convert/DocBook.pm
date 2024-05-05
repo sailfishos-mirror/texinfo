@@ -19,7 +19,7 @@
 
 package Texinfo::Convert::DocBook;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 # To check if there is no erroneous autovivification
@@ -42,11 +42,9 @@ use Texinfo::Convert::Plaintext;
 use Data::Dumper;
 use Carp qw(cluck);
 
-require Exporter;
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 my %brace_commands = %Texinfo::Commands::brace_commands;
 

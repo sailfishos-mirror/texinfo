@@ -1,5 +1,14 @@
 2024-05-05  Patrice Dumas  <pertusus@free.fr>
 
+	Update use use.
+
+	Replace require VERSION by use, do not use use vars, update use Perl
+	version to be 5.006 if our is used, use use warnings instead of $^W.
+
+	Remove %EXPORT_TAGS.
+
+2024-05-05  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/generate_html_doc_texi.pl: remove use re => '/a', there is no
 	string manipulation in the code.
 

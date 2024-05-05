@@ -163,7 +163,7 @@
 
 package Texinfo::Convert::LaTeX;
 
-use 5.00405;
+use 5.006;
 
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => qw(unicode_strings);
@@ -185,10 +185,9 @@ use Texinfo::Convert::Text;
 use Texinfo::Indices;
 use Texinfo::Convert::Converter;
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 # could export convert_to_latex_math
 

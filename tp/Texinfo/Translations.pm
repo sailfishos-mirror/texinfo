@@ -22,7 +22,7 @@
 
 package Texinfo::Translations;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 # To check if there is no erroneous autovivification
@@ -48,6 +48,8 @@ use Texinfo::Convert::Unicode;
 use Texinfo::Parser;
 
 use Texinfo::ManipulateTree;
+
+our $VERSION = '7.1dev';
 
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.

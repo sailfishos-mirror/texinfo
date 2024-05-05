@@ -20,11 +20,7 @@
 
 use strict;
 
-# emulates -w
-BEGIN
-{
-  $^W = 1;
-}
+use warnings;
 
 # need this information to fill in automatically the index commands
 my %index_in_code = (

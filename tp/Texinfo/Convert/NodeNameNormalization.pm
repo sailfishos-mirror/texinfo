@@ -22,7 +22,7 @@
 
 package Texinfo::Convert::NodeNameNormalization;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
@@ -48,19 +48,16 @@ use Texinfo::Convert::Unicode;
 #   -> Texinfo::Parser -> this module
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
   convert_to_identifier
   normalize_transliterate_texinfo
   transliterate_texinfo
   transliterate_protect_file_name
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 my %normalize_node_brace_no_arg_commands

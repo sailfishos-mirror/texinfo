@@ -24,7 +24,7 @@
 #
 #-##############################################################################
 
-require 5.0;
+use 5.006;
 use strict;
 
 # To check if there is no erroneous autovivification

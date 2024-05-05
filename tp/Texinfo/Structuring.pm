@@ -21,7 +21,7 @@
 
 package Texinfo::Structuring;
 
-use 5.00405;
+use 5.006;
 
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
@@ -54,10 +54,9 @@ use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
   associate_internal_references
   check_nodes_are_referenced
   complete_node_tree_with_menus
@@ -66,11 +65,9 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
   sectioning_structure
   set_menus_node_directions
   warn_non_empty_parts
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

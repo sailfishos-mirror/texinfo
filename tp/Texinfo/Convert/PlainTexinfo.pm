@@ -22,19 +22,18 @@
 
 package Texinfo::Convert::PlainTexinfo;
 
-use 5.00405;
+use 5.006;
 use strict;
 
 use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
 
-use Texinfo::Convert::Texinfo qw(convert_to_texinfo);
+use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Converter;
 
-use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::Converter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
@@ -82,7 +81,7 @@ sub convert_tree($$)
     return _convert_tree_with_XS($root);
   }
 
-  return convert_to_texinfo($root);
+  return Texinfo::Convert::Texinfo::convert_to_texinfo($root);
 }
 
 sub output($$)

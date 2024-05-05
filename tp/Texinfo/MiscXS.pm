@@ -17,8 +17,7 @@ package Texinfo::MiscXS;
 
 # This package loads XS implementations of various functions.
 
-# same as texi2any.pl
-use 5.00405;
+use 5.006;
 use strict;
 use warnings;
 

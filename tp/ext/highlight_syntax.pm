@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-require 5.0;
+use 5.006;
 use strict;
 
 # To check if there is no erroneous autovivification

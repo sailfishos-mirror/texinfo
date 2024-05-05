@@ -31,6 +31,8 @@ package Texinfo::Convert::Utils;
 
 use strict;
 
+use 5.006;
+
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
@@ -44,21 +46,18 @@ use Texinfo::Convert::Texinfo;
 
 require Exporter;
 
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+our @ISA = qw(Exporter);
 
 # There is no specific reason to export those functions and not
 # other functions of the module.  It could be possible not to
 # export any function.
-%EXPORT_TAGS = ( 'all' => [ qw(
+our @EXPORT_OK = qw(
 expand_today
 expand_verbatiminclude
 add_heading_number
-) ] );
+);
 
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-$VERSION = '7.1dev';
+our $VERSION = '7.1dev';
 
 
 our @month_name =

@@ -17,15 +17,11 @@
 
 use strict;
 
+use warnings;
+
 use List::Util qw(first);
 # not in core perl
 use Text::CSV;
-
-# emulates -w
-BEGIN
-{
-  $^W = 1;
-}
 
 my $dir = 'maintain';
 system ("cd $dir && wget -N https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt");
