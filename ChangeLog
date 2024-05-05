@@ -1,3 +1,16 @@
+2024-05-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_special_units)
+	(html_default_format_heading_text, html_default_format_contents)
+	(convert_style_command, convert_indicateurl_command)
+	(convert_heading_command, convert_printindex_command)
+	(convert_contents_command, convert_menu_entry_type)
+	(contents_shortcontents_in_title): handle FORMAT_MENU MAX_HEADER_LEVEL
+	CONTENTS_OUTPUT_LOCATION OPEN_QUOTE_SYMBOL CLOSE_QUOTE_SYMBOL
+	MENU_SYMBOL INDEX_ENTRY_COLON MENU_ENTRY_COLON being undef, and thus
+	NULL in C, in case they were reset to undef in Perl user-defined code
+	after the beginning of the conversion.
+
 2024-05-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/maintain/regenerate_C_options_info.pl,

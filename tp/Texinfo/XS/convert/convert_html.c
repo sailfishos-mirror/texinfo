@@ -13,12 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-/* NOTE the following customization variables should have a
-   value set (ie not undef in Perl, which would translate to NULL in C):
- FORMAT_MENU MAX_HEADER_LEVEL CONTENTS_OUTPUT_LOCATION OPEN_QUOTE_SYMBOL
- CLOSE_QUOTE_SYMBOL MENU_SYMBOL INDEX_ENTRY_COLON MENU_ENTRY_COLON
- */
-
 #include <config.h>
 
 #include <string.h>
@@ -1488,17 +1482,20 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor)
                       break;
                     }
                 }
-              if (!strcmp (contents_location, "separate_element"))
+              if (contents_location
+                  && !strcmp (contents_location, "separate_element"))
                 add_string (special_unit_variety, do_special);
               else
                 {
                   OUTPUT_UNIT *special_output_unit = 0;
                   const OUTPUT_UNIT *associated_output_unit = 0;
-                  if (!strcmp (contents_location, "after_title"))
+                  if (contents_location
+                      && !strcmp (contents_location, "after_title"))
                     {
                       associated_output_unit = output_units->list[0];
                     }
-                  else if (!strcmp (contents_location, "after_top"))
+                  else if (contents_location
+                           && !strcmp (contents_location, "after_top"))
                     {
                       if (self->document->global_commands->top)
                         {/* note that top is a uniq command */
@@ -1512,7 +1509,8 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor)
                       if (!associated_output_unit)
                         continue;
                     }
-                  else if (!strcmp (contents_location, "inline"))
+                  else if (contents_location
+                           && !strcmp (contents_location, "inline"))
                     {
                       const ELEMENT_LIST *global_command
                        = get_cmd_global_multi_command (
@@ -5995,9 +5993,19 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
 
   if (level < 1)
     heading_level = 1;
-  else if (level > self->conf->MAX_HEADER_LEVEL.integer)
-    heading_level = self->conf->MAX_HEADER_LEVEL.integer;
+  else
+    {
+      /* TODO if option defaults become more used,
+         setup a structure with options defaults instead of hardcoding */
+      int max_header_level = 4;
+      if (self->conf->MAX_HEADER_LEVEL.integer >= 1)
+        max_header_level = self->conf->MAX_HEADER_LEVEL.integer;
+      else if (self->conf->MAX_HEADER_LEVEL.integer == 0)
+        max_header_level = 1;
 
+      if (level > max_header_level)
+        heading_level = max_header_level;
+    }
   xasprintf (&heading_html_element, "h%d", heading_level);
 
   char *attribute_class
@@ -6139,10 +6147,11 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
 
   link_to_toc = (!is_contents && self->conf->SHORT_TOC_LINK_TO_TOC.integer > 0
                  && self->conf->contents.integer > 0
-                 && (strcmp
-                    (self->conf->CONTENTS_OUTPUT_LOCATION.string, "inline")
-               || self->document->global_commands->contents.number > 0
-               || self->document->global_commands->shortcontents.number > 0));
+                 && (!self->conf->CONTENTS_OUTPUT_LOCATION.string
+                     || strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string,
+                                "inline")
+                     || self->document->global_commands->contents.number > 0
+                || self->document->global_commands->shortcontents.number > 0));
 
   for (i = 0; i < root_children->number; i++)
     {
@@ -8575,7 +8584,7 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
           free (style_as_cmd);
         }
 
-      if (formatting_spec->quote)
+      if (formatting_spec->quote && self->conf->OPEN_QUOTE_SYMBOL.string)
         text_append (result, self->conf->OPEN_QUOTE_SYMBOL.string);
 
       open
@@ -8601,7 +8610,7 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
           text_append_n (result, ">", 1);
         }
 
-      if (formatting_spec->quote)
+      if (formatting_spec->quote && self->conf->CLOSE_QUOTE_SYMBOL.string)
         text_append (result, self->conf->CLOSE_QUOTE_SYMBOL.string);
     }
   else
@@ -9706,7 +9715,8 @@ convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
       || !args_formatted->args[0].formatted[AFT_type_normal])
     return;
 
-  text_append (result, self->conf->OPEN_QUOTE_SYMBOL.string);
+  if (self->conf->OPEN_QUOTE_SYMBOL.string)
+    text_append (result, self->conf->OPEN_QUOTE_SYMBOL.string);
 
   if (!html_in_string (self))
     {
@@ -9728,7 +9738,8 @@ convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
   else
     text_append (result, args_formatted->args[0].formatted[AFT_type_normal]);
 
-  text_append (result, self->conf->CLOSE_QUOTE_SYMBOL.string);
+  if (self->conf->CLOSE_QUOTE_SYMBOL.string)
+    text_append (result, self->conf->CLOSE_QUOTE_SYMBOL.string);
 }
 
 void
@@ -9990,6 +10001,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   text_init (&tables_of_contents);
   text_append (&tables_of_contents, "");
   if (element->cmd == CM_top
+      && self->conf->CONTENTS_OUTPUT_LOCATION.string
       && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string, "after_top")
       && self->document->sections_list
       && self->document->sections_list->number > 1)
@@ -10019,7 +10031,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   text_init (&mini_toc_or_auto_menu);
   text_append (&mini_toc_or_auto_menu, "");
   if (tables_of_contents.end <= 0
-      && (flags & CF_sectioning_heading))
+      && (flags & CF_sectioning_heading)
+      && self->conf->FORMAT_MENU.string)
     {
       if (!strcmp (self->conf->FORMAT_MENU.string, "sectiontoc"))
         {
@@ -10179,7 +10192,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                   const ELEMENT *next_heading
                     = find_root_command_next_heading_command (element,
                                                         self->expanded_formats,
-                    (!strcmp (
+                    (self->conf->CONTENTS_OUTPUT_LOCATION.string
+                     && !strcmp (
                         self->conf->CONTENTS_OUTPUT_LOCATION.string, "inline")),
                             0);
                   if (next_heading)
@@ -13075,8 +13089,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 {
                   if (in_code)
                     text_append_n (&entries_text, "</code>", 7);
-                  text_append (&entries_text,
-                               self->conf->INDEX_ENTRY_COLON.string);
+                  if (self->conf->INDEX_ENTRY_COLON.string)
+                    text_append (&entries_text,
+                                 self->conf->INDEX_ENTRY_COLON.string);
                 }
               text_append_n (&entries_text, "</td>", 5);
 
@@ -13171,8 +13186,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   if (in_code)
                     text_append_n (&entries_text, "</code>", 7);
                   text_append_n (&entries_text, "</a>", 4);
-                  text_append (&entries_text,
-                               self->conf->INDEX_ENTRY_COLON.string);
+                  if (self->conf->INDEX_ENTRY_COLON.string)
+                    text_append (&entries_text,
+                                 self->conf->INDEX_ENTRY_COLON.string);
                   text_append_n (&entries_text, "</td>", 5);
 
                   if (self->conf->NODE_NAME_IN_INDEX.integer > 0)
@@ -13608,7 +13624,8 @@ convert_contents_command (CONVERTER *self, const enum command_id cmd,
 
   set_informative_command_value (self->conf, element);
 
-  if (!strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string, "inline")
+  if (self->conf->CONTENTS_OUTPUT_LOCATION.string
+      && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string, "inline")
       && ((used_cmd == CM_contents && self->conf->contents.integer > 0)
           || (used_cmd == CM_shortcontents
               && self->conf->shortcontents.integer > 0))
@@ -14386,7 +14403,8 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           text_append_n (result, leading_text, menu_symbol - leading_text);
           leading_text = menu_symbol;
         }
-      text_append (result, self->conf->MENU_SYMBOL.string);
+      if (self->conf->MENU_SYMBOL.string)
+        text_append (result, self->conf->MENU_SYMBOL.string);
       /* past "*" */
       leading_text++;
       text_append (result, leading_text);
@@ -14554,7 +14572,8 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                 }
             }
 
-          text_append (result, self->conf->MENU_SYMBOL.string);
+          if (self->conf->MENU_SYMBOL.string)
+            text_append (result, self->conf->MENU_SYMBOL.string);
           text_append_n (result, " ", 1);
 
           if (href)
@@ -14581,7 +14600,8 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
             text_append_n (result, "</a>", 4);
         }
 
-      text_append (result, self->conf->MENU_ENTRY_COLON.string);
+      if (self->conf->MENU_ENTRY_COLON.string)
+        text_append (result, self->conf->MENU_ENTRY_COLON.string);
       text_append_n (result, "</td><td>", 9);
       text_append_n (result,
                 self->special_character[SC_non_breaking_space].string,
@@ -15383,6 +15403,7 @@ contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
 {
   if (self->document->sections_list
       && self->document->sections_list->number > 0
+      && self->conf->CONTENTS_OUTPUT_LOCATION.string
       && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string, "after_title"))
     {
       enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
