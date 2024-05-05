@@ -826,12 +826,12 @@ Some text\\footnote{In footnote}.
 $result_converted{'docbook'}->{'text_block_before_defline'} = '<chapter label="1" id="chapt">
 <title>Chap</title>
 
-<blockquote><para>Some text<footnote><para>In footnote</para></footnote>.
+<para>Some text<footnote><para>In footnote</para></footnote>.
 </para>
 <screen>an example
 </screen>
 
-</blockquote><synopsis><phrase role="category"><emphasis role="bold">a</emphasis>:</phrase> <varname>b</varname> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">a</emphasis>:</phrase> <varname>b</varname> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis></synopsis>
 </chapter>
 ';
 

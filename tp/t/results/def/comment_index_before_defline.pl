@@ -366,11 +366,11 @@ $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{
 ';
 
 
-$result_converted{'docbook'}->{'comment_index_before_defline'} = '<blockquote><!-- a comment -->
+$result_converted{'docbook'}->{'comment_index_before_defline'} = '<!-- a comment -->
 <indexterm role="cp"><primary>entry</primary></indexterm>
 <!-- another -->
 
-</blockquote><synopsis><phrase role="category"><emphasis role="bold">a</emphasis>:</phrase> <varname>b</varname> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">a</emphasis>:</phrase> <varname>b</varname> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis></synopsis>
 ';
 
 

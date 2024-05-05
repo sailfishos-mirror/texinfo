@@ -251,8 +251,6 @@ my %type_elements = (
   'multitable_body' => 'tbody',
   # Unfortunatly there does not seem to be anything better in DocBook.
   'def_item' => 'blockquote',
-  # FIXME or nothing?
-  'before_defline' => 'blockquote',
 );
 
 my %default_context_block_commands = (
