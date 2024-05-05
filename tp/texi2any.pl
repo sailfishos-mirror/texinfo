@@ -24,6 +24,8 @@ use 5.006;
 
 use strict;
 
+use warnings;
+
 # Through rules in Makefile.am, directory paths set through configure are
 # substituted directly in strings in the code, for example
 #   my $datadir = '@datadir@';
@@ -58,8 +60,6 @@ my ($real_command_name, $command_directory, $command_suffix);
 # * installed relative to the script
 BEGIN
 {
-  # emulate -w
-  $^W = 1;
   ($real_command_name, $command_directory, $command_suffix)
      = fileparse($0, '.pl');
   my $updir = File::Spec->updir();

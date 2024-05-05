@@ -20,6 +20,8 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 use strict;
+use warnings;
+
 use Getopt::Long qw(GetOptions);
 # for dirname.
 use File::Basename;
@@ -30,8 +32,6 @@ Getopt::Long::Configure("gnu_getopt");
 
 BEGIN
 {
-  # emulate -w
-  $^W = 1;
   my ($real_command_name, $command_directory, $command_suffix)
      = fileparse($0, '.pl');
 

@@ -1,5 +1,12 @@
 2024-05-05  Patrice Dumas  <pertusus@free.fr>
 
+	Use use warnings instead of $^W
+
+	* Pod-Simple-Texinfo/pod2texi.pl, tp/texi2any.pl, util/txixml2texi.pl:
+	use use warnings instead of setting $^W.
+
+2024-05-05  Patrice Dumas  <pertusus@free.fr>
+
 	Update use use.
 
 	Replace require VERSION by use, do not use use vars, update use Perl
