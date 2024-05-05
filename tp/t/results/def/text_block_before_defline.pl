@@ -801,8 +801,6 @@ $result_converted{'latex'}->{'text_block_before_defline'} = '\\documentclass{boo
 \\chapter{{Chap}}
 \\label{anchor:chapt}%
 
-\\begin{quote}
-\\unskip{\\parskip=0pt\\noindent}%
 Some text\\footnote{In footnote}.
 
 \\begin{Texinfoindented}
@@ -812,7 +810,6 @@ Some text\\footnote{In footnote}.
 \\end{Texinfoindented}
 
 
-\\end{quote}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000

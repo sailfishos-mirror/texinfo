@@ -185,10 +185,7 @@ $result_converted{'latex'}->{'defblock_no_defline'} = '\\documentclass{book}
 \\pagestyle{single}%
 
 \\begin{document}
-\\begin{quote}
-\\unskip{\\parskip=0pt\\noindent}%
 misc text inside
-\\end{quote}
 \\end{document}
 ';
 

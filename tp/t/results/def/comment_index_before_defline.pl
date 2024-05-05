@@ -351,11 +351,8 @@ $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{
 \\pagestyle{single}%
 
 \\begin{document}
-\\begin{quote}
-\\unskip{\\parskip=0pt\\noindent}%
 \\index[cp]{entry@entry}%
 
-\\end{quote}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
