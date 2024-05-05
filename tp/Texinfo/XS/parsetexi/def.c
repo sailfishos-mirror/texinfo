@@ -76,7 +76,15 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
     }
 
   if (def_item->contents.number > 0)
-    add_to_element_contents (current, def_item);
+    {
+      if (current->cmd == CM_defblock
+        /* all content between @defblock and first @def*line */
+          && def_item->contents.number == contents_count)
+        {
+          def_item->type = ET_before_defline;
+        }
+      add_to_element_contents (current, def_item);
+    }
   else
     destroy_element (def_item);
 }

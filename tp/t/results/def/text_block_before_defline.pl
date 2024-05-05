@@ -360,7 +360,7 @@ $result_trees{'text_block_before_defline'} = {
                   'type' => 'empty_line'
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [
@@ -844,7 +844,7 @@ $result_converted{'xml'}->{'text_block_before_defline'} = '<node name="Top" spac
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 
 <defblock endspaces=" ">
-<definitionitem><para>Some text<footnote><para>In footnote</para></footnote>.
+<beforefirstdefline><para>Some text<footnote><para>In footnote</para></footnote>.
 </para>
 <example endspaces=" ">
 <pre xml:space="preserve">an example
@@ -854,7 +854,7 @@ $result_converted{'xml'}->{'text_block_before_defline'} = '<node name="Top" spac
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(other_manual)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-</definitionitem><defline spaces=" "><definitionterm><defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
+</beforefirstdefline><defline spaces=" "><definitionterm><defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
 </defblock>
 </chapter>
 ';

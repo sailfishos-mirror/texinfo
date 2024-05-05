@@ -55,6 +55,7 @@ char *element_type_names[] = {
 "def_line",
 "def_item",
 "inter_def_item",
+"before_defline",
 "multitable_head",
 "multitable_body",
 "row",

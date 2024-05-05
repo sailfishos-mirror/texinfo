@@ -511,7 +511,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                           'text' => ''
                         }
                       ],
-                      'type' => 'def_item'
+                      'type' => 'before_defline'
                     },
                     {
                       'args' => [

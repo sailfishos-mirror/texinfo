@@ -208,7 +208,7 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'index_entry_command'
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [

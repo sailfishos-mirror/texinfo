@@ -151,7 +151,7 @@ $result_trees{'braces_after_text'} = {
                   'text' => ''
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [

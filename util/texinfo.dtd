@@ -1043,7 +1043,7 @@
 <!ATTLIST deftypemethodx
           %spacesattr;>
 
-<!ELEMENT defblock (((defline | deftypeline), (%indexentry.cmds;)*, definitionitem?)+)>
+<!ELEMENT defblock (beforefirstdefline?, ((defline | deftypeline), (%indexentry.cmds;)*, definitionitem?)+)>
 <!ATTLIST defblock
           endspaces CDATA #IMPLIED>
 <!ELEMENT defline (definitionterm)>
@@ -1055,6 +1055,7 @@
 
 <!ELEMENT definitionterm (indexterm?, (%definition.args;)+)>
 <!ELEMENT definitionitem (%block;)*>
+<!ELEMENT beforefirstdefline (%block;)*>
 
 <!ENTITY % defargattr
          "%bracketedattr; %spacestrailingspacesattr;">

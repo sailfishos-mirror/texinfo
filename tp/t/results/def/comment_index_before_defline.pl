@@ -89,7 +89,7 @@ $result_trees{'comment_index_before_defline'} = {
                   'type' => 'empty_line'
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [
@@ -375,11 +375,11 @@ $result_converted{'docbook'}->{'comment_index_before_defline'} = '<blockquote><!
 
 
 $result_converted{'xml'}->{'comment_index_before_defline'} = '<defblock endspaces=" ">
-<definitionitem><!-- c a comment -->
+<beforefirstdefline><!-- c a comment -->
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">entry</indexterm></cindex>
 <!-- comment another -->
 
-</definitionitem><defline spaces=" "><definitionterm><defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
+</beforefirstdefline><defline spaces=" "><definitionterm><defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
 </defblock>
 ';
 

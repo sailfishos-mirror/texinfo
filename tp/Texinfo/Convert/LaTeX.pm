@@ -4256,7 +4256,8 @@ sub _convert($$)
       }
       $result .= "\n";
       $result .= _index_entry($self, $element);
-    } elsif ($element->{'type'} eq 'def_item') {
+    } elsif ($element->{'type'} eq 'def_item'
+             or $element->{'type'} eq 'before_defline') {
       $result .= "\\begin{quote}\n";
       # Remove vertical space and start paragaph, avoiding adding
       # more vertical space.
@@ -4337,7 +4338,8 @@ sub _convert($$)
   if ($type) {
     if ($type eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
-    } elsif ($type eq 'def_item') {
+    } elsif ($type eq 'def_item'
+             or $element->{'type'} eq 'before_defline') {
       $result .= "\\end{quote}\n";
     } elsif ($type eq 'table_term') {
       $result .= '}}]'."\n";

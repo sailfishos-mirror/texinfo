@@ -15203,6 +15203,7 @@ static const TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_before_item, convert_before_item_type},
   {ET_def_item, &convert_def_item_type},
   {ET_inter_def_item, &convert_def_item_type},
+  {ET_before_defline, &convert_def_item_type},
   {ET_def_line, &convert_def_line_type},
   {ET_definfoenclose_command, &convert_definfoenclose_type},
   {ET_index_entry_command, &convert_index_entry_command_type},

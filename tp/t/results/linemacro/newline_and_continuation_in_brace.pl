@@ -158,7 +158,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                   'text' => ''
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [

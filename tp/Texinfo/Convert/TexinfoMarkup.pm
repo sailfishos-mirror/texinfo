@@ -257,6 +257,7 @@ my %type_elements = (
   'multitable_body' => 'tbody',
   'def_item' => 'definitionitem',
   'before_item' => 'beforefirstitem',
+  'before_defline' => 'beforefirstdefline',
 );
 
 my %default_context_block_commands = (

@@ -140,7 +140,7 @@ $result_trees{'last_argument_with_braces'} = {
                   'text' => ''
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [

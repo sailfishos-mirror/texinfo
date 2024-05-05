@@ -252,7 +252,7 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                   'text' => ''
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [

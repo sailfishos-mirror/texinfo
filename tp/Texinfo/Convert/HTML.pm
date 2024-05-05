@@ -7958,6 +7958,7 @@ sub _convert_def_item_type($$$$)
 
 $default_types_conversion{'def_item'} = \&_convert_def_item_type;
 $default_types_conversion{'inter_def_item'} = \&_convert_def_item_type;
+$default_types_conversion{'before_defline'} = \&_convert_def_item_type;
 
 sub _convert_table_definition_type($$$$)
 {

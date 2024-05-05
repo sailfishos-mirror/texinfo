@@ -780,7 +780,7 @@ args \\e\\|\\f\\|
                   'type' => 'paragraph'
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [

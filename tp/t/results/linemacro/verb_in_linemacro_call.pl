@@ -248,7 +248,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                   'type' => 'paragraph'
                 }
               ],
-              'type' => 'def_item'
+              'type' => 'before_defline'
             },
             {
               'args' => [

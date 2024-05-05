@@ -1,5 +1,21 @@
 2024-05-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_gather_def_item),
+	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/parsetexi/def.c
+	(gather_def_item): put content before @defblock and first @def*line in
+	a before_defline container.
+
+	* tp/Texinfo/Convert/DocBook.pm (%type_elements),
+	tp/Texinfo/Convert/HTML.pm (%default_types_conversion),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (%type_elements),
+	tp/Texinfo/XS/convert/convert_html.c
+	(types_internal_conversion_table): update for before_defline.
+
+	* util/texinfo.dtd: update for beforefirstdefline.
+
+2024-05-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/19def.t (@test_defblock): add full_document for LaTeX output
 	tests.
 

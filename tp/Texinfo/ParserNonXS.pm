@@ -1884,7 +1884,7 @@ sub _gather_def_item($$;$)
   my $type;
   # means that we are between a @def*x and a @def
   if ($next_command
-        and $next_command ne 'defline' and $next_command ne 'deftypeline') {
+      and $next_command ne 'defline' and $next_command ne 'deftypeline') {
     $type = 'inter_def_item';
   } else {
     $type = 'def_item';
@@ -1916,7 +1916,13 @@ sub _gather_def_item($$;$)
       unshift @{$def_item->{'contents'}}, $item_content;
     }
   }
-  if (scalar(@{$def_item->{'contents'}})) {
+  my $gathered_content_count = scalar(@{$def_item->{'contents'}});
+  if ($gathered_content_count) {
+    if ($current->{'cmdname'} eq 'defblock'
+      # all content between @defblock and first @def*line
+        and $gathered_content_count == $contents_count) {
+      $def_item->{'type'} = 'before_defline';
+    }
     push @{$current->{'contents'}}, $def_item;
   }
 }
@@ -8331,10 +8337,10 @@ element:
 
 =item def_line
 
-This type may be associated with a definition command with a x form,
-like C<@defunx>, C<@defvrx>.  For the form without x, the associated
-I<def_line> is the first C<contents> element.  It is described in more
-details below.
+This type is associated with a definition command with a x form,
+like C<@defunx>, C<@defvrx> and with C<@defline> and C<@deftypeline>.
+For the form without x, the associated I<def_line> is the first C<contents>
+element.  It is described in more details below.
 
 =item definfoenclose_command
 
@@ -8493,6 +8499,11 @@ in the context where they are valid, and where balanced braces need to
 be collected to know when a top-level brace command is closed.  In C<@math>,
 in raw output format brace commands and within brace @-commands in raw output
 format block commands.
+
+=item before_defline
+
+A container for content before the first C<@defline> or C<@deftypeline>
+in C<@defblock>.
 
 =item before_item
 
