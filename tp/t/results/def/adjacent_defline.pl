@@ -10,6 +10,9 @@ $result_trees{'adjacent_defline'} = {
     {
       'contents' => [
         {
+          'type' => 'preamble_before_content'
+        },
+        {
           'args' => [
             {
               'info' => {
@@ -250,8 +253,8 @@ $result_trees{'adjacent_defline'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
+$result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'adjacent_defline'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'adjacent_defline'} = '@defblock
 @defline Funoid foo (bar)
@@ -375,6 +378,7 @@ $result_converted{'latex'}->{'adjacent_defline'} = '\\documentclass{book}
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000

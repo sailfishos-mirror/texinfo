@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'text_block_before_defline'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'type' => 'preamble_before_content'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {
@@ -791,6 +796,7 @@ $result_converted{'latex'}->{'text_block_before_defline'} = '\\documentclass{boo
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Chap}}
 \\label{anchor:chapt}%

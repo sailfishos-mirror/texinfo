@@ -10,6 +10,9 @@ $result_trees{'deftypeline'} = {
     {
       'contents' => [
         {
+          'type' => 'preamble_before_content'
+        },
+        {
           'args' => [
             {
               'info' => {
@@ -258,7 +261,7 @@ $result_trees{'deftypeline'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'deftypeline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'deftypeline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'deftypeline'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'deftypeline'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
 
 $result_texis{'deftypeline'} = '@defblock
 @deftypeline Function {long int} foo (int @var{bar}, int @var{baz})
@@ -375,6 +378,7 @@ $result_converted{'latex'}->{'deftypeline'} = '\\documentclass{book}
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000

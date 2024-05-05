@@ -10,6 +10,9 @@ $result_trees{'comment_index_before_defline'} = {
     {
       'contents' => [
         {
+          'type' => 'preamble_before_content'
+        },
+        {
           'args' => [
             {
               'info' => {
@@ -204,7 +207,7 @@ $result_trees{'comment_index_before_defline'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'comment_index_before_defline'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'comment_index_before_defline'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
+$result_trees{'comment_index_before_defline'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'comment_index_before_defline'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'comment_index_before_defline'} = '@defblock
 @c a comment
@@ -347,6 +350,7 @@ $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 \\index[cp]{entry@entry}%

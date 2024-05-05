@@ -10,6 +10,9 @@ $result_trees{'defblock_no_defline'} = {
     {
       'contents' => [
         {
+          'type' => 'preamble_before_content'
+        },
+        {
           'args' => [
             {
               'info' => {
@@ -181,6 +184,7 @@ $result_converted{'latex'}->{'defblock_no_defline'} = '\\documentclass{book}
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 misc text inside
