@@ -2034,6 +2034,7 @@ sub debug_hash
   warn "$str\n";
 }
 
+# for debugging
 use Data::Dumper;
 
 my @kept_keys = ('contents', 'cmdname', 'type', 'text', 'args',

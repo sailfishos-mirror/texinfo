@@ -60,7 +60,7 @@ AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
 AC_MSG_CHECKING([Perl version and modules])
-if $PERL -e "use 5.008_001; use Encode; use Data::Dumper; use Unicode::Normalize" >/dev/null 2>&1; then
+if $PERL -e "use 5.008_001; use Encode; use Data::Dumper; use Getopt::Long qw(GetOptions); use Storable; use File::Spec; use File::Basename; use Unicode::Normalize" >/dev/null 2>&1; then
   perl_version_requirement='yes'
 else
   perl_version_requirement='no'
@@ -499,7 +499,7 @@ AC_ARG_ENABLE([tp-tests],
     [
      if test "z$PROVE" = 'z'; then
        tp_tests='no'
-     elif $PERL -e "use 5.007_003; use Encode; use Test::More; use File::Basename; use File::Copy; use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone); use Getopt::Long qw(GetOptions);" > /dev/null 2>&1;
+     elif $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&1;
      then
        tp_tests='yes'
      else
@@ -520,7 +520,7 @@ AC_ARG_ENABLE([perl-api-texi-build],
        build_perl_api_texi='yes'
      fi],
     [
-     if $PERL -e "use 5.007_003; use Encode; use Pod::Simple::PullParser;" > /dev/null 2>&1;
+     if $PERL -e "use 5.008_001; use Encode; use Pod::Simple::PullParser;" > /dev/null 2>&1;
      then
        build_perl_api_texi='yes'
      else
@@ -553,7 +553,7 @@ AC_ARG_ENABLE([pod-simple-texinfo-tests],
     [
      if test "z$PROVE" = 'z' ; then
        pod_simple_texinfo_tests='no'
-     elif $PERL -e "use 5.007_003; use Encode; use Test::More; use Pod::Simple::PullParser;" > /dev/null 2>&1;
+     elif $PERL -e "use 5.008_001; use Encode; use Test::More; use Pod::Simple::PullParser;" > /dev/null 2>&1;
      then
        pod_simple_texinfo_tests='yes'
      else

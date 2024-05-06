@@ -43,7 +43,7 @@ use Texinfo::Convert::Converter;
 use Texinfo::Convert::Unicode;
 # for debugging and adding the original line for some commands
 use Texinfo::Convert::Texinfo;
-use Data::Dumper;
+#use Data::Dumper;
 use Carp qw(cluck);
 
 our @ISA = qw(Texinfo::Convert::Converter);

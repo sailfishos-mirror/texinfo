@@ -61,7 +61,7 @@ use if $] >= 5.014, re => '/a';
 
 # debug
 use Carp qw(cluck confess);
-use Data::Dumper;
+#use Data::Dumper;
 
 # to detect if an encoding may be used to open the files
 # to encode/decode in-memory strings used as files

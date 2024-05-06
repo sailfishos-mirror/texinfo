@@ -39,7 +39,7 @@ use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Plaintext;
-use Data::Dumper;
+#use Data::Dumper;
 use Carp qw(cluck);
 
 our @ISA = qw(Texinfo::Convert::Converter);

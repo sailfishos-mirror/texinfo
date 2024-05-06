@@ -49,6 +49,8 @@ use Getopt::Long qw(GetOptions);
 # for dclone
 use Storable;
 
+use Data::Dumper;
+
 Getopt::Long::Configure("gnu_getopt");
 
 my ($real_command_name, $command_directory, $command_suffix);

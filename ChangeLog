@@ -1,5 +1,14 @@
 2024-05-05  Patrice Dumas  <pertusus@free.fr>
 
+	* configure.ac (Perl version and modules, tp-tests)
+	(perl-api-texi-build, pod-simple-texinfo-tests): update Perl modules
+	and version in checks.
+
+	Add use Data::Dumper in files where it is used, comment out if not
+	used.
+
+2024-05-05  Patrice Dumas  <pertusus@free.fr>
+
 	Use use warnings instead of $^W
 
 	* Pod-Simple-Texinfo/pod2texi.pl, tp/texi2any.pl, util/txixml2texi.pl:

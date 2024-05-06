@@ -27,8 +27,9 @@ use strict;
 
 use File::Basename;
 
-use Data::Dumper;
+#use Data::Dumper;
 use Carp qw(cluck carp confess);
+
 use Encode qw(decode);
 
 use Texinfo::Convert::ConvertXS;
