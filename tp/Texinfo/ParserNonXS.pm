@@ -3292,12 +3292,13 @@ sub _parse_def($$$$)
       ($translation_context, $category) = @$category_translation_context;
     }
 
-    my $bracketed = { 'type' => 'bracketed_inserted',
+    my $bracketed = { 'type' => 'def_category_inserted',
                       'parent' => $current };
     my $content = { 'text' => $category, 'parent' => $bracketed };
     # the category string is an english string (such as Function).  If
     # documentlanguage is set it needs to be translated during the conversion.
     if (defined($self->{'documentlanguage'})) {
+      $bracketed->{'type'} = 'untranslated_def_category_inserted';
       $content->{'type'} = 'untranslated';
       $content->{'extra'} = {'documentlanguage' => $self->{'documentlanguage'}};
       if (defined($translation_context)) {

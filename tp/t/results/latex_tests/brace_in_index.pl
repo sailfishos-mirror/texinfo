@@ -282,7 +282,7 @@ $result_trees{'brace_in_index'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'def_category_inserted'
                     },
                     {
                       'extra' => {

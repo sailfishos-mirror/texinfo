@@ -1,5 +1,16 @@
 2024-05-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Texinfo.pm (@ignored_types),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_parse_def),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/def.c (parse_def): rename bracketed_inserted
+	as def_category_inserted or untranslated_def_category_inserted if
+	the category should be translated.
+
+2024-05-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Setting the Context for Conversion):
 	_converted type should only be text.
 

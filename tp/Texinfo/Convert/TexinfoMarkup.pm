@@ -1541,8 +1541,10 @@ sub _convert($$;$)
               $format_element = $type;
             }
             if ($arg->{'type'}
-                and ($arg->{'type'} eq 'bracketed_arg'
-                  or ($arg->{'type'} eq 'bracketed_inserted'))) {
+                and
+                ($arg->{'type'} eq 'bracketed_arg'
+                 or ($arg->{'type'} eq 'def_category_inserted')
+                 or ($arg->{'type'} eq 'untranslated_def_category_inserted'))) {
               push @$attribute, ['bracketed', 'on'];
               push @$attribute, _leading_trailing_spaces_arg($arg);
             }

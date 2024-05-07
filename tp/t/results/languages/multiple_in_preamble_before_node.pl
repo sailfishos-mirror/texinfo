@@ -81,7 +81,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'bracketed_inserted'
+                              'type' => 'untranslated_def_category_inserted'
                             },
                             {
                               'extra' => {
@@ -522,7 +522,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'untranslated_def_category_inserted'
                     },
                     {
                       'extra' => {

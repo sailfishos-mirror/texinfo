@@ -7291,7 +7291,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'def_category_inserted'
                     },
                     {
                       'extra' => {

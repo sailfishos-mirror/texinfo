@@ -99,7 +99,8 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
         {
           ELEMENT *arg = e->args.list[i];
           if (arg->type == ET_spaces_inserted
-              || arg->type == ET_bracketed_inserted
+              || arg->type == ET_def_category_inserted
+              || arg->type == ET_untranslated_def_category_inserted
               || arg->type == ET_command_as_argument_inserted)
             continue;
 
@@ -134,7 +135,8 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
   ELEMENT *elt;
 
   if (e->type == ET_spaces_inserted
-      || e->type == ET_bracketed_inserted
+      || e->type == ET_def_category_inserted
+      || e->type == ET_untranslated_def_category_inserted
       || e->type == ET_command_as_argument_inserted)
     {}
   else if (e->text.end > 0)

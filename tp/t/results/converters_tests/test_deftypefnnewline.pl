@@ -221,7 +221,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'def_category_inserted'
                     },
                     {
                       'extra' => {
@@ -1350,7 +1350,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'def_category_inserted'
                     },
                     {
                       'extra' => {

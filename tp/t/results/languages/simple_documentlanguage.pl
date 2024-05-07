@@ -128,7 +128,7 @@ $result_trees{'simple_documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'untranslated_def_category_inserted'
                     },
                     {
                       'extra' => {

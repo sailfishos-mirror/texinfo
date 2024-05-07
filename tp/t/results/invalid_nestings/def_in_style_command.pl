@@ -47,7 +47,7 @@ $result_trees{'def_in_style_command'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'def_category_inserted'
                     },
                     {
                       'extra' => {

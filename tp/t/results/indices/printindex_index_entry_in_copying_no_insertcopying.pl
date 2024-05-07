@@ -87,7 +87,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'bracketed_inserted'
+                              'type' => 'def_category_inserted'
                             },
                             {
                               'extra' => {
@@ -153,7 +153,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'bracketed_inserted'
+                              'type' => 'def_category_inserted'
                             },
                             {
                               'extra' => {

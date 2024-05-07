@@ -39,7 +39,7 @@ $result_trees{'def_in_example'} = {
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'type' => 'bracketed_inserted'
+                          'type' => 'def_category_inserted'
                         },
                         {
                           'extra' => {

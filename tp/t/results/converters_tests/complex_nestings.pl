@@ -170,7 +170,7 @@ $result_trees{'complex_nestings'} = {
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'type' => 'bracketed_inserted'
+                          'type' => 'def_category_inserted'
                         },
                         {
                           'extra' => {
@@ -291,7 +291,7 @@ $result_trees{'complex_nestings'} = {
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'type' => 'bracketed_inserted'
+                          'type' => 'def_category_inserted'
                         },
                         {
                           'extra' => {
@@ -510,7 +510,7 @@ $result_trees{'complex_nestings'} = {
                                           'extra' => {
                                             'def_role' => 'category'
                                           },
-                                          'type' => 'bracketed_inserted'
+                                          'type' => 'def_category_inserted'
                                         },
                                         {
                                           'extra' => {
@@ -599,7 +599,7 @@ $result_trees{'complex_nestings'} = {
                                           'extra' => {
                                             'def_role' => 'category'
                                           },
-                                          'type' => 'bracketed_inserted'
+                                          'type' => 'def_category_inserted'
                                         },
                                         {
                                           'extra' => {

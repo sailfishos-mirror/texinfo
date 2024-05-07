@@ -39,7 +39,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'type' => 'bracketed_inserted'
+                          'type' => 'def_category_inserted'
                         },
                         {
                           'extra' => {
@@ -414,7 +414,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'def_category_inserted'
                     },
                     {
                       'extra' => {

@@ -35,7 +35,8 @@ Missing documentation
 Tree documentation in ParserNonXS.pm
 ------------------------------------
 
-elided_rawpreformatted, elided_brace_command_arg types.
+elided_rawpreformatted, elided_brace_command_arg, def_category_inserted,
+untranslated_def_category_inserted types.
 
 'comment_at_end' in info hash
 

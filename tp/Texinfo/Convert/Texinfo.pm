@@ -77,8 +77,9 @@ my %def_commands             = %Texinfo::Commands::def_commands;
 # used in root_heading_command_to_texinfo
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
 
-my @ignored_types = ('spaces_inserted', 'bracketed_inserted',
-'command_as_argument_inserted');
+my @ignored_types = ('command_as_argument_inserted',
+                     'spaces_inserted', 'def_category_inserted',
+                     'untranslated_def_category_inserted');
 my %ignored_types;
 for my $a (@ignored_types) {
   $ignored_types{$a} = 1;

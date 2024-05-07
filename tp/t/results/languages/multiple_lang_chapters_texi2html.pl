@@ -688,7 +688,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'untranslated_def_category_inserted'
                     },
                     {
                       'extra' => {
@@ -992,7 +992,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'untranslated_def_category_inserted'
                     },
                     {
                       'extra' => {
@@ -1260,7 +1260,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'bracketed_inserted'
+                      'type' => 'untranslated_def_category_inserted'
                     },
                     {
                       'extra' => {

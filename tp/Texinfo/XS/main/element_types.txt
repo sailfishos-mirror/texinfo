@@ -86,7 +86,8 @@ balanced_braces
 bracketed_arg
 bracketed_linemacro_arg
 def_aggregate
-bracketed_inserted
+def_category_inserted
+untranslated_def_category_inserted
 
 # for unexpanded parts of conditionals
 elided_rawpreformatted
