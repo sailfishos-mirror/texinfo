@@ -2375,8 +2375,7 @@ In this container, the conversion is done in a code context
 @xref{Init File Expansion Contexts}.  For a container tree element.
 
 @item _converted
-In this container, the texts are considered to be already formatted.
-This is more likely to be relevant as the type of a text element.
+The text of this text element is considered to be already formatted.
 
 @item _string
 In this container, the conversion is done in a string context.

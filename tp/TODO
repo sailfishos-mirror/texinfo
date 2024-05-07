@@ -75,9 +75,9 @@ Gavin and Patrice
  One possibility.  It requires some testing as it should allow for
  faster code, but it is not clear that memory use would be smaller.
 char *alias_of
-char *string_info (for arg_line or command_name or delimiter)
+char *command_info_string (for arg_line or command_name or delimiter)
 ELEMENT *elements[3]
- spaces_after_cmd_before_arg (brace comands) or comment_at_end (line/block commands)
+ spaces_after_cmd_before_arg (brace commands) or comment_at_end (line/block commands)
  spaces_before_argument
  spaces_after_argument
 
@@ -88,7 +88,8 @@ ELEMENT *elements[3]
   marks aren't recorded.
 
 4) separate the structure of text elements and other elements, as text elements
-   should not need contents/args/extra.
+   never have contents/args/info, have cmd != 0.
+  extra: only diverse def_role
 
 
 check for comma after @xref{...}, in parser to simplify checking for
