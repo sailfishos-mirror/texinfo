@@ -419,8 +419,8 @@ our %def_map = (
     'defop',     [ 'category', 'class' , 'name', 'arg' ],
     'deftp',     [ 'category', 'name', 'argtype' ],
     # shortcuts
-    # The strings are marked to be translated in the parsers with type
-    # 'untranslated'.
+    # The strings are marked to be translated in the parsers in type
+    # 'untranslated_def_category_inserted'.
     'defun',         {'deffn'     => pgdt_context(
                                          'category of functions for @defun',
                                          'Function')},

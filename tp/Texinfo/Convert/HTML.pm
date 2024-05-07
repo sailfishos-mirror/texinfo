@@ -7379,6 +7379,30 @@ sub _simplify_text_for_comparison($)
   return $text;
 }
 
+sub _convert_untranslated_def_category_inserted_type($$$$) {
+  my $self = shift;
+  my $type = shift;
+  my $element = shift;
+  my $content = shift;
+
+  my $translated;
+  my $category_text = $element->{'contents'}->[0]->{'text'};
+  if ($element->{'extra'}
+      and $element->{'extra'}->{'translation_context'}) {
+    $translated = $self->pcdt($element->{'extra'}->{'translation_context'},
+                              $category_text);
+  } else {
+    $translated = $self->cdt($category_text);
+  }
+  my $result = $self->convert_tree($translated, 'translated TEXT');
+
+  return $result;
+}
+
+$default_types_conversion{'untranslated_def_category_inserted'}
+   = \&_convert_untranslated_def_category_inserted_type;
+
+
 sub _convert_row_type($$$$) {
   my $self = shift;
   my $type = shift;
@@ -13477,16 +13501,6 @@ sub _convert($$;$)
     # already converted to html, keep it as is
     if ($element->{'type'} and $element->{'type'} eq '_converted') {
       $result = $element->{'text'};
-    } elsif ($element->{'type'} and $element->{'type'} eq 'untranslated') {
-      my $translated;
-      if ($element->{'extra'}
-          and $element->{'extra'}->{'translation_context'}) {
-        $translated = $self->pcdt($element->{'extra'}->{'translation_context'},
-                                  $element->{'text'});
-      } else {
-        $translated = $self->cdt($element->{'text'});
-      }
-      $result = $self->_convert($translated, 'translated TEXT');
     } else {
       $result = &{$self->{'types_conversion'}->{'text'}} ($self,
                                                       $element->{'type'},
@@ -13698,7 +13712,8 @@ sub _convert($$;$)
         $content_formatted = $self->_convert($element->{'args'}->[0],
                                              "DEFINFOENCLOSE_ARG");
       }
-    } elsif ($element->{'contents'}) {
+    } elsif ($element->{'contents'}
+             and $type_name ne 'untranslated_def_category_inserted') {
       my $content_idx = 0;
       foreach my $content (@{$element->{'contents'}}) {
         $content_formatted

@@ -3292,22 +3292,24 @@ sub _parse_def($$$$)
       ($translation_context, $category) = @$category_translation_context;
     }
 
-    my $bracketed = { 'type' => 'def_category_inserted',
+    my $inserted_category = { 'type' => 'def_category_inserted',
                       'parent' => $current };
-    my $content = { 'text' => $category, 'parent' => $bracketed };
+    my $content = { 'text' => $category, 'parent' => $inserted_category };
     # the category string is an english string (such as Function).  If
     # documentlanguage is set it needs to be translated during the conversion.
     if (defined($self->{'documentlanguage'})) {
-      $bracketed->{'type'} = 'untranslated_def_category_inserted';
+      $inserted_category->{'type'} = 'untranslated_def_category_inserted';
       $content->{'type'} = 'untranslated';
-      $content->{'extra'} = {'documentlanguage' => $self->{'documentlanguage'}};
+      $inserted_category->{'extra'}
+         = {'documentlanguage' => $self->{'documentlanguage'}};
       if (defined($translation_context)) {
-        $content->{'extra'}->{'translation_context'} = $translation_context;
+        $inserted_category->{'extra'}->{'translation_context'}
+          = $translation_context;
       }
     }
-    @{$bracketed->{'contents'}} = ($content);
+    @{$inserted_category->{'contents'}} = ($content);
 
-    unshift @contents, $bracketed,
+    unshift @contents, $inserted_category,
                        { 'text' => ' ', 'type' => 'spaces_inserted',
                          'parent' => $current,
                          'extra' => {'def_role' => 'spaces'},

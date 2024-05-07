@@ -2706,21 +2706,8 @@ sub _convert($$)
 
   # process text
   if (defined($element->{'text'})) {
-    if (!$type or $type ne 'untranslated') {
-      $result .= _protect_text($self, $element->{'text'});
-      return $result;
-    } else {
-      my $tree;
-      if ($element->{'extra'}
-          and $element->{'extra'}->{'translation_context'}) {
-        $tree = $self->pcdt($element->{'extra'}->{'translation_context'},
-                            $element->{'text'});
-      } else {
-        $tree = $self->cdt($element->{'text'});
-      }
-      my $converted = _convert($self, $tree);
-      return $converted;
-    }
+    $result .= _protect_text($self, $element->{'text'});
+    return $result;
   }
 
   # for displaymath that closes the preformatted
@@ -4307,6 +4294,17 @@ sub _convert($$)
       $result .= _open_preformatted($self, $element);
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
+    } elsif ($element->{'type'} eq 'untranslated_def_category_inserted') {
+      my $tree;
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'translation_context'}) {
+        $tree = $self->pcdt($element->{'extra'}->{'translation_context'},
+                            $element->{'contents'}->[0]->{'text'});
+      } else {
+        $tree = $self->cdt($element->{'contents'}->[0]->{'text'});
+      }
+      my $converted = _convert($self, $tree);
+      return $converted;
     }
   }
 

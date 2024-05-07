@@ -2138,77 +2138,64 @@ sub _convert($$)
 
   # process text
   if (defined($element->{'text'})) {
-    if (!$type or $type ne 'untranslated') {
-      if (!$formatter->{'_top_formatter'}) {
-        if ($type and $type eq 'raw') {
-          _stream_output($self,
-            add_next($formatter->{'container'}, $element->{'text'}),
-            $formatter->{'container'});
-        } else {
-          # Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
-          # output, possibly coverting to upper case as well.
-          my $text = $element->{'text'};
-
-          if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
-            $text = _protect_sentence_ends($text);
-            $text = uc($text);
-          }
-          if (!$self->{'ascii_dashes_and_quotes'} and $self->{'to_utf8'}) {
-            $text = Texinfo::Convert::Unicode::unicode_text($text,
-                        $formatter->{'font_type_stack'}->[-1]->{'monospace'});
-          } elsif (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-            $text = _process_text_internal($text);
-          }
-
-          # inlined below for efficiency
-          #_stream_output($self,
-          #               add_text ($formatter->{'container'}, $text),
-          #               $formatter->{'container'});
-
-          my $added_text = add_text ($formatter->{'container'}, $text);
-
-          my $count_context = $self->{'count_context'}->[-1];
-
-          if (defined($formatter->{'container'})) {
-            # count number of newlines
-            #my $count = $added_text =~ tr/\n//;
-            my $count = Texinfo::Convert::Paragraph::end_line_count($formatter->{'container'});
-
-            $count_context->{'lines'} += $count;
-          }
-
-          if (!defined $count_context->{'pending_text'}) {
-            $count_context->{'pending_text'} = '';
-          }
-          $count_context->{'pending_text'} .= $added_text;
-        }
-        return;
-      # the following is only possible if paragraphindent is set to asis
-      } elsif ($type and $type eq 'spaces_before_paragraph') {
-        _stream_output($self, $element->{'text'});
-        return;
-      # ignore text outside of any format, but warn if ignored text not empty
-      } elsif ($element->{'text'} =~ /\S/) {
-        $self->present_bug_message("ignored text not empty `$element->{'text'}'",
-                                   $element);
-        return;
-      } else {
-        # miscellaneous top-level whitespace - possibly after an @image
+    if (!$formatter->{'_top_formatter'}) {
+      if ($type and $type eq 'raw') {
         _stream_output($self,
-                       add_text($formatter->{'container'}, $element->{'text'}),
-                       $formatter->{'container'});
-        return;
-      }
-    } else {
-      my $tree;
-      if ($element->{'extra'}
-          and $element->{'extra'}->{'translation_context'}) {
-        $tree = $self->pcdt($element->{'extra'}->{'translation_context'},
-                            $element->{'text'});
+          add_next($formatter->{'container'}, $element->{'text'}),
+          $formatter->{'container'});
       } else {
-        $tree = $self->cdt($element->{'text'});
+        # Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
+        # output, possibly coverting to upper case as well.
+        my $text = $element->{'text'};
+
+        if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
+          $text = _protect_sentence_ends($text);
+          $text = uc($text);
+        }
+        if (!$self->{'ascii_dashes_and_quotes'} and $self->{'to_utf8'}) {
+          $text = Texinfo::Convert::Unicode::unicode_text($text,
+                      $formatter->{'font_type_stack'}->[-1]->{'monospace'});
+        } elsif (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+          $text = _process_text_internal($text);
+        }
+
+        # inlined below for efficiency
+        #_stream_output($self,
+        #               add_text ($formatter->{'container'}, $text),
+        #               $formatter->{'container'});
+
+        my $added_text = add_text ($formatter->{'container'}, $text);
+
+        my $count_context = $self->{'count_context'}->[-1];
+
+        if (defined($formatter->{'container'})) {
+          # count number of newlines
+          #my $count = $added_text =~ tr/\n//;
+          my $count = Texinfo::Convert::Paragraph::end_line_count($formatter->{'container'});
+
+          $count_context->{'lines'} += $count;
+        }
+
+        if (!defined $count_context->{'pending_text'}) {
+          $count_context->{'pending_text'} = '';
+        }
+        $count_context->{'pending_text'} .= $added_text;
       }
-      _convert($self, $tree);
+      return;
+    # the following is only possible if paragraphindent is set to asis
+    } elsif ($type and $type eq 'spaces_before_paragraph') {
+      _stream_output($self, $element->{'text'});
+      return;
+    # ignore text outside of any format, but warn if ignored text not empty
+    } elsif ($element->{'text'} =~ /\S/) {
+      $self->present_bug_message("ignored text not empty `$element->{'text'}'",
+                                 $element);
+      return;
+    } else {
+      # miscellaneous top-level whitespace - possibly after an @image
+      _stream_output($self,
+                     add_text($formatter->{'container'}, $element->{'text'}),
+                     $formatter->{'container'});
       return;
     }
   }
@@ -4052,6 +4039,17 @@ sub _convert($$)
       _open_code($formatter);
     } elsif ($type eq '_stop_upper_case') {
       push @{$formatter->{'upper_case_stack'}}, {};
+    } elsif ($type eq 'untranslated_def_category_inserted') {
+      my $tree;
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'translation_context'}) {
+        $tree = $self->pcdt($element->{'extra'}->{'translation_context'},
+                            $element->{'contents'}->[0]->{'text'});
+      } else {
+        $tree = $self->cdt($element->{'contents'}->[0]->{'text'});
+      }
+      _convert($self, $tree);
+      return;
     }
   }
 

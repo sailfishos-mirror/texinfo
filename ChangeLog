@@ -1,5 +1,25 @@
 2024-05-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_def),
+	tp/Texinfo/XS/parsetexi/def.c (parse_def): put extra info
+	documentlanguage and translation_context in
+	untranslated_def_category_inserted element.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_convert_untranslated_def_category_inserted_type, _convert),
+	tp/Texinfo/XS/convert/convert_html.c
+	(convert_untranslated_def_category_inserted_type)
+	(convert_table_definition_type, convert_to_html_internal),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/Convert/Text.pm
+	(_convert), tp/Texinfo/XS/main/convert_to_text.c
+	(convert_to_text_internal): convert especially the
+	untranslated_def_category_inserted element, performing the translation
+	of the text string in contents, instead of directly converting the
+	untranslated text element.
+
+2024-05-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Texinfo.pm (@ignored_types),
 	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
 	tp/Texinfo/ParserNonXS.pm (_parse_def),

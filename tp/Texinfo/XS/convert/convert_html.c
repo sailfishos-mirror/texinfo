@@ -14172,6 +14172,27 @@ convert_definfoenclose_type (CONVERTER *self, const enum element_type type,
 }
 
 void
+convert_untranslated_def_category_inserted_type
+                      (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result)
+{
+  const char *category_text = element->contents.list[0]->text.text;
+  const char *translation_context
+    = lookup_extra_string (element, "translation_context");
+  ELEMENT *translated = html_cdt_tree (category_text,
+                                       self, 0, translation_context);
+
+  add_tree_to_build (self, translated);
+
+  convert_to_html_internal (self, translated, result,
+                            "translated TEXT");
+
+  remove_tree_to_build (self, translated);
+  destroy_element_and_children (translated);
+}
+
+void
 convert_row_type (CONVERTER *self, const enum element_type type,
                   const ELEMENT *element, const char *content,
                   TEXT *result)
@@ -15200,7 +15221,7 @@ convert_table_definition_type (CONVERTER *self, const enum element_type type,
 /* associate type to the C function implementing the conversion */
 static const TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_balanced_braces, &convert_balanced_braces_type},
-  {ET_before_item, convert_before_item_type},
+  {ET_before_item, &convert_before_item_type},
   {ET_def_item, &convert_def_item_type},
   {ET_inter_def_item, &convert_def_item_type},
   {ET_before_defline, &convert_def_item_type},
@@ -15210,7 +15231,7 @@ static const TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_table_definition, &convert_table_definition_type},
   {ET_inter_item, &convert_table_definition_type},
   {ET_menu_comment, &convert_menu_comment_type},
-  {ET_menu_entry, convert_menu_entry_type},
+  {ET_menu_entry, &convert_menu_entry_type},
   {ET_multitable_body, &convert_multitable_body_type},
   {ET_multitable_head, &convert_multitable_head_type},
   {ET_paragraph, &convert_paragraph_type},
@@ -15218,6 +15239,8 @@ static const TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_row, &convert_row_type},
   {ET_table_term, &convert_table_term_type},
   {ET_text, &convert_text},
+  {ET_untranslated_def_category_inserted,
+   &convert_untranslated_def_category_inserted_type},
   {0, 0},
 };
 
@@ -18024,21 +18047,6 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       /* already converted to html, keep it as is, assume it cannot be NULL */
       if (element->type == ET__converted)
         text_append (&text_result, element->text.text);
-      else if (element->type == ET_untranslated)
-        {
-          const char *translation_context
-            = lookup_extra_string (element, "translation_context");
-          ELEMENT *translated = html_cdt_tree (element->text.text,
-                                           self, 0, translation_context);
-
-          add_tree_to_build (self, translated);
-
-          convert_to_html_internal (self, translated, &text_result,
-                                    "translated TEXT");
-
-          remove_tree_to_build (self, translated);
-          destroy_element_and_children (translated);
-        }
       else
         {
           (*(self->current_types_conversion_function[ET_text].type_conversion))
@@ -18408,7 +18416,8 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                                         "DEFINFOENCLOSE_ARG");
             }
         }
-      else if (element->contents.number > 0)
+      else if (element->contents.number > 0
+               && type != ET_untranslated_def_category_inserted)
         {
           int content_idx;
           text_append (&content_formatted, "");

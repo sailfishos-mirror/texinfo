@@ -522,113 +522,72 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
   /* or element->text.space? */
   if (element->text.end > 0)
     {
-      if (element->type == ET_untranslated)
-        {
-          ELEMENT *tree = 0;
-          char *translation_context
-            = lookup_extra_string (element, "translation_context");
-
-          if (text_options->converter)
-            {
-       /*
-       the tree documentlanguage corresponds to the documentlanguage
-       at the place of the tree, but the converter may want to use
-       another documentlanguage, for instance the documentlanguage at
-       the end of the preamble, so we let the converter set it.
-        */
-              tree = cdt_tree (element->text.text, text_options->converter,
-                               0, translation_context);
-            }
-          else
-            {
-            /* if there is no converter, we use the documentlanguage available
-               in the tree. */
-
-              const char *documentlanguage
-                = lookup_extra_string (element, "documentlanguage");
-
-              /* there is a possibility that some small strings are associated
-                 to the tree, and there is no document to get them.  However
-                 it is very unlikely to have small strings given that the
-                 converted tree should be very simple and is a string only,
-                 no macro, no file */
-              tree = gdt_tree (element->text.text, 0, documentlanguage,
-                               0, 0, translation_context);
-            }
-
-          if (tree)
-            {
-              convert_to_text_internal (tree, text_options, result);
-              destroy_element_and_children (tree);
-            }
-        }
+      char *p;
+      if (element->type == ET_raw
+          || text_options->raw_state)
+        ADD(element->text.text);
       else
         {
-          char *p;
-          if (element->type == ET_raw
-              || text_options->raw_state)
-            ADD(element->text.text);
+          char *cased = 0;
+          char *text;
+
+          if (text_options->set_case)
+            {
+              cased
+                = to_upper_or_lower_multibyte (element->text.text,
+                                               text_options->set_case);
+              text = cased;
+            }
           else
             {
-              char *cased = 0;
-              char *text;
+              text = element->text.text;
+            }
 
-              if (text_options->set_case)
+          if (text_options->code_state)
+            ADD(text);
+          else
+            {
+              p = text;
+              while (*p)
                 {
-                  cased
-                    = to_upper_or_lower_multibyte (element->text.text,
-                                                   text_options->set_case);
-                  text = cased;
-                }
-              else
-                {
-                  text = element->text.text;
-                }
-
-              if (text_options->code_state)
-                ADD(text);
-              else
-                {
-                  p = text;
-                  while (*p)
+                  int before_sep_nr = strcspn (p, "-'`");
+                  if (before_sep_nr)
                     {
-                      int before_sep_nr = strcspn (p, "-'`");
-                      if (before_sep_nr)
-                        {
-                          text_append_n (result, p, before_sep_nr);
-                          p += before_sep_nr;
-                        }
-                      if (!*p)
-                        break;
-                      if ((strlen (p) > 1) && (!strncmp (p, "``", 2)
-                                             || !strncmp (p, "''", 2)))
-                        {
-                          ADD("\"");
-                          p += 2;
-                        }
-                      else if ((strlen (p) > 2) && !strncmp (p, "---", 3))
-                        {
-                          ADD("--");
-                          p += 3;
-                        }
-                      else if ((strlen (p) > 1) && !strncmp (p, "--", 2))
-                        {
-                          ADD("-");
-                          p += 2;
-                        }
-                      else
-                        {
-                          text_append_n (result, p, 1);
-                          p++;
-                        }
+                      text_append_n (result, p, before_sep_nr);
+                      p += before_sep_nr;
+                    }
+                  if (!*p)
+                    break;
+                  if ((strlen (p) > 1) && (!strncmp (p, "``", 2)
+                                         || !strncmp (p, "''", 2)))
+                    {
+                      ADD("\"");
+                      p += 2;
+                    }
+                  else if ((strlen (p) > 2) && !strncmp (p, "---", 3))
+                    {
+                      ADD("--");
+                      p += 3;
+                    }
+                  else if ((strlen (p) > 1) && !strncmp (p, "--", 2))
+                    {
+                      ADD("-");
+                      p += 2;
+                    }
+                  else
+                    {
+                      text_append_n (result, p, 1);
+                      p++;
                     }
                 }
-
-              if (cased)
-                free (cased);
             }
+
+          if (cased)
+            free (cased);
         }
+      return;
     }
+
   if (data_cmd)
     {
       if (nobrace_symbol_text[data_cmd])
@@ -1017,6 +976,49 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       destroy_parsed_def (parsed_def);
     }
+   else if (element->type == ET_untranslated_def_category_inserted)
+    {
+      ELEMENT *tree = 0;
+      const char *category_text = element->contents.list[0]->text.text;
+      const char *translation_context
+        = lookup_extra_string (element, "translation_context");
+
+      if (text_options->converter)
+        {
+       /*
+       the tree documentlanguage corresponds to the documentlanguage
+       at the place of the tree, but the converter may want to use
+       another documentlanguage, for instance the documentlanguage at
+       the end of the preamble, so we let the converter set it.
+        */
+          tree = cdt_tree (category_text, text_options->converter,
+                           0, translation_context);
+        }
+      else
+        {
+        /* if there is no converter, we use the documentlanguage available
+           in the tree. */
+
+          const char *documentlanguage
+            = lookup_extra_string (element, "documentlanguage");
+
+          /* there is a possibility that some small strings are associated
+             to the tree, and there is no document to get them.  However
+             it is very unlikely to have small strings given that the
+             converted tree should be very simple and is a string only,
+             no macro, no file */
+          tree = gdt_tree (category_text, 0, documentlanguage,
+                           0, 0, translation_context);
+        }
+
+      if (tree)
+        {
+          convert_to_text_internal (tree, text_options, result);
+          destroy_element_and_children (tree);
+        }
+      return;
+    }
+
   if (element->contents.number)
     {
       int i;

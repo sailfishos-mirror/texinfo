@@ -427,16 +427,14 @@ $result_trees{'documentlanguage'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'documentlanguage' => 'pt',
-                            'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
-                          },
                           'text' => 'Method',
                           'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category'
+                        'def_role' => 'category',
+                        'documentlanguage' => 'pt',
+                        'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
                       },
                       'type' => 'untranslated_def_category_inserted'
                     },

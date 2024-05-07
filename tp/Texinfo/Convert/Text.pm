@@ -475,54 +475,26 @@ sub _convert($$)
                                                     $element->{'cmdname'}})))));
   my $result = '';
   if (defined($element->{'text'})) {
-    if ($element->{'type'} and $element->{'type'} eq 'untranslated') {
-      my $tree;
-      my $translation_context;
-      if ($element->{'extra'}
-          and $element->{'extra'}->{'translation_context'}) {
-        $translation_context = $element->{'extra'}->{'translation_context'};
-      }
-
-      if ($options and $options->{'converter'}) {
-        # the tree documentlanguage corresponds to the documentlanguage
-        # at the place of the tree, but the converter may want to use
-        # another documentlanguage, for instance the documentlanguage at
-        # the end of the preamble, so we let the converter set it.
-        if ($translation_context) {
-          $tree = $options->{'converter'}->pcdt($translation_context,
-                                                $element->{'text'});
+    $result = $element->{'text'};
+    if ((! defined($element->{'type'})
+         or $element->{'type'} ne 'raw')
+        and !$options->{'_raw_state'}) {
+      if ($options->{'set_case'}) {
+        if ($options->{'set_case'} > 0) {
+          $result = uc($result);
         } else {
-          $tree = $options->{'converter'}->cdt($element->{'text'});
+          $result = lc($result);
         }
-      } else {
-        # if there is no converter, we use the documentlanguage available
-        # in the tree.
-        $tree = Texinfo::Translations::gdt($element->{'text'},
-                             $element->{'extra'}->{'documentlanguage'},
-                             undef, undef, $translation_context);
       }
-      $result = _convert($options, $tree);
-    } else {
-      $result = $element->{'text'};
-      if ((! defined($element->{'type'})
-           or $element->{'type'} ne 'raw')
-          and !$options->{'_raw_state'}) {
-        if ($options->{'set_case'}) {
-          if ($options->{'set_case'} > 0) {
-            $result = uc($result);
-          } else {
-            $result = lc($result);
-          }
-        }
-        if (!$options->{'_code_state'}) {
-          $result =~ s/``/"/g;
-          $result =~ s/\'\'/"/g;
-          $result =~ s/---/\x{1F}/g;
-          $result =~ s/--/-/g;
-          $result =~ s/\x{1F}/--/g;
-        }
+      if (!$options->{'_code_state'}) {
+        $result =~ s/``/"/g;
+        $result =~ s/\'\'/"/g;
+        $result =~ s/---/\x{1F}/g;
+        $result =~ s/--/-/g;
+        $result =~ s/\x{1F}/--/g;
       }
     }
+    return $result;
   }
   if ($element->{'cmdname'}) {
     my $command = $element->{'cmdname'};
@@ -697,33 +669,64 @@ sub _convert($$)
          $element->{'extra'}->{'item_number'}) . '. ';
     }
   }
-  if ($element->{'type'} and $element->{'type'} eq 'def_line') {
-    #print STDERR "DEF: $element->{'extra'}->{'def_command'}\n";
-    my ($category_element, $class_element,
-        $type_element, $name_element, $arguments)
-         = Texinfo::Convert::Utils::definition_arguments_content($element);
+  if ($element->{'type'}) {
+    if ($element->{'type'} eq 'def_line') {
+      #print STDERR "DEF: $element->{'extra'}->{'def_command'}\n";
+      my ($category_element, $class_element,
+          $type_element, $name_element, $arguments)
+           = Texinfo::Convert::Utils::definition_arguments_content($element);
 
-    my $parsed_definition_category
-      = Texinfo::Convert::Utils::definition_category_tree(
+      my $parsed_definition_category
+        = Texinfo::Convert::Utils::definition_category_tree(
                                             $options->{'converter'}, $element);
-    if (defined($parsed_definition_category)) {
-      my $converted_element = {'contents' => 
+      if (defined($parsed_definition_category)) {
+        my $converted_element = {'contents' => 
                         [$parsed_definition_category, {'text' => ': '}]};
-      my $contents = $converted_element->{'contents'};
-      if ($type_element) {
-        push @$contents, ($type_element, {'text' => ' '});
+        my $contents = $converted_element->{'contents'};
+        if ($type_element) {
+          push @$contents, ($type_element, {'text' => ' '});
+        }
+        if ($name_element) {
+          push @$contents, $name_element;
+        }
+
+        if ($arguments) {
+          push @$contents, ({'text' => ' '}, $arguments);
+        }
+        push @$contents, {'text' => "\n"};
+        $options->{'_code_state'}++;
+        $result = _convert($options, $converted_element);
+        $options->{'_code_state'}--;
       }
-      if ($name_element) {
-        push @$contents, $name_element;
+    } elsif ($element->{'type'} eq 'untranslated_def_category_inserted') {
+      my $tree;
+      my $category_text = $element->{'contents'}->[0]->{'text'};
+      my $translation_context;
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'translation_context'}) {
+        $translation_context = $element->{'extra'}->{'translation_context'};
       }
 
-      if ($arguments) {
-        push @$contents, ({'text' => ' '}, $arguments);
+      if ($options and $options->{'converter'}) {
+        # the tree documentlanguage corresponds to the documentlanguage
+        # at the place of the tree, but the converter may want to use
+        # another documentlanguage, for instance the documentlanguage at
+        # the end of the preamble, so we let the converter set it.
+        if ($translation_context) {
+          $tree = $options->{'converter'}->pcdt($translation_context,
+                                                $category_text);
+        } else {
+          $tree = $options->{'converter'}->cdt($category_text);
+        }
+      } else {
+        # if there is no converter, we use the documentlanguage available
+        # in the tree.
+        $tree = Texinfo::Translations::gdt($category_text,
+                             $element->{'extra'}->{'documentlanguage'},
+                             undef, undef, $translation_context);
       }
-      push @$contents, {'text' => "\n"};
-      $options->{'_code_state'}++;
-      $result = _convert($options, $converted_element);
-      $options->{'_code_state'}--;
+      $result = _convert($options, $tree);
+      return $result;
     }
   }
   if ($element->{'contents'}) {

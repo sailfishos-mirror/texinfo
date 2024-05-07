@@ -372,10 +372,10 @@ parse_def (enum command_id command, ELEMENT *current)
         {
           e->type = ET_untranslated_def_category_inserted;
           e1->type = ET_untranslated;
-          add_extra_string_dup (e1, "documentlanguage",
+          add_extra_string_dup (e, "documentlanguage",
                                 global_documentlanguage);
           if (def_aliases[i].translation_context)
-            add_extra_string_dup (e1, "translation_context",
+            add_extra_string_dup (e, "translation_context",
                                   def_aliases[i].translation_context);
         }
 
